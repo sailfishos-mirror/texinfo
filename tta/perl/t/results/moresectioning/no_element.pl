@@ -8,27 +8,19 @@ use utf8;
 $result_tree_text{'no_element'} = '*document_root C1
  *before_node_section C20
   *@settitle C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {no_element test}
+    {spaces_after_argument:\\n}
   *@documentencoding C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |input_encoding_name:{iso-8859-1}
   |text_arg:{ISO-8859-1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ISO-8859-1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   *@anchor C1 l5
@@ -87,9 +79,6 @@ $result_tree_text{'no_element'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *@float C3 l21
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{}
@@ -97,27 +86,21 @@ $result_tree_text{'no_element'} = '*document_root C1
   |identifier:{float-anchor}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg
     *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {float anchor}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {In float\\n}
    *@end C1 l23
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {Ref to float\\n}
@@ -131,10 +114,8 @@ $result_tree_text{'no_element'} = '*document_root C1
   {empty_line:\\n}
   *@menu C3 l28
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l29
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -147,28 +128,20 @@ $result_tree_text{'no_element'} = '*document_root C1
      *preformatted C1
       {menu entry pointing to the anchor.\\n}
    *@end C1 l30
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l32
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {index entry}
+    {spaces_after_argument:\\n}
 ';
 
 

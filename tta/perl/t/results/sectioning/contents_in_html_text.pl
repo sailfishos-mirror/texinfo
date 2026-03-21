@@ -8,63 +8,47 @@ use utf8;
 $result_tree_text{'contents_in_html_text'} = '*document_root C5
  *before_node_section
  *@top C2 l1 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@chapter C2 l3 {Chap1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C2 l5 {Sec 1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Sec 1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@chapter C4 l7 {Chap2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@shortcontents C1 l9
   |EXTRA

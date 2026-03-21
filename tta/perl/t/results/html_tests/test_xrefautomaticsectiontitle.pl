@@ -8,39 +8,29 @@ use utf8;
 $result_tree_text{'test_xrefautomaticsectiontitle'} = '*document_root C5
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -53,58 +43,42 @@ $result_tree_text{'test_xrefautomaticsectiontitle'} = '*document_root C5
      *preformatted C1
       {\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l8 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C9 l9 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@xrefautomaticsectiontitle C1 l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{on}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {on}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@xref C1 l13
@@ -116,17 +90,13 @@ $result_tree_text{'test_xrefautomaticsectiontitle'} = '*document_root C5
    {.\\n}
   {empty_line:\\n}
   *@xrefautomaticsectiontitle C1 l15
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{off}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {off}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@xref C1 l17

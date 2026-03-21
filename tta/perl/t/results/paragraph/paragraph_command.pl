@@ -36,16 +36,12 @@ $result_tree_text{'paragraph_command'} = '*document_root C1
    { email.\\n}
   {empty_line:\\n}
   *@definfoenclose C1 l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{foo|\\|//}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {foo,\\,//}
+    {spaces_after_argument:\\n}
   *paragraph C2
    *definfoenclose_command@foo C1 l12
    |EXTRA

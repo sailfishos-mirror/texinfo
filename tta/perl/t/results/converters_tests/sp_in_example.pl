@@ -9,90 +9,64 @@ $result_tree_text{'sp_in_example'} = '*document_root C1
  *before_node_section C1
   *@example C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C18
     {Para\\n}
     *@sp C1 l3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |misc_args:A{1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {1}
+      {spaces_after_argument:\\n}
     {other para\\n}
     {Now lone }
     *@@
     {sp:\\n}
     {empty_line:\\n}
     *@sp C1 l7
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |misc_args:A{1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {1}
+      {spaces_after_argument:\\n}
     {empty_line:\\n}
     *@sp C1 l9
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |misc_args:A{2}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {2}
+      {spaces_after_argument:\\n}
     {Para after sp\\n}
     {empty_line:\\n}
     {A\\n}
     *@sp C1 l13
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |misc_args:A{2}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {2}
+      {spaces_after_argument:\\n}
     {B\\n}
     {empty_line:\\n}
     {sp after para\\n}
     *@sp C1 l17
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |misc_args:A{1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {1}
+      {spaces_after_argument:\\n}
    *@end C1 l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -194,21 +168,21 @@ sp after para
 
 $result_converted{'xml'}->{'sp_in_example'} = '<example endspaces=" ">
 <pre xml:space="preserve">Para
-<sp spaces=" " value="1" line="1"></sp>
+<sp value="1" line=" 1"></sp>
 other para
 Now lone &arobase;sp:
 
-<sp spaces=" " value="1" line="1"></sp>
+<sp value="1" line=" 1"></sp>
 
-<sp spaces=" " value="2" line="2"></sp>
+<sp value="2" line=" 2"></sp>
 Para after sp
 
 A
-<sp spaces=" " value="2" line="2"></sp>
+<sp value="2" line=" 2"></sp>
 B
 
 sp after para
-<sp spaces=" " value="1" line="1"></sp>
+<sp value="1" line=" 1"></sp>
 </pre></example>
 ';
 

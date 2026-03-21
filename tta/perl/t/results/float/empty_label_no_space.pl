@@ -9,30 +9,22 @@ $result_tree_text{'empty_label_no_space'} = '*document_root C1
  *before_node_section C2
   *preamble_before_content
   *@float C2 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Type}
   |global_command_number:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Type}
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@end C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -95,7 +87,7 @@ $result_converted_errors{'html'}->{'empty_label_no_space'} = '* W |must specify 
 ';
 
 
-$result_converted{'xml'}->{'empty_label_no_space'} = '<float type="Type" spaces=" " endspaces=" "><floattype>Type</floattype><floatname></floatname>
+$result_converted{'xml'}->{'empty_label_no_space'} = '<float type="Type" endspaces=" "><floattype> Type</floattype><floatname></floatname>
 </float>
 ';
 

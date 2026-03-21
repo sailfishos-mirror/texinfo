@@ -9,16 +9,12 @@ $result_tree_text{'no_titlepage_and_setchapternewpage_odd'} = '*document_root C1
  *before_node_section C1
   *preamble_before_content C1
    *@setchapternewpage C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{odd}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {odd}
+     {spaces_after_argument:\\n}
 ';
 
 

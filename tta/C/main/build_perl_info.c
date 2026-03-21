@@ -966,8 +966,8 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
               hv_store (info_hv, elt_info_names[i],
                         strlen (elt_info_names[i]),
                         newSVsv ((SV *)info_element->sv), 0);
-           }
-       }
+            }
+        }
     }
 
   if (e->e.c->contents.number > 0)

@@ -18,16 +18,12 @@ $result_tree_text{'simple_imbricated_macro'} = '*document_root C1
    {raw:bidule.\\n}
    {raw:@end macro\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    {truc.\\n}
@@ -43,18 +39,14 @@ $result_tree_text{'simple_imbricated_macro'} = '*document_root C1
      {macro_line: bidule {}\\n}
     {raw:bidule.\\n}
     *@end C1 l8:@truc
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{macro}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {macro}
       >SOURCEMARKS
       >macro_expansion<end;1><p:5>
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {bidule.\\n}

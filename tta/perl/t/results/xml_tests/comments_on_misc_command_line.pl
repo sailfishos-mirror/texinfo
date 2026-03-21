@@ -8,69 +8,54 @@ use utf8;
 $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
  *before_node_section C12
   *@setfilename C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument:  }
   |EXTRA
   |text_arg:{comments_on_misc_command_line.info}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:setfilename (text)}
-   |spaces_after_argument:
-    |{spaces_after_argument:  }
+   *line_arg C4
+    {spaces_before_argument:  }
     {comments_on_misc_command_line.info}
+    {spaces_after_argument:  }
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:setfilename (text)}
   *@definfoenclose C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phoo|;|:}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:definfoenclose (number)}
-   |spaces_after_argument:
-    |{spaces_after_argument:  }
+   *line_arg C4
+    {spaces_before_argument: }
     {phoo,;,:}
+    {spaces_after_argument:  }
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:definfoenclose (number)}
   *@firstparagraphindent C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{none}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:c (number)}
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *line_arg C4
+    {spaces_before_argument: }
     {none}
+    {spaces_after_argument: }
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:c (number)}
   *@raisesections C1
   |INFO
   |spaces_before_argument:
@@ -106,46 +91,36 @@ $result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
       ||{spaces_after_argument:\\n}
       |{rawline_text:(noarg)}
   *@pagesizes C1 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:pagesizes  (line)}
-   |spaces_after_argument:
-    |{spaces_after_argument: }
-    {200mm}
-  *@everyheading C1 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *line_arg C4
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:everyheading (lineraw)}
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+    {spaces_before_argument: }
+    {200mm}
+    {spaces_after_argument: }
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:pagesizes  (line)}
+  *@everyheading C1 l7
+   *line_arg C7
+    {spaces_before_argument: }
     *@thispage
     { }
     *@|
     { aaa}
+    {spaces_after_argument: }
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:everyheading (lineraw)}
   {empty_line:\\n}
   *@indent l9
   {ignorable_spaces_after_command: }
@@ -196,13 +171,13 @@ $result_sectioning_root{'comments_on_misc_command_line'} = '';
 $result_headings_list{'comments_on_misc_command_line'} = '';
 
 
-$result_converted{'xml'}->{'comments_on_misc_command_line'} = '<setfilename file="comments_on_misc_command_line.info" spaces="  ">comments_on_misc_command_line.info  </setfilename><!-- c setfilename (text) -->
-<definfoenclose spaces=" " command="phoo" open=";" close=":" line="phoo,;,:  @c definfoenclose (number)"></definfoenclose><!-- c definfoenclose (number) -->
-<firstparagraphindent spaces=" " value="none" line="none @c c (number)"></firstparagraphindent><!-- c c (number) -->
+$result_converted{'xml'}->{'comments_on_misc_command_line'} = '<setfilename file="comments_on_misc_command_line.info">  comments_on_misc_command_line.info  </setfilename><!-- c setfilename (text) -->
+<definfoenclose command="phoo" open=";" close=":" line=" phoo,;,:  @c definfoenclose (number)"></definfoenclose><!-- c definfoenclose (number) -->
+<firstparagraphindent value="none" line=" none @c c (number)"></firstparagraphindent><!-- c c (number) -->
 <raisesections spaces=" "></raisesections><!-- c raisesections (skipline) -->
 <insertcopying spaces="  "></insertcopying><!-- comment  (noarg) -->
-<pagesizes spaces=" ">200mm </pagesizes><!-- c pagesizes  (line) -->
-<everyheading spaces=" "><thispage></thispage> <divideheading/> aaa </everyheading><!-- c everyheading (lineraw) -->
+<pagesizes> 200mm </pagesizes><!-- c pagesizes  (line) -->
+<everyheading> <thispage></thispage> <divideheading/> aaa </everyheading><!-- c everyheading (lineraw) -->
 
 <indent></indent> <!-- c indent (skipspace) -->
 <para>Para.

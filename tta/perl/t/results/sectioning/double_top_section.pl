@@ -8,35 +8,27 @@ use utf8;
 $result_tree_text{'double_top_section'} = '*document_root C3
  *before_node_section
  *@top C4 l1 {First top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {First top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {First top.\\n}
   {empty_line:\\n}
  *@top C3 l5 {Second top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Second top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Second top.\\n}

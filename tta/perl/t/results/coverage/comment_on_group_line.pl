@@ -8,35 +8,27 @@ use utf8;
 $result_tree_text{'comment_on_group_line'} = '*document_root C1
  *before_node_section C1
   *@group C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comment}
+    *block_line_arg C2
+     {spaces_before_argument: }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comment}
    *paragraph C1
     {in group.\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {group}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -68,7 +60,7 @@ $result_converted{'html_text'}->{'comment_on_group_line'} = '<div class="group">
 </p></div>';
 
 
-$result_converted{'xml'}->{'comment_on_group_line'} = '<group spaces=" " endspaces=" "><!-- c comment -->
+$result_converted{'xml'}->{'comment_on_group_line'} = '<group endspaces=" "> <!-- c comment -->
 <para>in group.
 </para></group>
 ';

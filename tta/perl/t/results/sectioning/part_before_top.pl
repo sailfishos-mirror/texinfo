@@ -11,33 +11,25 @@ This: [U0]
  *before_node_section C1
   *preamble_before_content
  *@part C2 l1 {part}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {part}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@top C1 l3 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -124,10 +116,10 @@ span:hover a.copiable-link {visibility: visible}
 ';
 
 
-$result_converted{'xml'}->{'part_before_top'} = '<part spaces=" "><sectiontitle>part</sectiontitle>
+$result_converted{'xml'}->{'part_before_top'} = '<part><sectiontitle> part</sectiontitle>
 
 </part>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+<top><sectiontitle> top</sectiontitle>
 </top>
 ';
 

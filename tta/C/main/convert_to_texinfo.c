@@ -243,15 +243,23 @@ convert_to_texinfo (const ELEMENT *e)
 char *
 convert_contents_to_texinfo (const ELEMENT *e)
 {
-  ELEMENT *tmp = new_element (ET_NONE);
-  char *result;
+  int non_empty;
+  size_t leading_trailing_indices[2];
 
-  tmp->e.c->contents = e->e.c->contents;
-  result = convert_to_texinfo (tmp);
-  tmp->e.c->contents.list = 0;
-  destroy_element (tmp);
+  non_empty = non_leading_trailing_indices (e, leading_trailing_indices);
 
-  return result;
+  if (non_empty)
+    {
+      char *result;
+      ELEMENT *tmp = new_element (ET_NONE);
+      insert_slice_into_contents (tmp, 0, e, leading_trailing_indices[0],
+                                  leading_trailing_indices[1] +1);
+      result = convert_to_texinfo (tmp);
+      destroy_element (tmp);
+      return result;
+    }
+  else
+    return 0;
 }
 
 /* Return value to be freed by caller. */
@@ -267,7 +275,7 @@ link_element_to_texi (const ELEMENT *element)
   element_link = lookup_extra_container (element, AI_key_manual_content);
   if (element_link)
     {
-      char *manual_texi = convert_contents_to_texinfo (element_link);
+      char *manual_texi = convert_to_texinfo (element_link);
       text_append (&result, "(");
       text_append (&result, manual_texi);
       text_append (&result, ")");
@@ -277,7 +285,7 @@ link_element_to_texi (const ELEMENT *element)
   element_link = lookup_extra_container (element, AI_key_node_content);
   if (element_link)
     {
-      char *node_texi = convert_contents_to_texinfo (element_link);
+      char *node_texi = convert_to_texinfo (element_link);
       text_append (&result, node_texi);
       free (node_texi);
     }

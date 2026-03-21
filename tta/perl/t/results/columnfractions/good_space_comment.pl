@@ -8,41 +8,32 @@ use utf8;
 $result_tree_text{'good_space_comment'} = '*document_root C1
  *before_node_section C1
   *@multitable C2 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      *@columnfractions C1 l1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{0|1}
-      *line_arg C1
-      |INFO
-      |comment_at_end:
-       |*@c C1
-       ||INFO
-       ||spaces_before_argument:
-        ||{spaces_before_argument: }
-        |*line_arg C1
-        ||INFO
-        ||spaces_after_argument:
-         ||{spaces_after_argument:\\n}
-         |{rawline_text:space comment}
-      |spaces_after_argument:
-       |{spaces_after_argument:  }
+      *line_arg C4
+       {spaces_before_argument: }
        {0 1}
+       {spaces_after_argument:  }
+       *@c C1
+       |INFO
+       |spaces_before_argument:
+        |{spaces_before_argument: }
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{spaces_after_argument:\\n}
+         {rawline_text:space comment}
    *@end C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
+    *line_arg C2
+     {spaces_before_argument: }
      {multitable}
 ';
 
@@ -67,7 +58,7 @@ $result_headings_list{'good_space_comment'} = '';
 $result_converted{'html_text'}->{'good_space_comment'} = '';
 
 
-$result_converted{'xml'}->{'good_space_comment'} = '<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0 1  @c space comment"><columnfraction value="0"></columnfraction><columnfraction value="1"></columnfraction></columnfractions><!-- c space comment -->
+$result_converted{'xml'}->{'good_space_comment'} = '<multitable endspaces=" "><columnfractions line=" 0 1  @c space comment"><columnfraction value="0"></columnfraction><columnfraction value="1"></columnfraction></columnfractions><!-- c space comment -->
 </multitable>';
 
 

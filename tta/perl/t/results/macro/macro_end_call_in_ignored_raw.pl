@@ -16,16 +16,12 @@ $result_tree_text{'macro_end_call_in_ignored_raw'} = '*document_root C1
    {raw:@tex\\n}
    {raw:inT\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
@@ -33,26 +29,20 @@ $result_tree_text{'macro_end_call_in_ignored_raw'} = '*document_root C1
     >*brace_arg
   *@tex C3 l6:@startraw
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *elided_rawpreformatted C2
     {raw:inT}
     >SOURCEMARKS
     >macro_expansion<end;1><p:3>
     {raw:\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {tex}
+     {spaces_after_argument:\\n}
 ';
 
 

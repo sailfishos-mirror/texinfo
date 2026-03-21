@@ -380,12 +380,11 @@ sub copy_contents($;$) {
   my ($element, $type) = @_;
 
   my $copy;
-  if (!exists($element->{'contents'})) {
-    $copy = Texinfo::TreeElement::new({});
-  } else {
-    # Done for consistency, but not sure that it is needed
-    my $tmp = Texinfo::TreeElement::new({'contents' => $element->{'contents'}});
+  my $tmp = Texinfo::Common::non_leading_trailing_tree($element);
+  if (defined($tmp)) {
     $copy = copy_element_tree($tmp);
+  } else {
+    $copy = Texinfo::TreeElement::new({});
   }
   if (defined($type)) {
     $copy->{'type'} = $type;
@@ -782,12 +781,10 @@ sub _print_root_command($) {
   }
 
   my $argument_line = $element->{'contents'}->[0];
-  if (exists($argument_line->{'contents'})
-      and exists($argument_line->{'contents'}->[0]->{'contents'})) {
+  if (exists($argument_line->{'contents'})) {
     my $root_command_texi
-      = Texinfo::Convert::Texinfo::convert_to_texinfo(
-         Texinfo::TreeElement::new(
-          {'contents' => $argument_line->{'contents'}->[0]->{'contents'}}));
+     = Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                     $argument_line->{'contents'}->[0]);
     return $root_command_texi;
   }
   return undef;
@@ -955,13 +952,13 @@ sub print_element_base($$$;$$) {
   if (defined($cmdname) and $Texinfo::Commands::root_commands{$cmdname}
       and exists($element->{'contents'})) {
     my $argument_line = $element->{'contents'}->[0];
-    if (exists($argument_line->{'contents'})
-        and exists($argument_line->{'contents'}->[0]->{'contents'})) {
+    if (exists($argument_line->{'contents'})) {
       my $root_command_texi
-        = Texinfo::Convert::Texinfo::convert_to_texinfo(
-            Texinfo::TreeElement::new(
-              {'contents' => $argument_line->{'contents'}->[0]->{'contents'}}));
-      $result .= " {${root_command_texi}}";
+       = Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                     $argument_line->{'contents'}->[0]);
+      if (defined($root_command_texi)) {
+        $result .= " {${root_command_texi}}";
+      }
     }
   }
 
@@ -1278,7 +1275,9 @@ sub protect_first_parenthesis($) {
   for (my $i = 0; $i < $nr_contents; $i++) {
     my $content = $element->{'contents'}->[$i];
     return if (!exists($content->{'text'}));
-    if ($content->{'text'} eq '') {
+    if ($content->{'text'} eq ''
+        or (exists($content->{'type'})
+            and $content->{'type'} eq 'spaces_before_argument')) {
       next;
     }
     if ($content->{'text'} =~ /^\(/) {

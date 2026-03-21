@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
  *before_node_section C1
   *@deffn C7 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -22,10 +19,8 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
         |{i}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {fset}
@@ -43,6 +38,7 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {g}
+     {spaces_after_argument:\\n}
    *inter_def_item C2
     *@c C1
     |INFO
@@ -55,9 +51,6 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
       {rawline_text:comment before first deffnx}
     {empty_line:\\n}
    *@deffnx C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -67,10 +60,8 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
       |{log trap1}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffnx}
-    *line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:  \\n}
+    *line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Command}
@@ -82,22 +73,16 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
      {spaces: }
      *def_arg C1
       *bracketed_arg l4
+     {spaces_after_argument:  \\n}
    *inter_def_item C1
     *index_entry_command@cindex C1 l5
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |index_entry:I{cp,1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {between deffnx}
+      {spaces_after_argument:\\n}
    *@deffnx C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -112,10 +97,8 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
         |{ ule}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deffnx}
-    *line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {cmde2}
@@ -133,32 +116,25 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {truc}
+     {spaces_after_argument:\\n}
    *def_item C3
     *index_entry_command@cindex C1 l7
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |index_entry:I{cp,2}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {cindex in deff item}
+      {spaces_after_argument:\\n}
     {empty_line:\\n}
     *paragraph C1
      {In deff item.\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
 ';
 
 

@@ -11,257 +11,176 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    {text_before_beginning:\\n}
   *preamble_before_content C19
    *@documentlanguage C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{%bm_AA}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {%bm_AA}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{2}
    |text_arg:{cu*_FR}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {cu*_FR}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{3}
    |text_arg:{_JP}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {_JP}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{4}
    |text_arg:{*_ZM}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {*_ZM}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{5}
    |text_arg:{tia_JJ}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {tia_JJ}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{6}
    |text_arg:{fr_}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {fr_}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{7}
    |text_arg:{be_}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {be_}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{8}
    |text_arg:{de_*}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {de_*}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{9}
    |text_arg:{it_G%}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {it_G%}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{10}
    |text_arg:{it_FR^}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {it_FR^}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{11}
    |text_arg:{en_US !}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {en_US !}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{12}
    |text_arg:{ab gh}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {ab gh}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:  }
    |EXTRA
    |global_command_number:{13}
    |text_arg:{es}
-    *line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:in comment}
+    *line_arg C3
+     {spaces_before_argument:  }
      {es}
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:in comment}
    *@documentlanguage C1 l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{14}
    |text_arg:{az}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {az}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{15}
    |text_arg:{bhÃ©}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {bhÃ©}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{16}
    |text_arg:{AB_FR}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {AB_FR}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{17}
    |text_arg:{ab_us}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {ab_us}
+     {spaces_after_argument:\\n}
    *@documentlanguage C1 l19
    |EXTRA
    |global_command_number:{18}
-    *line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C1
+     {spaces_before_argument:\\n}
    {empty_line:\\n}
  *@node C1 l21 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 l22 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defivar C2 l24
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l24
    |EXTRA
    |def_command:{defivar}
@@ -287,10 +206,8 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    |element_node:{Top}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defivar}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
@@ -299,7 +216,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
       |documentlanguage:{ab_us}
       |translation_context:{category of instance variables in object-oriented programming for @defivar}
        {untranslated:Instance Variable}
-     (i){spaces: }
+     {spaces: }
      *def_class C1
       *def_line_arg C1
        {Which}
@@ -311,17 +228,14 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
      *def_arg C1
       *def_line_arg C1
        {Selected?}
+     {spaces_after_argument:\\n}
    *@end C1 l25
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defivar}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defivar}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

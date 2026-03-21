@@ -12,94 +12,68 @@ $result_tree_text{'index_split'} = '*document_root C21
    {text_before_beginning:\\n}
   *preamble_before_content
  *@node C1 index_split.texi:l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |isindex:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C13 index_split.texi:l4 {split indices}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {split indices}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_split.texi:l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Top}
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {entry a}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fn}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {And one one more index\\n}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C5 index_split.texi:l15
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 index_split.texi:l16
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -134,180 +108,126 @@ $result_tree_text{'index_split'} = '*document_root C21
      *preformatted C1
       {\\n}
    *@end C1 index_split.texi:l19
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C10 index_split.texi:l21 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C5
    {Text and then index entries\\n}
    *index_entry_command@cindex C1 index_split.texi:l24
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |element_node:{first}
    |index_entry:I{cp,2}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {entry in node}
+     {spaces_after_argument:\\n}
    *index_entry_command@cindex C1 index_split.texi:l25
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |element_node:{first}
    |index_entry:I{cp,3}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {! entry in node}
+     {spaces_after_argument:\\n}
    *index_entry_command@findex C1 index_split.texi:l26
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |element_node:{first}
    |index_entry:I{fn,1}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {fun in node}
+     {spaces_after_argument:\\n}
    *index_entry_command@cindex C1 index_split.texi:l27
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |element_node:{first}
    |index_entry:I{cp,4}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {entry in node}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l29
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l31
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{5}
   |misc_args:A{fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fn}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l33
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{first}
   |index_entry:I{cp,5}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {entry after printindex}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@chapter C7 index_split.texi:l35 {First chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {First chapter}
+    {spaces_after_argument:\\n}
   *index_entry_command@findex C1 index_split.texi:l36
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{first}
   |index_entry:I{fn,2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {a function}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_split.texi:l37
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{first}
   |index_entry:I{cp,6}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {a concept in first}
+    {spaces_after_argument:\\n}
   *index_entry_command@findex C1 index_split.texi:l38
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{first}
   |index_entry:I{fn,3}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {somewhere}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C8 index_split.texi:l40
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 index_split.texi:l41
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -375,66 +295,48 @@ $result_tree_text{'index_split'} = '*document_root C21
      *preformatted C1
       {\\n}
    *@end C1 index_split.texi:l47
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 index_split.texi:l49 {section 1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{section-1}
  |is_target:{1}
  |isindex:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section 1}
+    {spaces_after_argument:\\n}
  *@section C11 index_split.texi:l50 {Section 1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Section 1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l52
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{section-1}
   |index_entry:I{cp,7}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {something}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C4 index_split.texi:l54
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C1
+     {spaces_before_argument: \\n}
    *menu_entry C4 index_split.texi:l55
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -458,247 +360,181 @@ $result_tree_text{'index_split'} = '*document_root C21
      *preformatted C1
       {\\n}
    *@end C1 index_split.texi:l57
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   *paragraph C1
    {The index once more\\n}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l60
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{6}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l62
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{section-1}
   |index_entry:I{cp,8}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {another}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 index_split.texi:l64 {subsection 1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{subsection-1}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {subsection 1}
+    {spaces_after_argument:\\n}
  *@subsection C4 index_split.texi:l65 {Subsection 1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Subsection 1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {In subsection 1\\n}
   {empty_line:\\n}
  *@node C1 index_split.texi:l69 {subsection 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{subsection-2}
  |is_target:{1}
  |isindex:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {subsection 2}
+    {spaces_after_argument:\\n}
  *@subsection C10 index_split.texi:l70 {Subsection 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.2}
  |section_level:{3}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Subsection 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {index in subsction 2\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l74
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{subsection-2}
   |index_entry:I{cp,9}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {subsection 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l76
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{7}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l78
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{subsection-2}
   |index_entry:I{cp,10}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {printindex subsection 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 index_split.texi:l80 {section 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{section-2}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section 2}
+    {spaces_after_argument:\\n}
  *@section C4 index_split.texi:l81 {Section 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2}
  |section_level:{2}
  |section_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Section 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Section 2\\n}
   {empty_line:\\n}
  *@node C1 index_split.texi:l85 {section 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{section-3}
  |is_target:{1}
  |isindex:{1}
  |node_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section 3}
+    {spaces_after_argument:\\n}
  *@section C6 index_split.texi:l86 {Section 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.3}
  |section_level:{2}
  |section_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Section 3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l88
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{section-3}
   |index_entry:I{cp,11}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section 3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l90
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{8}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C5 index_split.texi:l92 {node in section 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node-in-section-3}
  |is_target:{1}
  |node_number:{8}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {node in section 3}
    *line_arg
    *line_arg C1
@@ -706,183 +542,137 @@ $result_tree_text{'index_split'} = '*document_root C21
    |node_content:{section 3}
    |normalized:{section-3}
     {section 3}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{first}
    |normalized:{first}
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l94
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-in-section-3}
   |index_entry:I{cp,12}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node in section 3}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {Text for the node in section 3\\n}
   {empty_line:\\n}
  *@node C13 index_split.texi:l97 {node 2 in section 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node-2-in-section-3}
  |is_target:{1}
  |isindex:{1}
  |node_number:{9}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {node 2 in section 3}
    *line_arg
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{first}
    |normalized:{first}
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l99
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-2-in-section-3}
   |index_entry:I{cp,13}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node 2 in section 3}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {Text for the node 2 in section 3\\n}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l102
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{9}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l104
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-2-in-section-3}
   |index_entry:I{cp,14}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {between printindex node in section 3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 index_split.texi:l106
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{10}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l108
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-2-in-section-3}
   |index_entry:I{cp,15}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {after second printindex node in section 3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C4 index_split.texi:l110 {node 3 in section 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node-3-in-section-3}
  |is_target:{1}
  |node_number:{10}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {node 3 in section 3}
    *line_arg
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{first}
    |normalized:{first}
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l112
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-3-in-section-3}
   |index_entry:I{cp,16}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node 3 in section 3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 index_split.texi:l114 {second chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{second-chapter}
  |is_target:{1}
  |node_number:{11}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {second chapter}
+    {spaces_after_argument:\\n}
  *@chapter C4 index_split.texi:l115 {Second chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{8}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Second chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Second chapter\\n}

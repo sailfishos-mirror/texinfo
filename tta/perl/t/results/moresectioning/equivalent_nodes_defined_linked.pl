@@ -8,35 +8,28 @@ use utf8;
 $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
  *before_node_section
  *@node C4 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C2
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {Top}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{@asis{chap}}
    |normalized:{chap}
+    {spaces_before_argument: }
     *@asis C1 l1
      *brace_container C1
       {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -51,79 +44,58 @@ $result_tree_text{'equivalent_nodes_defined_linked'} = '*document_root C3
      *preformatted C1
       {\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C9 l7 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C3 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{Figure}
   |global_command_number:{1}
   |identifier:{chap}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Figure}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@samp C1 l9
       *brace_container C1
        {chap}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {A figure\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@listoffloats C1 l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Figure}
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Figure}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {Ref to node }

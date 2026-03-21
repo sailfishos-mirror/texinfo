@@ -8,28 +8,22 @@ use utf8;
 $result_tree_text{'rec_nodes'} = '*document_root C6
  *before_node_section
  *@node C5 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {Top node\\n}
   {empty_line:\\n}
   *@menu C4 l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -53,27 +47,21 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
      *preformatted C1
       {\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C4 l9 {chap node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap-node}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {chap node}
    *line_arg
    *line_arg C1
@@ -81,21 +69,17 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
    |node_content:{Top}
    |normalized:{Top}
     {Top}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C4 l11
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l12
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -119,45 +103,35 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
      *preformatted C1
       {\\n}
    *@end C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C4 l16 {other node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{other-node}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {other node}
    *line_arg
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{chap node}
    |normalized:{chap-node}
     {chap node}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l18
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C1
+     {spaces_before_argument: \\n}
    *menu_entry C4 l19
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -170,44 +144,34 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
      *preformatted C1
       {\\n}
    *@end C1 l20
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C5 l22 {node up node following second}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node-up-node-following-second}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {node up node following second}
    *line_arg
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{node following second}
    |normalized:{node-following-second}
     {node following second}
+    {spaces_after_argument:\\n}
   *@menu C3 l23
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l24
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -220,50 +184,40 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
      *preformatted C1
       {\\n}
    *@end C1 l25
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {in node up node following second\\n}
   {empty_line:\\n}
  *@node C4 l29 {node following second}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node-following-second}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {node following second}
    *line_arg
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{node up node following second}
    |normalized:{node-up-node-following-second}
     {node up node following second}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {in node following second\\n}
   *@menu C3 l32
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l33
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -276,16 +230,12 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
      *preformatted C1
       {\\n}
    *@end C1 l34
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
 ';
 
 

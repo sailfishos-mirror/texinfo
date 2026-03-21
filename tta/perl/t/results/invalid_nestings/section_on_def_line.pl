@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'section_on_def_line'} = '*document_root C2
  *before_node_section C1
   *@deffn C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -20,10 +17,8 @@ $result_tree_text{'section_on_def_line'} = '*document_root C2
       |{b}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *block_line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {a}
@@ -31,20 +26,17 @@ $result_tree_text{'section_on_def_line'} = '*document_root C2
      *def_name C1
       *def_line_arg C1
        {b}
+     {spaces_after_argument: }
  *@section C4 l1 {s}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {s}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Something\\n}
@@ -111,9 +103,9 @@ Something
 ';
 
 
-$result_converted{'xml'}->{'section_on_def_line'} = '<deffn spaces=" "><definitionterm><indexterm index="fn" number="1">b</indexterm><defcategory>a</defcategory> <deffunction>b</deffunction> </definitionterm>
+$result_converted{'xml'}->{'section_on_def_line'} = '<deffn><definitionterm><indexterm index="fn" number="1">b</indexterm> <defcategory>a</defcategory> <deffunction>b</deffunction> </definitionterm>
 </deffn>
-<section spaces=" "><sectiontitle>s</sectiontitle>
+<section><sectiontitle> s</sectiontitle>
 
 <para>Something
 </para>

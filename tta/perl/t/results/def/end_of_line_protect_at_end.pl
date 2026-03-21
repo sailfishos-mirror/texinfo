@@ -9,9 +9,6 @@ $result_tree_text{'end_of_line_protect_at_end'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
   *@deffn C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l2
    |EXTRA
    |def_command:{deffn}
@@ -21,10 +18,8 @@ $result_tree_text{'end_of_line_protect_at_end'} = '*document_root C1
       |{deffn_name2}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {category2}
@@ -36,6 +31,7 @@ $result_tree_text{'end_of_line_protect_at_end'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {arguments2}
+     {spaces_after_argument: }
 ';
 
 
@@ -72,7 +68,7 @@ $result_indices_sort_strings{'end_of_line_protect_at_end'} = 'fn:
 
 
 $result_converted{'xml'}->{'end_of_line_protect_at_end'} = '
-<deffn spaces=" "><definitionterm><indexterm index="fn" number="1">deffn_name2</indexterm><defcategory>category2</defcategory> <deffunction>deffn_name2</deffunction> <defparam>arguments2</defparam> </definitionterm>
+<deffn><definitionterm><indexterm index="fn" number="1">deffn_name2</indexterm> <defcategory>category2</defcategory> <deffunction>deffn_name2</deffunction> <defparam>arguments2</defparam> </definitionterm>
 </deffn>
 ';
 

@@ -16,39 +16,29 @@ NodeNext: [U1]
 NodeForward: [U1]
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C4 l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -72,16 +62,12 @@ NodeForward: [U1]
      *preformatted C1
       {\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 U1 unit{S:1 chapter}{n:chapter}
 unit_directions:D[prev->[U0]]
@@ -94,104 +80,80 @@ NodeUp: [U0]
 NodeForward: [U1]
 NodeBack: [U0]
  *@part C2 l9 {part}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {part}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C3 l11 {a node after part}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{a-node-after-part}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {a node after part}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{chapter}
    |normalized:{chapter}
+    {spaces_before_argument: }
     {chapter}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
+    {spaces_before_argument: }
     {Top}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {After a node after part\\n}
   {empty_line:\\n}
  *@node C1 l14 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {chapter}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{a node after part}
    |normalized:{a-node-after-part}
+    {spaces_before_argument: }
     {a node after part}
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@chapter C1 l15 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument: \\n}
 ';
 
 
@@ -384,8 +346,8 @@ span:hover a.copiable-link {visibility: visible}
 ';
 
 
-$result_converted{'xml'}->{'part_node_chapter_after_top'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">a node after part</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+$result_converted{'xml'}->{'part_node_chapter_after_top'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> a node after part</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>a node after part</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -393,13 +355,13 @@ $result_converted{'xml'}->{'part_node_chapter_after_top'} = '<node identifier="T
 </pre></menudescription></menuentry></menu>
 
 </top>
-<part spaces=" "><sectiontitle>part</sectiontitle>
+<part><sectiontitle> part</sectiontitle>
 
-<node identifier="a-node-after-part" spaces=" "><nodename>a node after part</nodename><nodenext spaces=" ">chapter</nodenext><nodeprev spaces=" ">Top</nodeprev><nodeup spaces=" ">Top</nodeup></node>
+<node identifier="a-node-after-part"><nodename> a node after part</nodename><nodenext> chapter</nodenext><nodeprev> Top</nodeprev><nodeup> Top</nodeup></node>
 <para>After a node after part
 </para>
-<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodenext spaces=" ">a node after part</nodenext><nodeprev></nodeprev><nodeup spaces=" ">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chapter </sectiontitle>
+<node identifier="chapter"><nodename> chapter</nodename><nodenext> a node after part</nodenext><nodeprev></nodeprev><nodeup> Top</nodeup></node>
+<chapter><sectiontitle> chapter </sectiontitle>
 </chapter>
 </part>
 ';

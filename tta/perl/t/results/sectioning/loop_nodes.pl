@@ -9,39 +9,29 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -54,45 +44,35 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
      *preformatted C1
       {\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C4 l8 {chap node up}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap-node-up}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {chap node up}
    *line_arg
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{node down}
    |normalized:{node-down}
     {node down}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l10
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l11
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -105,45 +85,35 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
      *preformatted C1
       {\\n}
    *@end C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C4 l14 {node middle}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node-middle}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {node middle}
    *line_arg
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{chap node up}
    |normalized:{chap-node-up}
     {chap node up}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l16
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l17
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -156,31 +126,23 @@ $result_tree_text{'loop_nodes'} = '*document_root C6
      *preformatted C1
       {\\n}
    *@end C1 l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l20 {node down}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node-down}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node down}
+    {spaces_after_argument:\\n}
 ';
 
 

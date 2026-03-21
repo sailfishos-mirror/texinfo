@@ -8,32 +8,21 @@ use utf8;
 $result_tree_text{'example_multi_class'} = '*document_root C1
  *before_node_section C1
   *@example C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C4
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {C++}
-    *block_line_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_after_argument: }
+    *block_line_arg C2
+     {spaces_before_argument: }
      {gothic}
-    *block_line_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C2
+     {spaces_before_argument: }
      {purple}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {embed}
+     {spaces_after_argument:\\n}
    *preformatted C29
     {void StateManager::deallocate() }
     *@{
@@ -65,16 +54,12 @@ $result_tree_text{'example_multi_class'} = '*document_root C1
     *@}
     {\\n}
    *@end C1 l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -208,7 +193,7 @@ $result_converted{'docbook'}->{'example_multi_class'} = '<screen>void StateManag
 </screen>';
 
 
-$result_converted{'xml'}->{'example_multi_class'} = '<example spaces=" " endspaces=" "><examplelanguage trailingspaces=" ">C++</examplelanguage><examplearg spaces=" ">gothic</examplearg><examplearg spaces=" ">purple</examplearg><examplearg spaces=" ">embed</examplearg>
+$result_converted{'xml'}->{'example_multi_class'} = '<example endspaces=" "><examplelanguage> C++ </examplelanguage><examplearg> gothic</examplearg><examplearg> purple</examplearg><examplearg> embed</examplearg>
 <pre xml:space="preserve">void StateManager::deallocate() &lbrace;
     if(buffer) &lbrace;
         delete [] buffer;

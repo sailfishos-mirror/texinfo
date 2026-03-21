@@ -9,22 +9,16 @@ $result_tree_text{'xml_protected_in_verb'} = '*document_root C1
  *before_node_section C5
   *@verbatim C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:<a>\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@verb C1 l5
@@ -35,17 +29,13 @@ $result_tree_text{'xml_protected_in_verb'} = '*document_root C1
    {.\\n}
   {empty_line:\\n}
   *@verbatiminclude C1 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |input_encoding_name:{utf-8}
   |text_arg:{file_with_xml_chars.texi}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {file_with_xml_chars.texi}
+    {spaces_after_argument:\\n}
 ';
 
 

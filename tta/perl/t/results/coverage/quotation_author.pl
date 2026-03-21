@@ -9,52 +9,38 @@ $result_tree_text{'quotation_author'} = '*document_root C1
  *before_node_section C1
   *@quotation C6 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {empty_line:\\n}
    *@author C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {First Author}
+     {spaces_after_argument:\\n}
    *paragraph C3
     {quotation\\n}
     *@author C1 l5
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{2}
-     *line_arg C3
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C5
+      {spaces_before_argument: }
       {S}
       *@~ C1 l5
        *following_arg C1
         {e}
       {cond author}
+      {spaces_after_argument:\\n}
     {quotation continues.\\n}
    {empty_line:\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -108,9 +94,9 @@ quotation continues.
 
 $result_converted{'xml'}->{'quotation_author'} = '<quotation endspaces=" ">
 
-<author spaces=" ">First Author</author>
+<author> First Author</author>
 <para>quotation
-<author spaces=" ">S<accent type="tilde" bracketed="off">e</accent>cond author</author>
+<author> S<accent type="tilde" bracketed="off">e</accent>cond author</author>
 quotation continues.
 </para>
 </quotation>

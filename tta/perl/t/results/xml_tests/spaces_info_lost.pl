@@ -8,47 +8,33 @@ use utf8;
 $result_tree_text{'spaces_info_lost'} = '*document_root C1
  *before_node_section C3
   *@display C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument:  }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C3
+     {spaces_before_argument:  }
      {text on display line}
+     {spaces_after_argument: \\n}
    *preformatted C1
     {in bad display\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:  }
    |EXTRA
    |text_arg:{display}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *line_arg C3
+     {spaces_before_argument:  }
      {display}
+     {spaces_after_argument: \\n}
   {empty_line:\\n}
   *@verbatim C3 l5
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:  \\n}
+    *block_line_arg C1
+     {spaces_before_argument:  \\n}
    {raw:in verbatim @g \\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:  }
    |EXTRA
    |text_arg:{verbatim}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *line_arg C3
+     {spaces_before_argument:  }
      {verbatim}
+     {spaces_after_argument: \\n}
 ';
 
 
@@ -81,7 +67,7 @@ $result_sectioning_root{'spaces_info_lost'} = '';
 $result_headings_list{'spaces_info_lost'} = '';
 
 
-$result_converted{'xml'}->{'spaces_info_lost'} = '<display spaces="  " endspaces="  "> 
+$result_converted{'xml'}->{'spaces_info_lost'} = '<display endspaces="  "> 
 <pre xml:space="preserve">in bad display
 </pre></display> 
 

@@ -9,508 +9,360 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l2
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {chapter one}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter-one}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter one}
+    {spaces_after_argument:\\n}
  *@chapter C15 l5 {one}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {one}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-one}
   |index_entry:I{cp,1}
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     {aa}
     {ignorable_spaces_before_command: }
     *@subentry C1 l7
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {bb}
+      {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l8
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-one}
   |index_entry:I{cp,2}
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     {ab}
     {ignorable_spaces_before_command: }
     *@subentry C1 l8
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {cc}
+      {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-one}
   |index_entry:I{cp,3}
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     {aa}
     {ignorable_spaces_before_command: }
     *@subentry C1 l9
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {dd}
+      {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l10
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-one}
   |index_entry:I{cp,4}
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     {bb}
     {ignorable_spaces_before_command: }
     *@subentry C1 l10
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {cc}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l12
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-one}
   |index_entry:I{cp,5}
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     {hhh}
     {ignorable_spaces_before_command: }
     *@subentry C1 l12
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C3
+     *line_arg C4
+      {spaces_before_argument: }
       {jjj}
       {ignorable_spaces_before_command: }
       *@subentry C1 l12
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {lll}
+        {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-one}
   |index_entry:I{cp,6}
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     {hhh}
     {ignorable_spaces_before_command: }
     *@subentry C1 l13
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {jjj}
+      {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l14
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-one}
   |index_entry:I{cp,7}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {hhh jjj}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l15
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-one}
   |index_entry:I{cp,8}
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     {hhh}
     {ignorable_spaces_before_command: }
     *@subentry C1 l15
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {k}
+      {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l16
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-one}
   |index_entry:I{cp,9}
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     {hhh}
     {ignorable_spaces_before_command: }
     *@subentry C1 l16
-     *line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: \\n}
+     *line_arg C1
+      {spaces_before_argument: \\n}
   *index_entry_command@cindex C1 l17
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-one}
   |index_entry:I{cp,10}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {hhh}
+    {spaces_after_argument: \\n}
   *index_entry_command@cindex C1 l18
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-one}
   |index_entry:I{cp,11}
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     {hhh}
     {ignorable_spaces_before_command: }
     *@subentry C1 l18
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C3
+     *line_arg C4
+      {spaces_before_argument: }
       {jjj}
       {ignorable_spaces_before_command: }
       *@subentry C1 l18
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C3
+       *line_arg C4
+        {spaces_before_argument: }
         {lll}
         {ignorable_spaces_before_command: }
         *@subentry C1 l18
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument: }
-         *line_arg C1
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument:\\n}
+         *line_arg C3
+          {spaces_before_argument: }
           {ppp}
+          {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l20 {chapter second}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter-second}
  |is_target:{1}
  |isindex:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter second}
+    {spaces_after_argument:\\n}
  *@chapter C11 l21 {second}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {second}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l22
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-second}
   |index_entry:I{cp,12}
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     {hhh}
     {ignorable_spaces_before_command: }
     *@subentry C1 l22
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C3
+     *line_arg C4
+      {spaces_before_argument: }
       {jjj}
       {ignorable_spaces_before_command: }
       *@subentry C1 l22
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {lll}
+        {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l23
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-second}
   |index_entry:I{cp,13}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {hhh}
+    {spaces_after_argument: \\n}
   *index_entry_command@cindex C1 l24
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-second}
   |index_entry:I{cp,14}
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     *@samp C1 l24
      *brace_container C1
       {hhh}
     {ignorable_spaces_before_command: }
     *@subentry C1 l24
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {jjj}
+      {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l25
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-second}
   |index_entry:I{cp,15}
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     *@kbd C1 l25
      *brace_container C1
       {hhh}
     {ignorable_spaces_before_command: }
     *@subentry C1 l25
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C3
+     *line_arg C4
+      {spaces_before_argument: }
       *@sc C1 l25
        *brace_container C1
         {jjj}
       {ignorable_spaces_before_command: }
       *@subentry C1 l25
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         *@email C2 l25
          *brace_arg C1
           {jjj}
          *brace_arg C1
           {mymail}
+        {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l26
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-second}
   |index_entry:I{cp,16}
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     *@subentry C1 l26
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {aa}
+      {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l27
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-second}
   |index_entry:I{cp,17}
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     {hhh}
     {ignorable_spaces_before_command: }
     *@subentry C1 l27
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C3
+     *line_arg C4
+      {spaces_before_argument: }
       {jjj}
       {ignorable_spaces_before_command: }
       *@subentry C1 l27
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |sortas:{A}
-       *line_arg C3
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C5
+        {spaces_before_argument: }
         {lll}
         {spaces_at_end: }
         *@sortas C1 l27
          *brace_arg C1
           {A}
+        {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l28
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-second}
   |index_entry:I{cp,18}
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     {hhh}
     {ignorable_spaces_before_command: }
     *@subentry C1 l28
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C3
+     *line_arg C4
+      {spaces_before_argument: }
       {k}
       {ignorable_spaces_before_command: }
       *@subentry C1 l28
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {nnn}
+        {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l29
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter-second}
   |index_entry:I{cp,19}
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     {hhh}
     {ignorable_spaces_before_command: }
     *@subentry C1 l29
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C3
+     *line_arg C4
+      {spaces_before_argument: }
       {l}
       {ignorable_spaces_before_command: }
       *@subentry C1 l29
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {third}
+        {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l31
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -847,39 +699,39 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 ';
 
 
-$result_converted{'xml'}->{'sorted_subentries'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter one</nodenext></node>
+$result_converted{'xml'}->{'sorted_subentries'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapter one</nodenext></node>
 <top><sectiontitle></sectiontitle>
 
 </top>
-<node identifier="chapter-one" spaces=" "><nodename>chapter one</nodename><nodenext automatic="on">chapter second</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>one</sectiontitle>
+<node identifier="chapter-one"><nodename> chapter one</nodename><nodenext automatic="on"> chapter second</nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> one</sectiontitle>
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">aa <subentry spaces=" ">bb</subentry>
-</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="2">ab <subentry spaces=" ">cc</subentry>
-</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="3">aa <subentry spaces=" ">dd</subentry>
-</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="4">bb <subentry spaces=" ">cc</subentry>
+<cindex index="cp"> <indexterm index="cp" number="1">aa <subentry> bb</subentry>
+</indexterm></cindex><cindex index="cp"> <indexterm index="cp" number="2">ab <subentry> cc</subentry>
+</indexterm></cindex><cindex index="cp"> <indexterm index="cp" number="3">aa <subentry> dd</subentry>
+</indexterm></cindex><cindex index="cp"> <indexterm index="cp" number="4">bb <subentry> cc</subentry>
 </indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="5">hhh <subentry spaces=" ">jjj <subentry spaces=" ">lll</subentry>
-</subentry></indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="6">hhh <subentry spaces=" ">jjj</subentry>
-</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="7">hhh jjj</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="8">hhh <subentry spaces=" ">k</subentry>
-</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="9">hhh <subentry> </subentry>
-</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="10">hhh</indexterm></cindex> 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="11">hhh <subentry spaces=" ">jjj <subentry spaces=" ">lll <subentry spaces=" ">ppp</subentry>
+<cindex index="cp"> <indexterm index="cp" number="5">hhh <subentry> jjj <subentry> lll</subentry>
+</subentry></indexterm></cindex><cindex index="cp"> <indexterm index="cp" number="6">hhh <subentry> jjj</subentry>
+</indexterm></cindex><cindex index="cp"> <indexterm index="cp" number="7">hhh jjj</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="8">hhh <subentry> k</subentry>
+</indexterm></cindex><cindex index="cp"> <indexterm index="cp" number="9">hhh <subentry> </subentry>
+</indexterm></cindex><cindex index="cp"> <indexterm index="cp" number="10">hhh</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="11">hhh <subentry> jjj <subentry> lll <subentry> ppp</subentry>
 </subentry></subentry></indexterm></cindex>
 </chapter>
-<node identifier="chapter-second" spaces=" "><nodename>chapter second</nodename><nodeprev automatic="on">chapter one</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>second</sectiontitle>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="12">hhh <subentry spaces=" ">jjj <subentry spaces=" ">lll</subentry>
-</subentry></indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="13">hhh</indexterm></cindex> 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="14"><samp>hhh</samp> <subentry spaces=" ">jjj</subentry>
-</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="15"><kbd>hhh</kbd> <subentry spaces=" "><sc>jjj</sc> <subentry spaces=" "><email><emailaddress>jjj</emailaddress><emailname>mymail</emailname></email></subentry>
-</subentry></indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="16"><subentry spaces=" ">aa</subentry>
-</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="17">hhh <subentry spaces=" ">jjj <subentry spaces=" ">lll <sortas>A</sortas></subentry>
-</subentry></indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="18">hhh <subentry spaces=" ">k <subentry spaces=" ">nnn</subentry>
-</subentry></indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="19">hhh <subentry spaces=" ">l <subentry spaces=" ">third</subentry>
+<node identifier="chapter-second"><nodename> chapter second</nodename><nodeprev automatic="on"> chapter one</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> second</sectiontitle>
+<cindex index="cp"> <indexterm index="cp" number="12">hhh <subentry> jjj <subentry> lll</subentry>
+</subentry></indexterm></cindex><cindex index="cp"> <indexterm index="cp" number="13">hhh</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="14"><samp>hhh</samp> <subentry> jjj</subentry>
+</indexterm></cindex><cindex index="cp"> <indexterm index="cp" number="15"><kbd>hhh</kbd> <subentry> <sc>jjj</sc> <subentry> <email><emailaddress>jjj</emailaddress><emailname>mymail</emailname></email></subentry>
+</subentry></indexterm></cindex><cindex index="cp"> <indexterm index="cp" number="16"><subentry> aa</subentry>
+</indexterm></cindex><cindex index="cp"> <indexterm index="cp" number="17">hhh <subentry> jjj <subentry> lll <sortas>A</sortas></subentry>
+</subentry></indexterm></cindex><cindex index="cp"> <indexterm index="cp" number="18">hhh <subentry> k <subentry> nnn</subentry>
+</subentry></indexterm></cindex><cindex index="cp"> <indexterm index="cp" number="19">hhh <subentry> l <subentry> third</subentry>
 </subentry></indexterm></cindex>
-<printindex spaces=" " value="cp" line="cp"></printindex>
+<printindex value="cp" line=" cp"></printindex>
 </chapter>
 ';
 

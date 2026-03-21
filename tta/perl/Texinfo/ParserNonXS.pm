@@ -3214,94 +3214,34 @@ sub _isolate_trailing_space($$) {
   }
 }
 
-# isolate last space in a command to help expansion disregard unuseful spaces.
-sub _isolate_last_space($$) {
-  my ($self, $current) = @_;
-
-  #return _isolate_leading_trailing($self, $current);
-
-  return if (!exists($current->{'contents'}));
-
-  # $current->{'type'} is always set, to line_arg, block_line_arg,
-  # or menu_entry_node
-
-  # Store a final comment command in the 'info' hash
-  if (scalar(@{$current->{'contents'}}) >= 1
-      and exists($current->{'contents'}->[-1]->{'cmdname'})
-      and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
-            or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
-    $current->{'info'} = {} if (!exists($current->{'info'}));
-    $current->{'info'}->{'comment_at_end'}
-                           = _pop_element_from_contents($self, $current);
-  }
-
-  my $debug_str;
-  if ($self->{'conf'}->{'DEBUG'}) {
-    $debug_str = 'p '.Texinfo::Common::debug_print_element($current, 1).'; c ';
-    if (exists($current->{'contents'})) {
-      $debug_str .=
-         Texinfo::Common::debug_print_element($current->{'contents'}->[-1]);
-    }
-  }
-
-  if (exists($current->{'contents'})) {
-    my $last_element = $current->{'contents'}->[-1];
-    if (exists($last_element->{'text'})
-        and $last_element->{'text'} ne '') {
-      # Store final spaces in 'spaces_after_argument'.
-      if ($last_element->{'text'} !~ /\S/) {
-        my $e_type = $last_element->{'type'};
-        if (!defined($e_type) or !$trailing_space_types{$e_type}) {
-          my $spaces_after_argument
-            = _pop_element_from_contents($self, $current);
-          $spaces_after_argument->{'type'} = 'spaces_after_argument';
-          $current->{'info'} = {} if (!exists($current->{'info'}));
-          $current->{'info'}->{'spaces_after_argument'}
-               = $spaces_after_argument;
-        } else {
-          print STDERR "NOT ISOLATING SPACES ONLY $debug_str\n"
-            if ($self->{'conf'}->{'DEBUG'});
-          return;
-        }
-      } else {
-        my $new_space_element
-          = _isolate_trailing_spaces_element($last_element,
-                                             'spaces_after_argument');
-        if (defined($new_space_element)) {
-          $current->{'info'} = {} if (!exists($current->{'info'}));
-          $current->{'info'}->{'spaces_after_argument'} = $new_space_element;
-        } else {
-          print STDERR "NOT ISOLATING $debug_str\n"
-            if ($self->{'conf'}->{'DEBUG'});
-          return;
-        }
-      }
-      print STDERR "ISOLATE SPACE $debug_str\n"
-        if ($self->{'conf'}->{'DEBUG'});
-      return;
-    }
-  }
-
-  print STDERR "NOT ISOLATING $debug_str\n"
-     if ($self->{'conf'}->{'DEBUG'});
-}
-
-sub _isolate_leading_spaces_element($;$) {
+sub _isolate_leading_spaces_element($$) {
   my ($element, $type) = @_;
 
   my $new_space_element;
 
   if ($element->{'text'} =~ s/^(\s+)//) {
-    $new_space_element = Texinfo::TreeElement::new({'text' => $1});
-    if (defined($type)) {
-      $new_space_element->{'type'} = $type;
+    if ($element->{'text'} eq '') {
+      # only text, reuse the element
+      $element->{'text'} = $1;
+      $element->{'type'} = $type;
+      return $element;
     }
+    $new_space_element = Texinfo::TreeElement::new({'text' => $1,
+                                                     'type' => $type});
     if (exists($element->{'source_marks'})) {
+      my $spaces_len = length($1);
       Texinfo::Common::relocate_source_marks(
                           $element->{'source_marks'}, $new_space_element,
-                          0, length($1));
-      delete $element->{'source_marks'}
-        if (!scalar(@{$element->{'source_marks'}}));
+                          0, $spaces_len);
+      if (scalar(@{$element->{'source_marks'}})) {
+        foreach my $source_mark (@{$element->{'source_marks'}}) {
+          $source_mark->{'position'} -= $spaces_len;
+          delete $source_mark->{'position'}
+            if ($source_mark->{'position'} == 0);
+        }
+      } else {
+        delete $element->{'source_marks'};
+      }
     }
   }
   return $new_space_element;
@@ -3445,7 +3385,9 @@ sub _split_element_delimiters($$$$) {
 sub _split_element_def_args($$$$) {
   my ($self, $element, $current, $source_info) = @_;
 
-  if (exists($element->{'type'}) and $element->{'type'} eq 'spaces'
+  if (exists($element->{'type'})
+      and ($element->{'type'} eq 'spaces'
+           or $element->{'type'} eq 'spaces_before_argument')
       and exists($element->{'info'}) and $element->{'info'}->{'inserted'}) {
     return $element;
   } elsif (exists($element->{'text'})) {
@@ -3454,6 +3396,10 @@ sub _split_element_def_args($$$$) {
     # NOTE Non-ascii space is considered as argument here
     my @split_text = split /(?<=\s)(?=\S)|(?<=\S)(?=\s)/, $element->{'text'};
     if ($split_text[0] =~ /^\s*$/) {
+      # NOTE this changes, in particular, spaces_before_argument
+      # and spaces_after_argument types.  It is needed, as afterwards,
+      # spaces types other than 'spaces' are not handled correctly as
+      # arguments separators
       $type = 'spaces';
     }
     my $current_position = 0;
@@ -3548,14 +3494,11 @@ sub _parse_def($$$$) {
   my ($self, $command, $current, $source_info) = @_;
 
   return {} if (!exists($current->{'contents'}));
+
   my $contents = $current->{'contents'};
 
-  my @new_contents;
-  my @contents = @$contents;
-
-  my @args;
-  my $arg_type;
-  my $arg_types_nr;
+  @$contents = map (_split_element_def_args($self, $_, $current, $source_info),
+                   @$contents );
 
   my $inserted_category = 0;
 
@@ -3592,25 +3535,25 @@ sub _parse_def($$$$) {
     }
     @{$def_line_arg->{'contents'}} = ($content);
 
-    unshift @contents, $def_line_arg,
-     Texinfo::TreeElement::new({ 'text' => ' ', 'type' => 'spaces',
+    unshift @$contents,
+     Texinfo::TreeElement::new({ 'text' => ' ',
+                                 'type' => 'spaces_before_argument',
                                  'info' => {'inserted' => 1},
-                               });
+                               }),
+            $def_line_arg;
 
     $command = $def_aliases{$command};
   }
+
+  my @args;
+  my $arg_type;
+  my $arg_types_nr;
 
   @args = @{$def_map{$command}};
   $arg_type = pop @args if ($args[-1] eq 'arg' or $args[-1] eq 'argtype');
   # If $arg_type is not set (for @def* commands that are not documented
   # to take args), everything happens as if arg_type was set to 'arg'.
   $arg_types_nr = scalar(@args);
-
-  @contents = map (_split_element_def_args($self, $_, $current, $source_info),
-                   @contents );
-  @new_contents = @contents;
-
-  $current->{'contents'} = \@new_contents;
 
   my %result;
 
@@ -3621,6 +3564,8 @@ sub _parse_def($$$$) {
   # the place on the def line (name, category...).
   my $i;
   my $contents_idx = 0;
+  # avoid the leading spaces_before_argument
+  $contents_idx++ if ($inserted_category);
   for ($i = 0; $i < $arg_types_nr; $i++) {
     my $element = _next_bracketed_or_word_agg($current, \$contents_idx);
     if ($element) {
@@ -3637,7 +3582,7 @@ sub _parse_def($$$$) {
     }
   }
   if ($inserted_category) {
-    $current->{'contents'}->[0]->{'info'} = {'inserted' => 1};
+    $current->{'contents'}->[1]->{'info'} = {'inserted' => 1};
   }
 
   my @args_results = map (_split_element_delimiters($self, $_, $current,
@@ -3688,6 +3633,8 @@ sub _parse_def($$$$) {
     }
   }
   push @{$current->{'contents'}}, @args_results;
+
+  _isolate_leading_trailing($self, $current);
 
   return \%result;
 }
@@ -3792,9 +3739,9 @@ sub _text_contents_to_plain_text($) {
   my ($text, $superfluous_arg) = ('', 0);
 
   return ($text, $superfluous_arg)
-    unless(exists($e->{'contents'}));
+    unless (exists($e->{'contents'}));
 
-  for my $c (@{$e->{'contents'}}) {
+  foreach my $c (@{$e->{'contents'}}) {
     # Allow @@, @{ and @} to give a way for @, { and } to appear in
     # filenames (although it's not a good idea to use these characters
     # in filenames).
@@ -3817,6 +3764,9 @@ sub _text_contents_to_plain_text($) {
         and ($c->{'cmdname'} eq '}'
              or $c->{'cmdname'} eq 'rbracechar')) {
       $text .= '}';
+    } elsif (exists($c->{'cmdname'})
+        and ($c->{'cmdname'} eq 'comment'
+             or $c->{'cmdname'} eq 'c')) {
     } else {
       $superfluous_arg = 1;
     }
@@ -3895,13 +3845,14 @@ sub _end_line_misc_line($$$) {
       and $self->{'basic_inline_commands'}->{$data_cmdname}) {
     pop @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}};
   }
-  _isolate_last_space($self, $current);
 
   if (exists($current->{'parent'}->{'extra'})
       and exists($current->{'parent'}->{'extra'}->{'def_command'})) {
     $current = _end_line_def_line($self, $current, $source_info);
     return $current;
   }
+
+  _isolate_leading_trailing($self, $current);
 
   _pop_context($self, ['ct_line'], $source_info, $current, 'in line_arg');
 
@@ -4116,7 +4067,8 @@ sub _end_line_misc_line($$$) {
         }
       }
     }
-    if (not defined($line_arg) or not exists($line_arg->{'contents'})) {
+    if (not defined($line_arg)
+        or Texinfo::Common::empty_spaces_argument($line_arg)) {
       _line_error($self,
         sprintf(__("empty argument in \@%s"),
           $current->{'cmdname'}), $current->{'source_info'});
@@ -4151,8 +4103,8 @@ sub _end_line_misc_line($$$) {
     }
     # Handle all the other 'line' commands.  Here just check that they
     # have an argument.  Empty @top and @xrefname are allowed
-    if (!exists($line_arg->{'contents'}) and $command ne 'top'
-        and $command ne 'xrefname') {
+    if (Texinfo::Common::empty_spaces_argument($line_arg)
+        and $command ne 'top' and $command ne 'xrefname') {
       _command_warn($self, $current,
              __("\@%s missing argument"), $command);
     } else {
@@ -4459,13 +4411,14 @@ sub _end_line_starting_block($$$) {
   if ($self->{'basic_inline_commands'}->{$command}) {
     pop @{$self->{'nesting_context'}->{'basic_inline_stack_block'}};
   }
-  _isolate_last_space($self, $current);
 
   if (exists($current->{'parent'}->{'extra'})
       and exists($current->{'parent'}->{'extra'}->{'def_command'})) {
     $current = _end_line_def_line($self, $current, $source_info);
     return $current;
   }
+
+  _isolate_leading_trailing($self, $current);
 
   my $empty_text;
   _pop_context($self, ['ct_line'], $source_info, $current,
@@ -4476,52 +4429,51 @@ sub _end_line_starting_block($$$) {
        if ($self->{'conf'}->{'DEBUG'});
 
   # @multitable args
-  if ($command eq 'multitable'
-      and exists($current->{'contents'})
-      and exists($current->{'contents'}->[0]->{'cmdname'})
-      and $current->{'contents'}->[0]->{'cmdname'} eq 'columnfractions') {
-    my $multitable = $current->{'parent'}->{'parent'};
-    my $columnfractions = $current->{'contents'}->[0];
-    my $max_column = 0;
-
-    if (exists($columnfractions->{'extra'})
-        and exists($columnfractions->{'extra'}->{'misc_args'})) {
-      $max_column = scalar(@{$columnfractions->{'extra'}->{'misc_args'}});
-    }
-
-    $multitable->{'extra'} = {} if (!exists($multitable->{'extra'}));
-    $multitable->{'extra'}->{'max_columns'} = $max_column;
-  } elsif ($command eq 'multitable') {
-    my $multitable = $current->{'parent'}->{'parent'};
-    # determine max columns based on prototypes
+  if ($command eq 'multitable') {
     my $max_columns = 0;
-    if (exists($current->{'contents'})) {
-      foreach my $content (@{$current->{'contents'}}) {
-        if (exists($content->{'type'})
-            and $content->{'type'} eq 'bracketed_arg') {
-          $max_columns++;
-        } elsif (exists($content->{'text'})) {
-          # TODO this should be a warning or an error - all prototypes
-          # on a @multitable line should be in braces, as documented in the
-          # Texinfo manual.
-        } else {
-          if (!exists($content->{'cmdname'})
-                or ($content->{'cmdname'} ne 'c'
-                    and $content->{'cmdname'} ne 'comment')) {
-            _command_warn($self, $multitable,
+    my $multitable = $current->{'parent'}->{'parent'};
+    my $columnfractions = Texinfo::Common::multitable_columnfractions(
+                                                     $multitable);
+    if (defined($columnfractions)) {
+      if (exists($columnfractions->{'extra'})
+          and exists($columnfractions->{'extra'}->{'misc_args'})) {
+        $max_columns = scalar(@{$columnfractions->{'extra'}->{'misc_args'}});
+      }
+    } else {
+      # determine max columns based on prototypes
+      my ($first_idx, $end_idx)
+        = Texinfo::Common::non_leading_trailing_indices($current);
+
+      if (defined($first_idx)) {
+        for (my $i = $first_idx;
+             $i < scalar(@{$current->{'contents'}}); $i++) {
+          my $content = $current->{'contents'}->[$i];
+          if (exists($content->{'type'})
+              and $content->{'type'} eq 'bracketed_arg') {
+            $max_columns++;
+          } elsif (exists($content->{'text'})) {
+            # TODO this should be a warning or an error - all prototypes
+            # on a @multitable line should be in braces, as documented in the
+            # Texinfo manual.
+          } else {
+            if (!exists($content->{'cmdname'})
+                  or ($content->{'cmdname'} ne 'c'
+                      and $content->{'cmdname'} ne 'comment')) {
+              _command_warn($self, $multitable,
                      __("unexpected argument on \@%s line: %s"),
                      $command,
                      Texinfo::Convert::Texinfo::convert_to_texinfo($content));
+            }
           }
         }
+      }
+      if (!$max_columns) {
+        _command_warn($self, $multitable,
+                             __("empty multitable"));
       }
     }
     $multitable->{'extra'} = {} if (!exists($multitable->{'extra'}));
     $multitable->{'extra'}->{'max_columns'} = $max_columns;
-    if (!$max_columns) {
-      _command_warn($self, $multitable,
-                           __("empty multitable"));
-    }
   }
   $current = $current->{'parent'};
   if (exists($current->{'type'})
@@ -4552,32 +4504,38 @@ sub _end_line_starting_block($$$) {
     # all the commands with @item
   } elsif ($blockitem_commands{$command}) {
     if ($command eq 'enumerate') {
-      if (exists($block_line_arg->{'contents'})) {
-        if (scalar(@{$block_line_arg->{'contents'}}) > 1) {
+      my ($arg, $surplus)
+          = Texinfo::Common::simple_arg_text($block_line_arg);
+      if (defined($arg)) {
+        if ($surplus) {
           _command_error($self, $current,
                       __("superfluous argument to \@%s"), $command);
         }
-        my $arg = $block_line_arg->{'contents'}->[0];
-        if (!exists($arg->{'text'})
-            or $arg->{'text'} !~ /^(\d+|[[:alpha:]])$/) {
+        if ($arg ne '' and $arg !~ /^(\d+|[[:alpha:]])$/) {
           _command_error($self, $current,
                       __("bad argument to \@%s"), $command);
         }
+      } elsif ($surplus) {
+        _command_error($self, $current,
+                      __("bad argument to \@%s"), $command);
       }
     } elsif ($command eq 'itemize') {
     # Check if command_as_argument isn't an accent command
-      if (exists($block_line_arg->{'contents'})
-          and scalar(@{$block_line_arg->{'contents'}}) == 1) {
-        my $arg = $block_line_arg->{'contents'}->[0];
-        if (exists($arg->{'cmdname'})
-            and (!exists($arg->{'contents'})
+      if (exists($block_line_arg->{'contents'})) {
+        my ($first_idx, $end_idx)
+          = Texinfo::Common::non_leading_trailing_indices($block_line_arg);
+        if (defined($first_idx) and $end_idx == $first_idx) {
+          my $arg = $block_line_arg->{'contents'}->[$first_idx];
+          if (exists($arg->{'cmdname'})
+              and (!exists($arg->{'contents'})
                  or (scalar(@{$arg->{'contents'}}) == 1
                      and !exists($arg->{'contents'}->[0]->{'contents'})))) {
-          my $cmdname = $arg->{'cmdname'};
-          if ($accent_commands{$cmdname}) {
-            _command_warn($self, $current,
+            my $cmdname = $arg->{'cmdname'};
+            if ($accent_commands{$cmdname}) {
+              _command_warn($self, $current,
                   __("accent command `\@%s' not allowed as \@%s argument"),
                   $cmdname, $command);
+            }
           }
         }
       }
@@ -4597,12 +4555,10 @@ sub _end_line_starting_block($$$) {
       my $command_as_argument
         = Texinfo::Common::block_line_argument_command($block_line_arg);
       if (!defined($command_as_argument)) {
-        if (exists($block_line_arg->{'contents'})) {
-          # expand the contents to avoid surrounding spaces
+        if (!Texinfo::Common::empty_spaces_argument($block_line_arg)) {
           my $texi_arg
-            = Texinfo::Convert::Texinfo::convert_to_texinfo(
-                Texinfo::TreeElement::new(
-                  {'contents' => $block_line_arg->{'contents'}}));
+            = Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                                             $block_line_arg);
           _command_error($self, $current,
                                 __("bad argument to \@%s: %s"),
                                 $command, $texi_arg);
@@ -4628,11 +4584,11 @@ sub _end_line_starting_block($$$) {
     $current = $current->{'contents'}->[-1];
   } elsif (not $commands_args_number{$command}
            and not exists($variadic_commands{$command})
-           and defined($block_line_arg->{'contents'})) {
+           and !Texinfo::Common::empty_spaces_argument($block_line_arg)) {
     # expand the contents to avoid surrounding spaces
-    my $texi_arg = Texinfo::Convert::Texinfo::convert_to_texinfo(
-           Texinfo::TreeElement::new(
-                 {'contents' => $block_line_arg->{'contents'}}));
+    my $texi_arg
+      = Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                                          $block_line_arg);
     _command_warn($self, $current,
                          __("unexpected argument on \@%s line: %s"),
                          $command, $texi_arg);
@@ -4643,54 +4599,46 @@ sub _end_line_starting_block($$$) {
     if ($command eq 'ifclear' or $command eq 'ifset'
         or $command eq 'ifcommanddefined'
         or $command eq 'ifcommandnotdefined') {
-      if (exists($block_line_arg->{'contents'})
-          and scalar(@{$block_line_arg->{'contents'}} == 1)) {
-        if (exists($block_line_arg->{'contents'}->[0]->{'text'})) {
-          my $name = $block_line_arg->{'contents'}->[0]->{'text'};
-          if ($name !~ /\S/) {
-            _line_error($self, sprintf(
-                __("\@%s requires a name"), $command), $source_info);
-            $bad_line = 0;
-          } else {
-            if ($command eq 'ifclear' or $command eq 'ifset') {
-              # REVALUE
-              if ($name =~ /^[\w\-][^\s{\\}~`\^+"<>|@]*$/) {
-                if ((exists($self->{'values'}->{$name}) and $command eq 'ifset')
-                     or (!exists($self->{'values'}->{$name})
-                         and $command eq 'ifclear')) {
-                  $ifvalue_true = 1;
-                }
-                print STDERR "CONDITIONAL \@$command $name: $ifvalue_true\n"
-                                            if ($self->{'conf'}->{'DEBUG'});
-                $bad_line = 0;
-              }
-            } else { # $command eq 'ifcommanddefined' or 'ifcommandnotdefined'
-              # REMACRO
-              if ($name =~ /^[[:alnum:]][[:alnum:]\-]*$/) {
-                my $command_is_defined = (
-                  exists($all_commands{$name})
-                  or defined($self->{'macros'}->{$name})
-                  or defined($self->{'definfoenclose'}->{$name})
-                  or exists($self->{'aliases'}->{$name})
-                  or defined($self->{'index_entry_commands'}->{$name})
-                );
-                if (($command_is_defined
-                     and $command eq 'ifcommanddefined')
-                    or (! $command_is_defined
-                         and $command eq 'ifcommandnotdefined')) {
-                  $ifvalue_true = 1;
-                }
-                print STDERR "CONDITIONAL \@$command $name: $ifvalue_true\n"
-                                             if ($self->{'conf'}->{'DEBUG'});
-                $bad_line = 0;
-              }
-            }
-          }
-        }
-      } else {
+      my ($name, $surplus_arg)
+        = Texinfo::Common::simple_arg_text($block_line_arg);
+      if (!defined($name) or $name !~ /\S/) {
         _line_error($self, sprintf(
             __("\@%s requires a name"), $command), $source_info);
         $bad_line = 0;
+      } else {
+        if ($command eq 'ifclear' or $command eq 'ifset') {
+          # REVALUE
+          if ($name =~ /^[\w\-][^\s{\\}~`\^+"<>|@]*$/) {
+            if ((exists($self->{'values'}->{$name}) and $command eq 'ifset')
+                 or (!exists($self->{'values'}->{$name})
+                     and $command eq 'ifclear')) {
+              $ifvalue_true = 1;
+            }
+            print STDERR "CONDITIONAL \@$command $name: $ifvalue_true\n"
+                                        if ($self->{'conf'}->{'DEBUG'});
+            $bad_line = 0;
+          }
+        } else { # $command eq 'ifcommanddefined' or 'ifcommandnotdefined'
+          # REMACRO
+          if ($name =~ /^[[:alnum:]][[:alnum:]\-]*$/) {
+            my $command_is_defined = (
+              exists($all_commands{$name})
+              or defined($self->{'macros'}->{$name})
+              or defined($self->{'definfoenclose'}->{$name})
+              or exists($self->{'aliases'}->{$name})
+              or defined($self->{'index_entry_commands'}->{$name})
+            );
+            if (($command_is_defined
+                 and $command eq 'ifcommanddefined')
+                or (! $command_is_defined
+                    and $command eq 'ifcommandnotdefined')) {
+              $ifvalue_true = 1;
+            }
+            print STDERR "CONDITIONAL \@$command $name: $ifvalue_true\n"
+                                         if ($self->{'conf'}->{'DEBUG'});
+            $bad_line = 0;
+          }
+        }
       }
       _line_error($self, sprintf(
         __("bad name for \@%s"), $command), $source_info)
@@ -5026,44 +4974,17 @@ sub _end_line($$$) {
   return $current;
 }
 
-# Add an "ignorable_spaces_after_command" element containing the
-# whitespace at the beginning of the rest of the line after skipspaces
-# commands, if COMMAND is undef.  Otherwise add an
-# "internal_spaces_after_command" text element, after line commands
-# or commands starting a block, that will end up in COMMAND info
-# spaces_before_argument.
-sub _start_empty_line_after_command($$$$) {
-  my ($self, $line, $current, $command) = @_;
-
-  my $type;
-  if (defined($command)) {
-    $type = 'internal_spaces_after_command';
-    $self->{'internal_space_holder'} = $command;
-  } else {
-    $type = 'ignorable_spaces_after_command';
-  }
-
-  # based on whitespace_chars_except_newline in XS parser
-  $line =~ s/^([ \t\cK\f]*)//;
-  my $spaces_after_command
-   = Texinfo::TreeElement::new({'type' => $type,
-                                'text' => $1,});
-  push @{$current->{'contents'}}, $spaces_after_command;
-  return $line;
-}
-
 sub _check_register_target_element_label($$$$) {
   my ($self, $label_element, $target_element, $source_info) = @_;
 
-  if (defined($label_element) and exists($label_element->{'contents'})) {
+  if (defined($label_element)
+      and !Texinfo::Common::empty_spaces_argument($label_element)) {
     my $label_info
       = Texinfo::Common::parse_node_manual($label_element);
     if (defined($label_info) and exists($label_info->{'manual_content'})) {
       _line_error($self, sprintf(__("syntax for an external node used for `%s'"),
-       # use contents to avoid leading/trailing spaces
-       Texinfo::Convert::Texinfo::convert_to_texinfo(
-          Texinfo::TreeElement::new(
-                {'contents' => $label_element->{'contents'}}))),
+       Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                                        $label_element)),
                          $source_info);
     }
     my $normalized
@@ -5071,9 +4992,8 @@ sub _check_register_target_element_label($$$$) {
           $label_element);
     if ($normalized !~ /[^-]/) {
       _line_error($self, sprintf(__("empty node name after expansion `%s'"),
-                         # convert the contents only, to avoid spaces
-                              Texinfo::Convert::Texinfo::convert_to_texinfo(
-    Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}}))),
+        Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                                        $label_element)),
                                  $target_element->{'source_info'});
     } else {
       $target_element->{'extra'} = {} if (!exists($target_element->{'extra'}));
@@ -5171,7 +5091,7 @@ sub _enter_menu_entry_node($$$) {
 sub _parent_of_command_as_argument($) {
   my $current = shift;
 
-  return ($current and exists($current->{'type'})
+  return (defined($current) and exists($current->{'type'})
       and $current->{'type'} eq 'block_line_arg'
       and exists($current->{'parent'})
       and exists($current->{'parent'}->{'parent'})
@@ -5180,7 +5100,10 @@ sub _parent_of_command_as_argument($) {
            or ($block_commands{$current->{'parent'}->{'parent'}->{'cmdname'}}
                and $block_commands{$current->{'parent'}->{'parent'}->{'cmdname'}}
                                                                 eq 'item_line'))
-      and scalar(@{$current->{'contents'}}) == 1);
+      and (scalar(@{$current->{'contents'}}) == 1
+           or (scalar(@{$current->{'contents'}}) == 2
+               and exists($current->{'contents'}->[0]->{'text'})
+               and $current->{'contents'}->[0]->{'text'} !~ /\S/)));
 }
 
 # register command_as_argument_kbd_code
@@ -5932,7 +5855,16 @@ sub _handle_other_command($$$$$) {
                           $source_info);
       }
     }
-    $line = _start_empty_line_after_command($self, $line, $current, undef);
+    # Add an "ignorable_spaces_after_command" element containing the
+    # whitespace at the beginning of the rest of the line after skipspaces
+    # commands.
+
+    # based on whitespace_chars_except_newline in XS parser
+    $line =~ s/^([ \t\cK\f]*)//;
+    my $spaces_after_command
+      = Texinfo::TreeElement::new({'type' => 'ignorable_spaces_after_command',
+                                   'text' => $1,});
+    push @{$current->{'contents'}}, $spaces_after_command;
   }
   return ($current, $line, $retval, $command_e);
 }
@@ -6429,7 +6361,6 @@ sub _handle_line_command($$$$$$) {
       $current = $current->{'contents'}->[-1];
       _push_context($self, 'ct_line', $command);
     }
-    $line = _start_empty_line_after_command($self, $line, $current, $command_e);
   }
   _register_global_command($self, $command_e, $source_info)
     if $command_e;
@@ -6586,7 +6517,6 @@ sub _handle_block_command($$$$$) {
          $command;
   }
   _register_global_command($self, $block, $source_info);
-  $line = _start_empty_line_after_command($self, $line, $bla_element, $block);
 
   return ($bla_element, $line, $block);
 }
@@ -6750,6 +6680,7 @@ sub _handle_open_brace($$$$) {
 
     print STDERR "BRACKETED in def/multitable\n"
                              if ($self->{'conf'}->{'DEBUG'});
+
   # lone braces accepted right in a rawpreformatted
   } elsif (exists($current->{'type'})
            and $current->{'type'} eq 'rawpreformatted') {
@@ -6852,7 +6783,7 @@ sub _handle_close_brace($$$) {
         if (Texinfo::Common::empty_spaces_argument($a)) {
           push @args, undef;
         } else {
-          push @args, $a->{'contents'};
+          push @args, $a;
         }
       }
       my $link_or_inforef = ($closed_cmdname eq 'link'
@@ -6887,22 +6818,22 @@ sub _handle_close_brace($$$) {
         }
       }
       if (defined($args[1])) {
-        if (_check_empty_expansion($args[1])) {
+        if (_check_empty_expansion($args[1]->{'contents'})) {
           _line_warn($self, sprintf(__(
           "in \@%s empty cross reference name after expansion `%s'"),
                 $closed_cmdname,
-                Texinfo::Convert::Texinfo::convert_to_texinfo(
-                   Texinfo::TreeElement::new({'contents' => $args[1]}))),
+                Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                                             $args[1])),
                   $source_info);
         }
       }
       if (!$link_or_inforef and defined($args[2])) {
-        if (_check_empty_expansion($args[2])) {
+        if (_check_empty_expansion($args[2]->{'contents'})) {
           _line_warn($self, sprintf(__(
            "in \@%s empty cross reference title after expansion `%s'"),
                 $closed_cmdname,
-                Texinfo::Convert::Texinfo::convert_to_texinfo(
-              Texinfo::TreeElement::new({'contents' => $args[2]}))),
+                Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                                              $args[2])),
                   $source_info);
         }
       }
@@ -6985,7 +6916,7 @@ sub _handle_close_brace($$$) {
         }
       }
     } elsif (_parent_of_command_as_argument($brace_command->{'parent'})
-             and !exists($current->{'contents'})) {
+             and Texinfo::Common::empty_spaces_argument($current)) {
       _register_command_as_argument($self, $brace_command);
     } elsif ($brace_command_type eq 'noarg') {
       if (exists($current->{'contents'})) {
@@ -7034,13 +6965,7 @@ sub _handle_comma($$$$) {
   my ($self, $current, $line, $source_info) = @_;
 
   _abort_empty_line($self, $current);
-  if (exists($current->{'type'})
-             and ($current->{'type'} eq 'brace_container'
-                  or $current->{'type'} eq 'brace_arg')) {
-    _isolate_leading_trailing($self, $current);
-  } else {
-    _isolate_last_space($self, $current);
-  }
+  _isolate_leading_trailing($self, $current);
   # type corresponds to three possible containers: in brace commands,
   # line of block command (float or example) or line (node).
   my $type = $current->{'type'};
@@ -7213,18 +7138,6 @@ sub _handle_comma($$$$) {
   my $new_arg
     = Texinfo::TreeElement::new({'type' => $type, 'parent' => $argument,});
   push @{$argument->{'contents'}}, $new_arg;
-
-  if (! (exists($current->{'type'})
-               and ($current->{'type'} eq 'brace_container'
-                  or $current->{'type'} eq 'brace_arg'))) {
-    # internal_spaces_before_argument is a transient internal type,
-    # which should end up in info spaces_before_argument.
-    my $space_before
-     = Texinfo::TreeElement::new({'type' => 'internal_spaces_before_argument',
-                                  'text' => '',});
-    $self->{'internal_space_holder'} = $new_arg;
-    $new_arg->{'contents'} = [$space_before];
-  }
 
   return ($new_arg, $line, $source_info);
 }
@@ -7673,7 +7586,7 @@ sub _process_remaining_on_line($$$$) {
           # line or block @-command.
           $current = $current->{'parent'};
           $current = _merge_text($self, $current, $added_space);
-          _isolate_last_space($self, $current);
+          _isolate_leading_trailing($self, $current);
           $current = _end_line($self, $current, $source_info);
           return ($current, $line, $source_info, $GET_A_NEW_LINE);
           # goto funexit;  # used in XS code

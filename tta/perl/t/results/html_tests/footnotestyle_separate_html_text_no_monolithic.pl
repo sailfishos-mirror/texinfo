@@ -8,44 +8,32 @@ use utf8;
 $result_tree_text{'footnotestyle_separate_html_text_no_monolithic'} = '*document_root C5
  *before_node_section C2
   *@footnotestyle C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{separate}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {separate}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C3 l4 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   *paragraph C3
    {In top}
    *@footnote C1 l5
@@ -57,33 +45,25 @@ $result_tree_text{'footnotestyle_separate_html_text_no_monolithic'} = '*document
    {.\\n}
   {empty_line:\\n}
  *@node C1 l7 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C2 l8 {Chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

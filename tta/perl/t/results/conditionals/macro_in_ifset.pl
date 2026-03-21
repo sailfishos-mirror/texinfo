@@ -16,44 +16,32 @@ $result_tree_text{'macro_in_ifset'} = '*document_root C1
     {macro_line: truc {}\\n}
    {raw:truc\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >ignored_conditional_block<1><p:1>
    >*@ifset C6 l6
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{a}
+      >{spaces_after_argument:\\n}
     >{raw:@unmacro truc\\n}
     >{raw:@macro truc{}\\n}
     >{raw:in ifset\\n}
     >{raw:@end macro\\n}
     >*@end C1 l11
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
+      >{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {truc\\n}

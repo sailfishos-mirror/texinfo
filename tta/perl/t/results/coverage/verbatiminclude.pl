@@ -9,17 +9,13 @@ $result_tree_text{'verbatiminclude'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
   *@verbatiminclude C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |input_encoding_name:{utf-8}
   |text_arg:{incl-incl.txi}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {incl-incl.txi}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -52,7 +48,7 @@ $result_converted{'html_text'}->{'verbatiminclude'} = '
 
 
 $result_converted{'xml'}->{'verbatiminclude'} = '
-<verbatiminclude file="incl-incl.txi" spaces=" ">incl-incl.txi</verbatiminclude>
+<verbatiminclude file="incl-incl.txi"> incl-incl.txi</verbatiminclude>
 ';
 
 

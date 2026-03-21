@@ -8,143 +8,103 @@ use utf8;
 $result_tree_text{'sections_and_printindex'} = '*document_root C8
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l2 {for example}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {for example}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node}
+    {spaces_after_argument:\\n}
  *@chapter C3 l5 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node}
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {entry1}
+    {spaces_after_argument:\\n}
  *@node C1 l8 {sec}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{sec}
  |is_target:{1}
  |isindex:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {sec}
+    {spaces_after_argument:\\n}
  *@section C3 l9 {Sec}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Sec}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{sec}
   |index_entry:I{cp,2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {entry2}
+    {spaces_after_argument:\\n}
  *@appendix C4 l12 {App}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {App}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l14
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 
@@ -315,23 +275,23 @@ $result_converted{'html_text'}->{'sections_and_printindex'} = '<div class="top-l
 ';
 
 
-$result_converted{'xml'}->{'sections_and_printindex'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
-<top spaces=" "><sectiontitle>for example</sectiontitle>
+$result_converted{'xml'}->{'sections_and_printindex'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> node</nodenext></node>
+<top><sectiontitle> for example</sectiontitle>
 
 </top>
-<node identifier="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chap</sectiontitle>
+<node identifier="node"><nodename> node</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> chap</sectiontitle>
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">entry1</indexterm></cindex>
-<node identifier="sec" spaces=" "><nodename>sec</nodename><nodeup automatic="on">node</nodeup></node>
-<section spaces=" "><sectiontitle>Sec</sectiontitle>
+<cindex index="cp"> <indexterm index="cp" number="1">entry1</indexterm></cindex>
+<node identifier="sec"><nodename> sec</nodename><nodeup automatic="on"> node</nodeup></node>
+<section><sectiontitle> Sec</sectiontitle>
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="2">entry2</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="2">entry2</indexterm></cindex>
 </section>
 </chapter>
-<appendix spaces=" "><sectiontitle>App</sectiontitle>
+<appendix><sectiontitle> App</sectiontitle>
 
-<printindex spaces=" " value="cp" line="cp"></printindex>
+<printindex value="cp" line=" cp"></printindex>
 
 </appendix>
 ';

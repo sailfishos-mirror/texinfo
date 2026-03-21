@@ -10,14 +10,9 @@ $result_tree_text{'multiple_defline'} = '*document_root C1
   *preamble_before_content
   *@defblock C6 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@defline C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -25,10 +20,8 @@ $result_tree_text{'multiple_defline'} = '*document_root C1
      |*def_line_arg C1
       |{foo}
    |original_def_cmdname:{defline}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Funoid}
@@ -42,14 +35,12 @@ $result_tree_text{'multiple_defline'} = '*document_root C1
       *def_line_arg C1
        {bar}
      {delimiter:)}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C2
      {description1 description1 description1 description1 description1\\n}
      {description1 description1 description1 description1 description1\\n}
    *@defline C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -57,10 +48,8 @@ $result_tree_text{'multiple_defline'} = '*document_root C1
      |*def_line_arg C1
       |{foo2}
    |original_def_cmdname:{defline}
-    *line_arg C10
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C12
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Funnyoid}
@@ -79,21 +68,18 @@ $result_tree_text{'multiple_defline'} = '*document_root C1
       *def_line_arg C1
        {baz2}
      {delimiter:)}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C2
      {description2 description2 description2 description2 description2\\n}
      {description2 description2 description2 description2 description2\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defblock}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -297,10 +283,10 @@ description2 description2 description2 description2 description2
 
 
 $result_converted{'xml'}->{'multiple_defline'} = '<defblock endspaces=" ">
-<defline spaces=" "><definitionterm><defcategory>Funoid</defcategory> <defsymbol>foo</defsymbol> <defdelimiter>(</defdelimiter><defparam>bar</defparam><defdelimiter>)</defdelimiter></definitionterm></defline>
+<defline><definitionterm> <defcategory>Funoid</defcategory> <defsymbol>foo</defsymbol> <defdelimiter>(</defdelimiter><defparam>bar</defparam><defdelimiter>)</defdelimiter></definitionterm></defline>
 <definitionitem><para>description1 description1 description1 description1 description1
 description1 description1 description1 description1 description1
-</para></definitionitem><defline spaces=" "><definitionterm><defcategory>Funnyoid</defcategory> <defsymbol>foo2</defsymbol> <defdelimiter>(</defdelimiter><defparam>bar2</defparam><defdelimiter>,</defdelimiter> <defparam>baz2</defparam><defdelimiter>)</defdelimiter></definitionterm></defline>
+</para></definitionitem><defline><definitionterm> <defcategory>Funnyoid</defcategory> <defsymbol>foo2</defsymbol> <defdelimiter>(</defdelimiter><defparam>bar2</defparam><defdelimiter>,</defdelimiter> <defparam>baz2</defparam><defdelimiter>)</defdelimiter></definitionterm></defline>
 <definitionitem><para>description2 description2 description2 description2 description2
 description2 description2 description2 description2 description2
 </para></definitionitem></defblock>

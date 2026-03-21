@@ -9,9 +9,6 @@ $result_tree_text{'empty_caption'} = '*document_root C1
  *before_node_section C6
   *preamble_before_content
   *@float C5 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{a}
@@ -19,36 +16,27 @@ $result_tree_text{'empty_caption'} = '*document_root C1
   |identifier:{b}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {a}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {b}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {In float A, B\\n}
    *@caption C1 l3
     *brace_command_context
    {spaces_after_close_brace:\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C5 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{}
@@ -56,40 +44,32 @@ $result_tree_text{'empty_caption'} = '*document_root C1
   |identifier:{c}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg
     *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {c}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {In float , C\\n}
    *@shortcaption C1 l8
     *brace_command_context
    {spaces_after_close_brace:\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C7 l11
   |EXTRA
   |float_type:{}
   |global_command_number:{3}
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {In float\\n}
    *@shortcaption C1 l13
@@ -99,16 +79,12 @@ $result_tree_text{'empty_caption'} = '*document_root C1
     *brace_command_context
    {spaces_after_close_brace:\\n}
    *@end C1 l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -213,12 +189,12 @@ $result_converted_errors{'html'}->{'empty_caption'} = '* W |must specify a title
 ';
 
 
-$result_converted{'xml'}->{'empty_caption'} = '<float identifier="b" type="a" number="1" spaces=" " endspaces=" "><floattype>a</floattype><floatname spaces=" ">b</floatname>
+$result_converted{'xml'}->{'empty_caption'} = '<float identifier="b" type="a" number="1" endspaces=" "><floattype> a</floattype><floatname> b</floatname>
 <para>In float A, B
 </para><caption></caption>
 </float>
 
-<float identifier="c" type="" number="1" spaces=" " endspaces=" "><floatname spaces=" ">c</floatname>
+<float identifier="c" type="" number="1" endspaces=" "><floattype> </floattype><floatname> c</floatname>
 <para>In float , C
 </para><shortcaption></shortcaption>
 </float>

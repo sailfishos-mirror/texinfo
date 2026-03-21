@@ -8,16 +8,12 @@ use utf8;
 $result_tree_text{'itemize_line_commands_with_brace'} = '*document_root C1
  *before_node_section C3
   *@itemize C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@bullet C1 l1
       *brace_container
+     {spaces_after_argument:\\n}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -25,28 +21,20 @@ $result_tree_text{'itemize_line_commands_with_brace'} = '*document_root C1
     *paragraph C1
      {bullet\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C3 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@minus C1 l5
       *brace_container
+     {spaces_after_argument:\\n}
    *@item C2 l6
    |EXTRA
    |item_number:{1}
@@ -54,16 +42,12 @@ $result_tree_text{'itemize_line_commands_with_brace'} = '*document_root C1
     *paragraph C1
      {minus\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -109,11 +93,11 @@ $result_converted{'html_text'}->{'itemize_line_commands_with_brace'} = '<ul clas
 ';
 
 
-$result_converted{'xml'}->{'itemize_line_commands_with_brace'} = '<itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend>&bullet;</itemprepend>
+$result_converted{'xml'}->{'itemize_line_commands_with_brace'} = '<itemize commandarg="bullet" endspaces=" "><itemprepend> &bullet;</itemprepend>
 <listitem><prepend>&bullet;</prepend> <para>bullet
 </para></listitem></itemize>
 
-<itemize commandarg="minus" spaces=" " endspaces=" "><itemprepend>&minus;</itemprepend>
+<itemize commandarg="minus" endspaces=" "><itemprepend> &minus;</itemprepend>
 <listitem><prepend>&minus;</prepend> <para>minus
 </para></listitem></itemize>
 ';

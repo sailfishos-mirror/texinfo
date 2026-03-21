@@ -9,51 +9,36 @@ $result_tree_text{'simple_documentlanguage'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content C2
    *@documentlanguage C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{fr}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {fr}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@node C3 l4 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defivar C2 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l6
    |EXTRA
    |def_command:{defivar}
@@ -79,10 +64,8 @@ $result_tree_text{'simple_documentlanguage'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defivar}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
@@ -91,7 +74,7 @@ $result_tree_text{'simple_documentlanguage'} = '*document_root C3
       |documentlanguage:{fr}
       |translation_context:{category of instance variables in object-oriented programming for @defivar}
        {untranslated:Instance Variable}
-     (i){spaces: }
+     {spaces: }
      *def_class C1
       *def_line_arg C1
        {AAA}
@@ -103,17 +86,14 @@ $result_tree_text{'simple_documentlanguage'} = '*document_root C3
      *def_arg C1
       *def_line_arg C1
        {CCC}
+     {spaces_after_argument:\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defivar}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defivar}
+     {spaces_after_argument:\\n}
 ';
 
 

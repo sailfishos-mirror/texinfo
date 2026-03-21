@@ -19,16 +19,12 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    {raw:\\arg2\\\\n}
    {raw:@end verbatim\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {2 simple args. result of a macro with first arg and \\n}
@@ -47,24 +43,18 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
       >{macro_call_arg_text:second arg}
   *@verbatim C3 l9:@macroone
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:second arg\\n}
    *@end C1 l9:@macroone
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim.}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim.}
      >SOURCEMARKS
      >macro_expansion<end;1><p:8>
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {comma in command. result of a macro with aaa }
@@ -79,24 +69,18 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    { bbb and \\n}
   *@verbatim C3 l11:@macroone
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:\\n}
    *@end C1 l11:@macroone
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim.}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim.}
      >SOURCEMARKS
      >macro_expansion<end;2><p:8>
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {call on the line. result of a macro with  and \\n}
@@ -105,24 +89,18 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     >*macro_call@macroone
   *@verbatim C3 l13:@macroone
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:\\n}
    *@end C1 l13:@macroone
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim my arg.}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim my arg.}
      >SOURCEMARKS
      >macro_expansion<end;3><p:8>
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {recursive call. result of a macro with first arg and \\n}
@@ -138,24 +116,18 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
       >{macro_call_arg_text:@macroone{nested second arg}}
   *@verbatim C3 l15:@macroone
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:@macroone{nested second arg}\\n}
    *@end C1 l15:@macroone
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim.}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim.}
      >SOURCEMARKS
      >macro_expansion<end;4><p:8>
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {protect stuff. result of a macro with first , arg and \\n}
@@ -177,24 +149,18 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
       >>macro_arg_escape_backslash<4><p:3>
   *@verbatim C3 l17:@macroone
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:{} \\ \\n}
    *@end C1 l17:@macroone
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim.}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim.}
      >SOURCEMARKS
      >macro_expansion<end;5><p:8>
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {multi-line arg. result of a macro with arg 1\\n}
@@ -213,20 +179,16 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    {now and \\n}
   *@verbatim C5 l23:@macroone
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:arg3\\n}
    {raw:\\n}
    {raw:\\n}
    *@end C1 l23:@macroone
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim.}
-    *line_arg C1
+    *line_arg C2
+     {spaces_before_argument: }
      {verbatim.}
      >SOURCEMARKS
      >macro_expansion<end;6><p:8>

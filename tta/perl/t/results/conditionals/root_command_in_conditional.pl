@@ -12,60 +12,45 @@ $result_tree_text{'root_command_in_conditional'} = '*document_root C2
   >expanded_conditional_command<start;1>
    >*@ifnottex C1 l1
     >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C1
+      >{spaces_before_argument:\\n}
  *@node C1 l2 {Getting Started}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Getting-Started}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {Getting Started}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{Tutorial}
    |normalized:{Tutorial}
+    {spaces_before_argument: }
     {Tutorial}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
+    {spaces_before_argument: }
     {Top}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
    >SOURCEMARKS
    >expanded_conditional_command<end;1>
     >*@end C1 l3
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifnottex}
+      >{spaces_after_argument:\\n}
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
 ';
 
 

@@ -22,23 +22,17 @@ $result_tree_text{'empty_set_in_ifclear'} = '*document_root C1
   >SOURCEMARKS
   >ignored_conditional_block<1><p:1>
    >*@ifclear C3 l3
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{a}
+      >{spaces_after_argument:\\n}
     >{raw:a is set to:|@value{a}|.\\n}
     >*@end C1 l5
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifclear}
-     >*line_arg C1
+     >*line_arg C2
+      >{spaces_before_argument: }
       >{ifclear}
 ';
 

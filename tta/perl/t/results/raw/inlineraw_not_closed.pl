@@ -18,19 +18,15 @@ $result_tree_text{'inlineraw_not_closed'} = '*document_root C2
      {spaces_before_argument: }
      {aa\\n}
  *@section C1 l2 {sec}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {sec}
+    {spaces_after_argument:\\n}
 ';
 
 

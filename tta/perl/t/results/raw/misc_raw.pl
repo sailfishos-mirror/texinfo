@@ -10,65 +10,45 @@ $result_tree_text{'misc_raw'} = '*document_root C1
   {empty_line:\\n}
   *@html C3 l2
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C1
+     {spaces_before_argument: \\n}
    *rawpreformatted C1
     {in html <br> }
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {html}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@tex C2 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {in tex}
+     {spaces_after_argument:\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {tex}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@verbatim C4 l8
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:in  v---erbatim`` <>\\n}
    {raw:in verbatim2\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -119,7 +99,7 @@ $result_converted{'xml'}->{'misc_raw'} = '
 <html endspaces=" "> 
 in html &lt;br&gt; </html>
 
-<tex spaces=" " endspaces=" ">
+<tex endspaces=" ">
 </tex>
 
 <verbatim xml:space="preserve" endspaces=" ">

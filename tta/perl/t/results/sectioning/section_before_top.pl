@@ -8,75 +8,57 @@ use utf8;
 $result_tree_text{'section_before_top'} = '*document_root C5
  *before_node_section
  *@node C1 l1 {section node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{section-node}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {section node}
    *line_arg
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
     {Top}
+    {spaces_after_argument:\\n}
  *@section C2 l2 {section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section}
+    {spaces_after_argument: \\n}
   {empty_line:\\n}
  *@node C1 l4 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C3 l5 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l7
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l8
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -89,16 +71,12 @@ $result_tree_text{'section_before_top'} = '*document_root C5
      *preformatted C1
       {\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -243,12 +221,12 @@ span:hover a.copiable-link {visibility: visible}
 ';
 
 
-$result_converted{'xml'}->{'section_before_top'} = '<node identifier="section-node" spaces=" "><nodename>section node</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup>Top</nodeup></node>
-<section spaces=" "><sectiontitle>section </sectiontitle>
+$result_converted{'xml'}->{'section_before_top'} = '<node identifier="section-node"><nodename> section node</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup>Top</nodeup></node>
+<section><sectiontitle> section </sectiontitle>
 
 </section>
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">section node</nodenext></node>
-<unnumberedsec originalcommand="top" spaces=" "><sectiontitle>top</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> section node</nodenext></node>
+<unnumberedsec originalcommand="top"><sectiontitle> top</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>section node</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">

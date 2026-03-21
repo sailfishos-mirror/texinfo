@@ -9,46 +9,34 @@ $result_tree_text{'accentenc'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content C2
    *@documentencoding C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{iso-8859-1}
    |text_arg:{ISO-8859-1}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {ISO-8859-1}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l3 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
  *@top C77 l4 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C5
    {should be e`: }
@@ -816,10 +804,10 @@ $result_converted{'html_text'}->{'accentenc'} = '
 ';
 
 
-$result_converted{'xml'}->{'accentenc'} = '<documentencoding encoding="ISO-8859-1" spaces=" ">ISO-8859-1</documentencoding>
+$result_converted{'xml'}->{'accentenc'} = '<documentencoding encoding="ISO-8859-1"> ISO-8859-1</documentencoding>
 
-<node identifier="first" spaces=" "><nodename>first</nodename></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+<node identifier="first"><nodename> first</nodename></node>
+<top><sectiontitle> top</sectiontitle>
 
 <para>should be e&textlsquo;: <accent type="grave">e</accent> <accent type="grave" bracketed="off">e</accent>
 </para>

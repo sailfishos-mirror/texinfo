@@ -4,7 +4,7 @@
 <filename file="simplest_no_node_section.xml"></filename>
 <preamblebeforebeginning>\input texinfo @c -*-texinfo-*-
 
-</preamblebeforebeginning><setfilename file="simplest_no_node_section.info" spaces=" ">simplest_no_node_section.info</setfilename>
+</preamblebeforebeginning><setfilename file="simplest_no_node_section.info"> simplest_no_node_section.info</setfilename>
 
 <para>This is a very simple texi manual <spacecmd type="spc"/> &lt;&gt;.
 </para>

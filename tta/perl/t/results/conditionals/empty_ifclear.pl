@@ -12,24 +12,18 @@ $result_tree_text{'empty_ifclear'} = '*document_root C1
   >ignored_conditional_block<1>
    >*@ifclear C5 l1
     >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C1
+      >{spaces_before_argument:\\n}
     >{raw:\\n}
     >{raw:Something\\n}
     >{raw:\\n}
     >*@end C1 l5
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifclear}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifclear}
+      >{spaces_after_argument:\\n}
 ';
 
 

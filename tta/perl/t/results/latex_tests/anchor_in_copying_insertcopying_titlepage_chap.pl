@@ -10,10 +10,8 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document
   *preamble_before_content C4
    *@copying C3 l1
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *paragraph C3
      {Cop. }
      *@anchor C1 l2
@@ -26,32 +24,22 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document
        {a in copying}
      {. Ying.\\n}
     *@end C1 l3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {copying}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@titlepage C6 l5
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *@title C1 l6
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {Manual}
+      {spaces_after_argument:\\n}
     {empty_line:\\n}
     *@page C1
      *line_arg
@@ -66,73 +54,53 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
     *@end C1 l10
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{titlepage}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {titlepage}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l12 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l13 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l15 {Chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Chapter}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter}
+    {spaces_after_argument:\\n}
  *@chapter C7 l16 {Chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@pxref C1 l18

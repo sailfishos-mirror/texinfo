@@ -8,18 +8,14 @@ use utf8;
 $result_tree_text{'footnote_no_node'} = '*document_root C2
  *before_node_section
  *@top C3 l1 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {F}

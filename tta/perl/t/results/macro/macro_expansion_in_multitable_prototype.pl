@@ -15,16 +15,12 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
     {macro_line: simple\\n}
    {raw:ab\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l5
   |EXTRA
@@ -34,28 +30,19 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
     {macro_line: endbrace {arg}\\n}
    {raw:c\\arg\\d}\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@multitable C3 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{5}
    *arguments_line C1
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C11
+     {spaces_before_argument: }
      *bracketed_arg C1 l9
       {h ab i}
       >SOURCEMARKS
@@ -107,6 +94,7 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
        >*macro_call@endbrace C1
         >*brace_arg C1
          >{macro_call_arg_text:T}
+     {spaces_after_argument:\\n}
    *multitable_body C1
     *row C5
     |EXTRA
@@ -142,16 +130,12 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
       *paragraph C1
        {t4\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
 ';
 
 

@@ -16,16 +16,12 @@ $result_tree_text{'expand_two_same'} = '*document_root C1
    {raw:With a doubles arg \\arg\\ and re \\arg\\\\n}
    {raw:\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   *paragraph C7
    {Call macro2\\n}
    {With a doubles arg a simple }

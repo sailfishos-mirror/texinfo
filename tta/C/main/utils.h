@@ -24,6 +24,7 @@
 /* for S_ISDIR, S_IFDIR and S_IFMT */
 #include <sys/stat.h>
 
+#include "text.h"
 #include "command_ids.h"
 #include "tree_types.h"
 #include "global_commands_types.h"
@@ -154,7 +155,7 @@ ELEMENT *new_element_from_names (const char *type_name,
 ELEMENT *item_line_parent (ELEMENT *current);
 ELEMENT *get_label_element (const ELEMENT *e);
 int empty_spaces_argument (const ELEMENT *element);
-const char *simple_arg_text (ELEMENT *element, int *surplus_arg);
+const TEXT *simple_arg_text (const ELEMENT *element, int *surplus_arg);
 INDEX *indices_info_index_by_name (const INDEX_LIST *indices_information,
                                    const char *name);
 INDEX *ultimate_index (INDEX *index);
@@ -224,6 +225,7 @@ char *locate_file_in_dirs (const char *filename,
 const ELEMENT *block_line_argument_command (const ELEMENT *block_line_arg);
 void find_float_caption_shortcaption(const ELEMENT *float_e,
                                      const ELEMENT **result);
+int non_leading_trailing_indices (const ELEMENT *tree, size_t *out_indices);
 ELEMENT *multitable_columnfractions (const ELEMENT *multitable);
 void collect_subentries (const ELEMENT *current, CONST_ELEMENT_LIST *e_list);
 const ELEMENT *index_entry_referred_entry (const ELEMENT *element,
@@ -287,8 +289,8 @@ const ELEMENT *get_global_document_command (
                                       enum command_location command_location);
 const char *element_value_equivalent (const ELEMENT *element,
                                       enum command_id *cmd_out);
-char *informative_command_value (const ELEMENT *element,
-                                 enum command_id *cmd_out);
+const char *informative_command_value (const ELEMENT *element,
+                                       enum command_id *cmd_out);
 const ELEMENT_LIST *get_cmd_global_multi_command (
                                     const GLOBAL_COMMANDS *global_commands_ref,
                                     enum command_id cmd);

@@ -1172,6 +1172,7 @@ sub comment_or_end_line($$) {
 
   if (exists($element->{'contents'})) {
     my $last_arg = $element->{'contents'}->[-1];
+    # TODO remove when lineraw commands do not need it anymore
     if (exists($last_arg->{'info'})) {
       if (exists($last_arg->{'info'}->{'comment_at_end'})) {
         return ($last_arg->{'info'}->{'comment_at_end'}, undef);
@@ -1183,8 +1184,54 @@ sub comment_or_end_line($$) {
         }
       }
     }
+    if (exists($last_arg->{'contents'})) {
+      my $last_content = $last_arg->{'contents'}->[-1];
+      if (exists($last_content->{'cmdname'})
+               and ($last_content->{'cmdname'} eq 'comment'
+                    or $last_content->{'cmdname'} eq 'c')) {
+        return ($last_content, undef);
+      } elsif (exists($last_content->{'text'})) {
+        my $text = $last_content->{'text'};
+        if (chomp($text)) {
+          return (undef, "\n");
+        }
+      }
+    }
   }
   return (undef, '');
+}
+
+sub comment_end_line_end_space($$) {
+  my ($self, $element) = @_;
+
+  my $end_spaces = '';
+  my $end_line = '';
+  my $end_comment;
+
+  if (exists($element->{'contents'})) {
+    my $end_idx = scalar(@{$element->{'contents'}}) - 1;
+    while ($end_idx >= 0) {
+      my $content = $element->{'contents'}->[$end_idx];
+      if (exists($content->{'type'})
+          and ($content->{'type'} eq 'spaces_after_argument'
+               or $content->{'type'} eq 'spaces_before_argument')) {
+        my $text = $content->{'text'};
+        if (chomp($text)) {
+          $end_line = "\n";
+        }
+        $end_spaces = $text . $end_spaces;
+        $end_idx--;
+      } elsif (exists($content->{'cmdname'})
+               and ($content->{'cmdname'} eq 'comment'
+                    or $content->{'cmdname'} eq 'c')) {
+        $end_comment = $content;
+        $end_idx--;
+      } else {
+        last;
+      }
+    }
+  }
+  return ($end_spaces, $end_line, $end_comment);
 }
 
 
@@ -1345,7 +1392,7 @@ sub table_item_content_tree($$) {
   }
   my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
 
-  # arguments_line type element
+  # table command arguments_line type element
   my $arguments_line = $table_command->{'contents'}->[0];
   my $block_line_arg = $arguments_line->{'contents'}->[0];
 
@@ -1353,6 +1400,13 @@ sub table_item_content_tree($$) {
     = Texinfo::Common::block_item_line_command($block_line_arg);
 
   if (defined($command_as_argument)) {
+    #my $element_tree = $element->{'contents'}->[0];
+    my $element_tree
+     = Texinfo::Common::non_leading_trailing_tree($element->{'contents'}->[0]);
+    if (!defined($element_tree)) {
+      confess();
+    }
+
     my $command_as_argument_cmdname = $command_as_argument->{'cmdname'};
     my $command = Texinfo::TreeElement::new(
                   {'cmdname' => $command_as_argument_cmdname,
@@ -1382,20 +1436,20 @@ sub table_item_content_tree($$) {
       # for those @-commands.
       $arg = Texinfo::TreeElement::new({'type' => 'brace_command_context',});
       if ($Texinfo::Commands::math_commands{$builtin_cmdname}) {
-        $arg->{'contents'} = [$element->{'contents'}->[0]];
+        $arg->{'contents'} = [$element_tree];
       } else {
         my $paragraph
          = Texinfo::TreeElement::new({'type' => 'paragraph',
-                            'contents' => [$element->{'contents'}->[0]],});
+                            'contents' => [$element_tree],});
         $arg->{'contents'} = [$paragraph];
       }
     } elsif ($Texinfo::Commands::brace_commands{$builtin_cmdname}
                                                    eq 'arguments') {
       $arg = Texinfo::TreeElement::new({'type' => 'brace_arg',
-                      'contents' => [$element->{'contents'}->[0]],});
+                      'contents' => [$element_tree],});
     } else {
       $arg = Texinfo::TreeElement::new({'type' => 'brace_container',
-                         'contents' => [$element->{'contents'}->[0]],});
+                         'contents' => [$element_tree],});
     }
     $command->{'contents'} = [$arg];
     return $command;
@@ -1480,11 +1534,11 @@ sub sort_element_counts($$;$$) {
       # arguments_line type element
       my $arguments_line = $command->{'contents'}->[0];
       my $line_arg = $arguments_line->{'contents'}->[0];
-      if (exists($line_arg->{'contents'})) {
+      if (!Texinfo::Common::empty_spaces_argument($line_arg)) {
         # convert contents to avoid outputting end of lines
         $name = "\@$command->{'cmdname'} "
-         .Texinfo::Convert::Texinfo::convert_to_texinfo(
-           Texinfo::TreeElement::new({'contents' => $line_arg->{'contents'}}));
+         .Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                                               $line_arg);
       }
     }
     $name = 'UNNAMED output unit' if (!defined($name));

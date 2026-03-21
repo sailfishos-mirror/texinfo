@@ -15,23 +15,17 @@ $result_tree_text{'blockitem_no_item'} = '*document_root C1
     {macro_line: mycommand {a, b, c}\\n}
    {raw:\\a\\, \\b\\ \\c\\\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C3 l5
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *before_item C1
     *paragraph C3
      {AA\\n}
@@ -56,18 +50,14 @@ $result_tree_text{'blockitem_no_item'} = '*document_root C1
         >{macro_call_arg_text:f @\\n@end itemize}
      *@\\n
    *@end C1 l8:@mycommand
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
      >SOURCEMARKS
      >linemacro_expansion<end;1><p:7>
+     {spaces_after_argument:\\n}
 ';
 
 

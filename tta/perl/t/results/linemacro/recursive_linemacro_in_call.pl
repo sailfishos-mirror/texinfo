@@ -15,16 +15,12 @@ $result_tree_text{'recursive_linemacro_in_call'} = '*document_root C1
     {macro_line: anorecurse {arg, other}\\n}
    {raw:\\arg\\ d \\other\\\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   >SOURCEMARKS

@@ -8,15 +8,11 @@ use utf8;
 $result_tree_text{'include_in_removed_before_item'} = '*document_root C1
  *before_node_section C1
   *@table C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code l1
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C3
      *@c C1
@@ -26,16 +22,12 @@ $result_tree_text{'include_in_removed_before_item'} = '*document_root C1
      >SOURCEMARKS
      >include<start;1>
       >*@include C1 l3
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
       >|EXTRA
       >|text_arg:{only_comment.texi}
-       >*line_arg C1
-       >|INFO
-       >|spaces_after_argument:
-        >|{spaces_after_argument:\\n}
+       >*line_arg C3
+        >{spaces_before_argument: }
         >{only_comment.texi}
+        >{spaces_after_argument:\\n}
       *line_arg C1
       |INFO
       |spaces_after_argument:
@@ -53,25 +45,17 @@ $result_tree_text{'include_in_removed_before_item'} = '*document_root C1
        |{spaces_after_argument:\\n}
        {rawline_text:in here}
      *@item C1 l4
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {FOO}
+       {spaces_after_argument:\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
 ';
 
 

@@ -1077,10 +1077,12 @@ empty_spaces_argument (const ELEMENT *element)
   return 1;
 }
 
-const char *
-simple_arg_text (ELEMENT *element, int *surplus_arg)
+static const TEXT empty_text = {"", 1, 0};
+
+const TEXT *
+simple_arg_text (const ELEMENT *element, int *surplus_arg)
 {
-  const char *result = 0;
+  const TEXT *result = 0;
 
   if (element->e.c->contents.number > 0)
     {
@@ -1095,14 +1097,15 @@ simple_arg_text (ELEMENT *element, int *surplus_arg)
                   || content->type == ET_spaces_after_argument)
                 continue;
               else if (result == 0)
-                result = content->e.text->text;
+                result = content->e.text;
               else
                 {
                   *surplus_arg = 1;
                   return result;
                 }
             }
-          else
+          else if (content->e.c->cmd != CM_comment
+                   && content->e.c->cmd != CM_c)
             {
               *surplus_arg = 1;
               return result;
@@ -1115,7 +1118,7 @@ simple_arg_text (ELEMENT *element, int *surplus_arg)
   if (result)
     return result;
 
-  return "";
+  return &empty_text;
 }
 
 
@@ -2104,9 +2107,17 @@ locate_file_in_dirs (const char *filename,
 const ELEMENT *
 block_line_argument_command (const ELEMENT *block_line_arg)
 {
-  if (block_line_arg->e.c->contents.number == 1)
+  size_t leading_trailing_indices[2];
+  int non_empty;
+  size_t first_idx;
+
+  non_empty = non_leading_trailing_indices (block_line_arg,
+                                            leading_trailing_indices);
+  first_idx = leading_trailing_indices[0];
+
+  if (non_empty && first_idx == leading_trailing_indices[1])
     {
-      const ELEMENT *arg = block_line_arg->e.c->contents.list[0];
+      const ELEMENT *arg = block_line_arg->e.c->contents.list[first_idx];
       if (!(type_data[arg->type].flags & TF_text)
           && (arg->e.c->contents.number == 0
               || (arg->e.c->contents.number == 1
@@ -2158,19 +2169,74 @@ find_float_caption_shortcaption(const ELEMENT *float_e, const ELEMENT **result)
     }
 }
 
+/* FIXME replace size_t *out_indices by a structure */
+int
+non_leading_trailing_indices (const ELEMENT *tree, size_t *out_indices)
+{
+  size_t start_idx = 0;
+  size_t end_idx;
+
+  if (!tree->e.c->contents.number)
+    return 0;
+
+  while (start_idx < tree->e.c->contents.number)
+    {
+      const ELEMENT *content = tree->e.c->contents.list[start_idx];
+      if (content->type == ET_spaces_before_argument)
+        start_idx++;
+      else if (!(type_data[content->type].flags & TF_text)
+               && (content->e.c->cmd == CM_c
+                   || content->e.c->cmd == CM_comment))
+        start_idx++;
+      else
+        break;
+    }
+
+  if (start_idx == tree->e.c->contents.number)
+    return 0;
+
+  out_indices[0] = start_idx;
+
+  end_idx = tree->e.c->contents.number - 1;
+
+  while (end_idx > 0)
+    {
+      const ELEMENT *content = tree->e.c->contents.list[end_idx];
+      if (content->type == ET_spaces_after_argument)
+        end_idx--;
+      else if (!(type_data[content->type].flags & TF_text)
+               && (content->e.c->cmd == CM_c
+                   || content->e.c->cmd == CM_comment))
+        end_idx--;
+      else
+        break;
+    }
+  out_indices[1] = end_idx;
+
+  return 1;
+}
+
 ELEMENT *
 multitable_columnfractions (const ELEMENT *multitable)
 {
+  size_t leading_trailing_indices[2];
+  int non_empty;
+  size_t first_idx;
   const ELEMENT *arguments_line = multitable->e.c->contents.list[0];
   const ELEMENT *block_line_arg = arguments_line->e.c->contents.list[0];
   ELEMENT *columnfractions = 0;
 
-  if (block_line_arg->e.c->contents.number > 0
-      && !(type_data[block_line_arg->e.c->contents.list[0]->type].flags
+  non_empty = non_leading_trailing_indices (block_line_arg,
+                                            leading_trailing_indices);
+  first_idx = leading_trailing_indices[0];
+
+  if (non_empty
+      && !(type_data[block_line_arg->e.c->contents.list[first_idx]->type].flags
            & TF_text)
-      && block_line_arg->e.c->contents.list[0]->e.c->cmd == CM_columnfractions)
+      && block_line_arg->e.c->contents.list[first_idx]->e.c->cmd
+                                                 == CM_columnfractions)
     {
-      columnfractions = block_line_arg->e.c->contents.list[0];
+      columnfractions = block_line_arg->e.c->contents.list[first_idx];
     }
 
   return columnfractions;
@@ -2428,16 +2494,16 @@ element_value_equivalent (const ELEMENT *element, enum command_id *cmd_out)
 }
 
 /* ALTIMP perl/Texinfo/Common.pm */
-char *
+const char *
 informative_command_value (const ELEMENT *element, enum command_id *cmd_out)
 {
   const STRING_LIST *misc_args;
-  char *text_arg;
+  const char *text_arg;
   enum command_id cmd;
-  char *value;
+  const char *value;
 
   /* keeping const would be preferable, but see below it is not possible */
-  value = (char *)element_value_equivalent (element, cmd_out);
+  value = element_value_equivalent (element, cmd_out);
   if (*cmd_out)
     return value;
 
@@ -2452,38 +2518,24 @@ informative_command_value (const ELEMENT *element, enum command_id *cmd_out)
     {
       if (builtin_command_data[cmd].args_number <= 0)
         return "1";
-      /* NOTE only @set, which should be ignored, can have args.number > 1.
-         We handle this case with TEXT text, but do not free memory
-         as should be, as this case should never happen.
+      /* NOTE only @set, which is not an informative command associated
+         to a customization variable can have args.number > 1.
        */
       else if (element->e.c->contents.number > 0)
         {
-          TEXT text;
           size_t i;
           char *text_seen = 0;
           for (i = 0; i < element->e.c->contents.number; i++)
             {
               /* only text elements in lineraw args */
-              ELEMENT *arg = element->e.c->contents.list[i];
+              const ELEMENT *arg = element->e.c->contents.list[i];
               if (arg->e.text->end)
                 {
-                  if (!text_seen)
-                    text_seen = arg->e.text->text;
-                  else
-                    {
-                      text_init (&text);
-                      text_append (&text, text_seen);
-                      text_append (&text, " ");
-                      text_append (&text, arg->e.text->text);
-                    }
+                  text_seen = arg->e.text->text;
+                  break;
                 }
             }
-          if (text.end)
-            /* NOTE would need to be freed, but this case cannot happen,
-               so we leave it like that, see the comment above. */
-            return text.text;
-          else
-            return text_seen;
+          return text_seen;
         }
     }
   text_arg = lookup_extra_string (element, AI_key_text_arg);
@@ -2493,12 +2545,14 @@ informative_command_value (const ELEMENT *element, enum command_id *cmd_out)
   if (misc_args && misc_args->number > 0)
     return misc_args->list[0];
   if (builtin_command_data[cmd].flags & CF_line
-      && builtin_command_data[cmd].data == LINE_line
-      && element->e.c->contents.number >= 1
-      && element->e.c->contents.list[0]->e.c->contents.number >= 1
-      && element->e.c->contents.list[0]->e.c->contents.list[0]->type == ET_normal_text
-      && element->e.c->contents.list[0]->e.c->contents.list[0]->e.text->end > 0)
-    return element->e.c->contents.list[0]->e.c->contents.list[0]->e.text->text;
+      && builtin_command_data[cmd].data == LINE_line)
+   {
+      int surplus_arg;
+      const TEXT *arg_text = simple_arg_text (element->e.c->contents.list[0],
+                                              &surplus_arg);
+      if (arg_text)
+        return arg_text->text;
+   }
 
   return 0;
 }
@@ -2904,16 +2958,17 @@ char *
 enumerate_item_representation (const ELEMENT *element)
 {
   int status;
+  int surplus_arg;
   int item_number = lookup_extra_integer (element, AI_key_item_number,
                                           &status);
   const ELEMENT *enumerate = element->e.c->parent;
   const ELEMENT *arguments_line = enumerate->e.c->contents.list[0];
   const ELEMENT *block_line_arg = arguments_line->e.c->contents.list[0];
 
-  if (block_line_arg->e.c->contents.number
-      && type_data[block_line_arg->e.c->contents.list[0]->type].flags & TF_text)
-    return enumerate_number_representation (
-            block_line_arg->e.c->contents.list[0]->e.text->text, item_number);
+  const TEXT *arg_text = simple_arg_text (block_line_arg, &surplus_arg);
+
+  if (arg_text)
+    return enumerate_number_representation (arg_text->text, item_number);
   else
     return enumerate_number_representation ("", item_number);
 }

@@ -16,16 +16,12 @@ $result_tree_text{'comment_on_linemacro_call_macro_expansion'} = '*document_root
    {raw:first |\\a\\|\\n}
    {raw:second |\\b\\|\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C4 l6
   |EXTRA
@@ -36,16 +32,12 @@ $result_tree_text{'comment_on_linemacro_call_macro_expansion'} = '*document_root
    {raw:macro \\a\\ text\\n}
    {raw:after arg\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C4
    {macro first |a|\\n}

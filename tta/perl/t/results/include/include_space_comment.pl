@@ -11,23 +11,18 @@ $result_tree_text{'include_space_comment'} = '*document_root C1
   >SOURCEMARKS
   >include<start;1>
    >*@include C1 l1
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{inc_file.texi}
-    >*line_arg C1
-    >|INFO
-    >|comment_at_end:
-     >|*@c C1
-     >||INFO
-     >||spaces_before_argument:
-      >||{spaces_before_argument: }
-      >|*line_arg C1
-       >|{rawline_text:comment}
-    >|spaces_after_argument:
-     >|{spaces_after_argument: }
+    >*line_arg C4
+     >{spaces_before_argument: }
      >{inc_file.texi}
+     >{spaces_after_argument: }
+     >*@c C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{spaces_before_argument: }
+      >*line_arg C1
+       >{rawline_text:comment}
   *paragraph C1
    {In included file.\\n}
    >SOURCEMARKS

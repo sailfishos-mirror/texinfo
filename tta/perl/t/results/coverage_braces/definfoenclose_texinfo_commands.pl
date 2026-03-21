@@ -8,49 +8,33 @@ use utf8;
 $result_tree_text{'definfoenclose_texinfo_commands'} = '*document_root C1
  *before_node_section C10
   *@definfoenclose C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{verb|;;|!!}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {verb,;;,!!}
+    {spaces_after_argument:\\n}
   *@definfoenclose C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{TeX|aa|bb}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {TeX,aa,bb}
+    {spaces_after_argument:\\n}
   *@definfoenclose C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{strong|(|)}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {strong,(,)}
+    {spaces_after_argument:\\n}
   *@definfoenclose C1 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{quotation|q|e}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {quotation,q,e}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@verb C1 l6
@@ -73,28 +57,20 @@ $result_tree_text{'definfoenclose_texinfo_commands'} = '*document_root C1
    {.\\n}
   {empty_line:\\n}
   *@quotation C3 l10
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {important}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {in quotation\\n}
    *@end C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
 ';
 
 

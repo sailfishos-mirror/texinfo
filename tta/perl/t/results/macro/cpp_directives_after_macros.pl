@@ -18,16 +18,12 @@ $result_tree_text{'cpp_directives_after_macros'} = '*document_root C1
      {macro_line: noargsspaces\\n}
     {raw:  \\n}
     *@end C1 cpp_directives_after_macros.texi:l4
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{macro}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {macro}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@macro C3 cpp_directives_after_macros.texi:l6
    |EXTRA
@@ -37,16 +33,12 @@ $result_tree_text{'cpp_directives_after_macros'} = '*document_root C1
      {macro_line: emptyexpansion\\n}
     {raw:\\n}
     *@end C1 cpp_directives_after_macros.texi:l8
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{macro}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {macro}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    >SOURCEMARKS
    >line_directive<1><p:1>{  #line 98 "a_test_after_spaces"\\n}

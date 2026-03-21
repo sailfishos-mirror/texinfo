@@ -12,333 +12,229 @@ $result_tree_text{'index_no_node_no_top'} = '*document_root C7
    {text_before_beginning:\\n}
   *preamble_before_content
   *index_entry_command@cindex C1 index_no_node_no_top.texi:l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {truc}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {Garbage\\n}
   *@printindex C1 index_no_node_no_top.texi:l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
  *@unnumbered C8 index_no_node_no_top.texi:l8 {unnumbered}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered}
+    {spaces_after_argument:\\n}
   *@printindex C1 index_no_node_no_top.texi:l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {bidule}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_no_node_no_top.texi:l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered}
+    {spaces_after_argument:\\n}
   *paragraph C2
    {in unnumbered\\n}
    *index_entry_command@cindex C1 index_no_node_no_top.texi:l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |index_entry:I{cp,3}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {unnumbered after text}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 index_no_node_no_top.texi:l15
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@unnumbered C15 index_no_node_no_top.texi:l17 {top (chapter) section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top (chapter) section}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_no_node_no_top.texi:l19
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,4}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top section}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_no_node_no_top.texi:l20
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,5}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top section}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_no_node_no_top.texi:l21
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,6}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top section}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_no_node_no_top.texi:l22
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,7}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top section}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_no_node_no_top.texi:l23
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,8}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top section}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_no_node_no_top.texi:l24
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,9}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top section}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {Top node\\n}
   {empty_line:\\n}
   *@printindex C1 index_no_node_no_top.texi:l27
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_no_node_no_top.texi:l29
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,10}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top section1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
  *@section C7 index_no_node_no_top.texi:l32 {second}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {second}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 index_no_node_no_top.texi:l34
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{5}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_no_node_no_top.texi:l35
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,11}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {second}
+    {spaces_after_argument:\\n}
   *paragraph C2
    {second node\\n}
    *index_entry_command@cindex C1 index_no_node_no_top.texi:l37
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |index_entry:I{cp,12}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {second}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 index_no_node_no_top.texi:l39
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{6}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
  *@chapter C6 index_no_node_no_top.texi:l40 {Chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_no_node_no_top.texi:l41
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,13}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 index_no_node_no_top.texi:l43
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{7}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   *paragraph C2
    {Text of chapter\\n}
    *index_entry_command@cindex C1 index_no_node_no_top.texi:l45
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |index_entry:I{cp,14}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {Chapter2}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@chapter C4 index_no_node_no_top.texi:l47 {Chapter 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {In chapter 2\\n}
@@ -1256,55 +1152,55 @@ $result_converted_errors{'html_text'}->{'index_no_node_no_top'} = '* W index_no_
 
 $result_converted{'xml'}->{'index_no_node_no_top'} = '<preamblebeforebeginning>\\input texinfo @c -*-texinfo-*-
 
-</preamblebeforebeginning><cindex index="cp" spaces=" "><indexterm index="cp" number="1">truc</indexterm></cindex>
+</preamblebeforebeginning><cindex index="cp"> <indexterm index="cp" number="1">truc</indexterm></cindex>
 <para>Garbage
-</para><printindex spaces=" " value="cp" line="cp"></printindex>
+</para><printindex value="cp" line=" cp"></printindex>
 
 
-<unnumbered spaces=" "><sectiontitle>unnumbered</sectiontitle>
-<printindex spaces=" " line="bidule"></printindex>
+<unnumbered><sectiontitle> unnumbered</sectiontitle>
+<printindex line=" bidule"></printindex>
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="2">unnumbered</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="2">unnumbered</indexterm></cindex>
 <para>in unnumbered
-<cindex index="cp" spaces=" "><indexterm index="cp" number="3">unnumbered after text</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="3">unnumbered after text</indexterm></cindex>
 </para>
-<printindex spaces=" " value="cp" line="cp"></printindex>
+<printindex value="cp" line=" cp"></printindex>
 
 </unnumbered>
-<unnumbered spaces=" "><sectiontitle>top (chapter) section</sectiontitle>
+<unnumbered><sectiontitle> top (chapter) section</sectiontitle>
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="4">top section</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="5">top section</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="6">top section</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="7">top section</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="8">top section</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="9">top section</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="4">top section</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="5">top section</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="6">top section</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="7">top section</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="8">top section</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="9">top section</indexterm></cindex>
 <para>Top node
 </para>
-<printindex spaces=" " value="cp" line="cp"></printindex>
+<printindex value="cp" line=" cp"></printindex>
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="10">top section1</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="10">top section1</indexterm></cindex>
 
 
-<section spaces=" "><sectiontitle>second</sectiontitle>
+<section><sectiontitle> second</sectiontitle>
 
-<printindex spaces=" " value="cp" line="cp"></printindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="11">second</indexterm></cindex>
+<printindex value="cp" line=" cp"></printindex>
+<cindex index="cp"> <indexterm index="cp" number="11">second</indexterm></cindex>
 <para>second node
-<cindex index="cp" spaces=" "><indexterm index="cp" number="12">second</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="12">second</indexterm></cindex>
 </para>
-<printindex spaces=" " value="cp" line="cp"></printindex>
+<printindex value="cp" line=" cp"></printindex>
 </section>
 </unnumbered>
-<chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="13">chapter</indexterm></cindex>
+<chapter><sectiontitle> Chapter</sectiontitle>
+<cindex index="cp"> <indexterm index="cp" number="13">chapter</indexterm></cindex>
 
-<printindex spaces=" " value="cp" line="cp"></printindex>
+<printindex value="cp" line=" cp"></printindex>
 <para>Text of chapter
-<cindex index="cp" spaces=" "><indexterm index="cp" number="14">Chapter2</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="14">Chapter2</indexterm></cindex>
 </para>
 </chapter>
-<chapter spaces=" "><sectiontitle>Chapter 2</sectiontitle>
+<chapter><sectiontitle> Chapter 2</sectiontitle>
 
 <para>In chapter 2
 </para>

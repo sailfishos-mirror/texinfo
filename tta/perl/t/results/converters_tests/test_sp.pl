@@ -10,16 +10,12 @@ $result_tree_text{'test_sp'} = '*document_root C1
   *paragraph C1
    {Para\\n}
   *@sp C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {1}
+    {spaces_after_argument:\\n}
   *paragraph C4
    {other para\\n}
    {Now lone }
@@ -27,60 +23,44 @@ $result_tree_text{'test_sp'} = '*document_root C1
    {sp:\\n}
   {empty_line:\\n}
   *@sp C1 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@sp C1 l8
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {2}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {Para after sp\\n}
   {empty_line:\\n}
   *paragraph C1
    {A\\n}
   *@sp C1 l12
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {2}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {B\\n}
   {empty_line:\\n}
   *paragraph C1
    {sp after para\\n}
   *@sp C1 l16
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {1}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -175,21 +155,21 @@ Now lone @sp:
 
 
 $result_converted{'xml'}->{'test_sp'} = '<para>Para
-</para><sp spaces=" " value="1" line="1"></sp>
+</para><sp value="1" line=" 1"></sp>
 <para>other para
 Now lone &arobase;sp:
 </para>
-<sp spaces=" " value="1" line="1"></sp>
+<sp value="1" line=" 1"></sp>
 
-<sp spaces=" " value="2" line="2"></sp>
+<sp value="2" line=" 2"></sp>
 <para>Para after sp
 </para>
 <para>A
-</para><sp spaces=" " value="2" line="2"></sp>
+</para><sp value="2" line=" 2"></sp>
 <para>B
 </para>
 <para>sp after para
-</para><sp spaces=" " value="1" line="1"></sp>
+</para><sp value="1" line=" 1"></sp>
 ';
 
 

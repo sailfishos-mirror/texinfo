@@ -12,38 +12,28 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    {text_before_beginning:\\n}
   *preamble_before_content
  *@node C1 index_table.texi:l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C3 index_table.texi:l4 {Test for indices}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Test for indices}
+    {spaces_after_argument:\\n}
   *@menu C5 index_table.texi:l5
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 index_table.texi:l6
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -78,299 +68,213 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
      *preformatted C1
       {\\n}
    *@end C1 index_table.texi:l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 index_table.texi:l11 {node with ftable and vtable}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node-with-ftable-and-vtable}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node with ftable and vtable}
+    {spaces_after_argument:\\n}
  *@chapter C13 index_table.texi:l12 {first node chapter, with ftable and vtable}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first node chapter, with ftable and vtable}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_table.texi:l14
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-with-ftable-and-vtable}
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {index entry in node}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    {Some text\\n}
    *index_entry_command@cindex C1 index_table.texi:l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |element_node:{node-with-ftable-and-vtable}
    |index_entry:I{cp,2}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {an second index entry in node}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   *@vtable C3 index_table.texi:l21
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@bullet index_table.texi:l21
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C2
      *@item C1 index_table.texi:l22
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{node-with-ftable-and-vtable}
      |index_entry:I{vr,1}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {var1}
+       {spaces_after_argument:\\n}
      *@itemx C1 index_table.texi:l23
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{node-with-ftable-and-vtable}
      |index_entry:I{vr,2}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {var2}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {var1 et var2\\n}
    *@end C1 index_table.texi:l25
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {an ftable \\n}
   *@ftable C4 index_table.texi:l28
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@bullet index_table.texi:l28
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C2
      *@item C1 index_table.texi:l29
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{node-with-ftable-and-vtable}
      |index_entry:I{fn,1}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {fun1}
+       {spaces_after_argument:\\n}
      *@itemx C1 index_table.texi:l30
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{node-with-ftable-and-vtable}
      |index_entry:I{fn,2}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {fun2}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {fun1 et fun2 \\n}
    *table_entry C2
     *table_term C1
      *@item C1 index_table.texi:l32
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{node-with-ftable-and-vtable}
      |index_entry:I{fn,3}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {more fun}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {and even more   \\n}
    *@end C1 index_table.texi:l34
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{ftable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {ftable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 index_table.texi:l36 {node with printindex}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node-with-printindex}
  |is_target:{1}
  |isindex:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node with printindex}
+    {spaces_after_argument:\\n}
  *@chapter C6 index_table.texi:l37 {node with printindex}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node with printindex}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 index_table.texi:l39
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fn}
+    {spaces_after_argument:\\n}
   *@printindex C1 index_table.texi:l40
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{vr}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {vr}
+    {spaces_after_argument:\\n}
   *@printindex C1 index_table.texi:l41
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 index_table.texi:l43 {indices refs}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{indices-refs}
  |is_target:{1}
  |isindex:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {indices refs}
+    {spaces_after_argument:\\n}
  *@chapter C135 index_table.texi:l44 {Indices refs}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Indices refs}
+    {spaces_after_argument:\\n}
   *@menu C3 index_table.texi:l45
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 index_table.texi:l46
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -383,1552 +287,1036 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
      *preformatted C1
       {node \\n}
    *@end C1 index_table.texi:l47
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l48
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,3}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l49
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,4}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {aoncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l50
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,5}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {zoncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l51
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,6}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {eoncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l52
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,7}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {roncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l53
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,8}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {toncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l54
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,9}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {yoncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l55
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,10}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {uoncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l56
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,11}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ioncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l57
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,12}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ooncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l58
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,13}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {poncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l59
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,14}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {qoncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l60
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,15}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concep}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l61
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,16}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rsconcept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l62
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,17}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {soncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l63
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,18}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {doncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l64
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,19}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {foncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l65
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,20}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {goncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l66
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,21}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {honcept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l67
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,22}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {joncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l68
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,23}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {koncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l69
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,24}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {loncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l70
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,25}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {moncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l71
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,26}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {roncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l72
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,27}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {woncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l73
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,28}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {xoncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l74
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,29}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {voncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l75
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,30}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {boncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l76
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,31}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {noncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l77
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,32}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {,oncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l78
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,33}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {?oncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l79
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,34}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {;oncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l80
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,35}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {/oncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l81
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,36}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {!oncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l82
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,37}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cancept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l83
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,38}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {czncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l84
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,39}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cencept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l85
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,40}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ctncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l86
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,41}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cyncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l87
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,42}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cuncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l88
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,43}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cincept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l89
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,44}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l90
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,45}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cpncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l91
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,46}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cqncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l92
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,47}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {csncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l93
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,48}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cdncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l94
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,49}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cfncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l95
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,50}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cgncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l96
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,51}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l97
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,52}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cjncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l98
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,53}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ckncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l99
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,54}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {clncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l100
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,55}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cmncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l101
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,56}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {csdcept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l102
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,57}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cxncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l103
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,58}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cvncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l104
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,59}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cbncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l105
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,60}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cnncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l106
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,61}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {c,ncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l107
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,62}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {crncept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l108
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,63}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l109
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,64}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l110
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,65}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l111
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,66}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l112
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,67}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l113
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,68}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l114
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,69}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l115
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,70}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l116
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,71}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l117
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,72}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l118
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,73}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l119
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,74}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l120
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,75}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l121
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,76}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l122
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,77}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l123
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,78}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l124
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,79}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l125
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,80}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l126
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,81}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l127
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,82}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l128
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,83}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l129
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,84}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l130
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,85}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l131
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,86}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l132
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,87}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l133
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,88}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l134
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,89}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l135
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,90}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l136
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,91}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l137
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,92}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l138
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,93}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l139
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,94}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l140
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,95}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l141
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,96}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l142
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,97}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l143
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,98}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l144
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,99}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l145
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,100}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l146
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,101}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l147
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,102}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l148
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,103}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l149
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,104}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l150
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,105}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l151
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,106}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l152
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,107}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l153
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,108}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l154
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,109}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l155
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,110}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l156
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,111}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l157
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,112}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l158
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,113}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l159
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,114}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l160
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,115}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l161
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,116}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l162
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,117}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l163
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,118}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l164
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,119}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l165
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,120}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l166
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,121}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l167
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,122}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l168
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,123}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l169
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,124}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l170
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,125}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l171
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,126}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l172
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,127}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l173
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,128}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l174
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,129}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 index_table.texi:l175
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{indices-refs}
   |index_entry:I{cp,130}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {concept}
+    {spaces_after_argument:\\n}
   *@c C1
   |INFO
   |spaces_before_argument:
@@ -1949,49 +1337,37 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
     {rawline_text:@printindex vr}
   {empty_line:\\n}
   *@printindex C1 index_table.texi:l179
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 index_table.texi:l181 {node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {node}
    *line_arg
    *line_arg
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument:\\n}
  *@section C5 index_table.texi:l182 {node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3.1}
  |section_level:{2}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {A section following the indices.\\n}

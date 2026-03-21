@@ -8,13 +8,8 @@ use utf8;
 $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
  *before_node_section C2
   *@settitle C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@sc C1 l1
      *brace_container C6
       {sc }
@@ -55,63 +50,48 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
     { }
     *@exclamdown C1 l1
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l4 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l6 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C4 l7 {Chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Document.\\n}
@@ -214,14 +194,14 @@ $result_converted{'html_text'}->{'commands_in_settitle_with_title'} = '<h1 class
 ';
 
 
-$result_converted{'xml'}->{'commands_in_settitle_with_title'} = '<settitle spaces=" "><sc>sc <accent type="tilde" bracketed="off">n</accent> &aring; &tex;</sc> node <accent type="uml" bracketed="off">i</accent> <accent type="uml"><dotless>i</dotless></accent> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> &lslash; <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> &iexcl;</settitle>
+$result_converted{'xml'}->{'commands_in_settitle_with_title'} = '<settitle> <sc>sc <accent type="tilde" bracketed="off">n</accent> &aring; &tex;</sc> node <accent type="uml" bracketed="off">i</accent> <accent type="uml"><dotless>i</dotless></accent> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> &lslash; <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> &iexcl;</settitle>
 
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapter</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 </top>
-<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Chap</sectiontitle>
+<node identifier="chapter"><nodename> chapter</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Chap</sectiontitle>
 
 <para>Document.
 </para>

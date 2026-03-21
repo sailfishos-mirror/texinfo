@@ -8,25 +8,19 @@ use utf8;
 $result_tree_text{'caption_in_example'} = '*document_root C1
  *before_node_section C1
   *@float C4 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{float}
   |global_command_number:{1}
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@example C6 l3
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *preformatted C2
      {in example \\n}
      {empty_line:\\n}
@@ -40,27 +34,19 @@ $result_tree_text{'caption_in_example'} = '*document_root C1
      {empty_line:\\n}
      {After caption\\n}
     *@end C1 l9
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{example}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {example}
+      {spaces_after_argument:\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -167,7 +153,7 @@ After caption
 </screen>';
 
 
-$result_converted{'xml'}->{'caption_in_example'} = '<float type="float" spaces=" " endspaces=" "><floattype>float</floattype>
+$result_converted{'xml'}->{'caption_in_example'} = '<float type="float" endspaces=" "><floattype> float</floattype>
 
 <example endspaces=" ">
 <pre xml:space="preserve">in example 

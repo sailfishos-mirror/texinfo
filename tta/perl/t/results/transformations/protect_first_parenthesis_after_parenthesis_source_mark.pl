@@ -15,16 +15,12 @@ $result_tree_text{'protect_first_parenthesis_after_parenthesis_source_mark'} = '
     {macro_line: vvv {}\\n}
    {raw:(\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@anchor C1 l5
   |EXTRA

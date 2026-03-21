@@ -15,16 +15,12 @@ $result_tree_text{'form_feeds'} = '*document_root C1
     {macro_line: mymacro{a, b}\\n}
    {raw:f \\a\\ n \\b\\\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l5
   |EXTRA
@@ -34,16 +30,12 @@ $result_tree_text{'form_feeds'} = '*document_root C1
     {macro_line: oneargmacro{c}\\n}
    {raw:g \\c\\ v\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {f arg1}

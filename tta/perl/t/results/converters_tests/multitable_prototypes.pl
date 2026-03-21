@@ -8,16 +8,11 @@ use utf8;
 $result_tree_text{'multitable_prototypes'} = '*document_root C1
  *before_node_section C2
   *@multitable C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument:  }
   |EXTRA
   |max_columns:{3}
    *arguments_line C1
-    *block_line_arg C8
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C10
+     {spaces_before_argument:  }
      *bracketed_arg C1 l1
       {aa b}
      {  }
@@ -35,6 +30,7 @@ $result_tree_text{'multitable_prototypes'} = '*document_root C1
       *brace_container C1
        {cmd}
      {gg hh j}
+     {spaces_after_argument: \\n}
    *multitable_body C1
     *row C3
     |EXTRA
@@ -65,16 +61,12 @@ $result_tree_text{'multitable_prototypes'} = '*document_root C1
       *paragraph C1
        {Invalid tab\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 
@@ -129,7 +121,8 @@ $result_converted{'html_text'}->{'multitable_prototypes'} = '<table class="multi
 ';
 
 
-$result_converted{'xml'}->{'multitable_prototypes'} = '<multitable spaces="  " endspaces=" "><columnprototypes><columnprototype bracketed="on">aa b</columnprototype>  <columnprototype bracketed="on"> r </columnprototype> <columnprototype bracketed="on">j <code>some code</code> </columnprototype> <var>cmd</var>gg hh j</columnprototypes> 
+$result_converted{'xml'}->{'multitable_prototypes'} = '<multitable endspaces=" "><columnprototypes>  <columnprototype bracketed="on">aa b</columnprototype>  <columnprototype bracketed="on"> r </columnprototype> <columnprototype bracketed="on">j <code>some code</code> </columnprototype> <var>cmd</var>gg hh j 
+</columnprototypes>
 <tbody><row><entry command="item"> <para>cc d
 </para></entry><entry command="tab"> <para>s
 </para></entry><entry command="tab"> <para>k <samp>same samp</samp>

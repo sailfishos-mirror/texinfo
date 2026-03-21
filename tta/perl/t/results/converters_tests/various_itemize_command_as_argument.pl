@@ -8,72 +8,52 @@ use utf8;
 $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C16 l5 {Chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C3 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@inlineraw l7
+     {spaces_after_argument:\\n}
    *@item C2 l8
    |EXTRA
    |item_number:{1}
@@ -81,27 +61,19 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *paragraph C1
      {Inlineraw\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C4 l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@image l11
+     {spaces_after_argument:\\n}
    *@item C2 l12
    |EXTRA
    |item_number:{1}
@@ -115,27 +87,19 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *paragraph C1
      {Second\\n}
    *@end C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C4 l16
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@footnote l16
+     {spaces_after_argument:\\n}
    *@item C2 l17
    |EXTRA
    |item_number:{1}
@@ -154,27 +118,19 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
      {T\\n}
     {empty_line:\\n}
    *@end C1 l23
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C3 l25
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@caption l25
+     {spaces_after_argument:\\n}
    *@item C2 l26
    |EXTRA
    |item_number:{1}
@@ -182,27 +138,19 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *paragraph C1
      {Caption\\n}
    *@end C1 l27
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C4 l29
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@math l29
+     {spaces_after_argument:\\n}
    *@item C2 l30
    |EXTRA
    |item_number:{1}
@@ -224,27 +172,19 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
      {2\\n}
     {empty_line:\\n}
    *@end C1 l35
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C4 l37
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@anchor l37
+     {spaces_after_argument:\\n}
    *@item C2 l38
    |EXTRA
    |item_number:{1}
@@ -258,27 +198,19 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *paragraph C1
      {anchor 2\\n}
    *@end C1 l40
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C3 l42
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@verb l42
+     {spaces_after_argument:\\n}
    *@item C2 l43
    |EXTRA
    |item_number:{1}
@@ -286,16 +218,12 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     *paragraph C1
      {:uu:\\n}
    *@end C1 l44
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 
@@ -543,23 +471,23 @@ aa
 ';
 
 
-$result_converted{'xml'}->{'various_itemize_command_as_argument'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+$result_converted{'xml'}->{'various_itemize_command_as_argument'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 </top>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Chap</sectiontitle>
+<node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Chap</sectiontitle>
 
-<itemize commandarg="inlineraw" spaces=" " endspaces=" ">
+<itemize commandarg="inlineraw" endspaces=" "><itemprepend> </itemprepend>
 <listitem><prepend></prepend> <para>Inlineraw
 </para></listitem></itemize>
 
-<itemize commandarg="image" spaces=" " endspaces=" ">
+<itemize commandarg="image" endspaces=" "><itemprepend> </itemprepend>
 <listitem><prepend></prepend> <para>Image
 </para></listitem><listitem><prepend></prepend> <para>Second
 </para></listitem></itemize>
 
-<itemize commandarg="footnote" spaces=" " endspaces=" ">
+<itemize commandarg="footnote" endspaces=" "><itemprepend> </itemprepend>
 <listitem><prepend></prepend> <para>aa
 </para></listitem><listitem><prepend></prepend> <para>F2
 aa
@@ -568,11 +496,11 @@ aa
 </para>
 </listitem></itemize>
 
-<itemize commandarg="caption" spaces=" " endspaces=" ">
+<itemize commandarg="caption" endspaces=" "><itemprepend> </itemprepend>
 <listitem><prepend></prepend> <para>Caption
 </para></listitem></itemize>
 
-<itemize commandarg="math" spaces=" " endspaces=" ">
+<itemize commandarg="math" endspaces=" "><itemprepend> </itemprepend>
 <listitem><prepend></prepend> <para>a + b
 </para></listitem><listitem><prepend></prepend> <para>a<sup>c</sup>
 </para>
@@ -580,12 +508,12 @@ aa
 </para>
 </listitem></itemize>
 
-<itemize commandarg="anchor" spaces=" " endspaces=" ">
+<itemize commandarg="anchor" endspaces=" "><itemprepend> </itemprepend>
 <listitem><prepend></prepend> <para>anchor 1
 </para></listitem><listitem><prepend></prepend> <para>anchor 2
 </para></listitem></itemize>
 
-<itemize commandarg="verb" spaces=" " endspaces=" ">
+<itemize commandarg="verb" endspaces=" "><itemprepend> </itemprepend>
 <listitem><prepend></prepend> <para>:uu:
 </para></listitem></itemize>
 

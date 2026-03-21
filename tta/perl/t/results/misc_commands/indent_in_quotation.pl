@@ -9,10 +9,8 @@ $result_tree_text{'indent_in_quotation'} = '*document_root C1
  *before_node_section C1
   *@quotation C5 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@indent l2
    {ignorable_spaces_after_command:\\n}
    *paragraph C1
@@ -20,16 +18,12 @@ $result_tree_text{'indent_in_quotation'} = '*document_root C1
    |indent:{1}
     {indent in quotation\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
 ';
 
 

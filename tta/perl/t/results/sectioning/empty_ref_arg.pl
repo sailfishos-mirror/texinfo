@@ -8,19 +8,15 @@ use utf8;
 $result_tree_text{'empty_ref_arg'} = '*document_root C2
  *before_node_section
  *@node C3 l1 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C8
    *@ref C2 l3
@@ -129,26 +125,20 @@ first
 first
 ';
 
-$result_errors{'empty_ref_arg'} = '* W l3|in @ref empty cross reference name after expansion ` @ \'
- warning: in @ref empty cross reference name after expansion ` @ \'
+$result_errors{'empty_ref_arg'} = '* W l3|in @ref empty cross reference name after expansion `@ \'
+ warning: in @ref empty cross reference name after expansion `@ \'
 
-* W l4|in @ref empty cross reference title after expansion ` @ \'
- warning: in @ref empty cross reference title after expansion ` @ \'
+* W l4|in @ref empty cross reference title after expansion `@ \'
+ warning: in @ref empty cross reference title after expansion `@ \'
 
-* W l5|in @ref empty cross reference name after expansion ` @ \'
- warning: in @ref empty cross reference name after expansion ` @ \'
+* W l5|in @ref empty cross reference name after expansion `@ \'
+ warning: in @ref empty cross reference name after expansion `@ \'
 
-* W l5|in @ref empty cross reference title after expansion ` @:\'
- warning: in @ref empty cross reference title after expansion ` @:\'
+* W l5|in @ref empty cross reference title after expansion `@:\'
+ warning: in @ref empty cross reference title after expansion `@:\'
 
-* W l11|in @ref empty cross reference name after expansion ` @c aaa
- @ 
-@c ggg
-\'
- warning: in @ref empty cross reference name after expansion ` @c aaa
- @ 
-@c ggg
-\'
+* W l11|in @ref empty cross reference name after expansion `@ \'
+ warning: in @ref empty cross reference name after expansion `@ \'
 
 ';
 
@@ -162,7 +152,7 @@ $result_sectioning_root{'empty_ref_arg'} = '';
 $result_headings_list{'empty_ref_arg'} = '';
 
 
-$result_converted{'xml'}->{'empty_ref_arg'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
+$result_converted{'xml'}->{'empty_ref_arg'} = '<node identifier="first"><nodename> first</nodename></node>
 
 <para><ref label="first"><xrefnodename>first</xrefnodename><xrefinfoname> <spacecmd type="spc"/></xrefinfoname></ref>
 <ref label="first"><xrefnodename>first</xrefnodename><xrefinfoname> </xrefinfoname><xrefprinteddesc> <spacecmd type="spc"/></xrefprinteddesc></ref>

@@ -2488,8 +2488,9 @@ sub _set_environment_options($$$) {
       # arguments_line type element
       my $arguments_line = $element->{'contents'}->[0];
       my $block_line_arg = $arguments_line->{'contents'}->[0];
-      if (exists($block_line_arg->{'contents'})) {
+      if (!Texinfo::Common::empty_spaces_argument($block_line_arg)) {
         $option
+          # TODO use directly $block_line_arg
           = {'mdframed' => $option->{'mdframed'} . ', frametitle={'
                . _convert($self, {'contents' => $block_line_arg->{'contents'}})
                .'}'};
@@ -2502,9 +2503,9 @@ sub _set_environment_options($$$) {
     my $environment = $LaTeX_environment_commands{$command}[0];
     my $arguments_line = $element->{'contents'}->[0];
     my $block_line_arg = $arguments_line->{'contents'}->[0];
-    if (exists($block_line_arg->{'contents'})
-        and exists($block_line_arg->{'contents'}->[0]->{'text'})) {
-      my $specification = $block_line_arg->{'contents'}->[0]->{'text'};
+    my ($specification, $surplus)
+     = Texinfo::Common::simple_arg_text($block_line_arg);
+    if (defined($specification)) {
       if ($specification eq 'a') {
         return {$environment => 'label=\alph*.'};
       } elsif ($specification eq 'A') {
@@ -3797,13 +3798,16 @@ sub _convert($$) {
                   and not Texinfo::Common::empty_spaces_argument(
                                           $reference->{'contents'}->[1])) {
                 $name = $reference->{'contents'}->[1];
-              } elsif ($section_command) {
-                # arguments_line type element
-                my $arguments_line = $section_command->{'contents'}->[0];
-                # there may not be any argument at all for xrefname
-                if (not Texinfo::Common::empty_spaces_argument(
-                                                          $arguments_line)) {
+              } elsif (defined($section_command)) {
+                if (exists($section_command->{'contents'}->[0]->{'type'})
+                    and $section_command->{'contents'}->[0]->{'type'}
+                                                     eq 'arguments_line') {
+                  my $arguments_line = $section_command->{'contents'}->[0];
                   $name = $arguments_line->{'contents'}->[0];
+                } elsif (not Texinfo::Common::empty_spaces_argument(
+                                     $section_command->{'contents'}->[0])) {
+                  # xrefname may be empty
+                  $name = $section_command->{'contents'}->[0];
                 }
               }
             }
@@ -4175,8 +4179,7 @@ sub _convert($$) {
         # arguments_line type element
         my $arguments_line = $element->{'contents'}->[0];
         my $block_line_arg = $arguments_line->{'contents'}->[0];
-        if ($block_line_arg->{'contents'}
-            and scalar(@{$block_line_arg->{'contents'}})) {
+        if (!Texinfo::Common::empty_spaces_argument($block_line_arg)) {
           my $prepended = $self->cdt('@b{{quotation_arg}:} ',
                                 {'quotation_arg' => $block_line_arg});
           $result .= _convert($self, $prepended);
@@ -4413,7 +4416,8 @@ sub _convert($$) {
       # nothing to do here.  The condition ensures that the commands are not
       # considered as unknown commands in the else below.
     } elsif ($cmdname eq 'center') {
-      if ($element->{'contents'}->[0]->{'contents'}) {
+      if (!Texinfo::Common::empty_spaces_argument(
+                                    $element->{'contents'}->[0])) {
         $result .= "\\begin{center}\n";
         $result .= $self->_convert (
                   {'contents' => $element->{'contents'}->[0]->{'contents'}});
@@ -4421,12 +4425,14 @@ sub _convert($$) {
       }
       return $result;
     } elsif ($cmdname eq 'exdent') {
-      if ($element->{'contents'}->[0]->{'contents'}) {
+      if (!Texinfo::Common::empty_spaces_argument(
+                               $element->{'contents'}->[0])) {
         # FIXME \leavevmode{} is added to avoid
         # ! LaTeX Error: There's no line here to end.
         # but it is not clearly correct
         $result .= "\\leavevmode{}\\\\\n";
         $result .= "\\hbox{\\kern -\\leftmargin}%\n";
+        # FIXME convert $element->{'contents'}->[0] directly
         $result .= _convert($self,
             {'contents' => $element->{'contents'}->[0]->{'contents'}})."\n";
         $result .= "\\\\\n";
@@ -4822,13 +4828,13 @@ sub _convert($$) {
       _close_preformatted_command($self, $cmdname);
     }
     if ($cmdname eq 'float') {
+      # arguments_line type element
+      my $arguments_line = $element->{'contents'}->[0];
       # do that at the end of the float to be sure that it is after
       # the caption
-      if (exists($element->{'contents'})
-          and exists($element->{'contents'}->[0]->{'contents'})
-          and scalar(@{$element->{'contents'}->[0]->{'contents'}}) >= 2
-          and exists($element->{'contents'}->[0]->{'contents'}->[1]
-                                                           ->{'contents'})) {
+      if (scalar(@{$arguments_line->{'contents'}}) >= 2
+          and !Texinfo::Common::empty_spaces_argument(
+                           $arguments_line->{'contents'}->[1])) {
         my $float_label
           = _tree_anchor_label(
                $element->{'contents'}->[0]->{'contents'}->[1]->{'contents'});

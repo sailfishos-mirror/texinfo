@@ -9,75 +9,51 @@ $result_tree_text{'spurious_arg_on_line'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
   *@tex C3 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {argt}
+     {spaces_after_argument:\\n}
    *rawpreformatted C1
     {in tex\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {tex}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@verbatim C3 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {argverbatim}
+     {spaces_after_argument:\\n}
    {raw:in verbatim\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@html C3 l10
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {argh}
+     {spaces_after_argument:\\n}
    *elided_rawpreformatted C1
     {raw:in html\\n}
    *@end C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {html}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -129,15 +105,15 @@ $result_converted{'plaintext'}->{'spurious_arg_on_line'} = 'in verbatim
 
 
 $result_converted{'xml'}->{'spurious_arg_on_line'} = '
-<tex spaces=" " endspaces=" ">
+<tex endspaces=" ">
 in tex
 </tex>
 
-<verbatim xml:space="preserve" spaces=" " endspaces=" ">
+<verbatim xml:space="preserve" endspaces=" ">
 in verbatim
 </verbatim>
 
-<html spaces=" " endspaces=" ">
+<html endspaces=" ">
 in html
 </html>
 ';

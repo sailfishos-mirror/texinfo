@@ -14,13 +14,8 @@ $result_tree_text{'heading_separator_in_accent_command'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *@oddfooting C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C7
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C9
+    {spaces_before_argument: }
     {a }
     *@|
     { }
@@ -30,6 +25,7 @@ $result_tree_text{'heading_separator_in_accent_command'} = '*document_root C1
     { }
     *@|
     { b}
+    {spaces_after_argument:\\n}
 ';
 
 

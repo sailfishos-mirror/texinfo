@@ -9,26 +9,20 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
  *before_node_section C1
   {empty_line:\\n}
  *@node C4 l2 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C5 l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -75,68 +69,52 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
      *preformatted C1
       {\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 l10 {@asis{nodename. a}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{nodename_002e-a}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@asis C1 l10
      *brace_container C1
       {nodename. a}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 l12 {node@comma{}comma}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node_002ccomma}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     {node}
     *@comma C1 l12
      *brace_container
     {comma}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C3 l14 {@asis{bidule:}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{bidule_003a}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@asis C1 l14
      *brace_container C1
       {bidule:}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C6
    *@ref C2 l16

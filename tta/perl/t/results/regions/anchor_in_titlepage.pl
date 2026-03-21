@@ -10,10 +10,8 @@ $result_tree_text{'anchor_in_titlepage'} = '*document_root C5
   *preamble_before_content C2
    *@titlepage C5 l1
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     {empty_line:\\n}
     *@anchor C1 l3
     |EXTRA
@@ -25,73 +23,53 @@ $result_tree_text{'anchor_in_titlepage'} = '*document_root C5
       {in titlepage}
     {spaces_after_close_brace:\\n}
     *@end C1 l4
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{titlepage}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {titlepage}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@top C1 l6 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
  *@node C2 l7 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@chapter C1 l9 {Chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter}
+    {spaces_after_argument:\\n}
  *@node C3 l10 {nchap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{nchap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {nchap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@xref C1 l12

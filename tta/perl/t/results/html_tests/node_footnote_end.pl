@@ -22,26 +22,20 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
      {rawline_text:test footnotes with nodes only}
    {empty_line:\\n}
  *@node C4 node_footnote.texi:l5 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C6 node_footnote.texi:l7
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 node_footnote.texi:l8
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -93,33 +87,25 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
      *preformatted C1
       {\\n}
    *@end C1 node_footnote.texi:l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C4 node_footnote.texi:l14 {@\'a}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00e1}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@\' C1 node_footnote.texi:l14
      *following_arg C1
       {a}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C6
    {node }
@@ -140,21 +126,17 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
    {.\\n}
   {empty_line:\\n}
  *@node C4 node_footnote.texi:l19 {@^a}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00e2}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@^ C1 node_footnote.texi:l19
      *following_arg C1
       {a}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C6
    {node }
@@ -175,40 +157,30 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
    {.\\n}
   {empty_line:\\n}
  *@node C1 node_footnote.texi:l24 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C4 node_footnote.texi:l25 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 node_footnote.texi:l27
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 node_footnote.texi:l28
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -223,33 +195,25 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
      *preformatted C1
       {\\n}
    *@end C1 node_footnote.texi:l29
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C4 node_footnote.texi:l31 {@`a}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00e0}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@` C1 node_footnote.texi:l31
      *following_arg C1
       {a}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C6
    {node }

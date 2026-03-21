@@ -9,78 +9,56 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
  *before_node_section C4
   *@example C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C1
     *@html C3 l2
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *rawpreformatted C1
       {in html\\n}
      *@end C1 l4
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{html}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {html}
+       {spaces_after_argument:\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@example C3 l7
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C5
     {empty_line:\\n}
     *@html C3 l9
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *rawpreformatted C3
       {empty_line:\\n}
       {Some html <code>some code</code>.\\n}
       {empty_line:\\n}
      *@end C1 l13
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{html}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {html}
+       {spaces_after_argument:\\n}
     {empty_line:\\n}
     *@tex C3 l15
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *rawpreformatted C7
       {empty_line:\\n}
       {$$ \\n}
@@ -90,28 +68,20 @@ $result_tree_text{'raw_in_example'} = '*document_root C1
       {$$\\n}
       {empty_line:\\n}
      *@end C1 l23
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{tex}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {tex}
+       {spaces_after_argument:\\n}
     {empty_line:\\n}
    *@end C1 l25
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

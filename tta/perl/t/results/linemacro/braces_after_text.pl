@@ -15,23 +15,16 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
     {macro_line: mymacro {a, b, c}\\n}
    {raw:@defline \\a\\ \\b\\ \\c\\\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defblock C3 l5
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
     >SOURCEMARKS
     >linemacro_expansion<start;1>
      >*linemacro_call@mymacro C3
@@ -50,10 +43,8 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
       >|spaces_before_argument:
        >|{spaces_before_argument: }
        >{bracketed_linemacro_arg:}
+     {spaces_before_argument:\\n}
    *@defline C1 l6:@mymacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -63,12 +54,8 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
       |*bracketed_arg C1
        |{in paren}
    |original_def_cmdname:{defline}
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
-     |>SOURCEMARKS
-     |>linemacro_expansion<end;1><p:1>
+    *line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C2
        {text}
@@ -80,17 +67,16 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
        {rest}
        *bracketed_arg C1 l6:@mymacro
         {in paren}
+     {spaces_after_argument: \\n}
+     >SOURCEMARKS
+     >linemacro_expansion<end;1><p:1>
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defblock}
+     {spaces_after_argument:\\n}
 ';
 
 

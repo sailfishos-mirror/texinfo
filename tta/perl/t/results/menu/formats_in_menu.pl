@@ -8,26 +8,20 @@ use utf8;
 $result_tree_text{'formats_in_menu'} = '*document_root C2
  *before_node_section
  *@node C3 l1 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C8 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C3
@@ -41,40 +35,28 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
      *preformatted C1
       {text\\n}
      *@table C3 l5
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
       *arguments_line C1
-       *block_line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C3
+        {spaces_before_argument: }
         *@asis l5
+        {spaces_after_argument:\\n}
       *table_entry C2
        *table_term C1
         *@item C1 l6
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument: }
-         *line_arg C1
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument:\\n}
+         *line_arg C3
+          {spaces_before_argument: }
           {item}
+          {spaces_after_argument:\\n}
        *table_definition C1
         *preformatted C1
          {* table line::\\n}
       *@end C1 l8
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{table}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {table}
+        {spaces_after_argument:\\n}
    *menu_comment C1
     *preformatted C1
      {after_menu_description_line:\\n}
@@ -92,23 +74,17 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
       {\\n}
      *@verbatim C4 l11
       *arguments_line C1
-       *block_line_arg
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C1
+        {spaces_before_argument:\\n}
       {raw:some @ verb{x atim\\n}
       {raw:* texinfo:: in @ verbatim\\n}
       *@end C1 l14
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{verbatim}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {verbatim}
+        {spaces_after_argument:\\n}
    *menu_entry C4 l15
     {menu_entry_leading_text:* }
     *menu_entry_node C3
@@ -123,24 +99,18 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
       {%\\n}
       *@html C3 l16
        *arguments_line C1
-        *block_line_arg
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *block_line_arg C1
+         {spaces_before_argument:\\n}
        *rawpreformatted C2
         {empty_line:\\n}
         {<i></i>\\n}
        *@end C1 l19
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{html}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {html}
+         {spaces_after_argument:\\n}
       {Log$\\n}
    *menu_entry C4 l21
     {menu_entry_leading_text:* }
@@ -163,37 +133,27 @@ $result_tree_text{'formats_in_menu'} = '*document_root C2
      {after_menu_description_line:\\n}
     *@example C3 l24
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *preformatted C2
       {* subsubsection::\\n}
       {Menu comment\\n}
      *@end C1 l27
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {example}
+       {spaces_after_argument:\\n}
     *preformatted C1
      {empty_line:\\n}
    *@end C1 l29
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -361,12 +321,12 @@ $result_converted_errors{'html'}->{'formats_in_menu'} = '* W |must specify a tit
 ';
 
 
-$result_converted{'xml'}->{'formats_in_menu'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
+$result_converted{'xml'}->{'formats_in_menu'} = '<node identifier="first"><nodename> first</nodename></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>(gcc)</menunode><menuseparator>:: </menuseparator><menudescription><pre xml:space="preserve">text
-</pre><table commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis">item</itemformat></item>
+</pre><table commandarg="asis" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"> item</itemformat></item>
 </tableterm><tableitem><pre xml:space="preserve">* table line::
 </pre></tableitem></tableentry></table>
 </menudescription></menuentry><menucomment><pre xml:space="preserve">

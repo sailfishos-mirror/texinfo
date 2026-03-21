@@ -9,51 +9,35 @@ $result_tree_text{'quotation_author_in_example'} = '*document_root C1
  *before_node_section C1
   *@example C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@quotation C3 l2
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: \\n}
+     *block_line_arg C1
+      {spaces_before_argument: \\n}
     *preformatted C2
      *@author C1 l3
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |global_command_number:{1}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {Some One}
+       {spaces_after_argument:\\n}
      {A quot---ation\\n}
     *@end C1 l5
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {quotation}
+      {spaces_after_argument:\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -97,7 +81,7 @@ $result_converted{'html_text'}->{'quotation_author_in_example'} = '<div class="e
 
 $result_converted{'xml'}->{'quotation_author_in_example'} = '<example endspaces=" ">
 <quotation endspaces=" "> 
-<pre xml:space="preserve"><author spaces=" ">Some One</author>
+<pre xml:space="preserve"><author> Some One</author>
 A quot---ation
 </pre></quotation>
 </example>

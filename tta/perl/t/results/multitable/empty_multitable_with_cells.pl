@@ -11,10 +11,8 @@ $result_tree_text{'empty_multitable_with_cells'} = '*document_root C1
   |EXTRA
   |max_columns:{0}
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *before_item C8
     {ignorable_spaces_after_command: }
     *paragraph C1
@@ -29,16 +27,12 @@ $result_tree_text{'empty_multitable_with_cells'} = '*document_root C1
     *paragraph C1
      {item in empty m\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
 ';
 
 

@@ -11,87 +11,63 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
    {text_before_beginning:\\input texinfo\\n}
   *preamble_before_content C3
    *@documentencoding C1 chinese_mixed_with_en_EUC_CN.texi:l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{euc-cn}
    |text_arg:{EUC-CN}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {EUC-CN}
+     {spaces_after_argument:\\n}
    *@settitle C1 chinese_mixed_with_en_EUC_CN.texi:l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {chinese mixed with english}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 chinese_mixed_with_en_EUC_CN.texi:l5 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 chinese_mixed_with_en_EUC_CN.texi:l6 {Mixed chinese and english}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Mixed chinese and english}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Example of english and chinese, chinese aligned or not.\\n}
   {empty_line:\\n}
  *@node C1 chinese_mixed_with_en_EUC_CN.texi:l10 {Mixed english and chinese}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Mixed-english-and-chinese}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Mixed english and chinese}
+    {spaces_after_argument:\\n}
  *@chapter C19 chinese_mixed_with_en_EUC_CN.texi:l11 {Mixed english and chinese}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Mixed english and chinese}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {1. english only\\n}

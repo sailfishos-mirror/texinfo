@@ -15,40 +15,30 @@ $result_tree_text{'macro_for_end'} = '*document_root C1
     {macro_line: myend\\n}
    {raw:@end\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@cartouche C2 l5
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
     >SOURCEMARKS
     >macro_expansion<start;1>
      >*macro_call@myend C1
       >*brace_arg
+     {spaces_before_argument:\\n}
    *@end C1 l6:@myend
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    |>SOURCEMARKS
-    |>macro_expansion<end;1>
    |EXTRA
    |text_arg:{cartouche}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
+     >SOURCEMARKS
+     >macro_expansion<end;1>
      {cartouche}
+     {spaces_after_argument:\\n}
 ';
 
 

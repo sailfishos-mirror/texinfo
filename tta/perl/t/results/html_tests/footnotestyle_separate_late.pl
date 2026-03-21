@@ -16,32 +16,24 @@ NodeForward: [U1]
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 U1 unit{N:chap f}{s:1 Chapter f}
 unit_directions:D[next->[U2]|prev->[U0]]
@@ -59,33 +51,25 @@ NodeUp: [U0]
 NodeForward: [U2]
 NodeBack: [U0]
  *@node C1 l4 {chap f}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap-f}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap f}
+    {spaces_after_argument:\\n}
  *@chapter C4 l5 {Chapter f}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter f}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@footnote C1 l7
@@ -108,33 +92,25 @@ NodePrev: [U1]
 NodeUp: [U0]
 NodeBack: [U1]
  *@node C1 l9 {chap s}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap-s}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap s}
+    {spaces_after_argument:\\n}
  *@chapter C5 l10 {Chapter s}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter s}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@footnote C1 l12
@@ -146,16 +122,12 @@ NodeBack: [U1]
    {\\n}
   {empty_line:\\n}
   *@footnotestyle C1 l14
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{separate}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {separate}
+    {spaces_after_argument:\\n}
 ';
 
 

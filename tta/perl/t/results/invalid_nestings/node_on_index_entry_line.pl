@@ -9,65 +9,52 @@ $result_tree_text{'node_on_index_entry_line'} = '*document_root C2
  *before_node_section C2
   {empty_line:\\n}
   *index_entry_command@cindex C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *line_arg C3
+    {spaces_before_argument: }
     {entry}
+    {spaces_after_argument: }
  *@node C3 l2 {a}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{a}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {a}
-   *line_arg C4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C5
    |EXTRA
    |manual_content:{m}
    |node_content:{b}
    |normalized:{b}
+    {spaces_before_argument: }
     {(}
     {m}
     {)}
     {b}
-   *line_arg C4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C5
    |EXTRA
    |manual_content:{m}
    |node_content:{c}
    |normalized:{c}
+    {spaces_before_argument: }
     {(}
     {m}
     {)}
     {c}
-   *line_arg C4
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C6
    |EXTRA
    |manual_content:{h}
    |node_content:{d}
    |normalized:{d}
+    {spaces_before_argument: }
     {(}
     {h}
     {)}
     {d}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Content\\n}

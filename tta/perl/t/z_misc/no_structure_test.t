@@ -273,20 +273,20 @@ my $texinfoxml_converter = Texinfo::Example::TexinfoXML->converter();
 my $texinfoxml_text = $texinfoxml_converter->convert($document);
 is($texinfoxml_text, '<contents></contents>
 
-<top spaces=" "><sectiontitle>First File</sectiontitle>
+<top><sectiontitle> First File</sectiontitle>
 </top>
-<node identifier="Top" spaces=" "><nodename>Top</nodename></node>
+<node identifier="Top"><nodename> Top</nodename></node>
 
-<node identifier="chap" spaces=" "><nodename>chap</nodename></node>
-<chapter spaces=" "><sectiontitle>Chap</sectiontitle>
+<node identifier="chap"><nodename> chap</nodename></node>
+<chapter><sectiontitle> Chap</sectiontitle>
 
 <anchor identifier="point">point</anchor>
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">c</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="1">c</indexterm></cindex>
 
 </chapter>
-<node identifier="results" spaces=" "><nodename>results</nodename></node>
-<appendix spaces=" "><sectiontitle>Results</sectiontitle>
+<node identifier="results"><nodename> results</nodename></node>
+<appendix><sectiontitle> Results</sectiontitle>
 
 <para><xref label="point"><xrefnodename>point</xrefnodename></xref>.
 </para>
@@ -295,8 +295,8 @@ is($texinfoxml_text, '<contents></contents>
 </pre></menudescription></menuentry></menu>
 
 </appendix>
-<subsection spaces=" "><sectiontitle>subsec</sectiontitle>
-<printindex spaces=" " value="cp" line="cp"></printindex>
+<subsection><sectiontitle> subsec</sectiontitle>
+<printindex value="cp" line=" cp"></printindex>
 
 </subsection>
 '

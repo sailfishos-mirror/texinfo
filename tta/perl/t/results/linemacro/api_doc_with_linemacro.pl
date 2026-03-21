@@ -15,16 +15,12 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
     {macro_line: param {param, type}\\n}
    {raw:@defline Parameter @var{\\param\\} @code{ : \\type\\}\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   *@linemacro C3 l4
   |EXTRA
   |macro_name:{returns}
@@ -33,16 +29,12 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
     {macro_line: returns {param, type}\\n}
    {raw:@defline {Return Value} @var{\\param\\} @code{ : \\type\\}\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   *@linemacro C3 l7
   |EXTRA
   |macro_name:{raises}
@@ -51,16 +43,12 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
     {macro_line: raises {exception}\\n}
    {raw:@defline {Exception} \\exception\\\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@set C1
   |INFO
@@ -87,14 +75,9 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
   {empty_line:\\n}
   *@defblock C4 l14
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@defline C1 l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -103,10 +86,8 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       |{fft.fft}
    |omit_def_name_space:{1}
    |original_def_cmdname:{defline}
-    *line_arg C19
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C21
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Function}
@@ -150,16 +131,14 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
         *brace_container C1
          {None}
      {delimiter:)}
+     {spaces_after_argument:\\n}
    *def_item C4
     *paragraph C1
      {Compute the one-dimensional discrete Fourier Transform.\\n}
     {empty_line:\\n}
     *@defblock C12 l18
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
       >SOURCEMARKS
       >linemacro_expansion<start;1>
        >*linemacro_call@param C2
@@ -173,10 +152,8 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
         >|spaces_before_argument:
          >|{spaces_before_argument: }
          >{macro_call_arg_text:array_like}
+       {spaces_before_argument:\\n}
      *@defline C1 l19:@param
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |def_command:{defline}
      |def_index_element:
@@ -187,10 +164,8 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
           |{a}
      |omit_def_name_space:{1}
      |original_def_cmdname:{defline}
-      *line_arg C5
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C7
+       {spaces_before_argument: }
        *def_category C1
         *def_line_arg C1
          {Parameter}
@@ -208,6 +183,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
          >linemacro_expansion<end;1>
           *brace_container C1
            { : array_like}
+       {spaces_after_argument:\\n}
      *def_item C2
       *paragraph C1
        {Input array, can be complex.\\n}
@@ -226,9 +202,6 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
          >|{spaces_before_argument: }
          >{macro_call_arg_text:int, optional}
      *@defline C1 l22:@param
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |def_command:{defline}
      |def_index_element:
@@ -239,10 +212,8 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
           |{n}
      |omit_def_name_space:{1}
      |original_def_cmdname:{defline}
-      *line_arg C5
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C7
+       {spaces_before_argument: }
        *def_category C1
         *def_line_arg C1
          {Parameter}
@@ -260,6 +231,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
          >linemacro_expansion<end;2>
           *brace_container C1
            { : int, optional}
+       {spaces_after_argument:\\n}
      *def_item C2
       *paragraph C4
        {Length of the transformed axis of the output.\\n}
@@ -283,9 +255,6 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
          >|{spaces_before_argument: }
          >{macro_call_arg_text:int, optional}
      *@defline C1 l26:@param
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |def_command:{defline}
      |def_index_element:
@@ -296,10 +265,8 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
           |{axis}
      |omit_def_name_space:{1}
      |original_def_cmdname:{defline}
-      *line_arg C5
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C7
+       {spaces_before_argument: }
        *def_category C1
         *def_line_arg C1
          {Parameter}
@@ -317,6 +284,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
          >linemacro_expansion<end;3>
           *brace_container C1
            { : int, optional}
+       {spaces_after_argument:\\n}
      *def_item C2
       *paragraph C1
        {Axis over which to compute the FFT.\\n}
@@ -335,9 +303,6 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
          >|{spaces_before_argument: }
          >{macro_call_arg_text:complex ndarray}
      *@defline C1 l29:@returns
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |def_command:{defline}
      |def_index_element:
@@ -348,10 +313,8 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
           |{out}
      |omit_def_name_space:{1}
      |original_def_cmdname:{defline}
-      *line_arg C5
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C7
+       {spaces_before_argument: }
        *def_category C1
         *bracketed_arg C1 l29:@returns
          {Return Value}
@@ -369,6 +332,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
          >linemacro_expansion<end;4>
           *brace_container C1
            { : complex ndarray}
+       {spaces_after_argument:\\n}
      *def_item C2
       *paragraph C1
        {The truncated or zero-padded input.\\n}
@@ -382,9 +346,6 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
         >*linemacro_arg C1
          >{macro_call_arg_text:IndexError}
      *@defline C1 l32:@raises
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |def_command:{defline}
      |def_index_element:
@@ -393,10 +354,8 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
         |{IndexError}
      |omit_def_name_space:{1}
      |original_def_cmdname:{defline}
-      *line_arg C3
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C5
+       {spaces_before_argument: }
        *def_category C1
         *bracketed_arg C1 l32:@raises
          {Exception}
@@ -406,6 +365,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
          {IndexError}
          >SOURCEMARKS
          >linemacro_expansion<end;5><p:10>
+       {spaces_after_argument:\\n}
      *def_item C2
       *paragraph C5
        {If }
@@ -419,28 +379,20 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
        {.\\n}
       {empty_line:\\n}
      *@end C1 l35
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{defblock}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {defblock}
+       {spaces_after_argument:\\n}
     {empty_line:\\n}
    *@end C1 l37
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defblock}
+     {spaces_after_argument:\\n}
 ';
 
 

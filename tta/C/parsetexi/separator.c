@@ -447,23 +447,24 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
       else if (closed_cmd == CM_errormsg)
         {
           int surplus_arg;
-          const char *arg_text = simple_arg_text (current, &surplus_arg);
+          const TEXT *arg_text = simple_arg_text (current, &surplus_arg);
       /* We do not warn if $surplus_arg is set, even though the command is
          incorrectly used, as we want to avoid adding to the error text. */
           if (arg_text)
-            line_error (arg_text);
+            line_error (arg_text->text);
         }
       else if (closed_cmd == CM_U)
         {
           int surplus_arg;
-          const char *arg_text = simple_arg_text (current, &surplus_arg);
+          const TEXT *text_text = simple_arg_text (current, &surplus_arg);
 
-          if (!arg_text || !*arg_text)
+          if (!text_text || text_text->end == 0)
             {
               line_warn ("no argument specified for @U");
             }
           else
             {
+              const char *arg_text = text_text->text;
               int n = strspn (arg_text, "0123456789ABCDEFabcdef");
               if (arg_text[n])
                 {
@@ -482,7 +483,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                   int ret;
 
                   if (surplus_arg)
-                    line_warn ("superfluous argument to \@%s", "U");
+                    line_warn ("superfluous argument to @%s", "U");
 
                   ret = sscanf (arg_text, "%lx", &val);
                   if (ret != 1)
@@ -501,7 +502,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
             }
         }
       else if (parent_of_command_as_argument (brace_command->e.c->parent)
-               && current->e.c->contents.number == 0)
+               && empty_spaces_argument (current))
         {
           register_command_as_argument (brace_command);
         }
@@ -576,15 +577,10 @@ handle_comma (ELEMENT *current, const char **line_inout)
   const char *line = *line_inout;
   enum element_type type;
   ELEMENT *command_element, *argument;
-  ELEMENT *new_arg, *spaces_before_e;
   ELEMENT *new_current;
 
   abort_empty_line (current);
-  if (current->type == ET_brace_container
-      || current->type == ET_brace_arg)
-    isolate_leading_trailing (current, 0);
-  else
-    isolate_last_space (current);
+  isolate_leading_trailing (current, 0);
 
   type = current->type;
   command_element = current->e.c->parent;
@@ -791,17 +787,8 @@ handle_comma (ELEMENT *current, const char **line_inout)
         }
     }
 
-  new_arg = new_element (type);
-  add_to_element_contents (argument, new_arg);
-
-  if (current->type != ET_brace_container
-      && current->type != ET_brace_arg)
-    {
-      spaces_before_e = new_text_element (ET_internal_spaces_before_argument);
-      add_to_contents_as_array (new_arg, spaces_before_e);
-      internal_space_holder = new_arg;
-    }
-  new_current = new_arg;
+  new_current = new_element (type);
+  add_to_element_contents (argument, new_current);
 
 funexit:
   *line_inout = line;

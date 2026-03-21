@@ -18,16 +18,12 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
      {macro_line: vvv {}\\n}
     {raw:#line 30 "toto"\\n}
     *@end C1 cpp_directives_line_value_macro.texi:l4
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{macro}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {macro}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
   *paragraph C1
    {#line 30 "toto"\\n}
@@ -45,16 +41,12 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
     {macro_line: machash {}\\n}
    {raw:#\\n}
    *@end C1 cpp_directives_line_value_macro.texi:l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {# 130\\n}
@@ -72,16 +64,12 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
     {macro_line: numberfileflag {arg}\\n}
    {raw:\\arg\\ "titi" 3\\arg\\\\n}
    *@end C1 cpp_directives_line_value_macro.texi:l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {# 900 "titi" 3900\\n}

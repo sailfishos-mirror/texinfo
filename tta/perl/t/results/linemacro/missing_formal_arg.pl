@@ -16,16 +16,12 @@ $result_tree_text{'missing_formal_arg'} = '*document_root C1
     {macro_line: mymacro {a, , b}\\n}
    {raw:\\a\\ and \\b\\.\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {spaces_before_paragraph: }
   *paragraph C1

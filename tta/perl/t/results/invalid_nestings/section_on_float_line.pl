@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'section_on_float_line'} = '*document_root C2
  *before_node_section C1
   *@float C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{t}
@@ -18,29 +15,23 @@ $result_tree_text{'section_on_float_line'} = '*document_root C2
   |identifier:{l}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {t}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {l}
+     {spaces_after_argument: }
  *@section C1 l1 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -89,9 +80,9 @@ $result_converted{'plaintext'}->{'section_on_float_line'} = 't 1
 ';
 
 
-$result_converted{'xml'}->{'section_on_float_line'} = '<float identifier="l" type="t" number="1" spaces=" "><floattype>t</floattype><floatname spaces=" ">l </floatname>
+$result_converted{'xml'}->{'section_on_float_line'} = '<float identifier="l" type="t" number="1"><floattype> t</floattype><floatname> l </floatname>
 </float>
-<section spaces=" "><sectiontitle>first</sectiontitle>
+<section><sectiontitle> first</sectiontitle>
 </section>
 ';
 

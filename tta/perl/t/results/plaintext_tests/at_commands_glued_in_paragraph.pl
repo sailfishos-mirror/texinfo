@@ -73,16 +73,12 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
    {after noindent\\n}
    {sp}
   *@sp C1 l12
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{4}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {4}
+    {spaces_after_argument:\\n}
   *paragraph C5
    {anchor}
    *@anchor C1 l13
@@ -94,16 +90,12 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
    {anchor\\n}
    {index}
    *index_entry_command@cindex C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |index_entry:I{cp,1}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {index}
+     {spaces_after_argument:\\n}
 ';
 
 

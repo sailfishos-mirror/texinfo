@@ -11,16 +11,12 @@ $result_tree_text{'definfoenclose'} = '*document_root C1
   *paragraph C2
    {definfoenclose phoo,//,\\  }
    *@definfoenclose C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{phoo|//|\\}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {phoo,//,\\}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *definfoenclose_command@phoo C1 l4
@@ -34,16 +30,12 @@ $result_tree_text{'definfoenclose'} = '*document_root C1
   *paragraph C2
    {definfoenclose phi,:,:  }
    *@definfoenclose C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{phi|:|:}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {phi,:,:}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *definfoenclose_command@phi C1 l8
@@ -61,16 +53,12 @@ $result_tree_text{'definfoenclose'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *@definfoenclose C1 l12
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{strong|(strong:|:)}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {strong,(strong:,:)}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *definfoenclose_command@strong C1 l14

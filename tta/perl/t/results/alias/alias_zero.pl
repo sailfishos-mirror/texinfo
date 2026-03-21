@@ -8,16 +8,12 @@ use utf8;
 $result_tree_text{'alias_zero'} = '*document_root C1
  *before_node_section C2
   *@alias C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{0|strong}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {0 = strong}
+    {spaces_after_argument:\\n}
   *paragraph C2
    *@strong C1 l2
    |INFO

@@ -9,70 +9,46 @@ $result_tree_text{'beginning_and_end_on_line'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
   *@tex C2 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {in tex}
+     {spaces_after_argument: }
    *@end C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {tex}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@verbatim C2 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {in verbatim}
+     {spaces_after_argument: }
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@html C2 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {in html}
+     {spaces_after_argument: }
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {html}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -123,13 +99,13 @@ $result_converted{'plaintext'}->{'beginning_and_end_on_line'} = '';
 
 
 $result_converted{'xml'}->{'beginning_and_end_on_line'} = '
-<tex spaces=" " endspaces=" "> 
+<tex endspaces=" "> 
 </tex>
 
-<verbatim xml:space="preserve" spaces=" " endspaces=" "> 
+<verbatim xml:space="preserve" endspaces=" "> 
 </verbatim>
 
-<html spaces=" " endspaces=" "> 
+<html endspaces=" "> 
 </html>
 ';
 

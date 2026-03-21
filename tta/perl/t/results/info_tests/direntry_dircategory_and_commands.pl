@@ -8,24 +8,18 @@ use utf8;
 $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
  *before_node_section C7
   *@dircategory C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     {``category---}
     *@var C1 l1
      *brace_container C1
       {th  ere}
     {?\'\'}
+    {spaces_after_argument:\\n}
   *@direntry C3 l2
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C6 l3
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -46,32 +40,22 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
         {there}
       {?\'\'\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{direntry}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {direntry}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@dircategory C1 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cat2}
+    {spaces_after_argument:\\n}
   *@direntry C4 l7
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l8
     {menu_entry_leading_text:* }
     *menu_entry_node C2
@@ -90,45 +74,33 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
      {after_menu_description_line:\\n}
      {menutitle\\n}
    *@end C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{direntry}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {direntry}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
  *@node C1 l15 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C3 l16 {Test dircategory and direntry}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Test dircategory and direntry}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Text\\n}

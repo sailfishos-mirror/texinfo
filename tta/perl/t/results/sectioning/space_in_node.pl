@@ -9,26 +9,20 @@ $result_tree_text{'space_in_node'} = '*document_root C5
  *before_node_section C1
   {empty_line:\\n}
  *@node C4 l2 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C5 l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -67,61 +61,45 @@ $result_tree_text{'space_in_node'} = '*document_root C5
      *preformatted C1
       {\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 l10 {Chap first  here}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument:  }
  |EXTRA
  |identifier:{Chap-first-here}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument:  }
     {Chap first  here}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 l12 {Test               title}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Test-title}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Test               title}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l14 {Last with spaces}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument:   }
  |EXTRA
  |identifier:{Last-with-spaces}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C3
+    {spaces_before_argument:   }
     {Last with spaces}
+    {spaces_after_argument: \\n}
 ';
 
 
@@ -277,7 +255,7 @@ $result_converted_errors{'html'}->{'space_in_node'} = '* W |must specify a title
 
 
 $result_converted{'xml'}->{'space_in_node'} = '
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">Chap first  here</nodenext></node>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on">  Chap first  here</nodenext></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>Chap    first here</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -285,11 +263,11 @@ $result_converted{'xml'}->{'space_in_node'} = '
 </pre></menudescription></menuentry><menuentry><menuleadingtext>*   </menuleadingtext><menunode>Last with spaces    </menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="Chap-first-here" spaces="  "><nodename>Chap first  here</nodename><nodenext automatic="on">Test               title</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="Chap-first-here"><nodename>  Chap first  here</nodename><nodenext automatic="on"> Test               title</nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
 
-<node identifier="Test-title" spaces=" "><nodename>Test               title</nodename><nodenext automatic="on">Last with spaces</nodenext><nodeprev automatic="on">Chap first  here</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="Test-title"><nodename> Test               title</nodename><nodenext automatic="on">   Last with spaces</nodenext><nodeprev automatic="on">  Chap first  here</nodeprev><nodeup automatic="on"> Top</nodeup></node>
 
-<node identifier="Last-with-spaces" spaces="   "><nodename trailingspaces=" ">Last with spaces</nodename><nodeprev automatic="on">Test               title</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="Last-with-spaces"><nodename>   Last with spaces</nodename><nodeprev automatic="on"> Test               title</nodeprev><nodeup automatic="on"> Top</nodeup></node>
 ';
 
 1;

@@ -8,16 +8,12 @@ use utf8;
 $result_tree_text{'empty_last_argument'} = '*document_root C1
  *before_node_section C4
   *@defcodeindex C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{BI}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {BI}
+    {spaces_after_argument:\\n}
   *@linemacro C4 l2
   |EXTRA
   |macro_name:{defbuiltin}
@@ -27,23 +23,16 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
    {raw:@BIindex \\symbol\\\\n}
    {raw:@defline Builtin \\symbol\\ \\rest\\\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defblock C8 l7
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
     >SOURCEMARKS
     >linemacro_expansion<start;1>
      >*linemacro_call@defbuiltin C2
@@ -57,22 +46,16 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
       >|spaces_before_argument:
        >|{spaces_before_argument: }
        >{bracketed_linemacro_arg:}
+     {spaces_before_argument:\\n}
    *before_defline C1
     *index_entry_command@BIindex C1 l8:@defbuiltin
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |index_entry:I{BI,1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {foo}
+      {spaces_after_argument:\\n}
    *@defline C1 l8:@defbuiltin
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -80,12 +63,8 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
      |*def_line_arg C1
       |{foo}
    |original_def_cmdname:{defline}
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
-     |>SOURCEMARKS
-     |>linemacro_expansion<end;1><p:1>
+    *line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Builtin}
@@ -93,6 +72,9 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
      *def_name C1
       *def_line_arg C1
        {foo}
+     {spaces_after_argument: \\n}
+     >SOURCEMARKS
+     >linemacro_expansion<end;1><p:1>
    *def_item C2
     {empty_line:\\n}
     >SOURCEMARKS
@@ -104,20 +86,13 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
       >*linemacro_arg C1
        >{macro_call_arg_text:foo}
     *index_entry_command@BIindex C1 l10:@defbuiltin
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |index_entry:I{BI,2}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {foo}
+      {spaces_after_argument:\\n}
    *@defline C1 l10:@defbuiltin
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -125,12 +100,8 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
      |*def_line_arg C1
       |{foo}
    |original_def_cmdname:{defline}
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
-     |>SOURCEMARKS
-     |>linemacro_expansion<end;2><p:1>
+    *line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Builtin}
@@ -138,6 +109,9 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
      *def_name C1
       *def_line_arg C1
        {foo}
+     {spaces_after_argument: \\n}
+     >SOURCEMARKS
+     >linemacro_expansion<end;2><p:1>
    *def_item C2
     {empty_line:\\n}
     >SOURCEMARKS
@@ -154,20 +128,13 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
        >|{spaces_before_argument: }
        >{bracketed_linemacro_arg:{}}
     *index_entry_command@BIindex C1 l12:@defbuiltin
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |index_entry:I{BI,3}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {foo}
+      {spaces_after_argument:\\n}
    *@defline C1 l12:@defbuiltin
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -175,10 +142,8 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
      |*def_line_arg C1
       |{foo}
    |original_def_cmdname:{defline}
-    *line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Builtin}
@@ -191,17 +156,14 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
       *bracketed_arg l12:@defbuiltin
       >SOURCEMARKS
       >linemacro_expansion<end;3>
+     {spaces_after_argument:\\n}
    *@end C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defblock}
+     {spaces_after_argument:\\n}
 ';
 
 

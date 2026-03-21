@@ -16,16 +16,12 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
    {raw:@quotation \\a\\\\n}
    {raw:now second arg: \\b\\\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C5 l6
   |EXTRA
@@ -37,16 +33,12 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
    {raw:@item \\d\\\\n}
    {raw:@end table\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
@@ -62,15 +54,11 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
      >|{spaces_before_argument: }
      >{macro_call_arg_text:jj @var{T}}
   *@quotation C7 l14:@lm
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {aa}
+     {spaces_after_argument:\\n}
    {spaces_before_paragraph:  }
    >SOURCEMARKS
    >macro_expansion<start;1><p:2>
@@ -83,39 +71,27 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
       >|{spaces_before_argument:\\n}
       >{macro_call_arg_text:   ggg}
    *@table C3 l14:@mymacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: \\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@emph l14:@mymacro
+      {spaces_after_argument: \\n}
     *table_entry C1
      *table_term C1
       *@item C1 l14:@mymacro
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument:    }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument:    }
         {ggg}
+        {spaces_after_argument:\\n}
     *@end C1 l14:@mymacro
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: \\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {table}
       >SOURCEMARKS
       >macro_expansion<end;1><p:5>
+      {spaces_after_argument: \\n}
    *paragraph C3
     {now second arg: jj }
     *@var C1 l14:@lm
@@ -127,16 +103,12 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
    {empty_line: \\n}
    {empty_line:\\n}
    *@end C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
 ';
 
 

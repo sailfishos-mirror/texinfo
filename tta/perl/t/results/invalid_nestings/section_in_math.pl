@@ -18,19 +18,15 @@ $result_tree_text{'section_in_math'} = '*document_root C3
       {empty_line:\\n}
       {}}
  *@section C3 l4 {sec1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {sec1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    {More }
@@ -41,19 +37,15 @@ $result_tree_text{'section_in_math'} = '*document_root C3
      {spaces_after_argument:\\n}
      {empty_line:\\n}
  *@section C1 l8 {sec2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {sec2}
+    {spaces_after_argument:\\n}
 ';
 
 

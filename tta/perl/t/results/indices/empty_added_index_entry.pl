@@ -9,51 +9,37 @@ $result_tree_text{'empty_added_index_entry'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content C2
    *@defindex C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{my}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {my}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@node C3 l4 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@myindex C1 l6
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument:\\n}
 ';
 
 
@@ -135,10 +121,11 @@ $result_converted{'html_text'}->{'empty_added_index_entry'} = '
 ';
 
 
-$result_converted{'xml'}->{'empty_added_index_entry'} = '<defindex spaces=" " value="my" line="my"></defindex>
+$result_converted{'xml'}->{'empty_added_index_entry'} = '<defindex value="my" line=" my"></defindex>
 
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node>
+<node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> Top</nodeprev></node>
+
 
 ';
 

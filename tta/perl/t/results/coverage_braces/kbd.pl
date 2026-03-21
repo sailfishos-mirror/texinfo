@@ -41,10 +41,8 @@ $result_tree_text{'kbd'} = '*document_root C1
   {empty_line:\\n}
   *@example C3 l9
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C1
+     {spaces_before_argument: \\n}
    *preformatted C3
     {in example\\n}
     *@code C1 l11
@@ -52,16 +50,12 @@ $result_tree_text{'kbd'} = '*document_root C1
       {in example in kbd}
     {.\\n}
    *@end C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {kbd in }
@@ -70,10 +64,8 @@ $result_tree_text{'kbd'} = '*document_root C1
   {empty_line:\\n}
   *@format C3 l16
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C1
+     {spaces_before_argument: \\n}
    *preformatted C3
     {in format\\n}
     *@code C1 l18
@@ -81,16 +73,12 @@ $result_tree_text{'kbd'} = '*document_root C1
       {in format in kbd}
     {.\\n}
    *@end C1 l19
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{format}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {format}
+     {spaces_after_argument:\\n}
 ';
 
 

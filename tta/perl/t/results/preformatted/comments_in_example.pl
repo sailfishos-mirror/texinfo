@@ -11,10 +11,8 @@ $result_tree_text{'comments_in_example'} = '*document_root C1
    {Example with comments 2 lines\\n}
   *@example C3 l2
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C1
+     {spaces_before_argument: \\n}
    *preformatted C4
     {line }
     *@c C1
@@ -37,25 +35,19 @@ $result_tree_text{'comments_in_example'} = '*document_root C1
       |{spaces_after_argument:\\n}
       {rawline_text:comment}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Example with comments 1 line\\n}
   *@example C3 l8
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C2
     {line }
     *@c C1
@@ -68,25 +60,19 @@ $result_tree_text{'comments_in_example'} = '*document_root C1
       |{spaces_after_argument:\\n}
       {rawline_text:comment}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Example with newline after comment\\n}
   *@example C3 l13
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C4
     {line }
     *@c C1
@@ -101,16 +87,12 @@ $result_tree_text{'comments_in_example'} = '*document_root C1
     {empty_line:\\n}
     {second line\\n}
    *@end C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 

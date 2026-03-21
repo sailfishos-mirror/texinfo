@@ -8,15 +8,11 @@ use utf8;
 $result_tree_text{'itemize_long_item'} = '*document_root C1
  *before_node_section C1
   *@itemize C8 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc}
+     {spaces_after_argument:\\n}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -29,25 +25,19 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
     {ignorable_spaces_after_command:\\n}
     *@example C3 l4
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *preformatted C3
       {In example\\n}
       {empty_line:\\n}
       {end example.\\n}
      *@end C1 l8
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {example}
+       {spaces_after_argument:\\n}
    *@item C3 l9
    |EXTRA
    |item_number:{3}
@@ -62,46 +52,34 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
     {empty_line:\\n}
     *@example C3 l14
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *preformatted C1
       {In second example\\n}
      *@end C1 l16
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {example}
+       {spaces_after_argument:\\n}
    *@item C3 l17
    |EXTRA
    |item_number:{5}
     {ignorable_spaces_after_command:\\n}
     *@quotation C3 l18
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *paragraph C1
       {Quotation\\n}
      *@end C1 l20
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{quotation}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {quotation}
+       {spaces_after_argument:\\n}
     {empty_line:\\n}
    *@item C3 l22
    |EXTRA
@@ -110,34 +88,24 @@ $result_tree_text{'itemize_long_item'} = '*document_root C1
     {empty_line:\\n}
     *@quotation C3 l24
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *paragraph C1
       {quotation after a blank line\\n}
      *@end C1 l26
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{quotation}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {quotation}
+       {spaces_after_argument:\\n}
    *@end C1 l27
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -238,7 +206,7 @@ empty line.
 ';
 
 
-$result_converted{'xml'}->{'itemize_long_item'} = '<itemize spaces=" " endspaces=" "><itemprepend>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc</itemprepend>
+$result_converted{'xml'}->{'itemize_long_item'} = '<itemize endspaces=" "><itemprepend> youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc</itemprepend>
 <listitem><prepend>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc</prepend> <para>first item
 </para></listitem><listitem><prepend>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc</prepend>
 <example endspaces=" ">

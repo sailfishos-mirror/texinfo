@@ -9,42 +9,30 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
  *before_node_section C1
   *preamble_before_content C1
    *@settitle C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {heading node after chap}
+     {spaces_after_argument:\\n}
  *@node C1 l2 {Cap 1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Cap-1}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Cap 1}
+    {spaces_after_argument:\\n}
  *@chapter C5 l3 {Chapter One}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter One}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@c C1
   |INFO
@@ -65,60 +53,44 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
    {\\n}
   {empty_line:\\n}
  *@node C1 l8 {Cap 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Cap-2}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Cap 2}
+    {spaces_after_argument:\\n}
  *@chapter C2 l9 {Chapter Two}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter Two}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 l11 {Node 1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Node-1}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Node 1}
+    {spaces_after_argument:\\n}
   *@heading C1 l12
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Topic}
+    {spaces_after_argument:\\n}
 ';
 
 

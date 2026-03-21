@@ -11,27 +11,19 @@ $result_tree_text{'bad_ifclear_argument'} = '*document_root C1
   >SOURCEMARKS
   >ignored_conditional_block<1><p:1>
    >*@ifclear C3 l2
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{#something}
+      >{spaces_after_argument:\\n}
     >{raw:R#something\\n}
     >*@end C1 l4
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifclear}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifclear}
+      >{spaces_after_argument:\\n}
 ';
 
 

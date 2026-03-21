@@ -15,34 +15,26 @@ $result_tree_text{'macro_in_invalid_documentencoding'} = '*document_root C1
     {macro_line: badmacro\\n}
    {raw:badm\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   *@documentencoding C1 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>macro_expansion<start;1><p:1>
-    |>*macro_call@badmacro C1
-     |>*brace_arg
   |EXTRA
   |global_command_number:{1}
   |text_arg:{badm}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >macro_expansion<start;1><p:1>
+     >*macro_call@badmacro C1
+      >*brace_arg
     {badm}
     >SOURCEMARKS
     >macro_expansion<end;1><p:4>
+    {spaces_after_argument:\\n}
 ';
 
 

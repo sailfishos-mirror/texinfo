@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'end_of_lines_protected'} = '*document_root C1
  *before_node_section C1
   *@deffn C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -20,10 +17,8 @@ $result_tree_text{'end_of_lines_protected'} = '*document_root C1
       |{deffn_name}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C19
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C21
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {category}
@@ -69,20 +64,17 @@ $result_tree_text{'end_of_lines_protected'} = '*document_root C1
      *def_arg C1
       *bracketed_arg C1 l4
        {one last arg}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {deffn\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
 ';
 
 

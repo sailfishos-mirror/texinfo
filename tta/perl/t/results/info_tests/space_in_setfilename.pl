@@ -8,13 +8,8 @@ use utf8;
 $result_tree_text{'space_in_setfilename'} = '*document_root C2
  *before_node_section C2
   *@setfilename C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     *@ 
     *@verb C1 l1
     |INFO
@@ -22,21 +17,18 @@ $result_tree_text{'space_in_setfilename'} = '*document_root C2
      *brace_container C1
       {raw: name }
     *@ 
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
 ';
 
 

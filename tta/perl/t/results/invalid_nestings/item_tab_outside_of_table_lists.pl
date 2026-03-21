@@ -8,14 +8,10 @@ use utf8;
 $result_tree_text{'item_tab_outside_of_table_lists'} = '*document_root C1
  *before_node_section C5
   *@itemx C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {itemx outside.}
+    {spaces_after_argument:\\n}
   {ignorable_spaces_after_command: }
   *paragraph C2
    {headitem outside.\\n}

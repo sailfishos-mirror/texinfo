@@ -12,45 +12,37 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
    {text_before_beginning:\\n}
   *preamble_before_content
  *@node C1 sectioning.texi:l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C3
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {Top}
    *line_arg C1
    |EXTRA
    |node_content:{First node}
    |normalized:{First-node}
     {First node}
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
    |EXTRA
    |manual_content:{dir}
     {(}
     {dir}
     {)}
+    {spaces_after_argument:\\n}
  *@top C3 sectioning.texi:l4
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument:\\n}
   *@menu C11 sectioning.texi:l5
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 sectioning.texi:l6
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -141,27 +133,21 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
      {description here\\n}
      {empty_line:\\n}
    *@end C1 sectioning.texi:l27
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 sectioning.texi:l29 {First node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{First-node}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {First node}
    *line_arg
    *line_arg C1
@@ -169,37 +155,29 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
    |node_content:{Top}
    |normalized:{Top}
     {Top}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
     {Top}
+    {spaces_after_argument:\\n}
  *@chapter C5 sectioning.texi:l30 {first node chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first node chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {first node chapter text\\n}
   *@menu C6 sectioning.texi:l33
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 sectioning.texi:l34
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -237,51 +215,37 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
     *preformatted C1
      {after_menu_description_line:\\n}
    *@end C1 sectioning.texi:l38
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 sectioning.texi:l40 {unnumbered}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumbered}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered}
+    {spaces_after_argument:\\n}
  *@unnumberedsec C4 sectioning.texi:l41 {unnumbered section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered section}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C6 sectioning.texi:l43
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 sectioning.texi:l44
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -327,163 +291,117 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
      *preformatted C1
       {nu2\\n}
    *@end C1 sectioning.texi:l48
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 sectioning.texi:l50 {unnumbered sub}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumbered-sub}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered sub}
+    {spaces_after_argument:\\n}
  *@unnumberedsubsec C2 sectioning.texi:l51 {unnumbered subsection}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered subsection}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 sectioning.texi:l53 {numbered sub}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{numbered-sub}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered sub}
+    {spaces_after_argument:\\n}
  *@subsection C2 sectioning.texi:l54 {numbered subsection}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered subsection}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 sectioning.texi:l56 {unnumbered sub2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumbered-sub2}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered sub2}
+    {spaces_after_argument:\\n}
  *@unnumberedsubsec C2 sectioning.texi:l57 {unnumbered subsection2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered subsection2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 sectioning.texi:l59 {numbered sub2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{numbered-sub2}
  |is_target:{1}
  |node_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered sub2}
+    {spaces_after_argument:\\n}
  *@subsection C2 sectioning.texi:l60 {numbered subsection2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered subsection2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 sectioning.texi:l62 {unnumbered2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumbered2}
  |is_target:{1}
  |node_number:{8}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered2}
+    {spaces_after_argument:\\n}
  *@unnumberedsec C4 sectioning.texi:l63 {unnumbered section2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{8}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered section2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 sectioning.texi:l65
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 sectioning.texi:l66
     {menu_entry_leading_text:*  }
     *menu_entry_node C1
@@ -496,110 +414,84 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
      *preformatted C1
       {\\n}
    *@end C1 sectioning.texi:l67
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 sectioning.texi:l69 {numbered sub3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{numbered-sub3}
  |is_target:{1}
  |node_number:{9}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered sub3}
+    {spaces_after_argument:\\n}
  *@subsection C3 sectioning.texi:l70 {numbered subsection3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{9}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered subsection3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
  *@node C1 sectioning.texi:l73 {numbered}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{numbered}
  |is_target:{1}
  |node_number:{10}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered}
+    {spaces_after_argument:\\n}
  *@section C2 sectioning.texi:l74 {numbered section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument:  }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{10}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument:  }
     {numbered section}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C4 sectioning.texi:l76 {between node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{between-node}
  |is_target:{1}
  |node_number:{11}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {between node}
    *line_arg
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {between node, node without sectioning node\\n}
   {empty_line:\\n}
  *@node C4 sectioning.texi:l80 {Second node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Second-node}
  |is_target:{1}
  |node_number:{12}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {Second node}
    *line_arg C1
    |EXTRA
@@ -607,78 +499,62 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
    |normalized:{Third-node-unnumbered}
     {Third node unnumbered}
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Second node text\\n}
   {empty_line:\\n}
  *@chapter C4 sectioning.texi:l84 {second node chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{11}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {second node chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {second node chapter text.\\n}
   {empty_line:\\n}
  *@node C1 sectioning.texi:l88 {Third node unnumbered}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Third-node-unnumbered}
  |is_target:{1}
  |node_number:{13}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Third node unnumbered}
+    {spaces_after_argument:\\n}
  *@unnumbered C5 sectioning.texi:l89 {unnumbered chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{12}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {unnumbered chapter text.\\n}
   {empty_line:\\n}
   {empty_line:\\n}
  *@node C3 sectioning.texi:l94 {Last node no description}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Last-node-no-description}
  |is_target:{1}
  |node_number:{14}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {Last node no description}
    *line_arg
    *line_arg C1
@@ -686,14 +562,12 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
    |node_content:{Third node unnumbered}
    |normalized:{Third-node-unnumbered}
     {Third node unnumbered}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@contents C1 sectioning.texi:l96
   |EXTRA

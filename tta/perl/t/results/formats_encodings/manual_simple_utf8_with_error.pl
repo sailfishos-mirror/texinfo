@@ -12,76 +12,56 @@ $result_tree_text{'manual_simple_utf8_with_error'} = '*document_root C6
    {text_before_beginning:\\n}
   *preamble_before_content
  *@node C1 manual_simple_utf8_with_error.texi:l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 manual_simple_utf8_with_error.texi:l4 {Testé}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Testé}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 manual_simple_utf8_with_error.texi:l6 {ésseulé}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00e9sseul_00e9}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ésseulé}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 manual_simple_utf8_with_error.texi:l8 {Chapitré}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Chapitr_00e9}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapitré}
+    {spaces_after_argument:\\n}
  *@chapter C4 manual_simple_utf8_with_error.texi:l9 {Chapitré}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapitré}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@value C1
    *brace_container C1

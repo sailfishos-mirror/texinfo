@@ -9,29 +9,21 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
  *before_node_section C1
   *@example C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@multitable C3 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |max_columns:{2}
     *arguments_line C1
-     *block_line_arg C1
+     *block_line_arg C2
+      {spaces_before_argument: }
       *@columnfractions C1 l2
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |misc_args:A{0.5|0.5}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {0.5 0.5}
+        {spaces_after_argument:\\n}
     *multitable_body C2
      *row C2
      |EXTRA
@@ -58,61 +50,43 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
         {ignorable_spaces_after_command:\\n}
        *@verbatim C3 l6
         *arguments_line C1
-         *block_line_arg
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument:\\n}
+         *block_line_arg C1
+          {spaces_before_argument:\\n}
         {raw:in first column, verbatim\\n}
         *@end C1 l8
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument: }
         |EXTRA
         |text_arg:{verbatim}
-         *line_arg C1
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument:\\n}
+         *line_arg C3
+          {spaces_before_argument: }
           {verbatim}
+          {spaces_after_argument:\\n}
       *@tab C2 l9
       |EXTRA
       |cell_number:{2}
        *preformatted C1
         {ignorable_spaces_after_command:\\n}
        *@verbatiminclude C1 l10
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |input_encoding_name:{utf-8}
        |text_arg:{inc_file.texi}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {inc_file.texi}
+         {spaces_after_argument:\\n}
     *@end C1 l11
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{multitable}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {multitable}
+      {spaces_after_argument:\\n}
    *@end C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 

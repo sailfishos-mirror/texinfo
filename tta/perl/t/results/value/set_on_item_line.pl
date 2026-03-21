@@ -8,22 +8,16 @@ use utf8;
 $result_tree_text{'set_on_item_line'} = '*document_root C1
  *before_node_section C3
   *@table C5 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code l1
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l2
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
+      *line_arg C2
+       {spaces_before_argument: }
        *@set C1
        |INFO
        |spaces_before_argument:
@@ -47,10 +41,8 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
    *table_entry C2
     *table_term C1
      *@item C1 l5
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C2
+      *line_arg C3
+       {spaces_before_argument: }
        {cjj }
        *@set C1
        |INFO
@@ -74,10 +66,8 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
    *table_entry C1
     *table_term C1
      *@item C1 l7
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C2
+      *line_arg C3
+       {spaces_before_argument: }
        {cvvv }
        *@set C1
        |INFO
@@ -96,34 +86,24 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
            |{rawline_text:}
          {rawline_text:cg}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C5 l10
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code l10
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l11
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
+      *line_arg C2
+       {spaces_before_argument: }
        *@set C1
        |INFO
        |spaces_before_argument:
@@ -142,10 +122,8 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
    *table_entry C2
     *table_term C1
      *@item C1 l14
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C2
+      *line_arg C3
+       {spaces_before_argument: }
        {jj }
        *@set C1
        |INFO
@@ -164,10 +142,8 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
    *table_entry C1
     *table_term C1
      *@item C1 l16
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C2
+      *line_arg C3
+       {spaces_before_argument: }
        {vvv }
        *@set C1
        |INFO
@@ -181,16 +157,12 @@ $result_tree_text{'set_on_item_line'} = '*document_root C1
          |{spaces_after_argument:\\n}
          {rawline_text:g}
    *@end C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
 ';
 
 

@@ -8,87 +8,62 @@ use utf8;
 $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C4 l5 {Chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@vtable C6 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code l7
+     {spaces_after_argument:\\n}
    *before_item C1
     {empty_line:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l9
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,1}
-      *line_arg C2
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C4
+       {spaces_before_argument: }
        *@anchor C1 l9
        |EXTRA
        |identifier:{label1}
@@ -96,6 +71,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
         *brace_arg C1
          {label1}
        {label1}
+       {spaces_after_argument:\\n}
     *table_definition C2
      *paragraph C1
       {Text1\\n}
@@ -103,16 +79,11 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
    *table_entry C2
     *table_term C1
      *@item C1 l12
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,2}
-      *line_arg C3
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C5
+       {spaces_before_argument: }
        *@anchor C1 l12
        |EXTRA
        |identifier:{label2}
@@ -121,6 +92,7 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
          {label2}
        {spaces_after_close_brace: }
        {label2}
+       {spaces_after_argument:\\n}
     *table_definition C2
      *paragraph C1
       {Text2\\n}
@@ -128,73 +100,53 @@ $result_tree_text{'anchor_on_vtable_item'} = '*document_root C7
    *table_entry C2
     *table_term C1
      *@item C1 l15
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,3}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {lab3}
+       {spaces_after_argument:\\n}
     *table_definition C1
      {empty_line:\\n}
    *@end C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l19 {Idx}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Idx}
  |is_target:{1}
  |isindex:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Idx}
+    {spaces_after_argument:\\n}
  *@chapter C5 l20 {Idx}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Idx}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l22
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{vr}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {vr}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@xref C1 l24

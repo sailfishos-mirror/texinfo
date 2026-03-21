@@ -11,66 +11,46 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
   >SOURCEMARKS
   >expanded_conditional_command<start;1>
    >*@ifset C1 l1
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{txicommandconditionals}
+      >{spaces_after_argument:\\n}
   *paragraph C1
    {Good, the txicommandconditionals variable was set.\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;1><p:51>
     >*@end C1 l3
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
+      >{spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >ignored_conditional_block<1><p:1>
    >*@ifcommanddefined C3 l5
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{nodexyz}
+      >{spaces_after_argument:\\n}
     >{raw:Bad, @@nodexyz is defined.\\n}
     >*@end C1 l7
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifcommanddefined}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifcommanddefined}
+      >{spaces_after_argument:\\n}
   >expanded_conditional_command<start;2><p:1>
    >*@ifcommandnotdefined C1 l8
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{nodexyz}
+      >{spaces_after_argument:\\n}
   *paragraph C3
    {Good, }
    *@@
@@ -78,29 +58,21 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
    >SOURCEMARKS
    >expanded_conditional_command<end;2><p:24>
     >*@end C1 l10
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifcommandnotdefined}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifcommandnotdefined}
+      >{spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >expanded_conditional_command<start;3><p:1>
    >*@ifcommanddefined C1 l12
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{node}
+      >{spaces_after_argument:\\n}
   *paragraph C3
    {Good, }
    *@@
@@ -108,75 +80,51 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
    >SOURCEMARKS
    >expanded_conditional_command<end;3><p:17>
     >*@end C1 l14
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifcommanddefined}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifcommanddefined}
+      >{spaces_after_argument:\\n}
    >ignored_conditional_block<2><p:17>
     >*@ifcommandnotdefined C3 l15
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
      >*arguments_line C1
-      >*block_line_arg C1
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*block_line_arg C3
+       >{spaces_before_argument: }
        >{node}
+       >{spaces_after_argument:\\n}
      >{raw:Bad, @@node is not defined.\\n}
      >*@end C1 l17
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
      >|EXTRA
      >|text_arg:{ifcommandnotdefined}
-      >*line_arg C1
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*line_arg C3
+       >{spaces_before_argument: }
        >{ifcommandnotdefined}
+       >{spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >ignored_conditional_block<3><p:1>
    >*@ifcommanddefined C3 l19
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{mathcode}
+      >{spaces_after_argument:\\n}
     >{raw:Unfortunately, @@mathcode is defined.\\n}
     >*@end C1 l21
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifcommanddefined}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifcommanddefined}
+      >{spaces_after_argument:\\n}
   >expanded_conditional_command<start;4><p:1>
    >*@ifcommandnotdefined C1 l22
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{mathcode}
+      >{spaces_after_argument:\\n}
   *paragraph C3
    {Happily, }
    *@@
@@ -184,16 +132,12 @@ $result_tree_text{'command_conditionals'} = '*document_root C1
    >SOURCEMARKS
    >expanded_conditional_command<end;4><p:25>
     >*@end C1 l24
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifcommandnotdefined}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifcommandnotdefined}
+      >{spaces_after_argument:\\n}
 ';
 
 

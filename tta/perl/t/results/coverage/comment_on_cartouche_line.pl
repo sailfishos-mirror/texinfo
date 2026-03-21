@@ -8,71 +8,54 @@ use utf8;
 $result_tree_text{'comment_on_cartouche_line'} = '*document_root C1
  *before_node_section C3
   *@cartouche C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comment}
+    *block_line_arg C2
+     {spaces_before_argument: }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comment}
    *paragraph C1
     {in cartouche.\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cartouche}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {cartouche}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@cartouche C3 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comment}
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *block_line_arg C4
+     {spaces_before_argument: }
      *@emph C1 l5
       *brace_container C1
        {Title of box}
+     {spaces_after_argument: }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comment}
    *paragraph C1
     {Out of main text\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cartouche}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {cartouche}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -121,11 +104,11 @@ $result_converted{'html_text'}->{'comment_on_cartouche_line'} = '<table class="c
 ';
 
 
-$result_converted{'xml'}->{'comment_on_cartouche_line'} = '<cartouche spaces=" " endspaces=" "><!-- c comment -->
+$result_converted{'xml'}->{'comment_on_cartouche_line'} = '<cartouche endspaces=" "> <!-- c comment -->
 <para>in cartouche.
 </para></cartouche>
 
-<cartouche spaces=" " endspaces=" "><cartouchetitle><emph>Title of box</emph> </cartouchetitle><!-- c comment -->
+<cartouche endspaces=" "><cartouchetitle> <emph>Title of box</emph> </cartouchetitle><!-- c comment -->
 <para>Out of main text
 </para></cartouche>
 ';
@@ -143,7 +126,8 @@ Out of main text
 
 $result_converted{'docbook'}->{'comment_on_cartouche_line'} = '<sidebar><para>in cartouche.
 </para></sidebar>
-<sidebar><title><emphasis>Title of box</emphasis></title>
+<sidebar><title><emphasis>Title of box</emphasis><!-- comment -->
+</title>
 <para>Out of main text
 </para></sidebar>';
 

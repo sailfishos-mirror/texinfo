@@ -12,25 +12,19 @@ $result_tree_text{'plaintext_ifinfo'} = '*document_root C1
   >expanded_conditional_command<start;1><p:1>
    >*@ifinfo C1 l2
     >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C1
+      >{spaces_before_argument:\\n}
   *paragraph C1
    {this text will appear only in Info and plain text.\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;1><p:51>
     >*@end C1 l4
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifinfo}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifinfo}
+      >{spaces_after_argument:\\n}
 ';
 
 

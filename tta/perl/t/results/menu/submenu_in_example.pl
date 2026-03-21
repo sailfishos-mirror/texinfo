@@ -8,143 +8,105 @@ use utf8;
 $result_tree_text{'submenu_in_example'} = '*document_root C2
  *before_node_section
  *@node C3 l1 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@example C4 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C3
     {empty_line:\\n}
     {in example\\n}
     {empty_line:\\n}
    *@menu C9 l7
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *menu_comment C1
      *preformatted C2
       {in submenu\\n}
       {empty_line:\\n}
     *@menu C2 l10
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *@end C1 l11
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{menu}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {menu}
+       {spaces_after_argument:\\n}
     *menu_comment C1
      *preformatted C1
       {empty_line:\\n}
     *@menu C3 l13
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *menu_comment C1
       *preformatted C1
        {in submenu\\n}
      *@end C1 l15
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{menu}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {menu}
+       {spaces_after_argument:\\n}
     *menu_comment C1
      *preformatted C1
       {empty_line:\\n}
     *@menu C3 l17
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *menu_comment C1
       *@quotation C3 l18
        *arguments_line C1
-        *block_line_arg
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *block_line_arg C1
+         {spaces_before_argument:\\n}
        *preformatted C1
         {A quot---ation in submenu\\n}
        *@end C1 l20
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{quotation}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {quotation}
+         {spaces_after_argument:\\n}
      *@end C1 l21
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{menu}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {menu}
+       {spaces_after_argument:\\n}
     *menu_comment C5
      *preformatted C1
       {empty_line:\\n}
      *@subheading C1 l23
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |global_command_number:{1}
      |heading_number:{1}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {subheading in menu}
+       {spaces_after_argument:\\n}
      *preformatted C1
       {empty_line:\\n}
      *@enumerate C3 l25
       *arguments_line C1
-       *block_line_arg
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C1
+        {spaces_before_argument:\\n}
       *@item C1 l26
       |EXTRA
       |item_number:{1}
@@ -152,40 +114,28 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
         {ignorable_spaces_after_command: }
         {e--numerate\\n}
       *@end C1 l27
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{enumerate}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {enumerate}
+        {spaces_after_argument:\\n}
      *preformatted C1
       {empty_line:\\n}
     *@end C1 l29
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{menu}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {menu}
+      {spaces_after_argument:\\n}
    *@end C1 l30
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -363,7 +313,7 @@ $result_converted_errors{'html'}->{'submenu_in_example'} = '* W |must specify a 
 ';
 
 
-$result_converted{'xml'}->{'submenu_in_example'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
+$result_converted{'xml'}->{'submenu_in_example'} = '<node identifier="first"><nodename> first</nodename></node>
 
 <example endspaces=" ">
 <pre xml:space="preserve">
@@ -385,7 +335,7 @@ in example
 </pre></quotation>
 </menucomment></menu>
 <menucomment><pre xml:space="preserve">
-</pre><subheading spaces=" ">subheading in menu</subheading>
+</pre><subheading> subheading in menu</subheading>
 <pre xml:space="preserve">
 </pre><enumerate first="1" endspaces=" ">
 <listitem><pre xml:space="preserve"> e--numerate

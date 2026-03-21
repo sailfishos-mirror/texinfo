@@ -515,16 +515,25 @@ ELEMENT *
 copy_contents (const ELEMENT *element, ELEMENT_LIST *added_root_elements,
                enum element_type type)
 {
+  int non_empty;
+  size_t leading_trailing_indices[2];
   ELEMENT *tmp = new_element (type);
-  ELEMENT *result;
-  tmp->e.c->contents = element->e.c->contents;
 
-  result = copy_element_tree (tmp, added_root_elements);
+  non_empty = non_leading_trailing_indices (element,
+                                            leading_trailing_indices);
 
-  tmp->e.c->contents.list = 0;
-  destroy_element (tmp);
+  if (non_empty)
+    {
+      ELEMENT *result;
+      insert_slice_into_contents (tmp, 0, element,
+                                  leading_trailing_indices[0],
+                                  leading_trailing_indices[1] +1);
+      result = copy_element_tree (tmp, added_root_elements);
+      destroy_element (tmp);
+      return result;
+    }
 
-  return result;
+  return tmp;
 }
 
 
@@ -732,52 +741,6 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
 }
 
 
-
-int
-non_leading_trailing_indices (const ELEMENT *tree, size_t *out_indices)
-{
-  size_t start_idx = 0;
-  size_t end_idx;
-
-  if (!tree->e.c->contents.number)
-    return 0;
-
-  while (start_idx < tree->e.c->contents.number)
-    {
-      const ELEMENT *content = tree->e.c->contents.list[start_idx];
-      if (content->type == ET_spaces_before_argument)
-        start_idx++;
-      else if (!(type_data[content->type].flags & TF_text)
-               && (content->e.c->cmd == CM_c
-                   || content->e.c->cmd == CM_comment))
-        start_idx++;
-      else
-        break;
-    }
-
-  if (start_idx == tree->e.c->contents.number)
-    return 0;
-
-  out_indices[0] = start_idx;
-
-  end_idx = tree->e.c->contents.number - 1;
-
-  while (end_idx > 0)
-    {
-      const ELEMENT *content = tree->e.c->contents.list[end_idx];
-      if (content->type == ET_spaces_after_argument)
-        end_idx--;
-      else if (!(type_data[content->type].flags & TF_text)
-               && (content->e.c->cmd == CM_c
-                   || content->e.c->cmd == CM_comment))
-        end_idx--;
-      else
-        break;
-    }
-  out_indices[1] = end_idx;
-
-  return 1;
-}
 
 /* In Texinfo::Common */
 /* NODE->e.c->contents is the Texinfo for the specification of a node.  This
@@ -1073,7 +1036,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
                                           - orig_contents_len);
     }
 
-  if (node_content)
+  if (node_content && node_content->e.c->contents.number > 0)
     result->node_content = node_content;
 
   return result;
@@ -1761,16 +1724,19 @@ print_element_details (ELEMENT *element, int level, const char *prepended,
   if (data_cmd
       && builtin_command_data[data_cmd].flags & CF_root)
     {
-      ELEMENT *argument_line = element->e.c->contents.list[0];
+      const ELEMENT *argument_line = element->e.c->contents.list[0];
       if (argument_line->e.c->contents.number > 0)
         {
-          ELEMENT *line_arg = argument_line->e.c->contents.list[0];
+          const ELEMENT *line_arg = argument_line->e.c->contents.list[0];
           if (line_arg->e.c->contents.number > 0)
             {
               char *root_command_texi
                 = convert_contents_to_texinfo (line_arg);
-              text_printf (result, " {%s}", root_command_texi);
-              free (root_command_texi);
+              if (root_command_texi)
+                {
+                  text_printf (result, " {%s}", root_command_texi);
+                  free (root_command_texi);
+                }
             }
         }
     }

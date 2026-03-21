@@ -8,105 +8,71 @@ use utf8;
 $result_tree_text{'text_on_display_command_line'} = '*document_root C1
  *before_node_section C7
   *@display C2 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {text on line}
+     {spaces_after_argument:\\n}
    *@end C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{display}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {display}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@display C3 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {text on line followed by text}
+     {spaces_after_argument:\\n}
    *preformatted C1
     {normal text\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{display}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {display}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@display C3 l8
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C1
     {in display\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{display text after end}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {display text after end}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@display C3 l12
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@display C2 l13
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *@end C1 l14
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{display text after end display nested in display}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {display text after end display nested in display}
+      {spaces_after_argument:\\n}
    *@end C1 l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{display}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {display}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -217,10 +183,10 @@ $result_converted{'docbook'}->{'text_on_display_command_line'} = '
 ';
 
 
-$result_converted{'xml'}->{'text_on_display_command_line'} = '<display spaces=" " endspaces=" ">
+$result_converted{'xml'}->{'text_on_display_command_line'} = '<display endspaces=" ">
 </display>
 
-<display spaces=" " endspaces=" ">
+<display endspaces=" ">
 <pre xml:space="preserve">normal text
 </pre></display>
 

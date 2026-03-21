@@ -8,34 +8,26 @@ use utf8;
 $result_tree_text{'detailmenu_unknown_node'} = '*document_root C2
  *before_node_section
  *@node C3 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@detailmenu C3 l4
    |EXTRA
    |global_command_number:{1}
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *menu_entry C4 l5
      {menu_entry_leading_text:* }
      *menu_entry_node C1
@@ -48,27 +40,19 @@ $result_tree_text{'detailmenu_unknown_node'} = '*document_root C2
       *preformatted C1
        {\\n}
     *@end C1 l6
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{detailmenu}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {detailmenu}
+      {spaces_after_argument:\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -152,7 +136,7 @@ $result_converted_errors{'html'}->{'detailmenu_unknown_node'} = '* W |must speci
 ';
 
 
-$result_converted{'xml'}->{'detailmenu_unknown_node'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename></node>
+$result_converted{'xml'}->{'detailmenu_unknown_node'} = '<node identifier="Top"><nodename> Top</nodename></node>
 
 <menu endspaces=" ">
 <detailmenu endspaces=" ">

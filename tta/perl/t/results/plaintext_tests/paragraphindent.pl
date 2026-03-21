@@ -15,51 +15,39 @@ $result_tree_text{'paragraphindent'} = '*document_root C1
    {aaa b default\\n}
   {empty_line:\\n}
   *@paragraphindent C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{asis}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {asis}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {spaces_before_paragraph:           }
   *paragraph C1
    {aaa b asis\\n}
   {empty_line:\\n}
   *@paragraphindent C1 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{0}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {0}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {spaces_before_paragraph:           }
   *paragraph C1
    {aaa b 0\\n}
   {empty_line:\\n}
   *@paragraphindent C1 l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{7}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {7}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {spaces_before_paragraph:           }
   *paragraph C1

@@ -8,18 +8,13 @@ use utf8;
 $result_tree_text{'email_in_node'} = '*document_root C2
  *before_node_section
  *@node C1 l1 {@email{ a } @email{c , d} @email{ , e}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{a-c-}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@email C1 l1
      *brace_arg C3
       {spaces_before_argument: }
@@ -40,6 +35,7 @@ $result_tree_text{'email_in_node'} = '*document_root C2
      *brace_arg C2
       {spaces_before_argument: }
       {e}
+    {spaces_after_argument:\\n}
 ';
 
 

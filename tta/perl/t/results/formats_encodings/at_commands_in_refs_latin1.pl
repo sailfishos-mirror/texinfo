@@ -9,64 +9,46 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
  *before_node_section C1
   *preamble_before_content C3
    *@setfilename C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{at_commands_in_refs_latin1.info}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {at_commands_in_refs_latin1.info}
+     {spaces_after_argument:\\n}
    *@documentencoding C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{iso-8859-15}
    |text_arg:{ISO-8859-15}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {ISO-8859-15}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l4 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 l5 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C29 l7
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l8
     {menu_entry_leading_text:* }
     *menu_entry_node C5
@@ -793,67 +775,50 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *preformatted C1
       {\\n}
    *@end C1 l35
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l37 {@- @{ @}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{-_007b-_007d}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@-
     { }
     *@{
     { }
     *@}
+    {spaces_after_argument:\\n}
  *@chapter C2 l38 {@- @{ @}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@-
     { }
     *@{
     { }
     *@}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l40 {@  @	 @! @* @. @: .@: @? @@}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{-_0021-_002e-_002e-_003f-_0040}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C17
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C19
+    {spaces_before_argument: }
     *@ 
     { }
     *@\\t
@@ -871,19 +836,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@?
     { }
     *@@
+    {spaces_after_argument:\\n}
  *@chapter C2 l41 {@  @	 @! @* @. @: .@: @? @@}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C17
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C19
+    {spaces_before_argument: }
     *@ 
     { }
     *@\\t
@@ -901,20 +862,16 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@?
     { }
     *@@
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l43 {@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_0040-_007b-_007d-_005c-_0023}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C9
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C11
+    {spaces_before_argument: }
     *@atchar C1 l43
      *brace_container
     { }
@@ -929,19 +886,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@hashchar C1 l43
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l44 {@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C9
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C11
+    {spaces_before_argument: }
     *@atchar C1 l44
      *brace_container
     { }
@@ -956,20 +909,16 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@hashchar C1 l44
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l46 {@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@LaTeX C1 l46
      *brace_container
     { }
@@ -990,19 +939,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@enddots C1 l46
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l47 {@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@LaTeX C1 l47
      *brace_container
     { }
@@ -1023,20 +968,16 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@enddots C1 l47
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l49 {@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
-   *line_arg C11
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C13
+    {spaces_before_argument: }
     *@equiv C1 l49
      *brace_container
     { }
@@ -1054,19 +995,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@minus C1 l49
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l50 {@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{5}
  |section_level:{1}
  |section_number:{6}
   *arguments_line C1
-   *line_arg C11
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C13
+    {spaces_before_argument: }
     *@equiv C1 l50
      *brace_container
     { }
@@ -1084,20 +1021,16 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@minus C1 l50
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l52 {@geq{} @leq{} @arrow{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_2265-_2264-_2192}
  |is_target:{1}
  |node_number:{7}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@geq C1 l52
      *brace_container
     { }
@@ -1106,19 +1039,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@arrow C1 l52
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l53 {@geq{} @leq{} @arrow{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{6}
  |section_level:{1}
  |section_number:{7}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@geq C1 l53
      *brace_container
     { }
@@ -1127,20 +1056,16 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@arrow C1 l53
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l55 {@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae}
  |is_target:{1}
  |node_number:{8}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@ordf C1 l55
      *brace_container
     { }
@@ -1161,19 +1086,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@registeredsymbol C1 l55
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l56 {@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{7}
  |section_level:{1}
  |section_number:{8}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@ordf C1 l56
      *brace_container
     { }
@@ -1194,20 +1115,16 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@registeredsymbol C1 l56
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l58 {@result{} @textdegree{} a@tie{}b @today{} @aa{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_21d2-_00b0-a-b-_00e5}
  |is_target:{1}
  |node_number:{9}
   *arguments_line C1
-   *line_arg C9
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C11
+    {spaces_before_argument: }
     *@result C1 l58
      *brace_container
     { }
@@ -1222,19 +1139,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@aa C1 l58
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l59 {@result{} @textdegree{} a@tie{}b @today{} @aa{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{8}
  |section_level:{1}
  |section_number:{9}
   *arguments_line C1
-   *line_arg C9
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C11
+    {spaces_before_argument: }
     *@result C1 l59
      *brace_container
     { }
@@ -1249,20 +1162,16 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@aa C1 l59
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l61 {@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe}
  |is_target:{1}
  |node_number:{10}
   *arguments_line C1
-   *line_arg C27
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C29
+    {spaces_before_argument: }
     *@AA C1 l61
      *brace_container
     { }
@@ -1304,19 +1213,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@th C1 l61
      *brace_container
+    {spaces_after_argument: \\n}
  *@chapter C2 l62 {@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{9}
  |section_level:{1}
  |section_number:{10}
   *arguments_line C1
-   *line_arg C27
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C29
+    {spaces_before_argument: }
     *@AA C1 l62
      *brace_container
     { }
@@ -1358,20 +1263,16 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@th C1 l62
      *brace_container
+    {spaces_after_argument: \\n}
   {empty_line:\\n}
  *@node C1 l64 {@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119}
  |is_target:{1}
  |node_number:{11}
   *arguments_line C1
-   *line_arg C21
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C23
+    {spaces_before_argument: }
     *@" C1 l64
      *brace_container C1
       {a}
@@ -1417,19 +1318,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@ogonek C1 l64
      *brace_container C1
       {e}
+    {spaces_after_argument:\\n}
  *@chapter C2 l65 {@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument:  }
  |EXTRA
  |section_heading_number:{10}
  |section_level:{1}
  |section_number:{11}
   *arguments_line C1
-   *line_arg C21
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C23
+    {spaces_before_argument:  }
     *@" C1 l65
      *brace_container C1
       {a}
@@ -1475,20 +1372,16 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@ogonek C1 l65
      *brace_container C1
       {e}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l67 {@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e}
  |is_target:{1}
  |node_number:{12}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@dotaccent C1 l67
      *brace_container C1
       {e}
@@ -1516,19 +1409,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@tieaccent C1 l67
      *brace_container C1
       {ee}
+    {spaces_after_argument:\\n}
  *@chapter C2 l68 {@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{11}
  |section_level:{1}
  |section_number:{12}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@dotaccent C1 l68
      *brace_container C1
       {e}
@@ -1556,20 +1445,16 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@tieaccent C1 l68
      *brace_container C1
       {ee}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l70 {@dotless{i} @`{@=E} @,{@\'C}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_0131-_1e14-_1e08}
  |is_target:{1}
  |node_number:{13}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@dotless C1 l70
      *brace_container C1
       {i}
@@ -1585,19 +1470,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       *@\' C1 l70
        *following_arg C1
         {C}
+    {spaces_after_argument:\\n}
  *@chapter C2 l71 {@dotless{i} @`{@=E} @,{@\'C}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{12}
  |section_level:{1}
  |section_number:{13}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@dotless C1 l71
      *brace_container C1
       {i}
@@ -1613,20 +1494,16 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       *@\' C1 l71
        *following_arg C1
         {C}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l73 {@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_201c-_201d-_2018-_2019-_201e-_201a}
  |is_target:{1}
  |node_number:{14}
   *arguments_line C1
-   *line_arg C11
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C13
+    {spaces_before_argument: }
     *@quotedblleft C1 l73
      *brace_container
     { }
@@ -1644,19 +1521,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@quotesinglbase C1 l73
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l74 {@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{13}
  |section_level:{1}
  |section_number:{14}
   *arguments_line C1
-   *line_arg C11
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C13
+    {spaces_before_argument: }
     *@quotedblleft C1 l74
      *brace_container
     { }
@@ -1674,20 +1547,16 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@quotesinglbase C1 l74
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l76 {@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00ab-_00bb-_00ab-_00bb-_2039-_203a}
  |is_target:{1}
  |node_number:{15}
   *arguments_line C1
-   *line_arg C11
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C13
+    {spaces_before_argument: }
     *@guillemetleft C1 l76
      *brace_container
     { }
@@ -1705,19 +1574,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@guilsinglright C1 l76
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l77 {@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{14}
  |section_level:{1}
  |section_number:{15}
   *arguments_line C1
-   *line_arg C11
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C13
+    {spaces_before_argument: }
     *@guillemetleft C1 l77
      *brace_container
     { }
@@ -1735,49 +1600,37 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     { }
     *@guilsinglright C1 l77
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l79 {`` \'\' --- -- ` \'}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027}
  |is_target:{1}
  |node_number:{16}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {`` \'\' --- -- ` \'}
+    {spaces_after_argument:\\n}
  *@chapter C2 l80 {`` \'\' --- -- ` \'}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{15}
  |section_level:{1}
  |section_number:{16}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {`` \'\' --- -- ` \'}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l82 {@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{AAA-AAA-BBB}
  |is_target:{1}
  |node_number:{17}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@acronym C2 l82
      *brace_arg C1
       {AAA}
@@ -1792,19 +1645,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@acronym C1 l82
      *brace_arg C1
       {BBB}
+    {spaces_after_argument:\\n}
  *@chapter C2 l83 {@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{16}
  |section_level:{1}
  |section_number:{17}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@acronym C2 l83
      *brace_arg C1
       {AAA}
@@ -1819,28 +1668,22 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@acronym C1 l83
      *brace_arg C1
       {BBB}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l85 {@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{CCC-CCC-DDD}
  |is_target:{1}
  |node_number:{18}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
    >SOURCEMARKS
    >expanded_conditional_command<start;1>
     >*@ifnottex C1 l86
      >*arguments_line C1
-      >*block_line_arg
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
+    {spaces_before_argument: }
     *@abbr C2 l85
      *brace_arg C1
       {CCC}
@@ -1855,32 +1698,24 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@abbr C1 l85
      *brace_arg C1
       {DDD}
+    {spaces_after_argument:\\n}
  *@chapter C2 l87 {@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{17}
  |section_level:{1}
  |section_number:{18}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
    >SOURCEMARKS
    >expanded_conditional_command<end;1>
     >*@end C1 l88
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifnottex}
+      >{spaces_after_argument:\\n}
+    {spaces_before_argument: }
     *@abbr C2 l87
      *brace_arg C1
       {CCC}
@@ -1895,20 +1730,16 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@abbr C1 l87
      *brace_arg C1
       {DDD}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l90 {@email{someone@@somewher, the someone} @email{no_explain@@there}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{someone_0040somewher-no_005fexplain_0040there}
  |is_target:{1}
  |node_number:{19}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     *@email C2 l90
      *brace_arg C3
       {someone}
@@ -1923,19 +1754,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       {no_explain}
       *@@
       {there}
+    {spaces_after_argument:\\n}
  *@chapter C2 l91 {@email{someone@@somewher, the someone} @email{no_explain@@there}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{18}
  |section_level:{1}
  |section_number:{19}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     *@email C2 l91
      *brace_arg C3
       {someone}
@@ -1950,28 +1777,22 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       {no_explain}
       *@@
       {there}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l93 {@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{f_002d_002dile1-f_002d_002dile}
  |is_target:{1}
  |node_number:{20}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
    >SOURCEMARKS
    >expanded_conditional_command<start;2>
     >*@ifnottex C1 l94
      >*arguments_line C1
-      >*block_line_arg
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
+    {spaces_before_argument: }
     *@image C1 l93
     |EXTRA
     |input_encoding_name:{iso-8859-15}
@@ -1991,32 +1812,24 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       {alt}
      *brace_arg C1
       {e--xt}
+    {spaces_after_argument:\\n}
  *@chapter C2 l95 {@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{19}
  |section_level:{1}
  |section_number:{20}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
    >SOURCEMARKS
    >expanded_conditional_command<end;2>
     >*@end C1 l96
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifnottex}
+      >{spaces_after_argument:\\n}
+    {spaces_before_argument: }
     *@image C1 l95
     |EXTRA
     |input_encoding_name:{iso-8859-15}
@@ -2036,78 +1849,60 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       {alt}
      *brace_arg C1
       {e--xt}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l98 {@verb{. @ {} . .}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{-_0040-_007b_007d-_002e-}
  |is_target:{1}
  |node_number:{21}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
    >SOURCEMARKS
    >expanded_conditional_command<start;3>
     >*@ifnottex C1 l99
      >*arguments_line C1
-      >*block_line_arg
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
+    {spaces_before_argument: }
     *@verb C1 l98
     |INFO
     |delimiter:{.}
      *brace_container C1
       {raw: @ {} . }
+    {spaces_after_argument:\\n}
  *@chapter C2 l100 {@verb{. @ {} . .}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{20}
  |section_level:{1}
  |section_number:{21}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
    >SOURCEMARKS
    >expanded_conditional_command<end;3>
     >*@end C1 l101
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifnottex}
+      >{spaces_after_argument:\\n}
+    {spaces_before_argument: }
     *@verb C1 l100
     |INFO
     |delimiter:{.}
      *brace_container C1
       {raw: @ {} . }
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l103 {@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i}
  |is_target:{1}
  |node_number:{22}
   *arguments_line C1
-   *line_arg C17
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C19
+    {spaces_before_argument: }
     *@cite C1 l103
      *brace_container C2
       {cite }
@@ -2151,19 +1946,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@i C1 l103
      *brace_container C1
       {i}
+    {spaces_after_argument:\\n}
  *@chapter C2 l104 {@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{21}
  |section_level:{1}
  |section_number:{22}
   *arguments_line C1
-   *line_arg C17
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C19
+    {spaces_before_argument: }
     *@cite C1 l104
      *brace_container C2
       {cite }
@@ -2207,20 +1998,16 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@i C1 l104
      *brace_container C1
       {i}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l106 {@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{env-code-option-samp-command-file-C_002dx-ESC}
  |is_target:{1}
  |node_number:{23}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@env C1 l106
      *brace_container C1
       {env}
@@ -2251,19 +2038,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       *@key C1 l106
        *brace_container C1
         {ESC}
+    {spaces_after_argument:\\n}
  *@chapter C2 l107 {@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{22}
  |section_level:{1}
  |section_number:{23}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@env C1 l107
      *brace_container C1
       {env}
@@ -2294,55 +2077,43 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       *@key C1 l107
        *brace_container C1
         {ESC}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l109 {8.27@dmn{in}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{8_002e27in}
  |is_target:{1}
  |node_number:{24}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {8.27}
     *@dmn C1 l109
      *brace_container C1
       {in}
+    {spaces_after_argument:\\n}
  *@chapter C2 l110 {8.27@dmn{in}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{23}
  |section_level:{1}
  |section_number:{24}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {8.27}
     *@dmn C1 l110
      *brace_container C1
       {in}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l112 {@sansserif{sansserif} @slanted{slanted}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{sansserif-slanted}
  |is_target:{1}
  |node_number:{25}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     *@sansserif C1 l112
      *brace_container C1
       {sansserif}
@@ -2350,19 +2121,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@slanted C1 l112
      *brace_container C1
       {slanted}
+    {spaces_after_argument:\\n}
  *@chapter C2 l113 {@sansserif{sansserif} @slanted{slanted}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{24}
  |section_level:{1}
  |section_number:{25}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     *@sansserif C1 l113
      *brace_container C1
       {sansserif}
@@ -2370,53 +2137,41 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@slanted C1 l113
      *brace_container C1
       {slanted}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l115 {@indicateurl{indicateurl}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{indicateurl}
  |is_target:{1}
  |node_number:{26}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@indicateurl C1 l115
      *brace_container C1
       {indicateurl}
+    {spaces_after_argument:\\n}
  *@chapter C2 l116 {@indicateurl{indicateurl}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{25}
  |section_level:{1}
  |section_number:{26}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@indicateurl C1 l116
      *brace_container C1
       {indicateurl}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l118 {@sub{g}H 3@sup{rd}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{gH-3rd}
  |is_target:{1}
  |node_number:{27}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     *@sub C1 l118
      *brace_container C1
       {g}
@@ -2424,19 +2179,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@sup C1 l118
      *brace_container C1
       {rd}
+    {spaces_after_argument:\\n}
  *@chapter C2 l119 {@sub{g}H 3@sup{rd}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{26}
  |section_level:{1}
  |section_number:{27}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     *@sub C1 l119
      *brace_container C1
       {g}
@@ -2444,20 +2195,16 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@sup C1 l119
      *brace_container C1
       {rd}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l121 {@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls}
  |is_target:{1}
  |node_number:{28}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@url C1 l121
      *brace_arg C1
       {http://somewhere_aaa}
@@ -2475,19 +2222,15 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *brace_arg
      *brace_arg C1
       {ls}
+    {spaces_after_argument:\\n}
  *@chapter C56 l122 {@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{27}
  |section_level:{1}
  |section_number:{28}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@url C1 l122
      *brace_arg C1
       {http://somewhere_aaa}
@@ -2505,6 +2248,7 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *brace_arg
      *brace_arg C1
       {ls}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l124
@@ -2930,10 +2674,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
   >expanded_conditional_command<start;4><p:1>
    >*@ifnottex C1 l156
     >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C1
+      >{spaces_before_argument:\\n}
   *paragraph C2
    *@ref C1 l157
     *brace_arg C5
@@ -2958,16 +2700,12 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
    >SOURCEMARKS
    >expanded_conditional_command<end;4><p:1>
     >*@end C1 l158
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifnottex}
+      >{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l160
@@ -2995,10 +2733,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
   >expanded_conditional_command<start;5><p:1>
    >*@ifnottex C1 l162
     >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C1
+      >{spaces_before_argument:\\n}
   *paragraph C2
    *@ref C1 l163
     *brace_arg C3
@@ -3041,16 +2777,12 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
    >SOURCEMARKS
    >expanded_conditional_command<end;5><p:1>
     >*@end C1 l166
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifnottex}
+      >{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l168

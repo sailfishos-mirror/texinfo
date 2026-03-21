@@ -33,64 +33,48 @@ $result_tree_text{'value_on_ifset'} = '*document_root C1
   >SOURCEMARKS
   >expanded_conditional_command<start;1><p:1>
    >*@ifset C1 l4
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >|>SOURCEMARKS
-    >|>value_expansion<start;1><p:1>{x}
-     >|>*@value C1
-      >|>*brace_container C1
-       >|>{xval}
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
+      >>SOURCEMARKS
+      >>value_expansion<start;1><p:1>{x}
+       >>*@value C1
+        >>*brace_container C1
+         >>{xval}
       >{x}
       >>SOURCEMARKS
       >>value_expansion<end;1><p:1>
+      >{spaces_after_argument:\\n}
   *paragraph C1
    {XVAL SET\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;1><p:9>
     >*@end C1 l6
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
+      >{spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >ignored_conditional_block<1><p:1>
    >*@ifset C5 l8
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{b}
+      >{spaces_after_argument:\\n}
     >{raw:@ifset @value{xval}\\n}
     >{raw:INTERNALXV\\n}
     >{raw:@end ifset\\n}
     >*@end C1 l12
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
+      >{spaces_after_argument:\\n}
 ';
 
 

@@ -42,14 +42,6 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
     {rawline_text:syncodeindex_command @syncodeindex}
   {empty_line:\\n}
   *@syncodeindex C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>value_expansion<start;1><p:1>{cp}
-    |>*@value C1
-     |>*brace_container C1
-      |>{cp}
   |EXTRA
   |misc_args:A{cp|fn}
   >SOURCEMARKS
@@ -57,10 +49,13 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    >*@value C1
     >*brace_container C1
      >{syncodeindex_command}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >value_expansion<start;1><p:1>{cp}
+     >*@value C1
+      >*brace_container C1
+       >{cp}
     {cp fn}
     >SOURCEMARKS
     >value_expansion<end;1><p:2>
@@ -69,19 +64,16 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
       >*brace_container C1
        >{fn}
     >value_expansion<end;2><p:5>
+    {spaces_after_argument:\\n}
   *@syncodeindex C1 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>value_expansion<end;3>
   |EXTRA
   |misc_args:A{cp|fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >value_expansion<end;3>
     {cp fn}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@set C1
   |INFO
@@ -98,23 +90,19 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
   *paragraph C3
    {definedx truc\\n}
    *@defindex C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    |>SOURCEMARKS
-    |>value_expansion<start;4><p:1>{truc}
-     |>*@value C1
-      |>*brace_container C1
-       |>{truc}
    |EXTRA
    |misc_args:A{truc}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
+     >SOURCEMARKS
+     >value_expansion<start;4><p:1>{truc}
+      >*@value C1
+       >*brace_container C1
+        >{truc}
      {truc}
      >SOURCEMARKS
      >value_expansion<end;4><p:4>
+     {spaces_after_argument:\\n}
    {after\\n}
   {empty_line:\\n}
   *@set C1
@@ -142,23 +130,19 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
     {rawline_text:codeidx codeidx}
   {empty_line:\\n}
   *@defcodeindex C1 l18
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>value_expansion<start;5><p:1>{codeidx}
-    |>*@value C1
-     |>*brace_container C1
-      |>{codeidx}
   |EXTRA
   |misc_args:A{codeidx}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >value_expansion<start;5><p:1>{codeidx}
+     >*@value C1
+      >*brace_container C1
+       >{codeidx}
     {codeidx}
     >SOURCEMARKS
     >value_expansion<end;5><p:7>
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@set C1
   |INFO
@@ -173,34 +157,26 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
     {rawline_text:defcodeindex_entry a @var{index entry} t@\'e @^{@dotless{i}}}
   {empty_line:\\n}
  *@node C1 l22 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@node C14 l23 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >value_expansion<start;6><p:1>{@trucindex}
@@ -208,36 +184,27 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
     >*brace_container C1
      >{trucindex_command}
   *index_entry_command@trucindex C1 l25
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>value_expansion<end;6>
   |EXTRA
   |element_node:{chap}
   |index_entry:I{truc,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >value_expansion<end;6>
     {index truc}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@codeidxindex C1 l27
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>value_expansion<start;7><p:1>{a @var{index entry} t@\'e @^{@dotless{i}}}
-    |>*@value C1
-     |>*brace_container C1
-      |>{defcodeindex_entry}
   |EXTRA
   |element_node:{chap}
   |index_entry:I{codeidx,1}
-   *line_arg C6
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C8
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >value_expansion<start;7><p:1>{a @var{index entry} t@\'e @^{@dotless{i}}}
+     >*@value C1
+      >*brace_container C1
+       >{defcodeindex_entry}
     {a }
     *@var C1 l27
      *brace_container C1
@@ -254,37 +221,29 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
       *@dotless C1 l27
        *brace_container C1
         {i}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@kindex C1 l29
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>value_expansion<start;8><p:1>{truc}
-    |>*@value C1
-     |>*brace_container C1
-      |>{truc}
   |EXTRA
   |element_node:{chap}
   |index_entry:I{ky,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >value_expansion<start;8><p:1>{truc}
+     >*@value C1
+      >*brace_container C1
+       >{truc}
     {truc kindex}
     >SOURCEMARKS
     >value_expansion<end;8><p:4>
+    {spaces_after_argument:\\n}
   *index_entry_command@pindex C1 l30
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{pg,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {pindex codeidx}
     >SOURCEMARKS
     >value_expansion<start;9><p:7>{codeidx}
@@ -292,50 +251,43 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
       >*brace_container C1
        >{codeidx}
     >value_expansion<end;9><p:14>
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {value truc\\n}
   *@printindex C1 l33
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>value_expansion<start;10><p:1>{truc}
-    |>*@value C1
-     |>*brace_container C1
-      |>{truc}
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{truc}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >value_expansion<start;10><p:1>{truc}
+     >*@value C1
+      >*brace_container C1
+       >{truc}
     {truc}
     >SOURCEMARKS
     >value_expansion<end;10><p:4>
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {value cp\\n}
   *@printindex C1 l36
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>value_expansion<start;11><p:1>{cp}
-    |>*@value C1
-     |>*brace_container C1
-      |>{cp}
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >value_expansion<start;11><p:1>{cp}
+     >*@value C1
+      >*brace_container C1
+       >{cp}
     {cp}
     >SOURCEMARKS
     >value_expansion<end;11><p:2>
+    {spaces_after_argument:\\n}
 ';
 
 

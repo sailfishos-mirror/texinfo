@@ -9,169 +9,125 @@ $result_tree_text{'command_in_end'} = '*document_root C1
  *before_node_section C1
   *@quotation C4 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C2
     {In quotation\\n}
     *@end C1 l3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       *@code C1 l3
        *brace_container C1
         {quotation}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@quotation C4 l5
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *paragraph C2
      {In quotation\\n}
      *@end C1 l7
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{q}
-      *line_arg C2
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C4
+       {spaces_before_argument: }
        {q}
        *@code C1 l7
         *brace_container C1
          {uotation}
+       {spaces_after_argument:\\n}
     {empty_line:\\n}
     *@quotation C4 l9
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *paragraph C2
       {In quotation\\n}
       *@end C1 l11
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{qu}
-       *line_arg C2
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C4
+        {spaces_before_argument: }
         {qu}
         *@code C1 l11
          *brace_container C1
           {otation}
+        {spaces_after_argument:\\n}
      {empty_line:\\n}
      *@quotation C10 l13
       *arguments_line C1
-       *block_line_arg
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C1
+        {spaces_before_argument:\\n}
       *paragraph C2
        {In quotation\\n}
        *@end C1 l15
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{quotn}
-        *line_arg C3
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C5
+         {spaces_before_argument: }
          {quot}
          *@asis C1 l15
           *brace_container C1
            {atio}
          {n}
+         {spaces_after_argument:\\n}
       {empty_line:\\n}
       *@quotation C3 l17
        *arguments_line C1
-        *block_line_arg
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *block_line_arg C1
+         {spaces_before_argument:\\n}
        *paragraph C1
         {In quotation\\n}
        *@end C1 l19
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{quotation}
-        *line_arg C3
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C5
+         {spaces_before_argument: }
          {q}
          *@asis C1 l19
           *brace_container
          {uotation}
+         {spaces_after_argument:\\n}
       {empty_line:\\n}
       *@quotation C3 l21
        *arguments_line C1
-        *block_line_arg
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *block_line_arg C1
+         {spaces_before_argument:\\n}
        *paragraph C1
         {In quotation\\n}
        *@end C1 l23
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{quotation}
-        *line_arg C3
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C5
+         {spaces_before_argument: }
          {qu}
          *@asis C1 l23
           *brace_container
          {otation}
+         {spaces_after_argument:\\n}
       {empty_line:\\n}
       *@quotation C3 l25
        *arguments_line C1
-        *block_line_arg
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *block_line_arg C1
+         {spaces_before_argument:\\n}
        *paragraph C1
         {In quotation\\n}
        *@end C1 l27
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{quotation}
-        *line_arg C3
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C5
+         {spaces_before_argument: }
          {quot}
          *@asis C1 l27
           *brace_container
          {ation}
+         {spaces_after_argument:\\n}
       {empty_line:\\n}
       *@verbatim C3 l29
        *arguments_line C1
-        *block_line_arg
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *block_line_arg C1
+         {spaces_before_argument:\\n}
        {raw:In verbatim\\n}
        {raw:@end verb@code{a}tim\\n}
 ';

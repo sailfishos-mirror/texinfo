@@ -16,16 +16,12 @@ $result_tree_text{'double_recursive_macro_call'} = '*document_root C1
     {macro_line: macone {arg}\\n}
    {raw:@mactwo{}\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l6
   |EXTRA
@@ -35,16 +31,12 @@ $result_tree_text{'double_recursive_macro_call'} = '*document_root C1
     {macro_line: mactwo{arg}\\n}
    {raw:@macone{}\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   >SOURCEMARKS

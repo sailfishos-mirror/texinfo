@@ -8,18 +8,14 @@ use utf8;
 $result_tree_text{'documentencoding_utf8'} = '*document_root C1
  *before_node_section C2
   *@documentencoding C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |input_encoding_name:{utf-8}
   |text_arg:{utf8}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {utf8}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 
@@ -151,7 +147,7 @@ $result_converted_errors{'info'}->{'documentencoding_utf8'} = '* W |document wit
 ';
 
 
-$result_converted{'xml'}->{'documentencoding_utf8'} = '<documentencoding encoding="utf8" spaces=" ">utf8</documentencoding>
+$result_converted{'xml'}->{'documentencoding_utf8'} = '<documentencoding encoding="utf8"> utf8</documentencoding>
 
 ';
 

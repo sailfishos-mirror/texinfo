@@ -12,27 +12,21 @@ NodePrev: [U0]
 NodeUp: [U0]
  *before_node_section
  *@node C4 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {Top node\\n}
   *@menu C4 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -56,63 +50,51 @@ NodeUp: [U0]
      *preformatted C1
       {\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C4 l8 {chap node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap-node}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {chap node}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{third node}
    |normalized:{third-node}
+    {spaces_before_argument: }
     {third node}
    *line_arg C1
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
     {Top}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {second node\\n}
   {empty_line:\\n}
  *@node C1 l12 {third node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{third-node}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {third node}
    *line_arg
    *line_arg C1
@@ -120,28 +102,22 @@ NodeUp: [U0]
    |node_content:{chap node}
    |normalized:{chap-node}
     {chap node}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
     {Top}
+    {spaces_after_argument:\\n}
  *@subsection C1 l13 {subsection}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{3}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {subsection}
+    {spaces_after_argument:\\n}
 ';
 
 

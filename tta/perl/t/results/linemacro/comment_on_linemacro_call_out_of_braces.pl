@@ -17,16 +17,12 @@ $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C
    {raw:second |\\b\\|\\n}
    {raw:third |\\c\\|\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C4
    {first |something protected|\\n}

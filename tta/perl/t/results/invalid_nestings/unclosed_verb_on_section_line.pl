@@ -11,15 +11,13 @@ $result_tree_text{'unclosed_verb_on_section_line'} = '*document_root C2
 
 Now text.
 T}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C2
+   *line_arg C3
+    {spaces_before_argument: }
     {in section }
     *@verb C1 l1
     |INFO

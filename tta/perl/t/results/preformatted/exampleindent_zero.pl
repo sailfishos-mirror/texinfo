@@ -8,70 +8,50 @@ use utf8;
 $result_tree_text{'exampleindent_zero'} = '*document_root C1
  *before_node_section C7
   *@exampleindent C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{asis}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {asis}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@example C3 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C1
     {EXAMPLE INDENT asis\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@exampleindent C1 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{0}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {0}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@example C3 l9
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C1
     {EXAMPLE INDENT 0\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -164,13 +144,13 @@ $result_converted{'docbook'}->{'exampleindent_zero'} = '
 </screen>';
 
 
-$result_converted{'xml'}->{'exampleindent_zero'} = '<exampleindent spaces=" " value="asis" line="asis"></exampleindent>
+$result_converted{'xml'}->{'exampleindent_zero'} = '<exampleindent value="asis" line=" asis"></exampleindent>
 
 <example endspaces=" ">
 <pre xml:space="preserve">EXAMPLE INDENT asis
 </pre></example>
 
-<exampleindent spaces=" " value="0" line="0"></exampleindent>
+<exampleindent value="0" line=" 0"></exampleindent>
 
 <example endspaces=" ">
 <pre xml:space="preserve">EXAMPLE INDENT 0

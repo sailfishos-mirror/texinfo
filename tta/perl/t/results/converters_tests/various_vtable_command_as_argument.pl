@@ -8,461 +8,317 @@ use utf8;
 $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C16 l5 {Chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@vtable C5 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@inlineraw l7
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l8
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,1}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {html}
+       {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l9
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,2}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {docbook}
+       {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l10
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,3}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {titi}
+       {spaces_after_argument:\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@vtable C3 l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@image l13
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C2
      *@item C1 l14
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,4}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {first}
+       {spaces_after_argument:\\n}
      *@itemx C1 l15
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,5}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {second}
+       {spaces_after_argument:\\n}
    *@end C1 l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@vtable C3 l18
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@footnote l18
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C2
      *@item C1 l19
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,6}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {aa}
+       {spaces_after_argument:\\n}
      *@itemx C1 l20
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,7}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {bb}
+       {spaces_after_argument:\\n}
    *@end C1 l21
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@vtable C3 l23
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@caption l23
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C2
      *@item C1 l24
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,8}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {caa}
+       {spaces_after_argument:\\n}
      *@itemx C1 l25
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,9}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {cbb}
+       {spaces_after_argument:\\n}
    *@end C1 l26
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@vtable C4 l28
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@math l28
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l29
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,10}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {a + b}
+       {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l30
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,11}
-      *line_arg C2
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C4
+       {spaces_before_argument: }
        {a}
        *@sup C1 l30
         *brace_container C1
          {c}
+       {spaces_after_argument:\\n}
    *@end C1 l31
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@vtable C3 l33
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@anchor l33
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C2
      *@item C1 l34
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,12}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {anchor 1}
+       {spaces_after_argument:\\n}
      *@itemx C1 l35
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,13}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {anchor 2}
+       {spaces_after_argument:\\n}
    *@end C1 l36
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@vtable C3 l38
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@verb l38
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C2
      *@item C1 l39
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,14}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {:uu:}
+       {spaces_after_argument:\\n}
      *@itemx C1 l40
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,15}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {?nn?}
+       {spaces_after_argument:\\n}
    *@end C1 l41
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l43 {Indices}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Indices}
  |is_target:{1}
  |isindex:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Indices}
+    {spaces_after_argument:\\n}
  *@appendix C3 l44 {Print the index}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Print the index}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l46
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{vr}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {vr}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -848,54 +704,54 @@ $result_converted_errors{'html_text'}->{'various_vtable_command_as_argument'} = 
 ';
 
 
-$result_converted{'xml'}->{'various_vtable_command_as_argument'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+$result_converted{'xml'}->{'various_vtable_command_as_argument'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 </top>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodenext automatic="on">Indices</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Chap</sectiontitle>
+<node identifier="chap"><nodename> chap</nodename><nodenext automatic="on"> Indices</nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Chap</sectiontitle>
 
-<vtable commandarg="inlineraw" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="inlineraw"><indexterm index="vr" number="1">html</indexterm>html</itemformat></item>
-</tableterm></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="inlineraw"><indexterm index="vr" number="2">docbook</indexterm>docbook</itemformat></item>
-</tableterm></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="inlineraw"><indexterm index="vr" number="3">titi</indexterm>titi</itemformat></item>
+<vtable commandarg="inlineraw" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="inlineraw"><indexterm index="vr" number="1">html</indexterm> html</itemformat></item>
+</tableterm></tableentry><tableentry><tableterm><item><itemformat command="inlineraw"><indexterm index="vr" number="2">docbook</indexterm> docbook</itemformat></item>
+</tableterm></tableentry><tableentry><tableterm><item><itemformat command="inlineraw"><indexterm index="vr" number="3">titi</indexterm> titi</itemformat></item>
 </tableterm></tableentry></vtable>
 
-<vtable commandarg="image" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="image"><indexterm index="vr" number="4">first</indexterm>first</itemformat></item>
-<itemx spaces=" "><itemformat command="image"><indexterm index="vr" number="5">second</indexterm>second</itemformat></itemx>
+<vtable commandarg="image" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="image"><indexterm index="vr" number="4">first</indexterm> first</itemformat></item>
+<itemx><itemformat command="image"><indexterm index="vr" number="5">second</indexterm> second</itemformat></itemx>
 </tableterm></tableentry></vtable>
 
-<vtable commandarg="footnote" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="footnote"><indexterm index="vr" number="6">aa</indexterm>aa</itemformat></item>
-<itemx spaces=" "><itemformat command="footnote"><indexterm index="vr" number="7">bb</indexterm>bb</itemformat></itemx>
+<vtable commandarg="footnote" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="footnote"><indexterm index="vr" number="6">aa</indexterm> aa</itemformat></item>
+<itemx><itemformat command="footnote"><indexterm index="vr" number="7">bb</indexterm> bb</itemformat></itemx>
 </tableterm></tableentry></vtable>
 
-<vtable commandarg="caption" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="caption"><indexterm index="vr" number="8">caa</indexterm>caa</itemformat></item>
-<itemx spaces=" "><itemformat command="caption"><indexterm index="vr" number="9">cbb</indexterm>cbb</itemformat></itemx>
+<vtable commandarg="caption" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="caption"><indexterm index="vr" number="8">caa</indexterm> caa</itemformat></item>
+<itemx><itemformat command="caption"><indexterm index="vr" number="9">cbb</indexterm> cbb</itemformat></itemx>
 </tableterm></tableentry></vtable>
 
-<vtable commandarg="math" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="math"><indexterm index="vr" number="10">a + b</indexterm>a + b</itemformat></item>
-</tableterm></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="math"><indexterm index="vr" number="11">a<sup>c</sup></indexterm>a<sup>c</sup></itemformat></item>
+<vtable commandarg="math" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="math"><indexterm index="vr" number="10">a + b</indexterm> a + b</itemformat></item>
+</tableterm></tableentry><tableentry><tableterm><item><itemformat command="math"><indexterm index="vr" number="11">a<sup>c</sup></indexterm> a<sup>c</sup></itemformat></item>
 </tableterm></tableentry></vtable>
 
-<vtable commandarg="anchor" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="anchor"><indexterm index="vr" number="12">anchor 1</indexterm>anchor 1</itemformat></item>
-<itemx spaces=" "><itemformat command="anchor"><indexterm index="vr" number="13">anchor 2</indexterm>anchor 2</itemformat></itemx>
+<vtable commandarg="anchor" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="anchor"><indexterm index="vr" number="12">anchor 1</indexterm> anchor 1</itemformat></item>
+<itemx><itemformat command="anchor"><indexterm index="vr" number="13">anchor 2</indexterm> anchor 2</itemformat></itemx>
 </tableterm></tableentry></vtable>
 
-<vtable commandarg="verb" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="verb"><indexterm index="vr" number="14">:uu:</indexterm>:uu:</itemformat></item>
-<itemx spaces=" "><itemformat command="verb"><indexterm index="vr" number="15">?nn?</indexterm>?nn?</itemformat></itemx>
+<vtable commandarg="verb" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="verb"><indexterm index="vr" number="14">:uu:</indexterm> :uu:</itemformat></item>
+<itemx><itemformat command="verb"><indexterm index="vr" number="15">?nn?</indexterm> ?nn?</itemformat></itemx>
 </tableterm></tableentry></vtable>
 
 </chapter>
-<node identifier="Indices" spaces=" "><nodename>Indices</nodename><nodeprev automatic="on">chap</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<appendix spaces=" "><sectiontitle>Print the index</sectiontitle>
+<node identifier="Indices"><nodename> Indices</nodename><nodeprev automatic="on"> chap</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<appendix><sectiontitle> Print the index</sectiontitle>
 
-<printindex spaces=" " value="vr" line="vr"></printindex>
+<printindex value="vr" line=" vr"></printindex>
 </appendix>
 ';
 

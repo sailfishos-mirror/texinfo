@@ -14,16 +14,12 @@ $result_tree_text{'paragraph_and_macro'} = '*document_root C1
    *arguments_line C1
     {macro_line: aempty\\n}
    *@end C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l4
   |EXTRA
@@ -33,16 +29,12 @@ $result_tree_text{'paragraph_and_macro'} = '*document_root C1
     {macro_line: aspace\\n}
    {raw:   \\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l8
   |EXTRA
@@ -52,16 +44,12 @@ $result_tree_text{'paragraph_and_macro'} = '*document_root C1
     {macro_line: word\\n}
    {raw:a word\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   >SOURCEMARKS

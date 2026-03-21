@@ -9,36 +9,26 @@ $result_tree_text{'include_with_setfilename_in_preformatted'} = '*document_root 
  *before_node_section C1
   *@example C4 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted
    >SOURCEMARKS
    >include<start;1>
     >*@include C1 l2
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{included_file_with_setfilename.texi}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{included_file_with_setfilename.texi}
+      >{spaces_after_argument:\\n}
    >setfilename<1>
     >*@setfilename C1 included_file_with_setfilename.texi:l1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{included_file.info}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{included_file.info}
+      >{spaces_after_argument:\\n}
    *preformatted C3
     {empty_line:\\n}
     {In included file.\\n}
@@ -46,12 +36,10 @@ $result_tree_text{'include_with_setfilename_in_preformatted'} = '*document_root 
     >include<end;1><p:18>
     {after include\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
+    *line_arg C2
+     {spaces_before_argument: }
      {example}
 ';
 

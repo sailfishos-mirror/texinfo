@@ -8,20 +8,16 @@ use utf8;
 $result_tree_text{'node_empty_direction'} = '*document_root C2
  *before_node_section
  *@node C1 l1 {name}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{name}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C2
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {name}
-   *line_arg
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C1
+    {spaces_before_argument: }
 ';
 
 

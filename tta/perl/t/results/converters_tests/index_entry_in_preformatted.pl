@@ -8,129 +8,94 @@ use utf8;
 $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C3 l5 {Chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@example C3 l7
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C6
     *index_entry_command@cindex C1 l8
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |element_node:{chap}
     |index_entry:I{cp,1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {first}
+      {spaces_after_argument:\\n}
     {text\\n}
     {empty_line:\\n}
     *index_entry_command@cindex C1 l11
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |element_node:{chap}
     |index_entry:I{cp,2}
-     *line_arg C1
-     |INFO
-     |comment_at_end:
-      |*@c C1
-      ||INFO
-      ||spaces_before_argument:
-       ||{spaces_before_argument: }
-       |*line_arg C1
-       ||INFO
-       ||spaces_after_argument:
-        ||{spaces_after_argument:\\n}
-        |{rawline_text:comment}
-     |spaces_after_argument:
-      |{spaces_after_argument: }
+     *line_arg C4
+      {spaces_before_argument: }
       {other}
+      {spaces_after_argument: }
+      *@c C1
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {rawline_text:comment}
     {text2\\n}
     *index_entry_command@cindex C1 l13
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |element_node:{chap}
     |index_entry:I{cp,3}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {last}
+      {spaces_after_argument:\\n}
    *@end C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -240,20 +205,20 @@ $result_converted{'html_text'}->{'index_entry_in_preformatted'} = '<div class="t
 ';
 
 
-$result_converted{'xml'}->{'index_entry_in_preformatted'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+$result_converted{'xml'}->{'index_entry_in_preformatted'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 </top>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
+<node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Chapter</sectiontitle>
 
 <example endspaces=" ">
-<pre xml:space="preserve"><cindex index="cp" spaces=" "><indexterm index="cp" number="1">first</indexterm></cindex>
+<pre xml:space="preserve"><cindex index="cp"> <indexterm index="cp" number="1">first</indexterm></cindex>
 text
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="2">other</indexterm></cindex> <!-- c comment -->
+<cindex index="cp"> <indexterm index="cp" number="2">other</indexterm></cindex><!-- c comment -->
 text2
-<cindex index="cp" spaces=" "><indexterm index="cp" number="3">last</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="3">last</indexterm></cindex>
 </pre></example>
 </chapter>
 ';

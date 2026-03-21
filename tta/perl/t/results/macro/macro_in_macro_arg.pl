@@ -16,16 +16,12 @@ $result_tree_text{'macro_in_macro_arg'} = '*document_root C1
     {macro_line: macroone\\n}
    {raw:a, @macrotwo\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l6
   |EXTRA
@@ -35,16 +31,12 @@ $result_tree_text{'macro_in_macro_arg'} = '*document_root C1
     {macro_line: macrotwo{arg}\\n}
    {raw:hello \\arg\\ after arg\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C4 l10
   |EXTRA
@@ -55,16 +47,12 @@ $result_tree_text{'macro_in_macro_arg'} = '*document_root C1
    {raw:\\text\\\\n}
    {raw:&&&& \\arg\\\\n}
    *@end C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    {a, hello text for macro2 after arg\\n}

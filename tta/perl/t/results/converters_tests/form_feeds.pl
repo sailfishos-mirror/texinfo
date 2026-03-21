@@ -8,34 +8,26 @@ use utf8;
 $result_tree_text{'form_feeds'} = '*document_root C3
  *before_node_section
  *@node C2 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C40 l3 {chapnode}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap-node}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap\\fnode}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\f \\f\\n}
   {empty_line:\\n}
@@ -123,42 +115,28 @@ $result_tree_text{'form_feeds'} = '*document_root C3
   {empty_line:\\n}
   *@example C3 l22
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\f\\n}
+    *block_line_arg C1
+     {spaces_before_argument: \\f\\n}
    *preformatted C1
     {in example\\n}
    *@end C1 l24
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@center C1 l26
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: \\f }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\f\\n}
+   *line_arg C3
+    {spaces_before_argument: \\f }
     {around center}
+    {spaces_after_argument: \\f\\n}
   *@center C1 l27
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {in \\fcenter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@indicateurl C1 l29
@@ -167,9 +145,6 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    {\\n}
   {empty_line:\\n}
   *@deffn C4 l31
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: \\f }
    *def_line C1 l31
    |EXTRA
    |def_command:{deffn}
@@ -182,10 +157,8 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    |element_node:{chap-node}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\f\\n}
+    *block_line_arg C11
+     {spaces_before_argument: \\f }
      *def_category C1
       *bracketed_arg C3 l31
        {spaces_before_argument: \\f}
@@ -215,10 +188,8 @@ $result_tree_text{'form_feeds'} = '*document_root C3
        {spaces_before_argument:  }
        {arg}
        {spaces_after_argument:\\f }
+     {spaces_after_argument: \\f\\n}
    *@deffnx C1 l32
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: \\f }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -230,10 +201,8 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    |element_node:{chap-node}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffnx}
-    *line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\f\\n}
+    *line_arg C11
+     {spaces_before_argument: \\f }
      *def_category C1
       *bracketed_arg C3 l32
        {spaces_before_argument: \\f}
@@ -263,30 +232,25 @@ $result_tree_text{'form_feeds'} = '*document_root C3
        {spaces_before_argument:  }
        {xarg}
        {spaces_after_argument:\\f }
+     {spaces_after_argument: \\f\\n}
    *def_item C1
     *paragraph C1
      {T\\n}
    *@end C1 l34
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C9 l36
   |EXTRA
   |float_type:{}
   |global_command_number:{1}
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {a float\\n}
    *@caption C1 l38
@@ -320,21 +284,14 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    *paragraph C1
     {After shc\\n}
    *@end C1 l40
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\f\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument: \\f\\n}
   {empty_line:\\n}
   *@float C3 l42
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{type}
@@ -342,44 +299,32 @@ $result_tree_text{'form_feeds'} = '*document_root C3
   |identifier:{fl}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\f}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {type}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\f\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_after_argument: \\f}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {fl}
+     {spaces_after_argument: \\f\\n}
    *paragraph C1
     {in float\\n}
    *@end C1 l44
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@listoffloats C1 l46
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{type}
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\f\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {type}
+    {spaces_after_argument: \\f\\n}
   {empty_line:\\n}
 ';
 
@@ -626,9 +571,9 @@ $result_converted{'html_text'}->{'form_feeds'} = '<h1 class="node" id="Top"><spa
 ';
 
 
-$result_converted{'xml'}->{'form_feeds'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap&formfeed;node</nodenext></node>
+$result_converted{'xml'}->{'form_feeds'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap&formfeed;node</nodenext></node>
 
-<node identifier="chap-node" spaces=" "><nodename>chap&formfeed;node</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node identifier="chap-node"><nodename> chap&formfeed;node</nodename><nodeprev automatic="on"> Top</nodeprev></node>
 
 &formfeed; &formfeed;
 
@@ -650,13 +595,13 @@ $result_converted{'xml'}->{'form_feeds'} = '<node identifier="Top" spaces=" "><n
 <pre xml:space="preserve">in example
 </pre></example>
 
-<center spaces=" \\f ">around center &formfeed;</center>
-<center spaces=" ">in &formfeed;center</center>
+<center> &formfeed; around center &formfeed;</center>
+<center> in &formfeed;center</center>
 
 <para><indicateurl> &formfeed; in indicateurl</indicateurl>
 </para>
-<deffn spaces=" \\f " endspaces=" "><definitionterm><indexterm index="fn" number="1"> machin </indexterm><defcategory bracketed="on"> &formfeed;truc </defcategory> <deffunction bracketed="on"> machin </deffunction>  <defparam bracketed="on"> bidule </defparam>  <defparam bracketed="on"> &formfeed; chose &formfeed;</defparam> <defparam bracketed="on">  arg&formfeed; </defparam> &formfeed;</definitionterm>
-<deffnx spaces=" \\f "><definitionterm><indexterm index="fn" number="2"> xmachin </indexterm><defcategory bracketed="on"> &formfeed;xtruc </defcategory> <deffunction bracketed="on"> xmachin </deffunction>  <defparam bracketed="on"> xbidule </defparam>  <defparam bracketed="on"> &formfeed; xchose &formfeed;</defparam> <defparam bracketed="on">  xarg&formfeed; </defparam> &formfeed;</definitionterm></deffnx>
+<deffn endspaces=" "><definitionterm><indexterm index="fn" number="1"> machin </indexterm> &formfeed; <defcategory bracketed="on"> &formfeed;truc </defcategory> <deffunction bracketed="on"> machin </deffunction>  <defparam bracketed="on"> bidule </defparam>  <defparam bracketed="on"> &formfeed; chose &formfeed;</defparam> <defparam bracketed="on">  arg&formfeed; </defparam> &formfeed;</definitionterm>
+<deffnx><definitionterm><indexterm index="fn" number="2"> xmachin </indexterm> &formfeed; <defcategory bracketed="on"> &formfeed;xtruc </defcategory> <deffunction bracketed="on"> xmachin </deffunction>  <defparam bracketed="on"> xbidule </defparam>  <defparam bracketed="on"> &formfeed; xchose &formfeed;</defparam> <defparam bracketed="on">  xarg&formfeed; </defparam> &formfeed;</definitionterm></deffnx>
 <definitionitem><para>T
 </para></definitionitem></deffn>
 
@@ -666,11 +611,11 @@ $result_converted{'xml'}->{'form_feeds'} = '<node identifier="Top" spaces=" "><n
 </para><shortcaption spaces="\\f "><para>shc within </para>&formfeed; <para>shortcaption </para>&formfeed;</shortcaption> &formfeed; <para>After shc
 </para></float> &formfeed;
 
-<float identifier="fl" type="type" number="1" spaces=" " endspaces=" "><floattype trailingspaces=" \\f">type</floattype><floatname spaces=" ">fl &formfeed;</floatname>
+<float identifier="fl" type="type" number="1" endspaces=" "><floattype> type &formfeed;</floattype><floatname> fl &formfeed;</floatname>
 <para>in float
 </para></float>
 
-<listoffloats type="type" spaces=" ">type &formfeed;</listoffloats>
+<listoffloats type="type"> type &formfeed;</listoffloats>
 
 ';
 

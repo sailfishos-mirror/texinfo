@@ -8,37 +8,27 @@ use utf8;
 $result_tree_text{'exampleindent_set'} = '*document_root C1
  *before_node_section C3
   *@exampleindent C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@example C3 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C1
     {EXAMPLE INDENT\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -112,7 +102,7 @@ $result_converted{'docbook'}->{'exampleindent_set'} = '
 </screen>';
 
 
-$result_converted{'xml'}->{'exampleindent_set'} = '<exampleindent spaces=" " value="2" line="2"></exampleindent>
+$result_converted{'xml'}->{'exampleindent_set'} = '<exampleindent value="2" line=" 2"></exampleindent>
 
 <example endspaces=" ">
 <pre xml:space="preserve">EXAMPLE INDENT

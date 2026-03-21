@@ -10,44 +10,30 @@ $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C
   *preamble_before_content
   *@example C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@table C4 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@var l2
+      {spaces_after_argument:\\n}
     *table_entry C2
      *table_term C5
       *@item C1 l3
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {a--b}
+        {spaces_after_argument:\\n}
       *inter_item C1
        *preformatted C3
         *index_entry_command@cindex C1 l4
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument: }
         |EXTRA
         |index_entry:I{cp,1}
-         *line_arg C1
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument:\\n}
+         *line_arg C3
+          {spaces_before_argument: }
           {index entry between item and itemx}
+          {spaces_after_argument:\\n}
         *@c C1
         |INFO
         |spaces_before_argument:
@@ -67,62 +53,42 @@ $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C
           |{spaces_after_argument:\\n}
           {rawline_text:and another comment}
       *@itemx C1 l7
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {b}
+        {spaces_after_argument:\\n}
       *inter_item C1
        *preformatted C1
         {empty_line:\\n}
       *@itemx C1 l9
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {c}
+        {spaces_after_argument:\\n}
      *table_definition C1
       *preformatted C1
        {l--ine\\n}
     *table_entry C1
      *table_term C1
       *@item C1 l11
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {d}
+        {spaces_after_argument:\\n}
     *@end C1 l12
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {table}
+      {spaces_after_argument:\\n}
    *@end C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -195,16 +161,16 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table_in_example'} = '<
 
 
 $result_converted{'xml'}->{'inter_item_commands_in_table_in_example'} = '<example endspaces=" ">
-<table commandarg="var" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="var">a--b</itemformat></item>
-<pre xml:space="preserve"><cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry between item and itemx</indexterm></cindex>
+<table commandarg="var" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="var"> a--b</itemformat></item>
+<pre xml:space="preserve"><cindex index="cp"> <indexterm index="cp" number="1">index entry between item and itemx</indexterm></cindex>
 <!-- c and a comment -->
 <!-- comment and another comment -->
-</pre><itemx spaces=" "><itemformat command="var">b</itemformat></itemx>
+</pre><itemx><itemformat command="var"> b</itemformat></itemx>
 <pre xml:space="preserve">
-</pre><itemx spaces=" "><itemformat command="var">c</itemformat></itemx>
+</pre><itemx><itemformat command="var"> c</itemformat></itemx>
 </tableterm><tableitem><pre xml:space="preserve">l--ine
-</pre></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="var">d</itemformat></item>
+</pre></tableitem></tableentry><tableentry><tableterm><item><itemformat command="var"> d</itemformat></item>
 </tableterm></tableentry></table>
 </example>
 ';

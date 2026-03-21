@@ -17,34 +17,26 @@ $result_tree_text{'no_argument_and_contents'} = '*document_root C3
      |{spaces_after_argument:\\n}
    {empty_line:\\n}
  *@top C2 l3 {for example}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {for example}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@chapter C2 l5 {@asis{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@asis C1 l5
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

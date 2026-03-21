@@ -316,12 +316,9 @@ print_root_command (const ELEMENT *element)
   if (argument_line->e.c->contents.number > 0)
     {
       ELEMENT *line_arg = argument_line->e.c->contents.list[0];
-      if (line_arg->e.c->contents.number > 0)
-        {
-          char *root_command_texi
-            = convert_contents_to_texinfo (line_arg);
-          return root_command_texi;
-        }
+      char *root_command_texi
+        = convert_contents_to_texinfo (line_arg);
+      return root_command_texi;
     }
   return 0;
 }
@@ -488,11 +485,14 @@ print_line_command (const ELEMENT *element)
           char *result;
           char *root_command_texi
             = convert_contents_to_texinfo (line_arg);
-          xasprintf (&result , "@%s %s",
-                     builtin_command_name (element->e.c->cmd),
-                     root_command_texi);
-          free (root_command_texi);
-          return result;
+          if (root_command_texi)
+            {
+              xasprintf (&result , "@%s %s",
+                         builtin_command_name (element->e.c->cmd),
+                         root_command_texi);
+              free (root_command_texi);
+              return result;
+            }
         }
       return 0;
     }
@@ -520,10 +520,7 @@ print_menu_node (const ELEMENT *element)
   else if (element->e.c->cmd)
     {
       const ELEMENT *line_arg = element->e.c->contents.list[0];
-      if (line_arg->e.c->contents.number > 0)
-        {
-          return convert_contents_to_texinfo (line_arg);
-        }
+      return (convert_contents_to_texinfo (line_arg));
     }
 
   return (convert_to_texinfo (element));
@@ -558,6 +555,7 @@ print_node_relations_info_internal (const NODE_RELATIONS *relations,
 {
   const ELEMENT *element = relations->element;
   char *root_command_texi = print_root_command (element);
+
   if (!root_command_texi)
     text_printf (result, "%zu", i+1);
   else
@@ -659,8 +657,7 @@ print_heading_relations_info_internal (const HEADING_RELATIONS *relations,
   const ELEMENT *line_arg = element->e.c->contents.list[0];
   char *root_command_texi = 0;
 
-  if (line_arg->e.c->contents.number > 0)
-    root_command_texi = convert_contents_to_texinfo (line_arg);
+  root_command_texi = convert_contents_to_texinfo (line_arg);
 
   if (!root_command_texi)
     text_printf (result, "%zu", i+1);

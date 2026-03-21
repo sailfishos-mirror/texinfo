@@ -8,11 +8,9 @@ use utf8;
 $result_tree_text{'example_at_commands_arguments'} = '*document_root C1
  *before_node_section C1
   *@example C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C3
-    *block_line_arg C13
+    *block_line_arg C14
+     {spaces_before_argument: }
      {some  thing }
      *@^ C1 l1
       *following_arg C1
@@ -36,26 +34,20 @@ $result_tree_text{'example_at_commands_arguments'} = '*document_root C1
       *brace_container
     *block_line_arg C1
      *@@
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C2
      {0}
+     {spaces_after_argument:\\n}
    *preformatted C3
     {example with }
     *@@
     {-commands and other special characters\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -124,7 +116,7 @@ $result_converted{'docbook'}->{'example_at_commands_arguments'} = '<screen>examp
 </screen>';
 
 
-$result_converted{'xml'}->{'example_at_commands_arguments'} = '<example spaces=" " endspaces=" "><examplelanguage>some  thing <accent type="circ" bracketed="off">e</accent> &tex; &iexcl; <code>---</code> &enddots; !_- _&textmdash;_ &lt; &quot; &amp; <spacecmd type="spc"/>&comma;</examplelanguage><examplearg>&arobase;</examplearg><examplearg>0</examplearg>
+$result_converted{'xml'}->{'example_at_commands_arguments'} = '<example endspaces=" "><examplelanguage> some  thing <accent type="circ" bracketed="off">e</accent> &tex; &iexcl; <code>---</code> &enddots; !_- _&textmdash;_ &lt; &quot; &amp; <spacecmd type="spc"/>&comma;</examplelanguage><examplearg>&arobase;</examplearg><examplearg>0</examplearg>
 <pre xml:space="preserve">example with &arobase;-commands and other special characters
 </pre></example>
 ';

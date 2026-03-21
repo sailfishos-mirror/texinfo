@@ -8,26 +8,20 @@ use utf8;
 $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
  *before_node_section
  *@node C4 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C4 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -51,71 +45,55 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
      *preformatted C1
       {\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 l8 {chap first node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap-first-node}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {chap first node}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{no return}
    |normalized:{no-return}
+    {spaces_before_argument: }
     {no return}
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l10 {no return}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{no-return}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {no return}
    *line_arg
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument: \\n}
 ';
 
 
@@ -163,16 +141,16 @@ $result_sectioning_root{'next_no_prev_to_node'} = '';
 $result_headings_list{'next_no_prev_to_node'} = '';
 
 
-$result_converted{'xml'}->{'next_no_prev_to_node'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap first node</nodenext></node>
+$result_converted{'xml'}->{'next_no_prev_to_node'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap first node</nodenext></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>chap first node</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>no return</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="chap-first-node" spaces=" "><nodename>chap first node</nodename><nodenext spaces=" ">no return</nodenext><nodeprev></nodeprev><nodeup spaces=" ">Top</nodeup></node>
+<node identifier="chap-first-node"><nodename> chap first node</nodename><nodenext> no return</nodenext><nodeprev></nodeprev><nodeup> Top</nodeup></node>
 
-<node identifier="no-return" spaces=" "><nodename>no return</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup spaces=" " trailingspaces=" ">Top</nodeup></node>
+<node identifier="no-return"><nodename> no return</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup> Top</nodeup></node>
 ';
 
 1;

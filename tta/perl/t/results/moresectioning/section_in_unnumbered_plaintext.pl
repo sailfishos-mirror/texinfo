@@ -11,32 +11,24 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
    {text_before_beginning:\\n}
   *preamble_before_content
  *@node C1 section_in_unnumbered_text.texi:l2 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C8 section_in_unnumbered_text.texi:l3 {Test section in unnumbered}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Test section in unnumbered}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@contents C1 section_in_unnumbered_text.texi:l5
   |EXTRA
@@ -51,10 +43,8 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
   {empty_line:\\n}
   *@menu C7 section_in_unnumbered_text.texi:l9
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l10
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -111,52 +101,38 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
      *preformatted C1
       {\\n}
    *@end C1 section_in_unnumbered_text.texi:l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l17 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C4 section_in_unnumbered_text.texi:l18 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 section_in_unnumbered_text.texi:l20
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l21
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -169,80 +145,58 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
      *preformatted C1
       {\\n}
    *@end C1 section_in_unnumbered_text.texi:l22
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l24 {section in chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{section-in-chapter}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section in chapter}
+    {spaces_after_argument:\\n}
  *@section C2 section_in_unnumbered_text.texi:l25 {section in chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section in chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l27 {unnumbered}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumbered}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered}
+    {spaces_after_argument:\\n}
  *@unnumbered C4 section_in_unnumbered_text.texi:l28 {unnumbered}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 section_in_unnumbered_text.texi:l30
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l31
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -255,80 +209,58 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
      *preformatted C1
       {\\n}
    *@end C1 section_in_unnumbered_text.texi:l32
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l34 {section in unnumbered}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{section-in-unnumbered}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section in unnumbered}
+    {spaces_after_argument:\\n}
  *@section C2 section_in_unnumbered_text.texi:l35 {section in unnumbered}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section in unnumbered}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l37 {chapter 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter-2}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter 2}
+    {spaces_after_argument:\\n}
  *@chapter C4 section_in_unnumbered_text.texi:l38 {chapter 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C4 section_in_unnumbered_text.texi:l40
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l41
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -352,51 +284,37 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
      *preformatted C1
       {\\n}
    *@end C1 section_in_unnumbered_text.texi:l43
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l45 {unnumberedsec 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumberedsec-2}
  |is_target:{1}
  |node_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumberedsec 2}
+    {spaces_after_argument:\\n}
  *@unnumberedsec C4 section_in_unnumbered_text.texi:l46 {unnumbered section 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered section 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C6 section_in_unnumbered_text.texi:l48
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l49
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -442,163 +360,117 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
      *preformatted C1
       {\\n}
    *@end C1 section_in_unnumbered_text.texi:l53
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l55 {unnumbered sub 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumbered-sub-2}
  |is_target:{1}
  |node_number:{8}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered sub 2}
+    {spaces_after_argument:\\n}
  *@unnumberedsubsec C2 section_in_unnumbered_text.texi:l56 {unnumbered subsection 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{8}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered subsection 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l58 {numbered sub 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{numbered-sub-2}
  |is_target:{1}
  |node_number:{9}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered sub 2}
+    {spaces_after_argument:\\n}
  *@subsection C2 section_in_unnumbered_text.texi:l59 {numbered subsection 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{9}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered subsection 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l61 {unnumbered sub2 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumbered-sub2-2}
  |is_target:{1}
  |node_number:{10}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered sub2 2}
+    {spaces_after_argument:\\n}
  *@unnumberedsubsec C2 section_in_unnumbered_text.texi:l62 {unnumbered subsection2 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{10}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered subsection2 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l64 {numbered sub2 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{numbered-sub2-2}
  |is_target:{1}
  |node_number:{11}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered sub2 2}
+    {spaces_after_argument:\\n}
  *@subsection C2 section_in_unnumbered_text.texi:l65 {numbered subsection2 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{11}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered subsection2 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l67 {unnumberedsec 2-1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumberedsec-2_002d1}
  |is_target:{1}
  |node_number:{12}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumberedsec 2-1}
+    {spaces_after_argument:\\n}
  *@unnumberedsec C4 section_in_unnumbered_text.texi:l68 {unnumberedsec 2-1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{12}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumberedsec 2-1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 section_in_unnumbered_text.texi:l70
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l71
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -611,81 +483,59 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
      *preformatted C1
       {\\n}
    *@end C1 section_in_unnumbered_text.texi:l72
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l74 {numbered sub 2-1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{numbered-sub-2_002d1}
  |is_target:{1}
  |node_number:{13}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered sub 2-1}
+    {spaces_after_argument:\\n}
  *@subsection C3 section_in_unnumbered_text.texi:l75 {numbered subsection 2-1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{13}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered subsection 2-1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l78 {chapter 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter-3}
  |is_target:{1}
  |node_number:{14}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter 3}
+    {spaces_after_argument:\\n}
  *@chapter C4 section_in_unnumbered_text.texi:l79 {chapter 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{14}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter 3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C7 section_in_unnumbered_text.texi:l81
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l82
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -742,51 +592,37 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
      *preformatted C1
       {\\n}
    *@end C1 section_in_unnumbered_text.texi:l87
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l89 {unnumberedsec 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumberedsec-3}
  |is_target:{1}
  |node_number:{15}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumberedsec 3}
+    {spaces_after_argument:\\n}
  *@unnumberedsec C4 section_in_unnumbered_text.texi:l90 {unnumbered section 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{15}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered section 3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C6 section_in_unnumbered_text.texi:l92
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l93
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -832,192 +668,138 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
      *preformatted C1
       {\\n}
    *@end C1 section_in_unnumbered_text.texi:l97
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l99 {unnumbered sub 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumbered-sub-3}
  |is_target:{1}
  |node_number:{16}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered sub 3}
+    {spaces_after_argument:\\n}
  *@unnumberedsubsec C2 section_in_unnumbered_text.texi:l100 {unnumbered subsection 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{16}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered subsection 3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l102 {numbered sub 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{numbered-sub-3}
  |is_target:{1}
  |node_number:{17}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered sub 3}
+    {spaces_after_argument:\\n}
  *@subsection C2 section_in_unnumbered_text.texi:l103 {numbered subsection 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{17}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered subsection 3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l105 {unnumbered sub2 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumbered-sub2-3}
  |is_target:{1}
  |node_number:{18}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered sub2 3}
+    {spaces_after_argument:\\n}
  *@unnumberedsubsec C2 section_in_unnumbered_text.texi:l106 {unnumbered subsection2 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{18}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered subsection2 3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l108 {numbered sub2 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{numbered-sub2-3}
  |is_target:{1}
  |node_number:{19}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered sub2 3}
+    {spaces_after_argument:\\n}
  *@subsection C2 section_in_unnumbered_text.texi:l109 {numbered subsection2 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{19}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered subsection2 3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l111 {section 3-1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{section-3_002d1}
  |is_target:{1}
  |node_number:{20}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section 3-1}
+    {spaces_after_argument:\\n}
  *@section C2 section_in_unnumbered_text.texi:l112 {section 3-1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3.1}
  |section_level:{2}
  |section_number:{20}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section 3-1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l114 {unnumberedsec 3-2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumberedsec-3_002d2}
  |is_target:{1}
  |node_number:{21}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumberedsec 3-2}
+    {spaces_after_argument:\\n}
  *@unnumberedsec C4 section_in_unnumbered_text.texi:l115 {unnumberedsec 3-2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{21}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumberedsec 3-2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 section_in_unnumbered_text.texi:l117
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l118
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -1030,80 +812,58 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
      *preformatted C1
       {\\n}
    *@end C1 section_in_unnumbered_text.texi:l119
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l121 {numbered sub 3-2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{numbered-sub-3_002d2}
  |is_target:{1}
  |node_number:{22}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered sub 3-2}
+    {spaces_after_argument:\\n}
  *@subsection C2 section_in_unnumbered_text.texi:l122 {numbered subsection 3-2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{22}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered subsection 3-2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l124 {section 3-3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{section-3_002d3}
  |is_target:{1}
  |node_number:{23}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section 3-3}
+    {spaces_after_argument:\\n}
  *@section C4 section_in_unnumbered_text.texi:l125 {section 3-3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3.2}
  |section_level:{2}
  |section_number:{23}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section 3-3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 section_in_unnumbered_text.texi:l127
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l128
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -1116,80 +876,58 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
      *preformatted C1
       {\\n}
    *@end C1 section_in_unnumbered_text.texi:l129
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l131 {subsection 3-3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{subsection-3_002d3}
  |is_target:{1}
  |node_number:{24}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {subsection 3-3}
+    {spaces_after_argument:\\n}
  *@subsection C2 section_in_unnumbered_text.texi:l132 {subsection 3-3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3.2.1}
  |section_level:{3}
  |section_number:{24}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {subsection 3-3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l134 {unnumberedsec 3-4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumberedsec-3_002d4}
  |is_target:{1}
  |node_number:{25}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumberedsec 3-4}
+    {spaces_after_argument:\\n}
  *@unnumberedsec C4 section_in_unnumbered_text.texi:l135 {unnumberedsec 3-4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{25}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumberedsec 3-4}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 section_in_unnumbered_text.texi:l137
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l138
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -1202,79 +940,57 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
      *preformatted C1
       {\\n}
    *@end C1 section_in_unnumbered_text.texi:l139
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l141 {numbered sub 3-4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{numbered-sub-3_002d4}
  |is_target:{1}
  |node_number:{26}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered sub 3-4}
+    {spaces_after_argument:\\n}
  *@subsection C2 section_in_unnumbered_text.texi:l142 {numbered subsection 3-4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{26}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered subsection 3-4}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l144 {unnumbered 4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumbered-4}
  |is_target:{1}
  |node_number:{27}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered 4}
+    {spaces_after_argument:\\n}
  *@unnumbered C4 section_in_unnumbered_text.texi:l145 {unnumbered  4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{27}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered  4}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 section_in_unnumbered_text.texi:l147
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l148
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -1287,51 +1003,37 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
      *preformatted C1
       {\\n}
    *@end C1 section_in_unnumbered_text.texi:l149
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l151 {unnumberedsec 4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumberedsec-4}
  |is_target:{1}
  |node_number:{28}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumberedsec 4}
+    {spaces_after_argument:\\n}
  *@unnumberedsec C4 section_in_unnumbered_text.texi:l152 {unnumbered section 4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{28}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered section 4}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C6 section_in_unnumbered_text.texi:l154
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 section_in_unnumbered_text.texi:l155
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -1377,128 +1079,92 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
      *preformatted C1
       {\\n}
    *@end C1 section_in_unnumbered_text.texi:l159
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l161 {unnumbered sub 4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumbered-sub-4}
  |is_target:{1}
  |node_number:{29}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered sub 4}
+    {spaces_after_argument:\\n}
  *@unnumberedsubsec C2 section_in_unnumbered_text.texi:l162 {unnumbered subsection 4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{29}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered subsection 4}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l164 {numbered sub 4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{numbered-sub-4}
  |is_target:{1}
  |node_number:{30}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered sub 4}
+    {spaces_after_argument:\\n}
  *@subsection C2 section_in_unnumbered_text.texi:l165 {numbered subsection 4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{30}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered subsection 4}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l167 {unnumbered sub2 4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumbered-sub2-4}
  |is_target:{1}
  |node_number:{31}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered sub2 4}
+    {spaces_after_argument:\\n}
  *@unnumberedsubsec C2 section_in_unnumbered_text.texi:l168 {unnumbered subsection2 4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{31}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered subsection2 4}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 section_in_unnumbered_text.texi:l170 {numbered sub2 4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{numbered-sub2-4}
  |is_target:{1}
  |node_number:{32}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered sub2 4}
+    {spaces_after_argument:\\n}
  *@subsection C1 section_in_unnumbered_text.texi:l171 {numbered subsection2 4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{32}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {numbered subsection2 4}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -2856,8 +2522,8 @@ ul.toc-numbered-mark {list-style: none}
 
 
 $result_converted{'xml'}->{'section_in_unnumbered_plaintext'} = '<preamblebeforebeginning>
-</preamblebeforebeginning><node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
-<top spaces=" "><sectiontitle>Test section in unnumbered</sectiontitle>
+</preamblebeforebeginning><node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapter</nodenext></node>
+<top><sectiontitle> Test section in unnumbered</sectiontitle>
 
 <contents></contents>
 
@@ -2872,40 +2538,40 @@ $result_converted{'xml'}->{'section_in_unnumbered_plaintext'} = '<preamblebefore
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodenext automatic="on">unnumbered</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chapter</sectiontitle>
+<node identifier="chapter"><nodename> chapter</nodename><nodenext automatic="on"> unnumbered</nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> chapter</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>section in chapter</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="section-in-chapter" spaces=" "><nodename>section in chapter</nodename><nodeup automatic="on">chapter</nodeup></node>
-<section spaces=" "><sectiontitle>section in chapter</sectiontitle>
+<node identifier="section-in-chapter"><nodename> section in chapter</nodename><nodeup automatic="on"> chapter</nodeup></node>
+<section><sectiontitle> section in chapter</sectiontitle>
 
 </section>
 </chapter>
-<node identifier="unnumbered" spaces=" "><nodename>unnumbered</nodename><nodenext automatic="on">chapter 2</nodenext><nodeprev automatic="on">chapter</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<unnumbered spaces=" "><sectiontitle>unnumbered</sectiontitle>
+<node identifier="unnumbered"><nodename> unnumbered</nodename><nodenext automatic="on"> chapter 2</nodenext><nodeprev automatic="on"> chapter</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<unnumbered><sectiontitle> unnumbered</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>section in unnumbered</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="section-in-unnumbered" spaces=" "><nodename>section in unnumbered</nodename><nodeup automatic="on">unnumbered</nodeup></node>
-<section spaces=" "><sectiontitle>section in unnumbered</sectiontitle>
+<node identifier="section-in-unnumbered"><nodename> section in unnumbered</nodename><nodeup automatic="on"> unnumbered</nodeup></node>
+<section><sectiontitle> section in unnumbered</sectiontitle>
 
 </section>
 </unnumbered>
-<node identifier="chapter-2" spaces=" "><nodename>chapter 2</nodename><nodenext automatic="on">chapter 3</nodenext><nodeprev automatic="on">unnumbered</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chapter 2</sectiontitle>
+<node identifier="chapter-2"><nodename> chapter 2</nodename><nodenext automatic="on"> chapter 3</nodenext><nodeprev automatic="on"> unnumbered</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> chapter 2</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>unnumberedsec 2</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>unnumberedsec 2-1</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="unnumberedsec-2" spaces=" "><nodename>unnumberedsec 2</nodename><nodenext automatic="on">unnumberedsec 2-1</nodenext><nodeup automatic="on">chapter 2</nodeup></node>
-<unnumberedsec spaces=" "><sectiontitle>unnumbered section 2</sectiontitle>
+<node identifier="unnumberedsec-2"><nodename> unnumberedsec 2</nodename><nodenext automatic="on"> unnumberedsec 2-1</nodenext><nodeup automatic="on"> chapter 2</nodeup></node>
+<unnumberedsec><sectiontitle> unnumbered section 2</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>unnumbered sub 2</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -2914,39 +2580,39 @@ $result_converted{'xml'}->{'section_in_unnumbered_plaintext'} = '<preamblebefore
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>numbered sub2 2</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="unnumbered-sub-2" spaces=" "><nodename>unnumbered sub 2</nodename><nodenext automatic="on">numbered sub 2</nodenext><nodeup automatic="on">unnumberedsec 2</nodeup></node>
-<unnumberedsubsec spaces=" "><sectiontitle>unnumbered subsection 2</sectiontitle>
+<node identifier="unnumbered-sub-2"><nodename> unnumbered sub 2</nodename><nodenext automatic="on"> numbered sub 2</nodenext><nodeup automatic="on"> unnumberedsec 2</nodeup></node>
+<unnumberedsubsec><sectiontitle> unnumbered subsection 2</sectiontitle>
 
 </unnumberedsubsec>
-<node identifier="numbered-sub-2" spaces=" "><nodename>numbered sub 2</nodename><nodenext automatic="on">unnumbered sub2 2</nodenext><nodeprev automatic="on">unnumbered sub 2</nodeprev><nodeup automatic="on">unnumberedsec 2</nodeup></node>
-<subsection spaces=" "><sectiontitle>numbered subsection 2</sectiontitle>
+<node identifier="numbered-sub-2"><nodename> numbered sub 2</nodename><nodenext automatic="on"> unnumbered sub2 2</nodenext><nodeprev automatic="on"> unnumbered sub 2</nodeprev><nodeup automatic="on"> unnumberedsec 2</nodeup></node>
+<subsection><sectiontitle> numbered subsection 2</sectiontitle>
 
 </subsection>
-<node identifier="unnumbered-sub2-2" spaces=" "><nodename>unnumbered sub2 2</nodename><nodenext automatic="on">numbered sub2 2</nodenext><nodeprev automatic="on">numbered sub 2</nodeprev><nodeup automatic="on">unnumberedsec 2</nodeup></node>
-<unnumberedsubsec spaces=" "><sectiontitle>unnumbered subsection2 2</sectiontitle>
+<node identifier="unnumbered-sub2-2"><nodename> unnumbered sub2 2</nodename><nodenext automatic="on"> numbered sub2 2</nodenext><nodeprev automatic="on"> numbered sub 2</nodeprev><nodeup automatic="on"> unnumberedsec 2</nodeup></node>
+<unnumberedsubsec><sectiontitle> unnumbered subsection2 2</sectiontitle>
 
 </unnumberedsubsec>
-<node identifier="numbered-sub2-2" spaces=" "><nodename>numbered sub2 2</nodename><nodeprev automatic="on">unnumbered sub2 2</nodeprev><nodeup automatic="on">unnumberedsec 2</nodeup></node>
-<subsection spaces=" "><sectiontitle>numbered subsection2 2</sectiontitle>
+<node identifier="numbered-sub2-2"><nodename> numbered sub2 2</nodename><nodeprev automatic="on"> unnumbered sub2 2</nodeprev><nodeup automatic="on"> unnumberedsec 2</nodeup></node>
+<subsection><sectiontitle> numbered subsection2 2</sectiontitle>
 
 </subsection>
 </unnumberedsec>
-<node identifier="unnumberedsec-2_002d1" spaces=" "><nodename>unnumberedsec 2-1</nodename><nodeprev automatic="on">unnumberedsec 2</nodeprev><nodeup automatic="on">chapter 2</nodeup></node>
-<unnumberedsec spaces=" "><sectiontitle>unnumberedsec 2-1</sectiontitle>
+<node identifier="unnumberedsec-2_002d1"><nodename> unnumberedsec 2-1</nodename><nodeprev automatic="on"> unnumberedsec 2</nodeprev><nodeup automatic="on"> chapter 2</nodeup></node>
+<unnumberedsec><sectiontitle> unnumberedsec 2-1</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>numbered sub 2-1</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="numbered-sub-2_002d1" spaces=" "><nodename>numbered sub 2-1</nodename><nodeup automatic="on">unnumberedsec 2-1</nodeup></node>
-<subsection spaces=" "><sectiontitle>numbered subsection 2-1</sectiontitle>
+<node identifier="numbered-sub-2_002d1"><nodename> numbered sub 2-1</nodename><nodeup automatic="on"> unnumberedsec 2-1</nodeup></node>
+<subsection><sectiontitle> numbered subsection 2-1</sectiontitle>
 
 
 </subsection>
 </unnumberedsec>
 </chapter>
-<node identifier="chapter-3" spaces=" "><nodename>chapter 3</nodename><nodenext automatic="on">unnumbered 4</nodenext><nodeprev automatic="on">chapter 2</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chapter 3</sectiontitle>
+<node identifier="chapter-3"><nodename> chapter 3</nodename><nodenext automatic="on"> unnumbered 4</nodenext><nodeprev automatic="on"> chapter 2</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> chapter 3</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>unnumberedsec 3</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -2956,8 +2622,8 @@ $result_converted{'xml'}->{'section_in_unnumbered_plaintext'} = '<preamblebefore
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>unnumberedsec 3-4</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="unnumberedsec-3" spaces=" "><nodename>unnumberedsec 3</nodename><nodenext automatic="on">section 3-1</nodenext><nodeup automatic="on">chapter 3</nodeup></node>
-<unnumberedsec spaces=" "><sectiontitle>unnumbered section 3</sectiontitle>
+<node identifier="unnumberedsec-3"><nodename> unnumberedsec 3</nodename><nodenext automatic="on"> section 3-1</nodenext><nodeup automatic="on"> chapter 3</nodeup></node>
+<unnumberedsec><sectiontitle> unnumbered section 3</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>unnumbered sub 3</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -2966,73 +2632,73 @@ $result_converted{'xml'}->{'section_in_unnumbered_plaintext'} = '<preamblebefore
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>numbered sub2 3</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="unnumbered-sub-3" spaces=" "><nodename>unnumbered sub 3</nodename><nodenext automatic="on">numbered sub 3</nodenext><nodeup automatic="on">unnumberedsec 3</nodeup></node>
-<unnumberedsubsec spaces=" "><sectiontitle>unnumbered subsection 3</sectiontitle>
+<node identifier="unnumbered-sub-3"><nodename> unnumbered sub 3</nodename><nodenext automatic="on"> numbered sub 3</nodenext><nodeup automatic="on"> unnumberedsec 3</nodeup></node>
+<unnumberedsubsec><sectiontitle> unnumbered subsection 3</sectiontitle>
 
 </unnumberedsubsec>
-<node identifier="numbered-sub-3" spaces=" "><nodename>numbered sub 3</nodename><nodenext automatic="on">unnumbered sub2 3</nodenext><nodeprev automatic="on">unnumbered sub 3</nodeprev><nodeup automatic="on">unnumberedsec 3</nodeup></node>
-<subsection spaces=" "><sectiontitle>numbered subsection 3</sectiontitle>
+<node identifier="numbered-sub-3"><nodename> numbered sub 3</nodename><nodenext automatic="on"> unnumbered sub2 3</nodenext><nodeprev automatic="on"> unnumbered sub 3</nodeprev><nodeup automatic="on"> unnumberedsec 3</nodeup></node>
+<subsection><sectiontitle> numbered subsection 3</sectiontitle>
 
 </subsection>
-<node identifier="unnumbered-sub2-3" spaces=" "><nodename>unnumbered sub2 3</nodename><nodenext automatic="on">numbered sub2 3</nodenext><nodeprev automatic="on">numbered sub 3</nodeprev><nodeup automatic="on">unnumberedsec 3</nodeup></node>
-<unnumberedsubsec spaces=" "><sectiontitle>unnumbered subsection2 3</sectiontitle>
+<node identifier="unnumbered-sub2-3"><nodename> unnumbered sub2 3</nodename><nodenext automatic="on"> numbered sub2 3</nodenext><nodeprev automatic="on"> numbered sub 3</nodeprev><nodeup automatic="on"> unnumberedsec 3</nodeup></node>
+<unnumberedsubsec><sectiontitle> unnumbered subsection2 3</sectiontitle>
 
 </unnumberedsubsec>
-<node identifier="numbered-sub2-3" spaces=" "><nodename>numbered sub2 3</nodename><nodeprev automatic="on">unnumbered sub2 3</nodeprev><nodeup automatic="on">unnumberedsec 3</nodeup></node>
-<subsection spaces=" "><sectiontitle>numbered subsection2 3</sectiontitle>
+<node identifier="numbered-sub2-3"><nodename> numbered sub2 3</nodename><nodeprev automatic="on"> unnumbered sub2 3</nodeprev><nodeup automatic="on"> unnumberedsec 3</nodeup></node>
+<subsection><sectiontitle> numbered subsection2 3</sectiontitle>
 
 </subsection>
 </unnumberedsec>
-<node identifier="section-3_002d1" spaces=" "><nodename>section 3-1</nodename><nodenext automatic="on">unnumberedsec 3-2</nodenext><nodeprev automatic="on">unnumberedsec 3</nodeprev><nodeup automatic="on">chapter 3</nodeup></node>
-<section spaces=" "><sectiontitle>section 3-1</sectiontitle>
+<node identifier="section-3_002d1"><nodename> section 3-1</nodename><nodenext automatic="on"> unnumberedsec 3-2</nodenext><nodeprev automatic="on"> unnumberedsec 3</nodeprev><nodeup automatic="on"> chapter 3</nodeup></node>
+<section><sectiontitle> section 3-1</sectiontitle>
 
 </section>
-<node identifier="unnumberedsec-3_002d2" spaces=" "><nodename>unnumberedsec 3-2</nodename><nodenext automatic="on">section 3-3</nodenext><nodeprev automatic="on">section 3-1</nodeprev><nodeup automatic="on">chapter 3</nodeup></node>
-<unnumberedsec spaces=" "><sectiontitle>unnumberedsec 3-2</sectiontitle>
+<node identifier="unnumberedsec-3_002d2"><nodename> unnumberedsec 3-2</nodename><nodenext automatic="on"> section 3-3</nodenext><nodeprev automatic="on"> section 3-1</nodeprev><nodeup automatic="on"> chapter 3</nodeup></node>
+<unnumberedsec><sectiontitle> unnumberedsec 3-2</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>numbered sub 3-2</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="numbered-sub-3_002d2" spaces=" "><nodename>numbered sub 3-2</nodename><nodeup automatic="on">unnumberedsec 3-2</nodeup></node>
-<subsection spaces=" "><sectiontitle>numbered subsection 3-2</sectiontitle>
+<node identifier="numbered-sub-3_002d2"><nodename> numbered sub 3-2</nodename><nodeup automatic="on"> unnumberedsec 3-2</nodeup></node>
+<subsection><sectiontitle> numbered subsection 3-2</sectiontitle>
 
 </subsection>
 </unnumberedsec>
-<node identifier="section-3_002d3" spaces=" "><nodename>section 3-3</nodename><nodenext automatic="on">unnumberedsec 3-4</nodenext><nodeprev automatic="on">unnumberedsec 3-2</nodeprev><nodeup automatic="on">chapter 3</nodeup></node>
-<section spaces=" "><sectiontitle>section 3-3</sectiontitle>
+<node identifier="section-3_002d3"><nodename> section 3-3</nodename><nodenext automatic="on"> unnumberedsec 3-4</nodenext><nodeprev automatic="on"> unnumberedsec 3-2</nodeprev><nodeup automatic="on"> chapter 3</nodeup></node>
+<section><sectiontitle> section 3-3</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>subsection 3-3</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="subsection-3_002d3" spaces=" "><nodename>subsection 3-3</nodename><nodeup automatic="on">section 3-3</nodeup></node>
-<subsection spaces=" "><sectiontitle>subsection 3-3</sectiontitle>
+<node identifier="subsection-3_002d3"><nodename> subsection 3-3</nodename><nodeup automatic="on"> section 3-3</nodeup></node>
+<subsection><sectiontitle> subsection 3-3</sectiontitle>
 
 </subsection>
 </section>
-<node identifier="unnumberedsec-3_002d4" spaces=" "><nodename>unnumberedsec 3-4</nodename><nodeprev automatic="on">section 3-3</nodeprev><nodeup automatic="on">chapter 3</nodeup></node>
-<unnumberedsec spaces=" "><sectiontitle>unnumberedsec 3-4</sectiontitle>
+<node identifier="unnumberedsec-3_002d4"><nodename> unnumberedsec 3-4</nodename><nodeprev automatic="on"> section 3-3</nodeprev><nodeup automatic="on"> chapter 3</nodeup></node>
+<unnumberedsec><sectiontitle> unnumberedsec 3-4</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>numbered sub 3-4</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="numbered-sub-3_002d4" spaces=" "><nodename>numbered sub 3-4</nodename><nodeup automatic="on">unnumberedsec 3-4</nodeup></node>
-<subsection spaces=" "><sectiontitle>numbered subsection 3-4</sectiontitle>
+<node identifier="numbered-sub-3_002d4"><nodename> numbered sub 3-4</nodename><nodeup automatic="on"> unnumberedsec 3-4</nodeup></node>
+<subsection><sectiontitle> numbered subsection 3-4</sectiontitle>
 
 </subsection>
 </unnumberedsec>
 </chapter>
-<node identifier="unnumbered-4" spaces=" "><nodename>unnumbered 4</nodename><nodeprev automatic="on">chapter 3</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<unnumbered spaces=" "><sectiontitle>unnumbered  4</sectiontitle>
+<node identifier="unnumbered-4"><nodename> unnumbered 4</nodename><nodeprev automatic="on"> chapter 3</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<unnumbered><sectiontitle> unnumbered  4</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>unnumberedsec 4</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="unnumberedsec-4" spaces=" "><nodename>unnumberedsec 4</nodename><nodeup automatic="on">unnumbered 4</nodeup></node>
-<unnumberedsec spaces=" "><sectiontitle>unnumbered section 4</sectiontitle>
+<node identifier="unnumberedsec-4"><nodename> unnumberedsec 4</nodename><nodeup automatic="on"> unnumbered 4</nodeup></node>
+<unnumberedsec><sectiontitle> unnumbered section 4</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>unnumbered sub 4</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -3041,20 +2707,20 @@ $result_converted{'xml'}->{'section_in_unnumbered_plaintext'} = '<preamblebefore
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>numbered sub2 4</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="unnumbered-sub-4" spaces=" "><nodename>unnumbered sub 4</nodename><nodenext automatic="on">numbered sub 4</nodenext><nodeup automatic="on">unnumberedsec 4</nodeup></node>
-<unnumberedsubsec spaces=" "><sectiontitle>unnumbered subsection 4</sectiontitle>
+<node identifier="unnumbered-sub-4"><nodename> unnumbered sub 4</nodename><nodenext automatic="on"> numbered sub 4</nodenext><nodeup automatic="on"> unnumberedsec 4</nodeup></node>
+<unnumberedsubsec><sectiontitle> unnumbered subsection 4</sectiontitle>
 
 </unnumberedsubsec>
-<node identifier="numbered-sub-4" spaces=" "><nodename>numbered sub 4</nodename><nodenext automatic="on">unnumbered sub2 4</nodenext><nodeprev automatic="on">unnumbered sub 4</nodeprev><nodeup automatic="on">unnumberedsec 4</nodeup></node>
-<subsection spaces=" "><sectiontitle>numbered subsection 4</sectiontitle>
+<node identifier="numbered-sub-4"><nodename> numbered sub 4</nodename><nodenext automatic="on"> unnumbered sub2 4</nodenext><nodeprev automatic="on"> unnumbered sub 4</nodeprev><nodeup automatic="on"> unnumberedsec 4</nodeup></node>
+<subsection><sectiontitle> numbered subsection 4</sectiontitle>
 
 </subsection>
-<node identifier="unnumbered-sub2-4" spaces=" "><nodename>unnumbered sub2 4</nodename><nodenext automatic="on">numbered sub2 4</nodenext><nodeprev automatic="on">numbered sub 4</nodeprev><nodeup automatic="on">unnumberedsec 4</nodeup></node>
-<unnumberedsubsec spaces=" "><sectiontitle>unnumbered subsection2 4</sectiontitle>
+<node identifier="unnumbered-sub2-4"><nodename> unnumbered sub2 4</nodename><nodenext automatic="on"> numbered sub2 4</nodenext><nodeprev automatic="on"> numbered sub 4</nodeprev><nodeup automatic="on"> unnumberedsec 4</nodeup></node>
+<unnumberedsubsec><sectiontitle> unnumbered subsection2 4</sectiontitle>
 
 </unnumberedsubsec>
-<node identifier="numbered-sub2-4" spaces=" "><nodename>numbered sub2 4</nodename><nodeprev automatic="on">unnumbered sub2 4</nodeprev><nodeup automatic="on">unnumberedsec 4</nodeup></node>
-<subsection spaces=" "><sectiontitle>numbered subsection2 4</sectiontitle>
+<node identifier="numbered-sub2-4"><nodename> numbered sub2 4</nodename><nodeprev automatic="on"> unnumbered sub2 4</nodeprev><nodeup automatic="on"> unnumberedsec 4</nodeup></node>
+<subsection><sectiontitle> numbered subsection2 4</sectiontitle>
 </subsection>
 </unnumberedsec>
 </unnumbered>

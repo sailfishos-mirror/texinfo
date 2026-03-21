@@ -8,26 +8,20 @@ use utf8;
 $result_tree_text{'spaces_in_node_names'} = '*document_root C5
  *before_node_section
  *@node C4 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C5 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C3
@@ -70,71 +64,55 @@ $result_tree_text{'spaces_in_node_names'} = '*document_root C5
      *preformatted C1
       {\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 l9 {chap@ @ }
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap-}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     {chap}
     *@ 
     *@ 
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 l11 {b@verb{:  :}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{b-}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {b}
     *@verb C1 l11
     |INFO
     |delimiter:{:}
      *brace_container C1
       {raw:  }
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C7 l13 {c@w{  }}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{c-}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {c}
     *@w C1 l13
      *brace_container C1
       {  }
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l15
@@ -281,7 +259,7 @@ $result_converted{'html_text'}->{'spaces_in_node_names'} = '<h1 class="node" id=
 </p>';
 
 
-$result_converted{'xml'}->{'spaces_in_node_names'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap<spacecmd type="spc"/><spacecmd type="spc"/></nodenext></node>
+$result_converted{'xml'}->{'spaces_in_node_names'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap<spacecmd type="spc"/><spacecmd type="spc"/></nodenext></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>chap<spacecmd type="spc"/><spacecmd type="spc"/></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -289,11 +267,11 @@ $result_converted{'xml'}->{'spaces_in_node_names'} = '<node identifier="Top" spa
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>c<spacecmd type="spc"/></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="chap-" spaces=" "><nodename>chap<spacecmd type="spc"/><spacecmd type="spc"/></nodename><nodenext automatic="on">b<verb delimiter=":">  </verb></nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chap-"><nodename> chap<spacecmd type="spc"/><spacecmd type="spc"/></nodename><nodenext automatic="on"> b<verb delimiter=":">  </verb></nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
 
-<node identifier="b-" spaces=" "><nodename>b<verb delimiter=":">  </verb></nodename><nodenext automatic="on">c<w>  </w></nodenext><nodeprev automatic="on">chap<spacecmd type="spc"/><spacecmd type="spc"/></nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="b-"><nodename> b<verb delimiter=":">  </verb></nodename><nodenext automatic="on"> c<w>  </w></nodenext><nodeprev automatic="on"> chap<spacecmd type="spc"/><spacecmd type="spc"/></nodeprev><nodeup automatic="on"> Top</nodeup></node>
 
-<node identifier="c-" spaces=" "><nodename>c<w>  </w></nodename><nodeprev automatic="on">b<verb delimiter=":">  </verb></nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="c-"><nodename> c<w>  </w></nodename><nodeprev automatic="on"> b<verb delimiter=":">  </verb></nodeprev><nodeup automatic="on"> Top</nodeup></node>
 
 <para><ref label="chap-"><xrefnodename>chap<spacecmd type="spc"/><spacecmd type="spc"/></xrefnodename></ref>
 </para>

@@ -35,63 +35,45 @@ $result_tree_text{'table_nested'} = '*document_root C1
    {raw:@end table\\n}
    {raw:After table.\\n}
    *@end C1 l23
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Quotation\\n}
   *@quotation C7 l26
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
     >SOURCEMARKS
     >macro_expansion<start;1>
      >*macro_call@myvtable C1
       >*brace_arg
+     {spaces_before_argument:\\n}
    *@vtable C5 l27:@myvtable
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@asis l27:@myvtable
+      {spaces_after_argument:\\n}
     *table_entry C2
      *table_term C2
       *@item C1 l27:@myvtable
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |index_entry:I{vr,1}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {first item}
+        {spaces_after_argument:\\n}
       *@itemx C1 l27:@myvtable
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |index_entry:I{vr,2}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {second itemx}
+        {spaces_after_argument:\\n}
      *table_definition C3
       {empty_line:\\n}
       *paragraph C1
@@ -100,16 +82,12 @@ $result_tree_text{'table_nested'} = '*document_root C1
     *table_entry C2
      *table_term C1
       *@item C1 l27:@myvtable
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |index_entry:I{vr,3}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {second item}
+        {spaces_after_argument:\\n}
      *table_definition C3
       {empty_line:\\n}
       *paragraph C1
@@ -118,142 +96,100 @@ $result_tree_text{'table_nested'} = '*document_root C1
     *table_entry C1
      *table_term C1
       *@item C1 l27:@myvtable
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |index_entry:I{vr,4}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {last}
+        {spaces_after_argument:\\n}
     *@end C1 l27:@myvtable
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{vtable}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {vtable}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C1
     {Something.\\n}
    *@table C4 l27:@myvtable
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@emph l27:@myvtable
+      {spaces_after_argument:\\n}
     *table_entry C2
      *table_term C1
       *@item C1 l27:@myvtable
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {in item}
+        {spaces_after_argument:\\n}
      *table_definition C1
       *paragraph C1
        {Text without blank line\\n}
     *table_entry C2
      *table_term C1
       *@item C1 l27:@myvtable
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {second item}
+        {spaces_after_argument:\\n}
      *table_definition C1
       *paragraph C1
        {Text without blank line 2\\n}
     *@end C1 l27:@myvtable
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {table}
+      {spaces_after_argument:\\n}
    *paragraph C1
     {After table.\\n}
     >SOURCEMARKS
     >macro_expansion<end;1><p:12>
    *@end C1 l28
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Example\\n}
   *@example C7 l31
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted
    >SOURCEMARKS
    >macro_expansion<start;2>
     >*macro_call@myvtable C1
      >*brace_arg
    *@vtable C5 l32:@myvtable
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@asis l32:@myvtable
+      {spaces_after_argument:\\n}
     *table_entry C2
      *table_term C2
       *@item C1 l32:@myvtable
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |index_entry:I{vr,5}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {first item}
+        {spaces_after_argument:\\n}
       *@itemx C1 l32:@myvtable
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |index_entry:I{vr,6}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {second itemx}
+        {spaces_after_argument:\\n}
      *table_definition C1
       *preformatted C3
        {empty_line:\\n}
@@ -262,16 +198,12 @@ $result_tree_text{'table_nested'} = '*document_root C1
     *table_entry C2
      *table_term C1
       *@item C1 l32:@myvtable
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |index_entry:I{vr,7}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {second item}
+        {spaces_after_argument:\\n}
      *table_definition C1
       *preformatted C3
        {empty_line:\\n}
@@ -280,147 +212,103 @@ $result_tree_text{'table_nested'} = '*document_root C1
     *table_entry C1
      *table_term C1
       *@item C1 l32:@myvtable
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |index_entry:I{vr,8}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {last}
+        {spaces_after_argument:\\n}
     *@end C1 l32:@myvtable
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{vtable}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {vtable}
+      {spaces_after_argument:\\n}
    *preformatted C2
     {empty_line:\\n}
     {Something.\\n}
    *@table C4 l32:@myvtable
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@emph l32:@myvtable
+      {spaces_after_argument:\\n}
     *table_entry C2
      *table_term C1
       *@item C1 l32:@myvtable
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {in item}
+        {spaces_after_argument:\\n}
      *table_definition C1
       *preformatted C1
        {Text without blank line\\n}
     *table_entry C2
      *table_term C1
       *@item C1 l32:@myvtable
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {second item}
+        {spaces_after_argument:\\n}
      *table_definition C1
       *preformatted C1
        {Text without blank line 2\\n}
     *@end C1 l32:@myvtable
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {table}
+      {spaces_after_argument:\\n}
    *preformatted C1
     {After table.\\n}
     >SOURCEMARKS
     >macro_expansion<end;2><p:12>
    *@end C1 l33
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Double quotation\\n}
   *@quotation C3 l36
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@quotation C7 l37
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
      >SOURCEMARKS
      >macro_expansion<start;3>
       >*macro_call@myvtable C1
        >*brace_arg
+      {spaces_before_argument:\\n}
     *@vtable C5 l38:@myvtable
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
      *arguments_line C1
-      *block_line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C3
+       {spaces_before_argument: }
        *@asis l38:@myvtable
+       {spaces_after_argument:\\n}
      *table_entry C2
       *table_term C2
        *@item C1 l38:@myvtable
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |index_entry:I{vr,9}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {first item}
+         {spaces_after_argument:\\n}
        *@itemx C1 l38:@myvtable
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |index_entry:I{vr,10}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {second itemx}
+         {spaces_after_argument:\\n}
       *table_definition C3
        {empty_line:\\n}
        *paragraph C1
@@ -429,16 +317,12 @@ $result_tree_text{'table_nested'} = '*document_root C1
      *table_entry C2
       *table_term C1
        *@item C1 l38:@myvtable
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |index_entry:I{vr,11}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {second item}
+         {spaces_after_argument:\\n}
       *table_definition C3
        {empty_line:\\n}
        *paragraph C1
@@ -447,105 +331,73 @@ $result_tree_text{'table_nested'} = '*document_root C1
      *table_entry C1
       *table_term C1
        *@item C1 l38:@myvtable
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |index_entry:I{vr,12}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {last}
+         {spaces_after_argument:\\n}
      *@end C1 l38:@myvtable
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{vtable}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {vtable}
+       {spaces_after_argument:\\n}
     {empty_line:\\n}
     *paragraph C1
      {Something.\\n}
     *@table C4 l38:@myvtable
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
      *arguments_line C1
-      *block_line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C3
+       {spaces_before_argument: }
        *@emph l38:@myvtable
+       {spaces_after_argument:\\n}
      *table_entry C2
       *table_term C1
        *@item C1 l38:@myvtable
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {in item}
+         {spaces_after_argument:\\n}
       *table_definition C1
        *paragraph C1
         {Text without blank line\\n}
      *table_entry C2
       *table_term C1
        *@item C1 l38:@myvtable
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {second item}
+         {spaces_after_argument:\\n}
       *table_definition C1
        *paragraph C1
         {Text without blank line 2\\n}
      *@end C1 l38:@myvtable
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{table}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {table}
+       {spaces_after_argument:\\n}
     *paragraph C1
      {After table.\\n}
      >SOURCEMARKS
      >macro_expansion<end;3><p:12>
     *@end C1 l39
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {quotation}
+      {spaces_after_argument:\\n}
    *@end C1 l40
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -953,24 +805,24 @@ After table.
 
 <para>Quotation
 </para><quotation endspaces=" ">
-<vtable commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="1">first item</indexterm>first item</itemformat></item>
-<itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="2">second itemx</indexterm>second itemx</itemformat></itemx>
+<vtable commandarg="asis" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"><indexterm index="vr" number="1">first item</indexterm> first item</itemformat></item>
+<itemx><itemformat command="asis"><indexterm index="vr" number="2">second itemx</indexterm> second itemx</itemformat></itemx>
 </tableterm><tableitem>
 <para>Text.
 </para>
-</tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="3">second item</indexterm>second item</itemformat></item>
+</tableitem></tableentry><tableentry><tableterm><item><itemformat command="asis"><indexterm index="vr" number="3">second item</indexterm> second item</itemformat></item>
 </tableterm><tableitem>
 <para>Text 2
 </para>
-</tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="4">last</indexterm>last</itemformat></item>
+</tableitem></tableentry><tableentry><tableterm><item><itemformat command="asis"><indexterm index="vr" number="4">last</indexterm> last</itemformat></item>
 </tableterm></tableentry></vtable>
 
 <para>Something.
-</para><table commandarg="emph" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="emph">in item</itemformat></item>
+</para><table commandarg="emph" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="emph"> in item</itemformat></item>
 </tableterm><tableitem><para>Text without blank line
-</para></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="emph">second item</itemformat></item>
+</para></tableitem></tableentry><tableentry><tableterm><item><itemformat command="emph"> second item</itemformat></item>
 </tableterm><tableitem><para>Text without blank line 2
 </para></tableitem></tableentry></table>
 <para>After table.
@@ -978,24 +830,24 @@ After table.
 
 <para>Example
 </para><example endspaces=" ">
-<vtable commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="5">first item</indexterm>first item</itemformat></item>
-<itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="6">second itemx</indexterm>second itemx</itemformat></itemx>
+<vtable commandarg="asis" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"><indexterm index="vr" number="5">first item</indexterm> first item</itemformat></item>
+<itemx><itemformat command="asis"><indexterm index="vr" number="6">second itemx</indexterm> second itemx</itemformat></itemx>
 </tableterm><tableitem><pre xml:space="preserve">
 Text.
 
-</pre></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="7">second item</indexterm>second item</itemformat></item>
+</pre></tableitem></tableentry><tableentry><tableterm><item><itemformat command="asis"><indexterm index="vr" number="7">second item</indexterm> second item</itemformat></item>
 </tableterm><tableitem><pre xml:space="preserve">
 Text 2
 
-</pre></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="8">last</indexterm>last</itemformat></item>
+</pre></tableitem></tableentry><tableentry><tableterm><item><itemformat command="asis"><indexterm index="vr" number="8">last</indexterm> last</itemformat></item>
 </tableterm></tableentry></vtable>
 <pre xml:space="preserve">
 Something.
-</pre><table commandarg="emph" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="emph">in item</itemformat></item>
+</pre><table commandarg="emph" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="emph"> in item</itemformat></item>
 </tableterm><tableitem><pre xml:space="preserve">Text without blank line
-</pre></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="emph">second item</itemformat></item>
+</pre></tableitem></tableentry><tableentry><tableterm><item><itemformat command="emph"> second item</itemformat></item>
 </tableterm><tableitem><pre xml:space="preserve">Text without blank line 2
 </pre></tableitem></tableentry></table>
 <pre xml:space="preserve">After table.
@@ -1004,24 +856,24 @@ Something.
 <para>Double quotation
 </para><quotation endspaces=" ">
 <quotation endspaces=" ">
-<vtable commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="9">first item</indexterm>first item</itemformat></item>
-<itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="10">second itemx</indexterm>second itemx</itemformat></itemx>
+<vtable commandarg="asis" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"><indexterm index="vr" number="9">first item</indexterm> first item</itemformat></item>
+<itemx><itemformat command="asis"><indexterm index="vr" number="10">second itemx</indexterm> second itemx</itemformat></itemx>
 </tableterm><tableitem>
 <para>Text.
 </para>
-</tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="11">second item</indexterm>second item</itemformat></item>
+</tableitem></tableentry><tableentry><tableterm><item><itemformat command="asis"><indexterm index="vr" number="11">second item</indexterm> second item</itemformat></item>
 </tableterm><tableitem>
 <para>Text 2
 </para>
-</tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="12">last</indexterm>last</itemformat></item>
+</tableitem></tableentry><tableentry><tableterm><item><itemformat command="asis"><indexterm index="vr" number="12">last</indexterm> last</itemformat></item>
 </tableterm></tableentry></vtable>
 
 <para>Something.
-</para><table commandarg="emph" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="emph">in item</itemformat></item>
+</para><table commandarg="emph" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="emph"> in item</itemformat></item>
 </tableterm><tableitem><para>Text without blank line
-</para></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="emph">second item</itemformat></item>
+</para></tableitem></tableentry><tableentry><tableterm><item><itemformat command="emph"> second item</itemformat></item>
 </tableterm><tableitem><para>Text without blank line 2
 </para></tableitem></tableentry></table>
 <para>After table.

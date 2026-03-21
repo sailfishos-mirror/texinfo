@@ -9,13 +9,8 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content C3
    *@evenheading C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C15
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:  \\n}
+    *line_arg C17
+     {spaces_before_argument: }
      *@thispage
      { }
      *@thissectionname
@@ -31,24 +26,10 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
      *@thischaptername
      { }
      *@thischapternum
+     {spaces_after_argument:  \\n}
    *@evenfooting C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:   }
-    *line_arg C11
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comment}
-    |spaces_after_argument:
-     |{spaces_after_argument:  }
+    *line_arg C14
+     {spaces_before_argument:   }
      *@thischapter
      { }
      *@thistitle
@@ -62,63 +43,57 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
      *@code C1 l2
       *brace_container C1
        *@thischaptername
+     {spaces_after_argument:  }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comment}
    {empty_line:\\n}
  *@node C1 l4 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l5 {top sectionning}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top sectionning}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l7 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C10 l8 {ch--ap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ch--ap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@page C1
    *line_arg
@@ -139,34 +114,26 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
    {after ch--ap second page\\n}
   {empty_line:\\n}
  *@section C2 l18 {sec1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {sec1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@chapter C2 l20 {chap 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

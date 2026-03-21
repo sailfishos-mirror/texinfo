@@ -15,29 +15,20 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
     {macro_line: expand {}\\n}
    {raw:@center A @ringaccent \\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call@expand C1
     >*brace_arg
   *@center C1 l5:@expand
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {A }
     *@ringaccent l5:@expand
     |INFO
@@ -45,6 +36,7 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
      |{spaces_after_cmd_before_arg: }
      |>SOURCEMARKS
      |>macro_expansion<end;1><p:1>
+    {spaces_after_argument:\\n}
   {spaces_before_paragraph: }
   *paragraph C1
    {a\\n}
@@ -57,29 +49,20 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
     {macro_line: nospace {}\\n}
    {raw:@center B @ringaccent\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;2><p:1>
    >*macro_call@nospace C1
     >*brace_arg
   *@center C1 l12:@nospace
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {B }
     *@ringaccent l12:@nospace
     |INFO
@@ -87,6 +70,7 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
      |{spaces_after_cmd_before_arg:}
      |>SOURCEMARKS
      |>macro_expansion<end;2>
+    {spaces_after_argument:\\n}
   {spaces_before_paragraph: }
   *paragraph C1
    {A\\n}

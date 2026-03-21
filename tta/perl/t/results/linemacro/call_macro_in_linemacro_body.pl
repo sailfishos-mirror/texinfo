@@ -17,16 +17,12 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
    {raw:@var{\\a\\}\\n}
    {raw:now second arg: \\b\\}\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C5 l7
   |EXTRA
@@ -38,16 +34,12 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
    {raw:@item \\d\\\\n}
    {raw:@end table\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
@@ -72,16 +64,12 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
      >|{spaces_before_argument: }
      >{macro_call_arg_text:yy \\n  zz}
   *@table C4 l14:@mymacro
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code C1 l14:@mymacro
       *brace_container
+     {spaces_after_argument:\\n}
    *before_item C1
     *paragraph C3
      *@var C1 l14:@mymacro
@@ -92,32 +80,24 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
    *table_entry C2
     *table_term C1
      *@item C1 l14:@mymacro
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: \\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {yy}
+       {spaces_after_argument: \\n}
     *table_definition C2
      {spaces_before_paragraph:  }
      *paragraph C1
       {zz\\n}
    *@end C1 l14:@mymacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
      >SOURCEMARKS
      >macro_expansion<end;1><p:5>
      >linemacro_expansion<end;1><p:5>
+     {spaces_after_argument:\\n}
 ';
 
 

@@ -16,16 +16,12 @@ $result_tree_text{'too_much_args'} = '*document_root C1
    {raw:first arg: \\first\\\\n}
    {raw:second arg: \\second\\\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    {first arg: one\\n}

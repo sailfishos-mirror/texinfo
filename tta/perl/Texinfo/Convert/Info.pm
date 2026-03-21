@@ -363,9 +363,8 @@ sub output($$) {
       $self->plaintext_line_error($self,
                                   sprintf(__("\@%s output more than once: %s"),
           $label->{'root'}->{'cmdname'},
-          Texinfo::Convert::Texinfo::convert_to_texinfo(
-            Texinfo::TreeElement::new(
-               {'contents' => $label_element->{'contents'}}))),
+          Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                                          $label_element)),
         $label->{'root'}->{'source_info'});
       next;
     } else {

@@ -12,9 +12,6 @@ $result_tree_text{'def_in_style_command'} = '*document_root C1
     *brace_container C1
      {\\n}
   *@defun C3 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l2
    |EXTRA
    |def_command:{defun}
@@ -24,16 +21,14 @@ $result_tree_text{'def_in_style_command'} = '*document_root C1
       |{name}
    |index_entry:I{fn,1}
    |original_def_cmdname:{defun}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Function}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {name}
@@ -41,20 +36,17 @@ $result_tree_text{'def_in_style_command'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {args...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {text\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defun}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defun}
+     {spaces_after_argument:\\n}
 ';
 
 

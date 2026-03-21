@@ -16,31 +16,22 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
     |{spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 l4 {for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C7
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C9
+    {spaces_before_argument: }
     {for example }
     *@ref C1 l4
      *brace_arg C1
@@ -70,13 +61,12 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {spaces_before_argument: }
       {Manual}
     {)}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C4 l6
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l7
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -100,44 +90,31 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
      *preformatted C1
       {\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l11 {node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node}
+    {spaces_after_argument:\\n}
  *@chapter C2 l12 {@xref{node,,title, file name, Manual}.}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     *@xref C5 l12
      *brace_arg C1
      |EXTRA
@@ -153,34 +130,26 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {spaces_before_argument: }
       {Manual}
     {.}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l14 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C2 l15 {@ref{node} just node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     *@ref C1 l15
      *brace_arg C1
      |EXTRA
@@ -188,20 +157,16 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
      |normalized:{node}
       {node}
     { just node}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C2 l17 {for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C7
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C9
+    {spaces_before_argument: }
     {for example }
     *@ref C1 l17
      *brace_arg C1
@@ -231,20 +196,16 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {spaces_before_argument: }
       {Manual}
     {)}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C2 l19 {@ref{node, cross ref name}  node, crossref arg2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.2}
  |section_level:{2}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     *@ref C2 l19
      *brace_arg C1
      |EXTRA
@@ -255,20 +216,16 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {spaces_before_argument: }
       {cross ref name}
     {  node, crossref arg2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C2 l21 {@ref{@code{node},, @samp{title}}  code node, samptitle arg3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.3}
  |section_level:{2}
  |section_number:{6}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     *@ref C3 l21
      *brace_arg C1
      |EXTRA
@@ -284,20 +241,16 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
        *brace_container C1
         {title}
     {  code node, samptitle arg3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C2 l23 {@ref{@code{node},,, file name} code node, file name}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.4}
  |section_level:{2}
  |section_number:{7}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     *@ref C4 l23
      *brace_arg C1
      |EXTRA
@@ -311,20 +264,16 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {spaces_before_argument: }
       {file name}
     { code node, file name}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C2 l25 {@ref{node,,,, Manual } node and manual}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.5}
  |section_level:{2}
  |section_number:{8}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     *@ref C5 l25
      *brace_arg C1
      |EXTRA
@@ -338,20 +287,16 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {Manual}
       {spaces_after_argument: }
     { node and manual}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C2 l27 {@ref{Top,,,, Manual } Top and manual}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.6}
  |section_level:{2}
  |section_number:{9}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     *@ref C5 l27
      *brace_arg C1
      |EXTRA
@@ -365,20 +310,16 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {Manual}
       {spaces_after_argument: }
     { Top and manual}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C2 l29 {@ref{,,,, Manual } no node just manual}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.7}
  |section_level:{2}
  |section_number:{10}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     *@ref C5 l29
      *brace_arg
      *brace_arg
@@ -389,20 +330,16 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {Manual}
       {spaces_after_argument: }
     { no node just manual}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C2 l31 {@ref{,,, file name} no node just file name}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.8}
  |section_level:{2}
  |section_number:{11}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     *@ref C4 l31
      *brace_arg
      *brace_arg
@@ -411,20 +348,16 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {spaces_before_argument: }
       {file name}
     { no node just file name}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C2 l33 {@inforef{a, b, c} inforef a b c}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.9}
  |section_level:{2}
  |section_number:{12}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C4
+    {spaces_before_argument: }
     *@inforef C3 l33
      *brace_arg C1
      |EXTRA
@@ -437,20 +370,16 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {spaces_before_argument: }
       {c}
     { inforef a b c}
+    {spaces_after_argument: \\n}
   {empty_line:\\n}
  *@section C2 l35 {(@pxref{ Top ,,, file name }) pxref Top file name, spaces}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.10}
  |section_level:{2}
  |section_number:{13}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     {(}
     *@pxref C4 l35
      *brace_arg C3
@@ -466,20 +395,16 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {file name}
       {spaces_after_argument: }
     {) pxref Top file name, spaces}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C2 l37 {(@pxref{,,, file name }) pxref file name only, spaces}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.11}
  |section_level:{2}
  |section_number:{14}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     {(}
     *@pxref C4 l37
      *brace_arg
@@ -490,20 +415,16 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {file name}
       {spaces_after_argument: }
     {) pxref file name only, spaces}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C2 l39 {@xref{Top,,,filename}, xref Top filename only, no spaces}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.12}
  |section_level:{2}
  |section_number:{15}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     *@xref C4 l39
      *brace_arg C1
      |EXTRA
@@ -514,20 +435,16 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
      *brace_arg C1
       {filename}
     {, xref Top filename only, no spaces}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C2 l41 {@xref{,,,filename}. xref filename only, no spaces}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.13}
  |section_level:{2}
  |section_number:{16}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     *@xref C4 l41
      *brace_arg
      *brace_arg
@@ -535,6 +452,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
      *brace_arg C1
       {filename}
     {. xref filename only, no spaces}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 
@@ -971,8 +889,8 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 
 $result_converted{'xml'}->{'ref_in_sectioning'} = '<contents></contents>
 
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
-<top spaces=" "><sectiontitle>for example <ref label="node"><xrefnodename>node</xrefnodename></ref> (<pxref label="node"><xrefnodename>node</xrefnodename></pxref>) (<pxref label="Top" manual="file"><xrefnodename>Top</xrefnodename><xrefinfofile> file</xrefinfofile><xrefprintedname> Manual</xrefprintedname></pxref>)</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> node</nodenext></node>
+<top><sectiontitle> for example <ref label="node"><xrefnodename>node</xrefnodename></ref> (<pxref label="node"><xrefnodename>node</xrefnodename></pxref>) (<pxref label="Top" manual="file"><xrefnodename>Top</xrefnodename><xrefinfofile> file</xrefinfofile><xrefprintedname> Manual</xrefprintedname></pxref>)</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>node</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -980,50 +898,50 @@ $result_converted{'xml'}->{'ref_in_sectioning'} = '<contents></contents>
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node identifier="node" spaces=" "><nodename>node</nodename><nodenext automatic="on">chap</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><xref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> Manual</xrefprintedname></xref>.</sectiontitle>
+<node identifier="node"><nodename> node</nodename><nodenext automatic="on"> chap</nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <xref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> Manual</xrefprintedname></xref>.</sectiontitle>
 
 </chapter>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">node</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><ref label="node"><xrefnodename>node</xrefnodename></ref> just node</sectiontitle>
+<node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> node</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <ref label="node"><xrefnodename>node</xrefnodename></ref> just node</sectiontitle>
 
-<section spaces=" "><sectiontitle>for example <ref label="node"><xrefnodename>node</xrefnodename></ref> (<pxref label="node"><xrefnodename>node</xrefnodename></pxref>) (<pxref label="Top" manual="file"><xrefnodename>Top</xrefnodename><xrefinfofile> file</xrefinfofile><xrefprintedname> Manual</xrefprintedname></pxref>)</sectiontitle>
-
-</section>
-<section spaces=" "><sectiontitle><ref label="node"><xrefnodename>node</xrefnodename><xrefinfoname> cross ref name</xrefinfoname></ref>  node, crossref arg2</sectiontitle>
+<section><sectiontitle> for example <ref label="node"><xrefnodename>node</xrefnodename></ref> (<pxref label="node"><xrefnodename>node</xrefnodename></pxref>) (<pxref label="Top" manual="file"><xrefnodename>Top</xrefnodename><xrefinfofile> file</xrefinfofile><xrefprintedname> Manual</xrefprintedname></pxref>)</sectiontitle>
 
 </section>
-<section spaces=" "><sectiontitle><ref label="node"><xrefnodename><code>node</code></xrefnodename><xrefprinteddesc> <samp>title</samp></xrefprinteddesc></ref>  code node, samptitle arg3</sectiontitle>
+<section><sectiontitle> <ref label="node"><xrefnodename>node</xrefnodename><xrefinfoname> cross ref name</xrefinfoname></ref>  node, crossref arg2</sectiontitle>
 
 </section>
-<section spaces=" "><sectiontitle><ref label="node" manual="file name"><xrefnodename><code>node</code></xrefnodename><xrefinfofile> file name</xrefinfofile></ref> code node, file name</sectiontitle>
+<section><sectiontitle> <ref label="node"><xrefnodename><code>node</code></xrefnodename><xrefprinteddesc> <samp>title</samp></xrefprinteddesc></ref>  code node, samptitle arg3</sectiontitle>
 
 </section>
-<section spaces=" "><sectiontitle><ref label="node"><xrefnodename>node</xrefnodename><xrefprintedname> Manual </xrefprintedname></ref> node and manual</sectiontitle>
+<section><sectiontitle> <ref label="node" manual="file name"><xrefnodename><code>node</code></xrefnodename><xrefinfofile> file name</xrefinfofile></ref> code node, file name</sectiontitle>
 
 </section>
-<section spaces=" "><sectiontitle><ref label="Top"><xrefnodename>Top</xrefnodename><xrefprintedname> Manual </xrefprintedname></ref> Top and manual</sectiontitle>
+<section><sectiontitle> <ref label="node"><xrefnodename>node</xrefnodename><xrefprintedname> Manual </xrefprintedname></ref> node and manual</sectiontitle>
 
 </section>
-<section spaces=" "><sectiontitle><ref><xrefprintedname> Manual </xrefprintedname></ref> no node just manual</sectiontitle>
+<section><sectiontitle> <ref label="Top"><xrefnodename>Top</xrefnodename><xrefprintedname> Manual </xrefprintedname></ref> Top and manual</sectiontitle>
 
 </section>
-<section spaces=" "><sectiontitle><ref manual="file name"><xrefinfofile> file name</xrefinfofile></ref> no node just file name</sectiontitle>
+<section><sectiontitle> <ref><xrefprintedname> Manual </xrefprintedname></ref> no node just manual</sectiontitle>
 
 </section>
-<section spaces=" "><sectiontitle><inforef label="a" manual="c"><inforefnodename>a</inforefnodename><inforefrefname> b</inforefrefname><inforefinfoname> c</inforefinfoname></inforef> inforef a b c </sectiontitle>
+<section><sectiontitle> <ref manual="file name"><xrefinfofile> file name</xrefinfofile></ref> no node just file name</sectiontitle>
 
 </section>
-<section spaces=" "><sectiontitle>(<pxref label="Top" manual="file name"><xrefnodename> Top </xrefnodename><xrefinfofile> file name </xrefinfofile></pxref>) pxref Top file name, spaces</sectiontitle>
+<section><sectiontitle> <inforef label="a" manual="c"><inforefnodename>a</inforefnodename><inforefrefname> b</inforefrefname><inforefinfoname> c</inforefinfoname></inforef> inforef a b c </sectiontitle>
 
 </section>
-<section spaces=" "><sectiontitle>(<pxref manual="file name"><xrefinfofile> file name </xrefinfofile></pxref>) pxref file name only, spaces</sectiontitle>
+<section><sectiontitle> (<pxref label="Top" manual="file name"><xrefnodename> Top </xrefnodename><xrefinfofile> file name </xrefinfofile></pxref>) pxref Top file name, spaces</sectiontitle>
 
 </section>
-<section spaces=" "><sectiontitle><xref label="Top" manual="filename"><xrefnodename>Top</xrefnodename><xrefinfofile>filename</xrefinfofile></xref>, xref Top filename only, no spaces</sectiontitle>
+<section><sectiontitle> (<pxref manual="file name"><xrefinfofile> file name </xrefinfofile></pxref>) pxref file name only, spaces</sectiontitle>
 
 </section>
-<section spaces=" "><sectiontitle><xref manual="filename"><xrefinfofile>filename</xrefinfofile></xref>. xref filename only, no spaces</sectiontitle>
+<section><sectiontitle> <xref label="Top" manual="filename"><xrefnodename>Top</xrefnodename><xrefinfofile>filename</xrefinfofile></xref>, xref Top filename only, no spaces</sectiontitle>
+
+</section>
+<section><sectiontitle> <xref manual="filename"><xrefinfofile>filename</xrefinfofile></xref>. xref filename only, no spaces</sectiontitle>
 
 </section>
 </chapter>

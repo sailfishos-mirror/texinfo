@@ -8,35 +8,27 @@ use utf8;
 $result_tree_text{'only_comment_on_quotation_line'} = '*document_root C1
  *before_node_section C1
   *@quotation C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comment}
+    *block_line_arg C2
+     {spaces_before_argument: }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comment}
    *paragraph C1
     {In quotation\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -70,7 +62,7 @@ $result_converted{'html_text'}->{'only_comment_on_quotation_line'} = '<blockquot
 ';
 
 
-$result_converted{'xml'}->{'only_comment_on_quotation_line'} = '<quotation spaces=" " endspaces=" "><!-- c comment -->
+$result_converted{'xml'}->{'only_comment_on_quotation_line'} = '<quotation endspaces=" "> <!-- c comment -->
 <para>In quotation
 </para></quotation>
 ';

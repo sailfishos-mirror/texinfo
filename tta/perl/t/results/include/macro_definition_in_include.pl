@@ -11,16 +11,12 @@ $result_tree_text{'macro_definition_in_include'} = '*document_root C1
   >SOURCEMARKS
   >include<start;1>
    >*@include C1 l1
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{macro_included.texi}
-    >*line_arg C1
-    >|INFO
-    >|spaces_after_argument:
-     >|{spaces_after_argument:\\n}
+    >*line_arg C3
+     >{spaces_before_argument: }
      >{macro_included.texi}
+     >{spaces_after_argument:\\n}
   *@macro C3 macro_included.texi:l1
   |EXTRA
   |macro_name:{themacro}
@@ -31,16 +27,12 @@ $result_tree_text{'macro_definition_in_include'} = '*document_root C1
     {macro_line: themacro\\n}
    {raw:in themacro\\n}
    *@end C1 macro_included.texi:l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    {Call macro\\n}

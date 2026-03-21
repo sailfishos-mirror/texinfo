@@ -334,7 +334,11 @@ sub _protect_hashchar_at_line_beginning($$$) {
       # protect if first in container, or if after a newline
       if ($i == 0
           or ($i == 1 and exists($parent->{'contents'}->[0]->{'type'})
-              and $parent->{'contents'}->[0]->{'type'} eq 'arguments_line')
+              and ($parent->{'contents'}->[0]->{'type'} eq 'arguments_line'
+                  # for example @quotation # line 100 "toto"
+                  # but it is not clear if it is correct
+                   or $parent->{'contents'}->[0]->{'type'}
+                             eq 'spaces_before_argument'))
           or (exists($parent->{'contents'}->[$i-1]->{'text'})
               and $parent->{'contents'}->[$i-1]->{'text'} =~ /\n$/)) {
         # do not actually protect in raw block command, but warn

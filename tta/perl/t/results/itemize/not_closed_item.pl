@@ -9,10 +9,8 @@ $result_tree_text{'not_closed_item'} = '*document_root C1
  *before_node_section C1
   *@itemize C2 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@item C2 l2
    |EXTRA
    |item_number:{1}

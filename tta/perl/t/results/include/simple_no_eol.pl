@@ -11,12 +11,10 @@ $result_tree_text{'simple_no_eol'} = '*document_root C1
   >SOURCEMARKS
   >include<start;1>
    >*@include C1 l1
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{inc_file.texi}
-    >*line_arg C1
+    >*line_arg C2
+     >{spaces_before_argument: }
      >{inc_file.texi}
   *paragraph C1
    {In included file.\\n}

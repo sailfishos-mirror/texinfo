@@ -9,17 +9,13 @@ $result_tree_text{'thischapter_in_math_in_evenfooting'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
   *@evenfooting C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@math C1 l2
      *brace_arg C2
       {aa }
       *@thischapter
+    {spaces_after_argument:\\n}
 ';
 
 

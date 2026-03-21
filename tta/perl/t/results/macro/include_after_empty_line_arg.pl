@@ -15,16 +15,12 @@ $result_tree_text{'include_after_empty_line_arg'} = '*document_root C1
     {macro_line: mymacro{body}\\n}
    {raw:@code{\\body\\}\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
@@ -40,16 +36,12 @@ $result_tree_text{'include_after_empty_line_arg'} = '*document_root C1
    >SOURCEMARKS
    >include<start;1><p:1>
     >*@include C1 l6
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{inc_file.texi}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{inc_file.texi}
+      >{spaces_after_argument:\\n}
    {In included file.\\n}
    >SOURCEMARKS
    >include<end;1><p:18>

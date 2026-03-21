@@ -921,7 +921,7 @@ sub _internal_command_tree($$$) {
           # @heading* commands
           $line_arg = $command->{'contents'}->[0];
         }
-        if (exists($line_arg->{'contents'})) {
+        if (!Texinfo::Common::empty_spaces_argument($line_arg)) {
           my $section_number;
           $section_number = $command->{'extra'}->{'section_heading_number'}
             if (exists($command->{'extra'})
@@ -4855,9 +4855,8 @@ sub _node_redirections($$$$) {
           $self->converter_line_warn(
              sprintf(__("\@%s `%s' file %s for redirection exists"),
                $target_element->{'cmdname'},
-               Texinfo::Convert::Texinfo::convert_to_texinfo(
-                  Texinfo::TreeElement::new(
-                       {'contents' => $label_element->{'contents'}})),
+               Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                                              $label_element),
                $node_redirection_filename),
             $target_element->{'source_info'});
           my $file_source = $files_source_info->{$node_redirection_filename};
@@ -4893,9 +4892,8 @@ sub _node_redirections($$$$) {
          sprintf(__p('conflict of redirection file with file based on node name',
                      "conflict with \@%s `%s' file"),
                  $conflicting_node->{'cmdname'},
-                 Texinfo::Convert::Texinfo::convert_to_texinfo(
-                    Texinfo::TreeElement::new(
-                       {'contents' => $label_element->{'contents'}}))
+             Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                                             $label_element)
                  ),
               $conflicting_node->{'source_info'}, 1);
           } elsif ($file_info_type eq 'redirection') {
@@ -4905,9 +4903,8 @@ sub _node_redirections($$$$) {
             $self->converter_line_warn(
                sprintf(__("conflict with \@%s `%s' redirection file"),
                  $conflicting_node->{'cmdname'},
-                 Texinfo::Convert::Texinfo::convert_to_texinfo(
-                  Texinfo::TreeElement::new(
-                   {'contents' => $conflicting_label_element->{'contents'}}))
+            Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                                $conflicting_label_element)
                  ),
               $conflicting_node->{'source_info'}, 1);
           } elsif ($file_info_type eq 'section') {
@@ -4919,9 +4916,8 @@ sub _node_redirections($$$$) {
          sprintf(__p('conflict of redirection file with file based on section name',
                      "conflict with \@%s `%s' file"),
                  $conflicting_section->{'cmdname'},
-                 Texinfo::Convert::Texinfo::convert_to_texinfo(
-                   Texinfo::TreeElement::new(
-                             {'contents' => $line_arg->{'contents'}})),
+            Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                                                 $line_arg),
                  ),
               $conflicting_section->{'source_info'}, 1);
           } elsif ($file_info_type eq 'special_unit') {

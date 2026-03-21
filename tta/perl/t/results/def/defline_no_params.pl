@@ -10,14 +10,9 @@ $result_tree_text{'defline_no_params'} = '*document_root C1
   *preamble_before_content
   *@defblock C4 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@defline C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -25,10 +20,8 @@ $result_tree_text{'defline_no_params'} = '*document_root C1
      |*def_line_arg C1
       |{truc}
    |original_def_cmdname:{defline}
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Builtin}
@@ -36,20 +29,17 @@ $result_tree_text{'defline_no_params'} = '*document_root C1
      *def_name C1
       *def_line_arg C1
        {truc}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {Description of truc\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defblock}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -215,7 +205,7 @@ $result_converted{'docbook'}->{'defline_no_params'} = '<synopsis><phrase role="c
 
 
 $result_converted{'xml'}->{'defline_no_params'} = '<defblock endspaces=" ">
-<defline spaces=" "><definitionterm><defcategory>Builtin</defcategory> <defsymbol>truc</defsymbol></definitionterm></defline>
+<defline><definitionterm> <defcategory>Builtin</defcategory> <defsymbol>truc</defsymbol></definitionterm></defline>
 <definitionitem><para>Description of truc
 </para></definitionitem></defblock>
 ';

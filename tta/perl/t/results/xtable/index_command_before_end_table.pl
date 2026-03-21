@@ -9,61 +9,41 @@ $result_tree_text{'index_command_before_end_table'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
   *@table C3 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code l2
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C2
      *@item C1 l3
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {in item}
+       {spaces_after_argument:\\n}
      *@itemx C1 l4
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {in itemx}
+       {spaces_after_argument:\\n}
     *table_definition C3
      *paragraph C1
       {aaaaa\\n}
      {empty_line:\\n}
      *index_entry_command@vindex C1 l7
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |index_entry:I{vr,1}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {var}
+       {spaces_after_argument:\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -123,12 +103,12 @@ $result_converted{'html_text'}->{'index_command_before_end_table'} = '
 
 
 $result_converted{'xml'}->{'index_command_before_end_table'} = '
-<table commandarg="code" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="code">in item</itemformat></item>
-<itemx spaces=" "><itemformat command="code">in itemx</itemformat></itemx>
+<table commandarg="code" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="code"> in item</itemformat></item>
+<itemx><itemformat command="code"> in itemx</itemformat></itemx>
 </tableterm><tableitem><para>aaaaa
 </para>
-<vindex index="vr" spaces=" "><indexterm index="vr" number="1">var</indexterm></vindex>
+<vindex index="vr"> <indexterm index="vr" number="1">var</indexterm></vindex>
 </tableitem></tableentry></table>
 ';
 

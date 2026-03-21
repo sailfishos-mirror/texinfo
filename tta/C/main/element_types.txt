@@ -75,10 +75,11 @@ normal_text                               text
 # text not in the regular converted tree elements.
 # Could be part of informative command arguments, for added separators...
 other_text                                text
-# in info text elements of the same name
+# before and after arguments, to be ignored
 spaces_after_argument                     text,ignorable_text
-spaces_after_cmd_before_arg               text,ignorable_text
 spaces_before_argument                    text,ignorable_text
+# in info text elements of the same name
+spaces_after_cmd_before_arg               text,ignorable_text
 
 # Containers
 document_root

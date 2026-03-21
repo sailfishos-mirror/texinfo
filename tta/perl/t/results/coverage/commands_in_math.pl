@@ -10,10 +10,8 @@ $result_tree_text{'commands_in_math'} = '*document_root C1
   {empty_line:\\n}
   *@displaymath C15 l2
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@strong C1 l3
     *brace_container C1
      {``simple-double--three---four----\'\'}
@@ -35,23 +33,17 @@ $result_tree_text{'commands_in_math'} = '*document_root C1
    *@*
    {\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {displaymath}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@displaymath C81 l7
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@" C1 l8
     *following_arg C1
      {u}
@@ -190,23 +182,17 @@ $result_tree_text{'commands_in_math'} = '*document_root C1
     *brace_container
    {\\n}
    *@end C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {displaymath}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@displaymath C76 l16
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@click C1 l17
     *brace_container
    {\\n}
@@ -320,23 +306,17 @@ $result_tree_text{'commands_in_math'} = '*document_root C1
     *brace_container
    { \\n}
    *@end C1 l24
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {displaymath}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@displaymath C36 l26
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@quotedblleft C1 l27
     *brace_container
    { }
@@ -389,16 +369,12 @@ $result_tree_text{'commands_in_math'} = '*document_root C1
     *brace_container
    {\\n}
    *@end C1 l31
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {displaymath}
+     {spaces_after_argument:\\n}
 ';
 
 

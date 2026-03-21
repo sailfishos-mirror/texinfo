@@ -8,32 +8,24 @@ use utf8;
 $result_tree_text{'cartouche_title_and_content'} = '*document_root C1
  *before_node_section C1
   *@cartouche C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C2
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C4
+     {spaces_before_argument: }
      {Box title on }
      *@emph C1 l1
       *brace_container C1
        {documentation}
+     {spaces_after_argument:\\n}
    *paragraph C2
     {Text on documentation explaining something important out of the main\\n}
     {flow of the text.\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cartouche}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {cartouche}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -74,7 +66,7 @@ flow of the text.
 ';
 
 
-$result_converted{'xml'}->{'cartouche_title_and_content'} = '<cartouche spaces=" " endspaces=" "><cartouchetitle>Box title on <emph>documentation</emph></cartouchetitle>
+$result_converted{'xml'}->{'cartouche_title_and_content'} = '<cartouche endspaces=" "><cartouchetitle> Box title on <emph>documentation</emph></cartouchetitle>
 <para>Text on documentation explaining something important out of the main
 flow of the text.
 </para></cartouche>

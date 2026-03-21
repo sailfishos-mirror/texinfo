@@ -10,310 +10,226 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
   {empty_line:\\n}
   *@html C3 l2
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *rawpreformatted C1
     {Surrounded by empty lines.\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {html}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {Block commands on a line\\n}
    *@html C3 l7
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *rawpreformatted C2
      {in block\\n}
      {in block l2\\n}
     *@end C1 l10
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{html}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {html}
+      {spaces_after_argument:\\n}
    {end commands on a line.\\n}
   {empty_line:\\n}
   *paragraph C3
    {Before the opening command }
    *@html C3 l13
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l15
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{html}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {html}
+      {spaces_after_argument:\\n}
    {end commands on a line.\\n}
   {empty_line:\\n}
   *paragraph C2
    {Before the opening command }
    *@html C3 l18
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l20
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{html after the closing command.}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {html after the closing command.}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {Before the opening command }
    *@html C3 l22
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l24
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{html}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {html}
+      {spaces_after_argument:\\n}
    {. A symbol on a line.\\n}
   {empty_line:\\n}
   *paragraph C2
    {Before the opening command }
    *@html C3 l27
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l29
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{html. A symbol after the closing command.}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {html. A symbol after the closing command.}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@tex C3 l31
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *rawpreformatted C1
     {Surrounded by empty lines.\\n}
    *@end C1 l33
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {tex}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {Block commands on a line\\n}
    *@tex C3 l36
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l38
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{tex}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {tex}
+      {spaces_after_argument:\\n}
    {end commands on a line.\\n}
   {empty_line:\\n}
   *paragraph C3
    {Before the opening command }
    *@tex C3 l41
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l43
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{tex}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {tex}
+      {spaces_after_argument:\\n}
    {end commands on a line.\\n}
   {empty_line:\\n}
   *paragraph C2
    {Before the opening command }
    *@tex C3 l46
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l48
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{tex after the closing command.}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {tex after the closing command.}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {Before the opening command }
    *@tex C3 l50
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l52
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{tex}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {tex}
+      {spaces_after_argument:\\n}
    {. A symbol on a line.\\n}
   {empty_line:\\n}
   *paragraph C2
    {Before the opening command }
    *@tex C3 l55
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *rawpreformatted C1
      {in block\\n}
     *@end C1 l57
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{tex. A symbol after the closing command.}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {tex. A symbol after the closing command.}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@verbatim C3 l59
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:Surrounded by empty lines.\\n}
    *@end C1 l61
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Block commands on a line\\n}
   *@verbatim C3 l64
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:in block\\n}
    *@end C1 l66
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim}
+     {spaces_after_argument:\\n}
   *paragraph C1
    {end commands on a line.\\n}
   {empty_line:\\n}
@@ -321,22 +237,16 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
    {Before the opening command }
   *@verbatim C3 l69
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:in block\\n}
    *@end C1 l71
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim}
+     {spaces_after_argument:\\n}
   *paragraph C1
    {end commands on a line.\\n}
   {empty_line:\\n}
@@ -344,43 +254,31 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
    {Before the opening command }
   *@verbatim C3 l74
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:in block\\n}
    *@end C1 l76
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim after the closing command.}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim after the closing command.}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Before the opening command }
   *@verbatim C3 l78
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:in block\\n}
    *@end C1 l80
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim}
+     {spaces_after_argument:\\n}
   *paragraph C1
    {. A symbol on a line.\\n}
   {empty_line:\\n}
@@ -388,22 +286,16 @@ $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
    {Before the opening command }
   *@verbatim C3 l83
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:in block\\n}
    *@end C1 l85
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim. A symbol after the closing command.}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim. A symbol after the closing command.}
+     {spaces_after_argument:\\n}
 ';
 
 

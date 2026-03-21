@@ -9,40 +9,30 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
  *before_node_section C1
   {empty_line:\\n}
  *@node C1 l2 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@chapter C4 l3 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l5
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l6
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -55,60 +45,44 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
      *preformatted C1
       {\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@part C2 l9 {part}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {part}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l11 {after}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{after}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {after}
+    {spaces_after_argument:\\n}
  *@chapter C3 l12 {chapter 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@contents C1 l14
   |EXTRA
@@ -321,18 +295,18 @@ $result_converted_errors{'html'}->{'chapter_node_before_and_after_part'} = '* W 
 
 
 $result_converted{'xml'}->{'chapter_node_before_and_after_part'} = '
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">after</nodenext></node>
-<chapter spaces=" "><sectiontitle>chapter</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> after</nodenext></node>
+<chapter><sectiontitle> chapter</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>after</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
 </chapter>
-<part spaces=" "><sectiontitle>part</sectiontitle>
+<part><sectiontitle> part</sectiontitle>
 
-<node identifier="after" spaces=" "><nodename>after</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chapter 2</sectiontitle>
+<node identifier="after"><nodename> after</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> chapter 2</sectiontitle>
 
 <contents></contents>
 </chapter>

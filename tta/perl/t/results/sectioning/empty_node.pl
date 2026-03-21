@@ -9,43 +9,32 @@ $result_tree_text{'empty_node'} = '*document_root C3
  *before_node_section
  *@node C2 l1
   *arguments_line C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
  *@node C1 l3
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
   *arguments_line C4
-   *line_arg
    *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+    {spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{next}
    |normalized:{next}
+    {spaces_before_argument: }
     {next}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{prev}
    |normalized:{prev}
+    {spaces_before_argument: }
     {prev}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{up}
    |normalized:{up}
+    {spaces_before_argument: }
     {up}
+    {spaces_after_argument:\\n}
 ';
 
 

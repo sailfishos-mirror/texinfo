@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'protected_brace'} = '*document_root C1
  *before_node_section C1
   *@deffn C2 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -20,10 +17,8 @@ $result_tree_text{'protected_brace'} = '*document_root C1
       |*@{
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c}
@@ -31,17 +26,14 @@ $result_tree_text{'protected_brace'} = '*document_root C1
      *def_name C1
       *def_line_arg C1
        *@{
+     {spaces_after_argument:\\n}
    *@end C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
 ';
 
 

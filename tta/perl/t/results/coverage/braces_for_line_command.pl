@@ -8,15 +8,13 @@ use utf8;
 $result_tree_text{'braces_for_line_command'} = '*document_root C1
  *before_node_section C1
   *@settitle C1 l1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
     {In title }
     *@sc C1 l1
      *brace_container C1
       {my string}
     { NEXT}
+    {spaces_after_argument:\\n}
 ';
 
 

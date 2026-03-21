@@ -8,100 +8,72 @@ use utf8;
 $result_tree_text{'section_on_xtable_line'} = '*document_root C5
  *before_node_section C1
   *@vtable C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg
+    *block_line_arg C1
+     {spaces_before_argument: }
  *@section C3 l1 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@TeX l3
+     {spaces_after_argument: }
  *@section C3 l3 {second}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {second}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code l5
+     {spaces_after_argument: }
  *@section C3 l5 {third}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {third}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@ftable C1 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      *@ringaccent l7
      |INFO
      |spaces_after_cmd_before_arg:
       |{spaces_after_cmd_before_arg: }
  *@section C1 l7 {fourth}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{2}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fourth}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -232,24 +204,24 @@ $result_converted{'plaintext'}->{'section_on_xtable_line'} = '1 first
 ';
 
 
-$result_converted{'xml'}->{'section_on_xtable_line'} = '<vtable spaces=" ">
+$result_converted{'xml'}->{'section_on_xtable_line'} = '<vtable> 
 </vtable>
-<section spaces=" "><sectiontitle>first</sectiontitle>
+<section><sectiontitle> first</sectiontitle>
 
-<table spaces=" "> 
+<table> 
 </table>
 </section>
-<section spaces=" "><sectiontitle>second</sectiontitle>
+<section><sectiontitle> second</sectiontitle>
 
-<table commandarg="code" spaces=" "> 
+<table commandarg="code"> 
 </table>
 </section>
-<section spaces=" "><sectiontitle>third</sectiontitle>
+<section><sectiontitle> third</sectiontitle>
 
-<ftable spaces=" ">
+<ftable>
 </ftable>
 </section>
-<section spaces=" "><sectiontitle>fourth</sectiontitle>
+<section><sectiontitle> fourth</sectiontitle>
 </section>
 ';
 

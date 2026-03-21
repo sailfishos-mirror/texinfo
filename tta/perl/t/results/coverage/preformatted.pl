@@ -10,81 +10,57 @@ $result_tree_text{'preformatted'} = '*document_root C1
   {empty_line:\\n}
   *@example C3 l2
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C3
     {e--xample  some  \\n}
     {empty_line:\\n}
     {   text\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@format C3 l8
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@vtable C3 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@code l9
+      {spaces_after_argument:\\n}
     *table_entry C2
      *table_term C1
       *@item C1 l10
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |index_entry:I{vr,1}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {item in table in format}
+        {spaces_after_argument:\\n}
      *table_definition C1
       *preformatted C2
        {empty_line:\\n}
        {in table in format\\n}
     *@end C1 l13
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{vtable}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {vtable}
+      {spaces_after_argument:\\n}
    *@end C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{format}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {format}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -170,8 +146,8 @@ $result_converted{'xml'}->{'preformatted'} = '
 </pre></example>
 
 <format endspaces=" ">
-<vtable commandarg="code" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="code"><indexterm index="vr" number="1">item in table in format</indexterm>item in table in format</itemformat></item>
+<vtable commandarg="code" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="code"><indexterm index="vr" number="1">item in table in format</indexterm> item in table in format</itemformat></item>
 </tableterm><tableitem><pre xml:space="preserve">
 in table in format
 </pre></tableitem></tableentry></vtable>

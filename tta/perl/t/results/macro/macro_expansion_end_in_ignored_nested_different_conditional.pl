@@ -17,16 +17,12 @@ $result_tree_text{'macro_expansion_end_in_ignored_nested_different_conditional'}
    {raw:@ifclear b\\n}
    {raw:GG\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
@@ -34,31 +30,23 @@ $result_tree_text{'macro_expansion_end_in_ignored_nested_different_conditional'}
     >*brace_arg
   >ignored_conditional_block<1><p:1>
    >*@ifset C5 l7:@beginnestedcond
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{a}
+      >{spaces_after_argument:\\n}
     >{raw:@ifclear b\\n}
     >{raw:GG}
     >>SOURCEMARKS
     >>macro_expansion<end;1><p:2>
     >{raw:\\n}
     >*@end C1 l8
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
+      >{spaces_after_argument:\\n}
 ';
 
 

@@ -9,69 +9,49 @@ $result_tree_text{'table'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
   *@table C3 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l2
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C2
      *@item C1 l3
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {table item}
+       {spaces_after_argument:\\n}
      *@itemx C1 l4
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {table itemx}
+       {spaces_after_argument:\\n}
     *table_definition C2
      {empty_line:\\n}
      *paragraph C1
       {In table\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@vtable C4 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:samp}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@samp l9
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:samp}
    *before_item C3
     *@c C1
     |INFO
@@ -83,30 +63,22 @@ $result_tree_text{'table'} = '*document_root C1
       |{spaces_after_argument:\\n}
       {rawline_text:after vtable}
     *index_entry_command@cindex C1 l11
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |index_entry:I{cp,1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {index entry}
+      {spaces_after_argument:\\n}
     {empty_line:\\n}
    *table_entry C2
     *table_term C4
      *@item C1 l13
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |index_entry:I{vr,1}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {vtable item}
+       {spaces_after_argument:\\n}
      *inter_item C1
       *@c C1
       |INFO
@@ -118,83 +90,58 @@ $result_tree_text{'table'} = '*document_root C1
         |{spaces_after_argument:\\n}
         {rawline_text:after item}
      *index_entry_command@kindex C1 l15
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |index_entry:I{ky,1}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {key}
+       {spaces_after_argument:\\n}
      *@itemx C1 l16
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |index_entry:I{vr,2}
-      *line_arg C1
-      |INFO
-      |comment_at_end:
-       |*@comment C1
-       ||INFO
-       ||spaces_before_argument:
-        ||{spaces_before_argument: }
-        |*line_arg C1
-        ||INFO
-        ||spaces_after_argument:
-         ||{spaces_after_argument:\\n}
-         |{rawline_text:comment in itemx line}
-      |spaces_after_argument:
-       |{spaces_after_argument: }
+      *line_arg C4
+       {spaces_before_argument: }
        {itemx vtable}
+       {spaces_after_argument: }
+       *@comment C1
+       |INFO
+       |spaces_before_argument:
+        |{spaces_before_argument: }
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{spaces_after_argument:\\n}
+         {rawline_text:comment in itemx line}
     *table_definition C1
      {empty_line:\\n}
    *@end C1 l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l20
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@strong l20
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l21
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {unknown command after indicating command}
+       {spaces_after_argument:\\n}
    *@end C1 l22
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -309,26 +256,26 @@ $result_converted{'html_text'}->{'table'} = '
 
 
 $result_converted{'xml'}->{'table'} = '
-<table commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis">table item</itemformat></item>
-<itemx spaces=" "><itemformat command="asis">table itemx</itemformat></itemx>
+<table commandarg="asis" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"> table item</itemformat></item>
+<itemx><itemformat command="asis"> table itemx</itemformat></itemx>
 </tableterm><tableitem>
 <para>In table
 </para></tableitem></tableentry></table>
 
-<vtable commandarg="samp" spaces=" " endspaces=" "><!-- c samp -->
+<vtable commandarg="samp" endspaces=" "><!-- c samp -->
 <beforefirstitem><!-- c after vtable -->
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="1">index entry</indexterm></cindex>
 
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp"><indexterm index="vr" number="1">vtable item</indexterm>vtable item</itemformat></item>
+</beforefirstitem><tableentry><tableterm><item><itemformat command="samp"><indexterm index="vr" number="1">vtable item</indexterm> vtable item</itemformat></item>
 <!-- c after item -->
-<kindex index="ky" spaces=" "><indexterm index="ky" number="1">key</indexterm></kindex>
-<itemx spaces=" "><itemformat command="samp"><indexterm index="vr" number="2">itemx vtable</indexterm>itemx vtable </itemformat></itemx><!-- comment comment in itemx line -->
+<kindex index="ky"> <indexterm index="ky" number="1">key</indexterm></kindex>
+<itemx><itemformat command="samp"><indexterm index="vr" number="2">itemx vtable</indexterm> itemx vtable </itemformat></itemx><!-- comment comment in itemx line -->
 </tableterm><tableitem>
 </tableitem></tableentry></vtable>
 
-<table commandarg="strong" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="strong">unknown command after indicating command</itemformat></item>
+<table commandarg="strong" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="strong"> unknown command after indicating command</itemformat></item>
 </tableterm></tableentry></table>
 ';
 

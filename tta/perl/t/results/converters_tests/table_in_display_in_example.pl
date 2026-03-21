@@ -9,73 +9,49 @@ $result_tree_text{'table_in_display_in_example'} = '*document_root C1
  *before_node_section C1
   *@example C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@display C3 l2
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *@table C3 l3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
      *arguments_line C1
-      *block_line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C3
+       {spaces_before_argument: }
        *@asis l3
+       {spaces_after_argument:\\n}
      *table_entry C2
       *table_term C1
        *@item C1 l4
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {item}
+         {spaces_after_argument:\\n}
       *table_definition C1
        *preformatted C1
         {Line\\n}
      *@end C1 l6
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{table}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {table}
+       {spaces_after_argument:\\n}
     *@end C1 l7
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{display}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {display}
+      {spaces_after_argument:\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -124,8 +100,8 @@ $result_converted{'html_text'}->{'table_in_display_in_example'} = '<div class="e
 
 $result_converted{'xml'}->{'table_in_display_in_example'} = '<example endspaces=" ">
 <display endspaces=" ">
-<table commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis">item</itemformat></item>
+<table commandarg="asis" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"> item</itemformat></item>
 </tableterm><tableitem><pre xml:space="preserve">Line
 </pre></tableitem></tableentry></table>
 </display>

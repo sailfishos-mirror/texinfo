@@ -11,9 +11,6 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
    {text_before_beginning:\\n}
   *preamble_before_content
   *@float C3 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{}
@@ -21,32 +18,23 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
   |identifier:{label1}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg
     *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {label1}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {Label no caption.\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C5 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{2}
   |float_type:{}
@@ -54,14 +42,12 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
   |identifier:{label2}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg
     *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {label2}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {Label and caption.\\n}
    *@caption C1 l8
@@ -70,49 +56,37 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
       {caption with label}
    {spaces_after_close_brace:\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C3 l11
   |EXTRA
   |float_type:{}
   |global_command_number:{3}
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {no label no caption\\n}
    *@end C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C5 l15
   |EXTRA
   |float_type:{}
   |global_command_number:{4}
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {no label caption\\n}
    *@caption C1 l17
@@ -121,25 +95,19 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
       {caption no label}
    {spaces_after_close_brace:\\n}
    *@end C1 l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@listoffloats C1 l20
   |EXTRA
   |float_type:{}
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument:\\n}
 ';
 
 
@@ -268,11 +236,11 @@ $result_converted_errors{'html'}->{'empty_listoffloats_with_floats'} = '* W |mus
 
 
 $result_converted{'xml'}->{'empty_listoffloats_with_floats'} = '<preamblebeforebeginning>
-</preamblebeforebeginning><float identifier="label1" type="" number="1" spaces=" " endspaces=" "><floatname spaces=" ">label1</floatname>
+</preamblebeforebeginning><float identifier="label1" type="" number="1" endspaces=" "><floattype> </floattype><floatname> label1</floatname>
 <para>Label no caption.
 </para></float>
 
-<float identifier="label2" type="" number="2" spaces=" " endspaces=" "><floatname spaces=" ">label2</floatname>
+<float identifier="label2" type="" number="2" endspaces=" "><floattype> </floattype><floatname> label2</floatname>
 <para>Label and caption.
 </para><caption><para>caption with label</para></caption>
 </float>

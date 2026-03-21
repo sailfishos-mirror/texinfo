@@ -20,16 +20,12 @@ $result_tree_text{'close_paragraph_command'} = '*document_root C1
   *paragraph C1
    {p before sp\\n}
   *@sp C1 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{4}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {4}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {inew p after sp}
 ';

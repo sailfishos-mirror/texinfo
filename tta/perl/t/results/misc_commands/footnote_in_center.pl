@@ -8,13 +8,8 @@ use utf8;
 $result_tree_text{'footnote_in_center'} = '*document_root C1
  *before_node_section C1
   *@center C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     {Centered text with a footnote}
     *@footnote C1 l1
     |EXTRA
@@ -26,57 +21,40 @@ $result_tree_text{'footnote_in_center'} = '*document_root C1
       {empty_line:\\n}
       *@example C3 l4
        *arguments_line C1
-        *block_line_arg
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *block_line_arg C1
+         {spaces_before_argument:\\n}
        *@table C3 l5
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
         *arguments_line C1
-         *block_line_arg C1
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument:\\n}
+         *block_line_arg C3
+          {spaces_before_argument: }
           *@asis l5
+          {spaces_after_argument:\\n}
         *table_entry C2
          *table_term C1
           *@item C1 l6
-          |INFO
-          |spaces_before_argument:
-           |{spaces_before_argument: }
-           *line_arg C1
-           |INFO
-           |spaces_after_argument:
-            |{spaces_after_argument:\\n}
+           *line_arg C3
+            {spaces_before_argument: }
             {item}
+            {spaces_after_argument:\\n}
          *table_definition C1
           *preformatted C1
            {line\\n}
         *@end C1 l8
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument: }
         |EXTRA
         |text_arg:{table}
-         *line_arg C1
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument: \\n}
+         *line_arg C3
+          {spaces_before_argument: }
           {table}
+          {spaces_after_argument: \\n}
        *@end C1 l9
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{example}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {example}
+         {spaces_after_argument:\\n}
     { and text after the footnote.}
+    {spaces_after_argument:\\n}
 ';
 
 

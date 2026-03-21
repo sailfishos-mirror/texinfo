@@ -12,59 +12,42 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffn}
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *def_item C1
     *paragraph C1
      {no category no name\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C3 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l5
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffn}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l5
        {only category}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {no name\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C5 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l9
    |EXTRA
    |def_command:{deffn}
@@ -74,10 +57,8 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
       |{b}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {a}
@@ -93,42 +74,33 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {d}
+     {spaces_after_argument: \\n}
    *@deffnx C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {deffnx_category}
+     {spaces_after_argument:\\n}
    *@deffnx C1 l11
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
-    *line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *line_arg C1
+     {spaces_before_argument: \\n}
    *def_item C1
     *paragraph C1
      {with deffnx missing category or name\\n}
    *@end C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
 ';
 
 

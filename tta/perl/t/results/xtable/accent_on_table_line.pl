@@ -8,272 +8,180 @@ use utf8;
 $result_tree_text{'accent_on_table_line'} = '*document_root C1
  *before_node_section C13
   *@table C4 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@~ l1
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l2
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {first item}
+       {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l3
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C2
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C4
+       {spaces_before_argument: }
        {no at-command }
        *@code C1 l3
         *brace_container C1
          {code}
+       {spaces_after_argument:\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C4 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@~ C1 l6
       *brace_container
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l7
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {acc brace first item}
+       {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l8
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C2
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C4
+       {spaces_before_argument: }
        {no at-command }
        *@code C1 l8
         *brace_container C1
          {code acc brace}
+       {spaces_after_argument:\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@comment C1
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@~ l11
+     *@comment C1
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:}
    *table_entry C1
     *table_term C1
      *@item C1 l12
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {acc comment first item}
+       {spaces_after_argument:\\n}
    *@end C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l15
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@~ l15
+     {spaces_after_argument: \\n}
    *table_entry C1
     *table_term C1
      *@item C1 l16
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {acc space first item}
+       {spaces_after_argument:\\n}
    *@end C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l19
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@ringaccent l19
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l20
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {cmdacc first item}
+       {spaces_after_argument:\\n}
    *@end C1 l21
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l23
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@ringaccent C1 l23
       *brace_container
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l24
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {cmdacc braces first item}
+       {spaces_after_argument:\\n}
    *@end C1 l25
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l27
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@ringaccent C1 l27
       *brace_container C1
        {a}
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l28
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {cmdacc braces arg first item}
+       {spaces_after_argument:\\n}
    *@end C1 l29
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -420,34 +328,34 @@ $result_converted{'html_text'}->{'accent_on_table_line'} = '<dl class="table">
 ';
 
 
-$result_converted{'xml'}->{'accent_on_table_line'} = '<table spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis">first item</itemformat></item>
-</tableterm></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis">no at-command <code>code</code></itemformat></item>
+$result_converted{'xml'}->{'accent_on_table_line'} = '<table endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"> first item</itemformat></item>
+</tableterm></tableentry><tableentry><tableterm><item><itemformat command="asis"> no at-command <code>code</code></itemformat></item>
 </tableterm></tableentry></table>
 
-<table spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis">acc brace first item</itemformat></item>
-</tableterm></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis">no at-command <code>code acc brace</code></itemformat></item>
+<table endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"> acc brace first item</itemformat></item>
+</tableterm></tableentry><tableentry><tableterm><item><itemformat command="asis"> no at-command <code>code acc brace</code></itemformat></item>
 </tableterm></tableentry></table>
 
-<table spaces=" " endspaces=" "><!-- comment -->
-<tableentry><tableterm><item spaces=" "><itemformat command="asis">acc comment first item</itemformat></item>
+<table endspaces=" "><!-- comment -->
+<tableentry><tableterm><item><itemformat command="asis"> acc comment first item</itemformat></item>
 </tableterm></tableentry></table>
 
-<table spaces=" " endspaces=" "> 
-<tableentry><tableterm><item spaces=" "><itemformat command="asis">acc space first item</itemformat></item>
+<table endspaces=" "> 
+<tableentry><tableterm><item><itemformat command="asis"> acc space first item</itemformat></item>
 </tableterm></tableentry></table>
 
-<table spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis">cmdacc first item</itemformat></item>
+<table endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"> cmdacc first item</itemformat></item>
 </tableterm></tableentry></table>
 
-<table spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis">cmdacc braces first item</itemformat></item>
+<table endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"> cmdacc braces first item</itemformat></item>
 </tableterm></tableentry></table>
 
-<table spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis">cmdacc braces arg first item</itemformat></item>
+<table endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"> cmdacc braces arg first item</itemformat></item>
 </tableterm></tableentry></table>
 ';
 

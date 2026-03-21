@@ -16,16 +16,12 @@ $result_tree_text{'implicit_quoting_one_arg'} = '*document_root C1
     {macro_line: FIXAME{a}\\n}
    {raw:@strong{FIXAME: \\a\\}\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>

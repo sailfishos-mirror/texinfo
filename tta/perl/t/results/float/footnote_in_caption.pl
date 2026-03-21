@@ -9,51 +9,36 @@ $result_tree_text{'footnote_in_caption'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@node C5 l2 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@listoffloats C1 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{fl}
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fl}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C5 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{fl}
@@ -61,15 +46,13 @@ $result_tree_text{'footnote_in_caption'} = '*document_root C3
   |identifier:{label}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {fl}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {label}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {In float.\\n}
    *@caption C1 l8
@@ -84,16 +67,12 @@ $result_tree_text{'footnote_in_caption'} = '*document_root C3
          {in footnote}
    {spaces_after_close_brace:\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -250,12 +229,12 @@ $result_converted_errors{'html'}->{'footnote_in_caption'} = '* W |must specify a
 ';
 
 
-$result_converted{'xml'}->{'footnote_in_caption'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+$result_converted{'xml'}->{'footnote_in_caption'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node>
+<node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> Top</nodeprev></node>
 
-<listoffloats type="fl" spaces=" ">fl</listoffloats>
+<listoffloats type="fl"> fl</listoffloats>
 
-<float identifier="label" type="fl" number="1" spaces=" " endspaces=" "><floattype>fl</floattype><floatname spaces=" ">label</floatname>
+<float identifier="label" type="fl" number="1" endspaces=" "><floattype> fl</floattype><floatname> label</floatname>
 <para>In float.
 </para><caption><para>in caption<footnote><para>in footnote</para></footnote></para></caption>
 </float>

@@ -9,10 +9,8 @@ $result_tree_text{'indentedblock'} = '*document_root C1
  *before_node_section C1
   *@indentedblock C6 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {spaces_before_paragraph:  }
    *paragraph C1
     {indented block\\n}
@@ -20,16 +18,12 @@ $result_tree_text{'indentedblock'} = '*document_root C1
    *paragraph C1
     {Text\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{indentedblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {indentedblock}
+     {spaces_after_argument:\\n}
 ';
 
 

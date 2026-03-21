@@ -14,16 +14,12 @@ $result_tree_text{'bad_argument'} = '*document_root C1
     {macro_line:\\n}
    {raw:in macro\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@rmacro C3 l5
   |EXTRA
@@ -34,16 +30,12 @@ $result_tree_text{'bad_argument'} = '*document_root C1
     {macro_line: abar aaa\\n}
    {raw:in\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{rmacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rmacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l9
   |EXTRA
@@ -54,16 +46,12 @@ $result_tree_text{'bad_argument'} = '*document_root C1
     {macro_line: aftername {ggg} more  \\n}
    {raw:in macro\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l13
   |EXTRA
@@ -72,16 +60,12 @@ $result_tree_text{'bad_argument'} = '*document_root C1
     {macro_line: #badname\\n}
    {raw:in #\\n}
    *@end C1 l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
 ';
 
 

@@ -10,10 +10,8 @@ $result_tree_text{'braces_in_tex'} = '*document_root C1
   {empty_line:\\n}
   *@tex C3 l2
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *rawpreformatted C5
     {$$ \\n}
     {\\chi^2 = \\sum_{i=1}^N\\n}
@@ -21,31 +19,23 @@ $result_tree_text{'braces_in_tex'} = '*document_root C1
     {\\over \\sigma_i\\right)^2 \\n}
     {$$\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {tex}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   *@example C3 l11
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C1
     *@tex C3 l12
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *rawpreformatted C5
       {$$ \\n}
       {\\chi^2 = \\sum_{i=1}^N\\n}
@@ -53,27 +43,19 @@ $result_tree_text{'braces_in_tex'} = '*document_root C1
       {\\over \\sigma_i\\right)^2 \\n}
       {$$\\n}
      *@end C1 l18
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{tex}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {tex}
+       {spaces_after_argument:\\n}
    *@end C1 l19
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

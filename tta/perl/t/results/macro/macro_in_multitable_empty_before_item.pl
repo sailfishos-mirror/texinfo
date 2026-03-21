@@ -14,36 +14,26 @@ $result_tree_text{'macro_in_multitable_empty_before_item'} = '*document_root C1
    *arguments_line C1
     {macro_line: emptymacro\\n}
    *@end C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@multitable C4 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{3}
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      *@columnfractions C1 l4
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{0.4|.6|5.}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {0.4 .6 5.}
+       {spaces_after_argument:\\n}
    *before_item C1
     {}
     >SOURCEMARKS
@@ -68,16 +58,12 @@ $result_tree_text{'macro_in_multitable_empty_before_item'} = '*document_root C1
       *paragraph C1
        {sc\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
 ';
 
 

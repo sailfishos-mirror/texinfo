@@ -9,126 +9,89 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C2
    *@syncodeindex C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{cp|fn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {cp fn}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l4 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l6 {Chapter index}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Chapter-index}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter index}
+    {spaces_after_argument:\\n}
  *@chapter C55 l7 {Index}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Index}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {definedx truc\\n}
    *@defindex C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{truc}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {truc}
+     {spaces_after_argument:\\n}
    {after\\n}
   {empty_line:\\n}
   *index_entry_command@trucindex C1 l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter-index}
   |index_entry:I{truc,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {index truc}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defcodeindex C1 l15
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{codeidx}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {codeidx}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@codeidxindex C1 l17
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter-index}
   |index_entry:I{codeidx,1}
-   *line_arg C6
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C8
+    {spaces_before_argument: }
     {a }
     *@var C1 l17
      *brace_container C1
@@ -143,275 +106,196 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
       *@dotless C1 l17
        *brace_container C1
         {i}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l19
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter-index}
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cindex entry}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@syncodeindex C1 l21
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{ky|pg}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ky pg}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@kindex C1 l23
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter-index}
   |index_entry:I{ky,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {truc kindex}
+    {spaces_after_argument:\\n}
   *index_entry_command@pindex C1 l24
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter-index}
   |index_entry:I{pg,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {pindex codeidx}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@synindex C1 l26
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{truc|cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {truc cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defindex C1 l28
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{abc}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {abc}
+    {spaces_after_argument:\\n}
   *@defindex C1 l29
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{defg}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {defg}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@synindex C1 l31
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{abc|defg}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {abc defg}
+    {spaces_after_argument:\\n}
   *@synindex C1 l32
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{defg|ky}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {defg ky}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@defgindex C1 l34
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter-index}
   |index_entry:I{defg,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {defg index entry}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@abcindex C1 l36
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Chapter-index}
   |index_entry:I{abc,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {abc index entry}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {pg\\n}
   *@printindex C1 l39
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{pg}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {pg}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {ky\\n}
   *@printindex C1 l42
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{ky}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ky}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {truc\\n}
   *@printindex C1 l45
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{truc}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {truc}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {value truc\\n}
   *@printindex C1 l48
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |misc_args:A{truc}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {truc}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {cp\\n}
   *@printindex C1 l51
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{5}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {value cp\\n}
   *@printindex C1 l54
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{6}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {defg\\n}
   *@printindex C1 l57
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{7}
   |misc_args:A{defg}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {defg}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {abc\\n}
   *@printindex C1 l60
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{8}
   |misc_args:A{abc}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {abc}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {fn\\n}
   *@printindex C1 l63
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{9}
   |misc_args:A{fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fn}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -827,70 +711,70 @@ after
 ';
 
 
-$result_converted{'xml'}->{'def_syn_indices'} = '<syncodeindex spaces=" " from="cp" to="fn" line="cp fn"></syncodeindex>
+$result_converted{'xml'}->{'def_syn_indices'} = '<syncodeindex from="cp" to="fn" line=" cp fn"></syncodeindex>
 
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">Chapter index</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> Chapter index</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 </top>
-<node identifier="Chapter-index" spaces=" "><nodename>Chapter index</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Index</sectiontitle>
+<node identifier="Chapter-index"><nodename> Chapter index</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Index</sectiontitle>
 
 <para>definedx truc
-<defindex spaces=" " value="truc" line="truc"></defindex>
+<defindex value="truc" line=" truc"></defindex>
 after
 </para>
-<indexcommand command="trucindex" index="truc" spaces=" "><indexterm index="truc" number="1" incode="0" mergedindex="fn">index truc</indexterm></indexcommand>
+<indexcommand command="trucindex" index="truc"> <indexterm index="truc" number="1" incode="0" mergedindex="fn">index truc</indexterm></indexcommand>
 
-<defcodeindex spaces=" " value="codeidx" line="codeidx"></defcodeindex>
+<defcodeindex value="codeidx" line=" codeidx"></defcodeindex>
 
-<indexcommand command="codeidxindex" index="codeidx" spaces=" "><indexterm index="codeidx" number="1" incode="1">a <var>index entry</var> t<accent type="tilde" bracketed="off">e</accent> <accent type="circ"><dotless>i</dotless></accent></indexterm></indexcommand>
+<indexcommand command="codeidxindex" index="codeidx"> <indexterm index="codeidx" number="1" incode="1">a <var>index entry</var> t<accent type="tilde" bracketed="off">e</accent> <accent type="circ"><dotless>i</dotless></accent></indexterm></indexcommand>
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1" incode="1" mergedindex="fn">cindex entry</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="1" incode="1" mergedindex="fn">cindex entry</indexterm></cindex>
 
-<syncodeindex spaces=" " from="ky" to="pg" line="ky pg"></syncodeindex>
+<syncodeindex from="ky" to="pg" line=" ky pg"></syncodeindex>
 
-<kindex index="ky" spaces=" "><indexterm index="ky" number="1" mergedindex="pg">truc kindex</indexterm></kindex>
-<pindex index="pg" spaces=" "><indexterm index="pg" number="1">pindex codeidx</indexterm></pindex>
+<kindex index="ky"> <indexterm index="ky" number="1" mergedindex="pg">truc kindex</indexterm></kindex>
+<pindex index="pg"> <indexterm index="pg" number="1">pindex codeidx</indexterm></pindex>
 
-<synindex spaces=" " from="truc" to="cp" line="truc cp"></synindex>
+<synindex from="truc" to="cp" line=" truc cp"></synindex>
 
-<defindex spaces=" " value="abc" line="abc"></defindex>
-<defindex spaces=" " value="defg" line="defg"></defindex>
+<defindex value="abc" line=" abc"></defindex>
+<defindex value="defg" line=" defg"></defindex>
 
-<synindex spaces=" " from="abc" to="defg" line="abc defg"></synindex>
-<synindex spaces=" " from="defg" to="ky" line="defg ky"></synindex>
+<synindex from="abc" to="defg" line=" abc defg"></synindex>
+<synindex from="defg" to="ky" line=" defg ky"></synindex>
 
-<indexcommand command="defgindex" index="defg" spaces=" "><indexterm index="defg" number="1" incode="0" mergedindex="pg">defg index entry</indexterm></indexcommand>
+<indexcommand command="defgindex" index="defg"> <indexterm index="defg" number="1" incode="0" mergedindex="pg">defg index entry</indexterm></indexcommand>
 
-<indexcommand command="abcindex" index="abc" spaces=" "><indexterm index="abc" number="1" incode="0" mergedindex="pg">abc index entry</indexterm></indexcommand>
+<indexcommand command="abcindex" index="abc"> <indexterm index="abc" number="1" incode="0" mergedindex="pg">abc index entry</indexterm></indexcommand>
 
 <para>pg
-</para><printindex spaces=" " value="pg" line="pg"></printindex>
+</para><printindex value="pg" line=" pg"></printindex>
 
 <para>ky
-</para><printindex spaces=" " value="ky" line="ky"></printindex>
+</para><printindex value="ky" line=" ky"></printindex>
 
 <para>truc
-</para><printindex spaces=" " value="truc" line="truc"></printindex>
+</para><printindex value="truc" line=" truc"></printindex>
 
 <para>value truc
-</para><printindex spaces=" " value="truc" line="truc"></printindex>
+</para><printindex value="truc" line=" truc"></printindex>
 
 <para>cp
-</para><printindex spaces=" " value="cp" line="cp"></printindex>
+</para><printindex value="cp" line=" cp"></printindex>
 
 <para>value cp
-</para><printindex spaces=" " value="cp" line="cp"></printindex>
+</para><printindex value="cp" line=" cp"></printindex>
 
 <para>defg
-</para><printindex spaces=" " value="defg" line="defg"></printindex>
+</para><printindex value="defg" line=" defg"></printindex>
 
 <para>abc
-</para><printindex spaces=" " value="abc" line="abc"></printindex>
+</para><printindex value="abc" line=" abc"></printindex>
 
 <para>fn
-</para><printindex spaces=" " value="fn" line="fn"></printindex>
+</para><printindex value="fn" line=" fn"></printindex>
 </chapter>
 ';
 

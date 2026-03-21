@@ -8,98 +8,70 @@ use utf8;
 $result_tree_text{'example_empty_arguments'} = '*document_root C1
  *before_node_section C5
   *@example C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C7
+    *block_line_arg C1
+     {spaces_before_argument: }
     *block_line_arg
     *block_line_arg
     *block_line_arg
     *block_line_arg
     *block_line_arg
-    *block_line_arg
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C1
     {example with empty args\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@example C3 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C7
+    *block_line_arg C1
+     {spaces_before_argument: }
+    *block_line_arg C1
+     {spaces_before_argument: }
+    *block_line_arg
+    *block_line_arg C1
+     {spaces_before_argument:  }
     *block_line_arg
     *block_line_arg
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-    *block_line_arg
-    *block_line_arg
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument:  }
-    *block_line_arg
-    *block_line_arg
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C1
+     {spaces_before_argument: \\n}
    *preformatted C1
     {example with empty args with spaces\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@example C3 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C7
-    *block_line_arg
+    *block_line_arg C1
+     {spaces_before_argument: }
     *block_line_arg
     *block_line_arg
     *block_line_arg C1
      {nonempty}
     *block_line_arg
     *block_line_arg
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C1
     {example with empty and non empty args mix\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -196,15 +168,15 @@ $result_converted{'docbook'}->{'example_empty_arguments'} = '<screen>example wit
 </screen>';
 
 
-$result_converted{'xml'}->{'example_empty_arguments'} = '<example spaces=" " endspaces=" "><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg>
+$result_converted{'xml'}->{'example_empty_arguments'} = '<example endspaces=" "><examplelanguage> </examplelanguage><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg>
 <pre xml:space="preserve">example with empty args
 </pre></example>
 
-<example spaces=" " endspaces=" "><examplearg spaces=" "></examplearg><examplearg></examplearg><examplearg spaces="  "></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg> </examplearg>
+<example endspaces=" "><examplelanguage> </examplelanguage><examplearg> </examplearg><examplearg></examplearg><examplearg>  </examplearg><examplearg></examplearg><examplearg></examplearg><examplearg> </examplearg>
 <pre xml:space="preserve">example with empty args with spaces
 </pre></example>
 
-<example spaces=" " endspaces=" "><examplearg></examplearg><examplearg></examplearg><examplearg>nonempty</examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg>
+<example endspaces=" "><examplelanguage> </examplelanguage><examplearg></examplearg><examplearg></examplearg><examplearg>nonempty</examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg>
 <pre xml:space="preserve">example with empty and non empty args mix
 </pre></example>
 ';

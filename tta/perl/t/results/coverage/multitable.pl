@@ -9,24 +9,18 @@ $result_tree_text{'multitable'} = '*document_root C1
  *before_node_section C4
   {empty_line:\\n}
   *@multitable C4 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      *@columnfractions C1 l2
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{0.6|0.4}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {0.6 0.4}
+       {spaces_after_argument:\\n}
    *multitable_head C1
     *row C2
     |EXTRA
@@ -84,16 +78,12 @@ $result_tree_text{'multitable'} = '*document_root C1
       *paragraph C2
        {multitable tab 2\\n}
        *index_entry_command@cindex C1 l7
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |index_entry:I{cp,1}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {index entry within multitable}
+         {spaces_after_argument:\\n}
     *row C1
     |EXTRA
     |row_number:{4}
@@ -104,33 +94,25 @@ $result_tree_text{'multitable'} = '*document_root C1
       *paragraph C1
        {lone mu--ltitable item\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@multitable C3 l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     {spaces_before_argument: }
      *bracketed_arg C1 l11
       {truc}
      { }
      *bracketed_arg C1 l11
       {bidule}
+     {spaces_after_argument:\\n}
    *multitable_body C1
     *row C2
     |EXTRA
@@ -148,16 +130,12 @@ $result_tree_text{'multitable'} = '*document_root C1
       *paragraph C1
        {bidule\\n}
    *@end C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -232,16 +210,17 @@ $result_converted{'html_text'}->{'multitable'} = '
 
 
 $result_converted{'xml'}->{'multitable'} = '
-<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.6 0.4"><columnfraction value="0.6"></columnfraction><columnfraction value="0.4"></columnfraction></columnfractions>
+<multitable endspaces=" "><columnfractions line=" 0.6 0.4"><columnfraction value="0.6"></columnfraction><columnfraction value="0.4"></columnfraction></columnfractions>
 <thead><row><entry command="headitem"> <para>mu&textndash;ltitable headitem </para></entry><entry command="tab"> <para>another tab
 </para></entry></row></thead><tbody><row><entry command="item"> <para>mu&textndash;ltitable item </para></entry><entry command="tab"> <para>multitable tab
 <!-- c comment in multitable -->
 </para></entry></row><row><entry command="item"> <para>mu&textndash;ltitable item 2 </para></entry><entry command="tab"> <para>multitable tab 2
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry within multitable</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="1">index entry within multitable</indexterm></cindex>
 </para></entry></row><row><entry command="item"> <para>lone mu&textndash;ltitable item
 </para></entry></row></tbody></multitable>
 
-<multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">truc</columnprototype> <columnprototype bracketed="on">bidule</columnprototype></columnprototypes>
+<multitable endspaces=" "><columnprototypes> <columnprototype bracketed="on">truc</columnprototype> <columnprototype bracketed="on">bidule</columnprototype>
+</columnprototypes>
 <tbody><row><entry command="item"> <para>truc </para></entry><entry command="tab"> <para>bidule
 </para></entry></row></tbody></multitable>
 ';

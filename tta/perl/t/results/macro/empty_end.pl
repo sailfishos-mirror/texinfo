@@ -15,12 +15,10 @@ $result_tree_text{'empty_end'} = '*document_root C1
     {macro_line: foo {aaa, }\\n}
    {raw:in foo\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
+    *line_arg C2
+     {spaces_before_argument: }
      {macro}
 ';
 

@@ -9,158 +9,112 @@ $result_tree_text{'line_breaks'} = '*document_root C5
  *before_node_section C5
   *@documentdescription C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C1
+     {spaces_before_argument: \\n}
    *paragraph C3
     {a document }
     *@*
     { yes!\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{documentdescription}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {documentdescription}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@settitle C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     {the manual }
     *@*
     { new version}
+    {spaces_after_argument:\\n}
   *@title C1 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     {AWK As A Major Systems Programming }
     *@*
     { Language---Revisited}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l8 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l9 {a @* top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     {a }
     *@*
     { top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l11 {a @* new node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{a-new-node}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     {a }
     *@*
     { new node}
+    {spaces_after_argument:\\n}
  *@chapter C11 l12 {a @* chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     {a }
     *@*
     { chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@center C1 l14
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     {in center }
     *@*
     { line break}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l16
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@strong l16
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C2
      *@item C1 l17
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C3
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C5
+       {spaces_before_argument: }
        {with break }
        *@*
        { after}
+       {spaces_after_argument:\\n}
      *@itemx C1 l18
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C3
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C5
+       {spaces_before_argument: }
        {withx breakx }
        *@*
        { afterx}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C3
       {Text, }
@@ -179,71 +133,51 @@ $result_tree_text{'line_breaks'} = '*document_root C5
         { something}
       {.\\n}
    *@end C1 l20
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C3 l22
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     {spaces_before_argument: }
      {Q}
      *@*
      { uotation}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {T\\n}
    *@end C1 l24
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@example C3 l26
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C3
     {in }
     *@*
     { example\\n}
    *@end C1 l28
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@flushright C5 l30
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C3
     {in }
     *@*
@@ -260,16 +194,12 @@ $result_tree_text{'line_breaks'} = '*document_root C5
       { new node}
     {.\\n}
    *@end C1 l34
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushright}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {flushright}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -503,25 +433,25 @@ $result_converted{'xml'}->{'line_breaks'} = '<documentdescription endspaces=" ">
 <para>a document &linebreak; yes!
 </para></documentdescription>
 
-<settitle spaces=" ">the manual &linebreak; new version</settitle>
-<title spaces=" ">AWK As A Major Systems Programming &linebreak; Language&textmdash;Revisited</title>
+<settitle> the manual &linebreak; new version</settitle>
+<title> AWK As A Major Systems Programming &linebreak; Language&textmdash;Revisited</title>
 
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">a &linebreak; new node</nodenext></node>
-<top spaces=" "><sectiontitle>a &linebreak; top</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> a &linebreak; new node</nodenext></node>
+<top><sectiontitle> a &linebreak; top</sectiontitle>
 
 </top>
-<node identifier="a-new-node" spaces=" "><nodename>a &linebreak; new node</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>a &linebreak; chapter</sectiontitle>
+<node identifier="a-new-node"><nodename> a &linebreak; new node</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> a &linebreak; chapter</sectiontitle>
 
-<center spaces=" ">in center &linebreak; line break</center>
+<center> in center &linebreak; line break</center>
 
-<table commandarg="strong" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="strong">with break &linebreak; after</itemformat></item>
-<itemx spaces=" "><itemformat command="strong">withx breakx &linebreak; afterx</itemformat></itemx>
+<table commandarg="strong" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="strong"> with break &linebreak; after</itemformat></item>
+<itemx><itemformat command="strong"> withx breakx &linebreak; afterx</itemformat></itemx>
 </tableterm><tableitem><para>Text, <ref label="a-new-node"><xrefnodename>a &linebreak; new node</xrefnodename><xrefinfoname> a &linebreak; something</xrefinfoname></ref>.
 </para></tableitem></tableentry></table>
 
-<quotation spaces=" " endspaces=" "><quotationtype>Q&linebreak; uotation</quotationtype>
+<quotation endspaces=" "><quotationtype> Q&linebreak; uotation</quotationtype>
 <para>T
 </para></quotation>
 

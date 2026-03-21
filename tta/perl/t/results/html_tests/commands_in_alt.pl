@@ -23,10 +23,8 @@ $result_tree_text{'commands_in_alt'} = '*document_root C1
   {empty_line:\\n}
   *@example C3 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C2
     *@image C4 l4
     |EXTRA
@@ -42,16 +40,12 @@ $result_tree_text{'commands_in_alt'} = '*document_root C1
         {in b}
     {\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 

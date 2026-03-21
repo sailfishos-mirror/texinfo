@@ -21,16 +21,12 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     {raw:kbd: @kbd{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*\\n}
     {raw:samp: @samp{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*\\n}
     *@end C1 l8
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{macro}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {macro}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@macro C19 l10
    |EXTRA
@@ -56,23 +52,17 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     {raw:@codequotebacktick off\\n}
     {raw:@quotes{}\\n}
     *@end C1 l28
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{macro}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {macro}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@copying C13 l30
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *paragraph C30
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
      >SOURCEMARKS
@@ -137,40 +127,30 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     {empty_line:\\n}
     *@example C3 l31:@allquotes
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *preformatted C4
       *@@
       {codequoteundirected on\\n}
       *@@
       {codequotebacktick on\\n}
      *@end C1 l31:@allquotes
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {example}
+       {spaces_after_argument:\\n}
     *@codequoteundirected C1 l31:@allquotes
     |EXTRA
     |global_command_number:{1}
-     *line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C1
+      {spaces_before_argument:\\n}
     *@codequotebacktick C1 l31:@allquotes
     |EXTRA
     |global_command_number:{1}
-     *line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C1
+      {spaces_before_argument:\\n}
     *paragraph C30
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
      >SOURCEMARKS
@@ -232,50 +212,36 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     {empty_line:\\n}
     *@example C3 l31:@allquotes
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *preformatted C4
       *@@
       {codequoteundirected off\\n}
       *@@
       {codequotebacktick off\\n}
      *@end C1 l31:@allquotes
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {example}
+       {spaces_after_argument:\\n}
     *@codequoteundirected C1 l31:@allquotes
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{2}
     |misc_args:A{off}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {off}
+      {spaces_after_argument:\\n}
     *@codequotebacktick C1 l31:@allquotes
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{2}
     |misc_args:A{off}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {off}
+      {spaces_after_argument:\\n}
     *paragraph C30
      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
      >SOURCEMARKS
@@ -336,22 +302,16 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
      >macro_expansion<end;1>
      {\\n}
     *@end C1 l32
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {copying}
+      {spaces_after_argument:\\n}
    *@titlepage C4 l33
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *paragraph C1
      {Titlepage\\n}
     *@insertcopying C1 l35
@@ -362,74 +322,54 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
     *@end C1 l36
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{titlepage}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {titlepage}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    {empty_line:\\n}
  *@node C1 l39 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument: \\n}
  *@top C2 l40 {test quotes}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {test quotes}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l42 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C16 l43 {Chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C30
    {``simple-double--three---four----\'\' `simple\' quotedblleft: }
@@ -495,40 +435,30 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
   {empty_line:\\n}
   *@example C3 l45:@allquotes
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C4
     *@@
     {codequoteundirected on\\n}
     *@@
     {codequotebacktick on\\n}
    *@end C1 l45:@allquotes
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   *@codequoteundirected C1 l45:@allquotes
   |EXTRA
   |global_command_number:{3}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument:\\n}
   *@codequotebacktick C1 l45:@allquotes
   |EXTRA
   |global_command_number:{3}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument:\\n}
   *paragraph C30
    {``simple-double--three---four----\'\' `simple\' quotedblleft: }
    >SOURCEMARKS
@@ -590,50 +520,36 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
   {empty_line:\\n}
   *@example C3 l45:@allquotes
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C4
     *@@
     {codequoteundirected off\\n}
     *@@
     {codequotebacktick off\\n}
    *@end C1 l45:@allquotes
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   *@codequoteundirected C1 l45:@allquotes
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |misc_args:A{off}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {off}
+    {spaces_after_argument:\\n}
   *@codequotebacktick C1 l45:@allquotes
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |misc_args:A{off}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {off}
+    {spaces_after_argument:\\n}
   *paragraph C30
    {``simple-double--three---four----\'\' `simple\' quotedblleft: }
    >SOURCEMARKS
@@ -696,10 +612,8 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
   {empty_line:\\n}
   *@example C7 l47
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C31
     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
     >SOURCEMARKS
@@ -764,41 +678,31 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     {empty_line:\\n}
    *@example C3 l48:@allquotes
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *preformatted C4
      *@@
      {codequoteundirected on\\n}
      *@@
      {codequotebacktick on\\n}
     *@end C1 l48:@allquotes
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{example}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {example}
+      {spaces_after_argument:\\n}
    *preformatted C33
     *@codequoteundirected C1 l48:@allquotes
     |EXTRA
     |global_command_number:{5}
-     *line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C1
+      {spaces_before_argument:\\n}
     *@codequotebacktick C1 l48:@allquotes
     |EXTRA
     |global_command_number:{5}
-     *line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C1
+      {spaces_before_argument:\\n}
     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
     >SOURCEMARKS
     >macro_expansion<start;11>
@@ -859,51 +763,37 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     {empty_line:\\n}
    *@example C3 l48:@allquotes
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *preformatted C4
      *@@
      {codequoteundirected off\\n}
      *@@
      {codequotebacktick off\\n}
     *@end C1 l48:@allquotes
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{example}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {example}
+      {spaces_after_argument:\\n}
    *preformatted C32
     *@codequoteundirected C1 l48:@allquotes
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{6}
     |misc_args:A{off}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {off}
+      {spaces_after_argument:\\n}
     *@codequotebacktick C1 l48:@allquotes
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{6}
     |misc_args:A{off}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {off}
+      {spaces_after_argument:\\n}
     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
     >SOURCEMARKS
     >macro_expansion<start;12>
@@ -963,16 +853,12 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     >macro_expansion<end;9>
     {\\n}
    *@end C1 l49
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 
@@ -1863,8 +1749,8 @@ samp: <samp>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo
 <pre xml:space="preserve">&arobase;codequoteundirected off
 &arobase;codequotebacktick off
 </pre></example>
-<codequoteundirected spaces=" " value="off" line="off"></codequoteundirected>
-<codequotebacktick spaces=" " value="off" line="off"></codequotebacktick>
+<codequoteundirected value="off" line=" off"></codequoteundirected>
+<codequotebacktick value="off" line=" off"></codequotebacktick>
 <para>&textldquo;simple-double&textndash;three&textmdash;four&textmdash;-&textrdquo; &textlsquo;simple&textrsquo; quotedblleft: &ldquo; &linebreak;
 code: <code>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> &linebreak;
 asis: <asis>&textldquo;simple-double&textndash;three&textmdash;four&textmdash;-&textrdquo; &textlsquo;simple&textrsquo; quotedblleft: &ldquo;</asis> &linebreak;
@@ -1878,12 +1764,12 @@ samp: <samp>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo
 </titlepage>
 
 
-<node identifier="Top" spaces=" "><nodename trailingspaces=" ">Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<top spaces=" "><sectiontitle>test quotes</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node>
+<top><sectiontitle> test quotes</sectiontitle>
 
 </top>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
+<node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Chapter</sectiontitle>
 
 <para>&textldquo;simple-double&textndash;three&textmdash;four&textmdash;-&textrdquo; &textlsquo;simple&textrsquo; quotedblleft: &ldquo; &linebreak;
 code: <code>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> &linebreak;
@@ -1909,8 +1795,8 @@ samp: <samp>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo
 <pre xml:space="preserve">&arobase;codequoteundirected off
 &arobase;codequotebacktick off
 </pre></example>
-<codequoteundirected spaces=" " value="off" line="off"></codequoteundirected>
-<codequotebacktick spaces=" " value="off" line="off"></codequotebacktick>
+<codequoteundirected value="off" line=" off"></codequoteundirected>
+<codequotebacktick value="off" line=" off"></codequotebacktick>
 <para>&textldquo;simple-double&textndash;three&textmdash;four&textmdash;-&textrdquo; &textlsquo;simple&textrsquo; quotedblleft: &ldquo; &linebreak;
 code: <code>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> &linebreak;
 asis: <asis>&textldquo;simple-double&textndash;three&textmdash;four&textmdash;-&textrdquo; &textlsquo;simple&textrsquo; quotedblleft: &ldquo;</asis> &linebreak;
@@ -1943,8 +1829,8 @@ samp: <samp>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo
 <pre xml:space="preserve">&arobase;codequoteundirected off
 &arobase;codequotebacktick off
 </pre></example>
-<pre xml:space="preserve"><codequoteundirected spaces=" " value="off" line="off"></codequoteundirected>
-<codequotebacktick spaces=" " value="off" line="off"></codequotebacktick>
+<pre xml:space="preserve"><codequoteundirected value="off" line=" off"></codequoteundirected>
+<codequotebacktick value="off" line=" off"></codequotebacktick>
 ``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo; &linebreak;
 code: <code>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> &linebreak;
 asis: <asis>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</asis> &linebreak;

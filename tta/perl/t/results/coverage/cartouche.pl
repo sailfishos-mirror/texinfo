@@ -9,49 +9,35 @@ $result_tree_text{'cartouche'} = '*document_root C1
  *before_node_section C3
   *@cartouche C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {in cartouche.\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cartouche}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {cartouche}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@cartouche C3 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@emph C1 l5
       *brace_container C1
        {Title of box}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {Out of main text\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cartouche}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {cartouche}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -104,7 +90,7 @@ $result_converted{'xml'}->{'cartouche'} = '<cartouche endspaces=" ">
 <para>in cartouche.
 </para></cartouche>
 
-<cartouche spaces=" " endspaces=" "><cartouchetitle><emph>Title of box</emph></cartouchetitle>
+<cartouche endspaces=" "><cartouchetitle> <emph>Title of box</emph></cartouchetitle>
 <para>Out of main text
 </para></cartouche>
 ';

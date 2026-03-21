@@ -11,13 +11,8 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    {text_before_beginning:\\n}
   *preamble_before_content C4
    *@settitle C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     {spaces_before_argument: }
      *@email C2 l2
       *brace_arg C3
        {someone}
@@ -36,6 +31,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
      { }
      *@equiv C1 l2
       *brace_container
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@contents C1 l4
    |EXTRA
@@ -46,61 +42,45 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
      |{spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l6 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l7 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l9 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C28 l10 {Chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C11
    *@sansserif C1 l12
@@ -178,16 +158,12 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
   {empty_line:\\n}
   *@indentedblock C3 l22
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@example C3 l23
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *preformatted C10
      *@sansserif C1 l24
       *brace_container C1
@@ -208,34 +184,24 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
        {example}
      {\\n}
     *@end C1 l26
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{example}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {example}
+      {spaces_after_argument:\\n}
    *@end C1 l27
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{indentedblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {indentedblock}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@display C3 l29
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C2
     *@email C1 l30
      *brace_arg C3
@@ -244,23 +210,17 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
       {display}
     {\\n}
    *@end C1 l31
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{display}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {display}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@displaymath C9 l33
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {\\frac}
    *balanced_braces C1 l34
     {{h}}
@@ -277,62 +237,44 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     {{x}}
    {\\n}
    *@end C1 l35
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {displaymath}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l37
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@file C1 l37
      *brace_container C1
       {e1}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l38
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{cp,2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {i2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@vindex C1 l40
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:    \\n}
+   *line_arg C1
+    {spaces_before_argument:    \\n}
   {empty_line:\\n}
   *@documentlanguage C1 l42
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |text_arg:{fr}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fr}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@error C1 l44
@@ -353,46 +295,34 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     |{spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l50 {my node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{my-node}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {my node}
+    {spaces_after_argument:\\n}
  *@chapter C8 l51 {New node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {New node}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@documentlanguage C1 l53
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |text_arg:{pl}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {pl}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@error C1 l55
@@ -405,76 +335,56 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    {\\n}
   {empty_line:\\n}
  *@node C1 l59 {Index}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Index}
  |is_target:{1}
  |isindex:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Index}
+    {spaces_after_argument:\\n}
  *@appendix C4 l60 {Index}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Index}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l62
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l64 {Second appendix}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Second-appendix}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Second appendix}
+    {spaces_after_argument:\\n}
  *@appendix C2 l65 {Second appendix}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{B}
  |section_level:{1}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Second appendix}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

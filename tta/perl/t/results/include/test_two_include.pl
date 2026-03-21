@@ -12,16 +12,12 @@ $result_tree_text{'test_two_include'} = '*document_root C1
    >SOURCEMARKS
    >include<start;1><p:16>
     >*@include C1 l2
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{version.texi}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{version.texi}
+      >{spaces_after_argument:\\n}
    *@set C1
    |INFO
    |spaces_before_argument:
@@ -108,16 +104,12 @@ $result_tree_text{'test_two_include'} = '*document_root C1
    >SOURCEMARKS
    >include<start;2><p:17>
     >*@include C1 l5
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{inc_file.texi}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{inc_file.texi}
+      >{spaces_after_argument:\\n}
    {In included file.\\n}
    >SOURCEMARKS
    >include<end;2><p:18>

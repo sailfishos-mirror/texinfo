@@ -9,128 +9,96 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content C2
    *@setfilename C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{nodes_before_after_top_xref.info}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {nodes_before_after_top_xref.info}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C4 l3 {node before}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node-before}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node before}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {In node before\\n}
   {empty_line:\\n}
  *@node C1 l7 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 l8 {top sectionning}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top sectionning}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {in node Top\\n}
   {empty_line:\\n}
  *@node C4 l12 {after}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{after}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {after}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {in node after\\n}
   {empty_line:\\n}
  *@node C1 l16 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C10 l17 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {in chap\\n}
   {empty_line:\\n}
   *@xrefautomaticsectiontitle C1 l21
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{on}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {on}
+    {spaces_after_argument:\\n}
   *paragraph C4
    *@xref C1 l22
     *brace_arg C1
@@ -148,17 +116,13 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
    {.\\n}
   {empty_line:\\n}
   *@xrefautomaticsectiontitle C1 l25
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{off}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {off}
+    {spaces_after_argument:\\n}
   *paragraph C4
    *@xref C1 l26
     *brace_arg C1

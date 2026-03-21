@@ -9,26 +9,20 @@ $result_tree_text{'end_bad_end_argument_and_superfluous_arg'} = '*document_root 
  *before_node_section C1
   *@quotation C2 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C2
     {In quotation\\n}
     *@end C1 l3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{: }
-     *line_arg C2
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C4
+      {spaces_before_argument: }
       {: }
       *@code C1 l3
        *brace_container C1
         {in c}
+      {spaces_after_argument:\\n}
 ';
 
 

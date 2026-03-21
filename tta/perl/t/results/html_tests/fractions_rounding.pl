@@ -8,24 +8,18 @@ use utf8;
 $result_tree_text{'fractions_rounding'} = '*document_root C1
  *before_node_section C1
   *@multitable C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{4}
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      *@columnfractions C1 l1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{.19|.30|.29|.22}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {.19 .30 .29 .22}
+       {spaces_after_argument:\\n}
    *multitable_body C2
     *row C4
     |EXTRA
@@ -98,16 +92,12 @@ $result_tree_text{'fractions_rounding'} = '*document_root C1
          {chapheading}
        {\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
 ';
 
 

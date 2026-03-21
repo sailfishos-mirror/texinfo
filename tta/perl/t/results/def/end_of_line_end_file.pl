@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'end_of_line_end_file'} = '*document_root C1
  *before_node_section C1
   *@deffn C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -20,12 +17,8 @@ $result_tree_text{'end_of_line_end_file'} = '*document_root C1
       |{deffn_name}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-     |>SOURCEMARKS
-     |>defline_continuation<1><p:1>
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {category}
@@ -37,6 +30,9 @@ $result_tree_text{'end_of_line_end_file'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {arguments}
+     {spaces_after_argument: }
+     >SOURCEMARKS
+     >defline_continuation<1><p:1>
 ';
 
 
@@ -67,7 +63,7 @@ $result_indices_sort_strings{'end_of_line_end_file'} = 'fn:
 ';
 
 
-$result_converted{'xml'}->{'end_of_line_end_file'} = '<deffn spaces=" "><definitionterm><indexterm index="fn" number="1">deffn_name</indexterm><defcategory>category</defcategory> <deffunction>deffn_name</deffunction> <defparam>arguments</defparam> </definitionterm>
+$result_converted{'xml'}->{'end_of_line_end_file'} = '<deffn><definitionterm><indexterm index="fn" number="1">deffn_name</indexterm> <defcategory>category</defcategory> <deffunction>deffn_name</deffunction> <defparam>arguments</defparam> </definitionterm>
 </deffn>
 ';
 

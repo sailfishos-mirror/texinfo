@@ -13,23 +13,17 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
   *preamble_before_content C4
    *@copying C14 index_special_region_no_insertcopying.texi:l3
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: \\n}
+     *block_line_arg C1
+      {spaces_before_argument: \\n}
     {empty_line:\\n}
     *index_entry_command@cindex C1 index_special_region_no_insertcopying.texi:l5
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |element_region:{copying}
     |index_entry:I{cp,1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {Copying this document}
+      {spaces_after_argument:\\n}
     *@anchor C1 index_special_region_no_insertcopying.texi:l6
     |EXTRA
     |identifier:{Copying-information}
@@ -61,88 +55,62 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
         {domain is something you should allready know\\n}
        {empty_line:\\n}
        *index_entry_command@cindex C1 index_special_region_no_insertcopying.texi:l12
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |element_region:{copying}
        |index_entry:I{cp,2}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {Public domain}
+         {spaces_after_argument:\\n}
      {.\\n}
     {empty_line:\\n}
     *@printindex C1 index_special_region_no_insertcopying.texi:l15
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{1}
     |misc_args:A{cp}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {cp}
+      {spaces_after_argument:\\n}
     {empty_line:\\n}
     *@printindex C1 index_special_region_no_insertcopying.texi:l17
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{2}
     |misc_args:A{cp}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {cp}
+      {spaces_after_argument:\\n}
     *@printindex C1 index_special_region_no_insertcopying.texi:l18
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{3}
     |misc_args:A{fn}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {fn}
+      {spaces_after_argument:\\n}
     {empty_line:\\n}
     *@end C1 index_special_region_no_insertcopying.texi:l20
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {copying}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@titlepage C10 index_special_region_no_insertcopying.texi:l22
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     {empty_line:\\n}
     *index_entry_command@cindex C1 index_special_region_no_insertcopying.texi:l24
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |element_region:{titlepage}
     |index_entry:I{cp,3}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {Titlepage index}
+      {spaces_after_argument:\\n}
     *@anchor C1 index_special_region_no_insertcopying.texi:l25
     |EXTRA
     |identifier:{Titlepage-anchor}
@@ -172,17 +140,13 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
         {This is a fine document.\\n}
        {empty_line:\\n}
        *index_entry_command@cindex C1 index_special_region_no_insertcopying.texi:l30
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |element_region:{titlepage}
        |index_entry:I{cp,4}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {Titlepage footnote}
+         {spaces_after_argument:\\n}
      {\\n}
     {empty_line:\\n}
     *@insertcopying C1 index_special_region_no_insertcopying.texi:l33
@@ -193,68 +157,51 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
     *@end C1 index_special_region_no_insertcopying.texi:l34
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{titlepage}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {titlepage}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 index_special_region_no_insertcopying.texi:l36 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C1 index_special_region_no_insertcopying.texi:l37 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@chapter C15 index_special_region_no_insertcopying.texi:l38 {Chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:note this chapter is not associated to a node}
-   |spaces_after_argument:
-    |{spaces_after_argument:  }
+   *line_arg C4
+    {spaces_before_argument: }
     {Chapter}
+    {spaces_after_argument:  }
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:note this chapter is not associated to a node}
   {empty_line:\\n}
   *@c C1
   |INFO
@@ -275,32 +222,23 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
    {and titlepage, and various wrong index entries.\\n}
   {empty_line:\\n}
   *index_entry_command@findex C1 index_special_region_no_insertcopying.texi:l45
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Top}
   |index_entry:I{fn,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {findex entry}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_special_region_no_insertcopying.texi:l47
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument:\\n}
   *@deffn C4 index_special_region_no_insertcopying.texi:l48
    *def_line C1 index_special_region_no_insertcopying.texi:l48
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffn}
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C4
      *def_category C1
       *bracketed_arg C1 index_special_region_no_insertcopying.texi:l48
        {truc}
@@ -308,87 +246,66 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
      *def_name C1
       *bracketed_arg C1 index_special_region_no_insertcopying.texi:l48
        {spaces_before_argument: }
+     {spaces_after_argument:\\n}
    *@deffnx C1 index_special_region_no_insertcopying.texi:l49
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C2
      *def_category C1
       *bracketed_arg C1 index_special_region_no_insertcopying.texi:l49
        {truc}
+     {spaces_after_argument:\\n}
    *@deffnx C1 index_special_region_no_insertcopying.texi:l50
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C4
      *def_category C1
       *bracketed_arg index_special_region_no_insertcopying.texi:l50
      {spaces: }
      *def_name C1
       *bracketed_arg index_special_region_no_insertcopying.texi:l50
+     {spaces_after_argument:\\n}
    *@end C1 index_special_region_no_insertcopying.texi:l51
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@ftable C4 index_special_region_no_insertcopying.texi:l53
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 index_special_region_no_insertcopying.texi:l54
-      *line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C1
+       {spaces_before_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 index_special_region_no_insertcopying.texi:l55
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{Top}
      |index_entry:I{fn,2}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {fun}
+       {spaces_after_argument:\\n}
    *@end C1 index_special_region_no_insertcopying.texi:l56
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{ftable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {ftable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 index_special_region_no_insertcopying.texi:l58
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 index_special_region_no_insertcopying.texi:l59
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -401,74 +318,54 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
      *preformatted C1
       {\\n}
    *@end C1 index_special_region_no_insertcopying.texi:l60
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 index_special_region_no_insertcopying.texi:l62 {Copying and indices}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Copying-and-indices}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Copying and indices}
+    {spaces_after_argument:\\n}
  *@appendix C15 index_special_region_no_insertcopying.texi:l63 {Copying and indices}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Copying and indices}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {In the appendix, we print the indices and references.\\n}
   {empty_line:\\n}
   *index_entry_command@findex C1 index_special_region_no_insertcopying.texi:l67
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Copying-and-indices}
   |index_entry:I{fn,3}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {another fun}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_special_region_no_insertcopying.texi:l69
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Copying-and-indices}
   |index_entry:I{cp,5}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Copying appendix}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C4
    *@ref C1 index_special_region_no_insertcopying.texi:l71

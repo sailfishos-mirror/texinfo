@@ -8,40 +8,30 @@ use utf8;
 $result_tree_text{'no_colon_in_menu'} = '*document_root C2
  *before_node_section
  *@node C3 l1 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_comment C1
     *preformatted C1
      {* a\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -119,7 +109,7 @@ $result_converted_errors{'html'}->{'no_colon_in_menu'} = '* W |must specify a ti
 ';
 
 
-$result_converted{'xml'}->{'no_colon_in_menu'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
+$result_converted{'xml'}->{'no_colon_in_menu'} = '<node identifier="first"><nodename> first</nodename></node>
 
 <menu endspaces=" ">
 <menucomment><pre xml:space="preserve">* a

@@ -8,21 +8,17 @@ use utf8;
 $result_tree_text{'multitable_figure_space'} = '*document_root C1
  *before_node_section C1
   *@multitable C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     {spaces_before_argument: }
      *bracketed_arg C1 l1
       {999999999}
      { }
      *bracketed_arg C1 l1
       {xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx}
+     {spaces_after_argument:\\n}
    *multitable_body C3
     *row C2
     |EXTRA
@@ -70,16 +66,12 @@ $result_tree_text{'multitable_figure_space'} = '*document_root C1
       *paragraph C1
        {explanation\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -122,7 +114,8 @@ $result_converted{'html_text'}->{'multitable_figure_space'} = '<table class="mul
 ';
 
 
-$result_converted{'xml'}->{'multitable_figure_space'} = '<multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">999999999</columnprototype> <columnprototype bracketed="on">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</columnprototype></columnprototypes>
+$result_converted{'xml'}->{'multitable_figure_space'} = '<multitable endspaces=" "><columnprototypes> <columnprototype bracketed="on">999999999</columnprototype> <columnprototype bracketed="on">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</columnprototype>
+</columnprototypes>
 <tbody><row><entry command="item"> <para>   55 </para></entry><entry command="tab"> <para>explanation
 </para></entry></row><row><entry command="item"> <para>  535 </para></entry><entry command="tab"> <para>explanation
 </para></entry></row><row><entry command="item"> <para>49303 </para></entry><entry command="tab"> <para>explanation

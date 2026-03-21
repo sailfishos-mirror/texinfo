@@ -10,10 +10,8 @@ $result_tree_text{'comment_index_before_defline'} = '*document_root C1
   *preamble_before_content
   *@defblock C4 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *before_defline C4
     *@c C1
     |INFO
@@ -25,16 +23,12 @@ $result_tree_text{'comment_index_before_defline'} = '*document_root C1
       |{spaces_after_argument:\\n}
       {rawline_text:a comment}
     *index_entry_command@cindex C1 l3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |index_entry:I{cp,1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {entry}
+      {spaces_after_argument:\\n}
     *@comment C1
     |INFO
     |spaces_before_argument:
@@ -46,9 +40,6 @@ $result_tree_text{'comment_index_before_defline'} = '*document_root C1
       {rawline_text:another}
     {empty_line:\\n}
    *@defline C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -56,10 +47,8 @@ $result_tree_text{'comment_index_before_defline'} = '*document_root C1
      |*def_line_arg C1
       |{b}
    |original_def_cmdname:{defline}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {a}
@@ -75,17 +64,14 @@ $result_tree_text{'comment_index_before_defline'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {d}
+     {spaces_after_argument:\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defblock}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -274,10 +260,10 @@ $result_converted{'docbook'}->{'comment_index_before_defline'} = '<!-- a comment
 
 $result_converted{'xml'}->{'comment_index_before_defline'} = '<defblock endspaces=" ">
 <beforefirstdefline><!-- c a comment -->
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">entry</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="1">entry</indexterm></cindex>
 <!-- comment another -->
 
-</beforefirstdefline><defline spaces=" "><definitionterm><defcategory>a</defcategory> <defsymbol>b</defsymbol> <defparam>c</defparam> <defparam>d</defparam></definitionterm></defline>
+</beforefirstdefline><defline><definitionterm> <defcategory>a</defcategory> <defsymbol>b</defsymbol> <defparam>c</defparam> <defparam>d</defparam></definitionterm></defline>
 </defblock>
 ';
 

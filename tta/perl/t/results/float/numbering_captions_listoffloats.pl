@@ -9,37 +9,26 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C22 l2 {Test floats}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Test floats}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C7 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{Text}
@@ -47,15 +36,13 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{text-with-a-lot-of-features}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {text with a lot of features}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@caption C1 l6
    |INFO
@@ -75,30 +62,22 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       { and someething}
    {spaces_after_close_brace:\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C8 l10
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Text}
   |global_command_number:{2}
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {Text}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {No label but caption and shortcaption.\\n}
    {empty_line:\\n}
@@ -113,21 +92,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {SC No label}
    {spaces_after_close_brace:\\n}
    *@end C1 l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C8 l17
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{}
@@ -135,12 +107,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{label-but-no-type}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg
     *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+     {spaces_before_argument: }
+    *block_line_arg C2
      {label but no type}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {No type but caption and shortcaption.\\n}
    {empty_line:\\n}
@@ -155,22 +126,15 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {SC No type}
    {spaces_after_close_brace:\\n}
    *@end C1 l22
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   *@float C4 l25
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{2}
   |float_type:{}
@@ -178,26 +142,21 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{label-but-no-type-and-no-caption}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg
     *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+     {spaces_before_argument: }
+    *block_line_arg C2
      {label but no type and no caption}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {No type but label and no caption nor shortcaption.\\n}
    {empty_line:\\n}
    *@end C1 l28
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   *@float C4 l31
@@ -205,34 +164,26 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |float_type:{}
   |global_command_number:{5}
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {No label, no type, no caption no shortcaption.\\n}
    {empty_line:\\n}
    *@end C1 l34
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C7 l36
   |EXTRA
   |float_type:{}
   |global_command_number:{6}
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {No label, no type, but caption and shortcaption.\\n}
    *@caption C1 l38
@@ -246,21 +197,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {SC No label, no type, but caption and shortcaption.}
    {spaces_after_close_brace:\\n}
    *@end C1 l40
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C8 l42
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{3}
   |float_type:{}
@@ -268,12 +212,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{label-but-no-type-2}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg
     *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+     {spaces_before_argument: }
+    *block_line_arg C2
      {label but no type 2}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {Second float with no type.\\n}
    {empty_line:\\n}
@@ -288,21 +231,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {SC No type 2}
    {spaces_after_close_brace:\\n}
    *@end C1 l47
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C8 l49
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{Warning}
@@ -310,15 +246,13 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{warning-in-top}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Warning}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {warning in top}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {A warning\\n}
    {empty_line:\\n}
@@ -333,23 +267,17 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {SC A warning}
    {spaces_after_close_brace:\\n}
    *@end C1 l54
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C7 l56
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l57
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -406,50 +334,35 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      *preformatted C1
       {\\n}
    *@end C1 l62
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l64 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C14 l65 {A chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {A chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C6 l67
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1.1}
   |float_type:{Text}
@@ -457,15 +370,13 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{text-in-chapter}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {text in chapter}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {Text in chapter\\n}
    {empty_line:\\n}
@@ -475,21 +386,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {C Text in chapter}
    {spaces_after_close_brace:\\n}
    *@end C1 l71
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C4 l73
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1.2}
   |float_type:{Text}
@@ -497,15 +401,13 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{float-with-a-lot-of-features-and-no-shortcaption}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {float with a lot of features and no shortcaption}
+     {spaces_after_argument:\\n}
    *@caption C1 l74
    |INFO
    |spaces_before_argument:
@@ -517,21 +419,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
        *brace_container
    {spaces_after_close_brace:\\n}
    *@end C1 l75
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C6 l77
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1.1}
   |float_type:{théorème}
@@ -539,7 +434,8 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{theoreme}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C5
+    *block_line_arg C6
+     {spaces_before_argument: }
      {th}
      *@\' C1 l77
       *following_arg C1
@@ -549,13 +445,10 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       *following_arg C1
        {e}
      {me}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {theoreme}
+     {spaces_after_argument:\\n}
    *paragraph C5
     {A th}
     *@\' C1 l78
@@ -581,21 +474,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {me}
    {spaces_after_close_brace:\\n}
    *@end C1 l81
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C8 l83
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1.1}
   |float_type:{}
@@ -603,12 +489,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{label-but-no-type-in-chapter}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg
     *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+     {spaces_before_argument: }
+    *block_line_arg C2
      {label but no type in chapter}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {float with no type.\\n}
    {empty_line:\\n}
@@ -623,21 +508,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {SC No type in chapter}
    {spaces_after_close_brace:\\n}
    *@end C1 l88
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C8 l90
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1.1}
   |float_type:{Warning}
@@ -645,15 +523,13 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{warning-in-chapter}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Warning}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {warning in chapter}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {A warning\\n}
    {empty_line:\\n}
@@ -668,23 +544,17 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {SC A warning in chapter}
    {spaces_after_close_brace:\\n}
    *@end C1 l95
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l97
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l98
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -697,50 +567,35 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      *preformatted C1
       {\\n}
    *@end C1 l99
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l101 {section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{section}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section}
+    {spaces_after_argument:\\n}
  *@section C4 l102 {A section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {A section}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C5 l104
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1.3}
   |float_type:{Text}
@@ -748,65 +603,49 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{text-in-section}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {text in section}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C1
     {A text in float no caption a label a type.\\n}
    {empty_line:\\n}
    *@end C1 l108
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l110 {Unnumbered}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Unnumbered}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Unnumbered}
+    {spaces_after_argument:\\n}
  *@unnumbered C7 l111 {Unnumbered}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Unnumbered}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l113
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l114
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -819,20 +658,13 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      *preformatted C1
       {\\n}
    *@end C1 l115
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   *@float C7 l116
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{5}
   |float_type:{Text}
@@ -840,15 +672,13 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{unnumbered-float}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {unnumbered float}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {unnum\\n}
    *@shortcaption C1 l118
@@ -862,20 +692,13 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {C unnumbered float}
    {spaces_after_close_brace:\\n}
    *@end C1 l120
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   *@float C8 l121
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{5}
   |float_type:{}
@@ -883,12 +706,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{label-but-no-type-in-unnumbered}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg
     *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+     {spaces_before_argument: }
+    *block_line_arg C2
      {label but no type in unnumbered}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {float with no type.\\n}
    {empty_line:\\n}
@@ -903,51 +725,36 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {SC No type in unnumbered}
    {spaces_after_close_brace:\\n}
    *@end C1 l126
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
  *@node C1 l129 {Section within unnumbered}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Section-within-unnumbered}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Section within unnumbered}
+    {spaces_after_argument:\\n}
  *@section C5 l130 {Section within unnumbered}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Section within unnumbered}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   *@float C7 l133
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{6}
   |float_type:{Text}
@@ -955,15 +762,13 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{Section-within-unnumbered-float}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {Section within unnumbered float}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {Section within unnumbered\\n}
    *@shortcaption C1 l135
@@ -977,52 +782,38 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {C Section within unnumbered}
    {spaces_after_close_brace:\\n}
    *@end C1 l137
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l139 {Chapter with unnumbsubsec}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Chapter-with-unnumbsubsec}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter with unnumbsubsec}
+    {spaces_after_argument:\\n}
  *@chapter C5 l140 {Chapter with unnumbsubsec}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter with unnumbsubsec}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l142
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l143
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -1035,20 +826,13 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      *preformatted C1
       {\\n}
    *@end C1 l144
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   *@float C7 l145
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{2.1}
   |float_type:{Text}
@@ -1056,15 +840,13 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{Chapter-with-subsec-float}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {Chapter with subsec float}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {Chap\\n}
    *@shortcaption C1 l147
@@ -1078,49 +860,34 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {C Chapter with subsec}
    {spaces_after_close_brace:\\n}
    *@end C1 l149
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l151 {unnumbered sec}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{unnumbered-sec}
  |is_target:{1}
  |node_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered sec}
+    {spaces_after_argument:\\n}
  *@unnumberedsec C6 l152 {unnumbered sec}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered sec}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C7 l154
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{2.2}
   |float_type:{Text}
@@ -1128,15 +895,13 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{unnumbered-sec-float}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {unnumbered sec float}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {Chap\\n}
    *@shortcaption C1 l156
@@ -1150,21 +915,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {C unnumbered sec float}
    {spaces_after_close_brace:\\n}
    *@end C1 l158
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C8 l160
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{2.1}
   |float_type:{}
@@ -1172,12 +930,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{label-but-no-type-in-unnumbered-subsec-in-chapter}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg
     *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+     {spaces_before_argument: }
+    *block_line_arg C2
      {label but no type in unnumbered subsec in chapter}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {float with no type.\\n}
    {empty_line:\\n}
@@ -1192,50 +949,35 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {SC No type in unnumbered subsec in chapter}
    {spaces_after_close_brace:\\n}
    *@end C1 l165
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l167 {Appendix for float}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Appendix-for-float}
  |is_target:{1}
  |node_number:{8}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Appendix for float}
+    {spaces_after_argument:\\n}
  *@appendix C4 l168 {Appendix for float}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{8}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Appendix for float}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C8 l170
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{A.1}
   |float_type:{Text}
@@ -1243,15 +985,13 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |identifier:{appendix-sec-float}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {appendix sec float}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C1
     {Appendix\\n}
@@ -1266,44 +1006,32 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
       {C appendix sec float}
    {spaces_after_close_brace:\\n}
    *@end C1 l175
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l177 {list of floats}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{list-of-floats}
  |is_target:{1}
  |node_number:{9}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {list of floats}
+    {spaces_after_argument:\\n}
  *@unnumbered C15 l178 {list of floats}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{9}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {list of floats}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C8
    {See }
@@ -1394,28 +1122,19 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    {.\\n}
   {empty_line:\\n}
   *@listoffloats C1 l195
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Text}
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Text}
+    {spaces_after_argument:\\n}
   *@listoffloats C1 l196
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{théorème}
   |global_command_number:{2}
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     {th}
     *@\' C1 l196
      *following_arg C1
@@ -1425,6 +1144,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      *following_arg C1
       {e}
     {me}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
   *line_arg
@@ -2358,23 +2078,23 @@ See <a class="xref" href="#text-with-a-lot-of-features">Text 1</a>.
 ';
 
 
-$result_converted{'xml'}->{'numbering_captions_listoffloats'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
-<top spaces=" "><sectiontitle>Test floats</sectiontitle>
+$result_converted{'xml'}->{'numbering_captions_listoffloats'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapter</nodenext></node>
+<top><sectiontitle> Test floats</sectiontitle>
 
-<float identifier="text-with-a-lot-of-features" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">text with a lot of features</floatname>
+<float identifier="text-with-a-lot-of-features" type="Text" number="1" endspaces=" "><floattype> Text</floattype><floatname> text with a lot of features</floatname>
 
 <caption spaces=" "><para>An example of float caption&enddots;</para></caption>
 <shortcaption><para>&tex; and someething</para></shortcaption>
 </float>
 
-<float type="Text" spaces=" " endspaces=" "><floattype>Text</floattype>
+<float type="Text" endspaces=" "><floattype> Text</floattype>
 <para>No label but caption and shortcaption.
 </para>
 <caption><para>C No label</para></caption>
 <shortcaption><para>SC No label</para></shortcaption>
 </float>
 
-<float identifier="label-but-no-type" type="" number="1" spaces=" " endspaces=" "><floatname>label but no type</floatname>
+<float identifier="label-but-no-type" type="" number="1" endspaces=" "><floattype> </floattype><floatname>label but no type</floatname>
 <para>No type but caption and shortcaption.
 </para>
 <caption><para>C No type</para></caption>
@@ -2382,7 +2102,7 @@ $result_converted{'xml'}->{'numbering_captions_listoffloats'} = '<node identifie
 </float>
 
 
-<float identifier="label-but-no-type-and-no-caption" type="" number="2" spaces=" " endspaces=" "><floatname>label but no type and no caption</floatname>
+<float identifier="label-but-no-type-and-no-caption" type="" number="2" endspaces=" "><floattype> </floattype><floatname>label but no type and no caption</floatname>
 <para>No type but label and no caption nor shortcaption.
 </para>
 </float>
@@ -2399,14 +2119,14 @@ $result_converted{'xml'}->{'numbering_captions_listoffloats'} = '<node identifie
 <shortcaption><para>SC No label, no type, but caption and shortcaption.</para></shortcaption>
 </float>
 
-<float identifier="label-but-no-type-2" type="" number="3" spaces=" " endspaces=" "><floatname>label but no type 2</floatname>
+<float identifier="label-but-no-type-2" type="" number="3" endspaces=" "><floattype> </floattype><floatname>label but no type 2</floatname>
 <para>Second float with no type.
 </para>
 <caption><para>C No type 2</para></caption>
 <shortcaption><para>SC No type 2</para></shortcaption>
 </float>
 
-<float identifier="warning-in-top" type="Warning" number="1" spaces=" " endspaces=" "><floattype>Warning</floattype><floatname spaces=" ">warning in top</floatname>
+<float identifier="warning-in-top" type="Warning" number="1" endspaces=" "><floattype> Warning</floattype><floatname> warning in top</floatname>
 <para>A warning
 </para>
 <caption><para>C A warning</para></caption>
@@ -2422,33 +2142,33 @@ $result_converted{'xml'}->{'numbering_captions_listoffloats'} = '<node identifie
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodenext automatic="on">Unnumbered</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>A chapter</sectiontitle>
+<node identifier="chapter"><nodename> chapter</nodename><nodenext automatic="on"> Unnumbered</nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> A chapter</sectiontitle>
 
-<float identifier="text-in-chapter" type="Text" number="1.1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">text in chapter</floatname>
+<float identifier="text-in-chapter" type="Text" number="1.1" endspaces=" "><floattype> Text</floattype><floatname> text in chapter</floatname>
 <para>Text in chapter
 </para>
 <caption><para>C Text in chapter</para></caption>
 </float>
 
-<float identifier="float-with-a-lot-of-features-and-no-shortcaption" type="Text" number="1.2" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">float with a lot of features and no shortcaption</floatname>
+<float identifier="float-with-a-lot-of-features-and-no-shortcaption" type="Text" number="1.2" endspaces=" "><floattype> Text</floattype><floatname> float with a lot of features and no shortcaption</floatname>
 <caption spaces=" "><para>An example of float caption, no shortcaption&enddots;</para></caption>
 </float>
 
-<float identifier="theoreme" type="théorème" number="1.1" spaces=" " endspaces=" "><floattype>th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</floattype><floatname spaces=" ">theoreme</floatname>
+<float identifier="theoreme" type="théorème" number="1.1" endspaces=" "><floattype> th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</floattype><floatname> theoreme</floatname>
 <para>A th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me
 </para>
 <caption><para>C A th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</para></caption>
 </float>
 
-<float identifier="label-but-no-type-in-chapter" type="" number="1.1" spaces=" " endspaces=" "><floatname>label but no type in chapter</floatname>
+<float identifier="label-but-no-type-in-chapter" type="" number="1.1" endspaces=" "><floattype> </floattype><floatname>label but no type in chapter</floatname>
 <para>float with no type.
 </para>
 <caption><para>C No type in chapter</para></caption>
 <shortcaption><para>SC No type in chapter</para></shortcaption>
 </float>
 
-<float identifier="warning-in-chapter" type="Warning" number="1.1" spaces=" " endspaces=" "><floattype>Warning</floattype><floatname spaces=" ">warning in chapter</floatname>
+<float identifier="warning-in-chapter" type="Warning" number="1.1" endspaces=" "><floattype> Warning</floattype><floatname> warning in chapter</floatname>
 <para>A warning
 </para>
 <caption><para>C A warning in chapter</para></caption>
@@ -2459,10 +2179,10 @@ $result_converted{'xml'}->{'numbering_captions_listoffloats'} = '<node identifie
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>section</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="section" spaces=" "><nodename>section</nodename><nodeup automatic="on">chapter</nodeup></node>
-<section spaces=" "><sectiontitle>A section</sectiontitle>
+<node identifier="section"><nodename> section</nodename><nodeup automatic="on"> chapter</nodeup></node>
+<section><sectiontitle> A section</sectiontitle>
 
-<float identifier="text-in-section" type="Text" number="1.3" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">text in section</floatname>
+<float identifier="text-in-section" type="Text" number="1.3" endspaces=" "><floattype> Text</floattype><floatname> text in section</floatname>
 
 <para>A text in float no caption a label a type.
 </para>
@@ -2470,18 +2190,18 @@ $result_converted{'xml'}->{'numbering_captions_listoffloats'} = '<node identifie
 
 </section>
 </chapter>
-<node identifier="Unnumbered" spaces=" "><nodename>Unnumbered</nodename><nodenext automatic="on">Chapter with unnumbsubsec</nodenext><nodeprev automatic="on">chapter</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<unnumbered spaces=" "><sectiontitle>Unnumbered</sectiontitle>
+<node identifier="Unnumbered"><nodename> Unnumbered</nodename><nodenext automatic="on"> Chapter with unnumbsubsec</nodenext><nodeprev automatic="on"> chapter</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<unnumbered><sectiontitle> Unnumbered</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>Section within unnumbered</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
-<float identifier="unnumbered-float" type="Text" number="5" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">unnumbered float</floatname>
+<float identifier="unnumbered-float" type="Text" number="5" endspaces=" "><floattype> Text</floattype><floatname> unnumbered float</floatname>
 <para>unnum
 </para><shortcaption><para>SC unnumbered float</para></shortcaption>
 <caption><para>C unnumbered float</para></caption>
 </float>
-<float identifier="label-but-no-type-in-unnumbered" type="" number="5" spaces=" " endspaces=" "><floatname>label but no type in unnumbered</floatname>
+<float identifier="label-but-no-type-in-unnumbered" type="" number="5" endspaces=" "><floattype> </floattype><floatname>label but no type in unnumbered</floatname>
 <para>float with no type.
 </para>
 <caption><para>C No type in unnumbered</para></caption>
@@ -2489,11 +2209,11 @@ $result_converted{'xml'}->{'numbering_captions_listoffloats'} = '<node identifie
 </float>
 
 
-<node identifier="Section-within-unnumbered" spaces=" "><nodename>Section within unnumbered</nodename><nodeup automatic="on">Unnumbered</nodeup></node>
-<section spaces=" "><sectiontitle>Section within unnumbered</sectiontitle>
+<node identifier="Section-within-unnumbered"><nodename> Section within unnumbered</nodename><nodeup automatic="on"> Unnumbered</nodeup></node>
+<section><sectiontitle> Section within unnumbered</sectiontitle>
 
 
-<float identifier="Section-within-unnumbered-float" type="Text" number="6" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">Section within unnumbered float</floatname>
+<float identifier="Section-within-unnumbered-float" type="Text" number="6" endspaces=" "><floattype> Text</floattype><floatname> Section within unnumbered float</floatname>
 <para>Section within unnumbered
 </para><shortcaption><para>SC Section within unnumbered</para></shortcaption>
 <caption><para>C Section within unnumbered</para></caption>
@@ -2501,28 +2221,28 @@ $result_converted{'xml'}->{'numbering_captions_listoffloats'} = '<node identifie
 
 </section>
 </unnumbered>
-<node identifier="Chapter-with-unnumbsubsec" spaces=" "><nodename>Chapter with unnumbsubsec</nodename><nodenext automatic="on">Appendix for float</nodenext><nodeprev automatic="on">Unnumbered</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Chapter with unnumbsubsec</sectiontitle>
+<node identifier="Chapter-with-unnumbsubsec"><nodename> Chapter with unnumbsubsec</nodename><nodenext automatic="on"> Appendix for float</nodenext><nodeprev automatic="on"> Unnumbered</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Chapter with unnumbsubsec</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>unnumbered sec</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
-<float identifier="Chapter-with-subsec-float" type="Text" number="2.1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">Chapter with subsec float</floatname>
+<float identifier="Chapter-with-subsec-float" type="Text" number="2.1" endspaces=" "><floattype> Text</floattype><floatname> Chapter with subsec float</floatname>
 <para>Chap
 </para><shortcaption><para>SC Chapter with subsec</para></shortcaption>
 <caption><para>C Chapter with subsec</para></caption>
 </float>
 
-<node identifier="unnumbered-sec" spaces=" "><nodename>unnumbered sec</nodename><nodeup automatic="on">Chapter with unnumbsubsec</nodeup></node>
-<unnumberedsec spaces=" "><sectiontitle>unnumbered sec</sectiontitle>
+<node identifier="unnumbered-sec"><nodename> unnumbered sec</nodename><nodeup automatic="on"> Chapter with unnumbsubsec</nodeup></node>
+<unnumberedsec><sectiontitle> unnumbered sec</sectiontitle>
 
-<float identifier="unnumbered-sec-float" type="Text" number="2.2" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">unnumbered sec float</floatname>
+<float identifier="unnumbered-sec-float" type="Text" number="2.2" endspaces=" "><floattype> Text</floattype><floatname> unnumbered sec float</floatname>
 <para>Chap
 </para><shortcaption><para>SC unnumbered sec float</para></shortcaption>
 <caption><para>C unnumbered sec float</para></caption>
 </float>
 
-<float identifier="label-but-no-type-in-unnumbered-subsec-in-chapter" type="" number="2.1" spaces=" " endspaces=" "><floatname>label but no type in unnumbered subsec in chapter</floatname>
+<float identifier="label-but-no-type-in-unnumbered-subsec-in-chapter" type="" number="2.1" endspaces=" "><floattype> </floattype><floatname>label but no type in unnumbered subsec in chapter</floatname>
 <para>float with no type.
 </para>
 <caption><para>C No type in unnumbered subsec in chapter</para></caption>
@@ -2531,10 +2251,10 @@ $result_converted{'xml'}->{'numbering_captions_listoffloats'} = '<node identifie
 
 </unnumberedsec>
 </chapter>
-<node identifier="Appendix-for-float" spaces=" "><nodename>Appendix for float</nodename><nodenext automatic="on">list of floats</nodenext><nodeprev automatic="on">Chapter with unnumbsubsec</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<appendix spaces=" "><sectiontitle>Appendix for float</sectiontitle>
+<node identifier="Appendix-for-float"><nodename> Appendix for float</nodename><nodenext automatic="on"> list of floats</nodenext><nodeprev automatic="on"> Chapter with unnumbsubsec</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<appendix><sectiontitle> Appendix for float</sectiontitle>
 
-<float identifier="appendix-sec-float" type="Text" number="A.1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">appendix sec float</floatname>
+<float identifier="appendix-sec-float" type="Text" number="A.1" endspaces=" "><floattype> Text</floattype><floatname> appendix sec float</floatname>
 
 <para>Appendix
 </para><shortcaption><para>SC appendix sec float</para></shortcaption>
@@ -2542,8 +2262,8 @@ $result_converted{'xml'}->{'numbering_captions_listoffloats'} = '<node identifie
 </float>
 
 </appendix>
-<node identifier="list-of-floats" spaces=" "><nodename>list of floats</nodename><nodeprev automatic="on">Appendix for float</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<unnumbered spaces=" "><sectiontitle>list of floats</sectiontitle>
+<node identifier="list-of-floats"><nodename> list of floats</nodename><nodeprev automatic="on"> Appendix for float</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<unnumbered><sectiontitle> list of floats</sectiontitle>
 
 <para>See <ref label="text-in-section"><xrefnodename>text in section</xrefnodename></ref>.
 And (<pxref label="text-in-chapter"><xrefnodename>text in chapter</xrefnodename></pxref>).
@@ -2560,8 +2280,8 @@ And (<pxref label="text-in-chapter"><xrefnodename>text in chapter</xrefnodename>
 </para>
 <para>A ref to float without type <ref label="label-but-no-type"><xrefnodename>label but no type</xrefnodename></ref>.
 </para>
-<listoffloats type="Text" spaces=" ">Text</listoffloats>
-<listoffloats type="théorème" spaces=" ">th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</listoffloats>
+<listoffloats type="Text"> Text</listoffloats>
+<listoffloats type="théorème"> th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</listoffloats>
 
 </unnumbered>
 <bye></bye>

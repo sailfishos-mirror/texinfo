@@ -8,32 +8,24 @@ use utf8;
 $result_tree_text{'menu_in_example'} = '*document_root C2
  *before_node_section
  *@node C3 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@example C3 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@menu C6 l4
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *menu_entry C4 l5
      {menu_entry_leading_text:* }
      *menu_entry_node C3
@@ -48,45 +40,33 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
        {\\n}
       *@cartouche C3 l6
        *arguments_line C1
-        *block_line_arg
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *block_line_arg C1
+         {spaces_before_argument:\\n}
        *preformatted C1
         {in cartouche in description in menu in example\\n}
        *@end C1 l8
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{cartouche}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {cartouche}
+         {spaces_after_argument:\\n}
     *menu_comment C3
      *preformatted C1
       {after_menu_description_line:\\n}
      *@cartouche C3 l10
       *arguments_line C1
-       *block_line_arg
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C1
+        {spaces_before_argument:\\n}
       *preformatted C1
        {in cartouche in menu comment in menu in example\\n}
       *@end C1 l12
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{cartouche}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {cartouche}
+        {spaces_after_argument:\\n}
      *preformatted C1
       {empty_line:\\n}
     *menu_entry C4 l14
@@ -125,27 +105,19 @@ $result_tree_text{'menu_in_example'} = '*document_root C2
       *preformatted C1
        {\\n}
     *@end C1 l16
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{menu}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {menu}
+      {spaces_after_argument:\\n}
    *@end C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 

@@ -9,39 +9,29 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
  *before_node_section C1
   *preamble_before_content
  *@node C1 character_and_spaces_in_refs_text.texi:l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 character_and_spaces_in_refs_text.texi:l2 {Test refs}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Test refs}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C4 character_and_spaces_in_refs_text.texi:l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 character_and_spaces_in_refs_text.texi:l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -65,58 +55,42 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
      *preformatted C1
       {\\n}
    *@end C1 character_and_spaces_in_refs_text.texi:l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 character_and_spaces_in_refs_text.texi:l9 {node to avoid DocBook or LaTeX ignored}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node-to-avoid-DocBook-or-LaTeX-ignored}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node to avoid DocBook or LaTeX ignored}
+    {spaces_after_argument:\\n}
  *@chapter C10 character_and_spaces_in_refs_text.texi:l10 {first chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@subheading C1 character_and_spaces_in_refs_text.texi:l12
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Testing distant nodes}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C10
    *@ref C4 character_and_spaces_in_refs_text.texi:l14
@@ -178,17 +152,13 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    {\\n}
   {empty_line:\\n}
   *@subheading C1 character_and_spaces_in_refs_text.texi:l20
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |heading_number:{2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Testing local nodes}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C8
    *@ref C1 character_and_spaces_in_refs_text.texi:l22
@@ -223,63 +193,48 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    {\\n}
   {empty_line:\\n}
  *@node C1 character_and_spaces_in_refs_text.texi:l27 {other nodes}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{other-nodes}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {other nodes}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{!_"#$%&\'()*+-.}
    |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
+    {spaces_before_argument: }
     {!_"#$%&\'()*+-.}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{node to avoid DocBook or LaTeX ignored}
    |normalized:{node-to-avoid-DocBook-or-LaTeX-ignored}
+    {spaces_before_argument: }
     {node to avoid DocBook or LaTeX ignored}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@chapter C4 character_and_spaces_in_refs_text.texi:l28 {Chapter with nodes}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter with nodes}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C5 character_and_spaces_in_refs_text.texi:l30
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 character_and_spaces_in_refs_text.texi:l31
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -314,65 +269,50 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
      *preformatted C1
       {\\n}
    *@end C1 character_and_spaces_in_refs_text.texi:l34
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 character_and_spaces_in_refs_text.texi:l36 {!_"#$%&\'()*+-.}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {!_"#$%&\'()*+-.}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{/;<=>?[\\]^_`|~}
    |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
+    {spaces_before_argument: }
     {/;<=>?[\\]^_`|~}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{other nodes}
    |normalized:{other-nodes}
+    {spaces_before_argument: }
     {other nodes}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{other nodes}
    |normalized:{other-nodes}
+    {spaces_before_argument: }
     {other nodes}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 character_and_spaces_in_refs_text.texi:l38 {/;<=>?[\\]^_`|~}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {/;<=>?[\\]^_`|~}
    *line_arg C1
    |EXTRA
@@ -384,27 +324,22 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    |node_content:{!_"#$%&\'()*+-.}
    |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
     {!_"#$%&\'()*+-.}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{other nodes}
    |normalized:{other-nodes}
+    {spaces_before_argument: }
     {other nodes}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 character_and_spaces_in_refs_text.texi:l40 {local   node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument:  }
  |EXTRA
  |identifier:{local-node}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument:  }
     {local   node}
    *line_arg
    *line_arg C1
@@ -412,14 +347,12 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    |node_content:{/;<=>?[\\]^_`|~}
    |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
     {/;<=>?[\\]^_`|~}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{other nodes}
    |normalized:{other-nodes}
     {other nodes}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
   *line_arg

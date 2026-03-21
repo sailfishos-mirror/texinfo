@@ -12,44 +12,32 @@ $result_tree_text{'info_ifinfo_ifnotplaintext'} = '*document_root C1
   >expanded_conditional_command<start;1>
    >*@ifinfo C1 l1
     >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C1
+      >{spaces_before_argument:\\n}
   >expanded_conditional_command<start;2>
    >*@ifnotplaintext C1 l2
     >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C1
+      >{spaces_before_argument:\\n}
   *paragraph C1
    {This will be in Info, but not plain text.\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;2><p:42>
     >*@end C1 l4
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnotplaintext}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifnotplaintext}
+      >{spaces_after_argument:\\n}
    >expanded_conditional_command<end;1><p:42>
     >*@end C1 l5
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifinfo}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifinfo}
+      >{spaces_after_argument:\\n}
 ';
 
 

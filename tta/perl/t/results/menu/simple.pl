@@ -13,10 +13,8 @@ $result_tree_text{'simple'} = '*document_root C1
   {empty_line:\\n}
   *@menu C9 l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_comment C1
     *preformatted C1
      {comment\\n}
@@ -89,16 +87,12 @@ $result_tree_text{'simple'} = '*document_root C1
      *preformatted C1
       {\\n}
    *@end C1 l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {After menu.\\n}

@@ -9,13 +9,8 @@ $result_tree_text{'thischapter_in_footnote_in_evenfooting'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
   *@evenfooting C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C6
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C8
+    {spaces_before_argument: }
     {aa }
     *@strong C1 l2
      *brace_container C2
@@ -37,6 +32,7 @@ $result_tree_text{'thischapter_in_footnote_in_evenfooting'} = '*document_root C1
       *paragraph C2
        {cc }
        *@thissection
+    {spaces_after_argument:\\n}
 ';
 
 

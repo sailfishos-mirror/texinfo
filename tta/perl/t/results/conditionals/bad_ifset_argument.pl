@@ -11,27 +11,19 @@ $result_tree_text{'bad_ifset_argument'} = '*document_root C1
   >SOURCEMARKS
   >ignored_conditional_block<1>
    >*@ifset C3 l1
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{a|b}
+      >{spaces_after_argument:\\n}
     >{raw:Ra&b\\n}
     >*@end C1 l3
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
+      >{spaces_after_argument:\\n}
 ';
 
 

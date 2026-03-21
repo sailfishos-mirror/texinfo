@@ -8,11 +8,9 @@ use utf8;
 $result_tree_text{'on_itemize_line'} = '*document_root C1
  *before_node_section C3
   *@itemize C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C8
+    *block_line_arg C9
+     {spaces_before_argument: }
      *@indent l1
      {ignorable_spaces_after_command: }
      *@titlefont C1 l1
@@ -35,14 +33,10 @@ $result_tree_text{'on_itemize_line'} = '*document_root C1
         {footnote}
      { }
      *@exdent C1 l1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {exdent}
+       {spaces_after_argument:\\n}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -50,40 +44,28 @@ $result_tree_text{'on_itemize_line'} = '*document_root C1
     *paragraph C1
      {in item.\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C2 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     {spaces_before_argument: }
      {on line }
      {ignorable_spaces_after_command: }
      {in item}
+     {spaces_after_argument:\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
 ';
 
 

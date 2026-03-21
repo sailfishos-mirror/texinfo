@@ -26,33 +26,25 @@ $result_tree_text{'kbdinputstyle'} = '*document_root C1
    {raw:@code{for nesting in example @r{r in code in example @kbd{in r in code in example}}}\\n}
    {raw:@end example\\n}
    *@end C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@@
    {kbdinputstyle code\\n}
   {empty_line:\\n}
   *@kbdinputstyle C1 l18
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{code}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {code}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
@@ -98,10 +90,8 @@ $result_tree_text{'kbdinputstyle'} = '*document_root C1
    {in example\\n}
   *@example C3 l20:@codekbdmacro
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C8
     *@code C1 l20:@codekbdmacro
      *brace_container C2
@@ -139,35 +129,27 @@ $result_tree_text{'kbdinputstyle'} = '*document_root C1
           {in r in code in example}
     {\\n}
    *@end C1 l20:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
      >SOURCEMARKS
      >macro_expansion<end;1><p:7>
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@@
    {kbdinputstyle example\\n}
   {empty_line:\\n}
   *@kbdinputstyle C1 l24
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{example}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {example}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;2><p:1>
@@ -213,10 +195,8 @@ $result_tree_text{'kbdinputstyle'} = '*document_root C1
    {in example\\n}
   *@example C3 l26:@codekbdmacro
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C8
     *@code C1 l26:@codekbdmacro
      *brace_container C2
@@ -248,35 +228,27 @@ $result_tree_text{'kbdinputstyle'} = '*document_root C1
           {in r in code in example}
     {\\n}
    *@end C1 l26:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
      >SOURCEMARKS
      >macro_expansion<end;2><p:7>
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@@
    {kbdinputstyle distinct\\n}
   {empty_line:\\n}
   *@kbdinputstyle C1 l30
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{distinct}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {distinct}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;3><p:1>
@@ -316,10 +288,8 @@ $result_tree_text{'kbdinputstyle'} = '*document_root C1
    {in example\\n}
   *@example C3 l32:@codekbdmacro
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C8
     *@code C1 l32:@codekbdmacro
      *brace_container C2
@@ -351,18 +321,14 @@ $result_tree_text{'kbdinputstyle'} = '*document_root C1
           {in r in code in example}
     {\\n}
    *@end C1 l32:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
      >SOURCEMARKS
      >macro_expansion<end;3><p:7>
+     {spaces_after_argument:\\n}
 ';
 
 

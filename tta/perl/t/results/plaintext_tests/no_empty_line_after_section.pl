@@ -10,35 +10,27 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
   *paragraph C1
    {Text\\n}
  *@top C3 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {Other text\\n}
   {empty_line:\\n}
  *@chapter C4 l5 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   *@c C1
   |INFO
   |spaces_before_argument:
@@ -61,19 +53,15 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
      |{spaces_after_argument:\\n}
      {rawline_text:c}
  *@section C4 l10 {sec}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {sec}
+    {spaces_after_argument:\\n}
   *paragraph C2
    *@uref C1 l11
     *brace_arg C1
@@ -81,30 +69,22 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
    { A.\\n}
   {empty_line:\\n}
   *@sp C1 l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{3}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {3}
+    {spaces_after_argument:\\n}
  *@section C5 l14 {after sp}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2}
  |section_level:{2}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {after sp}
+    {spaces_after_argument:\\n}
   *@indent l15
   {ignorable_spaces_after_command:\\n}
   *paragraph C1

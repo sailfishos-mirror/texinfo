@@ -67,10 +67,8 @@ $result_tree_text{'nested_code_commands'} = '*document_root C1
   {empty_line:\\n}
   *@example C3 l10
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C18
     *@code C1 l11
      *brace_container C1
@@ -130,23 +128,17 @@ $result_tree_text{'nested_code_commands'} = '*document_root C1
         {in var}
     {\\n}
    *@end C1 l20
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@display C3 l22
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C16
     *@kbd C1 l23
      *brace_container C1
@@ -202,16 +194,12 @@ $result_tree_text{'nested_code_commands'} = '*document_root C1
         {in var}
     {\\n}
    *@end C1 l31
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{display}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {display}
+     {spaces_after_argument:\\n}
 ';
 
 

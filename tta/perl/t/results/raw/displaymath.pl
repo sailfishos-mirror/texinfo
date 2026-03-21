@@ -9,10 +9,8 @@ $result_tree_text{'displaymath'} = '*document_root C1
  *before_node_section C5
   *@displaymath C7 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {\\int_D (}
    *balanced_braces C1 l2
     {{\\nabla\\cdot}}
@@ -21,25 +19,19 @@ $result_tree_text{'displaymath'} = '*document_root C1
     {{\\partial D}}
    { F\\cdot ndS\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {displaymath}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {before\\n}
   *@displaymath C7 l6
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {\\int_D (}
    *balanced_braces C1 l7
     {{\\nabla\\cdot}}
@@ -48,16 +40,12 @@ $result_tree_text{'displaymath'} = '*document_root C1
     {{\\partial D}}
    { F\\cdot ndS\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {displaymath}
+     {spaces_after_argument:\\n}
   *paragraph C1
    {after\\n}
 ';

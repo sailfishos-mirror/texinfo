@@ -9,16 +9,11 @@ $result_tree_text{'nested_multitable'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
   *@multitable C3 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     {spaces_before_argument: }
      *bracketed_arg C3 l2
       {truc AAAA }
       *@ 
@@ -26,6 +21,7 @@ $result_tree_text{'nested_multitable'} = '*document_root C1
      {    }
      *bracketed_arg C1 l2
       {bidule}
+     {spaces_after_argument:\\n}
    *multitable_body C2
     *row C2
     |EXTRA
@@ -35,21 +31,17 @@ $result_tree_text{'nested_multitable'} = '*document_root C1
      |cell_number:{1}
       {ignorable_spaces_after_command:\\n}
       *@multitable C3 l4
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |max_columns:{2}
        *arguments_line C1
-        *block_line_arg C3
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *block_line_arg C5
+         {spaces_before_argument: }
          *bracketed_arg C1 l4
           {AAAA}
          { }
          *bracketed_arg C1 l4
           {machin}
+         {spaces_after_argument:\\n}
        *multitable_body C1
         *row C2
         |EXTRA
@@ -67,16 +59,12 @@ $result_tree_text{'nested_multitable'} = '*document_root C1
           *paragraph C1
            {machin\\n}
        *@end C1 l6
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{multitable}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {multitable}
+         {spaces_after_argument:\\n}
       {spaces_before_paragraph: }
      *@tab C2 l7
      |EXTRA
@@ -100,16 +88,12 @@ $result_tree_text{'nested_multitable'} = '*document_root C1
       *paragraph C1
        {in tab\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
 ';
 
 

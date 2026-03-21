@@ -8,16 +8,11 @@ use utf8;
 $result_tree_text{'fullwidth_in_prototype'} = '*document_root C1
  *before_node_section C1
   *@multitable C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{3}
    *arguments_line C1
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *bracketed_arg C1 l1
       {éééé éééé éééé éééé}
      { }
@@ -26,6 +21,7 @@ $result_tree_text{'fullwidth_in_prototype'} = '*document_root C1
      { }
      *bracketed_arg C1 l1
       {人人 人人 人人 人人}
+     {spaces_after_argument:\\n}
    *multitable_body C1
     *row C3
     |EXTRA
@@ -64,16 +60,12 @@ $result_tree_text{'fullwidth_in_prototype'} = '*document_root C1
        {aaa aà aaa aa aaa aa\\n}
        {aaa aà aaa aa aaa aa\\n}
    *@end C1 l23
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -167,7 +159,8 @@ aaa aà aaa aa aaa aa</td></tr>
 ';
 
 
-$result_converted{'xml'}->{'fullwidth_in_prototype'} = '<multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">éééé éééé éééé éééé</columnprototype> <columnprototype bracketed="on">xxxx xxxx xxxx xxxx</columnprototype> <columnprototype bracketed="on">人人 人人 人人 人人</columnprototype></columnprototypes>
+$result_converted{'xml'}->{'fullwidth_in_prototype'} = '<multitable endspaces=" "><columnprototypes> <columnprototype bracketed="on">éééé éééé éééé éééé</columnprototype> <columnprototype bracketed="on">xxxx xxxx xxxx xxxx</columnprototype> <columnprototype bracketed="on">人人 人人 人人 人人</columnprototype>
+</columnprototypes>
 <tbody><row><entry command="item">
 <para>aaa aà aaa aa aaa aa
 aaa aà aaa aa aaa aa

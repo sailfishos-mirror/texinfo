@@ -20,65 +20,50 @@ $result_tree_text{'value_in_node'} = '*document_root C6
     {rawline_text:node1 Node 1}
   {empty_line:\\n}
  *@node C1 l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {Top}
-   *line_arg C3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C4
    |EXTRA
    |manual_content:{dir}
+    {spaces_before_argument: }
     {(}
     {dir}
     {)}
-   *line_arg C3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C4
    |EXTRA
    |manual_content:{dir}
+    {spaces_before_argument: }
     {(}
     {dir}
     {)}
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C5
    |EXTRA
    |manual_content:{dir}
+    {spaces_before_argument: }
     {(}
     {dir}
     {)}
+    {spaces_after_argument:\\n}
  *@top C4 l4 {Expansion in Node Names}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Expansion in Node Names}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l6
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l7
     {menu_entry_leading_text:* }
     *menu_entry_node C2
@@ -98,68 +83,53 @@ $result_tree_text{'value_in_node'} = '*document_root C6
      *preformatted C1
       {\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l10 {Node 1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
-  |>SOURCEMARKS
-  |>value_expansion<start;2><p:1>{Node 1}
-   |>*@value C1
-    |>*brace_container C1
-     |>{node1}
  |EXTRA
  |identifier:{Node-1}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >value_expansion<start;2><p:1>{Node 1}
+     >*@value C1
+      >*brace_container C1
+       >{node1}
     {Node 1}
     >SOURCEMARKS
     >value_expansion<end;2><p:6>
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
+    {spaces_before_argument: }
     {Top}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@chapter C6 l11 {Chapter 1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter 1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@set C1
   |INFO
@@ -175,10 +145,8 @@ $result_tree_text{'value_in_node'} = '*document_root C6
   {empty_line:\\n}
   *@menu C3 l15
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l16
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -197,50 +165,37 @@ $result_tree_text{'value_in_node'} = '*document_root C6
      *preformatted C1
       {\\n}
    *@end C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C3 l19 {Section 1.1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Section-1_002e1}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {Section 1.1}
-   *line_arg
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+    {spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{Node 1}
    |normalized:{Node-1}
+    {spaces_before_argument: }
     {Node 1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{Node 1}
    |normalized:{Node-1}
+    {spaces_before_argument: }
     {Node 1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@xref C1 l21

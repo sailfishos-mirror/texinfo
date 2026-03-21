@@ -9,32 +9,24 @@ $result_tree_text{'flushright_not_closed_and_format'} = '*document_root C1
  *before_node_section C1
   *@flushright C4 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {flushright\\n}
    {empty_line:\\n}
    *@quotation C3 l4
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: \\n}
+     *block_line_arg C1
+      {spaces_before_argument: \\n}
     *paragraph C1
      {A quot---ation\\n}
     *@end C1 l6
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {quotation}
+      {spaces_after_argument:\\n}
 ';
 
 

@@ -9,17 +9,13 @@ $result_tree_text{'printindex_before_document'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
   *@printindex C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
 ';
 
 

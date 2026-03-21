@@ -10,17 +10,13 @@ $result_tree_text{'command_line_in_paragraph'} = '*document_root C1
   *paragraph C3
    {documentlanguage on its line\\n}
    *@documentlanguage C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:  }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{en}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:  \\n}
+    *line_arg C3
+     {spaces_before_argument:  }
      {en}
+     {spaces_after_argument:  \\n}
    {line following documentlanguage\\n}
 ';
 

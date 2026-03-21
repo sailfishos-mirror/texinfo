@@ -24,24 +24,18 @@ $result_tree_text{'ref_in_multitable'} = '*document_root C1
    {.\\n}
   {empty_line:\\n}
   *@multitable C3 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      *@columnfractions C1 l6
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{.35|.65}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {.35 .65}
+       {spaces_after_argument:\\n}
    *multitable_body C3
     *row C2
     |EXTRA
@@ -116,16 +110,12 @@ $result_tree_text{'ref_in_multitable'} = '*document_root C1
       *paragraph C1
        {second column\\n}
    *@end C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l16
@@ -276,7 +266,7 @@ $result_converted{'xml'}->{'ref_in_multitable'} = '<novalidate></novalidate>
 <para><ref label="XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX"><xrefnodename>XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XX XXX XXX XXX XXX 
 XXX XXX XXX XXX XXX XXX XXX XXX XX</xrefnodename></ref>.
 </para>
-<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line=".35 .65"><columnfraction value=".35"></columnfraction><columnfraction value=".65"></columnfraction></columnfractions>
+<multitable endspaces=" "><columnfractions line=" .35 .65"><columnfraction value=".35"></columnfraction><columnfraction value=".65"></columnfraction></columnfractions>
 <tbody><row><entry command="item"> <para>XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XX
 </para></entry><entry command="tab"> <para>See <ref label="RRR-RRR-RRR-RRR-RRR-RRR-RRR-RRR-RRR-RRRR"><xrefnodename>RRR RRR RRR RRR RRR RRR RRR RRR RRR RRRR</xrefnodename></ref>.
 </para></entry></row><row><entry command="item"> <para>XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XX

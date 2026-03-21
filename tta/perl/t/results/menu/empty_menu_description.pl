@@ -8,26 +8,20 @@ use utf8;
 $result_tree_text{'empty_menu_description'} = '*document_root C2
  *before_node_section
  *@node C3 l1 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C4 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C5 l4
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -48,16 +42,12 @@ $result_tree_text{'empty_menu_description'} = '*document_root C2
     *preformatted C1
      {after_menu_description_line:\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -144,7 +134,7 @@ $result_converted_errors{'html'}->{'empty_menu_description'} = '* W |must specif
 ';
 
 
-$result_converted{'xml'}->{'empty_menu_description'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
+$result_converted{'xml'}->{'empty_menu_description'} = '<node identifier="first"><nodename> first</nodename></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>:</menuseparator><menunode>(f)b

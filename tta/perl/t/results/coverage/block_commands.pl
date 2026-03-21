@@ -10,52 +10,35 @@ $result_tree_text{'block_commands'} = '*document_root C1
   {empty_line:\\n}
   *@group C3 l2
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {in group\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {group}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C3 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {warning}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {in quotation\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C7 l10
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{a float}
@@ -63,15 +46,13 @@ $result_tree_text{'block_commands'} = '*document_root C1
   |identifier:{b-float}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {a float}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {b float}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {In float\\n}
    {empty_line:\\n}
@@ -85,16 +66,12 @@ $result_tree_text{'block_commands'} = '*document_root C1
       {in caption}
    {spaces_after_close_brace:\\n}
    *@end C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -181,11 +158,11 @@ $result_converted{'xml'}->{'block_commands'} = '
 <para>in group
 </para></group>
 
-<quotation spaces=" " endspaces=" "><quotationtype>warning</quotationtype>
+<quotation endspaces=" "><quotationtype> warning</quotationtype>
 <para>in quotation
 </para></quotation>
 
-<float identifier="b-float" type="a float" number="1" spaces=" " endspaces=" "><floattype>a float</floattype><floatname spaces=" ">b float</floatname>
+<float identifier="b-float" type="a float" number="1" endspaces=" "><floattype> a float</floattype><floatname> b float</floatname>
 <para>In float
 </para>
 

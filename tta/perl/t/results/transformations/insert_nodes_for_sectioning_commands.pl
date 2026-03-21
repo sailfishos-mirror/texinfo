@@ -22,33 +22,25 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     |{spaces_after_argument:\\n}
     {Top}
  *@top C2 l1 {top section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top section}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@part C2 l3 {part}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {part}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {chap@comma{} @code{a chap}}
  |INFO
@@ -71,51 +63,39 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
      *brace_container C1
       {a chap}
  *@chapter C2 l5 {chap, @code{a chap}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {chap, }
     *@code C1 l5
      *brace_container C1
       {a chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l7 {a node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{a-node}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {a node}
+    {spaces_after_argument:\\n}
  *@section C2 l8 {section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {truc}
  |INFO
@@ -132,19 +112,15 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     |{spaces_after_argument:\\n}
     {truc}
  *@section C1 l10 {truc}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2}
  |section_level:{2}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {truc}
+    {spaces_after_argument:\\n}
  *@node C1 {sub1}
  |INFO
  |spaces_before_argument:
@@ -160,19 +136,15 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     |{spaces_after_argument:\\n}
     {sub1}
  *@subsection C4 l11 {sub1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2.1}
  |section_level:{3}
  |section_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {sub1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Text.\\n}
@@ -192,29 +164,24 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     |{spaces_after_argument:\\n}
     {sub2}
  *@subsection C2 l15 {sub2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2.2}
  |section_level:{3}
  |section_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:comment}
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *line_arg C4
+    {spaces_before_argument: }
     {sub2}
+    {spaces_after_argument: }
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:comment}
   {empty_line:\\n}
  *@node C1 {section}
  |INFO
@@ -231,19 +198,15 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     |{spaces_after_argument:\\n}
     {section}
  *@section C2 l17 {section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.3}
  |section_level:{2}
  |section_number:{8}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {section 1}
  |INFO
@@ -261,19 +224,15 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
     {section}
     { 1}
  *@section C2 l19 {section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.4}
  |section_level:{2}
  |section_number:{9}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 { 1}
  |INFO
@@ -295,10 +254,8 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |section_level:{1}
  |section_number:{10}
   *arguments_line C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
  *@node C1 {@asis{} 2}
  |INFO
@@ -317,19 +274,15 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
      *brace_container
     { 2}
  *@section C2 l23 {@asis{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{11}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@asis C1 l23
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

@@ -9,17 +9,13 @@ $result_tree_text{'center'} = '*document_root C1
  *before_node_section C3
   {empty_line:\\n}
   *@center C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument:  }
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument:  }
     {in center }
     *@code C1 l2
      *brace_container C1
       {in code}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 
@@ -58,7 +54,7 @@ $result_converted{'html_text'}->{'center'} = '
 
 
 $result_converted{'xml'}->{'center'} = '
-<center spaces="  ">in center <code>in code</code></center>
+<center>  in center <code>in code</code></center>
 
 ';
 

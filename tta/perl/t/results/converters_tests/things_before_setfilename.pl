@@ -67,9 +67,6 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
     {\\n}
    {empty_line:\\n}
    *@float C3 things_before_setfilename.texi:l19
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |float_number:{1}
    |float_type:{}
@@ -77,27 +74,21 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
    |identifier:{float-anchor}
    |is_target:{1}
     *arguments_line C2
-     *block_line_arg
      *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+      {spaces_before_argument: }
+     *block_line_arg C3
+      {spaces_before_argument: }
       {float anchor}
+      {spaces_after_argument:\\n}
     *paragraph C1
      {In float\\n}
     *@end C1 things_before_setfilename.texi:l21
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{float}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {float}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C3
     {Ref to float\\n}
@@ -110,9 +101,6 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
     {.\\n}
    {empty_line:\\n}
    *@float C6 things_before_setfilename.texi:l26
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |float_number:{1}
    |float_type:{Text}
@@ -120,15 +108,13 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
    |identifier:{ta}
    |is_target:{1}
     *arguments_line C2
-     *block_line_arg C1
+     *block_line_arg C2
+      {spaces_before_argument: }
       {Text}
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *block_line_arg C3
+      {spaces_before_argument: }
       {ta}
+      {spaces_after_argument:\\n}
     *paragraph C1
      {In float\\n}
     {empty_line:\\n}
@@ -138,16 +124,12 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
        {ta caption}
     {spaces_after_close_brace:\\n}
     *@end C1 things_before_setfilename.texi:l30
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{float}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {float}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@contents C1 things_before_setfilename.texi:l32
    |EXTRA
@@ -159,10 +141,8 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
    {empty_line:\\n}
    *@menu C3 things_before_setfilename.texi:l34
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *menu_entry C4 things_before_setfilename.texi:l35
      {menu_entry_leading_text:* }
      *menu_entry_node C1
@@ -175,124 +155,88 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
       *preformatted C1
        {menu entry pointing to the anchor.\\n}
     *@end C1 things_before_setfilename.texi:l36
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{menu}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {menu}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *index_entry_command@cindex C1 things_before_setfilename.texi:l38
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |index_entry:I{cp,1}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {index entry}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@printindex C1 things_before_setfilename.texi:l40
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |misc_args:A{cp}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {cp}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@listoffloats C1 things_before_setfilename.texi:l42
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |float_type:{Text}
    |global_command_number:{1}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {Text}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
   *preamble_before_content C2
    *@setfilename C1 things_before_setfilename.texi:l44
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{things_before_setfilename.info}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {things_before_setfilename.info}
+     {spaces_after_argument: \\n}
    {empty_line:\\n}
  *@node C1 things_before_setfilename.texi:l46 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 things_before_setfilename.texi:l47 {top section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top section}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 things_before_setfilename.texi:l49 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C6 things_before_setfilename.texi:l50 {Chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {Ref to anchor\\n}
@@ -544,14 +488,14 @@ $result_converted{'xml'}->{'things_before_setfilename'} = '<preamblebeforebeginn
 <ref label="An-anchor"><xrefnodename>An anchor</xrefnodename></ref>
 </para></footnote>
 </para>
-<float identifier="float-anchor" type="" number="1" spaces=" " endspaces=" "><floatname spaces=" ">float anchor</floatname>
+<float identifier="float-anchor" type="" number="1" endspaces=" "><floattype> </floattype><floatname> float anchor</floatname>
 <para>In float
 </para></float>
 
 <para>Ref to float
 <ref label="float-anchor"><xrefnodename>float anchor</xrefnodename></ref>.
 </para>
-<float identifier="ta" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">ta</floatname>
+<float identifier="ta" type="Text" number="1" endspaces=" "><floattype> Text</floattype><floatname> ta</floatname>
 <para>In float
 </para>
 <caption><para>ta caption</para></caption>
@@ -563,20 +507,20 @@ $result_converted{'xml'}->{'things_before_setfilename'} = '<preamblebeforebeginn
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>An anchor</menunode><menuseparator>::                </menuseparator><menudescription><pre xml:space="preserve">menu entry pointing to the anchor.
 </pre></menudescription></menuentry></menu>
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="1">index entry</indexterm></cindex>
 
-<printindex spaces=" " value="cp" line="cp"></printindex>
+<printindex value="cp" line=" cp"></printindex>
 
-<listoffloats type="Text" spaces=" ">Text</listoffloats>
+<listoffloats type="Text"> Text</listoffloats>
 
-<setfilename file="things_before_setfilename.info" spaces=" ">things_before_setfilename.info </setfilename>
+<setfilename file="things_before_setfilename.info"> things_before_setfilename.info </setfilename>
 
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<top spaces=" "><sectiontitle>top section</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node>
+<top><sectiontitle> top section</sectiontitle>
 
 </top>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
+<node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Chapter</sectiontitle>
 
 <para>Ref to anchor
 <ref label="An-anchor"><xrefnodename>An anchor</xrefnodename></ref>

@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'code_in_def'} = '*document_root C1
  *before_node_section C1
   *@deftypefn C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deftypefn}
@@ -20,10 +17,8 @@ $result_tree_text{'code_in_def'} = '*document_root C1
       |{foo}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deftypefn}
-    *block_line_arg C11
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C13
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Function}
@@ -48,6 +43,7 @@ $result_tree_text{'code_in_def'} = '*document_root C1
       *def_line_arg C1
        {bar}
      {delimiter:)}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C3
      {Documentation of }
@@ -56,16 +52,12 @@ $result_tree_text{'code_in_def'} = '*document_root C1
        {foo}
      {.\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypefn}
+     {spaces_after_argument:\\n}
 ';
 
 

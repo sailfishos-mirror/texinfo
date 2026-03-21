@@ -8,66 +8,50 @@ use utf8;
 $result_tree_text{'link'} = '*document_root C4
  *before_node_section
  *@node C1 l1 {One}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{One}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {One}
+    {spaces_after_argument:\\n}
  *@chapter C4 l2 {ONEX}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ONEX}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {target node\\n}
   {empty_line:\\n}
  *@node C19 l6 {Two}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Two}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Two}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    {xrefautomaticsectiontitle off\\n}
    *@xrefautomaticsectiontitle C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |misc_args:A{off}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {off}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@link C1 l11
@@ -93,17 +77,13 @@ $result_tree_text{'link'} = '*document_root C4
   *paragraph C2
    {xrefautomaticsectiontitle on\\n}
    *@xrefautomaticsectiontitle C1 l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{2}
    |misc_args:A{on}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {on}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@link C1 l18
@@ -286,23 +266,23 @@ $result_converted{'html_text'}->{'link'} = '<div class="chapter-level-extent" id
 ';
 
 
-$result_converted{'xml'}->{'link'} = '<node identifier="One" spaces=" "><nodename>One</nodename></node>
-<chapter spaces=" "><sectiontitle>ONEX</sectiontitle>
+$result_converted{'xml'}->{'link'} = '<node identifier="One"><nodename> One</nodename></node>
+<chapter><sectiontitle> ONEX</sectiontitle>
 
 <para>target node
 </para>
 </chapter>
-<node identifier="Two" spaces=" "><nodename>Two</nodename></node>
+<node identifier="Two"><nodename> Two</nodename></node>
 
 <para>xrefautomaticsectiontitle off
-<xrefautomaticsectiontitle spaces=" " value="off" line="off"></xrefautomaticsectiontitle>
+<xrefautomaticsectiontitle value="off" line=" off"></xrefautomaticsectiontitle>
 </para>
 <para><link label="One"><linknodename>One</linknodename></link>
 </para>
 <para><link label="One"><linknodename>One</linknodename><linkrefname> label</linkrefname></link>
 </para>
 <para>xrefautomaticsectiontitle on
-<xrefautomaticsectiontitle spaces=" " value="on" line="on"></xrefautomaticsectiontitle>
+<xrefautomaticsectiontitle value="on" line=" on"></xrefautomaticsectiontitle>
 </para>
 <para><link label="One"><linknodename>One</linknodename></link>
 </para>

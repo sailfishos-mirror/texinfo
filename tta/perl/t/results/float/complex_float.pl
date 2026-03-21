@@ -9,56 +9,42 @@ $result_tree_text{'complex_float'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C10 l2 {Test floats}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Test floats}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {A list of floats at the beginning.\\n}
   *@listoffloats C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Text}
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Text}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {After the listoffloats.\\n}
   *@menu C3 l8
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l9
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -71,21 +57,14 @@ $result_tree_text{'complex_float'} = '*document_root C5
      *preformatted C1
       {\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C24 l12
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{Text}
@@ -93,15 +72,13 @@ $result_tree_text{'complex_float'} = '*document_root C5
   |identifier:{text-with-a-lot-of-features}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {text with a lot of features}
+     {spaces_after_argument:\\n}
    *paragraph C3
     {An example of float }
     *@enddots C1 l13
@@ -115,15 +92,11 @@ $result_tree_text{'complex_float'} = '*document_root C5
    >SOURCEMARKS
    >ignored_conditional_block<1>
     >*@ifset C12 l16
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
      >*arguments_line C1
-      >*block_line_arg C1
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*block_line_arg C3
+       >{spaces_before_argument: }
        >{texi2html}
+       >{spaces_after_argument:\\n}
      >{raw:An example.\\n}
      >{raw:@example \\n}
      >{raw:example\\n}
@@ -135,16 +108,12 @@ $result_tree_text{'complex_float'} = '*document_root C5
      >{raw:@item truc @tab bidule\\n}
      >{raw:@end multitable\\n}
      >*@end C1 l27
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
      >|EXTRA
      >|text_arg:{ifset}
-      >*line_arg C1
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*line_arg C3
+       >{spaces_before_argument: }
        >{ifset}
+       >{spaces_after_argument:\\n}
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -154,68 +123,48 @@ $result_tree_text{'complex_float'} = '*document_root C5
    *paragraph C2
     {An index entry\\n}
     *index_entry_command@cindex C1 l30
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |element_node:{Top}
     |index_entry:I{cp,1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {float example}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C1
     {A table.\\n}
    *@table C3 l33
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@emph l33
+      {spaces_after_argument:\\n}
     *table_entry C2
      *table_term C1
       *@item C1 l34
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument: \\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {truc}
+        {spaces_after_argument: \\n}
      *table_definition C1
       *paragraph C1
        {line\\n}
     *@end C1 l36
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {table}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C1
     {An itemize.\\n}
    *@itemize C3 l39
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@minus l39
+      {spaces_after_argument:\\n}
     *@item C2 l40
     |EXTRA
     |item_number:{1}
@@ -224,16 +173,12 @@ $result_tree_text{'complex_float'} = '*document_root C5
       {truc \\n}
       {line\\n}
     *@end C1 l42
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{itemize}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {itemize}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C6
     {A ref.\\n}
@@ -310,23 +255,17 @@ $result_tree_text{'complex_float'} = '*document_root C5
       {An example.\\n}
      *@example C3 l53
       *arguments_line C1
-       *block_line_arg
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument: \\n}
+       *block_line_arg C1
+        {spaces_before_argument: \\n}
       *preformatted C1
        {example\\n}
       *@end C1 l55
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{example}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {example}
+        {spaces_after_argument:\\n}
      {empty_line:\\n}
      *@anchor C1 l57
      |EXTRA
@@ -339,59 +278,43 @@ $result_tree_text{'complex_float'} = '*document_root C5
      *paragraph C1
       {A table.\\n}
      *@table C3 l60
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
       *arguments_line C1
-       *block_line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C3
+        {spaces_before_argument: }
         *@emph l60
+        {spaces_after_argument:\\n}
       *table_entry C2
        *table_term C1
         *@item C1 l61
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument: }
-         *line_arg C1
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument: \\n}
+         *line_arg C3
+          {spaces_before_argument: }
           {truc}
+          {spaces_after_argument: \\n}
        *table_definition C1
         *paragraph C1
          {line\\n}
       *@end C1 l63
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{table}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {table}
+        {spaces_after_argument:\\n}
      {empty_line:\\n}
      *paragraph C1
       {A multitable.\\n}
      *@multitable C3 l66
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |max_columns:{2}
       *arguments_line C1
-       *block_line_arg C3
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C5
+        {spaces_before_argument: }
         *bracketed_arg C1 l66
          {truc}
         { }
         *bracketed_arg C1 l66
          {bidule}
+        {spaces_after_argument:\\n}
       *multitable_body C2
        *row C2
        |EXTRA
@@ -424,43 +347,31 @@ $result_tree_text{'complex_float'} = '*document_root C5
          *paragraph C1
           {bidule\\n}
       *@end C1 l69
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{multitable}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {multitable}
+        {spaces_after_argument:\\n}
      *paragraph C2
       {An index entry\\n}
       *index_entry_command@cindex C1 l71
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |element_node:{Top}
       |index_entry:I{cp,2}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {float example in caption}
+        {spaces_after_argument:\\n}
      {empty_line:\\n}
      *paragraph C1
       {An itemize.\\n}
      *@itemize C3 l74
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
       *arguments_line C1
-       *block_line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C3
+        {spaces_before_argument: }
         *@minus l74
+        {spaces_after_argument:\\n}
       *@item C2 l75
       |EXTRA
       |item_number:{1}
@@ -469,16 +380,12 @@ $result_tree_text{'complex_float'} = '*document_root C5
         {truc \\n}
         {line\\n}
       *@end C1 l77
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{itemize}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {itemize}
+        {spaces_after_argument:\\n}
      {empty_line:\\n}
      *paragraph C6
       {A ref.\\n}
@@ -589,50 +496,35 @@ $result_tree_text{'complex_float'} = '*document_root C5
    {spaces_after_close_brace:\\n}
    {empty_line:\\n}
    *@end C1 l89
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l91 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C6 l92 {A chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {A chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C8 l94
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1.1}
   |float_type:{Text}
@@ -640,15 +532,13 @@ $result_tree_text{'complex_float'} = '*document_root C5
   |identifier:{float-with-a-lot-of-features-and-no-shortcaption}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {float with a lot of features and no shortcaption}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C1
     {Float text of a float with a lot of features.\\n}
@@ -666,80 +556,58 @@ $result_tree_text{'complex_float'} = '*document_root C5
       {An example 2.\\n}
      *@example C3 l100
       *arguments_line C1
-       *block_line_arg
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument: \\n}
+       *block_line_arg C1
+        {spaces_before_argument: \\n}
       *preformatted C1
        {example 2\\n}
       *@end C1 l102
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{example}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {example}
+        {spaces_after_argument:\\n}
      {empty_line:\\n}
      *paragraph C1
       {A table 2.\\n}
      *@table C3 l105
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
       *arguments_line C1
-       *block_line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C3
+        {spaces_before_argument: }
         *@emph l105
+        {spaces_after_argument:\\n}
       *table_entry C2
        *table_term C1
         *@item C1 l106
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument: }
-         *line_arg C1
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument: \\n}
+         *line_arg C3
+          {spaces_before_argument: }
           {truc 2}
+          {spaces_after_argument: \\n}
        *table_definition C1
         *paragraph C1
          {line 2\\n}
       *@end C1 l108
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{table}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {table}
+        {spaces_after_argument:\\n}
      {empty_line:\\n}
      *paragraph C1
       {A multitable 2.\\n}
      *@multitable C3 l111
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |max_columns:{2}
       *arguments_line C1
-       *block_line_arg C3
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C5
+        {spaces_before_argument: }
         *bracketed_arg C1 l111
          {truc}
         { }
         *bracketed_arg C1 l111
          {bidule}
+        {spaces_after_argument:\\n}
       *multitable_body C2
        *row C2
        |EXTRA
@@ -772,43 +640,31 @@ $result_tree_text{'complex_float'} = '*document_root C5
          *paragraph C1
           {bidule\\n}
       *@end C1 l114
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{multitable}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {multitable}
+        {spaces_after_argument:\\n}
      *paragraph C2
       {An index entry 2\\n}
       *index_entry_command@cindex C1 l116
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |element_node:{chapter}
       |index_entry:I{cp,3}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {float example in caption 2}
+        {spaces_after_argument:\\n}
      {empty_line:\\n}
      *paragraph C1
       {An itemize 2.\\n}
      *@itemize C3 l119
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
       *arguments_line C1
-       *block_line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C3
+        {spaces_before_argument: }
         *@minus l119
+        {spaces_after_argument:\\n}
       *@item C2 l120
       |EXTRA
       |item_number:{1}
@@ -817,16 +673,12 @@ $result_tree_text{'complex_float'} = '*document_root C5
         {truc 2\\n}
         {line\\n}
       *@end C1 l122
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{itemize}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {itemize}
+        {spaces_after_argument:\\n}
      {empty_line:\\n}
      *@anchor C1 l124
      |EXTRA
@@ -900,16 +752,12 @@ $result_tree_text{'complex_float'} = '*document_root C5
    {spaces_after_close_brace:\\n}
    {empty_line:\\n}
    *@end C1 l134
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@xref C1 l136
@@ -1523,33 +1371,33 @@ A footnote 2.
 ';
 
 
-$result_converted{'xml'}->{'complex_float'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
-<top spaces=" "><sectiontitle>Test floats</sectiontitle>
+$result_converted{'xml'}->{'complex_float'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapter</nodenext></node>
+<top><sectiontitle> Test floats</sectiontitle>
 
 <para>A list of floats at the beginning.
-</para><listoffloats type="Text" spaces=" ">Text</listoffloats>
+</para><listoffloats type="Text"> Text</listoffloats>
 
 <para>After the listoffloats.
 </para><menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>chapter</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<float identifier="text-with-a-lot-of-features" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">text with a lot of features</floatname>
+<float identifier="text-with-a-lot-of-features" type="Text" number="1" endspaces=" "><floattype> Text</floattype><floatname> text with a lot of features</floatname>
 <para>An example of float &enddots;
 </para>
 <!-- c makeinfo -docbook segfaults -->
 
 <para>An index entry
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">float example</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="1">float example</indexterm></cindex>
 </para>
 <para>A table.
-</para><table commandarg="emph" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="emph">truc </itemformat></item>
+</para><table commandarg="emph" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="emph"> truc </itemformat></item>
 </tableterm><tableitem><para>line
 </para></tableitem></tableentry></table>
 
 <para>An itemize.
-</para><itemize commandarg="minus" spaces=" " endspaces=" "><itemprepend><formattingcommand command="minus"/></itemprepend>
+</para><itemize commandarg="minus" endspaces=" "><itemprepend> <formattingcommand command="minus"/></itemprepend>
 <listitem><prepend>&minus;</prepend> <para>truc 
 line
 </para></listitem></itemize>
@@ -1570,21 +1418,22 @@ An example.
 <anchor identifier="Anchor-in-caption">Anchor in caption</anchor>
 
 <para>A table.
-</para><table commandarg="emph" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="emph">truc </itemformat></item>
+</para><table commandarg="emph" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="emph"> truc </itemformat></item>
 </tableterm><tableitem><para>line
 </para></tableitem></tableentry></table>
 
 <para>A multitable.
-</para><multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">truc</columnprototype> <columnprototype bracketed="on">bidule</columnprototype></columnprototypes>
+</para><multitable endspaces=" "><columnprototypes> <columnprototype bracketed="on">truc</columnprototype> <columnprototype bracketed="on">bidule</columnprototype>
+</columnprototypes>
 <tbody><row><entry command="item"> <para>truc </para></entry><entry command="tab"> <para>bidule
 </para></entry></row><row><entry command="item"> <para>truc </para></entry><entry command="tab"> <para>bidule
 </para></entry></row></tbody></multitable>
 <para>An index entry
-<cindex index="cp" spaces=" "><indexterm index="cp" number="2">float example in caption</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="2">float example in caption</indexterm></cindex>
 </para>
 <para>An itemize.
-</para><itemize commandarg="minus" spaces=" " endspaces=" "><itemprepend><formattingcommand command="minus"/></itemprepend>
+</para><itemize commandarg="minus" endspaces=" "><itemprepend> <formattingcommand command="minus"/></itemprepend>
 <listitem><prepend>&minus;</prepend> <para>truc 
 line
 </para></listitem></itemize>
@@ -1602,10 +1451,10 @@ A footnote.
 </float>
 
 </top>
-<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>A chapter</sectiontitle>
+<node identifier="chapter"><nodename> chapter</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> A chapter</sectiontitle>
 
-<float identifier="float-with-a-lot-of-features-and-no-shortcaption" type="Text" number="1.1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">float with a lot of features and no shortcaption</floatname>
+<float identifier="float-with-a-lot-of-features-and-no-shortcaption" type="Text" number="1.1" endspaces=" "><floattype> Text</floattype><floatname> float with a lot of features and no shortcaption</floatname>
 
 <para>Float text of a float with a lot of features.
 </para>
@@ -1616,21 +1465,22 @@ An example 2.
 </pre></example>
 
 <para>A table 2.
-</para><table commandarg="emph" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="emph">truc 2 </itemformat></item>
+</para><table commandarg="emph" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="emph"> truc 2 </itemformat></item>
 </tableterm><tableitem><para>line 2
 </para></tableitem></tableentry></table>
 
 <para>A multitable 2.
-</para><multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">truc</columnprototype> <columnprototype bracketed="on">bidule</columnprototype></columnprototypes>
+</para><multitable endspaces=" "><columnprototypes> <columnprototype bracketed="on">truc</columnprototype> <columnprototype bracketed="on">bidule</columnprototype>
+</columnprototypes>
 <tbody><row><entry command="item"> <para>truc 2 </para></entry><entry command="tab"> <para>bidule
 </para></entry></row><row><entry command="item"> <para>truc 2 </para></entry><entry command="tab"> <para>bidule
 </para></entry></row></tbody></multitable>
 <para>An index entry 2
-<cindex index="cp" spaces=" "><indexterm index="cp" number="3">float example in caption 2</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="3">float example in caption 2</indexterm></cindex>
 </para>
 <para>An itemize 2.
-</para><itemize commandarg="minus" spaces=" " endspaces=" "><itemprepend><formattingcommand command="minus"/></itemprepend>
+</para><itemize commandarg="minus" endspaces=" "><itemprepend> <formattingcommand command="minus"/></itemprepend>
 <listitem><prepend>&minus;</prepend> <para>truc 2
 line
 </para></listitem></itemize>

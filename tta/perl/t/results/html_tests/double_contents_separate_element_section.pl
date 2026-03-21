@@ -20,42 +20,32 @@ $result_tree_text{'double_contents_separate_element_section'} = '*document_root 
      |{spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 double_contents.texi:l5 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C6 double_contents.texi:l6 {Double contents}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Double contents}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Double contents.\\n}
   {empty_line:\\n}
   *@menu C3 double_contents.texi:l10
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C1
+     {spaces_before_argument: \\n}
    *menu_entry C4 double_contents.texi:l11
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -68,45 +58,33 @@ $result_tree_text{'double_contents_separate_element_section'} = '*document_root 
      *preformatted C1
       {\\n}
    *@end C1 double_contents.texi:l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 double_contents.texi:l14 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C7 double_contents.texi:l15 {Chapter 1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter 1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@contents C1 double_contents.texi:l17
   |EXTRA
@@ -120,10 +98,8 @@ $result_tree_text{'double_contents_separate_element_section'} = '*document_root 
   {empty_line:\\n}
   *@menu C3 double_contents.texi:l20
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 double_contents.texi:l21
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -136,45 +112,33 @@ $result_tree_text{'double_contents_separate_element_section'} = '*document_root 
      *preformatted C1
       {\\n}
    *@end C1 double_contents.texi:l22
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 double_contents.texi:l24 {section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{section}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section}
+    {spaces_after_argument:\\n}
  *@section C3 double_contents.texi:l25 {section with contents}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section with contents}
+    {spaces_after_argument:\\n}
   *@contents C1 double_contents.texi:l26
   |EXTRA
   |global_command_number:{3}

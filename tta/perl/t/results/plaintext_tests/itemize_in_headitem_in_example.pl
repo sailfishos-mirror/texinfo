@@ -9,39 +9,29 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
  *before_node_section C1
   *@example C10 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@itemize C3 l2
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *before_item C1
      *preformatted C2
       {ignorable_spaces_after_command: }
       {a \\n}
     *@end C1 l4
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{itemize}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {itemize}
+      {spaces_after_argument:\\n}
    *preformatted C1
     {empty_line:\\n}
    *@itemize C3 l6
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *@item C2 l7
     |EXTRA
     |item_number:{1}
@@ -52,24 +42,18 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
       {ignorable_spaces_after_command: }
       {ccc\\n}
     *@end C1 l9
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{itemize}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {itemize}
+      {spaces_after_argument:\\n}
    *preformatted C1
     {empty_line:\\n}
    *@itemize C4 l11
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *before_item C1
      *preformatted C2
       {ignorable_spaces_after_command: }
@@ -81,24 +65,18 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
       {ignorable_spaces_after_command: }
       {eee\\n}
     *@end C1 l14
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{itemize}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {itemize}
+      {spaces_after_argument:\\n}
    *preformatted C1
     {empty_line:\\n}
    *@itemize C4 l16
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *@item C2 l17
     |EXTRA
     |item_number:{1}
@@ -115,29 +93,21 @@ $result_tree_text{'itemize_in_headitem_in_example'} = '*document_root C1
       {ignorable_spaces_after_command: }
       {hhh\\n}
     *@end C1 l20
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{itemize}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {itemize}
+      {spaces_after_argument:\\n}
    *preformatted C1
     {empty_line:\\n}
    *@end C1 l22
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 

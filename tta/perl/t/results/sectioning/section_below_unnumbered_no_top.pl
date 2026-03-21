@@ -9,31 +9,23 @@ $result_tree_text{'section_below_unnumbered_no_top'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
  *@unnumbered C1 l1 {U}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {U}
+    {spaces_after_argument:\\n}
  *@section C1 l2 {S}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {S}
+    {spaces_after_argument:\\n}
 ';
 
 

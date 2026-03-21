@@ -14,18 +14,14 @@ FastForward: [U1]
 Next: [U1]
  *before_node_section
  *@unnumbered C2 l1 {unnumbered}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {unnumbered}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 U1 unit{S:1 First chapter}
 unit_directions:D[next->[U2]|prev->[U0]]
@@ -38,19 +34,15 @@ FastBack: [U0]
 Next: [U3]
 Prev: [U0]
  *@chapter C2 l3 {First chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {First chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 U2 unit{S:1.1 second}
 unit_directions:D[next->[U3]|prev->[U1]]
@@ -62,19 +54,15 @@ FastForward: [U3]
 FastBack: [U1]
 Up: [U1]
  *@section C2 l5 {second}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {second}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 U3 unit{S:2 Chapter}
 unit_directions:D[next->[U4]|prev->[U2]]
@@ -87,19 +75,15 @@ FastBack: [U1]
 Next: [U7]
 Prev: [U1]
  *@chapter C2 l7 {Chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 U4 unit{S:2.1 Section of chapter}
 unit_directions:D[next->[U5]|prev->[U3]]
@@ -111,19 +95,15 @@ FastForward: [U7]
 FastBack: [U3]
 Up: [U3]
  *@section C2 l9 {Section of chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Section of chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 U5 unit{S:2.1.1 subsection 1}
 unit_directions:D[next->[U6]|prev->[U4]]
@@ -136,19 +116,15 @@ FastBack: [U3]
 Next: [U6]
 Up: [U4]
  *@subsection C2 l11 {subsection 1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1.1}
  |section_level:{3}
  |section_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {subsection 1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 U6 unit{S:2.1.2 subsection 2}
 unit_directions:D[next->[U7]|prev->[U5]]
@@ -161,19 +137,15 @@ FastBack: [U3]
 Prev: [U5]
 Up: [U4]
  *@subsection C2 l13 {subsection 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1.2}
  |section_level:{3}
  |section_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {subsection 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 U7 unit{S:3 Chapter 2}
 unit_directions:D[prev->[U6]]
@@ -183,19 +155,15 @@ Back: [U6]
 FastBack: [U3]
 Prev: [U3]
  *@chapter C1 l15 {Chapter 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{8}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter 2}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -304,28 +272,28 @@ list:
 $result_headings_list{'chapter_sections'} = '';
 
 
-$result_converted{'xml'}->{'chapter_sections'} = '<unnumbered spaces=" "><sectiontitle>unnumbered</sectiontitle>
+$result_converted{'xml'}->{'chapter_sections'} = '<unnumbered><sectiontitle> unnumbered</sectiontitle>
 
 </unnumbered>
-<chapter spaces=" "><sectiontitle>First chapter</sectiontitle>
+<chapter><sectiontitle> First chapter</sectiontitle>
 
-<section spaces=" "><sectiontitle>second</sectiontitle>
+<section><sectiontitle> second</sectiontitle>
 
 </section>
 </chapter>
-<chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
+<chapter><sectiontitle> Chapter</sectiontitle>
 
-<section spaces=" "><sectiontitle>Section of chapter</sectiontitle>
+<section><sectiontitle> Section of chapter</sectiontitle>
 
-<subsection spaces=" "><sectiontitle>subsection 1</sectiontitle>
+<subsection><sectiontitle> subsection 1</sectiontitle>
 
 </subsection>
-<subsection spaces=" "><sectiontitle>subsection 2</sectiontitle>
+<subsection><sectiontitle> subsection 2</sectiontitle>
 
 </subsection>
 </section>
 </chapter>
-<chapter spaces=" "><sectiontitle>Chapter 2</sectiontitle>
+<chapter><sectiontitle> Chapter 2</sectiontitle>
 </chapter>
 ';
 

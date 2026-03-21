@@ -470,7 +470,7 @@ sub _convert($$$;$) {
       ($result, $last_position, $current_smark)
         = _handle_source_marks($element, $type, $inputs, $current_smark);
       if (!defined($current_smark)) {
-        if ($type eq 'spaces') {
+        if ($type eq 'spaces' or $type eq 'spaces_before_argument') {
           my ($inserted, $status)
                   = Texinfo::element_attribute_integer($element,
                                                        'inserted');

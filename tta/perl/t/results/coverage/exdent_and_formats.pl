@@ -9,10 +9,8 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
  *before_node_section C34
   *@example C5 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C8
     { Example   Hoho. }
     *@TeX C1 l2
@@ -24,92 +22,64 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
     {.\\n}
     {empty_line:\\n}
    *@exdent C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {Other line}
+     {spaces_after_argument:\\n}
    *preformatted C1
     {not exdented\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   *@example C6 l9
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@exdent C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {exdented  and dash --- in example}
+     {spaces_after_argument:\\n}
    *preformatted C1
     {Not exdented\\n}
    *@exdent C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {exdented}
+     {spaces_after_argument:\\n}
    *preformatted C1
     {Not exdented\\n}
    *@end C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Para1.\\n}
   {empty_line:\\n}
   *@quotation C3 l18
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C2
     {qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq \\n}
     {qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q\\n}
    *@end C1 l21
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Para2.\\n}
@@ -122,317 +92,207 @@ $result_tree_text{'exdent_and_formats'} = '*document_root C1
   {empty_line:\\n}
   *@quotation C3 l29
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C2
     {quotation1\\n}
     {quotation2\\n}
    *@end C1 l32
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C5 l34
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {quotation para 1\\n}
    {empty_line:\\n}
    *paragraph C1
     {quotation para 2\\n}
    *@end C1 l38
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@example C4 l40
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C1
     {Example   Hoho.\\n}
    *@example C4 l42
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *preformatted C1
      {Nested Other line\\n}
     *@exdent C1 l44
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {exdented nested other line}
+      {spaces_after_argument:\\n}
     *@end C1 l45
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{example}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {example}
+      {spaces_after_argument:\\n}
    *@end C1 l46
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C3 l48
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@exdent C1 l49
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {exdented quotation line   and dash --- in quotation}
+     {spaces_after_argument:\\n}
    *@end C1 l50
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C4 l52
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {Not exdented followed by exdented\\n}
    *@exdent C1 l54
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:  }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument:  }
      {exdented quotation line}
+     {spaces_after_argument:\\n}
    *@end C1 l55
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C4 l57
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@exdent C1 l58
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:  }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument:  }
      {exdented quotation line}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {Followed by not exdented \\n}
    *@end C1 l60
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C4 l62
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@exdent C1 l63
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az}
+     {spaces_after_argument:\\n}
    *@exdent C1 l64
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {azeaz az az az az}
+     {spaces_after_argument:\\n}
    *@end C1 l65
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C4 l67
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@exdent C1 l68
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line}
+     {spaces_after_argument:\\n}
    *@exdent C1 l69
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {az az az az}
+     {spaces_after_argument:\\n}
    *@end C1 l70
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C4 l72
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {quotation line oidfjslsd aez a aze azaz aeae za eaz az zelef  aaa\\n}
    *@exdent C1 l74
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {ezkfjklezf}
+     {spaces_after_argument: \\n}
    *@end C1 l75
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C4 l77
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@exdent C1 l78
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {very loooooooooooooooooooooooooooooooooong exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line}
+     {spaces_after_argument:\\n}
    *@exdent C1 l79
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {az az az az}
+     {spaces_after_argument:\\n}
    *@end C1 l80
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -727,15 +587,15 @@ quotation2
 $result_converted{'xml'}->{'exdent_and_formats'} = '<example endspaces=" ">
 <pre xml:space="preserve"> Example   Hoho. &tex; . &linebreak; &arobase;.
 
-</pre><exdent spaces=" ">Other line</exdent>
+</pre><exdent> Other line</exdent>
 <pre xml:space="preserve">not exdented
 </pre></example>
 
 
 <example endspaces=" ">
-<exdent spaces=" ">exdented  and dash --- in example</exdent>
+<exdent> exdented  and dash --- in example</exdent>
 <pre xml:space="preserve">Not exdented
-</pre><exdent spaces=" ">exdented</exdent>
+</pre><exdent> exdented</exdent>
 <pre xml:space="preserve">Not exdented
 </pre></example>
 
@@ -767,42 +627,42 @@ quotation2
 <pre xml:space="preserve">Example   Hoho.
 </pre><example endspaces=" ">
 <pre xml:space="preserve">Nested Other line
-</pre><exdent spaces=" ">exdented nested other line</exdent>
+</pre><exdent> exdented nested other line</exdent>
 </example>
 </example>
 
 <quotation endspaces=" ">
-<exdent spaces=" ">exdented quotation line   and dash &textmdash; in quotation</exdent>
+<exdent> exdented quotation line   and dash &textmdash; in quotation</exdent>
 </quotation>
 
 <quotation endspaces=" ">
 <para>Not exdented followed by exdented
-</para><exdent spaces="  ">exdented quotation line</exdent>
+</para><exdent>  exdented quotation line</exdent>
 </quotation>
 
 <quotation endspaces=" ">
-<exdent spaces="  ">exdented quotation line</exdent>
+<exdent>  exdented quotation line</exdent>
 <para>Followed by not exdented 
 </para></quotation>
 
 <quotation endspaces=" ">
-<exdent spaces=" ">exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az</exdent>
-<exdent spaces=" ">azeaz az az az az</exdent>
+<exdent> exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az</exdent>
+<exdent> azeaz az az az az</exdent>
 </quotation>
 
 <quotation endspaces=" ">
-<exdent spaces=" ">exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line</exdent>
-<exdent spaces=" ">az az az az</exdent>
+<exdent> exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line</exdent>
+<exdent> az az az az</exdent>
 </quotation>
 
 <quotation endspaces=" ">
 <para>quotation line oidfjslsd aez a aze azaz aeae za eaz az zelef  aaa
-</para><exdent spaces=" ">ezkfjklezf </exdent>
+</para><exdent> ezkfjklezf </exdent>
 </quotation>
 
 <quotation endspaces=" ">
-<exdent spaces=" ">very loooooooooooooooooooooooooooooooooong exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line</exdent>
-<exdent spaces=" ">az az az az</exdent>
+<exdent> very loooooooooooooooooooooooooooooooooong exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line</exdent>
+<exdent> az az az az</exdent>
 </quotation>
 ';
 

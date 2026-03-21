@@ -8,30 +8,22 @@ use utf8;
 $result_tree_text{'node_too_much_args'} = '*document_root C2
  *before_node_section
  *@node C1 l1 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {first}
-   *line_arg
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-   *line_arg
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-   *line_arg C3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:  }
+   *line_arg C1
+    {spaces_before_argument: }
+   *line_arg C1
+    {spaces_before_argument: }
+   *line_arg C4
    |EXTRA
    |manual_content:{dir}
+    {spaces_before_argument:  }
     {(}
     {dir}
     {)}

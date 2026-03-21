@@ -116,6 +116,7 @@ parse_line_command_args (ELEMENT *line_command)
   ELEMENT *line_arg;
   STRING_LIST *line_args;
   enum command_id cmd;
+  const TEXT *line_text;
   const char *line;
   int surplus_arg;
 
@@ -130,23 +131,25 @@ parse_line_command_args (ELEMENT *line_command)
   else
     line_arg = line_command->e.c->contents.list[0];
 
-  line = simple_arg_text (line_arg, &surplus_arg);
+  line_text = simple_arg_text (line_arg, &surplus_arg);
 
-  if (line == 0)
+  if (line_text == 0)
    {
      if (!surplus_arg)
        {
          command_error (line_command, "bad argument to @%s",
                         command_name(cmd));
        }
-   } else if (*line == '\0')
+   } else if (line_text->end == 0)
      command_error (line_command, "@%s missing argument", command_name(cmd));
 
   if (surplus_arg)
       line_error ("superfluous argument to @%s", command_name (cmd));
 
-  if (!line || *line == '\0')
+  if (!line_text || line_text->end == 0)
     return 0;
+
+  line = line_text->text;
 
   /* put in extra "misc_args" */
   line_args = new_string_list ();
@@ -829,10 +832,11 @@ end_line_starting_block (ELEMENT *current)
 
   if (command_data(command).flags & CF_contain_basic_inline)
       (void) pop_command (&nesting_context.basic_inline_stack_block);
-  isolate_last_space (current);
 
   if (current->e.c->parent->flags & EF_def_line)
     return end_line_def_line (current);
+
+  isolate_leading_trailing (current, 0);
 
   if (pop_context () != ct_line)
     fatal ("line context expected");
@@ -841,40 +845,47 @@ end_line_starting_block (ELEMENT *current)
   debug_parser_print_element (current, 1); debug ("");
 
   /* @multitable args */
-  if (command == CM_multitable
-      && current->e.c->contents.number > 0
-      && !(type_data[current->e.c->contents.list[0]->type].flags & TF_text)
-      && current->e.c->contents.list[0]->e.c->cmd == CM_columnfractions)
+  if (command == CM_multitable)
     {
-      const ELEMENT *columnfractions = current->e.c->contents.list[0];
-      const STRING_LIST *misc_args
-          = lookup_extra_misc_args (columnfractions, AI_key_misc_args);
-      ELEMENT *multitable = current->e.c->parent->e.c->parent;
       int max_columns = 0;
+      ELEMENT *multitable = current->e.c->parent->e.c->parent;
+      const ELEMENT *columnfractions = multitable_columnfractions (
+                                                             multitable);
+      if (columnfractions)
+        {
+          const STRING_LIST *misc_args
+              = lookup_extra_misc_args (columnfractions, AI_key_misc_args);
 
-      if (misc_args)
-        max_columns = misc_args->number;
+          if (misc_args)
+            max_columns = misc_args->number;
 
-      add_extra_integer (multitable, AI_key_max_columns, max_columns);
-    }
-  else if (command == CM_multitable)
-    {
-      size_t i;
+          add_extra_integer (multitable, AI_key_max_columns, max_columns);
+        }
+      else
+        {
+          size_t i;
       /* NOTE max_columns could overflow, as in general INT_MAX < SIZE_MAX.
          We ignore as this would be for unrealistic column numbers */
-      int max_columns = 0;
-      ELEMENT *multitable = current->e.c->parent->e.c->parent;
+          ELEMENT *multitable = current->e.c->parent->e.c->parent;
+          int non_empty;
+          size_t leading_trailing_indices[2];
 
-      for (i = 0; i < current->e.c->contents.number; i++)
-        {
-          ELEMENT *e = contents_child_by_index (current, i);
+          non_empty = non_leading_trailing_indices (current,
+                                          leading_trailing_indices);
 
-          if (e->type == ET_bracketed_arg)
+          if (non_empty)
             {
-              max_columns++;
-            }
-          else if (e->type == ET_normal_text)
-            {
+              for (i = leading_trailing_indices[0];
+                   i < current->e.c->contents.number; i++)
+                {
+                  ELEMENT *e = contents_child_by_index (current, i);
+
+                  if (e->type == ET_bracketed_arg)
+                    {
+                      max_columns++;
+                    }
+                  else if (type_data[e->type].flags & TF_text)
+                    {
               /*
               TODO: this should be a warning or an error - all prototypes
               on a @multitable line should be in braces, as documented in the
@@ -882,26 +893,27 @@ end_line_starting_block (ELEMENT *current)
               if (e->e.text->end > 0)
                  .....
                */
-            }
-          else
-            {
-              if (e->e.c->cmd != CM_c && e->e.c->cmd != CM_comment)
-                {
-                  char *texi;
-                  texi = convert_to_texinfo (e);
-                  command_warn (multitable,
-                                "unexpected argument on @%s line: %s",
-                                command_name(multitable->e.c->cmd), texi);
-                  free (texi);
+                    }
+                  else
+                    {
+                      if (e->e.c->cmd != CM_c && e->e.c->cmd != CM_comment)
+                        {
+                          char *texi;
+                          texi = convert_to_texinfo (e);
+                          command_warn (multitable,
+                                        "unexpected argument on @%s line: %s",
+                                        command_name(multitable->e.c->cmd), texi);
+                          free (texi);
+                        }
+                    }
                 }
             }
+
+          if (max_columns == 0)
+            command_warn (multitable, "empty multitable");
         }
 
-      {
       add_extra_integer (multitable, AI_key_max_columns, max_columns);
-      if (max_columns == 0)
-        command_warn (multitable, "empty multitable");
-      }
     }
 
   current = current->e.c->parent;
@@ -936,26 +948,29 @@ end_line_starting_block (ELEMENT *current)
     {
       if (command == CM_enumerate)
         {
-          if (block_line_arg->e.c->contents.number > 0)
+          int surplus_arg;
+          const TEXT *arg_text = simple_arg_text (block_line_arg,
+                                                 &surplus_arg);
+          if (arg_text)
             {
-              ELEMENT *g;
-              if (block_line_arg->e.c->contents.number > 1)
-                command_error (current, "superfluous argument to @%s",
-                               command_name(current->e.c->cmd));
-              g = block_line_arg->e.c->contents.list[0];
-              /* Check if @enumerate specification is either a single
-                 letter or a string of digits. */
-              if (g->type == ET_normal_text
-                  && ((g->e.text->end == 1
-                       && isascii_alpha (g->e.text->text[0]))
-                      || (g->e.text->end > 0
-                          && !*(g->e.text->text
-                            + strspn (g->e.text->text, digit_chars)))))
+              if (surplus_arg)
+                {
+                   command_error (current, "superfluous argument to @%s",
+                                  command_name(current->e.c->cmd));
+                }
+              if ((arg_text->end == 1
+                   && isascii_alpha (arg_text->text[0]))
+                  || (arg_text->end > 0
+                      && !*(arg_text->text + strspn (arg_text->text,
+                                                     digit_chars))))
                 {}
-              else
+              else if (arg_text->end > 0)
                 command_error (current, "bad argument to @%s",
                                command_name(command));
             }
+          else if (surplus_arg)
+            command_error (current, "bad argument to @%s",
+                           command_name(command));
         }
       else if (command == CM_itemize)
         {
@@ -963,21 +978,31 @@ end_line_starting_block (ELEMENT *current)
             = block_line_argument_command (block_line_arg);
 
           /* Check if command as argument isn't an accent command */
-          if (block_line_arg->e.c->contents.number == 1)
+          if (block_line_arg->e.c->contents.number > 0)
             {
-              const ELEMENT *arg = block_line_arg->e.c->contents.list[0];
-              if (!(type_data[arg->type].flags & TF_text)
-                  && (arg->e.c->contents.number == 0
-                      || (arg->e.c->contents.number == 1
-              && arg->e.c->contents.list[0]->e.c->contents.number == 0)))
+              size_t leading_trailing_indices[2];
+              int non_empty;
+              size_t first_idx;
+              non_empty = non_leading_trailing_indices (block_line_arg,
+                                                  leading_trailing_indices);
+              first_idx = leading_trailing_indices[0];
+              if (non_empty && first_idx == leading_trailing_indices[1])
                 {
-                  enum command_id cmd = element_builtin_cmd (arg);
-                  if (builtin_command_data[cmd].flags & CF_accent)
+                  const ELEMENT *arg
+                    = block_line_arg->e.c->contents.list[first_idx];
+                  if (!(type_data[arg->type].flags & TF_text)
+                      && (arg->e.c->contents.number == 0
+                          || (arg->e.c->contents.number == 1
+              && arg->e.c->contents.list[0]->e.c->contents.number == 0)))
                     {
-                      command_warn (current, "accent command `@%s' "
+                      enum command_id cmd = element_builtin_cmd (arg);
+                      if (builtin_command_data[cmd].flags & CF_accent)
+                        {
+                          command_warn (current, "accent command `@%s' "
                             "not allowed as @%s argument",
                             command_name(cmd),
                             command_name(command));
+                        }
                     }
                 }
             }
@@ -998,7 +1023,7 @@ end_line_starting_block (ELEMENT *current)
 
           if (!command_as_argument)
             {
-              if (block_line_arg->e.c->contents.number > 0)
+              if (!empty_spaces_argument (block_line_arg))
                 {
                   char *texi_arg;
 
@@ -1038,7 +1063,7 @@ end_line_starting_block (ELEMENT *current)
     } /* CF_blockitem */
   else if (command_data (command).args_number == 0
            && (! (command_data (command).flags & CF_variadic))
-           && block_line_arg->e.c->contents.number > 0)
+           && ! empty_spaces_argument (block_line_arg))
     {
       char *texi_arg;
 
@@ -1057,54 +1082,55 @@ end_line_starting_block (ELEMENT *current)
           || command == CM_ifcommanddefined
           || command == CM_ifcommandnotdefined)
         {
-          if (block_line_arg->e.c->contents.number == 1)
-            {
-              ELEMENT *arg_elt = block_line_arg->e.c->contents.list[0];
-              if (arg_elt->type == ET_normal_text && arg_elt->e.text->end > 0)
-                {
-                  const char *p = arg_elt->e.text->text;
-                  p += strspn (p, whitespace_chars);
-                  if (!*p)
-                    {
-                      line_error ("@%s requires a name", command_name(command));
-                      bad_line = 0;
-                    }
-                  else
-                    {
-                      size_t flag_len = read_flag_len (p);
-                      if (flag_len && !*(p + flag_len))
-                        {
-                          char *flag = strndup (p, flag_len);
-                          bad_line = 0;
-                          if (command == CM_ifclear || command == CM_ifset)
-                            {
-                              char *val = fetch_value (flag);
-                              if (val)
-                                iftrue = 1;
-                              if (command == CM_ifclear)
-                                iftrue = !iftrue;
-                            }
-                          else /* command == CM_ifcommanddefined
-                                  || command == CM_ifcommandnotdefined */
-                            {
-                              enum command_id c = lookup_command (flag);
-                              if (c)
-                                iftrue = 1;
-                              if (command == CM_ifcommandnotdefined)
-                                iftrue = !iftrue;
-                            }
-                          debug ("CONDITIONAL @%s %s: %d",
-                                 command_name(command), flag, iftrue);
-                          free (flag);
-                        }
-                    }
-                }
-            }
-          else
+          int surplus_arg;
+          const TEXT *name = simple_arg_text (block_line_arg,
+                                              &surplus_arg);
+
+          if (!name || name->end == 0)
             {
               line_error ("@%s requires a name", command_name(command));
               bad_line = 0;
             }
+          else
+            {
+              const char *p = name->text;
+              p += strspn (p, whitespace_chars);
+              if (!*p)
+                {
+                  line_error ("@%s requires a name", command_name(command));
+                  bad_line = 0;
+                }
+              else
+                {
+                  size_t flag_len = read_flag_len (p);
+                  if (flag_len && !*(p + flag_len))
+                    {
+                      char *flag = strndup (p, flag_len);
+                      bad_line = 0;
+                      if (command == CM_ifclear || command == CM_ifset)
+                        {
+                          char *val = fetch_value (flag);
+                          if (val)
+                            iftrue = 1;
+                          if (command == CM_ifclear)
+                            iftrue = !iftrue;
+                        }
+                      else /* command == CM_ifcommanddefined
+                              || command == CM_ifcommandnotdefined */
+                        {
+                          enum command_id c = lookup_command (flag);
+                          if (c)
+                            iftrue = 1;
+                          if (command == CM_ifcommandnotdefined)
+                            iftrue = !iftrue;
+                        }
+                      debug ("CONDITIONAL @%s %s: %d",
+                             command_name(command), flag, iftrue);
+                      free (flag);
+                    }
+                }
+            }
+
           if (bad_line)
             line_error ("bad name for @%s", command_name(command));
         }
@@ -1227,10 +1253,11 @@ end_line_misc_line (ELEMENT *current)
 
   if (command_data(data_cmd).flags & CF_contain_basic_inline)
     (void) pop_command (&nesting_context.basic_inline_stack_on_line);
-  isolate_last_space (current);
 
   if (current->e.c->parent->flags & EF_def_line)
     return end_line_def_line (current);
+
+  isolate_leading_trailing (current, 0);
 
   current = command_element;
   misc_cmd = current;
@@ -1568,7 +1595,7 @@ end_line_misc_line (ELEMENT *current)
         }
 
       /* Now take care of the node itself */
-      if (line_arg->e.c->contents.number == 0)
+      if (empty_spaces_argument (line_arg))
         {
           line_error_ext (MSG_error, 0, &current->e.c->source_info,
                           "empty argument in @%s", command_name (cmd));
@@ -1609,7 +1636,7 @@ end_line_misc_line (ELEMENT *current)
         }
       /* All the other "line" commands. Check they have an argument. Empty
          @top and @xrefname are allowed. */
-      if (line_arg->e.c->contents.number == 0
+      if (empty_spaces_argument (line_arg)
           && current->e.c->cmd != CM_top
           && current->e.c->cmd != CM_xrefname)
         {

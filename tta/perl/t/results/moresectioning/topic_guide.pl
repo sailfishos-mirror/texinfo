@@ -12,32 +12,24 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    {text_before_beginning:\\n}
   *preamble_before_content
  *@node C1 topic_guide.texi:l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C6 topic_guide.texi:l4 {A example quide topic collection}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {A example quide topic collection}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    {This is an example of guide/topic based manual inspired by the Mallard\\n}
@@ -45,10 +37,8 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   {empty_line:\\n}
   *@menu C4 topic_guide.texi:l9
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 topic_guide.texi:l10
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -72,55 +62,41 @@ $result_tree_text{'topic_guide'} = '*document_root C13
      *preformatted C1
       {the perillous way\\n}
    *@end C1 topic_guide.texi:l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 topic_guide.texi:l14 {guide1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{guide1}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {guide1}
+    {spaces_after_argument:\\n}
  *@chapter C6 topic_guide.texi:l15 {guide 1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {guide 1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {This is the guide for an easy use.\\n}
   {empty_line:\\n}
   *@menu C5 topic_guide.texi:l19
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 topic_guide.texi:l20
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -155,48 +131,37 @@ $result_tree_text{'topic_guide'} = '*document_root C13
      *preformatted C1
       {topic5 description\\n}
    *@end C1 topic_guide.texi:l23
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C6 topic_guide.texi:l25 {topic1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{topic1}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C2
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {topic1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{topic2}
    |normalized:{topic2}
+    {spaces_before_argument: }
     {topic2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {This is topic 1.\\n}
   {empty_line:\\n}
   *@menu C4 topic_guide.texi:l29
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_comment C1
     *preformatted C2
      {More information\\n}
@@ -213,56 +178,43 @@ $result_tree_text{'topic_guide'} = '*document_root C13
      *preformatted C1
       {guide 1\\n}
    *@end C1 topic_guide.texi:l33
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C6 topic_guide.texi:l35 {topic2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{topic2}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C3
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {topic2}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{topic3}
    |normalized:{topic3}
+    {spaces_before_argument: }
     {topic3}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{topic1}
    |normalized:{topic1}
+    {spaces_before_argument: }
     {topic1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {This is topic 2\\n}
   {empty_line:\\n}
   *@menu C4 topic_guide.texi:l39
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_comment C1
     *preformatted C2
      {More information\\n}
@@ -279,96 +231,73 @@ $result_tree_text{'topic_guide'} = '*document_root C13
      *preformatted C1
       {guide 1\\n}
    *@end C1 topic_guide.texi:l43
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C6 topic_guide.texi:l45 {topic3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{topic3}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C3
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {topic3}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{topic5}
    |normalized:{topic5}
+    {spaces_before_argument: }
     {topic5}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{topic2}
    |normalized:{topic2}
+    {spaces_before_argument: }
     {topic2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {This is topic 3\\n}
   {empty_line:\\n}
   *@menu C3 topic_guide.texi:l49
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_comment C1
     *preformatted C2
      {More information\\n}
      {empty_line:\\n}
    *@end C1 topic_guide.texi:l52
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C6 topic_guide.texi:l54 {topic4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{topic4}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {topic4}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {This is topic 4\\n}
   {empty_line:\\n}
   *@menu C4 topic_guide.texi:l58
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_comment C1
     *preformatted C2
      {More information\\n}
@@ -385,52 +314,39 @@ $result_tree_text{'topic_guide'} = '*document_root C13
      *preformatted C1
       {guide 2\\n}
    *@end C1 topic_guide.texi:l62
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C6 topic_guide.texi:l64 {topic5}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{topic5}
  |is_target:{1}
  |node_number:{7}
   *arguments_line C3
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {topic5}
-   *line_arg
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+    {spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{topic3}
    |normalized:{topic3}
+    {spaces_before_argument: }
     {topic3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {This is topic 5\\n}
   {empty_line:\\n}
   *@menu C5 topic_guide.texi:l68
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_comment C1
     *preformatted C2
      {More information\\n}
@@ -458,55 +374,41 @@ $result_tree_text{'topic_guide'} = '*document_root C13
      *preformatted C1
       {guide 2\\n}
    *@end C1 topic_guide.texi:l73
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 topic_guide.texi:l75 {guide2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{guide2}
  |is_target:{1}
  |node_number:{8}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {guide2}
+    {spaces_after_argument:\\n}
  *@chapter C6 topic_guide.texi:l76 {guide 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {guide 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {This is the guide for an in depth use\\n}
   {empty_line:\\n}
   *@menu C4 topic_guide.texi:l80
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 topic_guide.texi:l81
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -530,16 +432,12 @@ $result_tree_text{'topic_guide'} = '*document_root C13
      *preformatted C1
       {topic4 description\\n}
    *@end C1 topic_guide.texi:l83
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
   *line_arg

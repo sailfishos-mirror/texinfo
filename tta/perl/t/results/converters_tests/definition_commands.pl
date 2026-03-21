@@ -9,66 +9,47 @@ $result_tree_text{'definition_commands'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l2 {top section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top section}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C39 l5 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C3 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l7
    |EXTRA
    |def_command:{deffn}
@@ -79,10 +60,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Func}
@@ -98,6 +77,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {a--rg2}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C5
      {deffn no var for }
@@ -110,21 +90,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
        {a--rg2}
      {\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C3 l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l11
    |EXTRA
    |def_command:{deffn}
@@ -135,10 +108,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffn}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Func}
@@ -158,6 +129,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
        *@var C1 l11
         *brace_container C1
          {a--rg2}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C5
      {deffn explict var for }
@@ -170,21 +142,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
        {a--rg2}
      {\\n}
    *@end C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C3 l15
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l15
    |EXTRA
    |def_command:{deffn}
@@ -195,10 +160,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deffn}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Func}
@@ -222,6 +185,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
          *@slanted C1 l15
           *brace_container C1
            {a--rg2}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C5
      {deffn r slanted for }
@@ -234,21 +198,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
        {a--rg2}
      {\\n}
    *@end C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defspec C17 l19
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l19
    |EXTRA
    |def_command:{defspec}
@@ -259,16 +216,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,4}
    |original_def_cmdname:{defspec}
-    *block_line_arg C19
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C21
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -298,10 +253,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {default}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l20
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -311,16 +264,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,5}
    |original_def_cmdname:{defspecx}
-    *line_arg C18
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C20
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -361,10 +312,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {r}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l21
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -374,16 +323,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,6}
    |original_def_cmdname:{defspecx}
-    *line_arg C18
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C20
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -424,10 +371,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {var}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l22
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -437,16 +382,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,7}
    |original_def_cmdname:{defspecx}
-    *line_arg C18
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C20
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -487,10 +430,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {slanted}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l23
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -500,16 +441,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,8}
    |original_def_cmdname:{defspecx}
-    *line_arg C18
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C20
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -550,10 +489,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {code}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l24
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -563,16 +500,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,9}
    |original_def_cmdname:{defspecx}
-    *line_arg C18
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C20
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -613,10 +548,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {t}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l25
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -626,16 +559,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,10}
    |original_def_cmdname:{defspecx}
-    *line_arg C18
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C20
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -682,10 +613,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {t:b}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l26
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -695,16 +624,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,11}
    |original_def_cmdname:{defspecx}
-    *line_arg C18
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C20
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -751,10 +678,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {r:var}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l27
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -764,16 +689,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,12}
    |original_def_cmdname:{defspecx}
-    *line_arg C18
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C20
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -820,10 +743,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {r:slanted}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l28
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -833,16 +754,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,13}
    |original_def_cmdname:{defspecx}
-    *line_arg C18
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C20
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -889,10 +808,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {r:code}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l29
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -902,16 +819,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,14}
    |original_def_cmdname:{defspecx}
-    *line_arg C18
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C20
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -958,10 +873,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {r:t}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l30
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -971,16 +884,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,15}
    |original_def_cmdname:{defspecx}
-    *line_arg C18
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C20
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1027,10 +938,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {code:var}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l31
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1040,16 +949,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,16}
    |original_def_cmdname:{defspecx}
-    *line_arg C18
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C20
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1096,10 +1003,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {t:var}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l32
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1109,16 +1014,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,17}
    |original_def_cmdname:{defspecx}
-    *line_arg C18
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C20
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1165,10 +1068,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {code:slanted}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l33
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1178,16 +1079,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,18}
    |original_def_cmdname:{defspecx}
-    *line_arg C18
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C20
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1234,25 +1133,19 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {t:slanted}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {separators\\n}
    *@end C1 l35
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defspec}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defspec}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defspec C17 l37
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l37
    |EXTRA
    |def_command:{defspec}
@@ -1263,16 +1156,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,19}
    |original_def_cmdname:{defspec}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1284,10 +1175,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {default}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l38
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1297,16 +1186,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,20}
    |original_def_cmdname:{defspecx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1320,10 +1207,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {var}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l39
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1333,16 +1218,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,21}
    |original_def_cmdname:{defspecx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1356,10 +1239,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {r}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l40
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1369,16 +1250,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,22}
    |original_def_cmdname:{defspecx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1392,10 +1271,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {slanted}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l41
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1405,16 +1282,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,23}
    |original_def_cmdname:{defspecx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1428,10 +1303,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {code}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l42
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1441,16 +1314,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,24}
    |original_def_cmdname:{defspecx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1464,10 +1335,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {t}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l43
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1477,16 +1346,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,25}
    |original_def_cmdname:{defspecx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1502,10 +1369,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {t:b}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l44
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1515,16 +1380,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,26}
    |original_def_cmdname:{defspecx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1540,10 +1403,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {r:var}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l45
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1553,16 +1414,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,27}
    |original_def_cmdname:{defspecx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1578,10 +1437,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {r:slanted}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l46
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1591,16 +1448,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,28}
    |original_def_cmdname:{defspecx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1616,10 +1471,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {r:code}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l47
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1629,16 +1482,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,29}
    |original_def_cmdname:{defspecx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1654,10 +1505,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {r:t}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l48
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1667,16 +1516,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,30}
    |original_def_cmdname:{defspecx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1692,10 +1539,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {code:var}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l49
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1705,16 +1550,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,31}
    |original_def_cmdname:{defspecx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1730,10 +1573,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {t:var}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l50
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1743,16 +1584,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,32}
    |original_def_cmdname:{defspecx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1768,10 +1607,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {code:slanted}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l51
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -1781,16 +1618,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,33}
    |original_def_cmdname:{defspecx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -1806,25 +1641,19 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {t:slanted}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {name\\n}
    *@end C1 l53
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defspec}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defspec}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C7 l55
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l55
    |EXTRA
    |def_command:{deffn}
@@ -1837,10 +1666,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,34}
    |original_def_cmdname:{deffn}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Request}
@@ -1860,10 +1687,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
           *brace_container C1
            {font}
      {delimiter:]}
+     {spaces_after_argument:\\n}
    *@deffnx C1 l56
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -1882,10 +1707,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,35}
    |original_def_cmdname:{deffnx}
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C3
        {Escape}
@@ -1905,10 +1728,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
            {f}
        *@t C1 l56
         *brace_container
+     {spaces_after_argument:\\n}
    *@deffnx C1 l57
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -1927,10 +1748,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,36}
    |original_def_cmdname:{deffnx}
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C3
        {Escape}
@@ -1950,10 +1769,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
            {fn}
        *@t C1 l57
         *brace_container
+     {spaces_after_argument:\\n}
    *@deffnx C1 l58
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -1973,10 +1790,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,37}
    |original_def_cmdname:{deffnx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C3
        {Escape}
@@ -2015,10 +1830,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
        *@t C1 l58
         *brace_container C1
          {]}
+     {spaces_after_argument:\\n}
    *@deffnx C1 l59
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -2030,10 +1843,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,38}
    |original_def_cmdname:{deffnx}
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Register}
@@ -2043,6 +1854,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
        *@t C1 l59
         *brace_container C1
          {\\n[.sty]}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C13
      {The }
@@ -2070,21 +1882,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
        {fn}
      {).\\n}
    *@end C1 l63
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defspec C4 l65
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l65
    |EXTRA
    |def_command:{defspec}
@@ -2095,16 +1900,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,39}
    |original_def_cmdname:{defspec}
-    *block_line_arg C57
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C59
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -2288,10 +2091,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
          *@t C1 l65
           *brace_container C1
            {]}
+     {spaces_after_argument:\\n}
    *@defspecx C1 l66
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -2301,16 +2102,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,40}
    |original_def_cmdname:{defspecx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {foobar}
@@ -2367,25 +2166,19 @@ $result_tree_text{'definition_commands'} = '*document_root C5
            *@slanted C1 l66
             *brace_container C1
              {[]}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {test formatting of separators\\n}
    *@end C1 l68
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defspec}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defspec}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypefn C3 l70
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l70
    |EXTRA
    |def_command:{deftypefn}
@@ -2396,10 +2189,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,41}
    |original_def_cmdname:{deftypefn}
-    *block_line_arg C16
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C18
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l70
        {Library Function}
@@ -2434,6 +2225,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
         *brace_container C1
          {b--ar}
      {delimiter:)}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C6
      *@dots C1 l71
@@ -2448,21 +2240,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
        {b--ar}
      {\\n}
    *@end C1 l72
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypefn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypefn C3 l74
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l74
    |EXTRA
    |def_command:{deftypefn}
@@ -2473,10 +2258,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,42}
    |original_def_cmdname:{deftypefn}
-    *block_line_arg C16
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C18
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l74
        {Library Function}
@@ -2515,6 +2298,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
           *brace_container C1
            {b--ar}
      {delimiter:)}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C6
      *@dots C1 l75
@@ -2529,16 +2313,12 @@ $result_tree_text{'definition_commands'} = '*document_root C5
        {b--ar}
      {\\n}
    *@end C1 l76
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypefn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@noindent l78
   {ignorable_spaces_after_command: }
@@ -2547,9 +2327,6 @@ $result_tree_text{'definition_commands'} = '*document_root C5
   |noindent:{1}
    {produces:\\n}
   *@defcv C3 l79
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l79
    |EXTRA
    |def_command:{defcv}
@@ -2560,10 +2337,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defcv}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l79
        {Class Option}
@@ -2575,27 +2350,21 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_name C1
       *def_line_arg C1
        {border-pattern}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C2
      *@dots C1 l80
       *brace_container
      {\\n}
    *@end C1 l81
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defcv}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defcv}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypecv C3 l83
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l83
    |EXTRA
    |def_command:{deftypecv}
@@ -2620,10 +2389,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{vr,2}
    |original_def_cmdname:{deftypecv}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l83
        {Class Option}
@@ -2641,33 +2408,25 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_name C1
       *def_line_arg C1
        {border-pattern}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C2
      *@dots C1 l84
       *brace_container
      {\\n}
    *@end C1 l85
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypecv}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypecv}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C3 l87
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@deftypefn C3 l88
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *def_line C1 l88
     |EXTRA
     |def_command:{deftypefn}
@@ -2678,10 +2437,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
     |element_node:{chapter}
     |index_entry:I{fn,43}
     |original_def_cmdname:{deftypefn}
-     *block_line_arg C16
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C18
+      {spaces_before_argument: }
       *def_category C1
        *bracketed_arg C1 l88
         {Library Function}
@@ -2716,6 +2473,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
          *brace_container C1
           {bar}
       {delimiter:)}
+      {spaces_after_argument:\\n}
     *def_item C1
      *paragraph C6
       *@dots C1 l89
@@ -2730,32 +2488,21 @@ $result_tree_text{'definition_commands'} = '*document_root C5
         {bar}
       {\\n}
     *@end C1 l90
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{deftypefn}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {deftypefn}
+      {spaces_after_argument:\\n}
    *@end C1 l91
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defun C3 l93
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l93
    |EXTRA
    |def_command:{defun}
@@ -2766,16 +2513,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,44}
    |original_def_cmdname:{defun}
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C11
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Function}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {apply}
@@ -2791,6 +2536,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {arguments}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C6
      *@code C1 l94
@@ -2806,21 +2552,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
        {arguments}
      {\\n}
    *@end C1 l95
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defun}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defun}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defun C3 l97
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l97
    |EXTRA
    |def_command:{defun}
@@ -2831,16 +2570,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,45}
    |original_def_cmdname:{defun}
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C11
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Function}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {apply}
@@ -2860,6 +2597,7 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {argument}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C5
      {explicit keyword marking, no var }
@@ -2872,21 +2610,14 @@ $result_tree_text{'definition_commands'} = '*document_root C5
        {arguments}
      {\\n}
    *@end C1 l99
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defun}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defun}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C3 l101
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l101
    |EXTRA
    |def_command:{deffn}
@@ -2897,10 +2628,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,46}
    |original_def_cmdname:{deffn}
-    *block_line_arg C31
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C33
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Category}
@@ -2974,25 +2703,19 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      {delimiter:]}
      {delimiter:]}
      {delimiter:)}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {In deffn with code and var used\\n}
    *@end C1 l104
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypefn C17 l106
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l106
    |EXTRA
    |def_command:{deftypefn}
@@ -3003,10 +2726,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,47}
    |original_def_cmdname:{deftypefn}
-    *block_line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l106
        {Library Function}
@@ -3047,10 +2768,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {default}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l107
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3060,10 +2779,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,48}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l107
        {Library Function}
@@ -3112,10 +2829,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {r}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l108
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3125,10 +2840,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,49}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l108
        {Library Function}
@@ -3177,10 +2890,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {var}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l109
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3190,10 +2901,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,50}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l109
        {Library Function}
@@ -3242,10 +2951,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {slanted}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l110
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3255,10 +2962,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,51}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l110
        {Library Function}
@@ -3307,10 +3012,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {code}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l111
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3320,10 +3023,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,52}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l111
        {Library Function}
@@ -3372,10 +3073,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {t}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l112
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3385,10 +3084,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,53}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l112
        {Library Function}
@@ -3441,10 +3138,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {t:b}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l113
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3454,10 +3149,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,54}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l113
        {Library Function}
@@ -3510,10 +3203,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {r:var}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l114
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3523,10 +3214,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,55}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l114
        {Library Function}
@@ -3579,10 +3268,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {r:slanted}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l115
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3592,10 +3279,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,56}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l115
        {Library Function}
@@ -3648,10 +3333,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {r:code}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l116
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3661,10 +3344,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,57}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l116
        {Library Function}
@@ -3717,10 +3398,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {r:t}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l117
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3730,10 +3409,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,58}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l117
        {Library Function}
@@ -3786,10 +3463,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {code:var}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l118
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3799,10 +3474,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,59}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l118
        {Library Function}
@@ -3855,10 +3528,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {t:var}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l119
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3868,10 +3539,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,60}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l119
        {Library Function}
@@ -3924,10 +3593,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {code:slanted}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l120
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -3937,10 +3604,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,61}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l120
        {Library Function}
@@ -3993,25 +3658,19 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {t:slanted}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {separators\\n}
    *@end C1 l122
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypefn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypefn C17 l124
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l124
    |EXTRA
    |def_command:{deftypefn}
@@ -4022,10 +3681,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,62}
    |original_def_cmdname:{deftypefn}
-    *block_line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l124
        {Library Function}
@@ -4066,10 +3723,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {default}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l125
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4079,10 +3734,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,63}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l125
        {Library Function}
@@ -4125,10 +3778,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {r}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l126
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4138,10 +3789,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,64}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l126
        {Library Function}
@@ -4184,10 +3833,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {var}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l127
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4197,10 +3844,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,65}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l127
        {Library Function}
@@ -4243,10 +3888,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {slanted}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l128
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4256,10 +3899,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,66}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l128
        {Library Function}
@@ -4302,10 +3943,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {code}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l129
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4315,10 +3954,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,67}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l129
        {Library Function}
@@ -4361,10 +3998,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {t}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l130
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4374,10 +4009,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,68}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l130
        {Library Function}
@@ -4422,10 +4055,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {t:b}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l131
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4435,10 +4066,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,69}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l131
        {Library Function}
@@ -4483,10 +4112,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {r:var}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l132
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4496,10 +4123,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,70}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l132
        {Library Function}
@@ -4544,10 +4169,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {r:slanted}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l133
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4557,10 +4180,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,71}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l133
        {Library Function}
@@ -4605,10 +4226,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {r:code}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l134
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4618,10 +4237,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,72}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l134
        {Library Function}
@@ -4666,10 +4283,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {r:t}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l135
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4679,10 +4294,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,73}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l135
        {Library Function}
@@ -4727,10 +4340,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {code:var}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l136
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4740,10 +4351,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,74}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l136
        {Library Function}
@@ -4788,10 +4397,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {t:var}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l137
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4801,10 +4408,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,75}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l137
        {Library Function}
@@ -4849,10 +4454,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {code:slanted}
+     {spaces_after_argument:\\n}
    *@deftypefnx C1 l138
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -4862,10 +4465,8 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,76}
    |original_def_cmdname:{deftypefnx}
-    *line_arg C20
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C22
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l138
        {Library Function}
@@ -4910,20 +4511,17 @@ $result_tree_text{'definition_commands'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {t:slanted}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {name\\n}
    *@end C1 l140
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypefn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 
@@ -5609,144 +5207,144 @@ to <var class="var">font</var> (one-character name&nbsp;<var class="var">f</var>
 ';
 
 
-$result_converted{'xml'}->{'definition_commands'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
-<top spaces=" "><sectiontitle>top section</sectiontitle>
+$result_converted{'xml'}->{'definition_commands'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapter</nodenext></node>
+<top><sectiontitle> top section</sectiontitle>
 
 </top>
-<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chapter</sectiontitle>
+<node identifier="chapter"><nodename> chapter</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> chapter</sectiontitle>
 
-<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">fname</indexterm><defcategory>Func</defcategory> <deffunction>fname</deffunction> <defparam>a---rg1</defparam> <defparam>a--rg2</defparam></definitionterm>
+<deffn endspaces=" "><definitionterm><indexterm index="fn" number="1">fname</indexterm> <defcategory>Func</defcategory> <deffunction>fname</deffunction> <defparam>a---rg1</defparam> <defparam>a--rg2</defparam></definitionterm>
 <definitionitem><para>deffn no var for <var>a&textmdash;rg1</var> and <var>a&textndash;rg2</var>
 </para></definitionitem></deffn>
 
-<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="2">fname</indexterm><defcategory>Func</defcategory> <deffunction>fname</deffunction> <defparam><var>a---rg1</var></defparam> <defparam><var>a--rg2</var></defparam></definitionterm>
+<deffn endspaces=" "><definitionterm><indexterm index="fn" number="2">fname</indexterm> <defcategory>Func</defcategory> <deffunction>fname</deffunction> <defparam><var>a---rg1</var></defparam> <defparam><var>a--rg2</var></defparam></definitionterm>
 <definitionitem><para>deffn explict var for <var>a&textmdash;rg1</var> and <var>a&textndash;rg2</var>
 </para></definitionitem></deffn>
 
-<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="3">fname</indexterm><defcategory>Func</defcategory> <deffunction>fname</deffunction> <defparam><r><slanted>a&textmdash;rg1</slanted></r></defparam> <defparam><r><slanted>a&textndash;rg2</slanted></r></defparam></definitionterm>
+<deffn endspaces=" "><definitionterm><indexterm index="fn" number="3">fname</indexterm> <defcategory>Func</defcategory> <deffunction>fname</deffunction> <defparam><r><slanted>a&textmdash;rg1</slanted></r></defparam> <defparam><r><slanted>a&textndash;rg2</slanted></r></defparam></definitionterm>
 <definitionitem><para>deffn r slanted for <var>a&textmdash;rg1</var> and <var>a&textndash;rg2</var>
 </para></definitionitem></deffn>
 
-<defspec spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="4">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defdelimiter>[</defdelimiter><defparam>from</defparam> <defparam>to</defparam> <defdelimiter>[</defdelimiter><defparam>inc</defparam><defdelimiter>]</defdelimiter><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparam>default</defparam></definitionterm>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="5">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><r>[</r></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><r>[</r></defparam><defparam>inc</defparam><defparam><r>]]</r></defparam><defdelimiter>)</defdelimiter> <defparam>r</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="6">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><var>[</var></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><var>[</var></defparam><defparam>inc</defparam><defparam><var>]]</var></defparam><defdelimiter>)</defdelimiter> <defparam>var</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="7">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><slanted>[</slanted></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><slanted>[</slanted></defparam><defparam>inc</defparam><defparam><slanted>]]</slanted></defparam><defdelimiter>)</defdelimiter> <defparam>slanted</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="8">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><code>[</code></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><code>[</code></defparam><defparam>inc</defparam><defparam><code>]]</code></defparam><defdelimiter>)</defdelimiter> <defparam>code</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="9">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><t>[</t></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><t>[</t></defparam><defparam>inc</defparam><defparam><t>]]</t></defparam><defdelimiter>)</defdelimiter> <defparam>t</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="10">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><t><b>[</b></t></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><t><b>[</b></t></defparam><defparam>inc</defparam><defparam><t><b>]]</b></t></defparam><defdelimiter>)</defdelimiter> <defparam>t:b</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="11">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><r><var>[</var></r></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><r><var>[</var></r></defparam><defparam>inc</defparam><defparam><r><var>]]</var></r></defparam><defdelimiter>)</defdelimiter> <defparam>r:var</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="12">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><r><slanted>[</slanted></r></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><r><slanted>[</slanted></r></defparam><defparam>inc</defparam><defparam><r><slanted>]]</slanted></r></defparam><defdelimiter>)</defdelimiter> <defparam>r:slanted</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="13">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><r><code>[</code></r></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><r><code>[</code></r></defparam><defparam>inc</defparam><defparam><r><code>]]</code></r></defparam><defdelimiter>)</defdelimiter> <defparam>r:code</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="14">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><r><t>[</t></r></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><r><t>[</t></r></defparam><defparam>inc</defparam><defparam><r><t>]]</t></r></defparam><defdelimiter>)</defdelimiter> <defparam>r:t</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="15">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><code><var>[</var></code></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><code><var>[</var></code></defparam><defparam>inc</defparam><defparam><code><var>]]</var></code></defparam><defdelimiter>)</defdelimiter> <defparam>code:var</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="16">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><t><var>[</var></t></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><t><var>[</var></t></defparam><defparam>inc</defparam><defparam><t><var>]]</var></t></defparam><defdelimiter>)</defdelimiter> <defparam>t:var</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="17">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><code><slanted>[</slanted></code></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><code><slanted>[</slanted></code></defparam><defparam>inc</defparam><defparam><code><slanted>]]</slanted></code></defparam><defdelimiter>)</defdelimiter> <defparam>code:slanted</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="18">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><t><slanted>[</slanted></t></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><t><slanted>[</slanted></t></defparam><defparam>inc</defparam><defparam><t><slanted>]]</slanted></t></defparam><defdelimiter>)</defdelimiter> <defparam>t:slanted</defparam></definitionterm></defspecx>
+<defspec endspaces=" "><definitionterm><indexterm index="fn" number="4">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defdelimiter>[</defdelimiter><defparam>from</defparam> <defparam>to</defparam> <defdelimiter>[</defdelimiter><defparam>inc</defparam><defdelimiter>]</defdelimiter><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparam>default</defparam></definitionterm>
+<defspecx><definitionterm><indexterm index="fn" number="5">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><r>[</r></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><r>[</r></defparam><defparam>inc</defparam><defparam><r>]]</r></defparam><defdelimiter>)</defdelimiter> <defparam>r</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="6">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><var>[</var></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><var>[</var></defparam><defparam>inc</defparam><defparam><var>]]</var></defparam><defdelimiter>)</defdelimiter> <defparam>var</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="7">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><slanted>[</slanted></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><slanted>[</slanted></defparam><defparam>inc</defparam><defparam><slanted>]]</slanted></defparam><defdelimiter>)</defdelimiter> <defparam>slanted</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="8">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><code>[</code></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><code>[</code></defparam><defparam>inc</defparam><defparam><code>]]</code></defparam><defdelimiter>)</defdelimiter> <defparam>code</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="9">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><t>[</t></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><t>[</t></defparam><defparam>inc</defparam><defparam><t>]]</t></defparam><defdelimiter>)</defdelimiter> <defparam>t</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="10">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><t><b>[</b></t></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><t><b>[</b></t></defparam><defparam>inc</defparam><defparam><t><b>]]</b></t></defparam><defdelimiter>)</defdelimiter> <defparam>t:b</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="11">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><r><var>[</var></r></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><r><var>[</var></r></defparam><defparam>inc</defparam><defparam><r><var>]]</var></r></defparam><defdelimiter>)</defdelimiter> <defparam>r:var</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="12">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><r><slanted>[</slanted></r></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><r><slanted>[</slanted></r></defparam><defparam>inc</defparam><defparam><r><slanted>]]</slanted></r></defparam><defdelimiter>)</defdelimiter> <defparam>r:slanted</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="13">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><r><code>[</code></r></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><r><code>[</code></r></defparam><defparam>inc</defparam><defparam><r><code>]]</code></r></defparam><defdelimiter>)</defdelimiter> <defparam>r:code</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="14">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><r><t>[</t></r></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><r><t>[</t></r></defparam><defparam>inc</defparam><defparam><r><t>]]</t></r></defparam><defdelimiter>)</defdelimiter> <defparam>r:t</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="15">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><code><var>[</var></code></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><code><var>[</var></code></defparam><defparam>inc</defparam><defparam><code><var>]]</var></code></defparam><defdelimiter>)</defdelimiter> <defparam>code:var</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="16">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><t><var>[</var></t></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><t><var>[</var></t></defparam><defparam>inc</defparam><defparam><t><var>]]</var></t></defparam><defdelimiter>)</defdelimiter> <defparam>t:var</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="17">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><code><slanted>[</slanted></code></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><code><slanted>[</slanted></code></defparam><defparam>inc</defparam><defparam><code><slanted>]]</slanted></code></defparam><defdelimiter>)</defdelimiter> <defparam>code:slanted</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="18">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defparam><t><slanted>[</slanted></t></defparam><defparam>from</defparam> <defparam>to</defparam> <defparam><t><slanted>[</slanted></t></defparam><defparam>inc</defparam><defparam><t><slanted>]]</slanted></t></defparam><defdelimiter>)</defdelimiter> <defparam>t:slanted</defparam></definitionterm></defspecx>
 <definitionitem><para>separators
 </para></definitionitem></defspec>
 
-<defspec spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="19">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam>va---riable</defparam> <defparam>default</defparam></definitionterm>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="20">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><var>va---riable</var></defparam> <defparam>var</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="21">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><r>va&textmdash;riable</r></defparam> <defparam>r</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="22">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><slanted>va---riable</slanted></defparam> <defparam>slanted</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="23">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><code>va---riable</code></defparam> <defparam>code</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="24">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><t>va---riable</t></defparam> <defparam>t</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="25">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><t><b>va---riable</b></t></defparam> <defparam>t:b</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="26">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><r><var>va&textmdash;riable</var></r></defparam> <defparam>r:var</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="27">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><r><slanted>va&textmdash;riable</slanted></r></defparam> <defparam>r:slanted</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="28">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><r><code>va---riable</code></r></defparam> <defparam>r:code</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="29">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><r><t>va---riable</t></r></defparam> <defparam>r:t</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="30">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><code><var>va---riable</var></code></defparam> <defparam>code:var</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="31">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><t><var>va---riable</var></t></defparam> <defparam>t:var</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="32">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><code><slanted>va---riable</slanted></code></defparam> <defparam>code:slanted</defparam></definitionterm></defspecx>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="33">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><t><slanted>va---riable</slanted></t></defparam> <defparam>t:slanted</defparam></definitionterm></defspecx>
+<defspec endspaces=" "><definitionterm><indexterm index="fn" number="19">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam>va---riable</defparam> <defparam>default</defparam></definitionterm>
+<defspecx><definitionterm><indexterm index="fn" number="20">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><var>va---riable</var></defparam> <defparam>var</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="21">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><r>va&textmdash;riable</r></defparam> <defparam>r</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="22">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><slanted>va---riable</slanted></defparam> <defparam>slanted</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="23">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><code>va---riable</code></defparam> <defparam>code</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="24">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><t>va---riable</t></defparam> <defparam>t</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="25">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><t><b>va---riable</b></t></defparam> <defparam>t:b</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="26">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><r><var>va&textmdash;riable</var></r></defparam> <defparam>r:var</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="27">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><r><slanted>va&textmdash;riable</slanted></r></defparam> <defparam>r:slanted</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="28">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><r><code>va---riable</code></r></defparam> <defparam>r:code</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="29">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><r><t>va---riable</t></r></defparam> <defparam>r:t</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="30">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><code><var>va---riable</var></code></defparam> <defparam>code:var</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="31">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><t><var>va---riable</var></t></defparam> <defparam>t:var</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="32">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><code><slanted>va---riable</slanted></code></defparam> <defparam>code:slanted</defparam></definitionterm></defspecx>
+<defspecx><definitionterm><indexterm index="fn" number="33">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defparam><t><slanted>va---riable</slanted></t></defparam> <defparam>t:slanted</defparam></definitionterm></defspecx>
 <definitionitem><para>name
 </para></definitionitem></defspec>
 
-<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="34"><t>.ft</t></indexterm><defcategory>Request</defcategory> <deffunction><t>.ft</t></deffunction> <defdelimiter>[</defdelimiter><defparam><r><slanted>font</slanted></r></defparam><defdelimiter>]</defdelimiter></definitionterm>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="35"><t>\\f</t><r><slanted>f</slanted></r><t></t></indexterm><defcategory>Escape&nbsp;sequence</defcategory> <deffunction><t>\\f</t><r><slanted>f</slanted></r><t></t></deffunction></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="36"><t>\\f(</t><r><slanted>fn</slanted></r><t></t></indexterm><defcategory>Escape&nbsp;sequence</defcategory> <deffunction><t>\\f(</t><r><slanted>fn</slanted></r><t></t></deffunction></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="37"><t>\\f[</t><r><slanted>font</slanted></r><t>]</t></indexterm><defcategory>Escape&nbsp;sequence</defcategory> <deffunction><t>\\f[</t><r><slanted>font</slanted></r><t>]</t></deffunction> <defparam><t>\\f[</t></defparam><defparam><r><slanted>font</slanted></r></defparam><defparam><t>]</t></defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="38"><t>\\n[.sty]</t></indexterm><defcategory>Register</defcategory> <deffunction><t>\\n[.sty]</t></deffunction></definitionterm></deffnx>
+<deffn endspaces=" "><definitionterm><indexterm index="fn" number="34"><t>.ft</t></indexterm> <defcategory>Request</defcategory> <deffunction><t>.ft</t></deffunction> <defdelimiter>[</defdelimiter><defparam><r><slanted>font</slanted></r></defparam><defdelimiter>]</defdelimiter></definitionterm>
+<deffnx><definitionterm><indexterm index="fn" number="35"><t>\\f</t><r><slanted>f</slanted></r><t></t></indexterm> <defcategory>Escape&nbsp;sequence</defcategory> <deffunction><t>\\f</t><r><slanted>f</slanted></r><t></t></deffunction></definitionterm></deffnx>
+<deffnx><definitionterm><indexterm index="fn" number="36"><t>\\f(</t><r><slanted>fn</slanted></r><t></t></indexterm> <defcategory>Escape&nbsp;sequence</defcategory> <deffunction><t>\\f(</t><r><slanted>fn</slanted></r><t></t></deffunction></definitionterm></deffnx>
+<deffnx><definitionterm><indexterm index="fn" number="37"><t>\\f[</t><r><slanted>font</slanted></r><t>]</t></indexterm> <defcategory>Escape&nbsp;sequence</defcategory> <deffunction><t>\\f[</t><r><slanted>font</slanted></r><t>]</t></deffunction> <defparam><t>\\f[</t></defparam><defparam><r><slanted>font</slanted></r></defparam><defparam><t>]</t></defparam></definitionterm></deffnx>
+<deffnx><definitionterm><indexterm index="fn" number="38"><t>\\n[.sty]</t></indexterm> <defcategory>Register</defcategory> <deffunction><t>\\n[.sty]</t></deffunction></definitionterm></deffnx>
 <definitionitem><para>The <code>ft</code> request and the <code>\\f</code> escape change the current font
 to <var>font</var> (one-character name&nbsp;<var>f</var>, two-character name
 <var>fn</var>).
 </para></definitionitem></deffn>
 
-<defspec spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="39">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>[</defdelimiter> <defparam><r>[</r></defparam> <defparam><slanted>[</slanted></defparam> <defparam><code>[</code></defparam> <defparam><t>[</t></defparam> <defparam><r><slanted>[</slanted></r></defparam> <defparam><r><code>[</code></r></defparam> <defparam><r><code><slanted>[</slanted></code></r></defparam> <defparam><r><t>[</t></r></defparam> <defdelimiter>,</defdelimiter> <defparam><r>,</r></defparam> <defparam><slanted>,</slanted></defparam> <defparam><code>,</code></defparam> <defparam><t>,</t></defparam> <defparam><r><slanted>,</slanted></r></defparam> <defparam><r><code>,</code></r></defparam> <defparam><r><code><slanted>,</slanted></code></r></defparam> <defparam><r><t>,</t></r></defparam> <defdelimiter>]</defdelimiter> <defparam><r>]</r></defparam> <defparam><slanted>]</slanted></defparam> <defparam><code>]</code></defparam> <defparam><t>]</t></defparam> <defparam><r><slanted>]</slanted></r></defparam> <defparam><r><code>]</code></r></defparam> <defparam><r><code><slanted>]</slanted></code></r></defparam> <defparam><r><t>]</t></r></defparam></definitionterm>
-<defspecx spaces=" "><definitionterm><indexterm index="fn" number="40">foobar</indexterm><defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>[</defdelimiter><defdelimiter>]</defdelimiter> <defparam><r>[]</r></defparam> <defparam><slanted>[]</slanted></defparam> <defparam><code>[]</code></defparam> <defparam><t>[]</t></defparam> <defparam><r><slanted>[]</slanted></r></defparam> <defparam><r><code>[]</code></r></defparam> <defparam><r><code><slanted>[]</slanted></code></r></defparam></definitionterm></defspecx>
+<defspec endspaces=" "><definitionterm><indexterm index="fn" number="39">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>[</defdelimiter> <defparam><r>[</r></defparam> <defparam><slanted>[</slanted></defparam> <defparam><code>[</code></defparam> <defparam><t>[</t></defparam> <defparam><r><slanted>[</slanted></r></defparam> <defparam><r><code>[</code></r></defparam> <defparam><r><code><slanted>[</slanted></code></r></defparam> <defparam><r><t>[</t></r></defparam> <defdelimiter>,</defdelimiter> <defparam><r>,</r></defparam> <defparam><slanted>,</slanted></defparam> <defparam><code>,</code></defparam> <defparam><t>,</t></defparam> <defparam><r><slanted>,</slanted></r></defparam> <defparam><r><code>,</code></r></defparam> <defparam><r><code><slanted>,</slanted></code></r></defparam> <defparam><r><t>,</t></r></defparam> <defdelimiter>]</defdelimiter> <defparam><r>]</r></defparam> <defparam><slanted>]</slanted></defparam> <defparam><code>]</code></defparam> <defparam><t>]</t></defparam> <defparam><r><slanted>]</slanted></r></defparam> <defparam><r><code>]</code></r></defparam> <defparam><r><code><slanted>]</slanted></code></r></defparam> <defparam><r><t>]</t></r></defparam></definitionterm>
+<defspecx><definitionterm><indexterm index="fn" number="40">foobar</indexterm> <defcategory automatic="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>[</defdelimiter><defdelimiter>]</defdelimiter> <defparam><r>[]</r></defparam> <defparam><slanted>[]</slanted></defparam> <defparam><code>[]</code></defparam> <defparam><t>[]</t></defparam> <defparam><r><slanted>[]</slanted></r></defparam> <defparam><r><code>[]</code></r></defparam> <defparam><r><code><slanted>[]</slanted></code></r></defparam></definitionterm></defspecx>
 <definitionitem><para>test formatting of separators
 </para></definitionitem></defspec>
 
-<deftypefn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="41">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>)</defdelimiter></definitionterm>
+<deftypefn endspaces=" "><definitionterm><indexterm index="fn" number="41">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>)</defdelimiter></definitionterm>
 <definitionitem><para>&dots; with var for <var>f&textmdash;oo</var> and <var>b&textndash;ar</var>
 </para></definitionitem></deftypefn>
 
-<deftypefn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="42">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><r><slanted>f&textmdash;oo</slanted></r></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><r><slanted>b&textndash;ar</slanted></r></defparam><defdelimiter>)</defdelimiter></definitionterm>
+<deftypefn endspaces=" "><definitionterm><indexterm index="fn" number="42">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><r><slanted>f&textmdash;oo</slanted></r></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><r><slanted>b&textndash;ar</slanted></r></defparam><defdelimiter>)</defdelimiter></definitionterm>
 <definitionitem><para>&dots; with r slanted for <var>f&textmdash;oo</var> and <var>b&textndash;ar</var>
 </para></definitionitem></deftypefn>
 
 <noindent></noindent> <para>produces:
-</para><defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="1">border-pattern</indexterm><defcategory bracketed="on">Class Option</defcategory> <defclass>Window</defclass> <defclassvar>border-pattern</defclassvar></definitionterm>
+</para><defcv endspaces=" "><definitionterm><indexterm index="vr" number="1">border-pattern</indexterm> <defcategory bracketed="on">Class Option</defcategory> <defclass>Window</defclass> <defclassvar>border-pattern</defclassvar></definitionterm>
 <definitionitem><para>&dots;
 </para></definitionitem></defcv>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="2">border-pattern of Window</indexterm><defcategory bracketed="on">Class Option</defcategory> <defclass>Window</defclass> <deftype><code>int</code></deftype> <defclassvar>border-pattern</defclassvar></definitionterm>
+<deftypecv endspaces=" "><definitionterm><indexterm index="vr" number="2">border-pattern of Window</indexterm> <defcategory bracketed="on">Class Option</defcategory> <defclass>Window</defclass> <deftype><code>int</code></deftype> <defclassvar>border-pattern</defclassvar></definitionterm>
 <definitionitem><para>&dots;
 </para></definitionitem></deftypecv>
 
 <quotation endspaces=" ">
-<deftypefn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="43">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>foo</var></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>bar</var></defparam><defdelimiter>)</defdelimiter></definitionterm>
+<deftypefn endspaces=" "><definitionterm><indexterm index="fn" number="43">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>foo</var></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>bar</var></defparam><defdelimiter>)</defdelimiter></definitionterm>
 <definitionitem><para>&dots; for <var>foo</var> and <var>bar</var>
 </para></definitionitem></deftypefn>
 </quotation>
 
-<defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="44">apply</indexterm><defcategory automatic="on">Function</defcategory> <deffunction>apply</deffunction> <defparam>function</defparam> <defparam>&amp;rest</defparam> <defparam>arguments</defparam></definitionterm>
+<defun endspaces=" "><definitionterm><indexterm index="fn" number="44">apply</indexterm> <defcategory automatic="on">Function</defcategory> <deffunction>apply</deffunction> <defparam>function</defparam> <defparam>&amp;rest</defparam> <defparam>arguments</defparam></definitionterm>
 <definitionitem><para><code>apply</code> calls no var <var>function</var> with <var>arguments</var>
 </para></definitionitem></defun>
 
-<defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="45">apply</indexterm><defcategory automatic="on">Function</defcategory> <deffunction>apply</deffunction> <defparam>function</defparam> <defparam><r><b>&amp;rest</b></r></defparam> <defparam>argument</defparam></definitionterm>
+<defun endspaces=" "><definitionterm><indexterm index="fn" number="45">apply</indexterm> <defcategory automatic="on">Function</defcategory> <deffunction>apply</deffunction> <defparam>function</defparam> <defparam><r><b>&amp;rest</b></r></defparam> <defparam>argument</defparam></definitionterm>
 <definitionitem><para>explicit keyword marking, no var <var>function</var> with <var>arguments</var>
 </para></definitionitem></defun>
 
-<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="46">name</indexterm><defcategory>Category</defcategory> <deffunction>name</deffunction> <defparam>argument</defparam> <defparam><code>int</code></defparam> <defparam><code>a--b</code></defparam> <defparam><var>v--ar1</var></defparam><defdelimiter>,</defdelimiter> <defparam>word</defparam> <defparam><code>--</code></defparam> <defdelimiter>(</defdelimiter><defparam><code>type o--ther</code></defparam><defdelimiter>,</defdelimiter> <defparam><var>v---ar2</var></defparam>  <defdelimiter>[</defdelimiter><defparam><code>float</code></defparam> <defdelimiter>[</defdelimiter><defparam><var>var4</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter></definitionterm>
+<deffn endspaces=" "><definitionterm><indexterm index="fn" number="46">name</indexterm> <defcategory>Category</defcategory> <deffunction>name</deffunction> <defparam>argument</defparam> <defparam><code>int</code></defparam> <defparam><code>a--b</code></defparam> <defparam><var>v--ar1</var></defparam><defdelimiter>,</defdelimiter> <defparam>word</defparam> <defparam><code>--</code></defparam> <defdelimiter>(</defdelimiter><defparam><code>type o--ther</code></defparam><defdelimiter>,</defdelimiter> <defparam><var>v---ar2</var></defparam>  <defdelimiter>[</defdelimiter><defparam><code>float</code></defparam> <defdelimiter>[</defdelimiter><defparam><var>var4</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter></definitionterm>
 <definitionitem><para>In deffn with code and var used
 </para></definitionitem></deffn>
 
-<deftypefn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="47">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>default</defparamtype></definitionterm>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="48">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><r>[</r></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><r>]</r></defparam><defdelimiter>)</defdelimiter> <defparamtype>r</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="49">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><var>[</var></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><var>]</var></defparam><defdelimiter>)</defdelimiter> <defparamtype>var</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="50">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><slanted>[</slanted></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><slanted>]</slanted></defparam><defdelimiter>)</defdelimiter> <defparamtype>slanted</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="51">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparamtype><code>[</code></defparamtype><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparamtype><code>]</code></defparamtype><defdelimiter>)</defdelimiter> <defparamtype>code</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="52">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><t>[</t></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><t>]</t></defparam><defdelimiter>)</defdelimiter> <defparamtype>t</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="53">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><t><b>[</b></t></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><t><b>]</b></t></defparam><defdelimiter>)</defdelimiter> <defparamtype>t:b</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="54">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><r><var>[</var></r></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><r><var>]</var></r></defparam><defdelimiter>)</defdelimiter> <defparamtype>r:var</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="55">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><r><slanted>[</slanted></r></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><r><slanted>]</slanted></r></defparam><defdelimiter>)</defdelimiter> <defparamtype>r:slanted</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="56">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><r><code>[</code></r></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><r><code>]</code></r></defparam><defdelimiter>)</defdelimiter> <defparamtype>r:code</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="57">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><r><t>[</t></r></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><r><t>]</t></r></defparam><defdelimiter>)</defdelimiter> <defparamtype>r:t</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="58">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparamtype><code><var>[</var></code></defparamtype><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparamtype><code><var>]</var></code></defparamtype><defdelimiter>)</defdelimiter> <defparamtype>code:var</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="59">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><t><var>[</var></t></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><t><var>]</var></t></defparam><defdelimiter>)</defdelimiter> <defparamtype>t:var</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="60">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparamtype><code><slanted>[</slanted></code></defparamtype><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparamtype><code><slanted>]</slanted></code></defparamtype><defdelimiter>)</defdelimiter> <defparamtype>code:slanted</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="61">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><t><slanted>[</slanted></t></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><t><slanted>]</slanted></t></defparam><defdelimiter>)</defdelimiter> <defparamtype>t:slanted</defparamtype></definitionterm></deftypefnx>
+<deftypefn endspaces=" "><definitionterm><indexterm index="fn" number="47">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>default</defparamtype></definitionterm>
+<deftypefnx><definitionterm><indexterm index="fn" number="48">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><r>[</r></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><r>]</r></defparam><defdelimiter>)</defdelimiter> <defparamtype>r</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="49">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><var>[</var></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><var>]</var></defparam><defdelimiter>)</defdelimiter> <defparamtype>var</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="50">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><slanted>[</slanted></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><slanted>]</slanted></defparam><defdelimiter>)</defdelimiter> <defparamtype>slanted</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="51">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparamtype><code>[</code></defparamtype><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparamtype><code>]</code></defparamtype><defdelimiter>)</defdelimiter> <defparamtype>code</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="52">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><t>[</t></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><t>]</t></defparam><defdelimiter>)</defdelimiter> <defparamtype>t</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="53">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><t><b>[</b></t></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><t><b>]</b></t></defparam><defdelimiter>)</defdelimiter> <defparamtype>t:b</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="54">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><r><var>[</var></r></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><r><var>]</var></r></defparam><defdelimiter>)</defdelimiter> <defparamtype>r:var</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="55">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><r><slanted>[</slanted></r></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><r><slanted>]</slanted></r></defparam><defdelimiter>)</defdelimiter> <defparamtype>r:slanted</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="56">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><r><code>[</code></r></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><r><code>]</code></r></defparam><defdelimiter>)</defdelimiter> <defparamtype>r:code</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="57">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><r><t>[</t></r></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><r><t>]</t></r></defparam><defdelimiter>)</defdelimiter> <defparamtype>r:t</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="58">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparamtype><code><var>[</var></code></defparamtype><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparamtype><code><var>]</var></code></defparamtype><defdelimiter>)</defdelimiter> <defparamtype>code:var</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="59">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><t><var>[</var></t></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><t><var>]</var></t></defparam><defdelimiter>)</defdelimiter> <defparamtype>t:var</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="60">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparamtype><code><slanted>[</slanted></code></defparamtype><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparamtype><code><slanted>]</slanted></code></defparamtype><defdelimiter>)</defdelimiter> <defparamtype>code:slanted</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="61">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defparam><t><slanted>[</slanted></t></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defparam><t><slanted>]</slanted></t></defparam><defdelimiter>)</defdelimiter> <defparamtype>t:slanted</defparamtype></definitionterm></deftypefnx>
 <definitionitem><para>separators
 </para></definitionitem></deftypefn>
 
-<deftypefn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="62">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>i--nt</defparamtype> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>default</defparamtype></definitionterm>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="63">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><r>i&textndash;nt</r></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>r</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="64">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><var>i--nt</var></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>var</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="65">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><slanted>i--nt</slanted></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>slanted</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="66">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype><code>i--nt</code></defparamtype> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>code</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="67">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><t>i--nt</t></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>t</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="68">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><t><b>i--nt</b></t></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>t:b</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="69">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><r><var>i&textndash;nt</var></r></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>r:var</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="70">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><r><slanted>i&textndash;nt</slanted></r></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>r:slanted</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="71">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><r><code>i--nt</code></r></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>r:code</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="72">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><r><t>i--nt</t></r></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>r:t</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="73">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype><code><var>i--nt</var></code></defparamtype> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>code:var</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="74">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><t><var>i--nt</var></t></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>t:var</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="75">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype><code><slanted>i--nt</slanted></code></defparamtype> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>code:slanted</defparamtype></definitionterm></deftypefnx>
-<deftypefnx spaces=" "><definitionterm><indexterm index="fn" number="76">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><t><slanted>i--nt</slanted></t></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>t:slanted</defparamtype></definitionterm></deftypefnx>
+<deftypefn endspaces=" "><definitionterm><indexterm index="fn" number="62">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>i--nt</defparamtype> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>default</defparamtype></definitionterm>
+<deftypefnx><definitionterm><indexterm index="fn" number="63">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><r>i&textndash;nt</r></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>r</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="64">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><var>i--nt</var></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>var</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="65">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><slanted>i--nt</slanted></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>slanted</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="66">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype><code>i--nt</code></defparamtype> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>code</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="67">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><t>i--nt</t></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>t</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="68">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><t><b>i--nt</b></t></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>t:b</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="69">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><r><var>i&textndash;nt</var></r></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>r:var</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="70">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><r><slanted>i&textndash;nt</slanted></r></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>r:slanted</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="71">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><r><code>i--nt</code></r></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>r:code</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="72">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><r><t>i--nt</t></r></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>r:t</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="73">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype><code><var>i--nt</var></code></defparamtype> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>code:var</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="74">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><t><var>i--nt</var></t></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>t:var</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="75">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype><code><slanted>i--nt</slanted></code></defparamtype> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>code:slanted</defparamtype></definitionterm></deftypefnx>
+<deftypefnx><definitionterm><indexterm index="fn" number="76">foobar</indexterm> <defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparam><t><slanted>i--nt</slanted></t></defparam> <defparam><var>f---oo</var></defparam><defdelimiter>[</defdelimiter><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparamtype>t:slanted</defparamtype></definitionterm></deftypefnx>
 <definitionitem><para>name
 </para></definitionitem></deftypefn>
 

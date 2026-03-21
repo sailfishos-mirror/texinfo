@@ -15,16 +15,12 @@ $result_tree_text{'ifset_and_end_isef_in_macro'} = '*document_root C1
     {macro_line: beginifset {}\\n}
    {raw:@ifset a\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l5
   |EXTRA
@@ -34,33 +30,25 @@ $result_tree_text{'ifset_and_end_isef_in_macro'} = '*document_root C1
     {macro_line: endifset {}\\n}
    {raw:@end ifset\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call@beginifset
   >ignored_conditional_block<1><p:1>
    >*@ifset C3 l9:@beginifset
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{a}
       >>SOURCEMARKS
       >>macro_expansion<end;1><p:1>
+      >{spaces_after_argument:\\n}
     >{raw:in ifset\\n}
     >{raw:@endifset\\n}
 ';

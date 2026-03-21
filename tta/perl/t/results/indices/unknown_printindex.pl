@@ -8,12 +8,10 @@ use utf8;
 $result_tree_text{'unknown_printindex'} = '*document_root C1
  *before_node_section C1
   *@printindex C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {bidule}
 ';
 

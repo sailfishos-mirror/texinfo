@@ -13,14 +13,10 @@ $result_tree_text{'empty_lines_at_beginning_no_setfilename_no_element'} = '*docu
    {text_before_beginning:\\n}
   *preamble_before_content
   *@center C1 empty_lines_at_beginning_no_setfilename_no_element.texi:l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {centered}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Some text.\\n}

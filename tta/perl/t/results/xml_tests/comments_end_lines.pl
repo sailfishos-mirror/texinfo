@@ -9,10 +9,8 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
  *before_node_section C19
   *@itemize C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -20,68 +18,64 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
     *paragraph C1
      {itemize it\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comment itemize}
-    |spaces_after_argument:
-     |{spaces_after_argument:  }
+    *line_arg C4
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:  }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comment itemize}
   {empty_line:\\n}
   *@enumerate C2 l5
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
-    *line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comm}
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *line_arg C4
+     {spaces_before_argument: }
      {enumerate}
+     {spaces_after_argument: }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comm}
   {empty_line:\\n}
   *@table C3 l8
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l8
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l9
+      *line_arg C3
+       {spaces_before_argument: }
+       {it}
+       {spaces_after_argument:\\n}
+   *@end C1 l10
+   |EXTRA
+   |text_arg:{table}
+    *line_arg C4
+     {spaces_before_argument: }
+     {table}
+     {spaces_after_argument: }
+     *@c C1
      |INFO
      |spaces_before_argument:
       |{spaces_before_argument: }
@@ -89,138 +83,90 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
-       {it}
-   *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-   |EXTRA
-   |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:table}
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-     {table}
+       {rawline_text:table}
   {empty_line:\\n}
   *@quotation C3 l12
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {Quot no arg\\n}
    *@end C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:quot no arg}
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *line_arg C4
+     {spaces_before_argument: }
      {quotation}
-  {empty_line:\\n}
-  *@group C3 l16
-   *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-   *paragraph C1
-    {in gr\\n}
-   *@end C1 l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-   |EXTRA
-   |text_arg:{group}
-    *line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comm}
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-     {group}
-  {empty_line:\\n}
-  *@example C3 l20
-   *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-   *preformatted C1
-    {in ex\\n}
-   *@end C1 l22
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-   |EXTRA
-   |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comm}
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-     {example}
-  {empty_line:\\n}
-  *@multitable C3 l24
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-  |EXTRA
-  |max_columns:{2}
-   *arguments_line C1
-    *block_line_arg C1
-     *@columnfractions C1 l24
+     {spaces_after_argument: }
+     *@c C1
      |INFO
      |spaces_before_argument:
       |{spaces_before_argument: }
-     |EXTRA
-     |misc_args:A{0.4|0.6}
       *line_arg C1
       |INFO
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
+       {rawline_text:quot no arg}
+  {empty_line:\\n}
+  *@group C3 l16
+   *arguments_line C1
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
+   *paragraph C1
+    {in gr\\n}
+   *@end C1 l18
+   |EXTRA
+   |text_arg:{group}
+    *line_arg C4
+     {spaces_before_argument: }
+     {group}
+     {spaces_after_argument: }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comm}
+  {empty_line:\\n}
+  *@example C3 l20
+   *arguments_line C1
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
+   *preformatted C1
+    {in ex\\n}
+   *@end C1 l22
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C4
+     {spaces_before_argument: }
+     {example}
+     {spaces_after_argument: }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comm}
+  {empty_line:\\n}
+  *@multitable C3 l24
+  |EXTRA
+  |max_columns:{2}
+   *arguments_line C1
+    *block_line_arg C2
+     {spaces_before_argument: }
+     *@columnfractions C1 l24
+     |EXTRA
+     |misc_args:A{0.4|0.6}
+      *line_arg C3
+       {spaces_before_argument: }
        {0.4 0.6}
+       {spaces_after_argument:\\n}
    *multitable_body C1
     *row C2
     |EXTRA
@@ -238,31 +184,23 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
       *paragraph C1
        {b\\n}
    *@end C1 l26
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comm}
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *line_arg C4
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument: }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comm}
   {empty_line:\\n}
   *@float C3 l28
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{f}
@@ -270,96 +208,76 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
   |identifier:{g}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {f}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C2
      {g}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {In f\\n}
    *@end C1 l30
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comm}
-    |spaces_after_argument:
-     |{spaces_after_argument:  }
+    *line_arg C4
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:  }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comm}
   {empty_line:\\n}
   *@flushright C3 l32
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {flushright\\n}
    *@end C1 l34
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushright}
-    *line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comm}
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *line_arg C4
+     {spaces_before_argument: }
      {flushright}
+     {spaces_after_argument: }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comm}
   {empty_line:\\n}
   *@raggedright C3 l36
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {raggedright\\n}
    *@end C1 l38
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{raggedright}
-    *line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comm}
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *line_arg C4
+     {spaces_before_argument: }
      {raggedright}
+     {spaces_after_argument: }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comm}
 ';
 
 
@@ -447,8 +365,8 @@ $result_converted{'xml'}->{'comments_end_lines'} = '<itemize endspaces=" ">
 <enumerate first="1" endspaces=" ">
 </enumerate> <!-- c comm -->
 
-<table commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis">it</itemformat></item>
+<table commandarg="asis" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"> it</itemformat></item>
 </tableterm></tableentry></table> <!-- c table -->
 
 <quotation endspaces=" ">
@@ -463,11 +381,11 @@ $result_converted{'xml'}->{'comments_end_lines'} = '<itemize endspaces=" ">
 <pre xml:space="preserve">in ex
 </pre></example> <!-- c comm -->
 
-<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.4 0.6"><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
+<multitable endspaces=" "><columnfractions line=" 0.4 0.6"><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
 <tbody><row><entry command="item"> <para>a </para></entry><entry command="tab"> <para>b
 </para></entry></row></tbody></multitable> <!-- c comm -->
 
-<float identifier="g" type="f" number="1" spaces=" " endspaces=" "><floattype>f</floattype><floatname>g</floatname>
+<float identifier="g" type="f" number="1" endspaces=" "><floattype> f</floattype><floatname>g</floatname>
 <para>In f
 </para></float>  <!-- c comm -->
 

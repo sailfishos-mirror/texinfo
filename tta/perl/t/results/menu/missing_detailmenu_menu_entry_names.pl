@@ -8,71 +8,53 @@ use utf8;
 $result_tree_text{'missing_detailmenu_menu_entry_names'} = '*document_root C15
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {text\\n}
   {empty_line:\\n}
  *@node C1 l6 {C1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{C1}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {C1}
+    {spaces_after_argument:\\n}
  *@chapter C4 l7 {C1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {C1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C5 l9
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l10
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -99,110 +81,80 @@ $result_tree_text{'missing_detailmenu_menu_entry_names'} = '*document_root C15
     *preformatted C1
      {after_menu_description_line:\\n}
    *@end C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l15 {C1 Sec1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{C1-Sec1}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {C1 Sec1}
+    {spaces_after_argument:\\n}
  *@section C2 l16 {C1 Sec1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {C1 Sec1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l18 {C1 Sec2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{C1-Sec2}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {C1 Sec2}
+    {spaces_after_argument:\\n}
  *@section C2 l19 {C1 Sec2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.2}
  |section_level:{2}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {C1 Sec2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l21 {C2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{C2}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {C2}
+    {spaces_after_argument:\\n}
  *@chapter C4 l22 {C2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {C2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C5 l24
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C6 l25
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -232,74 +184,54 @@ $result_tree_text{'missing_detailmenu_menu_entry_names'} = '*document_root C15
     *preformatted C1
      {after_menu_description_line:\\n}
    *@end C1 l28
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l30 {C2 Sec1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{C2-Sec1}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {C2 Sec1}
+    {spaces_after_argument:\\n}
  *@section C2 l31 {C2 Sec1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {C2 Sec1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l33 {C2 Sec2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{C2-Sec2}
  |is_target:{1}
  |node_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {C2 Sec2}
+    {spaces_after_argument:\\n}
  *@section C1 l34 {C2 Sec2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.2}
  |section_level:{2}
  |section_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {C2 Sec2}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -670,14 +602,14 @@ C2
 ';
 
 
-$result_converted{'xml'}->{'missing_detailmenu_menu_entry_names'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">C1</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+$result_converted{'xml'}->{'missing_detailmenu_menu_entry_names'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> C1</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 <para>text
 </para>
 </top>
-<node identifier="C1" spaces=" "><nodename>C1</nodename><nodenext automatic="on">C2</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>C1</sectiontitle>
+<node identifier="C1"><nodename> C1</nodename><nodenext automatic="on"> C2</nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> C1</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>C1 Sec1</menunode><menuseparator>::   </menuseparator><menudescription><pre xml:space="preserve">desc 1
@@ -685,17 +617,17 @@ $result_converted{'xml'}->{'missing_detailmenu_menu_entry_names'} = '<node ident
 </pre></menudescription></menuentry><menucomment><pre xml:space="preserve">
 </pre></menucomment></menu>
 
-<node identifier="C1-Sec1" spaces=" "><nodename>C1 Sec1</nodename><nodenext automatic="on">C1 Sec2</nodenext><nodeup automatic="on">C1</nodeup></node>
-<section spaces=" "><sectiontitle>C1 Sec1</sectiontitle>
+<node identifier="C1-Sec1"><nodename> C1 Sec1</nodename><nodenext automatic="on"> C1 Sec2</nodenext><nodeup automatic="on"> C1</nodeup></node>
+<section><sectiontitle> C1 Sec1</sectiontitle>
 
 </section>
-<node identifier="C1-Sec2" spaces=" "><nodename>C1 Sec2</nodename><nodeprev automatic="on">C1 Sec1</nodeprev><nodeup automatic="on">C1</nodeup></node>
-<section spaces=" "><sectiontitle>C1 Sec2</sectiontitle>
+<node identifier="C1-Sec2"><nodename> C1 Sec2</nodename><nodeprev automatic="on"> C1 Sec1</nodeprev><nodeup automatic="on"> C1</nodeup></node>
+<section><sectiontitle> C1 Sec2</sectiontitle>
 
 </section>
 </chapter>
-<node identifier="C2" spaces=" "><nodename>C2</nodename><nodeprev automatic="on">C1</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>C2</sectiontitle>
+<node identifier="C2"><nodename> C2</nodename><nodeprev automatic="on"> C1</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> C2</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menutitle>Sec1</menutitle><menuseparator>: </menuseparator><menunode>C2 Sec1</menunode><menuseparator>.   </menuseparator><menudescription><pre xml:space="preserve">dont re-use this entry for master menu
@@ -703,12 +635,12 @@ $result_converted{'xml'}->{'missing_detailmenu_menu_entry_names'} = '<node ident
 </pre></menudescription></menuentry><menucomment><pre xml:space="preserve">
 </pre></menucomment></menu>
 
-<node identifier="C2-Sec1" spaces=" "><nodename>C2 Sec1</nodename><nodenext automatic="on">C2 Sec2</nodenext><nodeup automatic="on">C2</nodeup></node>
-<section spaces=" "><sectiontitle>C2 Sec1</sectiontitle>
+<node identifier="C2-Sec1"><nodename> C2 Sec1</nodename><nodenext automatic="on"> C2 Sec2</nodenext><nodeup automatic="on"> C2</nodeup></node>
+<section><sectiontitle> C2 Sec1</sectiontitle>
 
 </section>
-<node identifier="C2-Sec2" spaces=" "><nodename>C2 Sec2</nodename><nodeprev automatic="on">C2 Sec1</nodeprev><nodeup automatic="on">C2</nodeup></node>
-<section spaces=" "><sectiontitle>C2 Sec2</sectiontitle>
+<node identifier="C2-Sec2"><nodename> C2 Sec2</nodename><nodeprev automatic="on"> C2 Sec1</nodeprev><nodeup automatic="on"> C2</nodeup></node>
+<section><sectiontitle> C2 Sec2</sectiontitle>
 </section>
 </chapter>
 ';

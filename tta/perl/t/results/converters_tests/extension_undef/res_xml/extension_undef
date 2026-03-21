@@ -3,10 +3,10 @@
 <texinfo>
 <filename file="extension_undef"></filename>
 <para>node Top
-</para><top spaces=" "><sectiontitle>top</sectiontitle>
+</para><top><sectiontitle> top</sectiontitle>
 
 </top>
-<node identifier="chapter" spaces=" "><nodename>chapter</nodename></node>
-<chapter spaces=" "><sectiontitle>Chap</sectiontitle>
+<node identifier="chapter"><nodename> chapter</nodename></node>
+<chapter><sectiontitle> Chap</sectiontitle>
 </chapter>
 </texinfo>

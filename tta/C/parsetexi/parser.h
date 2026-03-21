@@ -82,7 +82,6 @@ ELEMENT *end_paragraph (ELEMENT *current,
 ELEMENT *end_paragraph_preformatted (ELEMENT *current,
                                  enum command_id closed_block_cmd,
                                  enum command_id interrupting_cmd);
-void isolate_last_space (ELEMENT *current);
 void isolate_trailing_space (ELEMENT *current, enum element_type spaces_type);
 int kbd_formatted_as_code (void);
 int parent_of_command_as_argument (ELEMENT *current);
@@ -97,8 +96,6 @@ void isolate_leading_trailing (ELEMENT *current, int isolate_leading_only);
 char *text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg);
 ELEMENT *merge_text (ELEMENT *current, const char *text, size_t text_len,
                      ELEMENT *transfer_marks_element);
-void start_empty_line_after_command (ELEMENT *current, const char **line_inout,
-                                     const ELEMENT *command);
 int check_space_element (ELEMENT *e);
 void gather_spaces_after_cmd_before_arg (ELEMENT *current);
 char *parse_command_name (const char **ptr, int *single_char);

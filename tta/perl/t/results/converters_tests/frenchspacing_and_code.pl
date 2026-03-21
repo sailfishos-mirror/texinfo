@@ -9,74 +9,54 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
  *before_node_section C3
   {empty_line:\\n}
   *@frenchspacing C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{on}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {on}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l5 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l7 {chapter frenchspacing}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter-frenchspacing}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter frenchspacing}
+    {spaces_after_argument:\\n}
  *@chapter C13 l8 {Chap frenchspacing}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap frenchspacing}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {In text w: z? n; p. f\\n}
@@ -89,28 +69,19 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
   {empty_line:\\n}
   *@example C3 l14
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C1
     {c: d? j\\n}
    *@end C1 l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypeop C3 l18
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l18
    |EXTRA
    |def_command:{deftypeop}
@@ -135,10 +106,8 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    |element_node:{chapter-frenchspacing}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deftypeop}
-    *block_line_arg C17
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C19
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l18
        {cat: r. a}
@@ -178,25 +147,19 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
        *@code C1 l18
         *brace_container C1
          {code? is: k}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {deftypeop\\n}
    *@end C1 l20
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypeop}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypeop}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defop C3 l22
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l22
    |EXTRA
    |def_command:{defop}
@@ -221,10 +184,8 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    |element_node:{chapter-frenchspacing}
    |index_entry:I{fn,2}
    |original_def_cmdname:{defop}
-    *block_line_arg C15
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C17
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l22
        {vcat: r. z}
@@ -260,61 +221,46 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
        *@code C1 l22
         *brace_container C1
          {vcode? is: a}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {defop\\n}
    *@end C1 l24
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defop}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defop}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@frenchspacing C1 l26
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{off}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {off}
+    {spaces_after_argument:\\n}
  *@node C1 l27 {chap no}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap-no}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap no}
+    {spaces_after_argument:\\n}
  *@chapter C11 l28 {Chap no}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap no}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {In text w: z? n; p. fn \\n}
@@ -327,28 +273,19 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
   {empty_line:\\n}
   *@example C3 l34
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C1
     {c: d? jn\\n}
    *@end C1 l36
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypeop C3 l38
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l38
    |EXTRA
    |def_command:{deftypeop}
@@ -373,10 +310,8 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    |element_node:{chap-no}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deftypeop}
-    *block_line_arg C17
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C19
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l38
        {cat: r. a}
@@ -416,25 +351,19 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
        *@code C1 l38
         *brace_container C1
          {code? is: k}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {deftypeop n\\n}
    *@end C1 l40
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypeop}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypeop}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defop C3 l42
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l42
    |EXTRA
    |def_command:{defop}
@@ -459,10 +388,8 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    |element_node:{chap-no}
    |index_entry:I{fn,4}
    |original_def_cmdname:{defop}
-    *block_line_arg C15
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C17
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l42
        {vcat: r. z}
@@ -498,20 +425,17 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
        *@code C1 l42
         *brace_container C1
          {vcode? is: a}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {defop n\\n}
    *@end C1 l44
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defop}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defop}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -762,14 +686,14 @@ $result_converted{'html_text'}->{'frenchspacing_and_code'} = '
 
 
 $result_converted{'xml'}->{'frenchspacing_and_code'} = '
-<frenchspacing spaces=" " value="on" line="on"></frenchspacing>
+<frenchspacing value="on" line=" on"></frenchspacing>
 
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter frenchspacing</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapter frenchspacing</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 </top>
-<node identifier="chapter-frenchspacing" spaces=" "><nodename>chapter frenchspacing</nodename><nodenext automatic="on">chap no</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Chap frenchspacing</sectiontitle>
+<node identifier="chapter-frenchspacing"><nodename> chapter frenchspacing</nodename><nodenext automatic="on"> chap no</nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Chap frenchspacing</sectiontitle>
 
 <para>In text w: z? n; p. f
 </para>
@@ -779,18 +703,18 @@ $result_converted{'xml'}->{'frenchspacing_and_code'} = '
 <pre xml:space="preserve">c: d? j
 </pre></example>
 
-<deftypeop spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">name? n. d on class: MyC. b</indexterm><defcategory bracketed="on">cat: r. a</defcategory> <defclass bracketed="on">class: MyC. b</defclass> <deftype bracketed="on">type: t. c</deftype> <defoperation bracketed="on">name? n. d</defoperation> <defparamtype>arg?</defparamtype> <defparam>e:</defparam> <defparamtype>f.</defparamtype>  <defparam><var>v: g. h</var></defparam> <defparamtype><code>code? is: k</code></defparamtype></definitionterm>
+<deftypeop endspaces=" "><definitionterm><indexterm index="fn" number="1">name? n. d on class: MyC. b</indexterm> <defcategory bracketed="on">cat: r. a</defcategory> <defclass bracketed="on">class: MyC. b</defclass> <deftype bracketed="on">type: t. c</deftype> <defoperation bracketed="on">name? n. d</defoperation> <defparamtype>arg?</defparamtype> <defparam>e:</defparam> <defparamtype>f.</defparamtype>  <defparam><var>v: g. h</var></defparam> <defparamtype><code>code? is: k</code></defparamtype></definitionterm>
 <definitionitem><para>deftypeop
 </para></definitionitem></deftypeop>
 
-<defop spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="2">vname? n; d on vclass: MyC. u</indexterm><defcategory bracketed="on">vcat: r. z</defcategory> <defclass bracketed="on">vclass: MyC. u</defclass> <defoperation bracketed="on">vname? n; d</defoperation> <defparam>varg?</defparam> <defparam>ve:</defparam> <defparam>f.</defparam> <defparam><var>vv: g? b</var></defparam> <defparam><code>vcode? is: a</code></defparam></definitionterm>
+<defop endspaces=" "><definitionterm><indexterm index="fn" number="2">vname? n; d on vclass: MyC. u</indexterm> <defcategory bracketed="on">vcat: r. z</defcategory> <defclass bracketed="on">vclass: MyC. u</defclass> <defoperation bracketed="on">vname? n; d</defoperation> <defparam>varg?</defparam> <defparam>ve:</defparam> <defparam>f.</defparam> <defparam><var>vv: g? b</var></defparam> <defparam><code>vcode? is: a</code></defparam></definitionterm>
 <definitionitem><para>defop
 </para></definitionitem></defop>
 
-<frenchspacing spaces=" " value="off" line="off"></frenchspacing>
+<frenchspacing value="off" line=" off"></frenchspacing>
 </chapter>
-<node identifier="chap-no" spaces=" "><nodename>chap no</nodename><nodeprev automatic="on">chapter frenchspacing</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Chap no</sectiontitle>
+<node identifier="chap-no"><nodename> chap no</nodename><nodeprev automatic="on"> chapter frenchspacing</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Chap no</sectiontitle>
 
 <para>In text w: z? n; p. fn 
 </para>
@@ -800,11 +724,11 @@ $result_converted{'xml'}->{'frenchspacing_and_code'} = '
 <pre xml:space="preserve">c: d? jn
 </pre></example>
 
-<deftypeop spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="3">name? n. d on class: MyC. b</indexterm><defcategory bracketed="on">cat: r. a</defcategory> <defclass bracketed="on">class: MyC. b</defclass> <deftype bracketed="on">type: t. c</deftype> <defoperation bracketed="on">name? n. d</defoperation> <defparamtype>narg?</defparamtype> <defparam>e:</defparam> <defparamtype>f.</defparamtype>  <defparam><var>v: g. h</var></defparam> <defparamtype><code>code? is: k</code></defparamtype></definitionterm>
+<deftypeop endspaces=" "><definitionterm><indexterm index="fn" number="3">name? n. d on class: MyC. b</indexterm> <defcategory bracketed="on">cat: r. a</defcategory> <defclass bracketed="on">class: MyC. b</defclass> <deftype bracketed="on">type: t. c</deftype> <defoperation bracketed="on">name? n. d</defoperation> <defparamtype>narg?</defparamtype> <defparam>e:</defparam> <defparamtype>f.</defparamtype>  <defparam><var>v: g. h</var></defparam> <defparamtype><code>code? is: k</code></defparamtype></definitionterm>
 <definitionitem><para>deftypeop n
 </para></definitionitem></deftypeop>
 
-<defop spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="4">vname? n; d on nvclass: MyC. u</indexterm><defcategory bracketed="on">vcat: r. z</defcategory> <defclass bracketed="on">nvclass: MyC. u</defclass> <defoperation bracketed="on">vname? n; d</defoperation> <defparam>varg?</defparam> <defparam>ve:</defparam> <defparam>f.</defparam> <defparam><var>vv: g? b</var></defparam> <defparam><code>vcode? is: a</code></defparam></definitionterm>
+<defop endspaces=" "><definitionterm><indexterm index="fn" number="4">vname? n; d on nvclass: MyC. u</indexterm> <defcategory bracketed="on">vcat: r. z</defcategory> <defclass bracketed="on">nvclass: MyC. u</defclass> <defoperation bracketed="on">vname? n; d</defoperation> <defparam>varg?</defparam> <defparam>ve:</defparam> <defparam>f.</defparam> <defparam><var>vv: g? b</var></defparam> <defparam><code>vcode? is: a</code></defparam></definitionterm>
 <definitionitem><para>defop n
 </para></definitionitem></defop>
 </chapter>

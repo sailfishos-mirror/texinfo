@@ -8,24 +8,18 @@ use utf8;
 $result_tree_text{'empty_item_tab'} = '*document_root C1
  *before_node_section C3
   *@multitable C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{1}
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      *@columnfractions C1 l1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{1.0}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {1.0}
+       {spaces_after_argument:\\n}
    *multitable_body C4
     *row C1
     |EXTRA
@@ -59,36 +53,26 @@ $result_tree_text{'empty_item_tab'} = '*document_root C1
      |cell_number:{1}
       {ignorable_spaces_after_command:\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@multitable C3 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      *@columnfractions C1 l9
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{0.5|0.5}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {0.5 0.5}
+       {spaces_after_argument:\\n}
    *multitable_body C8
     *row C1
     |EXTRA
@@ -181,16 +165,12 @@ $result_tree_text{'empty_item_tab'} = '*document_root C1
       *paragraph C1
        {tab not empty\\n}
    *@end C1 l24
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -276,7 +256,7 @@ $result_converted{'html_text'}->{'empty_item_tab'} = '<table class="multitable">
 ';
 
 
-$result_converted{'xml'}->{'empty_item_tab'} = '<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="1.0"><columnfraction value="1.0"></columnfraction></columnfractions>
+$result_converted{'xml'}->{'empty_item_tab'} = '<multitable endspaces=" "><columnfractions line=" 1.0"><columnfraction value="1.0"></columnfraction></columnfractions>
 <tbody><row><entry command="item">
 
 </entry></row><row><entry command="item">
@@ -284,7 +264,7 @@ $result_converted{'xml'}->{'empty_item_tab'} = '<multitable spaces=" " endspaces
 </para></entry></row><row><entry command="item">
 </entry></row></tbody></multitable>
 
-<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.5 0.5"><columnfraction value="0.5"></columnfraction><columnfraction value="0.5"></columnfraction></columnfractions>
+<multitable endspaces=" "><columnfractions line=" 0.5 0.5"><columnfraction value="0.5"></columnfraction><columnfraction value="0.5"></columnfraction></columnfractions>
 <tbody><row><entry command="item">
 
 </entry></row><row><entry command="item">

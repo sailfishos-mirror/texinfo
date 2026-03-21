@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'empty_def_arguments'} = '*document_root C1
  *before_node_section C1
   *@deffn C10 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -22,10 +19,8 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
         |{i}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {fset}
@@ -43,17 +38,13 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {g}
+     {spaces_after_argument:\\n}
    *@deffnx C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:    \\n}
+    *line_arg C3
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        *@b C1 l2
@@ -63,62 +54,48 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
           *brace_container C1
            {i}
          { ule}
+     {spaces_after_argument:    \\n}
    *@deffnx C1 l3
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
-    *line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
-   *@deffnx C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-   |EXTRA
-   |def_command:{deffn}
-   |original_def_cmdname:{deffnx}
     *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-     *def_category C1
-      *def_line_arg C1
-       {aaa}
-   *@deffnx C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+     {spaces_before_argument: \\n}
+   *@deffnx C1 l4
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
     *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+     {spaces_before_argument: }
+     *def_category C1
+      *def_line_arg C1
+       {aaa}
+     {spaces_after_argument:\\n}
+   *@deffnx C1 l5
+   |EXTRA
+   |def_command:{deffn}
+   |original_def_cmdname:{deffnx}
+    *line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg l5
      {spaces: }
      *def_name C1
       *bracketed_arg l5
+     {spaces_after_argument:\\n}
    *@deffnx C1 l6
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C2
      *def_category C1
       *bracketed_arg l6
+     {spaces_after_argument:\\n}
    *@deffnx C1 l7
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C4
      *def_category C1
       *bracketed_arg C1 l7
        {truc}
@@ -126,41 +103,34 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
      *def_name C1
       *bracketed_arg C1 l7
        {spaces_before_argument: }
+     {spaces_after_argument:\\n}
    *@deffnx C1 l8
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C2
      *def_category C1
       *bracketed_arg C1 l8
        {truc}
+     {spaces_after_argument:\\n}
    *@deffnx C1 l9
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C4
      *def_category C1
       *bracketed_arg l9
      {spaces: }
      *def_name C1
       *bracketed_arg l9
+     {spaces_after_argument:\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
 ';
 
 

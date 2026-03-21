@@ -8,38 +8,29 @@ use utf8;
 $result_tree_text{'simple'} = '*document_root C1
  *before_node_section C7
   *@alias C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{myalias|code}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {myalias = code}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@alias C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{o-theralias|verb}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:comment}
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *line_arg C4
+    {spaces_before_argument: }
     {o-theralias=verb}
+    {spaces_after_argument: }
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:comment}
   {empty_line:\\n}
   *paragraph C3
    {Should be code: }

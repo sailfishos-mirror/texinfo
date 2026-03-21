@@ -8,39 +8,29 @@ use utf8;
 $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 l2 {test of nodedescription used in menu}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {test of nodedescription used in menu}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C10 l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -128,54 +118,37 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
      *preformatted C1
       {\\n}
    *@end C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l15 {toto}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{toto}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {toto}
+    {spaces_after_argument:\\n}
  *@chapter C4 l16 {Toto}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Toto}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescription C1 l18
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C8
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C10
+    {spaces_before_argument: }
     {toto is there:: and the }
     *@emph C1 l18
      *brace_container C1
@@ -197,240 +170,169 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
      *following_arg C1
       {a}
     {nexpected}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l20 {titi}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{titi}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {titi}
+    {spaces_after_argument:\\n}
  *@chapter C4 l21 {Titi}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Titi}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescription C1 l23
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {this describes titi}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l25 {other}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{other}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {other}
+    {spaces_after_argument:\\n}
  *@chapter C4 l26 {Other}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Other}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescription C1 l28
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {other comes here}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l30 {last}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{last}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {last}
+    {spaces_after_argument:\\n}
  *@chapter C4 l31 {Last}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Last}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescription C1 l33
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {we are last}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l35 {a somewhat long node without description nor following space}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{a-somewhat-long-node-without-description-nor-following-space}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {a somewhat long node without description nor following space}
+    {spaces_after_argument:\\n}
  *@chapter C4 l36 {Somewhat long}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{5}
  |section_level:{1}
  |section_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Somewhat long}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescription C1 l38
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {not as long as the node}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l40 {a very long node without description with very little space left for}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{a-very-long-node-without-description-with-very-little-space-left-for}
  |is_target:{1}
  |node_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {a very long node without description with very little space left for}
+    {spaces_after_argument:\\n}
  *@chapter C4 l41 {Very long}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{6}
  |section_level:{1}
  |section_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Very long}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescription C1 l43
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {starting the desciption with a somewhat long word}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l45 {very very long node extending past the max columns and without description}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{very-very-long-node-extending-past-the-max-columns-and-without-description}
  |is_target:{1}
  |node_number:{8}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {very very long node extending past the max columns and without description}
+    {spaces_after_argument:\\n}
  *@chapter C3 l46 {Past max columns}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{7}
  |section_level:{1}
  |section_number:{8}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Past max columns}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescription C1 l48
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Not long}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -852,8 +754,8 @@ th.menu-comment {text-align:left}
 ';
 
 
-$result_converted{'xml'}->{'nodedescription_descriptions'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">toto</nodenext></node>
-<top spaces=" "><sectiontitle>test of nodedescription used in menu</sectiontitle>
+$result_converted{'xml'}->{'nodedescription_descriptions'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> toto</nodenext></node>
+<top><sectiontitle> test of nodedescription used in menu</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>toto</menunode><menuseparator>::   </menuseparator><menudescription><pre xml:space="preserve">
@@ -867,46 +769,46 @@ $result_converted{'xml'}->{'nodedescription_descriptions'} = '<node identifier="
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node identifier="toto" spaces=" "><nodename>toto</nodename><nodenext automatic="on">titi</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Toto</sectiontitle>
+<node identifier="toto"><nodename> toto</nodename><nodenext automatic="on"> titi</nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Toto</sectiontitle>
 
-<nodedescription spaces=" ">toto is there:: and the <emph>is a description</emph><w>slightly long</w> and <verb delimiter=":">vv somewhat</verb> <accent type="ring" spacesaftercmd=" " bracketed="off">a</accent>nexpected</nodedescription>
-
-</chapter>
-<node identifier="titi" spaces=" "><nodename>titi</nodename><nodenext automatic="on">other</nodenext><nodeprev automatic="on">toto</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Titi</sectiontitle>
-
-<nodedescription spaces=" ">this describes titi</nodedescription>
+<nodedescription> toto is there:: and the <emph>is a description</emph><w>slightly long</w> and <verb delimiter=":">vv somewhat</verb> <accent type="ring" spacesaftercmd=" " bracketed="off">a</accent>nexpected</nodedescription>
 
 </chapter>
-<node identifier="other" spaces=" "><nodename>other</nodename><nodenext automatic="on">last</nodenext><nodeprev automatic="on">titi</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Other</sectiontitle>
+<node identifier="titi"><nodename> titi</nodename><nodenext automatic="on"> other</nodenext><nodeprev automatic="on"> toto</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Titi</sectiontitle>
 
-<nodedescription spaces=" ">other comes here</nodedescription>
-
-</chapter>
-<node identifier="last" spaces=" "><nodename>last</nodename><nodenext automatic="on">a somewhat long node without description nor following space</nodenext><nodeprev automatic="on">other</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Last</sectiontitle>
-
-<nodedescription spaces=" ">we are last</nodedescription>
+<nodedescription> this describes titi</nodedescription>
 
 </chapter>
-<node identifier="a-somewhat-long-node-without-description-nor-following-space" spaces=" "><nodename>a somewhat long node without description nor following space</nodename><nodenext automatic="on">a very long node without description with very little space left for</nodenext><nodeprev automatic="on">last</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Somewhat long</sectiontitle>
+<node identifier="other"><nodename> other</nodename><nodenext automatic="on"> last</nodenext><nodeprev automatic="on"> titi</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Other</sectiontitle>
 
-<nodedescription spaces=" ">not as long as the node</nodedescription>
-
-</chapter>
-<node identifier="a-very-long-node-without-description-with-very-little-space-left-for" spaces=" "><nodename>a very long node without description with very little space left for</nodename><nodenext automatic="on">very very long node extending past the max columns and without description</nodenext><nodeprev automatic="on">a somewhat long node without description nor following space</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Very long</sectiontitle>
-
-<nodedescription spaces=" ">starting the desciption with a somewhat long word</nodedescription>
+<nodedescription> other comes here</nodedescription>
 
 </chapter>
-<node identifier="very-very-long-node-extending-past-the-max-columns-and-without-description" spaces=" "><nodename>very very long node extending past the max columns and without description</nodename><nodeprev automatic="on">a very long node without description with very little space left for</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Past max columns</sectiontitle>
+<node identifier="last"><nodename> last</nodename><nodenext automatic="on"> a somewhat long node without description nor following space</nodenext><nodeprev automatic="on"> other</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Last</sectiontitle>
 
-<nodedescription spaces=" ">Not long</nodedescription>
+<nodedescription> we are last</nodedescription>
+
+</chapter>
+<node identifier="a-somewhat-long-node-without-description-nor-following-space"><nodename> a somewhat long node without description nor following space</nodename><nodenext automatic="on"> a very long node without description with very little space left for</nodenext><nodeprev automatic="on"> last</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Somewhat long</sectiontitle>
+
+<nodedescription> not as long as the node</nodedescription>
+
+</chapter>
+<node identifier="a-very-long-node-without-description-with-very-little-space-left-for"><nodename> a very long node without description with very little space left for</nodename><nodenext automatic="on"> very very long node extending past the max columns and without description</nodenext><nodeprev automatic="on"> a somewhat long node without description nor following space</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Very long</sectiontitle>
+
+<nodedescription> starting the desciption with a somewhat long word</nodedescription>
+
+</chapter>
+<node identifier="very-very-long-node-extending-past-the-max-columns-and-without-description"><nodename> very very long node extending past the max columns and without description</nodename><nodeprev automatic="on"> a very long node without description with very little space left for</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Past max columns</sectiontitle>
+
+<nodedescription> Not long</nodedescription>
 </chapter>
 ';
 

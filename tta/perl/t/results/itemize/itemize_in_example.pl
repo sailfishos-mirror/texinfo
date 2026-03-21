@@ -9,20 +9,14 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
  *before_node_section C1
   *@example C11 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@itemize C3 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@bullet l2
+      {spaces_after_argument:\\n}
     *@item C1 l3
     |EXTRA
     |item_number:{1}
@@ -32,28 +26,20 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
       {empty_line:\\n}
       {more.\\n}
     *@end C1 l6
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{itemize}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {itemize}
+      {spaces_after_argument:\\n}
    *preformatted C1
     {empty_line:\\n}
    *@itemize C3 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@asis l8
+      {spaces_after_argument:\\n}
     *@item C1 l9
     |EXTRA
     |item_number:{1}
@@ -61,28 +47,20 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
       {ignorable_spaces_after_command: }
       {as is\\n}
     *@end C1 l10
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{itemize}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {itemize}
+      {spaces_after_argument:\\n}
    *preformatted C1
     {empty_line:\\n}
    *@itemize C3 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       {+}
+      {spaces_after_argument:\\n}
     *@item C1 l13
     |EXTRA
     |item_number:{1}
@@ -90,28 +68,20 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
       {ignorable_spaces_after_command: }
       {item +\\n}
     *@end C1 l14
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{itemize}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {itemize}
+      {spaces_after_argument:\\n}
    *preformatted C1
     {empty_line:\\n}
    *@itemize C3 l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       {m--n}
+      {spaces_after_argument:\\n}
     *@item C1 l17
     |EXTRA
     |item_number:{1}
@@ -119,30 +89,22 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
       {ignorable_spaces_after_command: }
       {with m--n\\n}
     *@end C1 l18
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{itemize}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {itemize}
+      {spaces_after_argument:\\n}
    *preformatted C1
     {empty_line:\\n}
    *@itemize C3 l20
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C2
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C4
+      {spaces_before_argument: }
       *@bullet C1 l20
        *brace_container
       { a--n itemize line}
+      {spaces_after_argument:\\n}
     *@item C1 l21
     |EXTRA
     |item_number:{1}
@@ -150,27 +112,19 @@ $result_tree_text{'itemize_in_example'} = '*document_root C1
       {ignorable_spaces_after_command: }
       {in an itemize line\\n}
     *@end C1 l22
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{itemize}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {itemize}
+      {spaces_after_argument:\\n}
    *@end C1 l23
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -272,25 +226,25 @@ more.
 
 
 $result_converted{'xml'}->{'itemize_in_example'} = '<example endspaces=" ">
-<itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet"/></itemprepend>
+<itemize commandarg="bullet" endspaces=" "><itemprepend> <formattingcommand command="bullet"/></itemprepend>
 <listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> first
 
 more.
 </pre></listitem></itemize>
 <pre xml:space="preserve">
-</pre><itemize commandarg="asis" spaces=" " endspaces=" ">
+</pre><itemize commandarg="asis" endspaces=" "><itemprepend> </itemprepend>
 <listitem><prepend></prepend><pre xml:space="preserve"> as is
 </pre></listitem></itemize>
 <pre xml:space="preserve">
-</pre><itemize spaces=" " endspaces=" "><itemprepend>+</itemprepend>
+</pre><itemize endspaces=" "><itemprepend> +</itemprepend>
 <listitem><prepend>+</prepend><pre xml:space="preserve"> item +
 </pre></listitem></itemize>
 <pre xml:space="preserve">
-</pre><itemize spaces=" " endspaces=" "><itemprepend>m--n</itemprepend>
+</pre><itemize endspaces=" "><itemprepend> m--n</itemprepend>
 <listitem><prepend>m--n</prepend><pre xml:space="preserve"> with m--n
 </pre></listitem></itemize>
 <pre xml:space="preserve">
-</pre><itemize spaces=" " endspaces=" "><itemprepend>&bullet; a--n itemize line</itemprepend>
+</pre><itemize endspaces=" "><itemprepend> &bullet; a--n itemize line</itemprepend>
 <listitem><prepend>&bullet; a--n itemize line</prepend><pre xml:space="preserve"> in an itemize line
 </pre></listitem></itemize>
 </example>

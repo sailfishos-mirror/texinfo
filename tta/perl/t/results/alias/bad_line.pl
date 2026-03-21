@@ -9,27 +9,19 @@ $result_tree_text{'bad_line'} = '*document_root C1
  *before_node_section C4
   {empty_line:\\n}
   *@alias C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {garbage-on-line =cmd garbage}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@alias C1 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {garbage-on-line =cmd }
     *@code C1 l4
      *brace_container C1
       {in code}
+    {spaces_after_argument:\\n}
 ';
 
 

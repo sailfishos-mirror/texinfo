@@ -8,19 +8,15 @@ use utf8;
 $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
  *before_node_section
  *@node C7 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@linemacro C3 l3
   |EXTRA
@@ -30,16 +26,12 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
     {macro_line: inside {a, b, rest}\\n}
    {raw:inside {\\a\\ operator \\b\\} \\rest\\\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@linemacro C4 l7
   |EXTRA
@@ -50,23 +42,16 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
    {raw:@defline \\one\\ {\\two\\} \\three\\\\n}
    {raw:@cindex \\two\\\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defblock C4 l12
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
     >SOURCEMARKS
     >linemacro_expansion<start;1>
      >*linemacro_call@outside C3
@@ -85,10 +70,8 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
       >|spaces_before_argument:
        >|{spaces_before_argument: }
        >{macro_call_arg_text:@inside {X} {Y} ( remaining, type typed )}
+     {spaces_before_argument:\\n}
    *@defline C1 l13:@outside
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -96,10 +79,8 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
      |*brace_arg C1
       |{a function}
    |original_def_cmdname:{defline}
-    *line_arg C18
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C20
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {type}
@@ -152,32 +133,25 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
      {delimiter:)}
      >SOURCEMARKS
      >linemacro_expansion<end;2><p:1>
+     {spaces_after_argument:\\n}
    *def_item C1
     *index_entry_command@cindex C1 l13:@outside
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |element_node:{Top}
     |index_entry:I{cp,1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {a function}
       >SOURCEMARKS
       >linemacro_expansion<end;1><p:10>
+      {spaces_after_argument:\\n}
    *@end C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defblock}
+     {spaces_after_argument:\\n}
 ';
 
 

@@ -18,16 +18,12 @@ $result_tree_text{'protect_comma_macro_line'} = '*document_root C1
    {raw:\\n}
    {raw:and a last in another paragraph\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    {we get arg,  comma \\, and another arg,  comma \\,\\n}

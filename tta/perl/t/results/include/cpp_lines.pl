@@ -12,16 +12,12 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     {text_before_beginning:\\input texinfo\\n}
   *preamble_before_content C3
    *@setfilename C1 cpp_lines.texi:l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cpp_lines.info}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {cpp_lines.info}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    >SOURCEMARKS
    >line_directive<1><p:1>{#line 3 "a_file" \\n}
@@ -34,33 +30,25 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    {.\\n}
   {empty_line:\\n}
  *@node C1 g_f:l70 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@node C55 g_f:l71 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    {# 10 25 209\\n}
@@ -70,23 +58,17 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   {empty_line:\\n}
   *@verbatim C4 g_f:l48
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:\\n}
    {raw:  #line 5 "f"\\n}
    *@end C1 g_f:l51
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 g_f:l53
   |EXTRA
@@ -96,16 +78,12 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     {macro_line: macr\\n}
    {raw:# line 7 "k"\\n}
    *@end C1 g_f:l55
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@email C1 g_f:l57
@@ -136,16 +114,12 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    {raw:line before\\n}
    {raw:# line 666 "x"\\n}
    *@end C1 g_f:l66
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@email C1 g_f:l68
@@ -172,16 +146,12 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   >SOURCEMARKS
   >include<start;1><p:1>
    >*@include C1 g_f:l74
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{file_with_cpp_lines.texi}
-    >*line_arg C1
-    >|INFO
-    >|spaces_after_argument:
-     >|{spaces_after_argument:\\n}
+    >*line_arg C3
+     >{spaces_before_argument: }
      >{file_with_cpp_lines.texi}
+     >{spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >line_directive<4><p:1>{#line 8 "inc"\\n}
@@ -320,17 +290,13 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   >line_directive<15><p:1>{#line 5 "accentêd"\\n}
   {empty_line:\\n}
   *@documentlanguage C1 accentêd:l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |text_arg:{làng}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {làng}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
   *line_arg

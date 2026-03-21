@@ -8,18 +8,14 @@ use utf8;
 $result_tree_text{'caption_not_closed'} = '*document_root C2
  *before_node_section C2
   *@float C4 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Text}
   |global_command_number:{1}
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {Text}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@caption C1 l3
     *brace_command_context C4
@@ -35,16 +31,12 @@ $result_tree_text{'caption_not_closed'} = '*document_root C2
       {float beginning.\\n}
      {empty_line:\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
   *line_arg

@@ -19,24 +19,20 @@ $result_tree_text{'value_in_invalid_documentencoding'} = '*document_root C1
     |{spaces_after_argument:\\n}
     {rawline_text:badvalue bad}
   *@documentencoding C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>value_expansion<start;1><p:1>{bad}
-    |>*@value C1
-     |>*brace_container C1
-      |>{badvalue}
   |EXTRA
   |global_command_number:{1}
   |text_arg:{bad}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >value_expansion<start;1><p:1>{bad}
+     >*@value C1
+      >*brace_container C1
+       >{badvalue}
     {bad}
     >SOURCEMARKS
     >value_expansion<end;1><p:3>
+    {spaces_after_argument:\\n}
 ';
 
 

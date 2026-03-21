@@ -2,14 +2,14 @@
 <!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V7.3//EN" "http://www.gnu.org/software/texinfo/dtd/7.3/texinfo.dtd">
 <texinfo>
 <filename file="combined_fonts.xml"></filename>
-<setfilename file="combined_fonts.info" spaces=" ">combined_fonts.info</setfilename>
+<setfilename file="combined_fonts.info"> combined_fonts.info</setfilename>
 
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
-<top spaces=" "><sectiontitle>top section</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapter</nodenext></node>
+<top><sectiontitle> top section</sectiontitle>
 
 </top>
-<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chapter</sectiontitle>
+<node identifier="chapter"><nodename> chapter</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> chapter</sectiontitle>
 
 <para><code>c--ode</code>, <dfn>d&textndash;fn</dfn>, <var>v&textndash;ar</var>, <strong>s&textndash;trong</strong>, <kbd>k--bd</kbd>, <samp>s--amp</samp>.
 </para>

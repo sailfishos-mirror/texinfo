@@ -9,68 +9,50 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {chapt}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapt}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapt}
+    {spaces_after_argument:\\n}
  *@chapter C3 l5 {Chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defblock C4 l7
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *before_defline C6
     *paragraph C3
      {Some text}
@@ -84,30 +66,22 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
     {empty_line:\\n}
     *@example C3 l10
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *preformatted C1
       {an example\\n}
      *@end C1 l12
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {example}
+       {spaces_after_argument:\\n}
     {empty_line:\\n}
     *@menu C3 l14
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *menu_entry C4 l15
       {menu_entry_leading_text:* }
       *menu_entry_node C3
@@ -121,21 +95,14 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
        *preformatted C1
         {\\n}
      *@end C1 l16
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{menu}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {menu}
+       {spaces_after_argument:\\n}
     {empty_line:\\n}
    *@defline C1 l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -143,10 +110,8 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
      |*def_line_arg C1
       |{b}
    |original_def_cmdname:{defline}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {a}
@@ -162,17 +127,14 @@ $result_tree_text{'text_block_before_defline'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {d}
+     {spaces_after_argument:\\n}
    *@end C1 l19
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defblock}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -476,12 +438,12 @@ $result_converted{'docbook'}->{'text_block_before_defline'} = '<chapter label="1
 ';
 
 
-$result_converted{'xml'}->{'text_block_before_defline'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapt</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+$result_converted{'xml'}->{'text_block_before_defline'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapt</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 </top>
-<node identifier="chapt" spaces=" "><nodename>chapt</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Chap</sectiontitle>
+<node identifier="chapt"><nodename> chapt</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Chap</sectiontitle>
 
 <defblock endspaces=" ">
 <beforefirstdefline><para>Some text<footnote><para>In footnote</para></footnote>.
@@ -494,7 +456,7 @@ $result_converted{'xml'}->{'text_block_before_defline'} = '<node identifier="Top
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>(other_manual)</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-</beforefirstdefline><defline spaces=" "><definitionterm><defcategory>a</defcategory> <defsymbol>b</defsymbol> <defparam>c</defparam> <defparam>d</defparam></definitionterm></defline>
+</beforefirstdefline><defline><definitionterm> <defcategory>a</defcategory> <defsymbol>b</defsymbol> <defparam>c</defparam> <defparam>d</defparam></definitionterm></defline>
 </defblock>
 </chapter>
 ';

@@ -8,86 +8,64 @@ use utf8;
 $result_tree_text{'symbol_after_command'} = '*document_root C1
  *before_node_section C3
   *@table C9 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l1
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l2
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C2
        {. dot}
+       {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l3
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C2
        {, comma}
+       {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l4
-      *line_arg C3
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C4
        *@@
        { }
        *@@
+       {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l5
-      *line_arg C3
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C4
        *@{
        { }
        *@{
+       {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l6
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C2
        {! exclam}
+       {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l7
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C2
        {\'\' quotes}
+       {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l8
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C2
        {: colon}
+       {spaces_after_argument:\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C18
    *@@
@@ -173,7 +151,7 @@ $result_converted{'html_text'}->{'symbol_after_command'} = '<dl class="table">
 </p>';
 
 
-$result_converted{'xml'}->{'symbol_after_command'} = '<table commandarg="asis" spaces=" " endspaces=" ">
+$result_converted{'xml'}->{'symbol_after_command'} = '<table commandarg="asis" endspaces=" ">
 <tableentry><tableterm><item><itemformat command="asis">. dot</itemformat></item>
 </tableterm></tableentry><tableentry><tableterm><item><itemformat command="asis">, comma</itemformat></item>
 </tableterm></tableentry><tableentry><tableterm><item><itemformat command="asis">&arobase; &arobase;</itemformat></item>

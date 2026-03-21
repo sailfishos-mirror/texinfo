@@ -16,16 +16,12 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
     {macro_line: othermacro\\n}
    {raw:initial\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C7 l6
   |EXTRA
@@ -39,16 +35,12 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
    {raw:@end macro\\n}
    {raw:\\arg\\\\n}
    *@end C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
@@ -74,16 +66,12 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
     {macro_line: othermacro\\n}
    {raw:different\\n}
    *@end C1 l14:@redefineothermacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   *paragraph C1
    {different\\n}
    >SOURCEMARKS

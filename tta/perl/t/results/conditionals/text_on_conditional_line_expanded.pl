@@ -11,30 +11,22 @@ $result_tree_text{'text_on_conditional_line_expanded'} = '*document_root C1
   >SOURCEMARKS
   >expanded_conditional_command<start;1>
    >*@ifnothtml C1 l1
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{text following ifnothtml,}
+      >{spaces_after_argument:\\n}
   *paragraph C1
    {a\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;1><p:2>
     >*@end C1 l3
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnothtml}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifnothtml}
+      >{spaces_after_argument:\\n}
 ';
 
 

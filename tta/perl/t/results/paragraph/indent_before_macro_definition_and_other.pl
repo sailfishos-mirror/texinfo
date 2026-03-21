@@ -11,16 +11,12 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
   *@indent l2
   {ignorable_spaces_after_command:\\n}
   *@author C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {someone}
+    {spaces_after_argument:\\n}
   *@image C1 l4
   |EXTRA
   |input_encoding_name:{utf-8}
@@ -41,51 +37,35 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
   >ignored_conditional_block<1>
    >*@ifnothtml C3 l9
     >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C1
+      >{spaces_before_argument:\\n}
     >{raw:not html\\n}
     >*@end C1 l11
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnothtml}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifnothtml}
+      >{spaces_after_argument:\\n}
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *rawpreformatted C1
     {<code>in c</code>\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {html}
+     {spaces_after_argument:\\n}
   *@setchapternewpage C1 l12
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{on}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {on}
+    {spaces_after_argument:\\n}
   *@anchor C1 l13
   |EXTRA
   |identifier:{spot}
@@ -94,16 +74,12 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
     {spot}
   {spaces_after_close_brace:\\n}
   *index_entry_command@cpindex C1 l14
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ei}
+    {spaces_after_argument:\\n}
   *@macro C3 l15
   |EXTRA
   |macro_name:{aaa}
@@ -112,16 +88,12 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
     {macro_line: aaa {g}\\n}
    {raw:ll /g/\\n}
    *@end C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   *paragraph C1
   |EXTRA
   |indent:{1}

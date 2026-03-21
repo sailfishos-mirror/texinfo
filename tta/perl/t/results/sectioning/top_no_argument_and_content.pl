@@ -13,10 +13,8 @@ $result_tree_text{'top_no_argument_and_content'} = '*document_root C2
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {A.\\n}

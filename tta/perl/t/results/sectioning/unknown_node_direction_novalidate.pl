@@ -14,26 +14,21 @@ $result_tree_text{'unknown_node_direction_novalidate'} = '*document_root C2
     |{spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l3 {one arg2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{one-arg2}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C2
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {one arg2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{two arg}
    |normalized:{two-arg}
+    {spaces_before_argument: }
     {two arg}
+    {spaces_after_argument:\\n}
 ';
 
 

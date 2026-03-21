@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'double_command'} = '*document_root C1
  *before_node_section C3
   *@deffn C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -20,7 +17,8 @@ $result_tree_text{'double_command'} = '*document_root C1
       |{plot}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffn}
-    *block_line_arg C18
+    *block_line_arg C19
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {func}
@@ -53,9 +51,6 @@ $result_tree_text{'double_command'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        *@deffnx C1 l1
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |def_command:{deffn}
        |def_index_element:
@@ -65,10 +60,8 @@ $result_tree_text{'double_command'} = '*document_root C1
        |index_entry:I{fn,1}
        |not_after_command:{1}
        |original_def_cmdname:{deffnx}
-        *line_arg C19
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C21
+         {spaces_before_argument: }
          *def_category C1
           *def_line_arg C1
            {func}
@@ -102,25 +95,19 @@ $result_tree_text{'double_command'} = '*document_root C1
           *def_line_arg C1
            {d}
          {delimiter:)}
+         {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {aaa\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C3 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l5
    |EXTRA
    |def_command:{deffn}
@@ -130,7 +117,8 @@ $result_tree_text{'double_command'} = '*document_root C1
       |{aaaa}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deffn}
-    *block_line_arg C7
+    *block_line_arg C8
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {func}
@@ -146,9 +134,6 @@ $result_tree_text{'double_command'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        *@defvr C1 l5
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
         *def_line C1 l5
         |EXTRA
         |def_command:{defvr}
@@ -158,10 +143,8 @@ $result_tree_text{'double_command'} = '*document_root C1
            |{d--efvr_name}
         |index_entry:I{vr,1}
         |original_def_cmdname:{defvr}
-         *block_line_arg C3
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument:\\n}
+         *block_line_arg C5
+          {spaces_before_argument: }
           *def_category C1
            *def_line_arg C1
             {c--ategory}
@@ -169,20 +152,17 @@ $result_tree_text{'double_command'} = '*document_root C1
           *def_name C1
            *def_line_arg C1
             {d--efvr_name}
+          {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {bbb\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
 ';
 
 

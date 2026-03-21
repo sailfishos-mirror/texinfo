@@ -11,27 +11,19 @@ $result_tree_text{'unknown_then_known_index_entry'} = '*document_root C1
   *paragraph C3
    {someindex entry.\\n}
    *@defindex C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{some}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {some}
+     {spaces_after_argument:\\n}
    *index_entry_command@someindex C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |index_entry:I{some,1}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {someindex entry.}
+     {spaces_after_argument:\\n}
 ';
 
 

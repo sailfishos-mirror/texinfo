@@ -16,16 +16,12 @@ $result_tree_text{'comment_at_end_of_linemacro_call'} = '*document_root C1
    {raw:c \\a\\ d\\n}
    {raw:\\b\\\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    *@math C1 l6

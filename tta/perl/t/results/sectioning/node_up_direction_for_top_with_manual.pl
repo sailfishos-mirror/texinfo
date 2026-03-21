@@ -8,22 +8,17 @@ use utf8;
 $result_tree_text{'node_up_direction_for_top_with_manual'} = '*document_root C2
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {Top}
    *line_arg
    *line_arg
-   *line_arg C4
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
    |EXTRA
    |manual_content:{dir}
    |node_content:{top}
@@ -32,6 +27,7 @@ $result_tree_text{'node_up_direction_for_top_with_manual'} = '*document_root C2
     {dir}
     {)}
     {top}
+    {spaces_after_argument:\\n}
 ';
 
 

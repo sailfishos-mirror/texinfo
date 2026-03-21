@@ -9,9 +9,6 @@ $result_tree_text{'def'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
   *@deffn C3 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l2
    |EXTRA
    |def_command:{deffn}
@@ -21,10 +18,8 @@ $result_tree_text{'def'} = '*document_root C1
       |{d--effn_name}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l2
        {c--ategory}
@@ -36,25 +31,19 @@ $result_tree_text{'def'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {a--rguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--effn\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C3 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l6
    |EXTRA
    |def_command:{deffn}
@@ -64,10 +53,8 @@ $result_tree_text{'def'} = '*document_root C1
       |{de--ffn_name}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffn}
-    *block_line_arg C17
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C19
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {cate--gory}
@@ -105,25 +92,19 @@ $result_tree_text{'def'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {so}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {def--fn\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C17 l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l11
    |EXTRA
    |def_command:{deffn}
@@ -135,10 +116,8 @@ $result_tree_text{'def'} = '*document_root C1
         |{i}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deffn}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {fset}
@@ -156,10 +135,8 @@ $result_tree_text{'def'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {g}
+     {spaces_after_argument:\\n}
    *@deffnx C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -168,10 +145,8 @@ $result_tree_text{'def'} = '*document_root C1
       |{truc}
    |index_entry:I{fn,4}
    |original_def_cmdname:{deffnx}
-    *line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l12
        {cmde}
@@ -182,10 +157,8 @@ $result_tree_text{'def'} = '*document_root C1
      {spaces: }
      *def_arg C1
       *bracketed_arg l12
+     {spaces_after_argument:\\n}
    *@deffnx C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -194,10 +167,8 @@ $result_tree_text{'def'} = '*document_root C1
       |{log trap}
    |index_entry:I{fn,5}
    |original_def_cmdname:{deffnx}
-    *line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Command}
@@ -208,10 +179,8 @@ $result_tree_text{'def'} = '*document_root C1
      {spaces: }
      *def_arg C1
       *bracketed_arg l13
+     {spaces_after_argument:\\n}
    *@deffnx C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -221,10 +190,8 @@ $result_tree_text{'def'} = '*document_root C1
       |{log trap1}
    |index_entry:I{fn,6}
    |original_def_cmdname:{deffnx}
-    *line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:  \\n}
+    *line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Command}
@@ -236,10 +203,8 @@ $result_tree_text{'def'} = '*document_root C1
      {spaces: }
      *def_arg C1
       *bracketed_arg l14
+     {spaces_after_argument:  \\n}
    *@deffnx C1 l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -249,10 +214,8 @@ $result_tree_text{'def'} = '*document_root C1
       |{spaces_after_argument: }
    |index_entry:I{fn,7}
    |original_def_cmdname:{deffnx}
-    *line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Command}
@@ -264,10 +227,8 @@ $result_tree_text{'def'} = '*document_root C1
      {spaces: }
      *def_arg C1
       *bracketed_arg l15
+     {spaces_after_argument:\\n}
    *@deffnx C1 l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -278,10 +239,8 @@ $result_tree_text{'def'} = '*document_root C1
         |{id ule}
    |index_entry:I{fn,8}
    |original_def_cmdname:{deffnx}
-    *line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {cmde}
@@ -295,10 +254,8 @@ $result_tree_text{'def'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {truc}
+     {spaces_after_argument:\\n}
    *@deffnx C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -313,10 +270,8 @@ $result_tree_text{'def'} = '*document_root C1
         |{ ule}
    |index_entry:I{fn,9}
    |original_def_cmdname:{deffnx}
-    *line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {cmde2}
@@ -334,6 +289,7 @@ $result_tree_text{'def'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {truc}
+     {spaces_after_argument:\\n}
    *@deffnx C1 l18
    |EXTRA
    |def_command:{deffn}
@@ -343,16 +299,14 @@ $result_tree_text{'def'} = '*document_root C1
       |{machin}
    |index_entry:I{fn,10}
    |original_def_cmdname:{deffnx}
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C4
      *def_category C1
       *bracketed_arg l18
      {spaces: }
      *def_name C1
       *def_line_arg C1
        {machin}
+     {spaces_after_argument:\\n}
    *@deffnx C1 l19
    |EXTRA
    |def_command:{deffn}
@@ -362,16 +316,14 @@ $result_tree_text{'def'} = '*document_root C1
       |{bidule machin}
    |index_entry:I{fn,11}
    |original_def_cmdname:{deffnx}
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C4
      *def_category C1
       *bracketed_arg l19
      {spaces: }
      *def_name C1
       *bracketed_arg C1 l19
        {bidule machin}
+     {spaces_after_argument:\\n}
    *@deffnx C1 l20
    |EXTRA
    |def_command:{deffn}
@@ -381,10 +333,7 @@ $result_tree_text{'def'} = '*document_root C1
       |{machin}
    |index_entry:I{fn,12}
    |original_def_cmdname:{deffnx}
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C4
      *def_category C1
       *bracketed_arg C1 l20
        {truc}
@@ -392,10 +341,8 @@ $result_tree_text{'def'} = '*document_root C1
      *def_name C1
       *def_line_arg C1
        {machin}
+     {spaces_after_argument:\\n}
    *@deffnx C1 l21
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -404,10 +351,8 @@ $result_tree_text{'def'} = '*document_root C1
       |{followed}
    |index_entry:I{fn,13}
    |original_def_cmdname:{deffnx}
-    *line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C11
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l21
        {truc}
@@ -427,6 +372,7 @@ $result_tree_text{'def'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {comment}
+     {spaces_after_argument:\\n}
    *inter_def_item C1
     *@c C1
     |INFO
@@ -438,9 +384,6 @@ $result_tree_text{'def'} = '*document_root C1
       |{spaces_after_argument:\\n}
       {rawline_text:comment}
    *@deffnx C1 l23
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -449,10 +392,8 @@ $result_tree_text{'def'} = '*document_root C1
       |{after}
    |index_entry:I{fn,14}
    |original_def_cmdname:{deffnx}
-    *line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C11
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l23
        {truc}
@@ -472,6 +413,7 @@ $result_tree_text{'def'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {item}
+     {spaces_after_argument:\\n}
    *inter_def_item C1
     *@c C1
     |INFO
@@ -483,9 +425,6 @@ $result_tree_text{'def'} = '*document_root C1
       |{spaces_after_argument:\\n}
       {rawline_text:comment}
    *@deffnx C1 l25
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -494,10 +433,8 @@ $result_tree_text{'def'} = '*document_root C1
       |{deffnx}
    |index_entry:I{fn,15}
    |original_def_cmdname:{deffnx}
-    *line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C11
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l25
        {truc}
@@ -517,20 +454,17 @@ $result_tree_text{'def'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {deffn}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {Various deff lines\\n}
    *@end C1 l27
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -716,29 +650,29 @@ $result_converted{'html_text'}->{'def'} = '
 
 
 $result_converted{'xml'}->{'def'} = '
-<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">d--effn_name</indexterm><defcategory bracketed="on">c--ategory</defcategory> <deffunction>d--effn_name</deffunction> <defparam>a--rguments...</defparam></definitionterm>
+<deffn endspaces=" "><definitionterm><indexterm index="fn" number="1">d--effn_name</indexterm> <defcategory bracketed="on">c--ategory</defcategory> <deffunction>d--effn_name</deffunction> <defparam>a--rguments...</defparam></definitionterm>
 <definitionitem><para>d&textndash;effn
 </para></definitionitem></deffn>
 
-<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="2">de--ffn_name</indexterm><defcategory>cate--gory</defcategory> <deffunction>de--ffn_name</deffunction> <defparam>ar--guments</defparam>    <defparam>more</defparam> <defparam>args</defparam> <defparam>&linebreak;</defparam> <defparam>even</defparam> <defparam>more</defparam> <defparam>so</defparam></definitionterm>
+<deffn endspaces=" "><definitionterm><indexterm index="fn" number="2">de--ffn_name</indexterm> <defcategory>cate--gory</defcategory> <deffunction>de--ffn_name</deffunction> <defparam>ar--guments</defparam>    <defparam>more</defparam> <defparam>args</defparam> <defparam>&linebreak;</defparam> <defparam>even</defparam> <defparam>more</defparam> <defparam>so</defparam></definitionterm>
 <definitionitem><para>def&textndash;fn
 </para></definitionitem></deffn>
 
-<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="3"><var>i</var></indexterm><defcategory>fset</defcategory> <deffunction><var>i</var></deffunction> <defparam>a</defparam> <defparam>g</defparam></definitionterm>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="4">truc</indexterm><defcategory bracketed="on">cmde</defcategory> <deffunction>truc</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="5">log trap</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on">log trap</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="6"> log trap1</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on"> log trap1</deffunction> <defparam bracketed="on"></defparam>  </definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="7">log trap2 </indexterm><defcategory>Command</defcategory> <deffunction bracketed="on">log trap2 </deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="8"><b>id ule</b></indexterm><defcategory>cmde</defcategory> <deffunction><b>id ule</b></deffunction> <defparam>truc</defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="9"><b>id <samp>i</samp> ule</b></indexterm><defcategory>cmde2</defcategory> <deffunction><b>id <samp>i</samp> ule</b></deffunction> <defparam>truc</defparam></definitionterm></deffnx>
+<deffn endspaces=" "><definitionterm><indexterm index="fn" number="3"><var>i</var></indexterm> <defcategory>fset</defcategory> <deffunction><var>i</var></deffunction> <defparam>a</defparam> <defparam>g</defparam></definitionterm>
+<deffnx><definitionterm><indexterm index="fn" number="4">truc</indexterm> <defcategory bracketed="on">cmde</defcategory> <deffunction>truc</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
+<deffnx><definitionterm><indexterm index="fn" number="5">log trap</indexterm> <defcategory>Command</defcategory> <deffunction bracketed="on">log trap</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
+<deffnx><definitionterm><indexterm index="fn" number="6"> log trap1</indexterm> <defcategory>Command</defcategory> <deffunction bracketed="on"> log trap1</deffunction> <defparam bracketed="on"></defparam>  </definitionterm></deffnx>
+<deffnx><definitionterm><indexterm index="fn" number="7">log trap2 </indexterm> <defcategory>Command</defcategory> <deffunction bracketed="on">log trap2 </deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
+<deffnx><definitionterm><indexterm index="fn" number="8"><b>id ule</b></indexterm> <defcategory>cmde</defcategory> <deffunction><b>id ule</b></deffunction> <defparam>truc</defparam></definitionterm></deffnx>
+<deffnx><definitionterm><indexterm index="fn" number="9"><b>id <samp>i</samp> ule</b></indexterm> <defcategory>cmde2</defcategory> <deffunction><b>id <samp>i</samp> ule</b></deffunction> <defparam>truc</defparam></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="10">machin</indexterm><defcategory bracketed="on"></defcategory> <deffunction>machin</deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="11">bidule machin</indexterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on">bidule machin</deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="12">machin</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>machin</deffunction></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="13">followed</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>followed</deffunction> <defparam>by</defparam> <defparam>a</defparam> <defparam>comment</defparam></definitionterm></deffnx>
+<deffnx><definitionterm><indexterm index="fn" number="13">followed</indexterm> <defcategory bracketed="on">truc</defcategory> <deffunction>followed</deffunction> <defparam>by</defparam> <defparam>a</defparam> <defparam>comment</defparam></definitionterm></deffnx>
 <!-- c comment -->
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="14">after</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>after</deffunction> <defparam>a</defparam> <defparam>deff</defparam> <defparam>item</defparam></definitionterm></deffnx>
+<deffnx><definitionterm><indexterm index="fn" number="14">after</indexterm> <defcategory bracketed="on">truc</defcategory> <deffunction>after</deffunction> <defparam>a</defparam> <defparam>deff</defparam> <defparam>item</defparam></definitionterm></deffnx>
 <!-- c comment -->
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="15">deffnx</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>deffnx</deffunction> <defparam>before</defparam> <defparam>end</defparam> <defparam>deffn</defparam></definitionterm></deffnx>
+<deffnx><definitionterm><indexterm index="fn" number="15">deffnx</indexterm> <defcategory bracketed="on">truc</defcategory> <deffunction>deffnx</deffunction> <defparam>before</defparam> <defparam>end</defparam> <defparam>deffn</defparam></definitionterm></deffnx>
 <definitionitem><para>Various deff lines
 </para></definitionitem></deffn>
 ';

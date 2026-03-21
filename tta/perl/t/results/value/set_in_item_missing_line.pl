@@ -8,22 +8,16 @@ use utf8;
 $result_tree_text{'set_in_item_missing_line'} = '*document_root C1
  *before_node_section C3
   *@table C4 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code l1
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l2
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C2
+      *line_arg C3
+       {spaces_before_argument: }
        {xx }
        *@set C1
        |INFO
@@ -39,43 +33,29 @@ $result_tree_text{'set_in_item_missing_line'} = '*document_root C1
    *table_entry C1
     *table_term C1
      *@item C1 l3
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {jj}
+       {spaces_after_argument:\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C4 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code l6
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l7
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C2
+      *line_arg C3
+       {spaces_before_argument: }
        {cxx }
        *@set C1
        |INFO
@@ -96,25 +76,17 @@ $result_tree_text{'set_in_item_missing_line'} = '*document_root C1
    *table_entry C1
     *table_term C1
      *@item C1 l8
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {jj}
+       {spaces_after_argument:\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
 ';
 
 

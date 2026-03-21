@@ -9,34 +9,26 @@ $result_tree_text{'section_before_part'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
  *@section C2 l1 {section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section}
+    {spaces_after_argument: \\n}
   {empty_line:\\n}
  *@part C3 l3 {part}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {part}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@contents C1 l5
   |EXTRA
@@ -152,10 +144,10 @@ $result_converted_errors{'html'}->{'section_before_part'} = '* W |must specify a
 ';
 
 
-$result_converted{'xml'}->{'section_before_part'} = '<section spaces=" "><sectiontitle>section </sectiontitle>
+$result_converted{'xml'}->{'section_before_part'} = '<section><sectiontitle> section </sectiontitle>
 
 </section>
-<part spaces=" "><sectiontitle>part</sectiontitle>
+<part><sectiontitle> part</sectiontitle>
 
 <contents></contents>
 </part>

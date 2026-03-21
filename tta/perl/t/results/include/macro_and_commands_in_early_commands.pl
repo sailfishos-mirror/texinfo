@@ -15,36 +15,28 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
     {macro_line: begin-file\\n}
    {raw:macro_i--n_pass@@\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@setfilename C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>macro_expansion<start;1><p:1>
-    |>*macro_call@begin-file C1
-     |>*brace_arg
   |EXTRA
   |text_arg:{macro_i--n_pass@texi_commands.info}
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >macro_expansion<start;1><p:1>
+     >*macro_call@begin-file C1
+      >*brace_arg
     {macro_i--n_pass}
     *@@
     >SOURCEMARKS
     >macro_expansion<end;1>
     {texi_commands.info}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l7
   |EXTRA
@@ -54,37 +46,29 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
     {macro_line: latin1 \\n}
    {raw:ISO-8859-1@@\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@documentencoding C1 l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>macro_expansion<start;2><p:1>
-    |>*macro_call@latin1 C1
-     |>*brace_arg
   |EXTRA
   |global_command_number:{1}
   |input_encoding_name:{iso-8859-1}
   |text_arg:{ISO-8859-1@}
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >macro_expansion<start;2><p:1>
+     >*macro_call@latin1 C1
+      >*brace_arg
     {ISO-8859-1}
     *@@
     >SOURCEMARKS
     >macro_expansion<end;2>
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C4 l13
   |EXTRA
@@ -95,76 +79,56 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    {raw:macro_included.texi\\n}
    {raw:@include inc_@@f--ile.texi\\n}
    *@end C1 l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l18 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l19 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C8 l21 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >include<start;1><p:1>
    >*@include C1 l23
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >|>SOURCEMARKS
-    >|>macro_expansion<start;3><p:1>
-     >|>*macro_call@multiinclude
    >|EXTRA
    >|text_arg:{macro_included.texi}
-    >*line_arg C1
-    >|INFO
-    >|spaces_after_argument:
-     >|{spaces_after_argument:\\n}
+    >*line_arg C3
+     >{spaces_before_argument: }
+     >>SOURCEMARKS
+     >>macro_expansion<start;3><p:1>
+      >>*macro_call@multiinclude
      >{macro_included.texi}
+     >{spaces_after_argument:\\n}
   *@macro C3 macro_included.texi:l1
   |EXTRA
   |macro_name:{themacro}
@@ -173,34 +137,26 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
   >include<end;1>
   >include<start;2>
    >*@include C1 l23:@multiinclude
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{inc_@f--ile.texi}
-    >*line_arg C3
-    >|INFO
-    >|spaces_after_argument:
-     >|{spaces_after_argument:\\n}
+    >*line_arg C5
+     >{spaces_before_argument: }
      >{inc_}
      >*@@
      >{f--ile.texi}
      >>SOURCEMARKS
      >>macro_expansion<end;3><p:11>
+     >{spaces_after_argument:\\n}
    *arguments_line C1
     {macro_line: themacro\\n}
    {raw:in themacro\\n}
    *@end C1 macro_included.texi:l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   *paragraph C1
    {In included file.\\n}
    >SOURCEMARKS
@@ -215,19 +171,15 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    >macro_expansion<end;4><p:11>
   {empty_line:\\n}
   *@verbatiminclude C1 l27
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |input_encoding_name:{iso-8859-1}
   |text_arg:{inc_@f--ile.texi}
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     {inc_}
     *@@
     {f--ile.texi}
+    {spaces_after_argument:\\n}
 ';
 
 

@@ -8,15 +8,11 @@ use utf8;
 $result_tree_text{'empty_multitable_in_itemize'} = '*document_root C1
  *before_node_section C1
   *@itemize C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {a--n itemize line}
+     {spaces_after_argument:\\n}
    *@item C5 l2
    |EXTRA
    |item_number:{1}
@@ -28,33 +24,23 @@ $result_tree_text{'empty_multitable_in_itemize'} = '*document_root C1
     |EXTRA
     |max_columns:{0}
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *@end C1 l5
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{multitable}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {multitable}
+       {spaces_after_argument:\\n}
     {empty_line:\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
 ';
 
 

@@ -501,6 +501,8 @@ sub ultimate_index($$) {
 # $BEGIN_POSITION and $BEGIN_POSITION + $ADDED_LEN to be relative to
 # $BEGIN_POSITION, and move to element $E.
 # return $BEGIN_POSITION + $ADDED_LEN if there were source marks
+# NOTE the source marks remaining are not rebased, it is up to the
+# caller to do it if needed.
 sub relocate_source_marks($$$$) {
   my $source_marks = shift;
 
@@ -597,7 +599,7 @@ sub _count_opened_tree_braces($$) {
   return $braces_count;
 }
 
-sub _non_leading_trailing_indices($) {
+sub non_leading_trailing_indices($) {
   my $tree = shift;
 
   if (exists($tree->{'contents'})) {
@@ -669,7 +671,7 @@ sub parse_node_manual($;$) {
   my $node_content = [];
 
   my ($first_idx, $end_idx)
-    = _non_leading_trailing_indices($label_contents_container);
+    = non_leading_trailing_indices($label_contents_container);
   return undef if (!defined($first_idx));
 
   my $idx = $first_idx;
@@ -846,6 +848,9 @@ sub file_separator_canonpath($) {
 sub empty_spaces_argument($) {
   my $element = shift;
 
+  confess() if (!defined($element) or (ref($element) ne 'HASH'
+                             and ref($element) ne 'Texinfo::TreeElement'));
+
   return 1 if (!exists($element->{'contents'}));
 
   foreach my $content (@{$element->{'contents'}}) {
@@ -887,7 +892,10 @@ sub simple_arg_text($) {
           # superfluous arg
           return ($result, 1);
         }
-      } else {# unexpected non text argument
+      } elsif (!exists($content->{'cmdname'})
+               or ($content->{'cmdname'} ne 'comment'
+                   and $content->{'cmdname'} ne 'c')) {
+        # unexpected non text argument
         return ($result, 1);
       }
     }
@@ -898,22 +906,30 @@ sub simple_arg_text($) {
   return ('', 0);
 }
 
-sub non_leading_trailing_tree($;$$) {
-  my ($tree, $type, $cmdname) = @_;
+sub non_leading_trailing_tree($) {
+  my $tree = shift;
 
-  my ($start_idx, $end_idx) = _non_leading_trailing_indices($tree);
+  my ($start_idx, $end_idx) = non_leading_trailing_indices($tree);
   if (!defined($start_idx)) {
     return undef;
   }
 
   my $result = Texinfo::TreeElement::new({});
-  if (defined($type)) {
-    $result->{'type'} = $type;
-  }
-  if (defined($cmdname)) {
-    $result->{'cmdname'} = $cmdname;
-  }
   $result->{'contents'} = [@{$tree->{'contents'}}[$start_idx .. $end_idx]];
+
+  return $result;
+}
+
+sub non_trailing_tree($) {
+  my $tree = shift;
+
+  my ($start_idx, $end_idx) = non_leading_trailing_indices($tree);
+  if (!defined($start_idx)) {
+    return undef;
+  }
+
+  my $result = Texinfo::TreeElement::new({});
+  $result->{'contents'} = [@{$tree->{'contents'}}[0 .. $end_idx]];
 
   return $result;
 }
@@ -974,18 +990,21 @@ sub find_innermost_accent_contents($) {
 
 # ALTIMP C/main/utils.c
 # TODO document
-# Used in converters
+# Used in converters and parser
 sub multitable_columnfractions($) {
   my $multitable = shift;
 
   my $arguments_line = $multitable->{'contents'}->[0];
   my $block_line_arg = $arguments_line->{'contents'}->[0];
   my $columnfractions;
-  if (exists($block_line_arg->{'contents'})
-      and $block_line_arg->{'contents'}->[0]->{'cmdname'}
-      and $block_line_arg->{'contents'}->[0]->{'cmdname'}
-                                              eq 'columnfractions') {
-    $columnfractions = $block_line_arg->{'contents'}->[0];
+
+  my ($first_idx, $end_idx)
+      = non_leading_trailing_indices($block_line_arg);
+  if (defined($first_idx)
+      and exists($block_line_arg->{'contents'}->[$first_idx]->{'cmdname'})
+      and $block_line_arg->{'contents'}->[$first_idx]
+                      ->{'cmdname'} eq 'columnfractions') {
+    $columnfractions = $block_line_arg->{'contents'}->[$first_idx];
   }
 
   return $columnfractions;
@@ -998,9 +1017,10 @@ sub multitable_columnfractions($) {
 sub block_line_argument_command($) {
   my $block_line_arg = shift;
 
-  if (exists($block_line_arg->{'contents'})
-      and scalar(@{$block_line_arg->{'contents'}}) == 1) {
-    my $arg = $block_line_arg->{'contents'}->[0];
+  my ($first_idx, $end_idx)
+    = non_leading_trailing_indices($block_line_arg);
+  if (defined($first_idx) and $end_idx == $first_idx) {
+    my $arg = $block_line_arg->{'contents'}->[$first_idx];
     if (exists($arg->{'cmdname'})
         and (!exists($arg->{'contents'})
              or (scalar(@{$arg->{'contents'}}) == 1
@@ -1026,7 +1046,7 @@ sub itemize_line_prepended_element($) {
   my $arg = block_line_argument_command($block_line_arg);
   if (defined($arg)) {
     return $arg;
-  } elsif (!exists($block_line_arg->{'contents'})) {
+  } elsif (Texinfo::Common::empty_spaces_argument($block_line_arg)) {
     return $default_bullet_command;
   } else {
     return $block_line_arg;
@@ -1309,7 +1329,11 @@ sub informative_command_value($) {
     if (not $Texinfo::Commands::commands_args_number{$cmdname}) {
       return $cmdname, 1;
     } elsif (exists($element->{'contents'})) {
-      return $cmdname, join(' ', map {$_->{'text'}} @{$element->{'contents'}});
+      foreach my $content (@{$element->{'contents'}}) {
+        if ($content->{'text'} ne '') {
+          return $cmdname, $content->{'text'};
+        }
+      }
     }
   } elsif (exists($element->{'extra'})
            and exists($element->{'extra'}->{'text_arg'})) {
@@ -1318,10 +1342,12 @@ sub informative_command_value($) {
            and exists($element->{'extra'}->{'misc_args'})
            and exists($element->{'extra'}->{'misc_args'}->[0])) {
     return $cmdname, $element->{'extra'}->{'misc_args'}->[0];
-  } elsif ($Texinfo::Commands::line_commands{$cmdname} eq 'line'
-           and exists($element->{'contents'}->[0]->{'contents'})
-           and exists($element->{'contents'}->[0]->{'contents'}->[0]->{'text'})) {
-    return $cmdname, $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
+  } elsif ($Texinfo::Commands::line_commands{$cmdname} eq 'line') {
+   my ($arg, $surplus)
+    = Texinfo::Common::simple_arg_text($element->{'contents'}->[0]);
+    if (defined($arg)) {
+      return $cmdname, $arg;
+    }
   }
   return undef, undef;
 }
@@ -1623,10 +1649,10 @@ sub enumerate_item_representation($) {
   my $arguments_line = $enumerate->{'contents'}->[0];
   my $block_line_arg = $arguments_line->{'contents'}->[0];
 
-  if (exists($block_line_arg->{'contents'})
-      and exists($block_line_arg->{'contents'}->[0]->{'text'})) {
-    return enumerate_number_representation(
-                  $block_line_arg->{'contents'}->[0]->{'text'}, $number);
+  my ($arg, $surplus)
+    = Texinfo::Common::simple_arg_text($block_line_arg);
+  if (defined($arg)) {
+    return enumerate_number_representation($arg, $number);
   }
   return $number;
 }

@@ -9,15 +9,11 @@ $result_tree_text{'item_container'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
   *@itemize C3 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {+}
+     {spaces_after_argument:\\n}
    *@item C2 l3
    |EXTRA
    |item_number:{1}
@@ -25,27 +21,19 @@ $result_tree_text{'item_container'} = '*document_root C1
     *paragraph C1
      {i--tem +\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C3 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@bullet l6
+     {spaces_after_argument:\\n}
    *@item C3 l7
    |EXTRA
    |item_number:{1}
@@ -54,23 +42,17 @@ $result_tree_text{'item_container'} = '*document_root C1
     *paragraph C1
      {b--ullet\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C3 l11
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@item C2 l12
    |EXTRA
    |item_number:{1}
@@ -78,16 +60,12 @@ $result_tree_text{'item_container'} = '*document_root C1
     *paragraph C1
      {no itemize argument\\n}
    *@end C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -150,11 +128,11 @@ $result_converted{'html_text'}->{'item_container'} = '
 
 
 $result_converted{'xml'}->{'item_container'} = '
-<itemize spaces=" " endspaces=" "><itemprepend>+</itemprepend>
+<itemize endspaces=" "><itemprepend> +</itemprepend>
 <listitem><prepend>+</prepend> <para>i&textndash;tem +
 </para></listitem></itemize>
 
-<itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet"/></itemprepend>
+<itemize commandarg="bullet" endspaces=" "><itemprepend> <formattingcommand command="bullet"/></itemprepend>
 <listitem><prepend>&bullet;</prepend>
  <para>b&textndash;ullet
 </para></listitem></itemize>

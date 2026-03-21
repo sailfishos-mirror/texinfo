@@ -12,87 +12,65 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
    {text_before_beginning:\\n}
   *preamble_before_content
  *@node C10 nodes_before_top_and_sections.texi:l3 {first before top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first-before-top}
  |is_target:{1}
  |isindex:{1}
  |node_number:{1}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {first before top}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
+    {spaces_before_argument: }
     {Top}
-   *line_arg
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument: }
+   *line_arg C4
    |EXTRA
    |manual_content:{dir}
     {(}
     {dir}
     {)}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{first-before-top}
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first before top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {in first node before printindex\\n}
   *@printindex C1 nodes_before_top_and_sections.texi:l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {in first node\\n}
   *@printindex C1 nodes_before_top_and_sections.texi:l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {after second printindex in first node\\n}
   *@menu C3 nodes_before_top_and_sections.texi:l11
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 nodes_before_top_and_sections.texi:l12
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -105,198 +83,146 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
      *preformatted C1
       {\\n}
    *@end C1 nodes_before_top_and_sections.texi:l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C10 nodes_before_top_and_sections.texi:l15 {node in menu before top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node-in-menu-before-top}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {node in menu before top}
    *line_arg
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{first before top}
    |normalized:{first-before-top}
     {first before top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l17
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-in-menu-before-top}
   |index_entry:I{cp,2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node in menu before top}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {between node in menu before top and printindex\\n}
   *@printindex C1 nodes_before_top_and_sections.texi:l19
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {node in menu before top text after printindex\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l22
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-in-menu-before-top}
   |index_entry:I{cp,3}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {printindex node in menu before top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
  *@node C11 nodes_before_top_and_sections.texi:l25 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |isindex:{1}
  |node_number:{3}
   *arguments_line C3
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {Top}
-   *line_arg
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+    {spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{first before top}
    |normalized:{first-before-top}
     {first before top}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l26
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Top}
   |index_entry:I{cp,4}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {entry a}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {in top node.\\n}
   *@printindex C1 nodes_before_top_and_sections.texi:l28
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 nodes_before_top_and_sections.texi:l30
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{5}
   |misc_args:A{fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fn}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {And one more index in top node\\n}
   {empty_line:\\n}
   *@printindex C1 nodes_before_top_and_sections.texi:l34
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{6}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@top C7 nodes_before_top_and_sections.texi:l36 {top section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top section}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l37
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Top}
   |index_entry:I{cp,5}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top section}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {in top section\\n}
   {empty_line:\\n}
   *@menu C5 nodes_before_top_and_sections.texi:l41
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 nodes_before_top_and_sections.texi:l42
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -331,28 +257,22 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
      *preformatted C1
       {\\n}
    *@end C1 nodes_before_top_and_sections.texi:l45
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C7 nodes_before_top_and_sections.texi:l47 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |isindex:{1}
  |node_number:{4}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {first}
    *line_arg
    *line_arg C1
@@ -360,74 +280,53 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
    |node_content:{Top}
    |normalized:{Top}
     {Top}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   *paragraph C4
    {Text and then index entries\\n}
    *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l49
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |element_node:{first}
    |index_entry:I{cp,6}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {! entry in node}
+     {spaces_after_argument:\\n}
    *index_entry_command@findex C1 nodes_before_top_and_sections.texi:l50
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |element_node:{first}
    |index_entry:I{fn,1}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {fun in node}
+     {spaces_after_argument:\\n}
    *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l51
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |element_node:{first}
    |index_entry:I{cp,7}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {entry in node}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 nodes_before_top_and_sections.texi:l53
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{7}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 nodes_before_top_and_sections.texi:l55
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 nodes_before_top_and_sections.texi:l56
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -440,45 +339,35 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
      *preformatted C1
       {\\n}
    *@end C1 nodes_before_top_and_sections.texi:l57
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C5 nodes_before_top_and_sections.texi:l59 {second}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{second}
  |is_target:{1}
  |isindex:{1}
  |node_number:{5}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {second}
    *line_arg
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{first}
    |normalized:{first}
     {first}
+    {spaces_after_argument:\\n}
   *@menu C4 nodes_before_top_and_sections.texi:l60
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 nodes_before_top_and_sections.texi:l61
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -502,208 +391,149 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
      *preformatted C1
       {\\n}
    *@end C1 nodes_before_top_and_sections.texi:l63
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 nodes_before_top_and_sections.texi:l65
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{8}
   |misc_args:A{fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fn}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C6 nodes_before_top_and_sections.texi:l67 {another}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{another}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {another}
-   *line_arg
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+    {spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{a node}
    |normalized:{a-node}
+    {spaces_before_argument: }
     {a node}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{second}
    |normalized:{second}
+    {spaces_before_argument: }
     {second}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l69
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{another}
   |index_entry:I{cp,8}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {something}
+    {spaces_after_argument:\\n}
   *index_entry_command@findex C1 nodes_before_top_and_sections.texi:l70
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{another}
   |index_entry:I{fn,2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {somewhere}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l71
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{another}
   |index_entry:I{cp,9}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {another}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C10 nodes_before_top_and_sections.texi:l73 {a node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{a-node}
  |is_target:{1}
  |isindex:{1}
  |node_number:{7}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {a node}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{another}
    |normalized:{another}
+    {spaces_before_argument: }
     {another}
-   *line_arg
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+    {spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{second}
    |normalized:{second}
     {second}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l74
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{a-node}
   |index_entry:I{cp,10}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {entry after printindex}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 nodes_before_top_and_sections.texi:l76
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{9}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@findex C1 nodes_before_top_and_sections.texi:l78
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{a-node}
   |index_entry:I{fn,3}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {a function}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l79
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{a-node}
   |index_entry:I{cp,11}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {a concept a node}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 nodes_before_top_and_sections.texi:l81
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{10}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 nodes_before_top_and_sections.texi:l83 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |isindex:{1}
  |node_number:{8}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {chapter}
    *line_arg C1
    |EXTRA
@@ -711,83 +541,63 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
    |normalized:{node-in-chapter}
     {node in chapter}
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
     {Top}
+    {spaces_after_argument:\\n}
  *@chapter C4 nodes_before_top_and_sections.texi:l84 {A chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {A chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 nodes_before_top_and_sections.texi:l86
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{11}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C4 nodes_before_top_and_sections.texi:l88 {node in chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node-in-chapter}
  |is_target:{1}
  |node_number:{9}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {node in chapter}
    *line_arg
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{chapter}
    |normalized:{chapter}
+    {spaces_before_argument: }
     {chapter}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l90
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node-in-chapter}
   |index_entry:I{cp,12}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node in chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
   *line_arg

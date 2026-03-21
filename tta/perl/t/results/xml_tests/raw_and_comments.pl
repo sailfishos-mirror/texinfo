@@ -8,88 +8,70 @@ use utf8;
 $result_tree_text{'raw_and_comments'} = '*document_root C1
  *before_node_section C3
   *@tex C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument:  }
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comment}
+    *block_line_arg C2
+     {spaces_before_argument:  }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comment}
    *rawpreformatted C1
     {in <tex>\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
-    *line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@comment C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:other comment}
-    |spaces_after_argument:
-     |{spaces_after_argument:  }
+    *line_arg C4
+     {spaces_before_argument: }
      {tex}
+     {spaces_after_argument:  }
+     *@comment C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:other comment}
   {empty_line:\\n}
   *paragraph C2
    {Para\\n}
    *@xml C3 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |comment_at_end:
-      |*@c C1
-      ||INFO
-      ||spaces_before_argument:
-       ||{spaces_before_argument: }
-       |*line_arg C1
-       ||INFO
-       ||spaces_after_argument:
-        ||{spaces_after_argument:\\n}
-        |{rawline_text:in xml comment}
+     *block_line_arg C2
+      {spaces_before_argument: }
+      *@c C1
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {rawline_text:in xml comment}
     *rawpreformatted C1
      {<in />\\n}
     *@end C1 l8
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{xml}
-     *line_arg C1
-     |INFO
-     |comment_at_end:
-      |*@comment C1
-      ||INFO
-      ||spaces_before_argument:
-       ||{spaces_before_argument: }
-       |*line_arg C1
-       ||INFO
-       ||spaces_after_argument:
-        ||{spaces_after_argument:\\n}
-        |{rawline_text:end xml comment}
-     |spaces_after_argument:
-      |{spaces_after_argument:  }
+     *line_arg C4
+      {spaces_before_argument: }
       {xml}
+      {spaces_after_argument:  }
+      *@comment C1
+      |INFO
+      |spaces_before_argument:
+       |{spaces_before_argument: }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{spaces_after_argument:\\n}
+        {rawline_text:end xml comment}
 ';
 
 
@@ -124,7 +106,7 @@ $result_sectioning_root{'raw_and_comments'} = '';
 $result_headings_list{'raw_and_comments'} = '';
 
 
-$result_converted{'xml'}->{'raw_and_comments'} = '<tex spaces="  " endspaces=" "><!-- c comment -->
+$result_converted{'xml'}->{'raw_and_comments'} = '<tex endspaces=" ">  <!-- c comment -->
 in &lt;tex&gt;
 </tex>  <!-- comment other comment -->
 

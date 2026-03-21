@@ -8,20 +8,16 @@ use utf8;
 $result_tree_text{'empty_accent_argument'} = '*document_root C1
  *before_node_section C7
   *@itemize C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@comment C1
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@~ l1
+     *@comment C1
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -29,27 +25,19 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
     *paragraph C1
      {item\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C3 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@~ l5
+     {spaces_after_argument:\\n}
    *@item C2 l6
    |EXTRA
    |item_number:{1}
@@ -57,28 +45,20 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
     *paragraph C1
      {item\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C3 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@~ C1 l9
       *brace_container
+     {spaces_after_argument:\\n}
    *@item C2 l10
    |EXTRA
    |item_number:{1}
@@ -86,27 +66,19 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
     *paragraph C1
      {item\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C3 l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@~ l13
+     {spaces_after_argument: \\n}
    *@item C2 l14
    |EXTRA
    |item_number:{1}
@@ -114,16 +86,12 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
     *paragraph C1
      {item\\n}
    *@end C1 l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -214,19 +182,19 @@ $result_converted{'html_text'}->{'empty_accent_argument'} = '<ul class="itemize"
 ';
 
 
-$result_converted{'xml'}->{'empty_accent_argument'} = '<itemize spaces=" " endspaces=" "><itemprepend><accent type="tilde"></accent></itemprepend><!-- comment -->
+$result_converted{'xml'}->{'empty_accent_argument'} = '<itemize endspaces=" "><itemprepend> <accent type="tilde"></accent></itemprepend><!-- comment -->
 <listitem><prepend><accent type="tilde"></accent></prepend> <para>item
 </para></listitem></itemize>
 
-<itemize spaces=" " endspaces=" "><itemprepend><accent type="tilde"></accent></itemprepend>
+<itemize endspaces=" "><itemprepend> <accent type="tilde"></accent></itemprepend>
 <listitem><prepend><accent type="tilde"></accent></prepend> <para>item
 </para></listitem></itemize>
 
-<itemize spaces=" " endspaces=" "><itemprepend><accent type="tilde"></accent></itemprepend>
+<itemize endspaces=" "><itemprepend> <accent type="tilde"></accent></itemprepend>
 <listitem><prepend><accent type="tilde"></accent></prepend> <para>item
 </para></listitem></itemize>
 
-<itemize spaces=" " endspaces=" "><itemprepend><accent type="tilde"></accent> </itemprepend>
+<itemize endspaces=" "><itemprepend> <accent type="tilde"></accent> </itemprepend>
 <listitem><prepend><accent type="tilde"></accent></prepend> <para>item
 </para></listitem></itemize>
 ';

@@ -8,30 +8,25 @@ use utf8;
 $result_tree_text{'similar_external_and_internal_node'} = '*document_root C2
  *before_node_section
  *@node C3 l1 {aa}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{aa}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C2
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {aa}
-   *line_arg C4
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C6
    |EXTRA
    |manual_content:{toto}
    |node_content:{bb}
    |normalized:{bb}
+    {spaces_before_argument: }
     {(}
     {toto}
     {)}
     {bb}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C8
    *@xref C4 l3

@@ -8,34 +8,26 @@ use utf8;
 $result_tree_text{'top_in_ref'} = '*document_root C3
  *before_node_section
  *@node C2 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C7 l3 {chap refs node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap-refs-node}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap refs node}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C56
    *@code C1 l5
@@ -911,9 +903,9 @@ $result_converted{'html_text'}->{'top_in_ref'} = '<h1 class="node" id="Top"><spa
 </p>';
 
 
-$result_converted{'xml'}->{'top_in_ref'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap refs node</nodenext></node>
+$result_converted{'xml'}->{'top_in_ref'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap refs node</nodenext></node>
 
-<node identifier="chap-refs-node" spaces=" "><nodename>chap refs node</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node identifier="chap-refs-node"><nodename> chap refs node</nodename><nodeprev automatic="on"> Top</nodeprev></node>
 
 <para><code>&arobase;ref&lbrace;Top,cross ref name&rbrace;</code> <ref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname></ref>
 <code>&arobase;ref&lbrace;Top,,title&rbrace;</code> <ref label="Top"><xrefnodename>Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc></ref>

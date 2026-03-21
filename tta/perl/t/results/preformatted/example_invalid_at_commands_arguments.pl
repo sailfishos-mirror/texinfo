@@ -8,11 +8,9 @@ use utf8;
 $result_tree_text{'example_invalid_at_commands_arguments'} = '*document_root C1
  *before_node_section C1
   *@example C2 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C3
-    *block_line_arg C2
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@ref C4 l1
       *brace_arg C1
       |EXTRA
@@ -25,10 +23,8 @@ $result_tree_text{'example_invalid_at_commands_arguments'} = '*document_root C1
       *brace_arg C1
        {d}
      { fa}
-    *block_line_arg C3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C4
+     {spaces_before_argument: }
      *@anchor C1 l1
      |EXTRA
      |identifier:{an-anchor}
@@ -37,30 +33,20 @@ $result_tree_text{'example_invalid_at_commands_arguments'} = '*document_root C1
        {an anchor}
      {spaces_after_close_brace: }
      {on example line}
-    *block_line_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C2
+     {spaces_before_argument: }
      *@center C1 l1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {in center}
+       {spaces_after_argument:\\n}
    *@end C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -131,7 +117,7 @@ $result_converted_errors{'html'}->{'example_invalid_at_commands_arguments'} = '*
 $result_converted{'docbook'}->{'example_invalid_at_commands_arguments'} = '';
 
 
-$result_converted{'xml'}->{'example_invalid_at_commands_arguments'} = '<example spaces=" " endspaces=" "><examplelanguage><ref label="a" manual="d"><xrefnodename>a</xrefnodename><xrefinfoname>b</xrefinfoname><xrefprinteddesc>c</xrefprinteddesc><xrefinfofile>d</xrefinfofile></ref> fa</examplelanguage><examplearg spaces=" "><anchor identifier="an-anchor">an anchor</anchor> on example line</examplearg><examplearg spaces=" "><center spaces=" ">in center</center>
+$result_converted{'xml'}->{'example_invalid_at_commands_arguments'} = '<example endspaces=" "><examplelanguage> <ref label="a" manual="d"><xrefnodename>a</xrefnodename><xrefinfoname>b</xrefinfoname><xrefprinteddesc>c</xrefprinteddesc><xrefinfofile>d</xrefinfofile></ref> fa</examplelanguage><examplearg> <anchor identifier="an-anchor">an anchor</anchor> on example line</examplearg><examplearg> <center> in center</center>
 </examplearg>
 </example>
 ';

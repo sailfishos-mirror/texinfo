@@ -12,23 +12,17 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
     {text_before_beginning:\\n}
   *preamble_before_content C4
    *@setfilename C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{references_to_top_no_top_output.info}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {references_to_top_no_top_output.info}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@copying C3 l4
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *paragraph C3
      {Copying\\n}
      *@anchor C1 l6
@@ -41,44 +35,32 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
        {a in copying}
      {spaces_after_close_brace:\\n}
     *@end C1 l7
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {copying}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l9 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C19 l10 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Begin Top\\n}
@@ -125,9 +107,6 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
     |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C5 l22
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{list}
@@ -135,15 +114,13 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   |identifier:{My-Flist}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {list}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {My Flist}
+     {spaces_after_argument:\\n}
    *paragraph C3
     {In Flist\\n}
     *@anchor C1 l24
@@ -165,62 +142,46 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
         {a in caption}
    {spaces_after_close_brace:\\n}
    *@end C1 l26
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l28
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Top}
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {index in Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {End of Top\\n}
   {empty_line:\\n}
  *@node C1 l32 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C11 l33 {Chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C12
    *@pxref C1 l35
@@ -267,35 +228,24 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    {\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l42
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{cp,2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap index}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l44
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C5 l46
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1.1}
   |float_type:{list}
@@ -303,15 +253,13 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   |identifier:{Main-Flist}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {list}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {Main Flist}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {In Main\\n}
    *@caption C1 l48
@@ -320,29 +268,21 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
       {Caption Main}
    {spaces_after_close_brace:\\n}
    *@end C1 l49
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@listoffloats C1 l51
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{list}
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {list}
+    {spaces_after_argument:\\n}
 ';
 
 

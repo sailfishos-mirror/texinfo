@@ -8,17 +8,12 @@ use utf8;
 $result_tree_text{'empty_deftypeop_name'} = '*document_root C1
  *before_node_section C1
   *@deftypeop C2 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deftypeop}
    |original_def_cmdname:{deftypeop}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C2
        {Command}
@@ -39,17 +34,14 @@ $result_tree_text{'empty_deftypeop_name'} = '*document_root C1
        *@var C1 l1
         *brace_container C1
          {exp}
+     {spaces_after_argument:\\n}
    *@end C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypeop}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypeop}
+     {spaces_after_argument:\\n}
 ';
 
 

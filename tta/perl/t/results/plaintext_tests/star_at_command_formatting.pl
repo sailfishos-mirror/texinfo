@@ -26,16 +26,12 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
    {raw:And now with * asis with space @@asis: @* @asis{ }\\n}
    {raw:And end para.\\n}
    *@end C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C8
    {Some text }
@@ -103,10 +99,8 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
   {empty_line:\\n}
   *@example C3 l18
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C50
     {Example\\n}
     {Some text }
@@ -171,23 +165,17 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
     >SOURCEMARKS
     >macro_expansion<end;2><p:13>
    *@end C1 l21
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C5 l23
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C9
     {Quotation\\n}
     {Some text }
@@ -253,16 +241,12 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
     >SOURCEMARKS
     >macro_expansion<end;3><p:13>
    *@end C1 l26
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

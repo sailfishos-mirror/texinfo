@@ -8,117 +8,85 @@ use utf8;
 $result_tree_text{'xrefname'} = '*document_root C7
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C3 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
  *@node C3 l5 {ntiti}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{ntiti}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ntiti}
+    {spaces_after_argument:\\n}
   *@xrefname C1 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {titi}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@chapter C2 l8 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l10 {chip}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chip}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chip}
+    {spaces_after_argument:\\n}
  *@appendix C9 l11 {app}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {app}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@xrefautomaticsectiontitle C1 l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{off}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {off}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@xref C1 l15
@@ -130,17 +98,13 @@ $result_tree_text{'xrefname'} = '*document_root C7
    {\\n}
   {empty_line:\\n}
   *@xrefautomaticsectiontitle C1 l17
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{on}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {on}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {xrefautomaticsectiontitle on }
@@ -297,25 +261,25 @@ $result_converted{'html_text'}->{'xrefname'} = '<div class="top-level-extent" id
 ';
 
 
-$result_converted{'xml'}->{'xrefname'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">ntiti</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+$result_converted{'xml'}->{'xrefname'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> ntiti</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 
 </top>
-<node identifier="ntiti" spaces=" "><nodename>ntiti</nodename><nodenext automatic="on">chip</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<xrefname spaces=" ">titi</xrefname>
+<node identifier="ntiti"><nodename> ntiti</nodename><nodenext automatic="on"> chip</nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<xrefname> titi</xrefname>
 
-<chapter spaces=" "><sectiontitle>chap</sectiontitle>
+<chapter><sectiontitle> chap</sectiontitle>
 
 </chapter>
-<node identifier="chip" spaces=" "><nodename>chip</nodename><nodeprev automatic="on">ntiti</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<appendix spaces=" "><sectiontitle>app</sectiontitle>
+<node identifier="chip"><nodename> chip</nodename><nodeprev automatic="on"> ntiti</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<appendix><sectiontitle> app</sectiontitle>
 
-<xrefautomaticsectiontitle spaces=" " value="off" line="off"></xrefautomaticsectiontitle>
+<xrefautomaticsectiontitle value="off" line=" off"></xrefautomaticsectiontitle>
 
 <para><xref label="ntiti"><xrefnodename>ntiti</xrefnodename></xref>
 </para>
-<xrefautomaticsectiontitle spaces=" " value="on" line="on"></xrefautomaticsectiontitle>
+<xrefautomaticsectiontitle value="on" line=" on"></xrefautomaticsectiontitle>
 
 <para>xrefautomaticsectiontitle on <ref label="ntiti"><xrefnodename>ntiti</xrefnodename></ref>.
 </para></appendix>

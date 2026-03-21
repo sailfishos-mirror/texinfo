@@ -9,53 +9,39 @@ $result_tree_text{'empty_nodes_with_commands'} = '*document_root C5
  *before_node_section C1
   {empty_line:\\n}
  *@node C2 l2
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
   *arguments_line C1
-   *line_arg
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:comment}
+   *line_arg C2
+    {spaces_before_argument: }
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:comment}
   {empty_line:\\n}
  *@node C1 l4 {@
 }
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
   *arguments_line C1
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     *@\\n
  *@node C1 l5 {@:}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@:
+    {spaces_after_argument:\\n}
  *@node C1 l6 {@asis{ }}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@asis C1 l6
      *brace_container C1
       { }
+    {spaces_after_argument:\\n}
 ';
 
 

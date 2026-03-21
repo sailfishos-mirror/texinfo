@@ -9,78 +9,58 @@ $result_tree_text{'empty_index_entry'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
  *@node C2 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C5 l3 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C2 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l5
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffn}
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg l5
      {spaces: }
      *def_name C1
       *bracketed_arg C1 l5
        {spaces_before_argument: }
+     {spaces_after_argument:\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l8
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fn}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -169,14 +149,14 @@ $result_converted{'html_text'}->{'empty_index_entry'} = '<a class="node-id" id="
 ';
 
 
-$result_converted{'xml'}->{'empty_index_entry'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+$result_converted{'xml'}->{'empty_index_entry'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node>
 
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> Top</nodeprev></node>
 
-<deffn spaces=" " endspaces=" "><definitionterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on"> </deffunction></definitionterm>
+<deffn endspaces=" "><definitionterm> <defcategory bracketed="on"></defcategory> <deffunction bracketed="on"> </deffunction></definitionterm>
 </deffn>
 
-<printindex spaces=" " value="fn" line="fn"></printindex>
+<printindex value="fn" line=" fn"></printindex>
 ';
 
 

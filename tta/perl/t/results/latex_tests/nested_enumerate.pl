@@ -10,10 +10,8 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
   *preamble_before_content
   *@enumerate C5 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *before_item C1
     {spaces_before_paragraph:   }
    *@item C2 l2
@@ -31,10 +29,8 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
      {First level item\\n}
     *@enumerate C5 l4
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *before_item C1
       {spaces_before_paragraph:     }
      *@item C2 l5
@@ -52,10 +48,8 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
        {Second level item\\n}
       *@enumerate C5 l7
        *arguments_line C1
-        *block_line_arg
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *block_line_arg C1
+         {spaces_before_argument:\\n}
        *before_item C1
         {spaces_before_paragraph:       }
        *@item C2 l8
@@ -73,10 +67,8 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
          {Third level item\\n}
         *@enumerate C5 l10
          *arguments_line C1
-          *block_line_arg
-          |INFO
-          |spaces_after_argument:
-           |{spaces_after_argument:\\n}
+          *block_line_arg C1
+           {spaces_before_argument:\\n}
          *before_item C1
           {spaces_before_paragraph:         }
          *@item C2 l11
@@ -93,49 +85,33 @@ $result_tree_text{'nested_enumerate'} = '*document_root C1
           *paragraph C1
            {Fourth level item\\n}
          *@end C1 l13
-         |INFO
-         |spaces_before_argument:
-          |{spaces_before_argument: }
          |EXTRA
          |text_arg:{enumerate}
-          *line_arg C1
-          |INFO
-          |spaces_after_argument:
-           |{spaces_after_argument:\\n}
+          *line_arg C3
+           {spaces_before_argument: }
            {enumerate}
+           {spaces_after_argument:\\n}
        *@end C1 l14
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{enumerate}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {enumerate}
+         {spaces_after_argument:\\n}
      *@end C1 l15
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{enumerate}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {enumerate}
+       {spaces_after_argument:\\n}
    *@end C1 l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {enumerate}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

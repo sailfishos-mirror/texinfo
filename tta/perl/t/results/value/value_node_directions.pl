@@ -20,63 +20,49 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
     {rawline_text:a--foo bar}
   {empty_line:\\n}
  *@node C1 l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {Top}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    |>SOURCEMARKS
-    |>value_expansion<start;1><p:1>{bar}
-     |>*@value C1
-      |>*brace_container C1
-       |>{a--foo}
+   *line_arg C2
    |EXTRA
    |node_content:{bar}
    |normalized:{bar}
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >value_expansion<start;1><p:1>{bar}
+     >*@value C1
+      >*brace_container C1
+       >{a--foo}
     {bar}
     >SOURCEMARKS
     >value_expansion<end;1><p:3>
-   *line_arg C3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C4
    |EXTRA
    |manual_content:{dir}
+    {spaces_before_argument: }
     {(}
     {dir}
     {)}
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C5
    |EXTRA
    |manual_content:{dir}
+    {spaces_before_argument: }
     {(}
     {dir}
     {)}
+    {spaces_after_argument:\\n}
  *@top C3 l4 {Var bar}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Var bar}
     >SOURCEMARKS
     >value_expansion<start;2><p:4>{bar}
@@ -84,6 +70,7 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
       >*brace_container C1
        >{a--foo}
     >value_expansion<end;2><p:7>
+    {spaces_after_argument:\\n}
   *paragraph C1
    {bar\\n}
    >SOURCEMARKS
@@ -94,120 +81,94 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
    >value_expansion<end;3><p:3>
   {empty_line:\\n}
  *@node C1 l7 {bar}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
-  |>SOURCEMARKS
-  |>value_expansion<start;4><p:1>{bar}
-   |>*@value C1
-    |>*brace_container C1
-     |>{a--foo}
  |EXTRA
  |identifier:{bar}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >value_expansion<start;4><p:1>{bar}
+     >*@value C1
+      >*brace_container C1
+       >{a--foo}
     {bar}
     >SOURCEMARKS
     >value_expansion<end;4><p:3>
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{BarFoo}
    |normalized:{BarFoo}
+    {spaces_before_argument: }
     {BarFoo}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
+    {spaces_before_argument: }
     {Top}
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C5
    |EXTRA
    |manual_content:{dir}
+    {spaces_before_argument: }
     {(}
     {dir}
     {)}
+    {spaces_after_argument:\\n}
  *@chapter C2 l8 {BarFoo}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {BarFoo}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l10 {BarFoo}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{BarFoo}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {BarFoo}
-   *line_arg
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    |>SOURCEMARKS
-    |>value_expansion<start;5><p:1>{bar}
-     |>*@value C1
-      |>*brace_container C1
-       |>{a--foo}
+    {spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{bar}
    |normalized:{bar}
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >value_expansion<start;5><p:1>{bar}
+     >*@value C1
+      >*brace_container C1
+       >{a--foo}
     {bar}
     >SOURCEMARKS
     >value_expansion<end;5><p:3>
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C5
    |EXTRA
    |manual_content:{dir}
+    {spaces_before_argument: }
     {(}
     {dir}
     {)}
+    {spaces_after_argument:\\n}
  *@chapter C1 l11 {bar}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {bar}
+    {spaces_after_argument:\\n}
 ';
 
 

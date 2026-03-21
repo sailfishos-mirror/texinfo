@@ -9,24 +9,18 @@ $result_tree_text{'node_in_copying'} = '*document_root C2
  *before_node_section C1
   *@copying C1 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
  *@node C2 l2 {node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

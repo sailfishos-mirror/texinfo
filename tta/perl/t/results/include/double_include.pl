@@ -11,29 +11,21 @@ $result_tree_text{'double_include'} = '*document_root C1
   >SOURCEMARKS
   >include<start;2><p:1>
    >*@include C1 l2
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{inc_file.texi}
-    >*line_arg C1
-    >|INFO
-    >|spaces_after_argument:
-     >|{spaces_after_argument: }
-     >|>SOURCEMARKS
-     >|>include<start;1><p:1>
-      >|>*@include C1 l2
-      >|>|INFO
-      >|>|spaces_before_argument:
-       >|>|{spaces_before_argument: }
-      >|>|EXTRA
-      >|>|text_arg:{inc_file.texi}
-       >|>*line_arg C1
-       >|>|INFO
-       >|>|spaces_after_argument:
-        >|>|{spaces_after_argument:\\n}
-        >|>{inc_file.texi}
+    >*line_arg C3
+     >{spaces_before_argument: }
      >{inc_file.texi}
+     >{spaces_after_argument: }
+     >>SOURCEMARKS
+     >>include<start;1><p:1>
+      >>*@include C1 l2
+      >>|EXTRA
+      >>|text_arg:{inc_file.texi}
+       >>*line_arg C3
+        >>{spaces_before_argument: }
+        >>{inc_file.texi}
+        >>{spaces_after_argument:\\n}
   *paragraph C2
    {In included file.\\n}
    >SOURCEMARKS

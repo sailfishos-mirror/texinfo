@@ -8,27 +8,23 @@ use utf8;
 $result_tree_text{'one_node_explicit_directions_anchor_no_use_node'} = '*document_root C2
  *before_node_section
  *@node C6 l1 {one node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{one-node}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {one node}
    *line_arg
    *line_arg
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
    |EXTRA
    |manual_content:{dir}
     {(}
     {dir}
     {)}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {Top node\\n}
   {empty_line:\\n}

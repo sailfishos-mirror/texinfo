@@ -8,26 +8,20 @@ use utf8;
 $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
  *before_node_section
  *@node C4 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C5 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C2
@@ -67,56 +61,40 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
      *preformatted C1
       {\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 l9 {@ @ }
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     *@ 
     *@ 
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 l11 {@verb{:  :}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@verb C1 l11
     |INFO
     |delimiter:{:}
      *brace_container C1
       {raw:  }
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C7 l13 {@w{  }}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@w C1 l13
      *brace_container C1
       {  }
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l15
@@ -262,7 +240,7 @@ $result_converted{'html_text'}->{'spaces_in_empty_node_names'} = '<h1 class="nod
 </p>';
 
 
-$result_converted{'xml'}->{'spaces_in_empty_node_names'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename></node>
+$result_converted{'xml'}->{'spaces_in_empty_node_names'} = '<node identifier="Top"><nodename> Top</nodename></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode><spacecmd type="spc"/><spacecmd type="spc"/></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -270,11 +248,11 @@ $result_converted{'xml'}->{'spaces_in_empty_node_names'} = '<node identifier="To
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><spacecmd type="spc"/></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="" spaces=" "><nodename></nodename></node>
+<node identifier=""><nodename></nodename></node>
 
-<node identifier="" spaces=" "><nodename></nodename></node>
+<node identifier=""><nodename></nodename></node>
 
-<node identifier="" spaces=" "><nodename></nodename></node>
+<node identifier=""><nodename></nodename></node>
 
 <para><ref label="-"><xrefnodename><spacecmd type="spc"/><spacecmd type="spc"/></xrefnodename></ref>
 </para>

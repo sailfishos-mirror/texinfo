@@ -8,54 +8,38 @@ use utf8;
 $result_tree_text{'section_on_enumerate_line'} = '*document_root C3
  *before_node_section C1
   *@enumerate C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {something}
+     {spaces_after_argument: }
  *@section C3 l1 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@enumerate C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {4}
+     {spaces_after_argument: }
  *@section C1 l3 {second}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {second}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -127,14 +111,14 @@ $result_converted{'plaintext'}->{'section_on_enumerate_line'} = '1 first
 ';
 
 
-$result_converted{'xml'}->{'section_on_enumerate_line'} = '<enumerate first="1" spaces=" "><enumeratefirst>something </enumeratefirst>
+$result_converted{'xml'}->{'section_on_enumerate_line'} = '<enumerate first="1"><enumeratefirst> something </enumeratefirst>
 </enumerate>
-<section spaces=" "><sectiontitle>first</sectiontitle>
+<section><sectiontitle> first</sectiontitle>
 
-<enumerate first="4" spaces=" "><enumeratefirst>4 </enumeratefirst>
+<enumerate first="4"><enumeratefirst> 4 </enumeratefirst>
 </enumerate>
 </section>
-<section spaces=" "><sectiontitle>second</sectiontitle>
+<section><sectiontitle> second</sectiontitle>
 </section>
 ';
 

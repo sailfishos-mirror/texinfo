@@ -14,36 +14,30 @@ NodeUp: (dir)
 NodeForward: [U1]
  *before_node_section
  *@node C5 l1 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {first}
    *line_arg
    *line_arg
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
    |EXTRA
    |manual_content:{dir}
     {(}
     {dir}
     {)}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {first node\\n}
   {empty_line:\\n}
   *@menu C3 l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -56,16 +50,12 @@ NodeForward: [U1]
      *preformatted C1
       {\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 U1 unit{N:second node}
 unit_directions:D[prev->[U0]]
@@ -76,15 +66,13 @@ NodePrev: [U0]
 NodeUp: [U0]
 NodeBack: [U0]
  *@node C2 l8 {second node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{second-node}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {second node}
    *line_arg
    *line_arg C1
@@ -92,14 +80,12 @@ NodeBack: [U0]
    |node_content:{first}
    |normalized:{first}
     {first}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{first}
    |normalized:{first}
     {first}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {second node\\n}
 ';
@@ -230,14 +216,14 @@ $result_converted_errors{'html'}->{'nodes_no_node_top_explicit_directions'} = '*
 ';
 
 
-$result_converted{'xml'}->{'nodes_no_node_top_explicit_directions'} = '<node identifier="first" spaces=" "><nodename>first</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup>(dir)</nodeup></node>
+$result_converted{'xml'}->{'nodes_no_node_top_explicit_directions'} = '<node identifier="first"><nodename> first</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup>(dir)</nodeup></node>
 <para>first node
 </para>
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>second node</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="second-node" spaces=" "><nodename>second node</nodename><nodenext></nodenext><nodeprev>first</nodeprev><nodeup>first</nodeup></node>
+<node identifier="second-node"><nodename> second node</nodename><nodenext></nodenext><nodeprev>first</nodeprev><nodeup>first</nodeup></node>
 <para>second node
 </para>';
 

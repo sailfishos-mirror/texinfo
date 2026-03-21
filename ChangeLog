@@ -1,3 +1,137 @@
+2026-03-21 Patrice Dumas  <pertusus@free.fr>
+
+	Put leading and trailing spaces directly in tree for block and line non
+	raw
+
+	* tta/C/parsetexi/separator.c (handle_close_brace): remove spurious
+	backslash in string.
+
+	* tta/C/main/utils.c (informative_command_value),
+	tta/perl/Texinfo/Common.pm (informative_command_value): do not handle
+	rawline @-command with more than one argument, as it is only the case
+	for @set, which is not an informative command associated to a
+	customization variable.  More const.
+
+	* tta/C/main/manipulate_tree.c (parse_node_manual): set node_content
+	in result only if not empty.
+
+	* tta/C/parsetexi/parser.c (isolate_leading_spaces_element),
+	tta/perl/Texinfo/ParserNonXS.pm (_isolate_leading_spaces_element):
+	rebase remaining source marks.  Always set the type.  Consider that
+	spaces are ascii.  Rename leading_spaces as spaces_len.
+
+	* tta/C/main/utils.c (simple_arg_text, empty_text),
+	tta/perl/Texinfo/Common.pm (simple_arg_text): ignore comments.
+	Return TEXT instead of string in C and update callers.
+
+	* tta/C/parsetexi/parser.c (text_contents_to_plain_text),
+	tta/perl/Texinfo/ParserNonXS.pm (_text_contents_to_plain_text): ignore
+	comments.
+
+	* tta/perl/Texinfo/Common.pm (non_leading_trailing_tree): remove
+	optional arguments.
+
+	* tta/perl/Texinfo/Common.pm (non_trailing_tree),
+	tta/perl/Texinfo/Convert/Converter.pm (comment_end_line_end_space):
+	add.
+
+	* tta/C/main/convert_to_texinfo.c (convert_contents_to_texinfo),
+	tta/C/main/structure_list.c: use non_leading_trailing_indices to
+	determine the slice to convert.  Update callers as the function can
+	now return NULL if the argument is empty.
+
+	* tta/C/main/manipulate_tree.c, tta/C/main/utils.c
+	(non_leading_trailing_indices): move non_leading_trailing_indices to
+	utils.c.
+
+	* tta/perl/Texinfo/Common.pm (non_leading_trailing_indices): rename
+	_non_leading_trailing_indices as non_leading_trailing_indices.
+
+	* tta/C/parsetexi/def.c (split_def_args),
+	tta/C/structuring_transfo/transformations.c
+	(protect_first_parenthesis), tta/perl/Texinfo/ManipulateTree.pm
+	(protect_first_parenthesis), tta/perl/Texinfo/ParserNonXS.pm
+	(_split_element_delimiters): catch all types of text elements and
+	spaces_before_argument.
+
+	* tta/perl/Texinfo/ParserNonXS.pm (_parse_def): move code around to be
+	more similar to C implementation.
+
+	* tta/C/parsetexi/def.c (parse_def), tta/C/parsetexi/end_line.c
+	(parse_line_command_args, end_line_starting_block)
+	(end_line_misc_line), tta/C/parsetexi/labels.c
+	(check_register_target_element_label), tta/C/parsetexi/parser.c
+	(parent_of_command_as_argument, process_remaining_on_line),
+	tta/C/parsetexi/separator.c (handle_close_brace, handle_comma),
+	tta/perl/Texinfo/ParserNonXS.pm (_parse_def, _end_line_misc_line)
+	(_end_line_starting_block, _check_register_target_element_label)
+	(_parent_of_command_as_argument, _handle_line_command)
+	(_handle_close_brace, _handle_comma, _process_remaining_on_line):
+	put leading and trailing spaces and comments directly in tree by
+	isolate_leading_trailing instead of isolate_last_space, having effect
+	on all block command lines and most line commands arguments, except
+	for raw line commands.  Remove isolate_last_space.
+
+	* tta/C/parsetexi/handle_commands.c (handle_other_command),
+	tta/C/parsetexi/parser.c, tta/perl/Texinfo/ParserNonXS.pm
+	(_handle_other_command): inline start_empty_line_after_command as now
+	there is only one case that remains and remove
+	start_empty_line_after_command.
+
+	* tta/perl/Texinfo/Convert/Texinfo.pm (convert_contents_to_texinfo):
+	add.
+
+	* tta/C/main/convert_utils.c (get_comment_or_end_line),
+	tta/C/main/manipulate_tree.c (copy_contents), tta/C/main/utils.c
+	(block_line_argument_command, multitable_columnfractions)
+	(informative_command_value, enumerate_item_representation),
+	tta/perl/Texinfo/Common.pm (multitable_columnfractions)
+	(block_line_argument_command, informative_command_value)
+	(enumerate_item_representation), tta/perl/Texinfo/Convert/Converter.pm
+	(comment_or_end_line, table_item_content_tree),
+	tta/perl/Texinfo/Convert/Texinfo.pm (target_element_to_texi_label)
+	(check_node_same_texinfo_code), tta/perl/Texinfo/ManipulateTree.pm
+	(copy_contents, _print_root_command, print_element_base),
+	tta/perl/Texinfo/OutputUnits.pm (_output_unit_name_string),
+	tta/perl/Texinfo/StructuringNonXS.pm (_print_line_command)
+	(_print_root_command, _print_menu_node, print_headings_list)
+	(print_nodes_list): update for changes in tree.
+
+	* tta/C/main/convert_to_texinfo.c (link_element_to_texi): call
+	convert_to_texinfo instead of convert_contents_to_texinfo as there is
+	no need to convert contents only, and to always return a string.
+
+	* tta/C/main/convert_utils.c: comment out item_itemize_prepended as it
+	is unused.
+
+	* tta/C/convert/format_html.c (html_internal_command_tree)
+	(html_convert_enumerate_command, html_convert_item_command)
+	(html_open_quotation_command), tta/C/main/convert_utils.c
+	(itemize_line_prepended_element),
+	tta/C/structuring_transfo/transformations.c
+	(protect_hashchar_at_line_beginning_internal),
+	tta/perl/Texinfo/Convert/Converter.pm (sort_element_counts),
+	tta/perl/Texinfo/Convert/DocBook.pm (conversion_output_begin)
+	(_format_comment_or_end_line, _convert_def_line, _convert),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_enumerate_command)
+	(_convert_item_command, _open_quotation_command),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm (_internal_command_tree)
+	(_node_redirections), tta/perl/Texinfo/Convert/Info.pm (output),
+	tta/perl/Texinfo/Convert/LaTeX.pm (_set_environment_options)
+	(_convert), tta/perl/Texinfo/Convert/Plaintext.pm (_convert),
+	tta/perl/Texinfo/Convert/TextContent.pm (_convert),
+	tta/perl/Texinfo/Document.pm (_existing_label_error),
+	tta/perl/Texinfo/Example/TexinfoMarkup.pm,
+	tta/perl/Texinfo/Transformations.pm
+	(_protect_hashchar_at_line_beginning),
+	tta/perl/init/documentation_examples.pm
+	(_set_appendix_direction_node_name),
+	tta/perl/t/init/index_direction_from_index_name.pm
+	(_set_index_global_direction_from_index_name): update for changes in
+	tree, mainly by using empty_spaces_argument, simple_arg_text, or
+	handling especially spaces_* types.  Also calling
+	convert_contents_to_texinfo in Perl.
+
 2026-03-17 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/utils.c (simple_arg_text), tta/perl/Texinfo/Common.pm

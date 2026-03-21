@@ -8,35 +8,28 @@ use utf8;
 $result_tree_text{'double_top_in_menu'} = '*document_root C3
  *before_node_section
  *@node C5 l1 {ToP}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C2
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {ToP}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{top}
    |normalized:{Top}
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {Top node\\n}
   {empty_line:\\n}
   *@menu C4 l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -60,26 +53,20 @@ $result_tree_text{'double_top_in_menu'} = '*document_root C3
      *preformatted C1
       {myself\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 l9 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |node_number:{2}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {top}
    *line_arg
    *line_arg C1
@@ -87,14 +74,12 @@ $result_tree_text{'double_top_in_menu'} = '*document_root C3
    |node_content:{ToP}
    |normalized:{Top}
     {ToP}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
     {Top}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {second node.\\n}
 ';

@@ -14,27 +14,19 @@ $result_tree_text{'macro_in_empty_table_empty_before_item'} = '*document_root C1
    *arguments_line C1
     {macro_line: emptymacro\\n}
    *@end C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code l4
+     {spaces_after_argument:\\n}
    *before_item
    >SOURCEMARKS
    >macro_expansion<start;1>
@@ -42,16 +34,12 @@ $result_tree_text{'macro_in_empty_table_empty_before_item'} = '*document_root C1
      >*brace_arg
    >macro_expansion<end;1>
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
 ';
 
 

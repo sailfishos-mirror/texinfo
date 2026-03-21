@@ -8,15 +8,11 @@ use utf8;
 $result_tree_text{'empty_item_itemx'} = '*document_root C1
  *before_node_section C1
   *@vtable C6 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l1
+     {spaces_after_argument:\\n}
    *before_item C3
     {empty_line:\\n}
     *paragraph C1
@@ -25,63 +21,43 @@ $result_tree_text{'empty_item_itemx'} = '*document_root C1
    *table_entry C1
     *table_term C3
      *@item C1 l5
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |index_entry:I{vr,1}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {first item}
+       {spaces_after_argument:\\n}
      *@itemx C1 l6
-      *line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C1
+       {spaces_before_argument:\\n}
      *@itemx C1 l7
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |index_entry:I{vr,2}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {after an empty itemx, before an empty item}
+       {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l8
-      *line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: \\n}
+      *line_arg C1
+       {spaces_before_argument: \\n}
    *table_entry C1
     *table_term C1
      *@item C1 l9
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |index_entry:I{vr,3}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {in item before end table}
+       {spaces_after_argument:\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -160,15 +136,15 @@ $result_converted{'html_text'}->{'empty_item_itemx'} = '<dl class="vtable">
 ';
 
 
-$result_converted{'xml'}->{'empty_item_itemx'} = '<vtable commandarg="asis" spaces=" " endspaces=" ">
+$result_converted{'xml'}->{'empty_item_itemx'} = '<vtable commandarg="asis" endspaces=" ">
 <beforefirstitem>
 <para>VTable
 </para>
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="1">first item</indexterm>first item</itemformat></item>
+</beforefirstitem><tableentry><tableterm><item><itemformat command="asis"><indexterm index="vr" number="1">first item</indexterm> first item</itemformat></item>
 <itemx><itemformat command="asis"></itemformat></itemx>
-<itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="2">after an empty itemx, before an empty item</indexterm>after an empty itemx, before an empty item</itemformat></itemx>
+<itemx><itemformat command="asis"><indexterm index="vr" number="2">after an empty itemx, before an empty item</indexterm> after an empty itemx, before an empty item</itemformat></itemx>
 </tableterm></tableentry><tableentry><tableterm><item><itemformat command="asis"> </itemformat></item>
-</tableterm></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="3">in item before end table</indexterm>in item before end table</itemformat></item>
+</tableterm></tableentry><tableentry><tableterm><item><itemformat command="asis"><indexterm index="vr" number="3">in item before end table</indexterm> in item before end table</itemformat></item>
 </tableterm></tableentry></vtable>
 ';
 

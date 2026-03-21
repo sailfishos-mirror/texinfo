@@ -8,18 +8,14 @@ use utf8;
 $result_tree_text{'U_with_utf8_enable_encoding'} = '*document_root C1
  *before_node_section C2
   *@documentencoding C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |input_encoding_name:{utf-8}
   |text_arg:{utf-8}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {utf-8}
+    {spaces_after_argument:\\n}
   *paragraph C2
    *@U C1 l2
     *brace_arg C1

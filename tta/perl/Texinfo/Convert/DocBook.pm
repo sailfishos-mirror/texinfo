@@ -502,8 +502,8 @@ sub conversion_output_begin($;$$) {
 
   my $settitle_command;
   if (defined($global_commands) and exists($global_commands->{'settitle'})
-      and exists($global_commands->{'settitle'}->{'contents'}->[0]
-                                                         ->{'contents'})) {
+      and !Texinfo::Common::empty_spaces_argument(
+                  $global_commands->{'settitle'}->{'contents'}->[0])) {
     $settitle_command = $global_commands->{'settitle'};
   }
 
@@ -520,7 +520,7 @@ sub conversion_output_begin($;$$) {
     # arguments_line type element
     my $arguments_line = $command->{'contents'}->[0];
     my $line_arg = $arguments_line->{'contents'}->[0];
-    if (exists($line_arg->{'contents'})) {
+    if (!Texinfo::Common::empty_spaces_argument($line_arg)) {
       $fulltitle_command = $arguments_line;
     }
   }
@@ -662,7 +662,9 @@ sub _index_entry($$) {
     $self->{'document_context'}->[-1]->{'monospace'}->[-1] = 1
       if ($index_info->{'in_code'});
     $result .= "<primary>";
-    $result .= _convert($self, Texinfo::Common::index_content_element($element));
+    my $index_element = Texinfo::Common::non_leading_trailing_tree(
+                         Texinfo::Common::index_content_element($element));
+    $result .= $self->_convert($index_element);
     $result .= "</primary>";
 
     my $entry_element = $index_entry->{'entry_element'};
@@ -766,7 +768,14 @@ sub _format_comment_or_end_line($$) {
 sub _convert_argument_and_end_line($$) {
   my ($self, $element) = @_;
 
-  my $converted = $self->convert_tree($element->{'contents'}->[0]);
+  my $converted_tree = Texinfo::Common::non_trailing_tree(
+                                              $element->{'contents'}->[0]);
+  my $converted;
+  if (defined($converted_tree)) {
+    $converted = $self->convert_tree($converted_tree);
+  } else {
+    $converted = '';
+  }
   my $end_line = _format_comment_or_end_line($self, $element);
 
   return ($converted, $end_line);
@@ -817,9 +826,11 @@ sub _convert_def_line($$) {
       } elsif ($type eq 'def_name') {
         $result .= "<$defcommand_name_type{$def_command}>$content"
                        ."</$defcommand_name_type{$def_command}>";
+      } elsif (defined($ignored_text_types{$type})) {
       } else {
         if (!defined($def_argument_types_docbook{$type})) {
           warn "BUG: no def_argument_types_docbook for $type";
+          pop @{$self->{'document_context'}};
           return undef;
         }
         foreach my $element_attribute (reverse (
@@ -855,6 +866,10 @@ sub _convert($$;$) {
     print STDERR " cmd: $element->{'cmdname'},"
       if (exists($element->{'cmdname'}));
     print STDERR " type: $e_type" if (defined($e_type));
+    if (exists($self->{'document_context'}->[-1]->{'preformatted_stack'})) {
+      print STDERR " (".join('|',
+       @{$self->{'document_context'}->[-1]->{'preformatted_stack'}}).")";
+    }
     if (exists($element->{'text'})) {
       my $text = $element->{'text'};
       $text =~ s/\n/\\n/;
@@ -952,7 +967,8 @@ sub _convert($$;$) {
                and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
         $result .= "<term>" if ($cmdname eq 'itemx');
         $result .= _index_entry($self, $element);
-        if (exists($element->{'contents'}->[0]->{'contents'})) {
+        if (!Texinfo::Common::empty_spaces_argument(
+                                        $element->{'contents'}->[0])) {
           my $table_item_tree = $self->table_item_content_tree($element);
           $table_item_tree = $element->{'contents'}->[0]
             if (!defined($table_item_tree));
@@ -1166,8 +1182,9 @@ sub _convert($$;$) {
         return '';
       } elsif (exists($Texinfo::Commands::def_commands{$cmdname})) {
         my $def_line_result = _convert_def_line($self, $element);
-        next if (!defined($def_line_result));
-        $result .= $def_line_result;
+        if (defined($def_line_result)) {
+          $result .= $def_line_result;
+        }
         return $result;
       } elsif (exists($docbook_line_elements_with_arg_map{$cmdname})) {
         my ($docbook_element, $attribute_text)
@@ -1728,10 +1745,9 @@ sub _convert($$;$) {
         my $numeration;
         my $arguments_line = $element->{'contents'}->[0];
         my $block_line_arg = $arguments_line->{'contents'}->[0];
-        if (exists($block_line_arg->{'contents'})
-           and exists($block_line_arg->{'contents'}->[0]->{'text'})) {
-          my $enumerate_specification
-             = $block_line_arg->{'contents'}->[0]->{'text'};
+        my ($enumerate_specification, $surplus)
+          = Texinfo::Common::simple_arg_text($block_line_arg);
+        if (defined($enumerate_specification)) {
           if ($enumerate_specification =~ /^[A-Z]/) {
             $numeration = 'upperalpha';
           } elsif ($enumerate_specification =~ /^[a-z]/) {
@@ -1823,7 +1839,7 @@ sub _convert($$;$) {
         # arguments_line type element
         my $arguments_line = $element->{'contents'}->[0];
         my $block_line_arg = $arguments_line->{'contents'}->[0];
-        if (exists($block_line_arg->{'contents'})) {
+        if (!Texinfo::Common::empty_spaces_argument($block_line_arg)) {
           my $quotation_arg_text
             = Texinfo::Convert::Text::convert_to_text($block_line_arg,
                                        $self->{'convert_text_options'});
@@ -1842,7 +1858,7 @@ sub _convert($$;$) {
         # arguments_line type element
         my $arguments_line = $element->{'contents'}->[0];
         my $block_line_arg = $arguments_line->{'contents'}->[0];
-        if (exists($block_line_arg->{'contents'})) {
+        if (!Texinfo::Common::empty_spaces_argument($block_line_arg)) {
           my $title = _convert($self, $block_line_arg);
           if ($title ne '') {
             $appended .= '<title>'.$title.'</title>'."\n";
@@ -1888,8 +1904,9 @@ sub _convert($$;$) {
       $self->{'document_context'}->[-1]->{'in_preformatted'} = 1;
     } elsif ($e_type eq 'def_line') {
       my $def_line_result = _convert_def_line($self, $element);
-      next if (!defined($def_line_result));
-      $result .= $def_line_result;
+      if (defined($def_line_result)) {
+        $result .= $def_line_result;
+      }
       return $result;
     } elsif ($e_type eq 'table_term') {
       # should be closed by the @item.  Allows to have the index entries in

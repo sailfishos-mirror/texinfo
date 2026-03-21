@@ -9,33 +9,25 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@node C23 l2 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C8 l4
   |EXTRA
@@ -50,16 +42,12 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    {raw:@samp{fff-- --- minus@minus{}b aa-tt@\'eff_gg aa@r{r-oman} \\n}
    {raw:anc-hor@anchor{A node\\nr\\}}\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C6 l13
   |EXTRA
@@ -72,16 +60,12 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    {raw:@code{in-example}\\n}
    {raw:@end example\\n}
    *@end C1 l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C22
    {Before first allowcodebreaks\\n}
@@ -158,41 +142,31 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     >*brace_arg
   *@example C3 l22:@testallowcodebreaksexample
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C2
     *@code C1 l22:@testallowcodebreaksexample
      *brace_container C1
       {in-example}
     {\\n}
    *@end C1 l22:@testallowcodebreaksexample
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
      >SOURCEMARKS
      >macro_expansion<end;2><p:7>
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@allowcodebreaks C1 l24
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{false}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {false}
+    {spaces_after_argument:\\n}
   *paragraph C22
    {After false\\n}
    {Out of code --- out-of-code.\\n}
@@ -268,28 +242,22 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     >*brace_arg
   *@example C3 l27:@testallowcodebreaksexample
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C2
     *@code C1 l27:@testallowcodebreaksexample
      *brace_container C1
       {in-example}
     {\\n}
    *@end C1 l27:@testallowcodebreaksexample
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
      >SOURCEMARKS
      >macro_expansion<end;4><p:7>
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {In w:\\n}
@@ -365,10 +333,8 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
   {empty_line:\\n}
   *@example C3 l33
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C2
     *@w C1 l34
      *brace_container C1
@@ -377,29 +343,21 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
         {in-example}
     {\\n}
    *@end C1 l35
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@allowcodebreaks C1 l37
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{true}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {true}
+    {spaces_after_argument:\\n}
   *paragraph C22
    {After true\\n}
    {Out of code --- out-of-code.\\n}
@@ -475,28 +433,22 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
     >*brace_arg
   *@example C3 l40:@testallowcodebreaksexample
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C2
     *@code C1 l40:@testallowcodebreaksexample
      *brace_container C1
       {in-example}
     {\\n}
    *@end C1 l40:@testallowcodebreaksexample
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
      >SOURCEMARKS
      >macro_expansion<end;7><p:7>
+     {spaces_after_argument:\\n}
 ';
 
 

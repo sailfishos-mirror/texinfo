@@ -9,10 +9,8 @@ $result_tree_text{'menu_entry_name_comment'} = '*document_root C1
  *before_node_section C1
   *@menu C7 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C5 l2
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -144,16 +142,12 @@ $result_tree_text{'menu_entry_name_comment'} = '*document_root C1
         |{spaces_after_argument:\\n}
         {rawline_text:c}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
 ';
 
 

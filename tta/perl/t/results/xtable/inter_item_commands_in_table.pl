@@ -9,72 +9,52 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C27 l5 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@vtable C3 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code l7
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C2
      *@c C1
@@ -87,56 +67,40 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
        |{spaces_after_argument:\\n}
        {rawline_text:comment in table}
      *@item C1 l9
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{vr,1}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {acode--b}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {l--ine\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@vtable C3 l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l13
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C3
      *@item C1 l14
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{vr,2}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {aasis--b}
+       {spaces_after_argument:\\n}
      *inter_item C1
       *@c C1
       |INFO
@@ -148,69 +112,49 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
         |{spaces_after_argument:\\n}
         {rawline_text:comment between item and itemx}
      *@itemx C1 l16
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{vr,3}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {b}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {l--ine\\n}
    *@end C1 l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@ftable C4 l20
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@var l20
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C3
      *@item C1 l21
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{fn,1}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {avar--b}
+       {spaces_after_argument:\\n}
      *inter_item C3
       *index_entry_command@cindex C1 l22
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |element_node:{chapter}
       |index_entry:I{cp,1}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {index entry between item and itemx}
+        {spaces_after_argument:\\n}
       *@c C1
       |INFO
       |spaces_before_argument:
@@ -230,34 +174,26 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
         |{spaces_after_argument:\\n}
         {rawline_text:and another comment}
      *@itemx C1 l25
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{fn,2}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {b}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {l--ine\\n}
    *table_entry C2
     *table_term C3
      *@item C1 l27
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{fn,3}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {c}
+       {spaces_after_argument:\\n}
      *inter_item C3
       {empty_line:\\n}
       *@c C1
@@ -271,17 +207,13 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
         {rawline_text:comment between lines}
       {empty_line:\\n}
      *@itemx C1 l31
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{fn,4}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {d}
+       {spaces_after_argument:\\n}
     *table_definition C2
      {empty_line:\\n}
      *@c C1
@@ -294,105 +226,73 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
        |{spaces_after_argument:\\n}
        {rawline_text:comment at end}
    *@end C1 l34
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{ftable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {ftable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@ftable C3 l36
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@emph l36
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C3
      *@item C1 l37
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{fn,5}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {a}
+       {spaces_after_argument:\\n}
      *inter_item C1
       *index_entry_command@cindex C1 l38
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |element_node:{chapter}
       |index_entry:I{cp,2}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {index entry between item and itemx}
+        {spaces_after_argument:\\n}
      *@itemx C1 l39
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{fn,6}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {b}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {l--ine\\n}
    *@end C1 l41
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{ftable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {ftable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l43
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code l43
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C3
      *index_entry_command@cindex C1 l44
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{cp,3}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: \\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {cindex in table}
+       {spaces_after_argument: \\n}
      *@c C1
      |INFO
      |spaces_before_argument:
@@ -403,101 +303,69 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
        |{spaces_after_argument:\\n}
        {rawline_text:comment in table}
      *@item C1 l46
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {abb}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {l--ine\\n}
    *@end C1 l48
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C4 l50
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code l50
+     {spaces_after_argument:\\n}
    *before_item C2
     *index_entry_command@cindex C1 l51
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |element_node:{chapter}
     |index_entry:I{cp,4}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: \\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {cindex in table}
+      {spaces_after_argument: \\n}
     *paragraph C1
      {Texte before first item.\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l53
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {abb}
+       {spaces_after_argument:\\n}
    *@end C1 l54
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l56
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@samp l56
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C3
      *index_entry_command@cindex C1 l57
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{cp,5}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: \\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {samp cindex in table}
+       {spaces_after_argument: \\n}
      *@c C1
      |INFO
      |spaces_before_argument:
@@ -508,243 +376,163 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
        |{spaces_after_argument:\\n}
        {rawline_text:samp comment in table}
      *@item C1 l59
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {asamp--bb}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {l--ine samp\\n}
    *@end C1 l61
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C4 l63
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@samp l63
+     {spaces_after_argument:\\n}
    *before_item C2
     *index_entry_command@cindex C1 l64
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |element_node:{chapter}
     |index_entry:I{cp,6}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: \\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {samp cindex in table}
+      {spaces_after_argument: \\n}
     *paragraph C1
      {Texte before first item samp.\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l66
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {asamp--bb}
+       {spaces_after_argument:\\n}
    *@end C1 l67
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C4 l69
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@samp l69
+     {spaces_after_argument: \\n}
    *before_item C3
     {empty_line:\\n}
     *index_entry_command@cindex C1 l71
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |element_node:{chapter}
     |index_entry:I{cp,7}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {cindex between lines}
+      {spaces_after_argument:\\n}
     {empty_line:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l73
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {asamp--bb1}
+       {spaces_after_argument:\\n}
    *@end C1 l74
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C4 l76
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@samp l76
+     {spaces_after_argument: \\n}
    *before_item C2
     *index_entry_command@cindex C1 l77
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |element_node:{chapter}
     |index_entry:I{cp,8}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {cindex before line}
+      {spaces_after_argument:\\n}
     {empty_line:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l79
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {asamp--bb2}
+       {spaces_after_argument:\\n}
    *@end C1 l80
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C4 l82
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@samp l82
+     {spaces_after_argument: \\n}
    *before_item C1
     {empty_line:\\n}
    *table_entry C1
     *table_term C2
      *index_entry_command@cindex C1 l84
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{cp,9}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {cindex after line}
+       {spaces_after_argument:\\n}
      *@item C1 l85
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {asamp--bb2}
+       {spaces_after_argument:\\n}
    *@end C1 l86
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l88
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@samp l88
+     {spaces_after_argument: \\n}
    *table_entry C1
     *table_term C5
      *index_entry_command@cindex C1 l89
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{cp,10}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {cindex first}
+       {spaces_after_argument:\\n}
      *@c C1
      |INFO
      |spaces_before_argument:
@@ -755,49 +543,33 @@ $result_tree_text{'inter_item_commands_in_table'} = '*document_root C5
        |{spaces_after_argument:\\n}
        {rawline_text:commant}
      *index_entry_command@cindex C1 l91
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{cp,11}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {second}
+       {spaces_after_argument:\\n}
      *index_entry_command@cindex C1 l92
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chapter}
      |index_entry:I{cp,12}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {third}
+       {spaces_after_argument:\\n}
      *@item C1 l93
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {asamp--bb2}
+       {spaces_after_argument:\\n}
    *@end C1 l94
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
 ';
@@ -1172,100 +944,100 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '<div class="
 ';
 
 
-$result_converted{'xml'}->{'inter_item_commands_in_table'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+$result_converted{'xml'}->{'inter_item_commands_in_table'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapter</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 </top>
-<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chap</sectiontitle>
+<node identifier="chapter"><nodename> chapter</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> chap</sectiontitle>
 
-<vtable commandarg="code" spaces=" " endspaces=" ">
+<vtable commandarg="code" endspaces=" ">
 <tableentry><tableterm><!-- c comment in table -->
-<item spaces=" "><itemformat command="code"><indexterm index="vr" number="1">acode--b</indexterm>acode--b</itemformat></item>
+<item><itemformat command="code"><indexterm index="vr" number="1">acode--b</indexterm> acode--b</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></vtable>
 
-<vtable commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="2">aasis--b</indexterm>aasis&textndash;b</itemformat></item>
+<vtable commandarg="asis" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"><indexterm index="vr" number="2">aasis--b</indexterm> aasis&textndash;b</itemformat></item>
 <!-- c comment between item and itemx -->
-<itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="3">b</indexterm>b</itemformat></itemx>
+<itemx><itemformat command="asis"><indexterm index="vr" number="3">b</indexterm> b</itemformat></itemx>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></vtable>
 
-<ftable commandarg="var" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="var"><indexterm index="fn" number="1">avar--b</indexterm>avar&textndash;b</itemformat></item>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry between item and itemx</indexterm></cindex>
+<ftable commandarg="var" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="var"><indexterm index="fn" number="1">avar--b</indexterm> avar&textndash;b</itemformat></item>
+<cindex index="cp"> <indexterm index="cp" number="1">index entry between item and itemx</indexterm></cindex>
 <!-- c and a comment -->
 <!-- comment and another comment -->
-<itemx spaces=" "><itemformat command="var"><indexterm index="fn" number="2">b</indexterm>b</itemformat></itemx>
+<itemx><itemformat command="var"><indexterm index="fn" number="2">b</indexterm> b</itemformat></itemx>
 </tableterm><tableitem><para>l&textndash;ine
-</para></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="var"><indexterm index="fn" number="3">c</indexterm>c</itemformat></item>
+</para></tableitem></tableentry><tableentry><tableterm><item><itemformat command="var"><indexterm index="fn" number="3">c</indexterm> c</itemformat></item>
 
 <!-- c comment between lines -->
 
-<itemx spaces=" "><itemformat command="var"><indexterm index="fn" number="4">d</indexterm>d</itemformat></itemx>
+<itemx><itemformat command="var"><indexterm index="fn" number="4">d</indexterm> d</itemformat></itemx>
 </tableterm><tableitem>
 <!-- c comment at end -->
 </tableitem></tableentry></ftable>
 
-<ftable commandarg="emph" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="emph"><indexterm index="fn" number="5">a</indexterm>a</itemformat></item>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="2">index entry between item and itemx</indexterm></cindex>
-<itemx spaces=" "><itemformat command="emph"><indexterm index="fn" number="6">b</indexterm>b</itemformat></itemx>
+<ftable commandarg="emph" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="emph"><indexterm index="fn" number="5">a</indexterm> a</itemformat></item>
+<cindex index="cp"> <indexterm index="cp" number="2">index entry between item and itemx</indexterm></cindex>
+<itemx><itemformat command="emph"><indexterm index="fn" number="6">b</indexterm> b</itemformat></itemx>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></ftable>
 
-<table commandarg="code" spaces=" " endspaces=" ">
-<tableentry><tableterm><cindex index="cp" spaces=" "><indexterm index="cp" number="3">cindex in table</indexterm></cindex> 
+<table commandarg="code" endspaces=" ">
+<tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="3">cindex in table</indexterm></cindex>
 <!-- c comment in table -->
-<item spaces=" "><itemformat command="code">abb</itemformat></item>
+<item><itemformat command="code"> abb</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
-<table commandarg="code" spaces=" " endspaces=" ">
-<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="4">cindex in table</indexterm></cindex> 
+<table commandarg="code" endspaces=" ">
+<beforefirstitem><cindex index="cp"> <indexterm index="cp" number="4">cindex in table</indexterm></cindex>
 <para>Texte before first item.
-</para></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="code">abb</itemformat></item>
+</para></beforefirstitem><tableentry><tableterm><item><itemformat command="code"> abb</itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="samp" spaces=" " endspaces=" ">
-<tableentry><tableterm><cindex index="cp" spaces=" "><indexterm index="cp" number="5">samp cindex in table</indexterm></cindex> 
+<table commandarg="samp" endspaces=" ">
+<tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="5">samp cindex in table</indexterm></cindex>
 <!-- c samp comment in table -->
-<item spaces=" "><itemformat command="samp">asamp--bb</itemformat></item>
+<item><itemformat command="samp"> asamp--bb</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine samp
 </para></tableitem></tableentry></table>
 
-<table commandarg="samp" spaces=" " endspaces=" ">
-<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="6">samp cindex in table</indexterm></cindex> 
+<table commandarg="samp" endspaces=" ">
+<beforefirstitem><cindex index="cp"> <indexterm index="cp" number="6">samp cindex in table</indexterm></cindex>
 <para>Texte before first item samp.
-</para></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp">asamp--bb</itemformat></item>
+</para></beforefirstitem><tableentry><tableterm><item><itemformat command="samp"> asamp--bb</itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="samp" spaces=" " endspaces=" "> 
+<table commandarg="samp" endspaces=" "> 
 <beforefirstitem>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="7">cindex between lines</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="7">cindex between lines</indexterm></cindex>
 
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp">asamp--bb1</itemformat></item>
+</beforefirstitem><tableentry><tableterm><item><itemformat command="samp"> asamp--bb1</itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="samp" spaces=" " endspaces=" "> 
-<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="8">cindex before line</indexterm></cindex>
+<table commandarg="samp" endspaces=" "> 
+<beforefirstitem><cindex index="cp"> <indexterm index="cp" number="8">cindex before line</indexterm></cindex>
 
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp">asamp--bb2</itemformat></item>
+</beforefirstitem><tableentry><tableterm><item><itemformat command="samp"> asamp--bb2</itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="samp" spaces=" " endspaces=" "> 
+<table commandarg="samp" endspaces=" "> 
 <beforefirstitem>
-</beforefirstitem><tableentry><tableterm><cindex index="cp" spaces=" "><indexterm index="cp" number="9">cindex after line</indexterm></cindex>
-<item spaces=" "><itemformat command="samp">asamp--bb2</itemformat></item>
+</beforefirstitem><tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="9">cindex after line</indexterm></cindex>
+<item><itemformat command="samp"> asamp--bb2</itemformat></item>
 </tableterm></tableentry></table>
 
-<table commandarg="samp" spaces=" " endspaces=" "> 
-<tableentry><tableterm><cindex index="cp" spaces=" "><indexterm index="cp" number="10">cindex first</indexterm></cindex>
+<table commandarg="samp" endspaces=" "> 
+<tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="10">cindex first</indexterm></cindex>
 <!-- c commant -->
-<cindex index="cp" spaces=" "><indexterm index="cp" number="11">second</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="12">third</indexterm></cindex>
-<item spaces=" "><itemformat command="samp">asamp--bb2</itemformat></item>
+<cindex index="cp"> <indexterm index="cp" number="11">second</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="12">third</indexterm></cindex>
+<item><itemformat command="samp"> asamp--bb2</itemformat></item>
 </tableterm></tableentry></table>
 
 

@@ -10,19 +10,15 @@ UNIT_DIRECTIONS
 This: [U0]
  *before_node_section
  *@node C2 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
   *line_arg
@@ -53,7 +49,7 @@ $result_sectioning_root{'top_node_and_bye'} = '';
 $result_headings_list{'top_node_and_bye'} = '';
 
 
-$result_converted{'xml'}->{'top_node_and_bye'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename></node>
+$result_converted{'xml'}->{'top_node_and_bye'} = '<node identifier="Top"><nodename> Top</nodename></node>
 
 <bye></bye>
 ';

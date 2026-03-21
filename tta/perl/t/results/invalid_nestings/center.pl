@@ -8,13 +8,8 @@ use utf8;
 $result_tree_text{'center'} = '*document_root C1
  *before_node_section C41
   *@center C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C6
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C8
+    {spaces_before_argument: }
     *@indent l1
     {ignorable_spaces_after_command: }
     *@titlefont C1 l1
@@ -35,60 +30,43 @@ $result_tree_text{'center'} = '*document_root C1
      *brace_command_context C1
       *paragraph C1
        {footnote}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@center C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C2
+   *line_arg C3
+    {spaces_before_argument: }
     {center }
     *index_entry_command@cindex C1 l3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |index_entry:I{cp,1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {cindex}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@center C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     *@quotation C1 l5
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
   *paragraph C1
    {in quotation\\n}
   {empty_line:\\n}
   *@center C1 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C2
+   *line_arg C3
+    {spaces_before_argument: }
     {center }
     *@center C1 l9
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {second center}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@center C1 l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     *@code C1 l11
      *brace_container C1
       {in code in center\\n}
@@ -96,22 +74,16 @@ $result_tree_text{'center'} = '*document_root C1
   {empty_line:\\n}
   {empty_line:\\n}
   *@center C1 l15
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C2
+   *line_arg C3
+    {spaces_before_argument: }
     *@code C1 l15
      *brace_container C1
       {in code in center }
     *@center C1 l15
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {center in code in center}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -119,162 +91,110 @@ $result_tree_text{'center'} = '*document_root C1
    *@code C1 l19
     *brace_container
   *@center C1 l19
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {in center in code}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l21
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l21
+     {spaces_after_argument:\\n}
    *before_item C1
     *@center C1 l22
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C3
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C5
+      {spaces_before_argument: }
       {centered line with item }
       {ignorable_spaces_after_command: }
       {first item on center line}
+      {spaces_after_argument:\\n}
    *@end C1 l23
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l25
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@emph l25
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l26
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {item}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *@center C1 l27
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C3
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C5
+       {spaces_before_argument: }
        {centered line with item }
        {ignorable_spaces_after_command: }
        {second item on center line}
+       {spaces_after_argument:\\n}
    *@end C1 l28
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Empty double center:\\n}
   *@center C1 l31
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     *@center C1 l31
-     *line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C1
+      {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@center C1 l33
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C2
+   *line_arg C3
+    {spaces_before_argument: }
     *@samp C1 l33
      *brace_container C1
       {something }
     *@center C1 l33
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {end of samp}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@center C1 l35
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     {after first center }
     *@samp C1 l35
      *brace_container
     *@center C1 l35
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {after second center}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {End of samp\\n}
   {empty_line:\\n}
   *@multitable C3 l39
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     {spaces_before_argument: }
      *bracketed_arg C1 l39
       {AAA}
      {  }
      *bracketed_arg C1 l39
       {BBB}
+     {spaces_after_argument:\\n}
    *multitable_body C1
     *row C2
     |EXTRA
@@ -292,55 +212,37 @@ $result_tree_text{'center'} = '*document_root C1
       *paragraph C1
        {bidule\\n}
       *@center C1 l41
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C4
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
-        {ignorable_spaces_after_command: }
+       *line_arg C6
+        {spaces_before_argument: }
+        {spaces_before_argument: }
         {ctruc }
         {ignorable_spaces_after_command: }
         {cbidule}
+        {spaces_after_argument:\\n}
       *@center C1 l42
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C2
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
-        {ignorable_spaces_after_command: }
+       *line_arg C4
+        {spaces_before_argument: }
+        {spaces_before_argument: }
         {cstruc}
+        {spaces_after_argument:\\n}
    *@end C1 l43
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@center C1 l45
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C2
+   *line_arg C3
+    {spaces_before_argument: }
     {before the table }
     *@table C1 l45
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
      *arguments_line C1
-      *block_line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C3
+       {spaces_before_argument: }
        *@asis l45
+       {spaces_after_argument:\\n}
   {ignorable_spaces_after_command: }
   *paragraph C2
    {item in center\\n}

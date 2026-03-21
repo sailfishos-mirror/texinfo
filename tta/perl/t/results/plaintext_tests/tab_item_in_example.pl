@@ -9,10 +9,8 @@ $result_tree_text{'tab_item_in_example'} = '*document_root C1
  *before_node_section C1
   *@example C4 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C2
     {ignorable_spaces_after_command: }
     {in tab\\n}
@@ -20,16 +18,12 @@ $result_tree_text{'tab_item_in_example'} = '*document_root C1
     {ignorable_spaces_after_command: }
     {in item\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 

@@ -9,57 +9,44 @@ $result_tree_text{'check_htmlxref'} = '*document_root C6
  *before_node_section C1
   {empty_line:\\n}
  *@node C1 l2 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {Top}
-   *line_arg C3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C4
    |EXTRA
    |manual_content:{../there/no_existing_no_manual_direction}
+    {spaces_before_argument: }
     {(}
     {../there/no_existing_no_manual_direction}
     {)}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{first}
    |normalized:{first}
+    {spaces_before_argument: }
     {first}
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C5
    |EXTRA
    |manual_content:{dir}
+    {spaces_before_argument: }
     {(}
     {dir}
     {)}
+    {spaces_after_argument:\\n}
  *@top C6 l3 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C4
    *@ref C4 l5
@@ -95,10 +82,8 @@ $result_tree_text{'check_htmlxref'} = '*document_root C6
   {empty_line:\\n}
   *@menu C5 l8
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l9
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -134,88 +119,68 @@ $result_tree_text{'check_htmlxref'} = '*document_root C6
      *preformatted C1
       {\\n}
    *@end C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 l14 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C2
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {first}
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C5
    |EXTRA
    |manual_content:{no_existing_no_manual.info}
+    {spaces_before_argument: }
     {(}
     {no_existing_no_manual.info}
     {)}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l16 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C3
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {chapter}
-   *line_arg C3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C4
    |EXTRA
    |manual_content:{chap_not_existing}
+    {spaces_before_argument: }
     {(}
     {chap_not_existing}
     {)}
-   *line_arg C4
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C6
    |EXTRA
    |manual_content:{dir}
    |node_content:{node in dir}
    |normalized:{node-in-dir}
+    {spaces_before_argument: }
     {(}
     {dir}
     {)}
     {node in dir}
+    {spaces_after_argument:\\n}
  *@chapter C3 l17 {Chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@xref C1 l19

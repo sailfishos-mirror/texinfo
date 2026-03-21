@@ -4107,10 +4107,10 @@ sub _convert_enumerate_command($$$$$) {
   # arguments_line type element
   my $arguments_line = $command->{'contents'}->[0];
   my $block_line_arg = $arguments_line->{'contents'}->[0];
-  if (exists($block_line_arg->{'contents'})
-      and exists($block_line_arg->{'contents'}->[0]->{'text'})) {
-    my $specification = $block_line_arg->{'contents'}->[0]->{'text'};
 
+  my ($specification, $surplus)
+    = Texinfo::Common::simple_arg_text($block_line_arg);
+  if (defined($specification)) {
     if ($specification =~ /^\d+$/ and $specification ne '1') {
       $start = $specification;
     } elsif ($specification =~ /^[A-Z]$/) {
@@ -4199,7 +4199,7 @@ sub _convert_item_command($$$$$) {
   } elsif (exists($command->{'contents'})
            and exists($command->{'contents'}->[0]->{'type'})
            and $command->{'contents'}->[0]->{'type'} eq 'line_arg') {
-    if (exists($command->{'contents'}->[0]->{'contents'})) {
+    if (!Texinfo::Common::empty_spaces_argument($command->{'contents'}->[0])) {
 
       my $result = ($cmdname eq 'item') ? '' : '<dt>';
 
@@ -5411,8 +5411,7 @@ sub _open_quotation_command($$$) {
   # arguments_line type element
   my $arguments_line = $command->{'contents'}->[0];
   my $block_line_args = $arguments_line->{'contents'}->[0];
-  if (exists($block_line_args->{'contents'})
-      and scalar(@{$block_line_args->{'contents'}})) {
+  if (!Texinfo::Common::empty_spaces_argument($block_line_args)) {
     $formatted_quotation_arg_to_prepend
      = $self->convert_tree($self->cdt('@b{{quotation_arg}:} ',
                         {'quotation_arg' => $block_line_args}),

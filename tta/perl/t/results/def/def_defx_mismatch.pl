@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'def_defx_mismatch'} = '*document_root C1
  *before_node_section C1
   *@defun C4 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{defun}
@@ -20,16 +17,14 @@ $result_tree_text{'def_defx_mismatch'} = '*document_root C1
       |{my def}
    |index_entry:I{fn,1}
    |original_def_cmdname:{defun}
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C11
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Function}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *bracketed_arg C1 l1
        {my def}
@@ -48,10 +43,8 @@ $result_tree_text{'def_defx_mismatch'} = '*document_root C1
       *def_line_arg C1
        *@dots C1 l1
         *brace_container
+     {spaces_after_argument:\\n}
    *@deffnx C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -61,10 +54,8 @@ $result_tree_text{'def_defx_mismatch'} = '*document_root C1
    |index_entry:I{fn,2}
    |not_after_command:{1}
    |original_def_cmdname:{deffnx}
-    *line_arg C11
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C13
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l2
        {type}
@@ -88,22 +79,19 @@ $result_tree_text{'def_defx_mismatch'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {args}
+     {spaces_after_argument:\\n}
    *def_item C3
     {empty_line:\\n}
     *paragraph C1
      {In defun.\\n}
     {empty_line:\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defun}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defun}
+     {spaces_after_argument:\\n}
 ';
 
 

@@ -230,6 +230,9 @@ text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
       else if (e1->e.c->cmd == CM_CLOSE_BRACE
                || e1->e.c->cmd == CM_rbracechar)
         ADD("}", 1);
+      else if (e1->e.c->cmd == CM_comment
+               || e1->e.c->cmd == CM_c)
+       {}
       else
         *superfluous_arg = 1;
     }
@@ -1051,120 +1054,52 @@ isolate_trailing_space (ELEMENT *current, enum element_type spaces_type)
     add_to_contents_as_array (current, spaces_element);
 }
 
-void
-isolate_last_space (ELEMENT *current)
-{
-  ELEMENT *last_elt;
-
-  if (current->e.c->contents.number == 0)
-    return;
-
-  /* Store a final comment command in the 'info' hash */
-  last_elt = last_contents_child (current);
-  if (!(type_data[last_elt->type].flags & TF_text)
-      && (last_elt->e.c->cmd == CM_c
-          || last_elt->e.c->cmd == CM_comment))
-    {
-      current->elt_info[eit_comment_at_end]
-         = pop_element_from_contents (current);
-    }
-
-  last_elt = last_contents_child (current);
-
-  if (last_elt && type_data[last_elt->type].flags & TF_text
-      && last_elt->e.text->end > 0)
-    {
-      ELEMENT *spaces_element
-       = isolate_trailing_spaces_element (ET_spaces_after_argument, last_elt);
-      if (spaces_element == last_elt)
-      /* If text all whitespace */
-        {
-          if (!(type_data[last_elt->type].flags & TF_trailing_space))
-            {
-              /* e is last_elt */
-              ELEMENT *e = pop_element_from_contents (current);
-              e->type = ET_spaces_after_argument;
-              current->elt_info[eit_spaces_after_argument] = e;
-            }
-          else
-            {
-              if (global_parser_conf->debug)
-                {
-                  debug_nonl ("NOT ISOLATING SPACES ONLY ");
-                  debug_parser_print_element (current, 1);
-                  debug_nonl ("; c ");
-                  debug_parser_print_element (last_elt, 0);
-                  debug ("");
-                }
-              return;
-            }
-        }
-    /* a new element with traling spaces transferred from last_elt */
-      else if (spaces_element)
-        current->elt_info[eit_spaces_after_argument] = spaces_element;
-      else
-        goto no_isolate_space;
-    }
-  else
-   goto no_isolate_space;
-
-  if (global_parser_conf->debug)
-    {
-      debug_nonl ("ISOLATE SPACE p ");
-      debug_parser_print_element (current, 1);
-      debug_nonl ("; c ");
-      debug_parser_print_element (last_elt, 0); debug ("");
-    }
-  return;
-
- no_isolate_space:
-  if (global_parser_conf->debug)
-    {
-      debug_nonl ("NOT ISOLATING p ");
-      debug_parser_print_element (current, 1);
-      debug_nonl ("; c ");
-      if (last_elt)
-        debug_parser_print_element (last_elt, 0);
-      debug ("");
-    }
-
-  return;
-}
-
 static ELEMENT *
 isolate_leading_spaces_element (enum element_type spaces_type,
                                 ELEMENT *element)
 {
   ELEMENT *spaces_element = 0;
-  size_t leading_spaces;
+  size_t spaces_len;
   size_t text_len = element->e.text->end;
   char *text = element->e.text->text;
 
-  leading_spaces = strspn (text, whitespace_chars);
+  spaces_len = strspn (text, whitespace_chars);
 
   /* only spaces in input element text, return the element */
-  if (leading_spaces == text_len)
-    return element;
+  if (spaces_len == text_len)
+    {
+      element->type = spaces_type;
+      return element;
+    }
 
-  if (leading_spaces)
+  if (spaces_len)
     {
       char *temp;
 
       spaces_element = new_text_element (spaces_type);
       text_append_n (spaces_element->e.text,
-                     text, leading_spaces);
+                     text, spaces_len);
 
-      temp = strndup (text + leading_spaces, text_len - leading_spaces);
+      temp = strndup (text + spaces_len, text_len - spaces_len);
       element->e.text->end = 0;
-      text_append_n (element->e.text, temp, text_len - leading_spaces);
+      text_append_n (element->e.text, temp, text_len - spaces_len);
       free (temp);
 
       if (element->source_mark_list)
         {
           relocate_source_marks (element->source_mark_list,
                                  spaces_element, 0,
-                       count_multibyte (spaces_element->e.text->text));
+                                 spaces_len);
+          
           destroy_element_empty_source_mark_list (element);
+          if (element->source_mark_list)
+            {
+              SOURCE_MARK_LIST *source_mark_list = element->source_mark_list;
+
+              size_t i;
+              for (i = 0; i < source_mark_list->number; i++)
+                source_mark_list->list[i]->position -= spaces_len;
+            }
         }
     }
   return spaces_element;
@@ -1240,35 +1175,6 @@ isolate_leading_trailing (ELEMENT *current, int isolate_leading_only)
     }
 }
 
-/* Add an "ET_ignorable_spaces_after_command" element containing the
-   whitespace at the beginning of the rest of the line after skipspaces
-   commands, if COMMAND is 0.  Otherwise add an
-   "ET_internal_spaces_after_command" text element, after line commands
-   or commands starting a block, that will end up in COMMAND info
-   spaces_before_argument. */
-void
-start_empty_line_after_command (ELEMENT *current, const char **line_inout,
-                                const ELEMENT *command)
-{
-  const char *line = *line_inout;
-  ELEMENT *e;
-  int len;
-
-  if (command)
-    {
-      e = new_text_element (ET_internal_spaces_after_command);
-      internal_space_holder = command;
-    }
-  else
-    e = new_text_element (ET_ignorable_spaces_after_command);
-
-  add_to_contents_as_array (current, e);
-
-  len = strspn (line, whitespace_chars_except_newline);
-  text_append_n (e->e.text, line, len);
-  line += len;
-  *line_inout = line;
-}
 
 
 /* if kbd should be formatted as code */
@@ -1301,7 +1207,12 @@ parent_of_command_as_argument (ELEMENT *current)
     && (current->e.c->parent->e.c->parent->e.c->cmd == CM_itemize
         || command_data(current->e.c->parent->e.c->parent->e.c->cmd).data
                                                           == BLOCK_item_line)
-    && (current->e.c->contents.number == 1);
+    && (current->e.c->contents.number == 1
+        || (current->e.c->contents.number == 2
+            && type_data[current->e.c->contents.list[0]->type].flags & TF_text
+            && !*(current->e.c->contents.list[0]->e.text->text
+                  + strspn (current->e.c->contents.list[0]->e.text->text,
+                            whitespace_chars))));
 }
 
 /* register command_as_argument_kbd_code */
@@ -2289,7 +2200,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                        current = current->e.c->parent;
                        current = merge_text (current, line, whitespaces_len, 0);
                        line += whitespaces_len;
-                       isolate_last_space (current);
+                       isolate_leading_trailing (current, 0);
                        current = end_line (current);
                        retval = GET_A_NEW_LINE;
                        goto funexit;

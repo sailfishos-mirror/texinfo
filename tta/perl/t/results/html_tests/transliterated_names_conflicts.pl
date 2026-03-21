@@ -19,32 +19,24 @@ NodeForward: [U1]
    {text_before_beginning:\\n}
   *preamble_before_content
  *@node C1 transliterated_names_conflicts.texi:l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 transliterated_names_conflicts.texi:l4 {Same transliterated names}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Same transliterated names}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 U1 unit{N:Prés}{s:1 Prés}
 unit_directions:D[next->[U2]|prev->[U0]]
@@ -62,33 +54,25 @@ NodeUp: [U0]
 NodeForward: [U2]
 NodeBack: [U0]
  *@node C1 transliterated_names_conflicts.texi:l6 {Prés}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Pr_00e9s}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Prés}
+    {spaces_after_argument:\\n}
  *@chapter C2 transliterated_names_conflicts.texi:l7 {Prés}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Prés}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 U2 unit{N:Other node}{s:2 Other chapter}
 unit_directions:D[prev->[U1]]
@@ -102,33 +86,25 @@ NodePrev: [U1]
 NodeUp: [U0]
 NodeBack: [U1]
  *@node C1 transliterated_names_conflicts.texi:l9 {Other node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Other-node}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Other node}
+    {spaces_after_argument:\\n}
  *@chapter C7 transliterated_names_conflicts.texi:l10 {Other chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Other chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@anchor C1 transliterated_names_conflicts.texi:l12
   |EXTRA
@@ -139,9 +115,6 @@ NodeBack: [U1]
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
   *@float C3 transliterated_names_conflicts.texi:l14
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{2.1}
   |float_type:{Figure}
@@ -149,28 +122,22 @@ NodeBack: [U1]
   |identifier:{Pr_00e8s}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Figure}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {Près}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {In figure\\n}
    *@end C1 transliterated_names_conflicts.texi:l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
   *line_arg

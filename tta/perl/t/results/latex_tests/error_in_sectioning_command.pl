@@ -17,46 +17,33 @@ $result_tree_text{'error_in_sectioning_command'} = '*document_root C5
      |{spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l4 {top section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top section}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l6 {@code{@@error@{@}} (@error{}): Indicating an Error Message}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_0040error_007b_007d-_0028error_002d_002d_003e_0029_003a-Indicating-an-Error-Message}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C4
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C6
+    {spaces_before_argument: }
     *@code C1 l6
      *brace_container C4
       *@@
@@ -67,19 +54,15 @@ $result_tree_text{'error_in_sectioning_command'} = '*document_root C5
     *@error C1 l6
      *brace_container
     {): Indicating an Error Message}
+    {spaces_after_argument:\\n}
  *@chapter C3 l7 {@code{@@error@{@}} (@error{}): Indicating an Error Message}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C4
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C6
+    {spaces_before_argument: }
     *@code C1 l7
      *brace_container C4
       *@@
@@ -90,6 +73,7 @@ $result_tree_text{'error_in_sectioning_command'} = '*document_root C5
     *@error C1 l7
      *brace_container
     {): Indicating an Error Message}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {Describe }

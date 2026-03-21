@@ -12,41 +12,29 @@ $result_tree_text{'consecutive_conditionals'} = '*document_root C1
   >ignored_conditional_block<1>
    >*@ifinfo C3 l1
     >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C1
+      >{spaces_before_argument:\\n}
     >{raw:in ifinfo\\n}
     >*@end C1 l3
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifinfo}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifinfo}
+      >{spaces_after_argument:\\n}
   >ignored_conditional_block<2>
    >*@iftex C3 l4
     >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C1
+      >{spaces_before_argument:\\n}
     >{raw:in iftex\\n}
     >*@end C1 l6
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{iftex}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{iftex}
+      >{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@set C1
   |INFO
@@ -63,50 +51,34 @@ $result_tree_text{'consecutive_conditionals'} = '*document_root C1
   >SOURCEMARKS
   >ignored_conditional_block<3><p:1>
    >*@ifclear C3 l10
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{b}
+      >{spaces_after_argument:\\n}
     >{raw:in ifclear\\n}
     >*@end C1 l12
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifclear}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifclear}
+      >{spaces_after_argument:\\n}
   >ignored_conditional_block<4><p:1>
    >*@ifset C3 l13
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{a}
+      >{spaces_after_argument:\\n}
     >{raw:in ifset\\n}
     >*@end C1 l15
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
+      >{spaces_after_argument:\\n}
 ';
 
 

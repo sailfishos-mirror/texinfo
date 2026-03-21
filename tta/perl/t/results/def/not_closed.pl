@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'not_closed'} = '*document_root C1
  *before_node_section C1
   *@deffn C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -20,10 +17,8 @@ $result_tree_text{'not_closed'} = '*document_root C1
       |{bidule}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {truc}
@@ -35,10 +30,8 @@ $result_tree_text{'not_closed'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {machin}
+     {spaces_after_argument:\\n}
    *@deffnx C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -47,10 +40,8 @@ $result_tree_text{'not_closed'} = '*document_root C1
       |{chose}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffnx}
-    *line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {truc}
@@ -62,11 +53,9 @@ $result_tree_text{'not_closed'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {args}
+     {spaces_after_argument:\\n}
    *def_item C1
     *@defvar C1 l3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
      *def_line C1 l3
      |EXTRA
      |def_command:{defvar}
@@ -76,16 +65,14 @@ $result_tree_text{'not_closed'} = '*document_root C1
         |{type1}
      |index_entry:I{vr,1}
      |original_def_cmdname:{defvar}
-      *block_line_arg C7
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C9
+       (i){spaces_before_argument: }
        *def_category C1
        |INFO
        |inserted:{1}
         *def_line_arg C1
          {Variable}
-       (i){spaces: }
+       {spaces: }
        *def_name C1
         *def_line_arg C1
          {type1}
@@ -97,6 +84,7 @@ $result_tree_text{'not_closed'} = '*document_root C1
        *def_arg C1
         *def_line_arg C1
          {bidule}
+       {spaces_after_argument:\\n}
 ';
 
 

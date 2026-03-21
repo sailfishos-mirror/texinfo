@@ -9,28 +9,22 @@ $result_tree_text{'section_in_flushright'} = '*document_root C2
  *before_node_section C1
   *@flushright C4 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {empty_line:\\n}
    *paragraph C1
     {text flushed right\\n}
    {empty_line:\\n}
  *@section C1 l5 {a section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {a section}
+    {spaces_after_argument:\\n}
 ';
 
 

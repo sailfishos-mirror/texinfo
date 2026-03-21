@@ -9,28 +9,19 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content C6
    *@documentlanguage C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{fr}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {fr}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@copying C3 l3
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *@defivar C3 l4
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
      *def_line C1 l4
      |EXTRA
      |def_command:{defivar}
@@ -56,10 +47,8 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
      |element_region:{copying}
      |index_entry:I{vr,1}
      |original_def_cmdname:{defivar}
-      *block_line_arg C7
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C9
+       (i){spaces_before_argument: }
        *def_category C1
        |INFO
        |inserted:{1}
@@ -68,7 +57,7 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
         |documentlanguage:{fr}
         |translation_context:{category of instance variables in object-oriented programming for @defivar}
          {untranslated:Instance Variable}
-       (i){spaces: }
+       {spaces: }
        *def_class C1
         *def_line_arg C1
          {copying}
@@ -80,108 +69,78 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
        *def_arg C1
         *def_line_arg C1
          {b}
+       {spaces_after_argument:\\n}
      *def_item C1
       *paragraph C2
        *@error C1 l5
         *brace_container
        {\\n}
      *@end C1 l6
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{defivar}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {defivar}
+       {spaces_after_argument:\\n}
     *@end C1 l7
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {copying}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@documentlanguage C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{2}
    |text_arg:{hr}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {hr}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l11 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l12 {top section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top section}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l14 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C7 l15 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defivar C3 l17
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l17
    |EXTRA
    |def_command:{defivar}
@@ -207,10 +166,8 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{vr,2}
    |original_def_cmdname:{defivar}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
@@ -219,7 +176,7 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
       |documentlanguage:{hr}
       |translation_context:{category of instance variables in object-oriented programming for @defivar}
        {untranslated:Instance Variable}
-     (i){spaces: }
+     {spaces: }
      *def_class C1
       *def_line_arg C1
        {hr}
@@ -231,40 +188,30 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {CCC}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C2
      *@error C1 l18
       *brace_container
      {\\n}
    *@end C1 l19
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defivar}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defivar}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@documentlanguage C1 l21
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |text_arg:{de}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {de}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defivar C2 l23
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l23
    |EXTRA
    |def_command:{defivar}
@@ -290,10 +237,8 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{vr,3}
    |original_def_cmdname:{defivar}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
@@ -302,7 +247,7 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
       |documentlanguage:{de}
       |translation_context:{category of instance variables in object-oriented programming for @defivar}
        {untranslated:Instance Variable}
-     (i){spaces: }
+     {spaces: }
      *def_class C1
       *def_line_arg C1
        {de}
@@ -314,17 +259,14 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {GGG}
+     {spaces_after_argument:\\n}
    *@end C1 l24
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defivar}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defivar}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -534,30 +476,30 @@ strong.def-name {font-family: monospace; font-weight: bold}
 ';
 
 
-$result_converted{'xml'}->{'multiple_in_preamble'} = '<documentlanguage xml:lang="fr" spaces=" ">fr</documentlanguage>
+$result_converted{'xml'}->{'multiple_in_preamble'} = '<documentlanguage xml:lang="fr"> fr</documentlanguage>
 
 <copying endspaces=" ">
-<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="1">a de copying</indexterm><defcategory automatic="on">Instance Variable</defcategory> <defclass>copying</defclass> <defclassvar>a</defclassvar> <defparam>b</defparam></definitionterm>
+<defivar endspaces=" "><definitionterm><indexterm index="vr" number="1">a de copying</indexterm> <defcategory automatic="on">Instance Variable</defcategory> <defclass>copying</defclass> <defclassvar>a</defclassvar> <defparam>b</defparam></definitionterm>
 <definitionitem><para>&errorglyph;
 </para></definitionitem></defivar>
 </copying>
 
-<documentlanguage xml:lang="hr" spaces=" ">hr</documentlanguage>
+<documentlanguage xml:lang="hr"> hr</documentlanguage>
 
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
-<top spaces=" "><sectiontitle>top section</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapter</nodenext></node>
+<top><sectiontitle> top section</sectiontitle>
 
 </top>
-<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chap</sectiontitle>
+<node identifier="chapter"><nodename> chapter</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> chap</sectiontitle>
 
-<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="2">BBB od hr</indexterm><defcategory automatic="on">Instance Variable</defcategory> <defclass>hr</defclass> <defclassvar>BBB</defclassvar> <defparam>CCC</defparam></definitionterm>
+<defivar endspaces=" "><definitionterm><indexterm index="vr" number="2">BBB od hr</indexterm> <defcategory automatic="on">Instance Variable</defcategory> <defclass>hr</defclass> <defclassvar>BBB</defclassvar> <defparam>CCC</defparam></definitionterm>
 <definitionitem><para>&errorglyph;
 </para></definitionitem></defivar>
 
-<documentlanguage xml:lang="de" spaces=" ">de</documentlanguage>
+<documentlanguage xml:lang="de"> de</documentlanguage>
 
-<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="3">FFF von de</indexterm><defcategory automatic="on">Instance Variable</defcategory> <defclass>de</defclass> <defclassvar>FFF</defclassvar> <defparam>GGG</defparam></definitionterm>
+<defivar endspaces=" "><definitionterm><indexterm index="vr" number="3">FFF von de</indexterm> <defcategory automatic="on">Instance Variable</defcategory> <defclass>de</defclass> <defclassvar>FFF</defclassvar> <defparam>GGG</defparam></definitionterm>
 </defivar>
 </chapter>
 ';

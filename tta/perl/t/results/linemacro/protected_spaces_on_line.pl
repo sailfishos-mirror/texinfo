@@ -17,16 +17,12 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
    {raw:something\\n}
    {raw:@end deffn\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
@@ -42,9 +38,6 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
      >|{spaces_before_argument: }
      >{macro_call_arg_text:(bar, baz)@\\n continuation line}
   *@deffn C3 l8:@test
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l8:@test
    |EXTRA
    |def_command:{deffn}
@@ -54,10 +47,8 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
       |{foo}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C14
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C16
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Function}
@@ -86,22 +77,19 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {line}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {something\\n}
    *@end C1 l8:@test
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
      >SOURCEMARKS
      >linemacro_expansion<end;1><p:5>
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >linemacro_expansion<start;2><p:1>
@@ -117,9 +105,6 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
      >|{spaces_before_argument: }
      >{macro_call_arg_text:(bar, baz) rest@ and more}
   *@deffn C3 l10:@test
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l10:@test
    |EXTRA
    |def_command:{deffn}
@@ -131,10 +116,8 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
       |{b}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffn}
-    *block_line_arg C16
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C18
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Function}
@@ -169,22 +152,19 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {more}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {something\\n}
    *@end C1 l10:@test
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
      >SOURCEMARKS
      >linemacro_expansion<end;2><p:5>
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >linemacro_expansion<start;3><p:1>
@@ -200,9 +180,6 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
      >|{spaces_before_argument: }
      >{macro_call_arg_text:(bar, baz)@@}
   *@deffn C3 l12:@test
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l12:@test
    |EXTRA
    |def_command:{deffn}
@@ -212,10 +189,8 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
       |{foo}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deffn}
-    *block_line_arg C11
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C13
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Function}
@@ -237,22 +212,19 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        *@@
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {something\\n}
    *@end C1 l12:@test
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
      >SOURCEMARKS
      >linemacro_expansion<end;3><p:5>
+     {spaces_after_argument:\\n}
   {spaces_before_paragraph: }
   *paragraph C1
    {another with double at\\n}

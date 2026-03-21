@@ -9,104 +9,69 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
  *before_node_section C1
   {empty_line:\\n}
  *@node C1 l2 {node! After punc}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node_0021-After-punc}
  |is_target:{1}
  |isindex:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node! After punc}
+    {spaces_after_argument:\\n}
  *@top C25 l3 {top! After punc}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top! After punc}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l5
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l6
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {item! After punc}
+       {spaces_after_argument:\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C4 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {quotation arg! After punc}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {In quotation\\n}
    *@exdent C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {exdent quotation! After punc}
+     {spaces_after_argument:\\n}
    *@end C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C5 l14
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{float type! After punc}
@@ -114,15 +79,13 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
   |identifier:{float-label_0021-After-punc}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {float type! After punc}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {float label! After punc}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {In float\\n}
    *@shortcaption C1 l16
@@ -131,21 +94,14 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
       {shortcaption! After punc}
    {spaces_after_close_brace:\\n}
    *@end C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C5 l19
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{2}
   |float_type:{float type! After punc}
@@ -153,15 +109,13 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
   |identifier:{label-with-caption}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {float type! After punc}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {label with caption}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {In float with caption.\\n}
    *@caption C1 l21
@@ -170,55 +124,39 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
       {caption! After punc}
    {spaces_after_close_brace:\\n}
    *@end C1 l22
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@listoffloats C1 l24
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{float type! After punc}
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {float type! After punc}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l26
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{node_0021-After-punc}
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {index! After punc}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@heading C1 l28
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {heading! After punc}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@titlefont C1 l30
   |EXTRA
@@ -228,27 +166,19 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
   {\\n}
   {empty_line:\\n}
   *@center C1 l32
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {center! After punc}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l34
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@contents C1 l36
   |EXTRA
@@ -449,39 +379,39 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 
 
 $result_converted{'xml'}->{'punctuation_in_line_commands'} = '
-<node identifier="node_0021-After-punc" spaces=" "><nodename>node! After punc</nodename></node>
-<top spaces=" "><sectiontitle>top! After punc</sectiontitle>
+<node identifier="node_0021-After-punc"><nodename> node! After punc</nodename></node>
+<top><sectiontitle> top! After punc</sectiontitle>
 
-<table commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis">item! After punc</itemformat></item>
+<table commandarg="asis" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"> item! After punc</itemformat></item>
 </tableterm></tableentry></table>
 
-<quotation spaces=" " endspaces=" "><quotationtype>quotation arg! After punc</quotationtype>
+<quotation endspaces=" "><quotationtype> quotation arg! After punc</quotationtype>
 <para>In quotation
-</para><exdent spaces=" ">exdent quotation! After punc</exdent>
+</para><exdent> exdent quotation! After punc</exdent>
 </quotation>
 
-<float identifier="float-label_0021-After-punc" type="float type! After punc" number="1" spaces=" " endspaces=" "><floattype>float type! After punc</floattype><floatname spaces=" ">float label! After punc</floatname>
+<float identifier="float-label_0021-After-punc" type="float type! After punc" number="1" endspaces=" "><floattype> float type! After punc</floattype><floatname> float label! After punc</floatname>
 <para>In float
 </para><shortcaption><para>shortcaption! After punc</para></shortcaption>
 </float>
 
-<float identifier="label-with-caption" type="float type! After punc" number="2" spaces=" " endspaces=" "><floattype>float type! After punc</floattype><floatname spaces=" ">label with caption</floatname>
+<float identifier="label-with-caption" type="float type! After punc" number="2" endspaces=" "><floattype> float type! After punc</floattype><floatname> label with caption</floatname>
 <para>In float with caption.
 </para><caption><para>caption! After punc</para></caption>
 </float>
 
-<listoffloats type="float type! After punc" spaces=" ">float type! After punc</listoffloats>
+<listoffloats type="float type! After punc"> float type! After punc</listoffloats>
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index! After punc</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="1">index! After punc</indexterm></cindex>
 
-<heading spaces=" ">heading! After punc</heading>
+<heading> heading! After punc</heading>
 
 <titlefont>titlefont! After punc</titlefont>
 
-<center spaces=" ">center! After punc</center>
+<center> center! After punc</center>
 
-<printindex spaces=" " value="cp" line="cp"></printindex>
+<printindex value="cp" line=" cp"></printindex>
 
 <contents></contents>
 

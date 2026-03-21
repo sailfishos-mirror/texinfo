@@ -66,8 +66,13 @@ protect_first_parenthesis (ELEMENT *element)
     {
       ELEMENT *content = element->e.c->contents.list[i];
       const char *p;
-      if (content->type != ET_normal_text || content->e.text->end == 0)
+      if (!type_data[content->type].flags & TF_text)
+        return;
+
+      if (content->type == ET_spaces_before_argument
+          || content->e.text->end == 0)
         continue;
+
       p = content->e.text->text;
       if (*p == '(')
         {
@@ -1506,7 +1511,10 @@ protect_hashchar_at_line_beginning_internal (const char *type,
               int do_protect = 0;
               if (i == 0
                   || (i == 1
-                      && parent->e.c->contents.list[0]->type == ET_arguments_line))
+                      && (parent->e.c->contents.list[0]->type
+                                                      == ET_arguments_line
+                          || parent->e.c->contents.list[0]->type
+                                                == ET_spaces_before_argument)))
                 do_protect = 1;
               else
                 {

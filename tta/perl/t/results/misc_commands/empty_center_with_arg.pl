@@ -8,15 +8,11 @@ use utf8;
 $result_tree_text{'empty_center_with_arg'} = '*document_root C1
  *before_node_section C1
   *@center C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@w C1 l1
      *brace_container
+    {spaces_after_argument:\\n}
 ';
 
 

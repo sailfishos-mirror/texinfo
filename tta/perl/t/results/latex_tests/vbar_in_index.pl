@@ -9,27 +9,19 @@ $result_tree_text{'vbar_in_index'} = '*document_root C1
  *before_node_section C3
   *preamble_before_content
   *index_entry_command@findex C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{fn,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {A|B}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {C|D}
+    {spaces_after_argument:\\n}
 ';
 
 

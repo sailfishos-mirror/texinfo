@@ -9,49 +9,37 @@ $result_tree_text{'part_chapter_appendix'} = '*document_root C4
  *before_node_section C1
   {empty_line:\\n}
  *@part C2 l2 {Part 1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Part 1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@chapter C2 l4 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@appendix C1 l6 {Appendix}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Appendix}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -108,13 +96,13 @@ $result_headings_list{'part_chapter_appendix'} = '';
 
 
 $result_converted{'xml'}->{'part_chapter_appendix'} = '
-<part spaces=" "><sectiontitle>Part 1</sectiontitle>
+<part><sectiontitle> Part 1</sectiontitle>
 
-<chapter spaces=" "><sectiontitle>chapter</sectiontitle>
+<chapter><sectiontitle> chapter</sectiontitle>
 
 </chapter>
 </part>
-<appendix spaces=" "><sectiontitle>Appendix</sectiontitle>
+<appendix><sectiontitle> Appendix</sectiontitle>
 </appendix>
 ';
 

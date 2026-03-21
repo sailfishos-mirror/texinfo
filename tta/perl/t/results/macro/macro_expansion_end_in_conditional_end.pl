@@ -17,16 +17,12 @@ $result_tree_text{'macro_expansion_end_in_conditional_end'} = '*document_root C1
    {raw:Defined\\n}
    {raw:@end if\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@set C1
   |INFO
@@ -46,32 +42,24 @@ $result_tree_text{'macro_expansion_end_in_conditional_end'} = '*document_root C1
     >*brace_arg
   >expanded_conditional_command<start;1><p:1>
    >*@ifset C1 l9:@beginendcond
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{flag}
+      >{spaces_after_argument:\\n}
   *paragraph C1
    {Defined\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;1><p:8>
     >*@end C1 l9:@beginendcond
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
       >>SOURCEMARKS
       >>macro_expansion<end;1><p:2>
+      >{spaces_after_argument:\\n}
 ';
 
 

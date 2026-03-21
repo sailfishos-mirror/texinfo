@@ -10,14 +10,9 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
   *preamble_before_content
   *@example C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@float C5 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |float_number:{1}
    |float_type:{Text}
@@ -25,15 +20,13 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
    |identifier:{in-example}
    |is_target:{1}
     *arguments_line C2
-     *block_line_arg C1
+     *block_line_arg C2
+      {spaces_before_argument: }
       {Text}
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *block_line_arg C3
+      {spaces_before_argument: }
       {in example}
+      {spaces_after_argument:\\n}
     *@caption C1 l3
      *brace_command_context C1
       *paragraph C1
@@ -42,38 +35,25 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
     *preformatted C1
      {\\n}
     *@end C1 l4
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{float}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {float}
+      {spaces_after_argument:\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C3 l7
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@float C4 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |float_number:{2}
    |float_type:{Text}
@@ -81,53 +61,38 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
    |identifier:{in-quotation}
    |is_target:{1}
     *arguments_line C2
-     *block_line_arg C1
+     *block_line_arg C2
+      {spaces_before_argument: }
       {Text}
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *block_line_arg C3
+      {spaces_before_argument: }
       {in quotation}
+      {spaces_after_argument:\\n}
     *@caption C1 l9
      *brace_command_context C1
       *paragraph C1
        {float in quotation}
     {spaces_after_close_brace:\\n}
     *@end C1 l10
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{float}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {float}
+      {spaces_after_argument:\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@cartouche C3 l13
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@float C4 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |float_number:{3}
    |float_type:{Text}
@@ -135,42 +100,32 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
    |identifier:{in-cartouche}
    |is_target:{1}
     *arguments_line C2
-     *block_line_arg C1
+     *block_line_arg C2
+      {spaces_before_argument: }
       {Text}
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *block_line_arg C3
+      {spaces_before_argument: }
       {in cartouche}
+      {spaces_after_argument:\\n}
     *@caption C1 l15
      *brace_command_context C1
       *paragraph C1
        {float in cartouche}
     {spaces_after_close_brace:\\n}
     *@end C1 l16
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{float}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {float}
+      {spaces_after_argument:\\n}
    *@end C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{cartouche}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {cartouche}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 
@@ -285,19 +240,19 @@ $result_converted_errors{'html'}->{'float_in_block_commands'} = '* W |must speci
 
 
 $result_converted{'xml'}->{'float_in_block_commands'} = '<example endspaces=" ">
-<float identifier="in-example" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">in example</floatname>
+<float identifier="in-example" type="Text" number="1" endspaces=" "><floattype> Text</floattype><floatname> in example</floatname>
 <caption><para>float in example</para></caption><pre xml:space="preserve">
 </pre></float>
 </example>
 
 <quotation endspaces=" ">
-<float identifier="in-quotation" type="Text" number="2" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">in quotation</floatname>
+<float identifier="in-quotation" type="Text" number="2" endspaces=" "><floattype> Text</floattype><floatname> in quotation</floatname>
 <caption><para>float in quotation</para></caption>
 </float>
 </quotation>
 
 <cartouche endspaces=" ">
-<float identifier="in-cartouche" type="Text" number="3" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">in cartouche</floatname>
+<float identifier="in-cartouche" type="Text" number="3" endspaces=" "><floattype> Text</floattype><floatname> in cartouche</floatname>
 <caption><para>float in cartouche</para></caption>
 </float>
 </cartouche>

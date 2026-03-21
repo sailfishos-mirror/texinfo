@@ -8,74 +8,53 @@ use utf8;
 $result_tree_text{'complex_nestings'} = '*document_root C5
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C3 l5 {Chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@example C5 l7
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C1
     {deffs\\n}
    *@defun C4 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *def_line C1 l9
     |EXTRA
     |def_command:{defun}
@@ -86,16 +65,14 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
     |element_node:{chap}
     |index_entry:I{fn,1}
     |original_def_cmdname:{defun}
-     *block_line_arg C9
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C11
+      (i){spaces_before_argument: }
       *def_category C1
       |INFO
       |inserted:{1}
        *def_line_arg C1
         {Function}
-      (i){spaces: }
+      {spaces: }
       *def_name C1
        *bracketed_arg C1 l9
         {my def}
@@ -114,10 +91,8 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
        *def_line_arg C1
         *@dots C1 l9
          *brace_container
+      {spaces_after_argument:\\n}
     *@defunx C1 l10
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |def_command:{defun}
     |def_index_element:
@@ -127,16 +102,14 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
     |element_node:{chap}
     |index_entry:I{fn,2}
     |original_def_cmdname:{defunx}
-     *line_arg C7
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C9
+      (i){spaces_before_argument: }
       *def_category C1
       |INFO
       |inserted:{1}
        *def_line_arg C1
         {Function}
-      (i){spaces: }
+      {spaces: }
       *def_name C1
        *bracketed_arg C1 l10
         {other def}
@@ -148,11 +121,9 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
       *def_arg C1
        *def_line_arg C1
         {args}
+      {spaces_after_argument:\\n}
     *def_item C1
      *@deffn C3 l11
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
       *def_line C1 l11
       |EXTRA
       |def_command:{deffn}
@@ -163,10 +134,8 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
       |element_node:{chap}
       |index_entry:I{fn,3}
       |original_def_cmdname:{deffn}
-       *block_line_arg C11
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C13
+        {spaces_before_argument: }
         *def_category C1
          *bracketed_arg C1 l11
           {type}
@@ -190,11 +159,9 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
         *def_arg C1
          *def_line_arg C1
           {args}
+        {spaces_after_argument:\\n}
       *def_item C1
        *@defvar C5 l12
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
         *def_line C1 l12
         |EXTRA
         |def_command:{defvar}
@@ -205,16 +172,14 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
         |element_node:{chap}
         |index_entry:I{vr,1}
         |original_def_cmdname:{defvar}
-         *block_line_arg C5
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument:\\n}
+         *block_line_arg C7
+          (i){spaces_before_argument: }
           *def_category C1
           |INFO
           |inserted:{1}
            *def_line_arg C1
             {Variable}
-          (i){spaces: }
+          {spaces: }
           *def_name C1
            *bracketed_arg C1 l12
             {variables}
@@ -222,13 +187,11 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
           *def_arg C1
            *def_line_arg C1
             {variable-name}
+          {spaces_after_argument:\\n}
         *inter_def_item C1
          *preformatted C1
           {empty_line:\\n}
         *@defvarx C1 l14
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument: }
         |EXTRA
         |def_command:{defvar}
         |def_index_element:
@@ -238,16 +201,14 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
         |element_node:{chap}
         |index_entry:I{vr,2}
         |original_def_cmdname:{defvarx}
-         *line_arg C5
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument:\\n}
+         *line_arg C7
+          (i){spaces_before_argument: }
           *def_category C1
           |INFO
           |inserted:{1}
            *def_line_arg C1
             {Variable}
-          (i){spaces: }
+          {spaces: }
           *def_name C1
            *bracketed_arg C1 l14
             {variables too}
@@ -255,32 +216,25 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
           *def_arg C1
            *def_line_arg C1
             {other-variable}
+          {spaces_after_argument:\\n}
         *def_item C3
          *preformatted C3
           {THis is the defvar\\n}
           {empty_line:\\n}
           {A table within the def\\n}
          *@table C4 l18
-         |INFO
-         |spaces_before_argument:
-          |{spaces_before_argument: }
           *arguments_line C1
-           *block_line_arg C1
-           |INFO
-           |spaces_after_argument:
-            |{spaces_after_argument:\\n}
+           *block_line_arg C3
+            {spaces_before_argument: }
             *@asis l18
+            {spaces_after_argument:\\n}
           *table_entry C2
            *table_term C1
             *@item C1 l19
-            |INFO
-            |spaces_before_argument:
-             |{spaces_before_argument: }
-             *line_arg C1
-             |INFO
-             |spaces_after_argument:
-              |{spaces_after_argument:\\n}
+             *line_arg C3
+              {spaces_before_argument: }
               {item}
+              {spaces_after_argument:\\n}
            *table_definition C1
             *preformatted C3
              {text\\n}
@@ -289,74 +243,50 @@ $result_tree_text{'complex_nestings'} = '*document_root C5
           *table_entry C1
            *table_term C1
             *@item C1 l23
-            |INFO
-            |spaces_before_argument:
-             |{spaces_before_argument: }
-             *line_arg C1
-             |INFO
-             |spaces_after_argument:
-              |{spaces_after_argument:\\n}
+             *line_arg C3
+              {spaces_before_argument: }
               {second item}
+              {spaces_after_argument:\\n}
           *@end C1 l24
-          |INFO
-          |spaces_before_argument:
-           |{spaces_before_argument: }
           |EXTRA
           |text_arg:{table}
-           *line_arg C1
-           |INFO
-           |spaces_after_argument:
-            |{spaces_after_argument:\\n}
+           *line_arg C3
+            {spaces_before_argument: }
             {table}
+            {spaces_after_argument:\\n}
          *preformatted C2
           {empty_line:\\n}
           {explanation\\n}
         *@end C1 l27
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument: }
         |EXTRA
         |text_arg:{defvar}
-         *line_arg C1
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument:\\n}
+         *line_arg C3
+          {spaces_before_argument: }
           {defvar}
+          {spaces_after_argument:\\n}
       *@end C1 l28
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{deffn}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {deffn}
+        {spaces_after_argument:\\n}
     *@end C1 l29
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{defun}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {defun}
+      {spaces_after_argument:\\n}
    *preformatted C1
     {empty_line:\\n}
    *@end C1 l31
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -543,30 +473,30 @@ explanation
 ';
 
 
-$result_converted{'xml'}->{'complex_nestings'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+$result_converted{'xml'}->{'complex_nestings'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 </top>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
+<node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Chapter</sectiontitle>
 
 <example endspaces=" ">
 <pre xml:space="preserve">deffs
-</pre><defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">my def</indexterm><defcategory automatic="on">Function</defcategory> <deffunction bracketed="on">my def</deffunction> <defparam>args</defparam> <defparam><var>arg</var></defparam> <defparam>&dots;</defparam></definitionterm>
-<defunx spaces=" "><definitionterm><indexterm index="fn" number="2">other def</indexterm><defcategory automatic="on">Function</defcategory> <deffunction bracketed="on">other def</deffunction> <defparam>no</defparam> <defparam>args</defparam></definitionterm></defunx>
-<definitionitem><deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="3">name</indexterm><defcategory bracketed="on">type</defcategory> <deffunction bracketed="on">name</deffunction> <defparam>and</defparam> <defparam>now</defparam> <defparam>the</defparam> <defparam>args</defparam></definitionterm>
-<definitionitem><defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="1">variables</indexterm><defcategory automatic="on">Variable</defcategory> <defvariable bracketed="on">variables</defvariable> <defparam>variable-name</defparam></definitionterm>
+</pre><defun endspaces=" "><definitionterm><indexterm index="fn" number="1">my def</indexterm> <defcategory automatic="on">Function</defcategory> <deffunction bracketed="on">my def</deffunction> <defparam>args</defparam> <defparam><var>arg</var></defparam> <defparam>&dots;</defparam></definitionterm>
+<defunx><definitionterm><indexterm index="fn" number="2">other def</indexterm> <defcategory automatic="on">Function</defcategory> <deffunction bracketed="on">other def</deffunction> <defparam>no</defparam> <defparam>args</defparam></definitionterm></defunx>
+<definitionitem><deffn endspaces=" "><definitionterm><indexterm index="fn" number="3">name</indexterm> <defcategory bracketed="on">type</defcategory> <deffunction bracketed="on">name</deffunction> <defparam>and</defparam> <defparam>now</defparam> <defparam>the</defparam> <defparam>args</defparam></definitionterm>
+<definitionitem><defvar endspaces=" "><definitionterm><indexterm index="vr" number="1">variables</indexterm> <defcategory automatic="on">Variable</defcategory> <defvariable bracketed="on">variables</defvariable> <defparam>variable-name</defparam></definitionterm>
 <pre xml:space="preserve">
-</pre><defvarx spaces=" "><definitionterm><indexterm index="vr" number="2">variables too</indexterm><defcategory automatic="on">Variable</defcategory> <defvariable bracketed="on">variables too</defvariable> <defparam>other-variable</defparam></definitionterm></defvarx>
+</pre><defvarx><definitionterm><indexterm index="vr" number="2">variables too</indexterm> <defcategory automatic="on">Variable</defcategory> <defvariable bracketed="on">variables too</defvariable> <defparam>other-variable</defparam></definitionterm></defvarx>
 <definitionitem><pre xml:space="preserve">THis is the defvar
 
 A table within the def
-</pre><table commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis">item</itemformat></item>
+</pre><table commandarg="asis" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"> item</itemformat></item>
 </tableterm><tableitem><pre xml:space="preserve">text
 
 more text
-</pre></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis">second item</itemformat></item>
+</pre></tableitem></tableentry><tableentry><tableterm><item><itemformat command="asis"> second item</itemformat></item>
 </tableterm></tableentry></table>
 <pre xml:space="preserve">
 explanation

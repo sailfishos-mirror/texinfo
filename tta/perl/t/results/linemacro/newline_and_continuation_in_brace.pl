@@ -16,23 +16,16 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
     {macro_line: mylinecommand {first, second, rest}\\n}
    {raw:@defline category \\first\\ \\second\\ \\rest\\\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defblock C3 l6
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
     >SOURCEMARKS
     >linemacro_expansion<start;1>
      >*linemacro_call@mylinecommand C3
@@ -51,10 +44,8 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
       >|spaces_before_argument:
        >|{spaces_before_argument: }
        >{macro_call_arg_text:{next @\\n   last} line}
+     {spaces_before_argument:\\n}
    *@defline C1 l9:@mylinecommand
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -66,10 +57,8 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
         |{b c}
       |{d}
    |original_def_cmdname:{defline}
-    *line_arg C13
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C15
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {category}
@@ -107,17 +96,14 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
        {line}
        >SOURCEMARKS
        >linemacro_expansion<end;1><p:4>
+     {spaces_after_argument:\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defblock}
+     {spaces_after_argument:\\n}
 ';
 
 

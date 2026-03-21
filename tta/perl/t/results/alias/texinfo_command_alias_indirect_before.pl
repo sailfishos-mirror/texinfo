@@ -15,40 +15,28 @@ $result_tree_text{'texinfo_command_alias_indirect_before'} = '*document_root C1
     {macro_line: mystrong {arg}\\n}
    {raw:!!\\arg\\!!\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@alias C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{new|strong}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {new = strong}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@alias C1 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{strong|mystrong}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {strong = mystrong}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@strong C1 l9

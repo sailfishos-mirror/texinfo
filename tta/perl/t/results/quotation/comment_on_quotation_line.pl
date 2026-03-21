@@ -8,37 +8,29 @@ use utf8;
 $result_tree_text{'comment_on_quotation_line'} = '*document_root C1
  *before_node_section C1
   *@quotation C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C2
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:quotation }
+    *block_line_arg C4
+     {spaces_before_argument: }
      {truc}
      *@ 
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:quotation }
    *paragraph C1
     {In quotation\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -73,13 +65,14 @@ $result_converted{'html_text'}->{'comment_on_quotation_line'} = '<blockquote cla
 ';
 
 
-$result_converted{'xml'}->{'comment_on_quotation_line'} = '<quotation spaces=" " endspaces=" "><quotationtype>truc<spacecmd type="spc"/></quotationtype><!-- c quotation  -->
+$result_converted{'xml'}->{'comment_on_quotation_line'} = '<quotation endspaces=" "><quotationtype> truc<spacecmd type="spc"/></quotationtype><!-- c quotation  -->
 <para>In quotation
 </para></quotation>
 ';
 
 
-$result_converted{'docbook'}->{'comment_on_quotation_line'} = '<blockquote><para><emphasis role="bold">truc&#160;:</emphasis> In quotation
+$result_converted{'docbook'}->{'comment_on_quotation_line'} = '<blockquote><para><emphasis role="bold">truc&#160;<!-- quotation  -->
+:</emphasis> In quotation
 </para></blockquote>';
 
 1;

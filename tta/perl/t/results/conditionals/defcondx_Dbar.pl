@@ -41,91 +41,67 @@ $result_tree_text{'defcondx_Dbar'} = '*document_root C3
      {rawline_text:set bar}
    {empty_line:\\n}
  *@top C4 defxcond.texi:l8 {deffnx inside conditional}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {deffnx inside conditional}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C5 defxcond.texi:l10
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 defxcond.texi:l10
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffn}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {foo}
+     {spaces_after_argument:\\n}
    *inter_def_item C1
     {empty_line:\\n}
     >SOURCEMARKS
     >expanded_conditional_command<start;1><p:1>
      >*@ifset C1 defxcond.texi:l12
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
       >*arguments_line C1
-       >*block_line_arg C1
-       >|INFO
-       >|spaces_after_argument:
-        >|{spaces_after_argument:\\n}
+       >*block_line_arg C3
+        >{spaces_before_argument: }
         >{bar}
+        >{spaces_after_argument:\\n}
    *@deffnx C1 defxcond.texi:l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffnx}
    >SOURCEMARKS
    >expanded_conditional_command<end;1>
     >*@end C1 defxcond.texi:l14
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+      >{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {bar}
+     {spaces_after_argument:\\n}
    *def_item C3
     {empty_line:\\n}
     *paragraph C1
      {Documentation.\\n}
     {empty_line:\\n}
    *@end C1 defxcond.texi:l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
   *line_arg

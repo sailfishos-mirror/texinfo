@@ -8,39 +8,29 @@ use utf8;
 $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
  *before_node_section
  *@node C1 l1 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
  *@top C3 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C3
@@ -55,10 +45,8 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
       {\\n}
      *@itemize C4 l6
       *arguments_line C1
-       *block_line_arg
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C1
+        {spaces_before_argument:\\n}
       *before_item C1
        *preformatted C1
         {empty_line:\\n}
@@ -70,107 +58,75 @@ $result_tree_text{'block_commands_in_menu_description'} = '*document_root C3
         {in item\\n}
         {empty_line:\\n}
       *@end C1 l10
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{itemize}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {itemize}
+        {spaces_after_argument:\\n}
      *@table C4 l11
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
       *arguments_line C1
-       *block_line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C3
+        {spaces_before_argument: }
         *@asis l11
+        {spaces_after_argument:\\n}
       *before_item C1
        *preformatted C1
         {empty_line:\\n}
       *table_entry C2
        *table_term C1
         *@item C1 l13
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument: }
-         *line_arg C1
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument:\\n}
+         *line_arg C3
+          {spaces_before_argument: }
           {table item}
+          {spaces_after_argument:\\n}
        *table_definition C1
         *preformatted C3
          {empty_line:\\n}
          {Text.\\n}
          {empty_line:\\n}
       *@end C1 l17
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{table}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {table}
+        {spaces_after_argument:\\n}
      *preformatted C1
       *@html C3 l18
        *arguments_line C1
-        *block_line_arg
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *block_line_arg C1
+         {spaces_before_argument:\\n}
        *rawpreformatted C3
         {empty_line:\\n}
         {<b> in html </b>\\n}
         {empty_line:\\n}
        *@end C1 l22
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |text_arg:{html}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {html}
+         {spaces_after_argument:\\n}
      *@verbatim C3 l23
       *arguments_line C1
-       *block_line_arg
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C1
+        {spaces_before_argument:\\n}
       {raw:\\n}
       *@end C1 l25
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{verbatim}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {verbatim}
+        {spaces_after_argument:\\n}
    *@end C1 l26
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -325,8 +281,8 @@ Text.
 ';
 
 
-$result_converted{'xml'}->{'block_commands_in_menu_description'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+$result_converted{'xml'}->{'block_commands_in_menu_description'} = '<node identifier="first"><nodename> first</nodename></node>
+<top><sectiontitle> top</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>(manual)</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -335,9 +291,9 @@ $result_converted{'xml'}->{'block_commands_in_menu_description'} = '<node identi
 </pre></beforefirstitem><listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> in item
 
 </pre></listitem></itemize>
-<table commandarg="asis" spaces=" " endspaces=" ">
+<table commandarg="asis" endspaces=" ">
 <beforefirstitem><pre xml:space="preserve">
-</pre></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">table item</itemformat></item>
+</pre></beforefirstitem><tableentry><tableterm><item><itemformat command="asis"> table item</itemformat></item>
 </tableterm><tableitem><pre xml:space="preserve">
 Text.
 

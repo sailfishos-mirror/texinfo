@@ -9,74 +9,52 @@ $result_tree_text{'in_table'} = '*document_root C3
  *before_node_section C1
   {empty_line:\\n}
  *@node C1 l2 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@node C11 l3 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C2 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@xref l5
+     {spaces_after_argument:\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C6 l8
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code l8
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l9
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C8
+      *line_arg C9
+       {spaces_before_argument: }
        *@indent l9
        {ignorable_spaces_after_command: }
        *@titlefont C1 l9
@@ -99,14 +77,10 @@ $result_tree_text{'in_table'} = '*document_root C3
           {footnote}
        { }
        *@exdent C1 l9
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {exdent}
+         {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C3
       {in item}
@@ -120,10 +94,8 @@ $result_tree_text{'in_table'} = '*document_root C3
    *table_entry C2
     *table_term C1
      *@item C1 l11
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
+      *line_arg C2
+       {spaces_before_argument: }
        *@ref C3 l11
         *brace_arg C1
          {Top}
@@ -136,82 +108,56 @@ $result_tree_text{'in_table'} = '*document_root C3
    *table_entry C1
     *table_term C1
      *@item C1 l13
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
+      *line_arg C2
+       {spaces_before_argument: }
        *@center C1 l13
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {centered text in item}
+         {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l14
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
+      *line_arg C2
+       {spaces_before_argument: }
        *index_entry_command@cindex C1 l14
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |element_node:{chap}
        |index_entry:I{cp,1}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {index}
+         {spaces_after_argument:\\n}
    *@end C1 l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@vtable C4 l17
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l17
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l18
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,1}
-      *line_arg C1
+      *line_arg C2
+       {spaces_before_argument: }
        *index_entry_command@cindex C1 l18
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |element_node:{chap}
        |index_entry:I{cp,2}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {index}
+         {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C3
       *@option C1 l19
@@ -222,25 +168,19 @@ $result_tree_text{'in_table'} = '*document_root C3
    *table_entry C2
     *table_term C1
      *@item C1 l21
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,2}
-      *line_arg C1
+      *line_arg C2
+       {spaces_before_argument: }
        *index_entry_command@cindex C1 l21
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |element_node:{chap}
        |index_entry:I{cp,3}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {2 index}
+         {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C3
       *@option C1 l22
@@ -249,42 +189,30 @@ $result_tree_text{'in_table'} = '*document_root C3
       {\\n}
       {Even more\\n}
    *@end C1 l24
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l26
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fn}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l28
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
 ';
 
 

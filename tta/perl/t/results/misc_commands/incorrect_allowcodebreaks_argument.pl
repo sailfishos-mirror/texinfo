@@ -8,16 +8,12 @@ use utf8;
 $result_tree_text{'incorrect_allowcodebreaks_argument'} = '*document_root C1
  *before_node_section C2
   *@allowcodebreaks C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {_arg}
+    {spaces_after_argument:\\n}
   *paragraph C2
    *@code C1 l2
     *brace_container C1

@@ -8,51 +8,36 @@ use utf8;
 $result_tree_text{'all_commands_printindex'} = '*document_root C3
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@node C65 l2 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   *@xrefname C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defvr C3 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l5
    |EXTRA
    |def_command:{defvr}
@@ -63,10 +48,8 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defvr}
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -74,25 +57,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_name C1
       *def_line_arg C1
        {d--efvr_name}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--efvr\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defvr}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defvr}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C3 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l9
    |EXTRA
    |def_command:{deffn}
@@ -103,10 +80,8 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -118,25 +93,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_arg C1
       *def_line_arg C1
        {a--rguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--effn\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C3 l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l13
    |EXTRA
    |def_command:{deffn}
@@ -147,10 +116,8 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffn}
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -158,25 +125,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_name C1
       *def_line_arg C1
        {n--ame}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--effn no arg\\n}
    *@end C1 l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypefn C3 l17
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l17
    |EXTRA
    |def_command:{deftypefn}
@@ -187,10 +148,8 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deftypefn}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -206,25 +165,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_typearg C1
       *def_line_arg C1
        {a--rguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypefn\\n}
    *@end C1 l19
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypefn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypefn C3 l21
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l21
    |EXTRA
    |def_command:{deftypefn}
@@ -235,10 +188,8 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,4}
    |original_def_cmdname:{deftypefn}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -250,25 +201,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_name C1
       *def_line_arg C1
        {d--eftypefn_name}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypefn no arg\\n}
    *@end C1 l23
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypefn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypeop C3 l25
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l25
    |EXTRA
    |def_command:{deftypeop}
@@ -293,10 +238,8 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,5}
    |original_def_cmdname:{deftypeop}
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C11
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -316,25 +259,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_typearg C1
       *def_line_arg C1
        {a--rguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypeop\\n}
    *@end C1 l27
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypeop}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypeop}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypeop C3 l29
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l29
    |EXTRA
    |def_command:{deftypeop}
@@ -359,10 +296,8 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,6}
    |original_def_cmdname:{deftypeop}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -378,25 +313,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_name C1
       *def_line_arg C1
        {d--eftypeop_name}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypeop no arg\\n}
    *@end C1 l31
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypeop}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypeop}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypevr C3 l33
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l33
    |EXTRA
    |def_command:{deftypevr}
@@ -407,10 +336,8 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{vr,2}
    |original_def_cmdname:{deftypevr}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -422,25 +349,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_name C1
       *def_line_arg C1
        {d--eftypevr_name}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypevr\\n}
    *@end C1 l35
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypevr}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypevr}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defcv C3 l37
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l37
    |EXTRA
    |def_command:{defcv}
@@ -451,10 +372,8 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{vr,3}
    |original_def_cmdname:{defcv}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -466,25 +385,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_name C1
       *def_line_arg C1
        {d--efcv_name}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--efcv\\n}
    *@end C1 l39
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defcv}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defcv}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defcv C3 l41
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l41
    |EXTRA
    |def_command:{defcv}
@@ -495,10 +408,8 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{vr,4}
    |original_def_cmdname:{defcv}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -514,25 +425,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_arg C1
       *def_line_arg C1
        {a--rguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--efcv with arguments\\n}
    *@end C1 l43
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defcv}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defcv}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypecv C3 l45
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l45
    |EXTRA
    |def_command:{deftypecv}
@@ -557,10 +462,8 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{vr,5}
    |original_def_cmdname:{deftypecv}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -576,25 +479,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_name C1
       *def_line_arg C1
        {d--eftypecv_name}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypecv\\n}
    *@end C1 l47
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypecv}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypecv}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypecv C3 l49
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l49
    |EXTRA
    |def_command:{deftypecv}
@@ -619,10 +516,8 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{vr,6}
    |original_def_cmdname:{deftypecv}
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C11
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -642,25 +537,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_arg C1
       *def_line_arg C1
        {a--rguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypecv with arguments\\n}
    *@end C1 l51
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypecv}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypecv}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defop C3 l53
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l53
    |EXTRA
    |def_command:{defop}
@@ -685,10 +574,8 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,7}
    |original_def_cmdname:{defop}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -704,25 +591,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_arg C1
       *def_line_arg C1
        {a--rguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--efop\\n}
    *@end C1 l55
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defop}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defop}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defop C3 l57
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l57
    |EXTRA
    |def_command:{defop}
@@ -747,10 +628,8 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,8}
    |original_def_cmdname:{defop}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -762,25 +641,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_name C1
       *def_line_arg C1
        {d--efop_name}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--efop no arg\\n}
    *@end C1 l59
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defop}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defop}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftp C3 l61
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l61
    |EXTRA
    |def_command:{deftp}
@@ -791,10 +664,8 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{tp,1}
    |original_def_cmdname:{deftp}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -806,25 +677,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_typearg C1
       *def_line_arg C1
        {a--ttributes...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftp\\n}
    *@end C1 l63
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftp}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftp}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defun C3 l65
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l65
    |EXTRA
    |def_command:{defun}
@@ -835,16 +700,14 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,9}
    |original_def_cmdname:{defun}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Function}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {d--efun_name}
@@ -852,25 +715,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_arg C1
       *def_line_arg C1
        {a--rguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--efun\\n}
    *@end C1 l67
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defun}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defun}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defmac C3 l69
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l69
    |EXTRA
    |def_command:{defmac}
@@ -881,16 +738,14 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,10}
    |original_def_cmdname:{defmac}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Macro}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {d--efmac_name}
@@ -898,25 +753,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_arg C1
       *def_line_arg C1
        {a--rguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--efmac\\n}
    *@end C1 l71
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defmac}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defmac}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defspec C3 l73
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l73
    |EXTRA
    |def_command:{defspec}
@@ -927,16 +776,14 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,11}
    |original_def_cmdname:{defspec}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Special Form}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {d--efspec_name}
@@ -944,25 +791,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_arg C1
       *def_line_arg C1
        {a--rguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--efspec\\n}
    *@end C1 l75
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defspec}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defspec}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defvar C3 l77
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l77
    |EXTRA
    |def_command:{defvar}
@@ -973,38 +814,30 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{vr,7}
    |original_def_cmdname:{defvar}
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Variable}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {d--efvar_name}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--efvar\\n}
    *@end C1 l79
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defvar}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defvar}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defvar C3 l81
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l81
    |EXTRA
    |def_command:{defvar}
@@ -1015,16 +848,14 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{vr,8}
    |original_def_cmdname:{defvar}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Variable}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {d--efvar_name}
@@ -1036,25 +867,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_arg C1
       *def_line_arg C1
        {arg--var1}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--efvar with args\\n}
    *@end C1 l83
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defvar}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defvar}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defopt C3 l85
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l85
    |EXTRA
    |def_command:{defopt}
@@ -1065,38 +890,30 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{vr,9}
    |original_def_cmdname:{defopt}
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {User Option}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {d--efopt_name}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--efopt\\n}
    *@end C1 l87
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defopt}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defopt}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypefun C3 l89
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l89
    |EXTRA
    |def_command:{deftypefun}
@@ -1107,16 +924,14 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,12}
    |original_def_cmdname:{deftypefun}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Function}
-     (i){spaces: }
+     {spaces: }
      *def_type C1
       *def_line_arg C1
        {t--ype}
@@ -1128,25 +943,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_typearg C1
       *def_line_arg C1
        {a--rguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypefun\\n}
    *@end C1 l91
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefun}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypefun}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypevar C3 l93
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l93
    |EXTRA
    |def_command:{deftypevar}
@@ -1157,16 +966,14 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{vr,10}
    |original_def_cmdname:{deftypevar}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Variable}
-     (i){spaces: }
+     {spaces: }
      *def_type C1
       *def_line_arg C1
        {t--ype}
@@ -1174,25 +981,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_name C1
       *def_line_arg C1
        {d--eftypevar_name}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypevar\\n}
    *@end C1 l95
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypevar}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypevar}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defivar C3 l97
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l97
    |EXTRA
    |def_command:{defivar}
@@ -1217,16 +1018,14 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{vr,11}
    |original_def_cmdname:{defivar}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Instance Variable}
-     (i){spaces: }
+     {spaces: }
      *def_class C1
       *def_line_arg C1
        {c--lass}
@@ -1234,25 +1033,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_name C1
       *def_line_arg C1
        {d--efivar_name}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--efivar\\n}
    *@end C1 l99
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defivar}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defivar}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypeivar C3 l101
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l101
    |EXTRA
    |def_command:{deftypeivar}
@@ -1277,16 +1070,14 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{vr,12}
    |original_def_cmdname:{deftypeivar}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Instance Variable}
-     (i){spaces: }
+     {spaces: }
      *def_class C1
       *def_line_arg C1
        {c--lass}
@@ -1298,25 +1089,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_name C1
       *def_line_arg C1
        {d--eftypeivar_name}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypeivar\\n}
    *@end C1 l103
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypeivar}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypeivar}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defmethod C3 l105
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l105
    |EXTRA
    |def_command:{defmethod}
@@ -1341,16 +1126,14 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,13}
    |original_def_cmdname:{defmethod}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Method}
-     (i){spaces: }
+     {spaces: }
      *def_class C1
       *def_line_arg C1
        {c--lass}
@@ -1362,25 +1145,19 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_arg C1
       *def_line_arg C1
        {a--rguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--efmethod\\n}
    *@end C1 l107
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defmethod}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defmethod}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypemethod C3 l109
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l109
    |EXTRA
    |def_command:{deftypemethod}
@@ -1405,16 +1182,14 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,14}
    |original_def_cmdname:{deftypemethod}
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C11
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Method}
-     (i){spaces: }
+     {spaces: }
      *def_class C1
       *def_line_arg C1
        {c--lass}
@@ -1430,95 +1205,68 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      *def_typearg C1
       *def_line_arg C1
        {a--rguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypemethod\\n}
    *@end C1 l111
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypemethod}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypemethod}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@heading C1 l113
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Functions}
+    {spaces_after_argument:\\n}
   *@printindex C1 l114
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fn}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@heading C1 l116
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |heading_number:{3}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Types}
+    {spaces_after_argument:\\n}
   *@printindex C1 l117
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{tp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {tp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@heading C1 l119
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |heading_number:{4}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Variables}
+    {spaces_after_argument:\\n}
   *@printindex C1 l120
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{vr}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {vr}
+    {spaces_after_argument:\\n}
 ';
 
 

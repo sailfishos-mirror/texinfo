@@ -17,16 +17,12 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
    {raw:@defline category {\\first\\} A \\second\\ B \\rest\\\\n}
    {raw:@end defblock\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l7
   |EXTRA
@@ -36,16 +32,12 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
     {macro_line: mymac {arg1}\\n}
    {raw:@samp{arg1}\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@linemacro C3 l11
   |EXTRA
@@ -55,16 +47,12 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
     {macro_line: mylinemac {name, rest}\\n}
    {raw:{\\name\\} \\rest\\\\n}
    *@end C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
@@ -86,14 +74,9 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
      >{macro_call_arg_text:@mymac {bb}}
   *@defblock C3 l15:@mylinecommand
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@defline C1 l15:@mylinecommand
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -105,7 +88,8 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
         |{arg1}
       |{spaces_after_argument:\\n}
    |original_def_cmdname:{defline}
-    *line_arg C3
+    *line_arg C4
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {category}
@@ -125,18 +109,14 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
          {arg1}
        {spaces_after_argument:\\n}
    *@end C1 l15:@mylinecommand
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defblock}
      >SOURCEMARKS
      >linemacro_expansion<end;1><p:8>
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >linemacro_expansion<start;2><p:1>
@@ -158,21 +138,14 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
      >{macro_call_arg_text:{other} and remaining}
   *@defblock C3 l17:@mylinecommand
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@defline C1 l17:@mylinecommand
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |original_def_cmdname:{defline}
-    *line_arg C15
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C17
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {category}
@@ -216,19 +189,16 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
        {remaining}
        >SOURCEMARKS
        >linemacro_expansion<end;3><p:9>
+     {spaces_after_argument:\\n}
    *@end C1 l17:@mylinecommand
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defblock}
      >SOURCEMARKS
      >linemacro_expansion<end;2><p:8>
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

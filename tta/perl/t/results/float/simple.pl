@@ -9,9 +9,6 @@ $result_tree_text{'simple'} = '*document_root C1
  *before_node_section C2
   *preamble_before_content
   *@float C6 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{Type}
@@ -19,15 +16,13 @@ $result_tree_text{'simple'} = '*document_root C1
   |identifier:{Label}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Type}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {Label}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C1
     {In float.\\n}
@@ -37,12 +32,10 @@ $result_tree_text{'simple'} = '*document_root C1
       {Caption.}
    {spaces_after_close_brace:\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
+    *line_arg C2
+     {spaces_before_argument: }
      {float}
 ';
 
@@ -115,7 +108,7 @@ $result_converted_errors{'html'}->{'simple'} = '* W |must specify a title with a
 ';
 
 
-$result_converted{'xml'}->{'simple'} = '<float identifier="Label" type="Type" number="1" spaces=" " endspaces=" "><floattype>Type</floattype><floatname spaces=" ">Label</floatname>
+$result_converted{'xml'}->{'simple'} = '<float identifier="Label" type="Type" number="1" endspaces=" "><floattype> Type</floattype><floatname> Label</floatname>
 
 <para>In float.
 </para><caption><para>Caption.</para></caption>

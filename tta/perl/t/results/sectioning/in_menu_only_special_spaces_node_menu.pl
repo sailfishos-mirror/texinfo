@@ -11,39 +11,29 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
    {text_before_beginning:\\n}
   *preamble_before_content
  *@node C1 in_menu_only_special_spaces_node.texi:l2 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C5 in_menu_only_special_spaces_node.texi:l3 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C8 in_menu_only_special_spaces_node.texi:l5
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 in_menu_only_special_spaces_node.texi:l6
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -112,175 +102,127 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
         |{spaces_after_argument:\\n}
         {rawline_text:*   ::}
    *@end C1 in_menu_only_special_spaces_node.texi:l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
  *@node C1 in_menu_only_special_spaces_node.texi:l16 {   }
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_2002_2003_2002}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {   }
+    {spaces_after_argument:\\n}
  *@chapter C2 in_menu_only_special_spaces_node.texi:l17 {EN QUAD| | EM QUAD| | EN SPACE| |}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {EN QUAD| | EM QUAD| | EN SPACE| |}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 in_menu_only_special_spaces_node.texi:l19
   *arguments_line C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\t\\f\\n}
+   *line_arg C1
+    {spaces_before_argument: \\t\\f\\n}
  *@chapter C2 in_menu_only_special_spaces_node.texi:l20 {CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {CHARACTER TABULATION|\\t| FORM FEED|\\f| LINE TABULATION||}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 in_menu_only_special_spaces_node.texi:l22
   *arguments_line C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: '."\r".'\\n}
+   *line_arg C1
+    {spaces_before_argument: '."\r".'\\n}
  *@chapter C2 in_menu_only_special_spaces_node.texi:l23 {CARRIAGE RETURN|'."\r".'|}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {CARRIAGE RETURN|'."\r".'|}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 in_menu_only_special_spaces_node.texi:l25 {  }
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_0085_00a0_1680}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {  }
+    {spaces_after_argument:\\n}
  *@chapter C2 in_menu_only_special_spaces_node.texi:l26 {NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 in_menu_only_special_spaces_node.texi:l28 {᠎ }
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_180e_2003}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {᠎ }
+    {spaces_after_argument:\\n}
  *@chapter C2 in_menu_only_special_spaces_node.texi:l29 {MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{5}
  |section_level:{1}
  |section_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 in_menu_only_special_spaces_node.texi:l31 {         　}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {         　}
+    {spaces_after_argument:\\n}
  *@chapter C6 in_menu_only_special_spaces_node.texi:l32 {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{6}
  |section_level:{1}
  |section_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@c C1
   |INFO

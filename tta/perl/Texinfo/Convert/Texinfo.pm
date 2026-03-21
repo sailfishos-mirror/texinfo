@@ -88,6 +88,19 @@ sub convert_to_texinfo($) {
   return _convert_to_texinfo($element);
 }
 
+# convert without leading and trailing spaces and comments
+sub convert_contents_to_texinfo($) {
+  my $element = shift;
+
+  my $converted_element
+    = Texinfo::Common::non_leading_trailing_tree($element);
+  if (defined($converted_element)) {
+    return _convert_to_texinfo($converted_element);
+  } else {
+    return undef;
+  }
+}
+
 # TODO document?
 sub link_element_to_texi($) {
   my $element = shift;
@@ -113,9 +126,7 @@ sub target_element_to_texi_label($) {
   if (!defined($label_element)) {
     return link_element_to_texi($element);
   }
-  my $converted_element
-    = Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}});
-  return convert_to_texinfo($converted_element);
+  return convert_contents_to_texinfo($label_element);
 }
 
 # only used in Texinfo::Structuring.  Here and not in Texinfo::Structuring
@@ -128,8 +139,7 @@ sub check_node_same_texinfo_code($$) {
   my $reference_node_texi;
   if (defined($reference_node->{'extra'}->{'identifier'})) {
     my $label_element = Texinfo::Common::get_label_element($reference_node);
-    $reference_node_texi = convert_to_texinfo(
-     Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}}));
+    $reference_node_texi = convert_contents_to_texinfo($label_element);
     $reference_node_texi =~ s/\s+/ /g;
   } else {
     $reference_node_texi = '';

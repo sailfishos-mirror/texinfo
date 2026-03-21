@@ -9,32 +9,24 @@ $result_tree_text{'accent_enable_encoding'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
  *@top C77 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C5
    {should be e`: }
@@ -798,8 +790,8 @@ $result_converted{'html_text'}->{'accent_enable_encoding'} = '<div class="top-le
 ';
 
 
-$result_converted{'xml'}->{'accent_enable_encoding'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+$result_converted{'xml'}->{'accent_enable_encoding'} = '<node identifier="first"><nodename> first</nodename></node>
+<top><sectiontitle> top</sectiontitle>
 
 <para>should be e&textlsquo;: è è
 </para>

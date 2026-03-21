@@ -8,18 +8,14 @@ use utf8;
 $result_tree_text{'raw_block_on_line'} = '*document_root C1
  *before_node_section C1
   *index_entry_command@cindex C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     *@tex C1 l1
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
 ';
 
 

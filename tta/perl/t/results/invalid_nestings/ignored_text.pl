@@ -8,27 +8,21 @@ use utf8;
 $result_tree_text{'ignored_text'} = '*document_root C2
  *before_node_section
  *@node C2 l1 {before ignore}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{before-ignore}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
-    |>SOURCEMARKS
-    |>ignored_conditional_block<1><p:1>
-     |>*@ifinfo C1 l1
-      |>*arguments_line C1
-       |>*block_line_arg
-       |>|INFO
-       |>|spaces_after_argument:
-        |>|{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {before ignore}
+    {spaces_after_argument: }
+    >SOURCEMARKS
+    >ignored_conditional_block<1><p:1>
+     >*@ifinfo C1 l1
+      >*arguments_line C1
+       >*block_line_arg C1
+        >{spaces_before_argument:\\n}
   *paragraph C1
    {in ifinfo\\n}
 ';
@@ -69,7 +63,7 @@ $result_converted{'plaintext'}->{'ignored_text'} = 'in ifinfo
 ';
 
 
-$result_converted{'xml'}->{'ignored_text'} = '<node identifier="before-ignore" spaces=" "><nodename trailingspaces=" ">before ignore</nodename></node><para>in ifinfo
+$result_converted{'xml'}->{'ignored_text'} = '<node identifier="before-ignore"><nodename> before ignore</nodename></node><para>in ifinfo
 </para>';
 
 1;

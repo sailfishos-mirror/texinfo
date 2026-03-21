@@ -16,16 +16,12 @@ $result_tree_text{'leading_spaces_no_ignore'} = '*document_root C1
    {raw:  Some  here\\n}
    {raw:  text\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {spaces_before_paragraph:  }
   >SOURCEMARKS

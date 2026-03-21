@@ -8,18 +8,14 @@ use utf8;
 $result_tree_text{'uref_accented_letter_ascii'} = '*document_root C1
  *before_node_section C3
   *@documentencoding C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |input_encoding_name:{us-ascii}
   |text_arg:{US-ASCII}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {US-ASCII}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@uref C1 l3

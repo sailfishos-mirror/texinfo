@@ -14,27 +14,21 @@ NodeNext: [U1]
 NodeForward: [U1]
  *before_node_section
  *@node C4 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {Top node\\n}
   *@menu C4 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -58,16 +52,12 @@ NodeForward: [U1]
      *preformatted C1
       {\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 U1 unit{N:chap node}
 unit_directions:D[next->[U2]|prev->[U0]]
@@ -81,37 +71,31 @@ NodeUp: [U0]
 NodeForward: [U2]
 NodeBack: [U0]
  *@node C4 l8 {chap node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap-node}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {chap node}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{third node}
    |normalized:{third-node}
+    {spaces_before_argument: }
     {third node}
    *line_arg C1
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
     {Top}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {second node\\n}
@@ -125,15 +109,13 @@ NodePrev: [U1]
 NodeUp: [U0]
 NodeBack: [U1]
  *@node C1 l12 {third node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{third-node}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {third node}
    *line_arg
    *line_arg C1
@@ -141,14 +123,12 @@ NodeBack: [U1]
    |node_content:{chap node}
    |normalized:{chap-node}
     {chap node}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
    |EXTRA
    |node_content:{Top}
    |normalized:{Top}
     {Top}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -288,18 +268,18 @@ $result_converted_errors{'html'}->{'explicit_node_directions'} = '* W |must spec
 ';
 
 
-$result_converted{'xml'}->{'explicit_node_directions'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap node</nodenext></node>
+$result_converted{'xml'}->{'explicit_node_directions'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap node</nodenext></node>
 <para>Top node
 </para><menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>chap node</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>third node</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="chap-node" spaces=" "><nodename>chap node</nodename><nodenext spaces=" ">third node</nodenext><nodeprev>Top</nodeprev><nodeup>Top</nodeup></node>
+<node identifier="chap-node"><nodename> chap node</nodename><nodenext> third node</nodenext><nodeprev>Top</nodeprev><nodeup>Top</nodeup></node>
 
 <para>second node
 </para>
-<node identifier="third-node" spaces=" "><nodename>third node</nodename><nodenext></nodenext><nodeprev>chap node</nodeprev><nodeup>Top</nodeup></node>
+<node identifier="third-node"><nodename> third node</nodename><nodenext></nodenext><nodeprev>chap node</nodeprev><nodeup>Top</nodeup></node>
 ';
 
 1;

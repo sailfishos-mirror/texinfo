@@ -15,21 +15,14 @@ $result_tree_text{'macro_in_def_delimiters'} = '*document_root C1
     {macro_line: string\\n}
    {raw:aa(b *c)\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l5
    |EXTRA
    |def_command:{deffn}
@@ -39,10 +32,8 @@ $result_tree_text{'macro_in_def_delimiters'} = '*document_root C1
       |{forward-word}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C38
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C40
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Command}
@@ -139,6 +130,7 @@ $result_tree_text{'macro_in_def_delimiters'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {a}
+     {spaces_after_argument:\\n}
 ';
 
 

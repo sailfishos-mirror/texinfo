@@ -80,17 +80,13 @@ $result_tree_text{'also_not_line'} = '*document_root C1
      {rawline_text:something}
   {empty_line:\\n}
   *@subheading C1 l18
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {special}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {Only valid between iftex:\\n}
@@ -104,14 +100,10 @@ $result_tree_text{'also_not_line'} = '*document_root C1
   *paragraph C1
    {exdent }
   *@exdent C1 l23
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {line after exdent}
+    {spaces_after_argument:\\n}
 ';
 
 

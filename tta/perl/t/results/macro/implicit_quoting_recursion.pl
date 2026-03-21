@@ -15,16 +15,12 @@ $result_tree_text{'implicit_quoting_recursion'} = '*document_root C1
     {macro_line: cat{a,b}\\n}
    {raw:\\a\\\\b\\\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{rmacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rmacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {natopocotuototam\\n}

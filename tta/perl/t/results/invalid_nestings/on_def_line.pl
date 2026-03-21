@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'on_def_line'} = '*document_root C1
  *before_node_section C1
   *@deffn C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -24,7 +21,8 @@ $result_tree_text{'on_def_line'} = '*document_root C1
         |{in titlefont}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C7
+    *block_line_arg C8
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l1
        *@anchor C1 l1
@@ -54,18 +52,11 @@ $result_tree_text{'on_def_line'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        *@exdent C1 l1
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {exdent}
+         {spaces_after_argument:\\n}
    *@deffnx C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -78,7 +69,8 @@ $result_tree_text{'on_def_line'} = '*document_root C1
         |{in titlefontx}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffnx}
-    *line_arg C7
+    *line_arg C8
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l2
        *@anchor C1 l2
@@ -108,25 +100,17 @@ $result_tree_text{'on_def_line'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        *@exdent C1 l2
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {exdentx}
+         {spaces_after_argument:\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
 ';
 
 

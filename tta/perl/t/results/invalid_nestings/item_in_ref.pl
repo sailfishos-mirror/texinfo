@@ -8,26 +8,18 @@ use utf8;
 $result_tree_text{'item_in_ref'} = '*document_root C1
  *before_node_section C1
   *@table C4 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l1
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l2
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {first item}
+       {spaces_after_argument:\\n}
     *table_definition C3
      *paragraph C1
       {First item text\\n}
@@ -44,25 +36,17 @@ $result_tree_text{'item_in_ref'} = '*document_root C1
    *table_entry C1
     *table_term C1
      *@item C1 l6
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {second item}
+       {spaces_after_argument:\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
 ';
 
 

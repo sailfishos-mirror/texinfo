@@ -10,10 +10,8 @@ $result_tree_text{'detailmenu_in_description'} = '*document_root C1
   {empty_line:\\n}
   *@menu C4 l2
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l3
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -29,10 +27,8 @@ $result_tree_text{'detailmenu_in_description'} = '*document_root C1
    |EXTRA
    |global_command_number:{1}
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *menu_entry C4 l5
      {menu_entry_leading_text:* }
      *menu_entry_node C1
@@ -45,27 +41,19 @@ $result_tree_text{'detailmenu_in_description'} = '*document_root C1
       *preformatted C1
        {\\n}
     *@end C1 l6
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{detailmenu}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {detailmenu}
+      {spaces_after_argument:\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
 ';
 
 

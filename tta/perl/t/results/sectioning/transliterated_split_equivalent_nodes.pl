@@ -15,26 +15,20 @@ NodeForward: [U1]
  *before_node_section C1
   *preamble_before_content
  *@node C4 l1 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C5 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -73,16 +67,12 @@ NodeForward: [U1]
      *preformatted C1
       {\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 U1 unit{N:@~a}{s:@~a}
 unit_directions:D[next->[U2]|prev->[U0]]
@@ -96,36 +86,28 @@ NodeUp: [U0]
 NodeForward: [U2]
 NodeBack: [U0]
  *@node C1 l9 {@~a}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00e3}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@~ C1 l9
      *following_arg C1
       {a}
+    {spaces_after_argument:\\n}
  *@unnumbered C2 l10 {@~a}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@~ C1 l10
      *following_arg C1
       {a}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 U2 unit{N:n}
 unit_directions:D[next->[U3]|prev->[U1]]
@@ -140,19 +122,15 @@ NodeUp: [U0]
 NodeForward: [U3]
 NodeBack: [U1]
  *@node C2 l12 {n}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{n}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {n}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 U3 unit{N:@^a}
 unit_directions:D[prev->[U2]]
@@ -164,21 +142,17 @@ NodePrev: [U2]
 NodeUp: [U0]
 NodeBack: [U2]
  *@node C1 l14 {@^a}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00e2}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@^ C1 l14
      *following_arg C1
       {a}
+    {spaces_after_argument:\\n}
 ';
 
 

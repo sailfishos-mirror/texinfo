@@ -9,66 +9,47 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C5 l5 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C5 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1.1}
   |float_type:{A < " `` ` \' \' \\aaa . --- in var}
@@ -76,25 +57,23 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
   |identifier:{L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C4
+    *block_line_arg C5
+     {spaces_before_argument: }
      {A < " `` ` \' \' \\aaa }
      *@.
      { --- }
      *@var C1 l7
       *brace_container C1
        {in var}
-    *block_line_arg C4
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C6
+     {spaces_before_argument: }
      {L < " `` ` \' \' \\aaa }
      *@.
      { --- }
      *@var C1 l7
       *brace_container C1
        {in var}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {F\\n}
    *@caption C1 l9
@@ -108,34 +87,26 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
         {in var}
    {spaces_after_close_brace:\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@listoffloats C1 l12
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{A < " `` ` \' \' \\aaa . --- in var}
   |global_command_number:{1}
-   *line_arg C4
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C6
+    {spaces_before_argument: }
     {A < " `` ` \' \' \\aaa }
     *@.
     { --- }
     *@var C1 l12
      *brace_container C1
       {in var}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -327,19 +298,19 @@ span:hover a.copiable-link {visibility: visible}
 ';
 
 
-$result_converted{'xml'}->{'special_characters_in_float_type'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+$result_converted{'xml'}->{'special_characters_in_float_type'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 </top>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chap</sectiontitle>
+<node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> chap</sectiontitle>
 
-<float identifier="L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var" type="A &lt; &quot; `` ` \' \' \\\\aaa . --- in var" number="1.1" spaces=" " endspaces=" "><floattype>A &lt; &quot; `` ` \' \' \\aaa &eosperiod; --- <var>in var</var></floattype><floatname spaces=" ">L &lt; &quot; &textldquo; &textlsquo; &textrsquo; &textrsquo; \\aaa &eosperiod; &textmdash; <var>in var</var></floatname>
+<float identifier="L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var" type="A &lt; &quot; `` ` \' \' \\\\aaa . --- in var" number="1.1" endspaces=" "><floattype> A &lt; &quot; `` ` \' \' \\aaa &eosperiod; --- <var>in var</var></floattype><floatname> L &lt; &quot; &textldquo; &textlsquo; &textrsquo; &textrsquo; \\aaa &eosperiod; &textmdash; <var>in var</var></floatname>
 <para>F
 </para><caption><para>float A &lt; &quot; &textldquo; &textlsquo; &textrsquo; &textrsquo; \\aaa &eosperiod; &textmdash; <var>in var</var></para></caption>
 </float>
 
-<listoffloats type="A &lt; &quot; `` ` \' \' \\\\aaa . --- in var" spaces=" ">A &lt; &quot; &textldquo; &textlsquo; &textrsquo; &textrsquo; \\aaa &eosperiod; &textmdash; <var>in var</var></listoffloats>
+<listoffloats type="A &lt; &quot; `` ` \' \' \\\\aaa . --- in var"> A &lt; &quot; &textldquo; &textlsquo; &textrsquo; &textrsquo; \\aaa &eosperiod; &textmdash; <var>in var</var></listoffloats>
 </chapter>
 ';
 

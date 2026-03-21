@@ -9,13 +9,8 @@ $result_tree_text{'titles'} = '*document_root C3
  *before_node_section C3
   {empty_line:\\n}
   *@settitle C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@@
     {title }
     *@sc C1 l2
@@ -25,33 +20,25 @@ $result_tree_text{'titles'} = '*document_root C3
     *@code C1 l2
      *brace_container C1
       {test}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C5 l5 {Top of @@title @sc{html} @code{test}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C6
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C8
+    {spaces_before_argument: }
     {Top of }
     *@@
     {title }
@@ -62,6 +49,7 @@ $result_tree_text{'titles'} = '*document_root C3
     *@code C1 l5
      *brace_container C1
       {test}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Top.\\n}

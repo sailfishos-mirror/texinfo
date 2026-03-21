@@ -8,14 +8,10 @@ use utf8;
 $result_tree_text{'def_existing_index'} = '*document_root C1
  *before_node_section C1
   *@defcodeindex C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -64,7 +60,7 @@ $result_converted{'plaintext'}->{'def_existing_index'} = '';
 $result_converted{'html_text'}->{'def_existing_index'} = '';
 
 
-$result_converted{'xml'}->{'def_existing_index'} = '<defcodeindex spaces=" " line="cp"></defcodeindex>
+$result_converted{'xml'}->{'def_existing_index'} = '<defcodeindex line=" cp"></defcodeindex>
 ';
 
 1;

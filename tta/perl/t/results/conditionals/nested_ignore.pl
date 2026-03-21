@@ -9,10 +9,8 @@ $result_tree_text{'nested_ignore'} = '*document_root C1
  *before_node_section C1
   *@ignore C14 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:@ignore\\n}
    {raw:\\n}
    {raw:@end ignore\\n}

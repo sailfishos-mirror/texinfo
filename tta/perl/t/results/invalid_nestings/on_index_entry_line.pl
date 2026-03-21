@@ -8,12 +8,10 @@ use utf8;
 $result_tree_text{'on_index_entry_line'} = '*document_root C1
  *before_node_section C1
   *index_entry_command@cindex C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
-   *line_arg C8
+   *line_arg C9
+    {spaces_before_argument: }
     *@indent l1
     {ignorable_spaces_after_command: }
     *@titlefont C1 l1
@@ -36,14 +34,10 @@ $result_tree_text{'on_index_entry_line'} = '*document_root C1
        {footnote}
     { }
     *@exdent C1 l1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {exdent}
+      {spaces_after_argument:\\n}
 ';
 
 

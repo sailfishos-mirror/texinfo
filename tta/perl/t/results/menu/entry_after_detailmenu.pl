@@ -8,34 +8,26 @@ use utf8;
 $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
  *before_node_section
  *@node C4 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C8 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@detailmenu C3 l4
    |EXTRA
    |global_command_number:{1}
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *menu_entry C4 l5
      {menu_entry_leading_text:* }
      *menu_entry_node C1
@@ -48,16 +40,12 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
       *preformatted C1
        {\\n}
     *@end C1 l6
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{detailmenu}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {detailmenu}
+      {spaces_after_argument:\\n}
    *menu_comment C1
     *preformatted C3
      {empty_line:\\n}
@@ -81,10 +69,8 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
    |EXTRA
    |global_command_number:{2}
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *menu_entry C4 l13
      {menu_entry_leading_text:* }
      *menu_entry_node C1
@@ -97,16 +83,12 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
       *preformatted C1
        {\\n}
     *@end C1 l14
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{detailmenu}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {detailmenu}
+      {spaces_after_argument:\\n}
    *menu_entry C4 l15
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -119,45 +101,33 @@ $result_tree_text{'entry_after_detailmenu'} = '*document_root C4
      *preformatted C1
       {\\n}
    *@end C1 l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l18 {chap first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap-first}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap first}
+    {spaces_after_argument:\\n}
  *@node C1 l19 {second}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{second}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {second}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -304,7 +274,7 @@ $result_converted_errors{'html'}->{'entry_after_detailmenu'} = '* W |must specif
 ';
 
 
-$result_converted{'xml'}->{'entry_after_detailmenu'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap first</nodenext></node>
+$result_converted{'xml'}->{'entry_after_detailmenu'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap first</nodenext></node>
 
 <menu endspaces=" ">
 <detailmenu endspaces=" ">
@@ -321,8 +291,8 @@ Menu comment
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>second</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="chap-first" spaces=" "><nodename>chap first</nodename><nodenext automatic="on">second</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<node identifier="second" spaces=" "><nodename>second</nodename><nodeprev automatic="on">chap first</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chap-first"><nodename> chap first</nodename><nodenext automatic="on"> second</nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<node identifier="second"><nodename> second</nodename><nodeprev automatic="on"> chap first</nodeprev><nodeup automatic="on"> Top</nodeup></node>
 ';
 
 1;

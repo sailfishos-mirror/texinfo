@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
  *before_node_section C3
   *@deffn C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -20,7 +17,8 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
       |{name}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C7
+    *block_line_arg C8
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {category}
@@ -46,21 +44,14 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
      *@{
      {\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument: \\n}
   {empty_line:\\n}
   *@deffn C3 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l6
    |EXTRA
    |def_command:{deffn}
@@ -70,10 +61,8 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
       |{name}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffn}
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C11
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {category}
@@ -95,22 +84,19 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {args}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C3
      {deffn with }
      *@}
      {\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument: \\n}
 ';
 
 

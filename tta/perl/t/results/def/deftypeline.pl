@@ -10,14 +10,9 @@ $result_tree_text{'deftypeline'} = '*document_root C1
   *preamble_before_content
   *@defblock C4 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@deftypeline C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deftypeline}
    |def_index_element:
@@ -25,10 +20,8 @@ $result_tree_text{'deftypeline'} = '*document_root C1
      |*def_line_arg C1
       |{foo}
    |original_def_cmdname:{deftypeline}
-    *line_arg C16
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C18
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {Function}
@@ -63,22 +56,19 @@ $result_tree_text{'deftypeline'} = '*document_root C1
         *brace_container C1
          {baz}
      {delimiter:)}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C2
      *@dots C1 l3
       *brace_container
      {\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defblock}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -247,7 +237,7 @@ $result_converted{'docbook'}->{'deftypeline'} = '<synopsis><phrase role="categor
 
 
 $result_converted{'xml'}->{'deftypeline'} = '<defblock endspaces=" ">
-<deftypeline spaces=" "><definitionterm><defcategory>Function</defcategory> <deftype bracketed="on">long int</deftype> <defsymbol>foo</defsymbol> <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>bar</var></defparam><defdelimiter>,</defdelimiter> <defparamtype>int</defparamtype> <defparam><var>baz</var></defparam><defdelimiter>)</defdelimiter></definitionterm></deftypeline>
+<deftypeline><definitionterm> <defcategory>Function</defcategory> <deftype bracketed="on">long int</deftype> <defsymbol>foo</defsymbol> <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>bar</var></defparam><defdelimiter>,</defdelimiter> <defparamtype>int</defparamtype> <defparam><var>baz</var></defparam><defdelimiter>)</defdelimiter></definitionterm></deftypeline>
 <definitionitem><para>&dots;
 </para></definitionitem></defblock>
 ';

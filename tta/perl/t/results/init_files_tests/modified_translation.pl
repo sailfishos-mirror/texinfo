@@ -13,17 +13,13 @@ $result_tree_text{'modified_translation'} = '*document_root C1
    {.\\n}
   {empty_line:\\n}
   *@documentlanguage C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |text_arg:{fr}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fr}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {fr }
@@ -32,17 +28,13 @@ $result_tree_text{'modified_translation'} = '*document_root C1
    {.\\n}
   {empty_line:\\n}
   *@documentlanguage C1 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |text_arg:{pt}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {pt}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {pt }

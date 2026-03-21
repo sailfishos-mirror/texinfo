@@ -8,46 +8,33 @@ use utf8;
 $result_tree_text{'anchor_on_node_line'} = '*document_root C6
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 l4 {lone node @anchor{iln} a}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{lone-node-a}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C4
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C6
+    {spaces_before_argument: }
     {lone node }
     *@anchor C1 l4
     |EXTRA
@@ -57,20 +44,16 @@ $result_tree_text{'anchor_on_node_line'} = '*document_root C6
       {iln}
     {spaces_after_close_brace: }
     {a}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l6 {chapter node @anchor{cnl} b}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter-node-b}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C4
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C6
+    {spaces_before_argument: }
     {chapter node }
     *@anchor C1 l6
     |EXTRA
@@ -80,20 +63,17 @@ $result_tree_text{'anchor_on_node_line'} = '*document_root C6
       {cnl}
     {spaces_after_close_brace: }
     {b}
+    {spaces_after_argument:\\n}
  *@chapter C6 l7 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@xref C1 l9

@@ -11,9 +11,6 @@ $result_tree_text{'end_of_lines_protected_non_ascii'} = '*document_root C1
    {text_before_beginning:\\n}
   *preamble_before_content
   *@deffn C3 end_of_lines_protected_non_ascii.texi:l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 end_of_lines_protected_non_ascii.texi:l2
    |EXTRA
    |def_command:{deffn}
@@ -23,10 +20,8 @@ $result_tree_text{'end_of_lines_protected_non_ascii'} = '*document_root C1
       |{deffn_nùme}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C19
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C21
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {catégorie}
@@ -72,20 +67,17 @@ $result_tree_text{'end_of_lines_protected_non_ascii'} = '*document_root C1
      *def_arg C1
       *bracketed_arg C1 end_of_lines_protected_non_ascii.texi:l5
        {one last arg}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {deffn\\n}
    *@end C1 end_of_lines_protected_non_ascii.texi:l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

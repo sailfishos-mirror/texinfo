@@ -27,7 +27,7 @@
 /* for element_command_name */
 #include "builtin_commands.h"
 #include "hashmap.h"
-/* for whitespace_chars count_multibyte */
+/* for whitespace_chars count_multibyte empty_spaces_argument */
 #include "utils.h"
 /* for register_label_in_list */
 #include "targets.h"
@@ -49,7 +49,7 @@ check_register_target_element_label (ELEMENT *label_element,
                                      ELEMENT *target_element)
 {
   char *normalized = 0;
-  if (label_element && label_element->e.c->contents.number > 0)
+  if (label_element && ! empty_spaces_argument (label_element))
     {
       char *non_hyphen_char;
       /* check that the label used as an anchor for link target has no

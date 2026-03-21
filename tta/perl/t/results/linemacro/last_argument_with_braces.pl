@@ -16,23 +16,16 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
    {raw:@defline \\symbol\\ f r\\n}
    {raw:@defline expand Builtin and \\rest\\\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defblock C10 l6
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
     >SOURCEMARKS
     >linemacro_expansion<start;1>
      >*linemacro_call@defbuiltin C2
@@ -46,10 +39,8 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
       >|spaces_before_argument:
        >|{spaces_before_argument: }
        >{macro_call_arg_text:a last {} arg{ument}}
+     {spaces_before_argument:\\n}
    *@defline C1 l7:@defbuiltin
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -57,10 +48,8 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
      |*def_line_arg C1
       |{foo}
    |original_def_cmdname:{defline}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {my}
@@ -76,10 +65,8 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {r}
+     {spaces_after_argument:\\n}
    *@defline C1 l7:@defbuiltin
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -87,10 +74,8 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
      |*def_line_arg C1
       |{Builtin}
    |original_def_cmdname:{defline}
-    *line_arg C14
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C16
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {expand}
@@ -122,6 +107,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
       >SOURCEMARKS
       >linemacro_expansion<end;1>
        {ument}
+     {spaces_after_argument:\\n}
    *def_item C1
     {empty_line:\\n}
     >SOURCEMARKS
@@ -138,9 +124,6 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
        >|{spaces_before_argument: }
        >{macro_call_arg_text:{} {}}
    *@defline C1 l9:@defbuiltin
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -148,10 +131,8 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
      |*def_line_arg C1
       |{foo}
    |original_def_cmdname:{defline}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {my}
@@ -167,10 +148,8 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {r}
+     {spaces_after_argument:\\n}
    *@defline C1 l9:@defbuiltin
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -178,10 +157,8 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
      |*def_line_arg C1
       |{Builtin}
    |original_def_cmdname:{defline}
-    *line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C11
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {expand}
@@ -201,6 +178,7 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
       *bracketed_arg l9:@defbuiltin
       >SOURCEMARKS
       >linemacro_expansion<end;2>
+     {spaces_after_argument:\\n}
    *def_item C1
     {empty_line:\\n}
     >SOURCEMARKS
@@ -217,9 +195,6 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
        >|{spaces_before_argument: }
        >{macro_call_arg_text:{second arg} remaining on {line}}
    *@defline C1 l11:@defbuiltin
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -227,10 +202,8 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
      |*def_line_arg C1
       |{foo}
    |original_def_cmdname:{defline}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {my}
@@ -246,10 +219,8 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {r}
+     {spaces_after_argument:\\n}
    *@defline C1 l11:@defbuiltin
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -257,10 +228,8 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
      |*def_line_arg C1
       |{Builtin}
    |original_def_cmdname:{defline}
-    *line_arg C13
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C15
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {expand}
@@ -290,17 +259,14 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
       >SOURCEMARKS
       >linemacro_expansion<end;3>
        {line}
+     {spaces_after_argument:\\n}
    *@end C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defblock}
+     {spaces_after_argument:\\n}
 ';
 
 

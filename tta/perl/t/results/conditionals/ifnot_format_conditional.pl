@@ -12,25 +12,19 @@ $result_tree_text{'ifnot_format_conditional'} = '*document_root C1
   >expanded_conditional_command<start;1>
    >*@ifnottex C1 l1
     >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C1
+      >{spaces_before_argument:\\n}
   *paragraph C1
    {not tex\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;1><p:8>
     >*@end C1 l3
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifnottex}
+      >{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {After.}

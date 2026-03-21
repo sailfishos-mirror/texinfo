@@ -9,19 +9,15 @@ $result_tree_text{'one_subsection'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content
  *@subsection C1 l1 {The subsection}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{3}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {The subsection}
+    {spaces_after_argument:\\n}
 ';
 
 

@@ -8,34 +8,27 @@ use utf8;
 $result_tree_text{'a_comma_after_node'} = '*document_root C2
  *before_node_section
  *@node C3 l1 {Commands}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Commands}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C3
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {Commands}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{Requirements}
    |normalized:{Requirements}
+    {spaces_before_argument: }
     {Requirements}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{Nodes and Menus}
    |normalized:{Nodes-and-Menus}
+    {spaces_before_argument: }
     {Nodes and Menus}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {A comma in text, end.\\n}

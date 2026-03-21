@@ -8,28 +8,20 @@ use utf8;
 $result_tree_text{'macro_defined_txiinternalvalue_in_translation'} = '*document_root C1
  *before_node_section C4
   *@sp C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@sp C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

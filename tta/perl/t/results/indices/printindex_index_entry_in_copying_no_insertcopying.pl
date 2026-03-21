@@ -10,28 +10,19 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
   *preamble_before_content C2
    *@copying C11 l1
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     {empty_line:\\n}
     *index_entry_command@findex C1 l3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |element_region:{copying}
     |index_entry:I{fn,1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {Copying this document}
+      {spaces_after_argument:\\n}
     {empty_line:\\n}
     *@defun C4 l5
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
      *def_line C1 l5
      |EXTRA
      |def_command:{defun}
@@ -42,16 +33,14 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
      |element_region:{copying}
      |index_entry:I{fn,2}
      |original_def_cmdname:{defun}
-      *block_line_arg C5
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C7
+       (i){spaces_before_argument: }
        *def_category C1
        |INFO
        |inserted:{1}
         *def_line_arg C1
          {Function}
-       (i){spaces: }
+       {spaces: }
        *def_name C1
         *def_line_arg C1
          {fun}
@@ -59,10 +48,8 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
        *def_arg C1
         *def_line_arg C1
          {arg}
+       {spaces_after_argument:\\n}
      *@defunx C1 l6
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |def_command:{defun}
      |def_index_element:
@@ -72,16 +59,14 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
      |element_region:{copying}
      |index_entry:I{fn,3}
      |original_def_cmdname:{defunx}
-      *line_arg C5
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C7
+       (i){spaces_before_argument: }
        *def_category C1
        |INFO
        |inserted:{1}
         *def_line_arg C1
          {Function}
-       (i){spaces: }
+       {spaces: }
        *def_name C1
         *def_line_arg C1
          {xf}
@@ -89,131 +74,94 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
        *def_arg C1
         *def_line_arg C1
          {arg}
+       {spaces_after_argument:\\n}
      *def_item C1
       *paragraph C1
        {Defun\\n}
      *@end C1 l8
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{defun}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {defun}
+       {spaces_after_argument:\\n}
     {empty_line:\\n}
     *@ftable C3 l10
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
      *arguments_line C1
-      *block_line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C3
+       {spaces_before_argument: }
        *@asis l10
+       {spaces_after_argument:\\n}
      *table_entry C1
       *table_term C2
        *@item C1 l11
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |element_region:{copying}
        |index_entry:I{fn,4}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {ftable item}
+         {spaces_after_argument:\\n}
        *@itemx C1 l12
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |element_region:{copying}
        |index_entry:I{fn,5}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {xftable xitem}
+         {spaces_after_argument:\\n}
      *@end C1 l13
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{ftable}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {ftable}
+       {spaces_after_argument:\\n}
     {empty_line:\\n}
     *@printindex C1 l15
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{1}
     |misc_args:A{fn}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {fn}
+      {spaces_after_argument:\\n}
     {empty_line:\\n}
     *@end C1 l17
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {copying}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l19 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C6 l20 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Top.\\n}
   {empty_line:\\n}
   *@menu C3 l24
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l25
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -226,45 +174,33 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
      *preformatted C1
       {\\n}
    *@end C1 l26
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l28 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C4 l29 {Chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -446,24 +382,24 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcop
 
 $result_converted{'xml'}->{'printindex_index_entry_in_copying_no_insertcopying'} = '<copying endspaces=" ">
 
-<findex index="fn" spaces=" "><indexterm index="fn" number="1">Copying this document</indexterm></findex>
+<findex index="fn"> <indexterm index="fn" number="1">Copying this document</indexterm></findex>
 
-<defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="2">fun</indexterm><defcategory automatic="on">Function</defcategory> <deffunction>fun</deffunction> <defparam>arg</defparam></definitionterm>
-<defunx spaces=" "><definitionterm><indexterm index="fn" number="3">xf</indexterm><defcategory automatic="on">Function</defcategory> <deffunction>xf</deffunction> <defparam>arg</defparam></definitionterm></defunx>
+<defun endspaces=" "><definitionterm><indexterm index="fn" number="2">fun</indexterm> <defcategory automatic="on">Function</defcategory> <deffunction>fun</deffunction> <defparam>arg</defparam></definitionterm>
+<defunx><definitionterm><indexterm index="fn" number="3">xf</indexterm> <defcategory automatic="on">Function</defcategory> <deffunction>xf</deffunction> <defparam>arg</defparam></definitionterm></defunx>
 <definitionitem><para>Defun
 </para></definitionitem></defun>
 
-<ftable commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="fn" number="4">ftable item</indexterm>ftable item</itemformat></item>
-<itemx spaces=" "><itemformat command="asis"><indexterm index="fn" number="5">xftable xitem</indexterm>xftable xitem</itemformat></itemx>
+<ftable commandarg="asis" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"><indexterm index="fn" number="4">ftable item</indexterm> ftable item</itemformat></item>
+<itemx><itemformat command="asis"><indexterm index="fn" number="5">xftable xitem</indexterm> xftable xitem</itemformat></itemx>
 </tableterm></tableentry></ftable>
 
-<printindex spaces=" " value="fn" line="fn"></printindex>
+<printindex value="fn" line=" fn"></printindex>
 
 </copying>
 
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapter</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 <para>Top.
 </para>
@@ -472,8 +408,8 @@ $result_converted{'xml'}->{'printindex_index_entry_in_copying_no_insertcopying'}
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
+<node identifier="chapter"><nodename> chapter</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Chapter</sectiontitle>
 
 
 

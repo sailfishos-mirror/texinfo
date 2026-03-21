@@ -9,44 +9,32 @@ $result_tree_text{'settitle_and_headings'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content C4
    *@settitle C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C5
+     {spaces_before_argument: }
      {Title }
      *@*
      { for a manual}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@headings C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |misc_args:A{double}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {double}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@chapter C9 l5 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@page C1
    *line_arg

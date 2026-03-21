@@ -8,16 +8,12 @@ use utf8;
 $result_tree_text{'author_outside_titlepage_quotation'} = '*document_root C1
  *before_node_section C1
   *@author C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Some One}
+    {spaces_after_argument:\\n}
 ';
 
 

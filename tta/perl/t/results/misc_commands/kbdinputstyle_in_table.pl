@@ -31,565 +31,387 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
    {raw:@end table\\n}
    {raw:@end example\\n}
    *@end C1 l19
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@@
    {kbdinputstyle code\\n}
   {empty_line:\\n}
   *@kbdinputstyle C1 l23
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{code}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {code}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call@codekbdmacro C1
     >*brace_arg
   *@table C3 l25:@codekbdmacro
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |command_as_argument_kbd_code:{1}
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@kbd l25:@codekbdmacro
      |EXTRA
      |code:{1}
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l25:@codekbdmacro
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {i--tem out of example}
+       {spaces_after_argument:\\n}
    *@end C1 l25:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l25:@codekbdmacro
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |command_as_argument_kbd_code:{1}
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@kbd C1 l25:@codekbdmacro
      |EXTRA
      |code:{1}
       *brace_container
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l25:@codekbdmacro
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {braced i--tem out of example}
+       {spaces_after_argument:\\n}
    *@end C1 l25:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {in example\\n}
   *@example C4 l25:@codekbdmacro
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@table C3 l25:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |command_as_argument_kbd_code:{1}
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@kbd l25:@codekbdmacro
       |EXTRA
       |code:{1}
+      {spaces_after_argument:\\n}
     *table_entry C1
      *table_term C1
       *@item C1 l25:@codekbdmacro
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {i--tem in example}
+        {spaces_after_argument:\\n}
     *@end C1 l25:@codekbdmacro
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {table}
+      {spaces_after_argument:\\n}
    *@table C3 l25:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |command_as_argument_kbd_code:{1}
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@kbd C1 l25:@codekbdmacro
       |EXTRA
       |code:{1}
        *brace_container
+      {spaces_after_argument:\\n}
     *table_entry C1
      *table_term C1
       *@item C1 l25:@codekbdmacro
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {braced i--tem in example}
+        {spaces_after_argument:\\n}
     *@end C1 l25:@codekbdmacro
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {table}
+      {spaces_after_argument:\\n}
    *@end C1 l25:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
      >SOURCEMARKS
      >macro_expansion<end;1><p:7>
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@@
    {kbdinputstyle example\\n}
   {empty_line:\\n}
   *@kbdinputstyle C1 l29
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{example}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {example}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;2><p:1>
    >*macro_call@codekbdmacro C1
     >*brace_arg
   *@table C3 l31:@codekbdmacro
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |command_as_argument_kbd_code:{1}
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@kbd l31:@codekbdmacro
      |EXTRA
      |code:{1}
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l31:@codekbdmacro
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {i--tem out of example}
+       {spaces_after_argument:\\n}
    *@end C1 l31:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l31:@codekbdmacro
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |command_as_argument_kbd_code:{1}
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@kbd C1 l31:@codekbdmacro
      |EXTRA
      |code:{1}
       *brace_container
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l31:@codekbdmacro
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {braced i--tem out of example}
+       {spaces_after_argument:\\n}
    *@end C1 l31:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {in example\\n}
   *@example C4 l31:@codekbdmacro
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@table C3 l31:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@kbd l31:@codekbdmacro
+      {spaces_after_argument:\\n}
     *table_entry C1
      *table_term C1
       *@item C1 l31:@codekbdmacro
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {i--tem in example}
+        {spaces_after_argument:\\n}
     *@end C1 l31:@codekbdmacro
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {table}
+      {spaces_after_argument:\\n}
    *@table C3 l31:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@kbd C1 l31:@codekbdmacro
        *brace_container
+      {spaces_after_argument:\\n}
     *table_entry C1
      *table_term C1
       *@item C1 l31:@codekbdmacro
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {braced i--tem in example}
+        {spaces_after_argument:\\n}
     *@end C1 l31:@codekbdmacro
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {table}
+      {spaces_after_argument:\\n}
    *@end C1 l31:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
      >SOURCEMARKS
      >macro_expansion<end;2><p:7>
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@@
    {kbdinputstyle distinct\\n}
   {empty_line:\\n}
   *@kbdinputstyle C1 l35
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |misc_args:A{distinct}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {distinct}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;3><p:1>
    >*macro_call@codekbdmacro C1
     >*brace_arg
   *@table C3 l37:@codekbdmacro
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@kbd l37:@codekbdmacro
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l37:@codekbdmacro
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {i--tem out of example}
+       {spaces_after_argument:\\n}
    *@end C1 l37:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l37:@codekbdmacro
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@kbd C1 l37:@codekbdmacro
       *brace_container
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l37:@codekbdmacro
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {braced i--tem out of example}
+       {spaces_after_argument:\\n}
    *@end C1 l37:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {in example\\n}
   *@example C4 l37:@codekbdmacro
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@table C3 l37:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@kbd l37:@codekbdmacro
+      {spaces_after_argument:\\n}
     *table_entry C1
      *table_term C1
       *@item C1 l37:@codekbdmacro
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {i--tem in example}
+        {spaces_after_argument:\\n}
     *@end C1 l37:@codekbdmacro
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {table}
+      {spaces_after_argument:\\n}
    *@table C3 l37:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@kbd C1 l37:@codekbdmacro
        *brace_container
+      {spaces_after_argument:\\n}
     *table_entry C1
      *table_term C1
       *@item C1 l37:@codekbdmacro
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {braced i--tem in example}
+        {spaces_after_argument:\\n}
     *@end C1 l37:@codekbdmacro
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {table}
+      {spaces_after_argument:\\n}
    *@end C1 l37:@codekbdmacro
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
      >SOURCEMARKS
      >macro_expansion<end;3><p:7>
+     {spaces_after_argument:\\n}
 ';
 
 

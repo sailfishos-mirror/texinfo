@@ -8,32 +8,24 @@ use utf8;
 $result_tree_text{'at_commands_in_raw'} = '*document_root C5
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l4
   |EXTRA
@@ -43,53 +35,39 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
     {macro_line: othermacro{}\\n}
    {raw:Other macro\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l8 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C36 l9 {Chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@html C3 l11
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *rawpreformatted C5
     {<b>in b}
     *@footnote C1 l12
@@ -107,16 +85,12 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
       {anchor in html}
     {spaces_after_close_brace:\\n}
    *@end C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {html}
+     {spaces_after_argument:\\n}
   *paragraph C3
    *@kbd C1 l15
     *brace_container C1
@@ -131,10 +105,8 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
   {empty_line:\\n}
   *@tex C3 l17
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *elided_rawpreformatted C43
     {raw:@kbdinputstyle code\\n}
     {raw:in tex@footnote{footnote in tex}\\n}
@@ -180,16 +152,12 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
     {raw:@unmacro othermacro\\n}
     {raw:\\n}
    *@end C1 l61
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {tex}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
@@ -223,59 +191,43 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
      {anchor in tex}
    {.\\n}
    *index_entry_command@findex C1 l72
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |element_node:{chap}
    |index_entry:I{fn,1}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {fentry2}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {spaces_before_paragraph: }
   *paragraph C1
    {newidx entry\\n}
   {empty_line:\\n}
   *@printindex C1 l76
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   *@printindex C1 l77
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fn}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@listoffloats C1 l79
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Figs}
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Figs}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@acronym C1 l81
@@ -631,16 +583,16 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<div class="top-level-
 ';
 
 
-$result_converted{'xml'}->{'at_commands_in_raw'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+$result_converted{'xml'}->{'at_commands_in_raw'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 <macro name="othermacro" line=" othermacro{}" endspaces=" ">
 Other macro
 </macro>
 
 </top>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
+<node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Chapter</sectiontitle>
 
 <b>in b<footnote><para>in footnote</para></footnote>.</b>
 <anchor identifier="anchor-in-html">anchor in html</anchor>
@@ -701,14 +653,14 @@ Some \\arg\\.
 <para><xref label="anchor-in-html"><xrefnodename>anchor in html</xrefnodename></xref>.
 </para>
 <para><ref label="anchor-in-tex"><xrefnodename>anchor in tex</xrefnodename></ref>.
-<findex index="fn" spaces=" "><indexterm index="fn" number="1">fentry2</indexterm></findex>
+<findex index="fn"> <indexterm index="fn" number="1">fentry2</indexterm></findex>
 </para>
  <para>newidx entry
 </para>
-<printindex spaces=" " value="cp" line="cp"></printindex>
-<printindex spaces=" " value="fn" line="fn"></printindex>
+<printindex value="cp" line=" cp"></printindex>
+<printindex value="fn" line=" fn"></printindex>
 
-<listoffloats type="Figs" spaces=" ">Figs</listoffloats>
+<listoffloats type="Figs"> Figs</listoffloats>
 
 <para><acronym><acronymword>FF</acronymword></acronym>.
 </para>

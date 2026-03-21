@@ -10,10 +10,8 @@ $result_tree_text{'mathjax_with_texinfo_enable_encoding'} = '*document_root C1
   *preamble_before_content
   *@displaymath C7 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {a}
    *@sup C1 l2
     *brace_container C3
@@ -31,16 +29,12 @@ $result_tree_text{'mathjax_with_texinfo_enable_encoding'} = '*document_root C1
      {i}
    {\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {displaymath}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {Some }

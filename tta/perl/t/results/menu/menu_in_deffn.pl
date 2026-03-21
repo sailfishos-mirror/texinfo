@@ -8,24 +8,17 @@ use utf8;
 $result_tree_text{'menu_in_deffn'} = '*document_root C2
  *before_node_section
  *@node C3 l1 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C3 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l3
    |EXTRA
    |def_command:{deffn}
@@ -36,10 +29,8 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
    |element_node:{first}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {a}
@@ -51,13 +42,12 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
      *def_arg C1
       *def_line_arg C1
        {c}
+     {spaces_after_argument: \\n}
    *def_item C1
     *@menu C3 l4
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *menu_entry C4 l5
       {menu_entry_leading_text:* }
       *menu_entry_node C3
@@ -71,27 +61,19 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
        *preformatted C1
         {\\n}
      *@end C1 l6
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{menu}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {menu}
+       {spaces_after_argument:\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
 ';
 
 

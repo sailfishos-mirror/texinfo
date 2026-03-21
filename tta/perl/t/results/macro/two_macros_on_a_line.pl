@@ -15,16 +15,12 @@ $result_tree_text{'two_macros_on_a_line'} = '*document_root C1
     {macro_line: mymacro\\n}
    {raw:in mymacro\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C5 l5
   |EXTRA
@@ -36,16 +32,12 @@ $result_tree_text{'two_macros_on_a_line'} = '*document_root C1
    {raw:now the arg \\arg\\\\n}
    {raw:after\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   *paragraph C11

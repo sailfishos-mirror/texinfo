@@ -13,146 +13,106 @@ $result_tree_text{'sp_empty_lines_1_no_arg_zero'} = '*document_root C1
   *paragraph C1
    {A010\\n}
   *@sp C1 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {1}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {A110\\n}
   {empty_line:\\n}
   *@sp C1 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {1}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {A011\\n}
   {empty_line:\\n}
   *@sp C1 l10
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {1}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {A111\\n}
   {empty_line:\\n}
   *@sp C1 l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {A000\\n}
   *@sp C1 l16
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{0}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {0}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {A100\\n}
   {empty_line:\\n}
   *@sp C1 l19
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{0}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {0}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {A001\\n}
   {empty_line:\\n}
   *@sp C1 l22
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{0}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {0}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {A101\\n}
   {empty_line:\\n}
   *@sp C1 l25
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{0}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {0}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {A0 0\\n}
   *@sp C1 l28
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument:\\n}
   *paragraph C1
    {A1 0\\n}
   {empty_line:\\n}
   *@sp C1 l31
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C1
+    {spaces_before_argument: \\n}
   *paragraph C1
    {A0 1\\n}
   {empty_line:\\n}
   *@sp C1 l34
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument:\\n}
   *paragraph C1
    {A1 1\\n}
   {empty_line:\\n}
   *@sp C1 l37
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C1
+    {spaces_before_argument: \\n}
   {empty_line:\\n}
   *paragraph C1
    {B}
@@ -330,28 +290,28 @@ $result_converted{'html_text'}->{'sp_empty_lines_1_no_arg_zero'} = '<p>A
 $result_converted{'xml'}->{'sp_empty_lines_1_no_arg_zero'} = '<para>A
 </para>
 <para>A010
-</para><sp spaces=" " value="1" line="1"></sp>
+</para><sp value="1" line=" 1"></sp>
 <para>A110
 </para>
-<sp spaces=" " value="1" line="1"></sp>
+<sp value="1" line=" 1"></sp>
 <para>A011
 </para>
-<sp spaces=" " value="1" line="1"></sp>
+<sp value="1" line=" 1"></sp>
 <para>A111
 </para>
-<sp spaces=" " value="1" line="1"></sp>
+<sp value="1" line=" 1"></sp>
 
 <para>A000
-</para><sp spaces=" " value="0" line="0"></sp>
+</para><sp value="0" line=" 0"></sp>
 <para>A100
 </para>
-<sp spaces=" " value="0" line="0"></sp>
+<sp value="0" line=" 0"></sp>
 <para>A001
 </para>
-<sp spaces=" " value="0" line="0"></sp>
+<sp value="0" line=" 0"></sp>
 <para>A101
 </para>
-<sp spaces=" " value="0" line="0"></sp>
+<sp value="0" line=" 0"></sp>
 
 <para>A0 0
 </para><sp></sp>

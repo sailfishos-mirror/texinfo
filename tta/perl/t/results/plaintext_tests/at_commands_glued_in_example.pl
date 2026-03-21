@@ -9,10 +9,8 @@ $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
  *before_node_section C1
   *@example C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C41
     {at}
     *@@
@@ -79,16 +77,12 @@ $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
     {after noindent\\n}
     {sp}
     *@sp C1 l13
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |misc_args:A{4}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {4}
+      {spaces_after_argument:\\n}
     {anchor}
     *@anchor C1 l14
     |EXTRA
@@ -99,27 +93,19 @@ $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
     {anchor\\n}
     {index}
     *index_entry_command@cindex C1 l15
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |index_entry:I{cp,1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {index}
+      {spaces_after_argument:\\n}
    *@end C1 l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 

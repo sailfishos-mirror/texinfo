@@ -19,28 +19,20 @@ $result_tree_text{'heading_in_footnote'} = '*document_root C1
      *paragraph C1
       {AAA\\n}
      *@heading C1 l3
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |global_command_number:{1}
      |heading_number:{1}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {H1}
+       {spaces_after_argument:\\n}
      *index_entry_command@cindex C1 l4
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |index_entry:I{cp,1}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {ind e}
+       {spaces_after_argument:\\n}
      *paragraph C1
       {BBB\\n}
    {\\n}

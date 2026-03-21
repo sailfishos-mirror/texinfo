@@ -8,11 +8,9 @@ use utf8;
 $result_tree_text{'space_at_commands_end_quotation_line'} = '*document_root C1
  *before_node_section C3
   *@quotation C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C3
+    *block_line_arg C4
+     {spaces_before_argument: }
      *@@
      { at the end of line }
      *@\\n
@@ -23,30 +21,22 @@ $result_tree_text{'space_at_commands_end_quotation_line'} = '*document_root C1
     *@@
     {quotation line.\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C3 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C4
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C6
+     {spaces_before_argument: }
      *@@
      *@ 
      { at the end of line }
      *@ 
+     {spaces_after_argument:\\n}
    *paragraph C6
     {A }
     *@@
@@ -55,16 +45,12 @@ $result_tree_text{'space_at_commands_end_quotation_line'} = '*document_root C1
     *@@
     {quotation line.\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -115,11 +101,11 @@ $result_converted{'html_text'}->{'space_at_commands_end_quotation_line'} = '<blo
 ';
 
 
-$result_converted{'xml'}->{'space_at_commands_end_quotation_line'} = '<quotation spaces=" " endspaces=" "><quotationtype>&arobase; at the end of line <spacecmd type="nl"/></quotationtype>
+$result_converted{'xml'}->{'space_at_commands_end_quotation_line'} = '<quotation endspaces=" "><quotationtype> &arobase; at the end of line <spacecmd type="nl"/></quotationtype>
 <para>A &arobase; at the end of the &arobase;quotation line.
 </para></quotation>
 
-<quotation spaces=" " endspaces=" "><quotationtype>&arobase;<spacecmd type="spc"/> at the end of line <spacecmd type="spc"/></quotationtype>
+<quotation endspaces=" "><quotationtype> &arobase;<spacecmd type="spc"/> at the end of line <spacecmd type="spc"/></quotationtype>
 <para>A &arobase;<spacecmd type="spc"/> at the end of the &arobase;quotation line.
 </para></quotation>
 ';

@@ -8,54 +8,40 @@ use utf8;
 $result_tree_text{'section_in_nested_block_commands'} = '*document_root C2
  *before_node_section C1
   *@table C2 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@strong l1
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l2
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {item}
+       {spaces_after_argument:\\n}
     *table_definition C3
      *paragraph C1
       {table line\\n}
      {empty_line:\\n}
      *@quotation C4 l5
       *arguments_line C1
-       *block_line_arg
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C1
+        {spaces_before_argument:\\n}
       {empty_line:\\n}
       *paragraph C1
        {in quotation\\n}
       {empty_line:\\n}
  *@section C1 l9 {a section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {a section}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -113,8 +99,8 @@ $result_converted{'plaintext'}->{'section_in_nested_block_commands'} = '*item*
 ';
 
 
-$result_converted{'xml'}->{'section_in_nested_block_commands'} = '<table commandarg="strong" spaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="strong">item</itemformat></item>
+$result_converted{'xml'}->{'section_in_nested_block_commands'} = '<table commandarg="strong">
+<tableentry><tableterm><item><itemformat command="strong"> item</itemformat></item>
 </tableterm><tableitem><para>table line
 </para>
 <quotation>
@@ -123,7 +109,7 @@ $result_converted{'xml'}->{'section_in_nested_block_commands'} = '<table command
 </para>
 </quotation>
 </tableitem></tableentry></table>
-<section spaces=" "><sectiontitle>a section</sectiontitle>
+<section><sectiontitle> a section</sectiontitle>
 </section>
 ';
 

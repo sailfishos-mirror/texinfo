@@ -8,30 +8,22 @@ use utf8;
 $result_tree_text{'section_on_index_entry_line'} = '*document_root C2
  *before_node_section C1
   *index_entry_command@cindex C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *line_arg C3
+    {spaces_before_argument: }
     {a}
+    {spaces_after_argument: }
  *@section C3 l1 {b}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {b}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Somethin\\n}

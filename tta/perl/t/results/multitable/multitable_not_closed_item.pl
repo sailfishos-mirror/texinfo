@@ -8,21 +8,17 @@ use utf8;
 $result_tree_text{'multitable_not_closed_item'} = '*document_root C1
  *before_node_section C1
   *@multitable C2 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     {spaces_before_argument: }
      *bracketed_arg C1 l1
       {r}
      { }
      *bracketed_arg C1 l1
       {t}
+     {spaces_after_argument:\\n}
    *multitable_body C1
     *row C1
     |EXTRA

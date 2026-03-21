@@ -24,32 +24,24 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
    {.\\n}
   {empty_line:\\n}
  *@node C1 l5 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C15 l6 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@image C1 l8
   |EXTRA
@@ -69,10 +61,8 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   {empty_line:\\n}
   *@example C3 l12
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C7
     {empty_line:\\n}
     *@image C1 l14
@@ -90,31 +80,23 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
       {in example after text}
     {\\n}
    *@end C1 l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C4 l20
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@image C1 l20
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C1
        {in_quotation_arg}
+     {spaces_after_argument:\\n}
    *@image C1 l21
    |EXTRA
    |input_encoding_name:{utf-8}
@@ -122,42 +104,30 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
      {in_quotation_content}
    {\\n}
    *@end C1 l22
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l24
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l24
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l25
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        *@image C1 l25
        |EXTRA
        |input_encoding_name:{utf-8}
         *brace_arg C1
          {in_table_item}
+       {spaces_after_argument:\\n}
     *table_definition C8
      {empty_line:\\n}
      *@image C1 l27
@@ -183,23 +153,17 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
        {in_table_def_after}
      {\\n}
    *@end C1 l32
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C5 l34
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l35
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -256,53 +220,41 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
        {in_menu_comment}
      {\\n}
    *@end C1 l39
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l41 {@image{node_image}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node_005fimage}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@image C1 l41
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
       {node_image}
+    {spaces_after_argument:\\n}
  *@chapter C8 l42 {@image{in_chapter_arg}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@image C1 l42
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
       {in_chapter_arg}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   *paragraph C3
@@ -343,9 +295,6 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
    {\\n}
   {empty_line:\\n}
   *@float C8 l55
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1.1}
   |float_type:{F}
@@ -353,13 +302,12 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   |identifier:{g}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {F}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C2
      {g}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@image C1 l57
    |EXTRA
@@ -384,16 +332,12 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
         {in_caption_para}
    {spaces_after_close_brace:\\n}
    *@end C1 l60
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -560,8 +504,8 @@ $result_converted{'xml'}->{'image_inline_or_not'} = '<image><imagefile>A</imagef
 
 <para>Para <image where="inline"><imagefile>hh</imagefile></image>.
 </para>
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on"><image where="inline"><imagefile>node_image</imagefile></image></nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> <image where="inline"><imagefile>node_image</imagefile></image></nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 <image><imagefile>B</imagefile></image>
 
@@ -575,12 +519,12 @@ T
 <image where="inline"><imagefile>in example after text</imagefile></image>
 </pre></example>
 
-<quotation spaces=" " endspaces=" "><quotationtype><image where="inline"><imagefile>in_quotation_arg</imagefile></image></quotationtype>
+<quotation endspaces=" "><quotationtype> <image where="inline"><imagefile>in_quotation_arg</imagefile></image></quotationtype>
 <image><imagefile>in_quotation_content</imagefile></image>
 </quotation>
 
-<table commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis"><image where="inline"><imagefile>in_table_item</imagefile></image></itemformat></item>
+<table commandarg="asis" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"> <image where="inline"><imagefile>in_table_item</imagefile></image></itemformat></item>
 </tableterm><tableitem>
 <image><imagefile>in_table_def</imagefile></image>
 
@@ -597,8 +541,8 @@ T
 </pre></menucomment></menu>
 
 </top>
-<node identifier="node_005fimage" spaces=" "><nodename><image where="inline"><imagefile>node_image</imagefile></image></nodename><nodenext automatic="on"></nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><image where="inline"><imagefile>in_chapter_arg</imagefile></image></sectiontitle>
+<node identifier="node_005fimage"><nodename> <image where="inline"><imagefile>node_image</imagefile></image></nodename><nodenext automatic="on"></nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <image where="inline"><imagefile>in_chapter_arg</imagefile></image></sectiontitle>
 
 
 <para>T<footnote spaces="\\n"><image><imagefile>in_footnote</imagefile></image>
@@ -609,7 +553,7 @@ T
 </para>
 </footnote>
 </para>
-<float identifier="g" type="F" number="1.1" spaces=" " endspaces=" "><floattype>F</floattype><floatname>g</floatname>
+<float identifier="g" type="F" number="1.1" endspaces=" "><floattype> F</floattype><floatname>g</floatname>
 
 <image><imagefile>in_float</imagefile></image>
 

@@ -8,19 +8,15 @@ use utf8;
 $result_tree_text{'no_top_node'} = '*document_root C2
  *before_node_section
  *@node C1 l1 {node Top not Top node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node-Top-not-Top-node}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node Top not Top node}
+    {spaces_after_argument:\\n}
 ';
 
 

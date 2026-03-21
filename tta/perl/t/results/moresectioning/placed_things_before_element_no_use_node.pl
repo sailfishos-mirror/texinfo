@@ -63,9 +63,6 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
    {\\n}
   {empty_line:\\n}
   *@float C3 l17
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{}
@@ -73,27 +70,21 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
   |identifier:{float-anchor}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg
     *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {float anchor}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {In float\\n}
    *@end C1 l19
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {Ref to float\\n}
@@ -107,10 +98,8 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
   {empty_line:\\n}
   *@menu C3 l24
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l25
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -123,43 +112,31 @@ $result_tree_text{'placed_things_before_element_no_use_node'} = '*document_root 
      *preformatted C1
       {menu entry pointing to the anchor.\\n}
    *@end C1 l26
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l28
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {index entry}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C5 l30 {section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {Ref to anchor\\n}

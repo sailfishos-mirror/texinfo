@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'def_groupings_args'} = '*document_root C1
  *before_node_section C5
   *@deffn C2 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -24,10 +21,8 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
       |{c}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {a}
@@ -39,52 +34,38 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
         *brace_container C1
          {aa}
        {c}
+     {spaces_after_argument:\\n}
    *@end C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C2 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l4
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffn}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C2
        {a}
        *@samp C1 l4
         *brace_container C1
          {g1}
+     {spaces_after_argument:\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C2 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l7
    |EXTRA
    |def_command:{deffn}
@@ -97,10 +78,8 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
         |{s}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffn}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C2
        *@var C1 l7
@@ -124,17 +103,14 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
         *brace_container C1
          {arg}
      {delimiter:)}
+     {spaces_after_argument:\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
 ';
 
 

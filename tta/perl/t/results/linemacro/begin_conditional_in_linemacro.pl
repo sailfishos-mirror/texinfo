@@ -15,16 +15,12 @@ $result_tree_text{'begin_conditional_in_linemacro'} = '*document_root C1
     {macro_line: lm {a}\\n}
    {raw:b \\a\\ a\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {b \\n}
@@ -38,29 +34,21 @@ $result_tree_text{'begin_conditional_in_linemacro'} = '*document_root C1
       >{bracketed_linemacro_arg:\\n@ifset}
    >ignored_conditional_block<1><p:3>
     >*@ifset C3 l6:@lm
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
      >*arguments_line C1
-      >*block_line_arg C1
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*block_line_arg C3
+       >{spaces_before_argument: }
        >{a}
        >>SOURCEMARKS
        >>linemacro_expansion<end;1><p:1>
+       >{spaces_after_argument:\\n}
      >{raw:in ifset\\n}
      >*@end C1 l8
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
      >|EXTRA
      >|text_arg:{ifset}
-      >*line_arg C1
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*line_arg C3
+       >{spaces_before_argument: }
        >{ifset}
+       >{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    {b \\n}
@@ -74,31 +62,23 @@ $result_tree_text{'begin_conditional_in_linemacro'} = '*document_root C1
       >{bracketed_linemacro_arg:\\n@ifclear}
    >expanded_conditional_command<start;1><p:3>
     >*@ifclear C1 l11:@lm
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
      >*arguments_line C1
-      >*block_line_arg C1
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*block_line_arg C3
+       >{spaces_before_argument: }
        >{a}
        >>SOURCEMARKS
        >>linemacro_expansion<end;2><p:1>
+       >{spaces_after_argument:\\n}
    {in ifclear\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;1><p:11>
     >*@end C1 l13
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifclear}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifclear}
+      >{spaces_after_argument:\\n}
 ';
 
 

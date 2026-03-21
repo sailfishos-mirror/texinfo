@@ -23,75 +23,54 @@ $result_tree_text{'indices'} = '*document_root C5
      {rawline_text:txiindexbackslashignore}
    {empty_line:\\n}
  *@node C1 l4 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l5 {top section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top section}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l7 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C22 l8 {Index}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Index}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l10
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{cp,1}
   |index_ignore_chars:{\\}
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     *@" C1 l10
      *following_arg C1
       {a}
@@ -99,83 +78,62 @@ $result_tree_text{'indices'} = '*document_root C5
     *@" C1 l10
      *brace_container C1
       {o}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{cp,2}
   |index_ignore_chars:{\\}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {AA}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l12
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{cp,3}
   |index_ignore_chars:{\\}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {aa}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{cp,4}
   |index_ignore_chars:{\\}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {i}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l14
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{cp,5}
   |index_ignore_chars:{\\}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Z}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l15
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{cp,6}
   |index_ignore_chars:{\\}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@^ C1 l15
      *following_arg C1
       {i}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l17
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{cp,7}
   |index_ignore_chars:{\\}
-   *line_arg C9
+   *line_arg C10
+    {spaces_before_argument: }
     *@math C1 l17
      *brace_arg C3
       {a!"}
@@ -193,15 +151,10 @@ $result_tree_text{'indices'} = '*document_root C5
       {o}
     {ignorable_spaces_before_command: }
     *@subentry C1 l17
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |sortas:{a!"@b}
-     *line_arg C12
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C14
+      {spaces_before_argument: }
       *@sortas C1 l17
        *brace_arg C3
         {a!"}
@@ -242,37 +195,30 @@ $result_tree_text{'indices'} = '*document_root C5
         *@" C1 l17
          *brace_container C1
           {o}
+      {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l18
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{cp,8}
   |index_ignore_chars:{\\}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {\\cmd}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 l19
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{cp,9}
   |index_ignore_chars:{\\}
   |sortas:{\\cmd}
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     {totocmd}
     {spaces_at_end: }
     *@sortas C1 l19
      *brace_arg C1
       {\\cmd}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@clear C1
   |INFO
@@ -287,42 +233,32 @@ $result_tree_text{'indices'} = '*document_root C5
     {rawline_text:txiindexbackslashignore}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l23
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{cp,10}
-   *line_arg C2
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:comment}
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *line_arg C5
+    {spaces_before_argument: }
     {\\some\\command for }
     *@file C1 l23
      *brace_container C1
       {file}
+    {spaces_after_argument: }
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:comment}
   {empty_line:\\n}
   *index_entry_command@findex C1 l25
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chapter}
   |index_entry:I{fn,1}
-   *line_arg C4
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C6
+    {spaces_before_argument: }
     {the }
     *@r C1 l25
      *brace_container C1
@@ -331,32 +267,25 @@ $result_tree_text{'indices'} = '*document_root C5
     *@file C1 l25
      *brace_container C1
       {aa}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l27
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l29
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fn}
+    {spaces_after_argument:\\n}
 ';
 
 

@@ -8,26 +8,18 @@ use utf8;
 $result_tree_text{'group_beginning_and_end_on_line'} = '*document_root C1
  *before_node_section C1
   *@group C2 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {within}
+     {spaces_after_argument: }
    *@end C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{group}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {group}
+     {spaces_after_argument:\\n}
 ';
 
 

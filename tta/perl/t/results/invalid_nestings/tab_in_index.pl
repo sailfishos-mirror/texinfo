@@ -8,21 +8,17 @@ use utf8;
 $result_tree_text{'tab_in_index'} = '*document_root C1
  *before_node_section C1
   *@multitable C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     {spaces_before_argument: }
      *bracketed_arg C1 l1
       {one nonlettered character}
      { }
      *bracketed_arg C1 l1
       {normal text}
+     {spaces_after_argument:\\n}
    *multitable_body C1
     *row C2
     |EXTRA
@@ -40,29 +36,21 @@ $result_tree_text{'tab_in_index'} = '*document_root C1
       *paragraph C2
        {aaa\\n}
        *index_entry_command@vindex C1 l3
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |index_entry:I{vr,1}
-        *line_arg C3
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C5
+         {spaces_before_argument: }
          {in index entry }
          {ignorable_spaces_after_command: }
          {in tab}
+         {spaces_after_argument:\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
 ';
 
 

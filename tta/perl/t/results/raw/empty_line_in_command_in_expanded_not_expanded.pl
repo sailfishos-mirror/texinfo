@@ -10,10 +10,8 @@ $result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document
   {empty_line:\\n}
   *@tex C3 l2
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *elided_rawpreformatted C7
     {raw:@anchor{a\\n}
     {raw:\\n}
@@ -23,23 +21,17 @@ $result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document
     {raw:\\n}
     {raw:n}\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{tex}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {tex}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@html C3 l12
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *rawpreformatted C5
     *@anchor C1 l13
     |EXTRA
@@ -58,16 +50,12 @@ $result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document
       {hn}
     {\\n}
    *@end C1 l20
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {html}
+     {spaces_after_argument:\\n}
 ';
 
 

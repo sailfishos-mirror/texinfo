@@ -9,26 +9,20 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
  *before_node_section C1
   {empty_line:\\n}
  *@node C4 l2 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C4 l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C6 l5
     {menu_entry_leading_text:* }
     *menu_entry_name C1
@@ -60,10 +54,8 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
      {empty_line:\\n}
     *@example C3 l9
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *preformatted C10
       {* }
       *@sc C1 l10
@@ -84,57 +76,41 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
         {menu-example comment}
       {\\n}
      *@end C1 l13
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {example}
+       {spaces_after_argument:\\n}
    *@end C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C4 l16 {@sc{node}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@sc C1 l16
      *brace_container C1
       {node}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@example C3 l18
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@menu C4 l19
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *menu_entry C6 l20
      {menu_entry_leading_text:* }
      *menu_entry_name C1
@@ -168,27 +144,19 @@ $result_tree_text{'sc_in_menu'} = '*document_root C3
         {example comment}
       {\\n}
     *@end C1 l23
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{menu}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {menu}
+      {spaces_after_argument:\\n}
    *@end C1 l24
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 
@@ -355,7 +323,7 @@ $result_converted_errors{'html'}->{'sc_in_menu'} = '* W |must specify a title wi
 
 
 $result_converted{'xml'}->{'sc_in_menu'} = '
-<node identifier="first" spaces=" "><nodename>first</nodename></node>
+<node identifier="first"><nodename> first</nodename></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menutitle><sc>value</sc></menutitle><menuseparator>:</menuseparator><menunode><sc>node</sc></menunode><menuseparator>.   </menuseparator><menudescription><pre xml:space="preserve"><sc>descrip tion</sc>
@@ -369,7 +337,7 @@ $result_converted{'xml'}->{'sc_in_menu'} = '
 </pre></example>
 </menucomment></menu>
 
-<node identifier="node" spaces=" "><nodename><sc>node</sc></nodename><nodeup automatic="on">first</nodeup></node>
+<node identifier="node"><nodename> <sc>node</sc></nodename><nodeup automatic="on"> first</nodeup></node>
 
 <example endspaces=" ">
 <menu endspaces=" ">

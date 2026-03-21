@@ -8,65 +8,45 @@ use utf8;
 $result_tree_text{'definfoenclose_on_table_line'} = '*document_root C1
  *before_node_section C3
   *@definfoenclose C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phi|:|:}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {phi,:,:}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *definfoenclose_command@phi l3
      |EXTRA
      |begin:{:}
      |end:{:}
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C2
      *@item C1 l4
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {item}
+       {spaces_after_argument:\\n}
      *@itemx C1 l5
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {item x}
+       {spaces_after_argument:\\n}
     *table_definition C2
      {empty_line:\\n}
      *paragraph C1
       {table content.\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -123,11 +103,11 @@ $result_converted{'html_text'}->{'definfoenclose_on_table_line'} = '
 ';
 
 
-$result_converted{'xml'}->{'definfoenclose_on_table_line'} = '<definfoenclose spaces=" " command="phi" open=":" close=":" line="phi,:,:"></definfoenclose>
+$result_converted{'xml'}->{'definfoenclose_on_table_line'} = '<definfoenclose command="phi" open=":" close=":" line=" phi,:,:"></definfoenclose>
 
-<table commandarg="phi" begin=":" end=":" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="phi" begin=":" end=":">item</itemformat></item>
-<itemx spaces=" "><itemformat command="phi" begin=":" end=":">item x</itemformat></itemx>
+<table commandarg="phi" begin=":" end=":" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="phi" begin=":" end=":"> item</itemformat></item>
+<itemx><itemformat command="phi" begin=":" end=":"> item x</itemformat></itemx>
 </tableterm><tableitem>
 <para>table content.
 </para></tableitem></tableentry></table>

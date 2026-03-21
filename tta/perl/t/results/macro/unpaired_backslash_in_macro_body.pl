@@ -16,16 +16,12 @@ $result_tree_text{'unpaired_backslash_in_macro_body'} = '*document_root C1
    {raw:In macro \\not arg\\n}
    {raw:not paired\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    {In macro not arg\\n}

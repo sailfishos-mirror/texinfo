@@ -8,34 +8,26 @@ use utf8;
 $result_tree_text{'omit_def_space'} = '*document_root C3
  *before_node_section
  *@node C2 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C5 l3 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@set C1
   |INFO
@@ -50,9 +42,6 @@ $result_tree_text{'omit_def_space'} = '*document_root C3
     {rawline_text:txidefnamenospace}
   {empty_line:\\n}
   *@defun C4 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l7
    |EXTRA
    |def_command:{defun}
@@ -64,16 +53,14 @@ $result_tree_text{'omit_def_space'} = '*document_root C3
    |index_entry:I{fn,1}
    |omit_def_name_space:{1}
    |original_def_cmdname:{defun}
-    *block_line_arg C10
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C12
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Function}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {function}
@@ -88,10 +75,8 @@ $result_tree_text{'omit_def_space'} = '*document_root C3
       *def_line_arg C1
        {arg2}
      {delimiter:)}
+     {spaces_after_argument:\\n}
    *@defunx C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defun}
    |def_index_element:
@@ -102,16 +87,14 @@ $result_tree_text{'omit_def_space'} = '*document_root C3
    |index_entry:I{fn,2}
    |omit_def_name_space:{1}
    |original_def_cmdname:{defunx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Function}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *def_line_arg C1
        {another}
@@ -121,20 +104,17 @@ $result_tree_text{'omit_def_space'} = '*document_root C3
       *def_line_arg C1
        {aarg}
      {delimiter:)}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {explain\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defun}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defun}
+     {spaces_after_argument:\\n}
 ';
 
 

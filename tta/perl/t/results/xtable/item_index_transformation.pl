@@ -8,403 +8,271 @@ use utf8;
 $result_tree_text{'item_index_transformation'} = '*document_root C3
  *before_node_section
  *@node C1 l1 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C9 l2 {Chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C4 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l4
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C6
      *index_entry_command@cindex C1 l9
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,2}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {After1}
+       {spaces_after_argument:\\n}
      *index_entry_command@cindex C1 l10
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,3}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {After2}
+       {spaces_after_argument:\\n}
      *index_entry_command@cindex C1 l5
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,1}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {Before1}
+       {spaces_after_argument:\\n}
      *@item C1 l6
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |associated_index_entry:I{cp,2}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {one}
+       {spaces_after_argument:\\n}
      *@itemx C1 l7
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {onex}
+       {spaces_after_argument:\\n}
      *@itemx C1 l8
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {oney}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {AAA\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l12
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {two}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {BBB\\n}
    *@end C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C4 l16
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l16
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C5
      *index_entry_command@cindex C1 l20
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,4}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {after1}
+       {spaces_after_argument:\\n}
      *index_entry_command@cindex C1 l21
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,5}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {after2}
+       {spaces_after_argument:\\n}
      *@item C1 l17
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |associated_index_entry:I{cp,4}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {three}
+       {spaces_after_argument:\\n}
      *@itemx C1 l18
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {threex}
+       {spaces_after_argument:\\n}
      *@itemx C1 l19
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {zzzz}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {CCCC\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l23
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {zzzz2}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {DDDDD\\n}
    *@end C1 l25
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C4 l27
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l27
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C4
      *index_entry_command@cindex C1 l28
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,6}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {before1}
+       {spaces_after_argument:\\n}
      *index_entry_command@cindex C1 l29
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,7}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {before2}
+       {spaces_after_argument:\\n}
      *@item C1 l30
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |associated_index_entry:I{cp,6}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {four}
+       {spaces_after_argument:\\n}
      *@itemx C1 l31
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {fourx}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {EEEE\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l33
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {foour}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {FFFFf\\n}
    *@end C1 l35
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C4 l37
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l37
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l38
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {five}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {GGGG\\n}
    *table_entry C2
     *table_term C4
      *index_entry_command@cindex C1 l42
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,8}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {after6}
+       {spaces_after_argument:\\n}
      *index_entry_command@cindex C1 l43
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{cp,9}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {after7}
+       {spaces_after_argument:\\n}
      *@item C1 l40
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |associated_index_entry:I{cp,8}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {six}
+       {spaces_after_argument:\\n}
      *@itemx C1 l41
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {sixx}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {HHHHHH\\n}
    *@end C1 l45
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -602,49 +470,49 @@ $result_converted{'html_text'}->{'item_index_transformation'} = '<div class="cha
 ';
 
 
-$result_converted{'xml'}->{'item_index_transformation'} = '<node identifier="chap" spaces=" "><nodename>chap</nodename></node>
-<chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
+$result_converted{'xml'}->{'item_index_transformation'} = '<node identifier="chap"><nodename> chap</nodename></node>
+<chapter><sectiontitle> Chapter</sectiontitle>
 
-<table commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><cindex index="cp" spaces=" "><indexterm index="cp" number="2">After1</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="3">After2</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">Before1</indexterm></cindex>
-<item spaces=" "><itemformat command="asis">one</itemformat></item>
-<itemx spaces=" "><itemformat command="asis">onex</itemformat></itemx>
-<itemx spaces=" "><itemformat command="asis">oney</itemformat></itemx>
+<table commandarg="asis" endspaces=" ">
+<tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="2">After1</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="3">After2</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="1">Before1</indexterm></cindex>
+<item><itemformat command="asis"> one</itemformat></item>
+<itemx><itemformat command="asis"> onex</itemformat></itemx>
+<itemx><itemformat command="asis"> oney</itemformat></itemx>
 </tableterm><tableitem><para>AAA
-</para></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis">two</itemformat></item>
+</para></tableitem></tableentry><tableentry><tableterm><item><itemformat command="asis"> two</itemformat></item>
 </tableterm><tableitem><para>BBB
 </para></tableitem></tableentry></table>
 
-<table commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><cindex index="cp" spaces=" "><indexterm index="cp" number="4">after1</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="5">after2</indexterm></cindex>
-<item spaces=" "><itemformat command="asis">three</itemformat></item>
-<itemx spaces=" "><itemformat command="asis">threex</itemformat></itemx>
-<itemx spaces=" "><itemformat command="asis">zzzz</itemformat></itemx>
+<table commandarg="asis" endspaces=" ">
+<tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="4">after1</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="5">after2</indexterm></cindex>
+<item><itemformat command="asis"> three</itemformat></item>
+<itemx><itemformat command="asis"> threex</itemformat></itemx>
+<itemx><itemformat command="asis"> zzzz</itemformat></itemx>
 </tableterm><tableitem><para>CCCC
-</para></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis">zzzz2</itemformat></item>
+</para></tableitem></tableentry><tableentry><tableterm><item><itemformat command="asis"> zzzz2</itemformat></item>
 </tableterm><tableitem><para>DDDDD
 </para></tableitem></tableentry></table>
 
-<table commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><cindex index="cp" spaces=" "><indexterm index="cp" number="6">before1</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="7">before2</indexterm></cindex>
-<item spaces=" "><itemformat command="asis">four</itemformat></item>
-<itemx spaces=" "><itemformat command="asis">fourx</itemformat></itemx>
+<table commandarg="asis" endspaces=" ">
+<tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="6">before1</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="7">before2</indexterm></cindex>
+<item><itemformat command="asis"> four</itemformat></item>
+<itemx><itemformat command="asis"> fourx</itemformat></itemx>
 </tableterm><tableitem><para>EEEE
-</para></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis">foour</itemformat></item>
+</para></tableitem></tableentry><tableentry><tableterm><item><itemformat command="asis"> foour</itemformat></item>
 </tableterm><tableitem><para>FFFFf
 </para></tableitem></tableentry></table>
 
-<table commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis">five</itemformat></item>
+<table commandarg="asis" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"> five</itemformat></item>
 </tableterm><tableitem><para>GGGG
-</para></tableitem></tableentry><tableentry><tableterm><cindex index="cp" spaces=" "><indexterm index="cp" number="8">after6</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="9">after7</indexterm></cindex>
-<item spaces=" "><itemformat command="asis">six</itemformat></item>
-<itemx spaces=" "><itemformat command="asis">sixx</itemformat></itemx>
+</para></tableitem></tableentry><tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="8">after6</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="9">after7</indexterm></cindex>
+<item><itemformat command="asis"> six</itemformat></item>
+<itemx><itemformat command="asis"> sixx</itemformat></itemx>
 </tableterm><tableitem><para>HHHHHH
 </para></tableitem></tableentry></table>
 </chapter>

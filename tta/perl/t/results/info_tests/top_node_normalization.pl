@@ -8,19 +8,15 @@ use utf8;
 $result_tree_text{'top_node_normalization'} = '*document_root C2
  *before_node_section
  *@node C5 l1 {ToP}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ToP}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C4
    *@xref C1 l3
@@ -40,10 +36,8 @@ $result_tree_text{'top_node_normalization'} = '*document_root C2
   {empty_line:\\n}
   *@menu C3 l5
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l6
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -56,16 +50,12 @@ $result_tree_text{'top_node_normalization'} = '*document_root C2
      *preformatted C1
       {\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
 ';
 
 

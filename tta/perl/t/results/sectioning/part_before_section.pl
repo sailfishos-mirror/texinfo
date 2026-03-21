@@ -10,34 +10,26 @@ UNIT_DIRECTIONS
 This: [U0]
  *before_node_section
  *@part C2 l1 {part}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {part}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C1 l3 {section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section}
+    {spaces_after_argument: \\n}
 ';
 
 
@@ -93,9 +85,9 @@ $result_converted{'html_text'}->{'part_before_section'} = '<div class="part-leve
 ';
 
 
-$result_converted{'xml'}->{'part_before_section'} = '<part spaces=" "><sectiontitle>part</sectiontitle>
+$result_converted{'xml'}->{'part_before_section'} = '<part><sectiontitle> part</sectiontitle>
 
-<chapter originalcommand="section" spaces=" "><sectiontitle>section </sectiontitle>
+<chapter originalcommand="section"><sectiontitle> section </sectiontitle>
 </chapter>
 </part>
 ';

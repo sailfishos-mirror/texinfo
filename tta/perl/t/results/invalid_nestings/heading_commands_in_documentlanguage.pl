@@ -8,16 +8,11 @@ use utf8;
 $result_tree_text{'heading_commands_in_documentlanguage'} = '*document_root C1
  *before_node_section C1
   *@documentlanguage C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |text_arg:{    b}
-   *line_arg C8
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C10
+    {spaces_before_argument: }
     *@code C1 l1
      *brace_container C2
       {aaa }
@@ -29,6 +24,7 @@ $result_tree_text{'heading_commands_in_documentlanguage'} = '*document_root C1
     { }
     *@|
     { b}
+    {spaces_after_argument:\\n}
 ';
 
 

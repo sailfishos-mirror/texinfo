@@ -23,47 +23,34 @@ $result_tree_text{'ifclear_in_ifset_set'} = '*document_root C1
   >SOURCEMARKS
   >expanded_conditional_command<start;1><p:1>
    >*@ifset C1 l4
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{a}
+      >{spaces_after_argument:\\n}
   >expanded_conditional_command<start;2><p:1>
    >*@ifclear C1 l5
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|comment_at_end:
-      >|*@c C1
-      >||INFO
-      >||spaces_before_argument:
-       >||{spaces_before_argument: }
-       >|*line_arg C1
-       >||INFO
-       >||spaces_after_argument:
-        >||{spaces_after_argument:\\n}
-        >|{rawline_text:- ok, ignored}
-     >|spaces_after_argument:
-      >|{spaces_after_argument: }
+     >*block_line_arg C4
+      >{spaces_before_argument: }
       >{ok}
+      >{spaces_after_argument: }
+      >*@c C1
+      >|INFO
+      >|spaces_before_argument:
+       >|{spaces_before_argument: }
+       >*line_arg C1
+       >|INFO
+       >|spaces_after_argument:
+        >|{spaces_after_argument:\\n}
+        >{rawline_text:- ok, ignored}
   *@end C1 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |text_arg:{junky   - ok, ignored}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {junky   - ok, ignored}
+    {spaces_after_argument:\\n}
   *@c C1
   |INFO
   |spaces_before_argument:

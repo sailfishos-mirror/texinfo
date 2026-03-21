@@ -21,38 +21,26 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      {rawline_text:%**start of header}
   *preamble_before_content C12
    *@setfilename C1 sample_utf8.texi:l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{sample_utf8.info}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {sample_utf8.info}
+     {spaces_after_argument:\\n}
    *@settitle C1 sample_utf8.texi:l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {Sample 示例 ĄĘ ù}
+     {spaces_after_argument:\\n}
    *@documentencoding C1 sample_utf8.texi:l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{utf-8}
    |text_arg:{UTF-8}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {UTF-8}
+     {spaces_after_argument:\\n}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -65,10 +53,8 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    {empty_line:\\n}
    *@copying C5 sample_utf8.texi:l8
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *paragraph C1
      {This is a short example of a complete Texinfo file.\\n}
     {empty_line:\\n}
@@ -76,32 +62,22 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      {Copyright (C) 2005 Someone.\\n}
      {Texinfo中文示例\\n}
     *@end C1 sample_utf8.texi:l13
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {copying}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@titlepage C6 sample_utf8.texi:l15
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *@title C1 sample_utf8.texi:l16
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {标题示例 ĄĘ ae ąę Â ù}
+      {spaces_after_argument:\\n}
     *@page C1
      *line_arg
      |INFO
@@ -126,16 +102,12 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
     *@end C1 sample_utf8.texi:l21
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{titlepage}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {titlepage}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -158,37 +130,27 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    >expanded_conditional_command<start;1><p:1>
     >*@ifnottex C1 sample_utf8.texi:l26
      >*arguments_line C1
-      >*block_line_arg
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
  *@node C1 sample_utf8.texi:l27 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C7 sample_utf8.texi:l28 {Texinfo中文示例}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Texinfo中文示例}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@insertcopying C1 sample_utf8.texi:l30
   |EXTRA
@@ -196,16 +158,12 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   >SOURCEMARKS
   >expanded_conditional_command<end;1>
    >*@end C1 sample_utf8.texi:l31
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{ifnottex}
-    >*line_arg C1
-    >|INFO
-    >|spaces_after_argument:
-     >|{spaces_after_argument:\\n}
+    >*line_arg C3
+     >{spaces_before_argument: }
      >{ifnottex}
+     >{spaces_after_argument:\\n}
    *line_arg
    |INFO
    |spaces_after_argument:
@@ -213,10 +171,8 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   {empty_line:\\n}
   *@menu C5 sample_utf8.texi:l33
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 sample_utf8.texi:l34
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -252,108 +208,78 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      *preformatted C1
       {Complete index.\\n}
    *@end C1 sample_utf8.texi:l38
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
  *@node C1 sample_utf8.texi:l41 {第一章（First Chapter）}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {第一章（First Chapter）}
+    {spaces_after_argument:\\n}
  *@chapter C10 sample_utf8.texi:l42 {第一章（First Chapter）}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {第一章（First Chapter）}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 sample_utf8.texi:l44
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter, first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C4
    {This is the first chapter. 这是第一章。\\n}
    *index_entry_command@cindex C1 sample_utf8.texi:l47
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |element_node:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
    |index_entry:I{cp,2}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {另一个，index entry}
+     {spaces_after_argument:\\n}
    *index_entry_command@cindex C1 sample_utf8.texi:l48
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |element_node:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
    |index_entry:I{cp,3}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {ĄĘ ae ąę}
+     {spaces_after_argument:\\n}
    *index_entry_command@cindex C1 sample_utf8.texi:l49
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |element_node:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
    |index_entry:I{cp,4}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {é Â}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Here is a numbered list.\\n}
   {empty_line:\\n}
   *@enumerate C4 sample_utf8.texi:l53
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@item C3 sample_utf8.texi:l54
    |EXTRA
    |item_number:{1}
@@ -370,90 +296,66 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      {ĄĘ\\n}
      {This is the second item.\\n}
    *@end C1 sample_utf8.texi:l59
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {enumerate}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 sample_utf8.texi:l61 {Second Chapter AE ĄĘ ae ąę}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Second-Chapter-AE-_0104_0118-ae-_0105_0119}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Second Chapter AE ĄĘ ae ąę}
+    {spaces_after_argument:\\n}
  *@chapter C4 sample_utf8.texi:l62 {Chapter 2 AE ĄĘ ae ąę}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter 2 AE ĄĘ ae ąę}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Zażółć gęślą jaźń!\\n}
   {empty_line:\\n}
  *@node C1 sample_utf8.texi:l66 {Index node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Index-node}
  |is_target:{1}
  |isindex:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Index node}
+    {spaces_after_argument:\\n}
  *@unnumbered C4 sample_utf8.texi:l67 {Index}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Index}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 sample_utf8.texi:l69
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
   *line_arg

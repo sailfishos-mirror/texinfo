@@ -12,9 +12,6 @@ $result_tree_text{'float_in_style_command'} = '*document_root C1
     *brace_container C1
      {\\n}
   *@float C5 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{A}
@@ -22,15 +19,13 @@ $result_tree_text{'float_in_style_command'} = '*document_root C1
   |identifier:{B}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {A}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {B}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {in float\\n}
    *@caption C1 l4
@@ -39,16 +34,12 @@ $result_tree_text{'float_in_style_command'} = '*document_root C1
       {Caption}
    {spaces_after_close_brace:\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
 ';
 
 

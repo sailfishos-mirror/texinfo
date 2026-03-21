@@ -15,26 +15,20 @@ NodeForward: [U1]
  *before_node_section C1
   *preamble_before_content
  *@node C4 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -47,16 +41,12 @@ NodeForward: [U1]
      *preformatted C1
       {\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 U1 unit{N:chap first}
 unit_directions:D[prev->[U0]]
@@ -69,47 +59,37 @@ NodeUp: (manual3)
 NodeForward: (manual1)
 NodeBack: [U0]
  *@node C1 l7 {chap first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap-first}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {chap first}
-   *line_arg C3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C4
    |EXTRA
    |manual_content:{manual1}
+    {spaces_before_argument: }
     {(}
     {manual1}
     {)}
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C5
    |EXTRA
    |manual_content:{manual2}
+    {spaces_before_argument: }
     {(}
     {manual2}
     {)}
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+    {spaces_after_argument: }
+   *line_arg C5
    |EXTRA
    |manual_content:{manual3}
+    {spaces_before_argument: }
     {(}
     {manual3}
     {)}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -201,13 +181,13 @@ $result_converted_errors{'html'}->{'node_up_external_node'} = '* W |must specify
 ';
 
 
-$result_converted{'xml'}->{'node_up_external_node'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap first</nodenext></node>
+$result_converted{'xml'}->{'node_up_external_node'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap first</nodenext></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>chap first</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="chap-first" spaces=" "><nodename>chap first</nodename><nodenext spaces=" ">(manual1)</nodenext><nodeprev spaces=" " trailingspaces=" ">(manual2)</nodeprev><nodeup spaces=" ">(manual3)</nodeup></node>
+<node identifier="chap-first"><nodename> chap first</nodename><nodenext> (manual1)</nodenext><nodeprev> (manual2)</nodeprev><nodeup> (manual3)</nodeup></node>
 ';
 
 1;

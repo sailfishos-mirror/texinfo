@@ -9,24 +9,17 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
  *before_node_section C1
   {empty_line:\\n}
  *@node C6 l2 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C4 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l4
    |EXTRA
    |def_command:{deffn}
@@ -41,10 +34,8 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
    |element_node:{first}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C11
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        *@ref C1 l4
@@ -89,10 +80,8 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
         |node_content:{myanchor}
         |normalized:{myanchor}
          {myanchor}
+     {spaces_after_argument:\\n}
    *@deffnx C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -106,10 +95,8 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
    |element_node:{first}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffnx}
-    *line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C11
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        *@ref C1 l5
@@ -154,20 +141,17 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
         |node_content:{myanchor}
         |normalized:{myanchor}
          {myanchor}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {T\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@anchor C1 l9
   |EXTRA

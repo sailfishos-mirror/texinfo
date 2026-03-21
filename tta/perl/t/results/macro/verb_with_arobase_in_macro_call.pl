@@ -16,16 +16,12 @@ $result_tree_text{'verb_with_arobase_in_macro_call'} = '*document_root C1
    {raw:first: \\a\\\\n}
    {raw:second: \\b\\\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C6
    {first: }

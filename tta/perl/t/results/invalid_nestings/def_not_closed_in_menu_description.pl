@@ -9,10 +9,8 @@ $result_tree_text{'def_not_closed_in_menu_description'} = '*document_root C1
  *before_node_section C1
   *@menu C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l2
     {menu_entry_leading_text:* }
     *menu_entry_node C3
@@ -26,9 +24,6 @@ $result_tree_text{'def_not_closed_in_menu_description'} = '*document_root C1
      *preformatted C1
       {before deff }
      *@deffn C2 l2
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
       *def_line C1 l2
       |EXTRA
       |def_command:{deffn}
@@ -38,10 +33,8 @@ $result_tree_text{'def_not_closed_in_menu_description'} = '*document_root C1
          |{truc}
       |index_entry:I{fn,1}
       |original_def_cmdname:{deffn}
-       *block_line_arg C5
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C7
+        {spaces_before_argument: }
         *def_category C1
          *def_line_arg C1
           {bidule}
@@ -53,21 +46,18 @@ $result_tree_text{'def_not_closed_in_menu_description'} = '*document_root C1
         *def_arg C1
          *def_line_arg C1
           {chose}
+        {spaces_after_argument:\\n}
       *def_item C1
        *preformatted C2
         {empty_line:\\n}
         {deffn text\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
 ';
 
 

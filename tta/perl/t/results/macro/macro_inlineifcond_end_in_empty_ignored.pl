@@ -15,16 +15,12 @@ $result_tree_text{'macro_inlineifcond_end_in_empty_ignored'} = '*document_root C
     {macro_line: setargendignored\\n}
    {raw:ag,\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   *paragraph C3
    {Toto }
    *@inlineifset C2 l4

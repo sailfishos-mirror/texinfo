@@ -8,16 +8,12 @@ use utf8;
 $result_tree_text{'definfoenclose_nestings'} = '*document_root C1
  *before_node_section C9
   *@definfoenclose C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{phoo|//|\\}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {phoo,//,\\}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@code C1 l3
@@ -49,14 +45,10 @@ $result_tree_text{'definfoenclose_nestings'} = '*document_root C1
     *brace_container C1
      {\\n}
   *@center C1 l8
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {in center in phoo}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

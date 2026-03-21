@@ -9,38 +9,30 @@ $result_tree_text{'empty_label_no_space_comment'} = '*document_root C1
  *before_node_section C2
   *preamble_before_content
   *@float C2 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Type}
   |global_command_number:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Type}
-    *block_line_arg
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comment}
+    *block_line_arg C1
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comment}
    *@end C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -103,7 +95,7 @@ $result_converted_errors{'html'}->{'empty_label_no_space_comment'} = '* W |must 
 ';
 
 
-$result_converted{'xml'}->{'empty_label_no_space_comment'} = '<float type="Type" spaces=" " endspaces=" "><floattype>Type</floattype><floatname></floatname><!-- c comment -->
+$result_converted{'xml'}->{'empty_label_no_space_comment'} = '<float type="Type" endspaces=" "><floattype> Type</floattype><floatname></floatname><!-- c comment -->
 </float>
 ';
 

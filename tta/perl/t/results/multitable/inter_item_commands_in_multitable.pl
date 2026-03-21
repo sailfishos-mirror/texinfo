@@ -8,18 +8,14 @@ use utf8;
 $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
  *before_node_section C6
   *@multitable C4 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{1}
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *bracketed_arg C1 l1
       {truc}
+     {spaces_after_argument:\\n}
    *before_item C2
     *@c C1
     |INFO
@@ -43,16 +39,12 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
        {truc\\n}
       {empty_line:\\n}
       *index_entry_command@cindex C1 l6
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |index_entry:I{cp,1}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {index entry between empty lines}
+        {spaces_after_argument:\\n}
       {empty_line:\\n}
     *row C1
     |EXTRA
@@ -73,36 +65,26 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
          |{spaces_after_argument:\\n}
          {rawline_text:last comment}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@multitable C4 l12
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      *@columnfractions C1 l12
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{0.6|0.4}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {0.6 0.4}
+       {spaces_after_argument:\\n}
    *multitable_head C1
     *row C2
     |EXTRA
@@ -160,16 +142,12 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
       *paragraph C2
        {multitable tab 2\\n}
        *index_entry_command@cindex C1 l17
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |index_entry:I{cp,2}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {index entry within multitable}
+         {spaces_after_argument:\\n}
     *row C1
     |EXTRA
     |row_number:{4}
@@ -180,44 +158,32 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
       *paragraph C1
        {lone mu--ltitable item\\n}
    *@end C1 l19
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@multitable C4 l21
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{1}
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *bracketed_arg C1 l21
       {thing}
+     {spaces_after_argument:\\n}
    *before_item C1
     *paragraph C2
      {Title\\n}
      *index_entry_command@cindex C1 l23
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |index_entry:I{cp,3}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {cindex}
+       {spaces_after_argument:\\n}
    *multitable_body C1
     *row C1
     |EXTRA
@@ -229,16 +195,12 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
       *paragraph C1
        {thing\\n}
    *@end C1 l25
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 
@@ -357,29 +319,31 @@ $result_converted{'html_text'}->{'inter_item_commands_in_multitable'} = '<table 
 ';
 
 
-$result_converted{'xml'}->{'inter_item_commands_in_multitable'} = '<multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">truc</columnprototype></columnprototypes>
+$result_converted{'xml'}->{'inter_item_commands_in_multitable'} = '<multitable endspaces=" "><columnprototypes> <columnprototype bracketed="on">truc</columnprototype>
+</columnprototypes>
 <beforefirstitem><!-- c comment before first item -->
 
 </beforefirstitem><tbody><row><entry command="item"> <para>truc
 </para>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry between empty lines</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="1">index entry between empty lines</indexterm></cindex>
 
 </entry></row><row><entry command="item"> <para>trouc
 <!-- c last comment -->
 </para></entry></row></tbody></multitable>
 
-<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.6 0.4"><columnfraction value="0.6"></columnfraction><columnfraction value="0.4"></columnfraction></columnfractions>
+<multitable endspaces=" "><columnfractions line=" 0.6 0.4"><columnfraction value="0.6"></columnfraction><columnfraction value="0.4"></columnfraction></columnfractions>
 <thead><row><entry command="headitem"> <para>mu&textndash;ltitable headitem </para></entry><entry command="tab"> <para>another tab
 </para></entry></row></thead><tbody><row><entry command="item"> <para>mu&textndash;ltitable item </para></entry><entry command="tab"> <para>multitable tab
 <!-- c comment in multitable -->
 </para></entry></row><row><entry command="item"> <para>mu&textndash;ltitable item 2 </para></entry><entry command="tab"> <para>multitable tab 2
-<cindex index="cp" spaces=" "><indexterm index="cp" number="2">index entry within multitable</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="2">index entry within multitable</indexterm></cindex>
 </para></entry></row><row><entry command="item"> <para>lone mu&textndash;ltitable item
 </para></entry></row></tbody></multitable>
 
-<multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">thing</columnprototype></columnprototypes>
+<multitable endspaces=" "><columnprototypes> <columnprototype bracketed="on">thing</columnprototype>
+</columnprototypes>
 <beforefirstitem><para>Title
-<cindex index="cp" spaces=" "><indexterm index="cp" number="3">cindex</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="3">cindex</indexterm></cindex>
 </para></beforefirstitem><tbody><row><entry command="item"> <para>thing
 </para></entry></row></tbody></multitable>
 

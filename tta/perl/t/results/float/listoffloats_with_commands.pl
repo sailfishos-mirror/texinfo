@@ -9,16 +9,11 @@ $result_tree_text{'listoffloats_with_commands'} = '*document_root C1
  *before_node_section C2
   *preamble_before_content
   *@listoffloats C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{théorème}
   |global_command_number:{1}
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     {th}
     *@\' C1 l1
      *following_arg C1
@@ -28,6 +23,7 @@ $result_tree_text{'listoffloats_with_commands'} = '*document_root C1
      *following_arg C1
       {e}
     {me}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -82,7 +78,7 @@ $result_converted_errors{'html'}->{'listoffloats_with_commands'} = '* W |must sp
 ';
 
 
-$result_converted{'xml'}->{'listoffloats_with_commands'} = '<listoffloats type="théorème" spaces=" ">th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</listoffloats>
+$result_converted{'xml'}->{'listoffloats_with_commands'} = '<listoffloats type="théorème"> th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</listoffloats>
 ';
 
 

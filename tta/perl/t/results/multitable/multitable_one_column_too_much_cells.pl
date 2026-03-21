@@ -8,18 +8,14 @@ use utf8;
 $result_tree_text{'multitable_one_column_too_much_cells'} = '*document_root C1
  *before_node_section C1
   *@multitable C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{1}
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *bracketed_arg C1 l1
       {a}
+     {spaces_after_argument:\\n}
    *multitable_body C4
     *row C1
     |EXTRA
@@ -79,16 +75,12 @@ $result_tree_text{'multitable_one_column_too_much_cells'} = '*document_root C1
       *paragraph C1
        {one additional tab\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
 ';
 
 

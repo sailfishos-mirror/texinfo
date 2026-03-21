@@ -8,92 +8,64 @@ use utf8;
 $result_tree_text{'block_commands_in_table'} = '*document_root C5
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l2 {Element}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Element}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l4 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C10 l5 {Chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C7 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@emph l7
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C2
      *@item C1 l8
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {first item}
+       {spaces_after_argument:\\n}
      *@itemx C1 l9
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {second itemx}
+       {spaces_after_argument:\\n}
     *table_definition C3
      {empty_line:\\n}
      *paragraph C1
@@ -102,47 +74,33 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
    *table_entry C2
     *table_term C1
      *@item C1 l13
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {example}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *@example C3 l14
       *arguments_line C1
-       *block_line_arg
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C1
+        {spaces_before_argument:\\n}
       *preformatted C3
        {In example\\n}
        {empty_line:\\n}
        {end example.\\n}
       *@end C1 l18
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{example}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {example}
+        {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l19
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {empty line}
+       {spaces_after_argument:\\n}
     *table_definition C2
      {empty_line:\\n}
      *paragraph C1
@@ -150,103 +108,71 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
    *table_entry C2
     *table_term C1
      *@item C1 l22
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {quotation}
+       {spaces_after_argument:\\n}
     *table_definition C2
      *@quotation C3 l23
       *arguments_line C1
-       *block_line_arg
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C1
+        {spaces_before_argument:\\n}
       *paragraph C1
        {Quotation\\n}
       *@end C1 l25
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{quotation}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {quotation}
+        {spaces_after_argument:\\n}
      {empty_line:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l27
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {quotation after a blank line}
+       {spaces_after_argument:\\n}
     *table_definition C2
      {empty_line:\\n}
      *@quotation C3 l29
       *arguments_line C1
-       *block_line_arg
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C1
+        {spaces_before_argument:\\n}
       *paragraph C1
        {quotation after a blank line\\n}
       *@end C1 l31
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{quotation}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {quotation}
+        {spaces_after_argument:\\n}
    *@end C1 l32
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@vtable C3 l34
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@strong l34
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C4
      *@item C1 l35
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,1}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {item before ignored lines}
+       {spaces_after_argument:\\n}
      *inter_item C1
       *@c C1
       |INFO
@@ -258,150 +184,106 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
         |{spaces_after_argument:\\n}
         {rawline_text:comment}
      *index_entry_command@vindex C1 l37
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,2}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {vindex}
+       {spaces_after_argument:\\n}
      *@itemx C1 l38
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,3}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {itemx now}
+       {spaces_after_argument:\\n}
     *table_definition C2
      {empty_line:\\n}
      *paragraph C1
       {Description\\n}
    *@end C1 l41
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
   *@vtable C3 l42
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@r l42
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C3
      *@item C1 l43
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,4}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {item}
+       {spaces_after_argument:\\n}
      *inter_item C1
       {empty_line:\\n}
      *@itemx C1 l45
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{vr,5}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {itemx after an empty line}
+       {spaces_after_argument:\\n}
     *table_definition C3
      {empty_line:\\n}
      *paragraph C1
       {Description.\\n}
      {empty_line:\\n}
    *@end C1 l49
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{vtable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {vtable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Something.\\n}
   *@table C4 l52
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@emph l52
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l53
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {in item}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {Text without blank line\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l55
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {second item}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {Text without blank line 2\\n}
    *@end C1 l57
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   *paragraph C1
    {After table.\\n}
 ';
@@ -678,62 +560,62 @@ end example.
 ';
 
 
-$result_converted{'xml'}->{'block_commands_in_table'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<top spaces=" "><sectiontitle>Element</sectiontitle>
+$result_converted{'xml'}->{'block_commands_in_table'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node>
+<top><sectiontitle> Element</sectiontitle>
 
 </top>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
+<node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Chapter</sectiontitle>
 
-<table commandarg="emph" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="emph">first item</itemformat></item>
-<itemx spaces=" "><itemformat command="emph">second itemx</itemformat></itemx>
+<table commandarg="emph" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="emph"> first item</itemformat></item>
+<itemx><itemformat command="emph"> second itemx</itemformat></itemx>
 </tableterm><tableitem>
 <para>Text.
 </para>
-</tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="emph">example</itemformat></item>
+</tableitem></tableentry><tableentry><tableterm><item><itemformat command="emph"> example</itemformat></item>
 </tableterm><tableitem><example endspaces=" ">
 <pre xml:space="preserve">In example
 
 end example.
 </pre></example>
-</tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="emph">empty line</itemformat></item>
+</tableitem></tableentry><tableentry><tableterm><item><itemformat command="emph"> empty line</itemformat></item>
 </tableterm><tableitem>
 <para>empty line.
-</para></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="emph">quotation</itemformat></item>
+</para></tableitem></tableentry><tableentry><tableterm><item><itemformat command="emph"> quotation</itemformat></item>
 </tableterm><tableitem><quotation endspaces=" ">
 <para>Quotation
 </para></quotation>
 
-</tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="emph">quotation after a blank line</itemformat></item>
+</tableitem></tableentry><tableentry><tableterm><item><itemformat command="emph"> quotation after a blank line</itemformat></item>
 </tableterm><tableitem>
 <quotation endspaces=" ">
 <para>quotation after a blank line
 </para></quotation>
 </tableitem></tableentry></table>
 
-<vtable commandarg="strong" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="strong"><indexterm index="vr" number="1">item before ignored lines</indexterm>item before ignored lines</itemformat></item>
+<vtable commandarg="strong" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="strong"><indexterm index="vr" number="1">item before ignored lines</indexterm> item before ignored lines</itemformat></item>
 <!-- c comment -->
-<vindex index="vr" spaces=" "><indexterm index="vr" number="2">vindex</indexterm></vindex>
-<itemx spaces=" "><itemformat command="strong"><indexterm index="vr" number="3">itemx now</indexterm>itemx now</itemformat></itemx>
+<vindex index="vr"> <indexterm index="vr" number="2">vindex</indexterm></vindex>
+<itemx><itemformat command="strong"><indexterm index="vr" number="3">itemx now</indexterm> itemx now</itemformat></itemx>
 </tableterm><tableitem>
 <para>Description
 </para></tableitem></tableentry></vtable>
-<vtable commandarg="r" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="r"><indexterm index="vr" number="4">item</indexterm>item</itemformat></item>
+<vtable commandarg="r" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="r"><indexterm index="vr" number="4">item</indexterm> item</itemformat></item>
 
-<itemx spaces=" "><itemformat command="r"><indexterm index="vr" number="5">itemx after an empty line</indexterm>itemx after an empty line</itemformat></itemx>
+<itemx><itemformat command="r"><indexterm index="vr" number="5">itemx after an empty line</indexterm> itemx after an empty line</itemformat></itemx>
 </tableterm><tableitem>
 <para>Description.
 </para>
 </tableitem></tableentry></vtable>
 
 <para>Something.
-</para><table commandarg="emph" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="emph">in item</itemformat></item>
+</para><table commandarg="emph" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="emph"> in item</itemformat></item>
 </tableterm><tableitem><para>Text without blank line
-</para></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="emph">second item</itemformat></item>
+</para></tableitem></tableentry><tableentry><tableterm><item><itemformat command="emph"> second item</itemformat></item>
 </tableterm><tableitem><para>Text without blank line 2
 </para></tableitem></tableentry></table>
 <para>After table.

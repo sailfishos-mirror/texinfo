@@ -8,15 +8,11 @@ use utf8;
 $result_tree_text{'enumerate_more_letters'} = '*document_root C1
  *before_node_section C1
   *@enumerate C804 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {c}
+     {spaces_after_argument:\\n}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -4830,16 +4826,12 @@ $result_tree_text{'enumerate_more_letters'} = '*document_root C1
     *paragraph C1
      {bb\\n}
    *@end C1 l804
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {enumerate}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -8077,7 +8069,7 @@ $result_converted{'html_text'}->{'enumerate_more_letters'} = '<ol class="enumera
 ';
 
 
-$result_converted{'xml'}->{'enumerate_more_letters'} = '<enumerate first="c" spaces=" " endspaces=" "><enumeratefirst>c</enumeratefirst>
+$result_converted{'xml'}->{'enumerate_more_letters'} = '<enumerate first="c" endspaces=" "><enumeratefirst> c</enumeratefirst>
 <listitem> <para>bb
 </para></listitem><listitem> <para>bb
 </para></listitem><listitem> <para>bb

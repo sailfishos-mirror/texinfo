@@ -15,16 +15,12 @@ $result_tree_text{'macro_with_error_at_end_line_after_macro'} = '*document_root 
     {macro_line: witherror{string}\\n}
    {raw:@center\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
@@ -32,12 +28,10 @@ $result_tree_text{'macro_with_error_at_end_line_after_macro'} = '*document_root 
     >*brace_arg C1
      >{macro_call_arg_text:aaa}
   *@center C1 l5:@witherror
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-    |>SOURCEMARKS
-    |>macro_expansion<end;1>
+   *line_arg C1
+    {spaces_before_argument:\\n}
+    >SOURCEMARKS
+    >macro_expansion<end;1>
 ';
 
 

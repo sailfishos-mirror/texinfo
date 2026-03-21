@@ -12,90 +12,66 @@ $result_tree_text{'manual_simple_latin1_with_error'} = '*document_root C6
    {text_before_beginning:\\n}
   *preamble_before_content C2
    *@documentencoding C1 manual_simple_latin1_with_error.texi:l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{iso-8859-1}
    |text_arg:{iso-8859-1}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {iso-8859-1}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 manual_simple_latin1_with_error.texi:l5 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 manual_simple_latin1_with_error.texi:l6 {Testé}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Testé}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 manual_simple_latin1_with_error.texi:l8 {ésseulé}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00e9sseul_00e9}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ésseulé}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 manual_simple_latin1_with_error.texi:l10 {Chapitré}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Chapitr_00e9}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapitré}
+    {spaces_after_argument:\\n}
  *@chapter C4 manual_simple_latin1_with_error.texi:l11 {Chapitré}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chapitré}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@value C1
    *brace_container C1

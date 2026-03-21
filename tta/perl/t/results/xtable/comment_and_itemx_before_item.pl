@@ -8,15 +8,11 @@ use utf8;
 $result_tree_text{'comment_and_itemx_before_item'} = '*document_root C1
  *before_node_section C1
   *@table C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code l1
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C2
      *@c C1
@@ -29,25 +25,17 @@ $result_tree_text{'comment_and_itemx_before_item'} = '*document_root C1
        |{spaces_after_argument:\\n}
        {rawline_text:comment}
      *@itemx C1 l3
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {in itemx}
+       {spaces_after_argument:\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -85,9 +73,9 @@ $result_converted{'html_text'}->{'comment_and_itemx_before_item'} = '<dl class="
 ';
 
 
-$result_converted{'xml'}->{'comment_and_itemx_before_item'} = '<table commandarg="code" spaces=" " endspaces=" ">
+$result_converted{'xml'}->{'comment_and_itemx_before_item'} = '<table commandarg="code" endspaces=" ">
 <tableentry><tableterm><!-- c comment -->
-<itemx spaces=" "><itemformat command="code">in itemx</itemformat></itemx>
+<itemx><itemformat command="code"> in itemx</itemformat></itemx>
 </tableterm></tableentry></table>
 ';
 

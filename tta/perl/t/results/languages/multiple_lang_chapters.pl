@@ -11,18 +11,14 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    {text_before_beginning:\\n}
   *preamble_before_content C5
    *@documentencoding C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{utf-8}
    |text_arg:{utf-8}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {utf-8}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@c C1
    |INFO
@@ -32,94 +28,68 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    >ignored_conditional_block<1>
     >*@iftex C3 l5
      >*arguments_line C1
-      >*block_line_arg
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
      >{raw:@documentlanguage ja\\n}
      >*@end C1 l7
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
      >|EXTRA
      >|text_arg:{iftex}
-      >*line_arg C1
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*line_arg C3
+       >{spaces_before_argument: }
        >{iftex}
+       >{spaces_after_argument:\\n}
    >expanded_conditional_command<start;1>
     >*@iflatex C1 l8
      >*arguments_line C1
-      >*block_line_arg
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
     *line_arg C1
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
      {rawline_text:@node Top is ignored in TeX and LaTeX, so switch here}
    *@documentlanguage C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |text_arg:{ja}
    >SOURCEMARKS
    >expanded_conditional_command<end;1>
     >*@end C1 l10
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{iflatex}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{iflatex}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+      >{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {ja}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l12 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C5 l13 {Multi language file}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Multi language file}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C7 l15
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l16
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -176,57 +146,41 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
      *preformatted C1
       {\\n}
    *@end C1 l21
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@documentlanguage C1 l23
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |text_arg:{ja}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ja}
+    {spaces_after_argument:\\n}
  *@node C1 l24 {chapter ja}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter-ja}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter ja}
+    {spaces_after_argument:\\n}
  *@chapter C6 l25 {ja}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ja}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {In japanese. }
@@ -238,9 +192,6 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
      {chapter ja}
    {.\\n}
   *@defivar C2 l28
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l28
    |EXTRA
    |def_command:{defivar}
@@ -266,10 +217,8 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    |element_node:{chapter-ja}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defivar}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
@@ -278,7 +227,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
       |documentlanguage:{ja}
       |translation_context:{category of instance variables in object-oriented programming for @defivar}
        {untranslated:Instance Variable}
-     (i){spaces: }
+     {spaces: }
      *def_class C1
       *def_line_arg C1
        {AAA}
@@ -290,58 +239,43 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
      *def_arg C1
       *def_line_arg C1
        {CCC}
+     {spaces_after_argument:\\n}
    *@end C1 l29
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defivar}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defivar}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@documentlanguage C1 l31
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |text_arg:{en}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {en}
+    {spaces_after_argument:\\n}
  *@node C1 l32 {chapter en}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter-en}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter en}
+    {spaces_after_argument:\\n}
  *@chapter C6 l33 {en}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {en}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {In english. }
@@ -353,9 +287,6 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
      {chapter ja}
    {.\\n}
   *@defivar C2 l36
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l36
    |EXTRA
    |def_command:{defivar}
@@ -381,10 +312,8 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    |element_node:{chapter-en}
    |index_entry:I{vr,2}
    |original_def_cmdname:{defivar}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
@@ -393,7 +322,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
       |documentlanguage:{en}
       |translation_context:{category of instance variables in object-oriented programming for @defivar}
        {untranslated:Instance Variable}
-     (i){spaces: }
+     {spaces: }
      *def_class C1
       *def_line_arg C1
        {AAA}
@@ -405,63 +334,45 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
      *def_arg C1
       *def_line_arg C1
        {CCC}
+     {spaces_after_argument:\\n}
    *@end C1 l37
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defivar}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defivar}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@documentlanguage C1 l39
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |text_arg:{fr_FR}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fr_FR}
+    {spaces_after_argument:\\n}
  *@node C1 l40 {chapter fr_FR}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter-fr_005fFR}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter fr_FR}
+    {spaces_after_argument:\\n}
  *@chapter C5 l41 {fr_FR}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fr_FR}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defivar C2 l43
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l43
    |EXTRA
    |def_command:{defivar}
@@ -487,10 +398,8 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    |element_node:{chapter-fr_005fFR}
    |index_entry:I{vr,3}
    |original_def_cmdname:{defivar}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
@@ -499,7 +408,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
       |documentlanguage:{fr_FR}
       |translation_context:{category of instance variables in object-oriented programming for @defivar}
        {untranslated:Instance Variable}
-     (i){spaces: }
+     {spaces: }
      *def_class C1
       *def_line_arg C1
        {AAA}
@@ -511,99 +420,72 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
      *def_arg C1
       *def_line_arg C1
        {CCC}
+     {spaces_after_argument:\\n}
    *@end C1 l44
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defivar}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defivar}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@documentlanguage C1 l46
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{5}
   |text_arg:{de}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {de}
+    {spaces_after_argument:\\n}
  *@node C1 l47 {chapter de}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter-de}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter de}
+    {spaces_after_argument:\\n}
  *@chapter C3 l48 {de}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {de}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@documentlanguage C1 l50
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{6}
   |text_arg:{pt_BR}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {pt_BR}
+    {spaces_after_argument:\\n}
  *@node C1 l51 {chapter pt_BR}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter-pt_005fBR}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter pt_BR}
+    {spaces_after_argument:\\n}
  *@chapter C3 l52 {pt_bR}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{5}
  |section_level:{1}
  |section_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {pt_bR}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {In brazilian. }

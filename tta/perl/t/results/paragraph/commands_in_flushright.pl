@@ -9,61 +9,43 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
  *before_node_section C1
   *@flushright C26 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {empty_line:\\n}
    *@group C3 l3
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *paragraph C1
      {in group\\n}
     *@end C1 l5
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{group}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {group}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@quotation C3 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       {type}
+      {spaces_after_argument:\\n}
     *paragraph C1
      {in quotation\\n}
     *@end C1 l9
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {quotation}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@enumerate C4 l11
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *@item C3 l12
     |EXTRA
     |item_number:{1}
@@ -78,47 +60,31 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
      *paragraph C1
       {other item\\n}
     *@end C1 l15
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{enumerate}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {enumerate}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@table C3 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *arguments_line C1
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C3
+      {spaces_before_argument: }
       *@emph l17
+      {spaces_after_argument:\\n}
     *table_entry C2
      *table_term C2
       *@item C1 l18
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {table item}
+        {spaces_after_argument:\\n}
       *@itemx C1 l19
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {table itemx}
+        {spaces_after_argument:\\n}
      *table_definition C3
       *paragraph C1
        {Table text\\n}
@@ -126,36 +92,26 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       *paragraph C1
        {Text.\\n}
     *@end C1 l23
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{table}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {table}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@multitable C3 l25
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |max_columns:{2}
     *arguments_line C1
-     *block_line_arg C1
+     *block_line_arg C2
+      {spaces_before_argument: }
       *@columnfractions C1 l25
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |misc_args:A{0.5|0.5}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {0.5 0.5}
+        {spaces_after_argument:\\n}
     *multitable_body C2
      *row C2
      |EXTRA
@@ -192,21 +148,14 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
        *paragraph C1
         {text col2\\n}
     *@end C1 l33
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{multitable}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {multitable}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@float C7 l35
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |float_number:{1}
    |float_type:{label}
@@ -214,15 +163,13 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
    |identifier:{type}
    |is_target:{1}
     *arguments_line C2
-     *block_line_arg C1
+     *block_line_arg C2
+      {spaces_before_argument: }
       {label}
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *block_line_arg C3
+      {spaces_before_argument: }
       {type}
+      {spaces_after_argument:\\n}
     {empty_line:\\n}
     *paragraph C1
      {in float\\n}
@@ -233,112 +180,78 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
        {in caption}
     {spaces_after_close_brace:\\n}
     *@end C1 l40
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{float}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {float}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C1
     {Sp:\\n}
    *@sp C1 l43
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{2}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {2}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@smallexample C3 l45
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *preformatted C1
      {in example\\n}
     *@end C1 l47
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{smallexample}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {smallexample}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@format C3 l49
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *preformatted C1
      {in format\\n}
     *@end C1 l51
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{format}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {format}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@flushleft C3 l53
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *paragraph C1
      {in flushleft\\n}
     *@end C1 l55
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{flushleft}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {flushleft}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@center C1 l57
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {in center}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@end C1 l59
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushright}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {flushright}
+     {spaces_after_argument:\\n}
 ';
 
 

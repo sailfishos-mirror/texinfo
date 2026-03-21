@@ -13,28 +13,19 @@ $result_tree_text{'float_copying'} = '*document_root C6
     {text_before_beginning:\\n}
   *preamble_before_content C4
    *@setfilename C1 float_copying.texi:l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float_copying.info}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float_copying.info}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@copying C4 float_copying.texi:l5
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: \\n}
+     *block_line_arg C1
+      {spaces_before_argument: \\n}
     {empty_line:\\n}
     *@float C7 float_copying.texi:l7
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |float_number:{1}
     |float_type:{Copyright notice}
@@ -42,15 +33,13 @@ $result_tree_text{'float_copying'} = '*document_root C6
     |identifier:{public-domain}
     |is_target:{1}
      *arguments_line C2
-      *block_line_arg C1
+      *block_line_arg C2
+       {spaces_before_argument: }
        {Copyright notice}
-      *block_line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *block_line_arg C3
+       {spaces_before_argument: }
        {public domain}
+       {spaces_after_argument:\\n}
      {empty_line:\\n}
      *paragraph C2
       {Public domain is not really a licence, as it means than \\n}
@@ -80,29 +69,21 @@ $result_tree_text{'float_copying'} = '*document_root C6
            {spaces_after_close_brace:\\n}
           {empty_line:\\n}
           *index_entry_command@cindex C1 float_copying.texi:l16
-          |INFO
-          |spaces_before_argument:
-           |{spaces_before_argument: }
           |EXTRA
           |element_region:{copying}
           |index_entry:I{cp,1}
-           *line_arg C1
-           |INFO
-           |spaces_after_argument:
-            |{spaces_after_argument:\\n}
+           *line_arg C3
+            {spaces_before_argument: }
             {indexed caption copying footnote}
+            {spaces_after_argument:\\n}
           *index_entry_command@findex C1 float_copying.texi:l17
-          |INFO
-          |spaces_before_argument:
-           |{spaces_before_argument: }
           |EXTRA
           |element_region:{copying}
           |index_entry:I{fn,1}
-           *line_arg C1
-           |INFO
-           |spaces_after_argument:
-            |{spaces_after_argument:\\n}
+           *line_arg C3
+            {spaces_before_argument: }
             {public domain function}
+            {spaces_after_argument:\\n}
           {empty_line:\\n}
           *paragraph C3
            {see }
@@ -126,93 +107,65 @@ $result_tree_text{'float_copying'} = '*document_root C6
          {public domain anchor}
        {spaces_after_close_brace:\\n}
        *index_entry_command@cindex C1 float_copying.texi:l24
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |element_region:{copying}
        |index_entry:I{cp,2}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {indexed caption}
+         {spaces_after_argument:\\n}
        *index_entry_command@findex C1 float_copying.texi:l25
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |element_region:{copying}
        |index_entry:I{fn,2}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {indexed caption function}
+         {spaces_after_argument:\\n}
      {spaces_after_close_brace:\\n}
      *@end C1 float_copying.texi:l27
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{float}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {float}
+       {spaces_after_argument:\\n}
     *@end C1 float_copying.texi:l28
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {copying}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 float_copying.texi:l30 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C12 float_copying.texi:l31 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 float_copying.texi:l33
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Top}
   |index_entry:I{cp,3}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {See the caption }
@@ -244,10 +197,8 @@ $result_tree_text{'float_copying'} = '*document_root C6
   {empty_line:\\n}
   *@menu C3 float_copying.texi:l41
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 float_copying.texi:l42
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -260,46 +211,34 @@ $result_tree_text{'float_copying'} = '*document_root C6
      *preformatted C1
       {\\n}
    *@end C1 float_copying.texi:l43
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 float_copying.texi:l45 {Copying and floats}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Copying-and-floats}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Copying and floats}
+    {spaces_after_argument:\\n}
  *@appendix C20 float_copying.texi:l46 {Copying and floats}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Copying and floats}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    {In the appendix, we print the references and the copying once more\\n}
@@ -326,17 +265,13 @@ $result_tree_text{'float_copying'} = '*document_root C6
    {.\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 float_copying.texi:l55
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{Copying-and-floats}
   |index_entry:I{cp,4}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {listofloats}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@insertcopying C1 float_copying.texi:l57
   |EXTRA
@@ -354,66 +289,46 @@ $result_tree_text{'float_copying'} = '*document_root C6
     |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@subheading C1 float_copying.texi:l60
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {listoffloats}
+    {spaces_after_argument:\\n}
   *@listoffloats C1 float_copying.texi:l61
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Copyright notice}
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Copyright notice}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@subheading C1 float_copying.texi:l63
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |heading_number:{2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {printindex}
+    {spaces_after_argument:\\n}
   *@printindex C1 float_copying.texi:l64
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   *@printindex C1 float_copying.texi:l65
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fn}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
   *line_arg

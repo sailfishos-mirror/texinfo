@@ -8,33 +8,25 @@ use utf8;
 $result_tree_text{'double_node_anchor_float'} = '*document_root C5
  *before_node_section
  *@node C2 l1 {node1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node1}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C8 l3 {node1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@anchor C1 l5
   |EXTRA
@@ -52,85 +44,60 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
  *@node C8 l9 {anchor1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{anchor1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {anchor1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C2 l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{Text}
   |global_command_number:{1}
   |identifier:{node1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {node1}
+     {spaces_after_argument:\\n}
    *@end C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C2 l14
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{2}
   |float_type:{Text}
   |global_command_number:{2}
   |identifier:{anchor1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {anchor1}
+     {spaces_after_argument:\\n}
    *@end C1 l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C2 l17
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{3}
   |float_type:{Text}
@@ -138,40 +105,30 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
   |identifier:{float1}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {float1}
+     {spaces_after_argument:\\n}
    *@end C1 l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l20 {float1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{float1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {float1}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -355,26 +312,26 @@ $result_converted_errors{'html'}->{'double_node_anchor_float'} = '* W |must spec
 ';
 
 
-$result_converted{'xml'}->{'double_node_anchor_float'} = '<node identifier="node1" spaces=" "><nodename>node1</nodename></node>
+$result_converted{'xml'}->{'double_node_anchor_float'} = '<node identifier="node1"><nodename> node1</nodename></node>
 
-<node identifier="" spaces=" "><nodename></nodename></node>
+<node identifier=""><nodename></nodename></node>
 
 <anchor identifier="">node1</anchor>
 
 <anchor identifier="anchor1">anchor1</anchor>
 
-<node identifier="" spaces=" "><nodename></nodename></node>
+<node identifier=""><nodename></nodename></node>
 
-<float type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">node1</floatname>
+<float type="Text" number="1" endspaces=" "><floattype> Text</floattype><floatname> node1</floatname>
 </float>
 
-<float type="Text" number="2" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">anchor1</floatname>
+<float type="Text" number="2" endspaces=" "><floattype> Text</floattype><floatname> anchor1</floatname>
 </float>
 
-<float identifier="float1" type="Text" number="3" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">float1</floatname>
+<float identifier="float1" type="Text" number="3" endspaces=" "><floattype> Text</floattype><floatname> float1</floatname>
 </float>
 
-<node identifier="" spaces=" "><nodename></nodename></node>
+<node identifier=""><nodename></nodename></node>
 ';
 
 

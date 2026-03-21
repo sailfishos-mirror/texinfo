@@ -9,90 +9,63 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@node C9 l2 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@findex C1 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{fn,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@w C1 l4
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@ftable C3 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@code l6
+     {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l7
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |element_node:{chap}
      |index_entry:I{fn,2}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        *@w C1 l7
         *brace_container
+       {spaces_after_argument:\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{ftable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {ftable}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defun C3 l10
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l10
    |EXTRA
    |def_command:{defun}
@@ -104,16 +77,14 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,3}
    |original_def_cmdname:{defun}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Function}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *bracketed_arg C1 l10
        *@w C1 l10
@@ -124,10 +95,8 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
      {spaces: }
      *def_arg C1
       *bracketed_arg l10
+     {spaces_after_argument:\\n}
    *@defunx C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defun}
    |def_index_element:
@@ -138,16 +107,14 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
    |element_node:{chap}
    |index_entry:I{fn,4}
    |original_def_cmdname:{defunx}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Function}
-     (i){spaces: }
+     {spaces: }
      *def_name C1
       *bracketed_arg C1 l11
        *@w C1 l11
@@ -158,30 +125,23 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
      {spaces: }
      *def_arg C1
       *bracketed_arg l11
+     {spaces_after_argument:\\n}
    *@end C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defun}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defun}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l14
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fn}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -302,20 +262,20 @@ $result_converted{'html_text'}->{'empty_string_index_entry'} = '<a class="node-i
 ';
 
 
-$result_converted{'xml'}->{'empty_string_index_entry'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+$result_converted{'xml'}->{'empty_string_index_entry'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node>
+<node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> Top</nodeprev></node>
 
-<findex index="fn" spaces=" "><indexterm index="fn" number="1"><w></w></indexterm></findex>
+<findex index="fn"> <indexterm index="fn" number="1"><w></w></indexterm></findex>
 
-<ftable commandarg="code" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="code"><indexterm index="fn" number="2"><w></w></indexterm><w></w></itemformat></item>
+<ftable commandarg="code" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="code"><indexterm index="fn" number="2"><w></w></indexterm> <w></w></itemformat></item>
 </tableterm></tableentry></ftable>
 
-<defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="3"><w></w></indexterm><defcategory automatic="on">Function</defcategory> <deffunction bracketed="on"><w></w></deffunction> <defparam bracketed="on"></defparam> <defparam bracketed="on"></defparam></definitionterm>
-<defunx spaces=" "><definitionterm><indexterm index="fn" number="4"><w></w></indexterm><defcategory automatic="on">Function</defcategory> <deffunction bracketed="on"><w></w></deffunction> <defparam bracketed="on"></defparam> <defparam bracketed="on"></defparam></definitionterm></defunx>
+<defun endspaces=" "><definitionterm><indexterm index="fn" number="3"><w></w></indexterm> <defcategory automatic="on">Function</defcategory> <deffunction bracketed="on"><w></w></deffunction> <defparam bracketed="on"></defparam> <defparam bracketed="on"></defparam></definitionterm>
+<defunx><definitionterm><indexterm index="fn" number="4"><w></w></indexterm> <defcategory automatic="on">Function</defcategory> <deffunction bracketed="on"><w></w></deffunction> <defparam bracketed="on"></defparam> <defparam bracketed="on"></defparam></definitionterm></defunx>
 </defun>
 
-<printindex spaces=" " value="fn" line="fn"></printindex>
+<printindex value="fn" line=" fn"></printindex>
 ';
 
 

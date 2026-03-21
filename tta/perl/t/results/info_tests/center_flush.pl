@@ -8,21 +8,15 @@ use utf8;
 $result_tree_text{'center_flush'} = '*document_root C1
  *before_node_section C5
   *@center C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {centered}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@flushleft C10 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C2
     {left and\\n}
     {left2\\n}
@@ -46,23 +40,17 @@ $result_tree_text{'center_flush'} = '*document_root C1
     {spaces_after_close_brace:\\n}
     {after anchor\\n}
    *@end C1 l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushleft}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {flushleft}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@flushright C10 l18
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C2
     {right and\\n}
     {right2\\n}
@@ -95,16 +83,12 @@ $result_tree_text{'center_flush'} = '*document_root C1
     {spaces_after_close_brace: }
     {after anchor.\\n}
    *@end C1 l32
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushright}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {flushright}
+     {spaces_after_argument:\\n}
 ';
 
 

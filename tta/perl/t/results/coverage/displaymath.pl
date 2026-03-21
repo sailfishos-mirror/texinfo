@@ -11,10 +11,8 @@ $result_tree_text{'displaymath'} = '*document_root C1
    {Simple\\n}
   *@displaymath C7 l2
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {--}
    *balanced_braces C1 l3
     {{x^i}}
@@ -23,16 +21,12 @@ $result_tree_text{'displaymath'} = '*document_root C1
     {{\\tan y}}
    {\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {displaymath}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {Math with }
@@ -40,10 +34,8 @@ $result_tree_text{'displaymath'} = '*document_root C1
    {-command\\n}
   *@displaymath C8 l7
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@code C1 l8
     *brace_container C1
      {math code}
@@ -57,25 +49,19 @@ $result_tree_text{'displaymath'} = '*document_root C1
      {2}
    {\\n}
    *@end C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {displaymath}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Complex\\n}
   *@displaymath C10 l12
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    { \\underline}
    *balanced_braces C3 l13
     {{}
@@ -97,25 +83,19 @@ $result_tree_text{'displaymath'} = '*document_root C1
     {}}
    {\\n}
    *@end C1 l14
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {displaymath}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {With a comment\\n}
   *@displaymath C4 l17
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@c C1
    |INFO
    |spaces_before_argument:
@@ -127,16 +107,12 @@ $result_tree_text{'displaymath'} = '*document_root C1
      {rawline_text:comment in displaymath}
    {a/2\\n}
    *@end C1 l20
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{displaymath}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {displaymath}
+     {spaces_after_argument:\\n}
 ';
 
 

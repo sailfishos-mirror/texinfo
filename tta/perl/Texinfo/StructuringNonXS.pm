@@ -1162,13 +1162,13 @@ sub _print_line_command($) {
   if (exists($Texinfo::Commands::root_commands{$element->{'cmdname'}})) {
     return Texinfo::ManipulateTree::root_command_element_string($element);
   } else {
-    if (scalar(@{$element->{'contents'}})
-        and exists($element->{'contents'}->[0]->{'contents'})) {
+    if (scalar(@{$element->{'contents'}})) {
       my $root_command_texi
-        = Texinfo::Convert::Texinfo::convert_to_texinfo(
-           Texinfo::TreeElement::new(
-               {'contents' => $element->{'contents'}->[0]->{'contents'}}));
-      return '@'."$element->{'cmdname'} ".$root_command_texi;
+        = Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                            $element->{'contents'}->[0]);
+      if (defined($root_command_texi)) {
+        return '@'."$element->{'cmdname'} ".$root_command_texi;
+      }
     }
     return undef;
   }
@@ -1207,12 +1207,10 @@ sub _print_root_command($) {
   #}
 
   my $argument_line = $element->{'contents'}->[0];
-  if (exists($argument_line->{'contents'})
-      and exists($argument_line->{'contents'}->[0]->{'contents'})) {
+  if (exists($argument_line->{'contents'})) {
     my $root_command_texi
-      = Texinfo::Convert::Texinfo::convert_to_texinfo(
-         Texinfo::TreeElement::new(
-           {'contents' => $argument_line->{'contents'}->[0]->{'contents'}}));
+     = Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                   $argument_line->{'contents'}->[0]);
     return $root_command_texi;
   }
   return undef;
@@ -1225,11 +1223,11 @@ sub _print_menu_node($) {
   if (exists($element->{'cmdname'}) and $element->{'cmdname'} eq 'node') {
     return _print_root_command($element);
   } elsif (exists($element->{'cmdname'})
-           and exists($element->{'contents'})
-           and exists($element->{'contents'}->[0]->{'contents'})) {
-    return Texinfo::Convert::Texinfo::convert_to_texinfo(
-             Texinfo::TreeElement::new(
-               {'contents' => $element->{'contents'}->[0]->{'contents'}}));
+           and exists($element->{'contents'})) {
+    my $result
+      = Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                            $element->{'contents'}->[0]);
+    return $result;
   } else {
     return Texinfo::Convert::Texinfo::convert_to_texinfo($element);
   }
@@ -1352,12 +1350,10 @@ sub print_headings_list($) {
   foreach my $heading_relations (@$headings_list) {
     my $element = $heading_relations->{'element'};
     my $root_command_texi;
-    if (exists($element->{'contents'})
-        and exists($element->{'contents'}->[0]->{'contents'})) {
+    if (exists($element->{'contents'})) {
       $root_command_texi
-        = Texinfo::Convert::Texinfo::convert_to_texinfo(
-            Texinfo::TreeElement::new(
-               {'contents' => $element->{'contents'}->[0]->{'contents'}}));
+        = Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                               $element->{'contents'}->[0]);
     }
     if (!defined($root_command_texi)) {
       $result .= "$idx\n";
@@ -1445,7 +1441,11 @@ sub print_nodes_list($) {
         if (exists($value->{$d_key})) {
           my $e = $value->{$d_key};
           my $node_direction_texi = _print_menu_node($e);
-          $result .= "  ${d_key}->$node_direction_texi\n";
+          if (defined($node_direction_texi)) {
+            $result .= "  ${d_key}->$node_direction_texi\n";
+          } else {
+            $result .= "  ${d_key}->\n";
+          }
         }
       }
     }

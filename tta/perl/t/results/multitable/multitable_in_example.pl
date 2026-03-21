@@ -9,26 +9,20 @@ $result_tree_text{'multitable_in_example'} = '*document_root C1
  *before_node_section C1
   *@example C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@multitable C3 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |max_columns:{2}
     *arguments_line C1
-     *block_line_arg C3
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C5
+      {spaces_before_argument: }
       *bracketed_arg C1 l2
        {AAA}
       {  }
       *bracketed_arg C1 l2
        {BBB}
+      {spaces_after_argument:\\n}
     *multitable_body C2
      *row C2
      |EXTRA
@@ -66,23 +60,17 @@ $result_tree_text{'multitable_in_example'} = '*document_root C1
         {empty_line:\\n}
         {new paragraph in tab. example\\n}
     *@end C1 l11
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{multitable}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {multitable}
+      {spaces_after_argument:\\n}
    *@end C1 l12
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
+    *line_arg C2
+     {spaces_before_argument: }
      {example}
 ';
 
@@ -145,7 +133,8 @@ new paragraph in tab. example</pre></td></tr>
 
 
 $result_converted{'xml'}->{'multitable_in_example'} = '<example endspaces=" ">
-<multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">AAA</columnprototype>  <columnprototype bracketed="on">BBB</columnprototype></columnprototypes>
+<multitable endspaces=" "><columnprototypes> <columnprototype bracketed="on">AAA</columnprototype>  <columnprototype bracketed="on">BBB</columnprototype>
+</columnprototypes>
 <tbody><row><entry command="item"><pre xml:space="preserve"> truc </pre></entry><entry command="tab"><pre xml:space="preserve"> bidule example
 </pre></entry></row><row><entry command="item"><pre xml:space="preserve"> begin item example
 

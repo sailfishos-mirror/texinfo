@@ -8,33 +8,25 @@ use utf8;
 $result_tree_text{'one_subsection_and_node'} = '*document_root C3
  *before_node_section
  *@node C1 l1 {one node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{one-node}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {one node}
+    {spaces_after_argument:\\n}
  *@subsection C1 l2 {The subsection}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{3}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {The subsection}
+    {spaces_after_argument:\\n}
 ';
 
 

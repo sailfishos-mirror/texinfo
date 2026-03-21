@@ -11,25 +11,19 @@ $result_tree_text{'expanded_tex'} = '*document_root C1
    {aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\n}
    *@tex C3 l2
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *rawpreformatted C3
      {TTT\\n}
      {GGG\\n}
      {HHH\\n}
     *@end C1 l6
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{tex}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {tex}
+      {spaces_after_argument:\\n}
    {bbbbbbbbb1 bbbbbbbbbbb2 bbbbbbbbbb3 bbbbbbbbbbbbbb4.\\n}
 ';
 

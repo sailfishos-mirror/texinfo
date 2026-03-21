@@ -9,16 +9,12 @@ $result_tree_text{'definfoenclose_with_empty_arg'} = '*document_root C1
  *before_node_section C5
   {empty_line:\\n}
   *@definfoenclose C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{headword||:}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {headword, , :}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {My }
@@ -156,7 +152,7 @@ My something.
 
 
 $result_converted{'xml'}->{'definfoenclose_with_empty_arg'} = '
-<definfoenclose spaces=" " command="headword" open="" close=":" line="headword, , :"></definfoenclose>
+<definfoenclose command="headword" open="" close=":" line=" headword, , :"></definfoenclose>
 
 <para>My <infoenclose command="headword" begin="" end=":">something</infoenclose>.
 </para>

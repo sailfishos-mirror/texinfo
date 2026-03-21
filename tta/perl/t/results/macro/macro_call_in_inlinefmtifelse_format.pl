@@ -15,16 +15,12 @@ $result_tree_text{'macro_call_in_inlinefmtifelse_format'} = '*document_root C1
     {macro_line: inlinefirstarg\\n}
    {raw:ex, before, after\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {Toto }
@@ -44,7 +40,7 @@ $result_tree_text{'macro_call_in_inlinefmtifelse_format'} = '*document_root C1
      {spaces_before_argument: }
      {after}
      >SOURCEMARKS
-     >macro_expansion<end;1><p:6>
+     >macro_expansion<end;1><p:5>
    { done.\\n}
 ';
 

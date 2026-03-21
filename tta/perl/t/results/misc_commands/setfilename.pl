@@ -9,64 +9,46 @@ $result_tree_text{'setfilename'} = '*document_root C1
  *before_node_section C1
   *preamble_before_content C5
    *@setfilename C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{file_comment}
-    *line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comment}
+    *line_arg C3
+     {spaces_before_argument: }
      {file_comment}
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comment}
    *@setfilename C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{file_and_spaces}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:   \\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {file_and_spaces}
+     {spaces_after_argument:   \\n}
    *@setfilename C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{file_space_comment}
-    *line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:comment}
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *line_arg C4
+     {spaces_before_argument: }
      {file_space_comment}
+     {spaces_after_argument: }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:comment}
    *@setfilename C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C5
+     {spaces_before_argument: }
      *@ 
      *@verb C1 l4
      |INFO
@@ -74,6 +56,7 @@ $result_tree_text{'setfilename'} = '*document_root C1
       *brace_container C1
        {raw: name }
      *@ 
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
 ';
 
@@ -225,10 +208,10 @@ $result_converted_errors{'info'}->{'setfilename'} = '* W |document without nodes
 ';
 
 
-$result_converted{'xml'}->{'setfilename'} = '<setfilename file="file_comment" spaces=" ">file_comment</setfilename><!-- c comment -->
-<setfilename file="file_and_spaces" spaces=" ">file_and_spaces   </setfilename>
-<setfilename file="file_space_comment" spaces=" ">file_space_comment </setfilename><!-- c comment -->
-<setfilename spaces=" "><spacecmd type="spc"/><verb delimiter=":"> name </verb><spacecmd type="spc"/></setfilename>
+$result_converted{'xml'}->{'setfilename'} = '<setfilename file="file_comment"> file_comment</setfilename><!-- c comment -->
+<setfilename file="file_and_spaces"> file_and_spaces   </setfilename>
+<setfilename file="file_space_comment"> file_space_comment </setfilename><!-- c comment -->
+<setfilename> <spacecmd type="spc"/><verb delimiter=":"> name </verb><spacecmd type="spc"/></setfilename>
 
 ';
 

@@ -9,14 +9,9 @@ $result_tree_text{'defx_after_comment_in_example'} = '*document_root C1
  *before_node_section C1
   *@example C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@deffn C4 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *def_line C1 l2
     |EXTRA
     |def_command:{deffn}
@@ -28,10 +23,8 @@ $result_tree_text{'defx_after_comment_in_example'} = '*document_root C1
          |{i}
     |index_entry:I{fn,1}
     |original_def_cmdname:{deffn}
-     *block_line_arg C7
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C9
+      {spaces_before_argument: }
       *def_category C1
        *def_line_arg C1
         {fset}
@@ -49,6 +42,7 @@ $result_tree_text{'defx_after_comment_in_example'} = '*document_root C1
       *def_arg C1
        *def_line_arg C1
         {g}
+      {spaces_after_argument:\\n}
     *inter_def_item C1
      *preformatted C1
       *@c C1
@@ -61,9 +55,6 @@ $result_tree_text{'defx_after_comment_in_example'} = '*document_root C1
         |{spaces_after_argument:\\n}
         {rawline_text:comment}
     *@deffnx C1 l4
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |def_command:{deffn}
     |def_index_element:
@@ -72,10 +63,8 @@ $result_tree_text{'defx_after_comment_in_example'} = '*document_root C1
        |{bidulr}
     |index_entry:I{fn,2}
     |original_def_cmdname:{deffnx}
-     *line_arg C5
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C7
+      {spaces_before_argument: }
       *def_category C1
        *bracketed_arg C1 l4
         {truc}
@@ -87,28 +76,21 @@ $result_tree_text{'defx_after_comment_in_example'} = '*document_root C1
       *def_arg C1
        *def_line_arg C1
         {machin...}
+      {spaces_after_argument:\\n}
     *@end C1 l5
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{deffn}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {deffn}
+      {spaces_after_argument:\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 

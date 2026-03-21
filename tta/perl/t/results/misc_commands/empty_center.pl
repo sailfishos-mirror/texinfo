@@ -8,10 +8,8 @@ use utf8;
 $result_tree_text{'empty_center'} = '*document_root C1
  *before_node_section C1
   *@center C1 l1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C1
+    {spaces_before_argument: \\n}
 ';
 
 

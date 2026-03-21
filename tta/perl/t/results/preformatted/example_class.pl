@@ -8,15 +8,11 @@ use utf8;
 $result_tree_text{'example_class'} = '*document_root C1
  *before_node_section C1
   *@example C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {perl}
+     {spaces_after_argument:\\n}
    *preformatted C21
     {foreach my $unclosed_file (keys(%unclosed_files)) }
     *@{
@@ -40,16 +36,12 @@ $result_tree_text{'example_class'} = '*document_root C1
     *@}
     {\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -153,7 +145,7 @@ $result_converted{'docbook'}->{'example_class'} = '<screen>foreach my $unclosed_
 </screen>';
 
 
-$result_converted{'xml'}->{'example_class'} = '<example spaces=" " endspaces=" "><examplelanguage>perl</examplelanguage>
+$result_converted{'xml'}->{'example_class'} = '<example endspaces=" "><examplelanguage> perl</examplelanguage>
 <pre xml:space="preserve">foreach my $unclosed_file (keys(%unclosed_files)) &lbrace;
   if (!close($unclosed_files&lbrace;$unclosed_file&rbrace;)) &lbrace;
     warn(sprintf(&quot;%s: error on closing %s: %s\\n&quot;,

@@ -63,34 +63,26 @@ $result_tree_text{'commands'} = '*document_root C1
    {.\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l8
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |index_entry:I{cp,1}
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {index entry ``in text\'\' }
     *@LaTeX C1 l8
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@majorheading C1 l10
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {majorheading }
     *@b C1 l10
      *brace_container C1
       {in b}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -165,9 +157,9 @@ $result_converted{'xml'}->{'commands'} = '<para>&arobase; &tex; <spacecmd type="
 <email><emailaddress>a</emailaddress><emailname> b</emailname></email> <code>code --- -- \'\' ``</code>
 &textmdash; &textndash; &textrdquo; &textldquo;. <sc>small caps</sc>.
 </para>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry &textldquo;in text&textrdquo; &latex;</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="1">index entry &textldquo;in text&textrdquo; &latex;</indexterm></cindex>
 
-<majorheading spaces=" ">majorheading <b>in b</b></majorheading>
+<majorheading> majorheading <b>in b</b></majorheading>
 ';
 
 

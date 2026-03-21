@@ -10,47 +10,35 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
   *paragraph C2
    {before title }
    *@title C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {the title}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {i}
  *@node C2 l3 {LD Version Scripts}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{LD-Version-Scripts}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {LD Version Scripts}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {--- }
  *@chapter C6 l4 {LD Version Scripts}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {LD Version Scripts}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {ddd }
@@ -64,35 +52,25 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
   {empty_line:\\n}
   *@quotation C3 l8
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C3
     {aaa }
     *@author C1 l9
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |global_command_number:{1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {quotation author}
+      {spaces_after_argument:\\n}
     {quotation\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
 ';
 
 

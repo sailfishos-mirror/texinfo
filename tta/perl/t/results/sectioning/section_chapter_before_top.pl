@@ -8,48 +8,36 @@ use utf8;
 $result_tree_text{'section_chapter_before_top'} = '*document_root C4
  *before_node_section
  *@section C2 l1 {section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {section}
+    {spaces_after_argument: \\n}
   {empty_line:\\n}
  *@chapter C2 l3 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@top C1 l5 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -110,13 +98,13 @@ list:
 $result_headings_list{'section_chapter_before_top'} = '';
 
 
-$result_converted{'xml'}->{'section_chapter_before_top'} = '<section spaces=" "><sectiontitle>section </sectiontitle>
+$result_converted{'xml'}->{'section_chapter_before_top'} = '<section><sectiontitle> section </sectiontitle>
 
 </section>
-<section originalcommand="chapter" spaces=" "><sectiontitle>chapter</sectiontitle>
+<section originalcommand="chapter"><sectiontitle> chapter</sectiontitle>
 
 </section>
-<unnumberedsec originalcommand="top" spaces=" "><sectiontitle>top</sectiontitle>
+<unnumberedsec originalcommand="top"><sectiontitle> top</sectiontitle>
 </unnumberedsec>
 ';
 

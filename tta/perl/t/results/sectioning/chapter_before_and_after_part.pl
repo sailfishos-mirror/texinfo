@@ -14,19 +14,15 @@ FastForward: [U1]
  *before_node_section C1
   *preamble_before_content
  *@chapter C2 l1 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 U1 unit{S:2 chapter 2}
 unit_directions:D[prev->[U0]]
@@ -35,34 +31,26 @@ This: [U1]
 Back: [U0]
 FastBack: [U0]
  *@part C2 l3 {part}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {part}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@chapter C3 l5 {chapter 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter 2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@contents C1 l7
   |EXTRA
@@ -202,12 +190,12 @@ $result_converted_errors{'html'}->{'chapter_before_and_after_part'} = '* W |must
 ';
 
 
-$result_converted{'xml'}->{'chapter_before_and_after_part'} = '<chapter spaces=" "><sectiontitle>chapter</sectiontitle>
+$result_converted{'xml'}->{'chapter_before_and_after_part'} = '<chapter><sectiontitle> chapter</sectiontitle>
 
 </chapter>
-<part spaces=" "><sectiontitle>part</sectiontitle>
+<part><sectiontitle> part</sectiontitle>
 
-<chapter spaces=" "><sectiontitle>chapter 2</sectiontitle>
+<chapter><sectiontitle> chapter 2</sectiontitle>
 
 <contents></contents>
 </chapter>

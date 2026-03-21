@@ -8,15 +8,11 @@ use utf8;
 $result_tree_text{'table_in_itemize'} = '*document_root C1
  *before_node_section C1
   *@itemize C5 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@bullet l1
+     {spaces_after_argument:\\n}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -28,26 +24,18 @@ $result_tree_text{'table_in_itemize'} = '*document_root C1
    |item_number:{2}
     {ignorable_spaces_after_command:\\n}
     *@table C4 l4
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
      *arguments_line C1
-      *block_line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C3
+       {spaces_before_argument: }
        *@asis l4
+       {spaces_after_argument:\\n}
      *table_entry C2
       *table_term C1
        *@item C1 l5
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {table one}
+         {spaces_after_argument:\\n}
       *table_definition C3
        *paragraph C1
         {aaaaa\\n}
@@ -57,14 +45,10 @@ $result_tree_text{'table_in_itemize'} = '*document_root C1
      *table_entry C2
       *table_term C1
        *@item C1 l9
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {table two}
+         {spaces_after_argument:\\n}
       *table_definition C3
        *paragraph C1
         {Five\\n}
@@ -72,16 +56,12 @@ $result_tree_text{'table_in_itemize'} = '*document_root C1
        *paragraph C1
         {New para.\\n}
      *@end C1 l13
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{table}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {table}
+       {spaces_after_argument:\\n}
    *@item C2 l14
    |EXTRA
    |item_number:{3}
@@ -89,12 +69,10 @@ $result_tree_text{'table_in_itemize'} = '*document_root C1
     *paragraph C1
      {item three\\n}
    *@end C1 l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
+    *line_arg C2
+     {spaces_before_argument: }
      {itemize}
 ';
 
@@ -171,15 +149,15 @@ $result_converted{'html_text'}->{'table_in_itemize'} = '<ul class="itemize mark-
 ';
 
 
-$result_converted{'xml'}->{'table_in_itemize'} = '<itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet"/></itemprepend>
+$result_converted{'xml'}->{'table_in_itemize'} = '<itemize commandarg="bullet" endspaces=" "><itemprepend> <formattingcommand command="bullet"/></itemprepend>
 <listitem><prepend>&bullet;</prepend> <para>item one
 </para></listitem><listitem><prepend>&bullet;</prepend>
-<table commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis">table one</itemformat></item>
+<table commandarg="asis" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="asis"> table one</itemformat></item>
 </tableterm><tableitem><para>aaaaa
 </para>
 <para>New para.
-</para></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis">table two</itemformat></item>
+</para></tableitem></tableentry><tableentry><tableterm><item><itemformat command="asis"> table two</itemformat></item>
 </tableterm><tableitem><para>Five
 </para>
 <para>New para.

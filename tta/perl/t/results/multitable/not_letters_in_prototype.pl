@@ -8,17 +8,13 @@ use utf8;
 $result_tree_text{'not_letters_in_prototype'} = '*document_root C1
  *before_node_section C1
   *@multitable C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument:  }
   |EXTRA
   |max_columns:{0}
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument:  }
      {1.3  5-6}
+     {spaces_after_argument:\\n}
    *before_item C4
     {ignorable_spaces_after_command: }
     *paragraph C1
@@ -27,16 +23,12 @@ $result_tree_text{'not_letters_in_prototype'} = '*document_root C1
     *paragraph C1
      {5-6\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -84,7 +76,8 @@ $result_converted{'html_text'}->{'not_letters_in_prototype'} = '<table class="mu
 ';
 
 
-$result_converted{'xml'}->{'not_letters_in_prototype'} = '<multitable spaces="  " endspaces=" "><columnprototypes>1.3  5-6</columnprototypes>
+$result_converted{'xml'}->{'not_letters_in_prototype'} = '<multitable endspaces=" "><columnprototypes>  1.3  5-6
+</columnprototypes>
 <beforefirstitem> <para>1.3 </para> <para>5-6
 </para></beforefirstitem></multitable>
 ';

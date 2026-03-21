@@ -22,197 +22,146 @@ $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
   >SOURCEMARKS
   >expanded_conditional_command<start;1><p:1>
    >*@ifset C1 l3
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|comment_at_end:
-      >|*@c C1
-       >|*line_arg C1
-       >||INFO
-       >||spaces_after_argument:
-        >||{spaces_after_argument:\\n}
-        >|{rawline_text:}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{x}
+      >*@c C1
+       >*line_arg C1
+       >|INFO
+       >|spaces_after_argument:
+        >|{spaces_after_argument:\\n}
+        >{rawline_text:}
   *paragraph C6
    {Y1\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;1><p:3>
     >*@end C1 l5
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
+      >{spaces_after_argument:\\n}
    >expanded_conditional_command<start;2><p:3>
     >*@ifset C1 l6
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
      >*arguments_line C1
-      >*block_line_arg C1
-      >|INFO
-      >|comment_at_end:
-       >|*@c C1
-       >||INFO
-       >||spaces_before_argument:
-        >||{spaces_before_argument: }
-        >|*line_arg C1
-        >||INFO
-        >||spaces_after_argument:
-         >||{spaces_after_argument:\\n}
-         >|{rawline_text:comm}
+      >*block_line_arg C3
+       >{spaces_before_argument: }
        >{x}
+       >*@c C1
+       >|INFO
+       >|spaces_before_argument:
+        >|{spaces_before_argument: }
+        >*line_arg C1
+        >|INFO
+        >|spaces_after_argument:
+         >|{spaces_after_argument:\\n}
+         >{rawline_text:comm}
    {Y2\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;2><p:3>
     >*@end C1 l8
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
+      >{spaces_after_argument:\\n}
    >expanded_conditional_command<start;3><p:3>
     >*@ifset C1 l9
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
      >*arguments_line C1
-      >*block_line_arg C1
-      >|INFO
-      >|comment_at_end:
-       >|*@c C1
-        >|*line_arg C1
-        >||INFO
-        >||spaces_after_argument:
-         >||{spaces_after_argument:\\n}
-         >|{rawline_text:@ggg}
+      >*block_line_arg C3
+       >{spaces_before_argument: }
        >{x}
+       >*@c C1
+        >*line_arg C1
+        >|INFO
+        >|spaces_after_argument:
+         >|{spaces_after_argument:\\n}
+         >{rawline_text:@ggg}
    {Y3\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;3><p:3>
     >*@end C1 l11
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
+      >{spaces_after_argument:\\n}
    >expanded_conditional_command<start;4><p:3>
     >*@ifset C1 l12
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
      >*arguments_line C1
-      >*block_line_arg C1
-      >|INFO
-      >|comment_at_end:
-       >|*@c C1
-        >|*line_arg C1
-        >||INFO
-        >||spaces_after_argument:
-         >||{spaces_after_argument:\\n}
-         >|{rawline_text:}
-      >|spaces_after_argument:
-       >|{spaces_after_argument: }
+      >*block_line_arg C4
+       >{spaces_before_argument: }
        >{x}
+       >{spaces_after_argument: }
+       >*@c C1
+        >*line_arg C1
+        >|INFO
+        >|spaces_after_argument:
+         >|{spaces_after_argument:\\n}
+         >{rawline_text:}
    {Y4\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;4><p:3>
     >*@end C1 l14
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
+      >{spaces_after_argument:\\n}
    >expanded_conditional_command<start;5><p:3>
     >*@ifset C1 l15
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
      >*arguments_line C1
-      >*block_line_arg C1
-      >|INFO
-      >|comment_at_end:
-       >|*@c C1
-       >||INFO
-       >||spaces_before_argument:
-        >||{spaces_before_argument: }
-        >|*line_arg C1
-        >||INFO
-        >||spaces_after_argument:
-         >||{spaces_after_argument:\\n}
-         >|{rawline_text:comm}
-      >|spaces_after_argument:
-       >|{spaces_after_argument: }
+      >*block_line_arg C4
+       >{spaces_before_argument: }
        >{x}
+       >{spaces_after_argument: }
+       >*@c C1
+       >|INFO
+       >|spaces_before_argument:
+        >|{spaces_before_argument: }
+        >*line_arg C1
+        >|INFO
+        >|spaces_after_argument:
+         >|{spaces_after_argument:\\n}
+         >{rawline_text:comm}
    {Y5\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;5><p:3>
     >*@end C1 l17
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
+      >{spaces_after_argument:\\n}
    >expanded_conditional_command<start;6><p:3>
     >*@ifset C1 l18
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
      >*arguments_line C1
-      >*block_line_arg C1
-      >|INFO
-      >|comment_at_end:
-       >|*@c C1
-        >|*line_arg C1
-        >||INFO
-        >||spaces_after_argument:
-         >||{spaces_after_argument:\\n}
-         >|{rawline_text:@ggg}
-      >|spaces_after_argument:
-       >|{spaces_after_argument: }
+      >*block_line_arg C4
+       >{spaces_before_argument: }
        >{x}
+       >{spaces_after_argument: }
+       >*@c C1
+        >*line_arg C1
+        >|INFO
+        >|spaces_after_argument:
+         >|{spaces_after_argument:\\n}
+         >{rawline_text:@ggg}
    {Y6\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;6><p:3>
     >*@end C1 l20
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
+      >{spaces_after_argument:\\n}
 ';
 
 

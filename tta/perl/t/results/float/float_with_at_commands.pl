@@ -9,9 +9,6 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
  *before_node_section C5
   *preamble_before_content
   *@float C7 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{entrée}
@@ -19,18 +16,15 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
   |identifier:{premi_00e8re-entr_00e9e}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C3
+    *block_line_arg C4
+     {spaces_before_argument: }
      {entr}
      *@\' C1 l1
       *following_arg C1
        {e}
      {e}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C7
+     {spaces_before_argument: }
      {premi}
      *@` C1 l1
       *following_arg C1
@@ -40,6 +34,7 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
       *following_arg C1
        {e}
      {e}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *paragraph C5
     {Ceci est notre premi}
@@ -66,34 +61,26 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
    {spaces_after_close_brace:\\n}
    {empty_line:\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   *@listoffloats C1 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{entrée}
   |global_command_number:{1}
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     {entr}
     *@\' C1 l9
      *following_arg C1
       {e}
     {e}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -185,7 +172,7 @@ $result_converted_errors{'html'}->{'float_with_at_commands'} = '* W |must specif
 ';
 
 
-$result_converted{'xml'}->{'float_with_at_commands'} = '<float identifier="premi_00e8re-entr_00e9e" type="entrée" number="1" spaces=" " endspaces=" "><floattype>entr<accent type="acute" bracketed="off">e</accent>e</floattype><floatname spaces=" ">premi<accent type="grave" bracketed="off">e</accent>re entr<accent type="acute" bracketed="off">e</accent>e</floatname>
+$result_converted{'xml'}->{'float_with_at_commands'} = '<float identifier="premi_00e8re-entr_00e9e" type="entrée" number="1" endspaces=" "><floattype> entr<accent type="acute" bracketed="off">e</accent>e</floattype><floatname> premi<accent type="grave" bracketed="off">e</accent>re entr<accent type="acute" bracketed="off">e</accent>e</floatname>
 
 <para>Ceci est notre premi<accent type="grave" bracketed="off">e</accent>re entr<accent type="acute" bracketed="off">e</accent>e.
 </para><caption><para>La premi<accent type="grave" bracketed="off">e</accent>re entr<accent type="acute" bracketed="off">e</accent>e est importante</para></caption>
@@ -193,7 +180,7 @@ $result_converted{'xml'}->{'float_with_at_commands'} = '<float identifier="premi
 </float>
 
 
-<listoffloats type="entrée" spaces=" ">entr<accent type="acute" bracketed="off">e</accent>e</listoffloats>
+<listoffloats type="entrée"> entr<accent type="acute" bracketed="off">e</accent>e</listoffloats>
 ';
 
 

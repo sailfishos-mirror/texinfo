@@ -18,16 +18,12 @@ $result_tree_text{'cpp_directives_in_macro'} = '*document_root C1
      {macro_line: simplemacro{out}\\n}
     {raw:\\out\\\\n}
     *@end C1 cpp_directives_in_macro.texi:l4
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{macro}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {macro}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
   *paragraph C1
    {#line 100 "in_arg_file"\\n}

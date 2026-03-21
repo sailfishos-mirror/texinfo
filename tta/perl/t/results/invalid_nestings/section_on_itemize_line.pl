@@ -8,103 +8,75 @@ use utf8;
 $result_tree_text{'section_on_itemize_line'} = '*document_root C5
  *before_node_section C1
   *@itemize C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@minus C1 l1
       *brace_container
+     {spaces_after_argument: }
  *@section C3 l1 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C2
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *block_line_arg C4
+     {spaces_before_argument: }
      *@minus C1 l3
       *brace_container
      { aa}
+     {spaces_after_argument: }
  *@section C3 l3 {second}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {second}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg
+    *block_line_arg C1
+     {spaces_before_argument: }
  *@section C3 l5 {third}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {third}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C1 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      *@ringaccent l7
      |INFO
      |spaces_after_cmd_before_arg:
       |{spaces_after_cmd_before_arg: }
  *@section C1 l7 {fourth}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{2}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fourth}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -229,24 +201,24 @@ $result_converted{'plaintext'}->{'section_on_itemize_line'} = '1 first
 ';
 
 
-$result_converted{'xml'}->{'section_on_itemize_line'} = '<itemize commandarg="minus" spaces=" "><itemprepend>&minus; </itemprepend>
+$result_converted{'xml'}->{'section_on_itemize_line'} = '<itemize commandarg="minus"><itemprepend> &minus; </itemprepend>
 </itemize>
-<section spaces=" "><sectiontitle>first</sectiontitle>
+<section><sectiontitle> first</sectiontitle>
 
-<itemize spaces=" "><itemprepend>&minus; aa </itemprepend>
+<itemize><itemprepend> &minus; aa </itemprepend>
 </itemize>
 </section>
-<section spaces=" "><sectiontitle>second</sectiontitle>
+<section><sectiontitle> second</sectiontitle>
 
-<itemize spaces=" ">
+<itemize> 
 </itemize>
 </section>
-<section spaces=" "><sectiontitle>third</sectiontitle>
+<section><sectiontitle> third</sectiontitle>
 
-<itemize spaces=" "><itemprepend><accent type="ring"></accent></itemprepend>
+<itemize><itemprepend> <accent type="ring"></accent></itemprepend>
 </itemize>
 </section>
-<section spaces=" "><sectiontitle>fourth</sectiontitle>
+<section><sectiontitle> fourth</sectiontitle>
 </section>
 ';
 

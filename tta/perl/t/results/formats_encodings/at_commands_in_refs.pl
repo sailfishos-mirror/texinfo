@@ -9,39 +9,29 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 l2 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C29 l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C5
@@ -768,67 +758,50 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      *preformatted C1
       {\\n}
    *@end C1 l32
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l34 {@- @{ @}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{-_007b-_007d}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@-
     { }
     *@{
     { }
     *@}
+    {spaces_after_argument:\\n}
  *@chapter C2 l35 {@- @{ @}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@-
     { }
     *@{
     { }
     *@}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l37 {@  @	 @! @* @. @: .@: @? @@}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{-_0021-_002e-_002e-_003f-_0040}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C17
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C19
+    {spaces_before_argument: }
     *@ 
     { }
     *@\\t
@@ -846,19 +819,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@?
     { }
     *@@
+    {spaces_after_argument:\\n}
  *@chapter C2 l38 {@  @	 @! @* @. @: .@: @? @@}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C17
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C19
+    {spaces_before_argument: }
     *@ 
     { }
     *@\\t
@@ -876,20 +845,16 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@?
     { }
     *@@
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l40 {@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_0040-_007b-_007d-_005c-_0023}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C9
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C11
+    {spaces_before_argument: }
     *@atchar C1 l40
      *brace_container
     { }
@@ -904,19 +869,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@hashchar C1 l40
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l41 {@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C9
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C11
+    {spaces_before_argument: }
     *@atchar C1 l41
      *brace_container
     { }
@@ -931,20 +892,16 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@hashchar C1 l41
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l43 {@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@LaTeX C1 l43
      *brace_container
     { }
@@ -965,19 +922,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@enddots C1 l43
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l44 {@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@LaTeX C1 l44
      *brace_container
     { }
@@ -998,20 +951,16 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@enddots C1 l44
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l46 {@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
-   *line_arg C11
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C13
+    {spaces_before_argument: }
     *@equiv C1 l46
      *brace_container
     { }
@@ -1029,19 +978,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@minus C1 l46
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l47 {@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{5}
  |section_level:{1}
  |section_number:{6}
   *arguments_line C1
-   *line_arg C11
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C13
+    {spaces_before_argument: }
     *@equiv C1 l47
      *brace_container
     { }
@@ -1059,20 +1004,16 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@minus C1 l47
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l49 {@geq{} @leq{} @arrow{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_2265-_2264-_2192}
  |is_target:{1}
  |node_number:{7}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@geq C1 l49
      *brace_container
     { }
@@ -1081,19 +1022,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@arrow C1 l49
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l50 {@geq{} @leq{} @arrow{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{6}
  |section_level:{1}
  |section_number:{7}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@geq C1 l50
      *brace_container
     { }
@@ -1102,20 +1039,16 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@arrow C1 l50
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l52 {@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae}
  |is_target:{1}
  |node_number:{8}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@ordf C1 l52
      *brace_container
     { }
@@ -1136,19 +1069,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@registeredsymbol C1 l52
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l53 {@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{7}
  |section_level:{1}
  |section_number:{8}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@ordf C1 l53
      *brace_container
     { }
@@ -1169,20 +1098,16 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@registeredsymbol C1 l53
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l55 {@result{} @textdegree{} a@tie{}b @today{} @aa{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_21d2-_00b0-a-b-_00e5}
  |is_target:{1}
  |node_number:{9}
   *arguments_line C1
-   *line_arg C9
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C11
+    {spaces_before_argument: }
     *@result C1 l55
      *brace_container
     { }
@@ -1197,19 +1122,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@aa C1 l55
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l56 {@result{} @textdegree{} a@tie{}b @today{} @aa{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{8}
  |section_level:{1}
  |section_number:{9}
   *arguments_line C1
-   *line_arg C9
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C11
+    {spaces_before_argument: }
     *@result C1 l56
      *brace_container
     { }
@@ -1224,20 +1145,16 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@aa C1 l56
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l58 {@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe}
  |is_target:{1}
  |node_number:{10}
   *arguments_line C1
-   *line_arg C27
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C29
+    {spaces_before_argument: }
     *@AA C1 l58
      *brace_container
     { }
@@ -1279,19 +1196,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@th C1 l58
      *brace_container
+    {spaces_after_argument: \\n}
  *@chapter C2 l59 {@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{9}
  |section_level:{1}
  |section_number:{10}
   *arguments_line C1
-   *line_arg C27
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C29
+    {spaces_before_argument: }
     *@AA C1 l59
      *brace_container
     { }
@@ -1333,20 +1246,16 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@th C1 l59
      *brace_container
+    {spaces_after_argument: \\n}
   {empty_line:\\n}
  *@node C1 l61 {@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119}
  |is_target:{1}
  |node_number:{11}
   *arguments_line C1
-   *line_arg C21
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C23
+    {spaces_before_argument: }
     *@" C1 l61
      *brace_container C1
       {a}
@@ -1392,19 +1301,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@ogonek C1 l61
      *brace_container C1
       {e}
+    {spaces_after_argument:\\n}
  *@chapter C2 l62 {@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument:  }
  |EXTRA
  |section_heading_number:{10}
  |section_level:{1}
  |section_number:{11}
   *arguments_line C1
-   *line_arg C21
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C23
+    {spaces_before_argument:  }
     *@" C1 l62
      *brace_container C1
       {a}
@@ -1450,20 +1355,16 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@ogonek C1 l62
      *brace_container C1
       {e}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l64 {@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e}
  |is_target:{1}
  |node_number:{12}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@dotaccent C1 l64
      *brace_container C1
       {e}
@@ -1491,19 +1392,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@tieaccent C1 l64
      *brace_container C1
       {ee}
+    {spaces_after_argument:\\n}
  *@chapter C2 l65 {@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{11}
  |section_level:{1}
  |section_number:{12}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@dotaccent C1 l65
      *brace_container C1
       {e}
@@ -1531,20 +1428,16 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@tieaccent C1 l65
      *brace_container C1
       {ee}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l67 {@dotless{i} @`{@=E} @,{@\'C}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_0131-_1e14-_1e08}
  |is_target:{1}
  |node_number:{13}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@dotless C1 l67
      *brace_container C1
       {i}
@@ -1560,19 +1453,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       *@\' C1 l67
        *following_arg C1
         {C}
+    {spaces_after_argument:\\n}
  *@chapter C2 l68 {@dotless{i} @`{@=E} @,{@\'C}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{12}
  |section_level:{1}
  |section_number:{13}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@dotless C1 l68
      *brace_container C1
       {i}
@@ -1588,20 +1477,16 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       *@\' C1 l68
        *following_arg C1
         {C}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l70 {@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_201c-_201d-_2018-_2019-_201e-_201a}
  |is_target:{1}
  |node_number:{14}
   *arguments_line C1
-   *line_arg C11
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C13
+    {spaces_before_argument: }
     *@quotedblleft C1 l70
      *brace_container
     { }
@@ -1619,19 +1504,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@quotesinglbase C1 l70
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l71 {@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{13}
  |section_level:{1}
  |section_number:{14}
   *arguments_line C1
-   *line_arg C11
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C13
+    {spaces_before_argument: }
     *@quotedblleft C1 l71
      *brace_container
     { }
@@ -1649,20 +1530,16 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@quotesinglbase C1 l71
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l73 {@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00ab-_00bb-_00ab-_00bb-_2039-_203a}
  |is_target:{1}
  |node_number:{15}
   *arguments_line C1
-   *line_arg C11
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C13
+    {spaces_before_argument: }
     *@guillemetleft C1 l73
      *brace_container
     { }
@@ -1680,19 +1557,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@guilsinglright C1 l73
      *brace_container
+    {spaces_after_argument:\\n}
  *@chapter C2 l74 {@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{14}
  |section_level:{1}
  |section_number:{15}
   *arguments_line C1
-   *line_arg C11
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C13
+    {spaces_before_argument: }
     *@guillemetleft C1 l74
      *brace_container
     { }
@@ -1710,49 +1583,37 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@guilsinglright C1 l74
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l76 {`` \'\' --- -- ` \'}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027}
  |is_target:{1}
  |node_number:{16}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {`` \'\' --- -- ` \'}
+    {spaces_after_argument:\\n}
  *@chapter C2 l77 {`` \'\' --- -- ` \'}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{15}
  |section_level:{1}
  |section_number:{16}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {`` \'\' --- -- ` \'}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l79 {@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{AAA-AAA-BBB}
  |is_target:{1}
  |node_number:{17}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@acronym C2 l79
      *brace_arg C1
       {AAA}
@@ -1767,19 +1628,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@acronym C1 l79
      *brace_arg C1
       {BBB}
+    {spaces_after_argument:\\n}
  *@chapter C2 l80 {@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{16}
  |section_level:{1}
  |section_number:{17}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@acronym C2 l80
      *brace_arg C1
       {AAA}
@@ -1794,28 +1651,22 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@acronym C1 l80
      *brace_arg C1
       {BBB}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l82 {@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{CCC-CCC-DDD}
  |is_target:{1}
  |node_number:{18}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
    >SOURCEMARKS
    >expanded_conditional_command<start;1>
     >*@ifnottex C1 l83
      >*arguments_line C1
-      >*block_line_arg
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
+    {spaces_before_argument: }
     *@abbr C2 l82
      *brace_arg C1
       {CCC}
@@ -1830,32 +1681,24 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@abbr C1 l82
      *brace_arg C1
       {DDD}
+    {spaces_after_argument:\\n}
  *@chapter C2 l84 {@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{17}
  |section_level:{1}
  |section_number:{18}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
    >SOURCEMARKS
    >expanded_conditional_command<end;1>
     >*@end C1 l85
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifnottex}
+      >{spaces_after_argument:\\n}
+    {spaces_before_argument: }
     *@abbr C2 l84
      *brace_arg C1
       {CCC}
@@ -1870,20 +1713,16 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@abbr C1 l84
      *brace_arg C1
       {DDD}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l87 {@email{someone@@somewher, the someone} @email{no_explain@@there}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{someone_0040somewher-no_005fexplain_0040there}
  |is_target:{1}
  |node_number:{19}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     *@email C2 l87
      *brace_arg C3
       {someone}
@@ -1898,19 +1737,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       {no_explain}
       *@@
       {there}
+    {spaces_after_argument:\\n}
  *@chapter C2 l88 {@email{someone@@somewher, the someone} @email{no_explain@@there}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{18}
  |section_level:{1}
  |section_number:{19}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     *@email C2 l88
      *brace_arg C3
       {someone}
@@ -1925,28 +1760,22 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       {no_explain}
       *@@
       {there}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l90 {@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{f_002d_002dile1-f_002d_002dile}
  |is_target:{1}
  |node_number:{20}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
    >SOURCEMARKS
    >expanded_conditional_command<start;2>
     >*@ifnottex C1 l91
      >*arguments_line C1
-      >*block_line_arg
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
+    {spaces_before_argument: }
     *@image C1 l90
     |EXTRA
     |input_encoding_name:{utf-8}
@@ -1966,32 +1795,24 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       {alt}
      *brace_arg C1
       {e--xt}
+    {spaces_after_argument:\\n}
  *@chapter C2 l92 {@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{19}
  |section_level:{1}
  |section_number:{20}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
    >SOURCEMARKS
    >expanded_conditional_command<end;2>
     >*@end C1 l93
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifnottex}
+      >{spaces_after_argument:\\n}
+    {spaces_before_argument: }
     *@image C1 l92
     |EXTRA
     |input_encoding_name:{utf-8}
@@ -2011,78 +1832,60 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       {alt}
      *brace_arg C1
       {e--xt}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l95 {@verb{. @ {} . .}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{-_0040-_007b_007d-_002e-}
  |is_target:{1}
  |node_number:{21}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
    >SOURCEMARKS
    >expanded_conditional_command<start;3>
     >*@ifnottex C1 l96
      >*arguments_line C1
-      >*block_line_arg
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
+    {spaces_before_argument: }
     *@verb C1 l95
     |INFO
     |delimiter:{.}
      *brace_container C1
       {raw: @ {} . }
+    {spaces_after_argument:\\n}
  *@chapter C2 l97 {@verb{. @ {} . .}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{20}
  |section_level:{1}
  |section_number:{21}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
    >SOURCEMARKS
    >expanded_conditional_command<end;3>
     >*@end C1 l98
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifnottex}
+      >{spaces_after_argument:\\n}
+    {spaces_before_argument: }
     *@verb C1 l97
     |INFO
     |delimiter:{.}
      *brace_container C1
       {raw: @ {} . }
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l100 {@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i}
  |is_target:{1}
  |node_number:{22}
   *arguments_line C1
-   *line_arg C17
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C19
+    {spaces_before_argument: }
     *@cite C1 l100
      *brace_container C2
       {cite }
@@ -2126,19 +1929,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@i C1 l100
      *brace_container C1
       {i}
+    {spaces_after_argument:\\n}
  *@chapter C2 l101 {@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{21}
  |section_level:{1}
  |section_number:{22}
   *arguments_line C1
-   *line_arg C17
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C19
+    {spaces_before_argument: }
     *@cite C1 l101
      *brace_container C2
       {cite }
@@ -2182,20 +1981,16 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@i C1 l101
      *brace_container C1
       {i}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l103 {@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{env-code-option-samp-command-file-C_002dx-ESC}
  |is_target:{1}
  |node_number:{23}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@env C1 l103
      *brace_container C1
       {env}
@@ -2226,19 +2021,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       *@key C1 l103
        *brace_container C1
         {ESC}
+    {spaces_after_argument:\\n}
  *@chapter C2 l104 {@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{22}
  |section_level:{1}
  |section_number:{23}
   *arguments_line C1
-   *line_arg C13
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C15
+    {spaces_before_argument: }
     *@env C1 l104
      *brace_container C1
       {env}
@@ -2269,55 +2060,43 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       *@key C1 l104
        *brace_container C1
         {ESC}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l106 {8.27@dmn{in}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{8_002e27in}
  |is_target:{1}
  |node_number:{24}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {8.27}
     *@dmn C1 l106
      *brace_container C1
       {in}
+    {spaces_after_argument:\\n}
  *@chapter C2 l107 {8.27@dmn{in}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{23}
  |section_level:{1}
  |section_number:{24}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {8.27}
     *@dmn C1 l107
      *brace_container C1
       {in}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l109 {@sansserif{sansserif} @slanted{slanted}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{sansserif-slanted}
  |is_target:{1}
  |node_number:{25}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     *@sansserif C1 l109
      *brace_container C1
       {sansserif}
@@ -2325,19 +2104,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@slanted C1 l109
      *brace_container C1
       {slanted}
+    {spaces_after_argument:\\n}
  *@chapter C2 l110 {@sansserif{sansserif} @slanted{slanted}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{24}
  |section_level:{1}
  |section_number:{25}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     *@sansserif C1 l110
      *brace_container C1
       {sansserif}
@@ -2345,53 +2120,41 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@slanted C1 l110
      *brace_container C1
       {slanted}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l112 {@indicateurl{indicateurl}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{indicateurl}
  |is_target:{1}
  |node_number:{26}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@indicateurl C1 l112
      *brace_container C1
       {indicateurl}
+    {spaces_after_argument:\\n}
  *@chapter C2 l113 {@indicateurl{indicateurl}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{25}
  |section_level:{1}
  |section_number:{26}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@indicateurl C1 l113
      *brace_container C1
       {indicateurl}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l115 {@sub{g}H 3@sup{rd}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{gH-3rd}
  |is_target:{1}
  |node_number:{27}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     *@sub C1 l115
      *brace_container C1
       {g}
@@ -2399,19 +2162,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@sup C1 l115
      *brace_container C1
       {rd}
+    {spaces_after_argument:\\n}
  *@chapter C2 l116 {@sub{g}H 3@sup{rd}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{26}
  |section_level:{1}
  |section_number:{27}
   *arguments_line C1
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C5
+    {spaces_before_argument: }
     *@sub C1 l116
      *brace_container C1
       {g}
@@ -2419,20 +2178,16 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@sup C1 l116
      *brace_container C1
       {rd}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l118 {@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls}
  |is_target:{1}
  |node_number:{28}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@url C1 l118
      *brace_arg C1
       {http://somewhere_aaa}
@@ -2450,19 +2205,15 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      *brace_arg
      *brace_arg C1
       {ls}
+    {spaces_after_argument:\\n}
  *@chapter C56 l119 {@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{27}
  |section_level:{1}
  |section_number:{28}
   *arguments_line C1
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@url C1 l119
      *brace_arg C1
       {http://somewhere_aaa}
@@ -2480,6 +2231,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      *brace_arg
      *brace_arg C1
       {ls}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l121
@@ -2905,10 +2657,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
   >expanded_conditional_command<start;4><p:1>
    >*@ifnottex C1 l153
     >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C1
+      >{spaces_before_argument:\\n}
   *paragraph C2
    *@ref C1 l154
     *brace_arg C5
@@ -2933,16 +2683,12 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    >SOURCEMARKS
    >expanded_conditional_command<end;4><p:1>
     >*@end C1 l155
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifnottex}
+      >{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l157
@@ -2970,10 +2716,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
   >expanded_conditional_command<start;5><p:1>
    >*@ifnottex C1 l159
     >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C1
+      >{spaces_before_argument:\\n}
   *paragraph C2
    *@ref C1 l160
     *brace_arg C3
@@ -3016,16 +2760,12 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    >SOURCEMARKS
    >expanded_conditional_command<end;5><p:1>
     >*@end C1 l163
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifnottex}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifnottex}
+      >{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l165
@@ -4598,8 +4338,8 @@ $result_converted_errors{'html'}->{'at_commands_in_refs'} = '* W l92|@image file
 ';
 
 
-$result_converted{'xml'}->{'at_commands_in_refs'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">&hyphenbreak; &lbrace; &rbrace;</nodenext></node>
-<top spaces=" "><sectiontitle>Top</sectiontitle>
+$result_converted{'xml'}->{'at_commands_in_refs'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> &hyphenbreak; &lbrace; &rbrace;</nodenext></node>
+<top><sectiontitle> Top</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>&hyphenbreak; &lbrace; &rbrace;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -4632,112 +4372,112 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node identifier="Top" spac
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node identifier="-_007b-_007d" spaces=" "><nodename>&hyphenbreak; &lbrace; &rbrace;</nodename><nodenext automatic="on"><spacecmd type="spc"/> <spacecmd type="tab"/> &eosexcl; &linebreak; &eosperiod; &noeos; .&noeos; &eosquest; &arobase;</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>&hyphenbreak; &lbrace; &rbrace;</sectiontitle>
+<node identifier="-_007b-_007d"><nodename> &hyphenbreak; &lbrace; &rbrace;</nodename><nodenext automatic="on"> <spacecmd type="spc"/> <spacecmd type="tab"/> &eosexcl; &linebreak; &eosperiod; &noeos; .&noeos; &eosquest; &arobase;</nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> &hyphenbreak; &lbrace; &rbrace;</sectiontitle>
 
 </chapter>
-<node identifier="-_0021-_002e-_002e-_003f-_0040" spaces=" "><nodename><spacecmd type="spc"/> <spacecmd type="tab"/> &eosexcl; &linebreak; &eosperiod; &noeos; .&noeos; &eosquest; &arobase;</nodename><nodenext automatic="on">&atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</nodenext><nodeprev automatic="on">&hyphenbreak; &lbrace; &rbrace;</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><spacecmd type="spc"/> <spacecmd type="tab"/> &eosexcl; &linebreak; &eosperiod; &noeos; .&noeos; &eosquest; &arobase;</sectiontitle>
+<node identifier="-_0021-_002e-_002e-_003f-_0040"><nodename> <spacecmd type="spc"/> <spacecmd type="tab"/> &eosexcl; &linebreak; &eosperiod; &noeos; .&noeos; &eosquest; &arobase;</nodename><nodenext automatic="on"> &atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</nodenext><nodeprev automatic="on"> &hyphenbreak; &lbrace; &rbrace;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <spacecmd type="spc"/> <spacecmd type="tab"/> &eosexcl; &linebreak; &eosperiod; &noeos; .&noeos; &eosquest; &arobase;</sectiontitle>
 
 </chapter>
-<node identifier="_0040-_007b-_007d-_005c-_0023" spaces=" "><nodename>&atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</nodename><nodenext automatic="on">&latex; &tex; &bullet; &comma; &copyright; &dots; &enddots;</nodenext><nodeprev automatic="on"><spacecmd type="spc"/> <spacecmd type="tab"/> &eosexcl; &linebreak; &eosperiod; &noeos; .&noeos; &eosquest; &arobase;</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>&atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</sectiontitle>
+<node identifier="_0040-_007b-_007d-_005c-_0023"><nodename> &atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</nodename><nodenext automatic="on"> &latex; &tex; &bullet; &comma; &copyright; &dots; &enddots;</nodenext><nodeprev automatic="on"> <spacecmd type="spc"/> <spacecmd type="tab"/> &eosexcl; &linebreak; &eosperiod; &noeos; .&noeos; &eosquest; &arobase;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> &atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</sectiontitle>
 
 </chapter>
-<node identifier="LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e" spaces=" "><nodename>&latex; &tex; &bullet; &comma; &copyright; &dots; &enddots;</nodename><nodenext automatic="on">&equiv; &errorglyph; &euro; &iexcl; &expansion; &minus;</nodenext><nodeprev automatic="on">&atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>&latex; &tex; &bullet; &comma; &copyright; &dots; &enddots;</sectiontitle>
+<node identifier="LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e"><nodename> &latex; &tex; &bullet; &comma; &copyright; &dots; &enddots;</nodename><nodenext automatic="on"> &equiv; &errorglyph; &euro; &iexcl; &expansion; &minus;</nodenext><nodeprev automatic="on"> &atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> &latex; &tex; &bullet; &comma; &copyright; &dots; &enddots;</sectiontitle>
 
 </chapter>
-<node identifier="_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212" spaces=" "><nodename>&equiv; &errorglyph; &euro; &iexcl; &expansion; &minus;</nodename><nodenext automatic="on">&ge; &le; &rarr;</nodenext><nodeprev automatic="on">&latex; &tex; &bullet; &comma; &copyright; &dots; &enddots;</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>&equiv; &errorglyph; &euro; &iexcl; &expansion; &minus;</sectiontitle>
+<node identifier="_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212"><nodename> &equiv; &errorglyph; &euro; &iexcl; &expansion; &minus;</nodename><nodenext automatic="on"> &ge; &le; &rarr;</nodenext><nodeprev automatic="on"> &latex; &tex; &bullet; &comma; &copyright; &dots; &enddots;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> &equiv; &errorglyph; &euro; &iexcl; &expansion; &minus;</sectiontitle>
 
 </chapter>
-<node identifier="_2265-_2264-_2192" spaces=" "><nodename>&ge; &le; &rarr;</nodename><nodenext automatic="on">&ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</nodenext><nodeprev automatic="on">&equiv; &errorglyph; &euro; &iexcl; &expansion; &minus;</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>&ge; &le; &rarr;</sectiontitle>
+<node identifier="_2265-_2264-_2192"><nodename> &ge; &le; &rarr;</nodename><nodenext automatic="on"> &ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</nodenext><nodeprev automatic="on"> &equiv; &errorglyph; &euro; &iexcl; &expansion; &minus;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> &ge; &le; &rarr;</sectiontitle>
 
 </chapter>
-<node identifier="_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae" spaces=" "><nodename>&ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</nodename><nodenext automatic="on">&result; &deg; a&nbsp;b <today/> &aring;</nodenext><nodeprev automatic="on">&ge; &le; &rarr;</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>&ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</sectiontitle>
+<node identifier="_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae"><nodename> &ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</nodename><nodenext automatic="on"> &result; &deg; a&nbsp;b <today/> &aring;</nodenext><nodeprev automatic="on"> &ge; &le; &rarr;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> &ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</sectiontitle>
 
 </chapter>
-<node identifier="_21d2-_00b0-a-b-_00e5" spaces=" "><nodename>&result; &deg; a&nbsp;b <today/> &aring;</nodename><nodenext automatic="on">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &THORN; &thorn;</nodenext><nodeprev automatic="on">&ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>&result; &deg; a&nbsp;b <today/> &aring;</sectiontitle>
+<node identifier="_21d2-_00b0-a-b-_00e5"><nodename> &result; &deg; a&nbsp;b <today/> &aring;</nodename><nodenext automatic="on"> &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &THORN; &thorn;</nodenext><nodeprev automatic="on"> &ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> &result; &deg; a&nbsp;b <today/> &aring;</sectiontitle>
 
 </chapter>
-<node identifier="_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" spaces=" "><nodename trailingspaces=" ">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &THORN; &thorn;</nodename><nodenext automatic="on"><accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></nodenext><nodeprev automatic="on">&result; &deg; a&nbsp;b <today/> &aring;</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &THORN; &thorn; </sectiontitle>
+<node identifier="_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe"><nodename> &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &THORN; &thorn;</nodename><nodenext automatic="on"> <accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></nodenext><nodeprev automatic="on"> &result; &deg; a&nbsp;b <today/> &aring;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &THORN; &thorn; </sectiontitle>
 
 </chapter>
-<node identifier="_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119" spaces=" "><nodename><accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></nodename><nodenext automatic="on"><accent type="dot">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></nodenext><nodeprev automatic="on">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &THORN; &thorn;</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces="  "><sectiontitle><accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></sectiontitle>
+<node identifier="_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119"><nodename> <accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></nodename><nodenext automatic="on"> <accent type="dot">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></nodenext><nodeprev automatic="on"> &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &THORN; &thorn;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle>  <accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></sectiontitle>
 
 </chapter>
-<node identifier="_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e" spaces=" "><nodename><accent type="dot">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></nodename><nodenext automatic="on"><dotless>i</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent></nodenext><nodeprev automatic="on"><accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><accent type="dot">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></sectiontitle>
+<node identifier="_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e"><nodename> <accent type="dot">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></nodename><nodenext automatic="on"> <dotless>i</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent></nodenext><nodeprev automatic="on"> <accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <accent type="dot">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></sectiontitle>
 
 </chapter>
-<node identifier="_0131-_1e14-_1e08" spaces=" "><nodename><dotless>i</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent></nodename><nodenext automatic="on">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</nodenext><nodeprev automatic="on"><accent type="dot">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><dotless>i</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent></sectiontitle>
+<node identifier="_0131-_1e14-_1e08"><nodename> <dotless>i</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent></nodename><nodenext automatic="on"> &ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</nodenext><nodeprev automatic="on"> <accent type="dot">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <dotless>i</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent></sectiontitle>
 
 </chapter>
-<node identifier="_201c-_201d-_2018-_2019-_201e-_201a" spaces=" "><nodename>&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</nodename><nodenext automatic="on">&laquo; &raquo; &guillemotleft; &guillemotright; &lsaquo; &rsaquo;</nodenext><nodeprev automatic="on"><dotless>i</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</sectiontitle>
+<node identifier="_201c-_201d-_2018-_2019-_201e-_201a"><nodename> &ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</nodename><nodenext automatic="on"> &laquo; &raquo; &guillemotleft; &guillemotright; &lsaquo; &rsaquo;</nodenext><nodeprev automatic="on"> <dotless>i</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent></nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> &ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</sectiontitle>
 
 </chapter>
-<node identifier="_00ab-_00bb-_00ab-_00bb-_2039-_203a" spaces=" "><nodename>&laquo; &raquo; &guillemotleft; &guillemotright; &lsaquo; &rsaquo;</nodename><nodenext automatic="on">`` \'\' --- -- ` \'</nodenext><nodeprev automatic="on">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>&laquo; &raquo; &guillemotleft; &guillemotright; &lsaquo; &rsaquo;</sectiontitle>
+<node identifier="_00ab-_00bb-_00ab-_00bb-_2039-_203a"><nodename> &laquo; &raquo; &guillemotleft; &guillemotright; &lsaquo; &rsaquo;</nodename><nodenext automatic="on"> `` \'\' --- -- ` \'</nodenext><nodeprev automatic="on"> &ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> &laquo; &raquo; &guillemotleft; &guillemotright; &lsaquo; &rsaquo;</sectiontitle>
 
 </chapter>
-<node identifier="_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027" spaces=" "><nodename>`` \'\' --- -- ` \'</nodename><nodenext automatic="on"><acronym><acronymword>AAA</acronymword><acronymdesc> fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></nodenext><nodeprev automatic="on">&laquo; &raquo; &guillemotleft; &guillemotright; &lsaquo; &rsaquo;</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>&textldquo; &textrdquo; &textmdash; &textndash; &textlsquo; &textrsquo;</sectiontitle>
+<node identifier="_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027"><nodename> `` \'\' --- -- ` \'</nodename><nodenext automatic="on"> <acronym><acronymword>AAA</acronymword><acronymdesc> fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></nodenext><nodeprev automatic="on"> &laquo; &raquo; &guillemotleft; &guillemotright; &lsaquo; &rsaquo;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> &textldquo; &textrdquo; &textmdash; &textndash; &textlsquo; &textrsquo;</sectiontitle>
 
 </chapter>
-<node identifier="AAA-AAA-BBB" spaces=" "><nodename><acronym><acronymword>AAA</acronymword><acronymdesc> fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></nodename><nodenext automatic="on"><abbr><abbrword>CCC</abbrword><abbrdesc> rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></nodenext><nodeprev automatic="on">`` \'\' --- -- ` \'</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><acronym><acronymword>AAA</acronymword><acronymdesc> fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></sectiontitle>
+<node identifier="AAA-AAA-BBB"><nodename> <acronym><acronymword>AAA</acronymword><acronymdesc> fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></nodename><nodenext automatic="on"> <abbr><abbrword>CCC</abbrword><abbrdesc> rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></nodenext><nodeprev automatic="on"> `` \'\' --- -- ` \'</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <acronym><acronymword>AAA</acronymword><acronymdesc> fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></sectiontitle>
 
 </chapter>
-<node identifier="CCC-CCC-DDD" spaces=" "><nodename><abbr><abbrword>CCC</abbrword><abbrdesc> rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></nodename><nodenext automatic="on"><email><emailaddress>someone&arobase;somewher</emailaddress><emailname> the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></nodenext><nodeprev automatic="on"><acronym><acronymword>AAA</acronymword><acronymdesc> fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><abbr><abbrword>CCC</abbrword><abbrdesc> rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></sectiontitle>
+<node identifier="CCC-CCC-DDD"><nodename> <abbr><abbrword>CCC</abbrword><abbrdesc> rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></nodename><nodenext automatic="on"> <email><emailaddress>someone&arobase;somewher</emailaddress><emailname> the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></nodenext><nodeprev automatic="on"> <acronym><acronymword>AAA</acronymword><acronymdesc> fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <abbr><abbrword>CCC</abbrword><abbrdesc> rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></sectiontitle>
 
 </chapter>
-<node identifier="someone_0040somewher-no_005fexplain_0040there" spaces=" "><nodename><email><emailaddress>someone&arobase;somewher</emailaddress><emailname> the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></nodename><nodenext automatic="on"><image where="inline"><imagefile>f--ile1</imagefile></image>  <image where="inline"><imagefile>f--ile</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension>e--xt</imageextension></image></nodenext><nodeprev automatic="on"><abbr><abbrword>CCC</abbrword><abbrdesc> rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><email><emailaddress>someone&arobase;somewher</emailaddress><emailname> the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></sectiontitle>
+<node identifier="someone_0040somewher-no_005fexplain_0040there"><nodename> <email><emailaddress>someone&arobase;somewher</emailaddress><emailname> the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></nodename><nodenext automatic="on"> <image where="inline"><imagefile>f--ile1</imagefile></image>  <image where="inline"><imagefile>f--ile</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension>e--xt</imageextension></image></nodenext><nodeprev automatic="on"> <abbr><abbrword>CCC</abbrword><abbrdesc> rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <email><emailaddress>someone&arobase;somewher</emailaddress><emailname> the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></sectiontitle>
 
 </chapter>
-<node identifier="f_002d_002dile1-f_002d_002dile" spaces=" "><nodename><image where="inline"><imagefile>f--ile1</imagefile></image>  <image where="inline"><imagefile>f--ile</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension>e--xt</imageextension></image></nodename><nodenext automatic="on"><verb delimiter="."> @ {} . </verb></nodenext><nodeprev automatic="on"><email><emailaddress>someone&arobase;somewher</emailaddress><emailname> the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><image where="inline"><imagefile>f--ile1</imagefile></image>  <image where="inline"><imagefile>f--ile</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension>e--xt</imageextension></image></sectiontitle>
+<node identifier="f_002d_002dile1-f_002d_002dile"><nodename> <image where="inline"><imagefile>f--ile1</imagefile></image>  <image where="inline"><imagefile>f--ile</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension>e--xt</imageextension></image></nodename><nodenext automatic="on"> <verb delimiter="."> @ {} . </verb></nodenext><nodeprev automatic="on"> <email><emailaddress>someone&arobase;somewher</emailaddress><emailname> the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <image where="inline"><imagefile>f--ile1</imagefile></image>  <image where="inline"><imagefile>f--ile</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension>e--xt</imageextension></image></sectiontitle>
 
 </chapter>
-<node identifier="-_0040-_007b_007d-_002e-" spaces=" "><nodename><verb delimiter="."> @ {} . </verb></nodename><nodenext automatic="on"><cite>cite <asis>asis</asis></cite> <w>in &arobase;w <b>b</b></w> <r>in r</r> <sc>sc</sc> <strong>str</strong> <t>t</t> <var>var</var> <dfn>dfn</dfn> <i>i</i></nodenext><nodeprev automatic="on"><image where="inline"><imagefile>f--ile1</imagefile></image>  <image where="inline"><imagefile>f--ile</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension>e--xt</imageextension></image></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><verb delimiter="."> @ {} . </verb></sectiontitle>
+<node identifier="-_0040-_007b_007d-_002e-"><nodename> <verb delimiter="."> @ {} . </verb></nodename><nodenext automatic="on"> <cite>cite <asis>asis</asis></cite> <w>in &arobase;w <b>b</b></w> <r>in r</r> <sc>sc</sc> <strong>str</strong> <t>t</t> <var>var</var> <dfn>dfn</dfn> <i>i</i></nodenext><nodeprev automatic="on"> <image where="inline"><imagefile>f--ile1</imagefile></image>  <image where="inline"><imagefile>f--ile</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension>e--xt</imageextension></image></nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <verb delimiter="."> @ {} . </verb></sectiontitle>
 
 </chapter>
-<node identifier="cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i" spaces=" "><nodename><cite>cite <asis>asis</asis></cite> <w>in &arobase;w <b>b</b></w> <r>in r</r> <sc>sc</sc> <strong>str</strong> <t>t</t> <var>var</var> <dfn>dfn</dfn> <i>i</i></nodename><nodenext automatic="on"><env>env</env> <code>code</code> <option>option</option> <samp>samp</samp> <command>command</command> <file>file</file> <kbd>C-x <key>ESC</key></kbd></nodenext><nodeprev automatic="on"><verb delimiter="."> @ {} . </verb></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><cite>cite <asis>asis</asis></cite> <w>in &arobase;w <b>b</b></w> <r>in r</r> <sc>sc</sc> <strong>str</strong> <t>t</t> <var>var</var> <dfn>dfn</dfn> <i>i</i></sectiontitle>
+<node identifier="cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i"><nodename> <cite>cite <asis>asis</asis></cite> <w>in &arobase;w <b>b</b></w> <r>in r</r> <sc>sc</sc> <strong>str</strong> <t>t</t> <var>var</var> <dfn>dfn</dfn> <i>i</i></nodename><nodenext automatic="on"> <env>env</env> <code>code</code> <option>option</option> <samp>samp</samp> <command>command</command> <file>file</file> <kbd>C-x <key>ESC</key></kbd></nodenext><nodeprev automatic="on"> <verb delimiter="."> @ {} . </verb></nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <cite>cite <asis>asis</asis></cite> <w>in &arobase;w <b>b</b></w> <r>in r</r> <sc>sc</sc> <strong>str</strong> <t>t</t> <var>var</var> <dfn>dfn</dfn> <i>i</i></sectiontitle>
 
 </chapter>
-<node identifier="env-code-option-samp-command-file-C_002dx-ESC" spaces=" "><nodename><env>env</env> <code>code</code> <option>option</option> <samp>samp</samp> <command>command</command> <file>file</file> <kbd>C-x <key>ESC</key></kbd></nodename><nodenext automatic="on">8.27<dmn>in</dmn></nodenext><nodeprev automatic="on"><cite>cite <asis>asis</asis></cite> <w>in &arobase;w <b>b</b></w> <r>in r</r> <sc>sc</sc> <strong>str</strong> <t>t</t> <var>var</var> <dfn>dfn</dfn> <i>i</i></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><env>env</env> <code>code</code> <option>option</option> <samp>samp</samp> <command>command</command> <file>file</file> <kbd>C-x <key>ESC</key></kbd></sectiontitle>
+<node identifier="env-code-option-samp-command-file-C_002dx-ESC"><nodename> <env>env</env> <code>code</code> <option>option</option> <samp>samp</samp> <command>command</command> <file>file</file> <kbd>C-x <key>ESC</key></kbd></nodename><nodenext automatic="on"> 8.27<dmn>in</dmn></nodenext><nodeprev automatic="on"> <cite>cite <asis>asis</asis></cite> <w>in &arobase;w <b>b</b></w> <r>in r</r> <sc>sc</sc> <strong>str</strong> <t>t</t> <var>var</var> <dfn>dfn</dfn> <i>i</i></nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <env>env</env> <code>code</code> <option>option</option> <samp>samp</samp> <command>command</command> <file>file</file> <kbd>C-x <key>ESC</key></kbd></sectiontitle>
 
 </chapter>
-<node identifier="8_002e27in" spaces=" "><nodename>8.27<dmn>in</dmn></nodename><nodenext automatic="on"><sansserif>sansserif</sansserif> <slanted>slanted</slanted></nodenext><nodeprev automatic="on"><env>env</env> <code>code</code> <option>option</option> <samp>samp</samp> <command>command</command> <file>file</file> <kbd>C-x <key>ESC</key></kbd></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>8.27<dmn>in</dmn></sectiontitle>
+<node identifier="8_002e27in"><nodename> 8.27<dmn>in</dmn></nodename><nodenext automatic="on"> <sansserif>sansserif</sansserif> <slanted>slanted</slanted></nodenext><nodeprev automatic="on"> <env>env</env> <code>code</code> <option>option</option> <samp>samp</samp> <command>command</command> <file>file</file> <kbd>C-x <key>ESC</key></kbd></nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> 8.27<dmn>in</dmn></sectiontitle>
 
 </chapter>
-<node identifier="sansserif-slanted" spaces=" "><nodename><sansserif>sansserif</sansserif> <slanted>slanted</slanted></nodename><nodenext automatic="on"><indicateurl>indicateurl</indicateurl></nodenext><nodeprev automatic="on">8.27<dmn>in</dmn></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><sansserif>sansserif</sansserif> <slanted>slanted</slanted></sectiontitle>
+<node identifier="sansserif-slanted"><nodename> <sansserif>sansserif</sansserif> <slanted>slanted</slanted></nodename><nodenext automatic="on"> <indicateurl>indicateurl</indicateurl></nodenext><nodeprev automatic="on"> 8.27<dmn>in</dmn></nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <sansserif>sansserif</sansserif> <slanted>slanted</slanted></sectiontitle>
 
 </chapter>
-<node identifier="indicateurl" spaces=" "><nodename><indicateurl>indicateurl</indicateurl></nodename><nodenext automatic="on"><sub>g</sub>H 3<sup>rd</sup></nodenext><nodeprev automatic="on"><sansserif>sansserif</sansserif> <slanted>slanted</slanted></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><indicateurl>indicateurl</indicateurl></sectiontitle>
+<node identifier="indicateurl"><nodename> <indicateurl>indicateurl</indicateurl></nodename><nodenext automatic="on"> <sub>g</sub>H 3<sup>rd</sup></nodenext><nodeprev automatic="on"> <sansserif>sansserif</sansserif> <slanted>slanted</slanted></nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <indicateurl>indicateurl</indicateurl></sectiontitle>
 
 </chapter>
-<node identifier="gH-3rd" spaces=" "><nodename><sub>g</sub>H 3<sup>rd</sup></nodename><nodenext automatic="on"><url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></nodenext><nodeprev automatic="on"><indicateurl>indicateurl</indicateurl></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><sub>g</sub>H 3<sup>rd</sup></sectiontitle>
+<node identifier="gH-3rd"><nodename> <sub>g</sub>H 3<sup>rd</sup></nodename><nodenext automatic="on"> <url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></nodenext><nodeprev automatic="on"> <indicateurl>indicateurl</indicateurl></nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <sub>g</sub>H 3<sup>rd</sup></sectiontitle>
 
 </chapter>
-<node identifier="http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" spaces=" "><nodename><url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></nodename><nodeprev automatic="on"><sub>g</sub>H 3<sup>rd</sup></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></sectiontitle>
+<node identifier="http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls"><nodename> <url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></nodename><nodeprev automatic="on"> <sub>g</sub>H 3<sup>rd</sup></nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> <url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></sectiontitle>
 
 <para><ref label="-_007b-_007d"><xrefnodename>&hyphenbreak; &lbrace; &rbrace;</xrefnodename></ref>
 </para>

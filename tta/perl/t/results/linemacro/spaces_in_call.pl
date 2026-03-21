@@ -17,16 +17,12 @@ $result_tree_text{'spaces_in_call'} = '*document_root C1
    {raw:@defline category \\first\\ A \\second\\ B \\rest\\\\n}
    {raw:@end defblock\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{linemacro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {linemacro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
@@ -35,14 +31,9 @@ $result_tree_text{'spaces_in_call'} = '*document_root C1
      >{macro_call_arg_text:{a b}{c d}{rest}}
   *@defblock C3 l7:@mylinecommand
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@defline C1 l7:@mylinecommand
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |def_command:{defline}
    |def_index_element:
@@ -55,10 +46,8 @@ $result_tree_text{'spaces_in_call'} = '*document_root C1
       |*bracketed_arg C1
        |{rest}
    |original_def_cmdname:{defline}
-    *line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {category}
@@ -79,19 +68,16 @@ $result_tree_text{'spaces_in_call'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {B}
+     {spaces_after_argument: \\n}
    *@end C1 l7:@mylinecommand
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defblock}
      >SOURCEMARKS
      >linemacro_expansion<end;1><p:8>
+     {spaces_after_argument:\\n}
 ';
 
 

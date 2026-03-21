@@ -12,103 +12,71 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
   {empty_line:\\n}
   *@quotation C4 l3
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: \\n}
+    *block_line_arg C1
+     {spaces_before_argument: \\n}
    *@author C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {Some One}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {A quot---ation\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Text between quotation and smallquotation\\n}
   {empty_line:\\n}
   *@smallquotation C4 l10
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@author C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{2}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {An Author Name}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {in small---quotation.\\n}
    *@end C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{smallquotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {smallquotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C4 l15
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {Note}
+     {spaces_after_argument:\\n}
    *@author C1 l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{3}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {Some Notifier}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {A Note\\n}
    *@end C1 l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -198,19 +166,19 @@ $result_converted{'html_text'}->{'quotation_and_author'} = '<p>Text before quota
 $result_converted{'xml'}->{'quotation_and_author'} = '<para>Text before quotation
 </para>
 <quotation endspaces=" "> 
-<author spaces=" ">Some One</author>
+<author> Some One</author>
 <para>A quot&textmdash;ation
 </para></quotation>
 
 <para>Text between quotation and smallquotation
 </para>
 <smallquotation endspaces=" ">
-<author spaces=" ">An Author Name</author>
+<author> An Author Name</author>
 <para>in small&textmdash;quotation.
 </para></smallquotation>
 
-<quotation spaces=" " endspaces=" "><quotationtype>Note</quotationtype>
-<author spaces=" ">Some Notifier</author>
+<quotation endspaces=" "><quotationtype> Note</quotationtype>
+<author> Some Notifier</author>
 <para>A Note
 </para></quotation>
 ';

@@ -8,243 +8,192 @@ use utf8;
 $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
  *before_node_section C2
   *@settitle C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C2
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:settittle}
+   *line_arg C4
+    {spaces_before_argument: }
     {Settitle }
     *@ 
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:settittle}
   {empty_line:\\n}
  *@node C1 l3 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@comment C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:@node Top}
-   |spaces_after_argument:
-    |{spaces_after_argument:  }
+   *line_arg C4
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:  }
+    *@comment C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:@node Top}
  *@top C2 l4 {top element@ }
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |comment_at_end:
-    |*@comment C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:@top}
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *line_arg C5
+    {spaces_before_argument: }
     {top element}
     *@ 
+    {spaces_after_argument: }
+    *@comment C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:@top}
   {empty_line:\\n}
  *@node C1 l6 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@comment C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:@node chap}
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *line_arg C4
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument: }
+    *@comment C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:@node chap}
  *@chapter C16 l7 {Chapter@ }
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |comment_at_end:
-    |*@comment C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:@chapter}
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *line_arg C5
+    {spaces_before_argument: }
     {Chapter}
     *@ 
+    {spaces_after_argument: }
+    *@comment C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:@chapter}
   {empty_line:\\n}
   *@frenchspacing C1 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{on}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:comment frenchspacing}
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *line_arg C4
+    {spaces_before_argument: }
     {on}
+    {spaces_after_argument: }
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:comment frenchspacing}
   {empty_line:\\n}
   *@microtype C1 l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{off}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:comment microtype}
+   *line_arg C3
+    {spaces_before_argument: }
     {off}
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:comment microtype}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,1}
-   *line_arg C2
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:index entry}
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *line_arg C5
+    {spaces_before_argument: }
     {index entry }
     *@ 
+    {spaces_after_argument: }
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:index entry}
   {empty_line:\\n}
   *@heading C1 l15
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
-   *line_arg C2
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:heading}
-   |spaces_after_argument:
-    |{spaces_after_argument:    }
+   *line_arg C5
+    {spaces_before_argument: }
     {Heading }
     *@ 
+    {spaces_after_argument:    }
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:heading}
   {empty_line:\\n}
   *@printindex C1 l17
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:printindex }
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *line_arg C4
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument: }
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:printindex }
   {empty_line:\\n}
   *@float C3 l19
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1.1}
   |float_type:{Text}
@@ -252,60 +201,49 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
   |identifier:{label}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {label}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {float\\n}
    *@end C1 l21
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |comment_at_end:
-     |*@c C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:end}
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *line_arg C4
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument: }
+     *@c C1
+     |INFO
+     |spaces_before_argument:
+      |{spaces_before_argument: }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:end}
   {empty_line:\\n}
   *@listoffloats C1 l23
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Text  }
   |global_command_number:{1}
-   *line_arg C2
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:listoffloats}
+   *line_arg C4
+    {spaces_before_argument: }
     {Text }
     *@ 
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:listoffloats}
   {empty_line:\\n}
  *@bye C1
  |INFO
@@ -664,30 +602,30 @@ End:
 ';
 
 
-$result_converted{'xml'}->{'comment_space_command_on_line'} = '<settitle spaces=" ">Settitle <spacecmd type="spc"/></settitle><!-- c settittle -->
+$result_converted{'xml'}->{'comment_space_command_on_line'} = '<settitle> Settitle <spacecmd type="spc"/></settitle><!-- c settittle -->
 
-<node identifier="Top" spaces=" "><nodename trailingspaces="  ">Top</nodename><nodenext automatic="on">chap</nodenext></node><!-- comment @node Top -->
-<top spaces=" "><sectiontitle>top element<spacecmd type="spc"/> </sectiontitle><!-- comment @top -->
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node><!-- comment @node Top -->
+<top><sectiontitle> top element<spacecmd type="spc"/> </sectiontitle><!-- comment @top -->
 
 </top>
-<node identifier="chap" spaces=" "><nodename trailingspaces=" ">chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node><!-- comment @node chap -->
-<chapter spaces=" "><sectiontitle>Chapter<spacecmd type="spc"/> </sectiontitle><!-- comment @chapter -->
+<node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node><!-- comment @node chap -->
+<chapter><sectiontitle> Chapter<spacecmd type="spc"/> </sectiontitle><!-- comment @chapter -->
 
-<frenchspacing spaces=" " value="on" line="on @c comment frenchspacing"></frenchspacing><!-- c comment frenchspacing -->
+<frenchspacing value="on" line=" on @c comment frenchspacing"></frenchspacing><!-- c comment frenchspacing -->
 
-<microtype spaces=" " value="off" line="off@c comment microtype"></microtype><!-- c comment microtype -->
+<microtype value="off" line=" off@c comment microtype"></microtype><!-- c comment microtype -->
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry <spacecmd type="spc"/></indexterm></cindex> <!-- c index entry -->
+<cindex index="cp"> <indexterm index="cp" number="1">index entry <spacecmd type="spc"/></indexterm></cindex><!-- c index entry -->
 
-<heading spaces=" ">Heading <spacecmd type="spc"/>    </heading><!-- c heading -->
+<heading> Heading <spacecmd type="spc"/>    </heading><!-- c heading -->
 
-<printindex spaces=" " value="cp" line="cp @c printindex "></printindex><!-- c printindex  -->
+<printindex value="cp" line=" cp @c printindex "></printindex><!-- c printindex  -->
 
-<float identifier="label" type="Text" number="1.1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">label</floatname>
+<float identifier="label" type="Text" number="1.1" endspaces=" "><floattype> Text</floattype><floatname> label</floatname>
 <para>float
 </para></float> <!-- c end -->
 
-<listoffloats type="Text  " spaces=" ">Text <spacecmd type="spc"/></listoffloats><!-- c listoffloats -->
+<listoffloats type="Text  "> Text <spacecmd type="spc"/></listoffloats><!-- c listoffloats -->
 
 </chapter>
 <bye spaces=" "></bye><!-- c bye -->

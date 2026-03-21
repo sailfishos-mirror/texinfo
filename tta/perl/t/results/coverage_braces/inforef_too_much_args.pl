@@ -8,19 +8,15 @@ use utf8;
 $result_tree_text{'inforef_too_much_args'} = '*document_root C2
  *before_node_section
  *@node C3 l1 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@inforef C3 l3

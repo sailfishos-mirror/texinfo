@@ -9,10 +9,8 @@ $result_tree_text{'tex_not_closed'} = '*document_root C1
  *before_node_section C1
   *@tex C2 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *rawpreformatted C2
     {empty_line:\\n}
     {This is some \\LaTeX{}\\n}

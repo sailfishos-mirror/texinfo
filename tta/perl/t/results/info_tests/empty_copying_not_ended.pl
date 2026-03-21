@@ -10,10 +10,8 @@ $result_tree_text{'empty_copying_not_ended'} = '*document_root C1
   {empty_line:\\n}
   *@copying C1 l2
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
 ';
 
 

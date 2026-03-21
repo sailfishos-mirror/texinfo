@@ -22,27 +22,19 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
     |{spaces_after_argument:\\n}
     {Top}
  *@top C3 l1 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   *@nodedescription C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {D1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {Chap}
  |INFO
@@ -59,19 +51,15 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
     |{spaces_after_argument:\\n}
     {Chap}
  *@chapter C2 l4 {Chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {Sec}
  |INFO
@@ -88,37 +76,25 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
     |{spaces_after_argument:\\n}
     {Sec}
  *@section C4 l6 {Sec}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Sec}
+    {spaces_after_argument:\\n}
   *@nodedescription C1 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {D2}
+    {spaces_after_argument:\\n}
   *@nodedescription C1 l8
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {D3}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {Subsec}
  |INFO
@@ -135,19 +111,15 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
     |{spaces_after_argument:\\n}
     {Subsec}
  *@subsection C2 l10 {Subsec}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Subsec}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

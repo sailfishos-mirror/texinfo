@@ -9,10 +9,8 @@ $result_tree_text{'second_level_lone_braces_in_html'} = '*document_root C1
  *before_node_section C3
   *@html C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *rawpreformatted C3
     {{a}
     *@code C1 l2
@@ -22,23 +20,17 @@ $result_tree_text{'second_level_lone_braces_in_html'} = '*document_root C1
        {}}
     {\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {html}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@html C3 l6
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *rawpreformatted C3
     {{b}
     *@code C1 l7
@@ -49,16 +41,12 @@ $result_tree_text{'second_level_lone_braces_in_html'} = '*document_root C1
       {\\n}
     {\\n}
    *@end C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {html}
+     {spaces_after_argument:\\n}
 ';
 
 

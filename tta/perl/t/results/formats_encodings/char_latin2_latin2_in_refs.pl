@@ -12,47 +12,35 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
    {text_before_beginning:\\n}
   *preamble_before_content C2
    *@documentencoding C1 char_latin2_latin2_in_refs.texi:l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{iso-8859-2}
    |text_arg:{ISO-8859-2}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {ISO-8859-2}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 char_latin2_latin2_in_refs.texi:l5 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |isindex:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C9 char_latin2_latin2_in_refs.texi:l6 {char latin2 latin2 in refs}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {char latin2 latin2 in refs}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 char_latin2_latin2_in_refs.texi:l8
@@ -64,17 +52,13 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
    {.\\n}
   {empty_line:\\n}
   *@printindex C1 char_latin2_latin2_in_refs.texi:l10
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@c C1
   |INFO
@@ -87,10 +71,8 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
     {rawline_text:Aogonek(0xa1=0241) aogonek(0xb1=0261) standalone ogonek(0xca=0312) Eogonek(0xea=0352) eogonek}
   *@menu C3 char_latin2_latin2_in_refs.texi:l13
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 char_latin2_latin2_in_refs.texi:l14
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -103,58 +85,42 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
      *preformatted C1
       {\\n}
    *@end C1 char_latin2_latin2_in_refs.texi:l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 char_latin2_latin2_in_refs.texi:l17 {Ą ą ˛ Ę ę}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_0104-_0105-_02db-_0118-_0119}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Ą ą ˛ Ę ę}
+    {spaces_after_argument:\\n}
  *@chapter C4 char_latin2_latin2_in_refs.texi:l18 {Ą ą ˛ Ę ę}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Ą ą ˛ Ę ę}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 char_latin2_latin2_in_refs.texi:l20
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{_0104-_0105-_02db-_0118-_0119}
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Ą ą ˛ Ę ę}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
   *line_arg

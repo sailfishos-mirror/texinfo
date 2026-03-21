@@ -8,15 +8,11 @@ use utf8;
 $result_tree_text{'asis_as_itemize_argument'} = '*document_root C1
  *before_node_section C1
   *@itemize C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l1
+     {spaces_after_argument:\\n}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -24,16 +20,12 @@ $result_tree_text{'asis_as_itemize_argument'} = '*document_root C1
     *paragraph C1
      {as is\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -70,7 +62,7 @@ $result_converted{'html_text'}->{'asis_as_itemize_argument'} = '<ul class="itemi
 ';
 
 
-$result_converted{'xml'}->{'asis_as_itemize_argument'} = '<itemize commandarg="asis" spaces=" " endspaces=" ">
+$result_converted{'xml'}->{'asis_as_itemize_argument'} = '<itemize commandarg="asis" endspaces=" "><itemprepend> </itemprepend>
 <listitem><prepend></prepend> <para>as is
 </para></listitem></itemize>
 ';

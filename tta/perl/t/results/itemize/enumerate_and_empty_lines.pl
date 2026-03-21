@@ -9,10 +9,8 @@ $result_tree_text{'enumerate_and_empty_lines'} = '*document_root C1
  *before_node_section C3
   *@enumerate C8 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -25,25 +23,19 @@ $result_tree_text{'enumerate_and_empty_lines'} = '*document_root C1
     {ignorable_spaces_after_command: \\n}
     *@example C3 l4
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *preformatted C3
       {In example\\n}
       {empty_line:\\n}
       {end example.\\n}
      *@end C1 l8
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {example}
+       {spaces_after_argument:\\n}
    *@item C3 l9
    |EXTRA
    |item_number:{3}
@@ -58,46 +50,34 @@ $result_tree_text{'enumerate_and_empty_lines'} = '*document_root C1
     {empty_line:\\n}
     *@example C3 l14
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *preformatted C1
       {In second example\\n}
      *@end C1 l16
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{example}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {example}
+       {spaces_after_argument:\\n}
    *@item C3 l17
    |EXTRA
    |item_number:{5}
     {ignorable_spaces_after_command: \\n}
     *@quotation C3 l18
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *paragraph C1
       {Quotation\\n}
      *@end C1 l20
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{quotation}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {quotation}
+       {spaces_after_argument:\\n}
     {empty_line:\\n}
    *@item C3 l22
    |EXTRA
@@ -106,41 +86,29 @@ $result_tree_text{'enumerate_and_empty_lines'} = '*document_root C1
     {empty_line:\\n}
     *@quotation C3 l24
      *arguments_line C1
-      *block_line_arg
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
      *paragraph C1
       {quotation after a blank line\\n}
      *@end C1 l26
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{quotation}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {quotation}
+       {spaces_after_argument:\\n}
    *@end C1 l27
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {enumerate}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@enumerate C3 l29
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@item C2 l30
    |EXTRA
    |item_number:{1}
@@ -148,16 +116,12 @@ $result_tree_text{'enumerate_and_empty_lines'} = '*document_root C1
     *paragraph C1
      {aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa fffffffff ggggggggg vvvvvvvvv ggggggggg h\\n}
    *@end C1 l31
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {enumerate}
+     {spaces_after_argument:\\n}
 ';
 
 

@@ -1977,7 +1977,7 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                 /* @heading* commands */
                 line_arg = command->e.c->contents.list[0];
 
-              if (line_arg->e.c->contents.number > 0)
+              if (! empty_spaces_argument (line_arg))
                 {
                   const char *section_number;
                   section_number
@@ -9028,6 +9028,8 @@ html_convert_itemize_command (CONVERTER *self, const enum command_id cmd,
 
   if (prepended_element)
     {
+      /* NOTE cannot be text, only commands and block_line_arg, but
+         it is ok to be more robust */
       if (!(type_data[prepended_element->type].flags & TF_text))
         {
           if (prepended_element->e.c->cmd == CM_w)
@@ -9088,6 +9090,8 @@ html_convert_enumerate_command (CONVERTER *self, const enum command_id cmd,
                                 const HTML_ARGS_FORMATTED *args_formatted,
                                 const char *content, TEXT *result)
 {
+  int surplus_arg;
+  const TEXT *arg_text;
   STRING_LIST *classes;
   char *attribute_class;
   const ELEMENT *arguments_line;
@@ -9113,16 +9117,15 @@ html_convert_enumerate_command (CONVERTER *self, const enum command_id cmd,
   arguments_line = element->e.c->contents.list[0];
   block_line_arg = arguments_line->e.c->contents.list[0];
 
-  if (block_line_arg->e.c->contents.number
-      && type_data[block_line_arg->e.c->contents.list[0]->type].flags & TF_text)
+  arg_text = simple_arg_text (block_line_arg, &surplus_arg);
+
+  if (arg_text)
     {
-      const char *specification
-         = block_line_arg->e.c->contents.list[0]->e.text->text;
+      const char *specification = arg_text->text;
       int use_start = 1;
       unsigned int start = 0;
       const char *type = 0;
-      size_t specification_len = strlen (specification);
-      if (specification_len == 1 && isascii_alpha (*specification))
+      if (arg_text->end == 1 && isascii_alpha (*specification))
         {
           if (isascii_lower (*specification))
             {
@@ -9138,7 +9141,7 @@ html_convert_enumerate_command (CONVERTER *self, const enum command_id cmd,
       else
         {
           use_start = 0;
-          if (specification_len > 0)
+          if (arg_text->end > 0)
             {
               const char *p = specification;
               int only_digits = 1;
@@ -9552,7 +9555,7 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
   else if (element->e.c->contents.number > 0
            && element->e.c->contents.list[0]->type == ET_line_arg)
     {
-      if (element->e.c->contents.list[0]->e.c->contents.number > 0)
+      if (! empty_spaces_argument (element->e.c->contents.list[0]))
         {
           ELEMENT *converted_e;
           TREE_ADDED_ELEMENTS *tree;
@@ -11289,7 +11292,7 @@ html_open_quotation_command (CONVERTER *self, const enum command_id cmd,
   const ELEMENT *arguments_line = element->e.c->contents.list[0];
   ELEMENT *block_line_args = arguments_line->e.c->contents.list[0];
 
-  if (block_line_args->e.c->contents.number > 0)
+  if (! empty_spaces_argument (block_line_args))
     {
       ELEMENT *tree;
       char *explanation;

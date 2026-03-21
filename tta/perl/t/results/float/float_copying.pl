@@ -10,15 +10,10 @@ $result_tree_text{'float_copying'} = '*document_root C5
   *preamble_before_content C2
    *@copying C4 l1
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     {empty_line:\\n}
     *@float C7 l3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |float_number:{1}
     |float_type:{Copyright notice}
@@ -26,15 +21,13 @@ $result_tree_text{'float_copying'} = '*document_root C5
     |identifier:{public-domain}
     |is_target:{1}
      *arguments_line C2
-      *block_line_arg C1
+      *block_line_arg C2
+       {spaces_before_argument: }
        {Copyright notice}
-      *block_line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *block_line_arg C3
+       {spaces_before_argument: }
        {public domain}
+       {spaces_after_argument:\\n}
      {empty_line:\\n}
      *paragraph C2
       {Public domain is not really a licence, as it means than\\n}
@@ -64,29 +57,21 @@ $result_tree_text{'float_copying'} = '*document_root C5
            {spaces_after_close_brace:\\n}
           {empty_line:\\n}
           *index_entry_command@cindex C1 l12
-          |INFO
-          |spaces_before_argument:
-           |{spaces_before_argument: }
           |EXTRA
           |element_region:{copying}
           |index_entry:I{cp,1}
-           *line_arg C1
-           |INFO
-           |spaces_after_argument:
-            |{spaces_after_argument:\\n}
+           *line_arg C3
+            {spaces_before_argument: }
             {indexed caption copying footnote}
+            {spaces_after_argument:\\n}
           *index_entry_command@findex C1 l13
-          |INFO
-          |spaces_before_argument:
-           |{spaces_before_argument: }
           |EXTRA
           |element_region:{copying}
           |index_entry:I{fn,1}
-           *line_arg C1
-           |INFO
-           |spaces_after_argument:
-            |{spaces_after_argument:\\n}
+           *line_arg C3
+            {spaces_before_argument: }
             {public domain function}
+            {spaces_after_argument:\\n}
           {empty_line:\\n}
           *paragraph C3
            {see }
@@ -110,80 +95,56 @@ $result_tree_text{'float_copying'} = '*document_root C5
          {public domain anchor}
        {spaces_after_close_brace:\\n}
        *index_entry_command@cindex C1 l20
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |element_region:{copying}
        |index_entry:I{cp,2}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {indexed caption}
+         {spaces_after_argument:\\n}
        *index_entry_command@findex C1 l21
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
        |EXTRA
        |element_region:{copying}
        |index_entry:I{fn,2}
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {indexed caption function}
+         {spaces_after_argument:\\n}
      {spaces_after_close_brace:\\n}
      *@end C1 l23
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |text_arg:{float}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {float}
+       {spaces_after_argument:\\n}
     *@end C1 l24
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {copying}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l26 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C6 l27 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@insertcopying C1 l29
   |EXTRA
@@ -195,10 +156,8 @@ $result_tree_text{'float_copying'} = '*document_root C5
   {empty_line:\\n}
   *@menu C3 l31
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l32
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -211,46 +170,34 @@ $result_tree_text{'float_copying'} = '*document_root C5
      *preformatted C1
       {\\n}
    *@end C1 l33
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l35 {Copying and floats}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Copying-and-floats}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Copying and floats}
+    {spaces_after_argument:\\n}
  *@appendix C9 l36 {Copying and floats}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Copying and floats}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@insertcopying C1 l38
   |EXTRA
@@ -268,42 +215,30 @@ $result_tree_text{'float_copying'} = '*document_root C5
     |{spaces_after_argument:\\n}
   {empty_line:\\n}
   *@listoffloats C1 l41
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{Copyright notice}
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Copyright notice}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l43
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   *@printindex C1 l44
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {fn}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -773,7 +708,7 @@ the author abandon his copyright.
 
 $result_converted{'xml'}->{'float_copying'} = '<copying endspaces=" ">
 
-<float identifier="public-domain" type="Copyright notice" number="1" spaces=" " endspaces=" "><floattype>Copyright notice</floattype><floatname spaces=" ">public domain</floatname>
+<float identifier="public-domain" type="Copyright notice" number="1" endspaces=" "><floattype> Copyright notice</floattype><floatname> public domain</floatname>
 
 <para>Public domain is not really a licence, as it means than
 the author abandon his copyright.
@@ -781,22 +716,22 @@ the author abandon his copyright.
 <caption><para>The Public Domain notice<footnote spaces="\\n"><para>The caption copying footnote
 <anchor identifier="caption-copying-footnote-anchor">caption copying footnote anchor</anchor>
 </para>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">indexed caption copying footnote</indexterm></cindex>
-<findex index="fn" spaces=" "><indexterm index="fn" number="1">public domain function</indexterm></findex>
+<cindex index="cp"> <indexterm index="cp" number="1">indexed caption copying footnote</indexterm></cindex>
+<findex index="fn"> <indexterm index="fn" number="1">public domain function</indexterm></findex>
 
 <para>see <ref label="Copying-and-floats"><xrefnodename>Copying and floats</xrefnodename></ref>.
 </para>
 </footnote>
 </para>
 <anchor identifier="public-domain-anchor">public domain anchor</anchor>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="2">indexed caption</indexterm></cindex>
-<findex index="fn" spaces=" "><indexterm index="fn" number="2">indexed caption function</indexterm></findex>
+<cindex index="cp"> <indexterm index="cp" number="2">indexed caption</indexterm></cindex>
+<findex index="fn"> <indexterm index="fn" number="2">indexed caption function</indexterm></findex>
 </caption>
 </float>
 </copying>
 
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">Copying and floats</nodenext></node>
-<top spaces=" "><sectiontitle>Top</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> Copying and floats</nodenext></node>
+<top><sectiontitle> Top</sectiontitle>
 
 <insertcopying></insertcopying>
 
@@ -805,16 +740,16 @@ the author abandon his copyright.
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node identifier="Copying-and-floats" spaces=" "><nodename>Copying and floats</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<appendix spaces=" "><sectiontitle>Copying and floats</sectiontitle>
+<node identifier="Copying-and-floats"><nodename> Copying and floats</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<appendix><sectiontitle> Copying and floats</sectiontitle>
 
 <insertcopying></insertcopying>
 <insertcopying></insertcopying>
 
-<listoffloats type="Copyright notice" spaces=" ">Copyright notice</listoffloats>
+<listoffloats type="Copyright notice"> Copyright notice</listoffloats>
 
-<printindex spaces=" " value="cp" line="cp"></printindex>
-<printindex spaces=" " value="fn" line="fn"></printindex>
+<printindex value="cp" line=" cp"></printindex>
+<printindex value="fn" line=" fn"></printindex>
 </appendix>
 ';
 

@@ -206,10 +206,10 @@ sub _convert($$) {
       $result .= _convert($self, $content);
       if (exists($content->{'type'})
           and $content->{'type'} eq 'block_line_arg'
-          and exists($content->{'info'})
-          and exists($content->{'info'}->{'spaces_after_argument'})
           and $result =~ /\S/) {
-        $result .= $content->{'info'}->{'spaces_after_argument'}->{'text'};
+        my ($end_spaces, $end_line, $end_comment)
+           = $self->comment_end_line_end_space($content);
+        $result .= $end_spaces . $end_line;
       }
     }
   }

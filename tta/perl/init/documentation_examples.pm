@@ -164,9 +164,9 @@ sub _set_appendix_direction_node_name {
         my $node = $node_relations->{'element'};
         my $label_element = Texinfo::Common::get_label_element($node);
         if (defined($label_element)) {
-          my $node_name = Texinfo::Convert::Texinfo::convert_to_texinfo(
-                            Texinfo::TreeElement::new(
-                              {'contents' => $label_element->{'contents'}}));
+          my $node_name
+           = Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                                            $label_element);
           $self->set_global_direction('Appendix', $node_name);
         }
       }

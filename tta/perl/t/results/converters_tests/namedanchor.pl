@@ -8,32 +8,24 @@ use utf8;
 $result_tree_text{'namedanchor'} = '*document_root C11
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C5 l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@namedanchor C2 l4
   |EXTRA
@@ -49,32 +41,23 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
  *@node C1 l6 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
  *@chapter C12 l7 {chapter @namedanchor{Not here!, There} after}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C4
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C6
+    {spaces_before_argument: }
     {chapter }
     *@namedanchor C2 l7
     |EXTRA
@@ -87,6 +70,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
       {There}
     {spaces_after_close_brace: }
     {after}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@namedanchor C1 l9
   |EXTRA
@@ -124,46 +108,34 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
  *@node C1 l17 {secc1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{secc1}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {secc1}
+    {spaces_after_argument:\\n}
  *@section C16 l18 {secc1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {secc1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@xrefautomaticsectiontitle C1 l20
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{off}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {off}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C6
    *@xref C1 l22
@@ -230,17 +202,13 @@ $result_tree_text{'namedanchor'} = '*document_root C11
    {\\n}
   {empty_line:\\n}
   *@xrefautomaticsectiontitle C1 l30
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{on}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {on}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C6
    *@xref C1 l32
@@ -323,40 +291,30 @@ $result_tree_text{'namedanchor'} = '*document_root C11
    {\\n}
   {empty_line:\\n}
  *@node C1 l43 {chap1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap1}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap1}
+    {spaces_after_argument:\\n}
  *@chapter C4 l44 {chap1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C8 l46
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l47
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -424,45 +382,33 @@ $result_tree_text{'namedanchor'} = '*document_root C11
      *preformatted C1
       {\\n}
    *@end C1 l53
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l55 {secc2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{secc2}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {secc2}
+    {spaces_after_argument:\\n}
  *@section C1 l56 {Secc2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Secc2}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -767,14 +713,14 @@ See <a class="xref" href="#Not-here_0021">There</a>
 ';
 
 
-$result_converted{'xml'}->{'namedanchor'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+$result_converted{'xml'}->{'namedanchor'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 <namedanchor><anchoridentifier identifier="in-Top">in Top</anchoridentifier><anchorname> <emph>n in Top</emph></anchorname></namedanchor>
 
 </top>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodenext automatic="on">chap1</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chapter <namedanchor><anchoridentifier identifier="Not-here_0021">Not here!</anchoridentifier><anchorname> There</anchorname></namedanchor> after</sectiontitle>
+<node identifier="chap"><nodename> chap</nodename><nodenext automatic="on"> chap1</nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> chapter <namedanchor><anchoridentifier identifier="Not-here_0021">Not here!</anchoridentifier><anchorname> There</anchorname></namedanchor> after</sectiontitle>
 
 <namedanchor><anchoridentifier identifier="in-chap-no-name">in chap no name</anchoridentifier></namedanchor>
 <namedanchor><anchoridentifier identifier="in-chap-empty-name">in chap empty name</anchoridentifier><anchorname> </anchorname></namedanchor>
@@ -784,10 +730,10 @@ $result_converted{'xml'}->{'namedanchor'} = '<node identifier="Top" spaces=" "><
 </para>
 <namedanchor><anchoridentifier identifier="normal">normal</anchoridentifier><anchorname> here we are</anchorname></namedanchor>
 
-<node identifier="secc1" spaces=" "><nodename>secc1</nodename><nodeup automatic="on">chap</nodeup></node>
-<section spaces=" "><sectiontitle>secc1</sectiontitle>
+<node identifier="secc1"><nodename> secc1</nodename><nodeup automatic="on"> chap</nodeup></node>
+<section><sectiontitle> secc1</sectiontitle>
 
-<xrefautomaticsectiontitle spaces=" " value="off" line="off"></xrefautomaticsectiontitle>
+<xrefautomaticsectiontitle value="off" line=" off"></xrefautomaticsectiontitle>
 
 <para><xref label="in-chap-no-name"><xrefnodename>in chap no name</xrefnodename></xref>
 <xref label="in-chap-no-name"><xrefnodename>in chap no name</xrefnodename><xrefinfoname> t</xrefinfoname></xref>
@@ -797,7 +743,7 @@ $result_converted{'xml'}->{'namedanchor'} = '<node identifier="Top" spaces=" "><
 <xref label="normal"><xrefnodename>normal</xrefnodename><xrefinfoname> nt</xrefinfoname></xref>
 <xref label="normal"><xrefnodename>normal</xrefnodename><xrefinfoname> nt</xrefinfoname><xrefprinteddesc> no</xrefprinteddesc></xref>
 </para>
-<xrefautomaticsectiontitle spaces=" " value="on" line="on"></xrefautomaticsectiontitle>
+<xrefautomaticsectiontitle value="on" line=" on"></xrefautomaticsectiontitle>
 
 <para><xref label="in-chap-empty-name"><xrefnodename>in chap empty name</xrefnodename></xref>
 <xref label="in-chap-empty-name"><xrefnodename>in chap empty name</xrefnodename><xrefinfoname> xat on t</xrefinfoname></xref>
@@ -812,8 +758,8 @@ $result_converted{'xml'}->{'namedanchor'} = '<node identifier="Top" spaces=" "><
 </para>
 </section>
 </chapter>
-<node identifier="chap1" spaces=" "><nodename>chap1</nodename><nodeprev automatic="on">chap</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chap1</sectiontitle>
+<node identifier="chap1"><nodename> chap1</nodename><nodeprev automatic="on"> chap</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> chap1</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>secc2</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -824,8 +770,8 @@ $result_converted{'xml'}->{'namedanchor'} = '<node identifier="Top" spaces=" "><
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>in chap empty name</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node identifier="secc2" spaces=" "><nodename>secc2</nodename><nodenext automatic="on">in Top</nodenext><nodeup automatic="on">chap1</nodeup></node>
-<section spaces=" "><sectiontitle>Secc2</sectiontitle>
+<node identifier="secc2"><nodename> secc2</nodename><nodenext automatic="on">in Top</nodenext><nodeup automatic="on"> chap1</nodeup></node>
+<section><sectiontitle> Secc2</sectiontitle>
 </section>
 </chapter>
 ';

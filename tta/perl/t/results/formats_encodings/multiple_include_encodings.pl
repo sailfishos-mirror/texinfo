@@ -11,245 +11,177 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    {text_before_beginning:\\input texinfo.tex\\n}
   *preamble_before_content C10
    *@documentencoding C1 multiple_include_encodings.texi:l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{iso-8859-1}
    |text_arg:{ISO-8859-1}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {ISO-8859-1}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@copying C3 multiple_include_encodings.texi:l4
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *paragraph C1
      {Télé.\\n}
     *@end C1 multiple_include_encodings.texi:l6
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{copying}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {copying}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    >SOURCEMARKS
    >include<start;1><p:1>
     >*@include C1 multiple_include_encodings.texi:l8
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{documentdescription_EUC_CN.texi}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{documentdescription_EUC_CN.texi}
+      >{spaces_after_argument:\\n}
    *@documentencoding C1 documentdescription_EUC_CN.texi:l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{2}
    |input_encoding_name:{euc-cn}
    |text_arg:{EUC-CN}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {EUC-CN}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@documentdescription C3 documentdescription_EUC_CN.texi:l3
    >SOURCEMARKS
    >include<end;1>
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *paragraph C1
      {Sample 示例 \\n}
     *@end C1 documentdescription_EUC_CN.texi:l5
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{documentdescription}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {documentdescription}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@documentencoding C1 multiple_include_encodings.texi:l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{3}
    |input_encoding_name:{iso-8859-1}
    |text_arg:{ISO-8859-1}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {ISO-8859-1}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 multiple_include_encodings.texi:l12 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 multiple_include_encodings.texi:l13 {include files with multiple encodings}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {include files with multiple encodings}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >include<start;2><p:1>
    >*@include C1 multiple_include_encodings.texi:l15
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{verbatim_encoded_latin1.texi}
-    >*line_arg C1
-    >|INFO
-    >|spaces_after_argument:
-     >|{spaces_after_argument:\\n}
+    >*line_arg C3
+     >{spaces_before_argument: }
      >{verbatim_encoded_latin1.texi}
+     >{spaces_after_argument:\\n}
   *paragraph C1
    {é\\n}
    >SOURCEMARKS
    >include<end;2><p:2>
   {empty_line:\\n}
  *@node C1 multiple_include_encodings.texi:l17 {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
+    {spaces_after_argument:\\n}
  *@chapter C6 multiple_include_encodings.texi:l18 {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >include<start;3><p:1>
    >*@include C1 multiple_include_encodings.texi:l20
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{chapter_japanese_shift_jis.texi}
-    >*line_arg C1
-    >|INFO
-    >|spaces_after_argument:
-     >|{spaces_after_argument:\\n}
+    >*line_arg C3
+     >{spaces_before_argument: }
      >{chapter_japanese_shift_jis.texi}
+     >{spaces_after_argument:\\n}
   *@documentencoding C1 chapter_japanese_shift_jis.texi:l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
   |input_encoding_name:{shift_jis}
   |text_arg:{shift_jis}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {shift_jis}
+    {spaces_after_argument:\\n}
   *@documentlanguage C1 chapter_japanese_shift_jis.texi:l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |text_arg:{ja}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ja}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
  *@node C1 chapter_japanese_shift_jis.texi:l5 {Preface}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Preface}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Preface}
+    {spaces_after_argument:\\n}
  *@chapter C7 chapter_japanese_shift_jis.texi:l6 {Preface}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Preface}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {これは GNU LilyPond バージョン \\n}
@@ -259,33 +191,25 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   {empty_line:\\n}
   {empty_line:\\n}
  *@node C1 chapter_japanese_shift_jis.texi:l13 {Introduction}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Introduction}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Introduction}
+    {spaces_after_argument:\\n}
  *@chapter C7 chapter_japanese_shift_jis.texi:l14 {Introduction}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Introduction}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {この章では読者に LilyPond とこのドキュメントについての紹介を行います。\\n}
@@ -296,59 +220,43 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   >SOURCEMARKS
   >include<start;4><p:1>
    >*@include C1 multiple_include_encodings.texi:l22
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{chapter_char_latin2_latin2_in_refs.texi}
-    >*line_arg C1
-    >|INFO
-    >|spaces_after_argument:
-     >|{spaces_after_argument:\\n}
+    >*line_arg C3
+     >{spaces_before_argument: }
      >{chapter_char_latin2_latin2_in_refs.texi}
+     >{spaces_after_argument:\\n}
   *@documentencoding C1 chapter_char_latin2_latin2_in_refs.texi:l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{5}
   |input_encoding_name:{iso-8859-2}
   |text_arg:{ISO-8859-2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {ISO-8859-2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 chapter_char_latin2_latin2_in_refs.texi:l3 {char latin2 latin2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{char-latin2-latin2}
  |is_target:{1}
  |isindex:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {char latin2 latin2}
+    {spaces_after_argument:\\n}
  *@chapter C9 chapter_char_latin2_latin2_in_refs.texi:l4 {char latin2 latin2 in refs}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {char latin2 latin2 in refs}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 chapter_char_latin2_latin2_in_refs.texi:l6
@@ -360,17 +268,13 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    {.\\n}
   {empty_line:\\n}
   *@printindex C1 chapter_char_latin2_latin2_in_refs.texi:l8
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@c C1
   |INFO
@@ -383,10 +287,8 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     {rawline_text:Aogonek(0xa1=0241) aogonek(0xb1=0261) standalone ogonek(0xca=0312) Eogonek(0xea=0352) eogonek}
   *@menu C3 chapter_char_latin2_latin2_in_refs.texi:l11
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 chapter_char_latin2_latin2_in_refs.texi:l12
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -399,58 +301,42 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
      *preformatted C1
       {\\n}
    *@end C1 chapter_char_latin2_latin2_in_refs.texi:l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 chapter_char_latin2_latin2_in_refs.texi:l15 {Ą ą ˛ Ę ę}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{_0104-_0105-_02db-_0118-_0119}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Ą ą ˛ Ę ę}
+    {spaces_after_argument:\\n}
  *@section C7 chapter_char_latin2_latin2_in_refs.texi:l16 {Ą ą ˛ Ę ę}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4.1}
  |section_level:{2}
  |section_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Ą ą ˛ Ę ę}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 chapter_char_latin2_latin2_in_refs.texi:l18
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{_0104-_0105-_02db-_0118-_0119}
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Ą ą ˛ Ę ę}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >include<end;4><p:1>
@@ -458,58 +344,42 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   >SOURCEMARKS
   >include<start;5><p:1>
    >*@include C1 multiple_include_encodings.texi:l24
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{chapter_chinese_mixed_with_en_EUC_CN.texi}
-    >*line_arg C1
-    >|INFO
-    >|spaces_after_argument:
-     >|{spaces_after_argument:\\n}
+    >*line_arg C3
+     >{spaces_before_argument: }
      >{chapter_chinese_mixed_with_en_EUC_CN.texi}
+     >{spaces_after_argument:\\n}
   *@documentencoding C1 chapter_chinese_mixed_with_en_EUC_CN.texi:l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{6}
   |input_encoding_name:{euc-cn}
   |text_arg:{EUC-CN}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {EUC-CN}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 chapter_chinese_mixed_with_en_EUC_CN.texi:l3 {Mixed english and chinese EUC-CN}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Mixed-english-and-chinese-EUC_002dCN}
  |is_target:{1}
  |node_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Mixed english and chinese EUC-CN}
+    {spaces_after_argument:\\n}
  *@chapter C25 chapter_chinese_mixed_with_en_EUC_CN.texi:l4 {Mixed english and chinese EUC-CN}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{5}
  |section_level:{1}
  |section_number:{7}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Mixed english and chinese EUC-CN}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    {Example of english and chinese, chinese aligned or not.\\n}
@@ -571,58 +441,42 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   >SOURCEMARKS
   >include<start;6><p:1>
    >*@include C1 multiple_include_encodings.texi:l29
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{chapter_chinese_mixed_with_en.texi}
-    >*line_arg C1
-    >|INFO
-    >|spaces_after_argument:
-     >|{spaces_after_argument:\\n}
+    >*line_arg C3
+     >{spaces_before_argument: }
      >{chapter_chinese_mixed_with_en.texi}
+     >{spaces_after_argument:\\n}
   *@documentencoding C1 chapter_chinese_mixed_with_en.texi:l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{7}
   |input_encoding_name:{utf-8}
   |text_arg:{utf-8}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {utf-8}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 chapter_chinese_mixed_with_en.texi:l3 {Mixed chinese and english utf-8}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Mixed-chinese-and-english-utf_002d8}
  |is_target:{1}
  |node_number:{8}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Mixed chinese and english utf-8}
+    {spaces_after_argument:\\n}
  *@chapter C21 chapter_chinese_mixed_with_en.texi:l4 {Mixed chinese and english utf-8}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{6}
  |section_level:{1}
  |section_number:{8}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Mixed chinese and english utf-8}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Example of english and chinese, chinese aligned or not.\\n}

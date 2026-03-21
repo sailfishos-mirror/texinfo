@@ -15,52 +15,36 @@ $result_tree_text{'ifset_in_command'} = '*document_root C1
      >SOURCEMARKS
      >ignored_conditional_block<1><p:1>
       >*@ifset C3 l3
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
        >*arguments_line C1
-        >*block_line_arg C1
-        >|INFO
-        >|spaces_after_argument:
-         >|{spaces_after_argument:\\n}
+        >*block_line_arg C3
+         >{spaces_before_argument: }
          >{x}
+         >{spaces_after_argument:\\n}
        >{raw:xset\\n}
        >*@end C1 l5
-       >|INFO
-       >|spaces_before_argument:
-        >|{spaces_before_argument: }
        >|EXTRA
        >|text_arg:{ifset}
-        >*line_arg C1
-        >|INFO
-        >|spaces_after_argument:
-         >|{spaces_after_argument:\\n}
+        >*line_arg C3
+         >{spaces_before_argument: }
          >{ifset}
+         >{spaces_after_argument:\\n}
      >expanded_conditional_command<start;1><p:1>
       >*@ifclear C1 l6
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
        >*arguments_line C1
-        >*block_line_arg C1
-        >|INFO
-        >|spaces_after_argument:
-         >|{spaces_after_argument:\\n}
+        >*block_line_arg C3
+         >{spaces_before_argument: }
          >{x}
+         >{spaces_after_argument:\\n}
      {xclear\\n}
      >SOURCEMARKS
      >expanded_conditional_command<end;1><p:7>
       >*@end C1 l8
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
       >|EXTRA
       >|text_arg:{ifclear}
-       >*line_arg C1
-       >|INFO
-       >|spaces_after_argument:
-        >|{spaces_after_argument:\\n}
+       >*line_arg C3
+        >{spaces_before_argument: }
         >{ifclear}
+        >{spaces_after_argument:\\n}
    {\\n}
 ';
 

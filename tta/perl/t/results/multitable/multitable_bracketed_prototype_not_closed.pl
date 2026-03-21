@@ -9,28 +9,22 @@ $result_tree_text{'multitable_bracketed_prototype_not_closed'} = '*document_root
  *before_node_section C2
   {empty_line:\\n}
   *@multitable C2 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{1}
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      *bracketed_arg C3 l2
       {spaces_before_argument: }
       {a}
       {spaces_after_argument:\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
 ';
 
 

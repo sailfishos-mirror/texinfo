@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'ampchar'} = '*document_root C1
  *before_node_section C2
   *@defop C2 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{defop}
@@ -34,10 +31,8 @@ $result_tree_text{'ampchar'} = '*document_root C1
        |{a}
    |index_entry:I{fn,1}
    |original_def_cmdname:{defop}
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C11
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l1
        {Constructor}
@@ -58,17 +53,14 @@ $result_tree_text{'ampchar'} = '*document_root C1
          {const std::vector<int>}
          *@&
      {delimiter:)}
+     {spaces_after_argument:\\n}
    *@end C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{defop}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {defop}
+     {spaces_after_argument:\\n}
   *paragraph C11
    {& }
    *@&
@@ -159,7 +151,7 @@ $result_converted_errors{'html'}->{'ampchar'} = '* W |must specify a title with 
 ';
 
 
-$result_converted{'xml'}->{'ampchar'} = '<defop spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">b on a</indexterm><defcategory bracketed="on">Constructor</defcategory> <defclass>a</defclass> <defoperation>b</defoperation> <defdelimiter>(</defdelimiter><defparam><code>const std::vector&lt;int&gt;&ampsymbol;</code></defparam><defdelimiter>)</defdelimiter></definitionterm>
+$result_converted{'xml'}->{'ampchar'} = '<defop endspaces=" "><definitionterm><indexterm index="fn" number="1">b on a</indexterm> <defcategory bracketed="on">Constructor</defcategory> <defclass>a</defclass> <defoperation>b</defoperation> <defdelimiter>(</defdelimiter><defparam><code>const std::vector&lt;int&gt;&ampsymbol;</code></defparam><defdelimiter>)</defdelimiter></definitionterm>
 </defop>
 <para>&amp; &ampsymbol; &ampchar; &lbrace; &rbrace; &arobase;
 </para>';

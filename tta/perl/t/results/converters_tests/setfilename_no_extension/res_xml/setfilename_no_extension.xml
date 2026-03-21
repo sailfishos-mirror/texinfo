@@ -2,13 +2,13 @@
 <!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V7.3//EN" "http://www.gnu.org/software/texinfo/dtd/7.3/texinfo.dtd">
 <texinfo>
 <filename file="setfilename_no_extension.xml"></filename>
-<setfilename file="setfilename_no_extension" spaces=" ">setfilename_no_extension</setfilename>
+<setfilename file="setfilename_no_extension"> setfilename_no_extension</setfilename>
 
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chap</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 </top>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node identifier="chap"><nodename> chap</nodename><nodeprev automatic="on"> Top</nodeprev></node>
 
 <para>Text.
 </para></texinfo>

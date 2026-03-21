@@ -11,72 +11,50 @@ $result_tree_text{'sp'} = '*document_root C1
   *paragraph C1
    {Text line followed on the same line and another below }
   *@sp C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {1}
+    {spaces_after_argument:\\n}
   *@sp C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {2}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {Text line after the sp followed by a sp }
   *@sp C1 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {1}
+    {spaces_after_argument:\\n}
   *paragraph C1
    {Text line after the text line followed by the sp.\\n}
    >SOURCEMARKS
    >expanded_conditional_command<start;1><p:50>
     >*@ifnottex C1 l6
      >*arguments_line C1
-      >*block_line_arg
-      >|INFO
-      >|spaces_after_argument:
-       >|{spaces_after_argument:\\n}
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
   *@sp C1 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   >SOURCEMARKS
   >expanded_conditional_command<end;1>
    >*@end C1 l8
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
    >|EXTRA
    >|text_arg:{ifnottex}
-    >*line_arg C1
-    >|INFO
-    >|spaces_after_argument:
-     >|{spaces_after_argument:\\n}
+    >*line_arg C3
+     >{spaces_before_argument: }
      >{ifnottex}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+     >{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {2 a number after sp}
+    {spaces_after_argument:\\n}
 ';
 
 

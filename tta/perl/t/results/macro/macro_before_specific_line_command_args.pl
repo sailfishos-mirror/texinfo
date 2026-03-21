@@ -15,34 +15,26 @@ $result_tree_text{'macro_before_specific_line_command_args'} = '*document_root C
     {macro_line: cpfn\\n}
    {raw: cp fn\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@syncodeindex C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>macro_expansion<start;1>
-    |>*macro_call@cpfn C1
-     |>*brace_arg
   |EXTRA
   |misc_args:A{cp|fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >macro_expansion<start;1>
+     >*macro_call@cpfn C1
+      >*brace_arg
     {cp fn}
     >SOURCEMARKS
     >macro_expansion<end;1><p:5>
+    {spaces_after_argument:\\n}
 ';
 
 

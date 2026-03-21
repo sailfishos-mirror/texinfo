@@ -41,75 +41,55 @@ $result_tree_text{'defcondx_Ubar'} = '*document_root C3
      {rawline_text:set bar}
    {empty_line:\\n}
  *@top C4 defxcond.texi:l8 {deffnx inside conditional}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {deffnx inside conditional}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C3 defxcond.texi:l10
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 defxcond.texi:l10
    |EXTRA
    |def_command:{deffn}
    |original_def_cmdname:{deffn}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {foo}
+     {spaces_after_argument:\\n}
    *def_item C4
     {empty_line:\\n}
     >SOURCEMARKS
     >ignored_conditional_block<1><p:1>
      >*@ifset C3 defxcond.texi:l12
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
       >*arguments_line C1
-       >*block_line_arg C1
-       >|INFO
-       >|spaces_after_argument:
-        >|{spaces_after_argument:\\n}
+       >*block_line_arg C3
+        >{spaces_before_argument: }
         >{bar}
+        >{spaces_after_argument:\\n}
       >{raw:@deffnx bar\\n}
       >*@end C1 defxcond.texi:l14
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
       >|EXTRA
       >|text_arg:{ifset}
-       >*line_arg C1
-       >|INFO
-       >|spaces_after_argument:
-        >|{spaces_after_argument:\\n}
+       >*line_arg C3
+        >{spaces_before_argument: }
         >{ifset}
+        >{spaces_after_argument:\\n}
     {empty_line:\\n}
     *paragraph C1
      {Documentation.\\n}
     {empty_line:\\n}
    *@end C1 defxcond.texi:l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
   *line_arg

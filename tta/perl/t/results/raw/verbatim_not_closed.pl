@@ -9,10 +9,8 @@ $result_tree_text{'verbatim_not_closed'} = '*document_root C1
  *before_node_section C1
   *@verbatim C6 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:\\n}
    {raw:some verbatim @\\n}
    {raw:\\n}

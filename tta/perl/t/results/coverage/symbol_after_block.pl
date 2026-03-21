@@ -9,177 +9,125 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
  *before_node_section C39
   *@html C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *rawpreformatted C1
     {In html\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html. On the line.}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {html. On the line.}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@html C3 l5
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *rawpreformatted C1
     {In html\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{html@ On the line.}
-    *line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C5
+     {spaces_before_argument: }
      {html}
      *@@
      { On the line.}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Verbatim:\\n}
   {empty_line:\\n}
   *@verbatim C3 l11
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:In verbatim\\n}
    *@end C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim;}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {verbatim;}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@verbatim C3 l15
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    {raw:In verbatim\\n}
    *@end C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{verbatim@}
-    *line_arg C2
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C4
+     {spaces_before_argument: }
      {verbatim}
      *@@
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Table:\\n}
   {empty_line:\\n}
   *@table C3 l21
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@emph l21
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l22
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {a}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {l--ine\\n}
    *@end C1 l24
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table+}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table+}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@table C3 l26
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@emph l26
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l27
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {a}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {l--ine\\n}
    *@end C1 l29
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table@}
-    *line_arg C2
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C4
+     {spaces_before_argument: }
      {table}
      *@@
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Itemize:\\n}
   {empty_line:\\n}
   *@itemize C3 l33
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@bullet l33
+     {spaces_after_argument:\\n}
    *@item C2 l34
    |EXTRA
    |item_number:{1}
@@ -187,27 +135,19 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *paragraph C1
      {e--mph item\\n}
    *@end C1 l35
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize\'\'}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize\'\'}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C3 l37
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@bullet l37
+     {spaces_after_argument:\\n}
    *@item C2 l38
    |EXTRA
    |item_number:{1}
@@ -215,40 +155,30 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
     *paragraph C1
      {e--mph item\\n}
    *@end C1 l39
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize@}
-    *line_arg C2
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C4
+     {spaces_before_argument: }
      {itemize}
      *@@
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Multitable:\\n}
   {empty_line:\\n}
   *@multitable C4 l43
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      *@columnfractions C1 l43
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{6|7}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {6 7}
+       {spaces_after_argument:\\n}
    *multitable_head C1
     *row C2
     |EXTRA
@@ -282,36 +212,26 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
       *paragraph C1
        {multitable tab\\n}
    *@end C1 l46
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable^}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable^}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@multitable C4 l48
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      *@columnfractions C1 l48
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{6|7}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {6 7}
+       {spaces_after_argument:\\n}
    *multitable_head C1
     *row C2
     |EXTRA
@@ -345,105 +265,77 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
       *paragraph C1
        {multitable tab\\n}
    *@end C1 l51
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable{}
-    *line_arg C2
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C4
+     {spaces_before_argument: }
      {multitable}
      *@{
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Flushleft:\\n}
   {empty_line:\\n}
   *@flushleft C3 l55
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {flushleft\\n}
    *@end C1 l57
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushleft!}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {flushleft!}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@flushleft C3 l59
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {flushleft\\n}
    *@end C1 l61
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{flushleft@}
-    *line_arg C2
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C4
+     {spaces_before_argument: }
      {flushleft}
      *@@
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Copying:\\n}
   {empty_line:\\n}
   *@copying C3 l65
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {Copying\\n}
    *@end C1 l67
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{copying*}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {copying*}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@copying C3 l69
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {Copying\\n}
    *@end C1 l71
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{copying@}
-    *line_arg C2
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C4
+     {spaces_before_argument: }
      {copying}
      *@@
+     {spaces_after_argument:\\n}
 ';
 
 

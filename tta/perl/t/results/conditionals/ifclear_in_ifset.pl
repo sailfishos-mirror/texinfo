@@ -11,28 +11,20 @@ $result_tree_text{'ifclear_in_ifset'} = '*document_root C1
   >SOURCEMARKS
   >ignored_conditional_block<1><p:1>
    >*@ifset C4 l2
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{a}
+      >{spaces_after_argument:\\n}
     >{raw:@ifclear ok  - ok, ignored\\n}
     >{raw:@end junky   - ok, ignored\\n}
     >*@end C1 l5
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
+      >{spaces_after_argument:\\n}
   *@c C1
   |INFO
   |spaces_before_argument:

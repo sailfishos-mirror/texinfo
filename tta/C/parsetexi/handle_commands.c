@@ -460,6 +460,9 @@ handle_other_command (ELEMENT *current, const char **line_inout,
     }
   else
     {
+      ELEMENT *ignorable_spaces;
+      size_t len;
+
       /* @item can occur in several contents: in an @itemize, a @table, or
          a @multitable. */
       if (cmd == CM_item || cmd == CM_headitem || cmd == CM_tab)
@@ -586,7 +589,16 @@ handle_other_command (ELEMENT *current, const char **line_inout,
                          command_name(cmd));
             }
         }
-      start_empty_line_after_command (current, &line, 0);
+
+      /* Add an "ET_ignorable_spaces_after_command" element containing the
+         whitespace at the beginning of the rest of the line after skipspaces
+         commands, if COMMAND is 0. */
+      ignorable_spaces = new_text_element (ET_ignorable_spaces_after_command);
+      add_to_contents_as_array (current, ignorable_spaces);
+
+      len = strspn (line, whitespace_chars_except_newline);
+      text_append_n (ignorable_spaces->e.text, line, len);
+      line += len;
     }
 
   *line_inout = line;
@@ -1225,8 +1237,6 @@ handle_line_command (ELEMENT *current, const char **line_inout,
          case while we read the argument on this line. */
           push_context (ct_line, cmd);
         }
-
-      start_empty_line_after_command (current, &line, command_e);
     }
 
   if (command_e)
@@ -1403,7 +1413,6 @@ handle_block_command (ELEMENT *current, const char **line_inout,
     push_command (&nesting_context.basic_inline_stack_block, cmd);
 
   register_global_command (block, 0);
-  start_empty_line_after_command (bla_element, &line, block);
 
   *line_inout = line;
   *command_element = block;

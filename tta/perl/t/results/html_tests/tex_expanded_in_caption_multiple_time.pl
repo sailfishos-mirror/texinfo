@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
  *before_node_section C3
   *@float C5 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{A}
@@ -18,15 +15,13 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
   |identifier:{B}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {A}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {B}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {My float.\\n}
    *@caption C1 l3
@@ -36,48 +31,34 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
     *brace_command_context C1
      *@tex C3 l4
       *arguments_line C1
-       *block_line_arg
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C1
+        {spaces_before_argument:\\n}
       *rawpreformatted C1
        {aa\\n}
       *@end C1 l6
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
       |EXTRA
       |text_arg:{tex}
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {tex}
+        {spaces_after_argument:\\n}
    {spaces_after_close_brace:\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@listoffloats C1 l10
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{A}
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {A}
+    {spaces_after_argument:\\n}
 ';
 
 

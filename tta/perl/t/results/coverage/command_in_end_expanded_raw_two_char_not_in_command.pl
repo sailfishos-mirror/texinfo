@@ -9,26 +9,20 @@ $result_tree_text{'command_in_end_expanded_raw_two_char_not_in_command'} = '*doc
  *before_node_section C1
   *@tex C2 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *rawpreformatted C2
     {In TeX\\n}
     *@end C1 l3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{te}
-     *line_arg C2
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C4
+      {spaces_before_argument: }
       {te}
       *@asis C1 l3
        *brace_container C1
         {x}
+      {spaces_after_argument:\\n}
 ';
 
 

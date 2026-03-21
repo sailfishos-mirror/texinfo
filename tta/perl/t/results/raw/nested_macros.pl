@@ -20,16 +20,12 @@ $result_tree_text{'nested_macros'} = '*document_root C1
    {raw:@macro\\n}
    {raw:@end macro\\n}
    *@end C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
 ';
 
 

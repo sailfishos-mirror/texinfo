@@ -314,8 +314,7 @@ split_def_args (ELEMENT *current, size_t starting_idx)
           isolate_leading_trailing (e, 0);
           continue;
         }
-
-      if (e->type != ET_normal_text)
+      else if (!(type_data[e->type].flags & TF_text))
         continue;
 
       p = e->e.text->text;
@@ -376,6 +375,7 @@ parse_def (enum command_id command, ELEMENT *current)
   /* Check for "def alias" - for example @defun for @deffn. */
   if (command_data(command).flags & CF_def_alias)
     {
+      ELEMENT *spaces_before;
       char *category;
       int i;
       for (i = 0; def_aliases[i].alias ; i++)
@@ -408,10 +408,11 @@ parse_def (enum command_id command, ELEMENT *current)
                                   def_aliases[i].translation_context);
         }
 
-      e = new_text_element (ET_spaces);
-      text_append_n (e->e.text, " ", 1);
-      e->flags |= EF_inserted;
-      insert_into_contents_as_array (current, e, contents_idx + 1);
+      spaces_before = new_text_element (ET_spaces_before_argument);
+      text_append_n (spaces_before->e.text, " ", 1);
+      spaces_before->flags |= EF_inserted;
+      insert_into_contents_as_array (current, spaces_before, contents_idx);
+      contents_idx++;
     }
 
  /* Read arguments as CATEGORY [CLASS] [TYPE] NAME [ARGUMENTS]. */
@@ -461,7 +462,7 @@ parse_def (enum command_id command, ELEMENT *current)
 
   if (inserted_category)
     {
-      current->e.c->contents.list[0]->flags |= EF_inserted;
+      current->e.c->contents.list[1]->flags |= EF_inserted;
     }
 
   /* Process args */
@@ -512,4 +513,5 @@ parse_def (enum command_id command, ELEMENT *current)
       add_to_element_contents (new_def_type, e);
       current->e.c->contents.list[i] = new_def_type;
     }
+  isolate_leading_trailing (current, 0);
 }

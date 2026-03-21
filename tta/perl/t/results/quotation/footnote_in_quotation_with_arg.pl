@@ -8,15 +8,11 @@ use utf8;
 $result_tree_text{'footnote_in_quotation_with_arg'} = '*document_root C1
  *before_node_section C1
   *@quotation C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {lean}
+     {spaces_after_argument:\\n}
    *paragraph C3
     {A}
     *@footnote C1 l2
@@ -27,16 +23,12 @@ $result_tree_text{'footnote_in_quotation_with_arg'} = '*document_root C1
        {My feet}
     { b.\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -83,7 +75,7 @@ $result_converted{'html_text'}->{'footnote_in_quotation_with_arg'} = '<blockquot
 ';
 
 
-$result_converted{'xml'}->{'footnote_in_quotation_with_arg'} = '<quotation spaces=" " endspaces=" "><quotationtype>lean</quotationtype>
+$result_converted{'xml'}->{'footnote_in_quotation_with_arg'} = '<quotation endspaces=" "><quotationtype> lean</quotationtype>
 <para>A<footnote><para>My feet</para></footnote> b.
 </para></quotation>
 ';

@@ -9,9 +9,6 @@ $result_tree_text{'float_type_with_tieaccent'} = '*document_root C1
  *before_node_section C4
   *preamble_before_content
   *@float C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{A 1͡a 第͡H ê͡一 and text}
@@ -19,7 +16,8 @@ $result_tree_text{'float_type_with_tieaccent'} = '*document_root C1
   |identifier:{label}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C6
+    *block_line_arg C7
+     {spaces_before_argument: }
      {A }
      *@tieaccent C1 l1
       *brace_container C1
@@ -35,38 +33,26 @@ $result_tree_text{'float_type_with_tieaccent'} = '*document_root C1
         *following_arg C1
          {e}
        {一 and text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {label}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {inside\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@listoffloats C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{A 1͡a 第͡H ê͡一 and text}
   |global_command_number:{1}
-   *line_arg C6
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C8
+    {spaces_before_argument: }
     {A }
     *@tieaccent C1 l5
      *brace_container C1
@@ -82,6 +68,7 @@ $result_tree_text{'float_type_with_tieaccent'} = '*document_root C1
        *following_arg C1
         {e}
       {一 and text}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -161,11 +148,11 @@ $result_converted_errors{'html'}->{'float_type_with_tieaccent'} = '* W |must spe
 ';
 
 
-$result_converted{'xml'}->{'float_type_with_tieaccent'} = '<float identifier="label" type="A 1͡a 第͡H ê͡一 and text" number="1" spaces=" " endspaces=" "><floattype>A <accent type="tieaccent">1a</accent> <accent type="tieaccent">第H</accent> <accent type="tieaccent"><accent type="circ" bracketed="off">e</accent>一 and text</accent></floattype><floatname spaces=" ">label</floatname>
+$result_converted{'xml'}->{'float_type_with_tieaccent'} = '<float identifier="label" type="A 1͡a 第͡H ê͡一 and text" number="1" endspaces=" "><floattype> A <accent type="tieaccent">1a</accent> <accent type="tieaccent">第H</accent> <accent type="tieaccent"><accent type="circ" bracketed="off">e</accent>一 and text</accent></floattype><floatname> label</floatname>
 <para>inside
 </para></float>
 
-<listoffloats type="A 1͡a 第͡H ê͡一 and text" spaces=" ">A <accent type="tieaccent">1a</accent> <accent type="tieaccent">第H</accent> <accent type="tieaccent"><accent type="circ" bracketed="off">e</accent>一 and text</accent></listoffloats>
+<listoffloats type="A 1͡a 第͡H ê͡一 and text"> A <accent type="tieaccent">1a</accent> <accent type="tieaccent">第H</accent> <accent type="tieaccent"><accent type="circ" bracketed="off">e</accent>一 and text</accent></listoffloats>
 ';
 
 

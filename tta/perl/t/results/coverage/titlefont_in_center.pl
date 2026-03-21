@@ -9,18 +9,14 @@ $result_tree_text{'titlefont_in_center'} = '*document_root C1
  *before_node_section C2
   {empty_line:\\n}
   *@center C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@titlefont C1 l2
     |EXTRA
     |global_command_number:{1}
      *brace_container C1
       {A manual}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -55,7 +51,7 @@ $result_converted{'html_text'}->{'titlefont_in_center'} = '
 
 
 $result_converted{'xml'}->{'titlefont_in_center'} = '
-<center spaces=" "><titlefont>A manual</titlefont></center>
+<center> <titlefont>A manual</titlefont></center>
 ';
 
 

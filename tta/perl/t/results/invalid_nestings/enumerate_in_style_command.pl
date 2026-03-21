@@ -12,15 +12,11 @@ $result_tree_text{'enumerate_in_style_command'} = '*document_root C1
     *brace_container C1
      {\\n}
   *@enumerate C3 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {1}
+     {spaces_after_argument:\\n}
    *@item C2 l3
    |EXTRA
    |item_number:{1}
@@ -28,16 +24,12 @@ $result_tree_text{'enumerate_in_style_command'} = '*document_root C1
     *paragraph C1
      {item\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {enumerate}
+     {spaces_after_argument:\\n}
 ';
 
 

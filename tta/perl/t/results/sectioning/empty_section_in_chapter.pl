@@ -9,19 +9,15 @@ $result_tree_text{'empty_section_in_chapter'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
  *@chapter C2 l1 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@section C1 l3
  |EXTRA
@@ -29,10 +25,8 @@ $result_tree_text{'empty_section_in_chapter'} = '*document_root C3
  |section_level:{2}
  |section_number:{2}
   *arguments_line C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument:\\n}
 ';
 
 

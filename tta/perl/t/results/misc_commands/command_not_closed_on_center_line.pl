@@ -8,10 +8,8 @@ use utf8;
 $result_tree_text{'command_not_closed_on_center_line'} = '*document_root C1
  *before_node_section C2
   *@center C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C2
+   *line_arg C3
+    {spaces_before_argument: }
     {c }
     *@strong C1 l1
      *brace_container C1

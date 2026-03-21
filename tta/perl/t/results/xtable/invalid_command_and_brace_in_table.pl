@@ -8,15 +8,11 @@ use utf8;
 $result_tree_text{'invalid_command_and_brace_in_table'} = '*document_root C1
  *before_node_section C1
   *@table C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l1
+     {spaces_after_argument:\\n}
    *before_item C2
     {spaces_before_paragraph: }
     *paragraph C3
@@ -24,16 +20,12 @@ $result_tree_text{'invalid_command_and_brace_in_table'} = '*document_root C1
      {long title\\n}
      {Item line\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
 ';
 
 

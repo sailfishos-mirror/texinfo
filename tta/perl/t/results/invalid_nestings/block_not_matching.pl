@@ -9,17 +9,12 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
  *before_node_section C15
   *@quotation C2 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {A quotation\\n}
   {empty_line:\\n}
   *@deffn C2 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l5
    |EXTRA
    |def_command:{deffn}
@@ -29,10 +24,8 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
       |{print_navigation}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *bracketed_arg C1 l5
        {Function Reference}
@@ -44,99 +37,74 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {$filehandle}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {Text\\n}
   {empty_line:\\n}
   *@table C2 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@asis l9
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l10
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {item}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {line\\n}
   {empty_line:\\n}
   *@table C2 l14
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@emph l14
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l15
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {ref}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *@example C2 l16
       *arguments_line C1
-       *block_line_arg
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *block_line_arg C1
+        {spaces_before_argument:\\n}
       *preformatted C1
        {example\\n}
   {empty_line:\\n}
   *@group C2 l21
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {in group\\n}
   {empty_line:\\n}
   *@group C2 l25
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {in group 2\\n}
   {empty_line:\\n}
   *@cartouche C2 l29
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {cartouche\\n}
   {empty_line:\\n}
   *@cartouche C2 l33
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {carouche\\n}
 ';

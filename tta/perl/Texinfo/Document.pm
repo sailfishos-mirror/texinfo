@@ -397,8 +397,8 @@ sub _existing_label_error($$;$$) {
       push @$error_messages, Texinfo::Report::line_error(
                        sprintf(__("\@%s `%s' previously defined"),
                                      $element->{'cmdname'},
-                    Texinfo::Convert::Texinfo::convert_to_texinfo(
-    Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}}))),
+          Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                                           $label_element)),
                               $element->{'source_info'}, 0, $debug);
       push @$error_messages, Texinfo::Report::line_error(
                     sprintf(__("here is the previous definition as \@%s"),

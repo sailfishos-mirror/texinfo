@@ -9,39 +9,29 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_ro
  *before_node_section C1
   *preamble_before_content
  *@node C1 in_menu_only_special_ascii_spaces_node.texi:l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 in_menu_only_special_ascii_spaces_node.texi:l2 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C4 in_menu_only_special_ascii_spaces_node.texi:l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 in_menu_only_special_ascii_spaces_node.texi:l5
     {menu_entry_leading_text:* '."\r".'}
     *menu_entry_node
@@ -57,58 +47,42 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_ro
      *preformatted C1
       {\\n}
    *@end C1 in_menu_only_special_ascii_spaces_node.texi:l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 in_menu_only_special_ascii_spaces_node.texi:l9
   *arguments_line C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: '."\r".'\\n}
+   *line_arg C1
+    {spaces_before_argument: '."\r".'\\n}
  *@chapter C2 in_menu_only_special_ascii_spaces_node.texi:l10 {CARRIAGE RETURN|'."\r".'|}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {CARRIAGE RETURN|'."\r".'|}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 in_menu_only_special_ascii_spaces_node.texi:l12
   *arguments_line C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\t\\f\\n}
+   *line_arg C1
+    {spaces_before_argument: \\t\\f\\n}
  *@chapter C2 in_menu_only_special_ascii_spaces_node.texi:l13 {CHARACTER TABULATION|	| FORM FEED||}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {CHARACTER TABULATION|\\t| FORM FEED|\\f|}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

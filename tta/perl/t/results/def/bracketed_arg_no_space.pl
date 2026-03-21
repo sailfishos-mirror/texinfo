@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'bracketed_arg_no_space'} = '*document_root C1
  *before_node_section C1
   *@deffn C2 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -22,10 +19,8 @@ $result_tree_text{'bracketed_arg_no_space'} = '*document_root C1
       |{h}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C11
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C2
        *bracketed_arg C1 l1
@@ -53,17 +48,14 @@ $result_tree_text{'bracketed_arg_no_space'} = '*document_root C1
      *def_arg C1
       *bracketed_arg C1 l1
        {and more}
+     {spaces_after_argument:\\n}
    *@end C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -153,7 +145,7 @@ $result_converted_errors{'html'}->{'bracketed_arg_no_space'} = '* W |must specif
 ';
 
 
-$result_converted{'xml'}->{'bracketed_arg_no_space'} = '<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1"><defbracketed bracketed="on">e g</defbracketed>h</indexterm><defcategory><defbracketed bracketed="on">a b</defbracketed><defbracketed bracketed="on">c d</defbracketed></defcategory> <deffunction><defbracketed bracketed="on">e g</defbracketed>h</deffunction> <defparam>m</defparam><defparam bracketed="on">ll </defparam> <defparam bracketed="on">rest</defparam><defparam bracketed="on">and more</defparam></definitionterm>
+$result_converted{'xml'}->{'bracketed_arg_no_space'} = '<deffn endspaces=" "><definitionterm><indexterm index="fn" number="1"><defbracketed bracketed="on">e g</defbracketed>h</indexterm> <defcategory><defbracketed bracketed="on">a b</defbracketed><defbracketed bracketed="on">c d</defbracketed></defcategory> <deffunction><defbracketed bracketed="on">e g</defbracketed>h</deffunction> <defparam>m</defparam><defparam bracketed="on">ll </defparam> <defparam bracketed="on">rest</defparam><defparam bracketed="on">and more</defparam></definitionterm>
 </deffn>
 ';
 

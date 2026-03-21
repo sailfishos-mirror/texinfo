@@ -9,213 +9,166 @@ $result_tree_text{'node_line_arguments'} = '*document_root C8
  *before_node_section C1
   {empty_line:\\n}
  *@node C1 l2 {one arg1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{one-arg1}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {one arg1}
+    {spaces_after_argument: \\n}
  *@node C1 l3 {one arg2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{one-arg2}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C2
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {one arg2}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{two arg}
    |normalized:{two-arg}
+    {spaces_before_argument: }
     {two arg}
+    {spaces_after_argument:\\n}
  *@node C1 l4 {one arg3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{one-arg3}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C3
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {one arg3}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{two arg}
    |normalized:{two-arg}
+    {spaces_before_argument: }
     {two arg}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{three arg}
    |normalized:{three-arg}
+    {spaces_before_argument: }
     {three arg}
+    {spaces_after_argument:\\n}
  *@node C1 l5 {one arg4}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{one-arg4}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {one arg4}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{two arg}
    |normalized:{two-arg}
+    {spaces_before_argument: }
     {two arg}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{three arg}
    |normalized:{three-arg}
+    {spaces_before_argument: }
     {three arg}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{four arg}
    |normalized:{four-arg}
+    {spaces_before_argument: }
     {four arg}
+    {spaces_after_argument:\\n}
  *@node C2 l6 {one arg5}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{one-arg5}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {one arg5}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{two arg}
    |normalized:{two-arg}
+    {spaces_before_argument: }
     {two arg}
-   *line_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C2
    |EXTRA
    |node_content:{three arg}
    |normalized:{three-arg}
+    {spaces_before_argument: }
     {three arg}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{four arg five arg}
    |normalized:{four-arg-five-arg}
+    {spaces_before_argument: }
     {four arg five arg}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C2 l8 {comment}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{comment}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@comment C1
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:}
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *line_arg C4
+    {spaces_before_argument: }
     {comment}
+    {spaces_after_argument: }
+    *@comment C1
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:}
   {empty_line:\\n}
  *@node C1 l10 {arg1 @comma{} arg2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{arg1-_002c-arg2}
  |is_target:{1}
  |node_number:{7}
   *arguments_line C3
-   *line_arg C3
+   *line_arg C4
+    {spaces_before_argument: }
     {arg1 }
     *@comma C1 l10
      *brace_container
     { arg2}
-   *line_arg C2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C3
    |EXTRA
    |node_content:{@,cedilla}
    |normalized:{_00e7edilla}
+    {spaces_before_argument: }
     *@, C1 l10
      *following_arg C1
       {c}
     {edilla}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:comma , end}
-   |spaces_after_argument:
-    |{spaces_after_argument: }
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C4
    |EXTRA
    |node_content:{@strong{comma in strong,}}
    |normalized:{comma-in-strong_002c}
+    {spaces_before_argument: }
     *@strong C1 l10
      *brace_container C1
       {comma in strong,}
+    {spaces_after_argument: }
+    *@c C1
+    |INFO
+    |spaces_before_argument:
+     |{spaces_before_argument: }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{spaces_after_argument:\\n}
+      {rawline_text:comma , end}
 ';
 
 

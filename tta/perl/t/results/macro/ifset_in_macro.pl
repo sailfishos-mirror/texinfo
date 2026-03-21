@@ -17,16 +17,12 @@ $result_tree_text{'ifset_in_macro'} = '*document_root C1
    {raw:\\arg\\\\n}
    {raw:@end ifset\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{macro}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {macro}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
@@ -38,30 +34,22 @@ $result_tree_text{'ifset_in_macro'} = '*document_root C1
      >{macro_call_arg_text:arg\\n}
   >ignored_conditional_block<1><p:1>
    >*@ifset C4 l9:@note
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
     >*arguments_line C1
-     >*block_line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument: \\n}
+     >*block_line_arg C3
+      >{spaces_before_argument: }
       >{notes}
+      >{spaces_after_argument: \\n}
     >{raw:arg\\n}
     >{raw:\\n}
     >*@end C1 l9:@note
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifset}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifset}
       >>SOURCEMARKS
       >>macro_expansion<end;1><p:5>
+      >{spaces_after_argument:\\n}
 ';
 
 

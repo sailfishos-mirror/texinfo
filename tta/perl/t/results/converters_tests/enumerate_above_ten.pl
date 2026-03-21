@@ -8,15 +8,11 @@ use utf8;
 $result_tree_text{'enumerate_above_ten'} = '*document_root C1
  *before_node_section C1
   *@enumerate C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {14}
+     {spaces_after_argument:\\n}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -24,16 +20,12 @@ $result_tree_text{'enumerate_above_ten'} = '*document_root C1
     *paragraph C1
      {a\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{enumerate}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {enumerate}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -67,7 +59,7 @@ $result_converted{'html_text'}->{'enumerate_above_ten'} = '<ol class="enumerate"
 ';
 
 
-$result_converted{'xml'}->{'enumerate_above_ten'} = '<enumerate first="14" spaces=" " endspaces=" "><enumeratefirst>14</enumeratefirst>
+$result_converted{'xml'}->{'enumerate_above_ten'} = '<enumerate first="14" endspaces=" "><enumeratefirst> 14</enumeratefirst>
 <listitem> <para>a
 </para></listitem></enumerate>
 ';

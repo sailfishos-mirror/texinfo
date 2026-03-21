@@ -8,39 +8,29 @@ use utf8;
 $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C4 l2 {test of nodedescriptionblock used in menu}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {test of nodedescriptionblock used in menu}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C8 l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -103,54 +93,37 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
      *preformatted C1
       {\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l13 {toto}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{toto}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {toto}
+    {spaces_after_argument:\\n}
  *@chapter C6 l14 {Toto}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Toto}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescription C1 l16
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C8
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C10
+    {spaces_before_argument: }
     {toto is there:: and the }
     *@emph C1 l16
      *brace_container C1
@@ -172,111 +145,82 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
      *following_arg C1
       {a}
     {nexpected}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescriptionblock C3 l18
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {Block along line node description for toto\\n}
    *@end C1 l20
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{nodedescriptionblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {nodedescriptionblock}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l22 {titi}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{titi}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {titi}
+    {spaces_after_argument:\\n}
  *@chapter C4 l23 {Titi}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Titi}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescriptionblock C3 l25
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {description of titi in block\\n}
    *@end C1 l27
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{nodedescriptionblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {nodedescriptionblock}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l29 {other}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{other}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {other}
+    {spaces_after_argument:\\n}
  *@chapter C4 l30 {Other}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Other}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescriptionblock C7 l32
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {Long description of other\\n}
    {empty_line:\\n}
@@ -285,162 +229,114 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
    {empty_line:\\n}
    *@quotation C3 l37
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *paragraph C1
      {a quotation in description\\n}
     *@end C1 l39
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{quotation}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {quotation}
+      {spaces_after_argument:\\n}
    *@end C1 l40
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{nodedescriptionblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {nodedescriptionblock}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l42 {a somewhat long node without description nor following space}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{a-somewhat-long-node-without-description-nor-following-space}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {a somewhat long node without description nor following space}
+    {spaces_after_argument:\\n}
  *@chapter C6 l43 {Somewhat long}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Somewhat long}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescriptionblock C3 l45
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {Block description before, not as long as the node\\n}
    *@end C1 l47
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{nodedescriptionblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {nodedescriptionblock}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescription C1 l49
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {not as long as the node}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l51 {node double nodedescriptionblock}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node-double-nodedescriptionblock}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node double nodedescriptionblock}
+    {spaces_after_argument:\\n}
  *@chapter C6 l52 {test double}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{5}
  |section_level:{1}
  |section_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {test double}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescriptionblock C3 l54
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {block desc 1\\n}
    *@end C1 l56
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{nodedescriptionblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {nodedescriptionblock}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescriptionblock C3 l58
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *paragraph C1
     {block desc 2\\n}
    *@end C1 l60
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{nodedescriptionblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {nodedescriptionblock}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 
@@ -819,8 +715,8 @@ th.menu-comment {text-align:left}
 ';
 
 
-$result_converted{'xml'}->{'nodedescriptionblock_descriptions'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">toto</nodenext></node>
-<top spaces=" "><sectiontitle>test of nodedescriptionblock used in menu</sectiontitle>
+$result_converted{'xml'}->{'nodedescriptionblock_descriptions'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> toto</nodenext></node>
+<top><sectiontitle> test of nodedescriptionblock used in menu</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>toto</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -832,26 +728,26 @@ $result_converted{'xml'}->{'nodedescriptionblock_descriptions'} = '<node identif
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node identifier="toto" spaces=" "><nodename>toto</nodename><nodenext automatic="on">titi</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Toto</sectiontitle>
+<node identifier="toto"><nodename> toto</nodename><nodenext automatic="on"> titi</nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Toto</sectiontitle>
 
-<nodedescription spaces=" ">toto is there:: and the <emph>is a description</emph><w>slightly long</w> and <verb delimiter=":">vv somewhat</verb> <accent type="ring" spacesaftercmd=" " bracketed="off">a</accent>nexpected</nodedescription>
+<nodedescription> toto is there:: and the <emph>is a description</emph><w>slightly long</w> and <verb delimiter=":">vv somewhat</verb> <accent type="ring" spacesaftercmd=" " bracketed="off">a</accent>nexpected</nodedescription>
 
 <nodedescriptionblock endspaces=" ">
 <para>Block along line node description for toto
 </para></nodedescriptionblock>
 
 </chapter>
-<node identifier="titi" spaces=" "><nodename>titi</nodename><nodenext automatic="on">other</nodenext><nodeprev automatic="on">toto</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Titi</sectiontitle>
+<node identifier="titi"><nodename> titi</nodename><nodenext automatic="on"> other</nodenext><nodeprev automatic="on"> toto</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Titi</sectiontitle>
 
 <nodedescriptionblock endspaces=" ">
 <para>description of titi in block
 </para></nodedescriptionblock>
 
 </chapter>
-<node identifier="other" spaces=" "><nodename>other</nodename><nodenext automatic="on">a somewhat long node without description nor following space</nodenext><nodeprev automatic="on">titi</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Other</sectiontitle>
+<node identifier="other"><nodename> other</nodename><nodenext automatic="on"> a somewhat long node without description nor following space</nodenext><nodeprev automatic="on"> titi</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Other</sectiontitle>
 
 <nodedescriptionblock endspaces=" ">
 <para>Long description of other
@@ -864,18 +760,18 @@ $result_converted{'xml'}->{'nodedescriptionblock_descriptions'} = '<node identif
 </nodedescriptionblock>
 
 </chapter>
-<node identifier="a-somewhat-long-node-without-description-nor-following-space" spaces=" "><nodename>a somewhat long node without description nor following space</nodename><nodenext automatic="on">node double nodedescriptionblock</nodenext><nodeprev automatic="on">other</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>Somewhat long</sectiontitle>
+<node identifier="a-somewhat-long-node-without-description-nor-following-space"><nodename> a somewhat long node without description nor following space</nodename><nodenext automatic="on"> node double nodedescriptionblock</nodenext><nodeprev automatic="on"> other</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Somewhat long</sectiontitle>
 
 <nodedescriptionblock endspaces=" ">
 <para>Block description before, not as long as the node
 </para></nodedescriptionblock>
 
-<nodedescription spaces=" ">not as long as the node</nodedescription>
+<nodedescription> not as long as the node</nodedescription>
 
 </chapter>
-<node identifier="node-double-nodedescriptionblock" spaces=" "><nodename>node double nodedescriptionblock</nodename><nodeprev automatic="on">a somewhat long node without description nor following space</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>test double</sectiontitle>
+<node identifier="node-double-nodedescriptionblock"><nodename> node double nodedescriptionblock</nodename><nodeprev automatic="on"> a somewhat long node without description nor following space</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> test double</sectiontitle>
 
 <nodedescriptionblock endspaces=" ">
 <para>block desc 1

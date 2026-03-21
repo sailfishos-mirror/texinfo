@@ -13,33 +13,25 @@ $result_tree_text{'loweredheading'} = '*document_root C3
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
  *@section C2 l2 {Foo}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |level_modifier:{-1}
  |section_heading_number:{1}
  |section_level:{3}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Foo}
+    {spaces_after_argument:\\n}
   *@heading C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |heading_number:{1}
   |level_modifier:{-1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Bar}
+    {spaces_after_argument:\\n}
  *@bye C1
   *line_arg
   |INFO

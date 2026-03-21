@@ -8,9 +8,6 @@ use utf8;
 $result_tree_text{'leading_space_in_def_arg'} = '*document_root C1
  *before_node_section C1
   *@deffn C2 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
@@ -21,10 +18,8 @@ $result_tree_text{'leading_space_in_def_arg'} = '*document_root C1
       |{name}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {category}
@@ -37,17 +32,14 @@ $result_tree_text{'leading_space_in_def_arg'} = '*document_root C1
      *def_arg C1
       *def_line_arg C1
        {arg}
+     {spaces_after_argument:\\n}
    *@end C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
 ';
 
 

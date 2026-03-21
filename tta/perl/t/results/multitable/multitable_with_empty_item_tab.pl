@@ -8,24 +8,18 @@ use utf8;
 $result_tree_text{'multitable_with_empty_item_tab'} = '*document_root C1
  *before_node_section C1
   *@multitable C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      *@columnfractions C1 l1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      |EXTRA
      |misc_args:A{0.3|0.7}
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {0.3 0.7}
+       {spaces_after_argument:\\n}
    *multitable_body C3
     *row C2
     |EXTRA
@@ -67,16 +61,12 @@ $result_tree_text{'multitable_with_empty_item_tab'} = '*document_root C1
       *paragraph C1
        {3-2\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{multitable}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {multitable}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -114,7 +104,7 @@ $result_converted{'html_text'}->{'multitable_with_empty_item_tab'} = '<table cla
 ';
 
 
-$result_converted{'xml'}->{'multitable_with_empty_item_tab'} = '<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.3 0.7"><columnfraction value="0.3"></columnfraction><columnfraction value="0.7"></columnfraction></columnfractions>
+$result_converted{'xml'}->{'multitable_with_empty_item_tab'} = '<multitable endspaces=" "><columnfractions line=" 0.3 0.7"><columnfraction value="0.3"></columnfraction><columnfraction value="0.7"></columnfraction></columnfractions>
 <tbody><row><entry command="item"> <para>1-1 </para></entry><entry command="tab"> <para>1-2 </para></entry></row><row><entry command="item"></entry><entry command="tab"></entry></row><row><entry command="item"> <para>3-1 </para></entry><entry command="tab"> <para>3-2
 </para></entry></row></tbody></multitable>
 ';

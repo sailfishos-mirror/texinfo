@@ -14,18 +14,14 @@ FastForward: [U1]
 Next: [U1]
  *before_node_section
  *@top C2 l1 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 U1 unit{S:1 chapter}
 unit_directions:D[prev->[U0]]
@@ -34,34 +30,26 @@ This: [U1]
 Back: [U0]
 FastBack: [U0]
  *@part C2 l3 {part}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |global_command_number:{1}
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {part}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@chapter C1 l5 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument: \\n}
 ';
 
 
@@ -116,12 +104,12 @@ list:
 $result_headings_list{'top_part_chapter'} = '';
 
 
-$result_converted{'xml'}->{'top_part_chapter'} = '<top spaces=" "><sectiontitle>top</sectiontitle>
+$result_converted{'xml'}->{'top_part_chapter'} = '<top><sectiontitle> top</sectiontitle>
 
 </top>
-<part spaces=" "><sectiontitle>part</sectiontitle>
+<part><sectiontitle> part</sectiontitle>
 
-<chapter spaces=" "><sectiontitle>chapter </sectiontitle>
+<chapter><sectiontitle> chapter </sectiontitle>
 </chapter>
 </part>
 ';

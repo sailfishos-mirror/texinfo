@@ -8,16 +8,12 @@ use utf8;
 $result_tree_text{'w_argument'} = '*document_root C1
  *before_node_section C1
   *@itemize C4 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@w C1 l1
       *brace_container
+     {spaces_after_argument:\\n}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -37,16 +33,12 @@ $result_tree_text{'w_argument'} = '*document_root C1
        {--target=}
      { target platform on which the program is processed.\\n}
    *@end C1 l4
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{itemize}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {itemize}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -84,7 +76,7 @@ $result_converted{'html_text'}->{'w_argument'} = '<ul class="itemize mark-none">
 ';
 
 
-$result_converted{'xml'}->{'w_argument'} = '<itemize commandarg="w" spaces=" " endspaces=" "><itemprepend><w></w></itemprepend>
+$result_converted{'xml'}->{'w_argument'} = '<itemize commandarg="w" endspaces=" "><itemprepend> <w></w></itemprepend>
 <listitem><prepend><w></w></prepend> <para><option>--build=</option> platform on which the program is compiled,
 </para></listitem><listitem><prepend><w></w></prepend> <para><option>--target=</option> target platform on which the program is processed.
 </para></listitem></itemize>

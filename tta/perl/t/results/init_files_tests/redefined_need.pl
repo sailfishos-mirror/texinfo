@@ -8,16 +8,12 @@ use utf8;
 $result_tree_text{'redefined_need'} = '*document_root C1
  *before_node_section C1
   *@need C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{0.1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {0.1}
+    {spaces_after_argument:\\n}
 ';
 
 

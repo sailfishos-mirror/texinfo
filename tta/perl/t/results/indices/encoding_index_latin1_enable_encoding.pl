@@ -11,86 +11,61 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
    {text_before_beginning:\\n}
   *preamble_before_content C2
    *@documentencoding C1 encoding_index_latin1.texi:l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
    |input_encoding_name:{iso-8859-1}
    |text_arg:{iso-8859-1}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {iso-8859-1}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 encoding_index_latin1.texi:l4 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 encoding_index_latin1.texi:l5 {encoding index latin1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {encoding index latin1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C59 encoding_index_latin1.texi:l7 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {é é}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l10
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,2}
-   *line_arg C5
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C7
+    {spaces_before_argument: }
     *@" C1 encoding_index_latin1.texi:l10
      *brace_container C1
       {i}
@@ -104,17 +79,13 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
     *@" C1 encoding_index_latin1.texi:l10
      *brace_container C1
       {i}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,3}
-   *line_arg C6
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C8
+    {spaces_before_argument: }
     *@^ C1 encoding_index_latin1.texi:l11
      *following_arg C1
       {i}
@@ -131,379 +102,255 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
     *@^ C1 encoding_index_latin1.texi:l11
      *following_arg C1
       {i}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l12
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,4}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {a}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,5}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {b}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l14
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,6}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {c}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l15
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,7}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {d}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l16
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,8}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {e}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l17
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,9}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {f}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l18
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,10}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {g}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l19
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,11}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {h}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l20
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,12}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {i}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l21
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,13}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {j}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l22
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,14}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {k}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l23
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,15}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {l}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l24
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,16}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {m}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l25
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,17}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {n}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l26
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,18}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {o}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l27
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,19}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {p}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l28
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,20}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {q}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l29
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,21}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {r}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l30
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,22}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {s}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l31
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,23}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {t}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l32
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,24}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {u}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l33
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,25}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {v}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l34
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,26}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {w}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l35
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,27}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {x}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l36
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,28}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {y}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l37
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,29}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {z}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l38
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,30}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {A}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l39
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,31}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {B}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l40
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,32}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@l C1 encoding_index_latin1.texi:l40
      *brace_container
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l41
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,33}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@L C1 encoding_index_latin1.texi:l41
      *brace_container
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l42
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,34}
-   *line_arg C4
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C6
+    {spaces_before_argument: }
     *@dotless C1 encoding_index_latin1.texi:l42
      *brace_container C1
       {i}
@@ -512,17 +359,13 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
      *brace_container C1
       {i}
     { (dotless)}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l43
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,35}
-   *line_arg C4
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C6
+    {spaces_before_argument: }
     *@^ C1 encoding_index_latin1.texi:l43
      *brace_container C1
       *@dotless C1 encoding_index_latin1.texi:l43
@@ -535,269 +378,186 @@ $result_tree_text{'encoding_index_latin1_enable_encoding'} = '*document_root C5
        *brace_container C1
         {i}
     { (dotless)}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l44
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,36}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@ss C1 encoding_index_latin1.texi:l44
      *brace_container
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l45
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,37}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@euro C1 encoding_index_latin1.texi:l45
      *brace_container
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l46
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,38}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@AE C1 encoding_index_latin1.texi:l46
      *brace_container
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l47
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,39}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@exclamdown C1 encoding_index_latin1.texi:l47
      *brace_container
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l48
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,40}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@TH C1 encoding_index_latin1.texi:l48
      *brace_container
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l49
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,41}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@DH C1 encoding_index_latin1.texi:l49
      *brace_container
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l50
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,42}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@textdegree C1 encoding_index_latin1.texi:l50
      *brace_container
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l51
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,43}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {0}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l52
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,44}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {9}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l53
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,45}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@quotedblleft C1 encoding_index_latin1.texi:l53
      *brace_container
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l54
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,46}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@geq C1 encoding_index_latin1.texi:l54
      *brace_container
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l55
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,47}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@comma C1 encoding_index_latin1.texi:l55
      *brace_container
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l56
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,48}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {``}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l57
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,49}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {`}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l58
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,50}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {\'}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l59
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,51}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {\'\'}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l60
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,52}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {"}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l61
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,53}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@@
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l62
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,54}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {--}
+    {spaces_after_argument:\\n}
   *index_entry_command@cindex C1 encoding_index_latin1.texi:l63
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |element_node:{chap}
   |index_entry:I{cp,55}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {---}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 encoding_index_latin1.texi:l65
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
  *@bye C1
   *line_arg
   |INFO

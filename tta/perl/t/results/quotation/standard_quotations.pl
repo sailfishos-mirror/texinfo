@@ -8,148 +8,100 @@ use utf8;
 $result_tree_text{'standard_quotations'} = '*document_root C1
  *before_node_section C11
   *@quotation C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {Note}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {A Note\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C3 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {note}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {A note\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C3 l9
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {Caution}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {Caution\\n}
    *@end C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C3 l13
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {Important}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {Important\\n}
    *@end C1 l15
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C3 l17
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {Tip}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {a Tip\\n}
    *@end C1 l19
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@quotation C3 l21
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      {Warning}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {a Warning.\\n}
    *@end C1 l23
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{quotation}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {quotation}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -249,27 +201,27 @@ $result_converted{'html_text'}->{'standard_quotations'} = '<blockquote class="qu
 ';
 
 
-$result_converted{'xml'}->{'standard_quotations'} = '<quotation spaces=" " endspaces=" "><quotationtype>Note</quotationtype>
+$result_converted{'xml'}->{'standard_quotations'} = '<quotation endspaces=" "><quotationtype> Note</quotationtype>
 <para>A Note
 </para></quotation>
 
-<quotation spaces=" " endspaces=" "><quotationtype>note</quotationtype>
+<quotation endspaces=" "><quotationtype> note</quotationtype>
 <para>A note
 </para></quotation>
 
-<quotation spaces=" " endspaces=" "><quotationtype>Caution</quotationtype>
+<quotation endspaces=" "><quotationtype> Caution</quotationtype>
 <para>Caution
 </para></quotation>
 
-<quotation spaces=" " endspaces=" "><quotationtype>Important</quotationtype>
+<quotation endspaces=" "><quotationtype> Important</quotationtype>
 <para>Important
 </para></quotation>
 
-<quotation spaces=" " endspaces=" "><quotationtype>Tip</quotationtype>
+<quotation endspaces=" "><quotationtype> Tip</quotationtype>
 <para>a Tip
 </para></quotation>
 
-<quotation spaces=" " endspaces=" "><quotationtype>Warning</quotationtype>
+<quotation endspaces=" "><quotationtype> Warning</quotationtype>
 <para>a Warning.
 </para></quotation>
 ';

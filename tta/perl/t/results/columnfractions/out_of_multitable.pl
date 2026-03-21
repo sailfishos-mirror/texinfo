@@ -8,12 +8,10 @@ use utf8;
 $result_tree_text{'out_of_multitable'} = '*document_root C1
  *before_node_section C1
   *@columnfractions C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{0.6|0.4}
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {0.6 0.4 aaa}
 ';
 
@@ -43,7 +41,7 @@ $result_headings_list{'out_of_multitable'} = '';
 $result_converted{'html_text'}->{'out_of_multitable'} = '';
 
 
-$result_converted{'xml'}->{'out_of_multitable'} = '<columnfractions spaces=" " line="0.6 0.4 aaa"><columnfraction value="0.6"></columnfraction><columnfraction value="0.4"></columnfraction></columnfractions>';
+$result_converted{'xml'}->{'out_of_multitable'} = '<columnfractions line=" 0.6 0.4 aaa"><columnfraction value="0.6"></columnfraction><columnfraction value="0.4"></columnfraction></columnfractions>';
 
 
 $result_converted{'latex_text'}->{'out_of_multitable'} = '';

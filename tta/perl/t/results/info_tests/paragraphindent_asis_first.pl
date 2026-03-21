@@ -13,17 +13,13 @@ $result_tree_text{'paragraphindent_asis_first'} = '*document_root C1
    {bbb\\n}
   {empty_line:\\n}
   *@paragraphindent C1 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{asis}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {asis}
+    {spaces_after_argument:\\n}
   {spaces_before_paragraph:     }
   *paragraph C1
    {ccc\\n}

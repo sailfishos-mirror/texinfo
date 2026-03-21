@@ -10,16 +10,12 @@ $result_tree_text{'setfilename_in_paragraph'} = '*document_root C1
   *paragraph C1
    {Some text\\n}
   *@setfilename C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |text_arg:{setfilename_in_paragraph.info}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {setfilename_in_paragraph.info}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -51,7 +47,7 @@ $result_converted{'html_text'}->{'setfilename_in_paragraph'} = '<p>Some text
 
 
 $result_converted{'xml'}->{'setfilename_in_paragraph'} = '<para>Some text
-</para><setfilename file="setfilename_in_paragraph.info" spaces=" ">setfilename_in_paragraph.info</setfilename>
+</para><setfilename file="setfilename_in_paragraph.info"> setfilename_in_paragraph.info</setfilename>
 ';
 
 

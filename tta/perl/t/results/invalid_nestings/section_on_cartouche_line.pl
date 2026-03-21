@@ -11,40 +11,30 @@ $result_tree_text{'section_on_cartouche_line'} = '*document_root C3
    *arguments_line C1
     *block_line_arg
  *@section C3 l1 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@cartouche C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg
+    *block_line_arg C1
+     {spaces_before_argument: }
  *@section C1 l3 {second spaces}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {second spaces}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -109,12 +99,12 @@ $result_converted{'plaintext'}->{'section_on_cartouche_line'} = '1 first
 
 $result_converted{'xml'}->{'section_on_cartouche_line'} = '<cartouche>
 </cartouche>
-<section spaces=" "><sectiontitle>first</sectiontitle>
+<section><sectiontitle> first</sectiontitle>
 
-<cartouche spaces=" ">
+<cartouche> 
 </cartouche>
 </section>
-<section spaces=" "><sectiontitle>second spaces</sectiontitle>
+<section><sectiontitle> second spaces</sectiontitle>
 </section>
 ';
 

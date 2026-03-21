@@ -949,12 +949,24 @@ get_comment_or_end_line (const ELEMENT *element, COMMENT_OR_END_LINE *result)
 {
   const ELEMENT *comment = 0;
   const ELEMENT *last_arg = 0;
+  const ELEMENT *last_content = 0;
 
   if (element)
     last_arg = element->e.c->contents.list[
                         element->e.c->contents.number -1];
   if (last_arg && eit_comment_at_end < type_data[last_arg->type].elt_info_number)
     comment = last_arg->elt_info[eit_comment_at_end];
+
+  if (last_arg && !(type_data[last_arg->type].flags & TF_text)
+      && last_arg->e.c->contents.number > 0)
+    {
+      last_content = last_arg->e.c->contents.list[
+                         last_arg->e.c->contents.number -1];
+      if (!(type_data[last_content->type].flags & TF_text)
+          && (last_content->e.c->cmd == CM_comment
+              || last_content->e.c->cmd == CM_c))
+        comment = last_content;
+    }
 
   if (comment)
     {
@@ -970,6 +982,14 @@ get_comment_or_end_line (const ELEMENT *element, COMMENT_OR_END_LINE *result)
       if (eit_spaces_after_argument < type_data[last_arg->type].elt_info_number)
         spaces_after_argument
           = last_arg->elt_info[eit_spaces_after_argument];
+
+      /* TODO remove the condition on spaces_after_argument
+         when spaces_after_argument are all in tree */
+      if (!spaces_after_argument && last_content
+          && type_data[last_content->type].flags & TF_text)
+        {
+          spaces_after_argument = last_content;
+        }
       if (spaces_after_argument)
         {
           if (strchr (spaces_after_argument->e.text->text, '\n'))
@@ -1036,13 +1056,14 @@ itemize_line_prepended_element (const ELEMENT *block_line_arg)
 
   if (arg)
     return arg;
-  else if (block_line_arg->e.c->contents.number == 0)
+  else if (empty_spaces_argument (block_line_arg))
     return default_bullet_command;
   else
     return block_line_arg;
 }
 
 /* in Texinfo::Common */
+/* Unused
 const ELEMENT *
 item_itemize_prepended (const ELEMENT *element)
 {
@@ -1051,6 +1072,7 @@ item_itemize_prepended (const ELEMENT *element)
   return itemize_line_prepended_element (
                       arguments_line->e.c->contents.list[0]);
 }
+ */
 
 const ELEMENT *
 item_line_block_line_argument_command (const ELEMENT *block_line_arg)

@@ -8,33 +8,25 @@ use utf8;
 $result_tree_text{'refs_formatting'} = '*document_root C3
  *before_node_section
  *@node C1 l1 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C7 l2 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C56
    *@code C1 l4
@@ -917,8 +909,8 @@ $result_converted{'html_text'}->{'refs_formatting'} = '<div class="chapter-level
 ';
 
 
-$result_converted{'xml'}->{'refs_formatting'} = '<node identifier="chapter" spaces=" "><nodename>chapter</nodename></node>
-<chapter spaces=" "><sectiontitle>chapter</sectiontitle>
+$result_converted{'xml'}->{'refs_formatting'} = '<node identifier="chapter"><nodename> chapter</nodename></node>
+<chapter><sectiontitle> chapter</sectiontitle>
 
 <para><code>&arobase;ref&lbrace;chapter,cross ref name&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname></ref>
 <code>&arobase;ref&lbrace;chapter,,title&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc></ref>

@@ -8,38 +8,28 @@ use utf8;
 $result_tree_text{'block_command_alias'} = '*document_root C1
  *before_node_section C3
   *@alias C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{lang|lisp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {lang=lisp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@lisp C2 l3
   |INFO
   |alias_of:{lang}
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *preformatted C2
     {in lang\\n}
     *@end C1 l5
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{lang}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {lang}
+      {spaces_after_argument:\\n}
 ';
 
 

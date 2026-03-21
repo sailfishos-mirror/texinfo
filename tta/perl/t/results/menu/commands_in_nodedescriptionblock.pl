@@ -8,39 +8,29 @@ use utf8;
 $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  *before_node_section
  *@node C1 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C6 l2 {test commands in nodedescriptionblock}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {test commands in nodedescriptionblock}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C4 l4
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -64,16 +54,12 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
      *preformatted C1
       {\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C4
    *@ref C1 l9
@@ -92,40 +78,30 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    {.\\n}
   {empty_line:\\n}
  *@node C1 l11 {node1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node1}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node1}
+    {spaces_after_argument:\\n}
  *@chapter C4 l12 {chap1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@nodedescriptionblock C10 l14
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@anchor C1 l15
    |EXTRA
    |identifier:{in-nodescription}
@@ -155,22 +131,15 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
       {in w}
     {.\\n}
     *index_entry_command@cindex C1 l19
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |element_node:{node1}
     |index_entry:I{cp,1}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {in nodedescriptionblock}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@float C6 l21
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |float_number:{1.1}
    |float_type:{tfloat}
@@ -178,15 +147,13 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    |identifier:{f1}
    |is_target:{1}
     *arguments_line C2
-     *block_line_arg C1
+     *block_line_arg C2
+      {spaces_before_argument: }
       {tfloat}
-     *block_line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *block_line_arg C3
+      {spaces_before_argument: }
       {f1}
+      {spaces_after_argument:\\n}
     *@image C1 l22
     |EXTRA
     |input_encoding_name:{utf-8}
@@ -199,59 +166,43 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
        {Cap1}
     {spaces_after_close_brace:\\n}
     *@end C1 l24
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{float}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {float}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
    {empty_line:\\n}
    *@end C1 l27
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{nodedescriptionblock}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {nodedescriptionblock}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l29 {node2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{node2}
  |is_target:{1}
  |isindex:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {node2}
+    {spaces_after_argument:\\n}
  *@chapter C11 l30 {chap2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap2}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C4
    *@ref C1 l32
@@ -280,10 +231,8 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
     {rawline_text:node1 again to test two nodescription expansions}
   *@menu C3 l35
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 l36
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -296,42 +245,30 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
      *preformatted C1
       {\\n}
    *@end C1 l37
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l39
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {cp}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@listoffloats C1 l41
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_type:{tfloat}
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {tfloat}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 
@@ -659,8 +596,8 @@ $result_converted_errors{'html'}->{'commands_in_nodedescriptionblock'} = '* W l2
 ';
 
 
-$result_converted{'xml'}->{'commands_in_nodedescriptionblock'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node1</nodenext></node>
-<top spaces=" "><sectiontitle>test commands in nodedescriptionblock</sectiontitle>
+$result_converted{'xml'}->{'commands_in_nodedescriptionblock'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> node1</nodenext></node>
+<top><sectiontitle> test commands in nodedescriptionblock</sectiontitle>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>node1</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -670,17 +607,17 @@ $result_converted{'xml'}->{'commands_in_nodedescriptionblock'} = '<node identifi
 <para><ref label="in-nodescription"><xrefnodename>in nodescription</xrefnodename></ref>, <ref label="f1"><xrefnodename>f1</xrefnodename></ref>.
 </para>
 </top>
-<node identifier="node1" spaces=" "><nodename>node1</nodename><nodenext automatic="on">node2</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chap1</sectiontitle>
+<node identifier="node1"><nodename> node1</nodename><nodenext automatic="on"> node2</nodenext><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> chap1</sectiontitle>
 
 <nodedescriptionblock endspaces=" ">
 <anchor identifier="in-nodescription">in nodescription</anchor>
 
 <para><ref label="node2"><xrefnodename>node2</xrefnodename></ref>. Footnote<footnote><para>in footnote</para></footnote>. Some text to see
 where the max column could be. <w>in w</w>.
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">in nodedescriptionblock</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="1">in nodedescriptionblock</indexterm></cindex>
 </para>
-<float identifier="f1" type="tfloat" number="1.1" spaces=" " endspaces=" "><floattype>tfloat</floattype><floatname spaces=" ">f1</floatname>
+<float identifier="f1" type="tfloat" number="1.1" endspaces=" "><floattype> tfloat</floattype><floatname> f1</floatname>
 <image><imagefile>float_image</imagefile></image>
 <caption><para>Cap1</para></caption>
 </float>
@@ -689,8 +626,8 @@ where the max column could be. <w>in w</w>.
 </nodedescriptionblock>
 
 </chapter>
-<node identifier="node2" spaces=" "><nodename>node2</nodename><nodeprev automatic="on">node1</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chap2</sectiontitle>
+<node identifier="node2"><nodename> node2</nodename><nodeprev automatic="on"> node1</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> chap2</sectiontitle>
 
 <para><ref label="in-nodescription"><xrefnodename>in nodescription</xrefnodename></ref>, <ref label="f1"><xrefnodename>f1</xrefnodename></ref>.
 </para>
@@ -699,9 +636,9 @@ where the max column could be. <w>in w</w>.
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>node1</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<printindex spaces=" " value="cp" line="cp"></printindex>
+<printindex value="cp" line=" cp"></printindex>
 
-<listoffloats type="tfloat" spaces=" ">tfloat</listoffloats>
+<listoffloats type="tfloat"> tfloat</listoffloats>
 
 </chapter>
 ';

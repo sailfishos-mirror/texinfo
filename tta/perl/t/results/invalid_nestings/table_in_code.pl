@@ -13,40 +13,28 @@ $result_tree_text{'table_in_code'} = '*document_root C1
      {\\n}
      {in code\\n}
   *@table C3 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *arguments_line C1
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C3
+     {spaces_before_argument: }
      *@emph l3
+     {spaces_after_argument:\\n}
    *table_entry C2
     *table_term C1
      *@item C1 l4
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {line}
+       {spaces_after_argument:\\n}
     *table_definition C1
      *paragraph C1
       {text\\n}
    *@end C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{table}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {table}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 
@@ -94,8 +82,8 @@ _line_
 
 $result_converted{'xml'}->{'table_in_code'} = '<para><code>
 in code
-</code></para><table commandarg="emph" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="emph">line</itemformat></item>
+</code></para><table commandarg="emph" endspaces=" ">
+<tableentry><tableterm><item><itemformat command="emph"> line</itemformat></item>
 </tableterm><tableitem><para>text
 </para></tableitem></tableentry></table>
 

@@ -3475,7 +3475,7 @@ sub _convert($$) {
         }
         return;
       } elsif ($cmdname eq 'titlefont') {
-        if (exists($element->{'contents'})) {
+        if (!Texinfo::Common::empty_spaces_argument($element)) {
           my $result = _text_heading($self,
            Texinfo::TreeElement::new({'extra' => {'section_level' => 0},
                                       'cmdname' => 'titlefont'}),
@@ -3621,7 +3621,7 @@ sub _convert($$) {
         # arguments_line type element
         my $arguments_line = $element->{'contents'}->[0];
         my $block_line_arg = $arguments_line->{'contents'}->[0];
-        if (exists($block_line_arg->{'contents'})) {
+        if (!Texinfo::Common::empty_spaces_argument($block_line_arg)) {
           my $prepended = $self->cdt('@b{{quotation_arg}:} ',
                                 {'quotation_arg' => $block_line_arg});
           $prepended->{'type'} = 'frenchspacing';
@@ -3683,7 +3683,7 @@ sub _convert($$) {
         # arguments_line type element
         my $arguments_line = $element->{'contents'}->[0];
         my $block_line_arg = $arguments_line->{'contents'}->[0];
-        if (exists($block_line_arg->{'contents'})) {
+        if (!Texinfo::Common::empty_spaces_argument($block_line_arg)) {
           my $prepended = $self->cdt('@center @b{{cartouche_arg}}',
                                  {'cartouche_arg' => $block_line_arg});
           $prepended->{'type'} = 'frenchspacing';
@@ -3712,7 +3712,8 @@ sub _convert($$) {
         # @heading* commands
         $line_arg = $element->{'contents'}->[0];
       }
-      if ($cmdname ne 'part' and exists($line_arg->{'contents'})) {
+      if ($cmdname ne 'part'
+          and !Texinfo::Common::empty_spaces_argument($line_arg)) {
         $heading_element = $line_arg;
       } elsif ($cmdname eq 'top') {
         my $global_commands;
@@ -3721,10 +3722,11 @@ sub _convert($$) {
         }
         if (defined($global_commands)
             and exists($global_commands->{'settitle'})
-            and exists($global_commands->{'settitle'}->{'contents'}->[0]
-                                                         ->{'contents'})) {
-          $heading_element
-            = $global_commands->{'settitle'}->{'contents'}->[0];
+            and exists($global_commands->{'settitle'}->{'contents'})
+            and !Texinfo::Common::empty_spaces_argument(
+               $global_commands->{'settitle'}->{'contents'}->[0])) {
+          $heading_element =
+                    $global_commands->{'settitle'}->{'contents'}->[0];
         }
       }
 
@@ -3748,8 +3750,10 @@ sub _convert($$) {
              and exists($element->{'contents'})
              and exists($element->{'contents'}->[0]->{'type'})
              and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
-      if (exists($element->{'contents'}->[0]->{'contents'})) {
+      if (!Texinfo::Common::empty_spaces_argument(
+                                    $element->{'contents'}->[0])) {
         my $table_item_tree = $self->table_item_content_tree($element);
+        # FIXME why is that needed?  At least explain.
         $table_item_tree = $element->{'contents'}->[0]
           if (!defined($table_item_tree));
         my $frenchspacing_element = {'type' => 'frenchspacing',
@@ -3833,7 +3837,8 @@ sub _convert($$) {
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
       return;
     } elsif ($cmdname eq 'exdent') {
-      if (exists($element->{'contents'}->[0]->{'contents'})) {
+      if (!Texinfo::Common::empty_spaces_argument(
+                         $element->{'contents'}->[0])) {
         if (exists(
             $default_preformatted_context_commands{$self->{'context'}->[-1]})) {
           my $formatter = new_formatter($self, 'unfilled',
@@ -3891,7 +3896,8 @@ sub _convert($$) {
           next if (!exists($float->{'contents'})
                    or !exists($float->{'contents'}->[0]->{'contents'})
                    or scalar(@{$float->{'contents'}->[0]->{'contents'}}) < 2
-        or !exists($float->{'contents'}->[0]->{'contents'}->[1]->{'contents'}));
+                   or Texinfo::Common::empty_spaces_argument(
+                    $float->{'contents'}->[0]->{'contents'}->[1]));
 
           my $float_entry = $self->float_type_number($float);
           next if !defined($float_entry);

@@ -8,91 +8,64 @@ use utf8;
 $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
  *before_node_section C4
   *@setfilename C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |text_arg:{test_deftypefnnewline.info}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {test_deftypefnnewline.info}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypefnnewline C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{on}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {on}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l5 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l6 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l8 {chapter}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chapter}
+    {spaces_after_argument:\\n}
  *@chapter C31 l9 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypefun C3 l11
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l11
    |EXTRA
    |def_command:{deftypefun}
@@ -103,16 +76,14 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deftypefun}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Function}
-     (i){spaces: }
+     {spaces: }
      *def_type C1
       *def_line_arg C1
        {data-type}
@@ -124,25 +95,19 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {arguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {aaa\\n}
    *@end C1 l13
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefun}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypefun}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypefn C3 l15
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l15
    |EXTRA
    |def_command:{deftypefn}
@@ -153,10 +118,8 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deftypefn}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -168,25 +131,19 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      *def_name C1
       *def_line_arg C1
        {d--eftypefn_name}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypefn no arg\\n}
    *@end C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypefn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypeop C3 l19
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l19
    |EXTRA
    |def_command:{deftypeop}
@@ -211,10 +168,8 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deftypeop}
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C11
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -234,25 +189,19 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {a--rguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypeop\\n}
    *@end C1 l21
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypeop}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypeop}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypeop C3 l23
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l23
    |EXTRA
    |def_command:{deftypeop}
@@ -277,10 +226,8 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,4}
    |original_def_cmdname:{deftypeop}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -296,25 +243,19 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      *def_name C1
       *def_line_arg C1
        {d--eftypeop_name}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypeop no arg\\n}
    *@end C1 l25
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypeop}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypeop}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypecv C3 l27
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l27
    |EXTRA
    |def_command:{deftypecv}
@@ -339,10 +280,8 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{vr,1}
    |original_def_cmdname:{deftypecv}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -358,25 +297,19 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      *def_name C1
       *def_line_arg C1
        {d--eftypecv_name}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypecv\\n}
    *@end C1 l29
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypecv}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypecv}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypecv C3 l31
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l31
    |EXTRA
    |def_command:{deftypecv}
@@ -401,10 +334,8 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{vr,2}
    |original_def_cmdname:{deftypecv}
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C11
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory}
@@ -424,25 +355,19 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {a--rguments...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypecv with arguments\\n}
    *@end C1 l33
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypecv}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypecv}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C3 l35
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l35
    |EXTRA
    |def_command:{deffn}
@@ -453,10 +378,8 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,5}
    |original_def_cmdname:{deffn}
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {fun}
@@ -464,38 +387,28 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      *def_name C1
       *def_line_arg C1
        {arg}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {fff\\n}
    *@end C1 l37
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypefnnewline C1 l39
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{off}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {off}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypefun C3 l41
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l41
    |EXTRA
    |def_command:{deftypefun}
@@ -506,16 +419,14 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,6}
    |original_def_cmdname:{deftypefun}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
      *def_category C1
      |INFO
      |inserted:{1}
       *def_line_arg C1
        {Function}
-     (i){spaces: }
+     {spaces: }
      *def_type C1
       *def_line_arg C1
        {data-type2}
@@ -527,25 +438,19 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {arguments2...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {aaa2\\n}
    *@end C1 l43
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefun}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypefun}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypefn C3 l45
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l45
    |EXTRA
    |def_command:{deftypefn}
@@ -556,10 +461,8 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,7}
    |original_def_cmdname:{deftypefn}
-    *block_line_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C7
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory2}
@@ -571,25 +474,19 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      *def_name C1
       *def_line_arg C1
        {d--eftypefn_name2}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypefn no arg2\\n}
    *@end C1 l47
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypefn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypefn}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypeop C3 l49
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l49
    |EXTRA
    |def_command:{deftypeop}
@@ -614,10 +511,8 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,8}
    |original_def_cmdname:{deftypeop}
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C11
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory2}
@@ -637,25 +532,19 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      *def_typearg C1
       *def_line_arg C1
        {a--rguments2...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypeop2\\n}
    *@end C1 l51
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypeop}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypeop}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypeop C3 l53
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l53
    |EXTRA
    |def_command:{deftypeop}
@@ -680,10 +569,8 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,9}
    |original_def_cmdname:{deftypeop}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory2}
@@ -699,25 +586,19 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      *def_name C1
       *def_line_arg C1
        {d--eftypeop_name2}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypeop no arg2\\n}
    *@end C1 l55
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypeop}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypeop}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypecv C3 l57
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l57
    |EXTRA
    |def_command:{deftypecv}
@@ -742,10 +623,8 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{vr,3}
    |original_def_cmdname:{deftypecv}
-    *block_line_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C9
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory2}
@@ -761,25 +640,19 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      *def_name C1
       *def_line_arg C1
        {d--eftypecv_name2}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypecv2\\n}
    *@end C1 l59
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypecv}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypecv}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deftypecv C3 l61
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l61
    |EXTRA
    |def_command:{deftypecv}
@@ -804,10 +677,8 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{vr,4}
    |original_def_cmdname:{deftypecv}
-    *block_line_arg C9
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C11
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {c--ategory2}
@@ -827,25 +698,19 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      *def_arg C1
       *def_line_arg C1
        {a--rguments2...}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {d--eftypecv with arguments2\\n}
    *@end C1 l63
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deftypecv}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deftypecv}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@deffn C3 l65
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *def_line C1 l65
    |EXTRA
    |def_command:{deffn}
@@ -856,10 +721,8 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
    |element_node:{chapter}
    |index_entry:I{fn,10}
    |original_def_cmdname:{deffn}
-    *block_line_arg C3
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C5
+     {spaces_before_argument: }
      *def_category C1
       *def_line_arg C1
        {fun2}
@@ -867,20 +730,17 @@ $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
      *def_name C1
       *def_line_arg C1
        {arg2}
+     {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C1
      {fff2\\n}
    *@end C1 l67
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{deffn}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {deffn}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -1209,72 +1069,72 @@ $result_converted{'html_text'}->{'test_deftypefnnewline'} = '
 ';
 
 
-$result_converted{'xml'}->{'test_deftypefnnewline'} = '<setfilename file="test_deftypefnnewline.info" spaces=" ">test_deftypefnnewline.info</setfilename>
+$result_converted{'xml'}->{'test_deftypefnnewline'} = '<setfilename file="test_deftypefnnewline.info"> test_deftypefnnewline.info</setfilename>
 
-<deftypefnnewline spaces=" " value="on" line="on"></deftypefnnewline>
+<deftypefnnewline value="on" line=" on"></deftypefnnewline>
 
-<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapter</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
 
 </top>
-<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chap</sectiontitle>
+<node identifier="chapter"><nodename> chapter</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> chap</sectiontitle>
 
-<deftypefun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">name</indexterm><defcategory automatic="on">Function</defcategory> <deftype>data-type</deftype> <deffunction>name</deffunction> <defparamtype>arguments...</defparamtype></definitionterm>
+<deftypefun endspaces=" "><definitionterm><indexterm index="fn" number="1">name</indexterm> <defcategory automatic="on">Function</defcategory> <deftype>data-type</deftype> <deffunction>name</deffunction> <defparamtype>arguments...</defparamtype></definitionterm>
 <definitionitem><para>aaa
 </para></definitionitem></deftypefun>
 
-<deftypefn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="2">d--eftypefn_name</indexterm><defcategory>c--ategory</defcategory> <deftype>t--ype</deftype> <deffunction>d--eftypefn_name</deffunction></definitionterm>
+<deftypefn endspaces=" "><definitionterm><indexterm index="fn" number="2">d--eftypefn_name</indexterm> <defcategory>c--ategory</defcategory> <deftype>t--ype</deftype> <deffunction>d--eftypefn_name</deffunction></definitionterm>
 <definitionitem><para>d&textndash;eftypefn no arg
 </para></definitionitem></deftypefn>
 
-<deftypeop spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="3">d--eftypeop_name on c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defoperation>d--eftypeop_name</defoperation> <defparamtype>a--rguments...</defparamtype></definitionterm>
+<deftypeop endspaces=" "><definitionterm><indexterm index="fn" number="3">d--eftypeop_name on c--lass</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defoperation>d--eftypeop_name</defoperation> <defparamtype>a--rguments...</defparamtype></definitionterm>
 <definitionitem><para>d&textndash;eftypeop
 </para></definitionitem></deftypeop>
 
-<deftypeop spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="4">d--eftypeop_name on c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defoperation>d--eftypeop_name</defoperation></definitionterm>
+<deftypeop endspaces=" "><definitionterm><indexterm index="fn" number="4">d--eftypeop_name on c--lass</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defoperation>d--eftypeop_name</defoperation></definitionterm>
 <definitionitem><para>d&textndash;eftypeop no arg
 </para></definitionitem></deftypeop>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="1">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar></definitionterm>
+<deftypecv endspaces=" "><definitionterm><indexterm index="vr" number="1">d--eftypecv_name of c--lass</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;eftypecv
 </para></definitionitem></deftypecv>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="2">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
+<deftypecv endspaces=" "><definitionterm><indexterm index="vr" number="2">d--eftypecv_name of c--lass</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
 <definitionitem><para>d&textndash;eftypecv with arguments
 </para></definitionitem></deftypecv>
 
-<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="5">arg</indexterm><defcategory>fun</defcategory> <deffunction>arg</deffunction></definitionterm>
+<deffn endspaces=" "><definitionterm><indexterm index="fn" number="5">arg</indexterm> <defcategory>fun</defcategory> <deffunction>arg</deffunction></definitionterm>
 <definitionitem><para>fff
 </para></definitionitem></deffn>
 
-<deftypefnnewline spaces=" " value="off" line="off"></deftypefnnewline>
+<deftypefnnewline value="off" line=" off"></deftypefnnewline>
 
-<deftypefun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="6">name2</indexterm><defcategory automatic="on">Function</defcategory> <deftype>data-type2</deftype> <deffunction>name2</deffunction> <defparamtype>arguments2...</defparamtype></definitionterm>
+<deftypefun endspaces=" "><definitionterm><indexterm index="fn" number="6">name2</indexterm> <defcategory automatic="on">Function</defcategory> <deftype>data-type2</deftype> <deffunction>name2</deffunction> <defparamtype>arguments2...</defparamtype></definitionterm>
 <definitionitem><para>aaa2
 </para></definitionitem></deftypefun>
 
-<deftypefn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="7">d--eftypefn_name2</indexterm><defcategory>c--ategory2</defcategory> <deftype>t--ype2</deftype> <deffunction>d--eftypefn_name2</deffunction></definitionterm>
+<deftypefn endspaces=" "><definitionterm><indexterm index="fn" number="7">d--eftypefn_name2</indexterm> <defcategory>c--ategory2</defcategory> <deftype>t--ype2</deftype> <deffunction>d--eftypefn_name2</deffunction></definitionterm>
 <definitionitem><para>d&textndash;eftypefn no arg2
 </para></definitionitem></deftypefn>
 
-<deftypeop spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="8">d--eftypeop_name2 on c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defoperation>d--eftypeop_name2</defoperation> <defparamtype>a--rguments2...</defparamtype></definitionterm>
+<deftypeop endspaces=" "><definitionterm><indexterm index="fn" number="8">d--eftypeop_name2 on c--lass2</indexterm> <defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defoperation>d--eftypeop_name2</defoperation> <defparamtype>a--rguments2...</defparamtype></definitionterm>
 <definitionitem><para>d&textndash;eftypeop2
 </para></definitionitem></deftypeop>
 
-<deftypeop spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="9">d--eftypeop_name2 on c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defoperation>d--eftypeop_name2</defoperation></definitionterm>
+<deftypeop endspaces=" "><definitionterm><indexterm index="fn" number="9">d--eftypeop_name2 on c--lass2</indexterm> <defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defoperation>d--eftypeop_name2</defoperation></definitionterm>
 <definitionitem><para>d&textndash;eftypeop no arg2
 </para></definitionitem></deftypeop>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="3">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar></definitionterm>
+<deftypecv endspaces=" "><definitionterm><indexterm index="vr" number="3">d--eftypecv_name2 of c--lass2</indexterm> <defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;eftypecv2
 </para></definitionitem></deftypecv>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="4">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar> <defparam>a--rguments2...</defparam></definitionterm>
+<deftypecv endspaces=" "><definitionterm><indexterm index="vr" number="4">d--eftypecv_name2 of c--lass2</indexterm> <defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar> <defparam>a--rguments2...</defparam></definitionterm>
 <definitionitem><para>d&textndash;eftypecv with arguments2
 </para></definitionitem></deftypecv>
 
-<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="10">arg2</indexterm><defcategory>fun2</defcategory> <deffunction>arg2</deffunction></definitionterm>
+<deffn endspaces=" "><definitionterm><indexterm index="fn" number="10">arg2</indexterm> <defcategory>fun2</defcategory> <deffunction>arg2</deffunction></definitionterm>
 <definitionitem><para>fff2
 </para></definitionitem></deffn>
 </chapter>

@@ -8,40 +8,28 @@ use utf8;
 $result_tree_text{'recursive_alias'} = '*document_root C1
  *before_node_section C9
   *@alias C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{new|strong}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {new = strong}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@alias C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{other|new}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {other = new}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@alias C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{strong|other}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {strong = other}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@strong C1 l7

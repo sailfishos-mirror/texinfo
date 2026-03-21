@@ -63,56 +63,44 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
   {empty_line:\\n}
   {empty_line:\\n}
  *@node C1 l10 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@node C18 l11 {chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {chap}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C4
    {testvar include: }
    >SOURCEMARKS
    >include<start;1><p:17>
     >*@include C1 l13
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >|>SOURCEMARKS
-     >|>value_expansion<start;1><p:1>{incl-incl.txi}
-      >|>*@value C1
-       >|>*brace_container C1
-        >|>{testvar}
     >|EXTRA
     >|text_arg:{incl-incl.txi}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
+      >>SOURCEMARKS
+      >>value_expansion<start;1><p:1>{incl-incl.txi}
+       >>*@value C1
+        >>*brace_container C1
+         >>{testvar}
       >{incl-incl.txi}
       >>SOURCEMARKS
       >>value_expansion<end;1><p:13>
+      >{spaces_after_argument:\\n}
    {This is the }
    *@emph C1 incl-incl.txi:l1
     *brace_container C1
@@ -124,24 +112,20 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
   *paragraph C1
    {testvar verbatiminclude: }
   *@verbatiminclude C1 l15
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>value_expansion<start;2><p:1>{incl-incl.txi}
-    |>*@value C1
-     |>*brace_container C1
-      |>{testvar}
   |EXTRA
   |input_encoding_name:{utf-8}
   |text_arg:{incl-incl.txi}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >value_expansion<start;2><p:1>{incl-incl.txi}
+     >*@value C1
+      >*brace_container C1
+       >{testvar}
     {incl-incl.txi}
     >SOURCEMARKS
     >value_expansion<end;2><p:13>
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   *paragraph C4
@@ -149,23 +133,19 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
    >SOURCEMARKS
    >include<start;2><p:18>
     >*@include C1 l18
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >|>SOURCEMARKS
-     >|>value_expansion<start;3><p:1>{incl-incl.tx}
-      >|>*@value C1
-       >|>*brace_container C1
-        >|>{test-var}
     >|EXTRA
     >|text_arg:{incl-incl.txi}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
+      >>SOURCEMARKS
+      >>value_expansion<start;3><p:1>{incl-incl.tx}
+       >>*@value C1
+        >>*brace_container C1
+         >>{test-var}
       >{incl-incl.txi}
       >>SOURCEMARKS
       >>value_expansion<end;3><p:12>
+      >{spaces_after_argument:\\n}
    {This is the }
    *@emph C1 incl-incl.txi:l1
     *brace_container C1
@@ -177,24 +157,20 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
   *paragraph C1
    {test-var verbatiminclude: }
   *@verbatiminclude C1 l20
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>value_expansion<start;4><p:1>{incl-incl.tx}
-    |>*@value C1
-     |>*brace_container C1
-      |>{test-var}
   |EXTRA
   |input_encoding_name:{utf-8}
   |text_arg:{incl-incl.txi}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >value_expansion<start;4><p:1>{incl-incl.tx}
+     >*@value C1
+      >*brace_container C1
+       >{test-var}
     {incl-incl.txi}
     >SOURCEMARKS
     >value_expansion<end;4><p:12>
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   *paragraph C4
@@ -202,15 +178,10 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
    >SOURCEMARKS
    >include<start;3><p:18>
     >*@include C1 l23
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{incl-incl.txi}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{incl-incl.txi}
       >>SOURCEMARKS
       >>value_expansion<start;5><p:1>{ncl-incl.tx}
@@ -218,6 +189,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
         >>*brace_container C1
          >>{test_var}
       >>value_expansion<end;5><p:12>
+      >{spaces_after_argument:\\n}
    {This is the }
    *@emph C1 incl-incl.txi:l1
     *brace_container C1
@@ -229,16 +201,11 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
   *paragraph C1
    {test_var verbatiminclude: }
   *@verbatiminclude C1 l25
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |input_encoding_name:{utf-8}
   |text_arg:{incl-incl.txi}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {incl-incl.txi}
     >SOURCEMARKS
     >value_expansion<start;6><p:1>{ncl-incl.tx}
@@ -246,6 +213,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
       >*brace_container C1
        >{test_var}
     >value_expansion<end;6><p:12>
+    {spaces_after_argument:\\n}
 ';
 
 

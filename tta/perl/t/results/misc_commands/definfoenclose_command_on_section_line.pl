@@ -8,43 +8,30 @@ use utf8;
 $result_tree_text{'definfoenclose_command_on_section_line'} = '*document_root C3
  *before_node_section C2
   *@definfoenclose C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{somed|!|:}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {somed,!,:}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l3 {top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top}
+    {spaces_after_argument:\\n}
  *@top C1 l4 {A @somed{next}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {A }
     *definfoenclose_command@somed C1 l4
     |EXTRA
@@ -52,6 +39,7 @@ $result_tree_text{'definfoenclose_command_on_section_line'} = '*document_root C3
     |end:{:}
      *brace_container C1
       {next}
+    {spaces_after_argument:\\n}
 ';
 
 

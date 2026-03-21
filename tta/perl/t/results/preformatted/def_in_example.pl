@@ -9,14 +9,9 @@ $result_tree_text{'def_in_example'} = '*document_root C1
  *before_node_section C1
   *@example C3 l1
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *@defun C3 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
     *def_line C1 l2
     |EXTRA
     |def_command:{defun}
@@ -26,16 +21,14 @@ $result_tree_text{'def_in_example'} = '*document_root C1
        |{name}
     |index_entry:I{fn,1}
     |original_def_cmdname:{defun}
-     *block_line_arg C5
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C7
+      (i){spaces_before_argument: }
       *def_category C1
       |INFO
       |inserted:{1}
        *def_line_arg C1
         {Function}
-      (i){spaces: }
+      {spaces: }
       *def_name C1
        *def_line_arg C1
         {name}
@@ -43,31 +36,24 @@ $result_tree_text{'def_in_example'} = '*document_root C1
       *def_arg C1
        *def_line_arg C1
         {arg}
+      {spaces_after_argument:\\n}
     *def_item C1
      *preformatted C1
       {in defun\\n}
     *@end C1 l4
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{defun}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {defun}
+      {spaces_after_argument:\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{example}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {example}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -156,7 +142,7 @@ $result_converted{'docbook'}->{'def_in_example'} = '<synopsis><indexterm role="f
 
 
 $result_converted{'xml'}->{'def_in_example'} = '<example endspaces=" ">
-<defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">name</indexterm><defcategory automatic="on">Function</defcategory> <deffunction>name</deffunction> <defparam>arg</defparam></definitionterm>
+<defun endspaces=" "><definitionterm><indexterm index="fn" number="1">name</indexterm> <defcategory automatic="on">Function</defcategory> <deffunction>name</deffunction> <defparam>arg</defparam></definitionterm>
 <definitionitem><pre xml:space="preserve">in defun
 </pre></definitionitem></defun>
 </example>

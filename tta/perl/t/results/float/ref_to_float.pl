@@ -9,9 +9,6 @@ $result_tree_text{'ref_to_float'} = '*document_root C1
  *before_node_section C8
   *preamble_before_content
   *@float C3 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{Text}
@@ -19,33 +16,24 @@ $result_tree_text{'ref_to_float'} = '*document_root C1
   |identifier:{Label1}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg C1
+    *block_line_arg C2
+     {spaces_before_argument: }
      {Text}
-    *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {Label1}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {Float\\n}
    *@end C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@float C3 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |float_number:{1}
   |float_type:{}
@@ -53,27 +41,21 @@ $result_tree_text{'ref_to_float'} = '*document_root C1
   |identifier:{Label2}
   |is_target:{1}
    *arguments_line C2
-    *block_line_arg
     *block_line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_before_argument: }
+    *block_line_arg C3
+     {spaces_before_argument: }
      {Label2}
+     {spaces_after_argument:\\n}
    *paragraph C1
     {In foat 2.\\n}
    *@end C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{float}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {float}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l9
@@ -190,11 +172,11 @@ $result_converted_errors{'html'}->{'ref_to_float'} = '* W |must specify a title 
 ';
 
 
-$result_converted{'xml'}->{'ref_to_float'} = '<float identifier="Label1" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">Label1</floatname>
+$result_converted{'xml'}->{'ref_to_float'} = '<float identifier="Label1" type="Text" number="1" endspaces=" "><floattype> Text</floattype><floatname> Label1</floatname>
 <para>Float
 </para></float>
 
-<float identifier="Label2" type="" number="1" spaces=" " endspaces=" "><floatname spaces=" ">Label2</floatname>
+<float identifier="Label2" type="" number="1" endspaces=" "><floattype> </floattype><floatname> Label2</floatname>
 <para>In foat 2.
 </para></float>
 

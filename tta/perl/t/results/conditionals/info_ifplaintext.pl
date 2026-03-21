@@ -12,22 +12,16 @@ $result_tree_text{'info_ifplaintext'} = '*document_root C1
   >ignored_conditional_block<1><p:1>
    >*@ifplaintext C3 l2
     >*arguments_line C1
-     >*block_line_arg
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*block_line_arg C1
+      >{spaces_before_argument:\\n}
     >{raw:this text will only appear in plain text.\\n}
     >*@end C1 l4
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
     >|EXTRA
     >|text_arg:{ifplaintext}
-     >*line_arg C1
-     >|INFO
-     >|spaces_after_argument:
-      >|{spaces_after_argument:\\n}
+     >*line_arg C3
+      >{spaces_before_argument: }
       >{ifplaintext}
+      >{spaces_after_argument:\\n}
 ';
 
 

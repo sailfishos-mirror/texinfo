@@ -9,28 +9,22 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
  *before_node_section C1
   *preamble_before_content
  *@node C1 nodequote.texi:l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C30 nodequote.texi:l2
  |EXTRA
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *paragraph C4
    *@xref C2 nodequote.texi:l4
@@ -246,10 +240,8 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
   {empty_line:\\n}
   *@menu C8 nodequote.texi:l33
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
    *menu_entry C4 nodequote.texi:l34
     {menu_entry_leading_text:* }
     *menu_entry_node C3
@@ -330,97 +322,73 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
     *preformatted C1
      {after_menu_description_line:\\n}
    *@end C1 nodequote.texi:l40
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 nodequote.texi:l42 {blah:blah}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{blah_003ablah}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {blah:blah}
+    {spaces_after_argument:\\n}
  *@chapter C4 nodequote.texi:l43 {blah:blah}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {blah:blah}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {stuff here.\\n}
   {empty_line:\\n}
  *@node C1 nodequote.texi:l47 {blumpty.fump}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{blumpty_002efump}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {blumpty.fump}
+    {spaces_after_argument:\\n}
  *@chapter C2 nodequote.texi:l48 {blumpty.fump}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {blumpty.fump}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 nodequote.texi:l50 {normal node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{normal-node}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C4
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {normal node}
-   *line_arg C6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C7
    |EXTRA
    |manual_content:{man@comma{}u:a.l}
    |node_content:{direction}
    |normalized:{direction}
+    {spaces_before_argument: }
     {(}
     {man}
     *@comma C1 nodequote.texi:l50
@@ -428,14 +396,12 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
     {u:a.l}
     {)}
     {direction}
-   *line_arg C6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C7
    |EXTRA
    |manual_content:{man_ual}
    |node_content:{direct@comma{}ion}
    |normalized:{direct_002cion}
+    {spaces_before_argument: }
     {(}
     {man_ual}
     {)}
@@ -443,82 +409,63 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
     *@comma C1 nodequote.texi:l50
      *brace_container
     {ion}
-   *line_arg C4
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *line_arg C6
    |EXTRA
    |manual_content:{man_ual}
    |node_content:{direct::i.on}
    |normalized:{direct_003a_003ai_002eon}
+    {spaces_before_argument: }
     {(}
     {man_ual}
     {)}
     {direct::i.on}
+    {spaces_after_argument:\\n}
  *@chapter C2 nodequote.texi:l51 {normal node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {normal node}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 nodequote.texi:l53 {@asis{secret,node}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{secret_002cnode}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@asis C1 nodequote.texi:l53
      *brace_container C1
       {secret,node}
+    {spaces_after_argument:\\n}
  *@chapter C2 nodequote.texi:l54 {@asis{secret,node}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@asis C1 nodequote.texi:l54
      *brace_container C1
       {secret,node}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C3 nodequote.texi:l56 {top secret node}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{top-secret-node}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {top secret node}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {stuff here.\\n}

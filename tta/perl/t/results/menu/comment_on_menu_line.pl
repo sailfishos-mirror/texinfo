@@ -8,34 +8,26 @@ use utf8;
 $result_tree_text{'comment_on_menu_line'} = '*document_root C4
  *before_node_section
  *@node C4 l1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument:  }
    *arguments_line C1
-    *block_line_arg
-    |INFO
-    |comment_at_end:
-     |*@c C1
-      |*line_arg C1
-      ||INFO
-      ||spaces_after_argument:
-       ||{spaces_after_argument:\\n}
-       |{rawline_text:}
+    *block_line_arg C2
+     {spaces_before_argument:  }
+     *@c C1
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{spaces_after_argument:\\n}
+       {rawline_text:}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C1
@@ -48,45 +40,33 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
      *preformatted C1
       {\\n}
    *@end C1 l5
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |text_arg:{menu}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {menu}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@chapter C1 l7 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
  *@node C1 l8 {first}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{first}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {first}
+    {spaces_after_argument:\\n}
 ';
 
 
@@ -199,15 +179,15 @@ $result_converted_errors{'html'}->{'comment_on_menu_line'} = '* W |must specify 
 ';
 
 
-$result_converted{'xml'}->{'comment_on_menu_line'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">first</nodenext></node>
+$result_converted{'xml'}->{'comment_on_menu_line'} = '<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> first</nodenext></node>
 
-<menu spaces="  " endspaces=" "><!-- c -->
+<menu endspaces=" ">  <!-- c -->
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>first</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<chapter spaces=" "><sectiontitle>first</sectiontitle>
+<chapter><sectiontitle> first</sectiontitle>
 </chapter>
-<node identifier="first" spaces=" "><nodename>first</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="first"><nodename> first</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
 ';
 
 1;

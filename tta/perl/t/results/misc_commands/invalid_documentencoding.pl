@@ -17,127 +17,91 @@ $result_tree_text{'invalid_documentencoding'} = '*document_root C1
     |{spaces_after_argument:\\n}
     {rawline_text:this one is valid}
   *@documentencoding C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |text_arg:{us-ascii}
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {us-ascii}
     *@asis C1 l2
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@documentencoding C1 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |text_arg:{latin1}
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {latin1}
     *@asis C1 l4
      *brace_container C1
       {a}
+    {spaces_after_argument:\\n}
   *@documentencoding C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
   |text_arg:{YS-ASCII}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {YS-ASCII}
+    {spaces_after_argument:\\n}
   *paragraph C8
    *@@
    {documentencoding }
    *@documentencoding C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{4}
    |text_arg:{bad encoding name}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {bad encoding name}
+     {spaces_after_argument:\\n}
    *@documentencoding C1 l7
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{5}
    |text_arg:{1}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {1}
+     {spaces_after_argument:\\n}
    *@documentencoding C1 l8
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{6}
    |text_arg:{%}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {%}
+     {spaces_after_argument:\\n}
    *@documentencoding C1 l9
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{7}
    |text_arg:{@}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      *@@
+     {spaces_after_argument:\\n}
    *@documentencoding C1 l10
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{8}
    |text_arg:{AAA}
-    *line_arg C2
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C4
+     {spaces_before_argument: }
      {AAA}
      *@TeX C1 l10
       *brace_container
+     {spaces_after_argument:\\n}
    *@documentencoding C1 l11
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{9}
    |text_arg:{BBB}
-    *line_arg C2
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C4
+     {spaces_before_argument: }
      {BBB}
      *@\' C1 l11
       *following_arg C1
        {e}
+     {spaces_after_argument:\\n}
 ';
 
 
