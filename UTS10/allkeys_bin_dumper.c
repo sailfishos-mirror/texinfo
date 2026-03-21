@@ -44,7 +44,7 @@ typedef struct
   uint32_t num_singles;
   uint32_t num_sequences;
   long version;
-} Database;
+} Allkeys_Info;
 
 typedef struct
 {
@@ -219,9 +219,9 @@ check_codepoint_nondecomposable (char32_t codepoint)
   return 1;
 }
 
-/* Build database from allkeys.txt */
-static Database *
-build_database (const char *filename)
+/* Read allkeys.txt */
+static Allkeys_Info *
+build_allkeys_info (const char *filename)
 {
   FILE *fp = fopen (filename, "r");
   if (!fp)
@@ -230,8 +230,8 @@ build_database (const char *filename)
       return NULL;
     }
 
-  Database *db = calloc (1, sizeof (Database));
-  db->trie_root = calloc (1, sizeof (TrieNode));
+  Allkeys_Info *info = calloc (1, sizeof (Allkeys_Info));
+  info->trie_root = calloc (1, sizeof (TrieNode));
 
   char line[4096];
   size_t line_num = 0;
@@ -252,7 +252,7 @@ build_database (const char *filename)
         {
           if (strncmp (line, "@version", 8) == 0)
             {
-              db->version = parse_version (line);
+              info->version = parse_version (line);
             }
           continue;
         }
@@ -314,8 +314,8 @@ build_database (const char *filename)
                     }
                   if (elem.variable_weight)
                     {
-                      if (elem.element.primary > db->max_variable_weight)
-                        db->max_variable_weight = elem.element.primary;
+                      if (elem.element.primary > info->max_variable_weight)
+                        info->max_variable_weight = elem.element.primary;
                     }
                 }
             }
@@ -331,29 +331,28 @@ build_database (const char *filename)
           continue;
         }
 
-      /* Insert into database. */
       if (num_codepoints == 1)
         {
           uint32_t page_num = codepoints[0] >> 8;
           uint8_t index = codepoints[0] & 0xFF;
 
-          if (!db->pages[page_num])
+          if (!info->pages[page_num])
             {
-              db->pages[page_num] = calloc (1, sizeof (Page));
+              info->pages[page_num] = calloc (1, sizeof (Page));
             }
 
-          Page *page = db->pages[page_num];
+          Page *page = info->pages[page_num];
           page->entries =
             realloc (page->entries, (page->count + 1) * sizeof (PageEntry));
           page->entries[page->count].index = index;
           page->entries[page->count].data = data;
           page->count++;
-          db->num_singles++;
+          info->num_singles++;
         }
       else
         {
           /* Insert into trie. */
-          TrieNode *node = db->trie_root;
+          TrieNode *node = info->trie_root;
           for (size_t i = 0; i < num_codepoints; i++)
             {
               TrieNode *child = NULL;
@@ -377,7 +376,7 @@ build_database (const char *filename)
               node = child;
             }
           node->data = data;
-          db->num_sequences++;
+          info->num_sequences++;
         }
 
       if (line_num % 5000 == 0)
@@ -389,9 +388,9 @@ build_database (const char *filename)
 
   fclose (fp);
   printf ("\nParsing complete: %u singles, %u sequences\n",
-          db->num_singles, db->num_sequences);
+          info->num_singles, info->num_sequences);
 
-  return db;
+  return info;
 }
 
 /* Convert collation units into to the form they will be written as. */
@@ -585,11 +584,11 @@ static int used_planes[17];
    each page that was used, and preprocess collation unit data for
    writing. */
 static void
-serialize_page_table (Database *db, ByteBuffer *buf)
+serialize_page_table (Allkeys_Info *info, ByteBuffer *buf)
 {
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
-      if (db->pages[i])
+      if (info->pages[i])
         {
           fprintf (stderr, "used plane %x\n", i >> 8);
           used_planes[i >> 8] = 1;
@@ -601,13 +600,13 @@ serialize_page_table (Database *db, ByteBuffer *buf)
   n_used_pages = 0;
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
-      if (!db->pages[i])
+      if (!info->pages[i])
         {
           page_offset_positions[i] = -1;
           //fprintf (stderr, "EMPTY PAGE (%3x..)\n", i);
           continue;
         }
-      Page *page = db->pages[i];
+      Page *page = info->pages[i];
       page_offset_positions[i] = n_used_pages;
       n_used_pages++;
 
@@ -625,10 +624,10 @@ serialize_page_table (Database *db, ByteBuffer *buf)
 }
 
 
-/* Convert part of database to binary format.  Save collation units
+/* Convert trie to binary format.  Save collation units
    to be output in mallocated COLLATION_UNITS. */
 static ByteBuffer *
-serialize_database (Database *db)
+serialize_allkeys_info (Allkeys_Info *info)
 {
   ByteBuffer *buf = buffer_create ();
 
@@ -638,9 +637,9 @@ serialize_database (Database *db)
   printf ("Sorting page entries...\n");
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
-      if (db->pages[i] && db->pages[i]->count > 0)
+      if (info->pages[i] && info->pages[i]->count > 0)
         {
-          qsort (db->pages[i]->entries, db->pages[i]->count,
+          qsort (info->pages[i]->entries, info->pages[i]->count,
                  sizeof (PageEntry), compare_page_entries);
         }
     }
@@ -648,7 +647,7 @@ serialize_database (Database *db)
   /* keep running count of collation units which will be written to
      the collation units array so we can output indices into that array. */
   collation_units_written = 0;
-  collation_records = malloc ((db->num_singles + db->num_sequences + 1)
+  collation_records = malloc ((info->num_singles + info->num_sequences + 1)
                     * sizeof (PendingCollationData));
   collation_records_count = 0;
 
@@ -659,7 +658,7 @@ serialize_database (Database *db)
   collation_records_count++;
   collation_units_written++;
 
-  (void) write_trie_node (buf, db->trie_root);
+  (void) write_trie_node (buf, info->trie_root);
 
   return buf;
 }
@@ -667,7 +666,7 @@ serialize_database (Database *db)
 /* Write as C source file */
 static void
 write_c_source (ByteBuffer *buf, const char *output_file,
-                Database *db)
+                Allkeys_Info *info)
 {
   FILE *fp = fopen (output_file, "w");
   if (!fp)
@@ -676,7 +675,7 @@ write_c_source (ByteBuffer *buf, const char *output_file,
       return;
     }
 
-  serialize_page_table (db, buf);
+  serialize_page_table (info, buf);
 
   int n_used_planes = 0;
   long i;
@@ -731,10 +730,10 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "  }\n");
   fprintf (fp, "collation_data = {\n");
 
-  fprintf (fp, "  %ld,\n", db->version);
-  fprintf (fp, "  0x%04X,\n", db->max_variable_weight);
-  fprintf (fp, "  %d,\n", db->num_singles);
-  fprintf (fp, "  %d,\n", db->num_sequences);
+  fprintf (fp, "  %ld,\n", info->version);
+  fprintf (fp, "  0x%04X,\n", info->max_variable_weight);
+  fprintf (fp, "  %d,\n", info->num_singles);
+  fprintf (fp, "  %d,\n", info->num_sequences);
   fprintf (fp, "  { /* .planes */\n");
 
   int page_idx = 0;
@@ -769,12 +768,12 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   /* collation_data.pages_data */
   for (i = 0; i < NUM_PAGES; i++)
     {
-      if (!db->pages[i])
+      if (!info->pages[i])
         continue;
 
       fprintf (fp, "  {\n");
 
-      Page *page = db->pages[i];
+      Page *page = info->pages[i];
       /* Output struct block256_data.  */
       fprintf (fp, "    {\n");
 
@@ -893,15 +892,15 @@ main (int argc, char *argv[])
   const char *input_file = argv[1];
   const char *c_file = argc >= 3 ? argv[2] : NULL;
 
-  Database *db = build_database (input_file);
-  if (!db)
+  Allkeys_Info *info = build_allkeys_info (input_file);
+  if (!info)
     return 1;
 
-  ByteBuffer *buf = serialize_database (db);
+  ByteBuffer *buf = serialize_allkeys_info (info);
 
   if (c_file)
     {
-      write_c_source (buf, c_file, db);
+      write_c_source (buf, c_file, info);
     }
 
   return 0;
