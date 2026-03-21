@@ -2,28 +2,10 @@
 
 data structure in allkeys_bin.c
 
-### Page Table (NUM_PAGES * 4 bytes = 17,408 bytes)
+### Page Table
 - Each page covers 256 codepoints (U+XX00 to U+XXFF)
-- Offset of 0 means page not allocated
-- Non-zero offset points to page data
-
-### Page Data (variable size)
-For each allocated page:
-
-For each of 256 entries (5 bytes each):
-  uint8_t num_elements   Number of collation elements (1-16)
-  uint32_t data_index    Index of collation data in array
-
-
-Entries are sorted by index for binary search.
-
-### Collation Data (variable size)
-
-For each element (4 bytes):
-  uint16_t primary
-  uint8_t secondary
-  uint8_t tertiary
-
+- Offset of -1 means page not allocated
+- Offset points to page data
 
 ### Sequence Trie (variable size)
 Recursive trie structure for multi-codepoint sequences:
@@ -34,33 +16,4 @@ uint8_t num_elements   Number of collation elements
 uint16_t num_children  Number of child nodes
 For each child:
   uint32_t child_offset Offset to child node
-
-
-## Data Layout Example
-
-For Unicode range U+0000 to U+00FF (page 0):
-
-Page Table[0] → Page Data @ offset 4444
-  Page Data:
-    count: 179  (179 codepoints in this range have collation data)
-    entries[0]:  index=0x00, data_offset=5555
-    entries[1]:  index=0x01, data_offset=5562
-    ...
-    entries[178]: index=0xFF, data_offset=6789
-
-
-For codepoint U+0041 ('A'):
-
-1. page_num = 0x0041 >> 8 = 0
-2. page_index = 0x0041 & 0xFF = 0x41 (65)
-3. Read Page Table[0] → page_data_offset = 4444
-4. Read page count at offset 4444 → 179 entries
-5. Binary search for index 65 in entries
-6. Found at entries[33]: data_offset = 5900
-7. Read collation data at offset 5900:
-   num_elements = 1
-   primary = 0x23EC
-   secondary = 0x0020
-   tertiary = 0x0008
-   variable = 0
 
