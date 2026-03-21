@@ -89,22 +89,18 @@ lookup_codepoint_data (char32_t codepoint)
     = collation_data.planes[plane] * 0x100 /* 256 pages per plane */
       + (page & 0xff);
 
-
-  uint8_t page_index = codepoint & 0xFF;
+  uint8_t point_index = codepoint & 0xFF;
 
   // Read page table entry
-  uint32_t page_data_offset = collation_data.pages[page_num];
-  if (page_data_offset == 0)
-    return (COLLATION_DATA) {0};       // Page not allocated
+  int page_index = collation_data.pages[page_num];
+  if (page_index < 0)
+    return (COLLATION_DATA) {0}; /* no data for page */
 
-  // Read page count
-
-  uint32_t entry_offset = page_data_offset + page_index * 5;
-  /* 1 byte element count + 4 byte offset */
+  const struct block256_data *page_data = &collation_data.pages_data[page_index];
 
   COLLATION_DATA data;
-  data.num_elements = read_u8 (entry_offset);
-  data.data_index = read_u32 (entry_offset + 1);
+  data.num_elements = page_data->num_elements[point_index];
+  data.data_index = page_data->data_index[point_index];
   return data;
 }
 

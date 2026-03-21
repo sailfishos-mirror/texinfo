@@ -499,6 +499,9 @@ typedef struct
 
 static PendingCollationData *collation_records;
 static uint32_t collation_records_count;
+
+/* Running count of number of collation units to be output, used
+   for index into collation unit data array. */
 static long collation_units_written;
 
 
@@ -524,7 +527,6 @@ write_trie_node (ByteBuffer *buf, TrieNode *node)
 
   buffer_write_u32 (buf, node->codepoint);
 
-  /* index of collation data */
   if (node->data)
     {
       buffer_write_u32 (buf, collation_units_written);
@@ -574,16 +576,18 @@ compare_page_entries (const void *a, const void *b)
 }
 
 /* Location in dump of each page data */
-static uint32_t page_offset_positions[NUM_PAGES];
+static int page_offset_positions[NUM_PAGES];
+
+static int n_used_pages;
 
 static int used_planes[17];
 
+/* Check which planes (U+XX....) were used, record the indices of
+   each page that was used, and preprocess collation unit data for
+   writing. */
 static void
 serialize_page_table (Database *db, ByteBuffer *buf)
 {
-  /* Write page data (entries only, no collation data yet).
-     We'll track where to write collation data offsets. */
-
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
       if (db->pages[i])
@@ -595,54 +599,30 @@ serialize_page_table (Database *db, ByteBuffer *buf)
         }
     }
 
+  n_used_pages = 0;
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
       if (!db->pages[i])
         {
+          page_offset_positions[i] = -1;
           //fprintf (stderr, "EMPTY PAGE (%3x..)\n", i);
           continue;
         }
-
       Page *page = db->pages[i];
-      page_offset_positions[i] = buf->size;
+      page_offset_positions[i] = n_used_pages;
+      n_used_pages++;
 
       //fprintf (stderr, "%3d PAGE COUNT (%3x..)\n", page->count, i);
 
       uint16_t k = 0;
-      int16_t next_data = page->entries[k].index;
-      expand_collation_sequence (page->entries[k].data);
-
-      for (uint16_t j = 0; j < 256; j++)
+      for (uint16_t k = 0; k < page->count; k++)
         {
-          if (j == next_data)
-            {
-              buffer_write_u8 (buf, page->entries[k].data->num_elements);
-
-              collation_records[collation_records_count].data
-                = page->entries[k].data;
-              collation_records_count++;
-
-              buffer_write_u32 (buf, collation_units_written);
-              collation_units_written += page->entries[k].data->num_elements;
-
-              if (++k == page->count)
-                next_data = -1;
-              else
-                {
-                  next_data = page->entries[k].index;
-                  expand_collation_sequence (page->entries[k].data);
-                }
-            }
-          else
-            {
-              /* Write a zero entry. */
-              buffer_write_u8 (buf, 0); /* number of collation units */
-              buffer_write_u32 (buf, 0); /* collation data index */
-            }
+          expand_collation_sequence (page->entries[k].data);
+          collation_records[collation_records_count].data
+            = page->entries[k].data;
+          collation_records_count++;
         }
     }
-  buffer_align (buf, 4);
-
 }
 
 
@@ -669,15 +649,21 @@ serialize_database (Database *db)
   /* keep running count of collation units which will be written to
      the collation units array so we can output indices into that array. */
   collation_units_written = 0;
-  collation_records = malloc ((db->num_singles + db->num_sequences)
+  collation_records = malloc ((db->num_singles + db->num_sequences + 1)
                     * sizeof (PendingCollationData));
   collation_records_count = 0;
 
-  /* Write page table. */
+  /* Output dummy entry at index 0. */
+  collation_records[0].data = malloc (sizeof (CollationData));
+  collation_records[0].data->num_elements = 1;
+  collation_records[0].data->elements[0] = (CollationElement) {0, 0, 0};
+  collation_records_count++;
+  collation_units_written++;
+
+  /* Write trie. */
   /* Waste four bytes so no real data appears at offset 0. */
   buffer_write_u32 (buf, 0xFFFFFFFF);
 
-  serialize_page_table (db, buf);
   db->trie_offset = write_trie_node (buf, db->trie_root);
 
   return buf;
@@ -695,12 +681,20 @@ write_c_source (ByteBuffer *buf, const char *output_file,
       return;
     }
 
+  serialize_page_table (db, buf);
+
   int n_used_planes = 0;
-  int i;
+  long i;
   for (i = 0; i < 17; i++)
     {
       if (used_planes[i])
         n_used_planes++;
+    }
+
+  long n_collation_units = 0;
+  for (i = 0; i < collation_records_count; i++)
+    {
+      n_collation_units += collation_records[i].data->num_elements;
     }
 
   printf ("Writing C source file: %s\n", output_file);
@@ -711,13 +705,17 @@ write_c_source (ByteBuffer *buf, const char *output_file,
 
   fprintf (fp, "#include <stdint.h>\n\n");
 
-  fprintf (fp, "struct collation_data\n  {\n");
+  fprintf (fp, "struct collation_data {\n");
   fprintf (fp, "  uint16_t primary;\n");
   fprintf (fp, "  uint8_t secondary;\n");
   fprintf (fp, "  uint8_t tertiary;\n");
   fprintf (fp, "};\n");
+  fprintf (fp, "struct block256_data {\n");
+  fprintf (fp, "  uint8_t num_elements[256];\n");
+  fprintf (fp, "  uint32_t data_index[256];\n");
+  fprintf (fp, "};\n");
 
-  fprintf (fp, "#define NUM_COLLATION_UNITS %ld\n\n", collation_units_written);
+  fprintf (fp, "#define NUM_COLLATION_UNITS %ld\n\n", n_collation_units);
 
   fprintf (fp, "#define COLLATION_DATA_SIZE %zu\n\n", buf->size);
   fprintf (fp, "#define NUM_PLANES 0x%x\n\n", 17);
@@ -732,9 +730,10 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "    uint32_t num_sequences;\n");
   fprintf (fp, "    uint32_t trie_offset;\n");
   fprintf (fp, "    int planes[NUM_PLANES];\n");
-  fprintf (fp, "    uint32_t pages[0x%x];\n", n_used_planes * 0x100);
+  fprintf (fp, "    int pages[0x%x];\n", n_used_planes * 0x100);
+  fprintf (fp, "    struct block256_data pages_data[0x%x];\n", n_used_pages);
   fprintf (fp, "    uint8_t array[COLLATION_DATA_SIZE];\n");
-  fprintf (fp, "    struct collation_data collation_data[NUM_COLLATION_UNITS];\n");
+  fprintf (fp, "    struct collation_data collation_data[NUM_COLLATION_UNITS+1];\n");
   fprintf (fp, "  }\n");
   fprintf (fp, "collation_data = {\n");
 
@@ -743,7 +742,7 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "  %d,\n", db->num_singles);
   fprintf (fp, "  %d,\n", db->num_sequences);
   fprintf (fp, "  0x%04X,\n", db->trie_offset);
-  fprintf (fp, "  {\n");
+  fprintf (fp, "  { /* .planes */\n");
 
   int page_idx = 0;
   for (i = 0; i < 17; i++)
@@ -751,22 +750,94 @@ write_c_source (ByteBuffer *buf, const char *output_file,
       fprintf (fp, "    %d,\n", used_planes[i] ? page_idx++ : -1);
     }
   fprintf (fp, "  },\n");
-  fprintf (fp, "  {\n");
 
+  fprintf (fp, "  { /* .pages */ \n");
+
+  /* collation_data.pages */
   for (i = 0; i < 17; i++)
     {
       if (used_planes[i])
         {
-          for (int j = (i << 8); j < (i+1) << 8; j++)
+          int j;
+          for (j = (i << 8); j < (i+1) << 8; j++)
             {
-              fprintf (fp, "  0x%04X,\n", page_offset_positions[j]);
+              if (page_offset_positions[j] >= 0)
+                fprintf (fp, "  0x%04X,%s", page_offset_positions[j],
+                         (j % 4) == 3 ? "\n" : "");
+              else
+                fprintf (fp, "      -1,%s", (j % 4) == 3 ? "\n" : "");
             }
         }
     }
-
   fprintf (fp, "  },\n");
 
-  fprintf (fp, "  {\n");
+  fprintf (fp, "  { /* .pages_data */\n");
+
+  /* collation_data.pages_data */
+  for (i = 0; i < NUM_PAGES; i++)
+    {
+      if (!db->pages[i])
+        continue;
+
+      fprintf (fp, "  {\n");
+
+      Page *page = db->pages[i];
+      /* Output struct block256_data.  */
+      fprintf (fp, "    {\n");
+
+      /* Output num_elements[256] */
+      int point_count = 0;
+      int next_data = page->entries[point_count].index;
+      for (int j = 0; j < 256; j++)
+        {
+          if (j == next_data)
+            {
+              fprintf (fp, "    %d,%s",
+                           page->entries[point_count].data->num_elements,
+                           (j % 8) == 7 ? "\n" : "");
+              if (++point_count == page->count)
+                next_data = -1;
+              else
+                next_data = page->entries[point_count].index;
+            }
+          else
+            {
+              fprintf (fp, "    0,%s", (j % 8) == 7 ? "\n" : "");
+            }
+        }
+
+      fprintf (fp, "    },\n");
+      fprintf (fp, "    {\n");
+
+      /* Output data_index[256] */
+      point_count = 0;
+      next_data = page->entries[point_count].index;
+
+      for (int j = 0; j < 256; j++)
+        {
+          if (j == next_data)
+            {
+              fprintf (fp, "    0x%08lx,%s", collation_units_written,
+                       (j % 4) == 3 ? "\n" : "");
+              collation_units_written += page->entries[point_count].data->num_elements;
+
+              if (++point_count == page->count)
+                next_data = -1;
+              else
+                next_data = page->entries[point_count].index;
+            }
+          else
+            {
+              fprintf (fp, "    0x00000000,%s",
+                       (j % 4) == 3 ? "\n" : "");
+            }
+        }
+      fprintf (fp, "    }\n");
+      fprintf (fp, "  },\n");
+    }
+  fprintf (fp, "  },\n");
+
+  fprintf (fp, "  { /* .array */\n");
   for (size_t i = 0; i < buf->size; i++)
     {
       if (i % 16 == 0)
@@ -784,7 +855,7 @@ write_c_source (ByteBuffer *buf, const char *output_file,
 
   fprintf (fp, "\n  },\n");
 
-  fprintf (fp, "\n  {\n");
+  fprintf (fp, "\n  { /* .collation_data */\n");
 
   for (uint32_t i = 0; i < collation_records_count; i++)
     {
