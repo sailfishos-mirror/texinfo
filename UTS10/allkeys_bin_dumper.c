@@ -136,9 +136,7 @@ check_codepoint_nondecomposable (char32_t codepoint)
   size_t length;
   char32_t *normalized;
 
-  normalized =
-    u32_normalize (UNINORM_NFD, &codepoint, 1, NULL, &length);
-
+  normalized = u32_normalize (UNINORM_NFD, &codepoint, 1, NULL, &length);
   free (normalized);
 
   if (length > 1)
@@ -447,7 +445,22 @@ compare_trie_node_children (const void *a, const void *b)
 static size_t trie_node_index;
 
 /* Traverse tree rooted at NODE, assigning 'index' on each node.  Assign
-   contiguous indices to children of each node. */
+   contiguous indices to children of each node.  This is neither depth-
+   or breadth-first traversal:
+
+            A
+          /   \
+         B     C
+        /\     /\
+       D  E   F  G
+      /\  /\ /\  /\
+     H I J K L M N O
+
+   Our order:     A B C D E H I J K F G L M N O
+   Breadth-first: A B C D E F G H I J K L M N O
+   Depth-first:   A B D H I E J K C F L M G N O
+
+*/
 static void
 assign_trie_node_indices (TrieNode *node)
 {
@@ -530,7 +543,7 @@ static int used_planes[17];
    each page that was used, and preprocess collation unit data for
    writing. */
 static void
-serialize_page_table (Allkeys_Info *info)
+process_page_table (Allkeys_Info *info)
 {
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
@@ -570,37 +583,6 @@ serialize_page_table (Allkeys_Info *info)
 }
 
 
-/* Convert trie to binary format.  Save collation units
-   to be output in mallocated COLLATION_UNITS. */
-static void
-serialize_allkeys_info (Allkeys_Info *info)
-{
-  /* Sort all pages by offset. */
-  printf ("Sorting page entries...\n");
-  for (uint32_t i = 0; i < NUM_PAGES; i++)
-    {
-      if (info->pages[i] && info->pages[i]->count > 0)
-        {
-          qsort (info->pages[i]->entries, info->pages[i]->count,
-                 sizeof (PageEntry), compare_page_entries);
-        }
-    }
-
-  /* keep running count of collation units which will be written to
-     the collation units array so we can output indices into that array. */
-  collation_units_written = 0;
-  collation_records = malloc ((info->num_singles + info->num_sequences + 1)
-                    * sizeof (PendingCollationData));
-  collation_records_count = 0;
-
-  /* Output dummy entry at index 0. */
-  collation_records[0].data = malloc (sizeof (CollationData));
-  collation_records[0].data->num_elements = 1;
-  collation_records[0].data->elements[0] = (CollationElement) {0, 0, 0};
-  collation_records_count++;
-  collation_units_written++;
-}
-
 /* Write as C source file */
 static void
 write_c_source (const char *output_file, Allkeys_Info *info)
@@ -625,6 +607,7 @@ write_c_source (const char *output_file, Allkeys_Info *info)
     {
       n_collation_units += collation_records[i].data->num_elements;
     }
+  /* Trie data is not in collation_records yet. */
   n_collation_units += count_trie_node_collation_units (info->trie_root);
 
   printf ("Writing C source file: %s\n", output_file);
@@ -674,15 +657,14 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   fprintf (fp, "  0x%04X,\n", info->max_variable_weight);
   fprintf (fp, "  %d,\n", info->num_singles);
   fprintf (fp, "  %d,\n", info->num_sequences);
+
   fprintf (fp, "  { /* .planes */\n");
 
   int page_idx = 0;
   for (i = 0; i < 17; i++)
-    {
-      fprintf (fp, "    %d,\n", used_planes[i] ? page_idx++ : -1);
-    }
-  fprintf (fp, "  },\n");
+    fprintf (fp, "    %d,\n", used_planes[i] ? page_idx++ : -1);
 
+  fprintf (fp, "  },\n");
   fprintf (fp, "  { /* .pages */ \n");
 
   /* collation_data.pages */
@@ -702,7 +684,6 @@ write_c_source (const char *output_file, Allkeys_Info *info)
         }
     }
   fprintf (fp, "  },\n");
-
   fprintf (fp, "  { /* .pages_data */\n");
 
   /* collation_data.pages_data */
@@ -768,24 +749,19 @@ write_c_source (const char *output_file, Allkeys_Info *info)
       fprintf (fp, "  },\n");
     }
   fprintf (fp, "  },\n");
-
   fprintf (fp, "  { /* .trie_array */\n");
 
   write_trie_node_only (fp, info->trie_root);
   write_trie_node_children (fp, info->trie_root);
 
   fprintf (fp, "\n  },\n");
-
   fprintf (fp, "\n  { /* .collation_data */\n");
 
   for (uint32_t i = 0; i < collation_records_count; i++)
-    {
-      write_collation_data (fp, collation_records[i].data);
-    }
+    write_collation_data (fp, collation_records[i].data);
 
   free (collation_records);
   fprintf (fp, "\n  },\n");
-
   fprintf (fp, "};\n");
 
   fclose (fp);
@@ -796,28 +772,49 @@ main (int argc, char *argv[])
 {
   if (argc != 3)
     {
-      fprintf (stderr, "Usage: %s <allkeys.txt> [output.c]\n",
+      fprintf (stderr, "Usage: %s <allkeys.txt> <output.c>\n",
                argv[0]);
       return 1;
     }
 
   const char *input_file = argv[1];
-  const char *c_file = argc >= 3 ? argv[2] : NULL;
+  const char *c_file = argv[2];
 
   Allkeys_Info *info = build_allkeys_info (input_file);
   if (!info)
     return 1;
 
-  serialize_allkeys_info (info);
+  /* Sort all pages by offset. */
+  for (uint32_t i = 0; i < NUM_PAGES; i++)
+    {
+      if (info->pages[i] && info->pages[i]->count > 0)
+        {
+          qsort (info->pages[i]->entries, info->pages[i]->count,
+                 sizeof (PageEntry), compare_page_entries);
+        }
+    }
+
+  /* keep running count of collation units which will be written to
+     the collation units array so we can output indices into that array. */
+  collation_units_written = 0;
+  collation_records = malloc ((info->num_singles + info->num_sequences + 1)
+                    * sizeof (PendingCollationData));
+  collation_records_count = 0;
+
+  /* Output dummy entry at index 0. */
+  collation_records[0].data = malloc (sizeof (CollationData));
+  collation_records[0].data->num_elements = 1;
+  collation_records[0].data->elements[0] = (CollationElement) {0, 0, 0};
+  collation_records_count++;
+  collation_units_written++;
+
+  process_page_table (info);
 
   trie_node_index = 0;
   info->trie_root->trie_index = trie_node_index++;
-
-  serialize_page_table (info);
   assign_trie_node_indices (info->trie_root);
 
-  if (c_file)
-    write_c_source (c_file, info);
+  write_c_source (c_file, info);
 
   return 0;
 }
