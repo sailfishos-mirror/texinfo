@@ -55,7 +55,6 @@ const TYPE_DATA type_data[] = {
 {"menu_comment", 0, 0},
 {"internal_menu_star", TF_text, 0},
 {"internal_spaces_after_command", TF_text | TF_leading_space, 0},
-{"internal_spaces_before_context_argument", TF_text | TF_leading_space, 0},
 {"internal_spaces_before_brace_in_index", TF_text, 0},
 {"macro_line", TF_text, 0},
 {"before_item", 0, 0},

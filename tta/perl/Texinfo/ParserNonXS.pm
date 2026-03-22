@@ -396,7 +396,6 @@ my %leading_space_types;
 foreach my $type ('empty_line', 'ignorable_spaces_after_command',
         'internal_spaces_after_command',
         'spaces_before_argument',
-        'internal_spaces_before_context_argument',
         'spaces_after_close_brace') {
   $leading_space_types{$type} = 1;
 }
@@ -2461,9 +2460,6 @@ sub _merge_text($$$;$) {
           }
         } else {
           # other special spaces, in general in paragraph begin context
-          if ($last_elt_type eq 'internal_spaces_before_context_argument') {
-            _move_last_space_to_element($self, $current);
-          }
           if (_in_begin_paragraph($self, $current)) {
             $current = _begin_paragraph($self, $current);
           }
@@ -3191,8 +3187,7 @@ sub _abort_empty_line($$) {
           } else {
             delete $last_element->{'type'};
           }
-        } elsif ($type eq 'internal_spaces_after_command'
-                 or $type eq 'internal_spaces_before_context_argument') {
+        } elsif ($type eq 'internal_spaces_after_command') {
           _move_last_space_to_element($self, $current);
         }
       }
@@ -4935,12 +4930,6 @@ sub _end_line($$$) {
   # Never go here if lineraw/noarg/...
   } elsif (exists($current->{'type'}) and $current->{'type'} eq 'line_arg') {
     $current = _end_line_misc_line($self, $current, $source_info);
-  } elsif (defined($prev_element_type)
-           and ($prev_element_type
-                          eq 'internal_spaces_before_context_argument')) {
-    # Empty spaces after brace till the end of line.
-    # Remove this element and update 'extra' values.
-    _move_last_space_to_element($self, $current);
   }
 
   # this happens if there is a nesting of @-commands on a line, for

@@ -122,8 +122,6 @@ menu_comment
 internal_menu_star                         text
 # right after a line command or block command
 internal_spaces_after_command              text,leading_space
-# after opening brace
-internal_spaces_before_context_argument    text,leading_space
 # on @*index commands line before brace specific @-command
 internal_spaces_before_brace_in_index      text
 

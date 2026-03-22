@@ -1,5 +1,12 @@
 2026-03-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/element_types.txt, tta/perl/Texinfo/ParserNonXS.pm
+	(%leading_space_types): remove
+	internal_spaces_before_context_argument, which is not set
+	anymore, and remove all conditions with this type.
+
+2026-03-22 Patrice Dumas  <pertusus@free.fr>
+
 	Put lineraw line commands leading and trailing directly in tree
 
 	* tta/C/parsetexi/handle_commands.c (raw_line_command_arg_spaces)

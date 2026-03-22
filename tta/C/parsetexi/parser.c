@@ -796,8 +796,7 @@ do_abort_empty_line (ELEMENT *current, ELEMENT *last_elt)
       last_elt->type = in_begin_paragraph (current)
                          ? ET_spaces_before_paragraph : ET_normal_text;
     }
-  else if (last_elt->type == ET_internal_spaces_after_command
-           || last_elt->type == ET_internal_spaces_before_context_argument)
+  else if (last_elt->type == ET_internal_spaces_after_command)
     {
       move_last_space_to_element (current);
     }
@@ -894,8 +893,6 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
             }
           else
             {/* other special spaces, in general in paragraph begin context */
-              if (last_elt_type == ET_internal_spaces_before_context_argument)
-                move_last_space_to_element (current);
               if (in_begin_paragraph (current))
                 current = begin_paragraph (current);
               /* we do not merge these special types */
