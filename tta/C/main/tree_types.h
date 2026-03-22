@@ -83,11 +83,7 @@ enum extra_type {
 /* indices in ELEMENT elt_info */
 /* to be kept in sync with elt_info_names in main/tree.c */
 enum elt_info_type {
-   eit_spaces_before_argument, /* diverse types.  Only context_brace_command
-                                  also with braces */
    eit_spaces_after_cmd_before_arg, /* types with braces flag */
-   eit_spaces_after_argument,
-   eit_comment_at_end, /* block_line_arg line_arg */
 };
 
 /* indices in ELEMENT string_info */
@@ -158,10 +154,7 @@ enum string_info_type {
   ai_key(noindent, flag, EF_noindent) \
   ai_key(isindex, flag, EF_isindex) \
   \
-  ai_key(spaces_before_argument, element_info, eit_spaces_before_argument) \
   ai_key(spaces_after_cmd_before_arg, element_info, eit_spaces_after_cmd_before_arg) \
-  ai_key(spaces_after_argument, element_info, eit_spaces_after_argument) \
-  ai_key(comment_at_end, element_info, eit_comment_at_end) \
   \
   ai_key(alias_of, string_info, sit_alias_of) \
   ai_key(delimiter, string_info, sit_delimiter) \
@@ -270,7 +263,7 @@ typedef struct ELEMENT {
     } e;
 
     uint16_t flags; /* can hold up to 16 flags, could use uint32_t for more */
-    /* depends on the element, can be space elements, comments */
+    /* depends on the element */
     struct ELEMENT **elt_info;
 
     /* Used when building Perl tree only. This should be SV *sv,

@@ -84,7 +84,6 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
       if (cmdname)
         {
           enum command_id cmd = element_builtin_data_cmd (e);
-          const ELEMENT *spc_before_arg = 0;
 
           ADD("@");  ADD(cmdname);
 
@@ -93,12 +92,6 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
               elt = e->elt_info[eit_spaces_after_cmd_before_arg];
               if (elt)
                 ADD((char *)elt->e.text->text);
-            }
-
-          if (type_data[e->type].elt_info_number > eit_spaces_before_argument
-              && e->elt_info[eit_spaces_before_argument])
-            {
-              spc_before_arg = e->elt_info[eit_spaces_before_argument];
             }
 
           if (builtin_command_data[cmd].flags & CF_nobrace)
@@ -114,9 +107,6 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
             {
            /* root commands and block commands that are not def commands */
               const ELEMENT *arguments = e->e.c->contents.list[0];
-
-              if (spc_before_arg)
-                ADD((char *)spc_before_arg->e.text->text);
 
            /* used for @macro too, in that case the whole line is the
               only argument, there is no separation by commas */
@@ -144,9 +134,6 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
                   ADD(delimiter);
                 }
 
-              if (spc_before_arg)
-                ADD((char *)spc_before_arg->e.text->text);
-
               convert_args (e, result);
 
               if (cmd == CM_verb)
@@ -165,17 +152,12 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
                    || e->type == ET_rmacro_call_line)
             {
           /* line commands that are not root commands */
-              if (spc_before_arg)
-                ADD((char *)spc_before_arg->e.text->text);
-
               convert_args (e, result);
               return;
             }
           else if (builtin_command_data[cmd].flags & CF_def
                    || e->type == ET_linemacro_call)
             { /* @def* commands (that are also block commands) */
-              if (spc_before_arg)
-                ADD((char *)spc_before_arg->e.text->text);
             }
           else
             {
@@ -188,32 +170,12 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
         {
           if (e->type == ET_bracketed_arg)
             ADD("{");
-          if (type_data[e->type].elt_info_number > eit_spaces_before_argument)
-            {
-              elt = e->elt_info[eit_spaces_before_argument];
-              if (elt)
-                ADD((char *)elt->e.text->text);
-            }
         }
       if (e->e.c->contents.number > 0)
         {
           size_t i;
           for (i = 0; i < e->e.c->contents.number; i++)
             convert_to_texinfo_internal (e->e.c->contents.list[i], result);
-        }
-
-      if (type_data[e->type].elt_info_number > eit_spaces_after_argument)
-        {
-          elt = e->elt_info[eit_spaces_after_argument];
-          if (elt)
-            ADD((char *)elt->e.text->text);
-        }
-
-      if (e->type == ET_block_line_arg || e->type == ET_line_arg)
-        {
-          elt = e->elt_info[eit_comment_at_end];
-          if (elt)
-            convert_to_texinfo_internal (elt, result);
         }
 
       if (e->type == ET_bracketed_arg)

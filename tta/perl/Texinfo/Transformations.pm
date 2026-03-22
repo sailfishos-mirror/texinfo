@@ -161,10 +161,16 @@ sub _new_node($$) {
     = Texinfo::ManipulateTree::protect_node_after_label_in_tree($node_tree);
   $node_tree = reference_to_arg_in_tree($node_tree, $document);
 
+  my $tree_space_before;
+
   my $empty_node = 0;
   if (!exists($node_tree->{'contents'})) {
     $node_tree->{'contents'} = [Texinfo::TreeElement::new({'text' => ''})];
     $empty_node = 1;
+  } elsif (exists($node_tree->{'contents'}->[0]->{'type'})
+           and $node_tree->{'contents'}->[0]->{'type'}
+                                           eq 'spaces_before_argument') {
+    $tree_space_before = shift(@{$node_tree->{'contents'}});
   }
 
   my $comment_at_end;
@@ -173,13 +179,18 @@ sub _new_node($$) {
            or $node_tree->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
     $comment_at_end = pop @{$node_tree->{'contents'}};
   }
-  my $spaces_after_argument = '';
-  if (scalar(@{$node_tree->{'contents'}}) > 0
+  my $spaces_after_text = '';
+  my $tree_space_after;
+  if (exists($node_tree->{'contents'}->[-1]->{'type'})
+      and $node_tree->{'contents'}->[-1]->{'type'}
+                                        eq 'spaces_after_argument') {
+    $tree_space_after = pop @{$node_tree->{'contents'}};
+  } elsif (scalar(@{$node_tree->{'contents'}}) > 0
              and $node_tree->{'contents'}->[-1]->{'text'}
              and $node_tree->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//) {
-    $spaces_after_argument = $1;
+    $spaces_after_text = $1;
   }
-  $spaces_after_argument .= "\n" unless ($spaces_after_argument =~ /\n/
+  $spaces_after_text .= "\n" unless ($spaces_after_text =~ /\n/
                                          or $comment_at_end);
 
   my $appended_number = 0 +$empty_node;
@@ -197,9 +208,6 @@ sub _new_node($$) {
     }
 
     $node = Texinfo::TreeElement::new({'cmdname' => 'node', 'extra' => {}});
-    $node->{'info'} = {'spaces_before_argument'
-                         => Texinfo::TreeElement::new({'text' => ' ',
-                                       'type' => 'spaces_before_argument'})};
 
     my $arguments_line
       = Texinfo::TreeElement::new({'type' => 'arguments_line',
@@ -210,12 +218,27 @@ sub _new_node($$) {
       = Texinfo::TreeElement::new({'type' => 'line_arg',
                                    'parent' => $arguments_line});
     $arguments_line->{'contents'} = [$node_line_arg];
-    $node_line_arg->{'info'} = {'spaces_after_argument' =>
-           Texinfo::TreeElement::new({'text' => $spaces_after_argument,
-                                      'type' => 'spaces_after_argument'})};
-    $node_line_arg->{'info'}->{'comment_at_end'} = $comment_at_end
-      if (defined($comment_at_end));
-    @{$node_line_arg->{'contents'}} = (@{$node_tree->{'contents'}});
+
+    my $space_after;
+    my $space_before;
+    if (defined($tree_space_after)) {
+      $space_after = $tree_space_after;
+    } else {
+      $space_after
+         = Texinfo::TreeElement::new({'text' => $spaces_after_text,
+                                      'type' => 'spaces_after_argument'});
+    }
+    if (defined($tree_space_before)) {
+      $space_before = $tree_space_before;
+    } else {
+      $space_before
+        = Texinfo::TreeElement::new({'text' => ' ',
+                                      'type' => 'spaces_before_argument'});
+    }
+
+    @{$node_line_arg->{'contents'}} = ($space_before,
+                                       @{$node_tree->{'contents'}});
+
     if ($appended_number) {
       push @{$node_line_arg->{'contents'}},
             Texinfo::TreeElement::new({'text' => " $appended_number"});
@@ -223,6 +246,9 @@ sub _new_node($$) {
     foreach my $content (@{$node_line_arg->{'contents'}}) {
       $content->{'parent'} = $node_line_arg if (exists($content->{'parent'}));
     }
+    push @{$node_line_arg->{'contents'}}, $space_after;
+    push @{$node_line_arg->{'contents'}}, $comment_at_end
+      if (defined($comment_at_end));
 
     $normalized
        = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(

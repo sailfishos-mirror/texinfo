@@ -733,21 +733,12 @@ sub _format_comment($$) {
   my ($self, $element) = @_;
 
   my $command_text = '';
-  if (exists($element->{'info'})
-      and exists($element->{'info'}->{'spaces_before_argument'})) {
-    $command_text .= $element->{'info'}->{'spaces_before_argument'}->{'text'};
-  }
   if (exists($element->{'contents'})) {
     my $line_arg = $element->{'contents'}->[0];
     if (exists($line_arg->{'contents'})) {
       foreach my $content (@{$line_arg->{'contents'}}) {
         $command_text .= $content->{'text'};
       }
-    }
-    if (exists($line_arg->{'info'})
-        and exists($line_arg->{'info'}->{'spaces_after_argument'})) {
-      $command_text
-        .= $line_arg->{'info'}->{'spaces_after_argument'}->{'text'};
     }
   }
   return $self->xml_comment($command_text);

@@ -274,13 +274,6 @@ sub _convert_to_texinfo($) {
            .= $element->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'};
       }
 
-      my $spc_before_arg = '';
-      if (exists($element->{'info'})
-          and exists($element->{'info'}->{'spaces_before_argument'})) {
-        $spc_before_arg
-          = $element->{'info'}->{'spaces_before_argument'}->{'text'};
-      }
-
       if (exists($nobrace_commands{$data_cmdname})) {
         # the spaces following a command are put in a text element in the
         # tree, not associated to the command element.
@@ -290,7 +283,6 @@ sub _convert_to_texinfo($) {
           and (exists($element->{'contents'}->[0]->{'type'})
                and $element->{'contents'}->[0]->{'type'} eq 'arguments_line')) {
         # root commands and block commands that are not def commands
-        $result .= $spc_before_arg;
         $result .= _convert_args($element->{'contents'}->[0]);
       } elsif (exists($brace_commands{$cmdname})
                or (exists($element->{'type'})
@@ -307,7 +299,6 @@ sub _convert_to_texinfo($) {
         if ($cmdname eq 'verb') {
           $result .= $element->{'info'}->{'delimiter'};
         }
-        $result .= $spc_before_arg;
         $result .= _convert_args($element);
         if ($cmdname eq 'verb') {
           $result .= $element->{'info'}->{'delimiter'};
@@ -320,14 +311,12 @@ sub _convert_to_texinfo($) {
                         or $element->{'type'} eq 'macro_call_line'
                         or $element->{'type'} eq 'rmacro_call_line'))) {
         # line commands that are not root commands
-        $result .= $spc_before_arg;
         $result .= _convert_args($element);
         return $result;
       } elsif (exists($def_commands{$data_cmdname})
                or (exists($element->{'type'})
                    and ($element->{'type'} eq 'linemacro_call'))) {
         # @def* commands (that are also block commands)
-        $result .= $spc_before_arg;
       } else {
         warn "BUG: Unknown command type to convert to texinfo: $cmdname\n";
       }
@@ -335,10 +324,6 @@ sub _convert_to_texinfo($) {
       if (exists($element->{'type'})
           and $element->{'type'} eq 'bracketed_arg') {
         $result .= '{';
-      }
-      if (exists($element->{'info'})
-          and exists($element->{'info'}->{'spaces_before_argument'})) {
-        $result .= $element->{'info'}->{'spaces_before_argument'}->{'text'};
       }
     }
 
@@ -348,14 +333,6 @@ sub _convert_to_texinfo($) {
       }
     }
 
-    if (exists($element->{'info'})
-        and exists($element->{'info'}->{'spaces_after_argument'})) {
-      $result .= $element->{'info'}->{'spaces_after_argument'}->{'text'};
-    }
-    if (exists($element->{'info'})
-        and exists($element->{'info'}->{'comment_at_end'})) {
-      $result .= _convert_to_texinfo($element->{'info'}->{'comment_at_end'})
-    }
     $result .= '}' if (exists($element->{'type'})
                        and $element->{'type'} eq 'bracketed_arg');
   }

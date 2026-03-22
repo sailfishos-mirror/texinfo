@@ -31,8 +31,6 @@ extern const TYPE_DATA type_data[];
 /* Used to determine elt_info_number in generated TYPE_DATA generated,
    but not directly used in code
 #define TF_braces             0x0002
-#define TF_spaces_before      0x0004
-#define TF_spaces_after       0x0008
  */
 #define TF_with_command       0x0010
 #define TF_c_only             0x0020

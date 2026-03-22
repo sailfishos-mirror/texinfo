@@ -1,5 +1,42 @@
 2026-03-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/element_types.awk, tta/C/main/element_types.txt,
+	tta/C/main/tree_types.h (enum elt_info_type), tta/C/main/tree.c
+	(elt_info_names), tta/C/parsetexi/parser.c (do_abort_empty_line)
+	(merge_text), tta/perl/Texinfo/ParserNonXS.pm (%leading_space_types)
+	(_merge_text, _abort_empty_line): remove
+	internal_spaces_after_command, now unused.  Remove spaces_before and
+	spaces_after flags too, as they are not generated anymore.  Remove
+	spaces_before_argument, spaces_after_argument and comment_at_end names
+	and enums.  Remove move_last_space_to_element, not called anymore.
+
+	* tta/C/structuring_transfo/structuring.c (new_block_command),
+	tta/C/structuring_transfo/transformations.c (correct_level)
+	(fill_gaps_in_sectioning_in_document, new_node),
+	tta/perl/Texinfo/ManipulateTree.pm (_print_tree_elements_ref)
+	(tree_remove_parents, _element_remove_references, @elt_info_names),
+	tta/perl/Texinfo/Structuring.pm (new_block_command),
+	tta/perl/Texinfo/Transformations.pm (_new_node),
+	tta/perl/Texinfo/TransformationsNonXS.pm (_correct_level)
+	(fill_gaps_in_sectioning_in_document): do not generate
+	spaces_before_argument, spaces_after_argument nor comment_at_end in
+	info additional information, directly in the tree.  Update to match
+	the new tree structure.
+
+	* tta/C/main/convert_to_texinfo.c (convert_to_texinfo_internal),
+	tta/C/main/convert_utils.c (get_comment_or_end_line),
+	tta/perl/Texinfo/Convert/Converter.pm (comment_or_end_line),
+	tta/perl/Texinfo/Convert/DocBook.pm (_format_comment),
+	tta/perl/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo),
+	tta/perl/Texinfo/DebugTree.pm,
+	tta/perl/Texinfo/Example/TexinfoMarkup.pm: remove use of
+	spaces_before_argument, spaces_after_argument and comment_at_end in
+	info additional information.
+
+	* tta/perl/t/z_misc/01use.t: update for the new tree structure.
+
+2026-03-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/element_types.txt, tta/perl/Texinfo/ParserNonXS.pm
 	(%leading_space_types): remove
 	internal_spaces_before_context_argument, which is not set

@@ -18,20 +18,13 @@ ok(1, 'modules loading');
 my $manual_tree =
   Texinfo::TreeElement::new({ 'cmdname' => 'multitable',
   'extra' => { 'max_columns' => 3, },
-  'info' => {
-      'spaces_before_argument' => Texinfo::TreeElement::new({'text' => ' '}),
-  },
   'contents' => [
      Texinfo::TreeElement::new({'type' => 'arguments_line',
       'contents' => [
         Texinfo::TreeElement::new({ 'type' => 'block_line_arg',
-          'info' => {
-            'spaces_after_argument' => Texinfo::TreeElement::new({'text' => '
-'
-                    })
-                  },
-
           'contents' => [
+             Texinfo::TreeElement::new({'type' => 'spaces_before_argument',
+                                        'text' => ' '}),
              Texinfo::TreeElement::new({ 'type' => 'bracketed_arg',
                'contents' => [
                                Texinfo::TreeElement::new({'text' => 'aaaa'}),
@@ -54,6 +47,10 @@ my $manual_tree =
                             ]
              }),
              Texinfo::TreeElement::new({'text' => ' ccc'}),
+             Texinfo::TreeElement::new({'type' => 'spaces_after_argument',
+                                        'text' => '
+'
+                                       }),
           ],
        }) ],
      }),
@@ -101,9 +98,6 @@ my $manual_tree =
            }),
            Texinfo::TreeElement::new({
              'cmdname' => 'end',
-             'info' => {
-                         'spaces_before_argument' => Texinfo::TreeElement::new({'text' => ' '}),
-                       },
              'extra' => {
                          'text_arg' => 'multitable',
                         },
@@ -111,14 +105,16 @@ my $manual_tree =
                 Texinfo::TreeElement::new({
                   'type' => 'line_arg',
                   'contents' => [
+                    Texinfo::TreeElement::new({'type' => 'spaces_before_argument',
+                                               'text' => ' '}),
                     Texinfo::TreeElement::new({
                       'text' => 'multitable'
                     }),
+                    Texinfo::TreeElement::new({'type' => 'spaces_after_argument',
+                                               'text' => '
+'
+                                              }),
                   ],
-                  'info' => {
-                              'spaces_after_argument' => Texinfo::TreeElement::new({'text' => '
-',}),
-                            },
                 })
               ],
 

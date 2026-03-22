@@ -8,19 +8,15 @@ use utf8;
 $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
  *before_node_section
  *@node C1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C3 l1 {top}
  |EXTRA
  |section_level:{0}
@@ -37,19 +33,15 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {Chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap}
+    {spaces_after_argument:\\n}
  *@chapter C2 l4 {Chap}
  |EXTRA
  |section_heading_number:{1}
@@ -62,19 +54,15 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {Sec}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Sec}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Sec}
+    {spaces_after_argument:\\n}
  *@section C4 l6 {Sec}
  |EXTRA
  |section_heading_number:{1.1}
@@ -97,19 +85,15 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {Subsec}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Subsec}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Subsec}
+    {spaces_after_argument:\\n}
  *@subsection C2 l10 {Subsec}
  |EXTRA
  |section_heading_number:{1.1.1}

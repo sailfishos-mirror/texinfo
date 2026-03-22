@@ -166,12 +166,12 @@ correct_level (const ELEMENT *section, ELEMENT *parent, int modifier)
         {
           ELEMENT *element = new_command_element (ET_line_command, cmd);
           ELEMENT *line_args = new_element (ET_line_arg);
-          ELEMENT *spaces_after = new_element (ET_spaces_after_argument);
+          ELEMENT *spaces_before = new_element (ET_spaces_before_argument);
 
           add_to_element_contents (parent, element);
-          text_append (spaces_after->e.text, "\n");
+          text_append (spaces_before->e.text, "\n");
           add_to_element_contents (element, line_args);
-          line_args->elt_info[eit_spaces_after_argument] = spaces_after;
+          add_to_contents_as_array (line_args, spaces_before);
           remaining_level--;
         }
     }
@@ -258,15 +258,13 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
           level_to_structuring_command[CM_unnumbered][current_section_level]);
 
               text_append (spaces_before_argument->e.text, " ");
-              new_section->elt_info[eit_spaces_before_argument]
-                             = spaces_before_argument;
               text_append (spaces_after_argument->e.text, "\n");
 
               add_to_element_contents (new_section, arguments_line);
 
-              line_arg->elt_info[eit_spaces_after_argument]
-                       = spaces_after_argument;
               add_to_element_contents (arguments_line, line_arg);
+
+              add_to_contents_as_array (line_arg, spaces_before_argument);
 
               if (commands_heading_content)
                 {
@@ -283,6 +281,7 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
                   line_content = asis_command;
                 }
               add_to_element_contents (line_arg, line_content);
+              add_to_contents_as_array (line_arg, spaces_after_argument);
 
               text_append (empty_line->e.text, "\n");
               add_to_contents_as_array (new_section, empty_line);
@@ -601,6 +600,8 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
   TEXT spaces_after_argument;
   ELEMENT *last_content;
   ELEMENT *comment_at_end = 0;
+  ELEMENT *tree_spaces_after = 0;
+  ELEMENT *tree_spaces_before = 0;
   ELEMENT *node = 0;
   char *normalized;
   /*
@@ -628,6 +629,8 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
       add_to_contents_as_array (node_tree, empty_text);
       empty_node = 1;
     }
+  else if (node_tree->e.c->contents.list[0]->type == ET_spaces_before_argument)
+    tree_spaces_before = remove_from_contents (node_tree, 0);
 
   last_content = last_contents_child (node_tree);
   if (!(type_data[last_content->type].flags & TF_text)
@@ -640,7 +643,11 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
 
   text_init (&spaces_after_argument);
   text_append (&spaces_after_argument, "");
-  if (last_content && last_content->type == ET_normal_text
+  if (last_content && last_content->type == ET_spaces_after_argument)
+    {
+      tree_spaces_after = pop_element_from_contents (node_tree);
+    }
+  else if (last_content && last_content->type == ET_normal_text
       && last_content->e.text->end > 0)
     {
       int end = last_content->e.text->end;
@@ -669,21 +676,32 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
       ELEMENT *appended_text = 0;
       ELEMENT *arguments_line = new_element (ET_arguments_line);
       ELEMENT *node_line_arg = new_element (ET_line_arg);
-      ELEMENT *spaces_before = new_text_element (ET_spaces_before_argument);
-      ELEMENT *spaces_after = new_text_element (ET_spaces_after_argument);
+      ELEMENT *spaces_before;
+      ELEMENT *spaces_after;
+
+      if (tree_spaces_after)
+        spaces_after = tree_spaces_after;
+      else
+        {
+          spaces_after = new_text_element (ET_spaces_after_argument);
+          text_append (spaces_after->e.text, spaces_after_argument.text);
+        }
+
+      if (tree_spaces_before)
+        spaces_before = tree_spaces_before;
+      else
+        {
+          spaces_before = new_text_element (ET_spaces_before_argument);
+          text_append (spaces_before->e.text, " ");
+        }
 
       node = new_command_element (ET_line_command, CM_node);
       add_to_element_contents (node, arguments_line);
       add_to_element_contents (arguments_line, node_line_arg);
-      text_append (spaces_before->e.text, " ");
-      text_append (spaces_after->e.text, spaces_after_argument.text);
-      node->elt_info[eit_spaces_before_argument] = spaces_before;
-      node_line_arg->elt_info[eit_spaces_after_argument] = spaces_after;
 
-      if (comment_at_end)
-        node_line_arg->elt_info[eit_comment_at_end] = comment_at_end;
+      add_to_contents_as_array (node_line_arg, spaces_before);
 
-      insert_slice_into_contents (node_line_arg, 0, node_tree, 0,
+      insert_slice_into_contents (node_line_arg, 1, node_tree, 0,
                                   node_tree->e.c->contents.number);
 
       for (i = 0; i < node_line_arg->e.c->contents.number; i++)
@@ -699,6 +717,11 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
           text_printf (appended_text->e.text, " %d", appended_number);
           add_to_contents_as_array (node_line_arg, appended_text);
         }
+
+      add_to_contents_as_array (node_line_arg, spaces_after);
+      if (comment_at_end)
+        add_to_element_contents (node_line_arg, comment_at_end);
+
       normalized = convert_contents_to_node_identifier (node_line_arg);
 
       non_hyphen_char = normalized + strspn (normalized, "-");
@@ -714,6 +737,10 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
         }
 
       free (normalized);
+      if (!tree_spaces_after)
+        destroy_element (spaces_after);
+      if (!tree_spaces_before)
+        destroy_element (spaces_before);
       destroy_element (node_line_arg);
       destroy_element (arguments_line);
       if (appended_text)

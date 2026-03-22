@@ -2198,8 +2198,7 @@ sub debug_hash {
 use Data::Dumper;
 
 my @kept_keys = ('contents', 'cmdname', 'type', 'text',
-  'extra', 'info', 'spaces_before_argument',
-  'spaces_after_argument', 'comment_at_end', 'index_entry'
+  'extra', 'info', 'index_entry'
 );
 my %kept_keys;
 foreach my $key (@kept_keys) {

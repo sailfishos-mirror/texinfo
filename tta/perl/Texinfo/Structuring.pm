@@ -328,31 +328,31 @@ sub new_block_command($$) {
   my $arguments_line
     = Texinfo::TreeElement::new({'type' => 'arguments_line',
                                  'parent' => $element});
-  $arguments_line->{'contents'} = [
-      Texinfo::TreeElement::new({'type' => 'block_line_arg',
-                                  'parent' => $arguments_line,
-          'info' => { 'spaces_after_argument'
-                      => Texinfo::TreeElement::new({'text' => "\n",
-                                 'type' => 'spaces_after_argument'})}})];
+  my $block_line_arg = Texinfo::TreeElement::new({'type' => 'block_line_arg',
+                                  'parent' => $arguments_line});
+  $block_line_arg->{'contents'} = [
+                   Texinfo::TreeElement::new({'text' => "\n",
+                                   'type' => 'spaces_before_argument'})
+                                  ];
+  $arguments_line->{'contents'} = [$block_line_arg];
   unshift @{$element->{'contents'}}, $arguments_line;
 
   my $end = Texinfo::TreeElement::new({'cmdname' => 'end',
                                        'parent' => $element,
                                'extra' => {'text_arg' => $command_name}});
-  $end->{'info'} = {'spaces_before_argument' =>
-                    Texinfo::TreeElement::new({'text' => ' ',
-                                 'type' => 'spaces_before_argument'})};
   my $end_args
    = Texinfo::TreeElement::new({'type' => 'line_arg', 'parent' => $end,
-                                'contents' => [],
-                  'info' => {'spaces_after_argument' =>
-                        Texinfo::TreeElement::new({'text' => "\n",
-                                   'type' => 'spaces_after_argument'})}});
+                                'contents' => [],});
   $end->{'contents'} = [$end_args];
 
   my $command_name_text
     = Texinfo::TreeElement::new({'text' => $command_name,});
-  push @{$end_args->{'contents'}}, $command_name_text;
+  push @{$end_args->{'contents'}},
+                     Texinfo::TreeElement::new({'text' => ' ',
+                                 'type' => 'spaces_before_argument'}),
+                     $command_name_text,
+                     Texinfo::TreeElement::new({'text' => "\n",
+                                   'type' => 'spaces_after_argument'});
 
   push @{$element->{'contents'}}, $end;
 

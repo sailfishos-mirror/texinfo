@@ -60,10 +60,8 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
      {after_menu_description_line:\\n}
    *@detailmenu C4
     *arguments_line C1
-     *block_line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
     *menu_comment C1
      *preformatted C6
       { --- The Detailed Node Listing ---}
@@ -84,16 +82,12 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
       *preformatted C1
        {\\n}
     *@end C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     |EXTRA
     |text_arg:{detailmenu}
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {detailmenu}
+      {spaces_after_argument:\\n}
    *@end C1 no_master_menu_fr.texi:l10
    |EXTRA
    |text_arg:{menu}

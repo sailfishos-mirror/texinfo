@@ -8,19 +8,15 @@ use utf8;
 $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root C11
  *before_node_section
  *@node C1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l1 {top}
  |EXTRA
  |section_level:{0}
@@ -32,19 +28,15 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {Chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap}
+    {spaces_after_argument:\\n}
  *@chapter C2 l3 {Chap}
  |EXTRA
  |section_heading_number:{1}
@@ -57,19 +49,15 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {Section}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Section}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Section}
+    {spaces_after_argument:\\n}
  *@section C2 l5 {Section}
  |EXTRA
  |section_heading_number:{1.1}
@@ -82,50 +70,38 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {@asis{} 1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{-1}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     *@asis C1
      *brace_container
     { 1}
+    {spaces_after_argument:\\n}
  *@unnumberedsubsec C2 {@asis{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@asis C1
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {There}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{There}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {There}
+    {spaces_after_argument:\\n}
  *@subsubsection C1 l7 {There}
  |EXTRA
  |section_level:{4}

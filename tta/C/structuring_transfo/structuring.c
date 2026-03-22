@@ -55,7 +55,7 @@ new_block_command (ELEMENT *element)
 {
   ELEMENT *block_line_arg = new_element (ET_block_line_arg);
   ELEMENT *arguments_line = new_element (ET_arguments_line);
-  ELEMENT *arg_spaces_after = new_text_element (ET_spaces_after_argument);
+  ELEMENT *arg_spaces_before = new_text_element (ET_spaces_before_argument);
   ELEMENT *end = new_command_element (ET_line_command, CM_end);
   ELEMENT *end_args = new_element (ET_line_arg);
   ELEMENT *end_spaces_before = new_text_element (ET_spaces_before_argument);
@@ -63,22 +63,23 @@ new_block_command (ELEMENT *element)
   ELEMENT *command_name_text = new_text_element (ET_normal_text);
   const char *command_name = builtin_command_name (element->e.c->cmd);
 
-  text_append (arg_spaces_after->e.text, "\n");
-  block_line_arg->elt_info[eit_spaces_after_argument] = arg_spaces_after;
+  text_append (arg_spaces_before->e.text, "\n");
   add_to_element_contents (arguments_line, block_line_arg);
+
+  add_to_contents_as_array (block_line_arg, arg_spaces_before);
 
   insert_into_contents (element, arguments_line, 0);
 
   add_extra_string_dup (end, AI_key_text_arg, command_name);
   text_append (end_spaces_before->e.text, " ");
-  end->elt_info[eit_spaces_before_argument] = end_spaces_before;
 
   text_append (end_spaces_after->e.text, "\n");
-  end_args->elt_info[eit_spaces_after_argument] = end_spaces_after;
   add_to_element_contents (end, end_args);
 
+  add_to_contents_as_array (end_args, end_spaces_before);
   text_append (command_name_text->e.text, command_name);
   add_to_contents_as_array (end_args, command_name_text);
+  add_to_contents_as_array (end_args, end_spaces_after);
 
   add_to_element_contents (element, end);
 }

@@ -49,19 +49,15 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {Sec}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Sec}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Sec}
+    {spaces_after_argument:\\n}
  *@section C5 l7 {Sec}
  |EXTRA
  |section_heading_number:{1.1}
@@ -101,19 +97,15 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
      {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {Subsec}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Subsec}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Subsec}
+    {spaces_after_argument:\\n}
  *@subsection C2 l16 {Subsec}
  |EXTRA
  |section_heading_number:{1.1.1}

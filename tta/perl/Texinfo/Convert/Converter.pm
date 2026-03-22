@@ -1172,18 +1172,6 @@ sub comment_or_end_line($$) {
 
   if (exists($element->{'contents'})) {
     my $last_arg = $element->{'contents'}->[-1];
-    # TODO remove when lineraw commands do not need it anymore
-    if (exists($last_arg->{'info'})) {
-      if (exists($last_arg->{'info'}->{'comment_at_end'})) {
-        return ($last_arg->{'info'}->{'comment_at_end'}, undef);
-      } elsif (exists($last_arg->{'info'}->{'spaces_after_argument'})) {
-        my $text = $last_arg
-                       ->{'info'}->{'spaces_after_argument'}->{'text'};
-        if (chomp($text)) {
-          return (undef, "\n");
-        }
-      }
-    }
     if (exists($last_arg->{'contents'})) {
       my $last_content = $last_arg->{'contents'}->[-1];
       if (exists($last_content->{'cmdname'})

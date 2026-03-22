@@ -40,19 +40,15 @@ $result_tree_text{'test_fill_gaps_in_sectioning'} = '*document_root C6
     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@unnumberedsubsec C2 {@asis{}}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |section_level:{3}
  |section_number:{4}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     *@asis C1
      *brace_container
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@subsubsection C1 l7 {There}
  |EXTRA

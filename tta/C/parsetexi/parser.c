@@ -751,18 +751,6 @@ end_paragraph_preformatted (ELEMENT *current,
  */
 const ELEMENT *internal_space_holder;
 
-void
-move_last_space_to_element (ELEMENT *current)
-{
-  /* Remove element from main tree. It will still be referenced in
-     the 'info' hash as 'spaces_before_argument'. */
-  const ELEMENT *owning_element = internal_space_holder;
-  ELEMENT *e = pop_element_from_contents (current);
-  e->type = ET_spaces_before_argument;
-  owning_element->elt_info[eit_spaces_before_argument] = e;
-  internal_space_holder = 0;
-}
-
 static void
 do_abort_empty_line (ELEMENT *current, ELEMENT *last_elt)
 {
@@ -795,10 +783,6 @@ do_abort_empty_line (ELEMENT *current, ELEMENT *last_elt)
     {
       last_elt->type = in_begin_paragraph (current)
                          ? ET_spaces_before_paragraph : ET_normal_text;
-    }
-  else if (last_elt->type == ET_internal_spaces_after_command)
-    {
-      move_last_space_to_element (current);
     }
 }
 
@@ -872,13 +856,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
           /* following is similar to do_abort_empty_line, except
              for the empty text already handled above, and with
              paragraph opening mixed in */
-          if (last_elt_type == ET_internal_spaces_after_command)
-            {/* no paragraph start in those contexts */
-              move_last_space_to_element (current);
-              /* we do not merge these special types */
-              goto new_text;
-            }
-          else if (last_elt_type == ET_empty_line)
+          if (last_elt_type == ET_empty_line)
             {
               if (in_begin_paragraph (current))
                 {

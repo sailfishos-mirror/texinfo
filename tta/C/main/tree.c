@@ -36,10 +36,7 @@
 
 /* to be kept in sync with enum elt_info_type */
 const char *elt_info_names[] = {
-  "spaces_before_argument",
   "spaces_after_cmd_before_arg",
-  "spaces_after_argument",
-  "comment_at_end",
 };
 
 const ASSOCIATED_INFO_DATA associated_info_table[] = {

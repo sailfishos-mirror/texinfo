@@ -394,7 +394,6 @@ foreach my $type ('brace_arg', 'brace_container') {
 # To keep in sync with XS main/element_types.txt leading_space flag
 my %leading_space_types;
 foreach my $type ('empty_line', 'ignorable_spaces_after_command',
-        'internal_spaces_after_command',
         'spaces_before_argument',
         'spaces_after_close_brace') {
   $leading_space_types{$type} = 1;
@@ -2445,11 +2444,7 @@ sub _merge_text($$$;$) {
         # following is similar to _abort_empty_line, except
         # for the empty text already handled above, and with
         # paragraph opening mixed in
-        if ($last_elt_type eq 'internal_spaces_after_command') {
-          _move_last_space_to_element($self, $current);
-          # we do not merge these special types
-          $last_element = undef;
-        } elsif ($last_elt_type eq 'empty_line') {
+        if ($last_elt_type eq 'empty_line') {
           if (_in_begin_paragraph($self, $current)) {
             $last_element->{'type'} = 'spaces_before_paragraph';
             $paragraph = _begin_paragraph($self, $current);
@@ -3126,20 +3121,6 @@ sub _pop_element_from_contents($$) {
   return $popped_element;
 }
 
-sub _move_last_space_to_element($$) {
-  my ($self, $current) = @_;
-
-  # Remove element from main tree. It will still be referenced in
-  # the 'info' hash as 'spaces_before_argument'.
-  my $spaces_before_argument = _pop_element_from_contents($self, $current);
-  $spaces_before_argument->{'type'} = 'spaces_before_argument';
-  my $owning_element = $self->{'internal_space_holder'};
-  $owning_element->{'info'} = {} if (!exists($owning_element->{'info'}));
-  $owning_element->{'info'}->{'spaces_before_argument'}
-    = $spaces_before_argument;
-  delete $self->{'internal_space_holder'};
-}
-
 # each time a new line appeared, a container is opened to hold the text
 # consisting only of spaces.  This container is removed here, typically
 # this is called when non-space happens on a line.
@@ -3187,8 +3168,6 @@ sub _abort_empty_line($$) {
           } else {
             delete $last_element->{'type'};
           }
-        } elsif ($type eq 'internal_spaces_after_command') {
-          _move_last_space_to_element($self, $current);
         }
       }
     }
@@ -9164,7 +9143,7 @@ this space should be ignorable (like C<@caption> or C<@sortas>).
 =item spaces_after_argument text
 
 Spaces after @-command arguments before a comma, a closing brace or at end of
-line.  Not directly in the tree.
+line.
 
 =item spaces_after_cmd_before_arg text
 
@@ -9176,7 +9155,7 @@ or before the opening brace.  Not directly in the tree.
 Spaces following the opening brace of some @-commands with braces and
 bracketed content type, spaces following @-commands for line commands and block
 command taking Texinfo as argument, and spaces following comma delimited
-arguments.  Not directly in the tree.
+arguments.
 
 =item spaces_before_paragraph
 
@@ -9507,15 +9486,6 @@ Set if the element is not in the Texinfo input code, but is inserted
 as a default for @-command argument or as a definition command automatically
 inserted category (for example I<Function> for C<@defun>).
 
-=item spaces_after_argument
-
-A reference to an element containing the spaces after @-command arguments
-before a comma, a closing brace or at end of line, for some @-commands and
-bracketed content type with opening brace, and line commands and block command
-lines taking Texinfo as argument and comma delimited arguments.  Depending on
-the @-command, the I<spaces_after_argument> is associated with the @-command
-element, or with each argument element.
-
 =item spaces_after_cmd_before_arg
 
 For accent commands with spaces following the @-command, like:
@@ -9529,16 +9499,6 @@ containing the spaces appearing after the command in I<text>.
 Space between a brace @-command name and its opening brace also
 ends up in I<spaces_after_cmd_before_arg>.  It is not recommended
 to leave space between an @-command name and its opening brace.
-
-=item spaces_before_argument
-
-A reference to an element containing the spaces following the opening brace of
-some @-commands with braces and bracketed content type, spaces following
-@-commands for line commands and block command taking Texinfo as argument, and
-spaces following comma delimited arguments.  For context brace commands, line
-commands and block commands, I<spaces_before_argument> is associated with the
-@-command element, for spaces after comma, it is associated with each argument
-element.
 
 =back
 

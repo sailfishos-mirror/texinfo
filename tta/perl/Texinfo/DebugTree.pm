@@ -95,25 +95,7 @@ sub _print_tree($;$$) {
     my $text = _protect_text($element->{'text'});
     $result .= "|$text|";
   }
-  if (exists($element->{'info'})
-      and exists($element->{'info'}->{'spaces_before_argument'})) {
-    $result .= ' '
- .'b/'._protect_text($element->{'info'}->{'spaces_before_argument'}->{'text'})
-    .'/';
-  }
-  if (exists($element->{'info'})
-      and exists($element->{'info'}->{'spaces_after_argument'})) {
-    $result .= ' '
-  .'a/'._protect_text($element->{'info'}->{'spaces_after_argument'}->{'text'})
-     .'/';
-  }
   $result .= "\n";
-  if (exists($element->{'info'})
-      and exists($element->{'info'}->{'comment_at_end'})) {
-    $result .= ' ' x ($level + 1).'/comment_at_end/'."\n";
-    $result .= _print_tree($element->{'info'}->{'comment_at_end'},
-                           $level +2);
-  }
   if (exists($element->{'contents'})) {
     foreach my $content (@{$element->{'contents'}}) {
       $result .= _print_tree($content, $level+1);

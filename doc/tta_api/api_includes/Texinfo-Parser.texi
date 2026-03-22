@@ -645,7 +645,7 @@ this space should be ignorable (like @code{@@caption} or @code{@@sortas}).
 @anchor{Texinfo@asis{::}Parser spaces_after_argument text}
 
 Spaces after @@-command arguments before a comma, a closing brace or at end of
-line.  Not directly in the tree.
+line.
 
 @item spaces_after_cmd_before_arg text
 @anchor{Texinfo@asis{::}Parser spaces_after_cmd_before_arg text}
@@ -659,7 +659,7 @@ or before the opening brace.  Not directly in the tree.
 Spaces following the opening brace of some @@-commands with braces and
 bracketed content type, spaces following @@-commands for line commands and block
 command taking Texinfo as argument, and spaces following comma delimited
-arguments.  Not directly in the tree.
+arguments.
 
 @item spaces_before_paragraph
 @anchor{Texinfo@asis{::}Parser spaces_before_paragraph}
@@ -1058,16 +1058,6 @@ Set if the element is not in the Texinfo input code, but is inserted
 as a default for @@-command argument or as a definition command automatically
 inserted category (for example @emph{Function} for @code{@@defun}).
 
-@item spaces_after_argument
-@anchor{Texinfo@asis{::}Parser spaces_after_argument}
-
-A reference to an element containing the spaces after @@-command arguments
-before a comma, a closing brace or at end of line, for some @@-commands and
-bracketed content type with opening brace, and line commands and block command
-lines taking Texinfo as argument and comma delimited arguments.  Depending on
-the @@-command, the @emph{spaces_after_argument} is associated with the @@-command
-element, or with each argument element.
-
 @item spaces_after_cmd_before_arg
 @anchor{Texinfo@asis{::}Parser spaces_after_cmd_before_arg}
 
@@ -1084,17 +1074,6 @@ containing the spaces appearing after the command in @emph{text}.
 Space between a brace @@-command name and its opening brace also
 ends up in @emph{spaces_after_cmd_before_arg}.  It is not recommended
 to leave space between an @@-command name and its opening brace.
-
-@item spaces_before_argument
-@anchor{Texinfo@asis{::}Parser spaces_before_argument}
-
-A reference to an element containing the spaces following the opening brace of
-some @@-commands with braces and bracketed content type, spaces following
-@@-commands for line commands and block command taking Texinfo as argument, and
-spaces following comma delimited arguments.  For context brace commands, line
-commands and block commands, @emph{spaces_before_argument} is associated with the
-@@-command element, for spaces after comma, it is associated with each argument
-element.
 
 @end table
 

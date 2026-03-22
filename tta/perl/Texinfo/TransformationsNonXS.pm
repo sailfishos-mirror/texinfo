@@ -73,9 +73,10 @@ sub _correct_level($$;$) {
       push @{$parent->{'contents'}}, $element;
       my $line_args
         = Texinfo::TreeElement::new({'type' => 'line_arg',
-           'info' => {'spaces_after_argument'
-             => Texinfo::TreeElement::new(
-                 {'type' => 'spaces_after_argument', 'text' => "\n"})},
+                            'contents' => [
+             Texinfo::TreeElement::new(
+                 {'type' => 'spaces_before_argument', 'text' => "\n"}),
+                                          ],
                          'parent' => $element});
       push @{$element->{'contents'}}, $line_args;
       $remaining_level--;
@@ -139,20 +140,13 @@ sub fill_gaps_in_sectioning_in_document($;$) {
                                                 ->[$current_section_level],
           'parent' => $root,
         });
-        $new_section->{'info'}
-          = Texinfo::TreeElement::new({'spaces_before_argument' =>
-                                              {'text' => ' ',
-                                       'type' => 'spaces_before_argument'}});
         my $arguments_line
           = Texinfo::TreeElement::new({'type' => 'arguments_line',
                                        'parent' => $new_section});
 
         my $line_arg
           = Texinfo::TreeElement::new({'type' => 'line_arg',
-                                       'parent' => $arguments_line,
-            'info' => {'spaces_after_argument'
-                        => Texinfo::TreeElement::new({'text' => "\n",
-                                  'type' => 'spaces_after_argument'})}});
+                                       'parent' => $arguments_line,});
         $arguments_line->{'contents'} = [$line_arg];
 
         my $line_content;
@@ -170,7 +164,13 @@ sub fill_gaps_in_sectioning_in_document($;$) {
                                         'parent' => $asis_command})];
           $line_content = $asis_command;
         }
-        $line_arg->{'contents'} = [$line_content];
+        $line_arg->{'contents'} = [
+            Texinfo::TreeElement::new({'text' => ' ',
+                                       'type' => 'spaces_before_argument'}),
+                                   $line_content,
+                        Texinfo::TreeElement::new({'text' => "\n",
+                                  'type' => 'spaces_after_argument'}),
+                                  ];
         $new_section->{'contents'} = [$arguments_line,
             Texinfo::TreeElement::new({'type' => 'empty_line',
                                        'text' => "\n"})];

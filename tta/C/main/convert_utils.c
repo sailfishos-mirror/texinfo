@@ -954,8 +954,6 @@ get_comment_or_end_line (const ELEMENT *element, COMMENT_OR_END_LINE *result)
   if (element)
     last_arg = element->e.c->contents.list[
                         element->e.c->contents.number -1];
-  if (last_arg && eit_comment_at_end < type_data[last_arg->type].elt_info_number)
-    comment = last_arg->elt_info[eit_comment_at_end];
 
   if (last_arg && !(type_data[last_arg->type].flags & TF_text)
       && last_arg->e.c->contents.number > 0)
@@ -979,13 +977,8 @@ get_comment_or_end_line (const ELEMENT *element, COMMENT_OR_END_LINE *result)
   if (last_arg)
     {
       const ELEMENT *spaces_after_argument = 0;
-      if (eit_spaces_after_argument < type_data[last_arg->type].elt_info_number)
-        spaces_after_argument
-          = last_arg->elt_info[eit_spaces_after_argument];
 
-      /* TODO remove the condition on spaces_after_argument
-         when spaces_after_argument are all in tree */
-      if (!spaces_after_argument && last_content
+      if (last_content
           && type_data[last_content->type].flags & TF_text)
         {
           spaces_after_argument = last_content;

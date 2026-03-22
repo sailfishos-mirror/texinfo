@@ -8,19 +8,15 @@ use utf8;
 $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  *before_node_section
  *@node C1 {Top}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Top}
+    {spaces_after_argument:\\n}
  *@top C2 l1 {top}
  |EXTRA
  |section_level:{0}
@@ -32,19 +28,15 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 {Chap}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{Chap}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {Chap}
+    {spaces_after_argument:\\n}
  *@chapter C2 l3 {Chap}
  |EXTRA
  |section_heading_number:{1}
@@ -57,20 +49,16 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 { 1}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{-1}
  |is_target:{1}
  |node_number:{3}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {}
     { 1}
+    {spaces_after_argument:\\n}
  *@section C2 l5
  |EXTRA
  |section_heading_number:{1.1}
@@ -81,20 +69,16 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
     {spaces_before_argument:\\n}
   {empty_line:\\n}
  *@node C1 { 2}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{-2}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     {}
     { 2}
+    {spaces_after_argument:\\n}
  *@section C2 l7
  |EXTRA
  |section_heading_number:{1.2}
@@ -112,21 +96,17 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
      *brace_container
     {spaces_after_argument:\\n}
  *@node C1 {@strong{} 3}
- |INFO
- |spaces_before_argument:
-  |{spaces_before_argument: }
  |EXTRA
  |identifier:{-3}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C2
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C4
+    {spaces_before_argument: }
     *@strong C1
      *brace_container
     { 3}
+    {spaces_after_argument:\\n}
  *@section C1 l10 {@strong{}}
  |EXTRA
  |section_heading_number:{1.3}

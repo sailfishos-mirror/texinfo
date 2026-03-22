@@ -28,11 +28,8 @@
 # main use of these flags is to determine the number of slots needed in
 # the elt_info array in generated code.  These flags are not used in the
 # C code.
-#  spaces_before: element containing the spaces appearing before the
-#                 argument
 #  braces: element containing the spaces appearing between the @-command name
 #          and the opening brace
-#  spaces_after: element containing the spaces appearing after the argument
 #
 # Other flags:
 #  with_command: type corresponding to @-command with name determined dynamically.
@@ -46,18 +43,18 @@
 
 
 # Types for @-commands
-index_entry_command                    spaces_before,with_command
+index_entry_command                    with_command
 definfoenclose_command                 braces,with_command
 
 # only in C.  These types should only be used in code to set the
 # type at the element creation, except maybe to help with the handling
 # of C specific data
 nobrace_command                        c_only
-line_command                           spaces_before,c_only
-block_command                          spaces_before,c_only
+line_command                           c_only
+block_command                          c_only
 brace_command                          braces,c_only
 # BRACE_context commands
-context_brace_command                  braces,spaces_before,c_only
+context_brace_command                  braces,c_only
 
 # For text elements
 after_menu_description_line               text
@@ -99,14 +96,14 @@ brace_command_context
 # @-commands containers for one argument content
 brace_container
 # with separate leading spaces in info, and trailing (if not in inline)
-brace_arg                                  spaces_before,spaces_after
+brace_arg                                  
 # with comment_at_end
-block_line_arg                             spaces_before,spaces_after
-line_arg                                   spaces_before,spaces_after
+block_line_arg                             
+line_arg                                   
 following_arg
 # similar to def_line_arg, but for user-defined linemacro calls.  Also
 # similar to line_arg, but not delimited by commas.
-linemacro_arg                              spaces_before,spaces_after
+linemacro_arg                              
 
 rawline_text                               text
 
@@ -120,8 +117,6 @@ menu_comment
 
 # Used internally
 internal_menu_star                         text
-# right after a line command or block command
-internal_spaces_after_command              text,leading_space
 # on @*index commands line before brace specific @-command
 internal_spaces_before_brace_in_index      text
 
@@ -133,7 +128,7 @@ table_entry
 table_term
 table_definition
 inter_item
-def_line                              spaces_before
+def_line                              
 def_item
 inter_def_item
 before_defline
@@ -142,7 +137,7 @@ multitable_body
 row
 
 balanced_braces
-bracketed_arg                         spaces_before,spaces_after
+bracketed_arg                         
 
 # container of definition line argument content
 def_line_arg
@@ -172,9 +167,9 @@ elided_brace_command_arg
 # for macro expansion source marks
 macro_call                                braces,with_command
 rmacro_call                               braces,with_command
-macro_call_line                           spaces_before,with_command
-rmacro_call_line                          spaces_before,with_command
-linemacro_call                            spaces_before,with_command
+macro_call_line                           with_command
+rmacro_call_line                          with_command
+linemacro_call                            with_command
 
 # macro and linemacro (if not bracketed) call arguments texts
 macro_call_arg_text                       text
