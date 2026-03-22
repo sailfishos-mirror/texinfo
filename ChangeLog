@@ -1,5 +1,11 @@
 2026-03-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/element_types.txt, tta/perl/Texinfo/ParserNonXS.pm
+	(%leading_space_types): remove internal_spaces_before_argument as it
+	is not set anywhere anymore.  Remove in test in all the using codes.
+
+2026-03-22 Patrice Dumas  <pertusus@free.fr>
+
 	Put macro expansion element leading spaces directly in tree
 
 	* tta/C/parsetexi/close.c (remove_empty_content),

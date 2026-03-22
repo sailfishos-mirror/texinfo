@@ -797,7 +797,6 @@ do_abort_empty_line (ELEMENT *current, ELEMENT *last_elt)
                          ? ET_spaces_before_paragraph : ET_normal_text;
     }
   else if (last_elt->type == ET_internal_spaces_after_command
-           || last_elt->type == ET_internal_spaces_before_argument
            || last_elt->type == ET_internal_spaces_before_context_argument)
     {
       move_last_space_to_element (current);
@@ -874,8 +873,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
           /* following is similar to do_abort_empty_line, except
              for the empty text already handled above, and with
              paragraph opening mixed in */
-          if (last_elt_type == ET_internal_spaces_after_command
-              || last_elt_type == ET_internal_spaces_before_argument)
+          if (last_elt_type == ET_internal_spaces_after_command)
             {/* no paragraph start in those contexts */
               move_last_space_to_element (current);
               /* we do not merge these special types */

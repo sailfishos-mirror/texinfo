@@ -1983,8 +1983,7 @@ end_line (ELEMENT *current)
     {
       current = end_line_misc_line (current);
     }
-  else if (last_element_type == ET_internal_spaces_before_argument
-           || last_element_type == ET_internal_spaces_before_context_argument)
+  else if (last_element_type == ET_internal_spaces_before_context_argument)
     {
       /* Empty spaces after brace or comma till the end of line.
          Remove this element and update 'extra' values. */

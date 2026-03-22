@@ -394,7 +394,7 @@ foreach my $type ('brace_arg', 'brace_container') {
 # To keep in sync with XS main/element_types.txt leading_space flag
 my %leading_space_types;
 foreach my $type ('empty_line', 'ignorable_spaces_after_command',
-        'internal_spaces_after_command', 'internal_spaces_before_argument',
+        'internal_spaces_after_command',
         'internal_spaces_before_context_argument',
         'spaces_after_close_brace') {
   $leading_space_types{$type} = 1;
@@ -2445,8 +2445,7 @@ sub _merge_text($$$;$) {
         # following is similar to _abort_empty_line, except
         # for the empty text already handled above, and with
         # paragraph opening mixed in
-        if ($last_elt_type eq 'internal_spaces_after_command'
-            or $last_elt_type eq 'internal_spaces_before_argument') {
+        if ($last_elt_type eq 'internal_spaces_after_command') {
           _move_last_space_to_element($self, $current);
           # we do not merge these special types
           $last_element = undef;
@@ -3192,7 +3191,6 @@ sub _abort_empty_line($$) {
             delete $last_element->{'type'};
           }
         } elsif ($type eq 'internal_spaces_after_command'
-                 or $type eq 'internal_spaces_before_argument'
                  or $type eq 'internal_spaces_before_context_argument') {
           _move_last_space_to_element($self, $current);
         }
@@ -4937,8 +4935,7 @@ sub _end_line($$$) {
   } elsif (exists($current->{'type'}) and $current->{'type'} eq 'line_arg') {
     $current = _end_line_misc_line($self, $current, $source_info);
   } elsif (defined($prev_element_type)
-           and ($prev_element_type eq 'internal_spaces_before_argument'
-                or $prev_element_type
+           and ($prev_element_type
                           eq 'internal_spaces_before_context_argument')) {
     # Empty spaces after brace or comma till the end of line.
     # Remove this element and update 'extra' values.
@@ -6688,14 +6685,6 @@ sub _handle_open_brace($$$$) {
     # we need the line number here in case @ protects end of line
     # and also for misplaced { errors.
     $current->{'source_info'} = {%$source_info};
-    # internal_spaces_before_argument is a transient internal type,
-    # which should end up in info spaces_before_argument.
-    #push @{$current->{'contents'}},
-    #  Texinfo::TreeElement::new(
-    #    {'type' => 'internal_spaces_before_argument',
-    #     'text' => '',
-    #   });
-    #$self->{'internal_space_holder'} = $current;
 
     print STDERR "BRACKETED in def/multitable\n"
                              if ($self->{'conf'}->{'DEBUG'});
