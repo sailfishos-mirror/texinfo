@@ -154,10 +154,8 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
    >SOURCEMARKS
    >macro_expansion<start;2>
     >*macro_call_line@phooindex C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >*line_arg C1
+     >*line_arg C2
+      >{spaces_before_argument: }
       >{mff}
    >macro_expansion<end;2><p:7>
   {empty_line:\\n}
@@ -196,10 +194,8 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
    >SOURCEMARKS
    >macro_expansion<start;3>
     >*macro_call_line@phooindex C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >*line_arg C1
+     >*line_arg C2
+      >{spaces_before_argument: }
       >{mhh}
    >macro_expansion<end;3><p:7>
   {empty_line:\\n}

@@ -25,10 +25,8 @@ $result_tree_text{'brace_command_not_closed'} = '*document_root C1
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
    >*linemacro_call@mycommand C1
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >*linemacro_arg C1
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:@code{in code\\n\\n}
   *paragraph C1
    *@code C1 l6:@mycommand

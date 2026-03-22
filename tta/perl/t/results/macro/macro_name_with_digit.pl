@@ -42,10 +42,8 @@ $result_tree_text{'macro_name_with_digit'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call_line@macro11 C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >*line_arg C1
+     >*line_arg C2
+      >{spaces_before_argument: }
       >{some thing @macro1{}}
    >macro_expansion<start;2><p:18>
     >*macro_call@macro1 C1

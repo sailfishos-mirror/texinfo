@@ -27,10 +27,8 @@ $result_tree_text{'arg_not_closed'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1><p:5>
     >*macro_call@foo C1
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:something\\n}
    >macro_expansion<end;1><p:8>
 ';

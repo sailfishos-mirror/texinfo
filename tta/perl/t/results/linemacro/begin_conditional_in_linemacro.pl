@@ -27,10 +27,8 @@ $result_tree_text{'begin_conditional_in_linemacro'} = '*document_root C1
    >SOURCEMARKS
    >linemacro_expansion<start;1>
     >*linemacro_call@lm C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >*linemacro_arg C1
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
       >{bracketed_linemacro_arg:\\n@ifset}
    >ignored_conditional_block<1><p:3>
     >*@ifset C3 l6:@lm
@@ -55,10 +53,8 @@ $result_tree_text{'begin_conditional_in_linemacro'} = '*document_root C1
    >SOURCEMARKS
    >linemacro_expansion<start;2>
     >*linemacro_call@lm C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >*linemacro_arg C1
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
       >{bracketed_linemacro_arg:\\n@ifclear}
    >expanded_conditional_command<start;1><p:3>
     >*@ifclear C1 l11:@lm

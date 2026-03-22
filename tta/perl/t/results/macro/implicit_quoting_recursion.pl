@@ -35,46 +35,36 @@ $result_tree_text{'implicit_quoting_recursion'} = '*document_root C1
     >*rmacro_call@cat C2
      >*brace_arg C1
       >{macro_call_arg_text:@cat{@cat{@cat{@cat{na, to}, po}, co}, tu}}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:oto}
    >macro_expansion<start;3>
     >*rmacro_call@cat C2
      >*brace_arg C1
       >{macro_call_arg_text:@cat{@cat{@cat{na, to}, po}, co}}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:tu}
    >macro_expansion<start;4>
     >*rmacro_call@cat C2
      >*brace_arg C1
       >{macro_call_arg_text:@cat{@cat{na, to}, po}}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:co}
    >macro_expansion<start;5>
     >*rmacro_call@cat C2
      >*brace_arg C1
       >{macro_call_arg_text:@cat{na, to}}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:po}
    >macro_expansion<start;6>
     >*rmacro_call@cat C2
      >*brace_arg C1
       >{macro_call_arg_text:na}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:to}
    >macro_expansion<end;6><p:4>
    >macro_expansion<end;5><p:6>

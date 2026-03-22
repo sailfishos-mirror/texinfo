@@ -30,10 +30,8 @@ $result_tree_text{'too_much_args'} = '*document_root C1
     >*macro_call@twoargs C2
      >*brace_arg C1
       >{macro_call_arg_text:one}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:two, three}
    {second arg: two, three.\\n}
    >SOURCEMARKS

@@ -36,10 +36,8 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
      >|{spaces_after_cmd_before_arg: }
      >*brace_arg C1
       >{macro_call_arg_text:first arg}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:second arg}
   *@verbatim C3 l9:@macroone
    *arguments_line C1
@@ -109,10 +107,8 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     >*macro_call@macroone C2
      >*brace_arg C1
       >{macro_call_arg_text:first arg}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:@macroone{nested second arg}}
   *@verbatim C3 l15:@macroone
    *arguments_line C1
@@ -138,10 +134,8 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
       >{macro_call_arg_text:first , arg}
       >>SOURCEMARKS
       >>macro_arg_escape_backslash<1><p:6>
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:{} \\ }
       >>SOURCEMARKS
       >>macro_arg_escape_backslash<2>
@@ -169,10 +163,8 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     >*macro_call@macroone C2
      >*brace_arg C1
       >{macro_call_arg_text:arg 1\\n\\nnow}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:arg3\\n\\n}
   {empty_line:\\n}
   *paragraph C1

@@ -27,10 +27,8 @@ $result_tree_text{'ifclear_in_macro'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call@note C1
-    >*brace_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument:\\n}
+    >*brace_arg C2
+     >{spaces_before_argument:\\n}
      >{macro_call_arg_text:arg\\n}
   >expanded_conditional_command<start;1><p:1>
    >*@ifclear C1 l9:@note

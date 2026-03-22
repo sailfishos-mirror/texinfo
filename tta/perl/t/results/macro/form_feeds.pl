@@ -45,15 +45,11 @@ $result_tree_text{'form_feeds'} = '*document_root C1
     >|INFO
     >|spaces_after_cmd_before_arg:
      >|{spaces_after_cmd_before_arg:  \\f}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: \\f }
+     >*brace_arg C2
+      >{spaces_before_argument: \\f }
       >{macro_call_arg_text:arg1\\f}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument:\\f }
+     >*brace_arg C2
+      >{spaces_before_argument:\\f }
       >{macro_call_arg_text:arg2}
   {empty_line:\\f}
   {spaces_before_paragraph: }
@@ -67,10 +63,8 @@ $result_tree_text{'form_feeds'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;2>
     >*macro_call_line@oneargmacro C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: \\f \\f }
-     >*line_arg C1
+     >*line_arg C2
+      >{spaces_before_argument: \\f \\f }
       >{a@{rgline}
    *@{
    {rgline v\\n}

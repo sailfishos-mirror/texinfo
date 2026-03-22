@@ -33,20 +33,14 @@ $result_tree_text{'blockitem_no_item'} = '*document_root C1
      >SOURCEMARKS
      >linemacro_expansion<start;1>
       >*linemacro_call@mycommand C3
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
-       >*linemacro_arg C1
+       >*linemacro_arg C2
+        >{spaces_before_argument: }
         >{macro_call_arg_text:d}
-       >*linemacro_arg C1
-       >|INFO
-       >|spaces_before_argument:
-        >|{spaces_before_argument: }
+       >*linemacro_arg C2
+        >{spaces_before_argument: }
         >{macro_call_arg_text:e}
-       >*linemacro_arg C1
-       >|INFO
-       >|spaces_before_argument:
-        >|{spaces_before_argument: }
+       >*linemacro_arg C2
+        >{spaces_before_argument: }
         >{macro_call_arg_text:f @\\n@end itemize}
      *@\\n
    *@end C1 l8:@mycommand

@@ -57,20 +57,14 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
    >*linemacro_call@mylinecommand C3
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >*linemacro_arg C1
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:@mymac}
-    >*linemacro_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{bracketed_linemacro_arg:aa}
-    >*linemacro_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:@mymac {bb}}
   *@defblock C3 l15:@mylinecommand
    *arguments_line C1
@@ -121,20 +115,14 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
   >SOURCEMARKS
   >linemacro_expansion<start;2><p:1>
    >*linemacro_call@mylinecommand C3
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >*linemacro_arg C1
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:@mylinemac}
-    >*linemacro_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{bracketed_linemacro_arg:Fun}
-    >*linemacro_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:{other} and remaining}
   *@defblock C3 l17:@mylinecommand
    *arguments_line C1
@@ -158,10 +146,8 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
         >*linemacro_call@mylinemac C2
          >*linemacro_arg C1
           >{macro_call_arg_text:}}
-         >*linemacro_arg C1
-         >|INFO
-         >|spaces_before_argument:
-          >|{spaces_before_argument: }
+         >*linemacro_arg C2
+          >{spaces_before_argument: }
           >{macro_call_arg_text:A Fun B {other} and remaining}
      {spaces: }
      *def_arg C1

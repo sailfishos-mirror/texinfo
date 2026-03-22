@@ -133,15 +133,11 @@ $result_tree_text{'glossary'} = '*document_root C5
     >*macro_call@gentry C3
      >*brace_arg C1
       >{macro_call_arg_text:id1}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:name1}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:text1, arg1 }
       >>SOURCEMARKS
       >>macro_arg_escape_backslash<1><p:5>
@@ -256,15 +252,11 @@ $result_tree_text{'glossary'} = '*document_root C5
     >*macro_call@gentry C3
      >*brace_arg C1
       >{macro_call_arg_text:id2}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:name2}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:text2}
    >expanded_conditional_command<start;2><p:29>
     >*@ifhtml C1 glossary.texi:l43:@gentry

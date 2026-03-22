@@ -29,10 +29,8 @@ $result_tree_text{'macro_name_with_hyphen'} = '*document_root C1
     >*macro_call@macro-one C2
      >*brace_arg C1
       >{macro_call_arg_text:blah}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:@code{bli-bli}}
    *@code C1 l5:@macro-one
     *brace_container C1

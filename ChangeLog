@@ -1,3 +1,19 @@
+2026-03-22 Patrice Dumas  <pertusus@free.fr>
+
+	Put macro expansion element leading spaces directly in tree
+
+	* tta/C/parsetexi/close.c (remove_empty_content),
+	tta/perl/Texinfo/ParserNonXS.pm (_remove_empty_content): remove empty
+	elements starting from the end, avoiding empty spaces.
+
+	* tta/C/parsetexi/macro.c (expand_macro_arguments)
+	(expand_linemacro_arguments, expand_macro_body),
+	tta/perl/Texinfo/ParserNonXS.pm (_expand_macro_arguments)
+	(_expand_linemacro_arguments, _expand_macro_body): put leading spaces
+	directly in argument elements, and call isolate_leading_trailing in
+	expand_macro_body.  Avoid leading and trailing spaces when gathering
+	formal arguments.
+
 2026-03-21 Patrice Dumas  <pertusus@free.fr>
 
 	Put leading and trailing spaces directly in tree for block and line non

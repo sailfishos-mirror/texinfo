@@ -31,24 +31,18 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
    >macro_expansion<end;1><p:4>
    >macro_expansion<start;2><p:5>
     >*macro_call@mymacro C1
-     >*brace_arg
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C1
+      >{spaces_before_argument: }
    >macro_expansion<end;2><p:9>
    >macro_expansion<start;3><p:10>
     >*macro_call@mymacro C1
-     >*brace_arg
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument:  }
+     >*brace_arg C1
+      >{spaces_before_argument:  }
    >macro_expansion<end;3><p:14>
    >macro_expansion<start;4><p:15>
     >*macro_call@mymacro C1
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument:  }
+     >*brace_arg C2
+      >{spaces_before_argument:  }
       >{macro_call_arg_text:x}
    >macro_expansion<end;4><p:19>
   {empty_line:\\n}
@@ -76,24 +70,18 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
    >macro_expansion<end;5><p:2>
    >macro_expansion<start;6><p:3>
     >*macro_call@mytwo C1
-     >*brace_arg
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C1
+      >{spaces_before_argument: }
    >macro_expansion<end;6><p:5>
    >macro_expansion<start;7><p:6>
     >*macro_call@mytwo C1
-     >*brace_arg
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument:  }
+     >*brace_arg C1
+      >{spaces_before_argument:  }
    >macro_expansion<end;7><p:8>
    >macro_expansion<start;8><p:9>
     >*macro_call@mytwo C1
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument:  }
+     >*brace_arg C2
+      >{spaces_before_argument:  }
       >{macro_call_arg_text:x}
    >macro_expansion<end;8><p:12>
 ';

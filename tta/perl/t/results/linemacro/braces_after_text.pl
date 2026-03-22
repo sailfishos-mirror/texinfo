@@ -28,20 +28,14 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
     >SOURCEMARKS
     >linemacro_expansion<start;1>
      >*linemacro_call@mymacro C3
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-      >*linemacro_arg C1
+      >*linemacro_arg C2
+       >{spaces_before_argument: }
        >{macro_call_arg_text:text{in paren}}
-      >*linemacro_arg C1
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
+      >*linemacro_arg C2
+       >{spaces_before_argument: }
        >{macro_call_arg_text:rest{in paren}}
-      >*linemacro_arg C1
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
+      >*linemacro_arg C2
+       >{spaces_before_argument: }
        >{bracketed_linemacro_arg:}
      {spaces_before_argument:\\n}
    *@defline C1 l6:@mymacro

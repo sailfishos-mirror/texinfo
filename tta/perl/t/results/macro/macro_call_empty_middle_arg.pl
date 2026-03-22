@@ -31,15 +31,11 @@ $result_tree_text{'macro_call_empty_middle_arg'} = '*document_root C1
     >*macro_call@threea C3
      >*brace_arg C1
       >{macro_call_arg_text:j}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:k}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:l}
    {second k,\\n}
    {third l,\\n}
@@ -53,14 +49,10 @@ $result_tree_text{'macro_call_empty_middle_arg'} = '*document_root C1
     >*macro_call@threea C3
      >*brace_arg C1
       >{macro_call_arg_text:m}
-     >*brace_arg
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
      >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+      >{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:n}
    {second ,\\n}
    {third n,\\n}

@@ -25,10 +25,8 @@ $result_tree_text{'protection_of_end_of_line_by_command'} = '*document_root C1
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
    >*linemacro_call@lm C1
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >*linemacro_arg C1
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:@\\n}
   *paragraph C2
    *@\\n

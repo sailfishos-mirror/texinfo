@@ -27,15 +27,11 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
    >*linemacro_call@test C2
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >*linemacro_arg C1
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:foo}
-    >*linemacro_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:(bar, baz)@\\n continuation line}
   *@deffn C3 l8:@test
    *def_line C1 l8:@test
@@ -94,15 +90,11 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
   >SOURCEMARKS
   >linemacro_expansion<start;2><p:1>
    >*linemacro_call@test C2
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >*linemacro_arg C1
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:foo@ b}
-    >*linemacro_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:(bar, baz) rest@ and more}
   *@deffn C3 l10:@test
    *def_line C1 l10:@test
@@ -169,15 +161,11 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
   >SOURCEMARKS
   >linemacro_expansion<start;3><p:1>
    >*linemacro_call@test C2
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >*linemacro_arg C1
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:foo}
-    >*linemacro_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:(bar, baz)@@}
   *@deffn C3 l12:@test
    *def_line C1 l12:@test

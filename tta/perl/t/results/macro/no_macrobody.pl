@@ -25,10 +25,8 @@ $result_tree_text{'no_macrobody'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;1>
    >*macro_call_line@nomacrobody C1
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >*line_arg C1
+    >*line_arg C2
+     >{spaces_before_argument: }
      >{line arg}
   >macro_expansion<end;1>
   {empty_line:\\n}

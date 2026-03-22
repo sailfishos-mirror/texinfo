@@ -142,15 +142,11 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       >SOURCEMARKS
       >linemacro_expansion<start;1>
        >*linemacro_call@param C2
-       >|INFO
-       >|spaces_before_argument:
-        >|{spaces_before_argument: }
-        >*linemacro_arg C1
+        >*linemacro_arg C2
+         >{spaces_before_argument: }
          >{macro_call_arg_text:a}
-        >*linemacro_arg C1
-        >|INFO
-        >|spaces_before_argument:
-         >|{spaces_before_argument: }
+        >*linemacro_arg C2
+         >{spaces_before_argument: }
          >{macro_call_arg_text:array_like}
        {spaces_before_argument:\\n}
      *@defline C1 l19:@param
@@ -191,15 +187,11 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       >SOURCEMARKS
       >linemacro_expansion<start;2><p:1>
        >*linemacro_call@param C2
-       >|INFO
-       >|spaces_before_argument:
-        >|{spaces_before_argument: }
-        >*linemacro_arg C1
+        >*linemacro_arg C2
+         >{spaces_before_argument: }
          >{macro_call_arg_text:n}
-        >*linemacro_arg C1
-        >|INFO
-        >|spaces_before_argument:
-         >|{spaces_before_argument: }
+        >*linemacro_arg C2
+         >{spaces_before_argument: }
          >{macro_call_arg_text:int, optional}
      *@defline C1 l22:@param
      |EXTRA
@@ -244,15 +236,11 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       >SOURCEMARKS
       >linemacro_expansion<start;3><p:1>
        >*linemacro_call@param C2
-       >|INFO
-       >|spaces_before_argument:
-        >|{spaces_before_argument: }
-        >*linemacro_arg C1
+        >*linemacro_arg C2
+         >{spaces_before_argument: }
          >{macro_call_arg_text:axis}
-        >*linemacro_arg C1
-        >|INFO
-        >|spaces_before_argument:
-         >|{spaces_before_argument: }
+        >*linemacro_arg C2
+         >{spaces_before_argument: }
          >{macro_call_arg_text:int, optional}
      *@defline C1 l26:@param
      |EXTRA
@@ -292,15 +280,11 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       >SOURCEMARKS
       >linemacro_expansion<start;4><p:1>
        >*linemacro_call@returns C2
-       >|INFO
-       >|spaces_before_argument:
-        >|{spaces_before_argument: }
-        >*linemacro_arg C1
+        >*linemacro_arg C2
+         >{spaces_before_argument: }
          >{macro_call_arg_text:out}
-        >*linemacro_arg C1
-        >|INFO
-        >|spaces_before_argument:
-         >|{spaces_before_argument: }
+        >*linemacro_arg C2
+         >{spaces_before_argument: }
          >{macro_call_arg_text:complex ndarray}
      *@defline C1 l29:@returns
      |EXTRA
@@ -340,10 +324,8 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       >SOURCEMARKS
       >linemacro_expansion<start;5><p:1>
        >*linemacro_call@raises C1
-       >|INFO
-       >|spaces_before_argument:
-        >|{spaces_before_argument: }
-        >*linemacro_arg C1
+        >*linemacro_arg C2
+         >{spaces_before_argument: }
          >{macro_call_arg_text:IndexError}
      *@defline C1 l32:@raises
      |EXTRA

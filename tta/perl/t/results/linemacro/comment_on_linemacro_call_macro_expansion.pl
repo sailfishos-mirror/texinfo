@@ -47,22 +47,16 @@ $result_tree_text{'comment_on_linemacro_call_macro_expansion'} = '*document_root
     >|INFO
     >|spaces_after_cmd_before_arg:
      >|{spaces_after_cmd_before_arg: }
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument:\\n}
+     >*brace_arg C2
+      >{spaces_before_argument:\\n}
       >{macro_call_arg_text:@lm {a} @c in comment}
    >linemacro_expansion<start;1><p:6>
     >*linemacro_call@lm C2
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >*linemacro_arg C1
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
       >{bracketed_linemacro_arg:a}
-     >*linemacro_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:}
    {second ||}
    >SOURCEMARKS

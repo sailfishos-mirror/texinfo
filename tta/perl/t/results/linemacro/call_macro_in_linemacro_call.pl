@@ -43,15 +43,11 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
    >*linemacro_call@lm C2
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >*linemacro_arg C1
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{bracketed_linemacro_arg:aa\\n  @mymacro{@emph ,\\n   ggg} }
-    >*linemacro_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:jj @var{T}}
   *@quotation C7 l14:@lm
    *arguments_line C1
@@ -65,10 +61,8 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
     >*macro_call@mymacro C2
      >*brace_arg C1
       >{macro_call_arg_text:@emph }
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument:\\n}
+     >*brace_arg C2
+      >{spaces_before_argument:\\n}
       >{macro_call_arg_text:   ggg}
    *@table C3 l14:@mymacro
     *arguments_line C1

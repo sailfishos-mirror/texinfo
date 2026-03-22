@@ -36,10 +36,8 @@ $result_tree_text{'no_arguments'} = '*document_root C1
    >SOURCEMARKS
    >linemacro_expansion<start;2>
     >*linemacro_call@noarg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >*linemacro_arg C1
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:A B}
    >linemacro_expansion<end;2><p:5>
   {empty_line:\\n}
@@ -48,10 +46,8 @@ $result_tree_text{'no_arguments'} = '*document_root C1
    >SOURCEMARKS
    >linemacro_expansion<start;3>
     >*linemacro_call@noarg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >*linemacro_arg C1
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
       >{bracketed_linemacro_arg:in brace}
    >linemacro_expansion<end;3><p:5>
 ';

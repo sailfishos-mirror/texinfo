@@ -47,10 +47,8 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call_line@funindex C1
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >*line_arg C1
+    >*line_arg C2
+     >{spaces_before_argument: }
      >{\\\\q}
   *index_entry_command@findex C1 l8:@funindex
   |EXTRA
@@ -76,10 +74,8 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
   >SOURCEMARKS
   >macro_expansion<start;3>
    >*macro_call_line@funindex C1
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >*line_arg C1
+    >*line_arg C2
+     >{spaces_before_argument: }
      >{\\q}
    *line_arg C3
     {spaces_before_argument: }

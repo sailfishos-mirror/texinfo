@@ -42,10 +42,8 @@ $result_tree_text{'comma_value_in_macro_arg'} = '*document_root C1
     >|INFO
     >|spaces_after_cmd_before_arg:
      >|{spaces_after_cmd_before_arg: }
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:arg1 @value{comma} arg2 }
    *@emph C1 l7:@macro1
     *brace_container C1

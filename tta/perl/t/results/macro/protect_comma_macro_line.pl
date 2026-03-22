@@ -30,10 +30,8 @@ $result_tree_text{'protect_comma_macro_line'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call_line@macrotwo C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument:  }
-     >*line_arg C1
+     >*line_arg C2
+      >{spaces_before_argument:  }
       >{arg,  comma \\,}
    {and another one on another line arg,  comma \\,\\n}
   {empty_line:\\n}

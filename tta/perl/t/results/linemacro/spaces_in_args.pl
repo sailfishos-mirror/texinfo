@@ -27,20 +27,14 @@ $result_tree_text{'spaces_in_args'} = '*document_root C1
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
    >*linemacro_call@mylinecommand C3
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >*linemacro_arg C1
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{bracketed_linemacro_arg:  a }
-    >*linemacro_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{bracketed_linemacro_arg: d  }
-    >*linemacro_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{bracketed_linemacro_arg:   rest}
   *@defblock C3 l7:@mylinecommand
    *arguments_line C1

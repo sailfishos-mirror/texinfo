@@ -29,20 +29,14 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
     >SOURCEMARKS
     >linemacro_expansion<start;1>
      >*linemacro_call@mylinecommand C3
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-      >*linemacro_arg C1
+      >*linemacro_arg C2
+       >{spaces_before_argument: }
        >{macro_call_arg_text:a@code{b c}d}
-      >*linemacro_arg C1
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
+      >*linemacro_arg C2
+       >{spaces_before_argument: }
        >{bracketed_linemacro_arg:some arg @\\n   b}
-      >*linemacro_arg C1
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
+      >*linemacro_arg C2
+       >{spaces_before_argument: }
        >{macro_call_arg_text:{next @\\n   last} line}
      {spaces_before_argument:\\n}
    *@defline C1 l9:@mylinecommand

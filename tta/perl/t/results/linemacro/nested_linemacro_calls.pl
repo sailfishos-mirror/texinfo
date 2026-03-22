@@ -44,20 +44,14 @@ $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
     >SOURCEMARKS
     >linemacro_expansion<start;1>
      >*linemacro_call@outside C3
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-      >*linemacro_arg C1
+      >*linemacro_arg C2
+       >{spaces_before_argument: }
        >{bracketed_linemacro_arg:type}
-      >*linemacro_arg C1
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
+      >*linemacro_arg C2
+       >{spaces_before_argument: }
        >{bracketed_linemacro_arg:@inside {X} {Y}}
-      >*linemacro_arg C1
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
+      >*linemacro_arg C2
+       >{spaces_before_argument: }
        >{macro_call_arg_text:( remaining, type typed )}
      {spaces_before_argument:\\n}
    *@defline C1 l11:@outside
@@ -80,15 +74,11 @@ $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
        >SOURCEMARKS
        >linemacro_expansion<start;2>
         >*linemacro_call@inside C2
-        >|INFO
-        >|spaces_before_argument:
-         >|{spaces_before_argument: }
-         >*linemacro_arg C1
+         >*linemacro_arg C2
+          >{spaces_before_argument: }
           >{bracketed_linemacro_arg:X}
-         >*linemacro_arg C1
-         >|INFO
-         >|spaces_before_argument:
-          >|{spaces_before_argument: }
+         >*linemacro_arg C2
+          >{spaces_before_argument: }
           >{macro_call_arg_text:{Y}} ( remaining, type typed )}
      {spaces: }
      {delimiter:(}
@@ -119,15 +109,11 @@ $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
       >SOURCEMARKS
       >linemacro_expansion<start;3><p:1>
        >*linemacro_call@inside C2
-       >|INFO
-       >|spaces_before_argument:
-        >|{spaces_before_argument: }
-        >*linemacro_arg C1
+        >*linemacro_arg C2
+         >{spaces_before_argument: }
          >{bracketed_linemacro_arg:X}
-        >*linemacro_arg C1
-        >|INFO
-        >|spaces_before_argument:
-         >|{spaces_before_argument: }
+        >*linemacro_arg C2
+         >{spaces_before_argument: }
          >{bracketed_linemacro_arg:Y}
          >>SOURCEMARKS
          >>linemacro_expansion<end;1><p:3>

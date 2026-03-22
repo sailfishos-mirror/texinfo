@@ -26,7 +26,7 @@ $result_tree_text{'include_after_empty_line_arg'} = '*document_root C1
   >macro_expansion<start;1><p:1>
    >*macro_call_line@mymacro C1
     >*line_arg C1
-     >{}
+     >{spaces_before_argument:}
   *paragraph C3
    *@code C1 l5:@mymacro
    >SOURCEMARKS

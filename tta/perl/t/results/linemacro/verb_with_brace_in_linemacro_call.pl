@@ -25,20 +25,14 @@ $result_tree_text{'verb_with_brace_in_linemacro_call'} = '*document_root C1
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
    >*linemacro_call@mycommand C3
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >*linemacro_arg C1
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:@verb{: in }}
-    >*linemacro_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:verb}
-    >*linemacro_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text::} other last}
   *paragraph C2
    *@verb C1 l5:@mycommand

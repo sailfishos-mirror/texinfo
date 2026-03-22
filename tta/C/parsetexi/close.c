@@ -29,6 +29,8 @@
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
+/* non_leading_trailing_indices count_multibyte */
+#include "utils.h"
 #include "command_stack.h"
 #include "counter.h"
 #include "commands.h"
@@ -161,19 +163,50 @@ is_container_empty (const ELEMENT *current)
 void
 remove_empty_content (ELEMENT *current)
 {
-  if (current->e.c->contents.number == 1)
-    {
-      ELEMENT *child_element = last_contents_child (current);
-      if (!(!(type_data[child_element->type].flags & TF_text)
-            && child_element->e.c->cmd)
-          && is_container_empty (child_element))
-        {
-          transfer_source_marks (child_element, current, 0);
+  size_t leading_trailing_indices[2];
+  int non_empty;
 
-          debug_nonl ("REMOVE empty child ");
-          debug_parser_print_element (child_element, 0); debug_nonl (" from ");
-          debug_parser_print_element (current, 0); debug ("");
-          destroy_element (pop_element_from_contents (current));
+  non_empty = non_leading_trailing_indices (current, leading_trailing_indices);
+
+  if (non_empty)
+    {
+      size_t first_idx = leading_trailing_indices[0];
+      size_t end_idx = leading_trailing_indices[1];
+      size_t i = end_idx;
+      while (i >= first_idx)
+        {
+          ELEMENT *child_element = current->e.c->contents.list[i];
+          if (!(!(type_data[child_element->type].flags & TF_text)
+                && child_element->e.c->cmd)
+              && is_container_empty (child_element))
+            {
+              ELEMENT *destination;
+              size_t additional_length = 0;
+              if (i > 0)
+                {
+                  destination = current->e.c->contents.list[i -1];
+                  if (type_data[destination->type].flags & TF_text)
+                    additional_length
+                      = count_multibyte (destination->e.text->text);
+                }
+              else
+                destination = current;
+              transfer_source_marks (child_element, destination,
+                                     additional_length);
+
+              debug_nonl ("REMOVE empty child ");
+              debug_parser_print_element (child_element, 0);
+              debug_nonl (" from ");
+              debug_parser_print_element (current, 0); debug ("");
+              destroy_element (pop_element_from_contents (current));
+            }
+          else
+            break;
+
+          if (i == 0)
+            break;
+          else
+            i--;
         }
     }
 }

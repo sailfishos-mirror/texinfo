@@ -28,10 +28,8 @@ $result_tree_text{'arobase_brace_in_macro_call'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@simplemac C1
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:@{ , @} }
    *@{
    { , }
@@ -46,10 +44,8 @@ $result_tree_text{'arobase_brace_in_macro_call'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;2>
     >*macro_call@simplemac C1
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:@}
    *@|
    {\\n}

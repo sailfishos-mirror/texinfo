@@ -27,20 +27,14 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
    >*linemacro_call@mycommand C3
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >*linemacro_arg C1
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:@anchor{aa}}
-    >*linemacro_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:definite}
-    >*linemacro_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:and @code{more}}
   *@anchor C1 l5:@mycommand
   |EXTRA
@@ -62,20 +56,14 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
    >SOURCEMARKS
    >linemacro_expansion<start;2><p:10>
     >*linemacro_call@mycommand C3
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >*linemacro_arg C1
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
       >{bracketed_linemacro_arg:a\\n  protected}
-     >*linemacro_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:in}
-     >*linemacro_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:@var{the\\n call}}
    {  protected, in }
    *@var C1 l9:@mycommand

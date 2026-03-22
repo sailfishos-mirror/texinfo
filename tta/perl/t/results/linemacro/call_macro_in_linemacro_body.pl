@@ -44,24 +44,18 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
    >*linemacro_call@lm C2
-   >|INFO
-   >|spaces_before_argument:
-    >|{spaces_before_argument: }
-    >*linemacro_arg C1
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{bracketed_linemacro_arg:something}
-    >*linemacro_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*linemacro_arg C2
+     >{spaces_before_argument: }
      >{bracketed_linemacro_arg:gg , yy \\n  zz}
   >macro_expansion<start;1><p:1>
    >*macro_call@mymacro C2
     >*brace_arg C1
      >{macro_call_arg_text:@code{}\\n@var{something}\\nnow second arg: gg }
-    >*brace_arg C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
+    >*brace_arg C2
+     >{spaces_before_argument: }
      >{macro_call_arg_text:yy \\n  zz}
   *@table C4 l14:@mymacro
    *arguments_line C1

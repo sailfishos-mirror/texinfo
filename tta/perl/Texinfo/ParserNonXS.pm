@@ -1743,18 +1743,39 @@ sub _is_container_empty($) {
 sub _remove_empty_content($$) {
   my ($self, $current) = @_;
 
+  my ($first_idx, $end_idx)
+        = Texinfo::Common::non_leading_trailing_indices($current);
   # remove an empty content that only holds source marks
-  if (exists($current->{'contents'})
-      and scalar(@{$current->{'contents'}}) == 1) {
-    my $child_element = $current->{'contents'}->[0];
-    if (not exists($child_element->{'cmdname'})
-        and _is_container_empty($child_element)) {
-      _transfer_source_marks($child_element, $current);
-      print STDERR "REMOVE empty child "
+  if (defined($first_idx)) {
+    my $i = $end_idx;
+    while ($i >= $first_idx) {
+      my $child_element = $current->{'contents'}->[$i];
+      if (not exists($child_element->{'cmdname'})
+          and _is_container_empty($child_element)) {
+        if (exists($child_element->{'source_marks'})) {
+          my $destination;
+          if ($i > 0) {
+            $destination = $current->{'contents'}->[$i -1];
+            if (exists($destination->{'text'})) {
+              my $additional_length = length($destination->{'text'});
+              foreach my $source_mark (@{$child_element->{'source_marks'}}) {
+                $source_mark->{'position'} += $additional_length;
+              }
+            }
+          } else {
+            $destination = $current;
+          }
+          _transfer_source_marks($child_element, $destination);
+        }
+        print STDERR "REMOVE empty child "
          .Texinfo::Common::debug_print_element($child_element)
           .' from '.Texinfo::Common::debug_print_element($current)."\n"
             if ($self->{'conf'}->{'DEBUG'});
-      _pop_element_from_contents($self, $current);
+        _pop_element_from_contents($self, $current);
+        $i--;
+      } else {
+        last;
+      }
     }
   }
 }
@@ -2749,7 +2770,6 @@ sub _expand_macro_arguments($$$$$) {
   my $argument_content
     = Texinfo::TreeElement::new({'text' => '',
                                  'type' => 'macro_call_arg_text'});
-  push @{$argument->{'contents'}}, $argument_content;
 
   my $args_total = scalar(@{$macro->{'extra'}->{'misc_args'}});
   my $name = $macro->{'extra'}->{'macro_name'};
@@ -2758,11 +2778,11 @@ sub _expand_macro_arguments($$$$$) {
 
   $line =~ s/^{(\s*)//;
   if ($1 ne '') {
-    $argument->{'info'} = {} if (!exists($argument->{'info'}));
-    $argument->{'info'}->{'spaces_before_argument'}
-      = Texinfo::TreeElement::new({'text' => $1,
+    push @{$argument->{'contents'}},
+      Texinfo::TreeElement::new({'text' => $1,
                       'type' => 'spaces_before_argument'});
   }
+  push @{$argument->{'contents'}}, $argument_content;
 
   while (1) {
     if ($line =~ s/([^\\{},]*)([\\{},])//) {
@@ -2801,14 +2821,13 @@ sub _expand_macro_arguments($$$$$) {
             $argument_content
               = Texinfo::TreeElement::new({'text' => '',
                                            'type' => 'macro_call_arg_text'});
-            push @{$argument->{'contents'}}, $argument_content;
             $line =~ s/^(\s*)//;
             if ($1 ne '') {
-              $argument->{'info'}
-                = {'spaces_before_argument'
-                    => Texinfo::TreeElement::new({'text' => $1,
-                                 'type' => 'spaces_before_argument'})};
+              push @{$argument->{'contents'}},
+                    Texinfo::TreeElement::new({'text' => $1,
+                                 'type' => 'spaces_before_argument'});
             }
+            push @{$argument->{'contents'}}, $argument_content;
             print STDERR "MACRO NEW ARG\n" if ($self->{'conf'}->{'DEBUG'});
           } else {
             # implicit quoting when there is one argument.
@@ -2846,7 +2865,8 @@ sub _expand_macro_arguments($$$$$) {
   }
   if ($args_total == 0
       and (scalar(@{$current->{'contents'}} > 1)
-           or $current->{'contents'}->[0]->{'contents'})) {
+           or !Texinfo::Common::empty_spaces_argument(
+                                    $current->{'contents'}->[0]))) {
     _line_error($self, sprintf(__(
            "macro `%s' declared without argument called with an argument"),
                                 $name), $source_info);
@@ -2867,14 +2887,13 @@ sub _expand_linemacro_arguments($$$$$) {
   my $argument_content
     = Texinfo::TreeElement::new({'text' => '',
                                  'type' => 'macro_call_arg_text',});
-  push @{$argument->{'contents'}}, $argument_content;
   # based on whitespace_chars_except_newline in XS parser
   if ($line =~ s/^([ \t\cK\f]+)//) {
-    $current->{'info'} = {} if (!exists($current->{'info'}));
-    $current->{'info'}->{'spaces_before_argument'}
-      = Texinfo::TreeElement::new({'text' => $1,
+    push @{$argument->{'contents'}},
+      Texinfo::TreeElement::new({'text' => $1,
                            'type' => 'spaces_before_argument'});
   }
+  push @{$argument->{'contents'}}, $argument_content;
   my $args_total = scalar(@{$macro->{'extra'}->{'misc_args'}});
   my $name = $macro->{'extra'}->{'macro_name'};
 
@@ -2930,11 +2949,10 @@ sub _expand_linemacro_arguments($$$$$) {
           $argument_content
             = Texinfo::TreeElement::new({'text' => '',
                                          'type' => 'macro_call_arg_text',});
-          push @{$argument->{'contents'}}, $argument_content;
-          $argument->{'info'}
-            = {'spaces_before_argument' =>
+          push @{$argument->{'contents'}},
                 Texinfo::TreeElement::new({'text' => $separator,
-                                 'type' => 'spaces_before_argument'})};
+                                 'type' => 'spaces_before_argument'});
+          push @{$argument->{'contents'}}, $argument_content;
           print STDERR "LINEMACRO NEW ARG\n" if ($self->{'conf'}->{'DEBUG'});
         }
       }
@@ -2973,7 +2991,15 @@ sub _expand_linemacro_arguments($$$$$) {
   }
   my $arg_idx = 0;
   foreach my $argument (@{$current->{'contents'}}) {
-    my $argument_content = $argument->{'contents'}->[0];
+    my $argument_content;
+    # find the argument after separator spaces
+    foreach my $content (@{$argument->{'contents'}}) {
+      if (not exists($content->{'type'})
+          or $content->{'type'} ne 'spaces_before_argument') {
+        $argument_content = $content;
+        last;
+      }
+    }
     if (exists($argument_content->{'extra'})
         and defined($argument_content->{'extra'}->{'toplevel_braces_nr'})) {
       my $toplevel_braces_nr = $argument_content->{'extra'}->{'toplevel_braces_nr'};
@@ -3034,9 +3060,12 @@ sub _expand_macro_body($$$$) {
         my $formal_arg_index = _lookup_macro_parameter($macro, $arg);
         if (defined($formal_arg_index)) {
           if ($args and scalar(@$args) and $formal_arg_index < scalar(@$args)
-              and $args->[$formal_arg_index]
-              and $args->[$formal_arg_index]->{'contents'}) {
-            $result .= $args->[$formal_arg_index]->{'contents'}->[0]->{'text'};
+              and exists($args->[$formal_arg_index])
+              # TODO probably not needed
+              and exists($args->[$formal_arg_index]->{'contents'})) {
+            my ($argument, $surplus) = Texinfo::Common::simple_arg_text(
+                                             $args->[$formal_arg_index]);
+            $result .= $argument;
           }
         } else {
           my $macro_name = $macro->{'element'}->{'extra'}->{'macro_name'};
@@ -5432,33 +5461,23 @@ sub _handle_macro($$$$$$) {
             last;
           }
         } else {
-          # based on whitespace_chars_except_newline in XS parser
-          if (not exists($arg_elt->{'contents'})
-              and $line =~ s/^([ \t\cK\f]+)//) {
-            my $internal_space = Texinfo::TreeElement::new({'text' => $1,
-                                      'type' => 'spaces_before_argument'});
-            $macro_call_element->{'info'} = {}
-                if (!exists($macro_call_element->{'info'}));
-            $macro_call_element->{'info'}->{'spaces_before_argument'}
-               = $internal_space;
+          my $has_end_of_line = chomp $line;
+          if (not exists($arg_elt->{'contents'})) {
+            $arg_elt->{'contents'} = [];
+            push @{$arg_elt->{'contents'}},
+                  Texinfo::TreeElement::new({'text' => $line,});
           } else {
-            my $has_end_of_line = chomp $line;
-            if (not exists($arg_elt->{'contents'})) {
-              $arg_elt->{'contents'} = [];
-              push @{$arg_elt->{'contents'}},
-                    Texinfo::TreeElement::new({'text' => $line,});
-            } else {
-              $arg_elt->{'contents'}->[0]->{'text'} .= $line;
-            }
-            if ($has_end_of_line) {
-              $line = "\n";
-              last;
-            } else {
-              $line = '';
-            }
+            $arg_elt->{'contents'}->[0]->{'text'} .= $line;
+          }
+          if ($has_end_of_line) {
+            $line = "\n";
+            last;
+          } else {
+            $line = '';
           }
         }
       }
+      _isolate_leading_trailing($self, $arg_elt, 1);
     }
   }
 

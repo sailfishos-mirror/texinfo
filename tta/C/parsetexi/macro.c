@@ -316,7 +316,6 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
                                                        AI_key_misc_args);
 
   add_to_element_contents (current, argument);
-  add_to_contents_as_array (argument, argument_content);
   arg = argument_content->e.text;
 
   args_total = formal_args_list->number;
@@ -328,9 +327,10 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
     {
       ELEMENT *spaces_element = new_text_element (ET_spaces_before_argument);
       text_append_n (spaces_element->e.text, pline, whitespaces_len);
-      argument->elt_info[eit_spaces_before_argument] = spaces_element;
       pline += whitespaces_len;
+      add_to_contents_as_array (argument, spaces_element);
     }
+  add_to_contents_as_array (argument, argument_content);
 
   while (braces_level > 0)
     {
@@ -413,7 +413,6 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
                   argument_content
                     = new_text_element (ET_macro_call_arg_text);
                   add_to_element_contents (current, argument);
-                  add_to_contents_as_array (argument, argument_content);
                   arg = argument_content->e.text;
                   pline += strspn (pline, whitespace_chars);
                   if (pline - p)
@@ -421,9 +420,9 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
                       ELEMENT *spaces_element
                         = new_text_element (ET_spaces_before_argument);
                       text_append_n (spaces_element->e.text, p, pline - p);
-                      argument->elt_info[eit_spaces_before_argument]
-                              = spaces_element;
+                      add_to_contents_as_array (argument, spaces_element);
                     }
+                  add_to_contents_as_array (argument, argument_content);
                   debug ("MACRO NEW ARG");
                 }
               else
@@ -443,7 +442,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
 
   if (args_total == 0
       && (current->e.c->contents.number > 1
-          || current->e.c->contents.list[0]->e.c->contents.number > 0))
+          || !empty_spaces_argument (current->e.c->contents.list[0])))
     {
       line_error
         ("macro `%s' declared without argument called with an argument",
@@ -472,7 +471,6 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
                                                        AI_key_misc_args);
 
   add_to_element_contents (current, argument);
-  add_to_contents_as_array (argument, argument_content);
   arg = argument_content->e.text;
 
   static COUNTER argument_brace_groups;
@@ -484,10 +482,11 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
     {
       ELEMENT *spaces_element = new_text_element (ET_spaces_before_argument);
       text_append_n (spaces_element->e.text, line, spaces_nr);
-      current->elt_info[eit_spaces_before_argument] = spaces_element;
+      add_to_contents_as_array (argument, spaces_element);
 
       pline += spaces_nr;
     }
+  add_to_contents_as_array (argument, argument_content);
 
   args_total = formal_args_list->number;
 
@@ -613,12 +612,12 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
               counter_push (&argument_brace_groups, argument_content, 0);
 
               add_to_element_contents (current, argument);
-              add_to_contents_as_array (argument, argument_content);
               arg = argument_content->e.text;
 
               text_append_n (spaces_element->e.text, pline,
                              whitespaces_len);
-              argument->elt_info[eit_spaces_before_argument] = spaces_element;
+              add_to_contents_as_array (argument, spaces_element);
+              add_to_contents_as_array (argument, argument_content);
               debug ("LINEMACRO NEW ARG");
             }
           pline += whitespaces_len;
@@ -629,8 +628,17 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
  funexit:
   for (i = 0; i < current->e.c->contents.number; i++)
     {
-      ELEMENT *argument_content
-        = current->e.c->contents.list[i]->e.c->contents.list[0];
+      const ELEMENT *argument = current->e.c->contents.list[i];
+      ELEMENT *argument_content;
+      size_t j;
+      for (j = 0; j < argument->e.c->contents.number; j++)
+        {
+          if (argument->e.c->contents.list[j]->type != ET_spaces_before_argument)
+            {
+              argument_content = argument->e.c->contents.list[j];
+              break;
+            }
+        }
       int brace_groups_nr = counter_element_value (&argument_brace_groups,
                                                    argument_content);
       if (brace_groups_nr == 1)
@@ -724,9 +732,12 @@ expand_macro_body (const MACRO *macro_record, const ELEMENT *arguments,
                   const ELEMENT *argument
                     = contents_child_by_index (arguments, index);
                   if (argument->e.c->contents.number > 0)
-                    text_append (expanded,
-                      last_contents_child (
-                  contents_child_by_index (arguments, index))->e.text->text);
+                    {
+                      int surplus_arg;
+                      const TEXT *arg_text = simple_arg_text (argument,
+                                                              &surplus_arg);
+                      text_append (expanded, arg_text->text);
+                    }
                 }
             }
           free (name);
@@ -907,46 +918,24 @@ handle_macro (ELEMENT *current, const char **line_inout,
                 }
               else
                 {
-                  int leading_spaces_added = 0;
+                  const char *p = strchrnul (line, '\n');
                   if (arg_elt->e.c->contents.number == 0)
                     {
-                      int leading_spaces_nr = strspn (line,
-                                               whitespace_chars_except_newline);
-                      if (leading_spaces_nr)
-                        {
-                          ELEMENT *internal_space
-                            = new_text_element (ET_spaces_before_argument);
-                          text_append_n (internal_space->e.text, line,
-                                         leading_spaces_nr);
-
-                          macro_call_element
-                           ->elt_info[eit_spaces_before_argument]
-                                                        = internal_space;
-                          line += leading_spaces_nr;
-
-                          leading_spaces_added = 1;
-                        }
+                      ELEMENT *e = new_text_element (ET_normal_text);
+                      add_to_contents_as_array (arg_elt, e);
                     }
-                  if (! leading_spaces_added)
+                  text_append_n (arg_elt->e.c->contents.list[0]->e.text,
+                                 line, (p - line));
+                  if (!p)
+                    line = p;
+                  else
                     {
-                      const char *p = strchrnul (line, '\n');
-                      if (arg_elt->e.c->contents.number == 0)
-                        {
-                          ELEMENT *e = new_text_element (ET_normal_text);
-                          add_to_contents_as_array (arg_elt, e);
-                        }
-                      text_append_n (arg_elt->e.c->contents.list[0]->e.text,
-                                     line, (p - line));
-                      if (!p)
-                        line = p;
-                      else
-                        {
-                          line = "\n";
-                          break;
-                        }
+                      line = "\n";
+                      break;
                     }
                 }
             }
+          isolate_leading_trailing (arg_elt, 1);
         }
     }
 

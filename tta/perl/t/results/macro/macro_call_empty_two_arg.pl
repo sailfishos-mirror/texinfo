@@ -38,10 +38,8 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;2>
     >*macro_call@twoa C1
-     >*brace_arg
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C1
+      >{spaces_before_argument: }
    {second ,\\n}
    >SOURCEMARKS
    >macro_expansion<end;2><p:8>
@@ -52,10 +50,8 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    >macro_expansion<start;3>
     >*macro_call@twoa C2
      >*brace_arg
-     >*brace_arg
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C1
+      >{spaces_before_argument: }
    {second ,\\n}
    >SOURCEMARKS
    >macro_expansion<end;3><p:8>
@@ -65,10 +61,8 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;4>
     >*macro_call@twoa C2
-     >*brace_arg
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C1
+      >{spaces_before_argument: }
      >*brace_arg
    {second ,\\n}
    >SOURCEMARKS
@@ -79,14 +73,10 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;5>
     >*macro_call@twoa C2
-     >*brace_arg
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-     >*brace_arg
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C1
+      >{spaces_before_argument: }
+     >*brace_arg C1
+      >{spaces_before_argument: }
    {second ,\\n}
    >SOURCEMARKS
    >macro_expansion<end;5><p:8>
@@ -98,10 +88,8 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
     >*macro_call@twoa C2
      >*brace_arg C1
       >{macro_call_arg_text:g}
-     >*brace_arg
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C1
+      >{spaces_before_argument: }
    {second ,\\n}
    >SOURCEMARKS
    >macro_expansion<end;6><p:8>
@@ -124,10 +112,8 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    >macro_expansion<start;8>
     >*macro_call@twoa C2
      >*brace_arg
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:i}
    {second i,\\n}
    >SOURCEMARKS
@@ -138,14 +124,10 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;9>
     >*macro_call@twoa C2
-     >*brace_arg
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
      >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+      >{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:j}
    {second j,\\n}
    >SOURCEMARKS
@@ -168,10 +150,8 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;11>
     >*macro_call@twoa C2
-     >*brace_arg
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C1
+      >{spaces_before_argument: }
      >*brace_arg C1
       >{macro_call_arg_text:l}
    {second l,\\n}

@@ -1799,10 +1799,8 @@ $result_tree_text{'bib_example'} = '*document_root C9
     >*macro_call@mybibmakeref C2
      >*brace_arg C1
       >{macro_call_arg_text:@mybibnode{}}
-     >*brace_arg C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
+     >*brace_arg C2
+      >{spaces_before_argument: }
       >{macro_call_arg_text:LaTeX2e}
    *@ref C2 bib-example.texi:l43:@mybibmakeref
     *brace_arg C1

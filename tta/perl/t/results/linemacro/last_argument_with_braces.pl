@@ -29,15 +29,11 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     >SOURCEMARKS
     >linemacro_expansion<start;1>
      >*linemacro_call@defbuiltin C2
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-      >*linemacro_arg C1
+      >*linemacro_arg C2
+       >{spaces_before_argument: }
        >{bracketed_linemacro_arg:my foo}
-      >*linemacro_arg C1
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
+      >*linemacro_arg C2
+       >{spaces_before_argument: }
        >{macro_call_arg_text:a last {} arg{ument}}
      {spaces_before_argument:\\n}
    *@defline C1 l7:@defbuiltin
@@ -113,15 +109,11 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     >SOURCEMARKS
     >linemacro_expansion<start;2><p:1>
      >*linemacro_call@defbuiltin C2
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-      >*linemacro_arg C1
+      >*linemacro_arg C2
+       >{spaces_before_argument: }
        >{bracketed_linemacro_arg:my foo}
-      >*linemacro_arg C1
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
+      >*linemacro_arg C2
+       >{spaces_before_argument: }
        >{macro_call_arg_text:{} {}}
    *@defline C1 l9:@defbuiltin
    |EXTRA
@@ -184,15 +176,11 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     >SOURCEMARKS
     >linemacro_expansion<start;3><p:1>
      >*linemacro_call@defbuiltin C2
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-      >*linemacro_arg C1
+      >*linemacro_arg C2
+       >{spaces_before_argument: }
        >{bracketed_linemacro_arg:my foo}
-      >*linemacro_arg C1
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
+      >*linemacro_arg C2
+       >{spaces_before_argument: }
        >{macro_call_arg_text:{second arg} remaining on {line}}
    *@defline C1 l11:@defbuiltin
    |EXTRA

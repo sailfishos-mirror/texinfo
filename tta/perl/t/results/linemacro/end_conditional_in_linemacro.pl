@@ -35,10 +35,8 @@ $result_tree_text{'end_conditional_in_linemacro'} = '*document_root C1
    >SOURCEMARKS
    >linemacro_expansion<start;1>
     >*linemacro_call@lm C1
-    >|INFO
-    >|spaces_before_argument:
-     >|{spaces_before_argument: }
-     >*linemacro_arg C1
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
       >{bracketed_linemacro_arg:text\\n  @end ifclear}
    {  }
    >SOURCEMARKS
