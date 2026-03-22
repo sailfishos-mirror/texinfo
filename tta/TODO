@@ -49,8 +49,6 @@ Document the tree by showing the relations of inclusion?
 elided_rawpreformatted, elided_brace_command_arg types.
 linemacro_arg
 
-'comment_at_end' in info hash
-
 alias_of in info hash
 
 source marks.

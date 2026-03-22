@@ -1,5 +1,11 @@
 2026-03-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Example/TexinfoMarkup.pm (_convert): inline
+	and remove _arg_leading_spaces_arg and simplify attribute setting of
+	endspaces.
+
+2026-03-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/element_types.awk, tta/C/main/element_types.txt,
 	tta/C/main/tree_types.h (enum elt_info_type), tta/C/main/tree.c
 	(elt_info_names), tta/C/parsetexi/parser.c (do_abort_empty_line)
