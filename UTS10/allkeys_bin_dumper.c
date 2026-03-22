@@ -47,13 +47,17 @@ typedef struct
   long version;
 } Allkeys_Info;
 
+
+/***********************/
+/* Reading allkeys.txt */
+/***********************/
+
 typedef struct
 {
   CollationElement element;
   bool variable_weight;
 } CollationElementParsed;
 
-/* Parser functions */
 static int
 parse_hex (const char *str, uint32_t *value)
 {
@@ -320,6 +324,14 @@ build_allkeys_info (const char *filename)
   return info;
 }
 
+/***********************/
+/*     Output          */
+/***********************/
+
+/*---------------------*/
+/*   Collation units   */
+/*---------------------*/
+
 /* Convert collation units into to the form they will be written as. */
 static void
 expand_collation_sequence (CollationData *data)
@@ -403,20 +415,6 @@ expand_collation_sequence (CollationData *data)
   *data = new;
 }
 
-/* Write collation data. */
-static void
-write_collation_data (FILE *fp, CollationData *data)
-{
-  uint8_t num_elements;
-
-  for (int i = 0; i < data->num_elements; i++)
-    {
-      CollationElement unit = data->elements[i];
-      fprintf (fp, "{ 0x%04x, 0x%02x, 0x%02x },\n",
-               unit.primary, unit.secondary, unit.tertiary);
-    }
-}
-
 typedef struct
 {
   CollationData *data;           /* The data to write later. */
@@ -428,6 +426,10 @@ static uint32_t collation_records_count;
 /* Running count of number of collation units to be output, used
    for index into collation unit data array. */
 static long collation_units_written;
+
+/*---------------------*/
+/*   Trie              */
+/*---------------------*/
 
 /* Function for qsort.  Return negative if the first argument is "less"
    than the second, zero if they are "equal", and positive if the first
@@ -460,6 +462,8 @@ static size_t trie_node_index;
    Breadth-first: A B C D E F G H I J K L M N O
    Depth-first:   A B D H I E J K C F L M G N O
 
+   This allows storing trie as array of fixed-size structures.  We store
+   the index of the first child and number of children for each node.
 */
 static void
 assign_trie_node_indices (TrieNode *node)
@@ -523,6 +527,10 @@ count_trie_node_collation_units (TrieNode *node)
   return count;
 }
 
+/*------------------------*/
+/* Single codepoint table */
+/*------------------------*/
+
 /* Compare function for sorting page entries by offset */
 static int
 compare_page_entries (const void *a, const void *b)
@@ -532,12 +540,11 @@ compare_page_entries (const void *a, const void *b)
   return (int) ea->point - (int) eb->point;
 }
 
-/* Location in dump of each page data */
-static int page_offset_positions[NUM_PAGES];
-
+static int used_planes[17];
 static int n_used_pages;
 
-static int used_planes[17];
+/* Location in dump of each page data */
+static int page_offset_positions[NUM_PAGES];
 
 /* Check which planes (U+XX....) were used, record the indices of
    each page that was used, and preprocess collation unit data for
@@ -545,13 +552,23 @@ static int used_planes[17];
 static void
 process_page_table (Allkeys_Info *info)
 {
+  /* Sort all pages by offset. */
+  for (uint32_t i = 0; i < NUM_PAGES; i++)
+    {
+      if (info->pages[i] && info->pages[i]->count > 0)
+        {
+          qsort (info->pages[i]->entries, info->pages[i]->count,
+                 sizeof (PageEntry), compare_page_entries);
+        }
+    }
+
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
       if (info->pages[i])
         {
           fprintf (stderr, "used plane %x\n", i >> 8);
           used_planes[i >> 8] = 1;
-          i = ((i >> 8) + 1) << 8;
+          i = ((i >> 8) + 1) << 8; /* move onto next plane */
           i--;
         }
     }
@@ -582,6 +599,22 @@ process_page_table (Allkeys_Info *info)
     }
 }
 
+/***********************/
+/*  C code generation  */
+/***********************/
+
+
+/* Write collation data as part of C initialiser. */
+static void
+write_collation_data (FILE *fp, CollationData *data)
+{
+  for (int i = 0; i < data->num_elements; i++)
+    {
+      CollationElement unit = data->elements[i];
+      fprintf (fp, "{ 0x%04x, 0x%02x, 0x%02x },\n",
+               unit.primary, unit.secondary, unit.tertiary);
+    }
+}
 
 /* Write as C source file */
 static void
@@ -767,6 +800,10 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   fclose (fp);
 }
 
+/***********************/
+/*  Main entry point   */
+/***********************/
+
 int
 main (int argc, char *argv[])
 {
@@ -783,16 +820,6 @@ main (int argc, char *argv[])
   Allkeys_Info *info = build_allkeys_info (input_file);
   if (!info)
     return 1;
-
-  /* Sort all pages by offset. */
-  for (uint32_t i = 0; i < NUM_PAGES; i++)
-    {
-      if (info->pages[i] && info->pages[i]->count > 0)
-        {
-          qsort (info->pages[i]->entries, info->pages[i]->count,
-                 sizeof (PageEntry), compare_page_entries);
-        }
-    }
 
   /* keep running count of collation units which will be written to
      the collation units array so we can output indices into that array. */
