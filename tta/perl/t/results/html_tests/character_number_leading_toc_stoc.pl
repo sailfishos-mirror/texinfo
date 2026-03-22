@@ -48,18 +48,14 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
   *@contents C1 l6
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@shortcontents C1 l8
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

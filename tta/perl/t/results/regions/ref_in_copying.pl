@@ -51,10 +51,8 @@ $result_tree_text{'ref_in_copying'} = '*document_root C5
   *@insertcopying C1 l8
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l10
    *arguments_line C1

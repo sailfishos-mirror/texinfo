@@ -33,10 +33,8 @@ $result_tree_text{'section_in_unnumbered_plaintext'} = '*document_root C65
   *@contents C1 section_in_unnumbered_text.texi:l5
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Menu:\\n}

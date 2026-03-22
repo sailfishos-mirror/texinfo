@@ -9,16 +9,12 @@ $result_tree_text{'pagetype'} = '*document_root C6
  *before_node_section C1
   *preamble_before_content C4
    *@afourpaper C1 l1
-    *line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C1
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@afourwide C1 l3
-    *line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C1
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l5 {Top}
  |EXTRA
@@ -62,10 +58,8 @@ $result_tree_text{'pagetype'} = '*document_root C6
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@smallbook C1 l11
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   {spaces_before_paragraph: }
   *paragraph C1
@@ -74,10 +68,8 @@ $result_tree_text{'pagetype'} = '*document_root C6
   *paragraph C2
    {In smallbook\\n}
    *@afourpaper C1 l16
-    *line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C1
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {After afourpaper\\n}

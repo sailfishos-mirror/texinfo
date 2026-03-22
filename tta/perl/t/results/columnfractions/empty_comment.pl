@@ -17,11 +17,9 @@ $result_tree_text{'empty_comment'} = '*document_root C1
       *line_arg C2
        {spaces_before_argument: }
        *@c C1
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C2
          {rawline_text:}
+         {spaces_after_argument:\\n}
    *@end C1 l2
    |EXTRA
    |text_arg:{multitable}

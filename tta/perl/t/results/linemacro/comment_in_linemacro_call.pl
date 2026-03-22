@@ -39,14 +39,10 @@ $result_tree_text{'comment_in_linemacro_call'} = '*document_root C1
      {\\n}
      {something }
      *@comment C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:in} d}
+       {spaces_after_argument:\\n}
      {out\\n}
      >SOURCEMARKS
      >linemacro_expansion<end;1><p:3>

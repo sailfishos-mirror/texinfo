@@ -47,27 +47,19 @@ $result_tree_text{'double_macro_expansion_in_set_comment'} = '*document_root C1
     >*brace_arg C1
      >{macro_call_arg_text:vv}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{flag|vv}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@comment C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:in  here after }
-      |>SOURCEMARKS
-      |>macro_expansion<end;2><p:3>
-      |>macro_expansion<end;1><p:8>
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:flag vv }
+    *@comment C1
+     *line_arg C3
+      {spaces_before_argument: }
+      {rawline_text:in  here after }
+      >SOURCEMARKS
+      >macro_expansion<end;2><p:3>
+      >macro_expansion<end;1><p:8>
+      {spaces_after_argument:\\n}
 ';
 
 

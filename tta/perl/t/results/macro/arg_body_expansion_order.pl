@@ -48,16 +48,12 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
     >*brace_arg C1
      >{macro_call_arg_text:@othermacro{}}
   *@unmacro C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{othermacro}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:othermacro}
+    {spaces_after_argument:\\n}
   *@macro C3 l14:@redefineothermacro
   |EXTRA
   |macro_name:{othermacro}

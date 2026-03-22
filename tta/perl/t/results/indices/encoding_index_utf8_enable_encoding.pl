@@ -559,10 +559,8 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {cp}
     {spaces_after_argument:\\n}
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
 ';
 
 

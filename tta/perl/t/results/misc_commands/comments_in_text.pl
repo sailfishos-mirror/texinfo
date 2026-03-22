@@ -9,58 +9,38 @@ $result_tree_text{'comments_in_text'} = '*document_root C1
  *before_node_section C6
   {empty_line:\\n}
   *@c C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:lone comment}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C6
    {Text line followed by a comment on the same line and another below }
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:comment}
+     {spaces_after_argument:\\n}
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:comment}
+     {spaces_after_argument:\\n}
    {Text line after the comment followed by a comment }
    *@comment C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:c}
+     {spaces_after_argument:\\n}
    {Text line after the text line followed by the comment.\\n}
   {empty_line:\\n}
   *paragraph C2
    {Comment at the end of the line }
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:comment}
+     {spaces_after_argument:\\n}
 ';
 
 

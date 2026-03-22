@@ -13,14 +13,10 @@ $result_tree_text{'table_command_comment'} = '*document_root C1
      {spaces_before_argument: }
      *@code l1
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:in comment}
+       {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l2

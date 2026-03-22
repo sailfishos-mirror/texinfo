@@ -135,10 +135,8 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
     *@insertcopying C1 index_special_region.texi:l30
     |EXTRA
     |global_command_number:{1}
-     *line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C1
+      {spaces_after_argument:\\n}
     *@end C1 index_special_region.texi:l31
     |EXTRA
     |text_arg:{titlepage}
@@ -177,22 +175,16 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
     {Chapter}
     {spaces_after_argument:  }
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:note this chapter is not associated to a node}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@insertcopying C1 index_special_region.texi:l37
   |EXTRA
   |global_command_number:{2}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C6
    {This test demonstrates }
@@ -384,10 +376,8 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
   *@insertcopying C1 index_special_region.texi:l74
   |EXTRA
   |global_command_number:{3}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 index_special_region.texi:l76
   |EXTRA
@@ -409,15 +399,11 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
   *@contents C1 index_special_region.texi:l79
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
 ';
 
 

@@ -52,10 +52,8 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   *@contents C1 l7
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l9 {in main}
  |EXTRA
@@ -79,9 +77,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{do-top|}
   >SOURCEMARKS
@@ -93,22 +88,17 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
      >{spaces_before_argument: }
      >{section_file.texi}
      >{spaces_after_argument:\\n}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:do-top}
+    {spaces_after_argument:\\n}
   *paragraph C2
    {\\input texinfo }
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:-*-texinfo-*-}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >ignored_conditional_block<1><p:1>

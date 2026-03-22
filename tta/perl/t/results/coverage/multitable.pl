@@ -54,14 +54,10 @@ $result_tree_text{'multitable'} = '*document_root C1
       *paragraph C2
        {multitable tab\\n}
        *@c C1
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {rawline_text:comment in multitable}
+         {spaces_after_argument:\\n}
     *row C2
     |EXTRA
     |row_number:{3}

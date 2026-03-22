@@ -8,13 +8,11 @@ use utf8;
 $result_tree_text{'clickstyle_no_end_of_line'} = '*document_root C1
  *before_node_section C1
   *@clickstyle C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{@result}
-   *line_arg C1
+   *line_arg C2
+    {spaces_before_argument: }
     {rawline_text:@result}
 ';
 

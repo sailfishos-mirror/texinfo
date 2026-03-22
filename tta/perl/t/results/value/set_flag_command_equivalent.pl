@@ -8,17 +8,13 @@ use utf8;
 $result_tree_text{'set_flag_command_equivalent'} = '*document_root C1
  *before_node_section C5
   *@set C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{txicodequoteundirected|}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:txicodequoteundirected}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {.\\n}
@@ -30,17 +26,13 @@ $result_tree_text{'set_flag_command_equivalent'} = '*document_root C1
    >value_expansion<end;1>
   {empty_line:\\n}
   *@clear C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{txicodequoteundirected}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:txicodequoteundirected}
+    {spaces_after_argument:\\n}
 ';
 
 

@@ -8,16 +8,12 @@ use utf8;
 $result_tree_text{'value_in_invalid_documentencoding'} = '*document_root C1
  *before_node_section C2
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{badvalue|bad}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:badvalue bad}
+    {spaces_after_argument:\\n}
   *@documentencoding C1 l2
   |EXTRA
   |global_command_number:{1}

@@ -8,24 +8,16 @@ use utf8;
 $result_tree_text{'contents_arg_and_comment'} = '*document_root C1
  *before_node_section C1
   *@contents C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@comment C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:v}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:aa }
+    *@comment C1
+     *line_arg C3
+      {spaces_before_argument: }
+      {rawline_text:v}
+      {spaces_after_argument:\\n}
 ';
 
 

@@ -42,16 +42,12 @@ $result_tree_text{'alias_macro_target_removed'} = '*document_root C1
    >macro_expansion<end;1><p:6>
   {empty_line:\\n}
   *@unmacro C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{mystrong}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:mystrong}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {bb\\n}

@@ -14,22 +14,16 @@ $result_tree_text{'delcomment_on_comment'} = '*document_root C2
   *paragraph C2
    {some text }
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:a comment with del next line}
      >SOURCEMARKS
      >delcomment<1><p:19>{ after del.\\n}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
 ';
 
 

@@ -13,11 +13,9 @@ $result_tree_text{'empty_accent_argument'} = '*document_root C1
      {spaces_before_argument: }
      *@~ l1
      *@comment C1
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C2
        {rawline_text:}
+       {spaces_after_argument:\\n}
    *@item C2 l2
    |EXTRA
    |item_number:{1}

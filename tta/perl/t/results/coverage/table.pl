@@ -44,24 +44,16 @@ $result_tree_text{'table'} = '*document_root C1
      {spaces_before_argument: }
      *@samp l9
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:samp}
+       {spaces_after_argument:\\n}
    *before_item C3
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:after vtable}
+      {spaces_after_argument:\\n}
     *index_entry_command@cindex C1 l11
     |EXTRA
     |index_entry:I{cp,1}
@@ -81,14 +73,10 @@ $result_tree_text{'table'} = '*document_root C1
        {spaces_after_argument:\\n}
      *inter_item C1
       *@c C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {rawline_text:after item}
+        {spaces_after_argument:\\n}
      *index_entry_command@kindex C1 l15
      |EXTRA
      |index_entry:I{ky,1}
@@ -104,14 +92,10 @@ $result_tree_text{'table'} = '*document_root C1
        {itemx vtable}
        {spaces_after_argument: }
        *@comment C1
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {rawline_text:comment in itemx line}
+         {spaces_after_argument:\\n}
     *table_definition C1
      {empty_line:\\n}
    *@end C1 l18

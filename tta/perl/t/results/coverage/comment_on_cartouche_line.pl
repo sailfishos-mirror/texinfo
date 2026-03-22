@@ -12,14 +12,10 @@ $result_tree_text{'comment_on_cartouche_line'} = '*document_root C1
     *block_line_arg C2
      {spaces_before_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comment}
+       {spaces_after_argument:\\n}
    *paragraph C1
     {in cartouche.\\n}
    *@end C1 l3
@@ -39,14 +35,10 @@ $result_tree_text{'comment_on_cartouche_line'} = '*document_root C1
        {Title of box}
      {spaces_after_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comment}
+       {spaces_after_argument:\\n}
    *paragraph C1
     {Out of main text\\n}
    *@end C1 l7

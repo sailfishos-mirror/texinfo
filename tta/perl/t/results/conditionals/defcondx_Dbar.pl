@@ -12,33 +12,21 @@ $result_tree_text{'defcondx_Dbar'} = '*document_root C3
    {text_before_beginning:\\n}
   *preamble_before_content C5
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:test def*x in a conditional}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:set this from the command line.}
+     {spaces_after_argument:\\n}
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:set bar}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@top C4 defxcond.texi:l8 {deffnx inside conditional}
  |EXTRA
@@ -104,10 +92,8 @@ $result_tree_text{'defcondx_Dbar'} = '*document_root C3
      {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
 ';
 
 

@@ -12,14 +12,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
     *block_line_arg C2
      {spaces_before_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comm}
+       {spaces_after_argument:\\n}
    *@item C2 l2
    |EXTRA
    |item_number:{1}
@@ -41,14 +37,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      {x}
      {spaces_after_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comm}
+       {spaces_after_argument:\\n}
    *@item C2 l6
    |EXTRA
    |item_number:{1}
@@ -70,14 +62,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      *@bullet l9
      {spaces_after_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comm}
+       {spaces_after_argument:\\n}
    *@item C2 l10
    |EXTRA
    |item_number:{1}
@@ -100,14 +88,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
       *brace_container
      {spaces_after_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comm}
+       {spaces_after_argument:\\n}
    *@item C2 l14
    |EXTRA
    |item_number:{1}
@@ -127,14 +111,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
     *block_line_arg C2
      {spaces_before_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comm}
+       {spaces_after_argument:\\n}
    *@item C2 l18
    |EXTRA
    |item_number:{1}
@@ -156,14 +136,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      {a}
      {spaces_after_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comm}
+       {spaces_after_argument:\\n}
    *@item C2 l22
    |EXTRA
    |item_number:{1}
@@ -185,14 +161,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      *@asis l25
      {spaces_after_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:table}
+       {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l26
@@ -213,14 +185,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
     *block_line_arg C2
      {spaces_before_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:quot no arg}
+       {spaces_after_argument:\\n}
    *paragraph C1
     {Quot no arg\\n}
    *@end C1 l31
@@ -238,14 +206,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      {quotarg}
      {spaces_after_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:quot arg}
+       {spaces_after_argument:\\n}
    *paragraph C1
     {Quot arg\\n}
    *@end C1 l35
@@ -261,14 +225,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
     *block_line_arg C2
      {spaces_before_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comm}
+       {spaces_after_argument:\\n}
    *paragraph C1
     {in gr\\n}
    *@end C1 l39
@@ -284,14 +244,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
     *block_line_arg C2
      {spaces_before_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comm}
+       {spaces_after_argument:\\n}
    *preformatted C1
     {in ex\\n}
    *@end C1 l43
@@ -316,14 +272,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      {second arg}
      {spaces_after_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comm}
+       {spaces_after_argument:\\n}
    *preformatted C1
     {in ex with arg\\n}
    *@end C1 l47
@@ -347,14 +299,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      {third}
      {spaces_after_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comm}
+       {spaces_after_argument:\\n}
    *preformatted C1
     {in ex 3 args\\n}
    *@end C1 l51
@@ -380,14 +328,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      {fourth}
      {spaces_after_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comm}
+       {spaces_after_argument:\\n}
    *preformatted C1
     {in ex 4 args\\n}
    *@end C1 l55
@@ -403,14 +347,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
     *block_line_arg C2
      {spaces_before_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comm}
+       {spaces_after_argument:\\n}
    *preformatted C1
     {in display\\n}
    *@end C1 l59
@@ -435,14 +375,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
        {0.4 0.6}
        {spaces_after_argument: }
        *@c C1
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {rawline_text:comm}
+         {spaces_after_argument:\\n}
    *multitable_body C1
     *row C2
     |EXTRA
@@ -480,14 +416,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
       {bbb}
      {spaces_after_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:c}
+       {spaces_after_argument:\\n}
    *multitable_body C1
     *row C2
     |EXTRA
@@ -527,14 +459,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      {g}
      {spaces_after_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comm}
+       {spaces_after_argument:\\n}
    *paragraph C1
     {In f\\n}
    *@end C1 l71
@@ -550,14 +478,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
     *block_line_arg C2
      {spaces_before_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comm}
+       {spaces_after_argument:\\n}
    *paragraph C1
     {flushright\\n}
    *@end C1 l75
@@ -573,14 +497,10 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
     *block_line_arg C2
      {spaces_before_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comm}
+       {spaces_after_argument:\\n}
    *paragraph C1
     {raggedright\\n}
    *@end C1 l79

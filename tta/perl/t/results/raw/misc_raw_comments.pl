@@ -13,14 +13,10 @@ $result_tree_text{'misc_raw_comments'} = '*document_root C1
     *block_line_arg C2
      {spaces_before_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comment space}
+       {spaces_after_argument:\\n}
    *rawpreformatted C1
     {in html }
    *@end C1 l3
@@ -30,14 +26,10 @@ $result_tree_text{'misc_raw_comments'} = '*document_root C1
      {spaces_before_argument: }
      {html}
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comment no space}
+       {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@tex C2 l5
    *arguments_line C1
@@ -53,14 +45,10 @@ $result_tree_text{'misc_raw_comments'} = '*document_root C1
      {tex}
      {spaces_after_argument:    }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comment after end tex}
+       {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@verbatim C4 l8
    *arguments_line C1

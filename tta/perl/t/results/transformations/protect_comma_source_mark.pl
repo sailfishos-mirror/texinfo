@@ -23,16 +23,12 @@ $result_tree_text{'protect_comma_source_mark'} = '*document_root C1
      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{punct|,,}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:punct ,,}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C8
    {There is some text }

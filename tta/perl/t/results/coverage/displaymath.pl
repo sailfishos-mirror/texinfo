@@ -97,14 +97,10 @@ $result_tree_text{'displaymath'} = '*document_root C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:comment in displaymath}
+     {spaces_after_argument:\\n}
    {a/2\\n}
    *@end C1 l20
    |EXTRA

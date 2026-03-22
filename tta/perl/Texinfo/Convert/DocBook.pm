@@ -732,7 +732,6 @@ sub _protect_text($$) {
 sub _format_comment($$) {
   my ($self, $element) = @_;
 
-  # TODO simplify, use only the text, not the spaces 
   my $command_text = '';
   if (exists($element->{'info'})
       and exists($element->{'info'}->{'spaces_before_argument'})) {
@@ -741,7 +740,9 @@ sub _format_comment($$) {
   if (exists($element->{'contents'})) {
     my $line_arg = $element->{'contents'}->[0];
     if (exists($line_arg->{'contents'})) {
-      $command_text .= $line_arg->{'contents'}->[0]->{'text'};
+      foreach my $content (@{$line_arg->{'contents'}}) {
+        $command_text .= $content->{'text'};
+      }
     }
     if (exists($line_arg->{'info'})
         and exists($line_arg->{'info'}->{'spaces_after_argument'})) {

@@ -1,5 +1,23 @@
 2026-03-22 Patrice Dumas  <pertusus@free.fr>
 
+	Put lineraw line commands leading and trailing directly in tree
+
+	* tta/C/parsetexi/handle_commands.c (raw_line_command_arg_spaces)
+	(handle_line_command, add_comment_at_end),
+	tta/perl/Texinfo/ParserNonXS.pm (_raw_line_command_arg_spaces)
+	(_add_comment_at_end, _handle_line_command): put lineraw line commands
+	leading and trailing spaces, and comments directly in tree, not in
+	info elements.  Remove raw_line_command_arg_spaces second argument,
+	since it is not used anymore.
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (_format_comment),
+	tta/perl/Texinfo/Convert/LaTeX.pm (_convert),
+	tta/perl/Texinfo/Example/TexinfoMarkup.pm (_format_comment, _convert), 
+	tta/perl/t/init/ignore_and_comments_output.init: adapt for change in
+	tree.
+
+2026-03-22 Patrice Dumas  <pertusus@free.fr>
+
 	Put context brace commands leading spaces directly in tree
 
 	* tta/C/main/element_types.txt (spaces_before_argument),

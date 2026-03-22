@@ -28,26 +28,18 @@ $result_tree_text{'macro_expansion_in_set_comment_command'} = '*document_root C1
     >*brace_arg C1
      >{macro_call_arg_text:v}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{flag|v}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@comment C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     ||>SOURCEMARKS
-     ||>macro_expansion<end;1>
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:here}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:flag v }
+    *@comment C1
+     *line_arg C3
+      {spaces_before_argument: }
+      >SOURCEMARKS
+      >macro_expansion<end;1>
+      {rawline_text:here}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
 ';
 

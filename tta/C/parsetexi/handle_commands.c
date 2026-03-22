@@ -640,8 +640,7 @@ new_element_at_begin_reloc (ELEMENT *text_element, size_t leading_len,
 }
 
 static void
-raw_line_command_arg_spaces (ELEMENT *command_e, ELEMENT *text_element,
-                             ELEMENT *line_args)
+raw_line_command_arg_spaces (ELEMENT *text_element, ELEMENT *line_args)
 {
   size_t spaces_len;
 
@@ -659,14 +658,14 @@ raw_line_command_arg_spaces (ELEMENT *command_e, ELEMENT *text_element,
       text_element->e.text->end--;
 
       text_append_n (spaces_after->e.text, "\n", 1);
-      line_args->elt_info[eit_spaces_after_argument] = spaces_after;
+      add_to_contents_as_array (line_args, spaces_after);
     }
   spaces_len = strspn (text_element->e.text->text, whitespace_chars);
   if (spaces_len > 0)
     {
       ELEMENT *spaces_before = new_element_at_begin_reloc (text_element,
                                  spaces_len, ET_spaces_before_argument);
-      command_e->elt_info[eit_spaces_before_argument] = spaces_before;
+      insert_into_contents_as_array (line_args, spaces_before, 0);
     }
 }
 
@@ -752,10 +751,9 @@ add_comment_at_end (ELEMENT *line_args, ELEMENT *text_element,
       text_element->e.text->end - comment_byte_len] = '\0';
   text_element->e.text->end -= comment_byte_len;
 
-  raw_line_command_arg_spaces (comment_e, comment_text_element,
-                               comment_line_args);
+  raw_line_command_arg_spaces (comment_text_element, comment_line_args);
 
-  line_args->elt_info[eit_comment_at_end] = comment_e;
+  add_to_element_contents (line_args, comment_e);
 }
 
 /* STATUS is set to GET_A_NEW_LINE if we should get a new line after this,
@@ -877,9 +875,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                         (text_element->e.text->text, whitespace_chars)])
             {
   /* nothing else than spaces.  Reuse the text element as space element. */
-              pop_element_from_contents (line_args);
               text_element->type = ET_spaces_after_argument;
-              line_args->elt_info[eit_spaces_after_argument] = text_element;
             }
           else
             {
@@ -902,10 +898,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                     {
          /* nothing else than spaces after removing the comment.  Reuse the
             text element as space element kept in info */
-                      pop_element_from_contents (line_args);
                       text_element->type = ET_spaces_before_argument;
-                      command_e->elt_info[eit_spaces_before_argument]
-                        = text_element;
                     }
                   else
                     {
@@ -916,8 +909,8 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                           ELEMENT *spaces_before
                              = new_element_at_begin_reloc (text_element,
                                      spaces_len, ET_spaces_before_argument);
-                          command_e->elt_info[eit_spaces_before_argument]
-                            = spaces_before;
+                          insert_into_contents_as_array (line_args,
+                                                         spaces_before, 0);
                         }
 
                       if (command_data (data_cmd).args_number == 0)
@@ -932,8 +925,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                 }
               else
                 {
-                  raw_line_command_arg_spaces (command_e, text_element,
-                                               line_args);
+                  raw_line_command_arg_spaces (text_element, line_args);
                   if (command_data (data_cmd).args_number == 0)
                     {
                    /* For commands without argument, a bogus argument is in
@@ -951,7 +943,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           element_value_equivalent (command_e, &global_cmd);
         }
       else
-       destroy_element_and_children (line_args);
+        destroy_element_and_children (line_args);
 
       if (cmd == CM_raisesections)
         {

@@ -8,16 +8,12 @@ use utf8;
 $result_tree_text{'value_in_node'} = '*document_root C6
  *before_node_section C2
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{node1|Node 1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:node1 Node 1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l3 {Top}
  |EXTRA
@@ -132,16 +128,12 @@ $result_tree_text{'value_in_node'} = '*document_root C6
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{sec1|Section 1.1}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:sec1 Section 1.1}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l15
    *arguments_line C1

@@ -11,16 +11,12 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
    {text_before_beginning:\\n}
   *preamble_before_content C2
    *@set C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{txiindexbackslashignore|}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:txiindexbackslashignore}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l4 {Top}
  |EXTRA
@@ -221,16 +217,12 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@clear C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{txiindexbackslashignore}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:txiindexbackslashignore}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 l23
   |EXTRA
@@ -244,14 +236,10 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
       {file}
     {spaces_after_argument: }
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@findex C1 l25
   |EXTRA

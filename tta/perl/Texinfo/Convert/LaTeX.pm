@@ -4599,9 +4599,12 @@ sub _convert($$) {
       }
       return $result;
     } elsif ($cmdname eq 'vskip') {
-      if (exists($element->{'contents'}->[0]->{'contents'})) {
-        $result .= "\\vskip "
-          .$element->{'contents'}->[0]->{'contents'}->[0]->{'text'}."\n";
+      my $line_arg = $element->{'contents'}->[0];
+      if (!Texinfo::Common::empty_spaces_argument($line_arg)) {
+        $result .= "\\vskip";
+        foreach my $content (@{$line_arg->{'contents'}}) {
+          $result .= $content->{'text'};
+        }
       }
       return $result;
     } elsif ($cmdname eq 'contents') {

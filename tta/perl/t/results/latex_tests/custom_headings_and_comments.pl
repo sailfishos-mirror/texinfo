@@ -45,14 +45,10 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
        *@thischaptername
      {spaces_after_argument:  }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comment}
+       {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l4 {Top}
  |EXTRA
@@ -96,19 +92,15 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@page C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {after ch--ap first page\\n}
   {empty_line:\\n}
   *@page C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {after ch--ap second page\\n}

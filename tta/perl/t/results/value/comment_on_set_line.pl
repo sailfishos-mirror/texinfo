@@ -8,69 +8,45 @@ use utf8;
 $result_tree_text{'comment_on_set_line'} = '*document_root C1
  *before_node_section C6
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{x|}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@c C1
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:x}
+    *@c C1
+     *line_arg C2
+      {rawline_text:}
+      {spaces_after_argument:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{y|}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@c C1
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:y }
+    *@c C1
+     *line_arg C2
+      {rawline_text:}
+      {spaces_after_argument:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{z|g}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@c C1
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:z g}
+    *@c C1
+     *line_arg C2
+      {rawline_text:}
+      {spaces_after_argument:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{t|a vv}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@comment C1
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:@ggg}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:t a vv }
+    *@comment C1
+     *line_arg C2
+      {rawline_text:@ggg}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {!!, !!, !g!, !a vv!\\n}

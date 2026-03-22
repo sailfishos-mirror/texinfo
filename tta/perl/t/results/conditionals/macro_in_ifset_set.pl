@@ -9,16 +9,12 @@ $result_tree_text{'macro_in_ifset_set'} = '*document_root C1
  *before_node_section C9
   {empty_line:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{a|}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:a}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l4
   |EXTRA
@@ -44,16 +40,12 @@ $result_tree_text{'macro_in_ifset_set'} = '*document_root C1
       >{a}
       >{spaces_after_argument:\\n}
   *@unmacro C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{truc}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:truc}
+    {spaces_after_argument:\\n}
   *@macro C3 l10
   |EXTRA
   |macro_name:{truc}

@@ -11,97 +11,63 @@ $result_tree_text{'clickstyle_and_comments'} = '*document_root C1
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{@comment}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
     {rawline_text:@comment a}
+    {spaces_after_argument:\\n}
   *@clickstyle C1 l2
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{@comment}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:@comment b}
+    {spaces_after_argument:\\n}
   *@clickstyle C1 l3
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{3}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:nocmd@comment c}
+    {spaces_after_argument:\\n}
   *@clickstyle C1 l4
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{4}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:more than one word @comment d}
+    {spaces_after_argument:\\n}
   *@clickstyle C1 l5
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{5}
   |misc_args:A{@result}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@comment C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:e}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:@result}
+    *@comment C1
+     *line_arg C3
+      {spaces_before_argument: }
+      {rawline_text:e}
+      {spaces_after_argument:\\n}
   *@clickstyle C1 l6
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{6}
   |misc_args:A{@result}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@comment C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:f}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:@result   }
+    *@comment C1
+     *line_arg C3
+      {spaces_before_argument: }
+      {rawline_text:f}
+      {spaces_after_argument:\\n}
   *@clickstyle C1 l7
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{7}
   |misc_args:A{@result}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:@result on the same line @comment g}
+    {spaces_after_argument:\\n}
 ';
 
 

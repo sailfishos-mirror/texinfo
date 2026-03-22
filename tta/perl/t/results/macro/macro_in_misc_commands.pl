@@ -84,23 +84,15 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
   *paragraph C3
    {Text line followed by a comment on the same line and another below }
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:comment @text{}}
+     {spaces_after_argument:\\n}
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:comment @text{}}
+     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l16
   |EXTRA
@@ -212,12 +204,10 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     >macro_expansion<end;6><p:11>
     {spaces_after_argument:\\n}
   *@afourpaper C1 l38:@afourpapermacro
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-    |>SOURCEMARKS
-    |>macro_expansion<end;7>
+   *line_arg C1
+    {spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >macro_expansion<end;7>
   *@headings C1 l39
   |EXTRA
   |global_command_number:{1}
@@ -299,12 +289,10 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
      {macro}
      {spaces_after_argument:\\n}
   *@raisesections C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-    |>SOURCEMARKS
-    |>macro_expansion<end;12>
+   *line_arg C1
+    {spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >macro_expansion<end;12>
   *@macro C3 l53
   |EXTRA
   |macro_name:{lowersectionsmacro}
@@ -324,12 +312,10 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
      {macro}
      {spaces_after_argument:\\n}
   *@lowersections C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-    |>SOURCEMARKS
-    |>macro_expansion<end;13>
+   *line_arg C1
+    {spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >macro_expansion<end;13>
   {empty_line:\\n}
   *paragraph C3
    *@@
@@ -799,14 +785,10 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@c C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:accepts 10 or 11}
+    {spaces_after_argument:\\n}
   *@macro C3 l137
   |EXTRA
   |macro_name:{ten}
@@ -835,14 +817,10 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     >macro_expansion<end;30><p:2>
     {spaces_after_argument:\\n}
   *@c C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:accept false or true}
+    {spaces_after_argument:\\n}
   *@macro C3 l142
   |EXTRA
   |macro_name:{falsearg}
@@ -952,16 +930,12 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     >*macro_call@pagemacro C1
      >*brace_arg
   *@page C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   |>SOURCEMARKS
-   |>macro_expansion<end;33>
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
+    >SOURCEMARKS
+    >macro_expansion<end;33>
     {rawline_text:on page line}
+    {spaces_after_argument:\\n}
   *paragraph C8
    *@@
    {noindent }
@@ -1020,27 +994,21 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     >*macro_call@pagemacro C1
      >*brace_arg
   *@page C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument:         }
-   |>SOURCEMARKS
-   |>macro_expansion<end;39>
   >SOURCEMARKS
   >macro_expansion<start;40>
    >*macro_call@pagemacro C1
     >*brace_arg
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument:         }
+    >SOURCEMARKS
+    >macro_expansion<end;39>
     {rawline_text:page at beginning of line}
+    {spaces_after_argument:\\n}
   *@page C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-    |>SOURCEMARKS
-    |>macro_expansion<end;40>
+   *line_arg C1
+    {spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >macro_expansion<end;40>
   *paragraph C1
    {After page on its own line.\\n}
   {empty_line:\\n}
@@ -1052,12 +1020,10 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     >*macro_call@pagemacro C1
      >*brace_arg
   *@page C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-    |>SOURCEMARKS
-    |>macro_expansion<end;41>
+   *line_arg C1
+    {spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >macro_expansion<end;41>
   *paragraph C9
    {two spaces   }
    *@@
@@ -1102,22 +1068,16 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
   *@contents C1 l179:@contentsmacro
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-    |>SOURCEMARKS
-    |>macro_expansion<end;44>
+   *line_arg C1
+    {spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >macro_expansion<end;44>
   {empty_line:\\n}
   *@vskip C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:@atext{}}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l183
   |EXTRA
@@ -1189,17 +1149,13 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@clickstyle C1 l197
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{@resultmacro}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:@resultmacro{}}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l199
    *arguments_line C1
@@ -1262,12 +1218,10 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
   *@contents C1 l206:@contentsmacro
   |EXTRA
   |global_command_number:{2}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-    |>SOURCEMARKS
-    |>macro_expansion<end;49>
+   *line_arg C1
+    {spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >macro_expansion<end;49>
   {empty_line:\\n}
   *@macro C3 l208
   |EXTRA
@@ -1290,12 +1244,10 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
   *@shortcontents C1 l211:@shortcontentsmacro
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-    |>SOURCEMARKS
-    |>macro_expansion<end;50>
+   *line_arg C1
+    {spaces_after_argument:\\n}
+    >SOURCEMARKS
+    >macro_expansion<end;50>
   {empty_line:\\n}
   *@macro C3 l213
   |EXTRA
@@ -1317,12 +1269,10 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
    >*macro_call@byemacro C1
     >*brace_arg
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
-   |>SOURCEMARKS
-   |>macro_expansion<end;51>
+  *line_arg C1
+   {spaces_after_argument:\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;51>
 ';
 
 

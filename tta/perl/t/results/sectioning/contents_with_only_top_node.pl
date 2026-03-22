@@ -24,10 +24,8 @@ $result_tree_text{'contents_with_only_top_node'} = '*document_root C2
   *@contents C1 l4
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
 ';
 
 

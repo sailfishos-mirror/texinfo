@@ -51,27 +51,19 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{txidefnamenospace|}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:txidefnamenospace}
+    {spaces_after_argument:\\n}
   *@clear C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{txicodevaristt}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:txicodevaristt}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defblock C4 l14
    *arguments_line C1

@@ -10,14 +10,10 @@ $result_tree_text{'comment_between_text'} = '*document_root C1
   *paragraph C3
    {text\\n}
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:comment}
+     {spaces_after_argument:\\n}
    {end para}
 ';
 

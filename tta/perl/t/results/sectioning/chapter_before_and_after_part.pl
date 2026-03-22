@@ -55,10 +55,8 @@ FastBack: [U0]
   *@contents C1 l7
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
 ';
 
 

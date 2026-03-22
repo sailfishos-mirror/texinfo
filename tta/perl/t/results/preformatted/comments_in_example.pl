@@ -16,24 +16,16 @@ $result_tree_text{'comments_in_example'} = '*document_root C1
    *preformatted C4
     {line }
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment}
+      {spaces_after_argument:\\n}
     {second line }
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment}
+      {spaces_after_argument:\\n}
    *@end C1 l5
    |EXTRA
    |text_arg:{example}
@@ -51,14 +43,10 @@ $result_tree_text{'comments_in_example'} = '*document_root C1
    *preformatted C2
     {line }
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment}
+      {spaces_after_argument:\\n}
    *@end C1 l10
    |EXTRA
    |text_arg:{example}
@@ -76,14 +64,10 @@ $result_tree_text{'comments_in_example'} = '*document_root C1
    *preformatted C4
     {line }
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment}
+      {spaces_after_argument:\\n}
     {empty_line:\\n}
     {second line\\n}
    *@end C1 l17

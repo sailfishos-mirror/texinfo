@@ -88,16 +88,12 @@ $result_tree_text{'maketitle_documentinfo_publication'} = '*document_root C8
    *@contents C1 maketitle_documentinfo_publication.texi:l19
    |EXTRA
    |global_command_number:{1}
-    *line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C1
+     {spaces_after_argument:\\n}
    {empty_line: \\n}
   *@maketitle C1 maketitle_documentinfo_publication.texi:l21
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 maketitle_documentinfo_publication.texi:l23 {top}
  |EXTRA
@@ -165,10 +161,8 @@ $result_tree_text{'maketitle_documentinfo_publication'} = '*document_root C8
     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
 ';
 
 

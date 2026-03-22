@@ -17,14 +17,10 @@ $result_tree_text{'prototype_brace_no_brace_comment'} = '*document_root C1
       {aa}
      { bb}
      *@comment C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:cc}
+       {spaces_after_argument:\\n}
    *@end C1 l2
    |EXTRA
    |text_arg:{multitable}

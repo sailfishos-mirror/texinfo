@@ -572,15 +572,11 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   *@contents C1 sectioning.texi:l96
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
  *postamble_after_end C1
   {text_after_end:\\n}
 ';

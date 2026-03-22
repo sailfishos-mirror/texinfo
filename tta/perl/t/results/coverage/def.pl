@@ -375,14 +375,10 @@ $result_tree_text{'def'} = '*document_root C1
      {spaces_after_argument:\\n}
    *inter_def_item C1
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment}
+      {spaces_after_argument:\\n}
    *@deffnx C1 l23
    |EXTRA
    |def_command:{deffn}
@@ -416,14 +412,10 @@ $result_tree_text{'def'} = '*document_root C1
      {spaces_after_argument:\\n}
    *inter_def_item C1
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment}
+      {spaces_after_argument:\\n}
    *@deffnx C1 l25
    |EXTRA
    |def_command:{deffn}

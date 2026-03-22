@@ -104,10 +104,8 @@ $result_tree_text{'chinese_mixed_with_en_EUC_CN'} = '*document_root C6
   {empty_line:\\n}
   {empty_line:\\n}
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
 ';
 
 

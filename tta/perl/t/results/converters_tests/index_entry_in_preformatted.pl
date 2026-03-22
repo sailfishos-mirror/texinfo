@@ -72,14 +72,10 @@ $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
       {other}
       {spaces_after_argument: }
       *@c C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {rawline_text:comment}
+        {spaces_after_argument:\\n}
     {text2\\n}
     *index_entry_command@cindex C1 l13
     |EXTRA

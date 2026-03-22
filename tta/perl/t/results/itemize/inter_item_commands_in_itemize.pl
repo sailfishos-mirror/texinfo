@@ -57,14 +57,10 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
      {spaces_after_argument:\\n}
    *before_item C2
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment in itemize}
+      {spaces_after_argument:\\n}
     *index_entry_command@cindex C1 l9
     |EXTRA
     |element_node:{chapter}
@@ -138,14 +134,10 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
      {spaces_before_argument:\\n}
    *before_item C2
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment in itemize}
+      {spaces_after_argument:\\n}
     *paragraph C2
      {T--ext before items.\\n}
      *index_entry_command@cindex C1 l23

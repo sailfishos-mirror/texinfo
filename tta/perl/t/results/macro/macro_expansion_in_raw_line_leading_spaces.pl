@@ -27,18 +27,14 @@ $result_tree_text{'macro_expansion_in_raw_line_leading_spaces'} = '*document_roo
    >*macro_call@mymac C1
     >*brace_arg
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument:  }
-   |>SOURCEMARKS
-   |>macro_expansion<end;1><p:1>
   |EXTRA
   |misc_args:A{b|c}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument:  }
+    >SOURCEMARKS
+    >macro_expansion<end;1><p:1>
     {rawline_text:b c}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@macro C3 l7
   |EXTRA
@@ -60,22 +56,16 @@ $result_tree_text{'macro_expansion_in_raw_line_leading_spaces'} = '*document_roo
    >*macro_call@mycontents C1
     >*brace_arg
   *@contents C1 l11:@mycontents
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument:  }
-   |>SOURCEMARKS
-   |>macro_expansion<end;2>
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |comment_at_end:
-    |*@c C1
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:}
+   *line_arg C2
+    {spaces_before_argument:  }
+    >SOURCEMARKS
+    >macro_expansion<end;2>
+    *@c C1
+     *line_arg C2
+      {rawline_text:}
+      {spaces_after_argument:\\n}
 ';
 
 

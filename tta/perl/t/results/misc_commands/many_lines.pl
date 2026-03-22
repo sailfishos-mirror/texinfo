@@ -18,24 +18,16 @@ $result_tree_text{'many_lines'} = '*document_root C1
      {spaces_after_argument:\\n}
    {afourpaper }
    *@afourpaper C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:on line following afourpaper}
+     {spaces_after_argument:\\n}
    {smallbook }
    *@smallbook C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:on line following smallbook}
+     {spaces_after_argument:\\n}
    {headings }
    *@headings C1 l4
    |EXTRA
@@ -104,24 +96,16 @@ $result_tree_text{'many_lines'} = '*document_root C1
      {spaces_after_argument:\\n}
    {raisesections }
    *@raisesections C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:on line following raisesections}
+     {spaces_after_argument:\\n}
    {lowersections }
    *@lowersections C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:on line following lowersections}
+     {spaces_after_argument:\\n}
    {kbdinputstyle code }
    *@kbdinputstyle C1 l16
    |EXTRA
@@ -132,34 +116,22 @@ $result_tree_text{'many_lines'} = '*document_root C1
      {spaces_after_argument:\\n}
    {afourpaper }
    *@afourpaper C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:on line following afourpaper}
+     {spaces_after_argument:\\n}
    {afourlatex }
    *@afourlatex C1 l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:on line following afourlatex}
+     {spaces_after_argument:\\n}
    {afourwide }
    *@afourwide C1 l19
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:on line following afourwide}
+     {spaces_after_argument:\\n}
    {paragraphindent asis }
    *@paragraphindent C1 l20
    |EXTRA
@@ -316,34 +288,24 @@ $result_tree_text{'many_lines'} = '*document_root C1
   *paragraph C6
    {Text line followed by finalout on the same line and another below }
    *@finalout C1
-    *line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C1
+     {spaces_after_argument:\\n}
    *@finalout C1
-    *line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C1
+     {spaces_after_argument:\\n}
    {Text line after the finalout followed by a fianlout }
    *@finalout C1
-    *line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C1
+     {spaces_after_argument:\\n}
    {Text line after the text line followed by the finalout.\\n}
   {empty_line:\\n}
   *paragraph C3
    {Test text after finalout\\n}
    *@finalout C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:a word after finalout}
+     {spaces_after_argument:\\n}
    {Line after finalout\\n}
 ';
 

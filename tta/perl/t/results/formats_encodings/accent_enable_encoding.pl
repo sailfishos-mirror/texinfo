@@ -361,14 +361,10 @@ $result_tree_text{'accent_enable_encoding'} = '*document_root C3
    {\\n}
   {empty_line:\\n}
   *@c C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:arg is command -- @dotless{i} is special-cased for HTML}
+    {spaces_after_argument:\\n}
   *paragraph C3
    {should be dotless i`: }
    *@` C1 l63
@@ -406,14 +402,10 @@ $result_tree_text{'accent_enable_encoding'} = '*document_root C3
    {\\n}
   {empty_line:\\n}
   *@c C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:arg is command -- @dotless{j}}
+    {spaces_after_argument:\\n}
   *paragraph C3
    {should be dotless j`: }
    *@` C1 l72

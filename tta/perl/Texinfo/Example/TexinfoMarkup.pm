@@ -497,8 +497,10 @@ sub _format_comment($$) {
   }
   if ($element->{'contents'}) {
     my $line_arg = $element->{'contents'}->[0];
-    if ($line_arg->{'contents'}) {
-      $command_text .= $line_arg->{'contents'}->[0]->{'text'};
+    if (exists($line_arg->{'contents'})) {
+      foreach my $content (@{$line_arg->{'contents'}}) {
+        $command_text .= $content->{'text'};
+      }
     }
     if (defined($line_arg->{'info'})
         and defined($line_arg->{'info'}->{'spaces_after_argument'})) {
@@ -1114,23 +1116,36 @@ sub _convert($$;$) {
             } elsif ($cmdname eq 'unmacro') {
             }
           }
-          my $arg = $self->convert_tree($element->{'contents'}->[0]);
-          my $end_space = _end_line_spaces($self, $element);
-          my $end_line = _format_comment_or_end_line($self, $element);
+          my $arg_element = $element->{'contents'}->[0];
+          my $converted_tree = Texinfo::Common::non_trailing_tree(
+                                                        $arg_element);
+          my $arg;
+          if (defined($converted_tree)) {
+            $arg = $self->convert_tree($converted_tree);
+          } else {
+            $arg = '';
+          }
+          my ($end_space, $end_line)
+           = _end_space_and_format_comment_or_end_line($self,
+                                                       $arg_element);
+
           return $self->txi_markup_open_element($cmdname, $attribute)
                .$arg.$end_space
                .$self->txi_markup_close_element($cmdname).$end_line;
         } else {
           my $attribute = [_leading_spaces_arg($element)];
-          my $arg;
-          if ($element->{'contents'}->[0]->{'contents'}) {
-            $arg = $self->txi_markup_protect_text(
-              $element->{'contents'}->[0]->{'contents'}->[0]->{'text'})
-          } else {
-            $arg = '';
+          my $arg_element = $element->{'contents'}->[0];
+          my $converted_tree = Texinfo::Common::non_trailing_tree(
+                                                        $arg_element);
+          my $arg = '';
+          if (defined($converted_tree)) {
+            foreach my $content (@{$converted_tree->{'contents'}}) {
+              $arg .= $self->txi_markup_protect_text($content->{'text'});
+            }
           }
-          my $end_space = _end_line_spaces($self, $element);
-          my $end_line = _format_comment_or_end_line($self, $element);
+          my ($end_space, $end_line)
+            = _end_space_and_format_comment_or_end_line($self,
+                                                     $arg_element);
           return $self->txi_markup_open_element($cmdname, $attribute)
                .$arg.$end_space
                .$self->txi_markup_close_element($cmdname).$end_line;

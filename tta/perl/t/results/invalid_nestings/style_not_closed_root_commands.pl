@@ -82,10 +82,8 @@ $result_tree_text{'style_not_closed_root_commands'} = '*document_root C6
      {still not closed\\n}
      {empty_line:\\n}
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
 ';
 
 

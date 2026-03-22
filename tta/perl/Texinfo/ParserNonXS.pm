@@ -5913,24 +5913,20 @@ sub _new_element_at_begin_reloc($$;$) {
   return $new_e;
 }
 
-sub _raw_line_command_arg_spaces($$$) {
-  my ($command_e, $text_element, $line_args) = @_;
+sub _raw_line_command_arg_spaces($$) {
+  my ($text_element, $line_args) = @_;
 
   if (chomp($text_element->{'text'})) {
-    $line_args->{'info'} = {} if (!exists($line_args->{'info'}));
-    $line_args->{'info'}->{'spaces_after_argument'}
-                    = Texinfo::TreeElement::new({'text' => "\n",
+    my $spaces_after = Texinfo::TreeElement::new({'text' => "\n",
                                 'type' => 'spaces_after_argument'});
+    push @{$line_args->{'contents'}}, $spaces_after;
   }
   if ($text_element->{'text'} =~ s/^(\s+)//) {
-    $line_args->{'info'} = {} if (!exists($line_args->{'info'}));
     my $spaces_text = $1;
     my $spaces_before
       = _new_element_at_begin_reloc($text_element, $spaces_text,
                                     'spaces_before_argument');
-
-    $command_e->{'info'} = {} if (!exists($command_e->{'info'}));
-    $command_e->{'info'}->{'spaces_before_argument'} = $spaces_before;
+    unshift @{$line_args->{'contents'}}, $spaces_before;
   }
 }
 
@@ -5990,11 +5986,9 @@ sub _add_comment_at_end($$$) {
     }
   }
 
-  _raw_line_command_arg_spaces($comment, $comment_text_element,
-                               $comment_line_args);
+  _raw_line_command_arg_spaces($comment_text_element, $comment_line_args);
 
-  $line_args->{'info'} = {} if (!exists($line_args->{'info'}));
-  $line_args->{'info'}->{'comment_at_end'} = $comment;
+  push @{$line_args->{'contents'}}, $comment;
 }
 
 sub _handle_line_command($$$$$$) {
@@ -6098,11 +6092,7 @@ sub _handle_line_command($$$$$$) {
       if ($command ne 'c' and $command ne 'comment'
           and $text_element->{'text'} !~ /\S/) {
         # nothing else than spaces.  Reuse the text element as space element.
-        pop @{$misc_line_args->{'contents'}};
-        delete $misc_line_args->{'contents'};
         $text_element->{'type'} = 'spaces_after_argument';
-        $misc_line_args->{'info'} = {'spaces_after_argument'
-                                          => $text_element};
       # note the condition on command args number, as we do not
       # want lineraw commands with argument that did not have a
       # comment detected by _parse_rawline_command to contain comments.
@@ -6115,24 +6105,14 @@ sub _handle_line_command($$$$$$) {
         if ($text_element->{'text'} !~ /\S/) {
           # nothing else than spaces after removing the comment.  Reuse the
           # text element as space element kept in info
-          pop @{$misc_line_args->{'contents'}};
-          delete $misc_line_args->{'contents'};
           $text_element->{'type'} = 'spaces_before_argument';
-          $command_e->{'info'} = {}
-               if (!exists($command_e->{'info'}));
-          $command_e->{'info'}->{'spaces_before_argument'}
-                                            = $text_element;
         } else {
           if ($text_element->{'text'} =~ s/^(\s+)//) {
             my $spaces_text = $1;
             my $spaces_before =
               _new_element_at_begin_reloc($text_element, $spaces_text,
-                                           'spaces_before_argument');
-
-            $command_e->{'info'} = {}
-                 if (!exists($command_e->{'info'}));
-            $command_e->{'info'}->{'spaces_before_argument'}
-                           = $spaces_before;
+                                          'spaces_before_argument');
+            unshift @{$misc_line_args->{'contents'}}, $spaces_before;
           }
 
           if (!$commands_args_number{$command}) {
@@ -6145,8 +6125,7 @@ sub _handle_line_command($$$$$$) {
         }
       } else { # no comment or with an argument, possibly bogus
                # for commands without argument
-        _raw_line_command_arg_spaces($command_e, $text_element,
-                                     $misc_line_args);
+        _raw_line_command_arg_spaces($text_element, $misc_line_args);
         if (!$commands_args_number{$command}) {
           # For commands without argument, a bogus argument is in
           # text_element.

@@ -35,14 +35,10 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@c C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:needed to have Node 1 referenced}
+    {spaces_after_argument:\\n}
   *paragraph C2
    *@xref C1 l6
     *brace_arg C1

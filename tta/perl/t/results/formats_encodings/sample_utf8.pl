@@ -11,14 +11,10 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    *preamble_before_beginning C1
     {text_before_beginning:\\input texinfo   @c -*-texinfo-*-\\n}
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:%**start of header}
+     {spaces_after_argument:\\n}
   *preamble_before_content C12
    *@setfilename C1 sample_utf8.texi:l3
    |EXTRA
@@ -42,14 +38,10 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      {UTF-8}
      {spaces_after_argument:\\n}
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:%**end of header}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@copying C5 sample_utf8.texi:l8
     *arguments_line C1
@@ -79,28 +71,20 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
       {标题示例 ĄĘ ae ąę Â ù}
       {spaces_after_argument:\\n}
     *@page C1
-     *line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C1
+      {spaces_after_argument:\\n}
     *paragraph C2
      {Texinfo中文示例\\n}
      *@vskip C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:0pt plus 1filll}
+       {spaces_after_argument:\\n}
     *@insertcopying C1 sample_utf8.texi:l20
     |EXTRA
     |global_command_number:{1}
-     *line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C1
+      {spaces_after_argument:\\n}
     *@end C1 sample_utf8.texi:l21
     |EXTRA
     |text_arg:{titlepage}
@@ -110,21 +94,15 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
       {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:Output the table of the contents at the beginning.}
+     {spaces_after_argument:\\n}
    *@contents C1 sample_utf8.texi:l24
    |EXTRA
    |global_command_number:{1}
-    *line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C1
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    >SOURCEMARKS
    >expanded_conditional_command<start;1><p:1>
@@ -164,10 +142,8 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      >{spaces_before_argument: }
      >{ifnottex}
      >{spaces_after_argument:\\n}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@menu C5 sample_utf8.texi:l33
    *arguments_line C1
@@ -358,10 +334,8 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
 ';
 
 

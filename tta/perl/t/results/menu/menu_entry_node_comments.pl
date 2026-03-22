@@ -26,14 +26,10 @@ $result_tree_text{'menu_entry_node_comments'} = '*document_root C1
     *menu_entry_description C1
      *preformatted C1
       *@c C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {rawline_text:c}
+        {spaces_after_argument:\\n}
    *menu_entry C4 l3
     {menu_entry_leading_text:* }
     *menu_entry_node C4
@@ -49,14 +45,10 @@ $result_tree_text{'menu_entry_node_comments'} = '*document_root C1
     *menu_entry_description C1
      *preformatted C1
       *@c C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {rawline_text:c}
+        {spaces_after_argument:\\n}
    *menu_entry C4 l4
     {menu_entry_leading_text:* }
     *menu_entry_node C4
@@ -73,14 +65,10 @@ $result_tree_text{'menu_entry_node_comments'} = '*document_root C1
      *preformatted C2
       {d}
       *@c C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {rawline_text:c}
+        {spaces_after_argument:\\n}
    *menu_entry C4 l5
     {menu_entry_leading_text:* }
     *menu_entry_node C6
@@ -98,14 +86,10 @@ $result_tree_text{'menu_entry_node_comments'} = '*document_root C1
     *menu_entry_description C1
      *preformatted C1
       *@c C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {rawline_text:c}
+        {spaces_after_argument:\\n}
    *@end C1 l6
    |EXTRA
    |text_arg:{menu}

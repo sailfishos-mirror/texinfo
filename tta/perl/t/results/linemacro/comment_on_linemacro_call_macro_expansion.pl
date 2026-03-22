@@ -62,14 +62,10 @@ $result_tree_text{'comment_on_linemacro_call_macro_expansion'} = '*document_root
    >SOURCEMARKS
    >linemacro_expansion<end;1><p:9>
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:in comment text}
+     {spaces_after_argument:\\n}
    {after arg\\n}
    >SOURCEMARKS
    >macro_expansion<end;1><p:9>

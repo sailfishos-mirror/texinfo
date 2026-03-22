@@ -12,14 +12,10 @@ $result_tree_text{'only_comment_on_quotation_line'} = '*document_root C1
     *block_line_arg C2
      {spaces_before_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comment}
+       {spaces_after_argument:\\n}
    *paragraph C1
     {In quotation\\n}
    *@end C1 l3

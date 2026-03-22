@@ -8,16 +8,12 @@ use utf8;
 $result_tree_text{'indent_with_text_after_without_space'} = '*document_root C1
  *before_node_section C4
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{myvalue|a}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:myvalue a}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@indent l3
   *paragraph C1

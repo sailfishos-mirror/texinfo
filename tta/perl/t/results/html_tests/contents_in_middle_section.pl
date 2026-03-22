@@ -139,10 +139,8 @@ $result_tree_text{'contents_in_middle_section'} = '*document_root C10
   *@contents C1 contents_in_middle_section.texi:l25
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 contents_in_middle_section.texi:l27 {section1}
  |EXTRA
@@ -169,10 +167,8 @@ $result_tree_text{'contents_in_middle_section'} = '*document_root C10
    {Section 1.\\n}
   {empty_line:\\n}
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
 ';
 
 

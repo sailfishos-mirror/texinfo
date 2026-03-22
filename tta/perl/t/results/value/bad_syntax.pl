@@ -9,79 +9,47 @@ $result_tree_text{'bad_syntax'} = '*document_root C1
  *before_node_section C16
   {empty_line:\\n}
   *@set C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
-  *@set C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
-  *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
    *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+    {spaces_after_argument:\\n}
+  *@set C1
+   *line_arg C1
+    {spaces_after_argument: \\n}
+  *@set C1
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:?}
+    {spaces_after_argument:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text::-/ hey!}
+    {spaces_after_argument:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:a@b}
+    {spaces_after_argument:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text::-" bad}
+    {spaces_after_argument:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:} no}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@clear C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:aaa ggg}
+    {spaces_after_argument:\\n}
   *@clear C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:and{other}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {gurgl\\n}

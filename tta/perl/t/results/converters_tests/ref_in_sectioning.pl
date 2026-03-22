@@ -10,10 +10,8 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   *@contents C1 l1
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l3 {Top}
  |EXTRA

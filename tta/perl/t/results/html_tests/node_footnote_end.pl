@@ -12,14 +12,10 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
    {text_before_beginning:\\n}
   *preamble_before_content C2
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:test footnotes with nodes only}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C4 node_footnote.texi:l5 {Top}
  |EXTRA
@@ -234,10 +230,8 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
    {.\\n}
   {empty_line:\\n}
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
 ';
 
 

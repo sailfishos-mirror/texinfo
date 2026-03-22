@@ -182,10 +182,8 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
    {この章では読者に LilyPond とこのドキュメントについての紹介を行います。\\n}
   {empty_line:\\n}
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
 ';
 
 

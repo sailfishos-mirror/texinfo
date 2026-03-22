@@ -63,43 +63,29 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
     *brace_arg C6
      {spaces_before_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:aaa}
+       {spaces_after_argument:\\n}
      {spaces_before_argument: }
      *@ 
      {spaces_after_argument:\\n}
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:ggg}
+       {spaces_after_argument:\\n}
     *brace_arg C3
      {spaces_before_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:fff}
+       {spaces_after_argument:\\n}
      *@c C1
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C2
        {rawline_text:}
+       {spaces_after_argument:\\n}
    {\\n}
 ';
 

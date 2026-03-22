@@ -19,7 +19,7 @@
 <defindex value="truc" line=" truc"></defindex>
 <defcodeindex value="codeidx" line=" codeidx"></defcodeindex>
 
-<set name="VERSION" spaces=" ">VERSION G vers</set>
+<set name="VERSION"> VERSION G vers</set>
 
 <macro name="mymacro" line=" mymacro" endspaces=" ">
 
@@ -1444,10 +1444,10 @@ but , ,&noeos;
 </para><need value="1002" line=" 1002"></need>
 
 <para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &click; A</clicksequence>
-<clickstyle command="result" spaces=" ">@result</clickstyle>
+<clickstyle command="result"> @result</clickstyle>
 After clickstyle &result;
 <code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &result; A</clicksequence>
-<clickstyle command="arrow" spaces=" ">@arrow</clickstyle>
+<clickstyle command="arrow"> @arrow</clickstyle>
 </para>
 <!-- c test most commands that could happen in math mode -->
 
@@ -2619,10 +2619,10 @@ but , ,&noeos;
 </para><need value="1002" line=" 1002"></need>
 
 <para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &rarr; A</clicksequence>
-<clickstyle command="result" spaces=" ">@result</clickstyle>
+<clickstyle command="result"> @result</clickstyle>
 After clickstyle &result;
 <code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &result; A</clicksequence>
-<clickstyle command="arrow" spaces=" ">@arrow</clickstyle>
+<clickstyle command="arrow"> @arrow</clickstyle>
 </para>
 <!-- c test most commands that could happen in math mode -->
 
@@ -3835,10 +3835,10 @@ but , ,&noeos;
 </para><need value="1002" line=" 1002"></need>
 
 <para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &rarr; A</clicksequence>
-<clickstyle command="result" spaces=" ">@result</clickstyle>
+<clickstyle command="result"> @result</clickstyle>
 After clickstyle &result;
 <code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &result; A</clicksequence>
-<clickstyle command="arrow" spaces=" ">@arrow</clickstyle>
+<clickstyle command="arrow"> @arrow</clickstyle>
 </para>
 <!-- c test most commands that could happen in math mode -->
 
@@ -5004,10 +5004,10 @@ but , ,&noeos;
 </pre><need value="1002" line=" 1002"></need>
 <pre xml:space="preserve">
 <code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &rarr; A</clicksequence>
-<clickstyle command="result" spaces=" ">@result</clickstyle>
+<clickstyle command="result"> @result</clickstyle>
 After clickstyle &result;
 <code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click &result; A</clicksequence>
-<clickstyle command="arrow" spaces=" ">@arrow</clickstyle>
+<clickstyle command="arrow"> @arrow</clickstyle>
 
 <!-- c test most commands that could happen in math mode -->
 
@@ -5951,7 +5951,7 @@ Various deff lines
 
 </pre></example>
 
-<clear name="validinexample" spaces=" ">validinexample</clear>
+<clear name="validinexample"> validinexample</clear>
 
 <para><xref label="node-with-xrefname"><xrefnodename>node with xrefname</xrefnodename></xref>.
 <xref label="node-with-xrefname"><xrefnodename>node with xrefname</xrefnodename><xrefinfoname> sec for node with xrefname</xrefinfoname></xref>.

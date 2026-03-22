@@ -317,10 +317,8 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     *@insertcopying C1 l35
     |EXTRA
     |global_command_number:{1}
-     *line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C1
+      {spaces_after_argument:\\n}
     *@end C1 l36
     |EXTRA
     |text_arg:{titlepage}

@@ -8,38 +8,26 @@ use utf8;
 $result_tree_text{'value_in_index_commands'} = '*document_root C3
  *before_node_section C19
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{cp|cp}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:cp cp}
+    {spaces_after_argument:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{fn|fn}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:fn fn}
+    {spaces_after_argument:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{syncodeindex_command|@syncodeindex}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:syncodeindex_command @syncodeindex}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@syncodeindex C1 l5
   |EXTRA
@@ -76,16 +64,12 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{truc|truc}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:truc truc}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {definedx truc\\n}
@@ -106,28 +90,20 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    {after\\n}
   {empty_line:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{trucindex_command|@trucindex}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:trucindex_command @trucindex}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{codeidx|codeidx}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:codeidx codeidx}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@defcodeindex C1 l18
   |EXTRA
@@ -145,16 +121,12 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{defcodeindex_entry|a @var{index entry} t@\'e @^{@dotless{i}}}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:defcodeindex_entry a @var{index entry} t@\'e @^{@dotless{i}}}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l22 {Top}
  |EXTRA

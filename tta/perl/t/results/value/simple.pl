@@ -8,24 +8,16 @@ use utf8;
 $result_tree_text{'simple'} = '*document_root C1
  *before_node_section C3
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{a-_5b|the value @b{b}}
-   *line_arg C1
-   |INFO
-   |comment_at_end:
-    |*@c C1
-    ||INFO
-    ||spaces_before_argument:
-     ||{spaces_before_argument: }
-     |*line_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument:\\n}
-      |{rawline_text:comment}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:a-_5b the value @b{b} }
+    *@c C1
+     *line_arg C3
+      {spaces_before_argument: }
+      {rawline_text:comment}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {the value }

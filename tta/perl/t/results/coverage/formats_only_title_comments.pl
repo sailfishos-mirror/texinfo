@@ -13,14 +13,10 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
      {spaces_before_argument:\\n}
    *before_item C2
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment itemize}
+      {spaces_after_argument:\\n}
     *paragraph C1
      {before first itemize\\n}
    *@end C1 l4
@@ -36,24 +32,16 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
     *block_line_arg C2
      {spaces_before_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comment on enumerate line}
+       {spaces_after_argument:\\n}
    *before_item C2
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment enumerate}
+      {spaces_after_argument:\\n}
     *paragraph C1
      {before first enumerate\\n}
    *@end C1 l9
@@ -72,14 +60,10 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
      {spaces_after_argument:\\n}
    *before_item C2
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment table}
+      {spaces_after_argument:\\n}
     *paragraph C1
      {before first table\\n}
    *@end C1 l14
@@ -97,14 +81,10 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
      *@asis l16
      {spaces_after_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comment on vtable line}
+       {spaces_after_argument:\\n}
    *before_item C1
     *paragraph C1
      {before first vtable\\n}
@@ -131,14 +111,10 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
        {spaces_after_argument:\\n}
    *before_item C2
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment multitable}
+      {spaces_after_argument:\\n}
     *paragraph C1
      {before first multitable\\n}
    *@end C1 l23

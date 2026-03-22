@@ -18,10 +18,8 @@ $result_tree_text{'include_space_comment'} = '*document_root C1
      >{inc_file.texi}
      >{spaces_after_argument: }
      >*@c C1
-     >|INFO
-     >|spaces_before_argument:
-      >|{spaces_before_argument: }
-      >*line_arg C1
+      >*line_arg C2
+       >{spaces_before_argument: }
        >{rawline_text:comment}
   *paragraph C1
    {In included file.\\n}

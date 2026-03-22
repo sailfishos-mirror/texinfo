@@ -66,14 +66,10 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
    |global_command_number:{2}
     *brace_command_context C3
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:an example in the footnote}
+       {spaces_after_argument:\\n}
      {empty_line:\\n}
      *@example C3 l11
       *arguments_line C1

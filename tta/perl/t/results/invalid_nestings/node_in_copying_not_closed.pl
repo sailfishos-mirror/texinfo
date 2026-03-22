@@ -39,10 +39,8 @@ $result_tree_text{'node_in_copying_not_closed'} = '*document_root C3
   *@insertcopying C1 l9
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
 ';
 
 

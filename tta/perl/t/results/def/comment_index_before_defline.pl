@@ -14,14 +14,10 @@ $result_tree_text{'comment_index_before_defline'} = '*document_root C1
      {spaces_before_argument:\\n}
    *before_defline C4
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:a comment}
+      {spaces_after_argument:\\n}
     *index_entry_command@cindex C1 l3
     |EXTRA
     |index_entry:I{cp,1}
@@ -30,14 +26,10 @@ $result_tree_text{'comment_index_before_defline'} = '*document_root C1
       {entry}
       {spaces_after_argument:\\n}
     *@comment C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:another}
+      {spaces_after_argument:\\n}
     {empty_line:\\n}
    *@defline C1 l6
    |EXTRA

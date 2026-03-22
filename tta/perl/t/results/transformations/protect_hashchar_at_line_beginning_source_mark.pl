@@ -91,16 +91,12 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
    >macro_expansion<end;3><p:16>
   {empty_line:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{hash|#}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:hash #}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {}

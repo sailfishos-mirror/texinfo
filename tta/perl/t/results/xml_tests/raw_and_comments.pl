@@ -12,14 +12,10 @@ $result_tree_text{'raw_and_comments'} = '*document_root C1
     *block_line_arg C2
      {spaces_before_argument:  }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comment}
+       {spaces_after_argument:\\n}
    *rawpreformatted C1
     {in <tex>\\n}
    *@end C1 l3
@@ -30,14 +26,10 @@ $result_tree_text{'raw_and_comments'} = '*document_root C1
      {tex}
      {spaces_after_argument:  }
      *@comment C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:other comment}
+       {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    {Para\\n}
@@ -46,14 +38,10 @@ $result_tree_text{'raw_and_comments'} = '*document_root C1
      *block_line_arg C2
       {spaces_before_argument: }
       *@c C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {rawline_text:in xml comment}
+        {spaces_after_argument:\\n}
     *rawpreformatted C1
      {<in />\\n}
     *@end C1 l8
@@ -64,14 +52,10 @@ $result_tree_text{'raw_and_comments'} = '*document_root C1
       {xml}
       {spaces_after_argument:  }
       *@comment C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {rawline_text:end xml comment}
+        {spaces_after_argument:\\n}
 ';
 
 

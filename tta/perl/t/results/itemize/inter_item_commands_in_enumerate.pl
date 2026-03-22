@@ -56,14 +56,10 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
    *before_item C2
     {empty_line:\\n}
     *@comment C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment before first item in enumerate}
+      {spaces_after_argument:\\n}
    *@item C2 l10
    |EXTRA
    |item_number:{1}
@@ -206,14 +202,10 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
       {first idx}
       {spaces_after_argument:\\n}
     *@comment C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment}
+      {spaces_after_argument:\\n}
     *index_entry_command@cindex C1 l41
     |EXTRA
     |element_node:{chapter}

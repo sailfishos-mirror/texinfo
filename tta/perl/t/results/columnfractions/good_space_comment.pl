@@ -21,14 +21,10 @@ $result_tree_text{'good_space_comment'} = '*document_root C1
        {0 1}
        {spaces_after_argument:  }
        *@c C1
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {rawline_text:space comment}
+         {spaces_after_argument:\\n}
    *@end C1 l2
    |EXTRA
    |text_arg:{multitable}

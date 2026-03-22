@@ -12,14 +12,10 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
    {text_before_beginning:\\n}
   *preamble_before_content C3
    *@c C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:test nodes before Top node}
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    {empty_line:\\n}
  *@node C6 nodes_before_top.texi:l6 {first before top}
@@ -478,10 +474,8 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
 ';
 
 

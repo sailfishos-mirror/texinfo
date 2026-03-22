@@ -41,14 +41,10 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
      {spaces_after_argument:\\n}
    *inter_def_item C2
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment before first deffnx}
+      {spaces_after_argument:\\n}
     {empty_line:\\n}
    *@deffnx C1 l4
    |EXTRA

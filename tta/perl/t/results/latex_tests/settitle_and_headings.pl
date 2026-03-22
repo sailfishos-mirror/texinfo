@@ -37,19 +37,15 @@ $result_tree_text{'settitle_and_headings'} = '*document_root C2
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@page C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {More text\\n}
   {empty_line:\\n}
   *@page C1
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Another page\\n}

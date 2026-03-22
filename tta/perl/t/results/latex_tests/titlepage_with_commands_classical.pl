@@ -97,40 +97,26 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
            {spaces_after_argument:\\n}
       {spaces_after_argument:\\n}
     *@page C1
-     *line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C1
+      {spaces_after_argument:\\n}
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:The following two commands start the copyright page.}
+      {spaces_after_argument:\\n}
     *@page C1
-     *line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
-    *@vskip C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
      *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+      {spaces_after_argument:\\n}
+    *@vskip C1
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:0pt plus 1filll}
+      {spaces_after_argument:\\n}
     *@insertcopying C1 l22
     |EXTRA
     |global_command_number:{1}
-     *line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C1
+      {spaces_after_argument:\\n}
     *@end C1 l23
     |EXTRA
     |text_arg:{titlepage}

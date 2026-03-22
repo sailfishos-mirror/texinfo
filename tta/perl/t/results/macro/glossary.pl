@@ -178,16 +178,12 @@ $result_tree_text{'glossary'} = '*document_root C5
        >{ifnothtml}
        >{spaces_after_argument:\\n}
    *@unmacro C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{expandglossary}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:expandglossary}
+     {spaces_after_argument:\\n}
    *@macro C8 glossary.texi:l42:@gentry
    |EXTRA
    |macro_name:{expandglossary}
@@ -216,16 +212,12 @@ $result_tree_text{'glossary'} = '*document_root C5
       {macro}
       {spaces_after_argument:\\n}
    *@unmacro C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{glossarytext}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:glossarytext}
+     {spaces_after_argument:\\n}
    *@macro C5 glossary.texi:l42:@expandglossary
    |EXTRA
    |macro_name:{glossarytext}
@@ -295,16 +287,12 @@ $result_tree_text{'glossary'} = '*document_root C5
        >{ifnothtml}
        >{spaces_after_argument:\\n}
    *@unmacro C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{expandglossary}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:expandglossary}
+     {spaces_after_argument:\\n}
    *@macro C8 glossary.texi:l43:@gentry
    |EXTRA
    |macro_name:{expandglossary}
@@ -333,16 +321,12 @@ $result_tree_text{'glossary'} = '*document_root C5
       {macro}
       {spaces_after_argument:\\n}
    *@unmacro C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |misc_args:A{glossarytext}
-    *line_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
      {rawline_text:glossarytext}
+     {spaces_after_argument:\\n}
    *@macro C5 glossary.texi:l43:@expandglossary
    |EXTRA
    |macro_name:{glossarytext}

@@ -8,16 +8,12 @@ use utf8;
 $result_tree_text{'ignored_value_definition'} = '*document_root C1
  *before_node_section C5
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{aa|outside}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:aa outside}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@inlinefmt C2 l3

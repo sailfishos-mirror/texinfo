@@ -17,24 +17,16 @@ $result_tree_text{'menu_entry_no_entry'} = '*document_root C1
      {* a2:  \\n}
      {* a1c:}
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:c}
+       {spaces_after_argument:\\n}
      {* a2c:  }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:c}
+       {spaces_after_argument:\\n}
      {* a4}
      *@b C1 l6
       *brace_container C1
@@ -46,14 +38,10 @@ $result_tree_text{'menu_entry_no_entry'} = '*document_root C1
        {b}
      {: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:c}
+       {spaces_after_argument:\\n}
    *@end C1 l8
    |EXTRA
    |text_arg:{menu}

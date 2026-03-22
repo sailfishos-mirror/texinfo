@@ -851,17 +851,13 @@ $result_tree_text{'itemize_arguments_enable_encoding'} = '*document_root C1
      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@clickstyle C1 l122
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{@result}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:@result}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@itemize C3 l124
    *arguments_line C1

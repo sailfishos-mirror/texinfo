@@ -310,10 +310,8 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
 ';
 
 

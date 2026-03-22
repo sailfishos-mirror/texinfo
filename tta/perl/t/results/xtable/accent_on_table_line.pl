@@ -76,11 +76,9 @@ $result_tree_text{'accent_on_table_line'} = '*document_root C1
      {spaces_before_argument: }
      *@~ l11
      *@comment C1
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C2
        {rawline_text:}
+       {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l12

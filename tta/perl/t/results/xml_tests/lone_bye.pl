@@ -8,10 +8,8 @@ use utf8;
 $result_tree_text{'lone_bye'} = '*document_root C2
  *before_node_section
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
 ';
 
 

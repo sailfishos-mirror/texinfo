@@ -27,14 +27,10 @@ $result_tree_text{'enumerate_argument'} = '*document_root C1
      {spaces_before_argument: }
      {A}
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comment}
+       {spaces_after_argument:\\n}
    *@end C1 l5
    |EXTRA
    |text_arg:{enumerate}
@@ -50,14 +46,10 @@ $result_tree_text{'enumerate_argument'} = '*document_root C1
      {z}
      {spaces_after_argument: }
      *@c C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      *line_arg C1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
+      *line_arg C3
+       {spaces_before_argument: }
        {rawline_text:comment}
+       {spaces_after_argument:\\n}
    *@end C1 l8
    |EXTRA
    |text_arg:{enumerate}

@@ -8,17 +8,13 @@ use utf8;
 $result_tree_text{'clickstyle'} = '*document_root C1
  *before_node_section C8
   *@clickstyle C1 l1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
   |misc_args:A{@result}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:@result}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {A }
@@ -32,11 +28,9 @@ $result_tree_text{'clickstyle'} = '*document_root C1
   |EXTRA
   |global_command_number:{2}
   |misc_args:A{@equiv}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C2
     {rawline_text:@equiv}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C3
    {A }

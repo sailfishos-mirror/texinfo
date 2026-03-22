@@ -36,10 +36,8 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    *@contents C1 l4
    |EXTRA
    |global_command_number:{1}
-    *line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C1
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
  *@node C1 l6 {Top}
  |EXTRA
@@ -289,10 +287,8 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   *@contents C1 l48
   |EXTRA
   |global_command_number:{2}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C1 l50 {my node}
  |EXTRA

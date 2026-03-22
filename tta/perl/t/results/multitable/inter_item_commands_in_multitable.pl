@@ -18,14 +18,10 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
      {spaces_after_argument:\\n}
    *before_item C2
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:comment before first item}
+      {spaces_after_argument:\\n}
     {empty_line:\\n}
    *multitable_body C2
     *row C1
@@ -56,14 +52,10 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
       *paragraph C2
        {trouc\\n}
        *@c C1
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {rawline_text:last comment}
+         {spaces_after_argument:\\n}
    *@end C1 l10
    |EXTRA
    |text_arg:{multitable}
@@ -118,14 +110,10 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
       *paragraph C2
        {multitable tab\\n}
        *@c C1
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        *line_arg C1
-        |INFO
-        |spaces_after_argument:
-         |{spaces_after_argument:\\n}
+        *line_arg C3
+         {spaces_before_argument: }
          {rawline_text:comment in multitable}
+         {spaces_after_argument:\\n}
     *row C2
     |EXTRA
     |row_number:{3}

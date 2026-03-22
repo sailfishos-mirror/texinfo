@@ -134,10 +134,8 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
    *@contents C1 things_before_setfilename.texi:l32
    |EXTRA
    |global_command_number:{1}
-    *line_arg
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
+    *line_arg C1
+     {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@menu C3 things_before_setfilename.texi:l34
     *arguments_line C1

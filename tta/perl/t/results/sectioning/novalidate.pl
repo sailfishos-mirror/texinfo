@@ -9,10 +9,8 @@ $result_tree_text{'novalidate'} = '*document_root C2
  *before_node_section C3
   {empty_line:\\n}
   *@novalidate C1 l2
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@node C5 l4 {first}
  |EXTRA

@@ -41,10 +41,8 @@ $result_tree_text{'insertcopying'} = '*document_root C1
   *@insertcopying C1 l11
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
 ';
 
 

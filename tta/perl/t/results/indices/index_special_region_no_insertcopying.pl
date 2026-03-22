@@ -152,10 +152,8 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
     *@insertcopying C1 index_special_region_no_insertcopying.texi:l33
     |EXTRA
     |global_command_number:{1}
-     *line_arg
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C1
+      {spaces_after_argument:\\n}
     *@end C1 index_special_region_no_insertcopying.texi:l34
     |EXTRA
     |text_arg:{titlepage}
@@ -194,24 +192,16 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
     {Chapter}
     {spaces_after_argument:  }
     *@c C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     *line_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
       {rawline_text:note this chapter is not associated to a node}
+      {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@c C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:@insertcopying}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C6
    {This test demonstrates }
@@ -400,27 +390,19 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
    { for reference on the titlepage.\\n}
   {empty_line:\\n}
   *@c C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:@insertcopying}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@contents C1 index_special_region_no_insertcopying.texi:l79
   |EXTRA
   |global_command_number:{1}
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C1
+    {spaces_after_argument:\\n}
  *@bye C1
-  *line_arg
-  |INFO
-  |spaces_after_argument:
-   |{spaces_after_argument:\\n}
+  *line_arg C1
+   {spaces_after_argument:\\n}
 ';
 
 

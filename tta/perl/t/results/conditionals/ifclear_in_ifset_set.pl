@@ -9,16 +9,12 @@ $result_tree_text{'ifclear_in_ifset_set'} = '*document_root C1
  *before_node_section C5
   {empty_line:\\n}
   *@set C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
   |EXTRA
   |misc_args:A{a|}
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:a}
+    {spaces_after_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >expanded_conditional_command<start;1><p:1>
@@ -36,14 +32,10 @@ $result_tree_text{'ifclear_in_ifset_set'} = '*document_root C1
       >{ok}
       >{spaces_after_argument: }
       >*@c C1
-      >|INFO
-      >|spaces_before_argument:
-       >|{spaces_before_argument: }
-       >*line_arg C1
-       >|INFO
-       >|spaces_after_argument:
-        >|{spaces_after_argument:\\n}
+       >*line_arg C3
+        >{spaces_before_argument: }
         >{rawline_text:- ok, ignored}
+        >{spaces_after_argument:\\n}
   *@end C1 l6
   |EXTRA
   |text_arg:{junky   - ok, ignored}
@@ -52,14 +44,10 @@ $result_tree_text{'ifclear_in_ifset_set'} = '*document_root C1
     {junky   - ok, ignored}
     {spaces_after_argument:\\n}
   *@c C1
-  |INFO
-  |spaces_before_argument:
-   |{spaces_before_argument: }
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:\\n}
+   *line_arg C3
+    {spaces_before_argument: }
     {rawline_text:WRONG - missing @end ifset.}
+    {spaces_after_argument:\\n}
 ';
 
 

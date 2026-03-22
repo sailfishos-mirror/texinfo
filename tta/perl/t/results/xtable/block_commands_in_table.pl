@@ -175,14 +175,10 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
        {spaces_after_argument:\\n}
      *inter_item C1
       *@c C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
-       *line_arg C1
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:\\n}
+       *line_arg C3
+        {spaces_before_argument: }
         {rawline_text:comment}
+        {spaces_after_argument:\\n}
      *index_entry_command@vindex C1 l37
      |EXTRA
      |element_node:{chap}

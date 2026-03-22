@@ -35,23 +35,15 @@ $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C
           {index entry between item and itemx}
           {spaces_after_argument:\\n}
         *@c C1
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument: }
-         *line_arg C1
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument:\\n}
+         *line_arg C3
+          {spaces_before_argument: }
           {rawline_text:and a comment}
+          {spaces_after_argument:\\n}
         *@comment C1
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument: }
-         *line_arg C1
-         |INFO
-         |spaces_after_argument:
-          |{spaces_after_argument:\\n}
+         *line_arg C3
+          {spaces_before_argument: }
           {rawline_text:and another comment}
+          {spaces_after_argument:\\n}
       *@itemx C1 l7
        *line_arg C3
         {spaces_before_argument: }
