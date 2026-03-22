@@ -18,7 +18,7 @@ typedef struct
 
 typedef struct
 {
-  uint8_t index;
+  uint8_t point;
   CollationData *data;
 } PageEntry;
 
@@ -261,7 +261,7 @@ build_allkeys_info (const char *filename)
       if (num_codepoints == 1)
         {
           uint32_t page_num = codepoints[0] >> 8;
-          uint8_t index = codepoints[0] & 0xFF;
+          uint8_t point = codepoints[0] & 0xFF;
 
           if (!info->pages[page_num])
             {
@@ -271,7 +271,7 @@ build_allkeys_info (const char *filename)
           Page *page = info->pages[page_num];
           page->entries =
             realloc (page->entries, (page->count + 1) * sizeof (PageEntry));
-          page->entries[page->count].index = index;
+          page->entries[page->count].point = point;
           page->entries[page->count].data = data;
           page->count++;
           info->num_singles++;
@@ -529,7 +529,7 @@ compare_page_entries (const void *a, const void *b)
 {
   const PageEntry *ea = (const PageEntry *) a;
   const PageEntry *eb = (const PageEntry *) b;
-  return (int) ea->index - (int) eb->index;
+  return (int) ea->point - (int) eb->point;
 }
 
 /* Location in dump of each page data */
@@ -700,7 +700,7 @@ write_c_source (const char *output_file, Allkeys_Info *info)
 
       /* Output num_elements[256] */
       int point_count = 0;
-      int next_data = page->entries[point_count].index;
+      int next_data = page->entries[point_count].point;
       for (int j = 0; j < 256; j++)
         {
           if (j == next_data)
@@ -711,7 +711,7 @@ write_c_source (const char *output_file, Allkeys_Info *info)
               if (++point_count == page->count)
                 next_data = -1;
               else
-                next_data = page->entries[point_count].index;
+                next_data = page->entries[point_count].point;
             }
           else
             {
@@ -724,7 +724,7 @@ write_c_source (const char *output_file, Allkeys_Info *info)
 
       /* Output data_index[256] */
       point_count = 0;
-      next_data = page->entries[point_count].index;
+      next_data = page->entries[point_count].point;
 
       for (int j = 0; j < 256; j++)
         {
@@ -737,7 +737,7 @@ write_c_source (const char *output_file, Allkeys_Info *info)
               if (++point_count == page->count)
                 next_data = -1;
               else
-                next_data = page->entries[point_count].index;
+                next_data = page->entries[point_count].point;
             }
           else
             {
