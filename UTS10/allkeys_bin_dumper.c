@@ -37,6 +37,16 @@ typedef struct TrieNode
   size_t trie_index; /* used for serialization */
 } TrieNode;
 
+typedef struct ImplicitBlock
+{
+  char32_t low;
+  char32_t high;
+  uint32_t primary;
+  char32_t low_base;
+} ImplicitBlock;
+
+#define MAX_IMPLICIT_BLOCKS 16
+
 typedef struct
 {
   Page *pages[NUM_PAGES];
@@ -45,6 +55,8 @@ typedef struct
   uint32_t num_singles;
   uint32_t num_sequences;
   long version;
+  struct ImplicitBlock implicit_blocks[MAX_IMPLICIT_BLOCKS];
+  int num_implicit_blocks;
 } Allkeys_Info;
 
 
@@ -133,6 +145,23 @@ parse_version (const char *line)
   return 0;
 }
 
+static void
+parse_implicitweight (const char *line, Allkeys_Info *info)
+{
+  char32_t low, high;
+  uint32_t primary;
+  if (sscanf (line, "@implicitweights %x..%x; %x", &low, &high, &primary) == 3)
+    {
+      if (info->num_implicit_blocks == MAX_IMPLICIT_BLOCKS)
+        {
+          fprintf (stderr, "too many implicit blocks\n");
+          exit (1);
+        }
+      info->implicit_blocks[info->num_implicit_blocks++]
+        = (ImplicitBlock) {low, high, primary};
+    }
+}
+
 /* Used to skip decomposable sequences. */
 int
 check_codepoint_nondecomposable (char32_t codepoint)
@@ -179,9 +208,14 @@ build_allkeys_info (const char *filename)
 
       if (*p == '@')
         {
-          if (strncmp (line, "@version", 8) == 0)
+          if (strncmp (line, "@version", strlen ("@version")) == 0)
             {
               info->version = parse_version (line);
+            }
+          else if (strncmp (line, "@implicitweights",
+                            strlen ("@implicitweights")) == 0)
+            {
+              parse_implicitweight (line, info);
             }
           continue;
         }
@@ -599,6 +633,37 @@ process_page_table (Allkeys_Info *info)
     }
 }
 
+/*---------------------*/
+/*   Implicit blocks   */
+/*---------------------*/
+
+/* Set 'low_base' to least value of 'low' for all blocks that
+   share the same value of 'primary'. */
+static void
+process_implicit_blocks (Allkeys_Info *info)
+{
+  int i;
+  for (i = 0; i < info->num_implicit_blocks; i++)
+    {
+      info->implicit_blocks[i].low_base = info->implicit_blocks[i].low;
+      int j;
+      for (j = 0; j < info->num_implicit_blocks; j++)
+        {
+           if (info->implicit_blocks[j].primary
+                 == info->implicit_blocks[i].primary)
+             {
+               if (info->implicit_blocks[j].low
+                     < info->implicit_blocks[i].low_base)
+                 {
+                   info->implicit_blocks[i].low_base
+                     = info->implicit_blocks[j].low;
+                 }
+             }
+        }
+    }
+}
+
+
 /***********************/
 /*  C code generation  */
 /***********************/
@@ -667,10 +732,17 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   fprintf (fp, "  uint16_t num_children;\n");
   fprintf (fp, "  uint32_t first_child;\n");
   fprintf (fp, "};\n");
+  fprintf (fp, "struct implicit_block {\n");
+  fprintf (fp, "  char32_t low;\n");
+  fprintf (fp, "  char32_t high;\n");
+  fprintf (fp, "  uint32_t primary;\n");
+  fprintf (fp, "  char32_t low_base;\n");
+  fprintf (fp, "};\n");
 
   fprintf (fp, "#define NUM_PLANES 0x%x\n", 17);
   fprintf (fp, "#define NUM_TRIE_NODES %d\n", (int) trie_node_index);
   fprintf (fp, "#define NUM_COLLATION_UNITS %ld\n\n", n_collation_units);
+  fprintf (fp, "#define NUM_IMPLICIT_BLOCKS %d\n\n", info->num_implicit_blocks);
 
 
   fprintf (fp, "static const\nstruct\n  {\n");
@@ -683,6 +755,7 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   fprintf (fp, "    struct block256_data pages_data[0x%x];\n", n_used_pages);
   fprintf (fp, "    struct trie_node trie_array[NUM_TRIE_NODES];\n");
   fprintf (fp, "    struct collation_data collation_data[NUM_COLLATION_UNITS];\n");
+  fprintf (fp, "    struct implicit_block implicit_blocks[NUM_IMPLICIT_BLOCKS];\n");
   fprintf (fp, "  }\n");
   fprintf (fp, "collation_data = {\n");
 
@@ -794,7 +867,16 @@ write_c_source (const char *output_file, Allkeys_Info *info)
     write_collation_data (fp, collation_records[i].data);
 
   free (collation_records);
-  fprintf (fp, "\n  },\n");
+  fprintf (fp, "  },\n");
+  fprintf (fp, "\n  { /* .implicitweights */\n");
+  for (int i = 0; i < info->num_implicit_blocks; i++)
+    {
+      ImplicitBlock *block = &info->implicit_blocks[i];
+      fprintf (fp, "{ 0x%04x, 0x%04x, 0x%04x, 0x%04x },\n",
+               block->low, block->high, block->primary,
+               block->low_base);
+    }
+  fprintf (fp, "  }\n");
   fprintf (fp, "};\n");
 
   fclose (fp);
@@ -840,6 +922,8 @@ main (int argc, char *argv[])
   trie_node_index = 0;
   info->trie_root->trie_index = trie_node_index++;
   assign_trie_node_indices (info->trie_root);
+
+  process_implicit_blocks (info);
 
   write_c_source (c_file, info);
 

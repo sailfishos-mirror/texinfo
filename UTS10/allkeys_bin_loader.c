@@ -233,8 +233,6 @@ lookup_codepoint (char32_t codepoint,
 }
 
 /* Return implicitly determined weights. */
-/* TODO: we should get these from allkeys.txt using the @implicitweights
-   lines (except for CJK characters which aren't in that file at all). */
 void
 get_implicit_weight (char32_t codepoint,
                      CollationElement *elements, size_t *n_elements)
@@ -254,29 +252,28 @@ get_implicit_weight (char32_t codepoint,
       AAAA = 0xFBC0 + (codepoint >> 15);
       BBBB = (codepoint & 0x7FFF) | 0x8000;
     }
-  else if (b->start == 0x17000       /* Tangut */
-      || b->start == 0x18D00 /* Tangut Supplement */ )
+  else
     {
-      AAAA = 0xFB00;
-      BBBB = (codepoint - 0x17000) | 0x8000;
+      int i;
+      for (i = 0; i < NUM_IMPLICIT_BLOCKS; i++)
+        {
+          if (b->start == collation_data.implicit_blocks[i].low)
+            {
+              AAAA = collation_data.implicit_blocks[i].primary;
+
+              /* Use 'low_base' which stores the lowest codepoint of all
+                 blocks that share the same primary.
+                 E.g., Tangut 17000-187FF and Tangut Supplement 18D00-18D7F
+                 both have primary=FB00, so low_base here is 17000 for both
+                 blocks. */
+
+              BBBB = (codepoint - collation_data.implicit_blocks[i].low_base)
+                     | 0x8000;
+            }
+        }
     }
-  else if (b->start == 0x18800  /* Tangut Components */
-           || b->start == 0x18D80 /* Tangut Components Supplement */ )
-    {
-      AAAA = 0xFB01;
-      BBBB = (codepoint - 0x18800) | 0x8000;
-    }
-  else if (b->start == 0x1B170 /* Nushu */ )
-    {
-      AAAA = 0xFB02;
-      BBBB = (codepoint - 0x1B170) | 0x8000;
-    }
-  else if (b->start == 0x18B00 /* Khitan Small Script */ )
-    {
-      AAAA = 0xFB03;
-      BBBB = (codepoint - 0x18B00) | 0x8000;
-    }
-  else if (uc_is_property_unified_ideograph (codepoint))
+
+  if (!AAAA && uc_is_property_unified_ideograph (codepoint))
     {
       if (b->start == 0x4E00    /* CJK Unified Ideographs */
           || b->start == 0xF900 /* CJK Compatibility Ideographs */ )
@@ -289,7 +286,8 @@ get_implicit_weight (char32_t codepoint,
         }
       BBBB = (codepoint & 0x7FFF) | 0x8000;
     }
-  else
+
+  if (!AAAA)
     {
       AAAA = 0xFBC0 + (codepoint >> 15);
       BBBB = (codepoint & 0x7FFF) | 0x8000;

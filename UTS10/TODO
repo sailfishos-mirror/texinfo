@@ -14,12 +14,6 @@ extra secondary collation weights 001F - 0127
 See "5.1.2 Multi-stage tables" in Unicode standard for some hints
 https://www.unicode.org/versions/Unicode17.0.0/core-spec/chapter-5/
 
-
-* possible to cast more of dump to C data structure so not always accessing
-by byte offsets?  output data as struct initialiser in C source code,
-preventing any issues with memory alignment/casts and making source
-code more readable (and allowing compiler to add padding as appropriate)
-
 * look at how it is done in gnulib/libunistring.  e.g. bitmap_lookup
 in unictype/bitmap.h or combining_class in unictype/combining_class.c.
 gnulib/lib/gen-uni-tables.c (in gnulib git repo) for generating C source
@@ -40,9 +34,6 @@ for checking in trie for sequence
 
 * check if reordering in discontiguous matching is correct
 
-* continue to fix data structure to align integers correctly on e.g. 4 byte
-boundaries
-
 * put allkeys.txt version (and other metadata?) in output
 
 * optimise sequence lookup or lookup for ASCII chars
@@ -51,8 +42,6 @@ boundaries
 
 * Add gnulib vars in Makefile.am
 
-* Read Implicit weights from allkeys.txt
- 
 * Unicode normalisation issues.  We should extend the data table
 to include "canonically decomposable characters".  (See TR#10 s.9.5.)
 (It's possible the table ("DUCET") already contains these.)

@@ -20,9 +20,17 @@ struct trie_node {
   uint16_t num_children;
   uint32_t first_child;
 };
+struct implicit_block {
+  char32_t low;
+  char32_t high;
+  uint32_t primary;
+  char32_t low_base;
+};
 #define NUM_PLANES 0x11
 #define NUM_TRIE_NODES 1044
 #define NUM_COLLATION_UNITS 44839
+
+#define NUM_IMPLICIT_BLOCKS 6
 
 static const
 struct
@@ -36,6 +44,7 @@ struct
     struct block256_data pages_data[0xc0];
     struct trie_node trie_array[NUM_TRIE_NODES];
     struct collation_data collation_data[NUM_COLLATION_UNITS];
+    struct implicit_block implicit_blocks[NUM_IMPLICIT_BLOCKS];
   }
 collation_data = {
   170000,
@@ -64754,6 +64763,14 @@ collation_data = {
 { 0x546f, 0x01, 0x02 },
 { 0x546d, 0x01, 0x02 },
 { 0x546f, 0x01, 0x02 },
-
   },
+
+  { /* .implicitweights */
+{ 0x17000, 0x187ff, 0xfb00, 0x17000 },
+{ 0x18800, 0x18aff, 0xfb01, 0x18800 },
+{ 0x18d00, 0x18d7f, 0xfb00, 0x17000 },
+{ 0x18d80, 0x18dff, 0xfb01, 0x18800 },
+{ 0x1b170, 0x1b2ff, 0xfb02, 0x1b170 },
+{ 0x18b00, 0x18cff, 0xfb03, 0x18b00 },
+  }
 };
