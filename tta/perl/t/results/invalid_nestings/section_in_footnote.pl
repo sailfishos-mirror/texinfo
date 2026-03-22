@@ -11,10 +11,8 @@ $result_tree_text{'section_in_footnote'} = '*document_root C2
   *paragraph C2
    {Text}
    *@footnote C1 l2
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
-    *brace_command_context C1
+    *brace_command_context C2
+     {spaces_before_argument:\\n}
      {empty_line:\\n}
  *@section C1 l4 {a section}
  |EXTRA

@@ -25,7 +25,7 @@ const TYPE_DATA type_data[] = {
 {"normal_text", TF_text, 0},
 {"other_text", TF_text, 0},
 {"spaces_after_argument", TF_text | TF_ignorable_text, 0},
-{"spaces_before_argument", TF_text | TF_ignorable_text, 0},
+{"spaces_before_argument", TF_text | TF_leading_space | TF_ignorable_text, 0},
 {"spaces_after_cmd_before_arg", TF_text | TF_ignorable_text, 0},
 {"document_root", 0, 0},
 {"root_line", 0, 0},

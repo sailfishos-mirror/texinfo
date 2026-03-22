@@ -2628,7 +2628,7 @@ html_attribute_class (CONVERTER *self, const char *element,
   char *style = 0;
   size_t i;
   int class_nr = 0;
-  if (!classes  || classes->number <= 0
+  if (!classes || classes->number <= 0
       || self->conf->NO_CSS.o.integer > 0)
     {
       if (!strcmp (element, "span"))
@@ -8692,8 +8692,7 @@ html_convert_float_command (CONVERTER *self, const enum command_id cmd,
       if (content)
         text_append (result, content);
 
-      if (caption_element && caption_element->e.c->contents.number > 0
-          && caption_element->e.c->contents.list[0]->e.c->contents.number > 0)
+      if (caption_element && caption_element->e.c->contents.number > 0)
         {
           char *caption_text
             = html_convert_tree_new_formatting_context (self,
@@ -8742,9 +8741,10 @@ html_convert_float_command (CONVERTER *self, const enum command_id cmd,
 
       destroy_element_and_children (strong_element);
 
-      if (caption_element)
+      if (caption_element && caption_element->e.c->contents.number > 0)
         {
           char *cancelled_prepended;
+      /* Allows an empty/spaces only caption */
       /* register the converted prepended tree to be prepended to
          the first paragraph in caption formatting */
           if (prepended_text)
@@ -9862,12 +9862,15 @@ html_convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
                     caption_classes = &caption_in_listoffloats_classes;
                 }
 
+              if (caption_classes && caption_element->e.c->contents.number == 0)
+                caption_classes = 0;
+
               caption_attribute_class = html_attribute_class (self, "dd",
                                                               caption_classes);
               text_append (result, caption_attribute_class);
               free (caption_attribute_class);
               text_append_n (result, ">", 1);
-              if (caption_element)
+              if (caption_element && caption_element->e.c->contents.number > 0)
                 {
                   char *caption_text
                     = html_convert_tree_new_formatting_context (self,

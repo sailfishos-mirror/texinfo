@@ -10,10 +10,8 @@ $result_tree_text{'footnote_not_closed'} = '*document_root C1
   *paragraph C2
    {AAA}
    *@footnote C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *brace_command_context C3
+    *brace_command_context C4
+     {spaces_before_argument: }
      *paragraph C1
       {in footnote\\n}
      {empty_line:\\n}

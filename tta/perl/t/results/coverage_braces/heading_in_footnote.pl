@@ -10,12 +10,10 @@ $result_tree_text{'heading_in_footnote'} = '*document_root C1
   *paragraph C3
    {T}
    *@footnote C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{1}
-    *brace_command_context C4
+    *brace_command_context C5
+     {spaces_before_argument:\\n}
      *paragraph C1
       {AAA\\n}
      *@heading C1 l3

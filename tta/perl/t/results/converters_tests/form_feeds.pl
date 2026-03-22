@@ -79,24 +79,20 @@ $result_tree_text{'form_feeds'} = '*document_root C3
      {spaces_before_argument: \\f }
      {fff}
    *@footnote C1 l17
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{1}
-    *brace_command_context C3
+    *brace_command_context C4
+     {spaces_before_argument:\\n}
      {spaces_before_paragraph:\\f }
      *paragraph C1
       {f1 }
      {empty_line:\\f}
    { }
    *@footnote C1 l18
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: \\f }
    |EXTRA
    |global_command_number:{2}
-    *brace_command_context C3
+    *brace_command_context C4
+     {spaces_before_argument: \\f }
      *paragraph C1
       {gg}
      {empty_line:\\f}
@@ -254,10 +250,8 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    *paragraph C1
     {a float\\n}
    *@caption C1 l38
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\f }
-    *brace_command_context C5
+    *brace_command_context C6
+     {spaces_before_argument:\\f }
      *paragraph C1
       {within }
      {empty_line:\\f}
@@ -269,10 +263,8 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    *paragraph C1
     {Toto\\n}
    *@shortcaption C1 l39
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\f }
-    *brace_command_context C5
+    *brace_command_context C6
+     {spaces_before_argument:\\f }
      *paragraph C1
       {shc within }
      {empty_line:\\f}
@@ -587,7 +579,8 @@ $result_converted{'xml'}->{'form_feeds'} = '<node identifier="Top"><nodename> To
 </para>
 <para><code>middle&formfeed; in code</code>
 </para>
-<anchor identifier="aa">aa</anchor>&formfeed;<para>something <email><emailaddress>&formfeed;aaa</emailaddress><emailname> &formfeed; fff</emailname></email><footnote spaces="\\n">&formfeed; <para>f1 </para>&formfeed;</footnote> <footnote spaces=" \\f "><para>gg</para>&formfeed;<para>jj</para></footnote>.
+<anchor identifier="aa">aa</anchor>&formfeed;<para>something <email><emailaddress>&formfeed;aaa</emailaddress><emailname> &formfeed; fff</emailname></email><footnote>
+&formfeed; <para>f1 </para>&formfeed;</footnote> <footnote> &formfeed; <para>gg</para>&formfeed;<para>jj</para></footnote>.
 </para>
 <para><xref label="chap-node"><xrefnodename>chap&formfeed;node</xrefnodename></xref>
 </para>
@@ -607,8 +600,8 @@ $result_converted{'xml'}->{'form_feeds'} = '<node identifier="Top"><nodename> To
 
 <float type="" endspaces=" ">
 <para>a float
-</para><caption spaces="\\f "><para>within </para>&formfeed; <para>cation </para>&formfeed;</caption> &formfeed; <para>Toto
-</para><shortcaption spaces="\\f "><para>shc within </para>&formfeed; <para>shortcaption </para>&formfeed;</shortcaption> &formfeed; <para>After shc
+</para><caption>&formfeed; <para>within </para>&formfeed; <para>cation </para>&formfeed;</caption> &formfeed; <para>Toto
+</para><shortcaption>&formfeed; <para>shc within </para>&formfeed; <para>shortcaption </para>&formfeed;</shortcaption> &formfeed; <para>After shc
 </para></float> &formfeed;
 
 <float identifier="fl" type="type" number="1" endspaces=" "><floattype> type &formfeed;</floattype><floatname> fl &formfeed;</floatname>

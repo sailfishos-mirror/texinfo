@@ -93,12 +93,10 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
   *paragraph C3
    {c}
    *@footnote C1 l16
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{3}
-    *brace_command_context C2
+    *brace_command_context C3
+     {spaces_before_argument:\\n}
      *@*
      {\\n}
    {\\n}
@@ -106,12 +104,10 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
   *paragraph C3
    {d}
    *@footnote C1 l20
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{4}
-    *brace_command_context C1
+    *brace_command_context C2
+     {spaces_before_argument:\\n}
      *@quotation C4 l21
       *arguments_line C1
        *block_line_arg C3

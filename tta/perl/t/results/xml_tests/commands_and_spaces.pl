@@ -187,10 +187,8 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    *paragraph C1
     {f\\n}
    *@caption C1 l32
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *brace_command_context C1
+    *brace_command_context C2
+     {spaces_before_argument: }
      *paragraph C1
       {In caption }
    *paragraph C1
@@ -321,12 +319,10 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   *paragraph C3
    {T}
    *@footnote C1 l58
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:  }
    |EXTRA
    |global_command_number:{1}
-    *brace_command_context C1
+    *brace_command_context C2
+     {spaces_before_argument:  }
      *paragraph C1
       {a}
    {.\\n}
@@ -587,7 +583,7 @@ $result_converted{'xml'}->{'commands_and_spaces'} = '<set name="foo" spaces="  "
 
 <float identifier="b" type="ff" number="1" endspaces=" "><floattype>  ff </floattype><floatname> b   </floatname>
 <para>f
-</para><caption spaces=" "><para>In caption </para></caption><para>j.
+</para><caption> <para>In caption </para></caption><para>j.
 </para><shortcaption><para>Short</para></shortcaption>  <para>g.
 </para></float>
 
@@ -614,7 +610,7 @@ in tex
 <tableentry><tableterm><item><itemformat command="strong">  in item </itemformat></item>
 </tableterm></tableentry></table>   
 
-<para>T<footnote spaces="  "><para>a</para></footnote>.
+<para>T<footnote>  <para>a</para></footnote>.
 </para>
 <para>Math <math> \\underline{ a, b} </math>.
 </para>

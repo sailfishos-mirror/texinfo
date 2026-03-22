@@ -38,12 +38,10 @@ $result_tree_text{'float_copying'} = '*document_root C5
        *paragraph C3
         {The Public Domain notice}
         *@footnote C1 l8
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument:\\n}
         |EXTRA
         |global_command_number:{1}
-         *brace_command_context C7
+         *brace_command_context C8
+          {spaces_before_argument:\\n}
           *paragraph C3
            {The caption copying footnote\\n}
            *@anchor C1 l10
@@ -713,7 +711,8 @@ $result_converted{'xml'}->{'float_copying'} = '<copying endspaces=" ">
 <para>Public domain is not really a licence, as it means than
 the author abandon his copyright.
 </para>
-<caption><para>The Public Domain notice<footnote spaces="\\n"><para>The caption copying footnote
+<caption><para>The Public Domain notice<footnote>
+<para>The caption copying footnote
 <anchor identifier="caption-copying-footnote-anchor">caption copying footnote anchor</anchor>
 </para>
 <cindex index="cp"> <indexterm index="cp" number="1">indexed caption copying footnote</indexterm></cindex>

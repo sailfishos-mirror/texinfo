@@ -45,10 +45,8 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      {spaces_after_argument:\\n}
    {empty_line:\\n}
    *@caption C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *brace_command_context C1
+    *brace_command_context C2
+     {spaces_before_argument: }
      *paragraph C2
       {An example of float caption}
       *@enddots C1 l6
@@ -409,10 +407,8 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      {float with a lot of features and no shortcaption}
      {spaces_after_argument:\\n}
    *@caption C1 l74
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *brace_command_context C1
+    *brace_command_context C2
+     {spaces_before_argument: }
      *paragraph C2
       {An example of float caption, no shortcaption}
       *@enddots C1 l74
@@ -2083,7 +2079,7 @@ $result_converted{'xml'}->{'numbering_captions_listoffloats'} = '<node identifie
 
 <float identifier="text-with-a-lot-of-features" type="Text" number="1" endspaces=" "><floattype> Text</floattype><floatname> text with a lot of features</floatname>
 
-<caption spaces=" "><para>An example of float caption&enddots;</para></caption>
+<caption> <para>An example of float caption&enddots;</para></caption>
 <shortcaption><para>&tex; and someething</para></shortcaption>
 </float>
 
@@ -2152,7 +2148,7 @@ $result_converted{'xml'}->{'numbering_captions_listoffloats'} = '<node identifie
 </float>
 
 <float identifier="float-with-a-lot-of-features-and-no-shortcaption" type="Text" number="1.2" endspaces=" "><floattype> Text</floattype><floatname> float with a lot of features and no shortcaption</floatname>
-<caption spaces=" "><para>An example of float caption, no shortcaption&enddots;</para></caption>
+<caption> <para>An example of float caption, no shortcaption&enddots;</para></caption>
 </float>
 
 <float identifier="theoreme" type="théorème" number="1.1" endspaces=" "><floattype> th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</floattype><floatname> theoreme</floatname>

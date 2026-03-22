@@ -4056,7 +4056,7 @@ sub _convert($$) {
         }
       }
       my $caption_text = '';
-      if (exists($element->{'contents'}->[0]->{'contents'})) {
+      if (exists($element->{'contents'})) {
         _push_new_context($self, 'latex_caption');
         $caption_text = _convert($self, $element->{'contents'}->[0]);
         _pop_context($self);

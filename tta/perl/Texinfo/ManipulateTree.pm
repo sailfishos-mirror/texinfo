@@ -1391,9 +1391,9 @@ sub first_menu_node($$) {
 sub _print_caption_shortcaption($$$$$) {
   my ($element, $float, $caption_type, $type, $float_number) = @_;
 
-  my $caption_texi = "";
+  my $caption_texi;
   if (exists($element->{'contents'})) {
-    $caption_texi = Texinfo::Convert::Texinfo::convert_to_texinfo(
+    $caption_texi = Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
                                                 $element->{'contents'}->[0]);
   }
 
@@ -1405,8 +1405,11 @@ sub _print_caption_shortcaption($$$$$) {
   }
 
   my $result;
-  # important to have the -1 last argument to keep the traling new lines
-  my @caption_lines = split /\n/, $caption_texi, -1;
+  my @caption_lines;
+  if (defined($caption_texi)) {
+    # important to have the -1 last argument to keep the traling new lines
+    @caption_lines = split /\n/, $caption_texi, -1;
+  }
   my $lines_nr = scalar(@caption_lines);
   if ($lines_nr > 0) {
     $result = "  ${caption_type}: ";

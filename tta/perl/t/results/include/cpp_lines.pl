@@ -189,15 +189,12 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   *paragraph C3
    {a}
    *@footnote C1 g_f:l83
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C2
-     {}
+     {spaces_before_argument:\\n}
      >SOURCEMARKS
-     >line_directive<6>{#line 25 "footnote"\\n}
+     >line_directive<6><p:1>{#line 25 "footnote"\\n}
      *paragraph C1
       {in footnote}
    {\\n}
@@ -205,15 +202,12 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   *paragraph C3
    {a}
    *@footnote C1 footnote:l28
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{2}
     *brace_command_context C3
-     {}
+     {spaces_before_argument:\\n}
      >SOURCEMARKS
-     >line_directive<7>{#line 35 "footnote2"\\n}
+     >line_directive<7><p:1>{#line 35 "footnote2"\\n}
      {empty_line:\\n}
      *paragraph C1
       {in 2footnote}

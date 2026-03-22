@@ -243,10 +243,8 @@ $result_tree_text{'complex_float'} = '*document_root C5
     {.\\n}
    {empty_line:\\n}
    *@caption C1 l51
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *brace_command_context C19
+    *brace_command_context C20
+     {spaces_before_argument: }
      *paragraph C4
       {An example of float caption}
       *@enddots C1 l51
@@ -544,10 +542,8 @@ $result_tree_text{'complex_float'} = '*document_root C5
     {Float text of a float with a lot of features.\\n}
    {empty_line:\\n}
    *@caption C1 l98
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *brace_command_context C19
+    *brace_command_context C20
+     {spaces_before_argument: }
      *paragraph C4
       {An example of float caption}
       *@enddots C1 l98
@@ -1409,7 +1405,7 @@ A footnote.
 </para>
 <para>&tex; and <emph><b>t<accent type="acute" bracketed="off">e</accent><accent type="circ"><dotless>i</dotless></accent></b><url><urefurl>an_url</urefurl></url></emph> <sc>and</sc> <verb delimiter="!">it is @verb</verb> <spacecmd type="spc"/>a wo&hyphenbreak;rd &eosexcl;&arobase; &AElig;.
 </para>
-<caption spaces=" "><para>An example of float caption&enddots;
+<caption> <para>An example of float caption&enddots;
 An example.
 </para><example endspaces=" "> 
 <pre xml:space="preserve">example
@@ -1458,7 +1454,7 @@ A footnote.
 
 <para>Float text of a float with a lot of features.
 </para>
-<caption spaces=" "><para>An example of float caption&enddots; 2
+<caption> <para>An example of float caption&enddots; 2
 An example 2.
 </para><example endspaces=" "> 
 <pre xml:space="preserve">example 2

@@ -9,12 +9,10 @@ $result_tree_text{'end_of_lines_protected_in_footnote'} = '*document_root C1
  *before_node_section C1
   *paragraph C2
    *@footnote C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{1}
-    *brace_command_context C1
+    *brace_command_context C2
+     {spaces_before_argument:\\n}
      *@deffn C3 l2
       *def_line C1 l2
       |EXTRA

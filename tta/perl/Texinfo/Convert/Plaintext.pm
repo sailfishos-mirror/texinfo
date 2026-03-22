@@ -3955,7 +3955,8 @@ sub _convert($$) {
 
           if (defined($caption_element)
               and exists($caption_element->{'contents'})
-              and exists($caption_element->{'contents'}->[0]->{'contents'})) {
+              and !Texinfo::Common::empty_spaces_argument(
+                          $caption_element->{'contents'}->[0])) {
             push @{$self->{'context'}}, 'listoffloats';
             $self->{'multiple_pass'} = 1;
             my $caption_arg = $caption_element->{'contents'}->[0];
@@ -3963,7 +3964,7 @@ sub _convert($$) {
             # we do not want to start a new paragraph formatter so
             # we iterate over the contents of a paragraph rather than
             # converting the paragraph itself.
-            for my $element (@{$caption_arg->{'contents'}}) {
+            foreach my $element (@{$caption_arg->{'contents'}}) {
               if (exists($element->{'type'})
                   and $element->{'type'} eq 'paragraph'
                   and exists($element->{'contents'})) {
@@ -3971,7 +3972,8 @@ sub _convert($$) {
                   _convert($self, $subelement);
                 }
                 last;
-              } else {
+              } elsif (!defined($element->{'type'})
+                       or $element->{'type'} ne 'spaces_before_argument') {
                 _convert($self, $element);
                 last;
               }
@@ -4579,8 +4581,11 @@ sub _convert($$) {
         }
         if (defined($caption)) {
           $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
-          my $tree = $caption->{'contents'}->[0];
-          _convert($self, $tree);
+          # no argument can only happen with bogus command without braces
+          if (exists($caption->{'contents'})) {
+            my $tree = $caption->{'contents'}->[0];
+            _convert($self, $tree);
+          }
         }
       }
     } elsif ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {

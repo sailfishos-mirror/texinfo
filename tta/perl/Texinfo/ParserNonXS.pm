@@ -395,6 +395,7 @@ foreach my $type ('brace_arg', 'brace_container') {
 my %leading_space_types;
 foreach my $type ('empty_line', 'ignorable_spaces_after_command',
         'internal_spaces_after_command',
+        'spaces_before_argument',
         'internal_spaces_before_context_argument',
         'spaces_after_close_brace') {
   $leading_space_types{$type} = 1;
@@ -4937,7 +4938,7 @@ sub _end_line($$$) {
   } elsif (defined($prev_element_type)
            and ($prev_element_type
                           eq 'internal_spaces_before_context_argument')) {
-    # Empty spaces after brace or comma till the end of line.
+    # Empty spaces after brace till the end of line.
     # Remove this element and update 'extra' values.
     _move_last_space_to_element($self, $current);
   }
@@ -6639,11 +6640,15 @@ sub _handle_open_brace($$$$) {
         $self->{'nesting_context'}->{'footnote'} += 1;
       }
 
+      _push_context($self, 'ct_base', $command);
+
+      # It is important to have a leading_space_types text element
+      # here, even if empty, such that a paragraph is started in
+      # merge_text (in most cases this role is played by an empty_line).
       my $spaces_e = Texinfo::TreeElement::new({});
       push @{$current->{'contents'}}, $spaces_e;
 
-      $spaces_e->{'type'} = 'internal_spaces_before_context_argument';
-      _push_context($self, 'ct_base', $command);
+      $spaces_e->{'type'} = 'spaces_before_argument';
 
       $self->{'internal_space_holder'} = $current->{'parent'};
       # based on whitespace_chars_except_newline in XS parser
@@ -6758,8 +6763,10 @@ sub _handle_close_brace($$$) {
 
     if ($brace_command_type eq 'arguments') {
       _isolate_leading_trailing($self, $current);
-    } elsif ($brace_command_type eq 'inline'
-             and $current->{'type'} ne 'elided_brace_command_arg') {
+    } elsif (($brace_command_type eq 'inline'
+              and $current->{'type'} ne 'elided_brace_command_arg')
+             ) {
+             #or $brace_command_type eq 'context') {
       _isolate_leading_trailing($self, $current, 1);
     }
 

@@ -50,12 +50,10 @@ $result_tree_text{'float_copying'} = '*document_root C6
        *paragraph C3
         {The Public Domain notice}
         *@footnote C1 float_copying.texi:l12
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument:\\n}
         |EXTRA
         |global_command_number:{1}
-         *brace_command_context C7
+         *brace_command_context C8
+          {spaces_before_argument:\\n}
           *paragraph C3
            {The caption copying footnote\\n}
            *@anchor C1 float_copying.texi:l14

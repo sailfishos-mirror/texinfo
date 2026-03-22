@@ -72,6 +72,20 @@ inside
 
 @listoffloats A @tieaccent{1a} @tieaccent{'."\x{7b2c}H}".' @tieaccent{@^e'."\x{4e00}".' and text}
 '],
+['no_brace_caption',
+'@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+@float a, b
+HH
+@caption
+@end float
+
+@listoffloats a
+'],
 ['footnote_in_caption',
 '@node Top
 @node chap

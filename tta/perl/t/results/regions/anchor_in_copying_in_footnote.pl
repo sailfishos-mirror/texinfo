@@ -16,12 +16,10 @@ $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
     *paragraph C3
      {Copying}
      *@footnote C1 l3
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument:\\n}
      |EXTRA
      |global_command_number:{1}
-      *brace_command_context C1
+      *brace_command_context C2
+       {spaces_before_argument:\\n}
        *paragraph C3
         {In footnote.\\n}
         *@anchor C1 l5

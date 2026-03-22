@@ -25,10 +25,8 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
    *paragraph C1
     {My float.\\n}
    *@caption C1 l3
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
-    *brace_command_context C1
+    *brace_command_context C2
+     {spaces_before_argument:\\n}
      *@tex C3 l4
       *arguments_line C1
        *block_line_arg C1

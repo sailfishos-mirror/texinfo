@@ -3802,7 +3802,7 @@ sub _convert_listoffloats_command($$$$) {
 
       my $caption_text;
       my @caption_classes;
-      if (defined($caption_element)) {
+      if (defined($caption_element) and exists($caption_element->{'contents'})) {
         my $multiple_formatted = 'listoffloats';
         if ($formatted_listoffloats_nr > 1) {
           $multiple_formatted .= '-'.($formatted_listoffloats_nr - 1);
@@ -3875,8 +3875,7 @@ sub _convert_float_command($$$$$) {
       $prepended_text = '';
     }
     my $caption_text = '';
-    if (defined($caption_element) and exists($caption_element->{'contents'})
-        and exists($caption_element->{'contents'}->[0]->{'contents'})) {
+    if (defined($caption_element) and exists($caption_element->{'contents'})) {
       $caption_text = $self->convert_tree_new_formatting_context(
                          $caption_element->{'contents'}->[0], 'float caption');
     }
@@ -3908,8 +3907,9 @@ sub _convert_float_command($$$$$) {
                    Texinfo::TreeElement::new({'type' => 'brace_container',
                                               'contents' => [$prepended]})]}),
                                'float number type');
-    if (defined($caption_element)) {
-      # register the converted prepended tree to be prepended to
+    if (defined($caption_element) and exists($caption_element->{'contents'})) {
+      # Allows an empty/spaces only caption.
+      # Register the converted prepended tree to be prepended to
       # the first paragraph in caption formatting
       $self->register_pending_formatted_inline_content($caption_command_name,
                                                        $prepended_text);

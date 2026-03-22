@@ -136,8 +136,9 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
             }
 
           push_context (ct_base, cmd);
+
           space_e
-            = new_text_element (ET_internal_spaces_before_context_argument);
+            = new_text_element (ET_spaces_before_argument);
 
           add_to_contents_as_array (current, space_e);
           internal_space_holder = current->e.c->parent;

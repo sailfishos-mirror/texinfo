@@ -260,12 +260,10 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   *paragraph C3
    {T}
    *@footnote C1 l45
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{1}
-    *brace_command_context C2
+    *brace_command_context C3
+     {spaces_before_argument:\\n}
      *@image C1 l46
      |EXTRA
      |input_encoding_name:{utf-8}
@@ -277,12 +275,10 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   *paragraph C3
    {U}
    *@footnote C1 l49
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{2}
-    *brace_command_context C2
+    *brace_command_context C3
+     {spaces_before_argument:\\n}
      *paragraph C3
       {Some t\\n}
       *@image C1 l51
@@ -545,10 +541,12 @@ T
 <chapter><sectiontitle> <image where="inline"><imagefile>in_chapter_arg</imagefile></image></sectiontitle>
 
 
-<para>T<footnote spaces="\\n"><image><imagefile>in_footnote</imagefile></image>
+<para>T<footnote>
+<image><imagefile>in_footnote</imagefile></image>
 </footnote>
 </para>
-<para>U<footnote spaces="\\n"><para>Some t
+<para>U<footnote>
+<para>Some t
 <image where="inline"><imagefile>in text in_footnote</imagefile></image>
 </para>
 </footnote>

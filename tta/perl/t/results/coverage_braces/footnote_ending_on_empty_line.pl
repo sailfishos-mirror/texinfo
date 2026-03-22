@@ -10,12 +10,10 @@ $result_tree_text{'footnote_ending_on_empty_line'} = '*document_root C1
   *paragraph C2
    {text}
    *@footnote C1 l1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
    |EXTRA
    |global_command_number:{1}
-    *brace_command_context C2
+    *brace_command_context C3
+     {spaces_before_argument: }
      *paragraph C1
       {in footnote.\\n}
      {empty_line:\\n}
