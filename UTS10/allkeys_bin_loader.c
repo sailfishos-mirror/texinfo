@@ -10,29 +10,6 @@
 
 #include "allkeys_bin.c"
 
-/* Helper functions to read from byte array */
-static uint8_t
-read_u8 (size_t offset)
-{
-  return collation_data.trie_array[offset];
-}
-
-static uint16_t
-read_u16 (size_t offset)
-{
-  uint16_t val;
-  memcpy (&val, collation_data.trie_array + offset, 2);
-  return val;
-}
-
-static uint32_t
-read_u32 (size_t offset)
-{
-  uint32_t val;
-  memcpy (&val, collation_data.trie_array + offset, 4);
-  return val;
-}
-
 void
 print_header_info (void)
 {
@@ -114,7 +91,7 @@ lookup_collation_data_at_char (char32_t *const string,
                                size_t length,
                                size_t *n_codepoints_out)
 {
-  uint32_t node_offset = 0;
+  const struct trie_node *node = &collation_data.trie_array[0];
 
   char32_t *pchar;
   char32_t *pre_non_starter = 0;
@@ -155,24 +132,25 @@ lookup_collation_data_at_char (char32_t *const string,
           max_combining_class = combining_class;
         }
 
-      // Read node
-      uint32_t node_codepoint = read_u32 (node_offset);
-      uint32_t node_data_index = read_u32 (node_offset + 4);
-      uint8_t num_elements = read_u8 (node_offset + 8);
-      uint16_t num_children = read_u16 (node_offset + 9);
-      uint32_t children_offset = node_offset + 11;
+      uint32_t node_codepoint = node->codepoint;
+      uint32_t node_data_index = node->data_index;
+      uint8_t num_elements = node->num_elements;
+      uint16_t num_children = node->num_children;
+      uint32_t first_child = node->first_child;
 
 
       // Search for matching child
       int found = 0;
       for (uint16_t j = 0; j < num_children; j++)
         {
-          uint32_t child_offset = read_u32 (children_offset + j * 4);
-          uint32_t child_codepoint = read_u32 (child_offset);
+          const struct trie_node *child
+            = &collation_data.trie_array[first_child + j];
+
+          uint32_t child_codepoint = child->codepoint;
 
           if (child_codepoint == *pchar)
             {
-              node_offset = child_offset;
+              node = child;
               found = 1;
               n_codepoints++;
               break;
@@ -218,8 +196,8 @@ lookup_collation_data_at_char (char32_t *const string,
   if (n_codepoints >= 2)
     {
       COLLATION_DATA data;
-      data.data_index = read_u32 (node_offset + 4);
-      data.num_elements = read_u8 (node_offset + 8);
+      data.data_index = node->data_index;
+      data.num_elements = node->num_elements;
       if (data.data_index != 0)
         {
           (*n_codepoints_out) = n_codepoints;
@@ -357,34 +335,36 @@ lookup_sequence (const uint32_t *codepoints, size_t len,
     return 0;
 
   uint32_t node_offset = 0;
+  const struct trie_node *node = &collation_data.trie_array[0];
 
   for (size_t i = 0; i < len; i++)
     {
       // Read node
-      uint32_t node_codepoint = read_u32 (node_offset);
-      uint32_t node_data_index = read_u32 (node_offset + 4);
-      uint8_t node_num_elements = read_u32 (node_offset + 8);
-      uint16_t num_children = read_u16 (node_offset + 9);
-      uint32_t children_offset = node_offset + 11;
+      uint32_t node_codepoint = node->codepoint;
+      uint32_t node_data_index = node->data_index;
+      uint8_t node_num_elements = node->num_elements;
+      uint16_t num_children = node->num_children;
+      uint32_t first_child = node->first_child;
 
       // Search for matching child
       int found = 0;
       for (uint16_t j = 0; j < num_children; j++)
         {
-          uint32_t child_offset = read_u32 (children_offset + j * 4);
-          char32_t child_codepoint = read_u32 (child_offset);
+          const struct trie_node *child
+            = &collation_data.trie_array[first_child + j];
+          char32_t child_codepoint = child->codepoint;
 
           if (child_codepoint == codepoints[i])
             {
-              node_offset = child_offset;
+              node = child;
               found = 1;
 
               // If this is the last codepoint, check for collation_data
               if (i == len - 1)
                 {
                   COLLATION_DATA data;
-                  data.data_index = read_u32 (node_offset + 4);
-                  data.num_elements = read_u8 (node_offset + 8);
+                  data.data_index = node->data_index;
+                  data.num_elements = node->num_elements;
                   if (data.data_index != 0)
                     {
                       *num_elements = data.num_elements;

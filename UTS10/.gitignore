@@ -12,8 +12,6 @@ stamp-h1
 .dirstamp
 tags
 config.*
-allkeys.bin
-allkeys_bin.c
 
 allkeys_query
 allkeys_to_binary

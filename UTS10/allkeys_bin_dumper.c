@@ -34,6 +34,7 @@ typedef struct TrieNode
   CollationData *data;
   struct TrieNode **children;
   uint16_t num_children;
+  size_t trie_index; /* used for serialization */
 } TrieNode;
 
 typedef struct
@@ -51,80 +52,6 @@ typedef struct
   CollationElement element;
   bool variable_weight;
 } CollationElementParsed;
-
-/* Dynamic byte buffer for building binary data */
-typedef struct
-{
-  uint8_t *data;
-  size_t size;
-  size_t capacity;
-} ByteBuffer;
-
-static ByteBuffer *
-buffer_create (void)
-{
-  ByteBuffer *buf = calloc (1, sizeof (ByteBuffer));
-  buf->capacity = 1024 * 1024;
-  buf->data = malloc (buf->capacity);
-  return buf;
-}
-
-static void
-buffer_ensure_space (ByteBuffer *buf, size_t needed)
-{
-  while (buf->size + needed > buf->capacity)
-    {
-      buf->capacity *= 2;
-      buf->data = realloc (buf->data, buf->capacity);
-    }
-}
-
-static uint32_t
-buffer_write_bytes (ByteBuffer *buf, const void *data, size_t len)
-{
-  buffer_ensure_space (buf, len);
-  uint32_t offset = buf->size;
-  memcpy (buf->data + buf->size, data, len);
-  buf->size += len;
-  return offset;
-}
-
-static uint32_t
-buffer_write_u8 (ByteBuffer *buf, uint8_t val)
-{
-  return buffer_write_bytes (buf, &val, 1);
-}
-
-static void
-buffer_write_u8_at (ByteBuffer *buf, uint32_t offset, uint8_t val)
-{
-  memcpy (buf->data + offset, &val, 1);
-}
-
-static uint32_t
-buffer_write_u16 (ByteBuffer *buf, uint16_t val)
-{
-  return buffer_write_bytes (buf, &val, 2);
-}
-
-static uint32_t
-buffer_write_u32 (ByteBuffer *buf, uint32_t val)
-{
-  return buffer_write_bytes (buf, &val, 4);
-}
-
-static void
-buffer_write_u32_at (ByteBuffer *buf, uint32_t offset, uint32_t val)
-{
-  memcpy (buf->data + offset, &val, 4);
-}
-
-static void
-buffer_align (ByteBuffer *buf, int alignment)
-{
-  while (buf->size % alignment)
-    buffer_write_u8 (buf, 0);
-}
 
 /* Parser functions */
 static int
@@ -286,6 +213,8 @@ build_allkeys_info (const char *filename)
           if (uc_is_property_unified_ideograph (codepoints[0]))
             continue;
         }
+      // if (num_codepoints > 1)
+      //   fprintf (stderr, "sequence of len %zu", num_codepoints);
 
 
       while (*p && *p != ';')
@@ -478,7 +407,7 @@ expand_collation_sequence (CollationData *data)
 
 /* Write collation data. */
 static void
-write_collation_data (FILE *fp, ByteBuffer *buf, CollationData *data)
+write_collation_data (FILE *fp, CollationData *data)
 {
   uint8_t num_elements;
 
@@ -502,11 +431,10 @@ static uint32_t collation_records_count;
    for index into collation unit data array. */
 static long collation_units_written;
 
-
 /* Function for qsort.  Return negative if the first argument is "less"
    than the second, zero if they are "equal", and positive if the first
    argument is "greater". */
-int
+static int
 compare_trie_node_children (const void *a, const void *b)
 {
   TrieNode *node1 = *(TrieNode **) a;
@@ -516,52 +444,70 @@ compare_trie_node_children (const void *a, const void *b)
        - (node1->codepoint < node2->codepoint);
 }
 
-/* Write trie recursively and return its offset.  In the process,
-   sort the children of each node. */
-static uint32_t
-write_trie_node (ByteBuffer *buf, TrieNode *node)
+static size_t trie_node_index;
+
+/* Traverse tree rooted at NODE, assigning 'index' on each node.  Assign
+   contiguous indices to children of each node. */
+static void
+assign_trie_node_indices (TrieNode *node)
 {
-  uint32_t offset = buf->size;
-
-  buffer_write_u32 (buf, node->codepoint);
-
-  if (node->data)
-    {
-      buffer_write_u32 (buf, collation_units_written);
-      expand_collation_sequence (node->data);
-      collation_units_written += node->data->num_elements;
-
-      /* Save collation data to be written later. */
-      collation_records[collation_records_count].data = node->data;
-      collation_records_count++;
-    }
-  else
-    buffer_write_u32 (buf, 0x0000);
-
-
-  /* Number of collation elements in the record. */
-  buffer_write_u8 (buf, node->data ? node->data->num_elements : 0);
-
-  buffer_write_u16 (buf, node->num_children);
-
   qsort (node->children, node->num_children, sizeof(node->children[0]),
          compare_trie_node_children);
 
-  /* Reserve space for child offsets */
-  uint32_t children_offset_pos = buf->size;
   for (uint16_t i = 0; i < node->num_children; i++)
+    node->children[i]->trie_index = trie_node_index++;
+
+  for (uint16_t i = 0; i < node->num_children; i++)
+    assign_trie_node_indices (node->children[i]);
+}
+
+/* Write contents of a trie node, but not any of its children */
+static uint32_t
+write_trie_node_only (FILE *fp, TrieNode *node)
+{
+  uint32_t data_index = 0;
+  if (node->data)
     {
-      buffer_write_u32 (buf, 0); /* Placeholder */
+      data_index = collation_units_written;
+      expand_collation_sequence (node->data);
+      collation_units_written += node->data->num_elements;
+      collation_records[collation_records_count].data = node->data;
+      collation_records_count++;
     }
 
-  /* Write children and update offsets */
-  for (uint16_t i = 0; i < node->num_children; i++)
-    {
-      uint32_t child_offset = write_trie_node (buf, node->children[i]);
-      buffer_write_u32_at (buf, children_offset_pos + i * 4, child_offset);
-    }
+  fprintf (fp, "{ 0x%X, 0x%08X, %d, %d, %zu },\n",
+           node->codepoint,
+           data_index,
+           (int) (node->data ? node->data->num_elements : 0),
+           (int) node->num_children,
+           node->num_children > 0
+             ? node->children[0]->trie_index
+             : 0);
+}
 
-  return offset;
+/* Write trie recursively. */
+static void
+write_trie_node_children (FILE *fp, TrieNode *node)
+{
+  for (uint16_t i = 0; i < node->num_children; i++)
+    write_trie_node_only (fp, node->children[i]);
+
+  for (uint16_t i = 0; i < node->num_children; i++)
+    write_trie_node_children (fp, node->children[i]);
+}
+
+static int
+count_trie_node_collation_units (TrieNode *node)
+{
+  int count = 0;
+
+  if (node->data)
+    count += node->data->num_elements;
+
+  count += node->num_children;
+  for (int i = 0; i < node->num_children; i++)
+    count += count_trie_node_collation_units (node->children[i]);
+  return count;
 }
 
 /* Compare function for sorting page entries by offset */
@@ -584,7 +530,7 @@ static int used_planes[17];
    each page that was used, and preprocess collation unit data for
    writing. */
 static void
-serialize_page_table (Allkeys_Info *info, ByteBuffer *buf)
+serialize_page_table (Allkeys_Info *info)
 {
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
@@ -626,13 +572,9 @@ serialize_page_table (Allkeys_Info *info, ByteBuffer *buf)
 
 /* Convert trie to binary format.  Save collation units
    to be output in mallocated COLLATION_UNITS. */
-static ByteBuffer *
+static void
 serialize_allkeys_info (Allkeys_Info *info)
 {
-  ByteBuffer *buf = buffer_create ();
-
-  printf ("\nSerializing to binary format...\n");
-
   /* Sort all pages by offset. */
   printf ("Sorting page entries...\n");
   for (uint32_t i = 0; i < NUM_PAGES; i++)
@@ -657,16 +599,11 @@ serialize_allkeys_info (Allkeys_Info *info)
   collation_records[0].data->elements[0] = (CollationElement) {0, 0, 0};
   collation_records_count++;
   collation_units_written++;
-
-  (void) write_trie_node (buf, info->trie_root);
-
-  return buf;
 }
 
 /* Write as C source file */
 static void
-write_c_source (ByteBuffer *buf, const char *output_file,
-                Allkeys_Info *info)
+write_c_source (const char *output_file, Allkeys_Info *info)
 {
   FILE *fp = fopen (output_file, "w");
   if (!fp)
@@ -674,8 +611,6 @@ write_c_source (ByteBuffer *buf, const char *output_file,
       perror ("Failed to open output file");
       return;
     }
-
-  serialize_page_table (info, buf);
 
   int n_used_planes = 0;
   long i;
@@ -690,6 +625,7 @@ write_c_source (ByteBuffer *buf, const char *output_file,
     {
       n_collation_units += collation_records[i].data->num_elements;
     }
+  n_collation_units += count_trie_node_collation_units (info->trie_root);
 
   printf ("Writing C source file: %s\n", output_file);
 
@@ -708,13 +644,17 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "  uint8_t num_elements[256];\n");
   fprintf (fp, "  uint32_t data_index[256];\n");
   fprintf (fp, "};\n");
+  fprintf (fp, "struct trie_node {\n");
+  fprintf (fp, "  uint32_t codepoint;\n");
+  fprintf (fp, "  uint32_t data_index;\n");
+  fprintf (fp, "  uint8_t num_elements;\n");
+  fprintf (fp, "  uint16_t num_children;\n");
+  fprintf (fp, "  uint32_t first_child;\n");
+  fprintf (fp, "};\n");
 
+  fprintf (fp, "#define NUM_PLANES 0x%x\n", 17);
+  fprintf (fp, "#define NUM_TRIE_NODES %d\n", (int) trie_node_index);
   fprintf (fp, "#define NUM_COLLATION_UNITS %ld\n\n", n_collation_units);
-
-  fprintf (fp, "#define COLLATION_DATA_SIZE %zu\n\n", buf->size);
-  fprintf (fp, "#define NUM_PLANES 0x%x\n\n", 17);
-  fprintf (fp,
-    "static const size_t collation_data_size = COLLATION_DATA_SIZE;\n\n");
 
 
   fprintf (fp, "static const\nstruct\n  {\n");
@@ -725,8 +665,8 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "    int planes[NUM_PLANES];\n");
   fprintf (fp, "    int pages[0x%x];\n", n_used_planes * 0x100);
   fprintf (fp, "    struct block256_data pages_data[0x%x];\n", n_used_pages);
-  fprintf (fp, "    uint8_t trie_array[COLLATION_DATA_SIZE];\n");
-  fprintf (fp, "    struct collation_data collation_data[NUM_COLLATION_UNITS+1];\n");
+  fprintf (fp, "    struct trie_node trie_array[NUM_TRIE_NODES];\n");
+  fprintf (fp, "    struct collation_data collation_data[NUM_COLLATION_UNITS];\n");
   fprintf (fp, "  }\n");
   fprintf (fp, "collation_data = {\n");
 
@@ -830,20 +770,9 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "  },\n");
 
   fprintf (fp, "  { /* .trie_array */\n");
-  for (size_t i = 0; i < buf->size; i++)
-    {
-      if (i % 16 == 0)
-        {
-          if (i > 0)
-            fprintf (fp, "\n");
-          fprintf (fp, "    ");
-        }
-      fprintf (fp, "0x%02X", buf->data[i]);
-      if (i < buf->size - 1)
-        fprintf (fp, ",");
-      if (i % 16 != 15 && i < buf->size - 1)
-        fprintf (fp, " ");
-    }
+
+  write_trie_node_only (fp, info->trie_root);
+  write_trie_node_children (fp, info->trie_root);
 
   fprintf (fp, "\n  },\n");
 
@@ -851,7 +780,7 @@ write_c_source (ByteBuffer *buf, const char *output_file,
 
   for (uint32_t i = 0; i < collation_records_count; i++)
     {
-      write_collation_data (fp, buf, collation_records[i].data);
+      write_collation_data (fp, collation_records[i].data);
     }
 
   free (collation_records);
@@ -859,23 +788,6 @@ write_c_source (ByteBuffer *buf, const char *output_file,
 
   fprintf (fp, "};\n");
 
-  fclose (fp);
-}
-
-/* Write as binary file */
-static void
-write_binary_file (ByteBuffer *buf, const char *output_file)
-{
-  FILE *fp = fopen (output_file, "wb");
-  if (!fp)
-    {
-      perror ("Failed to open output file");
-      return;
-    }
-
-  printf ("Writing binary file: %s\n", output_file);
-
-  fwrite (buf->data, 1, buf->size, fp);
   fclose (fp);
 }
 
@@ -896,12 +808,16 @@ main (int argc, char *argv[])
   if (!info)
     return 1;
 
-  ByteBuffer *buf = serialize_allkeys_info (info);
+  serialize_allkeys_info (info);
+
+  trie_node_index = 0;
+  info->trie_root->trie_index = trie_node_index++;
+
+  serialize_page_table (info);
+  assign_trie_node_indices (info->trie_root);
 
   if (c_file)
-    {
-      write_c_source (buf, c_file, info);
-    }
+    write_c_source (c_file, info);
 
   return 0;
 }
