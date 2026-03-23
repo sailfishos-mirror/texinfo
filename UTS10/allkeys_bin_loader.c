@@ -163,9 +163,10 @@ lookup_collation_data_at_char (char32_t *const string,
         {
           /* This is part of a non-contiguous match.  Move matched
              character right after the contiguous part of the match. */
-          char32_t tmp = pre_non_starter[1];
-          pre_non_starter[1] = *pchar;
-          *pchar = tmp;
+          char32_t tmp = *pchar;
+          memmove (&pre_non_starter[2], &pre_non_starter[1],
+                   (pchar - &pre_non_starter[1]) * sizeof (char32_t));
+          pre_non_starter[1] = tmp;
 
           pchar = &pre_non_starter[1];
           pre_non_starter = NULL;

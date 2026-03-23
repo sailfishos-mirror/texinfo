@@ -31,9 +31,6 @@ could cut the size of the data by a factor of two.
 * check in main collation data table first and add some special marker
 for checking in trie for sequence
 
-
-* check if reordering in discontiguous matching is correct
-
 * put allkeys.txt version (and other metadata?) in output
 
 * optimise sequence lookup or lookup for ASCII chars
