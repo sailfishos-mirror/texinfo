@@ -3056,12 +3056,10 @@ sub _expand_macro_body($$$$) {
         my $arg = $1;
         my $formal_arg_index = _lookup_macro_parameter($macro, $arg);
         if (defined($formal_arg_index)) {
-          if (defined($arguments)
-              and exists($arguments->{'contents'})
-              and $formal_arg_index < scalar(@{$arguments->{'contents'}})
-              # TODO probably not needed
-              and exists($arguments->{'contents'}->[$formal_arg_index]
-                                                  ->{'contents'})) {
+          if (exists($arguments->{'contents'})
+              and $formal_arg_index < scalar(@{$arguments->{'contents'}})) {
+            # the argument cannot have superfluous content, as it is text
+            # only, therefore a string is always returned, possibly empty.
             my ($argument, $surplus) = Texinfo::Common::simple_arg_text(
                              $arguments->{'contents'}->[$formal_arg_index]);
             $result .= $argument;
@@ -5432,6 +5430,9 @@ sub _handle_macro($$$$$$) {
           my $has_end_of_line = chomp $line;
           if (not exists($arg_elt->{'contents'})) {
             $arg_elt->{'contents'} = [];
+            # if the macro invokation is immediatly followed by a newline,
+            # the text element with be empty, and become an empty
+            # spaces_before_argument after trimming leading spaces.
             push @{$arg_elt->{'contents'}},
                   Texinfo::TreeElement::new({'text' => $line,});
           } else {

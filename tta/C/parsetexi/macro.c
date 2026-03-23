@@ -727,17 +727,17 @@ expand_macro_body (const MACRO *macro_record, const ELEMENT *arguments,
           else
             {
               size_t index = pos -1;
-              if (arguments && index < arguments->e.c->contents.number)
+              if (index < arguments->e.c->contents.number)
                 {
                   const ELEMENT *argument
                     = contents_child_by_index (arguments, index);
-                  if (argument->e.c->contents.number > 0)
-                    {
-                      int surplus_arg;
-                      const TEXT *arg_text = simple_arg_text (argument,
-                                                              &surplus_arg);
-                      text_append (expanded, arg_text->text);
-                    }
+                  int surplus_arg;
+                  const TEXT *arg_text = simple_arg_text (argument,
+                                                          &surplus_arg);
+                /* the argument cannot have superfluous content, as it is text
+                   only, therefore a text is always returned, possibly empty.
+                 */
+                  text_append (expanded, arg_text->text);
                 }
             }
           free (name);
