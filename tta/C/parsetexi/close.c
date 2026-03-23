@@ -198,7 +198,7 @@ remove_empty_content (ELEMENT *current)
               debug_parser_print_element (child_element, 0);
               debug_nonl (" from ");
               debug_parser_print_element (current, 0); debug ("");
-              destroy_element (pop_element_from_contents (current));
+              destroy_element (remove_from_contents (current, i));
             }
           else
             break;

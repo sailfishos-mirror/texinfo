@@ -1770,13 +1770,16 @@ sub _remove_empty_content($$) {
          .Texinfo::Common::debug_print_element($child_element)
           .' from '.Texinfo::Common::debug_print_element($current)."\n"
             if ($self->{'conf'}->{'DEBUG'});
-        _pop_element_from_contents($self, $current);
+        splice(@{$current->{'contents'}}, $i, 1);
         $i--;
       } else {
         last;
       }
     }
   }
+  delete $current->{'contents'}
+    if (exists($current->{'contents'})
+        and scalar(@{$current->{'contents'}}) == 0);
 }
 
 sub _close_container($$$) {
