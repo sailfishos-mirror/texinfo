@@ -2107,17 +2107,16 @@ locate_file_in_dirs (const char *filename,
 const ELEMENT *
 block_line_argument_command (const ELEMENT *block_line_arg)
 {
-  size_t leading_trailing_indices[2];
+  ARG_INDICES arg_indices;
   int non_empty;
-  size_t first_idx;
 
   non_empty = non_leading_trailing_indices (block_line_arg,
-                                            leading_trailing_indices);
-  first_idx = leading_trailing_indices[0];
+                                            &arg_indices);
 
-  if (non_empty && first_idx == leading_trailing_indices[1])
+  if (non_empty && arg_indices.start == arg_indices.end)
     {
-      const ELEMENT *arg = block_line_arg->e.c->contents.list[first_idx];
+      const ELEMENT *arg
+        = block_line_arg->e.c->contents.list[arg_indices.start];
       if (!(type_data[arg->type].flags & TF_text)
           && (arg->e.c->contents.number == 0
               || (arg->e.c->contents.number == 1
@@ -2169,9 +2168,8 @@ find_float_caption_shortcaption(const ELEMENT *float_e, const ELEMENT **result)
     }
 }
 
-/* FIXME replace size_t *out_indices by a structure */
 int
-non_leading_trailing_indices (const ELEMENT *tree, size_t *out_indices)
+non_leading_trailing_indices (const ELEMENT *tree, ARG_INDICES *out_indices)
 {
   size_t start_idx = 0;
   size_t end_idx;
@@ -2195,7 +2193,7 @@ non_leading_trailing_indices (const ELEMENT *tree, size_t *out_indices)
   if (start_idx == tree->e.c->contents.number)
     return 0;
 
-  out_indices[0] = start_idx;
+  out_indices->start = start_idx;
 
   end_idx = tree->e.c->contents.number - 1;
 
@@ -2211,7 +2209,7 @@ non_leading_trailing_indices (const ELEMENT *tree, size_t *out_indices)
       else
         break;
     }
-  out_indices[1] = end_idx;
+  out_indices->end = end_idx;
 
   return 1;
 }
@@ -2219,24 +2217,22 @@ non_leading_trailing_indices (const ELEMENT *tree, size_t *out_indices)
 ELEMENT *
 multitable_columnfractions (const ELEMENT *multitable)
 {
-  size_t leading_trailing_indices[2];
+  ARG_INDICES arg_indices;
   int non_empty;
-  size_t first_idx;
   const ELEMENT *arguments_line = multitable->e.c->contents.list[0];
   const ELEMENT *block_line_arg = arguments_line->e.c->contents.list[0];
   ELEMENT *columnfractions = 0;
 
   non_empty = non_leading_trailing_indices (block_line_arg,
-                                            leading_trailing_indices);
-  first_idx = leading_trailing_indices[0];
-
+                                            &arg_indices);
   if (non_empty
-      && !(type_data[block_line_arg->e.c->contents.list[first_idx]->type].flags
+      && !(type_data[
+        block_line_arg->e.c->contents.list[arg_indices.start]->type].flags
            & TF_text)
-      && block_line_arg->e.c->contents.list[first_idx]->e.c->cmd
+      && block_line_arg->e.c->contents.list[arg_indices.start]->e.c->cmd
                                                  == CM_columnfractions)
     {
-      columnfractions = block_line_arg->e.c->contents.list[first_idx];
+      columnfractions = block_line_arg->e.c->contents.list[arg_indices.start];
     }
 
   return columnfractions;

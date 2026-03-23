@@ -206,16 +206,16 @@ char *
 convert_contents_to_texinfo (const ELEMENT *e)
 {
   int non_empty;
-  size_t leading_trailing_indices[2];
+  ARG_INDICES arg_indices;
 
-  non_empty = non_leading_trailing_indices (e, leading_trailing_indices);
+  non_empty = non_leading_trailing_indices (e, &arg_indices);
 
   if (non_empty)
     {
       char *result;
       ELEMENT *tmp = new_element (ET_NONE);
-      insert_slice_into_contents (tmp, 0, e, leading_trailing_indices[0],
-                                  leading_trailing_indices[1] +1);
+      insert_slice_into_contents (tmp, 0, e, arg_indices.start,
+                                  arg_indices.end +1);
       result = convert_to_texinfo (tmp);
       destroy_element (tmp);
       return result;

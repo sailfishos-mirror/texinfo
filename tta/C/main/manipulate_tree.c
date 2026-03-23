@@ -516,18 +516,18 @@ copy_contents (const ELEMENT *element, ELEMENT_LIST *added_root_elements,
                enum element_type type)
 {
   int non_empty;
-  size_t leading_trailing_indices[2];
+  ARG_INDICES arg_indices;
   ELEMENT *tmp = new_element (type);
 
   non_empty = non_leading_trailing_indices (element,
-                                            leading_trailing_indices);
+                                            &arg_indices);
 
   if (non_empty)
     {
       ELEMENT *result;
       insert_slice_into_contents (tmp, 0, element,
-                                  leading_trailing_indices[0],
-                                  leading_trailing_indices[1] +1);
+                                  arg_indices.start,
+                                  arg_indices.end +1);
       result = copy_element_tree (tmp, added_root_elements);
       destroy_element (tmp);
       return result;
@@ -771,7 +771,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
   NODE_SPEC_EXTRA *result;
   ELEMENT *node_content = 0;
   size_t idx; /* index into node->e.c->contents */
-  size_t leading_trailing_indices[2];
+  ARG_INDICES arg_indices;
   int non_empty;
   size_t orig_contents_len = node->e.c->contents.number;
 
@@ -785,12 +785,12 @@ parse_node_manual (ELEMENT *node, int modify_node)
      opening brace and text before and after the closing manual name brace */
   result->out_of_tree_elements = 0;
 
-  non_empty = non_leading_trailing_indices (node, leading_trailing_indices);
+  non_empty = non_leading_trailing_indices (node, &arg_indices);
 
   if (!non_empty)
     return result;
 
-  idx = leading_trailing_indices[0];
+  idx = arg_indices.start;
 
   /* If the content starts with a '(', try to get a manual name. */
   if (node->e.c->contents.list[idx]->type == ET_normal_text
@@ -1032,7 +1032,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
       insert_slice_into_contents (node_content,
                                   node_content->e.c->contents.number,
                                   node, idx,
-                leading_trailing_indices[1] + 1 + node->e.c->contents.number
+                         arg_indices.end + 1 + node->e.c->contents.number
                                           - orig_contents_len);
     }
 

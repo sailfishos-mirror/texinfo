@@ -1004,37 +1004,32 @@ reference_to_arg_internal (const char *type,
                 {
                   ELEMENT *removed = remove_from_contents (e, idx);
                   size_t i;
-                  size_t leading_trailing_indices[2];
-                  size_t non_leading_idx;
-                  size_t non_trailing_idx;
+                  ARG_INDICES arg_indices;
                   int non_empty;
 
                   if (removed != arg)
                     fatal ("BUG: reference_to_arg_internal removed != arg");
                   /* avoid the type and spaces by getting only the contents */
                   non_empty = non_leading_trailing_indices (removed,
-                                                    leading_trailing_indices);
+                                                            &arg_indices);
 
                   if (!non_empty)
                     fatal ("BUG: reference_to_arg_internal removed empty");
 
-                  non_leading_idx = leading_trailing_indices[0];
-                  non_trailing_idx = leading_trailing_indices[1];
-
                   insert_slice_into_contents (new, 0,
-                                              removed, non_leading_idx,
-                                              non_trailing_idx +1);
-                  if (non_leading_idx > 0)
+                                              removed, arg_indices.start,
+                                              arg_indices.end +1);
+                  if (arg_indices.start > 0)
                     {
-                      for (i = 0; i < non_leading_idx; i++)
+                      for (i = 0; i < arg_indices.start; i++)
                         {
                           ELEMENT *content = removed->e.c->contents.list[i];
                           destroy_element (content);
                         }
                     }
-                  if (non_trailing_idx +1 < removed->e.c->contents.number)
+                  if (arg_indices.end +1 < removed->e.c->contents.number)
                     {
-                      for (i = non_trailing_idx +1;
+                      for (i = arg_indices.end +1;
                            i < removed->e.c->contents.number; i++)
                         {
                           ELEMENT *content = removed->e.c->contents.list[i];

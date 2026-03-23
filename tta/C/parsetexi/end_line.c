@@ -868,14 +868,14 @@ end_line_starting_block (ELEMENT *current)
          We ignore as this would be for unrealistic column numbers */
           ELEMENT *multitable = current->e.c->parent->e.c->parent;
           int non_empty;
-          size_t leading_trailing_indices[2];
+          ARG_INDICES arg_indices;
 
           non_empty = non_leading_trailing_indices (current,
-                                          leading_trailing_indices);
+                                                    &arg_indices);
 
           if (non_empty)
             {
-              for (i = leading_trailing_indices[0];
+              for (i = arg_indices.start;
                    i < current->e.c->contents.number; i++)
                 {
                   ELEMENT *e = contents_child_by_index (current, i);
@@ -980,16 +980,14 @@ end_line_starting_block (ELEMENT *current)
           /* Check if command as argument isn't an accent command */
           if (block_line_arg->e.c->contents.number > 0)
             {
-              size_t leading_trailing_indices[2];
+              ARG_INDICES arg_indices;
               int non_empty;
-              size_t first_idx;
               non_empty = non_leading_trailing_indices (block_line_arg,
-                                                  leading_trailing_indices);
-              first_idx = leading_trailing_indices[0];
-              if (non_empty && first_idx == leading_trailing_indices[1])
+                                                        &arg_indices);
+              if (non_empty && arg_indices.start == arg_indices.end)
                 {
                   const ELEMENT *arg
-                    = block_line_arg->e.c->contents.list[first_idx];
+                    = block_line_arg->e.c->contents.list[arg_indices.start];
                   if (!(type_data[arg->type].flags & TF_text)
                       && (arg->e.c->contents.number == 0
                           || (arg->e.c->contents.number == 1

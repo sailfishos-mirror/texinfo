@@ -94,6 +94,15 @@ typedef struct DEF_ALIAS {
 
 extern const DEF_ALIAS def_aliases[];
 
+/* not related to document indices */
+/* start and end indices of non trailing nor leading contents of a Texinfo
+   tree element.  Both are indices of non trailing nor leading content.
+ */
+typedef struct ARG_INDICES {
+    size_t start;
+    size_t end;
+} ARG_INDICES;
+
 #define SMALL_BLOCK_COMMANDS_LIST \
     smbc_command_name(example)\
     smbc_command_name(display) \
@@ -225,7 +234,8 @@ char *locate_file_in_dirs (const char *filename,
 const ELEMENT *block_line_argument_command (const ELEMENT *block_line_arg);
 void find_float_caption_shortcaption(const ELEMENT *float_e,
                                      const ELEMENT **result);
-int non_leading_trailing_indices (const ELEMENT *tree, size_t *out_indices);
+int non_leading_trailing_indices (const ELEMENT *tree,
+                                  ARG_INDICES *out_indices);
 ELEMENT *multitable_columnfractions (const ELEMENT *multitable);
 void collect_subentries (const ELEMENT *current, CONST_ELEMENT_LIST *e_list);
 const ELEMENT *index_entry_referred_entry (const ELEMENT *element,

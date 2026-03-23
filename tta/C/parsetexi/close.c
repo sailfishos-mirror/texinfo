@@ -163,17 +163,15 @@ is_container_empty (const ELEMENT *current)
 void
 remove_empty_content (ELEMENT *current)
 {
-  size_t leading_trailing_indices[2];
+  ARG_INDICES arg_indices;
   int non_empty;
 
-  non_empty = non_leading_trailing_indices (current, leading_trailing_indices);
+  non_empty = non_leading_trailing_indices (current, &arg_indices);
 
   if (non_empty)
     {
-      size_t first_idx = leading_trailing_indices[0];
-      size_t end_idx = leading_trailing_indices[1];
-      size_t i = end_idx;
-      while (i >= first_idx)
+      size_t i = arg_indices.end;
+      while (i >= arg_indices.start)
         {
           ELEMENT *child_element = current->e.c->contents.list[i];
           if (!(!(type_data[child_element->type].flags & TF_text)
