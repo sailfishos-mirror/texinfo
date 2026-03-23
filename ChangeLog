@@ -1,5 +1,11 @@
 2026-03-23 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c (html_convert_tree_append),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert): different message for
+	ignored text type and other ignored types and commands.
+
+2026-03-23 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_prepare_converter.c (html_converter_customize):
 	set ignored types for css conversion too.  This is not needed when
 	called from Perl XS, but necessary for ctexi2any.

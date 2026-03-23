@@ -1354,7 +1354,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
         {
           if (self->conf->DEBUG.o.integer > 0)
             {
-              fprintf (stderr, "IGNORED %s\n", command_type.text);
+              fprintf (stderr, "IGNORE TEXT %s\n", command_type.text);
             }
           goto out;
         }
