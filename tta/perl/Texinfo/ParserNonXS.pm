@@ -1788,34 +1788,35 @@ sub _close_container($$$) {
     _pop_context($self, ['ct_paragraph'], $source_info, $current);
   }
 
-  # remove element without contents nor associated information
-  my $element_to_remove;
-  if (_is_container_empty($current)) {
-    print STDERR "CONTAINER EMPTY "
-      .Texinfo::Common::debug_print_element($current, 1)
-      .' ('.(exists($current->{'source_marks'})
-            ? scalar(@{$current->{'source_marks'}}) : 0)." source marks)\n"
-        if ($self->{'conf'}->{'DEBUG'});
-    # Keep the element only if there are source marks
-    if (!exists($current->{'source_marks'})) {
-      $element_to_remove = $current;
-    }
+  # keep the element if not empty
+  if (!_is_container_empty($current)) {
+    return $current->{'parent'};
   }
+
+  print STDERR "CONTAINER EMPTY "
+    .Texinfo::Common::debug_print_element($current, 1)
+    .' ('.(exists($current->{'source_marks'})
+          ? scalar(@{$current->{'source_marks'}}) : 0)." source marks)\n"
+      if ($self->{'conf'}->{'DEBUG'});
+
+  # Keep the element if there are source marks
+  if (exists($current->{'source_marks'})) {
+    return $current->{'parent'};
+  }
+
+  my $element_to_remove = $current;
   $current = $current->{'parent'};
 
-  if ($element_to_remove
-      # FIXME check if this is needed
-      # this is to avoid removing empty containers in args,
-      # happens with brace commands not closed at the end of
-      # a manual
-      and exists($current->{'contents'})
-      and scalar(@{$current->{'contents'}})
-      and $current->{'contents'}->[-1] eq $element_to_remove) {
-    print STDERR "REMOVE empty type "
-      .Texinfo::Common::debug_print_element($element_to_remove, 1)."\n"
-        if ($self->{'conf'}->{'DEBUG'});
-    _pop_element_from_contents($self, $current);
-  }
+  #if (!exists($current->{'contents'})
+  #    or $current->{'contents'}->[-1] ne $element_to_remove) {
+  #  die "BUG close_container: unexpected removed not last child";
+  #}
+
+  print STDERR "REMOVE empty type "
+    .Texinfo::Common::debug_print_element($element_to_remove, 1)."\n"
+      if ($self->{'conf'}->{'DEBUG'});
+  _pop_element_from_contents($self, $current);
+
   return $current;
 }
 

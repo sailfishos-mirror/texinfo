@@ -216,7 +216,8 @@ remove_empty_content (ELEMENT *current)
 ELEMENT *
 close_container (ELEMENT *current)
 {
-  ELEMENT *element_to_remove = 0;
+  int source_marks_nr = 0;
+  ELEMENT *element_to_remove;
 
   remove_empty_content (current);
 
@@ -224,43 +225,28 @@ close_container (ELEMENT *current)
     if (pop_context () != ct_paragraph)
       fatal ("paragraph context expected");
 
-  /* remove element without contents nor associated information */
-  if (is_container_empty (current))
-    {
-      int source_marks_nr = 0;
-      if (current->source_mark_list)
-        source_marks_nr = current->source_mark_list->number;
-      debug_nonl ("CONTAINER EMPTY ");
-      debug_parser_print_element (current, 1);
-      debug_nonl (" (%d source marks)", source_marks_nr); debug ("");
+  /* keep the element if not empty */
+  if (! is_container_empty (current))
+    return current->e.c->parent;
 
-      /* Keep the element only if there are source marks */
-      if (!current->source_mark_list)
-        element_to_remove = current;
-    }
-   /* not in Perl. Add?
-  else
-    {
-      debug_nonl ("CLOSE CONTAINER ");
-      debug_parser_print_element (current, 1);
-      debug ("");
-    }
-    */
+  if (current->source_mark_list)
+    source_marks_nr = current->source_mark_list->number;
+  debug_nonl ("CONTAINER EMPTY ");
+  debug_parser_print_element (current, 1);
+  debug_nonl (" (%d source marks)", source_marks_nr); debug ("");
 
+  /* Keep the element if there are source marks */
+  if (current->source_mark_list)
+    return current->e.c->parent;
+
+  element_to_remove = current;
   current = current->e.c->parent;
-  if (element_to_remove)
-    {
-      ELEMENT *last_child = last_contents_child (current);
-      /* this is to avoid removing empty containers in args,
-         happens with brace commands not closed at the end of
-         a manual */
-      if (last_child == element_to_remove)
-        {
-          debug_nonl ("REMOVE empty type ");
-          debug_parser_print_element (last_child, 1); debug ("");
-          destroy_element (pop_element_from_contents (current));
-        }
-    }
+
+  debug_nonl ("REMOVE empty type ");
+  debug_parser_print_element (element_to_remove, 1); debug ("");
+
+  destroy_element (pop_element_from_contents (current));
+
   return current;
 }
 
