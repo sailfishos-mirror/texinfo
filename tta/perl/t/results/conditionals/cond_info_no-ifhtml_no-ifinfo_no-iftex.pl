@@ -179,7 +179,7 @@ $result_tree_text{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = '*document_root C5
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

@@ -49,7 +49,7 @@ $result_tree_text{'text_before_top_and_summarycontents_after_title'} = '*documen
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
 ';
 

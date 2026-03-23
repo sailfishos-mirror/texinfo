@@ -90,14 +90,14 @@ $result_tree_text{'custom_headings'} = '*document_root C8
   {empty_line:\\n}
   *@page C1
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {after ch--ap first page\\n}
   {empty_line:\\n}
   *@page C1
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {after ch--ap second page\\n}
@@ -134,14 +134,14 @@ $result_tree_text{'custom_headings'} = '*document_root C8
   {empty_line:\\n}
   *@page C1
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {after everyheading before chap 3 first page\\n}
   {empty_line:\\n}
   *@page C1
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {after everyheading before chap 3 second page\\n}
@@ -159,7 +159,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
   {empty_line:\\n}
   *@page C1
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@everyfooting C1 l37
    *line_arg C9

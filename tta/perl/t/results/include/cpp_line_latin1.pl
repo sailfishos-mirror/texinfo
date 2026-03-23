@@ -60,7 +60,7 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

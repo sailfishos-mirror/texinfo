@@ -81,7 +81,7 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
      {still not closed\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

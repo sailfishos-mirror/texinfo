@@ -560,7 +560,7 @@ $result_tree_text{'encoding_index_utf8'} = '*document_root C5
     {spaces_after_argument:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

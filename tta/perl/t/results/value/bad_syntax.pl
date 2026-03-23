@@ -10,10 +10,10 @@ $result_tree_text{'bad_syntax'} = '*document_root C1
   {empty_line:\\n}
   *@set C1
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   *@set C1
    *line_arg C1
-    {spaces_after_argument: \\n}
+    {spaces_before_argument: \\n}
   *@set C1
    *line_arg C3
     {spaces_before_argument: }

@@ -98,7 +98,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
       {spaces_after_argument:\\n}
     *@page C1
      *line_arg C1
-      {spaces_after_argument:\\n}
+      {spaces_before_argument:\\n}
     *@c C1
      *line_arg C3
       {spaces_before_argument: }
@@ -106,7 +106,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
       {spaces_after_argument:\\n}
     *@page C1
      *line_arg C1
-      {spaces_after_argument:\\n}
+      {spaces_before_argument:\\n}
     *@vskip C1
      *line_arg C3
       {spaces_before_argument: }
@@ -116,7 +116,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
     |EXTRA
     |global_command_number:{1}
      *line_arg C1
-      {spaces_after_argument:\\n}
+      {spaces_before_argument:\\n}
     *@end C1 l23
     |EXTRA
     |text_arg:{titlepage}

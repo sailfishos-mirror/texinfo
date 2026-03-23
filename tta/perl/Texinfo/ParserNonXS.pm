@@ -3040,7 +3040,7 @@ sub _lookup_macro_parameter($$) {
 
 # $MACRO is a member of $self->{'macros'}.
 sub _expand_macro_body($$$$) {
-  my ($self, $macro, $args, $source_info) = @_;
+  my ($self, $macro, $arguments, $source_info) = @_;
 
   my $macrobody = $macro->{'macrobody'};
 
@@ -3056,12 +3056,14 @@ sub _expand_macro_body($$$$) {
         my $arg = $1;
         my $formal_arg_index = _lookup_macro_parameter($macro, $arg);
         if (defined($formal_arg_index)) {
-          if ($args and scalar(@$args) and $formal_arg_index < scalar(@$args)
-              and exists($args->[$formal_arg_index])
+          if (defined($arguments)
+              and exists($arguments->{'contents'})
+              and $formal_arg_index < scalar(@{$arguments->{'contents'}})
               # TODO probably not needed
-              and exists($args->[$formal_arg_index]->{'contents'})) {
+              and exists($arguments->{'contents'}->[$formal_arg_index]
+                                                  ->{'contents'})) {
             my ($argument, $surplus) = Texinfo::Common::simple_arg_text(
-                                             $args->[$formal_arg_index]);
+                             $arguments->{'contents'}->[$formal_arg_index]);
             $result .= $argument;
           }
         } else {
@@ -5481,7 +5483,7 @@ sub _handle_macro($$$$$$) {
 
   my $expanded = _expand_macro_body($self,
                             $self->{'macros'}->{$command},
-                            $macro_call_element->{'contents'}, $source_info);
+                            $macro_call_element, $source_info);
 
   my $expanded_macro_text;
   if (defined($expanded)) {
@@ -6060,7 +6062,7 @@ sub _handle_line_command($$$$$$) {
       if ($command ne 'c' and $command ne 'comment'
           and $text_element->{'text'} !~ /\S/) {
         # nothing else than spaces.  Reuse the text element as space element.
-        $text_element->{'type'} = 'spaces_after_argument';
+        $text_element->{'type'} = 'spaces_before_argument';
       # note the condition on command args number, as we do not
       # want lineraw commands with argument that did not have a
       # comment detected by _parse_rawline_command to contain comments.

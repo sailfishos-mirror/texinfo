@@ -27,7 +27,7 @@ $result_tree_text{'insert_copying_and_paragraph'} = '*document_root C1
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
 ';
 
 

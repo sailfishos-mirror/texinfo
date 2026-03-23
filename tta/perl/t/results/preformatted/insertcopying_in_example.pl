@@ -15,7 +15,7 @@ $result_tree_text{'insertcopying_in_example'} = '*document_root C1
    |EXTRA
    |global_command_number:{1}
     *line_arg C1
-     {spaces_after_argument:\\n}
+     {spaces_before_argument:\\n}
    *preformatted C1
     {text\\n}
    *@end C1 l4

@@ -43,12 +43,12 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document
     {empty_line:\\n}
     *@page C1
      *line_arg C1
-      {spaces_after_argument:\\n}
+      {spaces_before_argument:\\n}
     *@insertcopying C1 l9
     |EXTRA
     |global_command_number:{1}
      *line_arg C1
-      {spaces_after_argument:\\n}
+      {spaces_before_argument:\\n}
     *@end C1 l10
     |EXTRA
     |text_arg:{titlepage}
@@ -111,7 +111,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document
   |EXTRA
   |global_command_number:{2}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@pxref C1 l22

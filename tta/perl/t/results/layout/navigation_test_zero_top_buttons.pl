@@ -207,11 +207,11 @@ $result_tree_text{'navigation_test_zero_top_buttons'} = '*document_root C10
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

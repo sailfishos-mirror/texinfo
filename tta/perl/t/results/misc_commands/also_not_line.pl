@@ -13,7 +13,7 @@ $result_tree_text{'also_not_line'} = '*document_root C1
    {page }
   *@page C1
    *line_arg C1
-    {spaces_after_argument: \\n}
+    {spaces_before_argument: \\n}
   *paragraph C6
    {noindent }
    *@noindent l4
@@ -42,7 +42,7 @@ $result_tree_text{'also_not_line'} = '*document_root C1
     {spaces_after_argument:\\n}
   *@page C1
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   *paragraph C1
    {After page on its own line.\\n}
   {empty_line:\\n}
@@ -50,7 +50,7 @@ $result_tree_text{'also_not_line'} = '*document_root C1
    {page }
   *@page C1
    *line_arg C1
-    {spaces_after_argument:   \\n}
+    {spaces_before_argument:   \\n}
   *paragraph C8
    {noindent }
    *@noindent l15
@@ -79,7 +79,7 @@ $result_tree_text{'also_not_line'} = '*document_root C1
    {vskip }
    *@vskip C1
     *line_arg C1
-     {spaces_after_argument: \\n}
+     {spaces_before_argument: \\n}
   {empty_line:\\n}
   *paragraph C1
    {exdent }

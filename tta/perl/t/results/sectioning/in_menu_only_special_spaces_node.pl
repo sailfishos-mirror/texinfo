@@ -238,7 +238,7 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

@@ -84,7 +84,7 @@ $result_tree_text{'contents_in_middle_chapter_separate_element'} = '*document_ro
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@menu C3 contents_in_middle_chapter.texi:l18
    *arguments_line C1
@@ -135,7 +135,7 @@ $result_tree_text{'contents_in_middle_chapter_separate_element'} = '*document_ro
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

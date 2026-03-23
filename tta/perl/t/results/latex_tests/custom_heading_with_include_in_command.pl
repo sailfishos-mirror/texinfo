@@ -55,7 +55,7 @@ $result_tree_text{'custom_heading_with_include_in_command'} = '*document_root C2
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
  *@node C1 l9 {in main}
  |EXTRA

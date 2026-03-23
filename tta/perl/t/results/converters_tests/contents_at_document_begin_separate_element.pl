@@ -15,7 +15,7 @@ $result_tree_text{'contents_at_document_begin_separate_element'} = '*document_ro
    |EXTRA
    |global_command_number:{1}
     *line_arg C1
-     {spaces_after_argument:\\n}
+     {spaces_before_argument:\\n}
    {empty_line:\\n}
  *@node C1 contents_at_document_begin.texi:l5 {Top}
  |EXTRA
@@ -89,7 +89,7 @@ $result_tree_text{'contents_at_document_begin_separate_element'} = '*document_ro
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

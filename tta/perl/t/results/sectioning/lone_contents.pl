@@ -12,7 +12,7 @@ $result_tree_text{'lone_contents'} = '*document_root C1
    |EXTRA
    |global_command_number:{1}
     *line_arg C1
-     {spaces_after_argument:\\n}
+     {spaces_before_argument:\\n}
 ';
 
 

@@ -183,7 +183,7 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

@@ -140,7 +140,7 @@ $result_tree_text{'contents_in_middle_section_separate_element'} = '*document_ro
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
  *@node C1 contents_in_middle_section.texi:l27 {section1}
  |EXTRA
@@ -168,7 +168,7 @@ $result_tree_text{'contents_in_middle_section_separate_element'} = '*document_ro
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

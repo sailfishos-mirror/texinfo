@@ -36,7 +36,7 @@ $result_tree_text{'contents'} = '*document_root C1
   |EXTRA
   |global_command_number:{3}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   *paragraph C2
    {Line following contents\\n}
    {shortcontents }

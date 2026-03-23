@@ -21,7 +21,7 @@ $result_tree_text{'bye_on_end_command_line'} = '*document_root C2
      {cartouche}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

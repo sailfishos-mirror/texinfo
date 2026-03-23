@@ -250,7 +250,7 @@ $result_tree_text{'index_no_node'} = '*document_root C7
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

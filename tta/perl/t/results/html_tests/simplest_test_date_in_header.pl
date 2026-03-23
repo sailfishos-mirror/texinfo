@@ -29,7 +29,7 @@ $result_tree_text{'simplest_test_date_in_header'} = '*document_root C3
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

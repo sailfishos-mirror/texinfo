@@ -12,7 +12,7 @@ $result_tree_text{'top_node_top_contents'} = '*document_root C3
    |EXTRA
    |global_command_number:{1}
     *line_arg C1
-     {spaces_after_argument:\\n}
+     {spaces_before_argument:\\n}
    {empty_line:\\n}
  *@node C1 l3 {Top}
  |EXTRA

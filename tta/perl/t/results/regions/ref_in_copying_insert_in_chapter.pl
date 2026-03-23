@@ -73,7 +73,7 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l13
    *arguments_line C1

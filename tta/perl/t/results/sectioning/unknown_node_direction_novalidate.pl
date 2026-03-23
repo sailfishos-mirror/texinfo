@@ -9,7 +9,7 @@ $result_tree_text{'unknown_node_direction_novalidate'} = '*document_root C2
  *before_node_section C2
   *@novalidate C1 l1
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
  *@node C1 l3 {one arg2}
  |EXTRA

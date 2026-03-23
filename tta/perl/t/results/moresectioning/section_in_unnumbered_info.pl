@@ -34,7 +34,7 @@ $result_tree_text{'section_in_unnumbered_info'} = '*document_root C65
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *paragraph C1
    {Menu:\\n}

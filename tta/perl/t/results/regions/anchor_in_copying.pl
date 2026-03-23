@@ -61,13 +61,13 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@insertcopying C1 l15
   |EXTRA
   |global_command_number:{2}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
    *@xref C1 l17

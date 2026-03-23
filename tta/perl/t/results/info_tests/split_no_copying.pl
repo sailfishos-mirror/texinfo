@@ -89,7 +89,7 @@ $result_tree_text{'split_no_copying'} = '*document_root C7
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
  *postamble_after_end C1
   {text_after_end:\\n}
 ';

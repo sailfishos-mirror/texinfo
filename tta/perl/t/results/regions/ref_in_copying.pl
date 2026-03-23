@@ -52,7 +52,7 @@ $result_tree_text{'ref_in_copying'} = '*document_root C5
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l10
    *arguments_line C1

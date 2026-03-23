@@ -148,7 +148,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@menu C3 l31
    *arguments_line C1
@@ -199,12 +199,12 @@ $result_tree_text{'float_copying'} = '*document_root C5
   |EXTRA
   |global_command_number:{2}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   *@insertcopying C1 l39
   |EXTRA
   |global_command_number:{3}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@listoffloats C1 l41
   |EXTRA

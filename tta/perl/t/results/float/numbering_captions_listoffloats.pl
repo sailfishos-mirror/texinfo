@@ -1144,7 +1144,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
  *postamble_after_end C2
   {text_after_end:\\n}
   {text_after_end:\\n}

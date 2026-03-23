@@ -601,7 +601,7 @@ $result_tree_text{'nodes_before_top_and_sections_chapter'} = '*document_root C13
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

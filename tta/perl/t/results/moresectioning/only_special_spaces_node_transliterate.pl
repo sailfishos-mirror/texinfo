@@ -162,7 +162,7 @@ $result_tree_text{'only_special_spaces_node_transliterate'} = '*document_root C1
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

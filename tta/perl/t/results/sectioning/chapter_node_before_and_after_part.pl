@@ -88,7 +88,7 @@ $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
 ';
 
 

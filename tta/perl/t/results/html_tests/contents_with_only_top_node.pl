@@ -25,7 +25,7 @@ $result_tree_text{'contents_with_only_top_node'} = '*document_root C2
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
 ';
 
 

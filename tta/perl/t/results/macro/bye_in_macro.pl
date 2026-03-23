@@ -32,7 +32,7 @@ $result_tree_text{'bye_in_macro'} = '*document_root C3
     >*macro_call@byeinmacro
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
  *postamble_after_end C5
   {text_after_end:\\n}
   {text_after_end:after bye}

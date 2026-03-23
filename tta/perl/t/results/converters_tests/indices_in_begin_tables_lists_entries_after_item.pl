@@ -845,7 +845,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

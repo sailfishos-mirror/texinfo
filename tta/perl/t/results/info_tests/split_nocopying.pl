@@ -85,7 +85,7 @@ $result_tree_text{'split_nocopying'} = '*document_root C6
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

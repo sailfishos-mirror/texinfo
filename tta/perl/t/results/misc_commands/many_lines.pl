@@ -289,14 +289,14 @@ $result_tree_text{'many_lines'} = '*document_root C1
    {Text line followed by finalout on the same line and another below }
    *@finalout C1
     *line_arg C1
-     {spaces_after_argument:\\n}
+     {spaces_before_argument:\\n}
    *@finalout C1
     *line_arg C1
-     {spaces_after_argument:\\n}
+     {spaces_before_argument:\\n}
    {Text line after the finalout followed by a fianlout }
    *@finalout C1
     *line_arg C1
-     {spaces_after_argument:\\n}
+     {spaces_before_argument:\\n}
    {Text line after the text line followed by the finalout.\\n}
   {empty_line:\\n}
   *paragraph C3

@@ -14,7 +14,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
    |EXTRA
    |global_command_number:{1}
     *line_arg C1
-     {spaces_after_argument:\\n}
+     {spaces_before_argument:\\n}
    {empty_line:\\n}
  *@node C1 l4 {Top}
  |EXTRA

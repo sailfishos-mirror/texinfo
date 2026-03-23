@@ -102,7 +102,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@float C5 l22
   |EXTRA

@@ -138,7 +138,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   {empty_line:\\n}
   *@lowersections C1
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >expanded_conditional_command<start;2><p:1>
@@ -348,7 +348,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
      >{spaces_after_argument:\\n}
   *@raisesections C1
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@clear C1
   |EXTRA
@@ -386,10 +386,10 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

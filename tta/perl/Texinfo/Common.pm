@@ -620,7 +620,7 @@ sub non_leading_trailing_indices($) {
       return undef, undef;
     }
     my $end_idx = scalar(@{$tree->{'contents'}}) - 1;
-    while (1) {
+    while ($end_idx > 0) {
       my $content = $tree->{'contents'}->[$end_idx];
       if (exists($content->{'type'})
           and $content->{'type'} eq 'spaces_after_argument') {

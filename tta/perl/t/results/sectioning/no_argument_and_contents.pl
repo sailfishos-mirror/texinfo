@@ -12,7 +12,7 @@ $result_tree_text{'no_argument_and_contents'} = '*document_root C3
    |EXTRA
    |global_command_number:{1}
     *line_arg C1
-     {spaces_after_argument:\\n}
+     {spaces_before_argument:\\n}
    {empty_line:\\n}
  *@top C2 l3 {for example}
  |EXTRA

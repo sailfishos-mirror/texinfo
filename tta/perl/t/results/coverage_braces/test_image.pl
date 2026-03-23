@@ -296,7 +296,7 @@ $result_tree_text{'test_image'} = '*document_root C3
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@example C3 l20
    *arguments_line C1

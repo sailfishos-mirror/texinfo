@@ -679,7 +679,7 @@ $result_tree_text{'index_split'} = '*document_root C21
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

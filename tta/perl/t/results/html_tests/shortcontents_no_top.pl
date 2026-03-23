@@ -44,7 +44,7 @@ $result_tree_text{'shortcontents_no_top'} = '*document_root C4
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
 ';
 
 

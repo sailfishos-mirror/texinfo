@@ -107,7 +107,7 @@ $result_tree_text{'reference_to_only_special_spaces_node_transliterate'} = '*doc
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

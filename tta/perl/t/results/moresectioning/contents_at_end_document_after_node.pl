@@ -83,7 +83,7 @@ $result_tree_text{'contents_at_end_document_after_node'} = '*document_root C5
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
 ';
 
 

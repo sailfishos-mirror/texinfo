@@ -40,7 +40,7 @@ $result_tree_text{'empty_lines_at_beginning_no_setfilename'} = '*document_root C
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

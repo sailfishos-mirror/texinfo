@@ -83,7 +83,7 @@ $result_tree_text{'no_content_do_contents_inline'} = '*document_root C6
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

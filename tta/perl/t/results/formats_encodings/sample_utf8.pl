@@ -72,7 +72,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
       {spaces_after_argument:\\n}
     *@page C1
      *line_arg C1
-      {spaces_after_argument:\\n}
+      {spaces_before_argument:\\n}
     *paragraph C2
      {Texinfo中文示例\\n}
      *@vskip C1
@@ -84,7 +84,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
     |EXTRA
     |global_command_number:{1}
      *line_arg C1
-      {spaces_after_argument:\\n}
+      {spaces_before_argument:\\n}
     *@end C1 sample_utf8.texi:l21
     |EXTRA
     |text_arg:{titlepage}
@@ -102,7 +102,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |EXTRA
    |global_command_number:{1}
     *line_arg C1
-     {spaces_after_argument:\\n}
+     {spaces_before_argument:\\n}
    {empty_line:\\n}
    >SOURCEMARKS
    >expanded_conditional_command<start;1><p:1>
@@ -143,7 +143,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      >{ifnottex}
      >{spaces_after_argument:\\n}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@menu C5 sample_utf8.texi:l33
    *arguments_line C1
@@ -335,7 +335,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

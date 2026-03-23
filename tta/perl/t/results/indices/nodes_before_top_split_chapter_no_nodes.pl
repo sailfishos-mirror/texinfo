@@ -475,7 +475,7 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

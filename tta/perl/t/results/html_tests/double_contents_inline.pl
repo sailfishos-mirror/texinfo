@@ -15,7 +15,7 @@ $result_tree_text{'double_contents_inline'} = '*document_root C8
    |EXTRA
    |global_command_number:{1}
     *line_arg C1
-     {spaces_after_argument:\\n}
+     {spaces_before_argument:\\n}
    {empty_line:\\n}
  *@node C1 double_contents.texi:l5 {Top}
  |EXTRA
@@ -88,7 +88,7 @@ $result_tree_text{'double_contents_inline'} = '*document_root C8
   |EXTRA
   |global_command_number:{2}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   *paragraph C1
    {The chapter\\n}
   {empty_line:\\n}
@@ -139,11 +139,11 @@ $result_tree_text{'double_contents_inline'} = '*document_root C8
   |EXTRA
   |global_command_number:{3}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

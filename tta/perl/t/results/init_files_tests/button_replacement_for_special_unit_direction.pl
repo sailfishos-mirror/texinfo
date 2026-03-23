@@ -12,7 +12,7 @@ $result_tree_text{'button_replacement_for_special_unit_direction'} = '*document_
    |EXTRA
    |global_command_number:{1}
     *line_arg C1
-     {spaces_after_argument:\\n}
+     {spaces_before_argument:\\n}
    {empty_line:\\n}
  *@node C1 l3 {Top}
  |EXTRA

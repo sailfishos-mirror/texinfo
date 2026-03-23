@@ -311,7 +311,7 @@ $result_tree_text{'char_utf8_latin1_in_refs'} = '*document_root C14
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

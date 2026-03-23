@@ -207,7 +207,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@documentlanguage C1 l23
   |EXTRA
@@ -284,7 +284,7 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
   |EXTRA
   |global_command_number:{2}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 l31
   |EXTRA

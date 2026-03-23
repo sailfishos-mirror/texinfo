@@ -875,7 +875,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                         (text_element->e.text->text, whitespace_chars)])
             {
   /* nothing else than spaces.  Reuse the text element as space element. */
-              text_element->type = ET_spaces_after_argument;
+              text_element->type = ET_spaces_before_argument;
             }
           else
             {

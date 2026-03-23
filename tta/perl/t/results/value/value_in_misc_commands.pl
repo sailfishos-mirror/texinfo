@@ -128,7 +128,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     {spaces_after_argument:\\n}
   *@afourpaper C1 l19
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
     >SOURCEMARKS
     >value_expansion<end;4>
   *@headings C1 l20
@@ -219,7 +219,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     {spaces_after_argument:\\n}
   *@raisesections C1
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
     >SOURCEMARKS
     >value_expansion<end;9>
   *@set C1
@@ -236,7 +236,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     {spaces_after_argument:\\n}
   *@lowersections C1
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
     >SOURCEMARKS
     >value_expansion<end;10>
   {empty_line:\\n}
@@ -890,7 +890,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     {spaces_after_argument:\\n}
   *@page C1
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   *paragraph C1
    {After page on it\'s own line.\\n}
   {empty_line:\\n}
@@ -926,7 +926,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
     >SOURCEMARKS
     >value_expansion<end;38>
   {empty_line:\\n}
@@ -1004,7 +1004,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   |EXTRA
   |global_command_number:{2}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
     >SOURCEMARKS
     >value_expansion<end;41>
   {empty_line:\\n}
@@ -1024,7 +1024,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
     >SOURCEMARKS
     >value_expansion<end;42>
   {empty_line:\\n}
@@ -1043,7 +1043,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
      >{bye_macro}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:}
+   {spaces_before_argument:}
    >SOURCEMARKS
    >value_expansion<end;43>
 ';

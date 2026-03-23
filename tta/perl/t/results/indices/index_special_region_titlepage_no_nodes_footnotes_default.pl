@@ -136,7 +136,7 @@ $result_tree_text{'index_special_region_titlepage_no_nodes_footnotes_default'} =
     |EXTRA
     |global_command_number:{1}
      *line_arg C1
-      {spaces_after_argument:\\n}
+      {spaces_before_argument:\\n}
     *@end C1 index_special_region.texi:l31
     |EXTRA
     |text_arg:{titlepage}
@@ -184,7 +184,7 @@ $result_tree_text{'index_special_region_titlepage_no_nodes_footnotes_default'} =
   |EXTRA
   |global_command_number:{2}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *paragraph C6
    {This test demonstrates }
@@ -377,7 +377,7 @@ $result_tree_text{'index_special_region_titlepage_no_nodes_footnotes_default'} =
   |EXTRA
   |global_command_number:{3}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 index_special_region.texi:l76
   |EXTRA
@@ -400,10 +400,10 @@ $result_tree_text{'index_special_region_titlepage_no_nodes_footnotes_default'} =
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

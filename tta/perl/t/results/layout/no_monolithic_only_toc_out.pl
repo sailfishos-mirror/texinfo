@@ -102,12 +102,12 @@ $result_tree_text{'no_monolithic_only_toc_out'} = '*document_root C6
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   *@shortcontents C1 no_monolithic.texi:l20
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
   {empty_line:\\n}
   *@printindex C1 no_monolithic.texi:l22
   |EXTRA
@@ -119,7 +119,7 @@ $result_tree_text{'no_monolithic_only_toc_out'} = '*document_root C6
     {spaces_after_argument:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

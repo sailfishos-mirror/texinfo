@@ -153,7 +153,7 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
     |EXTRA
     |global_command_number:{1}
      *line_arg C1
-      {spaces_after_argument:\\n}
+      {spaces_before_argument:\\n}
     *@end C1 index_special_region_no_insertcopying.texi:l34
     |EXTRA
     |text_arg:{titlepage}
@@ -399,10 +399,10 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
-    {spaces_after_argument:\\n}
+    {spaces_before_argument:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 

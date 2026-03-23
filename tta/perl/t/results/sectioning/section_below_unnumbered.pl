@@ -14,7 +14,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
    |EXTRA
    |global_command_number:{1}
     *line_arg C1
-     {spaces_after_argument:\\n}
+     {spaces_before_argument:\\n}
    {empty_line:\\n}
  *@node C1 l4 {Top}
  |EXTRA
@@ -131,7 +131,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
   {empty_line:\\n}
  *@bye C1
   *line_arg C1
-   {spaces_after_argument:\\n}
+   {spaces_before_argument:\\n}
 ';
 
 
