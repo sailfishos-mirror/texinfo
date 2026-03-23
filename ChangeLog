@@ -1,5 +1,11 @@
 2026-03-23 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ParserNonXS.pm (_is_container_empty): do not check
+	info value, and avoid checking contents for text elements, with same
+	code as in C.
+
+2026-03-23 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/close.c (remove_empty_content),
 	tta/perl/Texinfo/ParserNonXS.pm (_remove_empty_content): remove the
 	empty element, which could theoretically be before comments and

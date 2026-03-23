@@ -1731,9 +1731,11 @@ sub _end_paragraph_preformatted($$$;$$) {
 sub _is_container_empty($) {
   my $current = shift;
 
-  if (not exists($current->{'contents'})
-      and (not exists($current->{'text'}) or $current->{'text'} eq '')
-      and not exists($current->{'info'})) {
+  if (exists($current->{'text'})) {
+    if ($current->{'text'} eq '') {
+      return 1;
+    }
+  } elsif (not exists($current->{'contents'})) {
     return 1;
   }
   return 0;
