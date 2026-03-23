@@ -401,7 +401,7 @@ foreach my $type ('empty_line', 'ignorable_spaces_after_command',
 
 # To keep in sync with XS main/element_types.txt trailing_space flag
 my %trailing_space_types;
-foreach my $type ('ignorable_spaces_before_command', 'empty_line') {
+foreach my $type ('empty_line') {
   $trailing_space_types{$type} = 1;
 }
 
@@ -3260,15 +3260,8 @@ sub _isolate_leading_trailing($$;$) {
 
   return if (!exists($current->{'contents'}));
 
-  # $current->{'type'} is always set, to line_arg, block_line_arg,
-  # brace_container, brace_arg, bracketed_arg or menu_entry_node
-
-  #my $debug_str;
-  #if ($self->{'conf'}->{'DEBUG'}) {
-  #  $debug_str = 'b '.Texinfo::Common::debug_print_element($current, 1).'; c ';
-  #  $debug_str .=
-  #     Texinfo::Common::debug_print_element($current->{'contents'}->[-1]);
-  #}
+  # $current is a container element of type line_arg, block_line_arg,
+  # brace_arg, bracketed_arg
 
   my $content_len = scalar(@{$current->{'contents'}});
   for (my $i = 0; $i < $content_len; $i++) {
@@ -3303,13 +3296,14 @@ sub _isolate_leading_trailing($$;$) {
         return;
       }
       if ($last_element->{'text'} !~ /\S/) {
-        # FIXME not sure about all the trailing_space_types; empty_line
-        # is good to keep
+        # keep some special spaces as is when they carry an interesting
+        # information and should not be ignored in most cases as
+        # spaces_after_argument is
         if (!defined($e_type) or !$trailing_space_types{$e_type}) {
           $last_element->{'type'} = 'spaces_after_argument';
         } else {
-          #print STDERR "NOT ISOLATING SPACES ONLY $debug_str\n"
-          #  if ($self->{'conf'}->{'DEBUG'});
+          print STDERR "NOT ISOLATING SPACES ONLY $i $e_type\n"
+            if ($self->{'conf'}->{'DEBUG'});
         }
       } else {
         my $new_space_element
@@ -7731,7 +7725,8 @@ sub _process_remaining_on_line($$$$) {
         # the final tree.
         and _is_index_element($self, $current->{'parent'})) {
       if ($command eq 'subentry') {
-        _isolate_trailing_space($current, 'ignorable_spaces_before_command');
+        # isolate spaces appearing before the @subentry
+        _isolate_trailing_space($current, 'spaces_after_argument');
       } else {
         # an internal and temporary space type that is converted to
         # a normal space without type if followed by text or a
@@ -9111,11 +9106,6 @@ Spaces appearing after an @-command without braces that does not
 take argument on the line, but which is followed by ignorable
 spaces, such as C<@item> in C<@itemize> or C<@multitable>, or C<@noindent>.
 
-=item ignorable_spaces_before_command
-
-Spaces appearing before an @-command that are ignorable.  For example
-spaces appearing before a C<@subentry> on an index command line.
-
 =item bracketed_linemacro_arg
 
 Text of the argument of a user defined linemacro call in bracket.  It does not
@@ -9149,7 +9139,8 @@ this space should be ignorable (like C<@caption> or C<@sortas>).
 =item spaces_after_argument text
 
 Spaces after @-command arguments before a comma, a closing brace or at end of
-line.
+line and spaces appearing before an @-command that are ignorable (spaces
+appearing before a C<@subentry> on an index command line).
 
 =item spaces_after_cmd_before_arg text
 

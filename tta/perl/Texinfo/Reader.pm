@@ -59,7 +59,6 @@ our %token_category_name = (
 my %ignorable_text_types;
 foreach my $text_type (
             'ignorable_spaces_after_command',
-            'ignorable_spaces_before_command',
             'spaces_after_close_brace',
             'spaces_at_end',
             #'text_after_end',
@@ -67,7 +66,7 @@ foreach my $text_type (
             'spaces_after_argument',
             'spaces_after_cmd_before_arg',
             'spaces_before_argument',
-  ) {
+    ) {
   $ignorable_text_types{$text_type} = 1;
 }
 

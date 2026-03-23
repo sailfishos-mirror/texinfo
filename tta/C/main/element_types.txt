@@ -62,7 +62,6 @@ space_at_end_menu_node                    text
 empty_line                                text,leading_space,trailing_space
 raw                                       text
 ignorable_spaces_after_command            text,leading_space,ignorable_text
-ignorable_spaces_before_command           text,trailing_space,ignorable_text
 spaces_at_end                             text,ignorable_text
 spaces_after_close_brace                  text,leading_space,ignorable_text
 spaces_before_paragraph                   text

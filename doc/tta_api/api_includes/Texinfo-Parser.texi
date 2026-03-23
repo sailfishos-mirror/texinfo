@@ -600,12 +600,6 @@ Spaces appearing after an @@-command without braces that does not
 take argument on the line, but which is followed by ignorable
 spaces, such as @code{@@item} in @code{@@itemize} or @code{@@multitable}, or @code{@@noindent}.
 
-@item ignorable_spaces_before_command
-@anchor{Texinfo@asis{::}Parser ignorable_spaces_before_command}
-
-Spaces appearing before an @@-command that are ignorable.  For example
-spaces appearing before a @code{@@subentry} on an index command line.
-
 @item bracketed_linemacro_arg
 @anchor{Texinfo@asis{::}Parser bracketed_linemacro_arg}
 
@@ -645,7 +639,8 @@ this space should be ignorable (like @code{@@caption} or @code{@@sortas}).
 @anchor{Texinfo@asis{::}Parser spaces_after_argument text}
 
 Spaces after @@-command arguments before a comma, a closing brace or at end of
-line.
+line and spaces appearing before an @@-command that are ignorable (spaces
+appearing before a @code{@@subentry} on an index command line).
 
 @item spaces_after_cmd_before_arg text
 @anchor{Texinfo@asis{::}Parser spaces_after_cmd_before_arg text}

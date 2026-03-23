@@ -1,5 +1,17 @@
 2026-03-23 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/element_types.txt, tta/C/parsetexi/parser.c
+	(process_remaining_on_line), tta/perl/Texinfo/ParserNonXS.pm
+	(%trailing_space_types, _process_remaining_on_line): use
+	spaces_after_argument for ignored spaces before @subentry.  Remove
+	ignorable_spaces_before_command type everywhere.
+
+	* tta/C/parsetexi/parser.c (isolate_leading_trailing),
+	tta/perl/Texinfo/ParserNonXS.pm (_isolate_leading_trailing): add a
+	debugging statement.
+
+2026-03-23 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ParserNonXS.pm (_is_container_empty): do not check
 	info value, and avoid checking contents for text elements, with same
 	code as in C.

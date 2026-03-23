@@ -54,7 +54,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C4
     {spaces_before_argument: }
     {aa}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l7
      *line_arg C3
       {spaces_before_argument: }
@@ -67,7 +67,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C4
     {spaces_before_argument: }
     {ab}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l8
      *line_arg C3
       {spaces_before_argument: }
@@ -80,7 +80,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C4
     {spaces_before_argument: }
     {aa}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l9
      *line_arg C3
       {spaces_before_argument: }
@@ -93,7 +93,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C4
     {spaces_before_argument: }
     {bb}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l10
      *line_arg C3
       {spaces_before_argument: }
@@ -107,12 +107,12 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C4
     {spaces_before_argument: }
     {hhh}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l12
      *line_arg C4
       {spaces_before_argument: }
       {jjj}
-      {ignorable_spaces_before_command: }
+      {spaces_after_argument: }
       *@subentry C1 l12
        *line_arg C3
         {spaces_before_argument: }
@@ -125,7 +125,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C4
     {spaces_before_argument: }
     {hhh}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l13
      *line_arg C3
       {spaces_before_argument: }
@@ -146,7 +146,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C4
     {spaces_before_argument: }
     {hhh}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l15
      *line_arg C3
       {spaces_before_argument: }
@@ -159,7 +159,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C4
     {spaces_before_argument: }
     {hhh}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l16
      *line_arg C1
       {spaces_before_argument: \\n}
@@ -178,17 +178,17 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C4
     {spaces_before_argument: }
     {hhh}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l18
      *line_arg C4
       {spaces_before_argument: }
       {jjj}
-      {ignorable_spaces_before_command: }
+      {spaces_after_argument: }
       *@subentry C1 l18
        *line_arg C4
         {spaces_before_argument: }
         {lll}
-        {ignorable_spaces_before_command: }
+        {spaces_after_argument: }
         *@subentry C1 l18
          *line_arg C3
           {spaces_before_argument: }
@@ -223,12 +223,12 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C4
     {spaces_before_argument: }
     {hhh}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l22
      *line_arg C4
       {spaces_before_argument: }
       {jjj}
-      {ignorable_spaces_before_command: }
+      {spaces_after_argument: }
       *@subentry C1 l22
        *line_arg C3
         {spaces_before_argument: }
@@ -251,7 +251,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
     *@samp C1 l24
      *brace_container C1
       {hhh}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l24
      *line_arg C3
       {spaces_before_argument: }
@@ -266,14 +266,14 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
     *@kbd C1 l25
      *brace_container C1
       {hhh}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l25
      *line_arg C4
       {spaces_before_argument: }
       *@sc C1 l25
        *brace_container C1
         {jjj}
-      {ignorable_spaces_before_command: }
+      {spaces_after_argument: }
       *@subentry C1 l25
        *line_arg C3
         {spaces_before_argument: }
@@ -301,12 +301,12 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C4
     {spaces_before_argument: }
     {hhh}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l27
      *line_arg C4
       {spaces_before_argument: }
       {jjj}
-      {ignorable_spaces_before_command: }
+      {spaces_after_argument: }
       *@subentry C1 l27
       |EXTRA
       |sortas:{A}
@@ -325,12 +325,12 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C4
     {spaces_before_argument: }
     {hhh}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l28
      *line_arg C4
       {spaces_before_argument: }
       {k}
-      {ignorable_spaces_before_command: }
+      {spaces_after_argument: }
       *@subentry C1 l28
        *line_arg C3
         {spaces_before_argument: }
@@ -343,12 +343,12 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    *line_arg C4
     {spaces_before_argument: }
     {hhh}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l29
      *line_arg C4
       {spaces_before_argument: }
       {l}
-      {ignorable_spaces_before_command: }
+      {spaces_after_argument: }
       *@subentry C1 l29
        *line_arg C3
         {spaces_before_argument: }

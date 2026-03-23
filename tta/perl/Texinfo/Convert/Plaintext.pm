@@ -302,13 +302,13 @@ my %upper_case_commands = (
 my %ignorable_space_types;
 foreach my $type (
             'ignorable_spaces_after_command',
-            'ignorable_spaces_before_command',
             'spaces_at_end',
             # not ignored as menu manual formatting is kept as is
             #'space_at_end_menu_node',
             'spaces_after_close_brace',
             'spaces_before_argument',
-            'spaces_after_argument') {
+            'spaces_after_argument'
+    ) {
   $ignorable_space_types{$type} = 1;
 }
 

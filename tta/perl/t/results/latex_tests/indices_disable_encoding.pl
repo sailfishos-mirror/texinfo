@@ -145,7 +145,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
     *@" C1 l17
      *brace_container C1
       {o}
-    {ignorable_spaces_before_command: }
+    {spaces_after_argument: }
     *@subentry C1 l17
     |EXTRA
     |sortas:{a!"@b}

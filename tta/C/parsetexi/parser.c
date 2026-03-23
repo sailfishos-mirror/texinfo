@@ -1131,6 +1131,11 @@ isolate_leading_trailing (ELEMENT *current, int isolate_leading_only)
             {
               if (!(type_data[last_element->type].flags & TF_trailing_space))
                 spaces_element->type = ET_spaces_after_argument;
+              else
+                {
+                  debug ("NOT ISOLATING SPACES ONLY %zu %s", i,
+                                    type_data[last_element->type].name);
+                }
             }
           else
             {
@@ -2448,7 +2453,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         {
           if (cmd == CM_subentry)
             isolate_trailing_space (current,
-                                    ET_ignorable_spaces_before_command);
+                                    ET_spaces_after_argument);
           else
                /* an internal and temporary space type that is converted to
                   a normal space if followed by text or a
