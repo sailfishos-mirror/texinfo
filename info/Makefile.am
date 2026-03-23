@@ -19,9 +19,20 @@
 AUTOMAKE_OPTIONS = 1.16
 
 # Use `ginfo' for building to avoid confusion with the standard `info'
-# target.  Removes the `g' in the install rule before applying any
-# user-specified name transformations.
+# target.  The value of $transfrom is a sed program which removes the
+# `g' in the install rule before applying any user-specified name
+# transformations.  Only build ginfo when a terminal library is available,
+# and when not building tools for cross-compiling.
+if !TOOLS_ONLY
+if HAVE_TERMLIBS
 bin_PROGRAMS = ginfo
+else
+# DOS/Windows don't need TERMLIBS to build Info
+if HOST_IS_WINDOWS
+bin_PROGRAMS = ginfo
+endif
+endif
+endif
 transform = s/ginfo/info/; $(program_transform_name)
 
 AM_CPPFLAGS =                                   \
@@ -34,7 +45,7 @@ AM_CPPFLAGS =                                   \
   -DSYSCONFDIR=\"$(sysconfdir)\"                \
   -DPKGDATADIR=\"$(pkgdatadir)\"
 
-LDADD = $(top_builddir)/gnulib/lib/libgnu.a $(TERMLIBS)
+LDADD = $(top_builddir)/gnulib/lib/libgnu.a
 
 # for various gnulib modules
 LDADD += $(LIBINTL) $(LIBICONV) $(LIBC32CONV) $(LIBUNISTRING) $(LIBTHREAD)
@@ -44,6 +55,8 @@ LDADD += $(HARD_LOCALE_LIB) $(SETLOCALE_NULL_LIB)
 
 # for mbrtowc gnulib module which is brought in indirectly
 LDADD += $(MBRTOWC_LIB)
+
+ginfo_LDADD = $(LDADD) $(TERMLIBS)
 
 # Needed if make has not run in the "gnulib" directory yet
 ../gnulib/lib/libgnu.a:

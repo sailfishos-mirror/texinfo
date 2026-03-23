@@ -1,3 +1,18 @@
+2026-03-22  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Always build info/makedoc when cross-compiling
+
+	* Makefile.am (SUBDIRS) [TOOLS_ONLY]:
+	Always include "info" subdirectory to allow "makedoc" program
+	to be built on "build" system when cross-compiling, even if terminal
+	library is not found on "build".
+	* info/Makefile.am (bin_PROGRAMS): Use HAVE_TERMLIBS conditional to
+	only include "ginfo" if terminal library is found.  Use TOOLS_ONLY
+	not to built "ginfo" if building tools for cross-compiling.
+	(LDADD, ginfo_LDADD): Only use $(TERMLIBS) in ginfo_LDADD.
+	
+	Report and investigation by Manuel Jacob,
+
 2026-03-23 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_html.c (html_convert_tree_append),

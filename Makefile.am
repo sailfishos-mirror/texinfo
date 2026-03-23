@@ -51,15 +51,7 @@ install-tex:
 SUBDIRS =
 if TOOLS_ONLY
   # Build native tools only.
-  SUBDIRS += gnulib/lib install-info tta util
-if HAVE_TERMLIBS
-    SUBDIRS += info
-else
-# DOS/Windows don't need TERMLIBS to build Info
-if HOST_IS_WINDOWS
-  SUBDIRS += info
-endif
-endif
+  SUBDIRS += gnulib/lib info install-info tta util
 else
   # All subdirectories.
   # Do libs first since the C programs depend on it.
@@ -74,9 +66,8 @@ if HOST_IS_WINDOWS
   SUBDIRS += info
 endif
 endif
-  SUBDIRS += install-info po po_document tta Pod-Simple-Texinfo \
-             texindex util doc man
-  SUBDIRS += js
+  SUBDIRS += install-info js po po_document texindex tta Pod-Simple-Texinfo \
+             util doc man
 endif
 
 distclean-local:
