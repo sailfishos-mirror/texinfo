@@ -2946,6 +2946,8 @@ html_converter_customize (CONVERTER *self)
     {
       enum element_type type = ignored_types[l];
       self->type_conversion_function[type].status = FRS_status_ignored;
+      self->css_string_type_conversion_function[type].status
+                                                  = FRS_status_ignored;
     }
 
   for (l = 0; l < TXI_TREE_TYPES_NUMBER; l++)
