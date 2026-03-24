@@ -104,8 +104,9 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in,
 #if no_nulls_in_key
   /* Three levels (primary/secondary/tertiary).  Two bytes per
      collation element at primary, one byte at secondary, one byte
-     at tertiary.  "\x00\x00" between levels. */
-  sort_key_alloc = num_elements * 4 + 4;
+     at tertiary.  "\x01\x01" between primary and secondary level
+     and "\x01" between secondary and tertiary level. */
+  sort_key_alloc = num_elements * 4 + 3;
 #else
   /* Three levels (primary/secondary/tertiary).  Two bytes per
      collation element at primary/secondary, one byte at tertiary.
@@ -162,7 +163,8 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in,
         }
     }
 
-  *psort_key++ = '\x01';
+  /* As we only use a single byte per unit at secondary and tertiary levels,
+     a single byte suffices as a level separator. */
   *psort_key++ = '\x01';
 
   /* Tertiary */
