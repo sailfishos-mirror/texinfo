@@ -146,7 +146,7 @@ main (int argc, char *argv[])
           exit (1);
         }
 
-      sort_key2 = get_collation_key_ext (codepoints, length, trace);
+      sort_key2 = get_collation_key_ext (codepoints, length, 0, trace);
 
       /* We expect that sort_key1 <= sort_key1. */
 #if no_nulls_in_key

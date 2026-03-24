@@ -11,7 +11,8 @@
 #define no_nulls_in_key 1
 
 CollationKey
-get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
+get_collation_key_ext (char32_t *codepoints_in, size_t length_in,
+                       int len_only, int debug)
 {
   char32_t *codepoints;
   size_t length;
@@ -100,19 +101,25 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
   unsigned char *psort_key;
   size_t sort_key_alloc;
 
+  /* Three levels (primary/secondary/tertiary).  Two bytes per
+     collation element at primary/secondary, one byte at tertiary.
+     "\x01\x01" between levels. */
+  sort_key_alloc = num_elements * 5 + 4;
+
+  if (len_only)
+    {
+      CollationKey ret;
+      ret.key = 0;
+      ret.length = sort_key_alloc;
+      return ret;
+    }
+  /* Always include a terminating null byte. */
+  sort_key = malloc (sort_key_alloc + 1);
+  psort_key = sort_key;
+
 #if no_nulls_in_key
   /* Output collation key without any null bytes.
      See UTS#10 s.9.4 "Avoiding Zero Bytes". */
-
-  /* Three levels (primary/secondary/tertiary).  Two bytes per
-     collation element at primary/secondary, one byte at tertiary.
-     "\x01\x01" between levels and one final null. */
-  sort_key_alloc = num_elements * 5 + 4 + 1;
-
-  psort_key = sort_key;
-
-  sort_key = calloc (sort_key_alloc, 1);
-  psort_key = sort_key;
 
   /* Primary */
   for (size_t i = 0; i < elements_count; i++)
@@ -166,18 +173,11 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
           *psort_key++ = weight + 1;
         }
     }
+  *psort_key = '\0';
 
 #else
-
-  /* Three levels (primary/secondary/tertiary).  Two bytes per
-     collation element at primary/secondary, one byte at tertiary.
-     "\x00\x00" between levels and one final null. */
-  sort_key_alloc = num_elements * 5 + 4 + 1;
-
-  psort_key = sort_key;
-
-  sort_key = calloc (sort_key_alloc, 1);
-  psort_key = sort_key;
+  /* Output key that can include nulls.  This is more similar to
+     the keys as decribed by the UTS #10 document. */
 
   /* Primary */
   for (size_t i = 0; i < elements_count; i++)
@@ -216,11 +216,11 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
           *psort_key++ = weight;
         }
     }
+  *psort_key = '\0';
 
 #endif
 
   free (elements);
-
   free (codepoints);
 
   CollationKey ret;
@@ -232,6 +232,14 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
 CollationKey
 get_collation_key (char32_t *codepoints_in, size_t length_in)
 {
-  return get_collation_key_ext (codepoints_in, length_in, 0);
+  return get_collation_key_ext (codepoints_in, length_in, 0, 0);
+}
+
+/* Return number of bytes that would be returned by get_collation_key. */
+size_t
+get_collation_key_len (char32_t *codepoints_in, size_t length_in)
+{
+  CollationKey key = get_collation_key_ext (codepoints_in, length_in, 1, 0);
+  return key.length;
 }
 
