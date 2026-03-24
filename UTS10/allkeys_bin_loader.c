@@ -41,8 +41,10 @@ read_collation_data (COLLATION_DATA data,
 
       if (elements[i].secondary != 0x00)
         {
-          /* matches allkeys_to_binary.c:write_collation_data. */
-          elements[i].secondary += 0x1f;
+          /* this would match
+             allkeys_bin_dumper.c:expand_collation_sequence: */
+          /* elements[i].secondary += 0x1F; */
+          /* but keep it in a single byte to reduce sort key length. */
         }
     }
 
@@ -297,6 +299,9 @@ get_implicit_weight (char32_t codepoint,
   if (AAAA && BBBB)
     {
       CollationElement e1 = { AAAA, 0x0020, 0x0002 };
+      /* same in allkeys_bin_dumper.c:expand_collation_sequence to
+         fit secondary weight in a single byte. */
+      e1.secondary -= 0x1f;
 
       /* Limit maximum primary weight by using an extra collation element
          if necessary.  Same transformation in

@@ -398,17 +398,20 @@ expand_collation_sequence (CollationData *data)
       uint16_t secondary = data->elements[i].secondary;
       uint8_t secondary_write;
 
-      /* Fit secondary weight in a single byte for 255 possible
-         secondary weights (0x0000 and 0x0020 - 0x011D) */
+      /* Fit secondary weight in a single byte for 254 possible
+         secondary weights (0x0000 and 0x0020 - 0x011C) */
 
       if (secondary == 0x00)
         secondary_write = secondary;
-      else if (secondary <= 0x011D)
-        secondary_write = secondary - 0x1f;
+      else if (secondary <= 0x011C)
+        {
+          /* same in allkeys_bin_loader.c:get_implicit_weight */
+          secondary_write = secondary - 0x1f;
+        }
       else if (secondary <= 0x0127)
         {
           /* For larger weights, output an extra collation element. */
-          secondary_write = 0xff;
+          secondary_write = 0xFE;
           secondary_extension = secondary - 0x0100;
         }
       else

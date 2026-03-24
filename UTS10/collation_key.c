@@ -101,10 +101,17 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in,
   unsigned char *psort_key;
   size_t sort_key_alloc;
 
+#if no_nulls_in_key
+  /* Three levels (primary/secondary/tertiary).  Two bytes per
+     collation element at primary, one byte at secondary, one byte
+     at tertiary.  "\x00\x00" between levels. */
+  sort_key_alloc = num_elements * 4 + 4;
+#else
   /* Three levels (primary/secondary/tertiary).  Two bytes per
      collation element at primary/secondary, one byte at tertiary.
-     "\x01\x01" between levels. */
+     "\x00\x00" between levels. */
   sort_key_alloc = num_elements * 5 + 4;
+#endif
 
   if (len_only)
     {
@@ -146,13 +153,12 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in,
       uint16_t weight = elements[i].secondary;
       if (weight)
         {
-          if (weight > 0xFE00)
+          if (weight == 0xFF)
             {
               fprintf (stderr, "secondary weight too high\n");
               exit (1);
             }
-          *psort_key++ = (weight / 0xFF) + 1;
-          *psort_key++ = (weight % 0xFF) + 1;
+          *psort_key++ = weight + 1;
         }
     }
 
