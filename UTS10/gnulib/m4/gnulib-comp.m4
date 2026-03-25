@@ -45,7 +45,6 @@ AC_DEFUN([gl_EARLY],
   # Code from module absolute-header:
   # Code from module array-mergesort:
   # Code from module assert-h:
-  # Code from module attribute:
   # Code from module bool:
   # Code from module c99:
   # Code from module extensions:
@@ -54,26 +53,11 @@ AC_DEFUN([gl_EARLY],
   # Code from module extern-inline:
   # Code from module fcntl-h:
   # Code from module gen-header:
-  # Code from module hard-locale:
-  # Code from module havelib:
-  # Code from module iconv:
   # Code from module include_next:
   # Code from module inline:
   # Code from module inttypes-h-incomplete:
   # Code from module limits-h:
-  # Code from module localcharset:
-  # Code from module locale-h:
-  # Code from module mbrtowc:
-  # Code from module mbsinit:
-  # Code from module mbszero:
   # Code from module multiarch:
-  # Code from module once:
-  # Code from module pthread-h:
-  gl_ANYTHREADLIB_EARLY
-  # Code from module pthread-once:
-  # Code from module sched-h:
-  # Code from module setlocale-null:
-  # Code from module setlocale-null-unlocked:
   # Code from module snippet/_Noreturn:
   # Code from module snippet/arg-nonnull:
   # Code from module snippet/c++defs:
@@ -83,17 +67,11 @@ AC_DEFUN([gl_EARLY],
   # Code from module stddef-h:
   # Code from module stdint-h:
   # Code from module stdlib-h:
-  # Code from module streq:
   # Code from module string-h:
   # Code from module stringeq:
   # Code from module sys_types-h:
   AC_REQUIRE([AC_USE_SYSTEM_EXTENSIONS])
-  # Code from module threadlib:
-  gl_THREADLIB_EARLY
-  # Code from module time-h:
-  # Code from module tls:
   # Code from module uchar-h:
-  # Code from module uchar-h-c23:
   # Code from module unictype/base:
   # Code from module unictype/block-list:
   # Code from module unictype/block-of:
@@ -113,16 +91,11 @@ AC_DEFUN([gl_EARLY],
   # Code from module unistr/u32-cpy:
   # Code from module unistr/u32-mbtouc-unsafe:
   # Code from module unistr/u32-uctomb:
-  # Code from module unistr/u8-mbtouc:
   # Code from module unistr/u8-mbtoucr:
   # Code from module unistr/u8-to-u32:
-  # Code from module unistr/u8-uctomb:
   # Code from module unitypes-h:
   # Code from module wchar-h:
-  # Code from module wcrtomb:
   # Code from module wctype-h:
-  # Code from module windows-once:
-  # Code from module windows-tls:
 ])
 
 # This macro should be invoked from ./configure.ac, in the section
@@ -152,16 +125,6 @@ AC_DEFUN([gl_INIT],
   gl_FCNTL_H
   gl_FCNTL_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
-  AC_REQUIRE([gl_FUNC_SETLOCALE_NULL])
-  HARD_LOCALE_LIB="$SETLOCALE_NULL_LIB"
-  AC_SUBST([HARD_LOCALE_LIB])
-  dnl For backward compatibility.
-  LIB_HARD_LOCALE="$HARD_LOCALE_LIB"
-  AC_SUBST([LIB_HARD_LOCALE])
-  AC_DEFUN([gl_HAVE_MODULE_HAVELIB])
-  AM_ICONV
-  m4_ifdef([gl_ICONV_MODULE_INDICATOR],
-    [gl_ICONV_MODULE_INDICATOR([iconv])])
   gl_INLINE
   gl_INTTYPES_INCOMPLETE
   gl_INTTYPES_H_REQUIRE_DEFAULTS
@@ -169,55 +132,7 @@ AC_DEFUN([gl_INIT],
   gl_LIMITS_H
   gl_CONDITIONAL_HEADER([limits.h])
   AC_PROG_MKDIR_P
-  gl_LOCALCHARSET
-  dnl For backward compatibility. Some packages still use this.
-  LOCALCHARSET_TESTS_ENVIRONMENT=
-  AC_SUBST([LOCALCHARSET_TESTS_ENVIRONMENT])
-  gl_LOCALE_H
-  gl_LOCALE_H_REQUIRE_DEFAULTS
-  AC_PROG_MKDIR_P
-  gl_FUNC_MBRTOWC
-  gl_CONDITIONAL([GL_COND_OBJ_MBRTOWC],
-                 [test $HAVE_MBRTOWC = 0 || test $REPLACE_MBRTOWC = 1])
-  AM_COND_IF([GL_COND_OBJ_MBRTOWC], [
-    if test $REPLACE_MBSTATE_T = 1; then
-      AC_LIBOBJ([lc-charset-dispatch])
-      AC_LIBOBJ([mbtowc-lock])
-      gl_PREREQ_MBTOWC_LOCK
-    fi
-    gl_PREREQ_MBRTOWC
-  ])
-  gl_WCHAR_MODULE_INDICATOR([mbrtowc])
-  gl_FUNC_MBSINIT
-  gl_CONDITIONAL([GL_COND_OBJ_MBSINIT],
-                 [test $HAVE_MBSINIT = 0 || test $REPLACE_MBSINIT = 1])
-  AM_COND_IF([GL_COND_OBJ_MBSINIT], [
-    gl_PREREQ_MBSINIT
-  ])
-  gl_WCHAR_MODULE_INDICATOR([mbsinit])
-  AC_REQUIRE([AC_TYPE_MBSTATE_T])
-  gl_MBSTATE_T_BROKEN
-  gl_MUSL_LIBC
-  gl_WCHAR_MODULE_INDICATOR([mbszero])
   gl_MULTIARCH
-  gl_ONCE
-  gl_PTHREAD_H
-  gl_PTHREAD_H_REQUIRE_DEFAULTS
-  AC_PROG_MKDIR_P
-  gl_PTHREAD_ONCE
-  gl_CONDITIONAL([GL_COND_OBJ_PTHREAD_ONCE],
-                 [test $HAVE_PTHREAD_ONCE = 0 || test $REPLACE_PTHREAD_ONCE = 1])
-  gl_PTHREAD_MODULE_INDICATOR([pthread-once])
-  gl_SCHED_H
-  gl_SCHED_H_REQUIRE_DEFAULTS
-  AC_PROG_MKDIR_P
-  gl_FUNC_SETLOCALE_NULL
-  gl_CONDITIONAL([GL_COND_OBJ_SETLOCALE_LOCK],
-                 [test $SETLOCALE_NULL_ALL_MTSAFE = 0 || test $SETLOCALE_NULL_ONE_MTSAFE = 0])
-  AM_COND_IF([GL_COND_OBJ_SETLOCALE_LOCK], [
-    gl_PREREQ_SETLOCALE_LOCK
-  ])
-  gl_LOCALE_MODULE_INDICATOR([setlocale_null])
   gt_TYPE_SSIZE_T
   gl_STDDEF_H
   gl_STDDEF_H_REQUIRE_DEFAULTS
@@ -240,34 +155,9 @@ AC_DEFUN([gl_INIT],
   gl_SYS_TYPES_H
   gl_SYS_TYPES_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
-  AC_REQUIRE([gl_THREADLIB])
-  gl_TIME_H
-  gl_TIME_H_REQUIRE_DEFAULTS
-  AC_PROG_MKDIR_P
-  gl_TLS
   gl_UCHAR_H
   gl_UCHAR_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
-  AC_REQUIRE([AC_CANONICAL_HOST])
-  AC_REQUIRE([AM_ICONV])
-  AC_DEFINE([GL_CHAR32_T_IS_UNICODE], [1],
-    [Define if gnulib's char32_t values are always Unicode code points.])
-  dnl On macOS, FreeBSD, NetBSD, Solaris, the functions mbrtoc32 and c32rtomb
-  dnl need to convert between the wchar_t encoding and Unicode.
-  case "$host_os" in
-    darwin* | freebsd* | dragonfly* | netbsd* | solaris*)
-      AC_DEFINE([GL_CHAR32_T_VS_WCHAR_T_NEEDS_CONVERSION], [1],
-        [Define if gnulib needs to convert between the wchar_t encoding and Unicode.])
-      LIBC32CONV="$LIBICONV"
-      LTLIBC32CONV="$LTLIBICONV"
-      ;;
-    *)
-      LIBC32CONV=
-      LTLIBC32CONV=
-      ;;
-  esac
-  AC_SUBST([LIBC32CONV])
-  AC_SUBST([LTLIBC32CONV])
   gl_LIBUNISTRING_LIBHEADER([1.3], [unictype.h])
   gl_UNICTYPE_H
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
@@ -300,35 +190,18 @@ AC_DEFUN([gl_INIT],
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-mbtouc-unsafe])
   gl_MODULE_INDICATOR([unistr/u32-uctomb])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-uctomb])
-  gl_MODULE_INDICATOR([unistr/u8-mbtouc])
-  gl_LIBUNISTRING_MODULE([1.2], [unistr/u8-mbtouc])
   gl_MODULE_INDICATOR([unistr/u8-mbtoucr])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-mbtoucr])
   gl_LIBUNISTRING_MODULE([0.9.3], [unistr/u8-to-u32])
-  gl_MODULE_INDICATOR([unistr/u8-uctomb])
-  gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-uctomb])
   gl_LIBUNISTRING_LIBHEADER([0.9.11], [unitypes.h])
   AC_PROG_MKDIR_P
   gl_UNITYPES_H
   gl_WCHAR_H
   gl_WCHAR_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
-  gl_FUNC_WCRTOMB
-  gl_CONDITIONAL([GL_COND_OBJ_WCRTOMB],
-                 [test $HAVE_WCRTOMB = 0 || test $REPLACE_WCRTOMB = 1])
-  AM_COND_IF([GL_COND_OBJ_WCRTOMB], [
-    gl_PREREQ_WCRTOMB
-  ])
-  gl_WCHAR_MODULE_INDICATOR([wcrtomb])
   gl_WCTYPE_H
   gl_WCTYPE_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
-  AC_REQUIRE([AC_CANONICAL_HOST])
-  gl_CONDITIONAL([GL_COND_OBJ_WINDOWS_ONCE],
-                 [case "$host_os" in mingw* | windows*) true;; *) false;; esac])
-  AC_REQUIRE([AC_CANONICAL_HOST])
-  gl_CONDITIONAL([GL_COND_OBJ_WINDOWS_TLS],
-                 [case "$host_os" in mingw* | windows*) true;; *) false;; esac])
   # End of code from modules
   m4_ifval(gl_LIBSOURCES_LIST, [
     m4_syscmd([test ! -d ]m4_defn([gl_LIBSOURCES_DIR])[ ||
@@ -517,53 +390,21 @@ AC_DEFUN([gltests_LIBSOURCES], [
 # This macro records the list of files which have been installed by
 # gnulib-tool and may be removed by future gnulib-tool invocations.
 AC_DEFUN([gl_FILE_LIST], [
-  build-aux/config.rpath
   lib/_Noreturn.h
   lib/arg-nonnull.h
   lib/array-mergesort.h
   lib/assert.in.h
-  lib/attribute.h
   lib/c++defs.h
   lib/fcntl.in.h
-  lib/glthread/once.c
-  lib/glthread/once.h
-  lib/glthread/threadlib.c
-  lib/glthread/tls.c
-  lib/glthread/tls.h
-  lib/hard-locale.c
-  lib/hard-locale.h
   lib/inttypes.in.h
-  lib/lc-charset-dispatch.c
-  lib/lc-charset-dispatch.h
-  lib/lc-charset-unicode.c
-  lib/lc-charset-unicode.h
   lib/limits.in.h
-  lib/localcharset.c
-  lib/localcharset.h
-  lib/locale.in.h
-  lib/mbrtowc-impl-utf8.h
-  lib/mbrtowc-impl.h
-  lib/mbrtowc.c
-  lib/mbsinit.c
-  lib/mbszero.c
-  lib/mbtowc-lock.c
-  lib/mbtowc-lock.h
-  lib/pthread-once.c
-  lib/pthread.in.h
-  lib/sched.in.h
-  lib/setlocale-lock.c
-  lib/setlocale_null-unlocked.c
-  lib/setlocale_null.c
-  lib/setlocale_null.h
   lib/stddef.in.h
   lib/stdint.in.h
   lib/stdlib.c
   lib/stdlib.in.h
-  lib/streq.h
   lib/string.c
   lib/string.in.h
   lib/sys_types.in.h
-  lib/time.in.h
   lib/uchar.in.h
   lib/unictype.in.h
   lib/unictype/bitmap.h
@@ -595,24 +436,14 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unistr/u32-cpy.c
   lib/unistr/u32-mbtouc-unsafe.c
   lib/unistr/u32-uctomb.c
-  lib/unistr/u8-mbtouc-aux.c
-  lib/unistr/u8-mbtouc.c
   lib/unistr/u8-mbtoucr.c
   lib/unistr/u8-to-u32.c
-  lib/unistr/u8-uctomb-aux.c
-  lib/unistr/u8-uctomb.c
   lib/unitypes.in.h
   lib/verify.h
   lib/warn-on-use.h
   lib/wchar.in.h
-  lib/wcrtomb.c
   lib/wctype-h.c
   lib/wctype.in.h
-  lib/windows-initguard.h
-  lib/windows-once.c
-  lib/windows-once.h
-  lib/windows-tls.c
-  lib/windows-tls.h
   m4/00gnulib.m4
   m4/absolute-header.m4
   m4/assert_h.m4
@@ -623,36 +454,16 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/fcntl-o.m4
   m4/fcntl_h.m4
   m4/gnulib-common.m4
-  m4/host-cpu-c-abi.m4
-  m4/iconv.m4
   m4/include_next.m4
   m4/inline.m4
   m4/inttypes.m4
-  m4/lib-ld.m4
-  m4/lib-link.m4
-  m4/lib-prefix.m4
   m4/libunistring-base.m4
   m4/limits-h.m4
-  m4/localcharset.m4
   m4/locale-en.m4
-  m4/locale-fr.m4
-  m4/locale-ja.m4
-  m4/locale-zh.m4
-  m4/locale_h.m4
-  m4/mbrtowc.m4
-  m4/mbsinit.m4
-  m4/mbstate_t.m4
   m4/multiarch.m4
-  m4/musl.m4
   m4/off64_t.m4
   m4/off_t.m4
-  m4/once.m4
   m4/pid_t.m4
-  m4/pthread-once.m4
-  m4/pthread-spin.m4
-  m4/pthread_h.m4
-  m4/sched_h.m4
-  m4/setlocale_null.m4
   m4/ssize_t.m4
   m4/std-gnu11.m4
   m4/stddef_h.m4
@@ -660,20 +471,14 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/stdlib_h.m4
   m4/string_h.m4
   m4/stringeq.m4
-  m4/sys_cdefs_h.m4
   m4/sys_types_h.m4
-  m4/threadlib.m4
-  m4/time_h.m4
-  m4/tls.m4
   m4/uchar_h.m4
   m4/unictype_h.m4
   m4/uninorm_h.m4
   m4/unistd_h.m4
   m4/unitypes_h.m4
-  m4/visibility.m4
   m4/warn-on-use.m4
   m4/wchar_h.m4
-  m4/wcrtomb.m4
   m4/wctype_h.m4
   m4/wint_t.m4
   m4/zzgnulib.m4

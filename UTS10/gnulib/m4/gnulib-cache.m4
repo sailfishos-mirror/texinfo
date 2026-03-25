@@ -37,7 +37,7 @@
 #  --no-conditional-dependencies \
 #  --no-libtool \
 #  --macro-prefix=gl \
-#  uchar-h-c23 \
+#  uchar-h \
 #  unictype/block-of \
 #  unictype/property-unified-ideograph \
 #  uninorm/nfd \
@@ -48,7 +48,7 @@
 # Specification in the form of a few gnulib-tool.m4 macro invocations:
 gl_LOCAL_DIR([])
 gl_MODULES([
-  uchar-h-c23
+  uchar-h
   unictype/block-of
   unictype/property-unified-ideograph
   uninorm/nfd
