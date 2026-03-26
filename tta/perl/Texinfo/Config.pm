@@ -73,8 +73,6 @@ BEGIN {
 # are shared with the main program cannot work.  Instead, the functions
 # are overriden such that the init files options stored in C data are
 # set and accessed.
-# TODO change Loader code or this code to make sure that the overrides
-# succeed?
 my %XS_overrides = (
   "Texinfo::Config::texinfo_get_conf"
     => "Texinfo::ConfigXS::texinfo_get_conf",

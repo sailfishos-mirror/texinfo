@@ -74,7 +74,11 @@ my $strings_textdomain = 'texinfo_document';
 # TODO document when both XS and NonXS need to be setup?
 # Do that in Document module(s)?
 # TODO remove second argument?  In that case remove the equivalent in
-# C code too.  Check if it could be useful for SWIG interface, maybe?
+# C code too.  Right now, it is not possible to actually set a
+# different domain, but it could theoretically be useful if users
+# want to use their domain.  In that case, it should be settable
+# simultaneously in Perl and C.
+# Check if it could be useful for SWIG interface, maybe?
 sub configure($;$) {
   my ($localesdir, $in_strings_textdomain) = @_;
 
@@ -106,7 +110,7 @@ my $working_locale;
 
 my $no_local_found_error_output;
 
-# Now unused
+# Unused
 sub _switch_messages_locale() {
   my $locale;
 
@@ -649,9 +653,17 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
 
   Texinfo::Translations::configure('LocaleData');
 
+
+  my $language = $customization->get_conf('documentlanguage');
+  my $locale_encoding = $customization->get_conf('COMMAND_LINE_ENCODING');
+
+  my $lang_translations = Texinfo::Translations::new_lang_translation(
+                                           $language, $locale_encoding);
+
+
   my $tree_translated
     = Texinfo::Translations::gdt('See {reference} in @cite{{book}}',
-                           [$converter->get_conf('documentlanguage')],
+                           $lang_translations,
                           {'reference' => $tree_reference,
                            'book'  => {'text' => $book_name}});
 
@@ -689,9 +701,9 @@ domain.
 
 =back
 
-The C<new_lang_translation> method sets up a lang translation object that
-is used as argument inthe other method, that contains the language and
-associated already translated strings.
+The C<new_lang_translation> method sets up a lang translation data that
+is used as argument for the other method.  This data contains the language
+and associated already translated strings.
 
 =over
 
@@ -703,11 +715,10 @@ encoding is optional and should be the encoding used to encode character
 strings to for environment variables.  In general, you should base it on
 the I<COMMAND_LINE_ENCODING> customization variable value.
 
-The returned I<$lang_translations> is an array reference.  The first element of
-the array is the language.  The second element is the language encoded to the
-local encoding.  The third element should be set to an hash reference holding
-translations already done.
-
+The returned I<$lang_translations> is a reference.  In general,
+this object should be considered as opaque and should not be accessed
+directly, but passed to C<gdt> and C<pgdt> (but see below the
+I<$translate_string_method> C<gdt> argument).
 
 =back
 
@@ -728,10 +739,10 @@ the function returns a Texinfo tree, as the string is interpreted
 as Texinfo code after translation.  With C<gdt_string> a string
 is returned.
 
-The I<$lang_translations>
-argument should be an array reference with one or two elements.  The first
-element of the array is the language used for the translation.  The second
-element, if set, should be an hash reference holding translations already done.
+The I<$lang_translations> should be a reference set up by
+L<< C<new_lang_translation>|/$lang_translations = new_lang_translation($lang, $locale_encoding) >>
+in the default case.  If I<$translate_string_method> argument is passed,
+this argument should instead be suitable for the replacement function.
 
 I<$replaced_substrings> is an optional hash reference specifying
 some substitution to be done after the translation.  The key of the
@@ -756,7 +767,7 @@ parsed as a Texinfo string, with I<{reference}> substituted by
 I<$tree_reference> in the resulting tree, and I<{book}>
 replaced by the associated Texinfo tree text element:
 
-  $tree = gdt('See {reference} in @cite{{book}}', ['ca'],
+  $tree = gdt('See {reference} in @cite{{book}}', $lang_translations,
               {'reference' => $tree_reference,
                'book'  => {'text' => $book_name}});
 
@@ -781,7 +792,12 @@ in the Gettext C API.
 =back
 
 By default, in C<gdt>, C<gdt_string> and C<pgdt> a string is translated with
-C<cache_translate_string>.
+C<cache_translate_string>.  C<cache_translate_string> is not meant to be called
+directly but a replacement can be passed to the translation functions.  The
+description of C<cache_translate_string> is therefore useful to understand the
+interface a user-defined function should use.  It could also be possibly
+relevant to call C<cache_translate_string> in a redefined function as a
+fallback.
 
 =over
 
@@ -789,26 +805,41 @@ C<cache_translate_string>.
 X<C<cache_translate_string>>
 
 The I<$string> is a string to be translated.  The I<$lang_translations>
-argument should be an array reference with one or two elements.  The first
-element of the array is the language used for the translation.  The second
-element, if set, should be an hash reference holding translations already done.
+argument should be a reference set up by
+L<< C<new_lang_translation>|/$lang_translations = new_lang_translation($lang, $locale_encoding) >>.
+
+In the current implementation I<$lang_translations> is an array reference.  The
+first element of the array is the language.  The second element is the language
+encoded to the local encoding.  The third element is set to an hash
+reference holding translations already done.  A user-defined replacement
+function could use different data structures for I<$lang_translations>.
+
 If the language is C<undef> or an empty string, the input string does not
 need to be translated.  The I<$translation_context> is optional.  If not
 C<undef> this is a translation context string for I<$string>.  It is the first
 argument of C<pgettext> in the C API of Gettext.
 
+C<cache_translate_string> returns an array reference with the translated string
+as first element, or undef if the input string should be used as translation.
+The second element of the reference array, if present, should be the Texinfo
+tree corresponding to the translated string, without the braced arguments
+substituted.
+
 C<cache_translate_string> uses a gettext-like infrastructure to retrieve the
-translated strings, using the I<texinfo_document> domain.  Returns an array
-reference with the translated string as first element, or undef if the
-input string should be used as translation.  The second element of the
-reference array, if present, should be the Texinfo tree corresponding to
-the translated string, without the braced arguments substituted.
+translated strings, using the I<texinfo_document> domain.  A user-defined
+replacement could do otherwise.
 
 =back
+
+In converters based on C<Texinfo::Convert::Converter>, an 
+L<higher level interface|Texinfo::Convert::Converter/Translations in output documents>
+should be used for translations that avoids explicit use of
+lang translations references
 
 =head1 SEE ALSO
 
 L<GNU gettext utilities manual|https://www.gnu.org/software/gettext/manual/>.
+L<Texinfo::Convert::Converter/Translations in output documents>.
 
 =head1 AUTHOR
 

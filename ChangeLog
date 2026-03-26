@@ -1,3 +1,23 @@
+2026-03-26 Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Simple Formatting Customization)
+	(Internationalization of Output Strings): rename "Simple formatting
+	customization" as "Simple Formatting Customization" and
+	"Internationalization of Strings Function" as "Internationalization of
+	Output Strings".
+
+	* doc/texi2any_api.texi (Accent Commands with Arguments Formatting):
+	add.
+
+	* doc/texi2any_api.texi: remove cross-references to modules
+	documentation that are not needed for the described tasks.  Copy the
+	function or data descriptions instead of having a cross reference, as
+	the corresponding text is small and requiring to go to another
+	document to get the information is distracting.
+
+	Improve Pod documentation of output strings translation language
+	switching. 
+
 2026-03-23 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/utils.h (ARG_INDICES), tta/C/main/utils.c

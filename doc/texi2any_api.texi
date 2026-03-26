@@ -527,8 +527,8 @@ Errors or warning emitted from user defined functions should use the
 converter (@pxref{Error Reporting in User Defined Functions}).
 
 
-@node Simple formatting customization
-@chapter Simple formatting customization
+@node Simple Formatting Customization
+@chapter Simple Formatting Customization
 
 Some change in output formatting can be specified with simple code,
 not very different from simple textual configuration information.
@@ -630,9 +630,8 @@ and converted with @code{texinfo_register_no_arg_command_texinfo}:
 @var{$command_name} is the @@-command name, without the leading @@.
 @var{$translated_string_to_convert} is the Texinfo code used for the
 command formatting.  This Texinfo code is translated when the document
-language changes and converted from Texinfo to HTML in the different
-expansion contexts, @samp{normal}, @samp{preformatted} and @samp{string}.
-@xref{Texinfo::Translations METHODS,,,texi2any_internals}.
+language changes and converted from Texinfo to HTML in the diverse
+expansion contexts.
 @end defun
 
 If both Texinfo code and explicit formatting are specified, the explicit
@@ -1498,11 +1497,9 @@ returns the formatted text @var{$text}.
 The first argument of most, if not all user defined function is a converter
 object.  This object gives access to methods to get information on the
 conversion context and to methods useful for the conversion, both as an HTML
-converter and as a generic @code{Texinfo::Convert::Converter}
-(@pxref{Texinfo::Convert::Converter Helper methods,,,texi2any_internals}).  The
-converter can be used for error reporting by using
-@code{Texinfo::Convert::Converter} methods. @xref{Error
-Reporting in User Defined Functions} on error reporting.
+converter and as a generic Texinfo converter.
+The converter can be used for error reporting (@pxref{Error
+Reporting in User Defined Functions}).
 The converter can also be used for in-document strings translation.
 @xref{Translations in Output and Customization} on translated strings in output.
 
@@ -1520,10 +1517,6 @@ URL manipulation are described in this chapter.
 
 @cindex Error reporting @subentry conversion
 @cindex @code{Texinfo::Convert::Converter} @subentry error reporting
-
-To report an error or a warning in a user defined function, use the methods
-of @code{Texinfo::Convert::Converter} through a converter object
-(@pxref{Converter Object and Conversion Functions}).
 
 To report a warning or an error not specific of an element conversion,
 use @code{converter_document_warn} or @code{converter_document_error}:
@@ -1551,10 +1544,6 @@ is a continuation of the previous registered message.
 @end defun
 
 Note that registering an error does not stop the processing of the Texinfo tree.
-
-@xref{Texinfo@asis{::}Convert@asis{::}Converter Registering error and warning
-messages,,,texi2any_internals} for the converter module documentation on
-errors and warning messages registration.
 
 
 @node Conversion Customization Variables
@@ -2264,23 +2253,50 @@ using function accessors:
 
 @table @code
 @item floats_information
-Information on floats.
-@xref{Texinfo::Document $float_types = floats_information($document),,
-Texinfo::Document::floats_information,texi2any_internals}.
+@anchor{@code{floats_information}}
+Information on floats.  Hash reference whose keys are normalized float types
+(the first float argument).  The value is a list of array references, one per
+float of that type.  The first item of the float array reference is the float
+tree element.  The second item of the float array reference is the section
+relations information of the section containing the float.
 
 @item global_commands_information
-Global commands information.
-@xref{Texinfo::Document $commands = global_commands_information($document),,
-Texinfo::Document::global_commands_information,texi2any_internals}.
+Global commands information hash reference.  The keys are @@-command names.  For
+@@-commands that may appear multiple time in the Texinfo document, the
+associated values are array references containing all the corresponding
+tree elements.  For @@-commands that should appear only once, the associated
+value is the tree element.
 
-@item global_information
-Diverse information.
-@xref{Texinfo@asis{::}Document $info = global_information($document),,
-Texinfo@asis{::}Document@asis{::}global_information,texi2any_internals}.
+The @code{dircategory_direntry} key is also available, containing the
+array of successive @code{@@dircategory} and @code{@@direntry}, if these
+commands are present in the document.
+
+@c not directly used in default formatting text, probably not interesting
+@c @item global_information
+@c Diverse information.
+@c @xref{Texinfo@asis{::}Document $info = global_information($document),,
+@c Texinfo@asis{::}Document@asis{::}global_information,texi2any_internals}.
 
 @item indices_information
+@anchor{@code{indices_information}}
 Information about defined indices, merged indices and index entries.
-@xref{Texinfo@asis{::}Document $indices_information = $document->indices_information(),,Texinfo@asis{::}Document@asis{::}indices_information,texi2any_internals}.
+Returns a hash reference with index names as keys and hash reference with
+index information as values.  For each index name, the following relevant
+values are available:
+
+@table @code
+@item in_code
+1 if the index entries should be formatted as code, 0 in the opposite case.
+
+@item merged_in
+In case the index is merged to another index, this key holds the name of
+the index the index is merged into.  It takes into account indirectly
+merged indexes.
+
+@item index_entries
+An array reference containing index entry hash references for index entries
+associated with the index.  @xref{Specific Formatting for Indices}.
+@end table
 
 @item sections_list
 List of the sectioning commands relations associated to each of the
@@ -2292,8 +2308,6 @@ List of the node relations in the document associated to each of the
 @code{@@node} in document order.
 @xref{Node Elements and Document Structure}.
 @end table
-
-@xref{Texinfo@asis{::}Document Getting document information,,,texi2any_internals} on information available from the document.
 
 @item document_name
 Base name of the document.  It is common to use that string in in directory or
@@ -2436,13 +2450,13 @@ in order of appearance.
 
 The @code{%Texinfo::Commands::preformatted_code_commands}
 hash can be used to determine if a preformatted command is to be formatted
-as code (@pxref{Texinfo::Commands %preformatted_code_commands,,,
-texi2any_internals}).
+as code, as is the case for @code{@@example} but not for @code{@@display}.
 
 @example
 my $pre_classes = $converter->preformatted_classes_stack();
 foreach my $pre_class (@@$pre_classes) @{
-  if ($Texinfo::Commands::preformatted_code_commands@{$pre_class@}) @{
+  if (exists(
+      $Texinfo::Commands::preformatted_code_commands@{$pre_class@})) @{
     $result = '<var>' .$result. '</var>';
     last;
   @}
@@ -2532,7 +2546,7 @@ through the tree calling functions to convert the elements, but it can be
 interesting in some cases.
 
 This is, for example, often needed if a translated Texinfo tree is setup
-(@pxref{Internationalization of Strings Function}).
+(@pxref{Internationalization of Output Strings}).
 For example, here a Texinfo tree is returned by the @code{cdt} call,
 based on the translation of the @samp{No value for @@strong@{@{item@}@}}
 string, and converted to HTML with @code{convert_tree}:
@@ -2686,8 +2700,7 @@ return "<i title=\"$result_string\">$text</i>\n"
 @subsection Conversion to Plain Text
 
 The conversion to plain text can be achieved by using the @code{Texinfo::Text}
-converter @code{convert_to_text} function
-(@pxref{Texinfo::Convert::Text,,,texi2any_internals}).
+converter @code{convert_to_text} function.
 
 @code{convert_to_text} requires a conversion options argument to determine
 how the conversion to text should be done, specifying, for
@@ -3000,8 +3013,6 @@ The variety of the special output unit.
 For special units only. @xref{Special Units Varieties}.
 @end table
 
-@pxref{Texinfo::OutputUnits METHODS,,,texi2any_internals} for more
-on document structure information held by output units.
 
 @node Customization and Use of Formatting Functions
 @chapter Customization and Use of Formatting Functions
@@ -3084,8 +3095,11 @@ All the functions take a converter object as their first argument.
 Return @var{$input_text} in a comment.
 @end deftypefn
 
-@xref{Texinfo::Convert::Converter $comment = $converter->xml_comment($text),,
-Texinfo::Convert::Converter::xml_comment,texi2any_internals}.
+The following function can be used to format an XML comment:
+
+@deftypefun {@var{$comment} =} @var{$converter}->xml_comment (@var{$text})
+Returns an XML comment for @var{$text}.
+@end deftypefun
 
 @item format_heading_text
 
@@ -3134,8 +3148,13 @@ function referenced as @code{$converter->formatting_function('format_protect_tex
 in the default case, but it is called directly to avoid an indirection}.
 @end deftypefn
 
-@xref{Texinfo::Convert::Converter $protected_text = $converter->xml_protect_text($text),,
-Texinfo::Convert::Converter::xml_protect_text,texi2any_internals}.
+The following function can be used to protect XML special characters:
+
+@deftypefun {@var{$protected_text} =} @var{$converter}->xml_protect_text (@var{$text})
+Protect special XML characters (@samp{&}, @samp{<}, @samp{>}, @samp{"})
+of @var{$text}.
+@end deftypefun
+
 @item format_separate_anchor
 
 This function reference is called if there is not another HTML element to
@@ -3284,12 +3303,6 @@ normal context.  It should be present for most @@-commands with arguments,
 but not for all, for example @code{@@anchor} argument is only available
 as @code{monospacestring}.
 
-Accent commands do not have any formatted argument prepared, because the
-formatting of accent commands taking arguments is usually done by calling
-the @code{convert_accents} function.
-@xref{Texinfo::Convert::Converter $result = $converter->convert_accents($accent_command@comma{} \&format_accents@comma{} $in_upper_case),,
-Texinfo::Convert::Converter::convert_accents, texi2any_internals}.
-
 @var{$content} is the @@-command formatted contents.  It corresponds to the
 contents of block @@-commands, and to Texinfo code following @code{@@node},
 sectioning commands, @code{@@tab} and @code{@@item} in @code{@@enumerate} and
@@ -3298,7 +3311,9 @@ sectioning commands, @code{@@tab} and @code{@@item} in @code{@@enumerate} and
 The @var{$text} returned is the result of the @@-command conversion.
 @end deftypefn
 
-
+Accent commands do not have any formatted argument prepared, because the
+formatting of accent commands taking arguments is usually done differently
+(@pxref{Accent Commands with Arguments Formatting}).
 
 @float Table, HTML command arguments formatting
 @multitable {@code{@@inlinefmtifelse}} {monospacestring} {filenametext} {filenametext} {filenametext} {filenametext}
@@ -3506,17 +3521,15 @@ if (defined($arg_node) and exists($arg_node->@{'extra'@})
 @end group
 @end example
 
-Tree elements not associated with an ideentifier are obtained each differently.
+Tree elements not associated with an identifier are obtained each differently.
 For example, elements associated with index entries can be obtained using the
-Texinfo parsed document index entries with
-@code{$converter->get_info('document')->indices_information()}
-(@pxref{Converter General Information}), or through sorted indices
+Texinfo parsed document index information (@pxref{@code{indices_information}}),
+or through sorted indices
 information (@pxref{Specific Formatting for Indices}).  Footnote elements
 can be obtained through the @code{@@footnote} conversion function,
 and can also be passed to footnote formatting functions
 (@pxref{Customizing Footnotes}).  Floats elements in @code{@@listoffloats}
-can be obtained from @code{$converter->get_info('document')->floats_information()}
-(@pxref{Converter General Information}).
+can be obtained from document information (@pxref{@code{floats_information}}).
 
 To get the identifier, file name and href of tree elements that may be used
 as link target, use @code{command_id}, @code{command_filename} and @code{command_href}:
@@ -3749,25 +3762,98 @@ Set if the argument is expected to be in quotes.
 @end table
 
 
+@node Accent Commands with Arguments Formatting
+@subsection Accent Commands with Arguments Formatting
+
+In the default case, accent commands with arguments are formatted using
+a generic conversion fonction defined by the converter,
+@code{convert_accents}.  This function does not do all the work, it
+presents the nested accents, removing the need to go through the tree
+but still requires a function used to convert the presented accents.
+
+@deftypefun {@var{$result} =} @var{$converter}->convert_accents(@var{$accent_command}, @
+ @var{\&format_accents}, @var{$output_encoded_characters}, @var{$in_upper_case})
+@var{$accent_command} is an accent command tree elements, which may have other
+accent commands tree elements nested inside.  The function returns the accents
+formatted either as encoded letters if @var{$output_encoded_characters} is set,
+or formatted by calling @var{\&format_accents} repeatedly starting from the
+innermost accent command tree element within @var{$accent_command}.  The
+innermost accent command argument (usually a letter), is also converted, by
+calling @code{convert_tree}. If @var{$in_upper_case} is set, the result should
+be uppercased.
+@end deftypefun
+
+The @var{\&format_accents} function is called by @code{convert_accents} like:
+
+@deftypefn {Function Reference} @var{$text} format_accents (@var{$converter}, @
+ @var{$text}, @var{$command}, @var{$index_in_stack}, @var{$accents_stack}, @
+ @var{$in_upper_case})
+@var{$converter} is the converter in the call to @code{convert_accents}.
+For the innermost accent command, @var{$text} is the text appearing within
+the accent command converted.  For the other accent commands,
+@var{$text} is the result of the previously converted
+accent command.  @var{$accent_command} the Texinfo tree element corresponding
+to the accent command being converted.  @var{$index_in_stack} is the position
+in the @var{$accents_stack} of the accent command being converted.  The
+@var{$accents_stack} is an array holding the nested accent command
+Texinfo tree elements.  The innermost tree element command is last.
+@var{$in_upper_case} is optional, and, if set, the text should be put
+in upper case.  The function should return the converted accent argument
+to be processed by the following accent command.
+@end deftypefn
+
+@c describe?
+@c Texinfo::UnicodeData::unicode_accented_letters
+
+You can use @code{xml_numeric_entity_accent} to format an accent command
+as a numeric entity:
+
+@deftypefun {@var{$result} =} Texinfo::Convert::Converter::xml_numeric_entity_accent @
+ (@var{$accent_command_name}, @var{$text})
+@var{$accent_command_name} is the name of an accent command.  @var{$text} is
+the text appearing within the accent command.  Returns the accented letter as
+XML numeric entity, or @code{undef} if there is no such entity.
+@end deftypefun
+
+
 @node Specific Formatting for Indices
 @subsection Specific Formatting for Indices
 
 Index formatting customization is achieved through registering a conversion
 function for @code{@@printindex} (@pxref{Command Tree Element Conversion
-Functions}).  The Texinfo parsed document index entries information directly
-obtained from the Texinfo manual parsing is available through
-@code{$converter->get_info('document')->indices_information()}
-(@pxref{Converter General Information}).  Sorted index entries, which are
+Functions}).  The Texinfo parsed document indices information directly
+obtained from the Texinfo manual parsing is available in document information
+(@pxref{@code{indices_information}}).  Sorted index entries, which are
 usually used for index formatting are available through
 @code{get_converter_indices_sorted_by_letter}:
 
 @deftypefun {@var{\%sorted_index_entries} = } @var{$converter}->get_converter_indices_sorted_by_letter ()
-Returns index entries sorted by index and letter.
+Returns an hash reference holding index entries sorted by index and letter
+for each of the indices.  The keys are index names, the values are
+array reference of letter hash references.   Each letter hash reference has two
+keys, a @code{letter} key with the letter, and an @code{entries} key with an
+array reference of sorted index entries beginning with the letter.
+
 This function should be called each time sorted indices are needed,
 in case the sorting depends on the @code{@@documentlanguage} value.
-@xref{Texinfo@asis{::}Convert@asis{::}Converter $sorted_indices = $converter->get_converter_indices_sorted_by_letter(),,Texinfo::Convert::Converter::get_converter_indices_sorted_by_letter,texi2any_internals}.
 @end deftypefun
 
+The index entry information hash reference available from
+@code{indices_information} @code{index_entries} or letter @code{entries}
+has the following keys:
+
+@table @code
+@item index_name
+The index name associated to the command.  Not modified if the corresponding
+index is merged in another index (with @code{@@synindex}, for example).
+
+@item entry_element
+The Texinfo tree element associated with the @@-command holding the
+index entry.
+
+@item entry_number
+The number of the index entry in the index.
+@end table
 
 @node Image Formatting
 @subsection Image Formatting
@@ -4219,7 +4305,7 @@ An integer
 A Texinfo tree element.
 @item index_entry.
 An index entry reference as appearing in index data structures.
-@xref{Texinfo@asis{::}Document index_entries,,,texi2any_internals}.
+@xref{Specific Formatting for Indices}.
 @end table
 
 New shared infomation is defined with @code{define_shared_conversion_state}:
@@ -4345,9 +4431,7 @@ Customization}) and for specific elements headings such as footnotes,
 contents or about (@pxref{Special Units Information Customization}).
 Translated strings can also be inserted in the output in user-defined
 customization functions, by using specific functions for internationalization
-of strings, @code{cdt}, @code{cdt_string} or @code{pcdt}
-(@pxref{Texinfo@asis{::}Convert@asis{::}Converter Translations in output
-documents,,, texi2any_internals}).
+of strings, @code{cdt}, @code{cdt_string} or @code{pcdt}.
 
 It is possible to customize the translated strings, in order to
 change the translations of the strings translated in the default case.
@@ -4357,12 +4441,15 @@ strings customization to add translations for the added strings.
 @xref{Internationalization of Document Strings,,, texinfo, Texinfo} for additional
 information on the default case.
 
-@node Internationalization of Strings Function
-@section Internationalization of Strings Function
+@node Internationalization of Output Strings
+@section Internationalization of Output Strings
+
+@c old name
+@anchor{Internationalization of Strings Function}
 
 @vindex texinfo_document @r{Gettext domain}
 The subroutines @code{cdt}, @code{cdt_string} or @code{pcdt}, are used for
-translated strings:
+strings translations:
 
 @deftypefun {@var{$translated_tree} =} @var{$converter}->cdt (@var{$string}, @var{\%variables_hash}, @var{$translation_context})
 @deftypefunx {@var{$translated_string} =} @var{$converter}->cdt_string (@var{$string}, @var{\%variables_hash}, @var{$translation_context})
@@ -4398,10 +4485,12 @@ substituted after the expansion, which means that they should already be
 Texinfo tree elements.
 
 @example
+@group
   $converter->cdt('Generated @@emph@{@@today@{@}@} using '
    .'@@uref@{@{homepage@}, @@emph@{@{program@}@}@}.',
       @{ 'homepage' => @{ 'text' => $converter->get_conf('PACKAGE_URL') @},
         'program' => @{ 'text' => $converter->get_conf('PROGRAM') @}@});
+@end group
 @end example
 
 @cindex @code{_converted} special text element
@@ -4421,12 +4510,6 @@ $converter->convert_tree($converter->cdt(
                           'text' => $explanation_result@}@}),
                          "convert explained $cmdname");
 @end example
-
-In the default case, the functions from the @code{Texinfo::Translations}
-module are used for translated strings through converter functions.  It is
-possible to use user-defined functions instead as seen next.
-@xref{Texinfo::Translations,,,texi2any_internals} for more on
-@code{Texinfo::Translations}.
 
 In @command{texi2any} code, @code{cdt} and @code{cdt_string} are also used to
 mark translated strings for tools extracting translatable strings to produce
@@ -4451,13 +4534,11 @@ The result returned should be the translated string. The result returned may
 also be @samp{undef}, in which case the translation is done as if the function
 reference had not been defined.
 
-@xref{Internationalization of Strings Function} for more information on
+@xref{Internationalization of Output Strings} for more information on
 strings translations function arguments.
 @end deftypefn
 
-This function reference is not set in the default case, in the default case
-@code{translate_string} from the @code{Texinfo::Translations} module is
-called (@pxref{Internationalization of Strings Function}).
+This function reference is not set in the default case.
 @xref{Registering and Getting Specific Formating Functions} for information on how to
 register and get the function reference.
 
@@ -5640,14 +5721,24 @@ In the default case, the title page formatting uses, in order:
 If found in global information.
 @item @@maketitle
 If @code{@@maketitle} is found in global information, @code{@@documentinfo}
-content is used through @code{get_document_documentinfo}
-(@pxref{Texinfo::Convert::Utils $documentinfo_info = get_document_documentinfo($document),,
-Texinfo::Convert::Utils::get_document_documentinfo, texi2any_internals}).
+content is used (through
+@code{Texinfo::Convert::Utils::get_document_documentinfo}).
 @item simpletitle
 @xref{Converter General Information}.
 @end table
 @end deftypefn
 
+You can use the @code{get_document_documentinfo} function to
+get @code{@@documentinfo} information:
+@deftypefun {@var{\%documentinfo_info} =} Texinfo::Convert::Utils::get_document_documentinfo @
+  (@var{$converter}, @var{$document})
+@var{$document} is a Texinfo parsed document.  If @code{@@documentinfo} is
+found in the document, return an hash reference with @@-command names appearing
+in @code{@@documentinfo} as keys associated to an array reference as value
+containing the @@-commands Texinfo tree elements.  Otherwise, returns
+@code{undef}.
+
+@end deftypefun
 
 @node CSS Customization
 @section CSS Customization
@@ -5805,6 +5896,7 @@ be used for specific elements formatting:
 @table @asis
 
 @item @code{@@today}
+@c now is  $self->expand_today();
 @xref{Texinfo::Convert::Utils $tree = expand_today($converter),,
 Texinfo::Convert::Utils::expand_today, texi2any_internals}.
 
@@ -5817,22 +5909,14 @@ Texinfo::Convert::Utils::expand_verbatiminclude, texi2any_internals}.
 Texinfo::Convert::Utils::definition_arguments_content, texi2any_internals}.
 @xref{Texinfo::Convert::Utils $tree = definition_category_tree($converter@comma{} $def_line),,
 Texinfo::Convert::Utils::definition_category_tree, texi2any_internals}.
+@c %Texinfo::Common::def_aliases
+@c %Texinfo::Common::def_no_var_arg_commands
 
 @item @code{@@float}
 @xref{Texinfo::Convert::Converter ($caption@comma{} $prepended) = $converter->float_name_caption ($float),,
 Texinfo::Convert::Converter::float_name_caption, texi2any_internals}.
 Can be called as @code{$converter->float_name_caption}.
-
-@item accent @@-commands with argument
-@xref{Texinfo::Convert::Converter $result = xml_accent($text@comma{} $accent_command@comma{} $in_upper_case@comma{} $use_numeric_entities),,
-Texinfo::Convert::Converter::xml_accent, texi2any_internals}.
-Can be called as @code{$converter->xml_accent}.
-
-@xref{Texinfo::Convert::Converter $result = xml_numeric_entity_accent($accent_command_name@comma{} $text),,
-Texinfo::Convert::Converter::xml_numeric_entity_accent, texi2any_internals}.
-
-@xref{Texinfo::Convert::Converter $result = $converter->convert_accents($accent_command@comma{} \&format_accents@comma{} $in_upper_case),,
-Texinfo::Convert::Converter::convert_accents, texi2any_internals}.
+@c Texinfo::Common::find_float_caption_shortcaption
 
 @item text element
 @xref{Texinfo::Convert::Converter $formatted_text = $converter->xml_format_text_with_numeric_entities($text),,
@@ -5848,6 +5932,10 @@ Can be called as @code{$converter->table_item_content_tree}.
 @item @code{@@*index} @code{@@subentry}
 @xref{Texinfo@asis{::}Convert@asis{::}Utils $contents_element = comma_index_subentries_tree($entry@comma{} $separator),,
 @code{Texinfo::Convert::Utils::comma_index_subentries_tree}, texi2any_internals}.
+@c Texinfo::Common::collect_subentries
+@c Texinfo::Common::index_entry_referred_entry
+@c Texinfo::Common::index_content_element
+@c Texinfo::Indices::index_entry_first_letter_text_or_command
 
 @item global informative commands (@code{@@contents}, @code{@@footnotestyle} @enddots{})
 @xref{Texinfo::Common set_informative_command_value($configuration_information@comma{} $element),,
@@ -5883,6 +5971,20 @@ being done that can be useful for debugging.
 
 Returns @var{\%element} formatted as text suitable for CSS.
 @end deftypefun
+
+@c Texinfo::Common::itemize_line_prepended_element
+
+@c @item @@enumerate
+@c Texinfo::Common::simple_arg_text
+
+@c @item @@item
+@c and others
+@c Texinfo::Common::empty_spaces_argument
+
+@c @item @@multitable
+@c Texinfo::Common::multitable_columnfractions
+
+
 @end table
 
 The @code{Texinfo::Convert::NodeNameNormalization} converter, used

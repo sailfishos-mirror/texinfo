@@ -693,7 +693,8 @@ available through C<indices_information>.
 =item $indices_information = $document->indices_information()
 X<C<indices_information>>
 
-I<$indices_information> is a hash reference.  The keys are
+I<$indices_information> is a hash reference.  The keys are index names.
+The associated value is an hash reference with keys:
 
 =over
 
@@ -734,7 +735,7 @@ index entry.
 
 =item entry_number
 
-The number of the index entry.
+The number of the index entry in the index.
 
 =back
 
