@@ -575,6 +575,8 @@ sub output($$) {
   return $self->output_tree($document);
 }
 
+# level 0 and level 1 regular sectioning commands and all the heading
+# commands match on command names
 my %docbook_sections = (
   'top'  => 'chapter',
   'part' => 'part',
@@ -591,6 +593,10 @@ my %docbook_sections = (
   'heading' => 'sect1',
   'subheading' => 'sect2',
   'subsubheading' => 'sect3',
+);
+
+# for level 2 to 4, map section levels
+my %docbook_level_section = (
   2 => 'sect1',
   3 => 'sect2',
   4 => 'sect3'
@@ -609,8 +615,8 @@ sub _docbook_section_element($$) {
   if (exists($element->{'extra'})
       and defined($element->{'extra'}->{'section_level'})) {
     my $heading_level = $element->{'extra'}->{'section_level'};
-    if (exists($docbook_sections{$heading_level})) {
-      return $docbook_sections{$heading_level};
+    if (exists($docbook_level_section{$heading_level})) {
+      return $docbook_level_section{$heading_level};
     }
   }
   my $level_adjusted_cmdname
@@ -633,10 +639,10 @@ sub _docbook_section_element($$) {
     return $docbook_sections{$level_adjusted_cmdname};
   } else {
     # special case of no structuring information available for a regular
-    # sectioning command, like @section, @appendix, if Structuring
-    # sectioning_structure was not called.
+    # sectioning command below chapter level, like @section, @appendixsec,
+    # if Structuring sectioning_structure was not called.
     my $heading_level = Texinfo::Common::section_level($element);
-    return $docbook_sections{$heading_level};
+    return $docbook_level_section{$heading_level};
   }
 }
 

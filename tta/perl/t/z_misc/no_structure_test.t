@@ -137,6 +137,9 @@ my $texi = '@contents
 @subsection subsec
 @printindex cp
 
+@raisesections
+@subsubsection raised subsubsect
+
 ';
 
 my $test_parser = Texinfo::Parser::parser({'DEBUG' => $debug});
@@ -194,6 +197,9 @@ subsec
 
 * c:                                     chap.                  (line 5)
 
+raised subsubsect
+-----------------
+
 '
 , 'plaintext');
 #print STDERR "'$plaintext_text'\n";
@@ -235,6 +241,8 @@ See point.
 \subsection{{subsec}}
 \printindex[cp]
 
+\subsubsection{{raised subsubsect}}
+
 '
 , 'latex');
 
@@ -262,6 +270,10 @@ is($docbook_text, '<chapter label="">
 <sect2 label="">
 <title>subsec</title>
 <index role="cp"></index>
+
+</sect2>
+<sect2 label="">
+<title>raised subsubsect</title>
 
 </sect2>
 '
@@ -298,7 +310,11 @@ is($texinfoxml_text, '<contents></contents>
 <subsection><sectiontitle> subsec</sectiontitle>
 <printindex value="cp" line=" cp"></printindex>
 
+<raisesections></raisesections>
 </subsection>
+<subsubsection><sectiontitle> raised subsubsect</sectiontitle>
+
+</subsubsection>
 '
 
 , 'Texinfo XML');

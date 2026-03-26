@@ -2783,16 +2783,29 @@ elements.
 @node Sectioning Commands Elements and Document Structure
 @subsubsection Sectioning Commands Elements and Document Structure
 
-The following keys of the @code{extra} sectioning elements hash
-can be interesting in user-defined formatting and conversion functions:
-
-@table @code
-@item section_level
-The level of the section, taking into account @code{@@raisesections} and
-@code{@@lowersections}.  Level 0 corresponds to @code{@@top} or @code{@@part}
-and level 1 to @code{@@chapter} level sectioning commands.
+Sectioning commands tree elements section level, taking into account
+@code{@@raisesections} and @code{@@lowersections} is available in @code{extra}
+@code{section_level}.  Level 0 corresponds to @code{@@top} or @code{@@part} and
+level 1 to @code{@@chapter} level sectioning commands.
 @xref{Raise/lower sections,,, texinfo, Texinfo}.
-@end table
+
+Level of heading commands, such as @code{subheading} is returned by the
+@code{Texinfo::Common::section_level} function:
+
+@deftypefun {@var{$level} =} Texinfo::Common::section_level (@var{\%element})
+Return the numbered level of the heading or sectioning command tree element
+@var{\%element}, as modified by raise/lowersections for sections.
+@end deftypefun
+
+Call @code{Texinfo::Structuring::section_level_adjusted_command_name} for the command
+name adjusted for @code{@@raisesections} and @code{@@lowersections}:
+
+@deftypefun {@var{$command_name}} = @
+  Texinfo::Structuring::section_level_adjusted_command_name (@var{\%element})
+Return the sectioning command name corresponding to the sectioning
+element @var{\%element}, adjusted in order to take into account raised
+and lowered sections, when needed.
+@end deftypefun
 
 @cindex Sectioning command relations
 
@@ -3438,8 +3451,8 @@ The function for registering opened section extent is
 @var{$filename} is the filename the section belongs to.  You could use
 @code{$converter->current_filename()} for @var{$filename}.
 @var{$level} is the sectioning command level.  It is typically
-obtained with @code{section->@{'extra'@}->@{'section_level'@}}
-(@pxref{Texinfo Tree Elements in User Defined Functions}).
+obtained as @code{$section->@{'extra'@}->@{'section_level'@}}
+(@pxref{Sectioning Commands Elements and Document Structure}).
 @var{$closing_text} is the text that should be output when the
 section level @var{$level} is closed.
 @end defun
@@ -3450,9 +3463,10 @@ The function for closing registered section extents is
 @deftypefun {@var{\@@closing_texts} =} @var{$converter}->close_registered_sections_level (@var{$filename}, @var{$level})
 @var{$filename} is the filename the closed sections belong to.  You could use
 @code{$converter->current_filename()} for @var{$filename}.
-@var{$level} is the sectioning command level.  Opened section are closed
-down to section level @var{$level}.  The closing texts are returned in the
-@var{\@@closing_texts} array reference in order.
+@var{$level} is the sectioning command level
+(@pxref{Sectioning Commands Elements and Document Structure}).  Opened
+sections are closed down to section level @var{$level}.  The closing texts
+are returned in the @var{\@@closing_texts} array reference in order.
 @end deftypefun
 
 Example of use:
@@ -5940,17 +5954,6 @@ Can be called as @code{$converter->table_item_content_tree}.
 @item global informative commands (@code{@@contents}, @code{@@footnotestyle} @enddots{})
 @xref{Texinfo::Common set_informative_command_value($configuration_information@comma{} $element),,
 Texinfo::Common::set_informative_command_value, texi2any_internals}.
-
-@item heading commands, such as @code{@@subheading}
-@xref{Texinfo::Common $level = section_level($section),,
-Texinfo::Common::section_level, texi2any_internals}.  This function would work
-for sectioning commands too, but for sectioning commands,
-@code{section->@{'extra'@}->@{'section_level'@}} can also be used.
-@xref{Texinfo Tree Elements in User Defined Functions}.
-
-@item sectioning commands
-@xref{Texinfo::Structuring $command_name = section_level_adjusted_command_name($element),,
-Texinfo::Structuring::section_level_adjusted_command_name, texi2any_internals}.
 
 @item @code{@@itemize}
 @code{@@itemize} normally have an @@-command as argument.  If, instead,

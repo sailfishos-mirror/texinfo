@@ -2541,11 +2541,11 @@ Remove first occurence of I<$element> in the array reference I<$array>.
 If the optional I<$replacement> argument is given, replace the I<$element>
 by I<$replacement>.  Return the removed element, or C<undef> if not found.
 
-=item $level = section_level($section)
+=item $level = section_level($element)
 X<C<section_level>>
 
-Return numbered level of the tree sectioning element I<$section>, as modified by
-raise/lowersections.
+Return the numbered level of the heading or sectioning command tree element
+I<$element>, as modified by raise/lowersections for sections.
 
 =item $element = set_global_document_command($customization_information, $global_commands_information, $cmdname, $command_location)
 X<C<set_global_document_command>>

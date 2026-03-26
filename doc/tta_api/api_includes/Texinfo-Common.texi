@@ -339,12 +339,12 @@ Remove first occurence of @emph{$element} in the array reference @emph{$array}.
 If the optional @emph{$replacement} argument is given, replace the @emph{$element}
 by @emph{$replacement}.  Return the removed element, or @code{undef} if not found.
 
-@item $level = section_level($section)
-@anchor{Texinfo@asis{::}Common $level = section_level($section)}
+@item $level = section_level($element)
+@anchor{Texinfo@asis{::}Common $level = section_level($element)}
 @cindex @code{section_level}
 
-Return numbered level of the tree sectioning element @emph{$section}, as modified by
-raise/lowersections.
+Return the numbered level of the heading or sectioning command tree element
+@emph{$element}, as modified by raise/lowersections for sections.
 
 @item $element = set_global_document_command($customization_information, $global_commands_information, $cmdname, $command_location)
 @anchor{Texinfo@asis{::}Common $element = set_global_document_command($customization_information@comma{} $global_commands_information@comma{} $cmdname@comma{} $command_location)}
