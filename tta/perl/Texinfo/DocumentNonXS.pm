@@ -146,12 +146,6 @@ sub build_tree($;$) {
   return $tree;
 }
 
-# do nothing, the XS code sets up the output strings translation
-# paths.
-sub configure_output_strings_translations($$) {
-  my ($localesdir, $strings_textdomain) = @_;
-}
-
 
 
 # Errors and warnings handling

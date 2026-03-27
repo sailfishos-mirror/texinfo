@@ -1,5 +1,17 @@
 2026-03-27 Patrice Dumas  <pertusus@free.fr>
 
+	XS interface for Texinfo::Translations configure
+
+	* tta/perl/Texinfo/DocumentNonXS.pm, tta/perl/Texinfo/Translations.pm,
+	tta/perl/Texinfo/TranslationsNonXS.pm (configure),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs,
+	tta/perl/XSTexinfo/parser_document/TranslationsXS.xs (configure): add
+	an XS interface for Texinfo::Translations configure.  Remove
+	configure_output_strings_translations from Perl code and from Document
+	XS interface.
+
+2026-03-27 Patrice Dumas  <pertusus@free.fr>
+
 	XS interface for Texinfo::Translations for cache_translate_string
 
 	* tta/configure.ac (use_libintl_perl_in_xs), tta/perl/Makefile.am

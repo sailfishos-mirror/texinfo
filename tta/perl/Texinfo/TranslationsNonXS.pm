@@ -31,6 +31,26 @@ use strict;
 
 use Carp qw(cluck confess);
 
+# TODO remove second argument?  In that case remove the equivalent in
+# C code too.  Right now, it is not possible to actually set a
+# different domain, but it could theoretically be useful if users
+# want to use their domain.  In that case, it should be settable
+# simultaneously in Perl and C.
+# Check if it could be useful for SWIG interface, maybe?
+sub configure($;$) {
+  my ($localesdir, $in_strings_textdomain) = @_;
+
+  if (defined($in_strings_textdomain)) {
+    $Texinfo::Translations::strings_textdomain = $in_strings_textdomain;
+  }
+  if (defined($localesdir)) {
+    Locale::Messages::bindtextdomain(
+       $Texinfo::Translations::strings_textdomain, $localesdir);
+  } else {
+    warn 'WARNING: string textdomain directory undefined'."\n";
+  }
+}
+
 # Return an array reference with a translated string.
 # The LANG_TRANSLATIONS argument is an array reference with the language
 # translated to as first element, and as optional second element an hash

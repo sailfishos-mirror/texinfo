@@ -64,8 +64,10 @@ our $VERSION = '7.3dev';
 
 BEGIN {
   my $shared_library_name = "TranslationsXS";
-  # avoid the complication of going through XS and then back to Perl through
-  # a call of Perl function from C if use_libintl_perl_in_xs.
+  # We want this package Perl configure function version to be called
+  # if use_libintl_perl_in_xs.  Also avoids the complication of going
+  # through XS and then back to Perl through a call of Perl function
+  # from C in that case.
   if (!Texinfo::XSLoader::XS_parser_enabled()
       or $Texinfo::ModulePath::use_libintl_perl_in_xs eq 'yes') {
     undef $shared_library_name;
@@ -86,31 +88,7 @@ Locale::Messages->select_package ('gettext_pp');
 # i18n
 
 my $messages_textdomain = 'texinfo';
-my $strings_textdomain = 'texinfo_document';
-
-# TODO document when both XS and NonXS need to be setup?
-# Do that in Document module(s)?
-# TODO remove second argument?  In that case remove the equivalent in
-# C code too.  Right now, it is not possible to actually set a
-# different domain, but it could theoretically be useful if users
-# want to use their domain.  In that case, it should be settable
-# simultaneously in Perl and C.
-# Check if it could be useful for SWIG interface, maybe?
-sub configure($;$) {
-  my ($localesdir, $in_strings_textdomain) = @_;
-
-  if (defined($in_strings_textdomain)) {
-    $strings_textdomain = $in_strings_textdomain;
-  }
-  if (defined($localesdir)) {
-    Locale::Messages::bindtextdomain($strings_textdomain, $localesdir);
-    # set the directory for the XS code too
-    Texinfo::Document::configure_output_strings_translations($localesdir,
-                                                      $strings_textdomain);
-  } else {
-    warn 'WARNING: string textdomain directory undefined'."\n";
-  }
-}
+our $strings_textdomain = 'texinfo_document';
 
 # libintl converts between encodings but doesn't decode them into the
 # perl internal format.

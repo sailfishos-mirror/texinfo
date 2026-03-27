@@ -38,8 +38,6 @@
 /* for clear_error_message_list */
 #include "errors.h"
 #include "document.h"
-/* configure_output_strings_translations */
-#include "translations.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"
 #include "call_document_perl_functions.h"
@@ -82,18 +80,6 @@ init (SV *texinfo_uninstalled_sv, SV *datadir_sv, SV *t2a_builddir_sv, SV *t2a_s
         RETVAL = 1;
     OUTPUT:
         RETVAL
-
-# More related to translations than to the Texinfo Document, but we do not
-# want to add another XS file for only one function.
-# There is no calling code that sets use_external_translate_string.
-void
-configure_output_strings_translations (localesdir, strings_textdomain="texinfo_document", int use_external_translate_string=0)
-       char *localesdir = (char *)SvPVbyte_nolen($arg);
-       char *strings_textdomain;
-      CODE:
-       configure_output_strings_translations (localesdir,
-                                              strings_textdomain,
-                                              use_external_translate_string);
 
 # This XS interface is rarely used, as, in general, a document is available
 # and document_tree can be used instead.  It may be useful for a tree from
