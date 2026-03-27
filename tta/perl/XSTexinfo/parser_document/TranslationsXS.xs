@@ -1,0 +1,87 @@
+/* Copyright 2023-2026 Free Software Foundation, Inc.
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
+
+/* ALTIMP perl/Texinfo/TranslationsNonXS.pm */
+
+/* Avoid namespace conflicts. */
+#define context perl_context
+
+#define PERL_NO_GET_CONTEXT
+#include "EXTERN.h"
+#include "perl.h"
+#include "XSUB.h"
+
+#undef context
+
+#include "tree_types.h"
+#include "translations.h"
+/* for newSVpv_utf8 */
+#include "build_perl_info.h"
+
+ /* See the NOTE in build_perl_info.c on use of functions related to
+    memory allocation */
+
+MODULE = Texinfo::Translations	PACKAGE = Texinfo::Translations
+
+PROTOTYPES: ENABLE
+
+SV *
+cache_translate_string (string, SV *lang_translations, SV *translation_context_sv=0)
+      const char *string = (char *)SvPVutf8_nolen($arg);
+    PREINIT:
+        char *result = 0;
+        AV *av;
+     CODE:
+        if (SvOK (lang_translations))
+          {
+            AV *lang_translations_av = (AV *) SvRV (lang_translations);
+            SV **lang_sv = av_fetch (lang_translations_av, 0, 0);
+            SV **encoded_lang_sv = av_fetch (lang_translations_av, 1, 0);
+            const char *lang = 0;
+            const char *encoded_lang = 0;
+            const char *translated_context_string = 0;
+            LANG_TRANSLATION *lang_translation;
+            TRANSLATION_TREE *translation_cache_result;
+
+            if (lang_sv && SvOK (*lang_sv))
+              lang = SvPVutf8_nolen (*lang_sv);
+            if (encoded_lang_sv && SvOK (*encoded_lang_sv))
+              encoded_lang = SvPVbyte_nolen (*encoded_lang_sv);
+
+            if (!lang)
+              lang= "";
+
+            lang_translation
+              = get_lang_encoded_lang_translation (
+                                &translation_cache, lang, encoded_lang,
+                                TXI_CONVERT_STRINGS_NR);
+            if (translation_context_sv
+                && SvOK (translation_context_sv))
+              translated_context_string
+                = SvPVutf8_nolen (translation_context_sv);
+            translation_cache_result
+                   = cache_translate_string (string, lang_translation,
+                                             translated_context_string);
+            result = translation_cache_result->translation ;
+          }
+        av = newAV ();
+        if (result)
+          av_push (av, newSVpv_utf8 (result, 0));
+        else
+          av_push (av, newSV (0));
+        RETVAL = newRV_noinc ((SV *) av);
+    OUTPUT:
+         RETVAL
+

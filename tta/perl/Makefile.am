@@ -101,6 +101,7 @@ dist_modules_DATA = \
  Texinfo/Transformations.pm \
  Texinfo/TransformationsNonXS.pm \
  Texinfo/Translations.pm \
+ Texinfo/TranslationsNonXS.pm \
  Texinfo/TreeElement.pm \
  Texinfo/UnicodeData.pm \
  Texinfo/XSLoader.pm
@@ -364,6 +365,7 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 	    -e 's|[@]CONVERTER[@]|$(CONVERTER)|' \
 	    -e 's|[@]enable_xs[@]|$(enable_xs)|' \
 	    -e 's|[@]use_shared_txi_libraries[@]|$(use_shared_txi_libraries)|' \
+	    -e 's|[@]use_libintl_perl_in_xs[@]|$(use_libintl_perl_in_xs)|' \
 	  $(srcdir)/Texinfo/ModulePath.pm.in >$@
 
 # target that can be built upon cd'ing to the build directory, as needed

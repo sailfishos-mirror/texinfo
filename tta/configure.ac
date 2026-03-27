@@ -392,6 +392,7 @@ if test $use_libintl_perl_in_xs = yes ; then
   AC_DEFINE([USE_LIBINTL_PERL_IN_XS], [1],
             [Define to 1 if Perl libintl-perl should be called from XS])
 fi
+AC_SUBST([use_libintl_perl_in_xs])
 
 
 # Check if it is possible to embed a Perl interpreter.  Set PERL_EMBEDDED

@@ -490,17 +490,11 @@ free_translation_cache (LANG_TRANSLATION **translation_cache)
     }
 }
 
-  /* formatted_index_entries may not be initialized if there was an error
-     early and prepare_conversion_units_targets was never called */
-LANG_TRANSLATION **translation_cache;
-
-LANG_TRANSLATION *
-get_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
-                      const char *lang, const char *locale_encoding,
-                      size_t cache_size)
+static LANG_TRANSLATION *
+find_lang_translation (LANG_TRANSLATION **lang_translations,
+                       const char *lang, size_t *out_index)
 {
   size_t i = 0;
-  LANG_TRANSLATION **lang_translations = *lang_translations_ptr;
 
   if (lang_translations)
     {
@@ -513,23 +507,87 @@ get_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
         }
     }
 
+  *out_index = i;
+  return 0;
+}
+
+LANG_TRANSLATION **translation_cache;
+
+static LANG_TRANSLATION *
+store_new_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
+                            size_t idx, size_t cache_size,
+                            LANG_TRANSLATION *lang_translation)
+{
+  LANG_TRANSLATION **lang_translations;
+
   *lang_translations_ptr = (LANG_TRANSLATION **)
     realloc (*lang_translations_ptr,
-             (i+2) * sizeof (LANG_TRANSLATION *));
+             (idx+2) * sizeof (LANG_TRANSLATION *));
 
   lang_translations = *lang_translations_ptr;
 
-  lang_translations[i+1] = 0;
-  lang_translations[i] = new_lang_translation (lang, locale_encoding);
+  lang_translations[idx+1] = 0;
+  lang_translations[idx] = lang_translation;
 
-  lang_translations[i]->translations = (LANG_TRANSLATION_TREE_LIST *)
+  lang_translations[idx]->translations = (LANG_TRANSLATION_TREE_LIST *)
      malloc (sizeof(LANG_TRANSLATION_TREE_LIST));
-   memset (lang_translations[i]->translations, 0,
+   memset (lang_translations[idx]->translations, 0,
            sizeof (LANG_TRANSLATION_TREE_LIST));
 
-  lang_translations[i]->translations->hash = new_c_hashmap (cache_size);
+  lang_translations[idx]->translations->hash = new_c_hashmap (cache_size);
 
-  return lang_translations[i];
+  return lang_translations[idx];
+}
+
+LANG_TRANSLATION *
+get_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
+                      const char *lang, const char *locale_encoding,
+                      size_t cache_size)
+{
+  size_t i;
+
+  LANG_TRANSLATION *lang_translation
+    = find_lang_translation (*lang_translations_ptr, lang, &i);
+
+  if (lang_translation)
+    return lang_translation;
+
+  lang_translation = new_lang_translation (lang, locale_encoding);
+
+  return store_new_lang_translation (lang_translations_ptr, i, cache_size,
+                                     lang_translation);
+}
+
+/* only used from Perl where the encoded lang is already available */
+LANG_TRANSLATION *
+get_lang_encoded_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
+                      const char *lang, const char *encoded_lang,
+                      size_t cache_size)
+{
+  size_t i;
+
+  LANG_TRANSLATION *lang_translation
+    = find_lang_translation (*lang_translations_ptr, lang, &i);
+
+  if (lang_translation)
+    return lang_translation;
+
+  lang_translation = (LANG_TRANSLATION *)
+    malloc (sizeof (LANG_TRANSLATION));
+  if (lang && encoded_lang)
+    {
+      lang_translation->lang = strdup (lang);
+      lang_translation->encoded_lang = strdup (encoded_lang);
+    }
+  else
+    {
+      lang_translation->lang = strdup ("");
+      lang_translation->encoded_lang = strdup ("");
+    }
+  lang_translation->translations = 0;
+
+  return store_new_lang_translation (lang_translations_ptr, i, cache_size,
+                                     lang_translation);
 }
 
 LANG_TRANSLATION *

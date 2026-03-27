@@ -38,6 +38,10 @@ LANG_TRANSLATION *get_lang_translation (
                       LANG_TRANSLATION ***lang_translations_ptr,
                       const char *lang, const char *locale_encoding,
                       size_t cache_size);
+LANG_TRANSLATION *get_lang_encoded_lang_translation (
+                      LANG_TRANSLATION ***lang_translations_ptr,
+                      const char *lang, const char *encoded_lang,
+                      size_t cache_size);
 LANG_TRANSLATION *new_lang_translation (const char *lang,
                                         const char *locale_encoding);
 TRANSLATION_TREE *add_translation_tree (

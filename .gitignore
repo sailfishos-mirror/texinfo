@@ -366,6 +366,7 @@ tta/perl/XSTexinfo/parser_document/ManipulateTreeXS.c
 tta/perl/XSTexinfo/parser_document/ParserXS.c
 tta/perl/XSTexinfo/parser_document/StructuringXS.c
 tta/perl/XSTexinfo/parser_document/TransformationsXS.c
+tta/perl/XSTexinfo/parser_document/TranslationsXS.c
 tta/perl/XSTexinfo/parser_document/OutputUnitsXS.c
 tta/perl/XSTexinfo/parser_document/.libs
 tta/perl/XSTexinfo/parser_document/*.lo

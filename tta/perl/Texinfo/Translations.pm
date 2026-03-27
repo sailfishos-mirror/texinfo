@@ -62,6 +62,23 @@ use Texinfo::ManipulateTree;
 
 our $VERSION = '7.3dev';
 
+BEGIN {
+  my $shared_library_name = "TranslationsXS";
+  # avoid the complication of going through XS and then back to Perl through
+  # a call of Perl function from C if use_libintl_perl_in_xs.
+  if (!Texinfo::XSLoader::XS_parser_enabled()
+      or $Texinfo::ModulePath::use_libintl_perl_in_xs eq 'yes') {
+    undef $shared_library_name;
+  }
+  Texinfo::XSLoader::init (
+    "Texinfo::Translations",
+    "Texinfo::TranslationsNonXS",
+    $shared_library_name,
+    undef,
+    ['texinfo', 'texinfoxs'],
+  );
+}
+
 # we want a reliable way to switch locale for the document
 # strings translations so we don't use the system gettext.
 Locale::Messages->select_package ('gettext_pp');
@@ -241,82 +258,6 @@ sub new_lang_translation($;$) {
 # Cache translations in a hash to avoid having to go through the locale
 # system rigmarole every time.
 our $translation_cache = {};
-
-# Return an array reference with a translated string.
-# The LANG_TRANSLATIONS argument is an array reference with the language
-# translated to as first element, and as optional second element an hash
-# that is used to hold translations already done for that language.
-# If the language is undef or an empty string, no translation is needed.
-sub cache_translate_string($$;$) {
-  my ($string, $lang_translations, $translation_context) = @_;
-
-  #if (!defined($string)) {
-  #  confess("cache_translate_string: undef string\n");
-  #}
-  my $lang;
-  my $encoded_lang;
-  my $translations;
-  if (defined($lang_translations)) {
-    $lang = $lang_translations->[0];
-    $encoded_lang = $lang_translations->[1];
-    if (scalar(@$lang_translations) > 2) {
-      $translations = $lang_translations->[2];
-    }
-  }
-
-  if (!defined($lang)) {
-    $lang = '';
-    $encoded_lang = '';
-  }
-
-  if (!defined($encoded_lang)) {
-    cluck("cache_translate_string '$lang' encoded_lang undef");
-  }
-
-  my $translation_context_str;
-  if (defined($translation_context)) {
-    $translation_context_str = $translation_context;
-  } else {
-    $translation_context_str = '';
-  }
-  my $strings_cache;
-  # use default translated string and tree cache if none was passed
-  if (!defined($translations)) {
-    if (!exists($translation_cache->{$lang})) {
-      $translation_cache->{$lang} = {}
-    }
-    $translations = $translation_cache->{$lang};
-  }
-
-  if (exists($translations->{$translation_context_str})) {
-    if (exists($translations->{$translation_context_str}->{$string})) {
-      # return cached translation and tree
-      return $translations->{$translation_context_str}->{$string};
-    }
-  } else {
-    $translations->{$translation_context_str} = {};
-  }
-
-  $strings_cache = $translations->{$translation_context_str};
-
-  # no translation, but still needed to setup caching for the associated
-  # tree
-  if ($lang eq '') {
-    my $result = [undef];
-    $strings_cache->{$string} = $result;
-    return $result;
-  }
-
-  my $translated_string = translate_string($string, $lang, $encoded_lang,
-                                           $translation_context);
-
-  my $result = [$translated_string];
-
-  $strings_cache->{$string} = $result;
-
-  #print STDERR "_GDT '$string' '$translated_string'\n";
-  return $result;
-}
 
 # Get document translation - handle translations of in-document strings.
 # Return a parsed Texinfo tree.

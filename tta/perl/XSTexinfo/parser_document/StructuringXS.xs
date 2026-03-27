@@ -13,7 +13,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
-/* ALTIMP perl/Texinfo/Structuring.pm */
+/* ALTIMP perl/Texinfo/StructuringNonXS.pm */
 
 /* Avoid namespace conflicts. */
 #define context perl_context
