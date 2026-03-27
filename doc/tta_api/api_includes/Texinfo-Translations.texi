@@ -12,7 +12,7 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
 @verbatim
   @ISA = qw(Texinfo::Translations);
 
-  Texinfo::Translations::configure('LocaleData');
+  Texinfo::Translations::setup_output_strings('LocaleData');
 
 
   my $language = $customization->get_conf('documentlanguage');
@@ -49,12 +49,12 @@ elements are in @ref{Texinfo@asis{::}Common $translated_string = __($msgid),, Te
 
 No method is exported.
 
-The @code{configure} method sets the translation files base directory.  If not
-called, system defaults are used.
+The @code{setup_output_strings} method sets the translation files base directory.
+If not called, system defaults are used.
 
 @table @asis
-@item configure($localesdir, $strings_textdomain)
-@anchor{Texinfo@asis{::}Translations configure($localesdir@comma{} $strings_textdomain)}
+@item setup_output_strings($localesdir, $strings_textdomain)
+@anchor{Texinfo@asis{::}Translations setup_output_strings($localesdir@comma{} $strings_textdomain)}
 
 @emph{$localesdir} is the directory where translation files are found. The
 directory structure and files format should follow the @url{https://www.gnu.org/software/gettext/manual/html_node/Locating-Catalogs.html, conventions expected

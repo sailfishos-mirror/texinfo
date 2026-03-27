@@ -64,8 +64,8 @@ our $VERSION = '7.3dev';
 
 BEGIN {
   my $shared_library_name = "TranslationsXS";
-  # We want this package Perl configure function version to be called
-  # if use_libintl_perl_in_xs.  Also avoids the complication of going
+  # We want this package Perl setup_output_strings function version to be
+  # called if use_libintl_perl_in_xs.  Also avoids the complication of going
   # through XS and then back to Perl through a call of Perl function
   # from C in that case.
   if (!Texinfo::XSLoader::XS_parser_enabled()
@@ -570,7 +570,7 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
 
   @ISA = qw(Texinfo::Translations);
 
-  Texinfo::Translations::configure('LocaleData');
+  Texinfo::Translations::setup_output_strings('LocaleData');
 
 
   my $language = $customization->get_conf('documentlanguage');
@@ -604,12 +604,12 @@ elements are in L<Texinfo::Common C<__> and C<__p>|Texinfo::Common/$translated_s
 
 No method is exported.
 
-The C<configure> method sets the translation files base directory.  If not
-called, system defaults are used.
+The C<setup_output_strings> method sets the translation files base directory.
+If not called, system defaults are used.
 
 =over
 
-=item configure($localesdir, $strings_textdomain)
+=item setup_output_strings($localesdir, $strings_textdomain)
 
 I<$localesdir> is the directory where translation files are found. The
 directory structure and files format should follow the L<conventions expected

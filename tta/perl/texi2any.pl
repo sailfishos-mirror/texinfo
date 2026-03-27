@@ -1530,13 +1530,15 @@ if ($Texinfo::ModulePath::texinfo_uninstalled) {
   my $locales_dir
      = join('/', ($Texinfo::ModulePath::t2a_builddir, 'LocaleData'));
   if (-d $locales_dir) {
-    Texinfo::Translations::configure($locales_dir, $strings_textdomain);
+    Texinfo::Translations::setup_output_strings($locales_dir,
+                                                $strings_textdomain);
   } else {
     warn "Locales dir for document strings not found\n";
   }
 } else {
   my $locales_dir = join('/', ($datadir, 'locale'));
-  Texinfo::Translations::configure($locales_dir, $strings_textdomain);
+  Texinfo::Translations::setup_output_strings($locales_dir,
+                                              $strings_textdomain);
 }
 
 my %tree_transformations;

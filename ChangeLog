@@ -1,5 +1,16 @@
 2026-03-27 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/TranslationsNonXS.pm (setup_output_strings),
+	tta/perl/XSTexinfo/parser_document/TranslationsXS.xs
+	(setup_output_strings): rename configure as setup_output_strings.
+	Update callers.
+
+	* tta/C/main/translations.c (setup_output_strings_translations):
+	rename configure_output_strings_translations as
+	setup_output_strings_translations.  Update callers.
+
+2026-03-27 Patrice Dumas  <pertusus@free.fr>
+
 	XS interface for Texinfo::Translations configure
 
 	* tta/perl/Texinfo/DocumentNonXS.pm, tta/perl/Texinfo/Translations.pm,

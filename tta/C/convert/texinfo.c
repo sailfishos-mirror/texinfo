@@ -270,7 +270,7 @@ txi_general_output_strings_setup (int use_external_translate_string)
           if (stat (locales_dir, &finfo) == 0 && S_ISDIR (finfo.st_mode))
             {
               not_found = 0;
-              configure_output_strings_translations (locales_dir, 0,
+              setup_output_strings_translations (locales_dir, 0,
                                            use_external_translate_string);
             }
           free (locales_dir);
@@ -283,8 +283,8 @@ txi_general_output_strings_setup (int use_external_translate_string)
     {
       xasprintf (&locales_dir, "%s/locale",
                  txi_paths_info.p.installed.converter_datadir);
-      configure_output_strings_translations (locales_dir, 0,
-                                           use_external_translate_string);
+      setup_output_strings_translations (locales_dir, 0,
+                                         use_external_translate_string);
       free (locales_dir);
     }
 }

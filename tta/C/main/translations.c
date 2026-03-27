@@ -74,9 +74,9 @@ static int use_external_translate_string;
     1: always call external (Perl) translate string
  */
 void
-configure_output_strings_translations (const char *localesdir,
-                                       const char *strings_textdomain_in,
-                                       int use_external_translate_string_in)
+setup_output_strings_translations (const char *localesdir,
+                                   const char *strings_textdomain_in,
+                                   int use_external_translate_string_in)
 {
   const char *textdomain_directory;
   if (strings_textdomain_in)

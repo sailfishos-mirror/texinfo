@@ -108,7 +108,7 @@ sub configure_document_locales($) {
     warn "No locales directory found, some tests could fail\n";
   }
 
-  Texinfo::Translations::configure($locales_dir);
+  Texinfo::Translations::setup_output_strings($locales_dir);
 }
 
 # not that subdirectories are not compared, so subdirectories generated

@@ -37,7 +37,7 @@ use Carp qw(cluck confess);
 # want to use their domain.  In that case, it should be settable
 # simultaneously in Perl and C.
 # Check if it could be useful for SWIG interface, maybe?
-sub configure($;$) {
+sub setup_output_strings($;$) {
   my ($localesdir, $in_strings_textdomain) = @_;
 
   if (defined($in_strings_textdomain)) {
