@@ -2915,8 +2915,9 @@ html_converter_customize (CONVERTER *self)
     }
 
   self->global_units_directions
-    = (const OUTPUT_UNIT **) malloc ((D_Last + nr_special_units
-                +self->added_global_units_directions.number+1)
+    = (const OUTPUT_UNIT **) malloc ((DEFAULT_GLOBAL_DIRECTION_LAST_IDX
+                + nr_special_units
+                + self->added_global_units_directions.number+1)
                                * sizeof (OUTPUT_UNIT));
 
   /* note that we allocate the same size as no_arg_formatted_cmd
@@ -3943,7 +3944,7 @@ html_conversion_initialization (CONVERTER *self, const char *context)
 
   /* directions */
   memset (self->global_units_directions, 0,
-    (D_Last + self->special_unit_varieties.number
+    (DEFAULT_GLOBAL_DIRECTION_LAST_IDX + self->special_unit_varieties.number
      + self->added_global_units_directions.number +1) * sizeof (OUTPUT_UNIT));
 
   free (self->global_units_direction_names.list);
@@ -5496,14 +5497,15 @@ html_prepare_output_units_global_targets (CONVERTER *self)
           DOCUMENT *label_document;
           ELEMENT *label_tree;
 
-          if (direction_node_name->direction_nr <= D_Last+1)
+          if (direction_node_name->direction_nr
+                               <= DEFAULT_GLOBAL_DIRECTION_LAST_IDX+1)
             /* replace a default global direction */
             global_directions_idx = direction_node_name->direction_nr -1;
           else if (direction_node_name->direction_nr
                       > NON_SPECIAL_DIRECTIONS_NR)
             {
             /* additional global direction, with/after special units */
-              global_directions_idx = D_Last
+              global_directions_idx = DEFAULT_GLOBAL_DIRECTION_LAST_IDX
                + (direction_node_name->direction_nr - NON_SPECIAL_DIRECTIONS_NR);
             }
           else
@@ -5576,7 +5578,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
     {
       int i;
       fprintf (stderr, "GLOBAL DIRECTIONS:\n");
-      for (i = 0; i < D_Last+1; i++)
+      for (i = 0; i < DEFAULT_GLOBAL_DIRECTION_LAST_IDX+1; i++)
         {
           if (self->global_units_directions[i])
             {
@@ -5586,6 +5588,16 @@ html_prepare_output_units_global_targets (CONVERTER *self)
                                             unit_texi);
               free (unit_texi);
             }
+        }
+      fprintf (stderr, "TEXT DIRECTIONS:\n");
+      for (i = DEFAULT_GLOBAL_DIRECTION_LAST_IDX+1;
+           i < DEFAULT_TEXT_DIRECTION_LAST_IDX+1; i++)
+        {
+          const char *name = html_direction_string (self, i, TDS_type_button,
+                                                    TDS_context_normal);
+          if (name)
+            fprintf (stderr, " %s {%s}\n", html_global_unit_direction_names[i],
+                                           name);
         }
       fprintf (stderr, "\n");
     }
@@ -5662,7 +5674,7 @@ html_setup_global_units_direction_names (CONVERTER *self)
   const SPECIAL_UNIT_DIRECTION *special_units_direction_names
     = self->special_units_direction_names;
 
-  for (i = 0; i < D_Last+1; i++)
+  for (i = 0; i < DEFAULT_GLOBAL_DIRECTION_LAST_IDX+1; i++)
     if (self->global_units_directions[i])
       global_directions_nr++;
 
@@ -5684,7 +5696,7 @@ html_setup_global_units_direction_names (CONVERTER *self)
   global_units_directions_list = (SPECIAL_UNIT_DIRECTION *)
    malloc (sizeof (SPECIAL_UNIT_DIRECTION) * (global_directions_nr));
 
-  for (i = 0; i < D_Last+1; i++)
+  for (i = 0; i < DEFAULT_GLOBAL_DIRECTION_LAST_IDX+1; i++)
     {
       if (self->global_units_directions[i])
         {
@@ -5714,7 +5726,7 @@ html_setup_global_units_direction_names (CONVERTER *self)
             = &self->customized_global_units_directions.list[l];
           if (direction_node_name->direction_nr > NON_SPECIAL_DIRECTIONS_NR)
             {
-              size_t global_directions_idx = D_Last
+              size_t global_directions_idx = DEFAULT_GLOBAL_DIRECTION_LAST_IDX
            + (direction_node_name->direction_nr - NON_SPECIAL_DIRECTIONS_NR);
               global_units_directions_list[global_units_direction_idx].direction
                 = direction_node_name->direction;
@@ -5742,7 +5754,8 @@ html_setup_global_texts_direction_names (CONVERTER *self)
 {
   size_t i;
 
-  for (i = D_Last+1; i < D_direction_This; i++)
+  for (i = DEFAULT_GLOBAL_DIRECTION_LAST_IDX+1;
+       i < DEFAULT_TEXT_DIRECTION_LAST_IDX+1; i++)
     {
       add_string (html_global_unit_direction_names[i],
                   &self->global_texts_direction_names);

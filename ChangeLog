@@ -1,5 +1,29 @@
 2026-03-28 Patrice Dumas  <pertusus@free.fr>
 
+	* ta/maintain/generate_code_convert_data.pl (@ordered_text_directions)
+	(%ordered_text_global_directions_hash, %direction_orders)
+	(@orders_order, @ordered_directions): separate text directions from
+	global units directions.
+
+	* tta/maintain/generate_code_convert_data.pl,
+	tta/C/convert/format_html.c, tta/C/convert/html_prepare_converter.c:
+	generate DEFAULT_GLOBAL_DIRECTION_LAST_IDX and
+	DEFAULT_TEXT_DIRECTION_LAST_IDX and use instead of D_Last and
+	D_direction_This.
+
+	* tta/C/convert/html_prepare_converter.c
+	(html_prepare_output_units_global_targets),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm
+	(_prepare_output_units_global_targets): show default text directions
+	in debugging code.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (@text_directions_order)
+	(converter_initialize): set @text_directions_order based on
+	automatically generated directions and use it to set default text
+	directions in converter_initialize.
+
+2026-03-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/DocBook.pm (_convert): determine $part if
 	not already determined.
 

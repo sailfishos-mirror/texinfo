@@ -1390,11 +1390,12 @@ my %default_translated_special_unit_info
   = %{ Texinfo::HTMLData::get_default_translated_special_unit_info() };
 
 my $direction_orders = Texinfo::HTMLData::get_directions_order();
-# 'global', 'relative', 'file'
+# 'global', 'text', 'relative', 'file'
 my @all_directions_except_special_units;
 foreach my $direction_order (@$direction_orders) {
   push @all_directions_except_special_units, @$direction_order;
 }
+my @text_directions_order = @{$direction_orders->[1]};
 
 #print STDERR join('|', @all_directions_except_special_units)."\n";
 
@@ -8163,7 +8164,9 @@ sub converter_initialize($) {
 
   # "directions" not associated to output units, but associated to text.
   $self->{'global_texts_directions'} = {};
-  $self->{'global_texts_directions'}->{'Space'} = 1;
+  foreach my $direction (@text_directions_order) {
+    $self->{'global_texts_directions'}->{$direction} = 1;
+  }
 
   $self->{'all_directions'} = {};
   foreach my $direction (@all_directions_except_special_units) {

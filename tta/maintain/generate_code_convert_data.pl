@@ -311,18 +311,21 @@ if ($perl_format) {
 
 
 
-my @ordered_global_directions = ('First', 'Top', 'Index', 'Last', 'Space');
-my %ordered_global_directions_hash;
-foreach my $global_direction (@ordered_global_directions) {
-  $ordered_global_directions_hash{$global_direction} = 1;
+my @ordered_global_directions = ('First', 'Top', 'Index', 'Last');
+my @ordered_text_directions = ('Space');
+my %ordered_text_global_directions_hash;
+foreach my $global_direction (@ordered_global_directions,
+                              @ordered_text_directions) {
+  $ordered_text_global_directions_hash{$global_direction} = 1;
 }
 
 my %direction_orders = (
   'global' => \@ordered_global_directions,
+  'text' => \@ordered_text_directions,
   'relative' => [],
   'file' => []
 );
-my @orders_order = ('global', 'relative', 'file');
+my @orders_order = ('global', 'text', 'relative', 'file');
 
 my @d_ordered_untranslated_hashes;
 my @d_ordered_translated_hashes;
@@ -423,7 +426,7 @@ while (<DDS>) {
   chomp;
   my @data = split (/\|/);
   my $direction = $data[0];
-  if (!$ordered_global_directions_hash{$direction}
+  if (!$ordered_text_global_directions_hash{$direction}
       and !$su_directions{$direction}) {
     if ($direction =~ /File/) {
       push @{$direction_orders{'file'}}, $direction;
@@ -482,7 +485,9 @@ while (<DDS>) {
   }
 }
 
-my @ordered_directions = (@{$direction_orders{'global'}}, @{$direction_orders{'relative'}},
+my @ordered_directions = (@{$direction_orders{'global'}},
+                          @{$direction_orders{'text'}},
+                          @{$direction_orders{'relative'}},
                           @{$direction_orders{'file'}}, @ordered_su_directions);
 
 if ($perl_format) {
@@ -527,6 +532,9 @@ if ($perl_format) {
   foreach my $direction (@{$direction_orders{'global'}}) {
     print HDR "   hgdt_name(${direction}) \\\n";
   }
+  foreach my $direction (@{$direction_orders{'text'}}) {
+    print HDR "   hgdt_name(${direction}) \\\n";
+  }
   print HDR "\n\n";
 
   print HDR "/* relative output unit directions */\n";
@@ -548,6 +556,11 @@ if ($perl_format) {
      .$direction_orders{'relative'}[0]."\n";
   print HDR "#define FIRSTINFILE_MAX_IDX D_direction_FirstInFile"
      .$direction_orders{'relative'}[-1]."\n\n";
+
+  print HDR "#define DEFAULT_GLOBAL_DIRECTION_LAST_IDX D_"
+     .$direction_orders{'global'}[-1]."\n";
+  print HDR "#define DEFAULT_TEXT_DIRECTION_LAST_IDX D_"
+     .$direction_orders{'text'}[-1]."\n\n";
 
   my $nr_string_directions = scalar(@ordered_directions);
 

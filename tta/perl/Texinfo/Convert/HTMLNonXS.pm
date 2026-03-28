@@ -1694,9 +1694,9 @@ my %default_translated_special_unit_info
   = %{ Texinfo::HTMLData::get_default_translated_special_unit_info() };
 
 my $direction_orders = Texinfo::HTMLData::get_directions_order();
-# 'global', 'relative', 'file'
-# include space direction
+# 'global', 'text', 'relative', 'file'
 my @global_directions_order = @{$direction_orders->[0]};
+my @text_directions_order = @{$direction_orders->[1]};
 
 # for rel, see http://www.w3.org/TR/REC-html40/types.html#type-links
 my %default_converted_directions_strings
@@ -3974,14 +3974,24 @@ sub _prepare_output_units_global_targets($$$$) {
     # TODO also show the global directions added by the user
     print STDERR "GLOBAL DIRECTIONS:\n";
     foreach my $global_direction (@global_directions_order) {
-      if (defined($self->global_direction_unit($global_direction))) {
-        my $global_unit = $self->global_direction_unit($global_direction);
+      my $global_unit = $self->global_direction_unit($global_direction);
+      if (defined($global_unit)) {
         print STDERR " $global_direction"
             # uncomment to get the perl object name
             # ."($global_unit)"
      .': '. Texinfo::OutputUnits::output_unit_texi($global_unit)."\n";
       }
     }
+    print STDERR "TEXT DIRECTIONS:\n";
+    foreach my $text_direction (@text_directions_order) {
+      if ($self->global_direction_text($text_direction)) {
+        my $text_value = $self->direction_string($text_direction, 'button');
+        if (defined($text_value)) {
+          print STDERR " $text_direction {$text_value}\n";
+        }
+      }
+    }
+
     print STDERR "\n";
   }
 

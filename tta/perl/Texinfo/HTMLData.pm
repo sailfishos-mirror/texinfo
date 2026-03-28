@@ -63,7 +63,8 @@ sub get_default_translated_special_unit_info() {
 
 # Generated from default_direction_strings.csv
 sub get_directions_order() {
-return [['First', 'Top', 'Index', 'Last', 'Space'],
+return [['First', 'Top', 'Index', 'Last'],
+['Space'],
 ['This', 'Forward', 'Back', 'FastForward', 'FastBack', 'Next', 'Prev', 'Up', 'NodeNext', 'NodePrev', 'NodeUp', 'NodeForward', 'NodeBack'],
 ['PrevFile', 'NextFile'],
 ];

@@ -1067,7 +1067,7 @@ html_special_unit_variety_direction_index (const CONVERTER *self,
                                special_unit_variety);
   int i = number -1;
   if (i >= 0)
-    return D_Last +1 +i;
+    return DEFAULT_GLOBAL_DIRECTION_LAST_IDX +1 +i;
   return -1;
 }
 
@@ -2338,7 +2338,8 @@ html_unit_is_top_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 static int
 html_global_direction_text (CONVERTER *self, int direction)
 {
-  if ((direction > D_direction_Last && direction < D_direction_This)
+  if ((direction > DEFAULT_GLOBAL_DIRECTION_LAST_IDX
+       && direction < DEFAULT_TEXT_DIRECTION_LAST_IDX +1)
       || (direction > NON_SPECIAL_DIRECTIONS_NR
             + (int) self->special_unit_varieties.number
             + (int) self->added_global_units_directions.number -1))
