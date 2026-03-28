@@ -1400,8 +1400,7 @@ check_node_tree_menu_structure (DOCUMENT *document)
 
                   last_menu_node_relations
                     = nodes_list->list[menu_node_element_number - 1];
-                  if (!last_menu_node_relations
-                      || !last_menu_node_relations->associated_section)
+                  if (!last_menu_node_relations->associated_section)
                     continue;
 
                   const SECTION_RELATIONS *const *menu_section_dirs

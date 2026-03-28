@@ -538,6 +538,26 @@ Text
 * An anchor::                menu entry pointing to the anchor.
 @end menu
 '],
+# to test CHECK_NORMAL_MENU_STRUCTURE with an anchor
+['menu_pointing_to_anchor_nodes',
+'@node Top
+@top top
+
+Text
+
+@anchor{An anchor}
+@namedanchor{!Named!, named title}
+
+@menu
+* An anchor::                menu entry pointing to the anchor.
+* chap::
+* !Named!::
+@end menu
+
+@node chap
+@chapter chap
+
+', {'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
 ['space_and_commands_in_menu_node',
 '@node Top
 @top top

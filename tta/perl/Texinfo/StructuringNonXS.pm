@@ -707,11 +707,13 @@ sub check_node_tree_menu_structure($) {
   # nodes.
   if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
     foreach my $node_relations (@{$nodes_list}) {
+
       next if (! exists($node_relations->{'menus'}));
 
       next if (! exists($node_relations->{'associated_section'}));
       my $section_children = $node_relations->{'associated_section'}
                                           ->{'section_children'};
+
       next if (!defined($section_children) or !scalar(@{$section_children}));
 
       # Find the first subordinate section, which should appear first
@@ -741,6 +743,8 @@ sub check_node_tree_menu_structure($) {
           my $menu_node
             = Texinfo::ManipulateTree::normalized_entry_associated_internal_node
                 ($menu_content, $identifier_target);
+          # no node_number happens for @anchor and @namedanchor labels in
+          # menu entry nodes
           next if (!defined($menu_node)
                    or !exists($menu_node->{'extra'})
                    or !exists($menu_node->{'extra'}->{'node_number'}));
@@ -787,9 +791,9 @@ sub check_node_tree_menu_structure($) {
 
           $last_menu_node_relations
             = $nodes_list->[$menu_node_element_number - 1];
-          # FIXME is it possible not to have last_menu_node_relations defined?
-          next MENU_CONTENT if (!defined($last_menu_node_relations)
-              or !exists($last_menu_node_relations->{'associated_section'}));
+
+          next MENU_CONTENT
+            if (!exists($last_menu_node_relations->{'associated_section'}));
 
           my $menu_section_dirs
             = $last_menu_node_relations->{'associated_section'}

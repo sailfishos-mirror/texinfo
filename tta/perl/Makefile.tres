@@ -1662,6 +1662,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/menu/menu_no_closed_star.pl \
   t/results/menu/menu_node_unterminated.pl \
   t/results/menu/menu_pointing_to_anchor.pl \
+  t/results/menu/menu_pointing_to_anchor_nodes.pl \
   t/results/menu/menu_title_before_entries.pl \
   t/results/menu/missing_detailmenu_menu_entry_names.pl \
   t/results/menu/missing_detailmenu_on_subnodes.pl \
