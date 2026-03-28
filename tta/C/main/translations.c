@@ -68,20 +68,16 @@ static const char *strings_textdomain = "texinfo_document";
 
 static int use_external_translate_string;
 
-/* USE_EXTERNAL_TRANSLATE_STRING_IN:
+/* This function should always be called.
+
+   USE_EXTERNAL_TRANSLATE_STRING_IN:
     -1: never call external (Perl) translate string
     0: default, use USE_LIBINTL_PERL_IN_XS value
     1: always call external (Perl) translate string
  */
 void
-setup_output_strings_translations (const char *localesdir,
-                                   const char *strings_textdomain_in,
-                                   int use_external_translate_string_in)
+set_output_strings_translate_method (int use_external_translate_string_in)
 {
-  const char *textdomain_directory;
-  if (strings_textdomain_in)
-    strings_textdomain = strings_textdomain_in;
-
   if (use_external_translate_string_in != 0)
     use_external_translate_string = use_external_translate_string_in;
   else
@@ -92,6 +88,17 @@ setup_output_strings_translations (const char *localesdir,
       use_external_translate_string = 1;
 #endif
     }
+}
+
+/* Need to be called only if output strings translation is done in C
+ */
+void
+setup_output_strings_translations (const char *localesdir,
+                                   const char *strings_textdomain_in)
+{
+  const char *textdomain_directory;
+  if (strings_textdomain_in)
+    strings_textdomain = strings_textdomain_in;
 
 #ifdef ENABLE_NLS
   textdomain_directory = bindtextdomain (strings_textdomain, localesdir);

@@ -69,7 +69,7 @@
 // Initialization
 
 %init %{
-txi_general_output_strings_setup (0);
+txi_general_output_strings_setup ();
 
 reset_parser (0);
 %}

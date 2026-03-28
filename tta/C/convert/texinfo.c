@@ -252,7 +252,7 @@ txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
 /* initialization of the library for output strings translations for
    parsing and conversion (generic), to be called once */
 void
-txi_general_output_strings_setup (int use_external_translate_string)
+txi_general_output_strings_setup (void)
 {
   char *locales_dir;
 
@@ -270,8 +270,7 @@ txi_general_output_strings_setup (int use_external_translate_string)
           if (stat (locales_dir, &finfo) == 0 && S_ISDIR (finfo.st_mode))
             {
               not_found = 0;
-              setup_output_strings_translations (locales_dir, 0,
-                                           use_external_translate_string);
+              setup_output_strings_translations (locales_dir, 0);
             }
           free (locales_dir);
         }
@@ -283,8 +282,7 @@ txi_general_output_strings_setup (int use_external_translate_string)
     {
       xasprintf (&locales_dir, "%s/locale",
                  txi_paths_info.p.installed.converter_datadir);
-      setup_output_strings_translations (locales_dir, 0,
-                                         use_external_translate_string);
+      setup_output_strings_translations (locales_dir, 0);
       free (locales_dir);
     }
 }

@@ -43,7 +43,7 @@ setup_output_strings (localesdir, strings_textdomain="texinfo_document")
        char *strings_textdomain;
       CODE:
        setup_output_strings_translations (localesdir,
-                                          strings_textdomain, 0);
+                                          strings_textdomain);
 
 SV *
 cache_translate_string (string, SV *lang_translations, SV *translation_context_sv=0)

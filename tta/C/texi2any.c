@@ -2210,7 +2210,7 @@ main (int argc, char *argv[], char *env[])
     }
 
   /* Setup output string translations (including Locales path). */
-  txi_general_output_strings_setup (0);
+  txi_general_output_strings_setup ();
 
   /* determine the format_specification now that the output format is known */
   for (i = 0; formats_table[i].name; i++)

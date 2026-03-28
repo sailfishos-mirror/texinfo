@@ -51,6 +51,8 @@
 #include "unicode.h"
 /* for setup_node_name_normalization */
 #include "node_name_normalization.h"
+/* for set_output_strings_translate_method */
+#include "translations.h"
 #include "document.h"
 
 static DOCUMENT **document_list;
@@ -124,6 +126,8 @@ setup_texinfo_main (int texinfo_uninstalled,
   txi_initialise_base_options ();
 
   setup_ai_key_name_index ();
+
+  set_output_strings_translate_method (0);
 
   /* used in conversion */
   setup_convert_utils ();
