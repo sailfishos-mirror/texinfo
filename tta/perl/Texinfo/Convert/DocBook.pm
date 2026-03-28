@@ -1076,10 +1076,10 @@ sub _convert($$;$) {
           } else {
             $opening_section_relations = $section_relations;
           }
-          # FIXME add !$part in condition?
           my $section_element;
           if (defined($opening_section_relations)) {
-            if (exists($opening_section_relations->{'associated_part'})) {
+            if (!defined($part)
+                and exists($opening_section_relations->{'associated_part'})) {
               $part
                 = $opening_section_relations->{'associated_part'}->{'element'};
             }

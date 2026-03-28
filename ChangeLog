@@ -1,5 +1,10 @@
 2026-03-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/DocBook.pm (_convert): determine $part if
+	not already determined.
+
+2026-03-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/document.c (setup_texinfo_main),
 	tta/C/main/translations.c (set_output_strings_translate_method)
 	(setup_output_strings_translations): split
