@@ -187,12 +187,6 @@ if $PERL -e "use 5.038" >/dev/null 2>&1; then
 fi
 AC_MSG_RESULT($usable_getenv_in_XS)
 
-if test $usable_getenv_in_XS = yes ; then
-  # currently unused
-  AC_DEFINE([HAVE_USABLE_GETENV_IN_XS], [1],
-            [Define to 1 if getenv can be used in XS])
-fi
-
 AC_ARG_ENABLE([perl-xs],
     AS_HELP_STRING([--enable-perl-xs],[build Perl XS modules for speed (default: check)]),
     [ enable_xs=$enableval],

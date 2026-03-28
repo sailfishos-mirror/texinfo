@@ -64,12 +64,17 @@ our $VERSION = '7.3dev';
 
 BEGIN {
   my $shared_library_name = "TranslationsXS";
-  # We want this package Perl setup_output_strings function version to be
-  # called if use_libintl_perl_in_xs.  Also avoids the complication of going
-  # through XS and then back to Perl through a call of Perl function
-  # from C in that case.
   if (!Texinfo::XSLoader::XS_parser_enabled()
-      or $Texinfo::ModulePath::use_libintl_perl_in_xs eq 'yes') {
+      # We want the Perl setup_output_strings function implementation to be
+      # called if use_libintl_perl_in_xs.  Also avoids the complication of going
+      # through XS and then back to Perl through a call of Perl function
+      # from C.
+      or $Texinfo::ModulePath::use_libintl_perl_in_xs eq 'yes'
+      # Before Perl 5.38.0 getenv/setenv and similar cannot be reliably used in
+      # XS and could lead to memory corruption, depending on the platform.
+      # (also determined in configure).
+      or $] < 5.038
+     ) {
     undef $shared_library_name;
   }
   Texinfo::XSLoader::init (
