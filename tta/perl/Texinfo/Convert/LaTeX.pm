@@ -986,9 +986,8 @@ sub _prepare_floats($) {
         my ($float, $float_section) = @$float_and_section;
         $latex_variable_float_name
           = Texinfo::Convert::NodeNameNormalization::transliterate_texinfo(
-           {'contents' => $float->{'contents'}->[0]
-                                     ->{'contents'}->[0]->{'contents'}},
-           $in_test, $no_unidecode);
+                      $float->{'contents'}->[0]->{'contents'}->[0],
+                      $in_test, $no_unidecode);
       } else {
         $latex_variable_float_name = $normalized_float_type;
       }
@@ -1078,9 +1077,9 @@ sub _prepare_conversion($;$) {
 
   if (defined($global_commands) and exists($global_commands->{'settitle'})) {
     my $settitle_root = $global_commands->{'settitle'};
-    if (exists($settitle_root->{'contents'}->[0]->{'contents'})) {
-      $self->{'settitle_tree'} =
-         {'contents' => $settitle_root->{'contents'}->[0]->{'contents'}};
+    if (!Texinfo::Common::empty_spaces_argument(
+                                   $settitle_root->{'contents'}->[0])) {
+      $self->{'settitle_tree'} = $settitle_root->{'contents'}->[0];
     }
   }
   _prepare_floats($self);
@@ -2455,7 +2454,7 @@ sub _close_preformatted_stack($$) {
 sub _title($$) {
   my ($self, $element) = @_;
 
-  if (exists($element->{'contents'}->[0]->{'contents'})) {
+  if (!Texinfo::Common::empty_spaces_argument($element->{'contents'}->[0])) {
     # in Texinfo TeX seems a bit smaller, but LARGE seems too small
     my $result = "{\\huge \\bfseries ";
     $result .= _convert($self, $element->{'contents'}->[0]);
@@ -2469,7 +2468,8 @@ sub _title_font($$) {
   my ($self, $element) = @_;
 
   if (exists($element->{'contents'})
-      and exists($element->{'contents'}->[0]->{'contents'})) {
+      and !Texinfo::Common::empty_spaces_argument(
+                                   $element->{'contents'}->[0])) {
     # in Texinfo TeX seems a bit smaller, but LARGE seems too small
     my $result = "{\\huge \\bfseries ";
     $result .= _convert($self, $element->{'contents'}->[0]);
@@ -2489,11 +2489,8 @@ sub _set_environment_options($$$) {
       my $arguments_line = $element->{'contents'}->[0];
       my $block_line_arg = $arguments_line->{'contents'}->[0];
       if (!Texinfo::Common::empty_spaces_argument($block_line_arg)) {
-        $option
-          # TODO use directly $block_line_arg
-          = {'mdframed' => $option->{'mdframed'} . ', frametitle={'
-               . _convert($self, {'contents' => $block_line_arg->{'contents'}})
-               .'}'};
+        $option = {'mdframed' => $option->{'mdframed'} . ', frametitle={'
+                       . _convert($self, $block_line_arg) .'}'};
       }
     }
     return $option;
@@ -2620,7 +2617,7 @@ sub _tree_anchor_label($) {
 
   my $label
    = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
-       Texinfo::TreeElement::new({'contents' => $node_content}));
+                                                           $node_content);
   return "anchor:$label";
 }
 
@@ -2943,14 +2940,14 @@ sub _make_title($$) {
     if (exists($title_page_info->{'author'})) {
       my $first_author = 1;
       foreach my $element (@{$title_page_info->{'author'}}) {
-        if (exists($element->{'contents'}->[0]->{'contents'})) {
+        if (!Texinfo::Common::empty_spaces_argument(
+                              $element->{'contents'}->[0])) {
           if ($first_author) {
             # first author, add space before
             $result .= "\\vskip 0pt plus 1filll\n";
             $first_author = 0;
           }
-          my $author_name = _convert($self,
-              {'contents' => $element->{'contents'}->[0]->{'contents'}});
+          my $author_name = _convert($self, $element->{'contents'}->[0]);
           # use \leftline as in Texinfo TeX
           # FIXME In Texinfo TeX the interline space between @author lines
           # seems better
@@ -3438,8 +3435,9 @@ sub _convert($$) {
       $result .= join "\\\\\n", @lines_out;
       return $result;
     } elsif ($cmdname eq 'image') {
-      if ($element->{'contents'}
-          and $element->{'contents'}->[0]->{'contents'}) {
+      if (exists($element->{'contents'})
+          and !Texinfo::Common::empty_spaces_argument(
+                                  $element->{'contents'}->[0])) {
         # distinguish text basefile used to find the file and
         # converted basefile with special characters escaped
         Texinfo::Convert::Text::set_options_code(
@@ -3487,14 +3485,10 @@ sub _convert($$) {
         $converted_basefile =~ s/([%{}\\])/\\$1/g;
         my $image_file = $converted_basefile;
         my $width;
-        if ((@{$element->{'contents'}} >= 2)
-              and defined($element->{'contents'}->[1])
-              and $element->{'contents'}->[1]->{'contents'}
-              and @{$element->{'contents'}->[1]->{'contents'}}){
+        if (scalar(@{$element->{'contents'}}) >= 2) {
           push @{$self->{'formatting_context'}->[-1]->{'text_context'}},
                'ctx_raw';
-          $width = _convert($self, {'contents'
-                         => $element->{'contents'}->[1]->{'contents'}});
+          $width = _convert($self, $element->{'contents'}->[1]);
           my $old_context
             = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           die if ($old_context ne 'ctx_raw');
@@ -3503,14 +3497,10 @@ sub _convert($$) {
           }
         }
         my $height;
-        if ((@{$element->{'contents'}} >= 3)
-              and defined($element->{'contents'}->[2])
-              and $element->{'contents'}->[2]->{'contents'}
-              and @{$element->{'contents'}->[2]->{'contents'}}) {
+        if (scalar(@{$element->{'contents'}}) >= 3) {
           push @{$self->{'formatting_context'}->[-1]->{'text_context'}},
                'ctx_raw';
-          $height = _convert($self, {'contents'
-                         => $element->{'contents'}->[2]->{'contents'}});
+          $height = _convert($self, $element->{'contents'}->[2]);
           my $old_context
              = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           die if ($old_context ne 'ctx_raw');
@@ -3536,12 +3526,12 @@ sub _convert($$) {
       }
       return $result;
     } elsif ($cmdname eq 'email') {
-      if ($element->{'contents'}) {
+      if (exists($element->{'contents'})) {
         my $name;
         my $converted_name;
         my $email_arg;
         my $email_text;
-        if (scalar (@{$element->{'contents'}}) == 2
+        if (scalar(@{$element->{'contents'}}) == 2
             and not Texinfo::Common::empty_spaces_argument(
                                      $element->{'contents'}->[1])) {
           $name = $element->{'contents'}->[1];
@@ -3615,9 +3605,9 @@ sub _convert($$) {
       _pop_context($self);
       return $result;
     } elsif ($cmdname eq 'anchor' or $cmdname eq 'namedanchor') {
-      if ($element->{'contents'}) {
+      if (exists($element->{'contents'})) {
         my $anchor_label
-           = _tree_anchor_label($element->{'contents'}->[0]->{'contents'});
+           = _tree_anchor_label($element->{'contents'}->[0]);
         $result .= "\\label{$anchor_label}%\n";
       }
       return $result;
@@ -3650,7 +3640,7 @@ sub _convert($$) {
           $file_element = $args[3];
         } elsif ($node_arg and $node_arg->{'extra'}
                  and defined($node_arg->{'extra'}->{'normalized'})
-                 and $node_arg->{'extra'}->{'manual_content'}) {
+                 and exists($node_arg->{'extra'}->{'manual_content'})) {
           $file_element = $node_arg->{'extra'}->{'manual_content'};
         }
         my $filename = '';
@@ -3675,12 +3665,12 @@ sub _convert($$) {
           my $reference
            = $identifiers_target->{$node_arg->{'extra'}->{'normalized'}};
           my $label_element = Texinfo::Common::get_label_element($reference);
-          my $reference_node_content = $label_element->{'contents'};
 
           my $section_command;
           my $associated_title_command;
-          if ($reference->{'cmdname'} eq 'node' and $self->{'document'}
-              and $reference->{'extra'}
+          if ($reference->{'cmdname'} eq 'node'
+              and exists($self->{'document'})
+              and exists($reference->{'extra'})
               and $reference->{'extra'}->{'node_number'}) {
             my $nodes_list = $self->{'document'}->nodes_list();
             my $node_relations
@@ -3689,7 +3679,7 @@ sub _convert($$) {
               = $node_relations->{'associated_title_command'};
           }
 
-          if ($associated_title_command) {
+          if (defined($associated_title_command)) {
             $section_command = $associated_title_command;
           } elsif ($reference->{'cmdname'} ne 'float') {
             my $normalized_name
@@ -3759,10 +3749,12 @@ sub _convert($$) {
           my $float_type;
           if (exists($reference->{'cmdname'})
               and $reference->{'cmdname'} eq 'float') {
+            my $float_arguments_line = $reference->{'contents'}->[0];
+            my $float_blockline_args
+                  = $float_arguments_line->{'contents'}->[0];
             if ($reference->{'extra'}->{'float_type'} ne '') {
               $float_type
-                = _convert($self,
-                           $reference->{'contents'}->[0]->{'contents'}->[0]);
+                = _convert($self, $float_blockline_args);
             } else {
               $float_type = '';
             }
@@ -3812,10 +3804,10 @@ sub _convert($$) {
               }
             }
             if (!defined($name)) {
-              $name = {'contents' => $reference_node_content};
+              $name = $label_element;
             }
           }
-          my $reference_label = _tree_anchor_label($reference_node_content);
+          my $reference_label = _tree_anchor_label($label_element);
 
           my $name_text;
           if (defined($name)) {
@@ -3986,15 +3978,12 @@ sub _convert($$) {
         $arg_index = 2;
       }
       if (scalar(@{$element->{'contents'}}) > $arg_index
-         and defined($element->{'contents'}->[$arg_index])
-         and $element->{'contents'}->[$arg_index]->{'contents'}
-         and scalar(@{$element->{'contents'}->[$arg_index]->{'contents'}})) {
+         and exists($element->{'contents'}->[$arg_index]->{'contents'})) {
         if ($cmdname eq 'inlineraw') {
           push @{$self->{'formatting_context'}->[-1]->{'text_context'}},
                'ctx_raw';
         }
-        $result .= _convert($self, {'contents'
-                       => $element->{'contents'}->[$arg_index]->{'contents'}});
+        $result .= _convert($self, $element->{'contents'}->[$arg_index]);
         if ($cmdname eq 'inlineraw') {
           my $old_context
               = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
@@ -4079,7 +4068,8 @@ sub _convert($$) {
       }
 
       if (defined($shortcaption)
-          and $shortcaption->{'contents'}->[0]->{'contents'}) {
+          and exists($shortcaption->{'contents'})
+          and exists($shortcaption->{'contents'}->[0]->{'contents'})) {
         _push_new_context($self, 'latex_shortcaption');
         my $shortcaption_text
           = _convert($self, $shortcaption->{'contents'}->[0]);
@@ -4285,8 +4275,7 @@ sub _convert($$) {
           # arguments_line type element
           my $arguments_line = $element->{'contents'}->[0];
           my $line_arg = $arguments_line->{'contents'}->[0];
-          my $node_label
-            = _tree_anchor_label($line_arg->{'contents'});
+          my $node_label = _tree_anchor_label($line_arg);
           $result .= "\\label{$node_label}%\n";
         }
       } else {
@@ -4317,8 +4306,7 @@ sub _convert($$) {
             # \texorpdfstring
             $self->{'formatting_context'}->[-1]
                                   ->{'in_sectioning_command_heading'} = 1;
-            $heading = _convert($self,
-                        {'contents' => $line_arg->{'contents'}});
+            $heading = _convert($self, $line_arg);
             $self->{'formatting_context'}->[-1]
                                   ->{'in_sectioning_command_heading'} = 0;
           }
@@ -4351,8 +4339,7 @@ sub _convert($$) {
             # arguments_line type element
             my $arguments_line = $associated_node->{'contents'}->[0];
             my $line_arg = $arguments_line->{'contents'}->[0];
-            my $node_label
-              = _tree_anchor_label($line_arg->{'contents'});
+            my $node_label = _tree_anchor_label($line_arg);
             $result .= "\\label{$node_label}%\n";
           }
         }
@@ -4363,7 +4350,8 @@ sub _convert($$) {
              and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
       # item in @*table
       my $last_item = 0;
-      if ($element->{'contents'}->[0]->{'contents'}) {
+      if (!Texinfo::Common::empty_spaces_argument(
+                               $element->{'contents'}->[0])) {
         my $code_style = 0;
         my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
         # arguments_line type element
@@ -4373,7 +4361,7 @@ sub _convert($$) {
         my $command_as_argument
            = Texinfo::Common::block_line_argument_command($block_line_arg);
 
-        if ($command_as_argument) {
+        if (defined($command_as_argument)) {
           my $command_as_arg_name = $command_as_argument->{'cmdname'};
           if ($brace_code_commands{$command_as_arg_name}) {
             $code_style = 1;
@@ -4419,8 +4407,7 @@ sub _convert($$) {
       if (!Texinfo::Common::empty_spaces_argument(
                                     $element->{'contents'}->[0])) {
         $result .= "\\begin{center}\n";
-        $result .= $self->_convert (
-                  {'contents' => $element->{'contents'}->[0]->{'contents'}});
+        $result .= _convert($self, $element->{'contents'}->[0]);
         $result .= "\n\\end{center}\n";
       }
       return $result;
@@ -4432,9 +4419,7 @@ sub _convert($$) {
         # but it is not clearly correct
         $result .= "\\leavevmode{}\\\\\n";
         $result .= "\\hbox{\\kern -\\leftmargin}%\n";
-        # FIXME convert $element->{'contents'}->[0] directly
-        $result .= _convert($self,
-            {'contents' => $element->{'contents'}->[0]->{'contents'}})."\n";
+        $result .= _convert($self, $element->{'contents'}->[0])."\n";
         $result .= "\\\\\n";
       }
       return $result;
@@ -4561,9 +4546,9 @@ sub _convert($$) {
          if (exists($self->{'titlepage_formatting'}));
       return $result;
     } elsif ($cmdname eq 'subtitle') {
-      if (exists($element->{'contents'}->[0]->{'contents'})) {
-        my $subtitle_text = _convert($self,
-               {'contents' => $element->{'contents'}->[0]->{'contents'}});
+      if (!Texinfo::Common::empty_spaces_argument(
+                                      $element->{'contents'}->[0])) {
+        my $subtitle_text = _convert($self, $element->{'contents'}->[0]);
         # too much vertical spacing with flushright environment
         #$result .= "\\begin{flushright}\n";
         #$result .= $subtitle_text."\n";
@@ -4575,9 +4560,9 @@ sub _convert($$) {
       my $quotations_authors
         = $self->{'formatting_context'}->[-1]->{'quotations_authors'};
       if (not scalar(@$quotations_authors)) {
-        if (exists($element->{'contents'}->[0]->{'contents'})) {
-          my $author_name = _convert($self,
-              {'contents' => $element->{'contents'}->[0]->{'contents'}});
+        if (!Texinfo::Common::empty_spaces_argument(
+                               $element->{'contents'}->[0])) {
+          my $author_name = _convert($self, $element->{'contents'}->[0]);
           if (exists($self->{'titlepage_formatting'})
               and $self->{'titlepage_formatting'}->{'in_front_cover'}) {
             if (not exists($self->{'titlepage_formatting'}->{'author'})) {
@@ -4710,7 +4695,6 @@ sub _convert($$) {
       # we know that only comments and index entries or a lone preformatted
       # should be in inter_item.
       if (exists($element->{'contents'})) {
-        my $contents;
         # if in an preformatted context, ie in @example, the inter_item
         # content is within a preformatted.  In that case we use content
         # from within the preformatted.  We do not do anything that is done
@@ -4718,14 +4702,14 @@ sub _convert($$) {
         # that should be in inter_item, besides empty lines we want to
         # remove, are comments and index entries, which formatting should
         # not be affected.
+        my $contents_element;
         if (exists($element->{'contents'}->[0]->{'type'})
             and $element->{'contents'}->[0]->{'type'} eq 'preformatted') {
-          $contents = $element->{'contents'}->[0]->{'contents'}
-            if (exists($element->{'contents'}->[0]->{'contents'}));
+          $contents_element = $element->{'contents'}->[0];
         } else {
-          $contents = $element->{'contents'};
+          $contents_element = $element;
         }
-        foreach my $content (@$contents) {
+        foreach my $content (@{$contents_element->{'contents'}}) {
           $result .= _convert($self, $content)
             unless (exists($content->{'type'})
                     and $content->{'type'} eq 'empty_line');
@@ -4840,7 +4824,7 @@ sub _convert($$) {
                            $arguments_line->{'contents'}->[1])) {
         my $float_label
           = _tree_anchor_label(
-               $element->{'contents'}->[0]->{'contents'}->[1]->{'contents'});
+               $element->{'contents'}->[0]->{'contents'}->[1]);
         $result .= "\\label{$float_label}%\n";
       }
       if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
@@ -4872,7 +4856,8 @@ sub _convert($$) {
         # does not take into account the preformatted environment.
         # Probably best.
         foreach my $author (@$authors) {
-          if (exists($author->{'contents'}->[0]->{'contents'})) {
+          if (!Texinfo::Common::empty_spaces_argument(
+                                             $author->{'contents'}->[0])) {
             $result .= _convert($self,
                  # TRANSLATORS: quotation author
                  $self->cdt('@center --- @emph{{author}}',
