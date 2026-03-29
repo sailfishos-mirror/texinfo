@@ -780,6 +780,7 @@ html_converter_get_customization_sv (SV *converter_sv,
               DIRECTION_NODE_NAME *direction_node_name
                = &converter->customized_global_units_directions.list[i];
 
+              direction_node_name->direction_nr = 0;
               direction_node_name->direction = non_perl_strdup (direction);
 
               if (SvOK (node_texi_sv))

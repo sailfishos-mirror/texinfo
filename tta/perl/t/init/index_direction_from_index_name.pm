@@ -29,8 +29,7 @@ use Texinfo::Convert::Texinfo;
     
 my $selected_index_name = 'cp';
   
-sub _set_index_global_direction_from_index_name
-{
+sub _set_index_global_direction_from_index_name {
   my ($self, $document, $stage) = @_;
 
   # find the node the selected index printindex is in

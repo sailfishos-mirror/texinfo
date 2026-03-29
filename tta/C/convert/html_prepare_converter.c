@@ -226,13 +226,14 @@ COMMAND_ID_LIST format_raw_cmd;
 
 /* Initialization code called only once.  Setup some base/default data */
 
-void
+static void
 register_format_context_command (enum command_id cmd)
 {
   html_commands_data[cmd].flags |= HF_format_context;
 }
 
-void register_pre_class_command (enum command_id cmd, enum command_id main_cmd)
+static void register_pre_class_command (enum command_id cmd,
+                                        enum command_id main_cmd)
 {
   if (main_cmd)
     html_commands_data[cmd].pre_class_cmd = main_cmd;
@@ -669,7 +670,7 @@ html_format_setup (void)
   free (css_string_text.text);
 }
 
-/* Texinfo::Convert::HTML builtin_default_css_text */
+/* ALTIMP Texinfo::Convert::HTML builtin_default_css_text */
 /* should be called after html_format_setup */
 char *
 html_builtin_default_css_text (void)
@@ -730,6 +731,7 @@ html_free_customized_global_units_directions (
   customized_global_units_directions->number = 0;
 }
 
+/* only used from XS */
 void
 html_set_global_direction (CONVERTER *self,
               DIRECTION_NODE_NAME_LIST *customized_global_units_directions,
@@ -777,9 +779,25 @@ html_set_global_direction (CONVERTER *self,
       direction_node_name
         = &customized_global_units_directions->list[
             customized_global_units_directions->number];
-      memset (direction_node_name, 0, sizeof (DIRECTION_NODE_NAME));
+      direction_node_name->node_name = 0;
       direction_node_name->direction = strdup (direction);
-      direction_node_name->direction_nr = main_directions_idx+1;
+      if (main_directions_idx > DEFAULT_GLOBAL_DIRECTION_LAST_IDX)
+        {
+          /* do not replace relative directions */
+          direction_node_name->direction_nr = 0;
+
+          if (node_name)
+            message_list_document_warn (&self->error_messages,
+               self->conf, 0, "keep direction %s, do not set to `%s'",
+                   self->main_units_direction_names[main_directions_idx],
+                                 node_name);
+          else
+            message_list_document_warn (&self->error_messages,
+              self->conf, 0, "keep direction %s",
+                  self->main_units_direction_names[main_directions_idx]);
+        }
+      else
+        direction_node_name->direction_nr = main_directions_idx+1;
       customized_global_units_directions->number++;
     }
   else
@@ -2519,6 +2537,15 @@ static const SPECIAL_UNIT_BODY_INTERNAL_CONVERSION
   {0, 0},
 };
 
+/* set SELF->main_units_direction_names array of direction names
+   and SELF->->units_direction_names_index hash associating direction names
+   to their index in SELF->main_units_direction_names.
+   Also set direction number in SELF->customized_global_units_directions
+   items.
+
+   No exact equivalent in Perl where names only are used, more similar code
+   in converter_initialize.
+ */
 int
 html_set_main_units_direction_names (CONVERTER *self)
 {
@@ -2589,7 +2616,18 @@ html_set_main_units_direction_names (CONVERTER *self)
                   + added_string_nr;
             }
           else
-            direction_node_name->direction_nr = main_directions_idx+1;
+            {
+              if (main_directions_idx > DEFAULT_GLOBAL_DIRECTION_LAST_IDX)
+                 {
+                   /* do not replace relative directions */
+                   message_list_document_warn (&self->error_messages,
+                     self->conf, 0, "keep direction %s, do not set to `%s'",
+                         self->main_units_direction_names[main_directions_idx],
+                                       direction_node_name->node_name);
+                 }
+              else
+                direction_node_name->direction_nr = main_directions_idx+1;
+            }
         }
     }
 
@@ -2666,7 +2704,6 @@ html_set_main_units_direction_names (CONVERTER *self)
         }
 
       nr_string_directions += self->customized_global_text_directions.number;
-
     }
 
   /*
@@ -5497,7 +5534,16 @@ html_prepare_output_units_global_targets (CONVERTER *self)
           DOCUMENT *label_document;
           ELEMENT *label_tree;
 
-          if (direction_node_name->direction_nr
+          if (direction_node_name->direction_nr == 0)
+            {
+              /*
+              fprintf (stderr, "CUSTOM DIRECTION: Not setting %zu %s %s\n", l,
+                                direction_node_name->direction,
+                                direction_node_name->node_name);
+               */
+              continue;
+            }
+          else if (direction_node_name->direction_nr
                                <= DEFAULT_GLOBAL_DIRECTION_LAST_IDX+1)
             /* replace a default global direction */
             global_directions_idx = direction_node_name->direction_nr -1;
@@ -5510,7 +5556,19 @@ html_prepare_output_units_global_targets (CONVERTER *self)
             }
           else
             {
-              fatal ("Replacing relative direction?");
+              /* Should not be possible, as direction_node_name->direction_nr
+                 should have been left to 0 above or in
+                 html_set_global_direction */
+              char *message;
+              xasprintf (&message,
+                         "Replacing relative direction %zu: %zu %s (%s `%s')",
+                         l, direction_node_name->direction_nr,
+                         self->main_units_direction_names[
+                                    direction_node_name->direction_nr -1],
+                         direction_node_name->direction,
+                         direction_node_name->node_name);
+              fatal (message);
+              free (message);
             }
 
           /* Determine the document unit corresponding to the direction

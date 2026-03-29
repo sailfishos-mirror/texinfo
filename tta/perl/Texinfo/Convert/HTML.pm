@@ -1395,6 +1395,7 @@ my @all_directions_except_special_units;
 foreach my $direction_order (@$direction_orders) {
   push @all_directions_except_special_units, @$direction_order;
 }
+my @global_directions_order = @{$direction_orders->[0]};
 my @text_directions_order = @{$direction_orders->[1]};
 
 #print STDERR join('|', @all_directions_except_special_units)."\n";
@@ -8190,7 +8191,16 @@ sub converter_initialize($) {
 
   if (defined($self->{'customized_global_directions'})) {
     foreach my $direction (keys(%{$self->{'customized_global_directions'}})) {
-      $self->{'all_directions'}->{$direction} = 1;
+      if (exists($self->{'all_directions'}->{$direction})
+          and not grep {$_ eq $direction} @global_directions_order) {
+        $self->converter_document_warn(sprintf(__(
+                "keep direction %s, do not set to `%s'"), $direction,
+                 $self->{'customized_global_directions'}->{$direction})
+                );
+        delete $self->{'customized_global_directions'}->{$direction};
+      } else {
+        $self->{'all_directions'}->{$direction} = 1;
+      }
     }
   }
 

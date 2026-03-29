@@ -430,10 +430,10 @@ $directions_buttons_text,
 # TODO different result in XS (abort) and in Perl (sets the relative
 # direction to the global direction) to be "fixed" before enabling the
 # test.
-#['set_global_direction_for_relative_direction',
-#$direction_strings_test_text,
-#{'init_files' => ['set_global_direction_for_relative.pm']},
-#],
+['set_global_direction_for_relative_direction',
+$direction_strings_test_text,
+{'init_files' => ['set_global_direction_for_relative.pm']},
+],
 );
 
 foreach my $test (@test_cases) {
