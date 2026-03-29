@@ -1387,8 +1387,8 @@ sub table_item_content_tree($$) {
   my $command_as_argument
     = Texinfo::Common::block_item_line_command($block_line_arg);
 
+  # should always be true with current code
   if (defined($command_as_argument)) {
-    #my $element_tree = $element->{'contents'}->[0];
     my $element_tree
      = Texinfo::Common::non_leading_trailing_tree($element->{'contents'}->[0]);
     if (!defined($element_tree)) {

@@ -3753,9 +3753,11 @@ sub _convert($$) {
       if (!Texinfo::Common::empty_spaces_argument(
                                     $element->{'contents'}->[0])) {
         my $table_item_tree = $self->table_item_content_tree($element);
-        # FIXME why is that needed?  At least explain.
-        $table_item_tree = $element->{'contents'}->[0]
-          if (!defined($table_item_tree));
+        if (!defined($table_item_tree)) {
+          # Right now, this can only happen with @itemx in @itemize
+          # or @enumerate in @*table, which is erroneous
+          return;
+        }
         my $frenchspacing_element = {'type' => 'frenchspacing',
                                      'contents' => [$table_item_tree]};
         $self->convert_line($frenchspacing_element,

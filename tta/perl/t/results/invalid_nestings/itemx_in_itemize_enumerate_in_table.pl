@@ -121,9 +121,6 @@ $result_headings_list{'itemx_in_itemize_enumerate_in_table'} = '';
 $result_converted{'plaintext'}->{'itemx_in_itemize_enumerate_in_table'} = '*item*
 
      In item, nested itemize
-     in nested itemize itemx
-
-     in nested enumerate itemx
 
 ';
 

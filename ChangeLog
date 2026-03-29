@@ -1,5 +1,10 @@
 2026-03-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert): do not output
+	anything for @itemx in @itemize or @enumerate in @table.
+
+2026-03-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/convert/get_html_perl_info.c
 	(html_converter_get_customization_sv): initialize
 	direction_node_name->direction_nr to 0.
