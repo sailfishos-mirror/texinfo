@@ -1,5 +1,13 @@
 2026-03-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Utils.pm (output_files_rename_opened): add.
+
+	* tta/perl/Texinfo/Convert/Info.pm (output): call
+	Texinfo::Convert::Utils::output_files_rename_opened instead of setting
+	an unused array.
+
+2026-03-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/LaTeX.pm (_tree_anchor_label): get an
 	element in argument.
 

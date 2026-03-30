@@ -250,13 +250,13 @@ sub output($$) {
           }
           # remove the main file from opened files since it was renamed
           # and add the file with a number.
-          # TODO incorrect, should be in
-          # $self->output_files_information(), not in $self, or, better yet
-          # add a function that does that in Texinfo::Convert::Utils
-          @{$self->{'opened_files'}} = grep {$_ ne $output_file}
-               @{$self->{'opened_files'}};
-          push @{$self->{'opened_files'}},
-                   $output_file.'-'.$out_file_nr;
+          my ($encoded_output_filename, $path_encoding)
+            = $self->encoded_output_file_name($output_file);
+          my ($encoded_new_filename, $new_path_encoding)
+            = $self->encoded_output_file_name($output_file.'-'.$out_file_nr);
+          Texinfo::Convert::Utils::output_files_rename_opened(
+                         $self->output_files_information(),
+                         $encoded_output_filename, $encoded_new_filename);
           push @indirect_files, [$output_filename.'-'.$out_file_nr,
                                  $complete_header_bytes];
           #print STDERR join(' --> ', @{$indirect_files[-1]}) ."\n";

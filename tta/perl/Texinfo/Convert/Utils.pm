@@ -167,6 +167,25 @@ sub output_files_register_closed($$) {
   }
 }
 
+#sub output_files_register_opened($$) {
+#  my ($self, $file_path) = @_;
+#
+#  # return something if already opened?
+#  #if (exists($self->{'opened_files'}->{$file_path})) {
+#  #}
+#  $self->{'opened_files'}->{$file_path} = 1;
+#}
+
+sub output_files_rename_opened($$$) {
+  my ($self, $file_path, $new_file_path) = @_;
+
+  delete $self->{'opened_files'}->{$file_path};
+  # return something if already opened?
+  #if (exists($self->{'opened_files'}->{$new_file_path})) {
+  #}
+  $self->{'opened_files'}->{$new_file_path} = 1;
+}
+
 # The next two functions should not be called from user-defined
 # code, only from the main program.  They are defined here for
 # consistency of the API and clarity of the code.
