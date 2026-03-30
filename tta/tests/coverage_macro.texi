@@ -449,6 +449,15 @@ A small Note
 something, other thing
 @end smallquotation
 
+@indentedblock
+Indented b--l hhhhhhhhhhhhhh hhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhh gggggggggg
+mmmmmmm.  Some random text to see the indentation.
+@end indentedblock
+
+@smallindentedblock
+SmallInden--ted
+@end smallindentedblock
+
 @itemize
 @item i--temize
 @end itemize

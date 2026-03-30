@@ -1,5 +1,14 @@
 2026-03-30 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/DocBook.pm (_convert): use blockquote for
+	@indentedblock and @smallindentedblock.  Report from Per Bothner in
+	2014.
+
+	* tta/tests/coverage_macro.texi: add @indentedblock and
+	@smallindentedblock.
+
+2026-03-30 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/LaTeX.pm (_stop_embrac, _convert_def_line)
 	(_convert): simplify code related to embrac context stack.
 

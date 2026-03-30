@@ -399,8 +399,9 @@ undef, {'test_file' => 'in_menu_only_special_ascii_spaces_node.texi'}],
 ['in_menu_only_special_ascii_spaces_node_menu',
 undef, {'test_file' => 'in_menu_only_special_ascii_spaces_node.texi'},
 {'FORMAT_MENU' => 'menu'}],
-# TODO for LINE SEPARATOR and PARAGRAPH SEPARATOR Perl and XS code give
-# different width
+# TODO for the LINE SEPARATOR and PARAGRAPH SEPARATOR Unicode characters
+# Perl and XS code give different width, therefore the corresponding
+# Texinfo code is commented out in the input file.
 ['in_menu_only_special_spaces_node',
 undef, {'test_file' => 'in_menu_only_special_spaces_node.texi',
         'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, }],

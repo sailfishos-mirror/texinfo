@@ -382,6 +382,11 @@ A small Note
 something, other thing
 something, other thing
 
+Indented b-l hhhhhhhhhhhhhh hhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhh gggggggggg
+mmmmmmm.  Some random text to see the indentation.
+
+SmallInden-ted
+
 i-temize
 
 i-tem +
@@ -1239,6 +1244,11 @@ A small Note
 
 something, other thing
 something, other thing
+
+Indented b--l hhhhhhhhhhhhhh hhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhh gggggggggg
+mmmmmmm.  Some random text to see the indentation.
+
+SmallInden--ted
 
 i--temize
 

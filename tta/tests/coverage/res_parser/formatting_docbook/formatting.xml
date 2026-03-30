@@ -363,6 +363,11 @@ error&#8594; &#8614; &#8722; &#8867; &#8658;
 </para></note>
 <blockquote><para><emphasis role="bold">something, other thing:</emphasis> something, other thing
 </para></blockquote>
+<blockquote role="indentedblock"><para>Indented b&#8211;l hhhhhhhhhhhhhh hhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhh gggggggggg
+mmmmmmm.  Some random text to see the indentation.
+</para></blockquote>
+<blockquote role="smallindentedblock"><para>SmallInden&#8211;ted
+</para></blockquote>
 <itemizedlist><listitem><para>i&#8211;temize
 </para></listitem></itemizedlist>
 <itemizedlist><listitem><para>+ i&#8211;tem +
@@ -1305,6 +1310,11 @@ error&#8594; &#8614; &#8722; &#8867; &#8658;
 </para></note>
 <blockquote><para><emphasis role="bold">something, other thing:</emphasis> something, other thing
 </para></blockquote>
+<blockquote role="indentedblock"><para>Indented b&#8211;l hhhhhhhhhhhhhh hhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhh gggggggggg
+mmmmmmm.  Some random text to see the indentation.
+</para></blockquote>
+<blockquote role="smallindentedblock"><para>SmallInden&#8211;ted
+</para></blockquote>
 <itemizedlist><listitem><para>i&#8211;temize
 </para></listitem></itemizedlist>
 <itemizedlist><listitem><para>+ i&#8211;tem +
@@ -2234,6 +2244,11 @@ error&#8594; &#8614; &#8722; &#8867; &#8658;
 </para></note>
 <blockquote><para><emphasis role="bold">something, other thing:</emphasis> something, other thing
 </para></blockquote>
+<blockquote role="indentedblock"><para>Indented b&#8211;l hhhhhhhhhhhhhh hhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhh gggggggggg
+mmmmmmm.  Some random text to see the indentation.
+</para></blockquote>
+<blockquote role="smallindentedblock"><para>SmallInden&#8211;ted
+</para></blockquote>
 <itemizedlist><listitem><para>i&#8211;temize
 </para></listitem></itemizedlist>
 <itemizedlist><listitem><para>+ i&#8211;tem +
@@ -3158,6 +3173,11 @@ error&#8594; &#8614; &#8722; &#8867; &#8658;
 </screen><note><screen>A small Note
 </screen></note><screen>
 </screen><blockquote><screen><emphasis role="bold">something, other thing:</emphasis> something, other thing
+</screen></blockquote><screen>
+</screen><blockquote role="indentedblock"><screen>Indented b--l hhhhhhhhhhhhhh hhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhh gggggggggg
+mmmmmmm.  Some random text to see the indentation.
+</screen></blockquote><screen>
+</screen><blockquote role="smallindentedblock"><screen>SmallInden--ted
 </screen></blockquote><screen>
 </screen><itemizedlist><listitem><screen>i--temize
 </screen></listitem></itemizedlist><screen>

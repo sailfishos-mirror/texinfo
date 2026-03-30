@@ -81,9 +81,9 @@ Text
 ';
 
 
-$result_converted{'docbook'}->{'indentedblock'} = '<para>indented block
+$result_converted{'docbook'}->{'indentedblock'} = '<blockquote role="indentedblock"><para>indented block
 </para>
 <para>Text
-</para>';
+</para></blockquote>';
 
 1;

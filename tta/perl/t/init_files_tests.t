@@ -427,9 +427,6 @@ $directions_buttons_text,
 ', {'init_files' => ['lowercase_file_names_and_redirections.pm'],
     'skip' => 'different output with case insensitive file names'}
 ],
-# TODO different result in XS (abort) and in Perl (sets the relative
-# direction to the global direction) to be "fixed" before enabling the
-# test.
 ['set_global_direction_for_relative_direction',
 $direction_strings_test_text,
 {'init_files' => ['set_global_direction_for_relative.pm']},

@@ -1850,6 +1850,15 @@ sub _convert($$;$) {
         }
         $format_element = 'blockquote' if (!defined($format_element));
         push @format_elements, $format_element;
+      } elsif ($cmdname eq 'indentedblock'
+               or $cmdname eq 'smallindentedblock') {
+        # We do not actually know how blockquote will be displayed, there
+        # could be indentation for the right margin too, but it is not
+        # mandatory, there could also be some vertical line...
+        # Add a role, even though it is probably ignored, see
+        # https://lists.gnu.org/archive/html/bug-texinfo/2014-12/msg00018.html
+        push @format_elements, 'blockquote';
+        push @attributes, " role=\"$cmdname\"";
       } elsif ($cmdname eq 'cartouche') {
         push @format_elements, 'sidebar';
         # arguments_line type element

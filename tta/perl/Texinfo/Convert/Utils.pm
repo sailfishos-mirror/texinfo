@@ -176,6 +176,10 @@ sub output_files_register_closed($$) {
 #  $self->{'opened_files'}->{$file_path} = 1;
 #}
 
+# NOTE nothing is done with 'unclosed_files', assuming that the renamed
+# file was already closed (as is the case for the caller of this function).
+# Also the call to rename could be done in this function if there are more
+# callers, which would also be more consistent with output_files_open_out.
 sub output_files_rename_opened($$$) {
   my ($self, $file_path, $new_file_path) = @_;
 
