@@ -1,5 +1,14 @@
 2026-03-30 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/LaTeX.pm (%LaTeX_environment_commands)
+	(_convert): use Texinfoindented environment for @indentedblock and
+	@def item.
+
+	* tta/perl/t/converters_tests.t (table_in_display_in_example)
+	(table_in_example_in_display): add some text for easier visualization.
+
+2026-03-30 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/tests/coverage_macro.texi: remove empty line in @displymath to
 	avoid invalid LaTeX.
 

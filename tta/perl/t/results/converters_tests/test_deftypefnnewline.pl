@@ -1203,10 +1203,10 @@ $result_converted{'latex_text'}->{'test_deftypefnnewline'} = '
 \\texttt{name arguments...}\\end{tabularx}
 
 \\index[fn]{name@\\texttt{name}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 aaa
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -1215,10 +1215,10 @@ aaa
 \\texttt{d{-}{-}eftypefn\\_name}\\end{tabularx}
 
 \\index[fn]{d--eftypefn\\_name@\\texttt{d{-}{-}eftypefn\\_name}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypefn no arg
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -1227,10 +1227,10 @@ d--eftypefn no arg
 \\texttt{d{-}{-}eftypeop\\_name a{-}{-}rguments...}\\end{tabularx}
 
 \\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name\\ on c{-}{-}lass}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypeop
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -1239,10 +1239,10 @@ d--eftypeop
 \\texttt{d{-}{-}eftypeop\\_name}\\end{tabularx}
 
 \\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name\\ on c{-}{-}lass}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypeop no arg
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -1251,10 +1251,10 @@ d--eftypeop no arg
 \\end{tabularx}
 
 \\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name\\ of c{-}{-}lass}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypecv
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -1263,10 +1263,10 @@ d--eftypecv
 \\end{tabularx}
 
 \\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name\\ of c{-}{-}lass}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypecv with arguments
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -1275,10 +1275,10 @@ d--eftypecv with arguments
 \\end{tabularx}
 
 \\index[fn]{arg@\\texttt{arg}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 fff
-\\end{quote}
+\\end{Texinfoindented}
 
 
 
@@ -1288,10 +1288,10 @@ fff
 \\end{tabularx}
 
 \\index[fn]{name2@\\texttt{name2}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 aaa2
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -1300,10 +1300,10 @@ aaa2
 \\end{tabularx}
 
 \\index[fn]{d--eftypefn\\_name2@\\texttt{d{-}{-}eftypefn\\_name2}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypefn no arg2
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -1312,10 +1312,10 @@ d--eftypefn no arg2
 \\end{tabularx}
 
 \\index[fn]{d--eftypeop\\_name2 on c--lass2@\\texttt{d{-}{-}eftypeop\\_name2\\ on c{-}{-}lass2}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypeop2
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -1324,10 +1324,10 @@ d--eftypeop2
 \\end{tabularx}
 
 \\index[fn]{d--eftypeop\\_name2 on c--lass2@\\texttt{d{-}{-}eftypeop\\_name2\\ on c{-}{-}lass2}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypeop no arg2
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -1336,10 +1336,10 @@ d--eftypeop no arg2
 \\end{tabularx}
 
 \\index[vr]{d--eftypecv\\_name2 of c--lass2@\\texttt{d{-}{-}eftypecv\\_name2\\ of c{-}{-}lass2}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypecv2
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -1348,10 +1348,10 @@ d--eftypecv2
 \\end{tabularx}
 
 \\index[vr]{d--eftypecv\\_name2 of c--lass2@\\texttt{d{-}{-}eftypecv\\_name2\\ of c{-}{-}lass2}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypecv with arguments2
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -1360,10 +1360,10 @@ d--eftypecv with arguments2
 \\end{tabularx}
 
 \\index[fn]{arg2@\\texttt{arg2}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 fff2
-\\end{quote}
+\\end{Texinfoindented}
 ';
 
 1;

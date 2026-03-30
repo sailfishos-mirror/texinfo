@@ -237,10 +237,10 @@ $result_converted{'latex_text'}->{'omit_def_space'} = '\\label{anchor:Top}%
 \\end{tabularx}
 
 \\index[fn]{another@\\texttt{another}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 explain
-\\end{quote}
+\\end{Texinfoindented}
 ';
 
 1;

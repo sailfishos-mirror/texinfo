@@ -678,10 +678,10 @@ $result_converted{'latex_text'}->{'def'} = '
 \\end{tabularx}
 
 \\index[fn]{d--effn\\_name@\\texttt{d{-}{-}effn\\_name}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 d--effn
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -690,10 +690,10 @@ d--effn
 \\end{tabularx}
 
 \\index[fn]{de--ffn\\_name@\\texttt{de{-}{-}ffn\\_name}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 def--fn
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -786,10 +786,10 @@ def--fn
 \\end{tabularx}
 
 \\index[fn]{deffnx@\\texttt{deffnx}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 Various deff lines
-\\end{quote}
+\\end{Texinfoindented}
 ';
 
 

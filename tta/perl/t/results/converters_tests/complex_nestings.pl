@@ -556,7 +556,7 @@ $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\end{tabularx}
 
 \\index[fn]{other def@\\texttt{other def}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -565,7 +565,7 @@ $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\end{tabularx}
 
 \\index[fn]{name@\\texttt{name}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -584,7 +584,7 @@ $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\end{tabularx}
 
 \\index[vr]{variables too@\\texttt{variables too}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 \\begin{Texinfopreformatted}%
 \\ttfamily THis is the defvar
@@ -606,9 +606,9 @@ second item}}]
 \\ttfamily 
 explanation
 \\end{Texinfopreformatted}
-\\end{quote}
-\\end{quote}
-\\end{quote}
+\\end{Texinfoindented}
+\\end{Texinfoindented}
+\\end{Texinfoindented}
 \\begin{Texinfopreformatted}%
 \\ttfamily 
 \\end{Texinfopreformatted}

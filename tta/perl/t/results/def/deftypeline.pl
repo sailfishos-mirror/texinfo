@@ -223,10 +223,10 @@ $result_converted{'latex'}->{'deftypeline'} = '\\documentclass{book}
 \\texttt{long int foo (int\\ \\Texinfocommandstyletextvar{bar},\\ int\\ \\Texinfocommandstyletextvar{baz})}& [Function]
 \\end{tabularx}
 
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 \\dots{}\\@
-\\end{quote}
+\\end{Texinfoindented}
 \\end{document}
 ';
 

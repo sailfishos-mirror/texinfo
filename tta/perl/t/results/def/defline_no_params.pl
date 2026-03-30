@@ -191,10 +191,10 @@ $result_converted{'latex'}->{'defline_no_params'} = '\\documentclass{book}
 \\texttt{truc}& [Builtin]
 \\end{tabularx}
 
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 Description of truc
-\\end{quote}
+\\end{Texinfoindented}
 \\end{document}
 ';
 

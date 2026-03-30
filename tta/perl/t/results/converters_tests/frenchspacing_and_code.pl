@@ -793,10 +793,10 @@ In text w: z? n; p. f
 \\end{tabularx}
 
 \\index[fn]{name? n. d on class: MyC. b@\\texttt{name?\\ n.\\ d\\ on class:\\ MyC.\\ b}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 deftypeop
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -805,10 +805,10 @@ deftypeop
 \\end{tabularx}
 
 \\index[fn]{vname? n; d on vclass: MyC. u@\\texttt{vname?\\ n;\\ d\\ on vclass:\\ MyC.\\ u}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 defop
-\\end{quote}
+\\end{Texinfoindented}
 
 \\nonfrenchspacing
 \\Texinfochapter{{Chap no}}
@@ -831,10 +831,10 @@ In text w: z? n; p. fn
 \\end{tabularx}
 
 \\index[fn]{name? n. d on class: MyC. b@\\texttt{name?\\ n.\\ d\\ on class:\\ MyC.\\ b}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 deftypeop n
-\\end{quote}
+\\end{Texinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -843,10 +843,10 @@ deftypeop n
 \\end{tabularx}
 
 \\index[fn]{vname? n; d on nvclass: MyC. u@\\texttt{vname?\\ n;\\ d\\ on nvclass:\\ MyC.\\ u}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 defop n
-\\end{quote}
+\\end{Texinfoindented}
 ';
 
 1;

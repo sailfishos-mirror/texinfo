@@ -191,10 +191,10 @@ $\\{$
 \\end{tabularx}
 
 \\index[fn]{AA@\\texttt{A\\textbraceleft{}A}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 CCC
-\\end{quote}
+\\end{Texinfoindented}
 ';
 
 1;

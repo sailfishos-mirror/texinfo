@@ -152,12 +152,6 @@
 # as an issue, at least until we get user reports.
 # https://lists.gnu.org/archive/html/bug-texinfo/2006-06/msg00030.html
 #
-# @indentedblock and @smallindentedblock should not have a wider right
-# margin.  The wider margin is because they are in quote environment.
-#
-# @def* body should not have a wider right margin.  The wider margin
-# is because they are in quote environment.
-#
 # codequotebacktick and codequoteundirected could be relevant to handle.
 
 package Texinfo::Convert::LaTeX;
@@ -552,8 +546,8 @@ my %LaTeX_environment_commands = (
   'flushright' => ['flushright', 'Texinfopreformatted'],
   'quotation' => ['quote'],
   'smallquotation' => ['quote', $small_font_size],
-  'indentedblock' => ['quote'],
-  'smallindentedblock' => ['quote', $small_font_size],
+  'indentedblock' => ['Texinfoindented'],
+  'smallindentedblock' => ['Texinfoindented', $small_font_size],
   'cartouche' => ['mdframed'],
   'itemize' => ['itemize'],
   'enumerate' => ['enumerate'],
@@ -4666,7 +4660,7 @@ sub _convert($$) {
       $result .= _convert_def_line($self, $element);
       return $result;
     } elsif ($element->{'type'} eq 'def_item') {
-      $result .= "\\begin{quote}\n";
+      $result .= "\\begin{Texinfoindented}\n";
       # Remove vertical space and start paragaph, avoiding adding
       # more vertical space.
       $result .= "\\unskip{\\parskip=0pt\\noindent}%\n";
@@ -4758,7 +4752,7 @@ sub _convert($$) {
     if ($type eq '_dot_not_end_sentence') {
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} -= 1;
     } elsif ($type eq 'def_item') {
-      $result .= "\\end{quote}\n";
+      $result .= "\\end{Texinfoindented}\n";
     } elsif ($type eq 'table_term') {
       $result .= '}}]'."\n";
       pop @{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}};

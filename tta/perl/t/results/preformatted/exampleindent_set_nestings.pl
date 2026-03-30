@@ -545,7 +545,7 @@ EXAMPLE INDENT in format
 \\end{tabularx}
 
 \\index[fn]{arg@\\texttt{arg}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 \\begin{Texinfopreformatted}%
 \\ttfamily In deffn
@@ -554,7 +554,7 @@ EXAMPLE INDENT in format
 \\hbox{\\kern -\\leftmargin}%
 EXDENT
 \\\\
-\\end{quote}
+\\end{Texinfoindented}
 \\end{Texinfoindented}
 
 \\begin{Texinfoindented}

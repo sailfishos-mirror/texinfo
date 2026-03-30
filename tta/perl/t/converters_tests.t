@@ -704,19 +704,28 @@ $inline_text, {'EXPANDED_FORMATS' => ['tex']},
 @inlineifset { aaa , ifset second }.
 '],
 ['table_in_display_in_example',
-'@example
-@display
-@table @asis
-@item item
-Line
-@end table
-@end display
-@end example
-'],
-# in LaTeX TODO. The second display should be more indented
-['table_in_example_in_display',
-'@display
+'
+T
+
 @example
+Ex
+@display
+Disp
+@table @asis
+@item item
+Line
+@end table
+@end display
+@end example
+'],
+['table_in_example_in_display',
+'
+T
+
+@display
+Disp
+@example
+Ex
 @table @asis
 @item item
 Line
@@ -724,8 +733,6 @@ Line
 @end example
 @end display
 '],
-# In LaTeX TODO. This test shows that the @def* have a wider right margin
-# which increases with nesting, because they are in a quote environment.
 ['complex_nestings',
 '@node Top
 @top top

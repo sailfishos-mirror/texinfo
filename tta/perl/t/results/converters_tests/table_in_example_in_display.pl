@@ -6,24 +6,32 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'table_in_example_in_display'} = '*document_root C1
- *before_node_section C1
-  *@display C3 l1
+ *before_node_section C4
+  {empty_line:\\n}
+  *paragraph C1
+   {T\\n}
+  {empty_line:\\n}
+  *@display C4 l4
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
-   *@example C3 l2
+   *preformatted C1
+    {Disp\\n}
+   *@example C4 l6
     *arguments_line C1
      *block_line_arg C1
       {spaces_before_argument:\\n}
-    *@table C3 l3
+    *preformatted C1
+     {Ex\\n}
+    *@table C3 l8
      *arguments_line C1
       *block_line_arg C3
        {spaces_before_argument: }
-       *@asis l3
+       *@asis l8
        {spaces_after_argument:\\n}
      *table_entry C2
       *table_term C1
-       *@item C1 l4
+       *@item C1 l9
         *line_arg C3
          {spaces_before_argument: }
          {item}
@@ -31,21 +39,21 @@ $result_tree_text{'table_in_example_in_display'} = '*document_root C1
       *table_definition C1
        *preformatted C1
         {Line\\n}
-     *@end C1 l6
+     *@end C1 l11
      |EXTRA
      |text_arg:{table}
       *line_arg C3
        {spaces_before_argument: }
        {table}
        {spaces_after_argument:\\n}
-    *@end C1 l7
+    *@end C1 l12
     |EXTRA
     |text_arg:{example}
      *line_arg C3
       {spaces_before_argument: }
       {example}
       {spaces_after_argument:\\n}
-   *@end C1 l8
+   *@end C1 l13
    |EXTRA
    |text_arg:{display}
     *line_arg C3
@@ -55,8 +63,13 @@ $result_tree_text{'table_in_example_in_display'} = '*document_root C1
 ';
 
 
-$result_texis{'table_in_example_in_display'} = '@display
+$result_texis{'table_in_example_in_display'} = '
+T
+
+@display
+Disp
 @example
+Ex
 @table @asis
 @item item
 Line
@@ -66,7 +79,12 @@ Line
 ';
 
 
-$result_texts{'table_in_example_in_display'} = 'item
+$result_texts{'table_in_example_in_display'} = '
+T
+
+Disp
+Ex
+item
 Line
 ';
 
@@ -81,14 +99,23 @@ $result_sectioning_root{'table_in_example_in_display'} = '';
 $result_headings_list{'table_in_example_in_display'} = '';
 
 
-$result_converted{'plaintext'}->{'table_in_example_in_display'} = '          item
+$result_converted{'plaintext'}->{'table_in_example_in_display'} = 'T
+
+     Disp
+          Ex
+          item
                Line
 ';
 
 
-$result_converted{'html_text'}->{'table_in_example_in_display'} = '<div class="display">
-<div class="example">
-<dl class="table">
+$result_converted{'html_text'}->{'table_in_example_in_display'} = '
+<p>T
+</p>
+<div class="display">
+<pre class="display-preformatted">Disp
+</pre><div class="example">
+<pre class="example-preformatted">Ex
+</pre><dl class="table">
 <dt><code class="table-term-preformatted-code">item</code></dt>
 <dd><pre class="example-preformatted">Line
 </pre></dd>
@@ -98,9 +125,14 @@ $result_converted{'html_text'}->{'table_in_example_in_display'} = '<div class="d
 ';
 
 
-$result_converted{'xml'}->{'table_in_example_in_display'} = '<display endspaces=" ">
-<example endspaces=" ">
-<table commandarg="asis" endspaces=" ">
+$result_converted{'xml'}->{'table_in_example_in_display'} = '
+<para>T
+</para>
+<display endspaces=" ">
+<pre xml:space="preserve">Disp
+</pre><example endspaces=" ">
+<pre xml:space="preserve">Ex
+</pre><table commandarg="asis" endspaces=" ">
 <tableentry><tableterm><item><itemformat command="asis"> item</itemformat></item>
 </tableterm><tableitem><pre xml:space="preserve">Line
 </pre></tableitem></tableentry></table>
@@ -109,13 +141,27 @@ $result_converted{'xml'}->{'table_in_example_in_display'} = '<display endspaces=
 ';
 
 
-$result_converted{'docbook'}->{'table_in_example_in_display'} = '<variablelist><varlistentry><term>item
+$result_converted{'docbook'}->{'table_in_example_in_display'} = '
+<para>T
+</para>
+<literallayout>Disp
+</literallayout><screen>Ex
+</screen><variablelist><varlistentry><term>item
 </term><listitem><screen>Line
 </screen></listitem></varlistentry></variablelist>';
 
 
-$result_converted{'latex_text'}->{'table_in_example_in_display'} = '\\begin{Texinfoindented}
+$result_converted{'latex_text'}->{'table_in_example_in_display'} = '
+T
+
 \\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
+Disp
+\\end{Texinfopreformatted}
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
+\\ttfamily Ex
+\\end{Texinfopreformatted}
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 item}}]

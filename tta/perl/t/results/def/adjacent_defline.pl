@@ -242,10 +242,10 @@ $result_converted{'latex'}->{'adjacent_defline'} = '\\documentclass{book}
 \\texttt{foo2 \\EmbracOn{}\\textnormal{\\textsl{(bar2, baz2)}}\\EmbracOff{}}& [Funnyoid]
 \\end{tabularx}
 
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 description
-\\end{quote}
+\\end{Texinfoindented}
 \\end{document}
 ';
 

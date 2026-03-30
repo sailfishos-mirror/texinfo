@@ -706,10 +706,10 @@ in center
 \\end{tabularx}
 
 \\index[fn]{xmachin@\\texttt{xmachin}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 T
-\\end{quote}
+\\end{Texinfoindented}
 
 \\begin{TexinfoFloat}
 a float

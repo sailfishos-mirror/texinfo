@@ -253,22 +253,22 @@ $result_converted{'latex'}->{'multiple_defline'} = '\\documentclass{book}
 \\texttt{foo \\EmbracOn{}\\textnormal{\\textsl{(bar)}}\\EmbracOff{}}& [Funoid]
 \\end{tabularx}
 
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 description1 description1 description1 description1 description1
 description1 description1 description1 description1 description1
-\\end{quote}
+\\end{Texinfoindented}
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{foo2 \\EmbracOn{}\\textnormal{\\textsl{(bar2, baz2)}}\\EmbracOff{}}& [Funnyoid]
 \\end{tabularx}
 
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 description2 description2 description2 description2 description2
 description2 description2 description2 description2 description2
-\\end{quote}
+\\end{Texinfoindented}
 \\end{document}
 ';
 

@@ -157,12 +157,12 @@ $result_converted{'latex_text'}->{'def_in_example'} = '\\begin{Texinfoindented}
 \\end{tabularx}
 
 \\index[fn]{name@\\texttt{name}}%
-\\begin{quote}
+\\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 \\begin{Texinfopreformatted}%
 \\ttfamily in defun
 \\end{Texinfopreformatted}
-\\end{quote}
+\\end{Texinfoindented}
 \\end{Texinfoindented}
 ';
 
