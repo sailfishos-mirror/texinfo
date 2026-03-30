@@ -34,11 +34,11 @@ void set_output_strings_translate_method (int use_external_translate_string_in);
 void setup_output_strings_translations (const char *localesdir,
                                         const char *strings_textdomain_in);
 
-LANG_TRANSLATION *get_lang_translation (
+const LANG_TRANSLATION *get_lang_translation (
                       LANG_TRANSLATION ***lang_translations_ptr,
                       const char *lang, const char *locale_encoding,
                       size_t cache_size);
-LANG_TRANSLATION *get_lang_encoded_lang_translation (
+const LANG_TRANSLATION *get_lang_encoded_lang_translation (
                       LANG_TRANSLATION ***lang_translations_ptr,
                       const char *lang, const char *encoded_lang,
                       size_t cache_size);
@@ -49,39 +49,39 @@ TRANSLATION_TREE *add_translation_tree (
                       const char *translated);
 void free_lang_translation (LANG_TRANSLATION *lang_translation);
 void free_translation_cache (LANG_TRANSLATION **translation_cache);
-LANG_TRANSLATION *switch_lang_translations (
+const LANG_TRANSLATION *switch_lang_translations (
                           LANG_TRANSLATION ***lang_translations,
                           const char *in_lang,
-                          LANG_TRANSLATION *current_lang_translations,
+                          const LANG_TRANSLATION *current_lang_translations,
                           const char *command_line_encoding,
                           size_t cache_size);
 char *translate_string (const char * string, const char *lang,
                         const char *encoded_lang,
                         const char *translation_context);
 TRANSLATION_TREE *cache_translate_string (const char *string,
-                        LANG_TRANSLATION *lang_translation,
+                        const LANG_TRANSLATION * const lang_translation,
                         const char *translation_context);
 DOCUMENT *replace_convert_substrings (const char *translated_string,
                           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                           int debug_level);
 ELEMENT *substitute_substrings_in_tree (ELEMENT *tree,
-                     NAMED_STRING_ELEMENT_LIST *replaced_substrings);
+                     const NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 char *replace_substrings (const char *string,
                     const NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 
 ELEMENT *gdt_tree (const char *string, DOCUMENT *document,
-                   LANG_TRANSLATION *lang_translation,
+                   const LANG_TRANSLATION *lang_translation,
                    NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                    int debug_level, const char *translation_context);
 
 char *gdt_string (const char *string,
-                  LANG_TRANSLATION *lang_translation,
+                  const LANG_TRANSLATION *lang_translation,
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                   const char *translation_context);
 
 ELEMENT *pgdt_tree (const char *translation_context, const char *string,
                     DOCUMENT *document,
-                    LANG_TRANSLATION *lang_translation,
+                    const LANG_TRANSLATION *lang_translation,
                     NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                     int debug_level);
 

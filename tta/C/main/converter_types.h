@@ -818,7 +818,7 @@ typedef struct CONVERTER {
        and reset when the documentlanguage changes.  Allocated
        and put in the cache if the language was never seen.
      */
-    LANG_TRANSLATION *current_lang_translations;
+    const LANG_TRANSLATION *current_lang_translations;
 
     ERROR_MESSAGE_LIST error_messages;
     /* for error messages registered in the converter */

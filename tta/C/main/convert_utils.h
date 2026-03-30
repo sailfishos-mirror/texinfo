@@ -45,7 +45,7 @@ ELEMENT_LIST *comma_index_subentries_tree (const ELEMENT *current,
                                            char *separator);
 void free_comma_index_subentries_tree (ELEMENT_LIST *element);
 
-ELEMENT *expand_today (int test, LANG_TRANSLATION *lang_translation,
+ELEMENT *expand_today (int test, const LANG_TRANSLATION *lang_translation,
               int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -53,7 +53,8 @@ ELEMENT *expand_today (int test, LANG_TRANSLATION *lang_translation,
              );
 
 char *add_heading_number (const ELEMENT *current, char *text,
-                          int numbered, LANG_TRANSLATION *lang_translation);
+                          int numbered,
+                          const LANG_TRANSLATION *lang_translation);
 
 ELEMENT *expand_verbatiminclude (const ELEMENT *current,
                         const STRING_LIST *include_directories,
@@ -70,7 +71,7 @@ ELEMENT *converter_expand_verbatiminclude (const ELEMENT *current,
 PARSED_DEF *definition_arguments_content (const ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);
 ELEMENT *definition_category_tree (const ELEMENT *current,
-                          LANG_TRANSLATION *lang_translation,
+                          const LANG_TRANSLATION *lang_translation,
                           const char *command_line_encoding,
                           int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
@@ -96,7 +97,7 @@ ELEMENT *cdt_tree (const char * string, CONVERTER *self,
 
 ELEMENT *translated_command_tree (TRANSLATED_COMMAND_LIST *translated_commands,
                          enum command_id cmd,
-                         LANG_TRANSLATION *lang_translation,
+                         const LANG_TRANSLATION *lang_translation,
                          int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,

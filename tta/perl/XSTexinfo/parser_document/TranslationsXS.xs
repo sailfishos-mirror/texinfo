@@ -49,7 +49,7 @@ SV *
 cache_translate_string (string, SV *lang_translations, SV *translation_context_sv=0)
       const char *string = (char *)SvPVutf8_nolen($arg);
     PREINIT:
-        char *result = 0;
+        const char *result = 0;
         AV *av;
      CODE:
         if (SvOK (lang_translations))
@@ -60,8 +60,8 @@ cache_translate_string (string, SV *lang_translations, SV *translation_context_s
             const char *lang = 0;
             const char *encoded_lang = 0;
             const char *translated_context_string = 0;
-            LANG_TRANSLATION *lang_translation;
-            TRANSLATION_TREE *translation_cache_result;
+            const LANG_TRANSLATION *lang_translation;
+            const TRANSLATION_TREE *translation_cache_result;
 
             if (lang_sv && SvOK (*lang_sv))
               lang = SvPVutf8_nolen (*lang_sv);
@@ -82,7 +82,7 @@ cache_translate_string (string, SV *lang_translations, SV *translation_context_s
             translation_cache_result
                    = cache_translate_string (string, lang_translation,
                                              translated_context_string);
-            result = translation_cache_result->translation ;
+            result = translation_cache_result->translation;
           }
         av = newAV ();
         if (result)

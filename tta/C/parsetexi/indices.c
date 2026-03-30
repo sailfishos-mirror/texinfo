@@ -400,7 +400,7 @@ complete_indices (DOCUMENT *document, int debug_level)
 {
   INDEX_LIST *indices;
   const char *current_lang = 0;
-  LANG_TRANSLATION *current_lang_translations;
+  const LANG_TRANSLATION *current_lang_translations;
   size_t i;
 
   indices = &document->indices_info;

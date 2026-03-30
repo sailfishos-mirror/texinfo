@@ -1,5 +1,21 @@
 2026-03-30 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c, tta/C/main/convert_to_text.c,
+	tta/C/main/convert_utils.c, tta/C/main/converter_types.h (CONVERTER),
+	tta/C/main/translations.c (find_lang_translation)
+	(store_new_lang_translation, get_lang_translation)
+	(get_lang_encoded_lang_translation, switch_lang_translations)
+	(cache_translate_string, gdt_string, gdt_tree, pgdt_tree),
+	tta/C/parsetexi/indices.c, tta/C/structuring_transfo/structuring.c,
+	tta/perl/XSTexinfo/parser_document/TranslationsXS.xs
+	(cache_translate_string): add const for LANG_TRANSLATION passed
+	around.
+
+	* tta/C/main/translations.c (substitute_substrings_in_tree)
+	(substitute_element_array): const for replaced_substrings.
+
+2026-03-30 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/LaTeX.pm (%LaTeX_environment_commands)
 	(_convert): use Texinfoindented environment for @indentedblock and
 	@def item.

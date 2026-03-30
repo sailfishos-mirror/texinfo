@@ -141,7 +141,7 @@ html_custom_translate_string (CONVERTER *self, const char *string,
    converter translations cache for user-defined translations */
 static TRANSLATION_TREE *
 html_cache_translate_string (CONVERTER *self, const char *string,
-                             LANG_TRANSLATION *lang_translation,
+                             const LANG_TRANSLATION *lang_translation,
                              const char *translation_context)
 {
   const char *lang = 0;
@@ -159,7 +159,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
       LANG_TRANSLATION_TREE_LIST *translations;
       char *translated_context_string;
       TRANSLATION_TREE *result;
-      LANG_TRANSLATION *user_lang_transl;
+      const LANG_TRANSLATION *user_lang_transl;
       uintptr_t string_nr;
       int found;
 
@@ -218,7 +218,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
    cache_translate_string */
 ELEMENT *
 html_gdt_tree (const char *string, CONVERTER *self,
-               LANG_TRANSLATION *lang_translation,
+               const LANG_TRANSLATION *lang_translation,
                NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                const char *translation_context)
 {

@@ -497,8 +497,8 @@ free_translation_cache (LANG_TRANSLATION **translation_cache)
     }
 }
 
-static LANG_TRANSLATION *
-find_lang_translation (LANG_TRANSLATION **lang_translations,
+static const LANG_TRANSLATION *
+find_lang_translation (LANG_TRANSLATION * const *lang_translations,
                        const char *lang, size_t *out_index)
 {
   size_t i = 0;
@@ -520,8 +520,8 @@ find_lang_translation (LANG_TRANSLATION **lang_translations,
 
 LANG_TRANSLATION **translation_cache;
 
-static LANG_TRANSLATION *
-store_new_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
+static const LANG_TRANSLATION *
+store_new_lang_translation (LANG_TRANSLATION *** lang_translations_ptr,
                             size_t idx, size_t cache_size,
                             LANG_TRANSLATION *lang_translation)
 {
@@ -546,18 +546,19 @@ store_new_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
   return lang_translations[idx];
 }
 
-LANG_TRANSLATION *
+const LANG_TRANSLATION *
 get_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
                       const char *lang, const char *locale_encoding,
                       size_t cache_size)
 {
   size_t i;
 
-  LANG_TRANSLATION *lang_translation
+  LANG_TRANSLATION *lang_translation;
+  const LANG_TRANSLATION *found_lang_translation
     = find_lang_translation (*lang_translations_ptr, lang, &i);
 
-  if (lang_translation)
-    return lang_translation;
+  if (found_lang_translation)
+    return found_lang_translation;
 
   lang_translation = new_lang_translation (lang, locale_encoding);
 
@@ -566,18 +567,19 @@ get_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
 }
 
 /* only used from Perl where the encoded lang is already available */
-LANG_TRANSLATION *
+const LANG_TRANSLATION *
 get_lang_encoded_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
                       const char *lang, const char *encoded_lang,
                       size_t cache_size)
 {
   size_t i;
 
-  LANG_TRANSLATION *lang_translation
+  LANG_TRANSLATION *lang_translation;
+  const LANG_TRANSLATION *found_lang_translation
     = find_lang_translation (*lang_translations_ptr, lang, &i);
 
-  if (lang_translation)
-    return lang_translation;
+  if (found_lang_translation)
+    return found_lang_translation;
 
   lang_translation = (LANG_TRANSLATION *)
     malloc (sizeof (LANG_TRANSLATION));
@@ -597,15 +599,15 @@ get_lang_encoded_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
                                      lang_translation);
 }
 
-LANG_TRANSLATION *
+const LANG_TRANSLATION *
 switch_lang_translations (LANG_TRANSLATION ***lang_translations,
                           const char *in_lang,
-                          LANG_TRANSLATION *current_lang_translations,
+                          const LANG_TRANSLATION *current_lang_translations,
                           const char *command_line_encoding,
                           size_t cache_size)
 {
   const char *lang;
-  LANG_TRANSLATION *lang_translation;
+  const LANG_TRANSLATION *lang_translation;
 
   if (in_lang)
     lang = in_lang;
@@ -657,7 +659,7 @@ add_translation_tree (LANG_TRANSLATION_TREE_LIST *translations,
 
 TRANSLATION_TREE *
 cache_translate_string (const char *string,
-                        LANG_TRANSLATION *lang_translation,
+                        const LANG_TRANSLATION *const lang_translation,
                         const char *translation_context)
 {
   const char *lang;
@@ -706,7 +708,7 @@ cache_translate_string (const char *string,
          clear that we could have a use for the encoded invalid lang from
          within get_lang_translation.
        */
-      LANG_TRANSLATION *general_lang_translation
+      const LANG_TRANSLATION *general_lang_translation
         = get_lang_translation (&translation_cache, lang, 0,
                                 TXI_CONVERT_STRINGS_NR);
       translations = general_lang_translation->translations;
@@ -802,11 +804,11 @@ replace_substrings (const char *string,
 
 ELEMENT *
 substitute_substrings_in_tree (ELEMENT *tree,
-                        NAMED_STRING_ELEMENT_LIST *replaced_substrings);
+                        const NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 
-void
+static void
 substitute_element_array (ELEMENT_LIST *list,
-                          NAMED_STRING_ELEMENT_LIST *replaced_substrings)
+                          const NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 {
   size_t idx = 0;
 
@@ -817,7 +819,7 @@ substitute_element_array (ELEMENT_LIST *list,
         {
           if (e->e.c->cmd == CM_txiinternalvalue)
             {
-              char *name = e->e.c->contents.list[0]->e.c->contents.list[0]
+              const char *name = e->e.c->contents.list[0]->e.c->contents.list[0]
                                                             ->e.text->text;
               size_t i;
               for (i = 0; i < replaced_substrings->number; i++)
@@ -838,7 +840,7 @@ substitute_element_array (ELEMENT_LIST *list,
 
 ELEMENT *
 substitute_substrings_in_tree (ELEMENT *tree,
-                               NAMED_STRING_ELEMENT_LIST *replaced_substrings)
+                   const NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 {
   if (tree->e.c->contents.number > 0)
     substitute_element_array (&tree->e.c->contents, replaced_substrings);
@@ -934,7 +936,7 @@ replace_convert_substrings (const char *translated_string,
    if one knows that there won't be small strings (the general case) */
 ELEMENT *
 gdt_tree (const char *string, DOCUMENT *document,
-          LANG_TRANSLATION *lang_translation,
+          const LANG_TRANSLATION *lang_translation,
           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
           int debug_level, const char *translation_context)
 {
@@ -980,7 +982,7 @@ gdt_tree (const char *string, DOCUMENT *document,
 }
 
 char *
-gdt_string (const char *string, LANG_TRANSLATION *lang_translation,
+gdt_string (const char *string, const LANG_TRANSLATION *lang_translation,
             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
             const char *translation_context)
 {
@@ -1002,7 +1004,7 @@ gdt_string (const char *string, LANG_TRANSLATION *lang_translation,
 
 ELEMENT *
 pgdt_tree (const char *translation_context, const char *string,
-           DOCUMENT *document, LANG_TRANSLATION *lang_translation,
+           DOCUMENT *document, const LANG_TRANSLATION *lang_translation,
            NAMED_STRING_ELEMENT_LIST *replaced_substrings,
            int debug_level)
 {
