@@ -2720,8 +2720,7 @@ sub _stop_embrac($$) {
 
   my $did_stop_embrac = 0;
 
-  if ($self->{'formatting_context'}->[-1]->{'embrac'}
-      and $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]
+  if (scalar(@{$self->{'formatting_context'}->[-1]->{'embrac'}})
       and $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]->{'status'} == 1) {
     $result .= '\EmbracOff{}';
     $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]->{'status'} = 0;
@@ -2840,6 +2839,8 @@ sub _convert_def_line($$) {
       if (exists($Texinfo::Common::def_no_var_arg_commands{$command})) {
         $def_line_result .= _convert($self, $arguments);
       } else {
+        # The embrac package is used so that parentheses and square brackets
+        # are typeset in an upright font on @def lines in slanted font.
         $self->{'packages'}->{'embrac'} = 1;
         # we want slanted roman and not slanted typewriter, including
         # ligatures, as if @r{@slanted{...}} had been used, so output
@@ -3351,16 +3352,12 @@ sub _convert($$) {
         my $LaTeX_style_command
           = $LaTeX_style_brace_commands{$command_format_context}
                                                  ->{$formatted_cmdname};
-        if ($need_known_embrac{$LaTeX_style_command}
-            and $self->{'formatting_context'}->[-1]->{'embrac'}
-            and $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]
+        if (exists($need_known_embrac{$LaTeX_style_command})
+            and scalar(@{$self->{'formatting_context'}->[-1]->{'embrac'}})
             and $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]->{'status'} == 1) {
           my $defined_style_embrac = $need_known_embrac{$LaTeX_style_command};
-          if (not $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]
-                ->{'made_known'}->{$defined_style_embrac}) {
-            $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]
+          $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]
                        ->{'made_known'}->{$defined_style_embrac} = 1;
-          }
         }
         $result .= "$LaTeX_style_command\{";
       }
