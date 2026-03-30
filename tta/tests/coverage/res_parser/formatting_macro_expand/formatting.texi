@@ -268,7 +268,6 @@ f(x) = {1 \\over \\sigma \\sqrt{2\\pi}}e@sup{-{1 \\over 2}\\left({x-\\mu \\over 
 @displaymath
 @dotless{i} @dotless{j}
 @l{} @,c
-
 @ubaraccent{a} @udotaccent{a} @ogonek{a} a@sup{h}@sub{l}
 @* @ @  @
 @- @| @! @@ @} @{ @/
@@ -1477,7 +1476,6 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\
 @displaymath
 @dotless{i} @dotless{j}
 @l{} @,c
-
 @ubaraccent{a} @udotaccent{a} @ogonek{a} a@sup{h}@sub{l}
 @* @ @  @
 @- @| @! @@ @} @{ @/
@@ -2667,7 +2665,6 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\
 @displaymath
 @dotless{i} @dotless{j}
 @l{} @,c
-
 @ubaraccent{a} @udotaccent{a} @ogonek{a} a@sup{h}@sub{l}
 @* @ @  @
 @- @| @! @@ @} @{ @/
@@ -3897,7 +3894,6 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\
 @displaymath
 @dotless{i} @dotless{j}
 @l{} @,c
-
 @ubaraccent{a} @udotaccent{a} @ogonek{a} a@sup{h}@sub{l}
 @* @ @  @
 @- @| @! @@ @} @{ @/
@@ -5081,7 +5077,6 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\
 @displaymath
 @dotless{i} @dotless{j}
 @l{} @,c
-
 @ubaraccent{a} @udotaccent{a} @ogonek{a} a@sup{h}@sub{l}
 @* @ @  @
 @- @| @! @@ @} @{ @/

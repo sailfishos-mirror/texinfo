@@ -272,7 +272,6 @@ f(x) = {1 \\over \\sigma \\sqrt{2\\pi}}e@sup{-{1 \\over 2}\\left({x-\\mu \\over 
 @displaymath
 @dotless{i} @dotless{j}
 @l{} @,c
-
 @ubaraccent{a} @udotaccent{a} @ogonek{a} a@sup{h}@sub{l}
 @* @ @  @
 @- @| @! @@ @} @{ @/
@@ -1480,7 +1479,6 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <displaymath endspaces=" ">
 <dotless>i</dotless> <dotless>j</dotless>
 &lslash; <accent type="cedil" bracketed="off">c</accent>
-
 <accent type="ubaraccent">a</accent> <accent type="udotaccent">a</accent> <accent type="ogon">a</accent> a<sup>h</sup><sub>l</sub>
 &linebreak; <spacecmd type="spc"/><spacecmd type="spc"/> <spacecmd type="nl"/>&hyphenbreak; <divideheading/> &eosexcl; &arobase; &rbrace; &lbrace; &slashbreak;
 <today/>
@@ -2664,7 +2662,6 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <displaymath endspaces=" ">
 <dotless>i</dotless> <dotless>j</dotless>
 &lslash; <accent type="cedil" bracketed="off">c</accent>
-
 <accent type="ubaraccent">a</accent> <accent type="udotaccent">a</accent> <accent type="ogon">a</accent> a<sup>h</sup><sub>l</sub>
 &linebreak; <spacecmd type="spc"/><spacecmd type="spc"/> <spacecmd type="nl"/>&hyphenbreak; <divideheading/> &eosexcl; &arobase; &rbrace; &lbrace; &slashbreak;
 <today/>
@@ -3889,7 +3886,6 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <displaymath endspaces=" ">
 <dotless>i</dotless> <dotless>j</dotless>
 &lslash; <accent type="cedil" bracketed="off">c</accent>
-
 <accent type="ubaraccent">a</accent> <accent type="udotaccent">a</accent> <accent type="ogon">a</accent> a<sup>h</sup><sub>l</sub>
 &linebreak; <spacecmd type="spc"/><spacecmd type="spc"/> <spacecmd type="nl"/>&hyphenbreak; <divideheading/> &eosexcl; &arobase; &rbrace; &lbrace; &slashbreak;
 <today/>
@@ -5067,7 +5063,6 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </pre><displaymath endspaces=" ">
 <dotless>i</dotless> <dotless>j</dotless>
 &lslash; <accent type="cedil" bracketed="off">c</accent>
-
 <accent type="ubaraccent">a</accent> <accent type="udotaccent">a</accent> <accent type="ogon">a</accent> a<sup>h</sup><sub>l</sub>
 &linebreak; <spacecmd type="spc"/><spacecmd type="spc"/> <spacecmd type="nl"/>&hyphenbreak; <divideheading/> &eosexcl; &arobase; &rbrace; &lbrace; &slashbreak;
 <today/>

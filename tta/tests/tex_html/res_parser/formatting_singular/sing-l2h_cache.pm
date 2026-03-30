@@ -75,7 +75,6 @@ $">
 
 $l2h_cache_key = q/\[\imath{} \jmath{}
 \mathord{\text{\l{}}} \textsl{\c{c}}
-
 \textsl{\b{a}} \textsl{\d{a}} \textsl{\k{a}} a^{h}_{l}
  \ {}\ {} \ {}\-{}  ! @ \} \{ 
 \today{}
@@ -85,17 +84,17 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  \begin{displaymath}
 \imath{} \jmath{}
 \mathord{\text{\l{}}} \textsl{\c{c}}
-\par\textsl{\b{a}} \textsl{\d{a}} \textsl{\k{a}} a^{h}_{l}
+\textsl{\b{a}} \textsl{\d{a}} \textsl{\k{a}} a^{h}_{l}
  \ {}\ {} \ {}\-{}  ! @ \} \{
 \today{}
 \end{displaymath}
  -->
 
 <IMG
- STYLE="height: 2.85ex; vertical-align: -0.77ex; " SRC="sing_l2h_img4.svg"
+ STYLE="height: 2.89ex; vertical-align: -0.70ex; " SRC="sing_l2h_img4.svg"
  ALT="$\displaystyle \imath{} \jmath{}
 \mathord{\text{\l{}}} \textsl{\c{c}}
-\par\texts...
+\textsl{\b...
 ...\textsl{\d{a}} \textsl{\k{a}} a^{h}_{l}
 \ {}\ {} \ {}\-{} ! @ \} \{
 \today{}
