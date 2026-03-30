@@ -1,3 +1,8 @@
+2026-03-30 Noé Lopez <noelopez@free.fr> (tiny change)
+
+	* util/htmlxref.d/Texinfo_GNU.cnf: Update URLs for Guix and
+	Shepherd.
+
 2026-03-29 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/Utils.pm (output_files_rename_opened): add.

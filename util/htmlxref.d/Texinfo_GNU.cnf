@@ -1,6 +1,6 @@
 # Texinfo_GNU.cnf - reference file for GNU Texinfo manuals on the web.
 
-htmlxrefversion=2026-01-10.16 # UTC
+htmlxrefversion=2026-03-30.30 # UTC
 
 # Copyright 2010-2026 Free Software Foundation, Inc.
 # 
@@ -505,8 +505,9 @@ guile-gtk	node	${GS}/guile-gtk/docs/guile-gtk/
 guile-rpc	mono	${GS}/guile-rpc/manual/guile-rpc.html
 guile-rpc	node	${GS}/guile-rpc/manual/html_node/
 
-guix		mono	${GS}/guix/manual/guix.html
-guix		node	${GS}/guix/manual/html_node/
+GUIX = https://guix.gnu.org/manual/devel/en/
+guix		mono	${GUIX}/guix.html
+guix		node	${GUIX}/html_node/
 
 gv		mono	${GS}/gv/manual/gv.html
 gv		node	${GS}/gv/manual/html_node/
@@ -707,8 +708,9 @@ sharutils	chapter	${GS}/sharutils/manual/html_chapter/
 sharutils	node	${GS}/sharutils/manual/html_node/
 
 # replaces dmd
-shepherd	mono	${GS}/shepherd/manual/shepherd.html
-shepherd	node	${GS}/shepherd/manual/html_node/
+SHEPHERD = https://doc.guix.gnu.org/shepherd/latest/en
+shepherd	mono	${SHEPHERD}/shepherd.html
+shepherd	node	${SHEPHERD}/html_node/
 
 SMALLTALK = ${GS}/smalltalk
 gst		mono	${SMALLTALK}/manual/gst.html
