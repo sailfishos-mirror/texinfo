@@ -1,3 +1,19 @@
+2026-03-31  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix "Missing character" messages in log file
+
+	* doc/texinfo.tex
+	(\extractindexcommands, \checksortas, \checkseealso, \checkseeentry):
+	New.  Use TeX macros to check if @sortas, @seeentry and @seealso occur
+	in the text of an index entry.
+	(\doindexsegment):
+	Replace implementation of the @sortas, @seeentry and @seealso commands
+	with call to \extractindexcommands.  The problem with the old way was
+	that we typeset the index text inside a dummy box, which could lead to
+	many error messages about missing glyphs being output in the log file.
+	
+	Report from Jamenson Espindula.
+
 2026-03-30 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_html.c, tta/C/main/convert_to_text.c,
