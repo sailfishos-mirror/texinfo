@@ -1,5 +1,9 @@
 2026-03-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\dummybox): Move definition in file.
+
+2026-03-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Fix "Missing character" messages in log file
 
 	* doc/texinfo.tex
