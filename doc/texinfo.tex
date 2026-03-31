@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2026-03-31.21}
+\def\texinfoversion{2026-03-31.22}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -5321,14 +5321,13 @@ $$%
 \def\indexisfl{fl}
 
 % Definition for writing index entry sort key.
-{
-\catcode`\-=13
-\gdef\indexwritesortas{%
+\def\indexwritesortas{%
   \begingroup
   \indexnonalnumreappear
-  \indexwritesortasxxx}
-\gdef\indexwritesortasxxx#1{%
-  \xdef\indexsortkey{#1}\endgroup}
+  \indexwritesortasxxx
+}
+\def\indexwritesortasxxx#1{%
+  \xdef\indexsortkey{#1}\endgroup
 }
 
 \def\indexwriteseealso#1{

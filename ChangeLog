@@ -1,5 +1,10 @@
 2026-03-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\indexwritesortas): Remove useless change
+	of catcode around definition.
+
+2026-03-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\dummybox): Move definition in file.
 
 2026-03-31  Gavin Smith <gavinsmith0123@gmail.com>
