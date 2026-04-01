@@ -100,14 +100,12 @@ update-po:
 # Note that pgettext is not matched to avoid a false positive in
 # tta/perl/Texinfo/Translations.pm, but it is not problematic as it appears
 # only in errors.c, which matches other function names.
-# False positive in ConvertXS.c with function definition but no
-# translated strings
 po-check:
 	@if test -f po/POTFILES.in; then				\
 	  grep -E -v '^(#|$$)' po/POTFILES.in				\
 	    | grep -v '^src/false\.c$$' | sort > $@-1;			\
 	  files=;							\
-	  for file in `find [a-zA-Z]* -name '*.[ch]' 			\
+	  for file in `find [a-zA-Z]* -name '*.[ch]' -o -name '*.xs' 	\
 		                   -o -name '*.p[lm]'` ; do             \
 	    # don't look at sources from some subdirs.			\
 	    case $$file in						\
@@ -136,7 +134,7 @@ po_document-check:
 	@if test -f po_document/POTFILES.in; then			\
 	  grep -E -v '^(#|$$)' po_document/POTFILES.in | sort > $@-1;	\
 	  files=;							\
-	  for file in `find [a-z]* -name '*.c' \
+	  for file in `find [a-z]* -name '*.c' -o -name '*.xs' \
 	                           -o -name '*.p[lm]'`; do 		\
 	    # don't look at sources from some subdirs.			\
 	    case $$file in						\

@@ -58,6 +58,8 @@ tta/perl/ext/highlight_syntax.pm
 tta/perl/ext/latex2html.pm
 tta/perl/ext/tex4ht.pm
 tta/perl/texi2any.pl
+tta/perl/XSTexinfo/convert/ConvertConverterXS.xs
+tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs
 tta/C/texi2any.c
 tta/C/convert/converter.c
 tta/C/convert/convert_html.c
