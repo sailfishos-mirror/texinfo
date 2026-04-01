@@ -54,7 +54,7 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - HTML: have a library of different CSS styles.
     http://mail.gnu.org/archive/html/bug-texinfo/2004-01/msg00025.html
   - Support output formats retaining the tree structure of Texinfo documents
-    as parsed by the Parser.  A lisp-like format for GUILE? Maybe JSON?
+    as parsed by the Parser.  A lisp-like format for GUILE? Maybe JSON? XML?
   - Support other graphical documentation browsers like GNOME Manuals
     - could need to wait for a specification of the DevHelp2 XML file
       format, which is not documented.
@@ -119,6 +119,18 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
     used for building and testing.
 
 * Other
+  - Improve support for translated manuals.  Some references to discussions.
+    Better support for Texinfo in po4a using the Perl SWIG interface
+    should provide with some parts described in those discussions.
+     https://lists.gnu.org/archive/html/bug-texinfo/2008-07/msg00005.html
+     https://lists.gnu.org/archive/html/bug-texinfo/2008-07/msg00022.html
+     https://lists.gnu.org/archive/html/bug-texinfo/2014-09/msg00002.html
+     https://lists.gnu.org/archive/html/bug-texinfo/2014-09/msg00010.html
+     https://lists.gnu.org/archive/html/bug-texinfo/2025-02/msg00079.html
+     https://lists.gnu.org/archive/html/bug-texinfo/2025-02/msg00080.html
+     https://lists.gnu.org/archive/html/bug-texinfo/2025-05/msg00008.html
+     https://lists.gnu.org/archive/html/help-texinfo/2024-01/msg00009.html
+     https://lists.gnu.org/archive/html/help-texinfo/2024-01/msg00057.html
   - Info format - Get Emacs to support : in index entries by changing
     the interpretation of index nodes slightly.  See
     https://lists.gnu.org/archive/html/bug-gnu-emacs/2019-01/msg00235.html
@@ -128,6 +140,9 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
     There is no plan to process Texinfo files directly in the Texinfo
     project, only to convert to output formats.  New output formats
     representing the Texinfo input could be output if useful.
+    There is an experimental SWIG interface optionally built around the
+    C Parser, Reader and Document structuring code that could be used by
+    external projects if it becomes stable.
 
 ***********************************************************************
 After next release:
@@ -142,7 +157,7 @@ After next release:
 
 * texi2any:
   Remove Texinfo XML and Texinfo SXML support (from documentation, tests,
-  util/txixml2texi.pl, utile/texinfo.dtd, tta/maintain/catalog.xml.in,
+  util/txixml2texi.pl, util/texinfo.dtd, tta/maintain/catalog.xml.in,
   tta/maintain/check_back_xml_forth_texi_t.sh) (leave at least for a
   few releases after X.Y).
   Decide at that time if the Perl modules in Example and the formats in
@@ -167,10 +182,10 @@ After next release:
   For a test case, see texinfo cvs, with its one translated manual
   (info-fr.texi).
   From Wojciech Polak.
-  ... Except, in practice, people just name their manuals with a
-  suffix for the language, and that seems to work well enough.  There
-  aren't that many manuals even in English, let alone other languages,
-  and there are almost no manuals in multiple languages.
+  This is only one possibility, and should not necessarily need a
+  change to the info readers, changing installation and INFOPATH
+  could be enough.  There is another often used possibility, naming
+  manuals with a suffix for the language.
 
 - Call Ghostscript to get ASCII/jpg output for the @image command.
   [makeinfo should not try to be make, or assume it knows how the user

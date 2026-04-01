@@ -1,3 +1,9 @@
+2026-04-01 Patrice Dumas  <pertusus@free.fr>
+
+	* TODO: update, item on translations, SWIG information when relevant,
+	update non implemented manuals installation support to hint that it is
+	not really rejected, but one possibility among others.
+
 2026-04-01  Bruno Haible <bruno@clisp.org>
 
 	* INSTALL: edit description of --enable-xs-perl-libintl.
@@ -135,7 +141,7 @@
 
 2026-03-30 Patrice Dumas  <pertusus@free.fr>
 
-	* tta/tests/coverage_macro.texi: remove empty line in @displymath to
+	* tta/tests/coverage_macro.texi: remove empty line in @displaymath to
 	avoid invalid LaTeX.
 
 2026-03-30 Patrice Dumas  <pertusus@free.fr>
