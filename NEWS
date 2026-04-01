@@ -20,6 +20,10 @@ X.Y ()
     Can still be selected by setting TEXINFO_OUTPUT_FORMAT=texinfoxml
     until fully removed.
 
+* Distribution
+  . Remove --enable-refcounts-checks, --enable-perl-api-texi-build
+    and --enable-pod-simple-texinfo-tests configure flags.
+
 7.3 (02 March 2026)
 * Language
   . new commands for title page creation: @documentinfo, @publication,

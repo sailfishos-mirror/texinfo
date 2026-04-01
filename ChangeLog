@@ -1,5 +1,12 @@
 2026-04-01 Patrice Dumas  <pertusus@free.fr>
 
+	* NEWS, configure.ac, tta/configure.ac: remove
+	--enable-refcounts-checks, --enable-perl-api-texi-build and
+	--enable-pod-simple-texinfo-tests configure flags, keeping the
+	automatic detection only.
+
+2026-04-01 Patrice Dumas  <pertusus@free.fr>
+
 	* po/POTFILES.in, po_document/POTFILES.in: update.
 
 	* Makefile.am (po-check, po_document-check): update.

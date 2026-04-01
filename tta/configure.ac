@@ -95,22 +95,11 @@ AC_MSG_CHECKING([parser tests requirements])
 AC_MSG_RESULT([$t2a_tests])
 AM_CONDITIONAL([T2A_TESTS], [test "z$t2a_tests" = 'zyes'])
 
-refcount_checks='no'
-AC_ARG_ENABLE([refcounts-checks],
-    AS_HELP_STRING([--enable-refcounts-checks],[checks on reference counts (default: detected)]),
-    [if test $enableval = 'no'; then
-       refcount_checks='no'
-     else
-       refcount_checks='yes'
-     fi],
-    [
-     if $PERL -e "use Devel::Refcount;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
-     then
-       refcount_checks='yes'
-     else
-       refcount_checks='no'
-     fi
-    ])
+if $PERL -e "use Devel::Refcount;" > /dev/null 2>&AS_MESSAGE_LOG_FD; then
+  refcount_checks='yes'
+else
+  refcount_checks='no'
+fi
 
 AC_MSG_CHECKING([requirements for refcount checks])
 AC_MSG_RESULT([$refcount_checks])

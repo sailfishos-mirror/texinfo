@@ -352,47 +352,23 @@ AC_ARG_ENABLE([t2a-tests],
        t2a_tests='yes'
      fi])
 
-AC_ARG_ENABLE([refcounts-checks],
-    AS_HELP_STRING([--enable-refcounts-checks],[checks on reference counts (default: detected)]))
-
-pod_simple_texinfo_tests='no'
-AC_ARG_ENABLE([pod-simple-texinfo-tests],
-    AS_HELP_STRING([--enable-pod-simple-texinfo-tests],[run Pod to Texinfo conversion testsuite (default: detected)]),
-    [if test $enableval = 'no'; then
-       pod_simple_texinfo_tests='no'
-     else
-       pod_simple_texinfo_tests='yes'
-     fi],
-    [
-     if $PERL -e "use 5.008_001; use Encode; use Test::More; use Pod::Simple::PullParser; use Pod::Simple::XHTML;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
-     then
-       pod_simple_texinfo_tests='yes'
-     else
-       pod_simple_texinfo_tests='no'
-     fi
-    ])
+if $PERL -e "use 5.008_001; use Encode; use Test::More; use Pod::Simple::PullParser; use Pod::Simple::XHTML;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
+then
+  pod_simple_texinfo_tests='yes'
+else
+  pod_simple_texinfo_tests='no'
+fi
 
 AC_MSG_CHECKING([Pod::Simple::Texinfo tests requirements])
 AC_MSG_RESULT([$pod_simple_texinfo_tests])
 AM_CONDITIONAL([POD_SIMPLE_TEXINFO_TESTS], [test "z$pod_simple_texinfo_tests" = 'zyes'])
 
-
-build_perl_api_texi='no'
-AC_ARG_ENABLE([perl-api-texi-build],
-    AS_HELP_STRING([--enable-perl-api-texi-build],[build the perl api Texinfo files (default: detected)]),
-    [if test $enableval = 'no'; then
-       build_perl_api_texi='no'
-     else
-       build_perl_api_texi='yes'
-     fi],
-    [
-     if $PERL -e "use 5.008_001; use Encode; use Pod::Simple::PullParser; use Pod::Simple::XHTML;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
-     then
-       build_perl_api_texi='yes'
-     else
-       build_perl_api_texi='no'
-     fi
-    ])
+if $PERL -e "use 5.008_001; use Encode; use Pod::Simple::PullParser; use Pod::Simple::XHTML;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
+then
+  build_perl_api_texi='yes'
+else
+  build_perl_api_texi='no'
+fi
 
 AC_MSG_CHECKING([Perl Texinfo API Texinfo documentation build requirements])
 AC_MSG_RESULT([$build_perl_api_texi])
