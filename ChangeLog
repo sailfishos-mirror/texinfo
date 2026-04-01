@@ -1,5 +1,11 @@
 2026-04-01 Patrice Dumas  <pertusus@free.fr>
 
+	* po/POTFILES.in, po_document/POTFILES.in: update.
+
+	* Makefile.am (po-check, po_document-check): update.
+
+2026-04-01 Patrice Dumas  <pertusus@free.fr>
+
 	* TODO: update, item on translations, SWIG information when relevant,
 	update non implemented manuals installation support to hint that it is
 	not really rejected, but one possibility among others.

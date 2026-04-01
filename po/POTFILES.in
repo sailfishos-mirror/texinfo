@@ -33,8 +33,10 @@ tta/perl/Texinfo/Common.pm
 tta/perl/Texinfo/Config.pm
 tta/perl/Texinfo/DebugTree.pm
 tta/perl/Texinfo/Document.pm
+tta/perl/Texinfo/Convert/ConverterNonXS.pm
 tta/perl/Texinfo/Convert/Converter.pm
 tta/perl/Texinfo/Convert/DocBook.pm
+tta/perl/Texinfo/Convert/HTMLNonXS.pm
 tta/perl/Texinfo/Convert/HTML.pm
 tta/perl/Texinfo/Convert/Info.pm
 tta/perl/Texinfo/Convert/LaTeX.pm
@@ -43,11 +45,10 @@ tta/perl/Texinfo/Convert/Text.pm
 tta/perl/Texinfo/Convert/Utils.pm
 tta/perl/Texinfo/Example/IXIN.pm
 tta/perl/Texinfo/Example/ReadDocBook.pm
-tta/perl/Texinfo/Example/TreeElementConverter.pm
-tta/perl/Texinfo/Example/TreeElementReadDocBook.pm
 tta/perl/Texinfo/Indices.pm
 tta/perl/Texinfo/ParserNonXS.pm
 tta/perl/Texinfo/Report.pm
+tta/perl/Texinfo/StructuringNonXS.pm
 tta/perl/Texinfo/Structuring.pm
 tta/perl/Texinfo/Transformations.pm
 tta/perl/Texinfo/Translations.pm

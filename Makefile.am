@@ -118,7 +118,7 @@ po-check:
               tta/maintain/* ) continue;;				\
               tta/t/results* ) continue;;				\
 	      tta/gnulib/lib/*) continue;;			\
-	      tta/perl/XSTexinfo/convert/ConvertXS.c) continue;;	\
+	      tta/perl/XSTexinfo/convert/Convert*XS.c) continue;;	\
 	    esac;							\
 	    files="$$files $$file";					\
 	  done;								\
@@ -144,9 +144,8 @@ po_document-check:
 	      man/* ) continue;;	\
 	      texinfo-*/*) continue;;					\
 	      tta/maintain/*) continue;;				\
+	      tta/perl/Texinfo/Example/*) continue;;			\
 	      tta/perl/init/documentation_examples.pm) continue;;	\
-	      tta/perl/XSTexinfo/parser_document/DocumentXS.c) continue;;		\
-	      tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.c) continue;;	\
 	    esac;							\
 	    files="$$files $$file";					\
 	  done;								\
