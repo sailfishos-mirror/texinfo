@@ -30,11 +30,11 @@ sub main {
   my $no_common = $ARGV[0] eq "--no-common";
 
   my ($man_customization_vars, $man_cmds_customization_vars)
-                             = &read_refman ("$srcdir/../texinfo.texi");
+                             = &read_refman ("$srcdir/texinfo.texi");
   my @man_vars = @$man_customization_vars;
   my @man_cmds_vars = @$man_cmds_customization_vars;
-  my @t2a_vars = &read_vars ("$srcdir/../../util/txicustomvars");
-  my @t2a_cmds_vars = &read_vars ("$srcdir/../../util/txicustomvars --commands");
+  my @t2a_vars = &read_vars ("$srcdir/../util/txicustomvars");
+  my @t2a_cmds_vars = &read_vars ("$srcdir/../util/txicustomvars --commands");
 
   my (%man_vars, %t2a_vars, %man_cmds_vars, %t2a_cmds_vars);  # list to hash
   @man_vars{@man_vars} = ();

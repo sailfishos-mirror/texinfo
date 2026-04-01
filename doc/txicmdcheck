@@ -29,9 +29,9 @@ exit (&main ());
 sub main {
   my $no_common = $ARGV[0] eq "--no-common";
 
-  my %idx_cmds = &read_refidx ("$srcdir/../texinfo.texi");
-  my %man_cmds = &read_appendix ("$srcdir/../texinfo.texi");
-  my %t2a_cmds = &read_cmds ("$srcdir/../../util/txicmdlist");
+  my %idx_cmds = &read_refidx ("$srcdir/texinfo.texi");
+  my %man_cmds = &read_appendix ("$srcdir/texinfo.texi");
+  my %t2a_cmds = &read_cmds ("$srcdir/../util/txicmdlist");
 
   # find the commands that are covered everywhere.
   my @found = ();

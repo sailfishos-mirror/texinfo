@@ -1,5 +1,12 @@
 2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/refcard/txicmdcheck, doc/txicmdcheck,
+	* doc/refcard/txivarcheck, doc/txivarcheck:
+	Move to doc/.
+	* doc/refcard: remove subdirectory.
+
+2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove refcard
 
 	* doc/refcard/txicmdcheck, doc/refcard/txivarcheck:

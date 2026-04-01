@@ -13,7 +13,7 @@
 # The links to texi2any_internals require that to avoid many warnings
 AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0
 
-SUBDIRS = tta_api refcard
+SUBDIRS = tta_api
 
 info_TEXINFOS = texinfo.texi info-stnd.texi texi2any_api.texi
 texinfo_TEXINFOS = pod2texi.texi html_default_commands_args.texi
@@ -107,6 +107,17 @@ install-tex:
 dist-info:
 
 MAINTAINERCLEANFILES = pod2texi.texi html_default_commands_args.texi
+
+EXTRA_DIST += txicmdcheck txivarcheck
+CHECKS_ENV = srcdir="$(srcdir)"; export srcdir; \
+             top_builddir="$(top_builddir)"; export top_builddir;
+
+ccheck:
+	$(CHECKS_ENV) $(srcdir)/txicmdcheck
+
+vcheck:
+	$(CHECKS_ENV) $(srcdir)/txivarcheck
+
 
 # Rules for updating the online web pages for the documentation
 # using the gendocs.sh script; see
