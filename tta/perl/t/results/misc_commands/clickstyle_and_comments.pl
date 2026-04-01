@@ -6,122 +6,104 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'clickstyle_and_comments'} = '*document_root C1
- *before_node_section C7
-  *@clickstyle C1 l1
-  |EXTRA
-  |global_command_number:{1}
-  |misc_args:A{@comment}
-   *line_arg C2
-    {rawline_text:@comment a}
+ *before_node_section C5
+  *@comment C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {rawline_text:a}
     {spaces_after_argument:\\n}
-  *@clickstyle C1 l2
-  |EXTRA
-  |global_command_number:{2}
-  |misc_args:A{@comment}
+  {spaces_before_paragraph: }
+  *@comment C1
    *line_arg C3
     {spaces_before_argument: }
-    {rawline_text:@comment b}
+    {rawline_text:b}
     {spaces_after_argument:\\n}
-  *@clickstyle C1 l3
-  |EXTRA
-  |global_command_number:{3}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:nocmd@comment c}
-    {spaces_after_argument:\\n}
-  *@clickstyle C1 l4
-  |EXTRA
-  |global_command_number:{4}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:more than one word @comment d}
-    {spaces_after_argument:\\n}
-  *@clickstyle C1 l5
-  |EXTRA
-  |global_command_number:{5}
-  |misc_args:A{@result}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:@result}
-    *@comment C1
-     *line_arg C3
-      {spaces_before_argument: }
-      {rawline_text:e}
-      {spaces_after_argument:\\n}
-  *@clickstyle C1 l6
-  |EXTRA
-  |global_command_number:{6}
-  |misc_args:A{@result}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:@result   }
-    *@comment C1
-     *line_arg C3
-      {spaces_before_argument: }
-      {rawline_text:f}
-      {spaces_after_argument:\\n}
-  *@clickstyle C1 l7
-  |EXTRA
-  |global_command_number:{7}
-  |misc_args:A{@result}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:@result on the same line @comment g}
-    {spaces_after_argument:\\n}
+  {spaces_before_paragraph: }
+  *paragraph C14
+   {nocmd}
+   *@comment C1
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:c}
+     {spaces_after_argument:\\n}
+   { more than one word }
+   *@comment C1
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:d}
+     {spaces_after_argument:\\n}
+   { }
+   *@result l5
+   *@comment C1
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:e}
+     {spaces_after_argument:\\n}
+   { }
+   *@result l6
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{spaces_after_cmd_before_arg:   }
+   *@comment C1
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:f}
+     {spaces_after_argument:\\n}
+   { }
+   *@result l7
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{spaces_after_cmd_before_arg: }
+   {on the same line }
+   *@comment C1
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:g}
+     {spaces_after_argument:\\n}
 ';
 
 
-$result_texis{'clickstyle_and_comments'} = '@clickstyle@comment a
-@clickstyle @comment b
-@clickstyle nocmd@comment c
-@clickstyle more than one word @comment d
-@clickstyle @result@comment e
-@clickstyle @result   @comment f
-@clickstyle @result on the same line @comment g
+$result_texis{'clickstyle_and_comments'} = '@comment a
+ @comment b
+ nocmd@comment c
+ more than one word @comment d
+ @result@comment e
+ @result   @comment f
+ @result on the same line @comment g
 ';
 
 
-$result_texts{'clickstyle_and_comments'} = '';
+$result_texts{'clickstyle_and_comments'} = 'nocmd more than one word  => => =>on the same line ';
 
-$result_errors{'clickstyle_and_comments'} = '* W l1|@clickstyle is obsolete
- warning: @clickstyle is obsolete
+$result_errors{'clickstyle_and_comments'} = '* E l1|unknown command `clickstyle\'
+ unknown command `clickstyle\'
 
-* W l1|remaining argument on @clickstyle line: a
- warning: remaining argument on @clickstyle line: a
+* E l2|unknown command `clickstyle\'
+ unknown command `clickstyle\'
 
-* W l2|@clickstyle is obsolete
- warning: @clickstyle is obsolete
+* E l3|unknown command `clickstyle\'
+ unknown command `clickstyle\'
 
-* W l2|remaining argument on @clickstyle line: b
- warning: remaining argument on @clickstyle line: b
+* E l4|unknown command `clickstyle\'
+ unknown command `clickstyle\'
 
-* W l3|@clickstyle is obsolete
- warning: @clickstyle is obsolete
+* E l5|unknown command `clickstyle\'
+ unknown command `clickstyle\'
 
-* E l3|@clickstyle should only accept an @-command as argument, not ` nocmd@comment c
-\'
- @clickstyle should only accept an @-command as argument, not ` nocmd@comment c
-\'
+* E l5|@result expected braces
+ @result expected braces
 
-* W l4|@clickstyle is obsolete
- warning: @clickstyle is obsolete
+* E l6|unknown command `clickstyle\'
+ unknown command `clickstyle\'
 
-* E l4|@clickstyle should only accept an @-command as argument, not ` more than one word @comment d
-\'
- @clickstyle should only accept an @-command as argument, not ` more than one word @comment d
-\'
+* E l6|@result expected braces
+ @result expected braces
 
-* W l5|@clickstyle is obsolete
- warning: @clickstyle is obsolete
+* E l7|unknown command `clickstyle\'
+ unknown command `clickstyle\'
 
-* W l6|@clickstyle is obsolete
- warning: @clickstyle is obsolete
-
-* W l7|@clickstyle is obsolete
- warning: @clickstyle is obsolete
-
-* W l7|remaining argument on @clickstyle line: on the same line @comment g
- warning: remaining argument on @clickstyle line: on the same line @comment g
+* E l7|@result expected braces
+ @result expected braces
 
 ';
 

@@ -6,110 +6,85 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'invalid_clickstyle'} = '*document_root C1
- *before_node_section C12
+ *before_node_section C14
   {empty_line:\\n}
-  *@clickstyle C1 l2
-  |EXTRA
-  |global_command_number:{1}
-  |misc_args:A{@result}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:@result on the same line}
-    {spaces_after_argument:\\n}
+  {spaces_before_paragraph: }
+  *paragraph C2
+   *@result l2
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{spaces_after_cmd_before_arg: }
+   {on the same line\\n}
   {empty_line:\\n}
   *paragraph C3
    {A }
-   *@result C1 l4
-   |INFO
-   |alias_of:{click}
+   *@click C1 l4
     *brace_container
    { (result on the same line).\\n}
   {empty_line:\\n}
-  *@clickstyle C1 l6
-  |EXTRA
-  |global_command_number:{2}
-  |misc_args:A{@nocmd}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:@nocmd}
-    {spaces_after_argument:\\n}
+  {empty_line: \\n}
   {empty_line:\\n}
+  *paragraph C3
+   {A }
+   *@click C1 l8
+    *brace_container
+   { (nocmd).\\n}
+  {empty_line:\\n}
+  {spaces_before_paragraph: }
   *paragraph C1
-   {A  (nocmd).\\n}
+   {something\\n}
   {empty_line:\\n}
-  *@clickstyle C1 l10
-  |EXTRA
-  |global_command_number:{3}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:something}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *paragraph C1
-   {A  (something).\\n}
+  *paragraph C3
+   {A }
+   *@click C1 l12
+    *brace_container
+   { (something).\\n}
 ';
 
 
 $result_texis{'invalid_clickstyle'} = '
-@clickstyle @result on the same line
+ @result on the same line
 
-A @result{} (result on the same line).
+A @click{} (result on the same line).
 
-@clickstyle @nocmd
+ 
 
-A  (nocmd).
+A @click{} (nocmd).
 
-@clickstyle something
+ something
 
-A  (something).
+A @click{} (something).
 ';
 
 
 $result_texts{'invalid_clickstyle'} = '
+=>on the same line
 
-A => (result on the same line).
+A -> (result on the same line).
 
+ 
 
-A  (nocmd).
+A -> (nocmd).
 
+something
 
-A  (something).
+A -> (something).
 ';
 
-$result_errors{'invalid_clickstyle'} = '* W l2|@clickstyle is obsolete
- warning: @clickstyle is obsolete
+$result_errors{'invalid_clickstyle'} = '* E l2|unknown command `clickstyle\'
+ unknown command `clickstyle\'
 
-* W l2|remaining argument on @clickstyle line: on the same line
- warning: remaining argument on @clickstyle line: on the same line
+* E l2|@result expected braces
+ @result expected braces
 
-* W l6|@clickstyle is obsolete
- warning: @clickstyle is obsolete
+* E l6|unknown command `clickstyle\'
+ unknown command `clickstyle\'
 
-* E l8|unknown command `nocmd\'
+* E l6|unknown command `nocmd\'
  unknown command `nocmd\'
 
-* E l8|misplaced {
- misplaced {
-
-* E l8|misplaced }
- misplaced }
-
-* W l10|@clickstyle is obsolete
- warning: @clickstyle is obsolete
-
-* E l10|@clickstyle should only accept an @-command as argument, not ` something
-\'
- @clickstyle should only accept an @-command as argument, not ` something
-\'
-
-* E l12|unknown command `nocmd\'
- unknown command `nocmd\'
-
-* E l12|misplaced {
- misplaced {
-
-* E l12|misplaced }
- misplaced }
+* E l10|unknown command `clickstyle\'
+ unknown command `clickstyle\'
 
 ';
 

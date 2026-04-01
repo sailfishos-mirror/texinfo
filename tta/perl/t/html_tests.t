@@ -128,16 +128,6 @@ my $itemize_arguments_text = '
 @item item click @click{} a
 @end itemize
 
-@clickstyle @result
-
-@itemize @click{}
-@item item result click @click{}
-@end itemize
-
-@itemize @click{} a
-@item item result click @click{}
-@end itemize
-
 @itemize @error{}
 @item item error @error{}
 @end itemize

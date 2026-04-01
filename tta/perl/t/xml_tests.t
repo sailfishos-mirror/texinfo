@@ -243,8 +243,6 @@ Para
 
 @unmacro  ggg
 
-@clickstyle  @arrow
-
 @node a ,(b),(c) , (d)   
 
 @center  centered  

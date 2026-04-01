@@ -6,67 +6,75 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'clickstyle'} = '*document_root C1
- *before_node_section C8
-  *@clickstyle C1 l1
-  |EXTRA
-  |global_command_number:{1}
-  |misc_args:A{@result}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:@result}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *paragraph C3
-   {A }
-   *@result C1 l3
+ *before_node_section C5
+  {spaces_before_paragraph: }
+  *paragraph C5
+   *@result l1
    |INFO
-   |alias_of:{click}
+   |spaces_after_cmd_before_arg:
+    |{spaces_after_cmd_before_arg:\\n}
+   {\\n}
+   {A }
+   *@click C1 l3
     *brace_container
    { (result).\\n}
   {empty_line:\\n}
-  *@clickstyle C1 l5
-  |EXTRA
-  |global_command_number:{2}
-  |misc_args:A{@equiv}
-   *line_arg C2
-    {rawline_text:@equiv}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *paragraph C3
-   {A }
-   *@equiv C1 l7
+  *paragraph C5
+   *@equiv l5
    |INFO
-   |alias_of:{click}
+   |spaces_after_cmd_before_arg:
+    |{spaces_after_cmd_before_arg:\\n}
+   {\\n}
+   {A }
+   *@click C1 l7
     *brace_container
    { (equiv no space)\\n}
   {empty_line:\\n}
 ';
 
 
-$result_texis{'clickstyle'} = '@clickstyle @result
+$result_texis{'clickstyle'} = ' @result
 
-A @result{} (result).
+A @click{} (result).
 
-@clickstyle@equiv
+@equiv
 
-A @equiv{} (equiv no space)
-
-';
-
-
-$result_texts{'clickstyle'} = '
-A => (result).
-
-
-A == (equiv no space)
+A @click{} (equiv no space)
 
 ';
 
-$result_errors{'clickstyle'} = '* W l1|@clickstyle is obsolete
- warning: @clickstyle is obsolete
 
-* W l5|@clickstyle is obsolete
- warning: @clickstyle is obsolete
+$result_texts{'clickstyle'} = '=>
+A -> (result).
+
+==
+A -> (equiv no space)
+
+';
+
+$result_errors{'clickstyle'} = '* E l1|unknown command `clickstyle\'
+ unknown command `clickstyle\'
+
+* W l1|command `@result\' must not be followed by new line
+ warning: command `@result\' must not be followed by new line
+
+* W l2|command `@result\' must not be followed by new line
+ warning: command `@result\' must not be followed by new line
+
+* E l2|@result expected braces
+ @result expected braces
+
+* E l5|unknown command `clickstyle\'
+ unknown command `clickstyle\'
+
+* W l5|command `@equiv\' must not be followed by new line
+ warning: command `@equiv\' must not be followed by new line
+
+* W l6|command `@equiv\' must not be followed by new line
+ warning: command `@equiv\' must not be followed by new line
+
+* E l6|@equiv expected braces
+ @equiv expected braces
 
 ';
 

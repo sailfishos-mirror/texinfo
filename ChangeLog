@@ -2,6 +2,16 @@
 
 	Test updates for removal of @clickstyle
 	
+	* tta/perl/t/50value.t (value_in_misc_commands),
+	* tta/perl/t/60value.t (macro_in_misc_commands),
+	* tta/perl/t/html_tests.t,
+	* tta/perl/t/xml_tests.t (commands_and_spaces):
+	Remove use of @clickstyle.
+
+2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Test updates for removal of @clickstyle
+	
 	* tta/tests/coverage_macro.texi: remove use of @clickstyle.
 
 2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>

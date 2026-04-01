@@ -323,10 +323,6 @@ After page on it\'s own line.
 @set two 2
 @sp @value{two}
 
-@set result_macro @result
-
-@clickstyle @value{result_macro}
-
 @value{contents_macro}
 
 @set shortcontents_macro @shortcontents

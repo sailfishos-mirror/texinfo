@@ -6,24 +6,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'clickstyle_no_end_of_line'} = '*document_root C1
- *before_node_section C1
-  *@clickstyle C1 l1
-  |EXTRA
-  |global_command_number:{1}
-  |misc_args:A{@result}
-   *line_arg C2
-    {spaces_before_argument: }
-    {rawline_text:@result}
+ *before_node_section C2
+  {spaces_before_paragraph: }
+  *paragraph C1
+   *@result l1
 ';
 
 
-$result_texis{'clickstyle_no_end_of_line'} = '@clickstyle @result';
+$result_texis{'clickstyle_no_end_of_line'} = ' @result';
 
 
-$result_texts{'clickstyle_no_end_of_line'} = '';
+$result_texts{'clickstyle_no_end_of_line'} = '=>';
 
-$result_errors{'clickstyle_no_end_of_line'} = '* W l1|@clickstyle is obsolete
- warning: @clickstyle is obsolete
+$result_errors{'clickstyle_no_end_of_line'} = '* E l1|unknown command `clickstyle\'
+ unknown command `clickstyle\'
+
+* E l1|@result expected braces
+ @result expected braces
 
 ';
 

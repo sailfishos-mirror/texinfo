@@ -41,7 +41,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >value_expansion<end;1><p:9>
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C136 l6 {chap}
+ *@node C132 l6 {chap}
  |EXTRA
  |identifier:{chap}
  |is_target:{1}
@@ -978,29 +978,12 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     >value_expansion<end;40><p:1>
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@set C1
-  |EXTRA
-  |misc_args:A{result_macro|@result}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:result_macro @result}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@clickstyle C1 l143
-  |EXTRA
-  |global_command_number:{1}
-  |misc_args:A{@value}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:@value{result_macro}}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
   >SOURCEMARKS
   >value_expansion<start;41><p:1>{@contents}
    >*@value C1
     >*brace_container C1
      >{contents_macro}
-  *@contents C1 l145
+  *@contents C1 l141
   |EXTRA
   |global_command_number:{2}
    *line_arg C1
@@ -1020,7 +1003,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
     {spaces_before_argument: }
     {rawline_text:shortcontents_macro @shortcontents}
     {spaces_after_argument:\\n}
-  *@shortcontents C1 l148
+  *@shortcontents C1 l144
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
@@ -1183,10 +1166,6 @@ After page on it\'s own line.
 @set two 2
 @sp 2
 
-@set result_macro @result
-
-@clickstyle @value{result_macro}
-
 @contents
 
 @set shortcontents_macro @shortcontents
@@ -1265,8 +1244,6 @@ line after exdent
 
 
 
-
-
 ';
 
 $result_errors{'value_in_misc_commands'} = '* E l20|bad argument to @headings: on line following headings atext
@@ -1310,12 +1287,6 @@ $result_errors{'value_in_misc_commands'} = '* E l20|bad argument to @headings: o
 
 * W l128|remaining argument on @page line: @@noindent @value{noindent_macro}    @@refill @value{refill_macro}
  warning: remaining argument on @page line: @@noindent @value{noindent_macro}    @@refill @value{refill_macro}
-
-* W l143|@clickstyle is obsolete
- warning: @clickstyle is obsolete
-
-* W l143|remaining argument on @clickstyle line: {result_macro}
- warning: remaining argument on @clickstyle line: {result_macro}
 
 * W l6|node `chap\' not in menu
  warning: node `chap\' not in menu

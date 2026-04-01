@@ -6,7 +6,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'commands_and_spaces'} = '*document_root C2
- *before_node_section C8
+ *before_node_section C6
   *@set C1
   |EXTRA
   |misc_args:A{foo|some @value}
@@ -31,16 +31,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     {rawline_text:ggg}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@clickstyle C1 l7
-  |EXTRA
-  |global_command_number:{1}
-  |misc_args:A{@arrow}
-   *line_arg C3
-    {spaces_before_argument:  }
-    {rawline_text:@arrow}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
- *@node C46 l9 {a}
+ *@node C46 l7 {a}
  |EXTRA
  |identifier:{a}
  |is_target:{1}
@@ -72,34 +63,34 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     {)}
     {spaces_after_argument:   \\n}
   {empty_line:\\n}
-  *@center C1 l11
+  *@center C1 l9
    *line_arg C3
     {spaces_before_argument:  }
     {centered}
     {spaces_after_argument:  \\n}
   {empty_line:\\n}
-  *@indent l13
+  *@indent l11
   {ignorable_spaces_after_command:  }
   *paragraph C1
   |EXTRA
   |indent:{1}
    {after indent.\\n}
   {empty_line:\\n}
-  *@indent l15
+  *@indent l13
   {ignorable_spaces_after_command:\\n}
   *paragraph C1
   |EXTRA
   |indent:{1}
    {line after indent\\n}
   {empty_line:\\n}
-  *@indent l18
+  *@indent l16
   {ignorable_spaces_after_command:  \\n}
   *paragraph C1
   |EXTRA
   |indent:{1}
    {endof line with spaces line after indent\\n}
   {empty_line:\\n}
-  *@image C5 l21
+  *@image C5 l19
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C3
@@ -119,7 +110,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     {spaces_after_argument: }
   {\\n}
   {empty_line:\\n}
-  *@image C5 l23
+  *@image C5 l21
   |EXTRA
   |input_encoding_name:{utf-8}
    *brace_arg C3
@@ -140,7 +131,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     {spaces_after_argument: }
   {\\n}
   {empty_line:\\n}
-  *@quotation C3 l26
+  *@quotation C3 l24
    *arguments_line C1
     *block_line_arg C3
      {spaces_before_argument:  }
@@ -148,7 +139,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      {spaces_after_argument:  \\n}
    *paragraph C1
     {Q\\n}
-   *@end C1 l28
+   *@end C1 l26
    |EXTRA
    |text_arg:{quotation}
     *line_arg C3
@@ -156,7 +147,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      {quotation}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@float C8 l30
+  *@float C8 l28
   |EXTRA
   |float_number:{1}
   |float_type:{ff}
@@ -174,21 +165,21 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      {spaces_after_argument:   \\n}
    *paragraph C1
     {f\\n}
-   *@caption C1 l32
+   *@caption C1 l30
     *brace_command_context C2
      {spaces_before_argument: }
      *paragraph C1
       {In caption }
    *paragraph C1
     {j.\\n}
-   *@shortcaption C1 l33
+   *@shortcaption C1 l31
     *brace_command_context C1
      *paragraph C1
       {Short}
    {spaces_after_close_brace:  }
    *paragraph C1
     {g.\\n}
-   *@end C1 l34
+   *@end C1 l32
    |EXTRA
    |text_arg:{float}
     *line_arg C3
@@ -196,20 +187,20 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      {float}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@multitable C2 l36
+  *@multitable C2 l34
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C2
      {spaces_before_argument:  }
-     *@columnfractions C1 l36
+     *@columnfractions C1 l34
      |EXTRA
      |misc_args:A{0.4|0.6}
       *line_arg C3
        {spaces_before_argument:  }
        {0.4  0.6}
        {spaces_after_argument:  \\n}
-   *@end C1 l37
+   *@end C1 l35
    |EXTRA
    |text_arg:{multitable}
     *line_arg C3
@@ -217,24 +208,24 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      {multitable}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@multitable C2 l39
+  *@multitable C2 l37
   |EXTRA
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C8
      {spaces_before_argument:  }
-     *bracketed_arg C1 l39
+     *bracketed_arg C1 l37
       {aa b}
      {  }
-     *bracketed_arg C1 l39
+     *bracketed_arg C1 l37
       { r }
      {  }
-     *@var C1 l39
+     *@var C1 l37
       *brace_container C1
        {cmd}
      {gg hh j}
      {spaces_after_argument: \\n}
-   *@end C1 l40
+   *@end C1 l38
    |EXTRA
    |text_arg:{multitable}
     *line_arg C3
@@ -242,12 +233,12 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      {multitable}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@verbatim C3 l42
+  *@verbatim C3 l40
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:  \\n}
    {raw:in verbatim @g \\n}
-   *@end C1 l44
+   *@end C1 l42
    |EXTRA
    |text_arg:{verbatim}
     *line_arg C3
@@ -255,13 +246,13 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      {verbatim}
      {spaces_after_argument: \\n}
   {empty_line:\\n}
-  *@tex C3 l46
+  *@tex C3 l44
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:  \\n}
    *rawpreformatted C1
     {in tex\\n}
-   *@end C1 l48
+   *@end C1 l46
    |EXTRA
    |text_arg:{tex}
     *line_arg C3
@@ -269,13 +260,13 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      {tex}
      {spaces_after_argument:  \\n}
   {empty_line:\\n}
-  *@example C3 l50
+  *@example C3 l48
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:  \\n}
    *preformatted C1
     {in example\\n}
-   *@end C1 l52
+   *@end C1 l50
    |EXTRA
    |text_arg:{example}
     *line_arg C3
@@ -283,20 +274,20 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      {example}
      {spaces_after_argument:  \\n}
   {empty_line:\\n}
-  *@table C3 l54
+  *@table C3 l52
    *arguments_line C1
     *block_line_arg C3
      {spaces_before_argument:  }
-     *@strong l54
+     *@strong l52
      {spaces_after_argument:  \\n}
    *table_entry C1
     *table_term C1
-     *@item C1 l55
+     *@item C1 l53
       *line_arg C3
        {spaces_before_argument:  }
        {in item}
        {spaces_after_argument: \\n}
-   *@end C1 l56
+   *@end C1 l54
    |EXTRA
    |text_arg:{table}
     *line_arg C3
@@ -306,7 +297,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C3
    {T}
-   *@footnote C1 l58
+   *@footnote C1 l56
    |EXTRA
    |global_command_number:{1}
     *brace_command_context C2
@@ -317,23 +308,23 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C3
    {Math }
-   *@math C1 l60
+   *@math C1 l58
     *brace_arg C4
      {spaces_before_argument: }
      {\\underline}
-     *balanced_braces C1 l60
+     *balanced_braces C1 l58
       {{ a, b}}
      {spaces_after_argument: }
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@indicateurl C1 l62
+   *@indicateurl C1 l60
     *brace_container C1
      { http://ggg }
    {\\n}
   {empty_line:\\n}
-  *@deffn C3 l64
-   *def_line C1 l64
+  *@deffn C3 l62
+   *def_line C1 l62
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -348,31 +339,31 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     *block_line_arg C11
      {spaces_before_argument: }
      *def_category C1
-      *bracketed_arg C3 l64
+      *bracketed_arg C3 l62
        {spaces_before_argument: }
        {truc}
        {spaces_after_argument: }
      {spaces: }
      *def_name C1
-      *bracketed_arg C3 l64
+      *bracketed_arg C3 l62
        {spaces_before_argument: }
        {machin}
        {spaces_after_argument: }
      {spaces:  }
      *def_arg C1
-      *bracketed_arg C3 l64
+      *bracketed_arg C3 l62
        {spaces_before_argument: }
        {bidule}
        {spaces_after_argument: }
      {spaces:  }
      *def_arg C1
-      *bracketed_arg C3 l64
+      *bracketed_arg C3 l62
        {spaces_before_argument:  }
        {chose}
        {spaces_after_argument: }
      {spaces: }
      *def_arg C1
-      *bracketed_arg C3 l64
+      *bracketed_arg C3 l62
        {spaces_before_argument:  }
        {arg}
        {spaces_after_argument: }
@@ -380,7 +371,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    *def_item C1
     *paragraph C1
      {T\\n}
-   *@end C1 l66
+   *@end C1 l64
    |EXTRA
    |text_arg:{deffn}
     *line_arg C3
@@ -396,8 +387,6 @@ $result_texis{'commands_and_spaces'} = '@set  foo   some @value
 @setfilename  commands_and_spaces.info  
 
 @unmacro  ggg
-
-@clickstyle  @arrow
 
 @node a ,(b),(c) , (d)   
 
@@ -465,7 +454,6 @@ $result_texts{'commands_and_spaces'} = '
 
 
 
-
 centered
 
 after indent.
@@ -507,10 +495,7 @@ T
 
 ';
 
-$result_errors{'commands_and_spaces'} = '* W l7|@clickstyle is obsolete
- warning: @clickstyle is obsolete
-
-* W l39|unexpected argument on @multitable line: @var{cmd}
+$result_errors{'commands_and_spaces'} = '* W l37|unexpected argument on @multitable line: @var{cmd}
  warning: unexpected argument on @multitable line: @var{cmd}
 
 ';
@@ -545,8 +530,6 @@ $result_converted{'xml'}->{'commands_and_spaces'} = '<set name="foo">  foo   som
 <setfilename file="commands_and_spaces.info">  commands_and_spaces.info  </setfilename>
 
 <unmacro name="ggg">  ggg</unmacro>
-
-<clickstyle command="arrow">  @arrow</clickstyle>
 
 <node identifier="a"><nodename> a</nodename><nodenext>(b)</nodenext><nodeprev>(c)</nodeprev><nodeup> (d)</nodeup></node>
 

@@ -53,7 +53,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     >SOURCEMARKS
     >macro_expansion<end;1><p:3>
     {spaces_after_argument:\\n}
- *@top C127 l10 {top atext}
+ *@top C123 l10 {top atext}
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -1133,35 +1133,11 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     >macro_expansion<end;46><p:1>
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@macro C3 l193
-  |EXTRA
-  |macro_name:{resultmacro}
-  |misc_args:A{}
-   *arguments_line C1
-    {macro_line: resultmacro \\n}
-   {raw:@result\\n}
-   *@end C1 l195
-   |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@clickstyle C1 l197
-  |EXTRA
-  |global_command_number:{1}
-  |misc_args:A{@resultmacro}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:@resultmacro{}}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@menu C3 l199
+  *@menu C3 l193
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
-   *menu_entry C4 l200
+   *menu_entry C4 l194
     {menu_entry_leading_text:* }
     *menu_entry_node C1
     |EXTRA
@@ -1177,7 +1153,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *@end C1 l201
+   *@end C1 l195
    |EXTRA
    |text_arg:{menu}
     *line_arg C3
@@ -1185,7 +1161,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
      {menu}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l203 {node atext}
+ *@node C1 l197 {node atext}
  |EXTRA
  |identifier:{node-atext}
  |is_target:{1}
@@ -1200,7 +1176,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
       >*brace_arg
     >macro_expansion<end;48><p:10>
     {spaces_after_argument:\\n}
- *@chapter C9 l204 {chapter}
+ *@chapter C9 l198 {chapter}
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -1215,7 +1191,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
   >macro_expansion<start;49><p:1>
    >*macro_call@contentsmacro C1
     >*brace_arg
-  *@contents C1 l206:@contentsmacro
+  *@contents C1 l200:@contentsmacro
   |EXTRA
   |global_command_number:{2}
    *line_arg C1
@@ -1223,7 +1199,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     >SOURCEMARKS
     >macro_expansion<end;49>
   {empty_line:\\n}
-  *@macro C3 l208
+  *@macro C3 l202
   |EXTRA
   |macro_name:{shortcontentsmacro}
   |misc_args:A{}
@@ -1234,14 +1210,14 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
    *arguments_line C1
     {macro_line: shortcontentsmacro \\n}
    {raw:@shortcontents\\n}
-   *@end C1 l210
+   *@end C1 l204
    |EXTRA
    |text_arg:{macro}
     *line_arg C3
      {spaces_before_argument: }
      {macro}
      {spaces_after_argument:\\n}
-  *@shortcontents C1 l211:@shortcontentsmacro
+  *@shortcontents C1 l205:@shortcontentsmacro
   |EXTRA
   |global_command_number:{1}
    *line_arg C1
@@ -1249,14 +1225,14 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     >SOURCEMARKS
     >macro_expansion<end;50>
   {empty_line:\\n}
-  *@macro C3 l213
+  *@macro C3 l207
   |EXTRA
   |macro_name:{byemacro}
   |misc_args:A{}
    *arguments_line C1
     {macro_line: byemacro\\n}
    {raw:@bye\\n}
-   *@end C1 l215
+   *@end C1 l209
    |EXTRA
    |text_arg:{macro}
     *line_arg C3
@@ -1468,12 +1444,6 @@ two spaces   @@noindent @noindent    @@refill @refill
 @end macro
 @sp 2
 
-@macro resultmacro 
-@result
-@end macro
-
-@clickstyle @resultmacro{}
-
 @menu
 * node atext::
 @end menu
@@ -1561,8 +1531,6 @@ line after exdent
 
 
 
-
-
 * node atext::
 
 1 chapter
@@ -1623,9 +1591,6 @@ $result_errors{'macro_in_misc_commands'} = '* W l23|@documentlanguage should onl
 
 * W l174:@refillmacro|@refill is obsolete
  warning: @refill is obsolete (possibly involving @refillmacro)
-
-* W l197|@clickstyle is obsolete
- warning: @clickstyle is obsolete
 
 ';
 

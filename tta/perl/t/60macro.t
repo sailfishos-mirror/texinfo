@@ -1332,12 +1332,6 @@ two spaces   @@noindent @noindentmacro{}    @@refill @refillmacro{}
 @end macro
 @sp @two{}
 
-@macro resultmacro 
-@result
-@end macro
-
-@clickstyle @resultmacro{}
-
 @menu
 * node @text{}::
 @end menu

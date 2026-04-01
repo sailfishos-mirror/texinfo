@@ -6,7 +6,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'itemize_arguments'} = '*document_root C1
- *before_node_section C77
+ *before_node_section C71
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
   *preamble_before_content
@@ -850,89 +850,23 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
      {itemize}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@clickstyle C1 l122
-  |EXTRA
-  |global_command_number:{1}
-  |misc_args:A{@result}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:@result}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@itemize C3 l124
+  *@itemize C3 l122
    *arguments_line C1
     *block_line_arg C3
      {spaces_before_argument: }
-     *@result C1 l124
-     |INFO
-     |alias_of:{click}
+     *@error C1 l122
       *brace_container
      {spaces_after_argument:\\n}
-   *@item C2 l125
-   |EXTRA
-   |item_number:{1}
-    {ignorable_spaces_after_command: }
-    *paragraph C3
-     {item result click }
-     *@result C1 l125
-     |INFO
-     |alias_of:{click}
-      *brace_container
-     {\\n}
-   *@end C1 l126
-   |EXTRA
-   |text_arg:{itemize}
-    *line_arg C3
-     {spaces_before_argument: }
-     {itemize}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@itemize C3 l128
-   *arguments_line C1
-    *block_line_arg C4
-     {spaces_before_argument: }
-     *@result C1 l128
-     |INFO
-     |alias_of:{click}
-      *brace_container
-     { a}
-     {spaces_after_argument:\\n}
-   *@item C2 l129
-   |EXTRA
-   |item_number:{1}
-    {ignorable_spaces_after_command: }
-    *paragraph C3
-     {item result click }
-     *@result C1 l129
-     |INFO
-     |alias_of:{click}
-      *brace_container
-     {\\n}
-   *@end C1 l130
-   |EXTRA
-   |text_arg:{itemize}
-    *line_arg C3
-     {spaces_before_argument: }
-     {itemize}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@itemize C3 l132
-   *arguments_line C1
-    *block_line_arg C3
-     {spaces_before_argument: }
-     *@error C1 l132
-      *brace_container
-     {spaces_after_argument:\\n}
-   *@item C2 l133
+   *@item C2 l123
    |EXTRA
    |item_number:{1}
     {ignorable_spaces_after_command: }
     *paragraph C3
      {item error }
-     *@error C1 l133
+     *@error C1 l123
       *brace_container
      {\\n}
-   *@end C1 l134
+   *@end C1 l124
    |EXTRA
    |text_arg:{itemize}
     *line_arg C3
@@ -940,24 +874,24 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
      {itemize}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@itemize C3 l136
+  *@itemize C3 l126
    *arguments_line C1
     *block_line_arg C4
      {spaces_before_argument: }
-     *@error C1 l136
+     *@error C1 l126
       *brace_container
      { a}
      {spaces_after_argument:\\n}
-   *@item C2 l137
+   *@item C2 l127
    |EXTRA
    |item_number:{1}
     {ignorable_spaces_after_command: }
     *paragraph C3
      {item error }
-     *@error C1 l137
+     *@error C1 l127
       *brace_container
      { a\\n}
-   *@end C1 l138
+   *@end C1 l128
    |EXTRA
    |text_arg:{itemize}
     *line_arg C3
@@ -965,7 +899,7 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
      {itemize}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@documentlanguage C1 l140
+  *@documentlanguage C1 l130
   |EXTRA
   |global_command_number:{1}
   |text_arg:{fr}
@@ -973,23 +907,23 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
     {spaces_before_argument: }
     {fr}
     {spaces_after_argument:\\n}
-  *@itemize C3 l141
+  *@itemize C3 l131
    *arguments_line C1
     *block_line_arg C3
      {spaces_before_argument: }
-     *@error C1 l141
+     *@error C1 l131
       *brace_container
      {spaces_after_argument:\\n}
-   *@item C2 l142
+   *@item C2 l132
    |EXTRA
    |item_number:{1}
     {ignorable_spaces_after_command: }
     *paragraph C3
      {item fr error }
-     *@error C1 l142
+     *@error C1 l132
       *brace_container
      {\\n}
-   *@end C1 l143
+   *@end C1 l133
    |EXTRA
    |text_arg:{itemize}
     *line_arg C3
@@ -997,24 +931,24 @@ $result_tree_text{'itemize_arguments'} = '*document_root C1
      {itemize}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@itemize C3 l145
+  *@itemize C3 l135
    *arguments_line C1
     *block_line_arg C4
      {spaces_before_argument: }
-     *@error C1 l145
+     *@error C1 l135
       *brace_container
      { a}
      {spaces_after_argument:\\n}
-   *@item C2 l146
+   *@item C2 l136
    |EXTRA
    |item_number:{1}
     {ignorable_spaces_after_command: }
     *paragraph C3
      {item fr error }
-     *@error C1 l146
+     *@error C1 l136
       *brace_container
      { a\\n}
-   *@end C1 l147
+   *@end C1 l137
    |EXTRA
    |text_arg:{itemize}
     *line_arg C3
@@ -1146,16 +1080,6 @@ $result_texis{'itemize_arguments'} = '
 @item item click @click{} a
 @end itemize
 
-@clickstyle @result
-
-@itemize @result{}
-@item item result click @result{}
-@end itemize
-
-@itemize @result{} a
-@item item result click @result{}
-@end itemize
-
 @itemize @error{}
 @item item error @error{}
 @end itemize
@@ -1237,11 +1161,6 @@ item click ->
 
 item click -> a
 
-
-item result click =>
-
-item result click =>
-
 item error error->
 
 item error error-> a
@@ -1254,9 +1173,6 @@ item fr error error-> a
 
 $result_errors{'itemize_arguments'} = '* W l110|@asis expected braces
  warning: @asis expected braces
-
-* W l122|@clickstyle is obsolete
- warning: @clickstyle is obsolete
 
 ';
 
