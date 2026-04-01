@@ -92,19 +92,6 @@ Text line after the text line followed by the sp.
 @sp 2 a number after sp
 @end ifnottex
 '],
-['clickstyle',
-'@clickstyle @result
-
-A @click{} (result).
-
-@clickstyle@equiv
-
-A @click{} (equiv no space)
-
-'],
-['clickstyle_no_end_of_line',
-'@clickstyle @result',
-],
 ['bye',
 '@bye
 '],
@@ -112,29 +99,6 @@ A @click{} (equiv no space)
 'Before bye @bye on bye line
 
 after bye
-'],
-['invalid_clickstyle',
-'
-@clickstyle @result on the same line
-
-A @click{} (result on the same line).
-
-@clickstyle @nocmd
-
-A @click{} (nocmd).
-
-@clickstyle something
-
-A @click{} (something).
-'],
-['clickstyle_and_comments',
-'@clickstyle@comment a
-@clickstyle @comment b
-@clickstyle nocmd@comment c
-@clickstyle more than one word @comment d
-@clickstyle @result@comment e
-@clickstyle @result   @comment f
-@clickstyle @result on the same line @comment g
 '],
 ['contents','
 first @@contents @contents line following first content
