@@ -233,8 +233,6 @@ a@sup{h}@sub{l} ahl
 need 1002
 
 @clicksequence{click @click{} A} click -> A
-After clickstyle =>
-@clicksequence{click @click{} A} click => A
 
 
 disp--laymath
@@ -1092,8 +1090,6 @@ a@sup{h}@sub{l} ahl
 need 1002
 
 @clicksequence{click @click{} A} click -> A
-After clickstyle =>
-@clicksequence{click @click{} A} click => A
 
 
 disp--laymath
@@ -1974,8 +1970,6 @@ a@sup{h}@sub{l} ahl
 need 1002
 
 @clicksequence{click @click{} A} click -> A
-After clickstyle =>
-@clicksequence{click @click{} A} click => A
 
 
 disp--laymath
@@ -2828,8 +2822,6 @@ a@sup{h}@sub{l} ahl
 need 1002
 
 @clicksequence{click @click{} A} click -> A
-After clickstyle =>
-@clicksequence{click @click{} A} click => A
 
 
 disp--laymath

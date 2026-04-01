@@ -221,10 +221,6 @@ but , ,@:
 @need 1002
 
 @code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @click{} A}
-@clickstyle @result
-After clickstyle @result{}
-@code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @click{} A}
-@clickstyle @arrow
 
 @c test most commands that could happen in math mode
 

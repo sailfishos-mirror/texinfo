@@ -1,5 +1,11 @@
 2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Test updates for removal of @clickstyle
+	
+	* tta/tests/coverage_macro.texi: remove use of @clickstyle.
+
+2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove @clickstyle
 
 	* tta/data/command_data.txt,

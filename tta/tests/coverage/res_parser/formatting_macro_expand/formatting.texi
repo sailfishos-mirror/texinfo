@@ -240,10 +240,6 @@ but , ,@:
 @need 1002
 
 @code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @click{} A}
-@clickstyle @result
-After clickstyle @result{}
-@code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @click{} A}
-@clickstyle @arrow
 
 @c test most commands that could happen in math mode
 
@@ -1449,10 +1445,6 @@ but , ,@:
 @need 1002
 
 @code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @click{} A}
-@clickstyle @result
-After clickstyle @result{}
-@code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @result{} A}
-@clickstyle @arrow
 
 @c test most commands that could happen in math mode
 
@@ -1483,7 +1475,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\
 @end displaymath
 
 @displaymath
-@arrow{}
+@click{}
 @U{0075}
 @bullet{} @copyright{} @dots{} @enddots{} @equiv{}
 @error{} @expansion{} @minus{} @print{} @result{}
@@ -2637,11 +2629,7 @@ but , ,@:
 @code{need 1002}
 @need 1002
 
-@code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @arrow{} A}
-@clickstyle @result
-After clickstyle @result{}
-@code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @result{} A}
-@clickstyle @arrow
+@code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @click{} A}
 
 @c test most commands that could happen in math mode
 
@@ -2672,7 +2660,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\
 @end displaymath
 
 @displaymath
-@arrow{}
+@click{}
 @U{0075}
 @bullet{} @copyright{} @dots{} @enddots{} @equiv{}
 @error{} @expansion{} @minus{} @print{} @result{}
@@ -3866,11 +3854,7 @@ but , ,@:
 @code{need 1002}
 @need 1002
 
-@code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @arrow{} A}
-@clickstyle @result
-After clickstyle @result{}
-@code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @result{} A}
-@clickstyle @arrow
+@code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @click{} A}
 
 @c test most commands that could happen in math mode
 
@@ -3901,7 +3885,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\
 @end displaymath
 
 @displaymath
-@arrow{}
+@click{}
 @U{0075}
 @bullet{} @copyright{} @dots{} @enddots{} @equiv{}
 @error{} @expansion{} @minus{} @print{} @result{}
@@ -5049,11 +5033,7 @@ but , ,@:
 @code{need 1002}
 @need 1002
 
-@code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @arrow{} A}
-@clickstyle @result
-After clickstyle @result{}
-@code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @result{} A}
-@clickstyle @arrow
+@code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @click{} A}
 
 @c test most commands that could happen in math mode
 
@@ -5084,7 +5064,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\
 @end displaymath
 
 @displaymath
-@arrow{}
+@click{}
 @U{0075}
 @bullet{} @copyright{} @dots{} @enddots{} @equiv{}
 @error{} @expansion{} @minus{} @print{} @result{}

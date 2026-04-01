@@ -245,8 +245,6 @@ but , ,
 <para><literal>need 1002</literal>
 </para>
 <para><literal>@clicksequence{click @click{} A}</literal> click &#8594; A
-After clickstyle &#8658;
-<literal>@clicksequence{click @click{} A}</literal> click &#8658; A
 </para>
 <!-- test most commands that could happen in math mode -->
 
@@ -1191,8 +1189,6 @@ but , ,
 <para><literal>need 1002</literal>
 </para>
 <para><literal>@clicksequence{click @click{} A}</literal> click &#8594; A
-After clickstyle &#8658;
-<literal>@clicksequence{click @click{} A}</literal> click &#8658; A
 </para>
 <!-- test most commands that could happen in math mode -->
 
@@ -2124,8 +2120,6 @@ but , ,
 <para><literal>need 1002</literal>
 </para>
 <para><literal>@clicksequence{click @click{} A}</literal> click &#8594; A
-After clickstyle &#8658;
-<literal>@clicksequence{click @click{} A}</literal> click &#8658; A
 </para>
 <!-- test most commands that could happen in math mode -->
 
@@ -3053,8 +3047,6 @@ but , ,
 <literal>need 1002</literal>
 </screen><screen>
 <literal>@clicksequence{click @click{} A}</literal> click &#8594; A
-After clickstyle &#8658;
-<literal>@clicksequence{click @click{} A}</literal> click &#8658; A
 
 <!-- test most commands that could happen in math mode -->
 
