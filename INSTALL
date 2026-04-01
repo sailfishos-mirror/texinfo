@@ -91,8 +91,8 @@ Installation notes specific to Texinfo:
 
 * Native code (in XS modules) get translations for strings to be put in
   output files using libc gettext, using the LANGUAGE variable.  If the
-  gettext implementation (such as that on musl) does not support this
-  variable, this will not work and strings will not be translated.
+  gettext implementation (such as that in musl libc) does not support
+  this variable, this will not work and strings will not be translated.
   However, if you pass the --enable-xs-perl-libintl flag to `configure',
   an alternative translation method is activated where C code calls back
   into the Perl interpreter to get translations, which does work.
