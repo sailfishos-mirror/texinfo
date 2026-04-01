@@ -462,8 +462,7 @@ make po_document-check    # update po_document/POTFILES.in as needed
 
 check indices of Texinfo manuals and check for duplicates (with <1> in Info)
 
-Check "make ccheck" and "make vcheck" work in "doc/refcard".  Check correct
-year on refcard.
+Check "make ccheck" and "make vcheck" work in "doc".
 
 Check mentions of configure flags, environment variables etc. in INSTALL are
 up to date
@@ -639,10 +638,9 @@ When done, run cvs commit.
 update date and version number on home page (texinfo.html) and commit
 as needed.
 
-# copy refcard (US Letter and A4)
-cd CVS_WEB/refcard
-cp ../../GIT/doc/refcard/*.pdf .
-cvs commit -m$ver .
+(next release only):
+remove links to refcard from website as we don't update it any more.
+delete this note when done.
 
 #  ... set up dtd directory on web pages:
 cd CVS_WEB/dtd # or wherever webpages checkout is
