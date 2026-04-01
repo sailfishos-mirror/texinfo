@@ -75,7 +75,6 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
 
 * TeX:
   - Index above @item allows page break.
-  - Table of contents is misaligned if there are 10 or more [sub]sections.
   - @float captions should be typeset in a smaller font?
   - Reset the scriptfonts and scriptscriptfonts when font size changes.
   - Reasonable way to change fonts from the default (some work has been
@@ -86,8 +85,6 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - Introduce new command to change \bindingoffset.
   - Include synctex support.
   - Include hyperlink \special's in the DVI output for xdvi, etc.
-  - PDF: make each letter of the index (A, B, ...) a section in the TOC.
-    From Carsten Dominik.
   - clear out support for \ as the index file escape character (instead
     of @).
 
