@@ -133,13 +133,6 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
     representing the Texinfo input could be output if useful.
 
 ***********************************************************************
-After 7.3 release:
-
-* texi2any:
-  Change DUMP_TREE behaviour.
-  (see git commit c7490e3cb4be27, 2025-03-01, Patrice Dumas, for affected
-  files.)
-
 After next release:
 
 * texi2any:

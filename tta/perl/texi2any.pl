@@ -1846,10 +1846,7 @@ while (@input_files) {
       }
     }
     my $dump_tree = get_conf('DUMP_TREE');
-    # TODO the 1 is for backward compatibility when DUMP_TREE was
-    # an integer flag.  Changed in 2025.  No need to keep it forever,
-    # in documentation, it was said to be kept for one release.
-    if (!defined($dump_tree) or $dump_tree eq 1 or $dump_tree eq '-') {
+    if (!defined($dump_tree) or $dump_tree eq '-') {
       print STDERR $printed_tree;
     } else {
       my $dump_tree_name = _decode_input($dump_tree);

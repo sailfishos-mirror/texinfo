@@ -2732,8 +2732,7 @@ main (int argc, char *argv[], char *env[])
             output_encoding = out_encoding_option->o.string;
 
           if (dump_tree_option && dump_tree_option->o.string
-              && strcmp (dump_tree_option->o.string, "-")
-              && strcmp (dump_tree_option->o.string, "1"))
+              && strcmp (dump_tree_option->o.string, "-"))
             {
               const char *dump_tree = dump_tree_option->o.string;
               char *dump_tree_name

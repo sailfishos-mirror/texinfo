@@ -1,5 +1,14 @@
 2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	No -c DUMP_TREE=1
+
+	* tta/perl/texi2any.pl,
+	* tta/C/texi2any.c (main):
+	Do not accept "1" as synonym for "-".
+	* doc/texinfo.texi, TODO: update
+
+2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: update for refcard removal.
 
 2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
