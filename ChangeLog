@@ -1,5 +1,15 @@
 2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove @clickstyle
+
+	* tta/data/command_data.txt,
+	* tta/C/parsetexi/handle_commands.c (parse_rawline_command),
+	* tta/perl/Texinfo/ParserNonXS.pm (_parse_rawline_command),
+	* tta/perl/Texinfo/Example/TexinfoMarkup.pm (_convert):
+	Remove @clickstyle as a Texinfo command.
+
+2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* TODO: remove done item
 
 2026-03-31  Gavin Smith <gavinsmith0123@gmail.com>

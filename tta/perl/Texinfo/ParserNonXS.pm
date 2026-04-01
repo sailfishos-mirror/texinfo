@@ -8114,8 +8114,8 @@ sub _parse_texi($$) {
   return $document;
 }
 
-# parse special rawline @-commands, unmacro, set, clear, clickstyle
-# and simply set the line as argument for other commands.
+# parse special rawline @-commands, unmacro, set, clear, and simply set
+# the line as argument for other commands.
 sub _parse_rawline_command($$$$) {
   my ($self, $line, $command, $source_info) = @_;
 
@@ -8167,33 +8167,6 @@ sub _parse_rawline_command($$$$) {
     } else {
       _line_error($self, sprintf(
                     __("bad name for \@%s"), $command), $source_info);
-    }
-  } elsif ($command eq 'clickstyle') {
-    # REMACRO
-    if ($line =~ /^\s*@([[:alnum:]][[:alnum:]\-]*)(\{\})?\s*/) {
-      $args = ['@'.$1];
-      my $as_existing_command = $1;
-      # handle as if @alias click=$1 had been given
-      if (exists($self->{'aliases'}->{$as_existing_command})
-          and $self->{'aliases'}->{$as_existing_command} ne 'click') {
-        $as_existing_command = $self->{'aliases'}->{$as_existing_command};
-      }
-      $self->{'aliases'}->{'click'} = $as_existing_command;
-      my $remaining = $line;
-      $remaining =~ s/^\s*@([[:alnum:]][[:alnum:]\-]*)(\{\})?\s*(\@(comment|c)((\@|\s+).*)?)?//;
-      $comment_text = $3 if (defined($4));
-      if (defined($remaining)) {
-        chomp($remaining);
-        if ($remaining ne '') {
-          _line_warn($self, sprintf(__(
-                         "remaining argument on \@%s line: %s"),
-                           $command, $remaining), $source_info);
-        }
-      }
-    } else {
-      _line_error($self, sprintf(__(
-      "\@clickstyle should only accept an \@-command as argument, not `%s'"),
-                                 $line), $source_info);
     }
   }
   return ($args, $comment_text);

@@ -155,8 +155,6 @@ comment                 line,preamble                   lineraw 1
 set                     line,preamble                   lineraw 2
 clear                   line,preamble                   lineraw 1
 unmacro                 line,preamble                   lineraw 1
-# arg should be an @-command
-clickstyle              line,global,preamble,deprecated            lineraw 1
 
 # special
 definfoenclose          line,preamble,contain_plain_text,deprecated    specific  3

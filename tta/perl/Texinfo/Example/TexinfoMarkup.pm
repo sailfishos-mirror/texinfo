@@ -976,7 +976,7 @@ sub _convert($$;$) {
         if ($cmdname eq 'c' or $cmdname eq 'comment') {
           return _format_comment($self, $element);
         } elsif ($cmdname eq 'clear' or $cmdname eq 'set'
-                 or $cmdname eq 'clickstyle' or $cmdname eq 'unmacro') {
+                 or $cmdname eq 'unmacro') {
           my $attribute = [];
           my $misc_args;
           if (defined($element->{'extra'})
@@ -987,11 +987,6 @@ sub _convert($$;$) {
             if ($cmdname eq 'clear' or $cmdname eq 'set'
                 or $cmdname eq 'unmacro') {
               unshift @$attribute, ['name', $misc_args->[0]];
-            } elsif ($cmdname eq 'clickstyle') {
-              my $click_command = $misc_args->[0];
-              $click_command =~ s/^\@//;
-              push @$attribute, ['command', $click_command];
-            } elsif ($cmdname eq 'unmacro') {
             }
           }
           my $arg_element = $element->{'contents'}->[0];
