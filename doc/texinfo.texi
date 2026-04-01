@@ -10157,23 +10157,6 @@ which produces:
 The @code{@@click} command produces a right arrow; this glyph is also
 available independently via the command @code{@@arrow@{@}}.
 
-@findex clickstyle
-The @code{@@clickstyle} command that could be used to change the glyph
-produced by @code{@@click} is deprecated, you should not use it anymore.  You
-can use @code{@@alias} (@pxref{@code{@@alias}}) instead to change the glyph
-produced by @code{@@click}.
-
-You can replace:
-@example
-@@clickstyle @@result
-@end example
-by
-@example
-@@alias click=result
-@end example
-
-The @code{@@clickstyle} command will be removed in a future release.
-
 
 @node Inserting Unicode
 @nodedescription Inserting a Unicode character by code point.
@@ -13314,8 +13297,6 @@ By design, macro expansion should not happen in the following contexts:
 @item @code{@@if...} lines, including @code{@@ifset} and similar;
 
 @item @code{@@set}, @code{@@clear}, @code{@@value};
-
-@item @code{@@clickstyle} lines;
 
 @item @code{@@end} lines when there is no macro expansion in the block
 command.
@@ -19952,12 +19933,6 @@ Represent a single ``click'' in a GUI@.  Used within
 @item @@clicksequence@{@var{action} @@click@{@} @var{action}@}
 Represent a sequence of clicks in a GUI@.  @xref{Click Sequences}.
 
-@item @@clickstyle @@@var{cmd}
-This command is deprecated, do not use it.
-Execute @@@var{cmd} for each @code{@@click}; the default is
-@code{@@arrow}.  The usual following empty braces on @@@var{cmd} are
-omitted.  @xref{Click Sequences}.
-
 @item @@code@{@var{sample-code}@}
 Indicate an expression, a syntactically complete token of a program,
 or a program name.  @xref{@code{@@code}}.
@@ -21163,6 +21138,13 @@ even if the @code{@@contents} command was at the end of the manual.
 @item @@setshortcontentsaftertitlepage
 This placed the short table of contents after the @samp{@@end titlepage}
 command even if the @code{@@shortcontents} command was at the end.
+
+@item @@clickstyle @@@var{cmd}
+This could be used to give a command to be used for @code{@@click}.
+For example, @code{@@clickstyle @@result} had the same effect as
+@code{@@alias click=result}.  The command was not very useful and
+does not appear to ever have been used by anyone.
+
 @end ftable
 
 

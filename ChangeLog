@@ -1,5 +1,12 @@
 2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS,
+	* doc/texinfo.texi (Click Sequences, Macro Details, Command List)
+	(Obsolete @-Commands):
+	Document @clickstyle removal.
+
+2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Test updates for removal of @clickstyle
 	
 	* tta/perl/t/08misc_commands.t
