@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 7.2.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:28+0200\n"
+"POT-Creation-Date: 2026-04-01 22:39+0200\n"
 "PO-Revision-Date: 2026-01-18 15:26+0100\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -2220,7 +2220,10 @@ msgstr "ово је место претходне дефиниције као �
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#, perl-format
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#, c-format, perl-format
 msgid "unknown customization variable: %s"
 msgstr "непозната променљива прилагођавања: „%s“"
 
@@ -4533,6 +4536,24 @@ msgstr "%s: грешка затварања унутрашње датотеке 
 #, perl-format
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "%s: грешка затварања датотеке величине елемената „%s“: %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#, fuzzy, c-format
+#| msgid "%s: unknown special element information type %s"
+msgid "unknown special unit info: %s"
+msgstr "%s: непозната врста информације специјалног елемента: %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#, fuzzy, c-format
+#| msgid "%s: unknown special element information type %s"
+msgid "unknown special unit info tree: %s"
+msgstr "%s: непозната врста информације специјалног елемента: %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#, fuzzy, c-format
+#| msgid "unknown destination index in @%s: %s"
+msgid "unknown direction string type: %s"
+msgstr "непознат индекс одредишта у „@%s“: %s"
 
 #: tta/C/texi2any.c:917
 #, c-format

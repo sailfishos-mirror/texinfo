@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.2.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:28+0200\n"
+"POT-Creation-Date: 2026-04-01 22:39+0200\n"
 "PO-Revision-Date: 2026-02-07 15:33+01:00\n"
 "Last-Translator: Petr Pisar <petr.pisar@atlas.cz>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
@@ -2225,7 +2225,10 @@ msgstr "zde je předchozí definice jako @%s"
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#, perl-format
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#, c-format, perl-format
 msgid "unknown customization variable: %s"
 msgstr "neznámá pozměňující proměnná: %s"
 
@@ -4526,6 +4529,24 @@ msgstr "%s: chyba při zavírání souboru %s s vnitřními odkazy: %s"
 #, perl-format
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "%s: chyba při zavírání souboru %s s velikostmi elementů: %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#, fuzzy, c-format
+#| msgid "%s: unknown special element information type %s"
+msgid "unknown special unit info: %s"
+msgstr "%s: neznámý typ informace pro zvláštní element %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#, fuzzy, c-format
+#| msgid "%s: unknown special element information type %s"
+msgid "unknown special unit info tree: %s"
+msgstr "%s: neznámý typ informace pro zvláštní element %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#, fuzzy, c-format
+#| msgid "unknown destination index in @%s: %s"
+msgid "unknown direction string type: %s"
+msgstr "neznámý rejstřík cílů v @%s: %s "
 
 #: tta/C/texi2any.c:917
 #, c-format

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:28+0200\n"
+"POT-Creation-Date: 2026-04-01 22:39+0200\n"
 "PO-Revision-Date: 2021-07-01 15:36+0200\n"
 "Last-Translator: Johnny A. Solbu <johnny@solbu.net>\n"
 "Language-Team: Norwegian Bokmaal <l10n-no@lister.huftis.org>\n"
@@ -2235,7 +2235,10 @@ msgstr "her er den tidligere definisjonen av @%s"
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#, fuzzy, perl-format
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#, fuzzy, c-format, perl-format
 #| msgid "%s: unknown variable %s"
 msgid "unknown customization variable: %s"
 msgstr "%s: ukjent variabel %s"
@@ -4538,6 +4541,24 @@ msgstr "%s: feil ved lukking av intern lenkefil %s: %s\n"
 #| msgid "%s: error on closing internal links file %s: %s\n"
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "%s: feil ved lukking av intern lenkefil %s: %s\n"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#, fuzzy, c-format
+#| msgid "unknown tree transformation %s"
+msgid "unknown special unit info: %s"
+msgstr "Ukjent tre-transformasjon «%s»"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#, fuzzy, c-format
+#| msgid "unknown tree transformation %s"
+msgid "unknown special unit info tree: %s"
+msgstr "Ukjent tre-transformasjon «%s»"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#, fuzzy, c-format
+#| msgid "unrecognized type: %s"
+msgid "unknown direction string type: %s"
+msgstr "ukjent type: %s"
 
 #: tta/C/texi2any.c:917
 #, c-format

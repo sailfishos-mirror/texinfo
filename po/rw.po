@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.7.94\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:28+0200\n"
+"POT-Creation-Date: 2026-04-01 22:39+0200\n"
 "PO-Revision-Date: 2005-04-04 10:55-0700\n"
 "Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -2264,7 +2264,10 @@ msgstr "ni i Ibanjirije Insobanuro Bya"
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#, fuzzy, perl-format
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#, fuzzy, c-format, perl-format
 msgid "unknown customization variable: %s"
 msgstr "Komandi:"
 
@@ -4484,6 +4487,21 @@ msgstr "Ikosa Ibisohoka IDOSIYE"
 #, fuzzy, perl-format
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "Ikosa Ibisohoka IDOSIYE"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#, fuzzy, c-format
+msgid "unknown special unit info: %s"
+msgstr "Komandi:"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#, fuzzy, c-format
+msgid "unknown special unit info tree: %s"
+msgstr "Komandi:"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#, fuzzy, c-format
+msgid "unknown direction string type: %s"
+msgstr "Umubarendanga"
 
 #: tta/C/texi2any.c:917
 #, c-format

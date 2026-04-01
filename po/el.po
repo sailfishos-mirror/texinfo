@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 6.0.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:28+0200\n"
+"POT-Creation-Date: 2026-04-01 22:39+0200\n"
 "PO-Revision-Date: 2015-12-28 00:59+0200\n"
 "Last-Translator: Tsiolkas Michail <cs112152@cs.uoi.gr>\n"
 "Language-Team: Greek <team@lists.gnome.gr>\n"
@@ -2050,7 +2050,10 @@ msgstr ""
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#, perl-format
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#, c-format, perl-format
 msgid "unknown customization variable: %s"
 msgstr ""
 
@@ -4239,6 +4242,21 @@ msgstr ""
 #: tta/perl/texi2any.pl:2315
 #, perl-format
 msgid "%s: error on closing elements size file %s: %s"
+msgstr ""
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#, c-format
+msgid "unknown special unit info: %s"
+msgstr ""
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#, c-format
+msgid "unknown special unit info tree: %s"
+msgstr ""
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#, c-format
+msgid "unknown direction string type: %s"
 msgstr ""
 
 #: tta/C/texi2any.c:917

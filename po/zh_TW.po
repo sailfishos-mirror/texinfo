@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.1\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:28+0200\n"
+"POT-Creation-Date: 2026-04-01 22:39+0200\n"
 "PO-Revision-Date: 2002-03-08 04:56+0800\n"
 "Last-Translator: Abel Cheung <maddog@linux.org.hk>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -2245,7 +2245,10 @@ msgstr "這裡是 `%s' 之前的定義"
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#, fuzzy, perl-format
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#, fuzzy, c-format, perl-format
 msgid "unknown customization variable: %s"
 msgstr "未知的命令 `%s'"
 
@@ -4526,6 +4529,23 @@ msgstr ""
 #, fuzzy, perl-format
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#, fuzzy, c-format
+#| msgid "Unknown index `%s'"
+msgid "unknown special unit info: %s"
+msgstr "未知的索引 `%s'"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#, fuzzy, c-format
+msgid "unknown special unit info tree: %s"
+msgstr "未知的命令 `%s'"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#, fuzzy, c-format
+#| msgid "%s: unrecognized option `--%s'\n"
+msgid "unknown direction string type: %s"
+msgstr "%s: 未知的選項 `--%s'\n"
 
 #: tta/C/texi2any.c:917
 #, c-format

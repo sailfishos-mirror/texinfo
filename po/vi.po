@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:28+0200\n"
+"POT-Creation-Date: 2026-04-01 22:39+0200\n"
 "PO-Revision-Date: 2017-07-11 14:12+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -2256,7 +2256,10 @@ msgstr "ở đây có định nghĩa trước như là @%s"
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#, fuzzy, perl-format
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#, fuzzy, c-format, perl-format
 #| msgid "%s: unknown variable %s"
 msgid "unknown customization variable: %s"
 msgstr "%s: không hiểu biến %s"
@@ -4686,6 +4689,24 @@ msgstr "%s: gặp lỗi khi đóng tập tin liên kết nội tại %s: %s\n"
 #| msgid "%s: error on closing internal links file %s: %s\n"
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "%s: gặp lỗi khi đóng tập tin liên kết nội tại %s: %s\n"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#, fuzzy, c-format
+#| msgid "unknown tree transformation %s"
+msgid "unknown special unit info: %s"
+msgstr "không hiểu sự biến đổi cây %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#, fuzzy, c-format
+#| msgid "unknown tree transformation %s"
+msgid "unknown special unit info tree: %s"
+msgstr "không hiểu sự biến đổi cây %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#, fuzzy, c-format
+#| msgid "unknown destination index in @%s: %s"
+msgid "unknown direction string type: %s"
+msgstr "không hiểu chỉ mục đích trong @%s: %s"
 
 #: tta/C/texi2any.c:917
 #, c-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:28+0200\n"
+"POT-Creation-Date: 2026-04-01 22:39+0200\n"
 "PO-Revision-Date: 2014-08-11 17:30+0700\n"
 "Last-Translator: Arif E. Nugroho <arif_endro@yahoo.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -2403,7 +2403,10 @@ msgstr "disini adalah definisi sebelumnya dari `%s'"
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#, fuzzy, perl-format
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#, fuzzy, c-format, perl-format
 #| msgid "%s: unknown variable %s"
 msgid "unknown customization variable: %s"
 msgstr "aksi `%s' tidak dikenal %s"
@@ -4784,6 +4787,24 @@ msgstr "%s: mengabaikan keluaran link internal kedua `%s'. %s\n"
 #| msgid "%s: error on closing internal links file %s: %s\n"
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "%s: mengabaikan keluaran link internal kedua `%s'. %s\n"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#, fuzzy, c-format
+#| msgid "unknown tree transformation %s"
+msgid "unknown special unit info: %s"
+msgstr "aksi `%s' tidak dikenal"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#, fuzzy, c-format
+#| msgid "unknown tree transformation %s"
+msgid "unknown special unit info tree: %s"
+msgstr "aksi `%s' tidak dikenal"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#, fuzzy, c-format
+#| msgid "unknown destination index in @%s: %s"
+msgid "unknown direction string type: %s"
+msgstr "unknown destination index in @%s: %s"
 
 #: tta/C/texi2any.c:917
 #, c-format

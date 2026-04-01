@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.2\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:28+0200\n"
+"POT-Creation-Date: 2026-04-01 22:39+0200\n"
 "PO-Revision-Date: 2002-04-03 12:31+0300\n"
 "Last-Translator: Eli Zaretskii <eliz@gnu.org>\n"
 "Language-Team: Hebrew <eliz@gnu.org>\n"
@@ -2303,7 +2303,10 @@ msgstr "הנושארל רדגוה `%s' ןאכ"
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#, fuzzy, perl-format
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#, fuzzy, c-format, perl-format
 #| msgid "unknown action `%s'"
 msgid "unknown customization variable: %s"
 msgstr "העודי הנניא `%s' הדוקפ"
@@ -4670,6 +4673,24 @@ msgstr ""
 #| msgid "error closing output file `%s'"
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#, fuzzy, c-format
+#| msgid "Unknown index `%s'"
+msgid "unknown special unit info: %s"
+msgstr "`%s' רכומ-יתלב סקדניא"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#, fuzzy, c-format
+#| msgid "unknown action `%s'"
+msgid "unknown special unit info tree: %s"
+msgstr "העודי הנניא `%s' הדוקפ"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#, fuzzy, c-format
+#| msgid "%s: unrecognized option `--%s'\n"
+msgid "unknown direction string type: %s"
+msgstr "%s תינכת רובע `--%s' ההוזמ-יתלב ןייפאמ\n"
 
 #: tta/C/texi2any.c:917
 #, c-format

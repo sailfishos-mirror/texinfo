@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:28+0200\n"
+"POT-Creation-Date: 2026-04-01 22:39+0200\n"
 "PO-Revision-Date: 2021-12-10 15:10+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -2351,7 +2351,10 @@ msgstr "hier ist die frühere Definition als @%s"
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#, fuzzy, perl-format
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#, fuzzy, c-format, perl-format
 #| msgid "%s: unknown variable %s"
 msgid "unknown customization variable: %s"
 msgstr "%s: unbekannte Variable %s"
@@ -4761,6 +4764,24 @@ msgstr "%s: Fehler beim Schließen der internen Verknüpfungsdatei %s: %s\n"
 #| msgid "%s: error on closing internal links file %s: %s\n"
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "%s: Fehler beim Schließen der internen Verknüpfungsdatei %s: %s\n"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#, fuzzy, c-format
+#| msgid "unknown tree transformation %s"
+msgid "unknown special unit info: %s"
+msgstr "unbekannte Baumumformung %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#, fuzzy, c-format
+#| msgid "unknown tree transformation %s"
+msgid "unknown special unit info tree: %s"
+msgstr "unbekannte Baumumformung %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#, fuzzy, c-format
+#| msgid "unknown destination index in @%s: %s"
+msgid "unknown direction string type: %s"
+msgstr "Unbekannter Ziel-Index @%s: %s"
 
 #: tta/C/texi2any.c:917
 #, c-format

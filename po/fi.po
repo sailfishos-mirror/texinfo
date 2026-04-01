@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 7.2.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:28+0200\n"
+"POT-Creation-Date: 2026-04-01 22:39+0200\n"
 "PO-Revision-Date: 2026-02-14 10:12+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
@@ -2237,7 +2237,10 @@ msgstr "tässä on aiempi määritelmä muodossa @%s"
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#, perl-format
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#, c-format, perl-format
 msgid "unknown customization variable: %s"
 msgstr "tuntematon mukautusmuuttuja: %s"
 
@@ -4541,6 +4544,23 @@ msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
 #, fuzzy, perl-format
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "virhe suljettaessa kuvatekstitiedostoa %s: %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#, fuzzy, c-format
+#| msgid "unknown tree transformation %s"
+msgid "unknown special unit info: %s"
+msgstr "tex4ht.pm: tuntematon @latex-muunnostyyppi: %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#, fuzzy, c-format
+#| msgid "unknown tree transformation %s"
+msgid "unknown special unit info tree: %s"
+msgstr "tex4ht.pm: tuntematon @latex-muunnostyyppi: %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#, fuzzy, c-format
+msgid "unknown direction string type: %s"
+msgstr "tuntematon mukautusmuuttuja: %s"
 
 #: tta/C/texi2any.c:917
 #, c-format

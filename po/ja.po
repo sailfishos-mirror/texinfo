@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:28+0200\n"
+"POT-Creation-Date: 2026-04-01 22:39+0200\n"
 "PO-Revision-Date: 2014-11-07 08:03+0000\n"
 "Last-Translator: Yasuaki Taniguchi <yasuakit@gmail.com>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -2336,7 +2336,10 @@ msgstr "ここは、`%s' の前の定義です"
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#, fuzzy, perl-format
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#, fuzzy, c-format, perl-format
 msgid "unknown customization variable: %s"
 msgstr "不明なシグナル %d"
 
@@ -4600,6 +4603,21 @@ msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました
 #, fuzzy, perl-format
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#, fuzzy, c-format
+msgid "unknown special unit info: %s"
+msgstr "不明なエスケープ '\\%c' が文字列内にあります。無視されました"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#, fuzzy, c-format
+msgid "unknown special unit info tree: %s"
+msgstr "不明なエスケープ '\\%c' が文字列内にあります。無視されました"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#, fuzzy, c-format
+msgid "unknown direction string type: %s"
+msgstr "不明な索引 `%s' です"
 
 #: tta/C/texi2any.c:917
 #, c-format

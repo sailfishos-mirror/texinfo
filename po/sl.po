@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.13\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:28+0200\n"
+"POT-Creation-Date: 2026-04-01 22:39+0200\n"
 "PO-Revision-Date: 2012-08-10 18:31+0100\n"
 "Last-Translator: Klemen Košir <klemen.kosir@gmx.com>\n"
 "Language-Team: Slovenian <translation-team-sl@lists.sourceforge.net>\n"
@@ -2390,7 +2390,10 @@ msgstr "tukaj je predhodna določitev `%s'"
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#, fuzzy, perl-format
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#, fuzzy, c-format, perl-format
 #| msgid "unknown action `%s'"
 msgid "unknown customization variable: %s"
 msgstr "neznano dejanje `%s'"
@@ -4800,6 +4803,24 @@ msgstr "%s: prezrtje drugega notranjega izhoda povezav `%s'.\n"
 #| msgid "error closing output file `%s'"
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "napaka med končanjem datoteke vnosa `%s'"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#, fuzzy, c-format
+#| msgid "Unknown index `%s'"
+msgid "unknown special unit info: %s"
+msgstr "Neznano kazalo `%s'"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#, fuzzy, c-format
+#| msgid "unknown action `%s'"
+msgid "unknown special unit info tree: %s"
+msgstr "neznano dejanje `%s'"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#, fuzzy, c-format
+#| msgid "%s: unrecognized option `--%s'\n"
+msgid "unknown direction string type: %s"
+msgstr "%s: neprepoznana možnost `--%s'\n"
 
 #: tta/C/texi2any.c:917
 #, c-format

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo-7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:28+0200\n"
+"POT-Creation-Date: 2026-04-01 22:39+0200\n"
 "PO-Revision-Date: 2025-01-10 10:30+0100\n"
 "Last-Translator: Antonio Ceballos <aceballos@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
@@ -2393,7 +2393,10 @@ msgstr "la definición previa de `@%s' se encuentra aquí"
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#, perl-format
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#, c-format, perl-format
 msgid "unknown customization variable: %s"
 msgstr "variable de personalización desconocida: %s"
 
@@ -4905,6 +4908,24 @@ msgstr "%s: error al cerrar el fichero de enlaces internos %s: %s\n"
 #| msgid "%s: error on closing elements size file %s: %s\n"
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "%s: error al cerrar el fichero de tamaño de los elementos %s: %s\n"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#, fuzzy, c-format
+#| msgid "%s: unknown special element information type %s\n"
+msgid "unknown special unit info: %s"
+msgstr "%s: tipo de información de elemento especial desconocido %s\n"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#, fuzzy, c-format
+#| msgid "%s: unknown special element information type %s\n"
+msgid "unknown special unit info tree: %s"
+msgstr "%s: tipo de información de elemento especial desconocido %s\n"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#, fuzzy, c-format
+#| msgid "unknown destination index in @%s: %s"
+msgid "unknown direction string type: %s"
+msgstr "índice de destino desconocido en @%s: %s"
 
 #: tta/C/texi2any.c:917
 #, c-format

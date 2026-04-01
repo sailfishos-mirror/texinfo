@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.2.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:28+0200\n"
+"POT-Creation-Date: 2026-04-01 22:39+0200\n"
 "PO-Revision-Date: 2026-02-07 11:50+0100\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -2392,7 +2392,10 @@ msgstr "aici este definiția anterioară ca @%s"
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#, perl-format
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#, c-format, perl-format
 msgid "unknown customization variable: %s"
 msgstr "variabilă de personalizare necunoscută: %s"
 
@@ -4773,6 +4776,24 @@ msgstr "%s: eroare la închiderea fișierului cu legături interne %s: %s"
 #, perl-format
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "%s: eroare la închiderea fișierului cu dimensiunea elementelor %s: %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#, fuzzy, c-format
+#| msgid "%s: unknown special element information type %s"
+msgid "unknown special unit info: %s"
+msgstr "%s: tip necunoscut de informații despre elementul special %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#, fuzzy, c-format
+#| msgid "%s: unknown special element information type %s"
+msgid "unknown special unit info tree: %s"
+msgstr "%s: tip necunoscut de informații despre elementul special %s"
+
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#, fuzzy, c-format
+#| msgid "unknown destination index in @%s: %s"
+msgid "unknown direction string type: %s"
+msgstr "index de destinație necunoscut în @%s: %s"
 
 #: tta/C/texi2any.c:917
 #, c-format
