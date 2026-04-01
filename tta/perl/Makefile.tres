@@ -1684,9 +1684,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/author_outside_titlepage_quotation.pl \
   t/results/misc_commands/bad_documentlanguage.pl \
   t/results/misc_commands/bye.pl \
-  t/results/misc_commands/clickstyle.pl \
-  t/results/misc_commands/clickstyle_and_comments.pl \
-  t/results/misc_commands/clickstyle_no_end_of_line.pl \
   t/results/misc_commands/codequoteundirected_codequotebacktick.pl \
   t/results/misc_commands/command_in_heading_footing.pl \
   t/results/misc_commands/command_line_in_paragraph.pl \
@@ -1717,7 +1714,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/indent_with_command_after_without_space.pl \
   t/results/misc_commands/indent_with_text_after_without_space.pl \
   t/results/misc_commands/index_entries.pl \
-  t/results/misc_commands/invalid_clickstyle.pl \
   t/results/misc_commands/invalid_documentencoding.pl \
   t/results/misc_commands/invalid_kbdinputstyle.pl \
   t/results/misc_commands/kbdinputstyle.pl \
