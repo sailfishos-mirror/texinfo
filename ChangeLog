@@ -1,5 +1,9 @@
 2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* TODO: remove done item
+
+2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* NEWS,
 	* doc/texinfo.texi (Click Sequences, Macro Details, Command List)
 	(Obsolete @-Commands):
