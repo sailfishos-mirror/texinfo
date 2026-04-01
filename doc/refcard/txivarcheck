@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# Copyright 2012-2025 Free Software Foundation, Inc.
+# Copyright 2012-2026 Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,9 +17,7 @@
 # Original author: Karl Berry.
 #
 # Kludge of a script to check customization variables in refman vs. texi2any
-# for consistency.  Although this has nothing to do with the reference
-# card, since it's similar to the txicmdcheck script, keep them
-# together.  And maybe we'll add the cust.vars to the refcard.
+# for consistency.
 
 use strict;
 

@@ -1,5 +1,13 @@
 2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove refcard
+
+	* doc/refcard/txicmdcheck, doc/refcard/txivarcheck:
+	check texi2any and manual only.
+	* doc/refcard/txirefcard.tex: deleted
+
+2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* TODO: remove done item
 
 2026-04-01  Gavin Smith <gavinsmith0123@gmail.com>

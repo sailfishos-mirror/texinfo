@@ -211,11 +211,6 @@ doc/version-stnd.texi
 doc/version-texi2any_api.texi
 doc/wwwtemp
 
-doc/refcard/*.dvi
-doc/refcard/*.pdf
-doc/refcard/*.log
-doc/refcard/*.ps
-
 doc/tta_api/*.t2p
 doc/tta_api/*.info
 doc/tta_api/*.info-*
