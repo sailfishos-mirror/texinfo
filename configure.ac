@@ -393,7 +393,6 @@ AC_ARG_WITH([swig],
 AC_CONFIG_FILES([\
   Makefile
   doc/Makefile
-  doc/refcard/Makefile
   doc/tta_api/Makefile
   gnulib/lib/Makefile
   info/Makefile
