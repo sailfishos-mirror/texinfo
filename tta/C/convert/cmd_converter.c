@@ -80,7 +80,6 @@ const char *xml_text_entity_no_arg_commands[] = {
 0,
 0,
 0,
-0,
 "&copy;",  /* copyright */
 0,
 0,

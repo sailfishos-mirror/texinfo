@@ -287,7 +287,6 @@ const char *html_style_commands_element[] = {
 0,
 0,
 0,
-0,
 "code",  /* code */
 0,
 0,

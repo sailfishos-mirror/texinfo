@@ -101,7 +101,6 @@ CM_cite,
 CM_clear,
 CM_click,
 CM_clicksequence,
-CM_clickstyle,
 CM_code,
 CM_codequotebacktick,
 CM_codequoteundirected,
@@ -429,7 +428,7 @@ CM_hex_7d,
 CM_hex_7e,
 };
 
-#define BUILTIN_CMD_NUMBER 395
+#define BUILTIN_CMD_NUMBER 394
 
 #define TXI_CMD_CATEGORY_BLOCK \
   tcc_cmd_category(conditional, block, BLOCK) \

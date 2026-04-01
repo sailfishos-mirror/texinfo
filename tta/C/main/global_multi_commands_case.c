@@ -4,7 +4,6 @@
 GLOBAL_CASE(allowcodebreaks);
 GLOBAL_CASE(author);
 GLOBAL_CASE(chapheading);
-GLOBAL_CASE(clickstyle);
 GLOBAL_CASE(codequotebacktick);
 GLOBAL_CASE(codequoteundirected);
 GLOBAL_CASE(contents);

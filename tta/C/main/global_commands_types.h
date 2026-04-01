@@ -50,7 +50,6 @@ typedef struct GLOBAL_COMMANDS {
    ELEMENT_LIST allowcodebreaks;
    ELEMENT_LIST author;
    ELEMENT_LIST chapheading;
-   ELEMENT_LIST clickstyle;
    ELEMENT_LIST codequotebacktick;
    ELEMENT_LIST codequoteundirected;
    ELEMENT_LIST contents;
