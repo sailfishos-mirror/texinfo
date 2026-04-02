@@ -24,7 +24,7 @@
 	* info/variables.c (ALIAS_VAR, alias_var):
 	New macro and dummy variable for declaring an alias of a variable.
 	(info_variables) <"scroll-behavior">: Use it.
-	(variable_by_name): Check is variable is an alias and if so resolve
+	(variable_by_name): Check if variable is an alias and if so resolve
 	the alias.
 	
 	This is to avoid using separate 'where_set' fields for the two
