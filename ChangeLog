@@ -1,5 +1,19 @@
 2026-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Implement scroll-behavior/scroll-behaviour alias differently
+
+	* info/variables.c (ALIAS_VAR, alias_var):
+	New macro and dummy variable for declaring an alias of a variable.
+	(info_variables) <"scroll-behavior">: Use it.
+	(variable_by_name): Check is variable is an alias and if so resolve
+	the alias.
+	
+	This is to avoid using separate 'where_set' fields for the two
+	equivalent names of the variable, which could lead to inconsistency,
+	including in the help buffer.
+
+2026-04-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/variables.c (set_variable_to_value):
 	For variables with a list of possible choices, if requested value
 	is not in that list, do not update 'where_set' field and return 0.

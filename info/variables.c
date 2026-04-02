@@ -60,10 +60,14 @@ static char *rendition_choices[] = { "black", "red", "green", "yellow", "blue",
 /* Address of this indicates the 'highlight-searches' variable. */
 static int *highlight_searches;
 
+/* Address of this indicates an alias. */
+static int *alias_var;
+
 /* Used for part of struct initialisers: value, choices, where_set */
 #define ON_OFF_VAR(variable) &variable, (char **)on_off_choices, 0
 #define NUM_VAR(variable) &variable, NULL, 0
 #define CHOICES_VAR(variable, choices) &variable, (char **)choices, 0
+#define ALIAS_VAR(variable) &variable, (char **)&alias_var, 0
 
 VARIABLE_ALIST info_variables[] = {
   { "automatic-footnotes",
@@ -97,7 +101,7 @@ VARIABLE_ALIST info_variables[] = {
   /* Alternate spelling */
   { "scroll-behavior",
       N_("Same as scroll-behaviour"),
-      CHOICES_VAR(info_scroll_behaviour, info_scroll_choices) },
+      ALIAS_VAR(info_scroll_behaviour) },
 
   { "scroll-step",
       N_("The number lines to scroll when the cursor moves out of the window"),
@@ -390,13 +394,28 @@ variable_by_name (char *name)
 
   /* Find the variable in our list of variables. */
   for (i = 0; info_variables[i].name; i++)
-    if (strcmp (info_variables[i].name, name) == 0)
-      break;
+    {
+      if (strcmp (info_variables[i].name, name) == 0)
+        break;
+    }
 
   if (!info_variables[i].name)
     return NULL;
-  else
-    return &info_variables[i];
+
+  /* Check for variable alias (only possibility is 'scroll-behavior'
+     for 'scroll-behaviour'). */
+  if (info_variables[i].choices == (char **) &alias_var)
+    {
+      int j;
+      for (j = 0; info_variables[j].name; j++)
+        {
+          if (j != i && info_variables[j].value == info_variables[i].value)
+            return &info_variables[j];
+        }
+      return NULL;
+    }
+
+  return &info_variables[i];
 }
 
 /* Read the name of an Info variable in the echo area and return the
