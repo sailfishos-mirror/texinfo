@@ -1,5 +1,11 @@
 2026-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/variables.c (variable_long_description_string):
+	Handle alias variable specially, in part to avoid printing
+	null pointer.
+
+2026-04-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Implement scroll-behavior/scroll-behaviour alias differently
 
 	* info/variables.c (ALIAS_VAR, alias_var):

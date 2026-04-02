@@ -265,7 +265,11 @@ char *
 variable_long_description_string (VARIABLE_ALIST *var)
 {
   char *description;
-  if (var->choices)
+  if (var->choices == (char **)&alias_var)
+    xasprintf (&description, "%s\n    %s.",
+             var->name,
+             _(var->doc));
+  else if (var->choices)
     xasprintf (&description, "%s (%s) [%s]\n    %s.",
              var->name,
              var->value == &highlight_searches
