@@ -546,6 +546,152 @@ The @code{scroll-forward-page-only} and @code{scroll-backward-page-only}
 commands never scroll beyond the current node.
 
 
+@node Xref Commands
+@nodedescription Commands for selecting cross-references.
+@chapter Selecting Cross-references
+
+We have already discussed the @samp{Next}, @samp{Prev}, and @samp{Up}
+pointers which appear at the top of a node, referring you to a
+different node.
+
+In addition, a node may contain a @dfn{menu}, as well as
+@dfn{cross-references} (@dfn{xrefs} for short) interspersed through
+the text of the node.  Cross-references may possibly refer to a node in
+another Info file.
+
+@node Parts of an Xref
+@nodedescription What a cross-reference is made of.
+@section Parts of an Xref
+
+Here is a sample menu entry showing the parts of a cross-reference:
+
+@example
+* Foo Label: Foo Target.        More information about Foo.
+@end example
+
+@noindent
+The reference has two parts: the first part is called the
+@dfn{label}; it is the name that you can use to refer to the
+cross-reference, and the second is the @dfn{target}; it is the full
+name of the node that the cross-reference points to.  The target is
+separated from the label by a single colon @samp{:}; first the
+label appears, and then the target.
+
+The @samp{.} ends the name of the target.  The @samp{.} is
+not part of the target; it serves only to let Info know where the target
+name ends.
+
+A shorthand way of specifying references allows two adjacent colons to
+stand for a target name which is the same as the label name:
+
+@example
+* Foo Commands::                Commands pertaining to Foo.
+@end example
+
+In the above example, the name of the target is the same as the name of
+the label, in this case @code{Foo Commands}.
+
+You will normally see two types of cross-reference while viewing nodes:
+@dfn{menu} references, and @dfn{note} references.  Menu references
+appear within a node's menu; they begin with a @samp{*} at the beginning
+of a line, and continue with a label, a target, and a comment which
+describes what the contents of the node pointed to contains.
+
+Note references appear within the body of the node text; they begin with
+@code{*Note}, and continue with a label and a target.
+
+Like @samp{Next}, @samp{Prev}, and @samp{Up} pointers, cross-references
+can point to any valid node.  They are used to refer you to a place
+where more detailed information can be found on a particular subject.
+Here is a cross-reference which points to a node within the Texinfo
+documentation:  @xref{Cross References,, Cross-refrences, texinfo, the Texinfo
+Manual}, for more information on creating your own Texinfo
+cross-references.
+
+@node Selecting Xrefs
+@nodedescription Commands for selecting menu or note items.
+@section Selecting Xrefs
+
+The following table lists the Info commands which operate on menu items.
+
+@table @asis
+@item @kbd{1} (@code{menu-digit})
+@itemx @kbd{2} @dots{} @kbd{9}
+@itemx @kbd{M-1}, vi-like operation
+@itemx @kbd{M-2} @dots{} @kbd{M-9}, vi-like operation
+@kindex 1 @dots{} 9@r{, in Info windows}
+@kindex M-1 @dots{} M-9@r{, vi-like operation}
+@findex menu-digit
+Within an Info window, pressing a single digit, (such as @samp{1}),
+selects that menu item, and places its node in the current window.
+For convenience, there is one exception; pressing @samp{0} selects the
+@emph{last} item in the node's menu.  When @samp{--vi-keys} is in
+effect, digits set the numeric argument, so these commands are remapped
+to their @samp{M-} varieties.  For example, to select the last menu
+item, press @kbd{M-0}.
+
+@item @kbd{0} (@code{last-menu-item})
+@itemx @kbd{M-0}, vi-like operation
+@kindex 0@r{, in Info windows}
+@kindex M-0@r{, vi-like operation}
+@findex last-menu-item
+Select the last item in the current node's menu.
+
+@item @kbd{m} (@code{menu-item})
+@kindex m
+@findex menu-item
+Reads the name of a menu item in the echo area and selects its node.
+Completion is available while reading the menu label.  @xref{The Echo
+Area, completion}.
+
+@item @code{@kbd{M-x} find-menu}
+@findex find-menu
+Move the cursor to the start of this node's menu.
+@end table
+
+This table lists the Info commands which operate on cross-references.
+
+@table @asis
+@item @kbd{f} (@code{xref-item})
+@itemx @kbd{r}
+@kindex f
+@kindex r
+@findex xref-item
+Reads the name of a note cross-reference in the echo area and selects
+its node.  Completion is available while reading the cross-reference
+label.  @xref{The Echo Area, completion}.
+@end table
+
+Finally, the next few commands operate on menu or note references alike:
+
+@table @asis
+@item @key{TAB} (@code{move-to-next-xref})
+@kindex TAB@r{, in Info windows}
+@findex move-to-next-xref
+Move the cursor to the start of the next nearest menu item or note
+reference in this node.  You can then use @key{RET}
+(@code{select-reference-this-line}) to select the menu or note reference.
+
+@item @kbd{M-@key{TAB}} (@code{move-to-prev-xref})
+@itemx @kbd{BackTab}
+@kindex M-TAB@r{, in Info windows}
+@findex move-to-prev-xref
+Move the cursor the start of the nearest previous menu item or note
+reference in this node.
+
+@kindex Shift-TAB@r{, in Info windows}
+@kindex BackTab@r{, in Info windows}
+The @kbd{BackTab} key can be produced on some terminals with
+@kbd{Shift-@key{TAB}}. 
+
+@item @key{RET} (@code{select-reference-this-line})
+@kindex RET@r{, in Info windows}
+@findex select-reference-this-line
+Select the menu item or note reference appearing on this line.
+@end table
+
+
+
 @node Searching Commands
 @nodedescription Commands for searching an Info file.
 @chapter Searching an Info File
@@ -745,151 +891,6 @@ index-apropos} command.  It prompts for a string and then looks up
 that string in all the indices of all the Info documents installed on
 your system.  It can also be invoked from the command line; see
 @ref{--apropos}.
-
-
-@node Xref Commands
-@nodedescription Commands for selecting cross-references.
-@chapter Selecting Cross-references
-
-We have already discussed the @samp{Next}, @samp{Prev}, and @samp{Up}
-pointers which appear at the top of a node, referring you to a
-different node.
-
-In addition, a node may contain a @dfn{menu}, as well as
-@dfn{cross-references} (@dfn{xrefs} for short) interspersed through
-the text of the node.  Cross-references may possibly refer to a node in
-another Info file.
-
-@node Parts of an Xref
-@nodedescription What a cross-reference is made of.
-@section Parts of an Xref
-
-Here is a sample menu entry showing the parts of a cross-reference:
-
-@example
-* Foo Label: Foo Target.        More information about Foo.
-@end example
-
-@noindent
-The reference has two parts: the first part is called the
-@dfn{label}; it is the name that you can use to refer to the
-cross-reference, and the second is the @dfn{target}; it is the full
-name of the node that the cross-reference points to.  The target is
-separated from the label by a single colon @samp{:}; first the
-label appears, and then the target.
-
-The @samp{.} ends the name of the target.  The @samp{.} is
-not part of the target; it serves only to let Info know where the target
-name ends.
-
-A shorthand way of specifying references allows two adjacent colons to
-stand for a target name which is the same as the label name:
-
-@example
-* Foo Commands::                Commands pertaining to Foo.
-@end example
-
-In the above example, the name of the target is the same as the name of
-the label, in this case @code{Foo Commands}.
-
-You will normally see two types of cross-reference while viewing nodes:
-@dfn{menu} references, and @dfn{note} references.  Menu references
-appear within a node's menu; they begin with a @samp{*} at the beginning
-of a line, and continue with a label, a target, and a comment which
-describes what the contents of the node pointed to contains.
-
-Note references appear within the body of the node text; they begin with
-@code{*Note}, and continue with a label and a target.
-
-Like @samp{Next}, @samp{Prev}, and @samp{Up} pointers, cross-references
-can point to any valid node.  They are used to refer you to a place
-where more detailed information can be found on a particular subject.
-Here is a cross-reference which points to a node within the Texinfo
-documentation:  @xref{Cross References,, Cross-refrences, texinfo, the Texinfo
-Manual}, for more information on creating your own Texinfo
-cross-references.
-
-@node Selecting Xrefs
-@nodedescription Commands for selecting menu or note items.
-@section Selecting Xrefs
-
-The following table lists the Info commands which operate on menu items.
-
-@table @asis
-@item @kbd{1} (@code{menu-digit})
-@itemx @kbd{2} @dots{} @kbd{9}
-@itemx @kbd{M-1}, vi-like operation
-@itemx @kbd{M-2} @dots{} @kbd{M-9}, vi-like operation
-@kindex 1 @dots{} 9@r{, in Info windows}
-@kindex M-1 @dots{} M-9@r{, vi-like operation}
-@findex menu-digit
-Within an Info window, pressing a single digit, (such as @samp{1}),
-selects that menu item, and places its node in the current window.
-For convenience, there is one exception; pressing @samp{0} selects the
-@emph{last} item in the node's menu.  When @samp{--vi-keys} is in
-effect, digits set the numeric argument, so these commands are remapped
-to their @samp{M-} varieties.  For example, to select the last menu
-item, press @kbd{M-0}.
-
-@item @kbd{0} (@code{last-menu-item})
-@itemx @kbd{M-0}, vi-like operation
-@kindex 0@r{, in Info windows}
-@kindex M-0@r{, vi-like operation}
-@findex last-menu-item
-Select the last item in the current node's menu.
-
-@item @kbd{m} (@code{menu-item})
-@kindex m
-@findex menu-item
-Reads the name of a menu item in the echo area and selects its node.
-Completion is available while reading the menu label.  @xref{The Echo
-Area, completion}.
-
-@item @code{@kbd{M-x} find-menu}
-@findex find-menu
-Move the cursor to the start of this node's menu.
-@end table
-
-This table lists the Info commands which operate on cross-references.
-
-@table @asis
-@item @kbd{f} (@code{xref-item})
-@itemx @kbd{r}
-@kindex f
-@kindex r
-@findex xref-item
-Reads the name of a note cross-reference in the echo area and selects
-its node.  Completion is available while reading the cross-reference
-label.  @xref{The Echo Area, completion}.
-@end table
-
-Finally, the next few commands operate on menu or note references alike:
-
-@table @asis
-@item @key{TAB} (@code{move-to-next-xref})
-@kindex TAB@r{, in Info windows}
-@findex move-to-next-xref
-Move the cursor to the start of the next nearest menu item or note
-reference in this node.  You can then use @key{RET}
-(@code{select-reference-this-line}) to select the menu or note reference.
-
-@item @kbd{M-@key{TAB}} (@code{move-to-prev-xref})
-@itemx @kbd{BackTab}
-@kindex M-TAB@r{, in Info windows}
-@findex move-to-prev-xref
-Move the cursor the start of the nearest previous menu item or note
-reference in this node.
-
-@kindex Shift-TAB@r{, in Info windows}
-@kindex BackTab@r{, in Info windows}
-The @kbd{BackTab} key can be produced on some terminals with
-@kbd{Shift-@key{TAB}}. 
-
-@item @key{RET} (@code{select-reference-this-line})
-@kindex RET@r{, in Info windows}
-@findex select-reference-this-line
-Select the menu item or note reference appearing on this line.
-@end table
 
 
 @node Window Commands
