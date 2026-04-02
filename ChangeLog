@@ -1,5 +1,18 @@
 2026-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Fix M-Tab with "info -v scroll-behaviour=Page\ Only"
+
+	* info/session-cmd.c (info_move_to_prev_xref):
+	Move misplaced ) in order to correctly pass value of
+	info_scroll_behaviour to backward_move_node_structure.
+	
+	M-Tab would move to a previous node with scroll-behavior=Page Only
+	and cursor-movement-scrolls=On, which was incorrect.
+	
+	Report from Aidan <aidanczhai@gmail.com>.
+
+2026-04-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/variables.c (variable_long_description_string):
 	Handle alias variable specially, in part to avoid printing
 	null pointer.

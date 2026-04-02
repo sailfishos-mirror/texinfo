@@ -1825,7 +1825,7 @@ DECLARE_INFO_COMMAND (info_move_to_prev_xref,
               return;
             }
 
-          if (backward_move_node_structure (window, info_scroll_behaviour != 0)
+          if (backward_move_node_structure (window, info_scroll_behaviour) != 0
               || !strcmp (window->node->nodename, initial_nodename))
             {
               break; /* No earlier nodes in file, or we are back where we
