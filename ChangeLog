@@ -1,5 +1,19 @@
 2026-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove misleading messages for move-to-next/prev-xref.
+
+	* info/session-cmd.c
+	(forward_move_node_structure, backward_move_node_structure)
+	[scroll-behaviour=Page Only]: Do not print message saying we
+	are already on the last (or first) page of a node.  This may
+	not be true if called via move-to-next-xref (or move-to-prev-xref).
+
+	(point_next_line, point_prev_line, _scroll_backward, _scroll_forward):
+	Reinstate the removed messages for cursor movement and scrolling
+	commands where they would be accurate.
+
+2026-04-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Fix M-Tab with "info -v scroll-behaviour=Page\ Only"
 
 	* info/session-cmd.c (info_move_to_prev_xref):

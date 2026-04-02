@@ -122,6 +122,9 @@ point_next_line (WINDOW *win)
       return 1;
     }
 
+  if (!cursor_movement_scrolls_p || info_scroll_behaviour == IS_PageOnly)
+    info_error ("%s", _("You are already at the last page of this node"));
+
   win->point = win->node->nodelen - 1;
   return 0;
 }
@@ -149,6 +152,9 @@ point_prev_line (WINDOW *win)
       window_compute_line_map (win);
       return 1;
     }
+
+  if (!cursor_movement_scrolls_p || info_scroll_behaviour == IS_PageOnly)
+    info_error ("%s", _("You are already at the first page of this node"));
 
   win->point = 0;
   return 0;
@@ -530,7 +536,13 @@ _scroll_forward (WINDOW *window, int count, int nodeonly)
                   == 0)
                 window->point = 0;
               else
-                info_end_of_node (window, 1);
+                {
+                  if (info_scroll_behaviour == IS_PageOnly)
+                    info_error ("%s",
+                      _("You are already at the last page of this node"));
+
+                  info_end_of_node (window, 1);
+                }
             }
           return;
         }
@@ -560,7 +572,13 @@ _scroll_backward (WINDOW *window, int count, int nodeonly)
                   window->point = window->line_starts[window->pagetop];
                 }
               else
-                window->point = 0;
+                {
+                  if (info_scroll_behaviour == IS_PageOnly)
+                    info_error ("%s",
+                      _("You are already at the first page of this node"));
+
+                  window->point = 0;
+                }
             }
           return;
         }
@@ -2254,7 +2272,6 @@ forward_move_node_structure (WINDOW *window, int behaviour)
   switch (behaviour)
     {
     case IS_PageOnly:
-      info_error ("%s", _("You are already at the last page of this node"));
       return 1;
 
     case IS_NextOnly:
@@ -2360,7 +2377,7 @@ forward_move_node_structure (WINDOW *window, int behaviour)
 }
 
 /* Move to earlier node in node hierarchy in WINDOW depending on BEHAVIOUR.
-   Display an error message if node wasn't changed. */
+   Display an error message if node couldn't be changed. */
 static int
 backward_move_node_structure (WINDOW *window, int behaviour)
 {
@@ -2370,7 +2387,6 @@ backward_move_node_structure (WINDOW *window, int behaviour)
   switch (behaviour)
     {
     case IS_PageOnly:
-      info_error ("%s", _("You are already at the first page of this node"));
       return 1;
 
     case IS_NextOnly:
