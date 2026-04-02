@@ -558,31 +558,34 @@ set_variable_to_value (VARIABLE_ALIST *var, char *value, int where)
      anything, but don't indicate an error. */
   if (var->where_set > where)
     return 1;
-  var->where_set = where;
 
   if (var->choices)
     {
       if (var->value == &highlight_searches)
         {
           update_highlight_searches (value);
+          var->where_set = where;
+          return 1;
         }
       else if (var->choices == (char **) &rendition_choices)
         {
           update_rendition_from_string ((RENDITION *) var->value, value);
+          var->where_set = where;
+          return 1;
         }
       else
         {
-          register int j;
-
           /* Find the choice in our list of choices. */
+          register int j;
           for (j = 0; var->choices[j]; j++)
             if (strcmp (var->choices[j], value) == 0)
               {
                 *(int *)var->value = j;
+                var->where_set = where;
                 return 1;
               }
+           return 0;
         }
-      return 1;
     }
   else
     {
@@ -591,6 +594,7 @@ set_variable_to_value (VARIABLE_ALIST *var, char *value, int where)
       if (*p == 0 && INT_MIN <= n && n <= INT_MAX)
 	{
           *(int *)var->value = n;
+          var->where_set = where;
 	  return 1;
 	}
     }
