@@ -426,6 +426,10 @@ center of the window.  With a numeric argument of @var{n}, @code{M-r}
 moves the cursor to the start of the @var{n}th line in the window.
 @end table
 
+Info may load another node if you issue a cursor movement command near
+the end (or beginning) of a node, depending on the setting of the
+@code{cursor-movement-scrolls} variable (@pxref{cursor-movement-scrolls}).
+
 
 @node Scrolling Commands
 @nodedescription Commands for reading the text within a node.
@@ -689,7 +693,6 @@ The @kbd{BackTab} key can be produced on some terminals with
 @findex select-reference-this-line
 Select the menu item or note reference appearing on this line.
 @end table
-
 
 
 @node Searching Commands
