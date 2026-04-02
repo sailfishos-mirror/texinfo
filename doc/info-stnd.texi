@@ -673,7 +673,7 @@ Finally, the next few commands operate on menu or note references alike:
 @kindex TAB@r{, in Info windows}
 @findex move-to-next-xref
 Move the cursor to the start of the next nearest menu item or note
-reference in this node.  You can then use @key{RET}
+reference.  You can then use @key{RET}
 (@code{select-reference-this-line}) to select the menu or note reference.
 
 @item @kbd{M-@key{TAB}} (@code{move-to-prev-xref})
@@ -681,7 +681,7 @@ reference in this node.  You can then use @key{RET}
 @kindex M-TAB@r{, in Info windows}
 @findex move-to-prev-xref
 Move the cursor the start of the nearest previous menu item or note
-reference in this node.
+reference.
 
 @kindex Shift-TAB@r{, in Info windows}
 @kindex BackTab@r{, in Info windows}
