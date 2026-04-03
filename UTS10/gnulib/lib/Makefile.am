@@ -33,7 +33,6 @@
 #  --no-libtool \
 #  --macro-prefix=gl \
 #  uchar-h \
-#  unictype/block-of \
 #  unictype/property-unified-ideograph \
 #  uninorm/nfd \
 #  uninorm/nfkd \
@@ -946,16 +945,6 @@ MOSTLYCLEANFILES += unictype.h unictype.h-t1 unictype.h-t2 unictype.h-t3 unictyp
 EXTRA_DIST += unictype.in.h
 
 ## end   gnulib module unictype/base
-
-## begin gnulib module unictype/block-list
-
-if LIBUNISTRING_COMPILE_UNICTYPE_BLOCK_LIST
-libgnu_a_SOURCES += unictype/blocks.c
-endif
-
-EXTRA_DIST += unictype/blocks.h
-
-## end   gnulib module unictype/block-list
 
 ## begin gnulib module unictype/combining-class
 

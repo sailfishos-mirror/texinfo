@@ -73,8 +73,6 @@ AC_DEFUN([gl_EARLY],
   AC_REQUIRE([AC_USE_SYSTEM_EXTENSIONS])
   # Code from module uchar-h:
   # Code from module unictype/base:
-  # Code from module unictype/block-list:
-  # Code from module unictype/block-of:
   # Code from module unictype/combining-class:
   # Code from module unictype/property-unified-ideograph:
   # Code from module uninorm/base:
@@ -162,7 +160,6 @@ AC_DEFUN([gl_INIT],
   gl_UNICTYPE_H
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
-  gl_LIBUNISTRING_MODULE([1.4], [unictype/block-list])
   gl_LIBUNISTRING_MODULE([1.4], [unictype/combining-class])
   AC_REQUIRE([AC_C_INLINE])
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
@@ -408,8 +405,6 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/uchar.in.h
   lib/unictype.in.h
   lib/unictype/bitmap.h
-  lib/unictype/blocks.c
-  lib/unictype/blocks.h
   lib/unictype/combiningclass.c
   lib/unictype/combiningclass.h
   lib/unictype/pr_unified_ideograph.c

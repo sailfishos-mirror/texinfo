@@ -38,7 +38,6 @@
 #  --no-libtool \
 #  --macro-prefix=gl \
 #  uchar-h \
-#  unictype/block-of \
 #  unictype/property-unified-ideograph \
 #  uninorm/nfd \
 #  uninorm/nfkd \
@@ -49,7 +48,6 @@
 gl_LOCAL_DIR([])
 gl_MODULES([
   uchar-h
-  unictype/block-of
   unictype/property-unified-ideograph
   uninorm/nfd
   uninorm/nfkd
