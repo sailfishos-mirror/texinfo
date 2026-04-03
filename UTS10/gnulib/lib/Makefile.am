@@ -35,7 +35,6 @@
 #  uchar-h \
 #  unictype/property-unified-ideograph \
 #  uninorm/nfd \
-#  uninorm/nfkd \
 #  uninorm/u32-normalize \
 #  unistr/u8-to-u32
 
@@ -993,14 +992,6 @@ endif
 
 ## end   gnulib module uninorm/canonical-decomposition
 
-## begin gnulib module uninorm/compat-decomposition
-
-libgnu_a_SOURCES += uninorm/compat-decomposition.c
-
-EXTRA_DIST += uninorm/decompose-internal.h
-
-## end   gnulib module uninorm/compat-decomposition
-
 ## begin gnulib module uninorm/decompose-internal
 
 libgnu_a_SOURCES += uninorm/decompose-internal.c
@@ -1008,14 +999,6 @@ libgnu_a_SOURCES += uninorm/decompose-internal.c
 EXTRA_DIST += uninorm/decompose-internal.h
 
 ## end   gnulib module uninorm/decompose-internal
-
-## begin gnulib module uninorm/decomposition
-
-if LIBUNISTRING_COMPILE_UNINORM_DECOMPOSITION
-libgnu_a_SOURCES += uninorm/decomposition.c
-endif
-
-## end   gnulib module uninorm/decomposition
 
 ## begin gnulib module uninorm/decomposition-table
 
@@ -1034,16 +1017,6 @@ endif
 EXTRA_DIST += uninorm/normalize-internal.h
 
 ## end   gnulib module uninorm/nfd
-
-## begin gnulib module uninorm/nfkd
-
-if LIBUNISTRING_COMPILE_UNINORM_NFKD
-libgnu_a_SOURCES += uninorm/nfkd.c
-endif
-
-EXTRA_DIST += uninorm/normalize-internal.h
-
-## end   gnulib module uninorm/nfkd
 
 ## begin gnulib module uninorm/u32-normalize
 

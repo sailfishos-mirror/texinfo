@@ -40,7 +40,6 @@
 #  uchar-h \
 #  unictype/property-unified-ideograph \
 #  uninorm/nfd \
-#  uninorm/nfkd \
 #  uninorm/u32-normalize \
 #  unistr/u8-to-u32
 
@@ -50,7 +49,6 @@ gl_MODULES([
   uchar-h
   unictype/property-unified-ideograph
   uninorm/nfd
-  uninorm/nfkd
   uninorm/u32-normalize
   unistr/u8-to-u32
 ])
