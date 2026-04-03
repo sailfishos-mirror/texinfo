@@ -1,3 +1,7 @@
+2026-04-03  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta: replace gnulib module uchar (old name) with uchar-h.
+
 2026-04-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Remove misleading messages for move-to-next/prev-xref.

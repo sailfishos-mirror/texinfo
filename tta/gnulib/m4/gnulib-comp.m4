@@ -159,7 +159,6 @@ AC_DEFUN([gl_EARLY],
   # Code from module sys_types-h:
   AC_REQUIRE([AC_USE_SYSTEM_EXTENSIONS])
   # Code from module time-h:
-  # Code from module uchar:
   # Code from module uchar-h:
   # Code from module unicase/base:
   # Code from module unicase/cased:

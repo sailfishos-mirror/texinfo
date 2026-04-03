@@ -42,7 +42,7 @@
 #  setenv \
 #  strchrnul \
 #  strndup \
-#  uchar \
+#  uchar-h \
 #  unicase/u8-tolower \
 #  unicase/u8-toupper \
 #  unictype/category-L \
