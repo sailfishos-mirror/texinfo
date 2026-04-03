@@ -123,6 +123,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module mbsnlen:
   # Code from module mbszero:
   # Code from module memchr:
+  # Code from module memeq:
   # Code from module msvc-inval:
   # Code from module msvc-nothrow:
   # Code from module multiarch:
@@ -143,6 +144,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module stat-time:
   # Code from module std-gnu11:
   # Code from module stdckdint-h:
+  # Code from module stdcountof-h:
   # Code from module stddef-h:
   # Code from module stdint-h:
   # Code from module stdio-h:
@@ -151,8 +153,8 @@ AC_DEFUN([gl_EARLY],
   # Code from module stdlib-h:
   # Code from module strchrnul:
   # Code from module streq:
+  # Code from module streq-opt:
   # Code from module string-h:
-  # Code from module stringeq:
   # Code from module strndup:
   # Code from module strnlen:
   # Code from module sys_stat-h:
@@ -562,6 +564,8 @@ AC_DEFUN([gl_INIT],
     gl_PREREQ_MEMCHR
   ])
   gl_STRING_MODULE_INDICATOR([memchr])
+  gl_FUNC_MEMEQ
+  gl_STRING_MODULE_INDICATOR([memeq])
   AC_REQUIRE([gl_MSVC_INVAL])
   gl_CONDITIONAL([GL_COND_OBJ_MSVC_INVAL],
                  [test $HAVE_MSVC_INVALID_PARAMETER_HANDLER = 1])
@@ -606,6 +610,9 @@ AC_DEFUN([gl_INIT],
   gl_STAT_BIRTHTIME
   gl_STDCKDINT_H
   gl_CONDITIONAL_HEADER([stdckdint.h])
+  AC_PROG_MKDIR_P
+  gl_STDCOUNTOF_H
+  gl_CONDITIONAL_HEADER([stdcountof.h])
   AC_PROG_MKDIR_P
   gl_STDDEF_H
   gl_STDDEF_H_REQUIRE_DEFAULTS
@@ -657,7 +664,7 @@ AC_DEFUN([gl_INIT],
       ;;
   esac
   gl_CONDITIONAL([GL_COND_OBJ_STDIO_CONSOLESAFE], [test $USES_MSVCRT = 1])
-  AC_CHECK_FUNCS([vasprintf])
+  AC_CHECK_FUNCS_ONCE([vasprintf])
   gl_STDLIB_H
   gl_STDLIB_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
@@ -668,12 +675,11 @@ AC_DEFUN([gl_INIT],
     gl_PREREQ_STRCHRNUL
   ])
   gl_STRING_MODULE_INDICATOR([strchrnul])
+  gl_FUNC_STREQ
+  gl_STRING_MODULE_INDICATOR([streq])
   gl_STRING_H
   gl_STRING_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
-  gl_FUNC_STREQ
-  gl_FUNC_MEMEQ
-  gl_STRING_MODULE_INDICATOR([stringeq])
   gl_FUNC_STRNDUP
   gl_CONDITIONAL([GL_COND_OBJ_STRNDUP],
                  [test $HAVE_STRNDUP = 0 || test $REPLACE_STRNDUP = 1])
@@ -1122,6 +1128,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/mbtowc-lock.h
   lib/memchr.c
   lib/memchr.valgrind
+  lib/memeq.c
   lib/msvc-inval.c
   lib/msvc-inval.h
   lib/msvc-nothrow.c
@@ -1146,6 +1153,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/stat-w32.h
   lib/stat.c
   lib/stdckdint.in.h
+  lib/stdcountof.in.h
   lib/stddef.in.h
   lib/stdint.in.h
   lib/stdio-consolesafe.c
@@ -1157,8 +1165,8 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/stdlib.in.h
   lib/strchrnul.c
   lib/strchrnul.valgrind
-  lib/streq.h
-  lib/string.c
+  lib/streq-opt.h
+  lib/streq.c
   lib/string.in.h
   lib/strndup.c
   lib/strnlen.c
@@ -1366,6 +1374,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/mbsinit.m4
   m4/mbstate_t.m4
   m4/memchr.m4
+  m4/memeq.m4
   m4/mmap-anon.m4
   m4/msvc-inval.m4
   m4/msvc-nothrow.m4
@@ -1386,14 +1395,15 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/stat.m4
   m4/std-gnu11.m4
   m4/stdckdint_h.m4
+  m4/stdcountof_h.m4
   m4/stddef_h.m4
   m4/stdint.m4
   m4/stdint_h.m4
   m4/stdio_h.m4
   m4/stdlib_h.m4
   m4/strchrnul.m4
+  m4/streq.m4
   m4/string_h.m4
-  m4/stringeq.m4
   m4/strndup.m4
   m4/strnlen.m4
   m4/sys_cdefs_h.m4
