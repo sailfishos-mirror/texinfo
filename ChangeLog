@@ -1,5 +1,11 @@
 2026-04-03  Gavin Smith <gavinsmith0123@gmail.com>
 
+	gnulib update
+	
+	* (top-level): run "gnulib-tool --add-import".
+
+2026-04-03  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta: run "gnulib-tool --add-import
 	unictype/property-unified-ideograph uninorm/nfd
 	uninorm/u32-normalize unistr/u8-to-u32" in preparation for

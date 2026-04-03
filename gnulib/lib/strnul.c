@@ -1,5 +1,5 @@
-/* Copy a size-bounded string.
-   Copyright (C) 1999, 2011-2026 Free Software Foundation, Inc.
+/* _gl_strnul function.
+   Copyright (C) 2025-2026 Free Software Foundation, Inc.
 
    This file is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as
@@ -14,25 +14,6 @@
    You should have received a copy of the GNU Lesser General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
-/* Written by Bruno Haible <bruno@clisp.org>, 1999.  */
-
+#define _GL_STRNUL_INLINE _GL_EXTERN_INLINE
 #include <config.h>
-
-/* Specification.  */
 #include <string.h>
-
-char *
-strncpy (char *dest, const char *src, size_t n)
-{
-  char *destptr = dest;
-
-  for (; n > 0 && (*destptr = *src) != '\0'; src++, destptr++, n--)
-    ;
-
-  /* This behavior is rarely useful, but it is specified by the ISO C
-     standard.  */
-  for (; n > 0; n--)
-    *destptr++ = '\0';
-
-  return dest;
-}
