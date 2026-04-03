@@ -246,40 +246,33 @@ get_implicit_weight (char32_t codepoint,
       return;
     }
 
-  const uc_block_t *b = uc_block (codepoint);
   uint16_t AAAA = 0, BBBB = 0;
 
-  if (!b)
+  int i;
+  for (i = 0; i < NUM_IMPLICIT_BLOCKS; i++)
     {
-      /* possibly an invalid codepoint */
-      AAAA = 0xFBC0 + (codepoint >> 15);
-      BBBB = (codepoint & 0x7FFF) | 0x8000;
-    }
-  else
-    {
-      int i;
-      for (i = 0; i < NUM_IMPLICIT_BLOCKS; i++)
+      if (codepoint >= collation_data.implicit_blocks[i].low
+          && codepoint <= collation_data.implicit_blocks[i].high)
         {
-          if (b->start == collation_data.implicit_blocks[i].low)
-            {
-              AAAA = collation_data.implicit_blocks[i].primary;
+          AAAA = collation_data.implicit_blocks[i].primary;
 
-              /* Use 'low_base' which stores the lowest codepoint of all
-                 blocks that share the same primary.
-                 E.g., Tangut 17000-187FF and Tangut Supplement 18D00-18D7F
-                 both have primary=FB00, so low_base here is 17000 for both
-                 blocks. */
+          /* Use 'low_base' which stores the lowest codepoint of all
+             blocks that share the same primary.
+             E.g., Tangut 17000-187FF and Tangut Supplement 18D00-18D7F
+             both have primary=FB00, so low_base here is 17000 for both
+             blocks. */
 
-              BBBB = (codepoint - collation_data.implicit_blocks[i].low_base)
-                     | 0x8000;
-            }
+          BBBB = (codepoint - collation_data.implicit_blocks[i].low_base)
+                 | 0x8000;
         }
     }
 
   if (!AAAA && uc_is_property_unified_ideograph (codepoint))
     {
-      if (b->start == 0x4E00    /* CJK Unified Ideographs */
-          || b->start == 0xF900 /* CJK Compatibility Ideographs */ )
+      /* Check if in blocks "CJK Unified Ideographs" or "CJK Compatibility
+         Ideographs" */
+      if (codepoint >= 0x4E00 && codepoint <= 0x9FFF
+          || codepoint >= 0xF900 && codepoint <= 0xFAFF)
         {
           AAAA = 0xFB40 + (codepoint >> 15);
         }
@@ -292,6 +285,7 @@ get_implicit_weight (char32_t codepoint,
 
   if (!AAAA)
     {
+      /* possibly an invalid codepoint */
       AAAA = 0xFBC0 + (codepoint >> 15);
       BBBB = (codepoint & 0x7FFF) | 0x8000;
     }
