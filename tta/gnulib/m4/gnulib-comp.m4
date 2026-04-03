@@ -194,6 +194,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module unictype/property-join-control:
   # Code from module unictype/property-soft-dotted:
   # Code from module unictype/property-test:
+  # Code from module unictype/property-unified-ideograph:
   # Code from module uninorm/base:
   # Code from module uninorm/canonical-decomposition:
   # Code from module uninorm/compat-decomposition:
@@ -204,11 +205,15 @@ AC_DEFUN([gl_EARLY],
   # Code from module uninorm/nfc:
   # Code from module uninorm/nfd:
   # Code from module uninorm/nfkd:
+  # Code from module uninorm/u32-normalize:
   # Code from module uninorm/u8-normalize:
   # Code from module unistd-h:
   # Code from module unistr/base:
+  # Code from module unistr/u32-cpy:
+  # Code from module unistr/u32-mbtouc-unsafe:
   # Code from module unistr/u32-next:
   # Code from module unistr/u32-strmbtouc:
+  # Code from module unistr/u32-uctomb:
   # Code from module unistr/u8-cpy:
   # Code from module unistr/u8-mbsnlen:
   # Code from module unistr/u8-mbtouc:
@@ -217,6 +222,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module unistr/u8-next:
   # Code from module unistr/u8-strlen:
   # Code from module unistr/u8-strmbtouc:
+  # Code from module unistr/u8-to-u32:
   # Code from module unistr/u8-uctomb:
   # Code from module unitypes-h:
   # Code from module uniwidth/base:
@@ -755,6 +761,9 @@ AC_DEFUN([gl_INIT],
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
   gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.4], [unictype/property-soft-dotted])
   gl_LIBUNISTRING_MODULE([1.4], [unictype/property-test])
+  AC_REQUIRE([AC_C_INLINE])
+  gl_UNICTYPE_H_REQUIRE_DEFAULTS
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.4], [unictype/property-unified-ideograph])
   gl_LIBUNISTRING_LIBHEADER([1.2], [uninorm.h])
   gl_UNINORM_H
   gl_UNINORM_H_REQUIRE_DEFAULTS
@@ -769,6 +778,8 @@ AC_DEFUN([gl_INIT],
   gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.4], [uninorm/nfd])
   gl_UNINORM_H_REQUIRE_DEFAULTS
   gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.4], [uninorm/nfkd])
+  gl_MODULE_INDICATOR_FOR_TESTS([uninorm/u32-normalize])
+  gl_LIBUNISTRING_MODULE([1.4], [uninorm/u32-normalize])
   gl_MODULE_INDICATOR_FOR_TESTS([uninorm/u8-normalize])
   gl_LIBUNISTRING_MODULE([1.4], [uninorm/u8-normalize])
   gl_UNISTD_H
@@ -776,8 +787,13 @@ AC_DEFUN([gl_INIT],
   AC_PROG_MKDIR_P
   gl_LIBUNISTRING_LIBHEADER([1.2], [unistr.h])
   AC_PROG_MKDIR_P
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-cpy])
+  gl_MODULE_INDICATOR([unistr/u32-mbtouc-unsafe])
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-mbtouc-unsafe])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-next])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-strmbtouc])
+  gl_MODULE_INDICATOR([unistr/u32-uctomb])
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-uctomb])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-cpy])
   gl_LIBUNISTRING_MODULE([1.2], [unistr/u8-mbsnlen])
   gl_MODULE_INDICATOR([unistr/u8-mbtouc])
@@ -789,6 +805,7 @@ AC_DEFUN([gl_INIT],
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-next])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-strlen])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-strmbtouc])
+  gl_LIBUNISTRING_MODULE([0.9.3], [unistr/u8-to-u32])
   gl_MODULE_INDICATOR([unistr/u8-uctomb])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-uctomb])
   gl_LIBUNISTRING_LIBHEADER([0.9.11], [unitypes.h])
@@ -1215,6 +1232,8 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unictype/pr_soft_dotted.c
   lib/unictype/pr_soft_dotted.h
   lib/unictype/pr_test.c
+  lib/unictype/pr_unified_ideograph.c
+  lib/unictype/pr_unified_ideograph.h
   lib/uninorm.in.h
   lib/uninorm/canonical-decomposition.c
   lib/uninorm/compat-decomposition.c
@@ -1233,13 +1252,17 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/uninorm/nfkd.c
   lib/uninorm/normalize-internal.h
   lib/uninorm/u-normalize-internal.h
+  lib/uninorm/u32-normalize.c
   lib/uninorm/u8-normalize.c
   lib/unistd.c
   lib/unistd.in.h
   lib/unistr.in.h
   lib/unistr/u-cpy.h
+  lib/unistr/u32-cpy.c
+  lib/unistr/u32-mbtouc-unsafe.c
   lib/unistr/u32-next.c
   lib/unistr/u32-strmbtouc.c
+  lib/unistr/u32-uctomb.c
   lib/unistr/u8-cpy.c
   lib/unistr/u8-mbsnlen.c
   lib/unistr/u8-mbtouc-aux.c
@@ -1250,6 +1273,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unistr/u8-next.c
   lib/unistr/u8-strlen.c
   lib/unistr/u8-strmbtouc.c
+  lib/unistr/u8-to-u32.c
   lib/unistr/u8-uctomb-aux.c
   lib/unistr/u8-uctomb.c
   lib/unitypes.in.h

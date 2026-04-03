@@ -54,8 +54,11 @@
 #  unictype/property-alphabetic \
 #  unictype/property-join-control \
 #  unictype/property-test \
+#  unictype/property-unified-ideograph \
 #  uninorm/nfc \
+#  uninorm/nfd \
 #  uninorm/nfkd \
+#  uninorm/u32-normalize \
 #  uninorm/u8-normalize \
 #  unistr/u32-next \
 #  unistr/u8-mbsnlen \
@@ -63,6 +66,7 @@
 #  unistr/u8-next \
 #  unistr/u8-strlen \
 #  unistr/u8-strmbtouc \
+#  unistr/u8-to-u32 \
 #  unistr/u8-uctomb \
 #  uniwidth/u8-strwidth \
 #  uniwidth/u8-width \
@@ -2384,6 +2388,16 @@ endif
 
 ## end   gnulib module unictype/property-test
 
+## begin gnulib module unictype/property-unified-ideograph
+
+if LIBUNISTRING_COMPILE_UNICTYPE_PROPERTY_UNIFIED_IDEOGRAPH
+libgnu_la_SOURCES += unictype/pr_unified_ideograph.c
+endif
+
+EXTRA_DIST += unictype/bitmap.h unictype/pr_unified_ideograph.h
+
+## end   gnulib module unictype/property-unified-ideograph
+
 ## begin gnulib module uninorm/base
 
 BUILT_SOURCES += $(LIBUNISTRING_UNINORM_H)
@@ -2494,6 +2508,16 @@ endif
 EXTRA_DIST += uninorm/normalize-internal.h
 
 ## end   gnulib module uninorm/nfkd
+
+## begin gnulib module uninorm/u32-normalize
+
+if LIBUNISTRING_COMPILE_UNINORM_U32_NORMALIZE
+libgnu_la_SOURCES += uninorm/u32-normalize.c
+endif
+
+EXTRA_DIST += uninorm/normalize-internal.h uninorm/u-normalize-internal.h
+
+## end   gnulib module uninorm/u32-normalize
 
 ## begin gnulib module uninorm/u8-normalize
 
@@ -2738,6 +2762,24 @@ EXTRA_DIST += unistr.in.h
 
 ## end   gnulib module unistr/base
 
+## begin gnulib module unistr/u32-cpy
+
+if LIBUNISTRING_COMPILE_UNISTR_U32_CPY
+libgnu_la_SOURCES += unistr/u32-cpy.c
+endif
+
+EXTRA_DIST += unistr/u-cpy.h
+
+## end   gnulib module unistr/u32-cpy
+
+## begin gnulib module unistr/u32-mbtouc-unsafe
+
+if LIBUNISTRING_COMPILE_UNISTR_U32_MBTOUC_UNSAFE
+libgnu_la_SOURCES += unistr/u32-mbtouc-unsafe.c
+endif
+
+## end   gnulib module unistr/u32-mbtouc-unsafe
+
 ## begin gnulib module unistr/u32-next
 
 if LIBUNISTRING_COMPILE_UNISTR_U32_NEXT
@@ -2753,6 +2795,14 @@ libgnu_la_SOURCES += unistr/u32-strmbtouc.c
 endif
 
 ## end   gnulib module unistr/u32-strmbtouc
+
+## begin gnulib module unistr/u32-uctomb
+
+if LIBUNISTRING_COMPILE_UNISTR_U32_UCTOMB
+libgnu_la_SOURCES += unistr/u32-uctomb.c
+endif
+
+## end   gnulib module unistr/u32-uctomb
 
 ## begin gnulib module unistr/u8-cpy
 
@@ -2819,6 +2869,14 @@ libgnu_la_SOURCES += unistr/u8-strmbtouc.c
 endif
 
 ## end   gnulib module unistr/u8-strmbtouc
+
+## begin gnulib module unistr/u8-to-u32
+
+if LIBUNISTRING_COMPILE_UNISTR_U8_TO_U32
+libgnu_la_SOURCES += unistr/u8-to-u32.c
+endif
+
+## end   gnulib module unistr/u8-to-u32
 
 ## begin gnulib module unistr/u8-uctomb
 
