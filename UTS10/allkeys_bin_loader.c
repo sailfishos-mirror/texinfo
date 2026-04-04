@@ -8,7 +8,7 @@
 
 #include "allkeys_bin_loader.h"
 
-#include "allkeys_bin.c"
+#include "collation-table.c"
 
 void
 print_header_info (void)

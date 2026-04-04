@@ -13,8 +13,9 @@ stamp-h1
 tags
 config.*
 
+gen-collation-table
 allkeys_query
-allkeys_to_binary
+collation_test
 utf8_to_sort_key
 
 gnulib/lib/fcntl.h

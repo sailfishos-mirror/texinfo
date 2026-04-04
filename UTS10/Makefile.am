@@ -11,9 +11,13 @@ LDADD += \
 
 AM_CPPFLAGS = -I gnulib/lib
 
-bin_PROGRAMS = allkeys_bin_dumper allkeys_query utf8_to_sort_key collation_test
+bin_PROGRAMS = gen-collation-table
+gen_collation_table_SOURCES = gen-collation-table.c allkeys_bin.h
 
-allkeys_bin_dumper_SOURCES = allkeys_bin_dumper.c allkeys_bin.h
+collation-table.c: gen-collation-table allkeys.txt
+	./gen-collation-table ./allkeys.txt collation-table.c
+
+bin_PROGRAMS += allkeys_query utf8_to_sort_key collation_test
 
 allkeys_query_SOURCES = allkeys_query.c allkeys_bin_loader.c \
   allkeys_bin.h allkeys_bin_loader.h
@@ -24,13 +28,7 @@ utf8_to_sort_key_SOURCES = utf8_to_sort_key.c allkeys_bin_loader.c collation_key
 collation_test_SOURCES = collation_test.c allkeys_bin_loader.c collation_key.c \
   allkeys_bin_loader.h collation_key.h allkeys_bin.h
 
-# This depends on gnulib being built first
-#BUILT_SOURCES = allkeys_bin.c
-
-allkeys_bin.c: allkeys_bin_dumper allkeys.txt
-	./allkeys_bin_dumper ./allkeys.txt allkeys_bin.c
-
-test: allkeys_bin_dumper allkeys_query utf8_to_sort_key
+test: gen-collation-table allkeys_query utf8_to_sort_key
 	@echo "=== Testing single codepoint lookup ==="
 	./allkeys_query lookup 0041
 	@echo ""
