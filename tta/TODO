@@ -98,7 +98,7 @@ C/main/unicode.h: unicode_character_brace_no_arg_commands
   => libtexinfo-convert (html_prepare_converter.c)
 C/main/utils.h: output_conversions, input_conversions
   => libtexinfo-convert (html_prepare_converter.c...),
-     libtexinfo-main (swig_interface.c) 
+     libtexinfo-main (swig_interface.c)
 C/main/utils.h: null_device_names
   => texi2any.c
 
@@ -497,6 +497,311 @@ résultat/encodé.txt file name encoded in utf8
 
 ./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree -o char_latin1_latin1_in_refs_tree.txt ./t/input_files/char_latin1_latin1_in_refs.texi
 char_latin1_latin1_in_refs_tree.txt content encoded in latin1
+
+
+Texinfo manuals translations
+============================
+
+An possible system, for translation only, no special handling of
+cross-references is ti use po4a, possibly with Texinfo SWIG interface
+based new texinfoparser format.
+
+Discussions
+-----------
+
+Main TODO
+Support installation of manuals in different languages, along these lines:
+  . support a LINGUAS file or variable saying which subdirs LL in the
+    source to descend into (under doc/).
+  . within each subdir LL, install the info files into $infodir/LL,
+    and run install-info on $infodir/LL/dir.
+  . info (both emacs and standalone) should read $infodir/$LANG/dir
+    as the first dir file, and likewise read info files first from
+    $infodir/$LANG, before falling back to $infodir.
+  . consider ways to avoid installing images in both places.
+    In fact, images probably need to be installed in a subdir
+    $infodir/MANUAL/ in the first place, to avoid conflicts of having
+    the same image name in different manuals.
+  For a test case, see texinfo cvs, with its one translated manual
+  (info-fr.texi).
+  From Wojciech Polak.
+  This is only one possibility, and should not necessarily need a
+  change to the info readers, changing installation and INFOPATH
+  could be enough.  There is another often used possibility, naming
+  manuals with a suffix for the language.
+
+https://lists.gnu.org/archive/html/bug-texinfo/2008-07/msg00005.html
+https://lists.gnu.org/archive/html/bug-texinfo/2008-07/msg00022.html
+using GUILE to store parsed Texinfo input, so one can write Scheme
+code to play
+- generating skeletons of Texinfo files to start a translation (it's
+very useful to mention original node names in English in the
+translation),
+"linking" the same nodes in different languages,
+so that e.g. a cross-reference to a node untranslated in some language
+can be replaced by a cross-reference to the same node in a different
+language.
+- making statistics about translations (e.g. which parts of a document
+are translated), which is useful for huge documents that cannot be
+easily translated in one go, or looking for nodes that exist in one
+lanugage but not other (if you allow translators to write new
+documentation in their own language).
+
+https://lists.gnu.org/archive/html/bug-texinfo/2014-09/msg00002.html
+https://lists.gnu.org/archive/html/bug-texinfo/2014-09/msg00010.html
+Currently the usual practice is that a translated document is just another
+document with some -xx ending in the base name (where xx refers to the
+language, e.g. fr for French).
+In my opinion an alternative method would be that translated document should
+rather bare exactly the same name but just be in a language specific directory
+named xx, with some fall backs to another language (meaning ../oo, where oo
+refers to the other language) when manual does not exists.
+I think that the alternative method is closer to what people usually do for Web
+sites, in which each language is its own tree replica (file/directory names are
+same, but only file contents differ).
+About node name translation for presentation to
+user (there should remain a node true name that should remain the same whatever
+the translation.
+
+https://lists.gnu.org/archive/html/bug-texinfo/2025-02/msg00079.html
+About a second argument for anchor for the text displayed
+* For translators, having the same anchor name as in the original
+  document helps a lot in translation.  And vice versa, it helps
+  maintainers who don't speak the particular language to still do
+  various maintenance tasks easier.
+
+* It helps avoid issues with transliteration.  All redirection file
+  names are in a single language, namely English.
+
+https://lists.gnu.org/archive/html/bug-texinfo/2025-02/msg00080.html
+My feeling is that another solution would be better, for example a macro
+that separates the association to the english label from the output
+itself, based on the document language.  Something like
+
+@macro translateanchor {en, name}
+@anchor{\name\}
+@end macro
+
+@macro translateref {en, name}
+\name\
+@end macro
+
+@translateanchor{in english, en français}
+
+@ref{@translateref{in english, en français}, ...}.
+
+it could probably
+be possible to do something using customization functions to get the
+macro call arguments by using the source marks
+
+https://lists.gnu.org/archive/html/bug-texinfo/2025-05/msg00008.html
+entry in 'dir'
+
+* Guix: (guix.es).              Gestión del software instalado y la
+                                  configuración del sistema.
+...
+* Guix: (guix).                 Manage installed software and system
+                                  configuration.
+
+I don't know if any changes are needed to Texinfo to support installation
+of Info files in multiple languages.  It is something that could
+perhaps be implemented with existing Info features, such as search paths
+and installing Info files in different directories depending on the language.
+
+https://lists.gnu.org/archive/html/help-texinfo/2024-01/msg00009.html
+@dircategory
+what about using “Translated manuals” for now,
+since the number of translated manuals is very low?
+
+The day when we have a reasonable amount of translated manuals, it will
+make sense to have them under the original English manuals. I guess it
+won’t be too difficult to make the change.
+
+Would @author be also used for the translator?
+
+For ex. emacs-gnutls.txi has
+@author by Ted Zlatanov
+
+In French that would be
+@author par Ted Zlatanov
+@author traduit en français par Achille Talon
+
+https://lists.gnu.org/archive/html/help-texinfo/2024-01/msg00057.html
+# Translating the Emacs manuals
+
+## Location
+
+Translated manuals sources are located in the ’doc/lang’ directory, under the
+directory whose name corresponds to the translated language.
+
+For ex. French manual sources are found under ’doc/lang/fr’.
+
+The structure of the language folders should match the structure of the English
+manuals (i.e. ’misc’, ’man’, ’lispref’, ’lispintro’, ’emacs’).
+
+## Format
+
+The translated manuals should be in the same format as the English sources:
+TexInfo.
+
+### TexInfo specific issues
+
+Until Emacs/TexInfo provide better solutions, here are a few rules to follow:
+
+- ’@node’ items should be translated but should be accompanied by an ’@anchor’
+that contains the original English ’@node’ contents.
+
+- You should add a ’@documentlanguage’ directive that includes your language.
+
+For ex. ’@documentlanguage zh’
+
+- ’@author’ can be used for the translator’s name.
+
+Fr ex. `@author traduit en français par Achile Talon`
+
+## Committing the files
+
+Like other source files, translations should be committed to a separate branch
+for revision. Ideally, the branch name should be suggestive of what they
+contain.
+
+For ex: ’origin/translations/emacs-lisp-intro-ar.texi’
+
+Before committing the files for revision, ensure that they have been properly
+checked for spelling/grammar/typography by at least using the tools that Emacs
+provides.
+
+You should also make sure that the TexInfo files build properly on your system.
+
+Once the files are committed, announce the commit to the emacs-devel list so
+that fellow translators can check the file and review it.
+
+## Discussions about translation issues
+
+Translation-related discussions are welcome on the emacs-devel list.
+Discussions specific to your language do not have to take place in English.
+
+## Notes about the original document
+
+During the course of the translation, you will find parts of the original
+document that needs to be updated or otherwise fixed. If you do not intend to
+modify the original documents right away, do not add notes to the original
+documents but rather keep such notes inside your translation as TODO items
+until you action them.
+
+## Translation teams
+
+The number of words in the Emacs manuals is above 2,000,000 words. While one
+individual could theoretically translate all the files, it is more practical to
+work in language teams.
+
+If you have a small group of translators willing to help, make sure that the
+files are properly reviewed before committing them (see above.)
+
+## Translation processes
+
+Emacs does not provide yet tools that significantly help the translation
+process. A few ideal functions would be:
+
+- automatic lookup of a list of glossary items when starting to work on a
+translation “unit” (paragraph or otherwise), such glossary terms should be
+easily insertable at point
+
+- automatic lookup of past translations to check for similarity and improve
+homogeneity over the whole document set, such past translation matches should
+be easily insertable at point
+
+Although the PO format has not been developed with documentation in mind, it is
+well known among free software translation teams and you can easily use the
+’po4a’ utility to convert TexInfo to PO for work in translation tools that
+support the PO format.
+
+https://lists.gnu.org/archive/html/bug-texinfo/2014-09/msg00010.html
+---> related to docstrings in Emacs
+One second thing was internationalisation for *DocStrings*, in that context I
+was suggesting that docstring could contain some link to some manual variable
+or function description, so switching the Help language based on configured
+locale would just mean switching to the correct manual translation.
+
+
+LilyPond translations system
+----------------------------
+
+LilyPond has a very elaborate system:
+https://lilypond.org/doc/v2.25/Documentation/contributor-big-page#cross_002dreferences
+This system handles both translations and inclusion of LilyPond
+snippets in output manuals.
+
+Cross-references link target @rchanges: Changes file
+All these commands also have a @...named version, which allows to specify the
+displayed text for the reference as a second argument. This is mainly used in
+translations, for example @rlearningnamed{I'm hearing voices, J'entends des
+voix}.
+
+Documentation/en/macros.itexi
+@macro rchanges{TEXT}
+@ref{\TEXT\,,,changes-big-page,Changes}
+@end macro
+
+@macro rchangesnamed{TEXT,DISPLAY}
+@ref{\TEXT\,,\DISPLAY\,changes-big-page,Changes}
+@end macro
+
+https://lilypond.org/doc/v2.25/Documentation/contributor-big-page#translating-the-website-and-other-texinfo-documentation
+
+Node names are not translated, only the section titles are. That is, every
+piece in the original file like
+
+@node Foo bar
+@section_command Bar baz
+
+should be translated as
+
+@node Foo bar
+@section_command translation of Bar baz
+
+you should at least write the node definition in the expected source file and
+define all its parent nodes; for each node you have defined this way but have
+not translated, insert a line that contains @untranslated. That is, you should
+end up for each untranslated node with something like
+
+@node Foo bar
+@section_command translation of Bar baz
+
+@untranslated
+
+...
+However, some music snippets containing text that shows in the rendered music,
+and sometimes translating this text really helps the user to understand the
+documentation; in this case, and only in this case, you may as an exception
+translate text in the music snippet, and then you must add a line immediately
+before the @lilypond block, starting with
+
+@c KEEP LY
+
+When you encounter
+
+@lilypondfile[...,texidoc,...]{filename.ly}
+
+in the source, open Documentation/snippets/filename.ly, translate the texidoc header field it contains, wrap it with texidocMY-LANGUAGE = "...", and write it into Documentation/MY-LANGUAGE/texidocs/filename.texidoc. Additionally, you may translate the snippet’s title in the doctitle header field in case doctitle is a fragment option used in @lilypondfile; you can do this exactly the same way as texidoc. For instance, Documentation/es/texidocs/filename.texidoc may contain
+
+doctitlees = "Spanish title baz"
+texidoces = "
+Spanish translation blah
+"
+
+https://lilypond.org/doc/v2.25/Documentation/contributor-big-page#documentation-translation-maintenance
+
+make ISOLANG=MY-LANGUAGE check-translation
+
+At the beginning of each translated file (except for .po files), there is a
+committish (i.e., an SHA-1 tag consisting of 40 hexadecimal digits that
+uniquely identify a specific commit in a git repository) to represent the
+revision of the sources that you have used to translate this file from the file
+in English.
+
+When you have pulled and updated a translation, it is very important to update
+this committish in the files you have completely updated (and only these);
 
 
 Notes on classes names in HTML
