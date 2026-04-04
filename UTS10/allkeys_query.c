@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 #include "allkeys_bin.h"
-#include "allkeys_bin_loader.h"
+#include "collation_data_loader.h"
 
 void
 print_usage (const char *prog)

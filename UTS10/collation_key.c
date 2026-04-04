@@ -5,7 +5,7 @@
 #include <string.h>
 #include "uninorm.h"
 
-#include "allkeys_bin_loader.h"
+#include "collation_data_loader.h"
 #include "collation_key.h"
 
 #define no_nulls_in_key 1

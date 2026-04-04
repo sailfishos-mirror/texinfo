@@ -5,7 +5,7 @@
 #include <string.h>
 #include <getopt.h>
 
-#include "allkeys_bin_loader.h"
+#include "collation_data_loader.h"
 #include "collation_key.h"
 
 static void
