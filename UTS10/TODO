@@ -31,16 +31,9 @@ could cut the size of the data by a factor of two.
 * check in main collation data table first and add some special marker
 for checking in trie for sequence
 
-* put allkeys.txt version (and other metadata?) in output
-
 * optimise sequence lookup or lookup for ASCII chars
+* Unicode normalisation issues.  We could extend the data table
+to include more "canonically decomposable characters".  (See TR#10 s.9.5.)
 
-* test more sequences other than l· (what are they??)
-
-* Add gnulib vars in Makefile.am
-
-* Unicode normalisation issues.  We should extend the data table
-to include "canonically decomposable characters".  (See TR#10 s.9.5.)
-(It's possible the table ("DUCET") already contains these.)
-Or we should do the opposite and take these out of the table to
-save space!
+* could use "compatibility decompositions" to save space
+(UTS #10 9.3.2).
