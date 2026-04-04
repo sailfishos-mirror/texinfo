@@ -1,4 +1,4 @@
-**/*~
+*r/*~
 
 build
 **/test
@@ -63,35 +63,36 @@ gnulib/lib/getopt.h
 gnulib/lib/getopt-cdefs.h
 gnulib/lib/inttypes.h
 gnulib/lib/langinfo.h
+gnulib/lib/limits.h
 gnulib/lib/locale.h
+gnulib/lib/malloc/dynarray.gl.h
+gnulib/lib/malloc/dynarray-skeleton.gl.h
+gnulib/lib/math.h
 gnulib/lib/pthread.h
 gnulib/lib/sched.h
+gnulib/lib/stdckdint.h
 gnulib/lib/stdarg.h
 gnulib/lib/stdbool.h
+gnulib/lib/stdcountof.h
+gnulib/lib/stddef.h
 gnulib/lib/stdint.h
 gnulib/lib/stdio.h
 gnulib/lib/stdlib.h
 gnulib/lib/string.h
 gnulib/lib/strings.h
+gnulib/lib/sys
 gnulib/lib/sys_stat.h
 gnulib/lib/sys_time.h
-gnulib/lib/sys
 gnulib/lib/time.h
 gnulib/lib/unistd.h
 gnulib/lib/unitypes.h
 gnulib/lib/uniwidth.h
-gnulib/lib/wchar.h
-gnulib/lib/wctype.h
-gnulib/lib/math.h
-gnulib/lib/stdckdint.h
-gnulib/lib/stddef.h
-gnulib/lib/limits.h
-gnulib/lib/malloc/dynarray.gl.h 
-gnulib/lib/malloc/dynarray-skeleton.gl.h
 gnulib/lib/uchar.h
 gnulib/lib/unicase.h
 gnulib/lib/unictype.h
 gnulib/lib/uninorm.h
+gnulib/lib/wchar.h
+gnulib/lib/wctype.h
 
 gnulib/lib/**/.dirstamp
 
@@ -123,6 +124,7 @@ tta/gnulib/lib/getopt.h
 tta/gnulib/lib/getopt-cdefs.h
 tta/gnulib/lib/inttypes.h
 tta/gnulib/lib/locale.h
+tta/gnulib/lib/stdcountof.h
 tta/gnulib/lib/sys/stat.h
 tta/gnulib/lib/sys/time.h
 tta/gnulib/lib/time.h
