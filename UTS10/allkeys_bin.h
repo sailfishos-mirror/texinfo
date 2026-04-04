@@ -6,25 +6,12 @@
 #include <stdbool.h>
 #include <uchar.h>
 
-/* Maximum codepoints in a sequence (observed max is 18, using 32 for safety) */
+/* Used as maximum number of codepoints in a sequence (observed max is 
+   about 18 for Arabic ligatures) */
 #define MAX_SEQUENCE_LENGTH 32
 
-#define NUM_PAGES 0x1100
-
-//#define MAX_COLLATION_ELEMENTS 18
+/* Used as maximum number of collation elements in a sequence (observed max is 
+   about 18). */
 #define MAX_COLLATION_ELEMENTS 32
-
-/* Collation element - represents [.XXXX.XXXX.XXXX] or [*XXXX.XXXX.XXXX]. */
-typedef struct
-{
-  uint16_t primary;
-  uint16_t secondary;
-  uint8_t tertiary;
-} CollationElement;
-
-
-
-
-
 
 #endif /* ALLKEYS_BIN_H */

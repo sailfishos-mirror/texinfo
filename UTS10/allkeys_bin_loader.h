@@ -2,6 +2,15 @@
 #include <uchar.h>
 #include "allkeys_bin.h"
 
+
+/* Collation element - represents [.XXXX.XXXX.XXXX] or [*XXXX.XXXX.XXXX]. */
+typedef struct
+{
+  uint16_t primary;
+  uint16_t secondary;
+  uint8_t tertiary;
+} CollationElement;
+
 struct collation_data_ref {
   uint32_t data_index;
   uint8_t num_elements;

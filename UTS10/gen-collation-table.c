@@ -10,6 +10,17 @@
 
 #include "allkeys_bin.h"
 
+#define NUM_PAGES 0x1100
+
+
+/* Collation element - represents [.XXXX.XXXX.XXXX] or [*XXXX.XXXX.XXXX]. */
+typedef struct
+{
+  uint16_t primary;
+  uint16_t secondary;
+  uint8_t tertiary;
+} CollationElement;
+
 typedef struct
 {
   uint8_t num_elements;
