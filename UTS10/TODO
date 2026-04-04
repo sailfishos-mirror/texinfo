@@ -1,14 +1,4 @@
-# list secondary weights
- perl -wnle '/\[[\.\*][[:xdigit:]]{4}\.([[:xdigit:]]{4})/ && print $1 ; ' <allkeys.txt  | sort | uniq
-
-# list tertiary weights
- perl -wnle '/\[[\.\*][[:xdigit:]]{4}\.[[:xdigit:]]{4}.([[:xdigit:]]{4})/ && print $1 ; ' <allkeys.txt  | sort | uniq
-
-In allkeys-17.0.0
-256 possible secondary weights (0x0000 and 0x0020 - 0x011E)
-extra secondary collation weights 001F - 0127
-
-29 possible tertiary weights
+* better tests
 
 * revise data structures for lookup
 See "5.1.2 Multi-stage tables" in Unicode standard for some hints
@@ -37,3 +27,19 @@ to include more "canonically decomposable characters".  (See TR#10 s.9.5.)
 
 * could use "compatibility decompositions" to save space
 (UTS #10 9.3.2).
+
+notes:
+
+# list secondary weights
+
+ perl -wnle '/\[[\.\*][[:xdigit:]]{4}\.([[:xdigit:]]{4})/ && print $1 ; ' <allkeys.txt  | sort | uniq
+
+# list tertiary weights
+ perl -wnle '/\[[\.\*][[:xdigit:]]{4}\.[[:xdigit:]]{4}.([[:xdigit:]]{4})/ && print $1 ; ' <allkeys.txt  | sort | uniq
+
+In allkeys-17.0.0
+256 possible secondary weights (0x0000 and 0x0020 - 0x011E)
+extra secondary collation weights 001F - 0127
+
+29 possible tertiary weights
+

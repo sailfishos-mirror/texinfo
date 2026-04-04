@@ -19,14 +19,15 @@ collation-table.c: gen-collation-table allkeys.txt
 
 bin_PROGRAMS += allkeys_query utf8_to_sort_key collation_test
 
-allkeys_query_SOURCES = allkeys_query.c allkeys_bin_loader.c \
-  allkeys_bin.h allkeys_bin_loader.h
+allkeys_query_SOURCES = allkeys_query.c collation_data_loader.c \
+  allkeys_bin.h collation_data_loader.h
 
-utf8_to_sort_key_SOURCES = utf8_to_sort_key.c allkeys_bin_loader.c collation_key.c \
-  allkeys_bin_loader.h collation_key.h allkeys_bin.h
+utf8_to_sort_key_SOURCES = utf8_to_sort_key.c collation_data_loader.c collation_key.c \
+  collation_data_loader.h collation_key.h allkeys_bin.h
 
-collation_test_SOURCES = collation_test.c allkeys_bin_loader.c collation_key.c \
-  allkeys_bin_loader.h collation_key.h allkeys_bin.h
+collation_test_SOURCES = collation_test.c \
+                         collation_data_loader.c collation_data_loader.h \
+                         collation_key.c collation_key.h allkeys_bin.h
 
 test: gen-collation-table allkeys_query utf8_to_sort_key
 	@echo "=== Testing single codepoint lookup ==="
