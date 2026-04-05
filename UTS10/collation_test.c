@@ -11,7 +11,9 @@
 static void
 print_collation_key (const char *key, size_t length)
 {
-  for (const unsigned char *p = key; p < key + length; p += 2)
+  for (unsigned const char *p = key;
+       p < (unsigned const char *) key + length;
+       p += 2)
     {
       fprintf (stderr, "%02x%02x ", p[0], p[1]);
     }
@@ -146,7 +148,8 @@ main (int argc, char *argv[])
           exit (1);
         }
 
-      sort_key2 = u32_make_collation_key_ext (codepoints, length, trace,
+      sort_key2 = u32_make_collation_key_ext (codepoints, length,
+                                         UNICOLL_VARIABLE_NONIGNORABLE, trace,
                                          NULL, &sort_key2_len);
 
       /* We expect that sort_key1 <= sort_key1. */

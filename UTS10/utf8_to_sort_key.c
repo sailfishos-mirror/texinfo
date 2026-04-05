@@ -25,10 +25,14 @@ print_collation_key (const char8_t *string)
 {
   size_t sort_key_len;
   char *sort_key =
-    u8_make_collation_key (string, strlen (string), NULL, &sort_key_len);
+    u8_make_collation_key (string, strlen (string),
+                           UNICOLL_VARIABLE_NONIGNORABLE,
+                           NULL, &sort_key_len);
 
   printf ("Sort key: ");
-  for (unsigned char *p = sort_key; p < sort_key + sort_key_len; p += 2)
+  for (unsigned char *p = sort_key;
+       p < (unsigned char *) sort_key + sort_key_len;
+       p += 2)
     {
       printf ("%02x%02x ", p[0], p[1]);
     }

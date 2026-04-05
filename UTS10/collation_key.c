@@ -14,9 +14,17 @@
 
 char *
 u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
-                            int debug,
+                            int variable, int debug,
                             char *resultbuf, size_t *lengthp)
 {
+  if (variable != UNICOLL_VARIABLE_NONIGNORABLE)
+    {
+      fprintf (stderr, "only Non-ignorable setting for variable elements "
+                       "is implemented\n");
+      exit (1);
+    }
+
+
   char32_t *codepoints;
   size_t length;
 
@@ -240,22 +248,22 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
 
 char *
 u32_make_collation_key (const char32_t *codepoints_in, size_t length_in,
-                        char *resultbuf, size_t *lengthp)
+                        int variable, char *resultbuf, size_t *lengthp)
 {
-  return u32_make_collation_key_ext (codepoints_in, length_in, 0,
+  return u32_make_collation_key_ext (codepoints_in, length_in, 0, variable,
                                      resultbuf, lengthp);
 }
 
 char *
 u8_make_collation_key (const uint8_t *u8_str, size_t length_in,
-                        char *resultbuf, size_t *lengthp)
+                       int variable, char *resultbuf, size_t *lengthp)
 {
   static char32_t *u32_str;
   static size_t u32_len;
 
   u32_str = u8_to_u32 (u8_str, length_in, u32_str, &u32_len);
 
-  char *key = u32_make_collation_key_ext (u32_str, u32_len, 0,
-                                     resultbuf, lengthp);
+  char *key = u32_make_collation_key_ext (u32_str, u32_len, variable,
+                                          0, resultbuf, lengthp);
   return key;
 }
