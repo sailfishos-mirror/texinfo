@@ -43,17 +43,18 @@ print_usage (const char *program_name)
 int
 print_collation_key (UTF8Result result)
 {
-  CollationKey sort_key =
-    get_collation_key (result.codepoints, result.length);
+  size_t sort_key_len;
+  char *sort_key =
+    u32_make_collation_key (result.codepoints, result.length,
+                       NULL, &sort_key_len);
   printf ("Sort key: ");
-  for (unsigned char *p = sort_key.key; p < sort_key.key + sort_key.length;
-       p += 2)
+  for (unsigned char *p = sort_key; p < sort_key + sort_key_len; p += 2)
     {
       printf ("%02x%02x ", p[0], p[1]);
     }
   printf ("\n");
 
-  free (sort_key.key);
+  free (sort_key);
 
   return 1;
 }

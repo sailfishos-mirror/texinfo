@@ -9,10 +9,9 @@
 #include "collation_key.h"
 
 static void
-print_collation_key (CollationKey key)
+print_collation_key (const char *key, size_t length)
 {
-  for (unsigned char *p = key.key; p < key.key + key.length;
-       p += 2)
+  for (const unsigned char *p = key; p < key + length; p += 2)
     {
       fprintf (stderr, "%02x%02x ", p[0], p[1]);
     }
@@ -89,7 +88,9 @@ main (int argc, char *argv[])
 
   ssize_t nread;
 
-  CollationKey sort_key1 = {0}, sort_key2 = {0};
+  /* CollationKey sort_key1 = {0}, sort_key2 = {0}; */
+  char *sort_key1 = 0, *sort_key2 = 0;
+  size_t sort_key1_len = 0, sort_key2_len = 0;
 
   long int line_count = 0;
   long int fail_count = 0;
@@ -146,12 +147,12 @@ main (int argc, char *argv[])
           exit (1);
         }
 
-      sort_key2 = get_collation_key_ext (codepoints, length, 0, trace);
+      sort_key2 = u32_make_collation_key_ext (codepoints, length, trace,
+                                         NULL, &sort_key2_len);
 
       /* We expect that sort_key1 <= sort_key1. */
 #if no_nulls_in_key
-      if (sort_key1.key && sort_key2.key
-          && strcmp (sort_key1.key, sort_key2.key) > 0)
+      if (sort_key1 && sort_key2 && strcmp (sort_key1, sort_key2) > 0)
 #else
       if (memcmp (sort_key1.key, sort_key2.key,
                  sort_key1.length < sort_key2.length ? sort_key1.length
@@ -163,18 +164,19 @@ main (int argc, char *argv[])
           fprintf (stderr, "line 2: %s\n", line2);
 
           fprintf (stderr, "Sort key 1: ");
-          print_collation_key (sort_key1);
+          print_collation_key (sort_key1, sort_key1_len);
 
           fprintf (stderr, "Sort key 2: ");
-          print_collation_key (sort_key2);
+          print_collation_key (sort_key2, sort_key2_len);
           fprintf (stderr, "\n");
 
           fail_count++;
         }
 
-      free (sort_key1.key);
+      free (sort_key1);
 
       sort_key1 = sort_key2;
+      sort_key1_len = sort_key2_len;
       string_save (&line1, &line1_size, line2);
     }
   if (fail_count == 0)

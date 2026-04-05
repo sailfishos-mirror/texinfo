@@ -10,12 +10,20 @@
 
 #define no_nulls_in_key 1
 
-CollationKey
-get_collation_key_ext (char32_t *codepoints_in, size_t length_in,
-                       int len_only, int debug)
+char *
+u32_make_collation_key_ext (char32_t *codepoints_in, size_t length_in,
+                            int debug,
+                            char *resultbuf, size_t *lengthp)
 {
   char32_t *codepoints;
   size_t length;
+
+  if (resultbuf)
+    {
+      fprintf (stderr, "u32_make_collation_key with non-null resultbuf "
+                        "not implemented\n");
+      exit (1);
+    }
 
   codepoints =
     u32_normalize (UNINORM_NFD, codepoints_in, length_in, NULL, &length);
@@ -114,6 +122,7 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in,
   sort_key_alloc = num_elements * 5 + 4;
 #endif
 
+#if 0
   if (len_only)
     {
       CollationKey ret;
@@ -121,6 +130,7 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in,
       ret.length = sort_key_alloc;
       return ret;
     }
+#endif
   /* Always include a terminating null byte. */
   sort_key = malloc (sort_key_alloc + 1);
   psort_key = sort_key;
@@ -231,23 +241,14 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in,
   free (elements);
   free (codepoints);
 
-  CollationKey ret;
-  ret.key = sort_key;
-  ret.length = psort_key - sort_key;
-  return ret;
+  *lengthp = psort_key - sort_key;
+  return sort_key;
 }
 
-CollationKey
-get_collation_key (char32_t *codepoints_in, size_t length_in)
+char *
+u32_make_collation_key (char32_t *codepoints_in, size_t length_in,
+                        char *resultbuf, size_t *lengthp)
 {
-  return get_collation_key_ext (codepoints_in, length_in, 0, 0);
+  return u32_make_collation_key_ext (codepoints_in, length_in, 0,
+                                     resultbuf, lengthp);
 }
-
-/* Return number of bytes that would be returned by get_collation_key. */
-size_t
-get_collation_key_len (char32_t *codepoints_in, size_t length_in)
-{
-  CollationKey key = get_collation_key_ext (codepoints_in, length_in, 1, 0);
-  return key.length;
-}
-
