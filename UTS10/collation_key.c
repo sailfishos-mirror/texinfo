@@ -165,9 +165,29 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   *psort_key++ = '\x01';
 
   /* Secondary */
+  int last_was_variable = 0;
   for (size_t i = 0; i < elements_count; i++)
     {
+      if (variable_shifted && elements[i].variable)
+        {
+          /* Skip at secondary level. */
+          last_was_variable = 1;
+          continue;
+        }
+
+      if (last_was_variable)
+        {
+          /* Ignore completely - e.g. combining grave following a space. */
+          if (!elements[i].primary && elements[i].tertiary)
+            continue;
+
+          /* This could be a continuation element for a high secondary
+             weight. */
+          if (!elements[i].primary && elements[i].secondary)
+            continue;
+        }
       uint16_t weight = elements[i].secondary;
+
       if (weight)
         {
           if (weight == 0xFF)
@@ -177,6 +197,7 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
             }
           *psort_key++ = weight + 1;
         }
+      last_was_variable = 0;
     }
 
   /* As we only use a single byte per unit at secondary and tertiary levels,
@@ -184,8 +205,28 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   *psort_key++ = '\x01';
 
   /* Tertiary */
+  last_was_variable = 0;
   for (size_t i = 0; i < elements_count; i++)
     {
+      if (variable_shifted && elements[i].variable)
+        {
+          /* Skip at tertiary level. */
+          last_was_variable = 1;
+          continue;
+        }
+
+      if (last_was_variable)
+        {
+          /* Ignore completely - e.g. combining grave following a space. */
+          if (!elements[i].primary && elements[i].tertiary)
+            continue;
+
+          /* This could be a continuation element for a high secondary
+             weight. */
+          if (!elements[i].primary && elements[i].secondary)
+            continue;
+        }
+
       uint8_t weight = elements[i].tertiary;
       if (weight)
         {
@@ -207,18 +248,21 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
          a single byte separator should suffice. */
       *psort_key++ = '\x01';
 
-      int last_was_variable = 0;
+      last_was_variable = 0;
       for (size_t i = 0; i < elements_count; i++)
         {
           if (!elements[i].primary && !elements[i].secondary
               && !elements[i].tertiary)
             {
               /* Completely ignorable element. */
+              continue;
             }
-          else if (!elements[i].primary && elements[i].tertiary
+          else if (!elements[i].primary
+                   && (elements[i].secondary || elements[i].tertiary)
                    && last_was_variable)
             {
               /* E.g. combining grave following a space.  Ignore. */
+              continue;
             }
           else if (elements[i].variable)
             {
@@ -234,13 +278,13 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
           else if (!elements[i].primary && elements[i].tertiary
                    && !last_was_variable)
             {
-              /* This just needs to be greater than any shifted weights. */
+              /* This needs to be greater than any shifted weights. */
               *psort_key++ = 0xFF;
               *psort_key++ = 0xFF;
             }
           else if (elements[i].primary && !elements[i].variable)
             {
-              /* This just needs to be greater than any shifted weights. */
+              /* This needs to be greater than any shifted weights. */
               *psort_key++ = 0xFF;
               *psort_key++ = 0xFF;
             }

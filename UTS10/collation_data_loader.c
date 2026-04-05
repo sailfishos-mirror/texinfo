@@ -22,7 +22,8 @@ read_collation_data (COLLATION_DATA data,
       elements[i].secondary = collation_data.collation_data[index + i].secondary;
       elements[i].tertiary = collation_data.collation_data[index + i].tertiary;;
 
-      if (elements[i].primary <= collation_data.max_variable_weight)
+      if (elements[i].primary
+          && elements[i].primary <= collation_data.max_variable_weight)
         elements[i].variable = 1;
       else
         elements[i].variable = 0;
