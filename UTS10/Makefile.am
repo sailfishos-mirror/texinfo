@@ -12,7 +12,7 @@ LDADD += \
 AM_CPPFLAGS = -I gnulib/lib
 
 bin_PROGRAMS = gen-collation-table
-gen_collation_table_SOURCES = gen-collation-table.c allkeys_bin.h
+gen_collation_table_SOURCES = gen-collation-table.c
 
 collation-table.c: gen-collation-table allkeys.txt
 	./gen-collation-table ./allkeys.txt collation-table.c
@@ -20,7 +20,7 @@ collation-table.c: gen-collation-table allkeys.txt
 bin_PROGRAMS += allkeys_query utf8_to_sort_key collation_test
 
 allkeys_query_SOURCES = allkeys_query.c collation_data_loader.c \
-  allkeys_bin.h collation_data_loader.h
+  collation_data_loader.h
 
 utf8_to_sort_key_SOURCES = utf8_to_sort_key.c collation_data_loader.c collation_key.c \
   collation_data_loader.h collation_key.h allkeys_bin.h

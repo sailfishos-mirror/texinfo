@@ -1,6 +1,7 @@
 #include <config.h>
+#include <stdint.h>
+#include <stdio.h>
 #include <uchar.h>
-#include "allkeys_bin.h"
 
 
 /* Collation element - represents [.XXXX.XXXX.XXXX] or [*XXXX.XXXX.XXXX]. */

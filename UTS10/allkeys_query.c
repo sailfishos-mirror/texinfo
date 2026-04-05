@@ -5,7 +5,6 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include "allkeys_bin.h"
 #include "collation_data_loader.h"
 
 void
@@ -22,6 +21,13 @@ print_usage (const char *prog)
   printf ("  %s lookup 0041\n", prog);
   printf ("  %s lookup 006C 00B7\n", prog);
 }
+
+/* FIXME: lookup_codepoint and lookup_sequence should be able to warn
+   if output buffer is too small, so we don't need to hardcode these
+   numbers here. */
+#define MAX_COLLATION_ELEMENTS 18
+#define MAX_SEQUENCE_LENGTH 3
+
 
 int
 main (int argc, char *argv[])

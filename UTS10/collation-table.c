@@ -32,6 +32,9 @@ struct implicit_block {
 
 #define NUM_IMPLICIT_BLOCKS 6
 
+#define MAX_SEQUENCE_LENGTH 3
+#define MAX_COLLATION_ELEMENTS 18
+
 static const
 struct
   {

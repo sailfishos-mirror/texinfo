@@ -5,10 +5,18 @@
 #include <stdint.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdbool.h>
+#include <uchar.h>
+
 #include "uninorm.h"
 #include "unictype.h"
 
-#include "allkeys_bin.h"
+/* Used as maximum number of codepoints in a sequence. */
+#define MAX_SEQUENCE_LENGTH 32
+
+/* Used as maximum number of collation elements in a sequence (observed max is 
+   about 18). */
+#define MAX_COLLATION_ELEMENTS 32
 
 #define NUM_PAGES 0x1100
 
@@ -66,6 +74,8 @@ typedef struct
   uint32_t num_singles;
   uint32_t num_sequences;
   long version;
+  int max_collation_elements;
+  int max_sequence_length;
   struct ImplicitBlock implicit_blocks[MAX_IMPLICIT_BLOCKS];
   int num_implicit_blocks;
 } Allkeys_Info;
@@ -262,7 +272,8 @@ build_allkeys_info (const char *filename)
         }
       // if (num_codepoints > 1)
       //   fprintf (stderr, "sequence of len %zu", num_codepoints);
-
+      if (num_codepoints > info->max_sequence_length)
+        info->max_sequence_length = num_codepoints;
 
       while (*p && *p != ';')
         p++;
@@ -300,6 +311,9 @@ build_allkeys_info (const char *filename)
               p++;
             }
         }
+
+      if (info->max_collation_elements < data->num_elements)
+        info->max_collation_elements = data->num_elements;
 
       if (data->num_elements == 0)
         {
@@ -758,6 +772,8 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   fprintf (fp, "#define NUM_COLLATION_UNITS %ld\n\n", n_collation_units);
   fprintf (fp, "#define NUM_IMPLICIT_BLOCKS %d\n\n", info->num_implicit_blocks);
 
+  fprintf (fp, "#define MAX_SEQUENCE_LENGTH %d\n", info->max_sequence_length);
+  fprintf (fp, "#define MAX_COLLATION_ELEMENTS %d\n\n", info->max_collation_elements);
 
   fprintf (fp, "static const\nstruct\n  {\n");
   fprintf (fp, "    uint32_t version;\n");
