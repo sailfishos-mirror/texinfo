@@ -30,7 +30,8 @@ collation_test_SOURCES = collation_test.c \
                          collation_key.c collation_key.h allkeys_bin.h
 
 
-TESTS=t/collation-test-non-ignorable.sh
+TESTS=t/collation-test-non-ignorable.sh \
+      t/collation-test-shifted.sh
 
 
 
