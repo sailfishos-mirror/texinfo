@@ -415,9 +415,11 @@ expand_collation_sequence (CollationData *data)
         {
           /* For very high primary weights, output an additional
              collation element.  Same transformation in
-             allkeys_bin_loader.c:get_implicit_weight. */
+             collation_data_loader.c:get_implicit_weight. */
           primary_write = 0xFE00;
           primary_extension = primary - 0xFE00 + 1;
+          /* If these numbers are too small, they look like variable weights. */
+          primary_extension += 0x8000;
         }
 
       uint16_t secondary = data->elements[i].secondary;
@@ -430,7 +432,7 @@ expand_collation_sequence (CollationData *data)
         secondary_write = secondary;
       else if (secondary <= 0x011C)
         {
-          /* same in allkeys_bin_loader.c:get_implicit_weight */
+          /* same in collation_data_loader.c:get_implicit_weight */
           secondary_write = secondary - 0x1f;
         }
       else if (secondary <= 0x0127)

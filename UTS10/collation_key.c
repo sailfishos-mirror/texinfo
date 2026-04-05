@@ -275,7 +275,8 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
               *psort_key++ = (weight / 0xFF) + 1;
               *psort_key++ = (weight % 0xFF) + 1;
             }
-          else if (!elements[i].primary && elements[i].tertiary
+          else if (!elements[i].primary
+                   && (elements[i].secondary || elements[i].tertiary)
                    && !last_was_variable)
             {
               /* This needs to be greater than any shifted weights. */
