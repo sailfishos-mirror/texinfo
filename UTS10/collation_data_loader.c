@@ -10,23 +10,6 @@
 
 #include "collation-table.c"
 
-void
-print_header_info (void)
-{
-  printf ("\nUnicode Collation Lookup\n");
-  printf ("========================\n");
-
-  printf ("  Version: %u.%u.%u\n",
-          collation_data.version / 10000,
-          (collation_data.version / 100) % 100, collation_data.version % 100);
-  printf ("  Singles: %u\n", collation_data.num_singles);
-  printf ("  Sequences: %u\n", collation_data.num_sequences);
-  printf ("  Variable element limit: 0x%04x\n", collation_data.max_variable_weight);
-  printf ("  Binary size: %zu bytes (%.3f MB)\n\n",
-          sizeof (collation_data), sizeof (collation_data) / 1e6);
-
-}
-
 /* Read collation data at offset */
 int
 read_collation_data (COLLATION_DATA data,

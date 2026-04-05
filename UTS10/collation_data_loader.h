@@ -36,5 +36,3 @@ void get_implicit_weight (uint32_t codepoint, CollationElement *elements,
 
 void print_collation (FILE *stream, const CollationElement *elements,
                       size_t num_elements);
-
-void print_header_info (void);

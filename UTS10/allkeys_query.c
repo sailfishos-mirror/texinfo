@@ -40,8 +40,6 @@ main (int argc, char *argv[])
 
   const char *command = argv[1];
 
-  print_header_info ();
-
   if (strcmp (command, "lookup") == 0)
     {
       if (argc < 3)
