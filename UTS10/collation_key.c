@@ -122,15 +122,6 @@ u32_make_collation_key_ext (char32_t *codepoints_in, size_t length_in,
   sort_key_alloc = num_elements * 5 + 4;
 #endif
 
-#if 0
-  if (len_only)
-    {
-      CollationKey ret;
-      ret.key = 0;
-      ret.length = sort_key_alloc;
-      return ret;
-    }
-#endif
   /* Always include a terminating null byte. */
   sort_key = malloc (sort_key_alloc + 1);
   psort_key = sort_key;

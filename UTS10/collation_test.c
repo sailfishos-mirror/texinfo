@@ -88,7 +88,6 @@ main (int argc, char *argv[])
 
   ssize_t nread;
 
-  /* CollationKey sort_key1 = {0}, sort_key2 = {0}; */
   char *sort_key1 = 0, *sort_key2 = 0;
   size_t sort_key1_len = 0, sort_key2_len = 0;
 
