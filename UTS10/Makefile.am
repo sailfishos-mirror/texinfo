@@ -29,6 +29,12 @@ collation_test_SOURCES = collation_test.c \
                          collation_data_loader.c collation_data_loader.h \
                          collation_key.c collation_key.h allkeys_bin.h
 
+
+TESTS=t/collation-test-non-ignorable.sh
+
+
+
+
 test: gen-collation-table allkeys_query utf8_to_sort_key
 	@echo "=== Testing single codepoint lookup ==="
 	./allkeys_query lookup 0041
