@@ -250,13 +250,12 @@ char *
 u8_make_collation_key (const uint8_t *u8_str, size_t length_in,
                         char *resultbuf, size_t *lengthp)
 {
-  char32_t *u32_str;
-  size_t u32_len;
+  static char32_t *u32_str;
+  static size_t u32_len;
 
-  u32_str = u8_to_u32 (u8_str, length_in, NULL, &u32_len);
+  u32_str = u8_to_u32 (u8_str, length_in, u32_str, &u32_len);
 
   char *key = u32_make_collation_key_ext (u32_str, u32_len, 0,
                                      resultbuf, lengthp);
-  free (u32_str);
   return key;
 }
