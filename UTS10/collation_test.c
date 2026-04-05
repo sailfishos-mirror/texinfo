@@ -34,6 +34,7 @@ string_save (char **buf, size_t *buf_size, const char *string)
 }
 
 static int trace;
+static int variable_shifted;
 
 static void
 print_usage (void)
@@ -50,17 +51,21 @@ main (int argc, char *argv[])
 {
   struct option long_options[] = {
     {"trace", no_argument, 0, 't'},
+    {"shifted", no_argument, 0, 's'},
     {"help", no_argument, 0, '?'},
     {0, 0, 0, 0}
   };
 
   int opt;
-  while ((opt = getopt_long (argc, argv, "t", long_options, NULL)) != -1)
+  while ((opt = getopt_long (argc, argv, "t?", long_options, NULL)) != -1)
     {
       switch (opt)
         {
         case 't':
           trace = 1;
+          break;
+        case 's':
+          variable_shifted = 1;
           break;
         case '?':
           print_usage ();
@@ -149,8 +154,9 @@ main (int argc, char *argv[])
         }
 
       sort_key2 = u32_make_collation_key_ext (codepoints, length,
-                                         UNICOLL_VARIABLE_NONIGNORABLE, trace,
-                                         NULL, &sort_key2_len);
+                    variable_shifted ? UNICOLL_VARIABLE_SHIFTED
+                                     : UNICOLL_VARIABLE_NONIGNORABLE,
+                    trace, NULL, &sort_key2_len);
 
       /* We expect that sort_key1 <= sort_key1. */
 #if no_nulls_in_key
