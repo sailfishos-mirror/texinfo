@@ -31,7 +31,7 @@ read_collation_data (COLLATION_DATA data,
       if (elements[i].secondary != 0x00)
         {
           /* this would match
-             allkeys_bin_dumper.c:expand_collation_sequence: */
+             get-collation-table.c:expand_collation_sequence: */
           /* elements[i].secondary += 0x1F; */
           /* but keep it in a single byte to reduce sort key length. */
         }
@@ -288,11 +288,11 @@ get_implicit_weight (char32_t codepoint,
 
       /* Limit maximum primary weight by using an extra collation element
          if necessary.  Same transformation in
-         allkeys_bin_dumper.c:write_collation_data */
+         gen-collation_table.c:write_collation_data */
       if (BBBB >= 0xFE00)
         {
           CollationElement e2 = { 0xFE00, 0x0000, 0x0000, 0 };
-          CollationElement e3 = { BBBB - 0xFE00 + 1, 0x0000, 0x0000, 0 };
+          CollationElement e3 = { BBBB - 0xFE00 + 0x8000 + 1, 0x0000, 0x0000, 0 };
 
           elements[0] = e1;
           elements[1] = e2;
