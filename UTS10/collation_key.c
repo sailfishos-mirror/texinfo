@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+
+#include "unistr.h"
 #include "uninorm.h"
 
 #include "collation_data_loader.h"
@@ -11,7 +13,7 @@
 #define no_nulls_in_key 1
 
 char *
-u32_make_collation_key_ext (char32_t *codepoints_in, size_t length_in,
+u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
                             int debug,
                             char *resultbuf, size_t *lengthp)
 {
@@ -237,9 +239,24 @@ u32_make_collation_key_ext (char32_t *codepoints_in, size_t length_in,
 }
 
 char *
-u32_make_collation_key (char32_t *codepoints_in, size_t length_in,
+u32_make_collation_key (const char32_t *codepoints_in, size_t length_in,
                         char *resultbuf, size_t *lengthp)
 {
   return u32_make_collation_key_ext (codepoints_in, length_in, 0,
                                      resultbuf, lengthp);
+}
+
+char *
+u8_make_collation_key (const uint8_t *u8_str, size_t length_in,
+                        char *resultbuf, size_t *lengthp)
+{
+  char32_t *u32_str;
+  size_t u32_len;
+
+  u32_str = u8_to_u32 (u8_str, length_in, NULL, &u32_len);
+
+  char *key = u32_make_collation_key_ext (u32_str, u32_len, 0,
+                                     resultbuf, lengthp);
+  free (u32_str);
+  return key;
 }

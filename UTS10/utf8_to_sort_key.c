@@ -5,29 +5,9 @@
 #include <string.h>
 #include <getopt.h>
 
-#include "unistr.h"
-
 #include "collation_data_loader.h"
 #include "collation_key.h"
 
-
-/* UTF-8 validation and conversion result */
-typedef struct
-{
-  char32_t *codepoints;
-  size_t length;
-} UTF8Result;
-
-/* Free the result structure */
-void
-free_result (UTF8Result *result)
-{
-  if (result && result->codepoints)
-    {
-      free (result->codepoints);
-      result->codepoints = NULL;
-    }
-}
 
 /* Print usage information */
 void
@@ -41,12 +21,12 @@ print_usage (const char *program_name)
 }
 
 int
-print_collation_key (UTF8Result result)
+print_collation_key (const char8_t *string)
 {
   size_t sort_key_len;
   char *sort_key =
-    u32_make_collation_key (result.codepoints, result.length,
-                       NULL, &sort_key_len);
+    u8_make_collation_key (string, strlen (string), NULL, &sort_key_len);
+
   printf ("Sort key: ");
   for (unsigned char *p = sort_key; p < sort_key + sort_key_len; p += 2)
     {
@@ -94,31 +74,8 @@ main (int argc, char *argv[])
 
   const char *utf8_string = argv[optind];
 
-  /* Validate and convert UTF-8 to codepoints */
-  UTF8Result result = {0};
-
-  result.codepoints = u8_to_u32 (utf8_string, strlen (utf8_string),
-                                 result.codepoints, &result.length);
-
-  printf ("Codepoints:\n");
-  for (size_t i = 0; i < result.length; i++)
-    {
-      printf ("  [%zu] %u (U+%04X)", i, result.codepoints[i],
-              result.codepoints[i]);
-
-      if (result.codepoints[i] >= 32)
-        {
-          if (result.codepoints[i] < 128)
-            printf (" '%c'",  (char) result.codepoints[i]);
-        }
-      printf ("\n");
-
-    }
-  /* Load collation data and print collation key. */
-  print_collation_key (result);
-
-  /* Clean up */
-  free_result (&result);
+  /* Make and print collation key. */
+  print_collation_key (utf8_string);
 
   return 0;
 }
