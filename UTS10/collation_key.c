@@ -17,13 +17,15 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
                             int variable, int debug,
                             char *resultbuf, size_t *lengthp)
 {
-  if (variable != UNICOLL_VARIABLE_NONIGNORABLE)
+  if (variable != UNICOLL_VARIABLE_NONIGNORABLE
+      && variable != UNICOLL_VARIABLE_SHIFTED)
     {
-      fprintf (stderr, "only Non-ignorable setting for variable elements "
-                       "is implemented\n");
+      fprintf (stderr, "only Non-ignorable or Shifted settings for variable "
+                       "collation elements is implemented\n");
       exit (1);
     }
 
+  int variable_shifted = (variable == UNICOLL_VARIABLE_SHIFTED);
 
   char32_t *codepoints;
   size_t length;
@@ -119,24 +121,20 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   unsigned char *psort_key;
   size_t sort_key_alloc;
 
-#if no_nulls_in_key
   /* Three levels (primary/secondary/tertiary).  Two bytes per
      collation element at primary, one byte at secondary, one byte
      at tertiary.  "\x01\x01" between primary and secondary level
      and "\x01" between secondary and tertiary level. */
   sort_key_alloc = num_elements * 4 + 3;
-#else
-  /* Three levels (primary/secondary/tertiary).  Two bytes per
-     collation element at primary/secondary, one byte at tertiary.
-     "\x00\x00" between levels. */
-  sort_key_alloc = num_elements * 5 + 4;
-#endif
+
+  /* Add space for quaternary level if necessary. */
+  if (variable_shifted)
+    sort_key_alloc += 1 + num_elements * 2;
 
   /* Always include a terminating null byte. */
   sort_key = malloc (sort_key_alloc + 1);
   psort_key = sort_key;
 
-#if no_nulls_in_key
   /* Output collation key without any null bytes.
      See UTS#10 s.9.4 "Avoiding Zero Bytes". */
 
@@ -144,6 +142,13 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   for (size_t i = 0; i < elements_count; i++)
     {
       uint16_t weight = elements[i].primary;
+
+      if (variable_shifted && elements[i].variable)
+        {
+          /* Skip at primary level. */
+          continue;
+        }
+
       if (weight)
         {
           if (weight > 0xFE00)
@@ -192,52 +197,58 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
           *psort_key++ = weight + 1;
         }
     }
+
+  if (variable_shifted)
+    {
+      /* See UTS #10 c.4 "Variable Weighting". */
+
+      /* Quaternary level.  Only significant if sort keys are identical
+         up to this point.  As we only use single bytes at tertiary level,
+         a single byte separator should suffice. */
+      *psort_key++ = '\x01';
+
+      int last_was_variable = 0;
+      for (size_t i = 0; i < elements_count; i++)
+        {
+          if (!elements[i].primary && !elements[i].secondary
+              && !elements[i].tertiary)
+            {
+              /* Completely ignorable element. */
+            }
+          else if (!elements[i].primary && elements[i].tertiary
+                   && last_was_variable)
+            {
+              /* E.g. combining grave following a space.  Ignore. */
+            }
+          else if (elements[i].variable)
+            {
+              uint16_t weight = elements[i].primary;
+              if (weight > 0xFE00)
+                {
+                  fprintf (stderr, "shifted primary weight too high\n");
+                  exit (1);
+                }
+              *psort_key++ = (weight / 0xFF) + 1;
+              *psort_key++ = (weight % 0xFF) + 1;
+            }
+          else if (!elements[i].primary && elements[i].tertiary
+                   && !last_was_variable)
+            {
+              /* This just needs to be greater than any shifted weights. */
+              *psort_key++ = 0xFF;
+              *psort_key++ = 0xFF;
+            }
+          else if (elements[i].primary && !elements[i].variable)
+            {
+              /* This just needs to be greater than any shifted weights. */
+              *psort_key++ = 0xFF;
+              *psort_key++ = 0xFF;
+            }
+          last_was_variable = elements[i].variable;
+        }
+    }
+
   *psort_key = '\0';
-
-#else
-  /* Output key that can include nulls.  This is more similar to
-     the keys as decribed by the UTS #10 document. */
-
-  /* Primary */
-  for (size_t i = 0; i < elements_count; i++)
-    {
-      uint16_t weight = elements[i].primary;
-      if (weight)
-        {
-          *psort_key++ = weight >> 8;   /* More significant byte. */
-          *psort_key++ = weight & 0xFF; /* Less significant byte. */
-        }
-    }
-
-  *psort_key++ = '\x00';
-  *psort_key++ = '\x00';
-
-  /* Secondary */
-  for (size_t i = 0; i < elements_count; i++)
-    {
-      uint16_t weight = elements[i].secondary;
-      if (weight)
-        {
-          *psort_key++ = weight >> 8;   /* More significant byte. */
-          *psort_key++ = weight & 0xFF; /* Less significant byte. */
-        }
-    }
-
-  *psort_key++ = '\x00';
-  *psort_key++ = '\x00';
-
-  /* Tertiary */
-  for (size_t i = 0; i < elements_count; i++)
-    {
-      uint8_t weight = elements[i].tertiary;
-      if (weight)
-        {
-          *psort_key++ = weight;
-        }
-    }
-  *psort_key = '\0';
-
-#endif
 
   free (elements);
   free (codepoints);

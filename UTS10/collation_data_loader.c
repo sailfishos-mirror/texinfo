@@ -22,6 +22,11 @@ read_collation_data (COLLATION_DATA data,
       elements[i].secondary = collation_data.collation_data[index + i].secondary;
       elements[i].tertiary = collation_data.collation_data[index + i].tertiary;;
 
+      if (elements[i].primary <= collation_data.max_variable_weight)
+        elements[i].variable = 1;
+      else
+        elements[i].variable = 0;
+
       if (elements[i].secondary != 0x00)
         {
           /* this would match
@@ -275,7 +280,7 @@ get_implicit_weight (char32_t codepoint,
 
   if (AAAA && BBBB)
     {
-      CollationElement e1 = { AAAA, 0x0020, 0x0002 };
+      CollationElement e1 = { AAAA, 0x0020, 0x0002, 0 };
       /* same in allkeys_bin_dumper.c:expand_collation_sequence to
          fit secondary weight in a single byte. */
       e1.secondary -= 0x1f;
@@ -285,8 +290,8 @@ get_implicit_weight (char32_t codepoint,
          allkeys_bin_dumper.c:write_collation_data */
       if (BBBB >= 0xFE00)
         {
-          CollationElement e2 = { 0xFE00, 0x0000, 0x0000 };
-          CollationElement e3 = { BBBB - 0xFE00 + 1, 0x0000, 0x0000 };
+          CollationElement e2 = { 0xFE00, 0x0000, 0x0000, 0 };
+          CollationElement e3 = { BBBB - 0xFE00 + 1, 0x0000, 0x0000, 0 };
 
           elements[0] = e1;
           elements[1] = e2;
@@ -295,7 +300,7 @@ get_implicit_weight (char32_t codepoint,
         }
       else
         {
-          CollationElement e2 = { BBBB, 0x0000, 0x0000 };
+          CollationElement e2 = { BBBB, 0x0000, 0x0000, 0 };
           elements[0] = e1;
           elements[1] = e2;
           (*n_elements) = 2;

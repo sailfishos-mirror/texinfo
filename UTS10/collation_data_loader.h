@@ -10,6 +10,7 @@ typedef struct
   uint16_t primary;
   uint16_t secondary;
   uint8_t tertiary;
+  char variable;
 } CollationElement;
 
 struct collation_data_ref {
