@@ -20,14 +20,18 @@ print_usage (const char *program_name)
   printf ("  %s \"Hello, 世界! 🌍\"\n", program_name);
 }
 
+static int variable_shifted;
+
 int
 print_collation_key (const char8_t *string)
 {
   size_t sort_key_len;
   char *sort_key =
-    u8_make_collation_key (string, strlen (string),
-                           UNICOLL_VARIABLE_NONIGNORABLE,
-                           NULL, &sort_key_len);
+    u8_make_collation_key_ext (string, strlen (string),
+                           variable_shifted ?
+                             UNICOLL_VARIABLE_SHIFTED :
+                             UNICOLL_VARIABLE_NONIGNORABLE,
+                           1, NULL, &sort_key_len);
 
   printf ("Sort key: ");
   for (unsigned char *p = sort_key;
@@ -51,17 +55,21 @@ main (int argc, char *argv[])
 
   struct option long_options[] = {
     {"help", no_argument, 0, 'h'},
+    {"shifted", no_argument, 0, 's'},
     {0, 0, 0, 0}
   };
 
   /* Parse command-line options */
-  while ((opt = getopt_long (argc, argv, "h", long_options, NULL)) != -1)
+  while ((opt = getopt_long (argc, argv, "hs", long_options, NULL)) != -1)
     {
       switch (opt)
         {
         case 'h':
           print_usage (argv[0]);
           return 0;
+        case 's':
+          variable_shifted = 1;
+          break;
         default:
           print_usage (argv[0]);
           return 1;

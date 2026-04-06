@@ -40,6 +40,22 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   codepoints =
     u32_normalize (UNINORM_NFD, codepoints_in, length_in, NULL, &length);
 
+  if (debug)
+    {
+      printf ("Normalised string:\n");
+      for (size_t i = 0; i < length; i++)
+        {
+          printf ("  [%zu] %u (U+%04X)", i, codepoints[i],
+                  codepoints[i]);
+
+          if (codepoints[i] >= 32 && codepoints[i] < 128)
+            printf (" '%c'",  (char) codepoints[i]);
+          printf ("\n");
+
+        }
+    }
+ 
+
   /* get array of collation entries */
   struct collation_info
   {
@@ -311,8 +327,8 @@ u32_make_collation_key (const char32_t *codepoints_in, size_t length_in,
 }
 
 char *
-u8_make_collation_key (const uint8_t *u8_str, size_t length_in,
-                       int variable, char *resultbuf, size_t *lengthp)
+u8_make_collation_key_ext (const uint8_t *u8_str, size_t length_in,
+                   int variable, int debug, char *resultbuf, size_t *lengthp)
 {
   static char32_t *u32_str;
   static size_t u32_len;
@@ -320,6 +336,14 @@ u8_make_collation_key (const uint8_t *u8_str, size_t length_in,
   u32_str = u8_to_u32 (u8_str, length_in, u32_str, &u32_len);
 
   char *key = u32_make_collation_key_ext (u32_str, u32_len, variable,
-                                          0, resultbuf, lengthp);
+                                          debug, resultbuf, lengthp);
   return key;
+}
+
+char *
+u8_make_collation_key (const uint8_t *u8_str, size_t length_in,
+                       int variable, char *resultbuf, size_t *lengthp)
+{
+  return u8_make_collation_key_ext (u8_str, length_in, variable,
+                                  0, resultbuf, lengthp);
 }

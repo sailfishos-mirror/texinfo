@@ -16,6 +16,9 @@ char *u8_make_collation_key (const uint8_t *codepoints, size_t length,
 char *u32_make_collation_key (const uint32_t *codepoints, size_t length,
                              int variable,
                               char *resultbuf, size_t *lengthp);
+char *u8_make_collation_key_ext (const uint8_t *codepoints, size_t length,
+                                  int variable, int debug,
+                                  char *resultbuf, size_t *lengthp);
 char *u32_make_collation_key_ext (const uint32_t *codepoints, size_t length,
                                   int variable, int debug,
                                   char *resultbuf, size_t *lengthp);
