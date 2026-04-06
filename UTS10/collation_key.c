@@ -10,8 +10,6 @@
 #include "collation_data_loader.h"
 #include "collation_key.h"
 
-#define no_nulls_in_key 1
-
 char *
 u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
                             int variable, int debug,
@@ -29,13 +27,6 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
 
   char32_t *codepoints;
   size_t length;
-
-  if (resultbuf)
-    {
-      fprintf (stderr, "u32_make_collation_key with non-null resultbuf "
-                        "not implemented\n");
-      exit (1);
-    }
 
   codepoints =
     u32_normalize (UNINORM_NFD, codepoints_in, length_in, NULL, &length);
@@ -55,7 +46,6 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
         }
     }
  
-
   /* get array of collation entries */
   struct collation_info
   {
@@ -147,8 +137,15 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   if (variable_shifted)
     sort_key_alloc += 1 + num_elements * 2;
 
-  /* Always include a terminating null byte. */
-  sort_key = malloc (sort_key_alloc + 1);
+  /* Terminating null. */
+  sort_key_alloc++;
+
+  if (resultbuf && sort_key_alloc < *lengthp)
+    sort_key = resultbuf;
+  else
+    sort_key = malloc (sort_key_alloc);
+  *lengthp = sort_key_alloc;
+
   psort_key = sort_key;
 
   /* Output collation key without any null bytes.
@@ -314,7 +311,6 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   free (elements);
   free (codepoints);
 
-  *lengthp = psort_key - sort_key;
   return sort_key;
 }
 
