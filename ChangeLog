@@ -1,5 +1,19 @@
 2026-04-06 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/structuring_transfo/transformations.c
+	(move_selected_element_index_entries_after_items),
+	tta/perl/Texinfo/ManipulateTreeNonXS.pm
+	(_move_selected_element_index_entries_after_items): remove condition
+	on @subentry, which is not relevant now that subentries are in index
+	commands in the tree.
+
+	* tta/C/parsetexi/handle_commands.c (handle_line_command),
+	tta/perl/Texinfo/ParserNonXS.pm (_handle_line_command): rename
+	internal variable to avoid reusing the name of an external variable
+	for a more readable code.
+
+2026-04-06 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.tres, tta/perl/t/transformations.t
 	(index_entry_before_item_with_subentry): test index entry with
 	@subentry before @item with with move_index_entries_after_items.

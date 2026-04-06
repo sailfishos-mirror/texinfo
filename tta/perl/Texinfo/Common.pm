@@ -1138,6 +1138,8 @@ sub index_entry_referred_entry($$);
 
 # ALTIMP C/main/utils.c
 # TODO document
+# Gather REFERRED_CMDNAME, either seeenentry or seealso, in
+# index command tree element $ELEMENT, recusring into subebtry.
 # Used in converters
 sub index_entry_referred_entry($$) {
   my ($element, $referred_cmdname) = @_;

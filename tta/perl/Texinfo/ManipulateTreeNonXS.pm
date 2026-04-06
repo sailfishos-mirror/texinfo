@@ -171,10 +171,7 @@ sub _move_selected_element_index_entries_after_items($) {
           $last_entry_idx = $i;
         } elsif (not (exists($content->{'cmdname'})
                       and ($content->{'cmdname'} eq 'c'
-                           or $content->{'cmdname'} eq 'comment'
-             # TODO why a special case?
-             # subentry is not within the index entry in the tree
-                           or $content->{'cmdname'} eq 'subentry'))) {
+                           or $content->{'cmdname'} eq 'comment'))) {
           last;
         }
       }

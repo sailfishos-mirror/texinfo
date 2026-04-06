@@ -510,9 +510,7 @@ move_selected_element_index_entries_after_items (ELEMENT *current,
                 last_entry_nr = j;
               else if (!(!(type_data[content->type].flags & TF_text)
                          && (content->e.c->cmd == CM_comment
-                             || content->e.c->cmd == CM_c
-                      /* subentry is not within the index entry in the tree */
-                             || content->e.c->cmd == CM_subentry)))
+                             || content->e.c->cmd == CM_c)))
                 break;
             }
 

@@ -6187,12 +6187,13 @@ sub _handle_line_command($$$$$$) {
                     $command), $source_info);
         }
         my $subentry_level = 1;
-        my $current = $parent;
+        my $current_subentry_parent = $parent;
         while ($subentry_level < 3) {
-          if (exists($current->{'cmdname'})
-              and $current->{'cmdname'} eq 'subentry') {
+          if (exists($current_subentry_parent->{'cmdname'})
+              and $current_subentry_parent->{'cmdname'} eq 'subentry') {
             $subentry_level++;
-            $current = $current->{'parent'}->{'parent'};
+            $current_subentry_parent
+              = $current_subentry_parent->{'parent'}->{'parent'};
           } else {
             last;
           }

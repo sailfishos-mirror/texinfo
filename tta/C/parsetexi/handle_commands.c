@@ -967,7 +967,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
             {
               int subentry_level = 1;
               const ELEMENT *parent = current->e.c->parent;
-              const ELEMENT *current = parent;
+              const ELEMENT *current_subentry_parent = parent;
 
               if (!(command_flags(parent) & CF_index_entry_command)
                   && parent->e.c->cmd != CM_subentry)
@@ -977,10 +977,11 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
               while (subentry_level < 3)
                 {
-                  if (current->e.c->cmd == CM_subentry)
+                  if (current_subentry_parent->e.c->cmd == CM_subentry)
                     {
                        subentry_level++;
-                       current = current->e.c->parent->e.c->parent;
+                       current_subentry_parent
+                         = current_subentry_parent->e.c->parent->e.c->parent;
                     }
                   else
                     break;
