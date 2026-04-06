@@ -139,6 +139,26 @@ Text.
 @node @strong{}
 @section @strong{}
 ', {'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands',},],
+['index_entry_before_item_with_subentry',
+'@node Top
+@top top
+
+@node Chap
+@chapter chap
+
+@itemize
+@item first item
+
+@cindex entry @subentry subentry
+@item second item
+@end itemize
+
+@node Node index
+@chapter Chap printindex
+
+@printindex cp
+', {'TREE_TRANSFORMATIONS' => 'move_index_entries_after_items'},
+],
 );
 
 my @tests_converted = (
