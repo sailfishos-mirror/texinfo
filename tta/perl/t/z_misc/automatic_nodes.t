@@ -21,6 +21,7 @@ ok(1, 'modules loading');
 
 # Following tests test the XS code
 
+# NOTE sync with t/transformations.t insert_nodes_for_sectioning_commands
 my $sections_text =
 '@top top section
 

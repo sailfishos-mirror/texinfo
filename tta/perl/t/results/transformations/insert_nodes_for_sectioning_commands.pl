@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
+$result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C23
  *before_node_section
  *@node C1 {Top}
  |EXTRA
@@ -244,6 +244,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
      *brace_container
     {spaces_after_argument:\\n}
   {empty_line:\\n}
+ *@bye C1
+  *line_arg C1
+   {spaces_before_argument:}
 ';
 
 
@@ -280,7 +283,7 @@ Text.
 @node @asis{} 2
 @section @asis{}
 
-';
+@bye';
 
 
 $result_texts{'insert_nodes_for_sectioning_commands'} = 'top section

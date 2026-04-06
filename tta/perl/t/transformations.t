@@ -82,8 +82,8 @@ A MC.
    'FORMAT_MENU' => 'menu'},
   {'FORMAT_MENU' => 'menu'},
 ],
+# NOTE sync with t/z_misc/automatic_nodes.t $sections_text
 ['insert_nodes_for_sectioning_commands',
-# same as in t/automatic_nodes.t
 '@top top section
 
 @part part
@@ -108,7 +108,7 @@ Text.
 
 @section @asis{}
 
-',{'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands'},],
+@bye',{'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands'},],
 ['test_fill_gaps_in_sectioning',
 '@top top
 
@@ -159,6 +159,9 @@ Text.
 @printindex cp
 ', {'TREE_TRANSFORMATIONS' => 'move_index_entries_after_items'},
 ],
+# Test addition of nodes with diverse protection and transformations needing
+# to be done on node names more than insert_nodes_for_sectioning_commands
+# as such.
 ['various_added_nodes_and_refs',
 '@top otp
 
