@@ -68,6 +68,7 @@
 {\catcode`\^^M=13 \gdef\GNUTobeylines{\catcode`\^^M=13 \def^^M{\null\par}}}
 \newenvironment{Texinfoindented}{\begin{list}{}{}\item\relax}{\end{list}}
 
+
 % set defaults for lists that match Texinfo TeX formatting
 \setlist[description]{style=nextline, font=\normalfont}
 \setlist[itemize]{label=\textbullet}
@@ -150,6 +151,59 @@ i--tem 2
 \index[cp]{another@another}%
 \item enum
 \end{enumerate}
+
+\begin{Texinfoindented}
+\begin{itemize}
+\item \begin{Texinfopreformatted}%
+\ttfamily 
+\index[cp]{in example itemize before line@in example itemize before line}%
+
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
+\ttfamily first item
+
+Something
+\index[cp]{in example itemize before item 1@in example itemize before item 1}%
+\index[cp]{in example itemize before item 2@in example itemize before item 2}%
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
+\ttfamily second item
+
+\index[cp]{in example itemize alone before item@in example itemize alone before item}%
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
+\ttfamily 
+\index[cp]{in example itemize before comment@in example itemize before comment}%
+\index[cp]{in example itemize after comment@in example itemize after comment}%
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
+\ttfamily item after entry and comment
+
+\index[cp]{before comment@before comment}%
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
+\ttfamily comment and entry
+
+\index[cp]{before text@before text}%
+Some thing in pre
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
+\ttfamily more item
+
+\index[cp]{before text and comment@before text and comment}%
+Some content
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
+\ttfamily another one item
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
+\ttfamily \index[cp]{direct in item in preformatted@direct in item in preformatted}%
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
+\ttfamily last item
+\end{Texinfopreformatted}
+\end{itemize}
+\end{Texinfoindented}
 
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%

@@ -76,6 +76,47 @@
 <para>enum
 </para></listitem></enumerate>
 
+<example endspaces=" ">
+<itemize endspaces=" ">
+<beforefirstitem><pre xml:space="preserve">
+<cindex index="cp"> <indexterm index="cp" number="12">in example itemize before line</indexterm></cindex>
+
+</pre></beforefirstitem><listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> first item
+
+Something
+</pre></listitem><listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> 
+<cindex index="cp"> <indexterm index="cp" number="13">in example itemize before item 1</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="14">in example itemize before item 2</indexterm></cindex>
+second item
+
+</pre></listitem><listitem><prepend>&bullet;</prepend><pre xml:space="preserve">
+<cindex index="cp"> <indexterm index="cp" number="15">in example itemize alone before item</indexterm></cindex>
+
+</pre></listitem><listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> 
+<cindex index="cp"> <indexterm index="cp" number="16">in example itemize before comment</indexterm></cindex>
+<!-- comment in comment -->
+<cindex index="cp"> <indexterm index="cp" number="17">in example itemize after comment</indexterm></cindex>
+item after entry and comment
+
+</pre></listitem><listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> 
+<cindex index="cp"> <indexterm index="cp" number="18">before comment</indexterm></cindex>
+<!-- c comment after index entry -->
+comment and entry
+
+<cindex index="cp"> <indexterm index="cp" number="19">before text</indexterm></cindex>
+Some thing in pre
+</pre></listitem><listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> more item
+
+<cindex index="cp"> <indexterm index="cp" number="20">before text and comment</indexterm></cindex>
+Some content
+<!-- c in c -->
+</pre></listitem><listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> another one item
+</pre></listitem><listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> </pre></listitem><listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> 
+<cindex index="cp"> <indexterm index="cp" number="21">direct in item in preformatted</indexterm></cindex>
+last item
+</pre></listitem></itemize>
+</example>
+
 <vtable commandarg="code" endspaces=" ">
 <tableentry><tableterm><!-- c comment in table -->
 <item><itemformat command="code"><indexterm index="vr" number="1">acode--b</indexterm> acode--b</itemformat></item>
@@ -91,7 +132,7 @@
 
 <ftable commandarg="var" endspaces=" ">
 <tableentry><tableterm><item><itemformat command="var"><indexterm index="fn" number="1">avar--b</indexterm> avar&textndash;b</itemformat></item>
-<cindex index="cp"> <indexterm index="cp" number="12">index entry between item and itemx</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="22">index entry between item and itemx</indexterm></cindex>
 <!-- c and a comment -->
 <!-- comment and another comment -->
 <itemx><itemformat command="var"><indexterm index="fn" number="2">b</indexterm> b</itemformat></itemx>
@@ -106,55 +147,55 @@
 </tableitem></tableentry></ftable>
 
 <table commandarg="code" endspaces=" ">
-<tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="13">cindex in table</indexterm></cindex>
+<tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="23">cindex in table</indexterm></cindex>
 <!-- c comment in table -->
 <item><itemformat command="code"> abb</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <table commandarg="code" endspaces=" ">
-<beforefirstitem><cindex index="cp"> <indexterm index="cp" number="14">cindex in table</indexterm></cindex>
+<beforefirstitem><cindex index="cp"> <indexterm index="cp" number="24">cindex in table</indexterm></cindex>
 <para>Texte before first item.
 </para></beforefirstitem><tableentry><tableterm><item><itemformat command="code"> abb</itemformat></item>
 </tableterm></tableentry></table>
 
 <table commandarg="samp" endspaces=" ">
-<tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="15">samp cindex in table</indexterm></cindex>
+<tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="25">samp cindex in table</indexterm></cindex>
 <!-- c samp comment in table -->
 <item><itemformat command="samp"> asamp--bb</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine samp
 </para></tableitem></tableentry></table>
 
 <table commandarg="samp" endspaces=" ">
-<beforefirstitem><cindex index="cp"> <indexterm index="cp" number="16">samp cindex in table</indexterm></cindex>
+<beforefirstitem><cindex index="cp"> <indexterm index="cp" number="26">samp cindex in table</indexterm></cindex>
 <para>Texte before first item samp.
 </para></beforefirstitem><tableentry><tableterm><item><itemformat command="samp"> asamp--bb</itemformat></item>
 </tableterm></tableentry></table>
 
 <table commandarg="samp" endspaces=" ">
 <beforefirstitem>
-<cindex index="cp"> <indexterm index="cp" number="17">cindex between lines</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="27">cindex between lines</indexterm></cindex>
 
 </beforefirstitem><tableentry><tableterm><item><itemformat command="samp"> asamp--bb1</itemformat></item>
 </tableterm></tableentry></table>
 
 <table commandarg="samp" endspaces=" ">
-<beforefirstitem><cindex index="cp"> <indexterm index="cp" number="18">cindex before line</indexterm></cindex>
+<beforefirstitem><cindex index="cp"> <indexterm index="cp" number="28">cindex before line</indexterm></cindex>
 
 </beforefirstitem><tableentry><tableterm><item><itemformat command="samp"> asamp--bb2</itemformat></item>
 </tableterm></tableentry></table>
 
 <table commandarg="samp" endspaces=" ">
 <beforefirstitem>
-</beforefirstitem><tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="19">cindex after line</indexterm></cindex>
+</beforefirstitem><tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="29">cindex after line</indexterm></cindex>
 <item><itemformat command="samp"> asamp--bb2</itemformat></item>
 </tableterm></tableentry></table>
 
 <table commandarg="samp" endspaces=" ">
-<tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="20">cindex first</indexterm></cindex>
+<tableentry><tableterm><cindex index="cp"> <indexterm index="cp" number="30">cindex first</indexterm></cindex>
 <!-- c commant -->
-<cindex index="cp"> <indexterm index="cp" number="21">second</indexterm></cindex>
-<cindex index="cp"> <indexterm index="cp" number="22">third</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="31">second</indexterm></cindex>
+<cindex index="cp"> <indexterm index="cp" number="32">third</indexterm></cindex>
 <item><itemformat command="samp"> asamp--bb2</itemformat></item>
 </tableterm></tableentry></table>
 

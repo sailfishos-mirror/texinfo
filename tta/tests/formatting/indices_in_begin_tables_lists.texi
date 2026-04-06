@@ -65,6 +65,43 @@ Title
 @item enum
 @end enumerate
 
+@example
+@itemize
+
+@cindex in example itemize before line
+
+@item first item
+
+Something
+@cindex in example itemize before item 1
+@cindex in example itemize before item 2
+@item second item
+
+@cindex in example itemize alone before item
+@item
+
+@cindex in example itemize before comment
+@comment in comment
+@cindex in example itemize after comment
+@item item after entry and comment
+
+@cindex before comment
+@c comment after index entry
+@item comment and entry
+
+@cindex before text
+Some thing in pre
+@item more item
+
+@cindex before text and comment
+Some content
+@c in c
+@item another one item
+@item @cindex direct in item in preformatted
+@item last item
+@end itemize
+@end example
+
 @vtable @code
 @c comment in table
 @item acode--b

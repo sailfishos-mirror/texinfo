@@ -154,9 +154,6 @@ sub _move_selected_element_index_entries_after_items($) {
         # for paragraph happens if there is a paragraph at the end
         # of the previous item, and it could be possible for this
         # paragraph to end with an inline index command.
-        # TODO check that there are all the cases in tests, with
-        # paragraph or preformatted, and with an idex entry+comment
-        # to gather or not.
         $previous_ending_container = $previous->{'contents'}->[-1];
       } else {
         # possible index commands out of paragraph
@@ -175,7 +172,8 @@ sub _move_selected_element_index_entries_after_items($) {
         } elsif (not (exists($content->{'cmdname'})
                       and ($content->{'cmdname'} eq 'c'
                            or $content->{'cmdname'} eq 'comment'
-                     # subentry is not within the index entry in the tree
+             # TODO why a special case?
+             # subentry is not within the index entry in the tree
                            or $content->{'cmdname'} eq 'subentry'))) {
           last;
         }

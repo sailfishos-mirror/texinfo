@@ -48,6 +48,28 @@
 <indexterm role="cp"><primary>another</primary></indexterm>
 <listitem><para>enum
 </para></listitem></orderedlist>
+<itemizedlist><screen>
+<indexterm role="cp"><primary>in example itemize before line</primary></indexterm>
+</screen><listitem><screen>first item
+
+Something
+<indexterm role="cp"><primary>in example itemize before item 1</primary></indexterm><indexterm role="cp"><primary>in example itemize before item 2</primary></indexterm></screen></listitem><listitem><screen>second item
+
+<indexterm role="cp"><primary>in example itemize alone before item</primary></indexterm></screen></listitem><listitem><screen>
+<indexterm role="cp"><primary>in example itemize before comment</primary></indexterm><!-- in comment -->
+<indexterm role="cp"><primary>in example itemize after comment</primary></indexterm></screen></listitem><listitem><screen>item after entry and comment
+
+<indexterm role="cp"><primary>before comment</primary></indexterm><!-- comment after index entry -->
+</screen></listitem><listitem><screen>comment and entry
+
+<indexterm role="cp"><primary>before text</primary></indexterm>Some thing in pre
+</screen></listitem><listitem><screen>more item
+
+<indexterm role="cp"><primary>before text and comment</primary></indexterm>Some content
+<!-- in c -->
+</screen></listitem><listitem><screen>another one item
+</screen></listitem><listitem><screen><indexterm role="cp"><primary>direct in item in preformatted</primary></indexterm></screen></listitem><listitem><screen>last item
+</screen></listitem></itemizedlist>
 <variablelist><varlistentry><term><!-- comment in table -->
 <indexterm role="vr"><primary>acode--b</primary></indexterm><literal>acode--b</literal>
 </term><listitem><para>l&#8211;ine

@@ -1,3 +1,8 @@
+2026-04-06 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/tests/formatting/indices_in_begin_tables_lists.texi: add index
+	command and comments or something else in @itemize in @example.
+
 2026-04-03  Gavin Smith <gavinsmith0123@gmail.com>
 
 	gnulib update
