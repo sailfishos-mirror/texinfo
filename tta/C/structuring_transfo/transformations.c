@@ -646,7 +646,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
       tree_spaces_after = pop_element_from_contents (node_tree);
     }
   else if (last_content && last_content->type == ET_normal_text
-      && last_content->e.text->end > 0)
+           && last_content->e.text->end > 0)
     {
       int end = last_content->e.text->end;
       char *p = last_content->e.text->text + end-1;
@@ -660,6 +660,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
         }
       text_append (&spaces_after_argument, p+1);
       last_content->e.text->end = end;
+      last_content->e.text->text[end] = '\0';
     }
   if (!new_line_at_end && !comment_at_end)
     text_append (&spaces_after_argument, "\n");
@@ -982,11 +983,10 @@ reference_to_arg_internal (const char *type,
       /* container for the new elements to insert, will be destroyed
          by the caller */
       ELEMENT_LIST *container = new_list ();
-      ELEMENT *new = new_element (ET_NONE);
-      new->e.c->parent = e->e.c->parent;
-      add_to_element_list (container, new);
+
       if (e->e.c->cmd == CM_inforef || e->e.c->cmd == CM_link)
         arguments_order = ref_3_args_order;
+
       while (arguments_order[order_index] >= 0)
         {
           size_t idx = (size_t) arguments_order[order_index];
@@ -1004,16 +1004,19 @@ reference_to_arg_internal (const char *type,
                   size_t i;
                   ARG_INDICES arg_indices;
                   int non_empty;
+                  ELEMENT *new = new_element (ET_NONE);
 
                   if (removed != arg)
                     fatal ("BUG: reference_to_arg_internal removed != arg");
+
                   /* avoid the type and spaces by getting only the contents */
                   non_empty = non_leading_trailing_indices (removed,
                                                             &arg_indices);
-
                   if (!non_empty)
                     fatal ("BUG: reference_to_arg_internal removed empty");
 
+                  new->e.c->parent = e->e.c->parent;
+                  add_to_element_list (container, new);
                   insert_slice_into_contents (new, 0,
                                               removed, arg_indices.start,
                                               arg_indices.end +1);
@@ -1046,6 +1049,7 @@ reference_to_arg_internal (const char *type,
             }
           order_index++;
         }
+
       if (document && document->internal_references.number > 0)
         {
           const ELEMENT *removed_internal_ref =

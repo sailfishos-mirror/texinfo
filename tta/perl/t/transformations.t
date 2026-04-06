@@ -194,6 +194,17 @@ Text.
 
 ', {'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands'},
 ],
+['test_new_node_empty_ref',
+'@top top
+
+@chapter aa @ref{ , , , } g
+
+@section b @ref{}
+
+@subsection @ref
+
+', {'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands'},
+],
 );
 
 my @tests_converted = (

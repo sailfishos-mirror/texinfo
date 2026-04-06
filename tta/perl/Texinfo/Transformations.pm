@@ -76,8 +76,12 @@ sub _reference_to_arg($$$) {
   my ($type, $current, $document) = @_;
 
   if (exists($current->{'cmdname'}) and
-      exists($Texinfo::Commands::ref_commands{$current->{'cmdname'}})
-      and exists($current->{'contents'})) {
+      exists($Texinfo::Commands::ref_commands{$current->{'cmdname'}})) {
+
+    if (!exists($current->{'contents'})) {
+      $current = undef;
+      return [];
+    }
 
     # remove from internal references
     if (defined($document)) {
@@ -100,15 +104,14 @@ sub _reference_to_arg($$$) {
         # @asis{ }, @ , but it is not an issue or could even be considered
         # as a feature.
         if (!Texinfo::Common::is_content_empty($arg)) {
-          my $result
-            = Texinfo::TreeElement::new({#'contents' => $arg->{'contents'},
-                                         'parent' => $current->{'parent'}});
+          my $new
+            = Texinfo::TreeElement::new({'parent' => $current->{'parent'}});
           foreach my $content (@{$arg->{'contents'}}) {
             if (!exists($content->{'type'})
                 or ($content->{'type'} ne 'spaces_before_argument'
                     and $content->{'type'} ne 'spaces_after_argument')) {
-              $content->{'parent'} = $result if (exists($content->{'parent'}));
-              push @{$result->{'contents'}}, $content;
+              $content->{'parent'} = $new if (exists($content->{'parent'}));
+              push @{$new->{'contents'}}, $content;
             }
           }
           $arg->{'contents'} = undef;
@@ -116,12 +119,14 @@ sub _reference_to_arg($$$) {
           # may not actually be needed, but should not hurt either.
           $arg = undef;
           $current = undef;
-          return [$result];
+          return [$new];
         }
       }
     }
+    # ref command without non-empty argument
+    $current->{'contents'} = undef;
     $current = undef;
-    return Texinfo::TreeElement::new({'text' => ''});
+    return [];
   } else {
     return undef;
   }

@@ -1100,11 +1100,14 @@ sub modify_tree($$;$) {
     for (my $i = 0; $i < $contents_nr; $i++) {
       my $new_contents = &$operation('content',
                                      $tree->{'contents'}->[$i], $argument);
-      if ($new_contents) {
+      if (defined($new_contents)) {
         # replace by new content
         splice(@{$tree->{'contents'}}, $i, 1, @$new_contents);
         $i += scalar(@$new_contents) -1;
         $contents_nr += scalar(@$new_contents) -1;
+        if ($contents_nr == 0) {
+          delete($tree->{'contents'});
+        }
       } else {
         modify_tree($tree->{'contents'}->[$i], $operation, $argument);
       }

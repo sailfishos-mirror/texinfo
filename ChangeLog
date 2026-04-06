@@ -1,5 +1,27 @@
 2026-04-06 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/structuring_transfo/transformations.c (new_node): add missing
+	NUL at end of string in place of white spaces.
+
+	* tta/perl/Texinfo/ManipulateTree.pm (modify_tree): if the returned
+	content is an empty string, remove the tree contents if it becomes
+	empty.
+
+	* tta/perl/Texinfo/Transformations.pm (_reference_to_arg): rename
+	$result as $new.  Always return a list if the element is an @*ref
+	element.
+
+	* tta/C/structuring_transfo/transformations.c
+	(reference_to_arg_internal), tta/perl/Texinfo/Transformations.pm
+	(_reference_to_arg): put new element in returned elements list only if
+	there is a non-empty argument for the @*ref command.
+
+	* tta/perl/Makefile.tres, tta/perl/t/transformations.t
+	(test_new_node_empty_ref): test adding nodes with empty @ref to test
+	reference_to_arg_in_tree with empty @ref, and the result in _new_node.
+
+2026-04-06 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/transformations.t (insert_nodes_for_sectioning_commands):
 	sync with tta/perl/t/z_misc/automatic_nodes.t $sections_text.
 
