@@ -852,10 +852,10 @@ HTML.
 Notes on protection of punctuation in nodes (done)
 ==================================================
 
-This is implemented, in tta/perl/Texinfo/Transformations.pm in _new_node for
-Texinfo generation, and in Info with INFO_SPECIAL_CHARS_QUOTE.  *[nN]ote
-is not protected, though, but it is not clear it would be right to do.
-There is a warning with @strong{note...}.
+This is implemented, in tta/perl/Texinfo/TransformationsNonXS.pm in
+_new_node for Texinfo generation, and in Info with INFO_SPECIAL_CHARS_QUOTE.
+*[nN]ote is not protected, though, but it is not clear it would be right to
+do.  There is a warning with @strong{note...}.
 
 Automatic generation of node names from section names.  To be protected:
 * in every case
