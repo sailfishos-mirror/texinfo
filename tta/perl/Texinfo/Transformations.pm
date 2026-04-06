@@ -111,6 +111,9 @@ sub _reference_to_arg($$$) {
               push @{$result->{'contents'}}, $content;
             }
           }
+          $arg->{'contents'} = undef;
+          $current->{'contents'} = undef;
+          # may not actually be needed, but should not hurt either.
           $arg = undef;
           $current = undef;
           return [$result];

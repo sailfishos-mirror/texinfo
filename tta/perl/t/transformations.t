@@ -159,6 +159,38 @@ Text.
 @printindex cp
 ', {'TREE_TRANSFORMATIONS' => 'move_index_entries_after_items'},
 ],
+['various_added_nodes_and_refs',
+'@top otp
+
+@chapter a node
+
+@chapter a node @code{in code} @c comment
+
+@section a ,, node @code{a,b,}
+
+@section (in paren(too  aaa
+
+@subsection changed @ref{ @code{node}} and (@pxref{ ,, , @samp{file}})
+
+@subsection @asis{}
+
+@chapter a::b	 c
+
+@section a node
+
+
+@ref{a node}
+@ref{a node @code{in code} @c comment
+}
+@ref{a ,, node @code{a,b,}}
+@ref{(in paren(too  aaa}
+@ref{changed @ref{ @code{node}} and (@pxref{ ,, , @samp{file}})}
+@ref{@asis{}}
+@ref{a::b	 c}
+
+
+', {'TREE_TRANSFORMATIONS' => 'insert_nodes_for_sectioning_commands'},
+],
 );
 
 my @tests_converted = (
