@@ -141,9 +141,14 @@ lookup_collation_data_at_char (char32_t *const string,
 
           if (child_codepoint == *pchar)
             {
-              node = child;
-              found = 1;
-              n_codepoints++;
+              /* For non-contiguous matches, we should only absorb
+                 one extra character, so require node to be terminal. */
+              if (!pre_non_starter || child->data_index)
+                {
+                  node = child;
+                  found = 1;
+                  n_codepoints++;
+                }
               break;
             }
           if (child_codepoint > *pchar)
@@ -159,9 +164,12 @@ lookup_collation_data_at_char (char32_t *const string,
                    (pchar - &pre_non_starter[1]) * sizeof (char32_t));
           pre_non_starter[1] = tmp;
 
-          pchar = &pre_non_starter[1];
-          pre_non_starter = NULL;
-          max_combining_class = 0;
+          break;
+
+          /* Note: we can only absorb one extra character for non-contiguous
+             matches.  Hence 0FB2 0334 0F71 0F80 matches with
+             0FB2 0F80 TIBETAN VOWEL SIGN VOCALIC R, not with
+             0FB2 0F71 0F80 TIBETAN VOWEL SIGN VOCALIC RR */
         }
       else if (!found)
         {
