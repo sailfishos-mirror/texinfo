@@ -363,7 +363,10 @@ Manual testing:
      cd Documentation
      rm -rf out
      make -j8 TEXI2ANY=../../texinfo/tta/perl/texi2any.pl html
-  - ffmpeg doc/t2h.pm
+  - ffmpeg doc/t2h.pm.  To test and compare more easily with previous version:
+     ./configure --makeinfo='../texinfo/tta/perl/texi2any.pl -c "PACKAGE_AND_VERSION=GNU Texinfo 7.3" -c PROGRAM=makeinfo'
+     make docclean
+     make
 . if necessary, on a platform where libtool generated .la files can be
   removed such as GNU/Linux.  Install, remove the .la files in the installation
   directory and verify that XS modules are still loaded when converting with
