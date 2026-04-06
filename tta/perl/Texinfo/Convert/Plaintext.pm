@@ -1745,10 +1745,8 @@ sub node_name($$) {
 
   $self->{'node_names_text'} = {} if (!exists($self->{'node_names_text'}));
   if (!exists($self->{'node_names_text'}->{$node})) {
-    my $label_element;
-    if (exists($node->{'cmdname'})) {
-      $label_element = Texinfo::Common::get_label_element($node);
-    } else {
+    my $label_element = Texinfo::Common::get_label_element($node);
+    if (!defined($label_element)) {
       # node direction to an external node
       $label_element = $node->{'extra'}->{'node_content'};
     }

@@ -294,9 +294,9 @@ sub protect_hashchar_at_line_beginning($;$) {
 sub _protect_first_parenthesis_in_targets($$$) {
   my ($type, $current, $argument) = @_;
 
-  my $element_label = Texinfo::Common::get_label_element($current);
-  if (defined($element_label) and $element_label ne '') {
-    Texinfo::ManipulateTree::protect_first_parenthesis($element_label);
+  my $label_element = Texinfo::Common::get_label_element($current);
+  if (defined($label_element)) {
+    Texinfo::ManipulateTree::protect_first_parenthesis($label_element);
   }
   return undef;
 }
