@@ -333,7 +333,14 @@ u8_make_collation_key_ext (const uint8_t *u8_str, size_t length_in,
   static char32_t *u32_str;
   static size_t u32_len;
 
-  u32_str = u8_to_u32 (u8_str, length_in, u32_str, &u32_len);
+  static char32_t *ret;
+
+  ret = u8_to_u32 (u8_str, length_in, u32_str, &u32_len);
+  if (ret != u32_str)
+    {
+      free (u32_str);
+      u32_str = ret;
+    }
 
   char *key = u32_make_collation_key_ext (u32_str, u32_len, variable,
                                           debug, resultbuf, lengthp);
