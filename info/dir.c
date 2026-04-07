@@ -89,7 +89,10 @@ build_dir_node (void)
   /* Add a menu of dir files at the end of the composite dir node, if
      more than one was used. */
   if (n_dirs > 0)
-    add_menu_to_node (text_buffer_base(&buf), text_buffer_off(&buf), dir_node);
+    {
+      text_buffer_printf (&buf, "\n");
+      add_menu_to_node (text_buffer_base(&buf), text_buffer_off(&buf), dir_node);
+    }
   text_buffer_free (&buf);
 
   dir_node->flags |= N_IsDir;

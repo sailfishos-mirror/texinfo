@@ -1,5 +1,10 @@
 2026-04-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/dir.c (build_dir_node): Add blank line at end of list of
+	used dir nodes.  Report from Aidan <aidanczhai@gmail.com>.
+
+2026-04-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Cycle round next/prev xrefs if scroll-behaviour=Page Only.
 
 	* info/session-cmd.c (info_move_to_prev_xref, info_move_to_next_xref):
