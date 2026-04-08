@@ -1,3 +1,20 @@
+2026-04-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix dir node for hide-note-references=On
+
+	* info/nodes.c (info_get_node_tag_of_file_buffer):
+	New function, returning pointer into tags table.
+	(info_get_node_of_file_buffer): Use it.
+
+	* info/dir.c (build_dir_node): Use info_get_node_tag_of_file_buffer
+	along with info_node_of_tag_fast to load dir nodes without scanning
+	their contents.  Only call scan_node_contents once, on the composite
+	dir node.
+	
+	When hide-note-references was On, the dir node was completely broken
+	due to parts of it being processed by scan_node_contents multiple
+	times.  Report from Aidan <aidanczhai@gmail.com>.
+
 2026-03-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Texinfo 7.3
