@@ -157,6 +157,8 @@ void free_node (NODE *node);
 NODE *replicate_node (const NODE *node);
 
 NODE *info_get_node (const char *filename, const char *nodename);
+TAG **info_get_node_tag_of_file_buffer (FILE_BUFFER *file_buffer,
+                                           const char *nodename);
 NODE *info_get_node_of_file_buffer (FILE_BUFFER *file_buffer,
                                            const char *nodename);
 NODE *info_node_of_tag (FILE_BUFFER *fb, TAG **tag_ptr);

@@ -1033,6 +1033,33 @@ node_set_body_start (NODE *node)
   node->body_start += n;
 }
 
+/* Lookup NODENAME in the list of nodes, and return the record about that
+   node. */
+TAG **
+info_get_node_tag_of_file_buffer (FILE_BUFFER *file_buffer,
+                                  const char *nodename)
+{
+  TAG *tag = NULL;
+  int i;
+
+  /* If no tags at all (possibly a misformatted info file), quit.  */
+  if (!file_buffer->tags)
+    return NULL;
+
+  for (i = 0; (tag = file_buffer->tags[i]); i++)
+    if (strcmp (nodename, tag->nodename) == 0)
+      return &file_buffer->tags[i];
+
+  /* For "Top" node only, look for it case-insensitively if not found. */
+  if (!tag && !strcasecmp (nodename, "Top"))
+    {
+      for (i = 0; (tag = file_buffer->tags[i]); i++)
+        if (strcasecmp (nodename, tag->nodename) == 0)
+          return &file_buffer->tags[i];
+    }
+  return NULL;
+}
+
 /* Return a pointer to a NODE structure for the Info node NODENAME in
    FILE_BUFFER.  If the node cannot be found, return a NULL pointer.
    Return value should be freed by caller, but none of its fields should
@@ -1061,33 +1088,10 @@ info_get_node_of_file_buffer (FILE_BUFFER *file_buffer, const char *nodename)
   /* Search the tags table for an entry which matches the node that we want. */
   else
     {
-      TAG *tag;
-      int i;
+      TAG **tag = info_get_node_tag_of_file_buffer (file_buffer, nodename);
 
-      /* If no tags at all (possibly a misformatted info file), quit.  */
-      if (!file_buffer->tags)
-        return NULL;
-
-      for (i = 0; (tag = file_buffer->tags[i]); i++)
-        if (strcmp (nodename, tag->nodename) == 0)
-          {
-            node = info_node_of_tag (file_buffer, &file_buffer->tags[i]);
-            break;
-          }
-    }
-
-  /* For "Top" node only, look for it case-insensitively if not found. */
-  if (!node && !strcasecmp (nodename, "Top"))
-    {
-      TAG *tag;
-      int i;
-
-      for (i = 0; (tag = file_buffer->tags[i]); i++)
-        if (strcasecmp (nodename, tag->nodename) == 0)
-          {
-            node = info_node_of_tag (file_buffer, &file_buffer->tags[i]);
-            break;
-          }
+      if (tag)
+        node = info_node_of_tag (file_buffer, tag);
     }
 
   /* Return the results of our node search. */
@@ -1263,7 +1267,7 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **input_tag_ptr, int fast)
 
   node = xmalloc (sizeof (NODE));
   memset (node, 0, sizeof (NODE));
-  if (node_tag->cache.references)
+  if (node_tag->cache.references && !fast)
     {
       /* Initialize the node from the cache. */
       *node = node_tag->cache;
@@ -1301,7 +1305,10 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **input_tag_ptr, int fast)
             node_tag->cache.contents = 0; /* Pointer into file buffer
                                              is not saved.  */
         }
-      /* Consider the master version to be in node_tag->cache. */
+      /* Returned node does not have any substructures that need to
+         be deallocated, either because the master version is in
+         node_tag->cache, or because we were called with the "fast"
+         argument. */
       node->flags |= N_Replica;
     }
 

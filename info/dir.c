@@ -50,7 +50,8 @@ build_dir_node (void)
     goto emergency_dir;
 
   FILE_BUFFER *dir_fb = info_find_file (dir_filename);
-  NODE *dir_node = info_get_node_of_file_buffer (dir_fb, "Top");
+  TAG **dir_tag = info_get_node_tag_of_file_buffer (dir_fb, "Top");
+  NODE *dir_node = info_node_of_tag_fast (dir_fb, dir_tag);
   if (!dir_node)
     {
       free (dir_filename);
@@ -71,7 +72,9 @@ build_dir_node (void)
       FILE_BUFFER *next_dir_fb = info_find_file (next_dir_file);
       if (next_dir_fb)
         {
-          next_dir_node = info_get_node_of_file_buffer (next_dir_fb, "Top");
+          TAG **next_dir_tag
+            = info_get_node_tag_of_file_buffer (next_dir_fb, "Top");
+          next_dir_node = info_node_of_tag_fast (next_dir_fb, next_dir_tag);
           if (next_dir_node)
             {
               text_buffer_printf (&buf,
@@ -80,7 +83,7 @@ build_dir_node (void)
               if (next_dir_node->contents)
                 add_menu_to_node (next_dir_node->contents, next_dir_node->nodelen,
                                   dir_node);
-              free (next_dir_node);
+              free_node (next_dir_node);
             }
         }
       free (next_dir_file);
