@@ -1082,11 +1082,15 @@ sub test($$)
       $expanded_formats{$expanded_format} = 1;
     }
   }
+  my $text_options = {'TEST' => $default_test_level,
+                      'expanded_formats' => \%expanded_formats};
+  if (defined($parser_options->{'COMMAND_LINE_ENCODING'})) {
+    $text_options->{'COMMAND_LINE_ENCODING'}
+      = $parser_options->{'COMMAND_LINE_ENCODING'};
+  }
 
   my $converted_text
-      = Texinfo::Convert::Text::convert_to_text($tree,
-                         {'TEST' => $default_test_level,
-                          'expanded_formats' => \%expanded_formats});
+      = Texinfo::Convert::Text::convert_to_text($tree, $text_options);
 
   # holds conversion function output returned as text for each format.
   # Should not be set for formats outputting to files.
@@ -1558,8 +1562,8 @@ sub test($$)
         }
 
         # TODO for HTML format tests, it could be a good idea to produce
-        # and check a representation of global directions, including added
-        # directions and special units directions.
+        # and check a representation of global and text directions,
+        # including added and special units directions.
 
         if ($reference_exists) {
           $tests_count += 1;

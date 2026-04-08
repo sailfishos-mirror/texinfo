@@ -466,6 +466,9 @@ sub warn_unknown_language($) {
   my $lang_code = $lang;
   my $region_code;
 
+  # FIXME according to
+  # https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html
+  # there can be an @variant prepended.  Should we match that here too?
   if ($lang =~ /^([a-z]+)_([A-Z]+)$/) {
     $lang_code = $1;
     $region_code = $2;

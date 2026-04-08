@@ -9,7 +9,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
  *before_node_section C2
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
-  *preamble_before_content C19
+  *preamble_before_content C23
    *@documentlanguage C1 l2
    |EXTRA
    |global_command_number:{1}
@@ -129,10 +129,10 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l16
    |EXTRA
    |global_command_number:{15}
-   |text_arg:{bhÃ©}
+   |text_arg:{bhé}
     *line_arg C3
      {spaces_before_argument: }
-     {bhÃ©}
+     {bhé}
      {spaces_after_argument:\\n}
    *@documentlanguage C1 l17
    |EXTRA
@@ -145,18 +145,50 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *@documentlanguage C1 l18
    |EXTRA
    |global_command_number:{17}
+   |text_arg:{aç_DC}
+    *line_arg C3
+     {spaces_before_argument: }
+     {aç_DC}
+     {spaces_after_argument:\\n}
+   *@documentlanguage C1 l19
+   |EXTRA
+   |global_command_number:{18}
+   |text_arg:{fr_ÂC}
+    *line_arg C3
+     {spaces_before_argument: }
+     {fr_ÂC}
+     {spaces_after_argument:\\n}
+   *@documentlanguage C1 l20
+   |EXTRA
+   |global_command_number:{19}
+   |text_arg:{c修_CH}
+    *line_arg C3
+     {spaces_before_argument: }
+     {c修_CH}
+     {spaces_after_argument:\\n}
+   *@documentlanguage C1 l21
+   |EXTRA
+   |global_command_number:{20}
+   |text_arg:{fr_M让}
+    *line_arg C3
+     {spaces_before_argument: }
+     {fr_M让}
+     {spaces_after_argument:\\n}
+   *@documentlanguage C1 l22
+   |EXTRA
+   |global_command_number:{21}
    |text_arg:{ab_us}
     *line_arg C3
      {spaces_before_argument: }
      {ab_us}
      {spaces_after_argument:\\n}
-   *@documentlanguage C1 l19
+   *@documentlanguage C1 l23
    |EXTRA
-   |global_command_number:{18}
+   |global_command_number:{22}
     *line_arg C1
      {spaces_before_argument:\\n}
    {empty_line:\\n}
- *@node C1 l21 {Top}
+ *@node C1 l25 {Top}
  |EXTRA
  |identifier:{Top}
  |is_target:{1}
@@ -166,7 +198,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     {spaces_before_argument: }
     {Top}
     {spaces_after_argument:\\n}
- *@top C4 l22 {top}
+ *@top C4 l26 {top}
  |EXTRA
  |section_level:{0}
  |section_number:{1}
@@ -176,8 +208,8 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
     {top}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@defivar C2 l24
-   *def_line C1 l24
+  *@defivar C2 l28
+   *def_line C1 l28
    |EXTRA
    |def_command:{defivar}
    |def_index_element:
@@ -225,7 +257,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
       *def_line_arg C1
        {Selected?}
      {spaces_after_argument:\\n}
-   *@end C1 l25
+   *@end C1 l29
    |EXTRA
    |text_arg:{defivar}
     *line_arg C3
@@ -251,8 +283,12 @@ $result_texis{'invalid_documentlanguage'} = '
 @documentlanguage ab gh
 @documentlanguage  es@c in comment
 @documentlanguage az
-@documentlanguage bhÃ©
+@documentlanguage bhé
 @documentlanguage AB_FR
+@documentlanguage aç_DC
+@documentlanguage fr_ÂC
+@documentlanguage c修_CH
+@documentlanguage fr_M让
 @documentlanguage ab_us
 @documentlanguage
 
@@ -312,16 +348,28 @@ $result_errors{'invalid_documentlanguage'} = '* W l2|%bm_AA is not a valid langu
 * W l13|ab gh is not a valid language code
  warning: ab gh is not a valid language code
 
-* W l16|bhÃ© is not a valid language code
- warning: bhÃ© is not a valid language code
+* W l16|bhé is not a valid language code
+ warning: bhé is not a valid language code
 
 * W l17|AB_FR is not a valid language code
  warning: AB_FR is not a valid language code
 
-* W l18|ab_us is not a valid language code
+* W l18|aç_DC is not a valid language code
+ warning: aç_DC is not a valid language code
+
+* W l19|fr_ÂC is not a valid language code
+ warning: fr_ÂC is not a valid language code
+
+* W l20|c修_CH is not a valid language code
+ warning: c修_CH is not a valid language code
+
+* W l21|fr_M让 is not a valid language code
+ warning: fr_M让 is not a valid language code
+
+* W l22|ab_us is not a valid language code
  warning: ab_us is not a valid language code
 
-* W l19|@documentlanguage missing argument
+* W l23|@documentlanguage missing argument
  warning: @documentlanguage missing argument
 
 ';

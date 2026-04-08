@@ -1,4 +1,5 @@
 use strict;
+use utf8;
 
 use lib '.';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
@@ -187,6 +188,10 @@ Another unknown language. @xref{Top}.
 @documentlanguage az
 @documentlanguage bhé
 @documentlanguage AB_FR
+@documentlanguage aç_DC
+@documentlanguage fr_ÂC
+@documentlanguage c修_CH
+@documentlanguage fr_M让
 @documentlanguage ab_us
 @documentlanguage
 
@@ -196,7 +201,33 @@ Another unknown language. @xref{Top}.
 @defivar Which Language Selected?
 @end defivar
 
-'],
+', {'COMMAND_LINE_ENCODING' => 'UTF-8'},
+   {'COMMAND_LINE_ENCODING' => 'UTF-8'}],
+['documentlanguage_selection_accented_region',
+#@documentlanguage fr_让AD
+'
+@documentlanguage fr_ÂD
+
+@node Top
+@top top
+
+@defivar Which Language Selected?
+@end defivar
+
+', {'COMMAND_LINE_ENCODING' => 'UTF-8',},
+   {'COMMAND_LINE_ENCODING' => 'UTF-8'}],
+['documentlanguage_selection_region_unicode',
+'
+@documentlanguage fr_M让
+
+@node Top
+@top top
+
+@defivar Which Language Selected?
+@end defivar
+
+', {'COMMAND_LINE_ENCODING' => 'UTF-8'},
+   {'COMMAND_LINE_ENCODING' => 'UTF-8'}],
 ['documentlanguage_generated_master_menu',
 '@documentlanguage pt
 

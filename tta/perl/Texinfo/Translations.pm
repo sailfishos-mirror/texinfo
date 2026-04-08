@@ -193,10 +193,12 @@ sub translate_string($$$;$) {
   # charset used in the po/gmo files, but it does not seems to be available.
 
   my @langs = ($encoded_lang);
-  # TODO use /a modifier?
-  if ($encoded_lang =~ /^([a-z]+)_([A-Z]+)/) {
+  # NOTE gettext should already try the main language if it follows the
+  # optional logic proposed in POSIX gettext description.  We nevertheless
+  # add the main language if the gettext implementation does not or does
+  # not get the main language.
+  if ($encoded_lang =~ /^([a-z]+)_/) {
     my $main_lang = $1;
-    my $region_code = $2;
     push @langs, $main_lang;
   }
 
@@ -211,6 +213,10 @@ sub translate_string($$$;$) {
   } else {
     $translated_string = Locale::Messages::gettext($string);
   }
+
+  #print STDERR "TRANSLATED($locales): '$string' (".
+  #           (defined($translation_context) ? $translation_context : '(null)')
+  #           .") '$translated_string'\n";
 
   # switch back for error messages translation
   Locale::Messages->select_package('gettext_pp');

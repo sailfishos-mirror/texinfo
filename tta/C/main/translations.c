@@ -322,22 +322,18 @@ translate_string (const char *string, const char *in_lang,
      if the encoding lang is encoded to is not ASCII compatible.  We
      still use it to be more like Perl code */
   langs[0] = strdup (encoded_lang);
+  /* NOTE gettext should already try the main language if it follows the
+     optional logic proposed in POSIX gettext description.  We nevertheless
+     add the main language if the gettext implementation does not or does
+     not get the main language. */
   p = strchr (encoded_lang, '_');
   if (p && p - encoded_lang > 0)
     {
-      char *q = p;
+      const char *q = p;
       while (isascii_lower (*q))
         q++;
       if (q == p)
-        {
-          q++;
-          while (isascii_upper (*q))
-            q++;
-          if (q - (p + 1) > 0)
-            {
-              main_lang = strndup (encoded_lang, p - encoded_lang);
-            }
-        }
+        main_lang = strndup (encoded_lang, p - encoded_lang);
     }
   if (main_lang)
     langs[1] = main_lang;
