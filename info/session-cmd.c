@@ -1821,10 +1821,9 @@ DECLARE_INFO_COMMAND (info_move_to_prev_xref,
               continue;
             }
 
-          /* When not moving between nodes, cycle round the node's
-             references, if any. */
-          if (!cursor_movement_scrolls_p
-              || info_scroll_behaviour == IS_PageOnly)
+          /* When cursor-movement-scrolls=Off, cycle round the node's
+             references. */
+          if (!cursor_movement_scrolls_p)
             {
               REFERENCE **r = window->node->references;
               if (r && r[0])
@@ -1885,10 +1884,9 @@ DECLARE_INFO_COMMAND (info_move_to_next_xref,
               continue;
             }
 
-          /* When not moving between nodes, cycle round the node's
-             references, if any. */
-          if (!cursor_movement_scrolls_p
-              || info_scroll_behaviour == IS_PageOnly)
+          /* When cursor-movement-scrolls=Off, cycle round the node's
+             references. */
+          if (!cursor_movement_scrolls_p)
             {
               REFERENCE **r = window->node->references;
               if (r && r[0])
