@@ -1843,6 +1843,12 @@ DECLARE_INFO_COMMAND (info_move_to_prev_xref,
               return;
             }
 
+          if (info_scroll_behaviour == IS_PageOnly)
+            {
+              info_error (_("No earlier cross-reference in node"));
+              break;
+            }
+
           if (backward_move_node_structure (window, info_scroll_behaviour) != 0
               || !strcmp (window->node->nodename, initial_nodename))
             {
@@ -1901,6 +1907,12 @@ DECLARE_INFO_COMMAND (info_move_to_next_xref,
 
               info_error ("%s", msg_no_xref_node);
               return;
+            }
+
+          if (info_scroll_behaviour == IS_PageOnly)
+            {
+              info_error (_("No later cross-reference in node"));
+              break;
             }
 
           if (forward_move_node_structure (window, info_scroll_behaviour) != 0

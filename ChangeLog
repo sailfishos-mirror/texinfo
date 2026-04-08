@@ -1,3 +1,10 @@
+2026-04-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/session-cmd.c (info_move_to_next_xref, info_move_to_prev_xref):
+	If cursor-movement-scrolls=On and scroll-behaviour="Page Only", issue
+	an error message when there is no later (resp. earlier) cross-reference
+	to move to.  Suggestion from Aidan <aidanczhai@gmail.com>.
+
 2026-04-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/dir.c (build_dir_node): Add blank line at end of list of
