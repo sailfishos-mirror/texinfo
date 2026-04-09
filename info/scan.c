@@ -1683,6 +1683,7 @@ scan_node_contents (NODE *node, FILE_BUFFER *fb, TAG **tag_ptr)
   close_conversion ();
 
   node->references = refs;
+  node->flags &= ~N_Simple;
 
   if (rewrite_p)
     {
