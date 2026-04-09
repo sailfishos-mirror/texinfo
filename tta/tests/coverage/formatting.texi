@@ -53,6 +53,8 @@ Insercopying in titlepage
 @node Top
 @top Top section
 
+Something in Top.
+
 @menu
 * chapter::               chapter
 

@@ -3597,6 +3597,8 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 <node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapter</nodenext></node>
 <top><sectiontitle> Top section</sectiontitle>
 
+<para>Something in Top.
+</para>
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>chapter</menunode><menuseparator>::               </menuseparator><menudescription><pre xml:space="preserve">chapter
 </pre></menudescription></menuentry><menucomment><pre xml:space="preserve">

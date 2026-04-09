@@ -1,5 +1,9 @@
 2026-04-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/tests/coverage/formatting.texi: add something in Top.
+
+2026-04-10 Patrice Dumas  <pertusus@free.fr>
+
 	Add @ifepub and @ifnotepub in texi2any
 
 	* tta/C/texi2any.c (is_texinfo_output_formats)

@@ -13,6 +13,8 @@
 Top section
 ***********
 
+Something in Top.
+
 * chapter::               chapter
 
 Menu comment

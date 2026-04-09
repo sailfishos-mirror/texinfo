@@ -720,6 +720,8 @@ File: formatting.info,  Node: Top,  Next: chapter,  Up: (dir)
 Top section
 ***********
 
+Something in Top.
+
 * Menu:
 
 * chapter::               chapter
@@ -3732,23 +3734,23 @@ Appendix A An appendix
 
 Tag Table:
 Node: Top20177
-Node: chapter20421
-Ref: chapter-Footnote-1103280
-Ref: chapter-Footnote-2103300
-Ref: chapter-Footnote-3103321
-Ref: chapter-Footnote-4103341
-Ref: chapter-Footnote-5103362
-Ref: chapter-Footnote-6103382
-Ref: chapter-Footnote-7103403
-Ref: chapter-Footnote-8103441
-Node: s--ect,ion103461
-Node: subsection103664
-Ref: anchor103845
-Node: subsubsection ``simple-double--103845
-Node: node with xrefname104045
-Node: subsubsection three---four----''104128
-Node: chapter2104300
-Node: node with empty xrefname124897
+Node: chapter20440
+Ref: chapter-Footnote-1103299
+Ref: chapter-Footnote-2103319
+Ref: chapter-Footnote-3103340
+Ref: chapter-Footnote-4103360
+Ref: chapter-Footnote-5103381
+Ref: chapter-Footnote-6103401
+Ref: chapter-Footnote-7103422
+Ref: chapter-Footnote-8103460
+Node: s--ect,ion103480
+Node: subsection103683
+Ref: anchor103864
+Node: subsubsection ``simple-double--103864
+Node: node with xrefname104064
+Node: subsubsection three---four----''104147
+Node: chapter2104319
+Node: node with empty xrefname124916
 
 End Tag Table
 
