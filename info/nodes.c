@@ -1080,10 +1080,11 @@ info_get_node_of_file_buffer (FILE_BUFFER *file_buffer, const char *nodename)
     {
       node = info_create_node ();
       node->fullpath = file_buffer->fullpath;
-      node->nodename = xstrdup ("*");
+      node->nodename = "*";
       node->contents = file_buffer->contents;
       node->nodelen = file_buffer->filesize;
       node->body_start = 0;
+      node->flags = N_Replica; /* No fields need deallocating. */
     }
   /* Search the tags table for an entry which matches the node that we want. */
   else
