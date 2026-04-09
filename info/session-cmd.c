@@ -3067,7 +3067,8 @@ info_search_internal (char *string, WINDOW *window,
   /* If this node isn't part of a larger file, search this node only. */
   file_buffer = file_buffer_of_window (window);
   if (!file_buffer || !file_buffer->tags
-      || !strcmp (window->node->nodename, "*"))
+      || !strcmp (window->node->nodename, "*")
+      || (node->flags & (N_IsInternal | N_IsDir)) )
     search_other_nodes = 0;
 
   /* Find number of tags and current tag. */

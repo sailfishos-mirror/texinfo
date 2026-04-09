@@ -1,3 +1,19 @@
+2026-04-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix searching dir node
+
+	* info/scan.c (scan_node_contents): Clear N_Simple flag.
+	As we used info_node_of_tag_fast to build the dir node, the final
+	dir node still had this flag set on it, which led to an infinite
+	recursion in info_search_in_node_internal attempting to retrieve
+	the dir node without the N_Simple flag set.
+
+	* info/session-cmd.c (info_search_internal): Avoid attempting
+	to load other nodes when searching in the dir node (or other nodes
+	flagged as internal).
+
+	Report from Aidan <aidanczhai@gmail.com>.
+
 2026-04-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix dir node for hide-note-references=On
