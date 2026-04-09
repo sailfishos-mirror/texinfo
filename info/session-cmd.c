@@ -2131,8 +2131,10 @@ info_handle_pointer (const char *label, WINDOW *window)
       return 0;
     }
 
-  /* If we are going up, look for the current node in the menu. */
-  if (strcmp (label, "Up") == 0)
+  /* If we are going up within the same file, look for the current node
+     in the menu. */
+  if (strcmp (label, "Up") == 0
+        && strcmp (node->fullpath, window->node->fullpath) == 0)
     {
       REFERENCE **r;
 
