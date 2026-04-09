@@ -1,5 +1,16 @@
 2026-04-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	No menu positioning after "Up" to different file
+	
+	* info/session-cmd.c (info_handle_pointer):
+	If going up to a different file, do not try to find the current
+	node in the new node's menu.  This led to a bad result when going
+	"Up" to the dir node.
+
+	Report from Aidan <aidanczhai@gmail.com>.
+
+2026-04-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	No crash for repeated visit to "*" node
 
 	* info/nodes.c (info_get_node_of_file_buffer):
