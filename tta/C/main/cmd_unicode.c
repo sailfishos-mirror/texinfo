@@ -272,6 +272,8 @@ const DIACRITIC_UNICODE unicode_diacritics[] = {
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
+{0, 0, 0},
+{0, 0, 0},
 {"\xcc\xa8", "808", "0328"},  /* ogonek */
 {0, 0, 0},
 {0, 0, 0},
@@ -591,6 +593,8 @@ const COMMAND_UNICODE_CHARACTER base_unicode_map[] = {
 {"2039", "\xe2\x80\xb9", "\\2039 "},   /* guilsinglleft */
 {"203A", "\xe2\x80\xba", "\\203A "},   /* guilsinglright */
 {"0023", "#", "\\0023 "},   /* hashchar */
+{0, 0, 0},
+{0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
@@ -965,6 +969,8 @@ const COMMAND_UNICODE_CHARACTER extra_unicode_map[] = {
 {0, 0, 0},
 {0, 0, 0},
 {"21A6", "\xe2\x86\xa6", "\\21A6 "},   /* expansion */
+{0, 0, 0},
+{0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},

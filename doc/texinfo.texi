@@ -12198,6 +12198,7 @@ segment of text appears only in the Info file and, for historical
 compatibility, the plain text output.
 
 @findex ifdocbook
+@findex ifepub
 @findex ifhtml
 @findex iflatex
 @findex ifplaintext
@@ -12208,8 +12209,11 @@ The environments for the other formats are analogous:
 @item @@ifdocbook @dots{} @@end ifdocbook
 Text to appear only in the DocBook output.
 
+@item @@ifepub @dots{} @@end ifepub
+Text to appear only in the EPUB output.
+
 @item @@ifhtml @dots{} @@end ifhtml
-Text to appear only in the HTML output.
+Text to appear only in the HTML and EPUB output.
 
 @item @@iflatex @dots{} @@end iflatex
 Text to appear only in the @LaTeX{} output.
@@ -12240,7 +12244,7 @@ This text will appear only in the printed manual.
 However, this text will appear only in Info and plain text.
 @@end ifinfo
 @@ifhtml
-And this text will only appear in HTML.
+And this text will only appear in HTML (and in EPUB).
 @@end ifhtml
 @@iflatex
 Moreover, this text will only appear in @@LaTeX@{@}.
@@ -12263,7 +12267,7 @@ This text will appear only in the printed manual.
 However, this text will appear only in Info and plain text.
 @end ifinfo
 @ifhtml
-And this text will only appear in HTML.
+And this text will only appear in HTML (and in EPUB).
 @end ifhtml
 @iflatex
 Moreover, this text will only appear in @LaTeX{}.
@@ -12302,6 +12306,7 @@ output formats.  This command will stop being recognized in a future release.
 @nodedescription Text for any format other than a given one.
 @section Conditional Not Commands
 @findex ifnotdocbook
+@findex ifnotepub
 @findex ifnothtml
 @findex ifnotinfo
 @findex ifnotlatex
@@ -12313,6 +12318,7 @@ than a given one with the @code{@@ifnot@dots{}} environments:
 
 @example
 @@ifnotdocbook @dots{} @@end ifnotdocbook
+@@ifnotepub @dots{} @@end ifnotepub
 @@ifnothtml @dots{} @@end ifnothtml
 @@ifnotinfo @dots{} @@end ifnotinfo
 @@ifnotlatex @dots{} @@end ifnotlatex
@@ -12413,13 +12419,14 @@ $$ \chi^2 = \sum_{i=1}^N
 @end tex
 
 @cindex HTML, including raw
+@cindex EPUB, including raw
 @findex html
 @cindex DocBook, including raw
 @findex docbook
 @cindex @LaTeX{}, including raw
 @findex latex
 Analogously, you can use @code{@@html @dots{} @@end html} for a region of
-raw HTML, @code{@@docbook @dots{} @@end docbook} for a
+raw HTML (or raw EPUB), @code{@@docbook @dots{} @@end docbook} for a
 region of raw DocBook, @code{@@latex @dots{} @@end latex} for a
 region of raw @LaTeX{}.
 
@@ -12433,6 +12440,20 @@ changes that globally affect the document inside a raw region leads to
 unpredictable and generally undesirable behavior.  For example, using
 the @code{@@kbdinputstyle} command inside a raw region is undefined.
 The remedy is simple: don't do that.
+
+There is no similar command for raw EPUB, @code{@@html} should be used
+for EPUB too.  To specify raw EPUB not output in HTML, you can use
+@code{@@ifepub}:
+
+@example
+@@ifepub
+@@html
+<dc:creator id="creator">Haruki Murakami</dc:creator>
+<meta refines="#creator" property="role" scheme="marc:relators"
+      id="role">aut</meta>
+@@end html
+@@end ifepub
+@end example
 
 @findex xml
 Removed formats raw regions commands such as @code{@@xml} are recognized
@@ -12470,7 +12491,7 @@ Similar, but for raw @var{text} (@pxref{Raw Formatter Commands}).
 The supported @var{format} names are:
 
 @example
-docbook  html  info  latex  plaintext  tex
+docbook  epub  html  info  latex  plaintext  tex
 @end example
 
 For example,
@@ -14989,6 +15010,8 @@ Unix-like systems, @samp{;} on Windows).
 
 @item --ifdocbook
 @opindex --ifdocbook
+@item --ifepub
+@opindex --ifepub
 @itemx --ifhtml
 @opindex --ifhtml
 @itemx --ifinfo
@@ -15008,6 +15031,8 @@ ignored.
 
 @item --no-ifdocbook
 @opindex --no-ifdocbook
+@item --no-ifepub
+@opindex --no-ifepub
 @itemx --no-ifhtml
 @opindex --no-ifhtml
 @itemx --no-ifinfo
@@ -20369,6 +20394,7 @@ follow text.  Pair with the corresponding @code{@@end ifcommand...}.
 @xref{Testing for Texinfo Commands}.
 
 @item @@ifdocbook
+@itemx @@ifepub
 @itemx @@ifhtml
 @itemx @@ifinfo
 @itemx @@iflatex
@@ -20383,6 +20409,7 @@ resp.@: @code{@@end ifhtml}@enddots{}
 @code{@@ifxml} is deprecated and will be removed in a future release.
 
 @item @@ifnotdocbook
+@itemx @@ifnotepub
 @itemx @@ifnothtml
 @itemx @@ifnotlatex
 @itemx @@ifnotplaintext

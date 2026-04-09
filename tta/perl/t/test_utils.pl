@@ -432,11 +432,19 @@ sub convert_to_html($$$$$)
   my $document = shift;
   my $converter_options = shift;
 
-  $converter_options = {} if (!defined($converter_options));
+  my $add_epub_expanded_format;
+  if ($format eq 'epub'
+      and (!defined($converter_options)
+           or !exists($converter_options->{'EXPANDED_FORMATS'}))) {
+    $add_epub_expanded_format = 1;
+  }
 
   $converter_options
     = set_converter_option_defaults($converter_options, 'html',
                                     $self->{'DEBUG'});
+
+  push @{$converter_options->{'EXPANDED_FORMATS'}}, 'epub'
+    if ($add_epub_expanded_format);
 
   $converter_options->{'SPLIT'} = ''
     if ($format eq 'html_text'
@@ -648,7 +656,11 @@ sub test($$)
       if (! -d $srcdir."/t/results/$self->{'name'}");
   }
 
+  # keep track of expanded formats not being set to add epub only if
+  # loading the epub init file
+  my $default_expanded_formats;
   if (!defined $parser_options->{'EXPANDED_FORMATS'}) {
+    $default_expanded_formats = 1;
     $parser_options->{'EXPANDED_FORMATS'} = [
       'docbook', 'html', 'info', 'plaintext', 'latex'];
     #  'tex' is missed out here so that @ifnottex is expanded
@@ -835,6 +847,9 @@ sub test($$)
         Texinfo::Config::GNUT_load_init_file($file);
         if ($filename eq 'epub3.pm') {
           $doing_epub = 1;
+          if ($default_expanded_formats) {
+            push @{$parser_options->{'EXPANDED_FORMATS'}}, 'epub';
+          }
           my $create_epub_file = $arg_output;
           if ($arg_output) {
             eval { require Archive::Zip; };

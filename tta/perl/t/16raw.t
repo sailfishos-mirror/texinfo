@@ -446,6 +446,13 @@ in html
 ',
 {'EXPANDED_FORMATS' => ['tex']}
 ],
+# This tests that there is no raw epub command
+['raw_epub',
+'@epub
+in EPUB
+@end epub
+', {'EXPANDED_FORMATS' => ['epub']}
+],
 );
 
 my @test_invalid = (

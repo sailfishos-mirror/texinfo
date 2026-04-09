@@ -34,6 +34,50 @@ my @file_tests = (
 
 @part part
 ', {'init_files' => ['epub3.pm']},],
+['epub_conditional',
+'@documentinfo
+@title title
+@ifepub
+@subtitle A book
+@end ifepub
+@ifnotepub
+@subtitle Online
+@end ifnotepub
+@end documentinfo
+
+@maketitle
+
+@node Top
+@top top
+
+@node chapter
+@chapter Chap
+
+@ifepub
+@html
+<section role="doc-part" aria-labelledby="p1">
+@end html
+@end ifepub
+
+Some content
+
+@ifepub
+@html
+</section>
+@end html
+@end ifepub
+', {'init_files' => ['epub3.pm']},],
+['epub_inline_conditional',
+'
+@node Top
+@top top
+
+@node chapter
+@chapter Chap
+
+Text @inlinefmt{epub, here if EPUB}.
+Format @inlineraw{epub, <section>raw EPUB</section>}.
+', {'init_files' => ['epub3.pm']},],
 );
 
 foreach my $test (@file_tests) {

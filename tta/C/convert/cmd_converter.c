@@ -240,6 +240,8 @@ const char *xml_text_entity_no_arg_commands[] = {
 0,
 0,
 0,
+0,
+0,
 "&#322;",  /* l */
 0,
 0,

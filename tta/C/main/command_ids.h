@@ -233,10 +233,12 @@ CM_ifclear,
 CM_ifcommanddefined,
 CM_ifcommandnotdefined,
 CM_ifdocbook,
+CM_ifepub,
 CM_ifhtml,
 CM_ifinfo,
 CM_iflatex,
 CM_ifnotdocbook,
+CM_ifnotepub,
 CM_ifnothtml,
 CM_ifnotinfo,
 CM_ifnotlatex,
@@ -428,7 +430,7 @@ CM_hex_7d,
 CM_hex_7e,
 };
 
-#define BUILTIN_CMD_NUMBER 394
+#define BUILTIN_CMD_NUMBER 396
 
 #define TXI_CMD_CATEGORY_BLOCK \
   tcc_cmd_category(conditional, block, BLOCK) \

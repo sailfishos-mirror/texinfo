@@ -238,8 +238,12 @@ sub valid_customization_option($) {
 # Output formats
 
 # used in main program
+# sync with C/main/utils.c default_expanded_formats
+# ALTIMP C/texi2any.c is_texinfo_output_formats
 our %texinfo_output_formats;
-foreach my $output_format_command ('info', 'plaintext',
+# epub have a conditional but no raw format block, the html raw format
+# can be used for epub
+foreach my $output_format_command ('info', 'plaintext', 'epub',
        grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'}
             keys(%Texinfo::Commands::block_commands)) {
   $texinfo_output_formats{$output_format_command} = $output_format_command;

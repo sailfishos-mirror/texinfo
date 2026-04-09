@@ -114,7 +114,7 @@ my $archive_zip_loading_error = $@;
 # version.
 my $epub_format_version = '3.0';
 
-# used in tests to avoid creating the .epub file.
+# set to 0 in tests to avoid creating the .epub file.
 texinfo_set_from_init_file('EPUB_CREATE_CONTAINER_FILE', 1);
 
 texinfo_set_format_from_init_file('html');

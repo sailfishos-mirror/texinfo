@@ -110,6 +110,7 @@ typedef struct FORMAT_REGION_NAME {
 } FORMAT_REGION_NAME;
 
 static FORMAT_REGION_NAME converter_format_expanded_region_name[] = {
+  {"epub3", "epub"},
   {"texinfoxml", "xml"},
   {NULL, NULL},
 };
@@ -448,9 +449,26 @@ unset_expansion (OPTIONS_LIST *options_list, STRING_LIST *ignored_formats,
     add_string (format_name, ignored_formats);
 }
 
+/* Texinfo::Common::texinfo_output_formats */
+static int
+is_texinfo_output_formats (const char *format)
+{
+  if (!strcmp (format, "info") || !strcmp (format, "plaintext")
+      || !strcmp (format, "epub"))
+    return 1;
+  else
+    {
+      enum command_id cmd = lookup_builtin_command (format);
+      if (cmd && builtin_command_data[cmd].flags & CF_block
+           && builtin_command_data[cmd].data == BLOCK_format_raw)
+        return 1;
+    }
+  return 0;
+}
+
 static void
 format_expanded_formats (STRING_LIST *default_expanded_formats,
-                         FORMAT_SPECIFICATION *format_specification,
+                         const FORMAT_SPECIFICATION *format_specification,
                          STRING_LIST *texi2dvi_args, int *call_texi2dvi)
 {
   const char *converter_format;
@@ -470,7 +488,31 @@ format_expanded_formats (STRING_LIST *default_expanded_formats,
       converter_format = "tex";
     }
   else if (format_specification->converted_format)
-    converter_format = format_specification->converted_format;
+    {
+      size_t i;
+      const char *new_format_expanded_region = 0;
+      converter_format = format_specification->converted_format;
+    /* The converter format conditional is added below, here add output
+       format specific conditional expansion if it exists.
+       For epub3, for example, there is an epub specific conditional, in
+       addition to html conditional setup because epub converter format
+       is html */
+      for (i = 0; converter_format_expanded_region_name[i].output_name; i++)
+        {
+          if (!strcmp (format_specification->name,
+                       converter_format_expanded_region_name[i].output_name))
+            {
+              new_format_expanded_region
+                = converter_format_expanded_region_name[i].region_name;
+              break;
+            }
+        }
+      if (!new_format_expanded_region)
+        new_format_expanded_region = format_specification->name;
+
+      if (is_texinfo_output_formats (new_format_expanded_region))
+        add_string (new_format_expanded_region, default_expanded_formats);
+    }
   else
     converter_format = format_specification->name;
 
@@ -493,21 +535,10 @@ format_expanded_formats (STRING_LIST *default_expanded_formats,
       add_string (expanded_region, default_expanded_formats);
       add_string ("info", default_expanded_formats);
     }
-  /* Texinfo::Common::texinfo_output_formats */
   else
     {
-      const char *expanded_format = 0;
-      if (!strcmp (expanded_region, "info"))
-        expanded_format = expanded_region;
-      else
-        {
-          enum command_id cmd = lookup_builtin_command (expanded_region);
-          if (cmd && builtin_command_data[cmd].flags & CF_block
-              && builtin_command_data[cmd].data == BLOCK_format_raw)
-            expanded_format = expanded_region;
-        }
-      if (expanded_format)
-        add_string (expanded_format, default_expanded_formats);
+      if (is_texinfo_output_formats (expanded_region))
+        add_string (expanded_region, default_expanded_formats);
     }
 }
 
@@ -809,6 +840,8 @@ static int print_help_p;
 #define NO_MIMICKING_OPT 24
 #define XOPT_OPT 25
 #define _SILENT_OPT 26
+#define IFEPUB_OPT 27
+#define NO_IFEPUB_OPT 28
 /* can add here */
 #define TRACE_INCLUDES_OPT 33
 #define NO_VERBOSE_OPT 34
@@ -893,6 +926,7 @@ static struct option long_options[] = {
   {"ps", 0, 0, _FORMAT_OPT},
   {"pdf", 0, 0, _FORMAT_OPT},
   IFFORMAT_TABLE(DOCBOOK, docbook)
+  IFFORMAT_TABLE(EPUB, epub)
   IFFORMAT_TABLE(INFO, info)
   IFFORMAT_TABLE(HTML, html)
   IFFORMAT_TABLE(LATEX, latex)
@@ -1001,6 +1035,7 @@ main (int argc, char *argv[], char *env[])
   const char *output_format;
   const char *converted_format;
   FORMAT_SPECIFICATION *format_specification = 0;
+  FORMAT_SPECIFICATION *converted_format_specification = 0;
   int do_menu = 0;
   size_t format_menu_option_nr;
   char *conversion_format_menu_default = 0;
@@ -1800,6 +1835,7 @@ main (int argc, char *argv[], char *env[])
           unset_expansion (&cmdline_options, &ignored_formats, #name); \
           break;
         IFFORMAT_CASE(DOCBOOK, docbook)
+        IFFORMAT_CASE(EPUB, epub)
         IFFORMAT_CASE(INFO, info)
         IFFORMAT_CASE(HTML, html)
         IFFORMAT_CASE(LATEX, latex)
@@ -2055,6 +2091,9 @@ main (int argc, char *argv[], char *env[])
 "      --ifdocbook       process @ifdocbook and @docbook"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
+"      --ifepub          process @ifepub"));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
 "      --ifhtml          process @ifhtml and @html"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
@@ -2255,12 +2294,13 @@ main (int argc, char *argv[], char *env[])
   if (format_specification->converted_format)
     {
       converted_format = format_specification->converted_format;
-  /* reset the format_specification to the converted_format specification */
+  /* set the converted_format_specification to the converted_format
+     specification */
       for (i = 0; formats_table[i].name; i++)
         {
           if (!strcmp (formats_table[i].name, converted_format))
             {
-              format_specification = &formats_table[i];
+              converted_format_specification = &formats_table[i];
               break;
             }
         }
@@ -2268,10 +2308,13 @@ main (int argc, char *argv[], char *env[])
   else
     converted_format = output_format;
 
+  if (!converted_format_specification)
+    converted_format_specification = format_specification;
+
   split_option = GNUT_get_conf (program_options.options->SPLIT.number);
   if (split_option && split_option->o.string
       && strlen (split_option->o.string)
-      && !(format_specification->flags & STTF_split))
+      && !(converted_format_specification->flags & STTF_split))
     {
       if (strcmp (converted_format, output_format))
         {
@@ -2290,7 +2333,8 @@ main (int argc, char *argv[], char *env[])
   split_option = GNUT_get_conf (program_options.options->SPLIT.number);
 
   memset (&default_expanded_formats, 0, sizeof (STRING_LIST));
-  format_expanded_formats (&default_expanded_formats, format_specification,
+  format_expanded_formats (&default_expanded_formats,
+                           format_specification,
                            &texi2dvi_args, &call_texi2dvi);
 
   expanded_formats_option = &cmdline_options.options->EXPANDED_FORMATS;
@@ -2361,7 +2405,7 @@ main (int argc, char *argv[], char *env[])
     GNUT_set_from_cmdline (&cmdline_options,
         program_options.options->XS_EXTERNAL_FORMATTING.number, "1");
 
-  if (format_specification->module)
+  if (converted_format_specification->module)
     {
       if (!strcmp (converted_format, "html"))
         {
@@ -2396,10 +2440,10 @@ main (int argc, char *argv[], char *env[])
                   && xs_external_formatting_option->o.integer > 0)
               || (xs_external_conversion_option
                   && xs_external_conversion_option->o.integer > 0))
-            external_module = format_specification->module;
+            external_module = converted_format_specification->module;
         }
       else
-        external_module = format_specification->module;
+        external_module = converted_format_specification->module;
 
       if (external_module)
         {
@@ -2887,7 +2931,7 @@ main (int argc, char *argv[], char *env[])
         = GNUT_get_conf (program_options.options->DUMP_TEXI.number);
 
       if ((dump_texi_option && dump_texi_option->o.integer > 0)
-          || format_specification->flags & STTF_texi2dvi_format)
+          || converted_format_specification->flags & STTF_texi2dvi_format)
         {
           errors_count = handle_parser_errors (document, set_message_encoding,
                                                no_warn, test_mode_set,
@@ -2897,7 +2941,7 @@ main (int argc, char *argv[], char *env[])
 
       /* structure and transformations */
       /* do_menu corresponds to FORMAT_MENU undef or set to menu */
-      txi_complete_document (document, format_specification->flags
+      txi_complete_document (document, converted_format_specification->flags
                                        | transformation_flags, do_menu);
 
       merge_error_messages_lists (&document->parser_error_messages,
@@ -3113,7 +3157,7 @@ main (int argc, char *argv[], char *env[])
        the converter. */
       clear_output_files_information (&converter->output_files_information);
 
-      if (format_specification->flags & STTF_internal_links
+      if (converted_format_specification->flags & STTF_internal_links
           && file_index == 0)
         {
           OPTION *internal_links_option
@@ -3233,7 +3277,7 @@ main (int argc, char *argv[], char *env[])
               int no_use_nodes = (use_nodes_option
                                   && use_nodes_option->o.integer == 0);
               int use_sections
-                = (!(format_specification->flags & STTF_nodes_tree)
+                = (!(converted_format_specification->flags & STTF_nodes_tree)
                    || no_use_nodes);
 
               OPTION *sort_element_count_words_option

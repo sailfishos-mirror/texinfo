@@ -11,6 +11,7 @@ See the manual for detailed information.
 
 X.Y ()
 * Language
+  . new commands @ifepub, @ifnotepub for EPUB.
   . the @clickstyle command has been removed.
   . @xml, @ifxml and @ifnotxml are deprecated.
 

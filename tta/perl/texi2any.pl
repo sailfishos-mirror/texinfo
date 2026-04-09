@@ -813,10 +813,10 @@ my %possible_split = (
 my $format_from_command_line = 0;
 
 my %converter_format_expanded_region_name = (
+  'epub3' => 'epub',
   'texinfoxml' => 'xml',
   'docbookreader' => 'docbook',
   'docbooknoreader' => 'docbook',
-  'docbooktreeelementreader' => 'docbook',
 );
 
 # nothing currently, previously mapped xml to texinfoxml
@@ -879,7 +879,7 @@ my %formats_table = (
              'module' => 'Texinfo::Convert::DocBook'
              #'module' => 'Texinfo::Example::ReadDocBook'
            },
-  # next 3 formats are not documented since they should not be used except
+  # next 2 formats are not documented since they should not be used except
   # for development/timing
   'docbooknoreader' => {
              'move_index_entries_after_items' => 1,
@@ -974,8 +974,24 @@ sub _format_expanded_formats($) {
     push @texi2dvi_args, '--'.$new_output_format;
     $converter_format = 'tex';
   } elsif (exists($formats_table{$new_output_format}->{'converted_format'})) {
+    my $new_format_expanded_region;
     $converter_format
       = $formats_table{$new_output_format}->{'converted_format'};
+    # The converter format conditional is added below, here add output
+    # format specific conditional expansion if it exists.
+    # For epub3, for example, there is an epub specific conditional, in
+    # addition to html conditional setup because epub converter format
+    # is html
+    if (exists($converter_format_expanded_region_name{$new_output_format})) {
+      $new_format_expanded_region
+        = $converter_format_expanded_region_name{$new_output_format};
+    } else {
+      $new_format_expanded_region = $new_output_format;
+    }
+    if (exists($Texinfo::Common::texinfo_output_formats{
+                                         $new_format_expanded_region})) {
+      $default_expanded_formats->{$new_format_expanded_region} = 1;
+    }
   } else {
     $converter_format = $new_output_format;
   }
@@ -989,10 +1005,9 @@ sub _format_expanded_formats($) {
 
   if (exists($Texinfo::Common::texinfo_output_formats{$expanded_region})) {
     if ($expanded_region eq 'plaintext') {
-      $default_expanded_formats = {$expanded_region => 1, 'info' => 1};
-    } else {
-      $default_expanded_formats = {$expanded_region => 1};
+      $default_expanded_formats->{'info'} = 1;
     }
+    $default_expanded_formats->{$expanded_region} = 1;
   }
   return $default_expanded_formats;
 }
@@ -1008,8 +1023,7 @@ sub _get_converter_default($) {
   return undef;
 }
 
-sub makeinfo_help()
-{
+sub makeinfo_help() {
   my $makeinfo_help =
     sprintf(__("Usage: %s [OPTION]... TEXINFO-FILE..."),
     $real_command_name . $command_suffix)
@@ -1122,6 +1136,7 @@ the behavior is identical, and does not depend on the installed name.")."\n"
 ."\n"
 .__("Conditional processing in input:")."\n"
 .__("      --ifdocbook       process \@ifdocbook and \@docbook")."\n"
+.__("      --ifepub          process \@ifepub")."\n"
 .__("      --ifhtml          process \@ifhtml and \@html")."\n"
 .__("      --ifinfo          process \@ifinfo")."\n"
 .__("      --iflatex         process \@iflatex and \@latex")."\n"
@@ -1173,6 +1188,7 @@ There is NO WARRANTY, to the extent permitted by law."), "2026")."\n";
  'iflatex!' => sub { set_expansion('latex', $_[1]); },
  'iftex!' => sub { set_expansion('tex', $_[1]); },
  'ifplaintext!' => sub { set_expansion('plaintext', $_[1]); },
+ 'ifepub!' => sub { set_expansion('epub', $_[1]); },
  'I=s' => sub { push @texi2dvi_args, ('-'.$_[0], $_[1]);
                 push @include_dirs, split(/$quoted_path_separator/, $_[1]); },
  'conf-dir=s' => sub { push @conf_dirs, split(/$quoted_path_separator/, $_[1]); },
@@ -1565,7 +1581,7 @@ if (exists($formats_table{$output_format}->{'init_file'})) {
 # the epub3 format, the converted format is html.  The converted format
 # should be the format actually used for conversion code, in practice
 # this means that the module associated with the converted format in
-# $format_table will be used to find the converter methods.
+# $formats_table will be used to find the converter methods.
 my $converted_format = $output_format;
 if (exists($formats_table{$output_format}->{'converted_format'})) {
   $converted_format = $formats_table{$output_format}->{'converted_format'};

@@ -618,6 +618,8 @@ ifplaintext             block                           conditional
 ifnotplaintext          block                           conditional
 iflatex                 block                           conditional
 ifnotlatex              block                           conditional
+ifepub                  block                           conditional
+ifnotepub               block                           conditional
 ifset                   block                           conditional             1
 ifclear                 block                           conditional             1
 ifcommanddefined        block                           conditional             1

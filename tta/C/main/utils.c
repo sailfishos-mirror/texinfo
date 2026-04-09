@@ -172,8 +172,9 @@ const char *command_location_names[]
   = {"before", "last", "preamble", "preamble_or_first", 0};
 
 /* duplicated when creating a new expanded_formats */
-/* NOTE if you add a format, increase the size of CONF.expanded_formats
+/* NOTE if you add a format, increase the size of PARSER_CONF.expanded_formats
  */
+/* sync with Texinfo::Common::texinfo_output_formats */
 const EXPANDED_FORMAT default_expanded_formats[] = {
     {"html", 0},
     {"docbook", 0},
@@ -182,6 +183,7 @@ const EXPANDED_FORMAT default_expanded_formats[] = {
     {"xml", 0},
     {"info", 0},
     {"latex", 0},
+    {"epub", 0},
 };
 
 /* special output units global directions are not there, they are

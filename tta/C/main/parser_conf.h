@@ -36,7 +36,7 @@ typedef struct PARSER_CONF {
 
     int global_documentlanguage_fixed;
 
-    EXPANDED_FORMAT expanded_formats[7];
+    EXPANDED_FORMAT expanded_formats[8];
     VALUE_LIST values;
 
     /* descriptor is the index +1 in the array of registered conf */

@@ -1796,6 +1796,43 @@ $nodedescription_description_texinfo, {}, {'FORMAT_MENU' => 'menu',
 @chapter @inlineraw{html,<span class="test">}One@inlineraw{html,</span>}
 
 '],
+# merges epub_conditional and epub_inline_conditional epub specific tests
+['epub_conditionals',
+'@documentinfo
+@title title
+@ifepub
+@subtitle A book
+@end ifepub
+@ifnotepub
+@subtitle Online
+@end ifnotepub
+@end documentinfo
+
+@maketitle
+
+@node Top
+@top top
+
+@node chapter
+@chapter Chap
+
+@ifepub
+@html
+<section role="doc-part" aria-labelledby="p1">
+@end html
+@end ifepub
+
+Some content
+
+@ifepub
+@html
+</section>
+@end html
+@end ifepub
+
+Text @inlinefmt{epub, here if EPUB}.
+Format @inlineraw{epub, <section>raw EPUB</section>}.
+'],
 );
 
 
