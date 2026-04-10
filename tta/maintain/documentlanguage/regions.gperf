@@ -3,6 +3,7 @@
 %}
 %includes
 %%
+AC
 AD
 AE
 AF
@@ -52,6 +53,8 @@ CL
 CM
 CN
 CO
+CP
+CQ
 CR
 CU
 CV
@@ -60,11 +63,13 @@ CX
 CY
 CZ
 DE
+DG
 DJ
 DK
 DM
 DO
 DZ
+EA
 EC
 EE
 EG
@@ -72,6 +77,8 @@ EH
 ER
 ES
 ET
+EU
+EZ
 FI
 FJ
 FK
@@ -103,6 +110,7 @@ HN
 HR
 HT
 HU
+IC
 ID
 IE
 IL
@@ -216,6 +224,7 @@ SV
 SX
 SY
 SZ
+TA
 TC
 TD
 TF
@@ -235,6 +244,7 @@ TZ
 UA
 UG
 UM
+UN
 US
 UY
 UZ

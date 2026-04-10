@@ -13,8 +13,7 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 #
-# Call that script from the tta directory for each release to keep
-# the lists updated.
+# Not used, the IANA data has all the information and is updated.
 
 use strict;
 

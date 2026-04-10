@@ -1,5 +1,13 @@
 2026-04-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/Makefile.am (C_libtexinfo_sources),
+	tta/maintain/regenerate_documentlanguages-iana.pl: improve
+	regenerate_documentlanguages-iana.pl to correctly extract language
+	names and region names.  Extract scripts names and generate Perl hash,
+	gperf input and gperf generated C code.
+
+2026-04-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/tests/coverage/formatting.texi: add something in Top.
 
 2026-04-10 Patrice Dumas  <pertusus@free.fr>

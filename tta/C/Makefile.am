@@ -166,6 +166,7 @@ C_libtexinfo_sources = \
 		      main/txi_config.h \
 		      main/txi_documentlanguage_languages.c \
 		      main/txi_documentlanguage_regions.c \
+		      main/txi_documentlanguage_scripts.c \
 		      parsetexi/api.c \
 		      parsetexi/api.h \
 		      parsetexi/parser.c \

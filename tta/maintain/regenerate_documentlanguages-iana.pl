@@ -12,7 +12,8 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 #
-# This script is not used, as the Texinfo manual describes other code sources
+# Call that script from the tta directory for each release to keep
+# the lists updated.
 
 use strict;
 
@@ -20,7 +21,7 @@ use warnings;
 
 use File::Basename;
 
-my $dir = 'maintain';
+my $dir = 'maintain/documentlanguage';
 system ("cd $dir && wget -N http://www.iana.org/assignments/language-subtag-registry");
 
 open(TXT,"$dir/language-subtag-registry") or die "Open $dir/language-subtag-registry: $!\n";
@@ -44,33 +45,88 @@ if (!defined($entry->{'Type'})) {
 
 my $program_name = basename($0);
 
-open(OUT, ">Texinfo/Documentlanguages.pm") or die "Open Texinfo/Documentlanguages.pm: $!\n";
+open(OUT, ">perl/Texinfo/Documentlanguages.pm") or die "Open Texinfo/Documentlanguages.pm: $!\n";
+#open(OUT, ">$dir/Documentlanguages.pm") or die "Open Texinfo/Documentlanguages.pm: $!\n";
+
+my @languages;
+my @regions;
+my @scripts;
+foreach my $entry (@entries) {
+  # Scope macrolanguage are used, as well as special, partially
+  if ($entry->{'Type'} eq 'language') {
+    if (!defined($entry->{'Preferred-Value'})
+        and (!defined($entry->{'Scope'})
+             or ($entry->{'Scope'} ne 'private-use'
+                 and $entry->{'Scope'} ne 'collection'
+                 and ($entry->{'Scope'} ne 'special'
+      # there are 4 special codes
+      # mis Uncoded languages
+      # mul Multiple languages
+      # und Undetermined
+      # zxx No linguistic content; Not applicable
+      # This is not very useful, but we accept mis and und, but not mul,
+      # as multiple @documentlanguage are valid, nor zxx
+                      or ($entry->{'Subtag'} ne 'zxx'
+                          and $entry->{'Subtag'} ne 'mul'))))) {
+     push @languages, $entry->{'Subtag'};
+     #print STDERR "$entry->{'Subtag'} Scope $entry->{'Scope'}\n"
+     #   if defined($entry->{'Scope'});
+    }
+  } elsif ($entry->{'Type'} eq 'region') {
+     if (!defined($entry->{'Preferred-Value'})
+         and !defined($entry->{'Deprecated'})
+         and $entry->{'Description'} ne 'Private use'
+         and $entry->{'Subtag'} !~ /^\d{3}$/) {
+      push @regions, $entry->{'Subtag'};
+    }
+  } elsif ($entry->{'Type'} eq 'script') {
+    if ($entry->{'Description'} ne 'Private use') {
+      push @scripts, $entry->{'Subtag'};
+    }
+  #} else {
+  #  print STDERR "$entry->{'Type'}\n";
+  }
+}
+
+my $declarations = "%{\n#include <config.h>\n%}\n"
+                   ."%includes\n%%\n";
+open(LANGUAGES, ">$dir/languages.gperf") or die "Open $dir/languages.gperf: $!\n";
+print LANGUAGES $declarations;
+
+open(REGIONS, ">$dir/regions.gperf") or die "Open $dir/regions.gperf: $!\n";
+print REGIONS $declarations;
+
+open(SCRIPTS, ">$dir/scripts.gperf") or die "Open $dir/scripts.gperf: $!\n";
+print SCRIPTS $declarations;
 
 print OUT "# This file was automatically generated from $program_name\n\n";
 
 print OUT "package Texinfo::Documentlanguages;\n\n";
 
 print OUT 'our %language_codes = ('."\n";
-foreach my $entry (@entries) {
-  # Scope collection macrolanguage are used
-  if ($entry->{'Type'} eq 'language' and !defined($entry->{'Preferred-Value'})
-       and !defined($entry->{'Macrolanguage'})
-       and (!defined($entry->{'Scope'})
-            or ($entry->{'Scope'} ne 'special'
-                and $entry->{'Scope'} ne 'private-use'))) {
-    print OUT "'$entry->{'Subtag'}' => 1,\n";
-    print STDERR "$entry->{'Subtag'} Scope $entry->{'Scope'}\n"
-       if defined($entry->{'Scope'});
-  }
+
+foreach my $language (sort @languages) {
+  print OUT "'$language' => 1,\n";
+  print LANGUAGES "$language\n";
 }
 print OUT ");\n\n";
 
 print OUT 'our %region_codes = ('."\n";
-foreach my $entry (@entries) {
-  if ($entry->{'Type'} eq 'region' and !defined($entry->{'Preferred-Value'})
-      and $entry->{'Description'} ne 'Private use'
-      and $entry->{'Subtag'} !~ /^\d{3}$/) {
-    print OUT "'$entry->{'Subtag'}' => 1,\n";
-  }
+
+foreach my $region (@regions) {
+  print OUT "'$region' => 1,\n";
+  print REGIONS "$region\n";
 }
+print OUT ");\n\n";
+
+print OUT 'our %scripts = ('."\n";
+foreach my $script (@scripts) {
+  print OUT "'$script' => 1,\n";
+  print SCRIPTS "$script\n";
+}
+
 print OUT ");\n\n1;\n";
+
+system ("gperf --output-file=C/main/txi_documentlanguage_languages.c -N txi_in_language_codes $dir/languages.gperf");
+system ("gperf --output-file=C/main/txi_documentlanguage_regions.c -N txi_in_language_regions $dir/regions.gperf");
+system ("gperf --output-file=C/main/txi_documentlanguage_scripts.c -N txi_in_language_scripts $dir/scripts.gperf");
