@@ -72,8 +72,8 @@ $result_errors{'bad_documentlanguage'} = '* W l2|@documentlanguage should only a
 * E l4|bad argument to @documentlanguage: en @documentlanguage  en
  bad argument to @documentlanguage: en @documentlanguage  en
 
-* W l6|en  after documentlanguage is not a valid language code
- warning: en  after documentlanguage is not a valid language code
+* W l6|en  after documentlanguage is not a valid language argument
+ warning: en  after documentlanguage is not a valid language argument
 
 ';
 

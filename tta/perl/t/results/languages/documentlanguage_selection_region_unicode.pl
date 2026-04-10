@@ -48,7 +48,7 @@ $result_tree_text{'documentlanguage_selection_region_unicode'} = '*document_root
      |* C1
       |*def_line_arg C1
        |{Language}
-     |{ de }
+     |{ of }
      |* C1
       |*def_line_arg C1
        |{Which}
@@ -61,7 +61,6 @@ $result_tree_text{'documentlanguage_selection_region_unicode'} = '*document_root
      |* C1
       |*def_line_arg C1
        |{Which}
-   |documentlanguage:{fr_M让}
    |element_node:{Top}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defivar}
@@ -70,11 +69,8 @@ $result_tree_text{'documentlanguage_selection_region_unicode'} = '*document_root
      *def_category C1
      |INFO
      |inserted:{1}
-      *untranslated_def_line_arg C1
-      |EXTRA
-      |documentlanguage:{fr_M让}
-      |translation_context:{category of instance variables in object-oriented programming for @defivar}
-       {untranslated:Instance Variable}
+      *def_line_arg C1
+       {Instance Variable}
      {spaces: }
      *def_class C1
       *def_line_arg C1
@@ -115,12 +111,12 @@ $result_texts{'documentlanguage_selection_region_unicode'} = '
 top
 ***
 
-Variable d\'instance de Which: Language Selected?
+Instance Variable of Which: Language Selected?
 
 ';
 
-$result_errors{'documentlanguage_selection_region_unicode'} = '* W l2|fr_M让 is not a valid language code
- warning: fr_M让 is not a valid language code
+$result_errors{'documentlanguage_selection_region_unicode'} = '* W l2|fr_M让 is not a valid language argument
+ warning: fr_M让 is not a valid language argument
 
 ';
 
@@ -142,14 +138,14 @@ list:
 $result_headings_list{'documentlanguage_selection_region_unicode'} = '';
 
 $result_indices_sort_strings{'documentlanguage_selection_region_unicode'} = 'vr:
- Language de Which
+ Language of Which
 ';
 
 
 $result_converted{'plaintext'}->{'documentlanguage_selection_region_unicode'} = 'top
 ***
 
- -- Variable d\'instance de Which : Language Selected?
+ -- Instance Variable de Which : Language Selected?
 
 ';
 

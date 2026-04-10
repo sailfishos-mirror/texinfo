@@ -4026,11 +4026,15 @@ sub _end_line_misc_line($$$) {
           }
         }
       } elsif ($command eq 'documentlanguage') {
-        my @messages = Texinfo::Common::warn_unknown_language($text);
-        foreach my $message(@messages) {
-          _command_warn($self, $current, $message);
+        my ($messages, $lang, $region)
+          = Texinfo::Common::warn_unknown_language($text);
+        if (defined($messages)) {
+          foreach my $message(@$messages) {
+            _command_warn($self, $current, $message);
+          }
         }
-        if (!$self->{'set'}->{'documentlanguage'}) {
+        if (!$self->{'set'}->{'documentlanguage'}
+            and defined($lang)) {
           $self->{'documentlanguage'} = $text;
         }
       }

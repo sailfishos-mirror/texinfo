@@ -466,28 +466,33 @@ foreach my $internal_command (keys(%Texinfo::Commands::internal_commands)) {
 sub warn_unknown_language($) {
   my $lang = shift;
 
-  my @messages = ();
-  my $lang_code = $lang;
+  my $lang_code;
   my $region_code;
 
-  # FIXME according to
-  # https://www.gnu.org/software/gettext/manual/html_node/Locale-Names.html
-  # there can be an @variant prepended.  Should we match that here too?
   if ($lang =~ /^([a-z]+)_([A-Z]+)$/) {
     $lang_code = $1;
     $region_code = $2;
+  } elsif ($lang =~ /^([a-z]+)_?$/) {
+    $lang_code = $1;
   }
 
-  if (! $Texinfo::Documentlanguages::language_codes{$lang_code}) {
-    push @messages, sprintf(__("%s is not a valid language code"),
-                            $lang_code);
+  my $messages = [];
+  if (!defined($lang_code)) {
+    push @$messages, sprintf(__("%s is not a valid language argument"),
+                              $lang);
+  } else {
+    if (! exists($Texinfo::Documentlanguages::language_codes{$lang_code})) {
+      push @$messages, sprintf(__("%s is not a valid language code"),
+                              $lang_code);
+    }
+
+    if (defined($region_code)
+        and ! exists($Texinfo::Documentlanguages::region_codes{$region_code})) {
+      push @$messages, sprintf(__("%s is not a valid region code"),
+                               $region_code);
+    }
   }
-  if (defined($region_code)
-       and ! $Texinfo::Documentlanguages::region_codes{$region_code}) {
-    push @messages, sprintf(__("%s is not a valid region code"),
-                            $region_code);
-  }
-  return @messages;
+  return $messages, $lang_code, $region_code;
 }
 
 # next functions are for code used in Structuring or Indices in addition

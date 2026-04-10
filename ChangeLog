@@ -1,5 +1,18 @@
 2026-04-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/utils.c (analyze_documentlanguage_argument),
+	tta/perl/Texinfo/Common.pm (warn_unknown_language): if the
+	documentlanguage is invalid, for instance if not ASCII, or not
+	lower-case language and upper-case region, return NULL/undef for the
+	language code.
+
+	* tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tta/C/parsetexi/end_line.c (end_line_misc_line), tta/C/texi2any.c
+	(main), tta/perl/texi2any.pl: do not set documentlanguage if the
+	argument is invalid.
+
+2026-04-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (C_libtexinfo_sources),
 	tta/maintain/regenerate_documentlanguages-iana.pl: improve
 	regenerate_documentlanguages-iana.pl to correctly extract language

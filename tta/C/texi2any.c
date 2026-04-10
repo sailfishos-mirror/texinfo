@@ -1425,22 +1425,30 @@ main (int argc, char *argv[], char *env[])
             int lang_is_valid;
             int region_is_valid;
             char *lang;
-            GNUT_set_from_cmdline (&cmdline_options,
-                              cmdline_options.options->documentlanguage.number,
-                              optarg);
 
             lang = analyze_documentlanguage_argument (optarg, &region_code,
                                         &lang_is_valid, &region_is_valid);
-            if (!lang_is_valid)
+            if (!lang)
               {
-                txi_config_document_warn ("%s is not a valid language code",
-                                         lang);
+                txi_config_document_warn (
+                   "%s is not a valid language argument", optarg);
               }
-            free (lang);
-            if (!region_is_valid)
+            else
               {
-                txi_config_document_warn ("%s is not a valid region code",
-                                          region_code);
+                if (!lang_is_valid)
+                  {
+                    txi_config_document_warn ("%s is not a valid language code",
+                                              lang);
+                  }
+                free (lang);
+                if (!region_is_valid)
+                  {
+                    txi_config_document_warn ("%s is not a valid region code",
+                                              region_code);
+                  }
+                GNUT_set_from_cmdline (&cmdline_options,
+                              cmdline_options.options->documentlanguage.number,
+                              optarg);
               }
           }
           break;

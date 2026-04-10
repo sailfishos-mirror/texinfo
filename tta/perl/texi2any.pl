@@ -1250,11 +1250,15 @@ There is NO WARRANTY, to the extent permitted by law."), "2026")."\n";
                        push @texi2dvi_args, '--verbose'; },
  'document-language=s' => sub {
                my $documentlanguage = _decode_input($_[1]);
-               set_from_cmdline('documentlanguage', $documentlanguage);
-               my @messages
+               my ($messages, $lang, $region)
                 = Texinfo::Common::warn_unknown_language($documentlanguage);
-               foreach my $message (@messages) {
-                 document_warn($message);
+               if (defined($messages)) {
+                 foreach my $message (@$messages) {
+                   document_warn($message);
+                 }
+               }
+               if (defined($lang)) {
+                 set_from_cmdline('documentlanguage', $documentlanguage);
                }
              },
  'D=s' => sub {

@@ -230,7 +230,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
      |* C1
       |*def_line_arg C1
        |{Which}
-   |documentlanguage:{ab_us}
+   |documentlanguage:{az}
    |element_node:{Top}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defivar}
@@ -241,7 +241,7 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
      |inserted:{1}
       *untranslated_def_line_arg C1
       |EXTRA
-      |documentlanguage:{ab_us}
+      |documentlanguage:{az}
       |translation_context:{category of instance variables in object-oriented programming for @defivar}
        {untranslated:Instance Variable}
      {spaces: }
@@ -309,65 +309,56 @@ Instance Variable of Which: Language Selected?
 
 ';
 
-$result_errors{'invalid_documentlanguage'} = '* W l2|%bm_AA is not a valid language code
- warning: %bm_AA is not a valid language code
+$result_errors{'invalid_documentlanguage'} = '* W l2|%bm_AA is not a valid language argument
+ warning: %bm_AA is not a valid language argument
 
-* W l3|cu*_FR is not a valid language code
- warning: cu*_FR is not a valid language code
+* W l3|cu*_FR is not a valid language argument
+ warning: cu*_FR is not a valid language argument
 
-* W l4|_JP is not a valid language code
- warning: _JP is not a valid language code
+* W l4|_JP is not a valid language argument
+ warning: _JP is not a valid language argument
 
-* W l5|*_ZM is not a valid language code
- warning: *_ZM is not a valid language code
-
-* W l6|tia is not a valid language code
- warning: tia is not a valid language code
+* W l5|*_ZM is not a valid language argument
+ warning: *_ZM is not a valid language argument
 
 * W l6|JJ is not a valid region code
  warning: JJ is not a valid region code
 
-* W l7|fr_ is not a valid language code
- warning: fr_ is not a valid language code
+* W l9|de_* is not a valid language argument
+ warning: de_* is not a valid language argument
 
-* W l8|be_ is not a valid language code
- warning: be_ is not a valid language code
+* W l10|it_G% is not a valid language argument
+ warning: it_G% is not a valid language argument
 
-* W l9|de_* is not a valid language code
- warning: de_* is not a valid language code
+* W l11|it_FR^ is not a valid language argument
+ warning: it_FR^ is not a valid language argument
 
-* W l10|it_G% is not a valid language code
- warning: it_G% is not a valid language code
+* W l12|en_US ! is not a valid language argument
+ warning: en_US ! is not a valid language argument
 
-* W l11|it_FR^ is not a valid language code
- warning: it_FR^ is not a valid language code
+* W l13|ab gh is not a valid language argument
+ warning: ab gh is not a valid language argument
 
-* W l12|en_US ! is not a valid language code
- warning: en_US ! is not a valid language code
+* W l16|bhé is not a valid language argument
+ warning: bhé is not a valid language argument
 
-* W l13|ab gh is not a valid language code
- warning: ab gh is not a valid language code
+* W l17|AB_FR is not a valid language argument
+ warning: AB_FR is not a valid language argument
 
-* W l16|bhé is not a valid language code
- warning: bhé is not a valid language code
+* W l18|aç_DC is not a valid language argument
+ warning: aç_DC is not a valid language argument
 
-* W l17|AB_FR is not a valid language code
- warning: AB_FR is not a valid language code
+* W l19|fr_ÂC is not a valid language argument
+ warning: fr_ÂC is not a valid language argument
 
-* W l18|aç_DC is not a valid language code
- warning: aç_DC is not a valid language code
+* W l20|c修_CH is not a valid language argument
+ warning: c修_CH is not a valid language argument
 
-* W l19|fr_ÂC is not a valid language code
- warning: fr_ÂC is not a valid language code
+* W l21|fr_M让 is not a valid language argument
+ warning: fr_M让 is not a valid language argument
 
-* W l20|c修_CH is not a valid language code
- warning: c修_CH is not a valid language code
-
-* W l21|fr_M让 is not a valid language code
- warning: fr_M让 is not a valid language code
-
-* W l22|ab_us is not a valid language code
- warning: ab_us is not a valid language code
+* W l22|ab_us is not a valid language argument
+ warning: ab_us is not a valid language argument
 
 * W l23|@documentlanguage missing argument
  warning: @documentlanguage missing argument

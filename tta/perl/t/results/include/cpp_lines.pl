@@ -456,8 +456,8 @@ $result_errors{'cpp_lines'} = '* E email12:l64|@email missing closing brace
 * E email4:l63|misplaced }
  misplaced }
 
-* W accentêd:l7|làng is not a valid language code
- warning: làng is not a valid language code
+* W accentêd:l7|làng is not a valid language argument
+ warning: làng is not a valid language argument
 
 * W g_f:l71|node `chap\' not in menu
  warning: node `chap\' not in menu
