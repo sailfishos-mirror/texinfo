@@ -626,9 +626,9 @@ sub complete_tree_nodes_menus_in_document($;$) {
 sub complete_tree_nodes_missing_menu($;$) {
   my ($document, $use_sections) = @_;
 
-  my $lang_translations = Texinfo::Translations::new_lang_translation(
-                              $document->get_conf('documentlanguage'),
-                              $document->get_conf('COMMAND_LINE_ENCODING'));
+  my $lang_translations
+     = Texinfo::Translations::new_documentlanguage_translation(
+                              $document->get_conf('documentlanguage'));
   my $debug = $document->get_conf('DEBUG');
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
@@ -664,9 +664,9 @@ sub regenerate_master_menu($;$) {
   return undef if (!exists($top_node_relations->{'menus'})
                    or !scalar(@{$top_node_relations->{'menus'}}));
 
-  my $lang_translation = Texinfo::Translations::new_lang_translation(
-                           $document->get_conf('documentlanguage'),
-                           $document->get_conf('COMMAND_LINE_ENCODING'));
+  my $lang_translation
+    = Texinfo::Translations::new_documentlanguage_translation(
+                           $document->get_conf('documentlanguage'));
   my $new_detailmenu
       = Texinfo::Structuring::new_detailmenu(
                       $lang_translation,

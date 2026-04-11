@@ -789,10 +789,15 @@ txi_ext_inline_valid_documentlanguage (const char *text)
 {
   int valid_lang;
   int valid_region;
-  const char *region_code;
+  char *region_code;
   char *lang = analyze_documentlanguage_argument (text, &region_code,
                                                   &valid_lang, &valid_region);
-  return lang && valid_lang && valid_region;
+  int valid = lang && valid_lang && ((!region_code) || valid_region);
+
+  free (lang);
+  free (region_code);
+
+  return valid;
 }
 %}
 

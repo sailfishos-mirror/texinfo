@@ -55,34 +55,59 @@ cache_translate_string (string, SV *lang_translations, SV *translation_context_s
         if (SvOK (lang_translations))
           {
             AV *lang_translations_av = (AV *) SvRV (lang_translations);
-            SV **lang_sv = av_fetch (lang_translations_av, 0, 0);
-            SV **encoded_lang_sv = av_fetch (lang_translations_av, 1, 0);
-            const char *lang = 0;
-            const char *encoded_lang = 0;
+            SV **lang_info_sv = av_fetch (lang_translations_av, 0, 0);
+
             const char *translated_context_string = 0;
-            const LANG_TRANSLATION *lang_translation;
-            const TRANSLATION_TREE *translation_cache_result;
+            const LANG_TRANSLATION *lang_translation = 0;
 
-            if (lang_sv && SvOK (*lang_sv))
-              lang = SvPVutf8_nolen (*lang_sv);
-            if (encoded_lang_sv && SvOK (*encoded_lang_sv))
-              encoded_lang = SvPVbyte_nolen (*encoded_lang_sv);
+            if (lang_info_sv && SvOK (*lang_info_sv))
+              {
+                AV *lang_info_av = (AV *) SvRV (*lang_info_sv);
+                SV **lang_sv = av_fetch (lang_info_av, 1, 0);
+                const char *lang = 0;
+                if (lang_sv && SvOK (*lang_sv))
+                  lang = SvPVbyte_nolen (*lang_sv);
+                if (lang)
+                  {
+                    static DOCUMENT_LANG_INFO info;
 
-            if (!lang)
-              lang= "";
+                    SV **bcp47_locale_sv = av_fetch (lang_info_av, 0, 0);
+                    SV **region_sv = av_fetch (lang_info_av, 2, 0);
+                    const char *bcp47_locale = 0;
+                    const char *region = 0;
 
-            lang_translation
-              = get_lang_encoded_lang_translation (
-                                &translation_cache, lang, encoded_lang,
+                    if (region_sv && SvOK (*region_sv))
+                      region = SvPVbyte_nolen (*region_sv);
+                    if (bcp47_locale_sv && SvOK (*bcp47_locale_sv))
+                      bcp47_locale = SvPVbyte_nolen (*bcp47_locale_sv);
+                    else
+                      croak ("no bcp47_locale\n");
+                    if (region)
+                      info.region = strdup (region);
+                    else
+                      info.region = 0;
+                    info.bcp47_locale = strdup (bcp47_locale);
+                    info.lang = strdup (lang);
+
+                    lang_translation
+                      = set_lang_info_translation (
+                                &translation_cache, &info,
                                 TXI_CONVERT_STRINGS_NR);
-            if (translation_context_sv
-                && SvOK (translation_context_sv))
-              translated_context_string
-                = SvPVutf8_nolen (translation_context_sv);
-            translation_cache_result
+                  }
+              }
+
+            if (lang_translation)
+              {
+                const TRANSLATION_TREE *translation_cache_result;
+                if (translation_context_sv
+                    && SvOK (translation_context_sv))
+                  translated_context_string
+                    = SvPVutf8_nolen (translation_context_sv);
+                translation_cache_result
                    = cache_translate_string (string, lang_translation,
                                              translated_context_string);
-            result = translation_cache_result->translation;
+                result = translation_cache_result->translation;
+              }
           }
         av = newAV ();
         if (result)

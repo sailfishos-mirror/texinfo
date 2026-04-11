@@ -42,7 +42,7 @@ use Texinfo::XSLoader;
 
 use Texinfo::TreeElement;
 
-# for __()
+# for __() analyze_documentlanguage_argument
 use Texinfo::Common;
 
 # note that there is a circular dependency with the parser module, as
@@ -166,9 +166,8 @@ sub _switch_messages_locale() {
 }
 
 # TODO document?
-# LANG should not be undef nor an empty string.
-sub translate_string($$$;$) {
-  my ($string, $lang, $encoded_lang, $translation_context) = @_;
+sub translate_string($$;$) {
+  my ($string, $language_env, $translation_context) = @_;
 
   my ($saved_LC_MESSAGES, $saved_LANGUAGE);
 
@@ -192,19 +191,7 @@ sub translate_string($$$;$) {
   # As a side note, the best could have been to directly decode using the
   # charset used in the po/gmo files, but it does not seems to be available.
 
-  my @langs = ($encoded_lang);
-  # NOTE gettext should already try the main language if it follows the
-  # optional logic proposed in POSIX gettext description.  We nevertheless
-  # add the main language if the gettext implementation does not or does
-  # not get the main language.
-  if ($encoded_lang =~ /^([a-z]+)_/) {
-    my $main_lang = $1;
-    push @langs, $main_lang;
-  }
-
-  my $locales = join(':', @langs);
-
-  Locale::Messages::nl_putenv("LANGUAGE=$locales");
+  Locale::Messages::nl_putenv("LANGUAGE=$language_env");
 
   my $translated_string;
   if (defined($translation_context)) {
@@ -214,7 +201,7 @@ sub translate_string($$$;$) {
     $translated_string = Locale::Messages::gettext($string);
   }
 
-  #print STDERR "TRANSLATED($locales): '$string' (".
+  #print STDERR "TRANSLATED($language_env): '$string' (".
   #           (defined($translation_context) ? $translation_context : '(null)')
   #           .") '$translated_string'\n";
 
@@ -232,16 +219,91 @@ sub translate_string($$$;$) {
   return $translated_string;
 }
 
-sub new_lang_translation($;$) {
-  my ($lang, $locale_encoding) = @_;
+# lang_info API
+# Used in HTML customization code only.
+# TODO document in texi2any_api
+sub get_lang_info_xdg_locale($) {
+  my $lang_info = shift;
 
-  my $encoded_lang;
-  if (defined($lang) and defined($locale_encoding)) {
-    $encoded_lang = Encode::encode($locale_encoding, $lang);
+  return '' if (!defined($lang_info));
+  my ($bcp47_locale, $lang_code, $region_code) = @$lang_info;
+  return '' if (!defined($lang_code));
+  if (defined($region_code)) {
+    return "${lang_code}_${region_code}";
   } else {
-    $encoded_lang = $lang;
+    return $lang_code;
   }
-  return [$lang, $encoded_lang];
+}
+
+sub get_lang_info_bcp47_locale($) {
+  my $lang_info = shift;
+
+  return '' if (!defined($lang_info));
+  my ($bcp47_locale, $lang_code, $region_code) = @$lang_info;
+  return $bcp47_locale;
+}
+
+sub get_lang_info_language($) {
+  my $lang_info = shift;
+
+  return undef if (!defined($lang_info));
+  my ($bcp47_locale, $lang_code, $region_code) = @$lang_info;
+  return $bcp47_locale;
+}
+
+sub get_lang_info_region($) {
+  my $lang_info = shift;
+
+  return undef if (!defined($lang_info));
+  my ($bcp47_locale, $lang_code, $region_code) = @$lang_info;
+  return $region_code;
+}
+#### end of lang_info API
+
+sub fill_document_lang_info($) {
+  my $documentlanguage = shift;
+
+  my $bcp47_locale;
+  my ($lang_code, $region_code);
+  if (defined($documentlanguage)) {
+    ($lang_code, $region_code)
+      = Texinfo::Common::analyze_documentlanguage_argument($documentlanguage);
+    if (defined($lang_code)) {
+      if (defined($region_code)) {
+        $bcp47_locale = "$lang_code-$region_code";
+      } else {
+        $bcp47_locale = $lang_code;
+      }
+    }
+  }
+  if (!defined($lang_code)) {
+    $bcp47_locale = "";
+  }
+  return $bcp47_locale, $lang_code, $region_code;
+}
+
+sub new_documentlanguage_translation($) {
+  my $documentlanguage = shift;
+
+  my ($bcp47_locale, $lang_code, $region_code)
+    = fill_document_lang_info($documentlanguage);
+
+  my $language_env;
+  if (defined($lang_code)) {
+    if (defined($region_code)) {
+  # NOTE gettext should already try the main language if it follows the
+  # optional logic proposed in POSIX gettext description.  We nevertheless
+  # add the main language if the gettext implementation does not or does
+  # not get the main language.
+        $language_env = "${lang_code}_${region_code}:$lang_code";
+    } else {
+      $language_env = $lang_code;
+    }
+  } else {
+    $language_env = "";
+  }
+
+  return [[$bcp47_locale, $lang_code, $region_code], $language_env];
 }
 
 # Cache translations in a hash to avoid having to go through the locale
@@ -453,7 +515,7 @@ sub pgdt($$;$$$$$) {
              $translate_string_method);
 }
 
-my $lang_translations = {};
+my $lang_translations_cache = {};
 
 # For some @def* commands, we delay storing the contents of the
 # index entry until now to avoid needing Texinfo::Translations::gdt
@@ -519,13 +581,14 @@ sub complete_indices($;$$) {
           $entry_language = '' if (!defined($entry_language));
           if (!defined($current_lang)
               or $entry_language ne $current_lang) {
-            if (!exists($lang_translations->{$entry_language})) {
-              $lang_translations->{$entry_language} = {};
-            }
             $current_lang_translations
-              = new_lang_translation($entry_language, $command_line_encoding);
+              = new_documentlanguage_translation($entry_language);
+            my $lang_locale = $current_lang_translations->[0]->[0];
+            if (!exists($lang_translations_cache->{$lang_locale})) {
+              $lang_translations_cache->{$lang_locale} = {};
+            }
             $current_lang_translations->[2]
-              = $lang_translations->{$entry_language};
+              = $lang_translations_cache->{$lang_locale};
           }
           if ($def_command eq 'defop'
               or $def_command eq 'deftypeop'
@@ -585,10 +648,9 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
 
 
   my $language = $customization->get_conf('documentlanguage');
-  my $locale_encoding = $customization->get_conf('COMMAND_LINE_ENCODING');
 
-  my $lang_translations = Texinfo::Translations::new_lang_translation(
-                                           $language, $locale_encoding);
+  my $lang_translations
+   = Texinfo::Translations::new_documentlanguage_translation($language);
 
 
   my $tree_translated
@@ -631,23 +693,18 @@ domain.
 
 =back
 
-The C<new_lang_translation> method sets up a lang translation data that
+The C<new_documentlanguage_translation> method sets up a lang translation data that
 is used as argument for the other method.  This data contains the language
 and associated already translated strings.
 
 =over
 
-=item $lang_translations = new_lang_translation($lang, $locale_encoding)
-X<C<new_lang_translation>>
+=item $lang_translations = new_documentlanguage_translation($documentlanguage)
+X<C<new_documentlanguage_translation>>
 
-I<$lang> is the language of the returned lang translations.  I<$locale>
-encoding is optional and should be the encoding used to encode character
-strings to for environment variables.  In general, you should base it on
-the I<COMMAND_LINE_ENCODING> customization variable value.
-
-The returned I<$lang_translations> is a reference.  In general,
-this object should be considered as opaque and should not be accessed
-directly, but passed to C<gdt> and C<pgdt> (but see below the
+I<$documentlanguage> is the language of the returned I<$lang_translations>
+In general, I<$lang_translations> should be considered as opaque and should not
+be accessed directly, but passed to C<gdt> and C<pgdt> (but see below the
 I<$translate_string_method> C<gdt> argument).
 
 =back
@@ -670,7 +727,7 @@ as Texinfo code after translation.  With C<gdt_string> a string
 is returned.
 
 The I<$lang_translations> should be a reference set up by
-L<< C<new_lang_translation>|/$lang_translations = new_lang_translation($lang, $locale_encoding) >>
+L<< C<new_documentlanguage_translation>|/$lang_translations = new_documentlanguage_translation($documentlanguage) >>
 in the default case.  If I<$translate_string_method> argument is passed,
 this argument should instead be suitable for the replacement function.
 
@@ -736,12 +793,15 @@ X<C<cache_translate_string>>
 
 The I<$string> is a string to be translated.  The I<$lang_translations>
 argument should be a reference set up by
-L<< C<new_lang_translation>|/$lang_translations = new_lang_translation($lang, $locale_encoding) >>.
+L<< C<new_documentlanguage_translation>|/$lang_translations = new_documentlanguage_translation($documentlanguage) >>.
 
 In the current implementation I<$lang_translations> is an array reference.  The
-first element of the array is the language.  The second element is the language
-encoded to the local encoding.  The third element is set to an hash
-reference holding translations already done.  A user-defined replacement
+first element of the array is an array reference containing the
+BCP 47 language locale, the language anme and a region code or undef.
+The second element is set to a string that can be used as C<LANGUAGE>
+environment before calling a function gathering translated strings.
+The third element is set to an hash reference holding translations already
+done, with BCP 47 language locales as keys.  A user-defined replacement
 function could use different data structures for I<$lang_translations>.
 
 If the language is C<undef> or an empty string, the input string does not

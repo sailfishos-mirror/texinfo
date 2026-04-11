@@ -62,24 +62,15 @@ sub cache_translate_string($$;$) {
   #if (!defined($string)) {
   #  confess("cache_translate_string: undef string\n");
   #}
-  my $lang;
-  my $encoded_lang;
+  my $cached_lang;
   my $translations;
   if (defined($lang_translations)) {
-    $lang = $lang_translations->[0];
-    $encoded_lang = $lang_translations->[1];
     if (scalar(@$lang_translations) > 2) {
       $translations = $lang_translations->[2];
     }
-  }
-
-  if (!defined($lang)) {
-    $lang = '';
-    $encoded_lang = '';
-  }
-
-  if (!defined($encoded_lang)) {
-    cluck("cache_translate_string '$lang' encoded_lang undef");
+    $cached_lang = $lang_translations->[0]->[0];
+  } else {
+    $cached_lang = '';
   }
 
   my $translation_context_str;
@@ -91,10 +82,10 @@ sub cache_translate_string($$;$) {
   my $strings_cache;
   # use default translated string and tree cache if none was passed
   if (!defined($translations)) {
-    if (!exists($Texinfo::Translations::translation_cache->{$lang})) {
-      $Texinfo::Translations::translation_cache->{$lang} = {}
+    if (!exists($Texinfo::Translations::translation_cache->{$cached_lang})) {
+      $Texinfo::Translations::translation_cache->{$cached_lang} = {}
     }
-    $translations = $Texinfo::Translations::translation_cache->{$lang};
+    $translations = $Texinfo::Translations::translation_cache->{$cached_lang};
   }
 
   if (exists($translations->{$translation_context_str})) {
@@ -110,13 +101,13 @@ sub cache_translate_string($$;$) {
 
   # no translation, but still needed to setup caching for the associated
   # tree
-  if ($lang eq '') {
+  if ($cached_lang eq '') {
     my $result = [undef];
     $strings_cache->{$string} = $result;
     return $result;
   }
 
-  my $translated_string = translate_string($string, $lang, $encoded_lang,
+  my $translated_string = translate_string($string, $lang_translations->[1],
                                            $translation_context);
 
   my $result = [$translated_string];

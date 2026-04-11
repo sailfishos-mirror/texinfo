@@ -1206,7 +1206,8 @@ call_formatting_function_format_begin_file (CONVERTER *self,
 char *
 call_formatting_function_format_translate_message (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference,
-                                  const char *message, const char *lang,
+                                  const char *message,
+                                  const DOCUMENT_LANG_INFO *lang_info,
                                   const char *message_context)
 {
   int count;
@@ -1215,12 +1216,24 @@ call_formatting_function_format_translate_message (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
+  AV *lang_info_av;
 
   dTHX;
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
   build_html_formatting_state (self);
+
+  lang_info_av = newAV ();
+  av_push (lang_info_av, newSVpv (lang_info->bcp47_locale, 0));
+  if (lang_info->lang)
+    av_push (lang_info_av, newSVpv (lang_info->lang, 0));
+  else
+    av_push (lang_info_av, newSV (0));
+  if (lang_info->region)
+    av_push (lang_info_av, newSVpv (lang_info->region, 0));
+  else
+    av_push (lang_info_av, newSV (0));
 
   dSP;
 
@@ -1232,7 +1245,7 @@ call_formatting_function_format_translate_message (CONVERTER *self,
 
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (message, 0)));
-  PUSHs(sv_2mortal (newSVpv (lang, 0)));
+  PUSHs(sv_2mortal (newRV_inc ((SV *) lang_info_av)));
   PUSHs(sv_2mortal (newSVpv_utf8 (message_context, 0)));
   PUTBACK;
 

@@ -5,6 +5,8 @@ package Texinfo::Config;
 
 use strict;
 
+use Texinfo::Translations;
+
 texinfo_register_direction_string_info('Forward', 'text', undef, 'Forward');
 # register both Next and NodeNext as the one used depends on
 # USE_NODE_DIRECTIONS/USE_NODES
@@ -39,8 +41,9 @@ my %translations = (
 );
 
 sub _texi2any_tests_format_translate_message($$$;$) {
-  my ($converter, $string, $lang, $translation_context) = @_;
+  my ($converter, $string, $lang_info, $translation_context) = @_;
 
+  my $lang = Texinfo::Translations::get_lang_info_xdg_locale($lang_info);
   return $string if (!defined($lang) or $lang eq '');
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations{$lang})

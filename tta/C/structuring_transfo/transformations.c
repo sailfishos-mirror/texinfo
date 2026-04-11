@@ -1300,9 +1300,8 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
 
   if (options)
     {
-      lang_translation = new_lang_translation (
-                                 options->documentlanguage.o.string,
-                                 options->COMMAND_LINE_ENCODING.o.string);
+      lang_translation = new_documentlanguage_translation (
+                                 options->documentlanguage.o.string);
       debug_level = options->DEBUG.o.integer;
     }
   size_t i;
@@ -1368,9 +1367,8 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
     return 0;
 
   if (document->options)
-    lang_translation = new_lang_translation (
-                    document->options->documentlanguage.o.string,
-                    document->options->COMMAND_LINE_ENCODING.o.string);
+    lang_translation = new_documentlanguage_translation (
+                    document->options->documentlanguage.o.string);
 
   new_detailmenu_e = new_detailmenu (&document->error_messages,
                                     document->options,

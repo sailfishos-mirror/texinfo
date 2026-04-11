@@ -1,3 +1,65 @@
+2026-04-12 Patrice Dumas  <pertusus@free.fr>
+
+	add lang information in lang_translation and use bcp47 locale
+
+	* tta/perl/Texinfo/Common.pm (analyze_documentlanguage_argument): add.
+
+	* tta/perl/Texinfo/Translations.pm ($lang_translations_cache): rename
+	$lang_translations as $lang_translations_cache.
+
+	* tta/C/convert/build_html_perl_state.c
+	(switch_perl_lang_translations, build_html_translated_names),
+	tta/C/convert/convert_html.c (html_cache_translate_string),
+	tta/C/main/call_perl_function.c (call_translations_translate_string),
+	tta/C/main/translations.c (translate_string, fill_document_lang_info)
+	(clear_document_lang_info, init_lang_translation)
+	(new_documentlanguage_translation, new_set_translation)
+	(new_copy_translation, free_lang_translation, find_lang_translation)
+	(set_lang_info_translation, get_lang_info_translation)
+	(get_documentlanguage_translation, switch_lang_translations)
+	(cache_translate_string), tta/C/main/tree_types.h (DOCUMENT_LANG_INFO)
+	(LANG_TRANSLATION), tta/C/parsetexi/indices.c (complete_indices),
+	(analyze_documentlanguage_argument), tta/perl/Texinfo/Convert/HTML.pm
+	(_html_cache_translate_string), tta/perl/Texinfo/Convert/Utils.pm
+	(switch_lang_translations), tta/perl/Texinfo/Translations.pm
+	(translate_string, fill_document_lang_info)
+	(new_documentlanguage_translation, complete_indices),
+	tta/perl/Texinfo/TranslationsNonXS.pm (cache_translate_string),
+	tta/perl/XSTexinfo/parser_document/TranslationsXS.xs
+	(cache_translate_string): add lang information with the language,
+	region and bcp47 language locale name to lang_translation.  Setup
+	string to use with LANGUAGE environement variable for gettext when
+	creating lang_translation and pass it to translate_string to avoid
+	recomputing it many times.  Rename new_lang_translation as
+	new_documentlanguage_translation and get_lang_translation as
+	get_documentlanguage_translation.  Use the bcp47 language name to
+	retrieve translations.  Remove encoded language as argument
+	and remove get_lang_encoded_lang_translation.
+
+	* tta/perl/Texinfo/Translations.pm (get_lang_info_xdg_locale)
+	(get_lang_info_bcp47_locale, get_lang_info_language)
+	(get_lang_info_region): add accessors for lang_info.
+
+	* tta/C/convert/call_html_perl_function.c
+	(call_formatting_function_format_translate_message),
+	tta/C/convert/convert_html.c (format_translate_message)
+	(html_custom_translate_string, html_cache_translate_string): pass
+	lang_info to html_custom_translate_string and
+	format_translate_message.
+
+	* tta/perl/init/documentation_examples.pm (*_translate_message),
+	tta/perl/t/init/css_in_node_redirection_page.pm (*_translate_message),
+	tta/perl/t/init/special_element_customization.pm
+	(*_translate_message),
+	tta/perl/t/init/translated_strings_customization.pm
+	(*_translate_message),
+	tta/perl/t/init/translation_in_parser_in_translation.pm
+	(*_translate_message): use get_lang_info_xdg_locale to get language
+	from lang_info.
+
+	* tta/C/main/utils.c (analyze_documentlanguage_argument): allocate
+	region.  Update callers.
+
 2026-04-11 Patrice Dumas  <pertusus@free.fr>
 
 	add gnulib bcp47 module

@@ -1421,7 +1421,7 @@ main (int argc, char *argv[], char *env[])
           break;
         case DOCUMENT_LANGUAGE_OPT:
           {
-            const char *region_code;
+            char *region_code;
             int lang_is_valid;
             int region_is_valid;
             char *lang;
@@ -1446,6 +1446,7 @@ main (int argc, char *argv[], char *env[])
                     txi_config_document_warn ("%s is not a valid region code",
                                               region_code);
                   }
+                free (region_code);
                 GNUT_set_from_cmdline (&cmdline_options,
                               cmdline_options.options->documentlanguage.number,
                               optarg);

@@ -214,12 +214,15 @@ sub output_files_unclosed_files($) {
 # TODO document?
 # SELF is a converter or Texinfo::Text options hash
 sub switch_lang_translations($$;$) {
-  my ($self, $lang, $command_line_encoding) = @_;
+  my ($self, $documentlanguage, $command_line_encoding) = @_;
 
-  $lang = '' if (!defined($lang));
+  $documentlanguage = '' if (!defined($documentlanguage));
+
+  my ($bcp47_locale, $lang_code, $region_code)
+    = Texinfo::Translations::fill_document_lang_info($documentlanguage);
 
   if (exists($self->{'current_lang_translations'})
-      and $self->{'current_lang_translations'}->[0] eq $lang) {
+      and $self->{'current_lang_translations'}->[0]->[0] eq $bcp47_locale) {
     # Nothing to do
     return;
   }
@@ -232,15 +235,15 @@ sub switch_lang_translations($$;$) {
     $translations = $self->{'translations'};
   }
 
-  if (!exists($translations->{$lang})) {
-    $translations->{$lang} = {};
-  }
-
   my $new_lang_translations
-    = Texinfo::Translations::new_lang_translation($lang,
-                                      $command_line_encoding);
-  $new_lang_translations->[2] = $translations->{$lang};
+    = Texinfo::Translations::new_documentlanguage_translation(
+                                                   $documentlanguage);
   $self->{'current_lang_translations'} = $new_lang_translations;
+
+  if (!exists($translations->{$bcp47_locale})) {
+    $translations->{$bcp47_locale} = {};
+  }
+  $new_lang_translations->[2] = $translations->{$bcp47_locale};
 }
 
 
@@ -436,9 +439,9 @@ sub definition_category_tree($;$$$$) {
                                             $lang_translations, $substrings,
                                             $debug);
     } else {
-      my $new_lang_translations = Texinfo::Translations::new_lang_translation(
-                                  $current->{'extra'}->{'documentlanguage'},
-                                  $command_line_encoding);
+      my $new_lang_translations
+           = Texinfo::Translations::new_documentlanguage_translation(
+                                  $current->{'extra'}->{'documentlanguage'});
       my $tree = Texinfo::Translations::gdt('{category} on @code{{class}}',
                                  $new_lang_translations, $substrings);
       return $tree;
@@ -458,9 +461,9 @@ sub definition_category_tree($;$$$$) {
                                         $lang_translations, $substrings,
                                         $debug);
     } else {
-      my $new_lang_translations = Texinfo::Translations::new_lang_translation(
-                                  $current->{'extra'}->{'documentlanguage'},
-                                  $command_line_encoding);
+      my $new_lang_translations
+         = Texinfo::Translations::new_documentlanguage_translation(
+                                  $current->{'extra'}->{'documentlanguage'});
       return Texinfo::Translations::gdt('{category} of @code{{class}}',
                                  $new_lang_translations, $substrings);
     }
@@ -886,7 +889,7 @@ into account, if there is one.  The I<$lang_translations> optional argument
 should be an array reference holding information on the current language and
 translations.  It could be obtained from the converter
 C<current_lang_translations> or be setup by a call to
-L<< C<Texinfo::Translations::new_lang_translation>|Texinfo::Translations/$lang_translations = new_lang_translation($lang, $locale_encoding) >>.
+L<< C<Texinfo::Translations::new_documentlanguage_translation>|Texinfo::Translations/$lang_translations = new_documentlanguage_translation($documentlanguage) >>.
 If I<$lang_translations> is set,
 I<$command_line_encoding> should be set to the encoding suitable for
 environment variables, usually obtained from the I<COMMAND_LINE_ENCODING>

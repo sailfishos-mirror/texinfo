@@ -503,9 +503,19 @@ typedef struct LANG_TRANSLATION_TREE_LIST {
     void *hash;
 } LANG_TRANSLATION_TREE_LIST;
 
-typedef struct LANG_TRANSLATION {
+typedef struct DOCUMENT_LANG_INFO {
+    char *bcp47_locale;
     char *lang;
-    char *encoded_lang;
+    char *region;
+    /*
+    char *script;
+    char *variant;
+     */
+} DOCUMENT_LANG_INFO;
+
+typedef struct LANG_TRANSLATION {
+    DOCUMENT_LANG_INFO info;
+    char *language_env;
     LANG_TRANSLATION_TREE_LIST *translations;
 } LANG_TRANSLATION;
 

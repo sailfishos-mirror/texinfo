@@ -461,22 +461,32 @@ foreach my $internal_command (keys(%Texinfo::Commands::internal_commands)) {
 # functions used in main program, Parser and/or Texinfo::Structuring.
 # Not supposed to be called in user-defined code.
 
-# ALTIMP C/main/utils.c analyze_documentlanguage_argument (no message)
-# for Parser and main program
-sub warn_unknown_language($) {
-  my $lang = shift;
+# ALTIMP C/main/utils.c analyze_documentlanguage_argument
+sub analyze_documentlanguage_argument($) {
+  my $documentlanguage = shift;
 
   my $lang_code;
   my $region_code;
 
-  if ($lang =~ /^([a-z]+)_([A-Z]+)$/) {
+  if ($documentlanguage =~ /^([a-z]+)_([A-Z]+)$/) {
     $lang_code = $1;
     $region_code = $2;
-  } elsif ($lang =~ /^([a-z]+)_?$/) {
+  } elsif ($documentlanguage =~ /^([a-z]+)_?$/) {
     $lang_code = $1;
   }
 
+  return $lang_code, $region_code;
+}
+
+
+# for Parser and main program
+sub warn_unknown_language($) {
+  my $lang = shift;
+
+  my ($lang_code, $region_code) = analyze_documentlanguage_argument($lang);
+
   my $messages = [];
+
   if (!defined($lang_code)) {
     push @$messages, sprintf(__("%s is not a valid language argument"),
                               $lang);

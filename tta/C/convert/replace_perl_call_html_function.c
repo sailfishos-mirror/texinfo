@@ -169,7 +169,8 @@ call_formatting_function_format_begin_file (CONVERTER *self,
 char *
 call_formatting_function_format_translate_message (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference,
-                                  const char *message, const char *lang,
+                                  const char *message,
+                                  const DOCUMENT_LANG_INFO *lang_info,
                                   const char *message_context)
 {
   return 0;

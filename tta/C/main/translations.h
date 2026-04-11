@@ -34,29 +34,32 @@ void set_output_strings_translate_method (int use_external_translate_string_in);
 void setup_output_strings_translations (const char *localesdir,
                                         const char *strings_textdomain_in);
 
-const LANG_TRANSLATION *get_lang_translation (
+const LANG_TRANSLATION *get_documentlanguage_translation (
                       LANG_TRANSLATION ***lang_translations_ptr,
-                      const char *lang, const char *locale_encoding,
+                      const char *documentlanguage,
                       size_t cache_size);
-const LANG_TRANSLATION *get_lang_encoded_lang_translation (
-                      LANG_TRANSLATION ***lang_translations_ptr,
-                      const char *lang, const char *encoded_lang,
-                      size_t cache_size);
-LANG_TRANSLATION *new_lang_translation (const char *lang,
-                                        const char *locale_encoding);
+const LANG_TRANSLATION *get_lang_info_translation (
+                        LANG_TRANSLATION ***lang_translations_ptr,
+                        const DOCUMENT_LANG_INFO *info,
+                        size_t cache_size);
+const LANG_TRANSLATION *set_lang_info_translation (
+                        LANG_TRANSLATION ***lang_translations_ptr,
+                        DOCUMENT_LANG_INFO *info,
+                        size_t cache_size);
+LANG_TRANSLATION *new_documentlanguage_translation (
+                                       const char *documentlanguage);
 TRANSLATION_TREE *add_translation_tree (
                    LANG_TRANSLATION_TREE_LIST *translations,
                       const char *translated);
+void clear_document_lang_info (DOCUMENT_LANG_INFO *lang_info);
 void free_lang_translation (LANG_TRANSLATION *lang_translation);
 void free_translation_cache (LANG_TRANSLATION **translation_cache);
 const LANG_TRANSLATION *switch_lang_translations (
                           LANG_TRANSLATION ***lang_translations,
-                          const char *in_lang,
+                          const char *in_documentlanguage,
                           const LANG_TRANSLATION *current_lang_translations,
-                          const char *command_line_encoding,
                           size_t cache_size);
-char *translate_string (const char * string, const char *lang,
-                        const char *encoded_lang,
+char *translate_string (const char *string, const char *language_env,
                         const char *translation_context);
 TRANSLATION_TREE *cache_translate_string (const char *string,
                         const LANG_TRANSLATION * const lang_translation,

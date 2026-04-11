@@ -31,6 +31,8 @@
 /* also to have a definition of gettext in case ENABLE_NLS is not set */
 #include "gettext.h"
 
+#include "bcp47.h"
+
 #include "text.h"
 #include "command_ids.h"
 #include "tree_types.h"
@@ -220,24 +222,16 @@ switch_messages_locale (void)
 
 /* STRING in input must never be NULL */
 char *
-translate_string (const char *string, const char *in_lang,
-                  const char *in_encoded_lang,
+translate_string (const char *string, const char *language_env,
                   const char *translation_context)
 {
-  /* const char *lang = in_lang; */
-  const char *encoded_lang = in_encoded_lang;
   char *saved_LANGUAGE;
   char *saved_LANG;
   char *saved_LC_ALL;
   char *saved_LC_MESSAGES;
-  char *langs[2] = {0, 0};
-  char *main_lang = 0;
   char *translated_string = 0;
-  char *p;
-  static TEXT language_locales;
-  int i;
 
-  if (!in_lang || !strlen (in_lang))
+  if (!language_env || !strlen (language_env))
     return strdup (string);
 
 #ifndef ENABLE_NLS
@@ -248,9 +242,8 @@ translate_string (const char *string, const char *in_lang,
     }
   else
     {
-      translated_string = call_translations_translate_string (string, in_lang,
-                                               in_encoded_lang,
-                                               translation_context);
+      translated_string = call_translations_translate_string (string,
+                                        language_env, translation_context);
       if (!translated_string)
         return strdup (string);
       else
@@ -259,9 +252,8 @@ translate_string (const char *string, const char *in_lang,
 #else
   if (use_external_translate_string > 0)
     {
-      translated_string = call_translations_translate_string (string, in_lang,
-                                               in_encoded_lang,
-                                               translation_context);
+      translated_string = call_translations_translate_string (string,
+                                        language_env, translation_context);
       if (translated_string)
         return translated_string;
     }
@@ -317,44 +309,11 @@ translate_string (const char *string, const char *in_lang,
   textdomain (strings_textdomain);
   bind_textdomain_codeset (strings_textdomain, "utf-8");
 
-  /* using encoded_lang is not very important here, as we only accept
-     ASCII characters.  Using UTF-8 could even have been more robust,
-     if the encoding lang is encoded to is not ASCII compatible.  We
-     still use it to be more like Perl code */
-  langs[0] = strdup (encoded_lang);
-  /* NOTE gettext should already try the main language if it follows the
-     optional logic proposed in POSIX gettext description.  We nevertheless
-     add the main language if the gettext implementation does not or does
-     not get the main language. */
-  p = strchr (encoded_lang, '_');
-  if (p && p - encoded_lang > 0)
-    {
-      const char *q = p;
-      while (isascii_lower (*q))
-        q++;
-      if (q == p)
-        main_lang = strndup (encoded_lang, p - encoded_lang);
-    }
-  if (main_lang)
-    langs[1] = main_lang;
-
-  text_init (&language_locales);
-
-  for (i = 0; i < 2; i++)
-    {
-      if (!langs[i])
-        continue;
-      if (i > 0)
-        text_append_n (&language_locales, ":", 1);
-      text_append (&language_locales, langs[i]);
-      free (langs[i]);
-    }
-
-  if (setenv ("LANGUAGE", language_locales.text, 1) != 0)
+  if (setenv ("LANGUAGE", language_env, 1) != 0)
     {
       fprintf (stderr,
               "translate_string: setenv `%s' error for string `%s': %s\n",
-              language_locales.text, string, strerror (errno));
+              language_env, string, strerror (errno));
     }
 
   /* pgettext only works with string litterals, so use pgettext_expr */
@@ -364,7 +323,7 @@ translate_string (const char *string, const char *in_lang,
     translated_string = strdup (gettext (string));
 
   /*
-  fprintf (stderr, "TRANSLATED(%s): '%s' (%s) '%s'\n", language_locales.text,
+  fprintf (stderr, "TRANSLATED(%s): '%s' (%s) '%s'\n", language_env,
                                string, translation_context, translated_string);
 
   */
@@ -376,8 +335,6 @@ translate_string (const char *string, const char *in_lang,
     }
   else
     unsetenv ("LANGUAGE");
-
-  free (language_locales.text);
 
 # ifndef _WIN32
   if (saved_LANG)
@@ -411,42 +368,116 @@ translate_string (const char *string, const char *in_lang,
 #endif
 }
 
-LANG_TRANSLATION *
-new_lang_translation (const char *lang, const char *locale_encoding)
+void
+fill_document_lang_info (DOCUMENT_LANG_INFO *lang_info,
+                         const char *documentlanguage)
 {
-  LANG_TRANSLATION *result = (LANG_TRANSLATION *)
-    malloc (sizeof (LANG_TRANSLATION));
+  int lang_is_valid;
+  int region_is_valid;
+  char *region_code;
+
+  char *lang = analyze_documentlanguage_argument (documentlanguage,
+                                          &region_code,
+                                          &lang_is_valid, &region_is_valid);
   if (lang)
     {
-      int status;
-      int iconv_status = 0;
-      char *encoded_lang;
-
-      result->lang = strdup (lang);
-      /* encode_string allows a NULL encoding */
-      /* cast to remove const */
-      encoded_lang = encode_string ((char *)lang, locale_encoding,
-                                    &status, 0, ieh_skip, &iconv_status);
-      if (iconv_status)
-        {/* happens if the conversion to the locale encoding is not
-            possible */
-          free (encoded_lang);
-          result->encoded_lang = strdup (lang);
+      lang_info->lang = lang;
+      if (region_code)
+        {
+          lang_info->region = region_code;
+          xasprintf (&lang_info->bcp47_locale, "%s-%s", lang, region_code);
         }
       else
-        result->encoded_lang = encoded_lang;
+        {
+          lang_info->region = 0;
+          lang_info->bcp47_locale = strdup (lang);
+        }
     }
   else
     {
-      result->lang = strdup ("");
-      result->encoded_lang = strdup ("");
+      lang_info->lang = 0;
+      lang_info->region = 0;
+      lang_info->bcp47_locale = strdup ("");
     }
-  result->translations = 0;
-
-  return result;
 }
 
 void
+clear_document_lang_info (DOCUMENT_LANG_INFO *lang_info)
+{
+  free (lang_info->lang);
+  free (lang_info->region);
+  free (lang_info->bcp47_locale);
+}
+
+static void
+init_lang_translation (LANG_TRANSLATION *lang_translation,
+                       DOCUMENT_LANG_INFO *lang_info)
+{
+  char xpg_locale[BCP47_MAX];
+  /* taken from gnulib tests, not sure why this value */
+  memset (xpg_locale, 0x77, BCP47_MAX);
+
+  bcp47_to_xpg (xpg_locale, lang_info->bcp47_locale, 0);
+  if (lang_info->region)
+    {
+  /* NOTE gettext should already try the main language if it follows the
+     optional logic proposed in POSIX gettext description.  We nevertheless
+     add the main language if the gettext implementation does not or does
+     not get the main language. */
+
+      xasprintf (&lang_translation->language_env, "%s:%s", xpg_locale,
+                                         lang_info->lang);
+    }
+  else
+    lang_translation->language_env = strdup (xpg_locale);
+
+  lang_translation->translations = 0;
+}
+
+LANG_TRANSLATION *
+new_documentlanguage_translation (const char *documentlanguage)
+{
+  LANG_TRANSLATION *result = (LANG_TRANSLATION *)
+    malloc (sizeof (LANG_TRANSLATION));
+  DOCUMENT_LANG_INFO *lang_info = &result->info;
+  fill_document_lang_info (lang_info, documentlanguage);
+  init_lang_translation (result, lang_info);
+  return result;
+}
+
+static LANG_TRANSLATION *
+new_set_translation (const DOCUMENT_LANG_INFO *lang_info)
+{
+  LANG_TRANSLATION *result = (LANG_TRANSLATION *)
+    malloc (sizeof (LANG_TRANSLATION));
+  DOCUMENT_LANG_INFO *translation_lang_info = &result->info;
+  translation_lang_info->lang = lang_info->lang;
+  translation_lang_info->region = lang_info->region;
+  translation_lang_info->bcp47_locale = lang_info->bcp47_locale;
+  init_lang_translation (result, lang_info);
+  return result;
+}
+
+static LANG_TRANSLATION *
+new_copy_translation (const DOCUMENT_LANG_INFO *lang_info)
+{
+  LANG_TRANSLATION *result = (LANG_TRANSLATION *)
+    malloc (sizeof (LANG_TRANSLATION));
+  DOCUMENT_LANG_INFO *translation_lang_info = &result->info;
+  if (lang_info->lang)
+    translation_lang_info->lang = strdup (lang_info->lang);
+  else
+    translation_lang_info->lang = 0;
+  if (lang_info->region)
+    translation_lang_info->region = strdup (lang_info->region);
+  else
+    translation_lang_info->region = 0;
+  translation_lang_info->bcp47_locale = strdup (lang_info->bcp47_locale);
+  init_lang_translation (result, lang_info);
+  return result;
+}
+
+static void
 free_lang_translation_tree_list (LANG_TRANSLATION_TREE_LIST *translations)
 {
   size_t i;
@@ -468,8 +499,8 @@ free_lang_translation_tree_list (LANG_TRANSLATION_TREE_LIST *translations)
 void
 free_lang_translation (LANG_TRANSLATION *lang_translation)
 {
-  free (lang_translation->lang);
-  free (lang_translation->encoded_lang);
+  clear_document_lang_info (&lang_translation->info);
+  free (lang_translation->language_env);
   if (lang_translation->translations)
     {
       free_lang_translation_tree_list (lang_translation->translations);
@@ -495,7 +526,8 @@ free_translation_cache (LANG_TRANSLATION **translation_cache)
 
 static const LANG_TRANSLATION *
 find_lang_translation (LANG_TRANSLATION * const *lang_translations,
-                       const char *lang, size_t *out_index)
+                       const char *bcp47_locale,
+                       size_t *out_index)
 {
   size_t i = 0;
 
@@ -503,10 +535,8 @@ find_lang_translation (LANG_TRANSLATION * const *lang_translations,
     {
       for (i = 0; lang_translations[i]; i++)
         {
-          if (!strcmp (lang_translations[i]->lang, lang))
-            {
-              return lang_translations[i];
-            }
+          if (!strcmp (lang_translations[i]->info.bcp47_locale, bcp47_locale))
+            return lang_translations[i];
         }
     }
 
@@ -542,81 +572,86 @@ store_new_lang_translation (LANG_TRANSLATION *** lang_translations_ptr,
   return lang_translations[idx];
 }
 
+/* transfer info */
 const LANG_TRANSLATION *
-get_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
-                      const char *lang, const char *locale_encoding,
-                      size_t cache_size)
+set_lang_info_translation (LANG_TRANSLATION ***lang_translations_ptr,
+                           DOCUMENT_LANG_INFO *info,
+                           size_t cache_size)
 {
   size_t i;
-
-  LANG_TRANSLATION *lang_translation;
   const LANG_TRANSLATION *found_lang_translation
-    = find_lang_translation (*lang_translations_ptr, lang, &i);
+    = find_lang_translation (*lang_translations_ptr, info->bcp47_locale, &i);
 
   if (found_lang_translation)
-    return found_lang_translation;
+    {
+      clear_document_lang_info (info);
+      return found_lang_translation;
+    }
 
-  lang_translation = new_lang_translation (lang, locale_encoding);
+  LANG_TRANSLATION *lang_translation = new_set_translation (info);
 
   return store_new_lang_translation (lang_translations_ptr, i, cache_size,
                                      lang_translation);
 }
 
-/* only used from Perl where the encoded lang is already available */
+/* copy info */
 const LANG_TRANSLATION *
-get_lang_encoded_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
-                      const char *lang, const char *encoded_lang,
-                      size_t cache_size)
+get_lang_info_translation (LANG_TRANSLATION ***lang_translations_ptr,
+                           const DOCUMENT_LANG_INFO *info,
+                           size_t cache_size)
 {
   size_t i;
-
-  LANG_TRANSLATION *lang_translation;
   const LANG_TRANSLATION *found_lang_translation
-    = find_lang_translation (*lang_translations_ptr, lang, &i);
+    = find_lang_translation (*lang_translations_ptr, info->bcp47_locale, &i);
 
   if (found_lang_translation)
-    return found_lang_translation;
+    {
+      return found_lang_translation;
+    }
 
-  lang_translation = (LANG_TRANSLATION *)
-    malloc (sizeof (LANG_TRANSLATION));
-  if (lang && encoded_lang)
-    {
-      lang_translation->lang = strdup (lang);
-      lang_translation->encoded_lang = strdup (encoded_lang);
-    }
-  else
-    {
-      lang_translation->lang = strdup ("");
-      lang_translation->encoded_lang = strdup ("");
-    }
-  lang_translation->translations = 0;
+  LANG_TRANSLATION *lang_translation = new_copy_translation (info);
 
   return store_new_lang_translation (lang_translations_ptr, i, cache_size,
                                      lang_translation);
+}
+
+const LANG_TRANSLATION *
+get_documentlanguage_translation (LANG_TRANSLATION ***lang_translations_ptr,
+                                  const char *documentlanguage,
+                                  size_t cache_size)
+{
+  static DOCUMENT_LANG_INFO info;
+
+  fill_document_lang_info (&info, documentlanguage);
+  const LANG_TRANSLATION *result
+       = set_lang_info_translation (lang_translations_ptr, &info,
+                                    cache_size);
+  return result;
 }
 
 const LANG_TRANSLATION *
 switch_lang_translations (LANG_TRANSLATION ***lang_translations,
-                          const char *in_lang,
+                          const char *documentlanguage,
                           const LANG_TRANSLATION *current_lang_translations,
-                          const char *command_line_encoding,
                           size_t cache_size)
 {
-  const char *lang;
   const LANG_TRANSLATION *lang_translation;
 
-  if (in_lang)
-    lang = in_lang;
-  else
-    lang = "";
+  static DOCUMENT_LANG_INFO info;
+  fill_document_lang_info (&info, documentlanguage);
 
   if (current_lang_translations
-      && !strcmp(current_lang_translations->lang, lang))
-    return current_lang_translations;
+      && !strcmp (current_lang_translations->info.bcp47_locale,
+                  info.bcp47_locale))
+    {
+      clear_document_lang_info (&info);
+      return current_lang_translations;
+    }
 
   lang_translation
-    = get_lang_translation (lang_translations, lang,
-                            command_line_encoding, cache_size);
+    = set_lang_info_translation (lang_translations, &info,
+                                 cache_size);
+
   return lang_translation;
 }
 
@@ -653,30 +688,19 @@ add_translation_tree (LANG_TRANSLATION_TREE_LIST *translations,
   return result;
 }
 
+static const DOCUMENT_LANG_INFO unknown_lang_info = {"", 0, 0};
+
 TRANSLATION_TREE *
 cache_translate_string (const char *string,
                         const LANG_TRANSLATION *const lang_translation,
                         const char *translation_context)
 {
-  const char *lang;
-  const char *encoded_lang;
   const char *translation_context_str;
   LANG_TRANSLATION_TREE_LIST *translations;
   char *translated_context_string;
   TRANSLATION_TREE *result;
   uintptr_t string_nr;
   int found;
-
-  if (lang_translation && lang_translation->lang)
-    {
-      lang = lang_translation->lang;
-      encoded_lang = lang_translation->encoded_lang;
-    }
-  else
-    {
-      lang = "";
-      encoded_lang = "";
-    }
 
   if (translation_context)
     translation_context_str = translation_context;
@@ -690,23 +714,20 @@ cache_translate_string (const char *string,
     translations = lang_translation->translations;
   else
     {
+      const DOCUMENT_LANG_INFO *lang_info;
       /* This happens in convert_to_text for conversion to raw text (not
          when called from another converter) and with regenerate_master_menu
          TREE_TRANSFORMATIONS for the detailed node listing header translation.
-
-         We do not know the command line encoding, so we pass a 0 to
-         get_lang_translation.  The only issue is that a documentlanguage
-         with non-ASCII characters will not be properly encoded.  However
-         a documentlanguage with non-ASCII characters is invalid.
-         We could probably get the command line encoding as the current
-         function argument, however it is not worth it since the lang
-         for which is would be relevant is invalid, and also it is not
-         clear that we could have a use for the encoded invalid lang from
-         within get_lang_translation.
        */
+      if (lang_translation)
+        lang_info = &lang_translation->info;
+      else
+        lang_info = &unknown_lang_info;
+
       const LANG_TRANSLATION *general_lang_translation
-        = get_lang_translation (&translation_cache, lang, 0,
-                                TXI_CONVERT_STRINGS_NR);
+        = get_lang_info_translation (&translation_cache,
+                                     lang_info,
+                                     TXI_CONVERT_STRINGS_NR);
       translations = general_lang_translation->translations;
     }
 
@@ -721,10 +742,10 @@ cache_translate_string (const char *string,
 
   result = add_translation_tree (translations, translated_context_string);
 
-  if (strlen (lang))
+  if (lang_translation && strcmp (lang_translation->language_env, ""))
     {
       char *translated_string
-        = translate_string (string, lang, encoded_lang,
+        = translate_string (string, lang_translation->language_env,
                             translation_context);
       result->translation = translated_string;
     }

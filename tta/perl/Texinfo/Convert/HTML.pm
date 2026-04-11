@@ -1420,18 +1420,25 @@ sub _html_cache_translate_string($$$;$) {
   my ($self, $string, $lang_translations, $translation_context) = @_;
 
   if (defined($self->{'formatting_function'}->{'format_translate_message'})) {
-    my $lang = $lang_translations->[0];
+    my $lang_info;
+    if (defined($lang_translations)) {
+      $lang_info = $lang_translations->[0];
+    } else {
+      $lang_info = ['', undef, undef];
+    }
+
     my $translated_string
       = &{$self->{'formatting_function'}->{'format_translate_message'}}($self,
-                                         $string, $lang, $translation_context);
+                                           $string, $lang_info,
+                                           $translation_context);
 
     if (defined($translated_string)) {
       my $translations;
-      $lang = '' if (!defined($lang));
-      if (!exists($self->{'translation_cache'}->{$lang})) {
-        $self->{'translation_cache'}->{$lang} = {};
+      my $cached_lang = $lang_info->[0];
+      if (!exists($self->{'translation_cache'}->{$cached_lang})) {
+        $self->{'translation_cache'}->{$cached_lang} = {};
       }
-      $translations = $self->{'translation_cache'}->{$lang};
+      $translations = $self->{'translation_cache'}->{$cached_lang};
 
       # reuse the tree if the translation matches the cached translation
       # otherwise setup a new translation (without tree).

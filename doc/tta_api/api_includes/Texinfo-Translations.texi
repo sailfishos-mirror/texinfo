@@ -16,10 +16,9 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
 
 
   my $language = $customization->get_conf('documentlanguage');
-  my $locale_encoding = $customization->get_conf('COMMAND_LINE_ENCODING');
 
-  my $lang_translations = Texinfo::Translations::new_lang_translation(
-                                           $language, $locale_encoding);
+  my $lang_translations
+   = Texinfo::Translations::new_documentlanguage_translation($language);
 
 
   my $tree_translated
@@ -65,23 +64,18 @@ domain.
 
 @end table
 
-The @code{new_lang_translation} method sets up a lang translation data that
+The @code{new_documentlanguage_translation} method sets up a lang translation data that
 is used as argument for the other method.  This data contains the language
 and associated already translated strings.
 
 @table @asis
-@item $lang_translations = new_lang_translation($lang, $locale_encoding)
-@anchor{Texinfo@asis{::}Translations $lang_translations = new_lang_translation($lang@comma{} $locale_encoding)}
-@cindex @code{new_lang_translation}
+@item $lang_translations = new_documentlanguage_translation($documentlanguage)
+@anchor{Texinfo@asis{::}Translations $lang_translations = new_documentlanguage_translation($documentlanguage)}
+@cindex @code{new_documentlanguage_translation}
 
-@emph{$lang} is the language of the returned lang translations.  @emph{$locale}
-encoding is optional and should be the encoding used to encode character
-strings to for environment variables.  In general, you should base it on
-the @emph{COMMAND_LINE_ENCODING} customization variable value.
-
-The returned @emph{$lang_translations} is a reference.  In general,
-this object should be considered as opaque and should not be accessed
-directly, but passed to @code{gdt} and @code{pgdt} (but see below the
+@emph{$documentlanguage} is the language of the returned @emph{$lang_translations}
+In general, @emph{$lang_translations} should be considered as opaque and should not
+be accessed directly, but passed to @code{gdt} and @code{pgdt} (but see below the
 @emph{$translate_string_method} @code{gdt} argument).
 
 @end table
@@ -107,7 +101,7 @@ as Texinfo code after translation.  With @code{gdt_string} a string
 is returned.
 
 The @emph{$lang_translations} should be a reference set up by
-@ref{Texinfo@asis{::}Translations $lang_translations = new_lang_translation($lang@comma{} $locale_encoding),, @code{new_lang_translation}}
+@ref{Texinfo@asis{::}Translations $lang_translations = new_documentlanguage_translation($documentlanguage),, @code{new_documentlanguage_translation}}
 in the default case.  If @emph{$translate_string_method} argument is passed,
 this argument should instead be suitable for the replacement function.
 
@@ -176,12 +170,15 @@ fallback.
 
 The @emph{$string} is a string to be translated.  The @emph{$lang_translations}
 argument should be a reference set up by
-@ref{Texinfo@asis{::}Translations $lang_translations = new_lang_translation($lang@comma{} $locale_encoding),, @code{new_lang_translation}}.
+@ref{Texinfo@asis{::}Translations $lang_translations = new_documentlanguage_translation($documentlanguage),, @code{new_documentlanguage_translation}}.
 
 In the current implementation @emph{$lang_translations} is an array reference.  The
-first element of the array is the language.  The second element is the language
-encoded to the local encoding.  The third element is set to an hash
-reference holding translations already done.  A user-defined replacement
+first element of the array is an array reference containing the
+BCP 47 language locale, the language anme and a region code or undef.
+The second element is set to a string that can be used as @code{LANGUAGE}
+environment before calling a function gathering translated strings.
+The third element is set to an hash reference holding translations already
+done, with BCP 47 language locales as keys.  A user-defined replacement
 function could use different data structures for @emph{$lang_translations}.
 
 If the language is @code{undef} or an empty string, the input string does not

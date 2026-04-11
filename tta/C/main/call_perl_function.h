@@ -9,8 +9,7 @@ char *call_nodenamenormalization_unicode_to_transliterate (const char *text,
                                               int in_test, int no_unidecode);
 
 char *call_translations_translate_string (const char *string,
-                                          const char *in_lang,
-                                          const char *in_encoded_lang,
+                                          const char *language_env,
                                           const char *translation_context);
 
 void *call_setup_collator (int use_unicode_collation,

@@ -131,8 +131,8 @@ my $nodes_list = $document->nodes_list();
 my $top_node = $identifier_target->{'Top'};
 my $top_node_structure
   = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
-my $lang_translation = Texinfo::Translations::new_lang_translation(
-                                                          undef, undef);
+my $lang_translation
+  = Texinfo::Translations::new_documentlanguage_translation(undef);
 # FIXME does not test the XS code
 my $master_menu = Texinfo::Structuring::new_detailmenu($lang_translation,
                                         undef, $document,

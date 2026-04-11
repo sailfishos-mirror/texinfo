@@ -145,7 +145,7 @@ $result_indices_sort_strings{'documentlanguage_selection_region_unicode'} = 'vr:
 $result_converted{'plaintext'}->{'documentlanguage_selection_region_unicode'} = 'top
 ***
 
- -- Instance Variable de Which : Language Selected?
+ -- Instance Variable of Which: Language Selected?
 
 ';
 

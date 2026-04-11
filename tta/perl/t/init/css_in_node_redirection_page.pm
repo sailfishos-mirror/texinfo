@@ -3,6 +3,7 @@ package Texinfo::Config;
 use strict;
 
 use Texinfo::Common;
+use Texinfo::Translations;
 
 my %translations = (
   'en' => { "The node you are looking for is at {href}."
@@ -12,7 +13,9 @@ my %translations = (
 
 sub _texi2any_tests_css_in_node_redirection_page_format_translate_message($$$;$)
 {
-  my ($converter, $string, $lang, $translation_context) = @_;
+  my ($converter, $string, $lang_info, $translation_context) = @_;
+
+  my $lang = Texinfo::Translations::get_lang_info_xdg_locale($lang_info);
   return $string if (!defined($lang) or $lang eq '');
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations{$lang})

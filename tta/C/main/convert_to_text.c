@@ -128,7 +128,6 @@ copy_options_for_convert_text (OPTIONS *options)
   text_options->current_lang_translations
     = switch_lang_translations (&translation_cache,
                                 text_options->documentlanguage, 0,
-                                text_options->COMMAND_LINE_ENCODING,
                                 TXI_CONVERT_STRINGS_NR);
 
   if (options->INPUT_FILE_NAME_ENCODING.o.string)
@@ -243,7 +242,6 @@ text_set_language (TEXT_OPTIONS *text_options, const char *lang)
   text_options->current_lang_translations
     = switch_lang_translations (&translation_cache,
                                 text_options->documentlanguage, 0,
-                                text_options->COMMAND_LINE_ENCODING,
                                 TXI_CONVERT_STRINGS_NR);
 }
 
@@ -1063,8 +1061,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           const char *documentlanguage
             = lookup_extra_string (element, AI_key_documentlanguage);
           LANG_TRANSLATION *lang_translation
-             = new_lang_translation (documentlanguage,
-                                     text_options->COMMAND_LINE_ENCODING);
+             = new_documentlanguage_translation (documentlanguage);
 
           /* there is a possibility that some small strings are associated
              to the tree, and there is no document to get them.  However

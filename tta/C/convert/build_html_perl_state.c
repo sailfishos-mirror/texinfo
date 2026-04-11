@@ -38,6 +38,8 @@
 #include "debug.h"
 #include "convert_to_texinfo.h"
  */
+/* new_documentlanguage_translation */
+#include "translations.h"
 /* newSVpv_utf8 element_to_perl_hash */
 #include "build_perl_info.h"
 /* for html_conversion_context_type_names */
@@ -53,46 +55,43 @@ static const char *lang_trans_key = "current_lang_translations";
 #define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
 /* similar to Texinfo::Convert::Utils::switch_lang_translations */
 static void
-switch_perl_lang_translations (HV *converter_hv, const char *lang,
-                               const char *encoded_lang)
+switch_perl_lang_translations (HV *converter_hv, const char *documentlanguage)
 {
   AV *current_lang_translations_av;
-  const char *translation_lang;
-  const char *translation_encoded_lang;
   SV *translations;
-  SV *lang_sv;
-  SV *encoded_lang_sv;
+  SV *bcp47_locale_sv;
   SV **translations_sv;
   HV *translations_hv;
   HE *translations_lang_he;
   HV *translations_lang_hv;
   SV **current_lang_translations_sv;
+  LANG_TRANSLATION *lang_translation;
+  DOCUMENT_LANG_INFO *lang_info;
+  AV *lang_info_av;
 
   dTHX;
 
-  if (lang)
-    translation_lang = lang;
-  else
-    translation_lang = "";
+  lang_translation = new_documentlanguage_translation (documentlanguage);
+  lang_info = &lang_translation->info;
 
-  if (encoded_lang)
-    translation_encoded_lang = encoded_lang;
-  else
-    translation_encoded_lang = "";
-
-  lang_sv = newSVpv_utf8 (translation_lang, 0);
-  encoded_lang_sv = newSVpv_byte (translation_encoded_lang, 0);
+  bcp47_locale_sv = newSVpv_byte (lang_info->bcp47_locale, 0);
 
   FETCH(current_lang_translations);
   if (current_lang_translations_sv
       && SvOK (*current_lang_translations_sv))
     {
-      AV *lang_trans_AV = (AV *)SvRV (*current_lang_translations_sv);
-      SV **current_lang_sv = av_fetch (lang_trans_AV, 0, 0);
-      if (SvOK (*current_lang_sv))
+      AV *lang_trans_av = (AV *)SvRV (*current_lang_translations_sv);
+      SV **current_lang_info_sv = av_fetch (lang_trans_av, 0, 0);
+      if (current_lang_info_sv && SvOK (*current_lang_info_sv))
         {
-          if (!sv_cmp (lang_sv, *current_lang_sv))
-            return;
+          AV *current_lang_info_av = (AV *)SvRV (*current_lang_info_sv);
+          SV **current_bcp47_locale_sv = av_fetch (current_lang_info_av, 0, 0);
+          if (SvOK (*current_bcp47_locale_sv)
+              && !sv_cmp (bcp47_locale_sv, *current_bcp47_locale_sv))
+            {
+              free_lang_translation (lang_translation);
+              return;
+            }
         }
     }
 
@@ -111,25 +110,41 @@ switch_perl_lang_translations (HV *converter_hv, const char *lang,
     }
 
   translations_hv = (HV *)SvRV (translations);
-  translations_lang_he = hv_fetch_ent (translations_hv, lang_sv,
+  translations_lang_he = hv_fetch_ent (translations_hv, bcp47_locale_sv,
                                        0, 0);
   if (!translations_lang_he)
     {
       translations_lang_hv = newHV ();
-      hv_store_ent (translations_hv, lang_sv,
+      hv_store_ent (translations_hv, bcp47_locale_sv,
                     newRV_noinc ((SV *)translations_lang_hv), 0);
     }
   else
     translations_lang_hv = (HV *)SvRV (HeVAL (translations_lang_he));
 
   current_lang_translations_av = newAV ();
-  av_push (current_lang_translations_av, lang_sv);
-  av_push (current_lang_translations_av, encoded_lang_sv);
+  lang_info_av = newAV ();
+  av_push (lang_info_av, bcp47_locale_sv);
+  if (lang_info->lang)
+    av_push (lang_info_av, newSVpv_byte (lang_info->lang, 0));
+  else
+    av_push (lang_info_av, newSV (0));
+  if (lang_info->region)
+    av_push (lang_info_av, newSVpv_byte (lang_info->region, 0));
+  else
+    av_push (lang_info_av, newSV (0));
+
+  av_push (lang_info_av, newSVpv_byte (lang_translation->language_env, 0));
+
+  av_push (current_lang_translations_av,
+           newRV_noinc ((SV *) lang_info_av));
+
   av_push (current_lang_translations_av,
            newRV_inc ((SV *) translations_lang_hv));
 
   hv_store (converter_hv, lang_trans_key, strlen (lang_trans_key),
             newRV_noinc ((SV *) current_lang_translations_av), 0);
+
+  free_lang_translation (lang_translation);
 }
 
 static void
@@ -139,9 +154,6 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
   SV **convert_text_options_sv;
   const char *documentlanguage
     = converter->conf->documentlanguage.o.string;
-  const char *command_line_encoding
-    = converter->conf->COMMAND_LINE_ENCODING.o.string;
-  char *encoded_lang = 0;
 
   dTHX;
 
@@ -159,30 +171,7 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
                 strlen ("documentlanguage"), documentlanguage_sv, 0);
     }
 
-  if (documentlanguage)
-    {
-      if (command_line_encoding)
-        {
-          int status;
-          int iconv_status = 0;
-
-          /* cast to drop const */
-          encoded_lang = encode_string ((char *)documentlanguage,
-                                        command_line_encoding,
-                                        &status, 0, ieh_skip, &iconv_status);
-          if (!iconv_status)
-            {
-              non_perl_free (encoded_lang);
-              encoded_lang = non_perl_strdup (documentlanguage);
-            }
-        }
-      else
-        encoded_lang = non_perl_strdup (documentlanguage);
-    }
-  switch_perl_lang_translations (converter_hv, documentlanguage,
-                                 encoded_lang);
-
-  non_perl_free (encoded_lang);
+  switch_perl_lang_translations (converter_hv, documentlanguage);
 
   /* pass all the information for each context for translated commands */
   if (converter->no_arg_formatted_cmd_translated.number)

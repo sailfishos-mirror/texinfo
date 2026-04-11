@@ -2,6 +2,8 @@
 use utf8;
 use strict;
 
+use Texinfo::Translations;
+
 texinfo_register_special_unit_info('target', 'shortcontents', undef);
 texinfo_register_special_unit_info('target', 'contents', 't_contents');
 texinfo_register_special_unit_info('target', 'footnotes', 't_footnotes');
@@ -34,8 +36,9 @@ my %translations = (
 
 
 sub _texi2any_tests_special_unit_translate_message($$$;$) {
-  my ($converter, $string, $lang, $translation_context) = @_;
+  my ($converter, $string, $lang_info, $translation_context) = @_;
 
+  my $lang = Texinfo::Translations::get_lang_info_xdg_locale($lang_info);
   return $string if (!defined($lang) or $lang eq '');
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations{$lang})

@@ -56,9 +56,10 @@ DD
 '},
 });
 
-sub _texi2any_test_translation_in_parser_format_translate_message($$$;$)
-{
-  my ($converter, $string, $lang, $translation_context) = @_;
+sub _texi2any_test_translation_in_parser_format_translate_message($$$;$) {
+  my ($converter, $string, $lang_info, $translation_context) = @_;
+
+  my $lang = Texinfo::Translations::get_lang_info_xdg_locale($lang_info);
   return $string if (!defined($lang) or $lang eq '');
   $translation_context = '' if (!defined($translation_context));
 

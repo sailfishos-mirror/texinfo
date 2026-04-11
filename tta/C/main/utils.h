@@ -183,7 +183,7 @@ void parse_file_path (const char *input_file_path, char **result);
 void splitpath (const char *input_file_path, char **result);
 STRING_LIST *splitdir (char *directories_str);
 char *analyze_documentlanguage_argument (const char *text,
-                                   const char **region_code_out,
+                                   char **region_code_out,
                                    int *valid_lang, int *valid_region);
 int is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries);
 

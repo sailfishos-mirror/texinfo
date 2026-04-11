@@ -450,7 +450,7 @@ complete_indices (DOCUMENT *document, int debug_level)
 
                   if (name && class)
                     {
-                      const char *lang
+                      const char *documentlanguage
                             = lookup_extra_string (main_entry_element,
                                                        AI_key_documentlanguage);
                       ELEMENT *index_entry;
@@ -470,20 +470,17 @@ complete_indices (DOCUMENT *document, int debug_level)
                       ELEMENT *ref_class_copy = copy_element_tree (class, 0);
                       remove_def_types (ref_class_copy);
 
-                      if (!lang)
-                        lang = "";
+                      if (!documentlanguage)
+                        documentlanguage = "";
 
-                      if (!current_lang || strcmp (lang, current_lang))
+                      if (!current_lang || strcmp (documentlanguage,
+                                                   current_lang))
                         {
-                          const char *command_line_encoding = 0;
-                          if (document && document->options)
-                            command_line_encoding
-                      = document->options->COMMAND_LINE_ENCODING.o.string;
                           current_lang_translations
-                           = get_lang_translation (&lang_translations, lang,
-                                                   command_line_encoding,
+                           = get_documentlanguage_translation (&lang_translations,
+                                                   documentlanguage,
                                                    TXI_PARSER_STRINGS_NR);
-                          current_lang = lang;
+                          current_lang = documentlanguage;
                         }
 
                       add_element_to_named_string_element_list (substrings,

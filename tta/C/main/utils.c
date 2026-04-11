@@ -1522,15 +1522,17 @@ splitpath (const char *input_file_path, char **result)
  */
 char *
 analyze_documentlanguage_argument (const char *text,
-                                   const char **region_code_out,
+                                   char **region_code_out,
                                    int *valid_lang, int *valid_region)
 {
   const char *p;
   char *lang = 0;
-  const char *region_code = 0;
   *region_code_out = 0;
-  *valid_region = 1;
-  *valid_lang = 1;
+  *valid_lang = 0;
+  *valid_region = 0;
+
+  if (!text)
+    return 0;
 
   /* Determine if the language code is in the form ll_CC,
      language code followed by country code. */
@@ -1552,8 +1554,7 @@ analyze_documentlanguage_argument (const char *text,
                 p++;
               if (!*p && p > lang_end + 2)
                 {
-                  region_code = lang_end +1;
-                  *region_code_out = region_code;
+                  *region_code_out = strdup (lang_end +1);
                   lang = strndup (text, lang_end - text);
                 }
             }
@@ -1565,17 +1566,16 @@ analyze_documentlanguage_argument (const char *text,
 
   /* invalid argument */
   if (!lang)
-    {
-      *valid_lang = 0;
-      *valid_region = 0;
-      return 0;
-    }
+    return 0;
+
+  *valid_region = 1;
+  *valid_lang = 1;
 
   if (!txi_in_language_codes (lang, strlen (lang)))
     *valid_lang = 0;
 
-  if (region_code && !txi_in_language_regions (region_code,
-                                             strlen (region_code)))
+  if (*region_code_out && !txi_in_language_regions (*region_code_out,
+                                             strlen (*region_code_out)))
     *valid_region = 0;
 
   return lang;

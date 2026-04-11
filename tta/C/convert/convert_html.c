@@ -99,7 +99,8 @@ const char *html_stage_handler_stage_type_names[] = {
 
 char *
 format_translate_message (CONVERTER *self,
-                                  const char *message, const char *lang,
+                                  const char *message,
+                                  const DOCUMENT_LANG_INFO *lang_info,
                                   const char *message_context)
 {
   const FORMATTING_REFERENCE *formatting_reference
@@ -107,13 +108,13 @@ format_translate_message (CONVERTER *self,
 
   return call_formatting_function_format_translate_message (self,
                                             formatting_reference,
-                                    message, lang, message_context);
+                                    message, lang_info, message_context);
 }
 
 /* return string to be freed by the caller */
 static char *
 html_custom_translate_string (CONVERTER *self, const char *string,
-                              const char *lang,
+                              const DOCUMENT_LANG_INFO *lang_info,
                               const char *translation_context)
 {
   const FORMATTING_REFERENCE *formatting_reference
@@ -128,7 +129,8 @@ html_custom_translate_string (CONVERTER *self, const char *string,
       && formatting_reference->sv_reference)
     {
       char *translated_string
-       = format_translate_message (self, string, lang, translation_context);
+       = format_translate_message (self, string, lang_info,
+                                   translation_context);
 
       if (translated_string)
         return translated_string;
@@ -137,6 +139,8 @@ html_custom_translate_string (CONVERTER *self, const char *string,
   return 0;
 }
 
+static const DOCUMENT_LANG_INFO unknown_lang_info = {"", 0, 0};
+
 /* Same as translations.c cache_translate_string, but using the
    converter translations cache for user-defined translations */
 static TRANSLATION_TREE *
@@ -144,15 +148,17 @@ html_cache_translate_string (CONVERTER *self, const char *string,
                              const LANG_TRANSLATION *lang_translation,
                              const char *translation_context)
 {
-  const char *lang = 0;
   char *translated_string;
+  const DOCUMENT_LANG_INFO *lang_info;
 
-  if (lang_translation && lang_translation->lang)
-    lang = lang_translation->lang;
+  if (lang_translation)
+    lang_info = &lang_translation->info;
+  else
+    lang_info = &unknown_lang_info;
 
-  translated_string = html_custom_translate_string (self, string, lang,
+  translated_string = html_custom_translate_string (self, string,
+                                                    lang_info,
                                                     translation_context);
-
   if (translated_string)
     {
       const char *translation_context_str;
@@ -163,11 +169,8 @@ html_cache_translate_string (CONVERTER *self, const char *string,
       uintptr_t string_nr;
       int found;
 
-      if (!lang)
-        lang = "";
-
-      user_lang_transl = get_lang_translation (&self->translation_cache, lang,
-                                   self->conf->COMMAND_LINE_ENCODING.o.string,
+      user_lang_transl = get_lang_info_translation (&self->translation_cache,
+                                               lang_info,
                                                TXI_CONVERT_STRINGS_NR);
       translations = user_lang_transl->translations;
 
@@ -627,7 +630,6 @@ html_translate_names (CONVERTER *self)
     switch_lang_translations (&translation_cache,
                               self->conf->documentlanguage.o.string,
                               self->current_lang_translations,
-                              self->conf->COMMAND_LINE_ENCODING.o.string,
                               TXI_CONVERT_STRINGS_NR);
 
   if (self->conf->DEBUG.o.integer > 0)

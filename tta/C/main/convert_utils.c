@@ -806,8 +806,8 @@ destroy_parsed_def (PARSED_DEF *parsed_def)
    specific translation function.
    If they are not specified, LANG_TRANSLATION is used for translations
    information.
-   If not set, translation is based on information in the element and
-   COMMAND_LINE_ENCODING is also used.
+   If not set, translation is based on information in the element.
+   FIXME COMMAND_LINE_ENCODING is never used.
  */
 ELEMENT *
 definition_category_tree (const ELEMENT *current,
@@ -890,7 +890,7 @@ definition_category_tree (const ELEMENT *current,
           const char *documentlanguage
                 = lookup_extra_string (current, AI_key_documentlanguage);
           LANG_TRANSLATION *lang_translation
-           = new_lang_translation (documentlanguage, command_line_encoding);
+           = new_documentlanguage_translation (documentlanguage);
 
           result = gdt_tree ("{category} on @code{{class}}", 0,
                              lang_translation, substrings, 0, 0);
@@ -930,7 +930,7 @@ definition_category_tree (const ELEMENT *current,
           const char *documentlanguage
                 = lookup_extra_string (current, AI_key_documentlanguage);
           LANG_TRANSLATION *lang_translation
-           = new_lang_translation (documentlanguage, command_line_encoding);
+           = new_documentlanguage_translation (documentlanguage);
 
           result = gdt_tree ("{category} of @code{{class}}", 0,
                              lang_translation, substrings, 0, 0);

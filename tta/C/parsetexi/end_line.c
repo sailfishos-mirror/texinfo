@@ -1506,7 +1506,7 @@ end_line_misc_line (ELEMENT *current)
             }
           else if (current->e.c->cmd == CM_documentlanguage)
             {
-              const char *region_code;
+              char *region_code;
               int lang_is_valid;
               int region_is_valid;
               char *lang = analyze_documentlanguage_argument (text,
@@ -1531,6 +1531,7 @@ end_line_misc_line (ELEMENT *current)
                       command_warn (current, "%s is not a valid region code",
                                              region_code);
                     }
+                  free (region_code);
            /* Set the document language unless it was set on the command line. */
                   if (!global_parser_conf->global_documentlanguage_fixed)
                     {
