@@ -32,6 +32,7 @@
 #  --no-conditional-dependencies \
 #  --libtool \
 #  --macro-prefix=gl \
+#  bcp47 \
 #  euidaccess \
 #  getline \
 #  getopt-gnu \
@@ -195,6 +196,20 @@ EXTRA_DIST += assert.in.h verify.h
 EXTRA_DIST += attribute.h
 
 ## end   gnulib module attribute
+
+## begin gnulib module bcp47
+
+libgnu_la_SOURCES += bcp47.c
+
+EXTRA_DIST += bcp47.h
+
+## end   gnulib module bcp47
+
+## begin gnulib module c-ctype
+
+libgnu_la_SOURCES += c-ctype.h c-ctype.c
+
+## end   gnulib module c-ctype
 
 ## begin gnulib module c32isalnum
 

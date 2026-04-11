@@ -48,7 +48,9 @@ AC_DEFUN([gl_EARLY],
   # Code from module array-mergesort:
   # Code from module assert-h:
   # Code from module attribute:
+  # Code from module bcp47:
   # Code from module bool:
+  # Code from module c-ctype:
   # Code from module c32isalnum:
   # Code from module c32isalpha:
   # Code from module c32isblank:
@@ -1045,7 +1047,11 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/asprintf.c
   lib/assert.in.h
   lib/attribute.h
+  lib/bcp47.c
+  lib/bcp47.h
   lib/c++defs.h
+  lib/c-ctype.c
+  lib/c-ctype.h
   lib/c32is-impl.h
   lib/c32isalnum.c
   lib/c32isalpha.c

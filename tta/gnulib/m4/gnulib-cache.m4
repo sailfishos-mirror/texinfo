@@ -37,6 +37,7 @@
 #  --no-conditional-dependencies \
 #  --libtool \
 #  --macro-prefix=gl \
+#  bcp47 \
 #  euidaccess \
 #  getline \
 #  getopt-gnu \
@@ -81,6 +82,7 @@
 # Specification in the form of a few gnulib-tool.m4 macro invocations:
 gl_LOCAL_DIR([])
 gl_MODULES([
+  bcp47
   euidaccess
   getline
   getopt-gnu
