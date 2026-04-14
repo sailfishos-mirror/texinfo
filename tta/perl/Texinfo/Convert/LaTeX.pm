@@ -1807,8 +1807,7 @@ sub _informative_command_output($$) {
 
   if ($cmdname eq 'documentlanguage') {
     my $language = $self->get_conf($cmdname);
-    Texinfo::Convert::Utils::switch_lang_translations($self, $language,
-                                $self->get_conf('COMMAND_LINE_ENCODING'));
+    Texinfo::Convert::Utils::switch_lang_translations($self, $language);
     $language =~ s/_/-/;
     $self->{'packages'}->{'babel'} = 1;
     return "\\selectlanguage{$language}%\n";

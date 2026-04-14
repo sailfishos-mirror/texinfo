@@ -1805,8 +1805,7 @@ sub _translate_names($) {
                                        $self->get_conf('documentlanguage'));
 
   Texinfo::Convert::Utils::switch_lang_translations($self,
-                                       $self->get_conf('documentlanguage'),
-                                    $self->get_conf('COMMAND_LINE_ENCODING'));
+                                       $self->get_conf('documentlanguage'));
 
   if ($self->get_conf('DEBUG')) {
     my $output_encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');

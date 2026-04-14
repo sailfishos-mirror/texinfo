@@ -521,8 +521,7 @@ current language is set by a call to @code{switch_lang_translations}, like:
 
 @verbatim
  Texinfo::Convert::Utils::switch_lang_translations($converter,
-                              $documentlanguage,
-                              $self->get_conf('COMMAND_LINE_ENCODING'));
+                              $documentlanguage);
 @end verbatim
 
 The @code{cdt} and @code{pcdt} methods are used to translate strings to be output in

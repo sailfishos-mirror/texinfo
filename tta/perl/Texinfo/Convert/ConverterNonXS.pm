@@ -145,8 +145,7 @@ sub _generic_converter_init($$;$) {
 
     if (exists($conf->{'documentlanguage'})) {
       Texinfo::Convert::Utils::switch_lang_translations($converter,
-                                           $conf->{'documentlanguage'},
-                           $converter->get_conf('COMMAND_LINE_ENCODING'));
+                                           $conf->{'documentlanguage'});
     }
   }
   # used for output files information, to register opened

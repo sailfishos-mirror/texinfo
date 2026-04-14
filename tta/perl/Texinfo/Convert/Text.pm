@@ -197,8 +197,7 @@ sub copy_options_for_convert_text($;$) {
   my $documentlanguage = $options{'documentlanguage'};
   if (defined($documentlanguage)) {
     Texinfo::Convert::Utils::switch_lang_translations(\%options,
-                                                      $documentlanguage,
-                                        $options{'COMMAND_LINE_ENCODING'});
+                                                      $documentlanguage);
   }
 
   my $include_directories = $converter->get_conf('INCLUDE_DIRECTORIES');
@@ -276,8 +275,7 @@ sub reset_options_encoding($) {
 sub set_language($$) {
   my ($options, $lang) = @_;
 
-  Texinfo::Convert::Utils::switch_lang_translations($options, $lang,
-                                       $options->{'COMMAND_LINE_ENCODING'});
+  Texinfo::Convert::Utils::switch_lang_translations($options, $lang);
 }
 
 

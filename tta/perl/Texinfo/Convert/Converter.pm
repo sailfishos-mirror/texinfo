@@ -2241,8 +2241,7 @@ L<Texinfo::Translations> methods that use the current language.  The
 current language is set by a call to C<switch_lang_translations>, like:
 
  Texinfo::Convert::Utils::switch_lang_translations($converter,
-                              $documentlanguage,
-                              $self->get_conf('COMMAND_LINE_ENCODING'));
+                              $documentlanguage);
 
 The C<cdt> and C<pcdt> methods are used to translate strings to be output in
 converted documents, and return a Texinfo tree.  The C<cdt_string> is similar

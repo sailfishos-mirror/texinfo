@@ -1,3 +1,16 @@
+2026-04-14 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/DocBook.pm,
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm,
+	tta/perl/Texinfo/Convert/Info.pm, tta/perl/Texinfo/Convert/LaTeX.pm,
+	tta/perl/Texinfo/Convert/Plaintext.pm,
+	tta/perl/Texinfo/Convert/Text.pm,
+	tta/perl/Texinfo/Example/ReadDocBook.pm: remove now unused command
+	line encoding argument in calls to
+	Texinfo::Convert::Utils::switch_lang_translations.
+
+	* tta/perl/Texinfo/Convert/DocBook.pm: minor changes in code order.
+
 2026-04-12 Patrice Dumas  <pertusus@free.fr>
 
 	add lang information in lang_translation and use bcp47 locale
