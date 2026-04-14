@@ -34,6 +34,8 @@ void set_output_strings_translate_method (int use_external_translate_string_in);
 void setup_output_strings_translations (const char *localesdir,
                                         const char *strings_textdomain_in);
 
+void fill_document_lang_info (DOCUMENT_LANG_INFO *lang_info,
+                              const char *documentlanguage);
 const LANG_TRANSLATION *get_documentlanguage_translation (
                       LANG_TRANSLATION ***lang_translations_ptr,
                       const char *documentlanguage,

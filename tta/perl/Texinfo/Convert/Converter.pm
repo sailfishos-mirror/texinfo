@@ -426,7 +426,7 @@ sub output_files_information($) {
 
 
 
-# translations
+# translations and languages
 
 sub cdt($$;$$) {
   my ($self, $string, $replaced_substrings, $translation_context) = @_;
@@ -451,6 +451,19 @@ sub pcdt($$;$$) {
   my ($self, $translation_context, $string, $replaced_substrings) = @_;
 
   return $self->cdt($string, $replaced_substrings, $translation_context);
+}
+
+# language
+sub current_bcp47_locale($) {
+  my $self = shift;
+
+  if (!exists($self->{'current_lang_translations'})) {
+    return '';
+  }
+  return $self->{'current_lang_translations'}->[0]->[0];
+  # using the lang_info API
+  #return Texinfo::Translations::get_lang_info_bcp47_locale(
+  #            $self->{'current_lang_translations'}->[0]);
 }
 
 

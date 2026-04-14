@@ -411,7 +411,7 @@ clear_document_lang_info (DOCUMENT_LANG_INFO *lang_info)
 
 static void
 init_lang_translation (LANG_TRANSLATION *lang_translation,
-                       DOCUMENT_LANG_INFO *lang_info)
+                       const DOCUMENT_LANG_INFO *lang_info)
 {
   char xpg_locale[BCP47_MAX];
   /* taken from gnulib tests, not sure why this value */

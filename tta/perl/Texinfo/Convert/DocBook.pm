@@ -388,8 +388,11 @@ sub conversion_output_begin($;$$) {
   if (defined($documentlanguage)) {
     Texinfo::Convert::Utils::switch_lang_translations($self,
                                                       $documentlanguage);
-    push @{$self->{'lang_stack'}}, $documentlanguage;
-    $lang_attribute = " lang=\"$documentlanguage\"";
+    my $bcp47_locale = $self->current_bcp47_locale();
+    push @{$self->{'lang_stack'}}, $bcp47_locale;
+    if ($bcp47_locale ne '') {
+      $lang_attribute = " lang=\"$bcp47_locale\"";
+    }
   } else {
     $lang_attribute = '';
     # start with an empty string if there is no documentlanguage
@@ -1131,10 +1134,12 @@ sub _convert($$;$) {
             my $language = '';
             my $documentlanguage = $self->get_conf('documentlanguage');
             if (defined($documentlanguage)) {
-              if ($self->{'lang_stack'}->[-1] ne $documentlanguage) {
-                $section_attribute .= ' lang="'.$documentlanguage.'"';
+              my $bcp47_locale = $self->current_bcp47_locale();
+              if ($self->{'lang_stack'}->[-1] ne $bcp47_locale
+                  and $bcp47_locale ne '') {
+                $section_attribute .= ' lang="'.$bcp47_locale.'"';
               }
-              $language = $documentlanguage;
+              $language = $bcp47_locale;
             }
             push @{$self->{'lang_stack'}}, $language;
             $result .= "<$docbook_sectioning_element${section_attribute}>\n";

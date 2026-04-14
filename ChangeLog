@@ -1,5 +1,24 @@
 2026-04-14 Patrice Dumas  <pertusus@free.fr>
 
+	Use BCP 47 language format in output formats
+
+	* tta/C/convert/html_prepare_converter.c (html_setup_output),
+	tta/perl/Texinfo/Convert/Converter.pm (current_bcp47_locale),
+	tta/perl/Texinfo/Convert/DocBook.pm (conversion_output_begin)
+	(_convert), tta/perl/Texinfo/Convert/HTMLNonXS.pm (_setup_output),
+	tta/perl/Texinfo/Convert/LaTeX.pm (_informative_command_output)
+	(_latex_header): add current_bcp47_locale to get the BCP 47 language
+	locale in the current_lang_translations.  Output BCP 47 language
+	locales for output formats, as output formats use this language
+	specification format.
+
+	* tta/C/main/convert_utils.h: do not include translations.h in
+	convert_utils.h.  Update users.
+
+	* tta/C/main/translations.c (init_lang_translation): add const.
+
+2026-04-14 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/DocBook.pm,
 	tta/perl/Texinfo/Convert/HTMLNonXS.pm,
 	tta/perl/Texinfo/Convert/Info.pm, tta/perl/Texinfo/Convert/LaTeX.pm,

@@ -53,6 +53,8 @@
 #include "manipulate_indices.h"
 /* nobrace_symbol_text text_brace_no_arg_commands */
 #include "convert_to_text.h"
+/* fill_document_lang_info clear_document_lang_info free_translation_cache */
+#include "translations.h"
 #include "output_unit.h"
 #include "html_conversion_state.h"
 /* converter_encoded_output_file_name */
@@ -4133,7 +4135,8 @@ html_setup_output (CONVERTER *self, char **paths)
   int handler_fatal_error_level;
   int setup_handler_status;
   int js_categories_list_nr = 0;
-  const char *body_lang;
+  const char *documentlanguage;
+  static DOCUMENT_LANG_INFO lang_info;
   char *body_element_attributes;
 
   /* Should not actually be needed, as it is already deleted after conversion
@@ -4212,11 +4215,13 @@ html_setup_output (CONVERTER *self, char **paths)
 
   set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
 
-  body_lang = self->conf->documentlanguage.o.string;
+  documentlanguage = self->conf->documentlanguage.o.string;
+  fill_document_lang_info (&lang_info, documentlanguage);
 
-  if (body_lang)
+  if (strcmp (lang_info.bcp47_locale, ""))
     {
-      xasprintf (&body_element_attributes, "lang=\"%s\"", body_lang);
+      xasprintf (&body_element_attributes, "lang=\"%s\"",
+                 lang_info.bcp47_locale);
       option_set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,
                        0, body_element_attributes);
       free (body_element_attributes);
@@ -4227,6 +4232,8 @@ html_setup_output (CONVERTER *self, char **paths)
          take an empty string as its value to specify that the language
          is unknown.  However, outputting lang="" is unnecessary. */
     }
+
+  clear_document_lang_info (&lang_info);
 
   set_global_document_commands (self, CL_before, conf_for_documentlanguage);
 

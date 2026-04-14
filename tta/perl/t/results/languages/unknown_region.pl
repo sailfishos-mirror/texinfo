@@ -192,7 +192,7 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </head>
 
-<body lang="fr_NOWHERE">
+<body lang="fr-NOWHERE">
 
 <a class="node-id" id="Top"></a><p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Suivant: </span><span class="nav-link"><a href="#chap" accesskey="n" rel="next">chap</a></span></span><span class="nav-button"> &nbsp; </span></p>

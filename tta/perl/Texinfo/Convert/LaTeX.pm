@@ -1584,8 +1584,7 @@ sub _latex_header($) {
 
   if (exists($self->{'packages'}->{'babel'})) {
     $header_code .= '
-% this allows to select languages based on bcp47 codes.  bcp47 is a superset
-% of the LL_CC ISO 639-2 LL ISO 3166 CC information of @documentlanguage
+% this allows to select languages based on bcp47 languages locales.
 \babeladjust{
   autoload.bcp47 = on,
   autoload.bcp47.options = import
@@ -1808,9 +1807,9 @@ sub _informative_command_output($$) {
   if ($cmdname eq 'documentlanguage') {
     my $language = $self->get_conf($cmdname);
     Texinfo::Convert::Utils::switch_lang_translations($self, $language);
-    $language =~ s/_/-/;
+    my $bcp47_locale = $self->current_bcp47_locale();
     $self->{'packages'}->{'babel'} = 1;
-    return "\\selectlanguage{$language}%\n";
+    return "\\selectlanguage{$bcp47_locale}%\n";
   } elsif ($cmdname eq 'pagesizes') {
     my $pagesize_spec = $self->get_conf($cmdname);
     my @pagesize_args = split(/\s*,\s*/, $pagesize_spec);

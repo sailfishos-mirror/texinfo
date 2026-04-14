@@ -47,6 +47,9 @@
 #include "extra.h"
 #include "targets.h"
 #include "debug.h"
+/* new_named_string_element_list add_element_to_named_string_element_list
+   ... */
+#include "translations.h"
 #include "output_unit.h"
 #include "node_name_normalization.h"
 #include "manipulate_indices.h"

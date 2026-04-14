@@ -10,7 +10,7 @@
 #include "document_types.h"
 #include "converter_types.h"
 /* for NAMED_STRING_ELEMENT_LIST */
-#include "translations.h"
+/* #include "translations.h" */
 
 /* avoid a dependence on translations.h */
 struct NAMED_STRING_ELEMENT_LIST;
