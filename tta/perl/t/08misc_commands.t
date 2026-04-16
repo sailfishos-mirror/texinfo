@@ -152,6 +152,13 @@ documentlanguage @documentlanguage  en
 @documentencoding AAA@TeX{}
 @documentencoding BBB@\'e
 '],
+['documentlanguagevariant_arguments',
+'@documentlanguagevariant arg
+@documentlanguagevariant one, two
+@documentlanguagevariant before comma ,
+@documentlanguagevariant first , second, third ,fourth,   
+@documentlanguagevariant
+'],
 ['defindex_too_much_args',
 '@defindex chose    machin'
 ],

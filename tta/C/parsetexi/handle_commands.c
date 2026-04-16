@@ -1098,14 +1098,21 @@ handle_line_command (ELEMENT *current, const char **line_inout,
         push_command (&nesting_context.basic_inline_stack_on_line, cmd);
 
       /* LINE_specific commands arguments are handled in a specific way.
-         The only other line commands that have more than one argument is
-         node, so the following condition only applies to node */
+         The only other line commands that have a fixed number of arguments
+         and more than one is node, so the following condition only applies
+         to node */
       if (arg_spec != LINE_specific
           && command_data (data_cmd).args_number > 1)
         {
           counter_push (&count_remaining_args,
                         current,
                         command_data (data_cmd).args_number - 1);
+        }
+      else if (command_data (data_cmd).flags & CF_variadic)
+        {
+          /* Unlimited args */
+          counter_push (&count_remaining_args, current,
+                        COUNTER_VARIADIC);
         }
       if (cmd == CM_author)
         {

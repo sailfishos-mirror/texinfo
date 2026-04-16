@@ -11,6 +11,8 @@ GLOBAL_CASE(deftypefnnewline);
 GLOBAL_CASE(detailmenu);
 GLOBAL_CASE(documentencoding);
 GLOBAL_CASE(documentlanguage);
+GLOBAL_CASE(documentlanguagevariant);
+GLOBAL_CASE(documentscript);
 GLOBAL_CASE(exampleindent);
 GLOBAL_CASE(firstparagraphindent);
 GLOBAL_CASE(frenchspacing);

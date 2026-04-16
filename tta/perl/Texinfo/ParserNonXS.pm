@@ -3848,6 +3848,15 @@ sub _end_line_misc_line($$$) {
     pop @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}};
   }
 
+  my $arg_spec = $self->{'line_commands'}->{$data_cmdname};
+
+  if (($arg_spec ne 'specific'
+       and exists($commands_args_number{$command})
+       and $commands_args_number{$command} > 1)
+      or exists($variadic_commands{$command})) {
+    delete $command_element->{'remaining_args'};
+  }
+
   if (exists($current->{'parent'}->{'extra'})
       and exists($current->{'parent'}->{'extra'}->{'def_command'})) {
     $current = _end_line_def_line($self, $current, $source_info);
@@ -3863,8 +3872,6 @@ sub _end_line_misc_line($$$) {
   my $end_command;
   my $included_file;
   my $include_source_mark;
-
-  my $arg_spec = $self->{'line_commands'}->{$data_cmdname};
 
   print STDERR "MISC END $command\n" #: $arg_spec"
     if ($self->{'conf'}->{'DEBUG'});
@@ -4110,7 +4117,9 @@ sub _end_line_misc_line($$$) {
     # Handle all the other 'line' commands.  Here just check that they
     # have an argument.  Empty @top and @xrefname are allowed
     if (Texinfo::Common::empty_spaces_argument($line_arg)
-        and $command ne 'top' and $command ne 'xrefname') {
+        and $command ne 'top' and $command ne 'xrefname'
+        and $command ne 'documentlanguagevariant'
+        and $command ne 'documentscript') {
       _command_warn($self, $current,
              __("\@%s missing argument"), $command);
     } else {
@@ -4254,7 +4263,6 @@ sub _end_line_misc_line($$$) {
     }
   } elsif ($root_commands{$data_cmdname}) {
     $current = $command_element;
-    delete $command_element->{'remaining_args'};
     my $section_relations;
 
     if ($command ne 'node') {
@@ -6274,12 +6282,16 @@ sub _handle_line_command($$$$$$) {
     }
 
     # 'specific' commands arguments are handled in a specific way.
-    # The only other line commands that have more than one argument is
-    # node, so the following condition only applies to node
+    # The only other line commands that have a fixed number of arguments
+    # and more than one is node, so the following condition only applies
+    # to node
     if ($arg_spec ne 'specific'
-        and $commands_args_number{$command}
+        and exists($commands_args_number{$command})
         and $commands_args_number{$command} > 1) {
       $current->{'remaining_args'} = $commands_args_number{$command} - 1;
+    } elsif (exists($variadic_commands{$command})) {
+      # for documentlanguagevariant
+      $current->{'remaining_args'} = -1; # unlimited args
     }
     if ($command eq 'author') {
       my $parent = $current;
@@ -6455,7 +6467,7 @@ sub _handle_block_command($$$$$) {
       if ($commands_args_number{$command} - 1 > 0) {
         $remaining_args = $commands_args_number{$command} - 1;
       }
-    } elsif ($variadic_commands{$command}) {
+    } elsif (exists($variadic_commands{$command})) {
       $remaining_args = -1; # unlimited args
     }
     $block_line_e->{'remaining_args'} = $remaining_args

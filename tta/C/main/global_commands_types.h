@@ -57,6 +57,8 @@ typedef struct GLOBAL_COMMANDS {
    ELEMENT_LIST detailmenu;
    ELEMENT_LIST documentencoding;
    ELEMENT_LIST documentlanguage;
+   ELEMENT_LIST documentlanguagevariant;
+   ELEMENT_LIST documentscript;
    ELEMENT_LIST exampleindent;
    ELEMENT_LIST firstparagraphindent;
    ELEMENT_LIST frenchspacing;

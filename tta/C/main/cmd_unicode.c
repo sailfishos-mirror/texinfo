@@ -145,6 +145,8 @@ const DIACRITIC_UNICODE unicode_diacritics[] = {
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
+{0, 0, 0},
+{0, 0, 0},
 {"\xcc\x87", "775", "0307"},  /* dotaccent */
 {0, 0, 0},
 {0, 0, 0},
@@ -556,6 +558,8 @@ const COMMAND_UNICODE_CHARACTER base_unicode_map[] = {
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
+{0, 0, 0},
+{0, 0, 0},
 {"20AC", "\xe2\x82\xac", "\\20AC "},   /* euro */
 {0, 0, 0},
 {0, 0, 0},
@@ -881,6 +885,8 @@ const COMMAND_UNICODE_CHARACTER extra_unicode_map[] = {
 {0, 0, 0},
 {0, 0, 0},
 {"00A9", "\xc2\xa9", "\\00A9 "},   /* copyright */
+{0, 0, 0},
+{0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},

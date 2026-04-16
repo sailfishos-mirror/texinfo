@@ -145,6 +145,8 @@ const char *xml_text_entity_no_arg_commands[] = {
 0,
 0,
 0,
+0,
+0,
 "&hellip;",  /* dots */
 0,
 0,

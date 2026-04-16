@@ -240,6 +240,8 @@ defcodeindex            line,preamble,contain_plain_text         specific  1
 
 # language code arg
 documentlanguage        line,global,preamble,contain_plain_text  text
+documentscript          line,global,preamble,contain_plain_text  text
+documentlanguagevariant   line,global,preamble,contain_plain_text,variadic  line
 
 # arg code example distinct
 kbdinputstyle           line,global,preamble,contain_plain_text  specific  1

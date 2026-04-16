@@ -173,6 +173,8 @@ CM_documentdescription,
 CM_documentencoding,
 CM_documentinfo,
 CM_documentlanguage,
+CM_documentlanguagevariant,
+CM_documentscript,
 CM_dotaccent,
 CM_dotless,
 CM_dots,
@@ -430,7 +432,7 @@ CM_hex_7d,
 CM_hex_7e,
 };
 
-#define BUILTIN_CMD_NUMBER 396
+#define BUILTIN_CMD_NUMBER 398
 
 #define TXI_CMD_CATEGORY_BLOCK \
   tcc_cmd_category(conditional, block, BLOCK) \

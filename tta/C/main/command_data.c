@@ -144,6 +144,8 @@ const COMMAND builtin_command_data[] = {
 {"documentencoding", CF_line | CF_no_paragraph | CF_global | CF_preamble | CF_contain_plain_text, 0, LINE_text, 1},
 {"documentinfo", CF_block | CF_no_paragraph | CF_close_paragraph | CF_global_unique | CF_preamble, 0, BLOCK_region, 0},
 {"documentlanguage", CF_line | CF_no_paragraph | CF_global | CF_preamble | CF_contain_plain_text, 0, LINE_text, 1},
+{"documentlanguagevariant", CF_line | CF_no_paragraph | CF_global | CF_preamble | CF_contain_plain_text | CF_variadic, 0, LINE_line, 1},
+{"documentscript", CF_line | CF_no_paragraph | CF_global | CF_preamble | CF_contain_plain_text, 0, LINE_text, 1},
 {"dotaccent", CF_brace | CF_accent | CF_contain_plain_text, 0, BRACE_accent, 1},
 {"dotless", CF_brace | CF_accent | CF_contain_plain_text, 0, BRACE_accent, 1},
 {"dots", CF_brace, 0, BRACE_noarg, 0},
