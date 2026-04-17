@@ -1,229 +1,237 @@
 %{
 #include <config.h>
 %}
+struct TXI_DOCUMENT_SCRIPT { char const *name; const char *code; };
 %includes
 %%
-Adlm
-Afak
-Aghb
-Ahom
-Arab
-Aran
-Armi
-Armn
-Avst
-Bali
-Bamu
-Bass
-Batk
-Beng
-Berf
-Bhks
-Blis
-Bopo
-Brah
-Brai
-Bugi
-Buhd
-Cakm
-Cans
-Cari
-Cham
-Cher
-Chis
-Chrs
-Cirt
-Copt
-Cpmn
-Cprt
-Cyrl
-Cyrs
-Deva
-Diak
-Dogr
-Dsrt
-Dupl
-Egyd
-Egyh
-Egyp
-Elba
-Elym
-Ethi
-Gara
-Geok
-Geor
-Glag
-Gong
-Gonm
-Goth
-Gran
-Grek
-Gujr
-Gukh
-Guru
-Hanb
-Hang
-Hani
-Hano
-Hans
-Hant
-Hatr
-Hebr
-Hira
-Hluw
-Hmng
-Hmnp
-Hntl
-Hrkt
-Hung
-Inds
-Ital
-Jamo
-Java
-Jpan
-Jurc
-Kali
-Kana
-Kawi
-Khar
-Khmr
-Khoj
-Kitl
-Kits
-Knda
-Kore
-Kpel
-Krai
-Kthi
-Lana
-Laoo
-Latf
-Latg
-Latn
-Leke
-Lepc
-Limb
-Lina
-Linb
-Lisu
-Loma
-Lyci
-Lydi
-Mahj
-Maka
-Mand
-Mani
-Marc
-Maya
-Medf
-Mend
-Merc
-Mero
-Mlym
-Modi
-Mong
-Moon
-Mroo
-Mtei
-Mult
-Mymr
-Nagm
-Nand
-Narb
-Nbat
-Newa
-Nkdb
-Nkgb
-Nkoo
-Nshu
-Ogam
-Olck
-Onao
-Orkh
-Orya
-Osge
-Osma
-Ougr
-Palm
-Pauc
-Pcun
-Pelm
-Perm
-Phag
-Phli
-Phlp
-Phlv
-Phnx
-Piqd
-Plrd
-Prti
-Psin
-Ranj
-Rjng
-Rohg
-Roro
-Runr
-Samr
-Sara
-Sarb
-Saur
-Seal
-Sgnw
-Shaw
-Shrd
-Shui
-Sidd
-Sidt
-Sind
-Sinh
-Sogd
-Sogo
-Sora
-Soyo
-Sund
-Sunu
-Sylo
-Syrc
-Syre
-Syrj
-Syrn
-Tagb
-Takr
-Tale
-Talu
-Taml
-Tang
-Tavt
-Tayo
-Telu
-Teng
-Tfng
-Tglg
-Thaa
-Thai
-Tibt
-Tirh
-Tnsa
-Todr
-Tols
-Toto
-Tutg
-Ugar
-Vaii
-Visp
-Vith
-Wara
-Wcho
-Wole
-Xpeo
-Xsux
-Yezi
-Yiii
-Zanb
-Zinh
-Zmth
-Zsye
-Zsym
-Zxxx
-Zyyy
-Zzzz
+Adlm, 0
+Afak, 0
+Aghb, 0
+Ahom, 0
+Arab, 0
+Aran, 0
+Armi, 0
+Armn, 0
+Avst, 0
+Bali, 0
+Bamu, 0
+Bass, 0
+Batk, 0
+Beng, 0
+Berf, 0
+Bhks, 0
+Blis, 0
+Bopo, 0
+Brah, 0
+Brai, 0
+Bugi, 0
+Buhd, 0
+Cakm, 0
+Cans, 0
+Cari, 0
+Cham, 0
+Cher, 0
+Chis, 0
+Chrs, 0
+Cirt, 0
+Copt, 0
+Cpmn, 0
+Cprt, 0
+Cyrl, 0
+Cyrs, 0
+Deva, 0
+Diak, 0
+Dogr, 0
+Dsrt, 0
+Dupl, 0
+Egyd, 0
+Egyh, 0
+Egyp, 0
+Elba, 0
+Elym, 0
+Ethi, 0
+Gara, 0
+Geok, 0
+Geor, 0
+Glag, 0
+Gong, 0
+Gonm, 0
+Goth, 0
+Gran, 0
+Grek, 0
+Gujr, 0
+Gukh, 0
+Guru, 0
+Hanb, 0
+Hang, 0
+Hani, 0
+Hano, 0
+Hans, 0
+Hant, 0
+Hatr, 0
+Hebr, 0
+Hira, 0
+Hluw, 0
+Hmng, 0
+Hmnp, 0
+Hntl, 0
+Hrkt, 0
+Hung, 0
+Inds, 0
+Ital, 0
+Jamo, 0
+Java, 0
+Jpan, 0
+Jurc, 0
+Kali, 0
+Kana, 0
+Kawi, 0
+Khar, 0
+Khmr, 0
+Khoj, 0
+Kitl, 0
+Kits, 0
+Knda, 0
+Kore, 0
+Kpel, 0
+Krai, 0
+Kthi, 0
+Lana, 0
+Laoo, 0
+Latf, 0
+Latg, 0
+Latn, 0
+Leke, 0
+Lepc, 0
+Limb, 0
+Lina, 0
+Linb, 0
+Lisu, 0
+Loma, 0
+Lyci, 0
+Lydi, 0
+Mahj, 0
+Maka, 0
+Mand, 0
+Mani, 0
+Marc, 0
+Maya, 0
+Medf, 0
+Mend, 0
+Merc, 0
+Mero, 0
+Mlym, 0
+Modi, 0
+Mong, 0
+Moon, 0
+Mroo, 0
+Mtei, 0
+Mult, 0
+Mymr, 0
+Nagm, 0
+Nand, 0
+Narb, 0
+Nbat, 0
+Newa, 0
+Nkdb, 0
+Nkgb, 0
+Nkoo, 0
+Nshu, 0
+Ogam, 0
+Olck, 0
+Onao, 0
+Orkh, 0
+Orya, 0
+Osge, 0
+Osma, 0
+Ougr, 0
+Palm, 0
+Pauc, 0
+Pcun, 0
+Pelm, 0
+Perm, 0
+Phag, 0
+Phli, 0
+Phlp, 0
+Phlv, 0
+Phnx, 0
+Piqd, 0
+Plrd, 0
+Prti, 0
+Psin, 0
+Ranj, 0
+Rjng, 0
+Rohg, 0
+Roro, 0
+Runr, 0
+Samr, 0
+Sara, 0
+Sarb, 0
+Saur, 0
+Seal, 0
+Sgnw, 0
+Shaw, 0
+Shrd, 0
+Shui, 0
+Sidd, 0
+Sidt, 0
+Sind, 0
+Sinh, 0
+Sogd, 0
+Sogo, 0
+Sora, 0
+Soyo, 0
+Sund, 0
+Sunu, 0
+Sylo, 0
+Syrc, 0
+Syre, 0
+Syrj, 0
+Syrn, 0
+Tagb, 0
+Takr, 0
+Tale, 0
+Talu, 0
+Taml, 0
+Tang, 0
+Tavt, 0
+Tayo, 0
+Telu, 0
+Teng, 0
+Tfng, 0
+Tglg, 0
+Thaa, 0
+Thai, 0
+Tibt, 0
+Tirh, 0
+Tnsa, 0
+Todr, 0
+Tols, 0
+Toto, 0
+Tutg, 0
+Ugar, 0
+Vaii, 0
+Visp, 0
+Vith, 0
+Wara, 0
+Wcho, 0
+Wole, 0
+Xpeo, 0
+Xsux, 0
+Yezi, 0
+Yiii, 0
+Zanb, 0
+Zinh, 0
+Zmth, 0
+Zsye, 0
+Zsym, 0
+Zxxx, 0
+Zyyy, 0
+Zzzz, 0
+arabic, "Arab"
+cyrillic, "Cyrl"
+devanagari, "Deva"
+gurmukhi, "Guru"
+hebrew, "Hebr"
+latin, "Latn"
+mongolian, "Mong"

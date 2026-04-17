@@ -8648,4 +8648,14 @@ our %scripts = (
 'Zzzz' => 1,
 );
 
+our %documentscript_alias_ISO_script = (
+'arabic' => 'Arab',
+'cyrillic' => 'Cyrl',
+'devanagari' => 'Deva',
+'gurmukhi' => 'Guru',
+'hebrew' => 'Hebr',
+'latin' => 'Latn',
+'mongolian' => 'Mong',
+);
+
 1;

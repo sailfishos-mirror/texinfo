@@ -21,6 +21,17 @@ use warnings;
 
 use File::Basename;
 
+# from gnulib/lib/bcp47.c
+my %alias_ISO_script = (
+   "latin",      "Latn",
+   "cyrillic",   "Cyrl",
+   "hebrew",     "Hebr",
+   "arabic",     "Arab",
+   "devanagari", "Deva",
+   "gurmukhi",   "Guru",
+   "mongolian",  "Mong"
+);
+
 my $dir = 'maintain/documentlanguage';
 system ("cd $dir && wget -N http://www.iana.org/assignments/language-subtag-registry");
 
@@ -96,8 +107,12 @@ print LANGUAGES $declarations;
 open(REGIONS, ">$dir/regions.gperf") or die "Open $dir/regions.gperf: $!\n";
 print REGIONS $declarations;
 
+# we setup aliases, so we need to declare a structure
+my $scripts_declarations = "%{\n#include <config.h>\n%}\n"
+     ."struct TXI_DOCUMENT_SCRIPT { char const *name; const char *code; };\n"
+                   ."%includes\n%%\n";
 open(SCRIPTS, ">$dir/scripts.gperf") or die "Open $dir/scripts.gperf: $!\n";
-print SCRIPTS $declarations;
+print SCRIPTS $scripts_declarations;
 
 print OUT "# This file was automatically generated from $program_name\n\n";
 
@@ -122,11 +137,20 @@ print OUT ");\n\n";
 print OUT 'our %scripts = ('."\n";
 foreach my $script (@scripts) {
   print OUT "'$script' => 1,\n";
-  print SCRIPTS "$script\n";
+  print SCRIPTS "$script, 0\n";
 }
+print OUT ");\n\n";
 
-print OUT ");\n\n1;\n";
+print OUT 'our %documentscript_alias_ISO_script = ('."\n";
+# aliases
+foreach my $alias (sort(keys(%alias_ISO_script))) {
+  print OUT "'$alias' => '$alias_ISO_script{$alias}',\n";
+  print SCRIPTS "$alias, \"$alias_ISO_script{$alias}\"\n";
+}
+print OUT ");\n\n";
+
+print OUT "1;\n";
 
 system ("gperf --output-file=C/main/txi_documentlanguage_languages.c -N txi_in_language_codes $dir/languages.gperf");
 system ("gperf --output-file=C/main/txi_documentlanguage_regions.c -N txi_in_language_regions $dir/regions.gperf");
-system ("gperf --output-file=C/main/txi_documentlanguage_scripts.c -N txi_in_language_scripts $dir/scripts.gperf");
+system ("gperf -t --output-file=C/main/txi_documentlanguage_scripts.c -N txi_in_language_scripts $dir/scripts.gperf");

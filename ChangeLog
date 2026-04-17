@@ -1,3 +1,10 @@
+2026-04-17 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/utils.h (TXI_DOCUMENT_SCRIPT),
+	tta/maintain/regenerate_documentlanguages-iana.pl: add aliases for
+	script names to be able to specify scripts usually part of XPG locale
+	@variant.
+
 2026-04-16 Patrice Dumas  <pertusus@free.fr>
 
 	@documentlanguagevariant and @documentscript in texi2any tree
