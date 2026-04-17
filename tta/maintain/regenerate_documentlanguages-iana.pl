@@ -62,6 +62,7 @@ open(OUT, ">perl/Texinfo/Documentlanguages.pm") or die "Open Texinfo/Documentlan
 my @languages;
 my @regions;
 my @scripts;
+my @variants;
 foreach my $entry (@entries) {
   # Scope macrolanguage are used, as well as special, partially
   if ($entry->{'Type'} eq 'language') {
@@ -94,6 +95,8 @@ foreach my $entry (@entries) {
     if ($entry->{'Description'} ne 'Private use') {
       push @scripts, $entry->{'Subtag'};
     }
+  } elsif ($entry->{'Type'} eq 'variant') {
+    push @variants, $entry->{'Subtag'};
   #} else {
   #  print STDERR "$entry->{'Type'}\n";
   }
@@ -113,6 +116,9 @@ my $scripts_declarations = "%{\n#include <config.h>\n%}\n"
                    ."%includes\n%%\n";
 open(SCRIPTS, ">$dir/scripts.gperf") or die "Open $dir/scripts.gperf: $!\n";
 print SCRIPTS $scripts_declarations;
+
+open(VARIANTS, ">$dir/variants.gperf") or die "Open $dir/variants.gperf: $!\n";
+print VARIANTS $declarations;
 
 print OUT "# This file was automatically generated from $program_name\n\n";
 
@@ -149,8 +155,16 @@ foreach my $alias (sort(keys(%alias_ISO_script))) {
 }
 print OUT ");\n\n";
 
+print OUT 'our %variants = ('."\n";
+foreach my $variant (@variants) {
+  print OUT "'$variant' => 1,\n";
+  print VARIANTS "$variant\n";
+}
+print OUT ");\n\n";
+
 print OUT "1;\n";
 
 system ("gperf --output-file=C/main/txi_documentlanguage_languages.c -N txi_in_language_codes $dir/languages.gperf");
 system ("gperf --output-file=C/main/txi_documentlanguage_regions.c -N txi_in_language_regions $dir/regions.gperf");
 system ("gperf -t --output-file=C/main/txi_documentlanguage_scripts.c -N txi_in_language_scripts $dir/scripts.gperf");
+system ("gperf --output-file=C/main/txi_documentlanguage_variants.c -N txi_in_language_variants $dir/variants.gperf");
