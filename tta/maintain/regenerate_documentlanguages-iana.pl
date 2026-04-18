@@ -155,6 +155,12 @@ foreach my $alias (sort(keys(%alias_ISO_script))) {
 }
 print OUT ");\n\n";
 
+print OUT 'our %documentscript_XPG_script = ('."\n";
+foreach my $alias (sort(keys(%alias_ISO_script))) {
+  print OUT "'$alias_ISO_script{$alias}' => '$alias',\n";
+}
+print OUT ");\n\n";
+
 print OUT 'our %variants = ('."\n";
 foreach my $variant (@variants) {
   print OUT "'$variant' => 1,\n";

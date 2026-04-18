@@ -8658,6 +8658,16 @@ our %documentscript_alias_ISO_script = (
 'mongolian' => 'Mong',
 );
 
+our %documentscript_XPG_script = (
+'Arab' => 'arabic',
+'Cyrl' => 'cyrillic',
+'Deva' => 'devanagari',
+'Guru' => 'gurmukhi',
+'Hebr' => 'hebrew',
+'Latn' => 'latin',
+'Mong' => 'mongolian',
+);
+
 our %variants = (
 '1606nict' => 1,
 '1694acad' => 1,

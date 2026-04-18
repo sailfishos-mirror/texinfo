@@ -1,5 +1,11 @@
 2026-04-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/maintain/regenerate_documentlanguages-iana.pl: add
+	%documentscript_XPG_script to associated ISO script name to name
+	usable for XPG locales.
+
+2026-04-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/data/options_data.txt (documentscript): add documentscript.
 
 2026-04-18 Patrice Dumas  <pertusus@free.fr>
