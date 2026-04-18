@@ -51,10 +51,10 @@ contents                   multiple_at_command 0        integer
 deftypefnnewline           multiple_at_command off      char
 documentencoding           multiple_at_command utf-8    char
 
-# Documented as en, but no @documentlanguage
-# really means that the language is not set.
+# no @documentlanguage means that the language is not set.
 # --document-language
 documentlanguage           multiple_at_command undef    char
+documentscript             multiple_at_command undef    char
 
 evenfooting                multiple_at_command undef    char
 evenheading                multiple_at_command undef    char

@@ -189,6 +189,7 @@ our %multiple_at_command_options = (
   'deftypefnnewline'                 => 'off',
   'documentencoding'                 => 'utf-8',
   'documentlanguage'                 => undef,
+  'documentscript'                   => undef,
   'evenfooting'                      => undef,
   'evenheading'                      => undef,
   'everyfooting'                     => undef,

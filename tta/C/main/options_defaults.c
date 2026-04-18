@@ -442,6 +442,7 @@ set_multiple_at_command_options_defaults (OPTIONS *options)
   option_set_conf (&options->deftypefnnewline, -2, "off");
   option_set_conf (&options->documentencoding, -2, "utf-8");
   option_set_conf (&options->documentlanguage, -2, 0);
+  option_set_conf (&options->documentscript, -2, 0);
   option_set_conf (&options->evenfooting, -2, 0);
   option_set_conf (&options->evenheading, -2, 0);
   option_set_conf (&options->everyfooting, -2, 0);
@@ -471,6 +472,7 @@ add_multiple_at_command_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "deftypefnnewline", -2, "off");
   add_option_value (options_list, "documentencoding", -2, "utf-8");
   add_option_value (options_list, "documentlanguage", -2, 0);
+  add_option_value (options_list, "documentscript", -2, 0);
   add_option_value (options_list, "evenfooting", -2, 0);
   add_option_value (options_list, "evenheading", -2, 0);
   add_option_value (options_list, "everyfooting", -2, 0);

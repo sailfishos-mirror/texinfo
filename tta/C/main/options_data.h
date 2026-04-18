@@ -14,9 +14,9 @@
 #undef PACKAGE_URL
 #undef PACKAGE_VERSION
 
-#define TXI_OPTIONS_NR 232
+#define TXI_OPTIONS_NR 233
 
-#define TXI_COMMAND_OPTIONS_NR 43
+#define TXI_COMMAND_OPTIONS_NR 44
 
 typedef struct OPTIONS {
     size_t BIT_user_function_number;
@@ -209,6 +209,7 @@ typedef struct OPTIONS {
     OPTION deftypefnnewline;
     OPTION documentencoding;
     OPTION documentlanguage;
+    OPTION documentscript;
     OPTION evenfooting;
     OPTION evenheading;
     OPTION everyfooting;
