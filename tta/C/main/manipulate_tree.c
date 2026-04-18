@@ -1565,7 +1565,7 @@ print_element_extra (ELEMENT *element, int level,
           }
         case extra_misc_args:
           {
-            char *values_string = join_strings_list (k_pair->k.strings_list);
+            char *values_string = join_strings_list (k_pair->k.strings_list, 0);
             xasprintf (&value, "A{%s}", values_string);
             free (values_string);
             break;
@@ -1602,7 +1602,7 @@ print_element_extra (ELEMENT *element, int level,
                 add_string (element_value, &elements_values_list);
                 free (element_value);
               }
-            joined_values = join_strings_list (&elements_values_list);
+            joined_values = join_strings_list (&elements_values_list, 0);
             clear_strings_list (&elements_values_list);
             xasprintf (&value, "EC[%s]", joined_values);
             free (joined_values);
@@ -1628,7 +1628,7 @@ print_element_extra (ELEMENT *element, int level,
                     free (direction_value);
                   }
               }
-            joined_values = join_strings_list (&elements_values_list);
+            joined_values = join_strings_list (&elements_values_list, 0);
             clear_strings_list (&elements_values_list);
             xasprintf (&value, "D[%s]", joined_values);
             free (joined_values);

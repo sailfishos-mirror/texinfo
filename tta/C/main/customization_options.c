@@ -753,7 +753,7 @@ show_options_list_options_set (OPTIONS_LIST *options_list)
     }
 
   sort_strings_list (&options_names);
-  result = join_strings_list (&options_names);
+  result = join_strings_list (&options_names, 0);
 
   clear_strings_list (&options_names);
 

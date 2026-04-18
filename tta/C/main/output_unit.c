@@ -1222,7 +1222,7 @@ print_output_units_details (OUTPUT_UNIT_LIST *output_units,
 
       if (ou_directions.number)
         {
-          char *joined_string = join_strings_list (&ou_directions);
+          char *joined_string = join_strings_list (&ou_directions, 0);
           text_printf (result, "unit_directions:D[%s]\n",
                        joined_string);
           free (joined_string);

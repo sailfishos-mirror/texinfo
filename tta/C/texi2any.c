@@ -3524,7 +3524,7 @@ main (int argc, char *argv[], char *env[])
 
       if (debug)
         {
-          char *texi2dvi_call = join_strings_list (&texi2dvi_args);
+          char *texi2dvi_call = join_strings_list (&texi2dvi_args, 0);
           fprintf (stderr, "EXEC %s\n", texi2dvi_call);
           free (texi2dvi_call);
         }

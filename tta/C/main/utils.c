@@ -1581,6 +1581,49 @@ analyze_documentlanguage_argument (const char *text,
   return lang;
 }
 
+const char *
+analyse_documentscript_argument (const char *text)
+{
+  const char *p = text;
+
+  while (isascii_alpha (*p))
+    p++;
+  if (p > text && !*p)
+    {
+      char normalized_script[p - text+1];
+      if (p - text == 4)
+        { /* assume ISO 15924.  Normalize case as usual, first letter
+             upper-case, remaining lower-case */
+          int i;
+          const TXI_DOCUMENT_SCRIPT *document_script;
+
+          normalized_script[0] = toupper (text[0]);
+          for (i = 1; i < 4; i++)
+            normalized_script[i] = tolower (text[i]);
+          normalized_script[5] = '\0';
+          document_script = txi_in_language_scripts (normalized_script, 4);
+          if (document_script)
+            return document_script->name;
+        }
+      else
+        {
+          /* lower-case and try to find ISO 15924 alias */
+          int i;
+          const TXI_DOCUMENT_SCRIPT *document_script;
+
+          for (i = 0; i < p - text; i++)
+            normalized_script[i] = tolower (text[i]);
+          normalized_script[p - text+1] = '\0';
+
+          document_script = txi_in_language_scripts (normalized_script,
+                                                     p - text);
+          if (document_script)
+            return document_script->code;
+        }
+    }
+  return 0;
+}
+
 
 /* index related functions used in diverse situations, not only in parser */
 void
@@ -1830,12 +1873,17 @@ string_exists_in_sorted_strings_list (STRING_LIST *strings, const char *target)
     return 0;
 }
 
-/* for debugging */
 char *
-join_strings_list (STRING_LIST *strings)
+join_strings_list (STRING_LIST *strings, const char *delimiter)
 {
   size_t i;
+  const char *used_delimiter;
   TEXT text;
+
+  if (delimiter)
+    used_delimiter = delimiter;
+  else
+    used_delimiter = "|";
 
   text_init (&text);
   text_append (&text, "");
@@ -1843,7 +1891,7 @@ join_strings_list (STRING_LIST *strings)
   for (i = 0; i < strings->number; i++)
     {
       if (i != 0)
-        text_append_n (&text, "|", 1);
+        text_append_n (&text, used_delimiter, 1);
       text_append (&text, strings->list[i]);
     }
 
