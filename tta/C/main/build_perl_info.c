@@ -58,7 +58,8 @@
 #include "option_types.h"
 /* for GLOBAL_INFO ERROR_MESSAGE CL_* RUD_type* ERROR_MESSAGE_LIST */
 #include "document_types.h"
-/* CONVERTER sv_string_type CONVERTER_INITIALIZATION_INFO */
+/* CONVERTER sv_string_type CONVERTER_INITIALIZATION_INFO
+   enum sv_string_type */
 #include "converter_types.h"
 /* non_perl_* */
 #include "xs_utils.h"
@@ -387,6 +388,7 @@ build_perl_directions (const ELEMENT * const *e_l, int avoid_recursion)
   return sv;
 }
 
+/* TODO call build_string_list */
 SV *
 build_extra_misc_args (const STRING_LIST *l)
 {
@@ -1093,6 +1095,36 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
 
   return list_av;
 }
+
+HV *
+build_lang_info (const DOCUMENT_LANG_INFO *lang_info)
+{
+  HV *lang_info_hv;
+
+  dTHX;
+
+#define STORE(key,sv) hv_store (lang_info_hv, #key, strlen(#key), sv, 0);
+  lang_info_hv = newHV ();
+  if (lang_info->lang)
+    STORE(lang, newSVpv (lang_info->lang, 0));
+  if (lang_info->region)
+    STORE(region, newSVpv (lang_info->region, 0));
+  if (lang_info->script)
+    STORE(script, newSVpv (lang_info->script, 0));
+  if (lang_info->variants.number > 0)
+    {
+      AV *variants_av = build_string_list (&lang_info->variants, svt_byte);
+      SV *sv = newRV_noinc ((SV *) variants_av);
+      STORE(variants, sv);
+    }
+#undef STORE
+
+  return lang_info_hv;
+}
+
+
+
+/* build nodes, sections... relations */
 
 #define STORE_RELS_INFO_ELEMENT(keyname) \
        if (relations->keyname) \

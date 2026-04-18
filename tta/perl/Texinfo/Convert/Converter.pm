@@ -460,10 +460,8 @@ sub current_bcp47_locale($) {
   if (!exists($self->{'current_lang_translations'})) {
     return '';
   }
-  return $self->{'current_lang_translations'}->[0]->[0];
-  # using the lang_info API
-  #return Texinfo::Translations::get_lang_info_bcp47_locale(
-  #            $self->{'current_lang_translations'}->[0]);
+  return Texinfo::Translations::get_lang_info_bcp47_locale(
+              $self->{'current_lang_translations'}->[0]);
 }
 
 

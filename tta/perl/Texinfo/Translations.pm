@@ -225,85 +225,85 @@ sub translate_string($$;$) {
 sub get_lang_info_xdg_locale($) {
   my $lang_info = shift;
 
-  return '' if (!defined($lang_info));
-  my ($bcp47_locale, $lang_code, $region_code) = @$lang_info;
-  return '' if (!defined($lang_code));
-  if (defined($region_code)) {
-    return "${lang_code}_${region_code}";
-  } else {
-    return $lang_code;
+  return '' if (!defined($lang_info) or !exists($lang_info->{'lang'}));
+  my $xpg_locale = $lang_info->{'lang'};
+  if (exists($lang_info->{'region'})) {
+    $xpg_locale .= '_'.$lang_info->{'region'};
   }
+  if (exists($lang_info->{'script'})
+      and exists($Texinfo::Documentlanguage::documentscript_XPG_script{
+                                                $lang_info->{'script'}})) {
+    $xpg_locale .=
+      '@'.$Texinfo::Documentlanguage::documentscript_XPG_script{
+                                                $lang_info->{'script'}};
+  } elsif (exists($lang_info->{'variants'})) {
+    $xpg_locale .= '@'.$lang_info->{'variants'}->[0];
+  }
+  return $xpg_locale;
 }
 
 sub get_lang_info_bcp47_locale($) {
   my $lang_info = shift;
 
-  return '' if (!defined($lang_info));
-  my ($bcp47_locale, $lang_code, $region_code) = @$lang_info;
-  return $bcp47_locale;
-}
-
-sub get_lang_info_language($) {
-  my $lang_info = shift;
-
-  return undef if (!defined($lang_info));
-  my ($bcp47_locale, $lang_code, $region_code) = @$lang_info;
-  return $bcp47_locale;
-}
-
-sub get_lang_info_region($) {
-  my $lang_info = shift;
-
-  return undef if (!defined($lang_info));
-  my ($bcp47_locale, $lang_code, $region_code) = @$lang_info;
-  return $region_code;
+  return '' if (!defined($lang_info) or !exists($lang_info->{'lang'}));
+  if (!exists($lang_info->{'bcp47_locale'})) {
+    my $bcp47_locale = $lang_info->{'lang'};
+    if (exists($lang_info->{'script'})) {
+      $bcp47_locale .= '-'.$lang_info->{'script'};
+    }
+    if (exists($lang_info->{'region'})) {
+      $bcp47_locale .= '-'.$lang_info->{'region'};
+    }
+    if (exists($lang_info->{'variants'})) {
+      $bcp47_locale .= '-'.join('-', @{$lang_info->{'variants'}});
+    }
+    $lang_info->{'bcp47_locale'} = $bcp47_locale;
+    return $bcp47_locale;
+  }
+  return $lang_info->{'bcp47_locale'};
 }
 #### end of lang_info API
 
-sub fill_document_lang_info($) {
+sub fill_document_lang_info($$) {
+  my $lang_info = shift;
   my $documentlanguage = shift;
 
-  my $bcp47_locale;
   my ($lang_code, $region_code);
   if (defined($documentlanguage)) {
     ($lang_code, $region_code)
       = Texinfo::Common::analyze_documentlanguage_argument($documentlanguage);
     if (defined($lang_code)) {
+      $lang_info->{'lang'} = $lang_code;
       if (defined($region_code)) {
-        $bcp47_locale = "$lang_code-$region_code";
-      } else {
-        $bcp47_locale = $lang_code;
+        $lang_info->{'region'} = $region_code;
       }
     }
   }
-  if (!defined($lang_code)) {
-    $bcp47_locale = "";
-  }
-  return $bcp47_locale, $lang_code, $region_code;
 }
 
 sub new_documentlanguage_translation($) {
   my $documentlanguage = shift;
 
-  my ($bcp47_locale, $lang_code, $region_code)
-    = fill_document_lang_info($documentlanguage);
+  my $lang_info = {};
+  fill_document_lang_info($lang_info, $documentlanguage);
 
   my $language_env;
-  if (defined($lang_code)) {
-    if (defined($region_code)) {
+  if (exists($lang_info->{'lang'})) {
+    my $xpg_locale = get_lang_info_xdg_locale($lang_info);
+    if ($xpg_locale ne $lang_info->{'lang'}) {
   # NOTE gettext should already try the main language if it follows the
   # optional logic proposed in POSIX gettext description.  We nevertheless
   # add the main language if the gettext implementation does not or does
   # not get the main language.
-        $language_env = "${lang_code}_${region_code}:$lang_code";
+      $language_env = "${xpg_locale}:$lang_info->{'lang'}";
     } else {
-      $language_env = $lang_code;
+      $language_env = $lang_info->{'lang'};
     }
   } else {
     $language_env = "";
   }
 
-  return [[$bcp47_locale, $lang_code, $region_code], $language_env];
+  return [$lang_info, $language_env];
 }
 
 # Cache translations in a hash to avoid having to go through the locale
@@ -583,7 +583,8 @@ sub complete_indices($;$$) {
               or $entry_language ne $current_lang) {
             $current_lang_translations
               = new_documentlanguage_translation($entry_language);
-            my $lang_locale = $current_lang_translations->[0]->[0];
+            my $lang_locale
+              = get_lang_info_bcp47_locale($current_lang_translations->[0]);
             if (!exists($lang_translations_cache->{$lang_locale})) {
               $lang_translations_cache->{$lang_locale} = {};
             }

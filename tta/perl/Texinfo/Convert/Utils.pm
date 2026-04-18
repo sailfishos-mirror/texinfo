@@ -218,11 +218,15 @@ sub switch_lang_translations($$;$) {
 
   $documentlanguage = '' if (!defined($documentlanguage));
 
-  my ($bcp47_locale, $lang_code, $region_code)
-    = Texinfo::Translations::fill_document_lang_info($documentlanguage);
+  my $lang_info = {};
+  Texinfo::Translations::fill_document_lang_info($lang_info,
+                                                 $documentlanguage);
+  my $bcp47_locale
+    = Texinfo::Translations::get_lang_info_bcp47_locale($lang_info);
 
   if (exists($self->{'current_lang_translations'})
-      and $self->{'current_lang_translations'}->[0]->[0] eq $bcp47_locale) {
+      and Texinfo::Translations::get_lang_info_bcp47_locale(
+              $self->{'current_lang_translations'}->[0]) eq $bcp47_locale) {
     # Nothing to do
     return;
   }

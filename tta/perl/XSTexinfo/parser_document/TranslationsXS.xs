@@ -29,6 +29,8 @@
 #include "translations.h"
 /* for newSVpv_utf8 */
 #include "build_perl_info.h"
+/* for get_lang_info_hv */
+#include "get_perl_info.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
@@ -58,42 +60,18 @@ cache_translate_string (string, SV *lang_translations, SV *translation_context_s
             SV **lang_info_sv = av_fetch (lang_translations_av, 0, 0);
 
             const char *translated_context_string = 0;
-            const LANG_TRANSLATION *lang_translation = 0;
+            LANG_TRANSLATION *lang_translation = 0;
 
             if (lang_info_sv && SvOK (*lang_info_sv))
               {
-                AV *lang_info_av = (AV *) SvRV (*lang_info_sv);
-                SV **lang_sv = av_fetch (lang_info_av, 1, 0);
-                const char *lang = 0;
-                if (lang_sv && SvOK (*lang_sv))
-                  lang = SvPVbyte_nolen (*lang_sv);
-                if (lang)
-                  {
-                    static DOCUMENT_LANG_INFO info;
-
-                    SV **bcp47_locale_sv = av_fetch (lang_info_av, 0, 0);
-                    SV **region_sv = av_fetch (lang_info_av, 2, 0);
-                    const char *bcp47_locale = 0;
-                    const char *region = 0;
-
-                    if (region_sv && SvOK (*region_sv))
-                      region = SvPVbyte_nolen (*region_sv);
-                    if (bcp47_locale_sv && SvOK (*bcp47_locale_sv))
-                      bcp47_locale = SvPVbyte_nolen (*bcp47_locale_sv);
-                    else
-                      croak ("no bcp47_locale\n");
-                    if (region)
-                      info.region = strdup (region);
-                    else
-                      info.region = 0;
-                    info.bcp47_locale = strdup (bcp47_locale);
-                    info.lang = strdup (lang);
-
-                    lang_translation
+                HV *lang_info_hv = (HV *) SvRV (*lang_info_sv);
+                static DOCUMENT_LANG_INFO info;
+                memset (&info, 0, sizeof (DOCUMENT_LANG_INFO));
+                get_lang_info_hv (&info, lang_info_hv);
+                lang_translation
                       = set_lang_info_translation (
                                 &translation_cache, &info,
                                 TXI_CONVERT_STRINGS_NR);
-                  }
               }
 
             if (lang_translation)

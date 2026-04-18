@@ -1424,7 +1424,7 @@ sub _html_cache_translate_string($$$;$) {
     if (defined($lang_translations)) {
       $lang_info = $lang_translations->[0];
     } else {
-      $lang_info = ['', undef, undef];
+      $lang_info = {};
     }
 
     my $translated_string
@@ -1434,7 +1434,8 @@ sub _html_cache_translate_string($$$;$) {
 
     if (defined($translated_string)) {
       my $translations;
-      my $cached_lang = $lang_info->[0];
+      my $cached_lang
+        = Texinfo::Translations::get_lang_info_bcp47_locale($lang_info);
       if (!exists($self->{'translation_cache'}->{$cached_lang})) {
         $self->{'translation_cache'}->{$cached_lang} = {};
       }
@@ -8266,7 +8267,6 @@ sub converter_initialize($) {
   $self->{'customized_direction_strings'} = $customized_direction_strings;
 
   $self->{'stage_handlers'} = Texinfo::Config::GNUT_get_stage_handlers();
-
 
   _XS_html_converter_get_customization($self,
                              \%default_formatting_references,

@@ -53,7 +53,7 @@
 #include "manipulate_indices.h"
 /* nobrace_symbol_text text_brace_no_arg_commands */
 #include "convert_to_text.h"
-/* fill_document_lang_info clear_document_lang_info free_translation_cache */
+/* fill_document_lang_info free_document_lang_info free_translation_cache */
 #include "translations.h"
 #include "output_unit.h"
 #include "html_conversion_state.h"
@@ -4216,12 +4216,13 @@ html_setup_output (CONVERTER *self, char **paths)
   set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
 
   documentlanguage = self->conf->documentlanguage.o.string;
+  memset (&lang_info, 0, sizeof (DOCUMENT_LANG_INFO));
   fill_document_lang_info (&lang_info, documentlanguage);
 
-  if (strcmp (lang_info.bcp47_locale, ""))
+  if (strcmp (get_lang_info_bcp47_locale(&lang_info), ""))
     {
       xasprintf (&body_element_attributes, "lang=\"%s\"",
-                 lang_info.bcp47_locale);
+                 get_lang_info_bcp47_locale(&lang_info));
       option_set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,
                        0, body_element_attributes);
       free (body_element_attributes);
@@ -4233,7 +4234,7 @@ html_setup_output (CONVERTER *self, char **paths)
          is unknown.  However, outputting lang="" is unnecessary. */
     }
 
-  clear_document_lang_info (&lang_info);
+  free_document_lang_info (&lang_info);
 
   set_global_document_commands (self, CL_before, conf_for_documentlanguage);
 

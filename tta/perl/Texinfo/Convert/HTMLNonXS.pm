@@ -5124,12 +5124,24 @@ sub _setup_output($) {
   }
 
   # set BODY_ELEMENT_ATTRIBUTES
-  $self->set_global_document_commands('preamble', ['documentlanguage']);
+  $self->set_global_document_commands('preamble',
+                         ['documentlanguage', 'documentscript']);
+  # cannot use set_global_document_commands for a variadic command
+  my $global_commands;
+  if (exists($self->{'document'})) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+  my $documentlanguagevariant_e
+    = Texinfo::Common::get_global_document_command($global_commands,
+                                  'documentlanguagevariant', 'preamble');
   my $documentlanguage = $self->get_conf('documentlanguage');
-  my ($body_lang, $lang_code, $region_code)
-    = Texinfo::Translations::fill_document_lang_info($documentlanguage);
-  if (defined($body_lang) and $body_lang ne '') {
-    $self->set_conf('BODY_ELEMENT_ATTRIBUTES', 'lang="'.$body_lang.'"');
+  my $documentscript = $self->get_conf('documentscript');
+  my $lang_info = {};
+  Texinfo::Translations::fill_document_lang_info($lang_info, $documentlanguage);
+  my $bcp47_locale
+    = Texinfo::Translations::get_lang_info_bcp47_locale($lang_info);
+  if (defined($bcp47_locale) and $bcp47_locale ne '') {
+    $self->set_conf('BODY_ELEMENT_ATTRIBUTES', 'lang="'.$bcp47_locale.'"');
   } else {
     #$self->set_conf('BODY_ELEMENT_ATTRIBUTES', 'lang=""');
 

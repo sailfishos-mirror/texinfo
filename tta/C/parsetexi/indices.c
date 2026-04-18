@@ -400,7 +400,7 @@ complete_indices (DOCUMENT *document, int debug_level)
 {
   INDEX_LIST *indices;
   const char *current_lang = 0;
-  const LANG_TRANSLATION *current_lang_translations;
+  LANG_TRANSLATION *current_lang_translations;
   size_t i;
 
   indices = &document->indices_info;
@@ -477,7 +477,8 @@ complete_indices (DOCUMENT *document, int debug_level)
                                                    current_lang))
                         {
                           current_lang_translations
-                           = get_documentlanguage_translation (&lang_translations,
+                           = get_documentlanguage_translation
+                                                  (&lang_translations,
                                                    documentlanguage,
                                                    TXI_PARSER_STRINGS_NR);
                           current_lang = documentlanguage;
@@ -509,16 +510,18 @@ complete_indices (DOCUMENT *document, int debug_level)
 
                           text_append (text_element->e.text, " of ");
                         }
-             /* should not be possible, still considered for more robust code */
+           /* should not be possible, still considered for more robust code */
                       else
                         {
                           char *msg;
-                          /* set index_entry to avalue to avoid a compiler warning
-                             on uninitialized value.  Incorrect for the code below, but
-                             we do not care as fatal is called. */
+                 /* set index_entry to a value to avoid a compiler warning
+                    on uninitialized value.  Incorrect for the code below, but
+                    we do not care as fatal is called. */
                           index_entry = 0;
-                          xasprintf (&msg, "BUG: unexpected def command with name"
-                                   "and class: %s", builtin_command_name (def_command));
+                          xasprintf (&msg,
+                                     "BUG: unexpected def command with name"
+                                     "and class: %s",
+                                     builtin_command_name (def_command));
                           fatal (msg);
                           free (msg);
                         }

@@ -1667,6 +1667,43 @@ release_output_units_lists_built (OUTPUT_UNIT_LISTS *output_units_lists)
 
 
 
+#define FETCH(key) key##_sv = hv_fetch (lang_info_hv, #key, strlen (#key), 0);
+void
+get_lang_info_hv (DOCUMENT_LANG_INFO *lang_info, HV *lang_info_hv)
+{
+  SV **lang_sv;
+  SV **region_sv;
+  SV **script_sv;
+  SV **variants_sv;
+
+  dTHX;
+
+  FETCH(lang);
+  if (lang_sv && SvOK (*lang_sv))
+    lang_info->lang = strdup (SvPV_nolen (*lang_sv));
+  else
+    lang_info->lang = 0;
+  FETCH(region);
+  if (region_sv && SvOK (*region_sv))
+    lang_info->region = strdup (SvPV_nolen (*region_sv));
+  else
+    lang_info->region = 0;
+  FETCH(script);
+  if (script_sv && SvOK (*script_sv))
+    lang_info->script = strdup (SvPV_nolen (*script_sv));
+  else
+    lang_info->script = 0;
+  FETCH(variants);
+  if (variants_sv && SvOK (*variants_sv))
+    {
+      add_svav_to_string_list (*variants_sv,
+                               &lang_info->variants, svt_byte);
+    }
+}
+#undef FETCH
+
+
+
 /* the following is only needed in converters, but we still define here
    such that it is available for functions called from C */
 void

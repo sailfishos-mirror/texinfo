@@ -1,5 +1,56 @@
 2026-04-18 Patrice Dumas  <pertusus@free.fr>
 
+	Add data fields for language scripts and variants
+
+	* tta/C/convert/build_html_perl_state.c
+	(switch_perl_lang_translations),
+	tta/C/convert/call_html_perl_function.c
+	(call_formatting_function_format_translate_message),
+	tta/C/main/build_perl_info.c (build_lang_info): add build_lang_info.
+
+	* tta/C/main/translations.c (free_document_lang_info): rename
+	clear_document_lang_info as free_document_lang_info.  Update callers.
+
+	* tta/C/main/translations.c (copy_lang_info, new_copy_translation):
+	add copy_lang_info, based on new_copy_translation.
+
+	* tta/C/convert/build_html_perl_state.c
+	(switch_perl_lang_translations),
+	tta/C/convert/call_html_perl_function.c
+	(call_formatting_function_format_translate_message),
+	tta/C/convert/convert_html.c (unknown_lang_info),
+	tta/C/convert/html_prepare_converter.c (html_setup_output),
+	tta/C/main/build_perl_info.c (build_lang_info),
+	tta/C/main/get_perl_info.c (get_lang_info_hv),
+	tta/C/main/translations.c (get_lang_info_bcp47_locale)
+	(fill_document_lang_info, free_document_lang_info)
+	(init_lang_translation, new_documentlanguage_translation)
+	(new_set_translation, copy_lang_info, new_copy_translation)
+	(find_lang_translation, set_lang_info_translation)
+	(get_lang_info_translation, switch_lang_translations)
+	(unknown_lang_info), tta/C/main/tree_types.h (DOCUMENT_LANG_INFO),
+	tta/perl/Texinfo/Convert/Converter.pm (current_bcp47_locale),
+	tta/perl/Texinfo/Convert/HTML.pm (_html_cache_translate_string),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm (_setup_output),
+	tta/perl/Texinfo/Convert/Utils.pm (switch_lang_translations),
+	tta/perl/Texinfo/Translations.pm (get_lang_info_xdg_locale),
+	(get_lang_info_bcp47_locale, fill_document_lang_info)
+	(new_documentlanguage_translation, complete_indices),
+	tta/perl/Texinfo/TranslationsNonXS.pm (cache_translate_string),
+	tta/perl/XSTexinfo/parser_document/TranslationsXS.xs
+	(cache_translate_string): use a hash for lang_info in Perl.  Add
+	script and variants to lang info data structures.  Add
+	get_lang_info_bcp47_locale in C.  Do not set immediately bcp47_locale,
+	set when needed by calling get_lang_info_bcp47_locale.  Initialize
+	lang info to 0.  Because get_lang_info_bcp47_locale modifies the data,
+	remove const for most LANG_TRANSLATION.  Add get_lang_info_hv.  Modify
+	get_lang_info_xdg_locale and get_lang_info_bcp47_locale to prepare for
+	having script and variants set in lang info.
+
+	* tta/C/parsetexi/indices.c: reindent.
+
+2026-04-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/maintain/regenerate_documentlanguages-iana.pl: add
 	%documentscript_XPG_script to associated ISO script name to name
 	usable for XPG locales.

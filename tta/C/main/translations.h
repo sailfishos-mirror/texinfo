@@ -36,15 +36,16 @@ void setup_output_strings_translations (const char *localesdir,
 
 void fill_document_lang_info (DOCUMENT_LANG_INFO *lang_info,
                               const char *documentlanguage);
-const LANG_TRANSLATION *get_documentlanguage_translation (
+const char *get_lang_info_bcp47_locale (DOCUMENT_LANG_INFO *lang_info);
+LANG_TRANSLATION *get_documentlanguage_translation (
                       LANG_TRANSLATION ***lang_translations_ptr,
                       const char *documentlanguage,
                       size_t cache_size);
 const LANG_TRANSLATION *get_lang_info_translation (
                         LANG_TRANSLATION ***lang_translations_ptr,
-                        const DOCUMENT_LANG_INFO *info,
+                        DOCUMENT_LANG_INFO *info,
                         size_t cache_size);
-const LANG_TRANSLATION *set_lang_info_translation (
+LANG_TRANSLATION *set_lang_info_translation (
                         LANG_TRANSLATION ***lang_translations_ptr,
                         DOCUMENT_LANG_INFO *info,
                         size_t cache_size);
@@ -53,18 +54,18 @@ LANG_TRANSLATION *new_documentlanguage_translation (
 TRANSLATION_TREE *add_translation_tree (
                    LANG_TRANSLATION_TREE_LIST *translations,
                       const char *translated);
-void clear_document_lang_info (DOCUMENT_LANG_INFO *lang_info);
+void free_document_lang_info (DOCUMENT_LANG_INFO *lang_info);
 void free_lang_translation (LANG_TRANSLATION *lang_translation);
 void free_translation_cache (LANG_TRANSLATION **translation_cache);
-const LANG_TRANSLATION *switch_lang_translations (
+LANG_TRANSLATION *switch_lang_translations (
                           LANG_TRANSLATION ***lang_translations,
                           const char *in_documentlanguage,
-                          const LANG_TRANSLATION *current_lang_translations,
+                          LANG_TRANSLATION *current_lang_translations,
                           size_t cache_size);
 char *translate_string (const char *string, const char *language_env,
                         const char *translation_context);
 TRANSLATION_TREE *cache_translate_string (const char *string,
-                        const LANG_TRANSLATION * const lang_translation,
+                        LANG_TRANSLATION *lang_translation,
                         const char *translation_context);
 DOCUMENT *replace_convert_substrings (const char *translated_string,
                           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -75,18 +76,18 @@ char *replace_substrings (const char *string,
                     const NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 
 ELEMENT *gdt_tree (const char *string, DOCUMENT *document,
-                   const LANG_TRANSLATION *lang_translation,
+                   LANG_TRANSLATION *lang_translation,
                    NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                    int debug_level, const char *translation_context);
 
 char *gdt_string (const char *string,
-                  const LANG_TRANSLATION *lang_translation,
+                  LANG_TRANSLATION *lang_translation,
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                   const char *translation_context);
 
 ELEMENT *pgdt_tree (const char *translation_context, const char *string,
                     DOCUMENT *document,
-                    const LANG_TRANSLATION *lang_translation,
+                    LANG_TRANSLATION *lang_translation,
                     NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                     int debug_level);
 

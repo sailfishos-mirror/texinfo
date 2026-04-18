@@ -68,7 +68,9 @@ sub cache_translate_string($$;$) {
     if (scalar(@$lang_translations) > 2) {
       $translations = $lang_translations->[2];
     }
-    $cached_lang = $lang_translations->[0]->[0];
+    $cached_lang
+      = Texinfo::Translations::get_lang_info_bcp47_locale(
+                                            $lang_translations->[0]);
   } else {
     $cached_lang = '';
   }

@@ -36,6 +36,8 @@ void build_tree_to_build (ELEMENT_LIST *tree_to_build);
 void build_new_base_element (ELEMENT *element);
 
 AV *build_string_list (const STRING_LIST *strings_list, enum sv_string_type);
+HV *build_lang_info (const DOCUMENT_LANG_INFO *lang_info);
+
 AV *build_section_relations_list (const SECTION_RELATIONS_LIST *list);
 AV *build_node_relations_list (const NODE_RELATIONS_LIST *list);
 AV *build_heading_relations_list (const HEADING_RELATIONS_LIST *list);

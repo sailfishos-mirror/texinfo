@@ -315,7 +315,7 @@ free_comma_index_subentries_tree (ELEMENT_LIST *element_list)
 }
 
 ELEMENT *
-expand_today (int test, const LANG_TRANSLATION *lang_translation,
+expand_today (int test, LANG_TRANSLATION *lang_translation,
               int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -408,7 +408,7 @@ expand_today (int test, const LANG_TRANSLATION *lang_translation,
 
 char *
 add_heading_number (const ELEMENT *current, char *text,
-                    int numbered, const LANG_TRANSLATION *lang_translation)
+                    int numbered, LANG_TRANSLATION *lang_translation)
 {
   TEXT result;
   char *number = 0;
@@ -811,7 +811,7 @@ destroy_parsed_def (PARSED_DEF *parsed_def)
  */
 ELEMENT *
 definition_category_tree (const ELEMENT *current,
-                          const LANG_TRANSLATION *lang_translation,
+                          LANG_TRANSLATION *lang_translation,
                           const char *command_line_encoding,
                           int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
@@ -1248,7 +1248,7 @@ cdt_tree (const char *string, CONVERTER *self,
 ELEMENT *
 translated_command_tree (TRANSLATED_COMMAND_LIST *translated_commands,
                          enum command_id cmd,
-                         const LANG_TRANSLATION *lang_translation,
+                         LANG_TRANSLATION *lang_translation,
                          int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,

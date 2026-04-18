@@ -507,10 +507,8 @@ typedef struct DOCUMENT_LANG_INFO {
     char *bcp47_locale;
     char *lang;
     char *region;
-    /*
     char *script;
-    char *variant;
-     */
+    STRING_LIST variants;
 } DOCUMENT_LANG_INFO;
 
 typedef struct LANG_TRANSLATION {
