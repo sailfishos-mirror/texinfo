@@ -37,7 +37,8 @@
 #include "debug_parser.h"
 #include "commands.h"
 #include "source_marks.h"
-/* for isolate_last_space and global_documentlanguage */
+/* for isolate_last_space global_documentlanguage and
+   global_documentscript */
 #include "parser.h"
 
 void
@@ -403,6 +404,9 @@ parse_def (enum command_id command, ELEMENT *current)
           e1->type = ET_untranslated;
           add_extra_string_dup (e, AI_key_documentlanguage,
                                 global_documentlanguage);
+          if (global_documentscript && *global_documentscript)
+            add_extra_string_dup (e, AI_key_documentscript,
+                                  global_documentscript);
           if (def_aliases[i].translation_context)
             add_extra_string_dup (e, AI_key_translation_context,
                                   def_aliases[i].translation_context);

@@ -102,6 +102,14 @@ parser_conf_set_documentlanguage (const char *value)
 }
 
 void
+parser_conf_set_documentscript (const char *value)
+{
+  free (global_parser_conf->documentscript);
+  global_parser_conf->documentscript = value ? strdup (value) : 0;
+  global_parser_conf->global_documentscript_fixed = 1;
+}
+
+void
 parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
 {
   global_parser_conf->doc_encoding_for_input_file_name = i;

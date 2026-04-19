@@ -307,6 +307,10 @@ void
 parser_conf_set_documentlanguage (value)
         const char *value = SvPVutf8_nolen ($arg);
 
+void
+parser_conf_set_documentscript (value)
+        const char *value = SvPVutf8_nolen ($arg);
+
 int
 parser_conf_set_DEBUG (int i)
 

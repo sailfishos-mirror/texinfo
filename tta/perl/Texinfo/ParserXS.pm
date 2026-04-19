@@ -42,6 +42,7 @@ use warnings;
 # import makes sure that the functions associated to the objects are found.
 use Texinfo::Document;
 
+# ALTIMP tta/C/convert/texinfo.c txi_parser
 # Initialize the parser
 # The last argument, optional, is a hash provided by the user to change
 # the default values for what is present in %parser_document_parsing_options.
@@ -78,8 +79,12 @@ sub parser(;$) {
       } elsif ($key eq 'EXPANDED_FORMATS') {
         parser_store_EXPANDED_FORMATS($conf->{'EXPANDED_FORMATS'});
       } elsif ($key eq 'documentlanguage') {
-        if (defined ($conf->{$key})) {
+        if (defined($conf->{$key})) {
           parser_conf_set_documentlanguage($conf->{$key});
+        }
+      } elsif ($key eq 'documentscript') {
+        if (defined($conf->{$key})) {
+          parser_conf_set_documentscript($conf->{$key});
         }
       } elsif ($key eq 'FORMAT_MENU') {
         if (defined($conf->{$key}) and ($conf->{$key} eq 'menu'

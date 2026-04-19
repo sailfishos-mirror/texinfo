@@ -32,7 +32,7 @@
 #include "extra.h"
 #include "builtin_commands.h"
 /* for whitespace_chars, read_flag_len, item_line_parent
-   delete_global_info, parse_line_directive, count_multibyte */
+   parse_line_directive, count_multibyte */
 #include "utils.h"
 #include "command_stack.h"
 /* for float_list_to_listoffloats_list */
@@ -210,6 +210,7 @@ text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
   size_t i;
 
   text_init (&result);
+  text_append (&result, "");
   for (i = 0; i < e->e.c->contents.number; i++)
     {
       const ELEMENT *e1 = contents_child_by_index (e, i);
@@ -339,6 +340,7 @@ reset_parser_counters (void)
 
 
 char *global_documentlanguage = 0;
+char *global_documentscript = 0;
 
 enum kbd_enum global_kbdinputstyle = kbd_distinct;
 

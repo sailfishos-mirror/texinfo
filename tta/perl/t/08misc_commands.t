@@ -1,4 +1,5 @@
 use strict;
+use utf8;
 
 use lib '.';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
@@ -158,6 +159,22 @@ documentlanguage @documentlanguage  en
 @documentlanguagevariant before comma ,
 @documentlanguagevariant first , second, third ,fourth,   
 @documentlanguagevariant
+'],
+['documentscript_argument',
+'@documentscript Kits
+@documentscript kits
+@documentscript cyrillic
+@documentscript Cyrillic  
+@documentscript     
+@documentscript unknown
+@documentscript
+@documentscript UKNO
+@documentscript AÂbc
+@documentscript M让
+@documentscript a
+@documentscript UknowN
+@documentscript j  k
+@documentscript a%
 '],
 ['defindex_too_much_args',
 '@defindex chose    machin'

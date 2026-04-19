@@ -41,6 +41,8 @@ void txi_ext_parser_conf_add_expanded_format (PARSER *parser,
                                               const char *format);
 void txi_ext_parser_conf_set_documentlanguage (PARSER *parser,
                                                const char *value);
+void txi_ext_parser_conf_set_documentscript (PARSER *parser,
+                                             const char *value);
 void txi_ext_parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (PARSER *parser,
                                                                int i);
 void txi_ext_parser_conf_set_INPUT_FILE_NAME_ENCODING (PARSER *parser,

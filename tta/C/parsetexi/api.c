@@ -72,6 +72,8 @@ initialize_parsing (enum context root_ct)
   copy_strings (&parser_include_directories,
                 &global_parser_conf->include_directories);
 
+  /* with the help of parser_conf_set_* calls, same as setting parser_state
+     documentlanguage and documentscript from parser conf */
   free (global_documentlanguage);
   if (global_parser_conf->global_documentlanguage_fixed
       && global_parser_conf->documentlanguage)
@@ -79,6 +81,14 @@ initialize_parsing (enum context root_ct)
   else
     global_documentlanguage = 0;
 
+  free (global_documentscript);
+  if (global_parser_conf->global_documentscript_fixed
+      && global_parser_conf->documentscript)
+    global_documentscript = strdup (global_parser_conf->documentscript);
+  else
+    global_documentscript = 0;
+
+  /* initialize document state */
   /* initialize document state */
   global_kbdinputstyle = kbd_distinct;
 

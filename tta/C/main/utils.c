@@ -1582,14 +1582,23 @@ analyze_documentlanguage_argument (const char *text,
 }
 
 const char *
-analyse_documentscript_argument (const char *text)
+analyze_documentscript_argument (const char *text, int *valid_script)
 {
   const char *p = text;
+
+  if (!strcmp (p, ""))
+    {
+      *valid_script = 1;
+      return text;
+    }
+
+  *valid_script = 0;
 
   while (isascii_alpha (*p))
     p++;
   if (p > text && !*p)
     {
+      *valid_script = 1;
       char normalized_script[p - text+1];
       if (p - text == 4)
         { /* assume ISO 15924.  Normalize case as usual, first letter
@@ -1600,7 +1609,7 @@ analyse_documentscript_argument (const char *text)
           normalized_script[0] = toupper (text[0]);
           for (i = 1; i < 4; i++)
             normalized_script[i] = tolower (text[i]);
-          normalized_script[5] = '\0';
+          normalized_script[4] = '\0';
           document_script = txi_in_language_scripts (normalized_script, 4);
           if (document_script)
             return document_script->name;
@@ -1613,13 +1622,15 @@ analyse_documentscript_argument (const char *text)
 
           for (i = 0; i < p - text; i++)
             normalized_script[i] = tolower (text[i]);
-          normalized_script[p - text+1] = '\0';
+          normalized_script[p - text] = '\0';
 
           document_script = txi_in_language_scripts (normalized_script,
                                                      p - text);
           if (document_script)
             return document_script->code;
         }
+      *valid_script = 0;
+      return text;
     }
   return 0;
 }

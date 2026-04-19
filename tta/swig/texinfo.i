@@ -279,6 +279,7 @@ DOCUMENT *txi_ext_parse_text (PARSER *parser, const char *string,
 %rename (parser_conf_clear_expanded_formats) txi_ext_parser_conf_clear_expanded_formats;
 %rename (parser_conf_add_expanded_format) txi_ext_parser_conf_add_expanded_format;
 %rename (parser_conf_set_documentlanguage) txi_ext_parser_conf_set_documentlanguage;
+%rename (parser_conf_set_documentscript) txi_ext_parser_conf_set_documentscript;
 %rename (parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME) txi_ext_parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME;
 %rename (parser_conf_set_INPUT_FILE_NAME_ENCODING) txi_ext_parser_conf_set_INPUT_FILE_NAME_ENCODING;
 %rename (parser_conf_set_LOCALE_ENCODING) txi_ext_parser_conf_set_LOCALE_ENCODING;

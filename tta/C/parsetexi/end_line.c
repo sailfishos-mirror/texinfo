@@ -35,7 +35,8 @@
 #include "builtin_commands.h"
 #include "structure_list.h"
 /* for whitespace_chars read_flag_len
-   indices_info_index_by_name ultimate_index analyze_documentlanguage_argument */
+   indices_info_index_by_name ultimate_index analyze_documentlanguage_argument
+   analyze_documentscript_argument */
 #include "utils.h"
 /* for parse_float_type add_to_float_record_list */
 #include "floats.h"
@@ -771,6 +772,9 @@ end_line_def_line (ELEMENT *current)
               if (global_documentlanguage)
                 add_extra_string_dup (current, AI_key_documentlanguage,
                                       global_documentlanguage);
+              if (global_documentscript)
+                add_extra_string_dup (current, AI_key_documentscript,
+                                      global_documentscript);
             }
           else
             {
@@ -1286,7 +1290,7 @@ end_line_misc_line (ELEMENT *current)
       text = text_contents_to_plain_text (current->e.c->contents.list[0],
                                           &superfluous_arg);
 
-      if (!text || !strcmp (text, ""))
+      if (!strcmp (text, "") && cmd != CM_documentscript)
         {
           if (!superfluous_arg)
             line_warn ("@%s missing argument", command_name(cmd));
@@ -1542,6 +1546,28 @@ end_line_misc_line (ELEMENT *current)
                     {
                       free (global_documentlanguage);
                       global_documentlanguage = strdup (text);
+                    }
+                }
+            }
+          else if (current->e.c->cmd == CM_documentscript)
+            {
+              int valid_script;
+              const char *script
+                = analyze_documentscript_argument (text, &valid_script);
+              if (!script)
+                {
+                  command_warn (current, "bad language script argument `%s'",
+                                text);
+                }
+              else
+                {
+                  if (!valid_script)
+                    command_warn (current, "unknown language script name `%s'",
+                                  text);
+                  if (!global_parser_conf->global_documentscript_fixed)
+                    {
+                      free (global_documentscript);
+                      global_documentscript = strdup (script);
                     }
                 }
             }

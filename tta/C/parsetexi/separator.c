@@ -528,7 +528,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
               char *arg = text_contents_to_plain_text (current,
                                                        &superfluous_arg);
               subindex_elt = current->e.c->parent->e.c->parent->e.c->parent;
-              if (arg && *arg)
+              if (*arg)
                 {
                   add_extra_string (subindex_elt, AI_key_sortas, arg);
                 }

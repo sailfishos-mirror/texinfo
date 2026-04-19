@@ -1717,6 +1717,7 @@ build_index_data (const INDEX_LIST *indices_info)
   return hv;
 }
 
+/* ALTIMP Texinfo/ParserNonXS.pm get_parser_info */
 void
 pass_global_info (HV *hv, const GLOBAL_INFO *global_info_ref,
                   const GLOBAL_COMMANDS *global_commands_ref)
@@ -1724,6 +1725,7 @@ pass_global_info (HV *hv, const GLOBAL_INFO *global_info_ref,
   const GLOBAL_INFO global_info = *global_info_ref;
   const GLOBAL_COMMANDS global_commands = *global_commands_ref;
   const ELEMENT *document_language;
+  const ELEMENT *document_script;
   size_t i;
 
   dTHX;
@@ -1777,6 +1779,17 @@ pass_global_info (HV *hv, const GLOBAL_INFO *global_info_ref,
         = informative_command_value (document_language, &cmd);
       hv_store (hv, "documentlanguage", strlen ("documentlanguage"),
                 newSVpv (language, 0), 0);
+    }
+
+  document_script = get_global_document_command (global_commands_ref,
+                                       CM_documentscript, CL_preamble);
+  if (document_script)
+    {
+      enum command_id cmd;
+      const char *script
+        = informative_command_value (document_script, &cmd);
+      hv_store (hv, "documentscript", strlen ("documentscript"),
+                newSVpv (script, 0), 0);
     }
 }
 

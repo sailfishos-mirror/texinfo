@@ -29,6 +29,7 @@ void parser_conf_add_include_directory (const char *filename);
 void parser_conf_clear_expanded_formats (void);
 void parser_conf_add_expanded_format (const char *format);
 void parser_conf_set_documentlanguage (const char *value);
+void parser_conf_set_documentscript (const char *value);
 void parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i);
 void parser_conf_set_INPUT_FILE_NAME_ENCODING (const char *value);
 void parser_conf_set_LOCALE_ENCODING (const char *value);

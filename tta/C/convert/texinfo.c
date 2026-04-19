@@ -440,6 +440,11 @@ txi_parser (const char *file_path, const VALUE_LIST *values,
               if (option->o.string)
                 parser_conf_set_documentlanguage (option->o.string);
             }
+          else if (!strcmp (option->name, "documentscript"))
+            {
+              if (option->o.string)
+                parser_conf_set_documentscript (option->o.string);
+            }
           else if (!strcmp (option->name, "FORMAT_MENU"))
             {
               if (option->o.string

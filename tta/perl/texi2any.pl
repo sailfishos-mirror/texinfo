@@ -1821,14 +1821,17 @@ while (@input_files) {
   # Structuring/Transformations for translations.
   my $main_configuration = Texinfo::MainConfig::new();
 
+  # ALTIMP tta/C/main/document.c set_document_options
   my $document_information = $document->global_information();
   # encoding is needed for output files
   # documentlanguage is needed for gdt() in regenerate_master_menu
   Texinfo::Common::set_output_encoding($main_configuration, $document);
-  if (not defined($main_configuration->get_conf('documentlanguage'))
-      and defined($document_information->{'documentlanguage'})) {
-    $main_configuration->set_conf('documentlanguage',
-                                  $document_information->{'documentlanguage'});
+  foreach my $translation_cmdname ('documentlanguage', 'documentscript') {
+    if (not defined($main_configuration->get_conf($translation_cmdname))
+        and defined($document_information->{$translation_cmdname})) {
+      $main_configuration->set_conf($translation_cmdname,
+                            $document_information->{$translation_cmdname});
+    }
   }
   # relevant for many Structuring methods.
   if ($document_information->{'novalidate'}) {

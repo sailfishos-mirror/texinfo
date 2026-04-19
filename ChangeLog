@@ -1,5 +1,43 @@
 2026-04-19 Patrice Dumas  <pertusus@free.fr>
 
+	Set documentscript extra on translated elements
+
+	* tta/C/main/utils.c (analyze_documentscript_argument): rename
+	analyse_documentscript_argument as analyze_documentscript_argument.
+	Add valid_script argument.  Fix one-off NUL.
+
+	* tta/C/parsetexi/parser.c (text_contents_to_plain_text): return an
+	empty string, never return NULL.  Update callers.
+
+	* tta/C/main/parser_conf.h (PARSER_CONF), tta/C/parsetexi/api.c
+	(initialize_parsing), tta/C/parsetexi/conf.c
+	(parser_conf_set_documentscript), tta/C/parsetexi/parser.c
+	(global_documentscript), tta/C/parsetexi/end_line.c
+	(end_line_def_line), tta/perl/Texinfo/Common.pm
+	(analyze_documentscript_argument), tta/perl/Texinfo/ParserNonXS.pm
+	(@translation_commands, get_parser_info, _initialize_parsing)
+	(_end_line_misc_line), tta/perl/Texinfo/ParserXS.pm (parser),
+	tta/perl/XSTexinfo/parser_document/ParserXS.xs
+	(parser_conf_set_documentscript), tta/C/convert/texinfo.c
+	(txi_parser), tta/C/main/build_perl_info.c (pass_global_info),
+	tta/perl/texi2any.pl, tta/C/main/document.c (set_document_options):
+	pass documentscript from command line.  Analyze documentscript
+	argument and warn if needed.  Set documentscript in parser state.
+
+	* tta/C/parsetexi/def.c (parse_def), tta/C/main/tree_types.h
+	(AI_KEYS_LIST), tta/C/parsetexi/end_line.c (end_line_def_line),
+	tta/perl/Texinfo/ParserNonXS.pm (_parse_def, _end_line_def_line):
+	put documenscript in extra for elements needing to be translated.
+
+	* tta/C/api_for_swig/swig_parser_api.c
+	(txi_ext_parser_conf_set_documentscript), tta/swig/texinfo.i
+	(parser_conf_set_documentscript): add.
+
+	* tta/perl/t/08misc_commands.t (documentscript_argument),
+	tta/perl/Makefile.tres: add @documentscript arguments test.
+
+2026-04-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Converter.pm
 	(converter_set_documentlanguage), tta/perl/Texinfo/Convert/Text.pm
 	(set_language), tta/perl/Texinfo/Convert/Utils.pm,

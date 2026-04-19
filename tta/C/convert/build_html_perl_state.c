@@ -53,7 +53,7 @@
 static const char *lang_trans_key = "current_lang_translations";
 
 #define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
-/* similar to Texinfo::Convert::Utils::set_translations_documentlanguage */
+/* similar to Texinfo::Convert::Converter::converter_set_documentlanguage */
 static void
 set_perl_translations_documentlanguage (HV *converter_hv,
                                         const char *documentlanguage)
@@ -72,6 +72,7 @@ set_perl_translations_documentlanguage (HV *converter_hv,
 
   dTHX;
 
+  /* FIXME should use current_lang_translations */
   lang_translation = new_documentlanguage_translation (documentlanguage);
   lang_info = &lang_translation->info;
 
@@ -143,6 +144,8 @@ set_perl_translations_documentlanguage (HV *converter_hv,
   free_lang_translation (lang_translation);
 }
 
+/* TODO should set the same as
+   Texinfo::Convert::HTMLNonXS::_translate_names */
 static void
 build_html_translated_names (HV *converter_hv, CONVERTER *converter)
 {
@@ -156,6 +159,8 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
   FETCH(convert_text_options);
   if (convert_text_options_sv)
     {
+      /* TODO does not seems to be up to date.  Maybe call
+         set_perl_translations_documentlanguage? */
       SV *documentlanguage_sv;
       HV *text_options_hv = (HV *) SvRV (*convert_text_options_sv);
 

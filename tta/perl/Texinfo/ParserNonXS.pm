@@ -302,9 +302,12 @@ my %parser_state_initialization = (%parser_document_state_initialization,
 
 # The commands in initialization_overrides are not set in the document if
 # set at the parser initialization.
-my %initialization_overrides = (
-  'documentlanguage' => 1,
-);
+my %initialization_overrides;
+
+my @translation_commands = ('documentlanguage', 'documentscript');
+foreach my $translation_cmdname (@translation_commands) {
+  $initialization_overrides{$translation_cmdname} = 1;
+}
 
 my %nobrace_commands          = %Texinfo::Commands::nobrace_commands;
 my %line_commands             = %Texinfo::Commands::line_commands;
@@ -669,9 +672,11 @@ sub _initialize_parsing($$) {
   if ($parser->{'conf'}->{'values'}) {
     $parser_state->{'values'} = dclone($parser->{'conf'}->{'values'});
   }
-  if (defined($parser->{'conf'}->{'documentlanguage'})) {
-    $parser_state->{'documentlanguage'}
-      = $parser->{'conf'}->{'documentlanguage'};
+  foreach my $translation_cmdname (@translation_commands) {
+    if (defined($parser->{'conf'}->{$translation_cmdname})) {
+      $parser_state->{$translation_cmdname}
+        = $parser->{'conf'}->{$translation_cmdname};
+    }
   }
 
   $parser_state->{'document'} = $document;
@@ -920,6 +925,10 @@ sub _input_push_file($$;$) {
   return 1, undef;
 }
 
+# ALTIMP C/main/build_perl_info.c pass_global_info
+# No direct equivalent in pure C code, as document.c set_document_options
+# sets the options from global_commands, and does not need to get them
+# from global_info, therefore they are not in global_info fields.
 sub get_parser_info($) {
   my $self = shift;
 
@@ -939,14 +948,16 @@ sub get_parser_info($) {
       = $global_commands->{'setfilename'}->{'extra'}->{'text_arg'};
   }
 
-  my $document_language
-    = Texinfo::Common::get_global_document_command($global_commands,
-                                                   'documentlanguage',
+  foreach my $translation_cmdname (@translation_commands) {
+    my $command_element
+      = Texinfo::Common::get_global_document_command($global_commands,
+                                                   $translation_cmdname,
                                                    'preamble');
-  if ($document_language) {
-    my $informative_cmdname;
-    $informative_cmdname, $document->{'global_info'}->{'documentlanguage'}
-      = Texinfo::Common::informative_command_value($document_language);
+    if (defined($command_element)) {
+      my $informative_cmdname;
+      ($informative_cmdname, $document->{'global_info'}->{$translation_cmdname})
+        = Texinfo::Common::informative_command_value($command_element);
+    }
   }
 }
 
@@ -3528,8 +3539,13 @@ sub _parse_def($$$$) {
     if (defined($self->{'documentlanguage'})) {
       $def_line_arg->{'type'} = 'untranslated_def_line_arg';
       $content->{'type'} = 'untranslated';
-      $def_line_arg->{'extra'}
-         = {'documentlanguage' => $self->{'documentlanguage'}};
+      $def_line_arg->{'extra'} = {};
+      foreach my $translation_cmdname (@translation_commands) {
+        if (exists($self->{$translation_cmdname})) {
+          $def_line_arg->{'extra'}->{$translation_cmdname}
+              = $self->{$translation_cmdname};
+        }
+      }
       if (defined($translation_context)) {
         $def_line_arg->{'extra'}->{'translation_context'}
           = $translation_context;
@@ -3886,7 +3902,7 @@ sub _end_line_misc_line($$$) {
     my ($text, $superfluous_arg)
       = _text_contents_to_plain_text($current->{'contents'}->[0]);
 
-    if ($text eq '') {
+    if ($text eq '' and $command ne 'documentscript') {
       if (not $superfluous_arg) {
         _command_warn($self, $current,
                              __("\@%s missing argument"), $command);
@@ -4043,6 +4059,22 @@ sub _end_line_misc_line($$$) {
         if (!$self->{'set'}->{'documentlanguage'}
             and defined($lang)) {
           $self->{'documentlanguage'} = $text;
+        }
+      } elsif ($command eq 'documentscript') {
+        # the script name is normalized if found in known script names
+        my ($valid_script, $script)
+          = Texinfo::Common::analyze_documentscript_argument($text);
+        if (!defined($script)) {
+          _command_warn($self, $current,
+                        __("bad language script argument `%s'"), $text);
+        } else {
+          if (!$valid_script) {
+            _command_warn($self, $current,
+                        __("unknown language script name `%s'"), $text);
+          }
+          if (!$self->{'set'}->{'documentscript'}) {
+            $self->{'documentscript'} = $script;
+          }
         }
       }
     }
@@ -4370,9 +4402,11 @@ sub _end_line_def_line($$$) {
                or $def_command eq 'defivar'
                or $def_command eq 'deftypeivar'
                or $def_command eq 'deftypecv')) {
-        if (defined($self->{'documentlanguage'})) {
-          $current->{'extra'}->{'documentlanguage'}
-                 = $self->{'documentlanguage'};
+        foreach my $translation_cmdname (@translation_commands) {
+          if (exists($self->{$translation_cmdname})) {
+            $current->{'extra'}->{$translation_cmdname}
+                 = $self->{$translation_cmdname};
+          }
         }
       } else {
         my $element_copy

@@ -220,6 +220,16 @@ txi_ext_parser_conf_set_documentlanguage (PARSER *parser,
 }
 
 void
+txi_ext_parser_conf_set_documentscript (PARSER *parser,
+                                          const char *value)
+{
+  PARSER_CONF *parser_conf
+    = retrieve_parser_conf (parser->parser_conf_descriptor);
+  apply_conf (parser_conf);
+  parser_conf_set_documentscript (value);
+}
+
+void
 txi_ext_parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (PARSER *parser,
                                                           int i)
 {

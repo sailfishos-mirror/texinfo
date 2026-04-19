@@ -117,6 +117,7 @@ extern const SECTION_RELATIONS *current_section;
 extern SECTION_RELATIONS *current_part;
 
 extern char *global_documentlanguage;
+extern char *global_documentscript;
 
 enum kbd_enum {kbd_none, kbd_code, kbd_example, kbd_distinct };
 extern enum kbd_enum global_kbdinputstyle;

@@ -23,6 +23,7 @@ typedef struct PARSER_CONF {
     int cpp_line_directives;
     int doc_encoding_for_input_file_name;
     char *documentlanguage;
+    char *documentscript;
     int debug;
     char *input_file_name_encoding;
     int ignore_space_after_braced_command_name;
@@ -34,7 +35,9 @@ typedef struct PARSER_CONF {
     int no_user_commands;
     int show_menu;
 
+    /* %initialization_overrides in Perl */
     int global_documentlanguage_fixed;
+    int global_documentscript_fixed;
 
     EXPANDED_FORMAT expanded_formats[8];
     VALUE_LIST values;

@@ -192,6 +192,8 @@ STRING_LIST *splitdir (char *directories_str);
 char *analyze_documentlanguage_argument (const char *text,
                                    char **region_code_out,
                                    int *valid_lang, int *valid_region);
+const char *analyze_documentscript_argument (const char *text,
+                                             int *valid_script);
 int is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries);
 
 void allocate_name_number_list (NAME_NUMBER_LIST *name_number_list,

@@ -221,6 +221,7 @@ set_output_encoding (OPTIONS *customization_information, DOCUMENT *document)
 }
 
 /* not used when document options are set from Perl */
+/* ALTIMP texi2any.pl */
 /* mixes main program Perl code setting $main_configuration,
    get_customization_options_hash() call and register_document_options
  */
@@ -231,6 +232,7 @@ set_document_options (DOCUMENT *document, const OPTIONS_LIST *program_options,
 {
   OPTIONS_LIST document_options;
   const ELEMENT *document_language;
+  const ELEMENT *document_script;
   OPTIONS *options = new_options ();
   OPTION **sorted_options = new_sorted_options (options);
 
@@ -246,6 +248,7 @@ set_document_options (DOCUMENT *document, const OPTIONS_LIST *program_options,
                                       novalidate_option->number);
     }
 
+  /* texi2any code uses document->global_information(), not this code */
   document_language
     = get_global_document_command (&document->global_commands,
                                    CM_documentlanguage, CL_preamble);
@@ -259,6 +262,21 @@ set_document_options (DOCUMENT *document, const OPTIONS_LIST *program_options,
       option_set_conf (documentlanguage_option, -1, language);
       options_list_add_option_number (&document_options,
                                       documentlanguage_option->number);
+    }
+
+  document_script
+    = get_global_document_command (&document->global_commands,
+                                   CM_documentscript, CL_preamble);
+  if (document_script)
+    {
+      enum command_id cmd;
+      const char *script = informative_command_value (document_script,
+                                                      &cmd);
+      OPTION *documentscript_option
+        = &document_options.options->documentscript;
+      option_set_conf (documentscript_option, -1, script);
+      options_list_add_option_number (&document_options,
+                                      documentscript_option->number);
     }
 
   /* similar to set_output_encoding but for OPTIONS_LIST */

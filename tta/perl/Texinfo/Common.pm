@@ -507,6 +507,35 @@ sub warn_unknown_language($) {
   return $messages, $lang_code, $region_code;
 }
 
+sub analyze_documentscript_argument($) {
+  my $text = shift;
+
+  if (defined($text)) {
+    if ($text  =~ /^([a-zA-Z]+)$/) {
+      if (length($text) == 4) {
+        # assume ISO 15924.  Normalize case as usual, first letter
+        # upper-case, remaining lower-case
+        my $normalized = ucfirst(lc($text));
+        if (exists($Texinfo::Documentlanguages::scripts{$normalized})) {
+          return 1, $normalized;
+        }
+      } else {
+        my $normalized = lc($text);
+        my $ISO_script =
+          $Texinfo::Documentlanguages::documentscript_alias_ISO_script{
+            $normalized};
+        if (defined($ISO_script)) {
+          return 1, $ISO_script;
+        }
+      }
+      return 0, $text;
+    } elsif ($text eq '') {
+      return 1, $text;
+    }
+  }
+  return 0, undef;
+}
+
 # next functions are for code used in Structuring or Indices in addition
 # to Parser.  Also possibly used in Texinfo::Transformations.
 

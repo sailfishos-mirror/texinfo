@@ -115,6 +115,7 @@ enum string_info_type {
   ai_key(begin, string, 0) \
   ai_key(def_command, string, 0) \
   ai_key(documentlanguage, string, 0) \
+  ai_key(documentscript, string, 0) \
   ai_key(element_node, string, 0) \
   ai_key(element_region, string, 0) \
   ai_key(end, string, 0) \
