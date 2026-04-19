@@ -281,7 +281,7 @@ sub fill_document_lang_info($$) {
   }
 }
 
-sub new_lang_info_translation($) {
+sub _new_lang_info_translation($) {
   my $lang_info = shift;
 
   my $language_env;
@@ -309,7 +309,60 @@ sub new_documentlanguage_translation($) {
   my $lang_info = {};
   fill_document_lang_info($lang_info, $documentlanguage);
 
-  return new_lang_info_translation($lang_info);
+  return _new_lang_info_translation($lang_info);
+}
+
+sub _set_lang_info_translation($$) {
+  my ($translations, $lang_info) = @_;
+
+  my $new_lang_translations = _new_lang_info_translation($lang_info);
+
+  my $bcp47_locale
+    = get_lang_info_bcp47_locale($new_lang_translations->[0]);
+
+  if (!exists($translations->{$bcp47_locale})) {
+    $translations->{$bcp47_locale} = {};
+  }
+  $new_lang_translations->[2] = $translations->{$bcp47_locale};
+
+  return $new_lang_translations;
+}
+
+# TODO document?
+sub set_translations_documentlanguage($$$) {
+  my ($translations, $documentlanguage, $current_lang_translations) = @_;
+
+  my %lang_info;
+
+  my ($lang_code, $region_code)
+    = Texinfo::Common::analyze_documentlanguage_argument($documentlanguage);
+
+  return if (!defined($lang_code));
+
+  if (defined($current_lang_translations)) {
+    my $current_lang_info = $current_lang_translations->[0];
+    if (exists($current_lang_info->{'lang'})
+        and $current_lang_info->{'lang'} eq $lang_code
+        and ((!exists($current_lang_info->{'region'})
+              and !defined($region_code))
+             or $current_lang_info->{'region'} eq $region_code)) {
+      # Nothing to do
+      return $current_lang_translations;
+    }
+
+    # copy lang info
+    %lang_info = %$current_lang_info;
+    delete $lang_info{'bcp47_locale'};
+  }
+
+  $lang_info{'lang'} = $lang_code;
+  if (defined($region_code)) {
+    $lang_info{'region'} = $region_code;
+  } else {
+    delete $lang_info{'region'};
+  }
+
+  return _set_lang_info_translation($translations, \%lang_info);
 }
 
 # Cache translations in a hash to avoid having to go through the locale

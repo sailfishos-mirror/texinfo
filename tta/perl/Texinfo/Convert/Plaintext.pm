@@ -4045,8 +4045,8 @@ sub _convert($$) {
     } elsif (exists($informative_commands{$cmdname})) {
       Texinfo::Common::set_informative_command_value($self, $element);
       if ($cmdname eq 'documentlanguage') {
-        Texinfo::Convert::Utils::set_translations_documentlanguage($self,
-                                         $self->get_conf('documentlanguage'));
+        $self->converter_set_documentlanguage(
+                                      $self->get_conf('documentlanguage'));
       }
       return;
     } else {

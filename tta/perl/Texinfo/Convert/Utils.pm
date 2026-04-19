@@ -211,72 +211,6 @@ sub output_files_unclosed_files($) {
 
 
 
-sub _set_lang_info_translation($$) {
-  my ($self, $lang_info) = @_;
-
-  my $translations;
-
-  if (!exists($self->{'translations'})) {
-    $translations = $Texinfo::Translations::translation_cache;
-    $self->{'translations'} = $translations;
-  } else {
-    $translations = $self->{'translations'};
-  }
-
-  my $new_lang_translations
-    = Texinfo::Translations::new_lang_info_translation($lang_info);
-
-  my $bcp47_locale
-    = Texinfo::Translations::get_lang_info_bcp47_locale(
-                                     $new_lang_translations->[0]);
-
-  if (!exists($translations->{$bcp47_locale})) {
-    $translations->{$bcp47_locale} = {};
-  }
-  $new_lang_translations->[2] = $translations->{$bcp47_locale};
-  $self->{'current_lang_translations'} = $new_lang_translations;
-}
-
-# TODO document?
-# SELF is a converter or Texinfo::Text options hash
-sub set_translations_documentlanguage($$) {
-  my ($self, $documentlanguage) = @_;
-
-  my %lang_info;
-
-  my ($lang_code, $region_code)
-    = Texinfo::Common::analyze_documentlanguage_argument($documentlanguage);
-
-  return if (!defined($lang_code));
-
-  if (exists($self->{'current_lang_translations'})) {
-    my $current_lang_info = $self->{'current_lang_translations'}->[0];
-    if (exists($current_lang_info->{'lang'})
-        and $current_lang_info->{'lang'} eq $lang_code
-        and ((!exists($current_lang_info->{'region'})
-              and !defined($region_code))
-             or $current_lang_info->{'region'} eq $region_code)) {
-      # Nothing to do
-      return;
-    }
-
-    # copy lang info
-    %lang_info = %$current_lang_info;
-    delete $lang_info{'bcp47_locale'};
-  }
-
-  $lang_info{'lang'} = $lang_code;
-  if (defined($region_code)) {
-    $lang_info{'region'} = $region_code;
-  } else {
-    delete $lang_info{'region'};
-  }
-
-  _set_lang_info_translation($self, \%lang_info);
-}
-
-
-
 our @month_name =
     (
      Texinfo::Common::gdt('January'),

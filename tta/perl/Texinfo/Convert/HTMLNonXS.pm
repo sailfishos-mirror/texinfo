@@ -1804,8 +1804,7 @@ sub _translate_names($) {
   Texinfo::Convert::Text::set_language($self->{'convert_text_options'},
                                        $self->get_conf('documentlanguage'));
 
-  Texinfo::Convert::Utils::set_translations_documentlanguage($self,
-                                       $self->get_conf('documentlanguage'));
+  $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
 
   if ($self->get_conf('DEBUG')) {
     my $output_encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');

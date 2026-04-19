@@ -453,6 +453,20 @@ sub pcdt($$;$$) {
   return $self->cdt($string, $replaced_substrings, $translation_context);
 }
 
+# TODO document
+sub converter_set_documentlanguage($$) {
+  my ($self, $documentlanguage) = @_;
+
+  if (!exists($self->{'translations'})) {
+    $self->{'translations'} = $Texinfo::Translations::translation_cache;
+  }
+
+  $self->{'current_lang_translations'}
+    = Texinfo::Translations::set_translations_documentlanguage(
+         $self->{'translations'}, $documentlanguage,
+         $self->{'current_lang_translations'});
+}
+
 # language
 sub current_bcp47_locale($) {
   my $self = shift;
@@ -2249,10 +2263,9 @@ described in L<Texinfo::Report::count_errors|Texinfo::Report/$error_count
 
 C<Texinfo::Convert::Converter> provides wrappers around
 L<Texinfo::Translations> methods that use the current language.  The
-current language is set by a call to C<set_translations_documentlanguage>, like:
+current language is set by a call to C<converter_set_documentlanguage>, like:
 
- Texinfo::Convert::Utils::set_translations_documentlanguage($converter,
-                              $documentlanguage);
+ $converter->converter_set_documentlanguage($documentlanguage);
 
 The C<cdt> and C<pcdt> methods are used to translate strings to be output in
 converted documents, and return a Texinfo tree.  The C<cdt_string> is similar

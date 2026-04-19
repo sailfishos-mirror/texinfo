@@ -517,11 +517,10 @@ described in @ref{Texinfo@asis{::}Report $error_count
 
 @code{Texinfo::Convert::Converter} provides wrappers around
 @ref{Texinfo@asis{::}Translations NAME,, Texinfo::Translations} methods that use the current language.  The
-current language is set by a call to @code{set_translations_documentlanguage}, like:
+current language is set by a call to @code{converter_set_documentlanguage}, like:
 
 @verbatim
- Texinfo::Convert::Utils::set_translations_documentlanguage($converter,
-                              $documentlanguage);
+ $converter->converter_set_documentlanguage($documentlanguage);
 @end verbatim
 
 The @code{cdt} and @code{pcdt} methods are used to translate strings to be output in

@@ -1,5 +1,22 @@
 2026-04-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm
+	(converter_set_documentlanguage), tta/perl/Texinfo/Convert/Text.pm
+	(set_language), tta/perl/Texinfo/Convert/Utils.pm,
+	tta/perl/Texinfo/Translations.pm (_set_lang_info_translation)
+	(set_translations_documentlanguage): move _set_lang_info_translation
+	and set_translations_documentlanguage, have
+	set_translations_documentlanguage return the new current translations,
+	pass translations hashes and current translations in argument.  Add
+	converter_set_documentlanguage wrapper and use Text.pm set_language
+	as wrapper.  Update callers to call the wrappers.  For a more logical
+	separation of code and to be more like C.
+
+	* tta/perl/Texinfo/Translations.pm (_new_lang_info_translation):
+	rename new_lang_info_translation as _new_lang_info_translation.
+
+2026-04-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/translations.c (set_translations_documentlanguage),
 	tta/perl/Texinfo/Convert/Utils.pm (set_translations_documentlanguage),
 	tta/C/convert/build_html_perl_state.c

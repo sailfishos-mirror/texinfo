@@ -196,8 +196,7 @@ sub copy_options_for_convert_text($;$) {
 
   my $documentlanguage = $options{'documentlanguage'};
   if (defined($documentlanguage)) {
-    Texinfo::Convert::Utils::set_translations_documentlanguage(\%options,
-                                                      $documentlanguage);
+    set_language(\%options, $documentlanguage);
   }
 
   my $include_directories = $converter->get_conf('INCLUDE_DIRECTORIES');
@@ -273,9 +272,16 @@ sub reset_options_encoding($) {
 }
 
 sub set_language($$) {
-  my ($options, $lang) = @_;
+  my ($options, $documentlanguage) = @_;
 
-  Texinfo::Convert::Utils::set_translations_documentlanguage($options, $lang);
+  if (!exists($options->{'translations'})) {
+    $options->{'translations'} = $Texinfo::Translations::translation_cache;
+  }
+
+  $options->{'current_lang_translations'}
+    = Texinfo::Translations::set_translations_documentlanguage(
+         $options->{'translations'}, $documentlanguage,
+         $options->{'current_lang_translations'});
 }
 
 

@@ -474,8 +474,7 @@ sub _info_header($$$) {
   # format @copying using the last value of the preamble.
   my @informative_global_commands = $self->get_informative_global_commands();
   $self->set_global_document_commands('preamble', \@informative_global_commands);
-  Texinfo::Convert::Utils::set_translations_documentlanguage($self,
-                               $self->get_conf('documentlanguage'));
+  $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
   if (defined($global_commands) and exists($global_commands->{'copying'})) {
     print STDERR "COPYING HEADER\n" if ($self->get_conf('DEBUG'));
     $self->{'in_copying_header'} = 1;
@@ -485,8 +484,7 @@ sub _info_header($$$) {
     delete $self->{'in_copying_header'};
   }
   $self->set_global_document_commands('before', \@informative_global_commands);
-  Texinfo::Convert::Utils::set_translations_documentlanguage($self,
-                               $self->get_conf('documentlanguage'));
+  $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
 
   if (exists($global_commands->{'dircategory_direntry'})) {
     delete $self->{'ignored_commands'}->{'direntry'};
