@@ -1,5 +1,10 @@
 2026-04-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\onepageout): Remove call to \turnoffactive
+	directly after \atdummies as \atdummies also calls \turnoffactive.
+
+2026-04-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/dir.c (build_dir_node): avoid crash if dir file is malformed
 	or couldn't be loaded.
 	
