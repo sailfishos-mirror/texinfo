@@ -666,10 +666,10 @@ get_documentlanguage_translation (LANG_TRANSLATION ***lang_translations_ptr,
 }
 
 LANG_TRANSLATION *
-switch_lang_translations (LANG_TRANSLATION ***lang_translations,
-                          const char *documentlanguage,
-                          LANG_TRANSLATION *current_lang_translations,
-                          size_t cache_size)
+set_translations_documentlanguage (LANG_TRANSLATION ***lang_translations,
+                                   const char *documentlanguage,
+                                   LANG_TRANSLATION *current_lang_translations,
+                                   size_t cache_size)
 {
   LANG_TRANSLATION *lang_translation;
   const DOCUMENT_LANG_INFO *current_lang_info = 0;

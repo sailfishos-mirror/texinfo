@@ -441,7 +441,7 @@ sub conversion_output_begin($;$$) {
   my $documentlanguage = $self->get_conf('documentlanguage');
   if (defined($documentlanguage)) {
     $lang_attribute = " lang=\"$documentlanguage\"";
-    Texinfo::Convert::Utils::switch_lang_translations($self,
+    Texinfo::Convert::Utils::set_translations_documentlanguage($self,
                                                       $documentlanguage);
     push @{$self->{'lang_stack'}}, $documentlanguage;
   } else {
@@ -594,7 +594,7 @@ sub conversion_output_begin($;$$) {
     }
   }
   $self->set_global_document_commands('before', ['documentlanguage']);
-  Texinfo::Convert::Utils::switch_lang_translations($self,
+  Texinfo::Convert::Utils::set_translations_documentlanguage($self,
                                        $self->get_conf('documentlanguage'));
 
   my $document_info = '';
@@ -1069,7 +1069,7 @@ sub _convert($$)
           if ($docbook_global_commands{$cmdname}) {
             Texinfo::Common::set_informative_command_value($self, $element);
             if ($cmdname eq 'documentlanguage') {
-              Texinfo::Convert::Utils::switch_lang_translations($self,
+              Texinfo::Convert::Utils::set_translations_documentlanguage($self,
                                       $self->get_conf('documentlanguage'));
             }
           } elsif ($Texinfo::Commands::root_commands{$cmdname}) {

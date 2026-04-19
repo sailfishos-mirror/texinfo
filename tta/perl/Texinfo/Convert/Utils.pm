@@ -239,8 +239,8 @@ sub _set_lang_info_translation($$) {
 
 # TODO document?
 # SELF is a converter or Texinfo::Text options hash
-sub switch_lang_translations($$;$) {
-  my ($self, $documentlanguage, $command_line_encoding) = @_;
+sub set_translations_documentlanguage($$) {
+  my ($self, $documentlanguage) = @_;
 
   my %lang_info;
 

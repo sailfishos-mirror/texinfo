@@ -57,11 +57,11 @@ TRANSLATION_TREE *add_translation_tree (
 void free_document_lang_info (DOCUMENT_LANG_INFO *lang_info);
 void free_lang_translation (LANG_TRANSLATION *lang_translation);
 void free_translation_cache (LANG_TRANSLATION **translation_cache);
-LANG_TRANSLATION *switch_lang_translations (
-                          LANG_TRANSLATION ***lang_translations,
-                          const char *in_documentlanguage,
-                          LANG_TRANSLATION *current_lang_translations,
-                          size_t cache_size);
+LANG_TRANSLATION *set_translations_documentlanguage (
+                                   LANG_TRANSLATION ***lang_translations,
+                                   const char *documentlanguage,
+                                   LANG_TRANSLATION *current_lang_translations,
+                                   size_t cache_size);
 char *translate_string (const char *string, const char *language_env,
                         const char *translation_context);
 TRANSLATION_TREE *cache_translate_string (const char *string,

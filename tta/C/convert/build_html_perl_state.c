@@ -53,9 +53,10 @@
 static const char *lang_trans_key = "current_lang_translations";
 
 #define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
-/* similar to Texinfo::Convert::Utils::switch_lang_translations */
+/* similar to Texinfo::Convert::Utils::set_translations_documentlanguage */
 static void
-switch_perl_lang_translations (HV *converter_hv, const char *documentlanguage)
+set_perl_translations_documentlanguage (HV *converter_hv,
+                                        const char *documentlanguage)
 {
   AV *current_lang_translations_av;
   SV *translations;
@@ -166,7 +167,7 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
                 strlen ("documentlanguage"), documentlanguage_sv, 0);
     }
 
-  switch_perl_lang_translations (converter_hv, documentlanguage);
+  set_perl_translations_documentlanguage (converter_hv, documentlanguage);
 
   /* pass all the information for each context for translated commands */
   if (converter->no_arg_formatted_cmd_translated.number)

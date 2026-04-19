@@ -52,7 +52,8 @@
 /* retrieve_output_units output_unit_texi */
 #include "output_unit.h"
 #include "convert_to_texinfo.h"
-/* translate_string NAMED_STRING_ELEMENT_LIST switch_lang_translations */
+/* translate_string NAMED_STRING_ELEMENT_LIST
+   set_translations_documentlanguage */
 #include "translations.h"
 /* convert_to_text */
 #include "convert_to_text.h"
@@ -628,7 +629,7 @@ html_translate_names (CONVERTER *self)
                      self->conf->documentlanguage.o.string);
 
   self->current_lang_translations =
-    switch_lang_translations (&translation_cache,
+    set_translations_documentlanguage (&translation_cache,
                               self->conf->documentlanguage.o.string,
                               self->current_lang_translations,
                               TXI_CONVERT_STRINGS_NR);

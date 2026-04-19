@@ -1804,7 +1804,7 @@ sub _translate_names($) {
   Texinfo::Convert::Text::set_language($self->{'convert_text_options'},
                                        $self->get_conf('documentlanguage'));
 
-  Texinfo::Convert::Utils::switch_lang_translations($self,
+  Texinfo::Convert::Utils::set_translations_documentlanguage($self,
                                        $self->get_conf('documentlanguage'));
 
   if ($self->get_conf('DEBUG')) {

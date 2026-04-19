@@ -1,5 +1,15 @@
 2026-04-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/translations.c (set_translations_documentlanguage),
+	tta/perl/Texinfo/Convert/Utils.pm (set_translations_documentlanguage),
+	tta/C/convert/build_html_perl_state.c
+	(set_perl_translations_documentlanguage): rename
+	switch_lang_translations as set_translations_documentlanguage and
+	switch_perl_lang_translations as
+	set_perl_translations_documentlanguage.
+
+2026-04-19 Patrice Dumas  <pertusus@free.fr>
+
 	Merge new documentlanguage with current lang translations
 
 	* tta/perl/Texinfo/Translations.pm (new_lang_info_translation):

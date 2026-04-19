@@ -196,7 +196,7 @@ sub copy_options_for_convert_text($;$) {
 
   my $documentlanguage = $options{'documentlanguage'};
   if (defined($documentlanguage)) {
-    Texinfo::Convert::Utils::switch_lang_translations(\%options,
+    Texinfo::Convert::Utils::set_translations_documentlanguage(\%options,
                                                       $documentlanguage);
   }
 
@@ -275,7 +275,7 @@ sub reset_options_encoding($) {
 sub set_language($$) {
   my ($options, $lang) = @_;
 
-  Texinfo::Convert::Utils::switch_lang_translations($options, $lang);
+  Texinfo::Convert::Utils::set_translations_documentlanguage($options, $lang);
 }
 
 

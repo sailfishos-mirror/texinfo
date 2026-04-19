@@ -144,7 +144,7 @@ sub _generic_converter_init($$;$) {
     }
 
     if (exists($conf->{'documentlanguage'})) {
-      Texinfo::Convert::Utils::switch_lang_translations($converter,
+      Texinfo::Convert::Utils::set_translations_documentlanguage($converter,
                                            $conf->{'documentlanguage'});
     }
   }

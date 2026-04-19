@@ -517,10 +517,10 @@ described in @ref{Texinfo@asis{::}Report $error_count
 
 @code{Texinfo::Convert::Converter} provides wrappers around
 @ref{Texinfo@asis{::}Translations NAME,, Texinfo::Translations} methods that use the current language.  The
-current language is set by a call to @code{switch_lang_translations}, like:
+current language is set by a call to @code{set_translations_documentlanguage}, like:
 
 @verbatim
- Texinfo::Convert::Utils::switch_lang_translations($converter,
+ Texinfo::Convert::Utils::set_translations_documentlanguage($converter,
                               $documentlanguage);
 @end verbatim
 

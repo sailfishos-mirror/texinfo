@@ -386,7 +386,7 @@ sub conversion_output_begin($;$$) {
   $self->set_global_document_commands('preamble', ['documentlanguage']);
   my $documentlanguage = $self->get_conf('documentlanguage');
   if (defined($documentlanguage)) {
-    Texinfo::Convert::Utils::switch_lang_translations($self,
+    Texinfo::Convert::Utils::set_translations_documentlanguage($self,
                                                       $documentlanguage);
     my $bcp47_locale = $self->current_bcp47_locale();
     push @{$self->{'lang_stack'}}, $bcp47_locale;
@@ -545,7 +545,7 @@ sub conversion_output_begin($;$$) {
     }
   }
   $self->set_global_document_commands('before', ['documentlanguage']);
-  Texinfo::Convert::Utils::switch_lang_translations($self,
+  Texinfo::Convert::Utils::set_translations_documentlanguage($self,
                                        $self->get_conf('documentlanguage'));
 
   my $document_info = '';
@@ -1008,7 +1008,7 @@ sub _convert($$;$) {
       if ($docbook_global_commands{$cmdname}) {
         Texinfo::Common::set_informative_command_value($self, $element);
         if ($cmdname eq 'documentlanguage') {
-          Texinfo::Convert::Utils::switch_lang_translations($self,
+          Texinfo::Convert::Utils::set_translations_documentlanguage($self,
                                        $self->get_conf('documentlanguage'));
         }
         return '';

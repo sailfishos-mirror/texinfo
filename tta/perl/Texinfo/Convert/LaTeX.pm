@@ -1806,7 +1806,8 @@ sub _informative_command_output($$) {
 
   if ($cmdname eq 'documentlanguage') {
     my $language = $self->get_conf($cmdname);
-    Texinfo::Convert::Utils::switch_lang_translations($self, $language);
+    Texinfo::Convert::Utils::set_translations_documentlanguage($self,
+                                                               $language);
     my $bcp47_locale = $self->current_bcp47_locale();
     $self->{'packages'}->{'babel'} = 1;
     return "\\selectlanguage{$bcp47_locale}%\n";

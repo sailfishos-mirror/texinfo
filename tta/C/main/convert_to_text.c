@@ -47,7 +47,7 @@
 #include "convert_to_texinfo.h"
 */
 #include "debug.h"
-/* for gdt_tree switch_lang_translations */
+/* for gdt_tree set_translations_documentlanguage */
 #include "translations.h"
 #include "convert_to_text.h"
 
@@ -126,7 +126,7 @@ copy_options_for_convert_text (OPTIONS *options)
       = strdup (options->COMMAND_LINE_ENCODING.o.string);
 
   text_options->current_lang_translations
-    = switch_lang_translations (&translation_cache,
+    = set_translations_documentlanguage (&translation_cache,
                                 text_options->documentlanguage, 0,
                                 TXI_CONVERT_STRINGS_NR);
 
@@ -240,7 +240,7 @@ text_set_language (TEXT_OPTIONS *text_options, const char *lang)
     text_options->documentlanguage = 0;
 
   text_options->current_lang_translations
-    = switch_lang_translations (&translation_cache,
+    = set_translations_documentlanguage (&translation_cache,
                                 text_options->documentlanguage, 0,
                                 TXI_CONVERT_STRINGS_NR);
 }

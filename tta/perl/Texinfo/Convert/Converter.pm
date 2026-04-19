@@ -2249,9 +2249,9 @@ described in L<Texinfo::Report::count_errors|Texinfo::Report/$error_count
 
 C<Texinfo::Convert::Converter> provides wrappers around
 L<Texinfo::Translations> methods that use the current language.  The
-current language is set by a call to C<switch_lang_translations>, like:
+current language is set by a call to C<set_translations_documentlanguage>, like:
 
- Texinfo::Convert::Utils::switch_lang_translations($converter,
+ Texinfo::Convert::Utils::set_translations_documentlanguage($converter,
                               $documentlanguage);
 
 The C<cdt> and C<pcdt> methods are used to translate strings to be output in
