@@ -220,7 +220,7 @@ sub translate_string($$;$) {
 }
 
 # lang_info API
-# Used in HTML customization code only.
+# Used in HTML customization code.
 # TODO document in texi2any_api
 sub get_lang_info_xdg_locale($) {
   my $lang_info = shift;
@@ -281,11 +281,8 @@ sub fill_document_lang_info($$) {
   }
 }
 
-sub new_documentlanguage_translation($) {
-  my $documentlanguage = shift;
-
-  my $lang_info = {};
-  fill_document_lang_info($lang_info, $documentlanguage);
+sub new_lang_info_translation($) {
+  my $lang_info = shift;
 
   my $language_env;
   if (exists($lang_info->{'lang'})) {
@@ -304,6 +301,15 @@ sub new_documentlanguage_translation($) {
   }
 
   return [$lang_info, $language_env];
+}
+
+sub new_documentlanguage_translation($) {
+  my $documentlanguage = shift;
+
+  my $lang_info = {};
+  fill_document_lang_info($lang_info, $documentlanguage);
+
+  return new_lang_info_translation($lang_info);
 }
 
 # Cache translations in a hash to avoid having to go through the locale

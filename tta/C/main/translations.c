@@ -474,17 +474,6 @@ new_documentlanguage_translation (const char *documentlanguage)
   return result;
 }
 
-static LANG_TRANSLATION *
-new_set_translation (DOCUMENT_LANG_INFO *lang_info)
-{
-  LANG_TRANSLATION *result = (LANG_TRANSLATION *)
-    malloc (sizeof (LANG_TRANSLATION));
-  memcpy (&result->info, lang_info, sizeof (DOCUMENT_LANG_INFO));
-  memset (lang_info, 0, sizeof (DOCUMENT_LANG_INFO));
-  init_lang_translation (result);
-  return result;
-}
-
 static void
 copy_lang_info (DOCUMENT_LANG_INFO *translation_lang_info,
                 const DOCUMENT_LANG_INFO *lang_info)
@@ -616,25 +605,30 @@ store_new_lang_translation (LANG_TRANSLATION *** lang_translations_ptr,
 /* transfer info */
 LANG_TRANSLATION *
 set_lang_info_translation (LANG_TRANSLATION ***lang_translations_ptr,
-                           DOCUMENT_LANG_INFO *info,
+                           DOCUMENT_LANG_INFO *lang_info,
                            size_t cache_size)
 {
   size_t i;
+  LANG_TRANSLATION *result;
   LANG_TRANSLATION *found_lang_translation
     = find_lang_translation (*lang_translations_ptr,
-                            get_lang_info_bcp47_locale (info), &i);
+                            get_lang_info_bcp47_locale (lang_info), &i);
 
   if (found_lang_translation)
     {
-      free_document_lang_info (info);
-      memset (info, 0, sizeof (DOCUMENT_LANG_INFO));
+      free_document_lang_info (lang_info);
+      memset (lang_info, 0, sizeof (DOCUMENT_LANG_INFO));
       return found_lang_translation;
     }
 
-  LANG_TRANSLATION *lang_translation = new_set_translation (info);
+  result = (LANG_TRANSLATION *) malloc (sizeof (LANG_TRANSLATION));
+  /* transfer lang_info */
+  memcpy (&result->info, lang_info, sizeof (DOCUMENT_LANG_INFO));
+  memset (lang_info, 0, sizeof (DOCUMENT_LANG_INFO));
+  init_lang_translation (result);
 
   return store_new_lang_translation (lang_translations_ptr, i, cache_size,
-                                     lang_translation);
+                                     result);
 }
 
 /* copy info. INFO is not const because the bcp47_locale may not be set */
@@ -678,21 +672,50 @@ switch_lang_translations (LANG_TRANSLATION ***lang_translations,
                           size_t cache_size)
 {
   LANG_TRANSLATION *lang_translation;
+  const DOCUMENT_LANG_INFO *current_lang_info = 0;
+  char *region_code;
+  int lang_is_valid, region_is_valid;
+  static DOCUMENT_LANG_INFO lang_info;
 
-  static DOCUMENT_LANG_INFO info;
-  fill_document_lang_info (&info, documentlanguage);
+  char *lang = analyze_documentlanguage_argument (documentlanguage,
+                                          &region_code,
+                                          &lang_is_valid, &region_is_valid);
 
-  if (current_lang_translations
-      && !strcmp (get_lang_info_bcp47_locale (&current_lang_translations->info),
-                  get_lang_info_bcp47_locale (&info)))
+  if (!lang)
+    return current_lang_translations;
+
+  if (current_lang_translations)
     {
-      free_document_lang_info (&info);
-      memset (&info, 0, sizeof (DOCUMENT_LANG_INFO));
-      return current_lang_translations;
+      current_lang_info = &current_lang_translations->info;
+      if (current_lang_info->lang && !strcmp (current_lang_info->lang, lang)
+          && ((!region_code && !current_lang_info->region)
+              || !strcmp (current_lang_info->region, region_code)))
+        {
+          /* Nothing to do */
+          free (lang);
+          free (region_code);
+          return current_lang_translations;
+        }
     }
 
+  if (current_lang_info)
+    {
+      if (current_lang_info->script)
+        lang_info.script = strdup (current_lang_info->script);
+      else
+        lang_info.script = 0;
+      memset (&lang_info.variants, 0, sizeof (STRING_LIST));
+      copy_strings (&lang_info.variants, &current_lang_info->variants);
+    }
+
+  lang_info.lang = lang;
+  if (region_code)
+    lang_info.region = region_code;
+  else
+    lang_info.region = 0;
+
   lang_translation
-    = set_lang_info_translation (lang_translations, &info,
+    = set_lang_info_translation (lang_translations, &lang_info,
                                  cache_size);
 
   return lang_translation;

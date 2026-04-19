@@ -468,11 +468,13 @@ sub analyze_documentlanguage_argument($) {
   my $lang_code;
   my $region_code;
 
-  if ($documentlanguage =~ /^([a-z]+)_([A-Z]+)$/) {
-    $lang_code = $1;
-    $region_code = $2;
-  } elsif ($documentlanguage =~ /^([a-z]+)_?$/) {
-    $lang_code = $1;
+  if (defined($documentlanguage)) {
+    if ($documentlanguage =~ /^([a-z]+)_([A-Z]+)$/) {
+      $lang_code = $1;
+      $region_code = $2;
+    } elsif ($documentlanguage =~ /^([a-z]+)_?$/) {
+      $lang_code = $1;
+    }
   }
 
   return $lang_code, $region_code;

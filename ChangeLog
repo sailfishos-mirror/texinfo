@@ -1,3 +1,26 @@
+2026-04-19 Patrice Dumas  <pertusus@free.fr>
+
+	Merge new documentlanguage with current lang translations
+
+	* tta/perl/Texinfo/Translations.pm (new_lang_info_translation):
+	split out of new_documentlanguage_translation.
+
+	* tta/C/main/translations.c (switch_lang_translations),
+	tta/perl/Texinfo/Convert/Utils.pm (switch_lang_translations)
+	(_switch_lang_info_translations): compare lang and region to
+	current_lang_translations.  Merge current_lang_translations lang_info
+	with new documentlanguage information.  add _set_lang_info_translation
+	in Perl.
+
+	* tta/C/structuring_transfo/structuring.c (new_complete_node_menu):
+	allow NULL lang_translations.
+
+	* tta/perl/Texinfo/Common.pm (analyze_documentlanguage_argument):
+	allow undef argument.
+
+	* tta/C/main/translations.c (set_lang_info_translation): inline and
+	remove new_set_translation.  Rename info as lang_info.
+
 2026-04-18 Patrice Dumas  <pertusus@free.fr>
 
 	Add data fields for language scripts and variants

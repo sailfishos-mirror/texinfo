@@ -2320,8 +2320,7 @@ new_complete_node_menu (const NODE_RELATIONS *node_relations,
     }
 
   if (associated_section_relations
-      && associated_section_relations->element->e.c->cmd == CM_top
-      && lang_translations)
+      && associated_section_relations->element->e.c->cmd == CM_top)
     {
       const char *normalized = lookup_extra_string (node_relations->element,
                                                     AI_key_identifier);
