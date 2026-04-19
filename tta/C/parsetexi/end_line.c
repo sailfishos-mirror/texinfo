@@ -1567,7 +1567,10 @@ end_line_misc_line (ELEMENT *current)
                   if (!global_parser_conf->global_documentscript_fixed)
                     {
                       free (global_documentscript);
-                      global_documentscript = strdup (script);
+                      if (!strcmp (script, ""))
+                        global_documentscript = 0;
+                      else
+                        global_documentscript = strdup (script);
                     }
                 }
             }

@@ -4073,7 +4073,11 @@ sub _end_line_misc_line($$$) {
                         __("unknown language script name `%s'"), $text);
           }
           if (!$self->{'set'}->{'documentscript'}) {
-            $self->{'documentscript'} = $script;
+            if ($script eq '') {
+              delete $self->{'documentscript'};
+            } else {
+              $self->{'documentscript'} = $script;
+            }
           }
         }
       }

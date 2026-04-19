@@ -1320,6 +1320,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/languages/documentlanguage_unknown.pl \
   t/results/languages/documentlanguage_unknown/res_html \
   t/results/languages/documentlanguage_unknown/res_info \
+  t/results/languages/documentscript_before_documentlanguage.pl \
+  t/results/languages/documentscript_selection.pl \
   t/results/languages/invalid_documentlanguage.pl \
   t/results/languages/multiple_documentlanguage.pl \
   t/results/languages/multiple_in_preamble.pl \
@@ -1333,6 +1335,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/languages/multiple_lang_chapters_texi2html/res_html \
   t/results/languages/multiple_lang_chapters_texi2html/res_info \
   t/results/languages/simple_documentlanguage.pl \
+  t/results/languages/unknown_documentscript_selection.pl \
   t/results/languages/unknown_language.pl \
   t/results/languages/unknown_region.pl \
   t/results/latex_tests/anchor_before_top.pl \

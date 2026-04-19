@@ -1,5 +1,16 @@
 2026-04-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/end_line.c (end_line_misc_line),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line): do not set
+	documentscript state if it is an empty string.
+
+	* tta/perl/Makefile.tres, tta/perl/t/languages.t
+	(documentscript_selection, documentscript_before_documentlanguage)
+	(unknown_documentscript_selection): add tests of documentscript
+	being set in translated elements extra.
+
+2026-04-19 Patrice Dumas  <pertusus@free.fr>
+
 	Set documentscript extra on translated elements
 
 	* tta/C/main/utils.c (analyze_documentscript_argument): rename

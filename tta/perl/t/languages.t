@@ -255,6 +255,81 @@ Another unknown language. @xref{Top}.
 @node appendix
 @appendix App
 '],
+['documentscript_selection',
+'
+@copying
+@defivar SSS BBB CCC
+@end defivar
+@end copying
+
+@documentlanguage sr
+@documentscript Latn
+
+@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+@defivar some other ivar
+@end defivar
+
+@documentscript
+
+@defivar after reset ivar
+@end defivar
+
+@documentscript Latn
+@documentlanguage az
+
+@defivar script before change
+@end defivar
+'],
+['documentscript_before_documentlanguage',
+'
+@documentscript Latn
+
+@documentlanguage sr
+
+@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+@defivar some other ivar
+@end defivar
+'],
+['unknown_documentscript_selection',
+'
+@copying
+@defivar SSS BBB CCC
+@end defivar
+@end copying
+
+@documentlanguage sr
+@documentscript UkNo
+
+@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+@defivar some other ivar
+@end defivar
+
+@documentscript
+
+@defivar after reset ivar
+@end defivar
+
+@documentscript Bad
+@documentlanguage az
+
+@defivar script before change
+@end defivar
+'],
 );
 
 my $multiple_lang_chapters_text = 
