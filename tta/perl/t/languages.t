@@ -201,10 +201,7 @@ Another unknown language. @xref{Top}.
 @defivar Which Language Selected?
 @end defivar
 
-', # TODO remove COMMAND_LINE_ENCODING, it is not needed anymore now that
-   # non ascii argument is ignored
- {'COMMAND_LINE_ENCODING' => 'UTF-8'},
-   {'COMMAND_LINE_ENCODING' => 'UTF-8'}],
+'],
 ['documentlanguage_selection_accented_region',
 #@documentlanguage fr_让AD
 '
@@ -216,8 +213,7 @@ Another unknown language. @xref{Top}.
 @defivar Which Language Selected?
 @end defivar
 
-', {'COMMAND_LINE_ENCODING' => 'UTF-8',},
-   {'COMMAND_LINE_ENCODING' => 'UTF-8'}],
+',],
 ['documentlanguage_selection_region_unicode',
 '
 @documentlanguage fr_M让
@@ -228,8 +224,7 @@ Another unknown language. @xref{Top}.
 @defivar Which Language Selected?
 @end defivar
 
-', {'COMMAND_LINE_ENCODING' => 'UTF-8'},
-   {'COMMAND_LINE_ENCODING' => 'UTF-8'}],
+',],
 ['documentlanguage_generated_master_menu',
 '@documentlanguage pt
 
