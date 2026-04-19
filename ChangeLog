@@ -1,5 +1,9 @@
 2026-04-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c: move code around.
+
+2026-04-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (build_key_pair_info),
 	tta/C/tree_elements/build_perl_tree_elements.c
 	(build_element_attribute): replace build_extra_misc_args by a call to

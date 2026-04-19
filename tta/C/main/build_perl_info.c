@@ -181,6 +181,57 @@ perl_only_strndup (const char *s, size_t n)
 }
 
 
+
+/* build generic C data to Perl used in tree and elsewhere */
+
+AV *
+build_string_list (const STRING_LIST *strings_list, enum sv_string_type type)
+{
+  AV *av;
+  size_t i;
+
+  dTHX;
+
+  av = newAV ();
+
+  for (i = 0; i < strings_list->number; i++)
+    {
+      const char *value = strings_list->list[i];
+      if (!value)
+        av_push (av, newSV (0));
+      else if (type == svt_char)
+        av_push (av, newSVpv_utf8 (value, 0));
+      else
+        av_push (av, newSVpv_byte (value, 0));
+    }
+  return av;
+}
+
+/* currently unused */
+AV *
+build_elements_list (const CONST_ELEMENT_LIST *list)
+{
+  AV *list_av;
+  SV *sv;
+  size_t i;
+
+  dTHX;
+
+  list_av = newAV ();
+
+  av_unshift (list_av, list->number);
+
+  for (i = 0; i < list->number; i++)
+    {
+      sv = newSVsv ((SV *) list->list[i]->sv);
+      av_store (list_av, i, sv);
+    }
+
+  return list_av;
+}
+
+
+
 /* Build Texinfo tree data and Texinfo tree to Perl */
 
 static HV *
@@ -1023,56 +1074,6 @@ build_tree_to_build (ELEMENT_LIST *tree_to_build)
         }
       tree_to_build->number = 0;
     }
-}
-
-
-
-/* build C data to Perl that appears in or related to the Texinfo tree */
-
-AV *
-build_string_list (const STRING_LIST *strings_list, enum sv_string_type type)
-{
-  AV *av;
-  size_t i;
-
-  dTHX;
-
-  av = newAV ();
-
-  for (i = 0; i < strings_list->number; i++)
-    {
-      const char *value = strings_list->list[i];
-      if (!value)
-        av_push (av, newSV (0));
-      else if (type == svt_char)
-        av_push (av, newSVpv_utf8 (value, 0));
-      else
-        av_push (av, newSVpv_byte (value, 0));
-    }
-  return av;
-}
-
-/* currently unused */
-AV *
-build_elements_list (const CONST_ELEMENT_LIST *list)
-{
-  AV *list_av;
-  SV *sv;
-  size_t i;
-
-  dTHX;
-
-  list_av = newAV ();
-
-  av_unshift (list_av, list->number);
-
-  for (i = 0; i < list->number; i++)
-    {
-      sv = newSVsv ((SV *) list->list[i]->sv);
-      av_store (list_av, i, sv);
-    }
-
-  return list_av;
 }
 
 
