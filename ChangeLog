@@ -1,3 +1,10 @@
+2026-04-19  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/dir.c (build_dir_node): avoid crash if dir file is malformed
+	or couldn't be loaded.
+	
+	Report from Hilmar Preuße.
+
 2026-04-14 Patrice Dumas  <pertusus@free.fr>
 
 	Use BCP 47 language format in output formats

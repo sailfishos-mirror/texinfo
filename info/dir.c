@@ -50,13 +50,16 @@ build_dir_node (void)
     goto emergency_dir;
 
   FILE_BUFFER *dir_fb = info_find_file (dir_filename);
+  if (!dir_fb)
+    goto emergency_dir;
+
   TAG **dir_tag = info_get_node_tag_of_file_buffer (dir_fb, "Top");
+  if (!dir_tag)
+    goto emergency_dir;
+
   NODE *dir_node = info_node_of_tag_fast (dir_fb, dir_tag);
   if (!dir_node)
-    {
-      free (dir_filename);
-      goto emergency_dir;
-    }
+    goto emergency_dir;
 
   struct text_buffer buf;
   text_buffer_init (&buf);
@@ -104,6 +107,8 @@ build_dir_node (void)
   return dir_node;
 
 emergency_dir:
+  free (dir_filename);
+
   dir_node = info_create_node ();
   dir_node->nodename = xstrdup ("Top");
   dir_node->fullpath = xstrdup ("dir");
