@@ -365,6 +365,8 @@ html_free_converter (CONVERTER *self)
      html_free_direction_icons_array */
   free (self->main_units_direction_names);
 
+  clear_c_hashmap (&self->units_direction_names_index);
+
   free_translation_cache (self->translation_cache);
 
   free (self->date_in_header);
