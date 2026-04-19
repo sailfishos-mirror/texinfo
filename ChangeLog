@@ -1,5 +1,12 @@
 2026-04-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (build_key_pair_info),
+	tta/C/tree_elements/build_perl_tree_elements.c
+	(build_element_attribute): replace build_extra_misc_args by a call to
+	build_string_list.  Remove build_extra_misc_args.
+
+2026-04-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/languages.t (invalid_documentlanguage)
 	(documentlanguage_selection_accented_region)
 	(documentlanguage_selection_region_unicode): do not set

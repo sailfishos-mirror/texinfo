@@ -42,7 +42,6 @@ AV *build_section_relations_list (const SECTION_RELATIONS_LIST *list);
 AV *build_node_relations_list (const NODE_RELATIONS_LIST *list);
 AV *build_heading_relations_list (const HEADING_RELATIONS_LIST *list);
 
-SV *build_extra_misc_args (const STRING_LIST *l);
 SV *build_extra_index_entry (const INDEX_ENTRY_LOCATION *entry_loc);
 
 void pass_source_info_hash (const SOURCE_INFO *source_info, HV *hv);

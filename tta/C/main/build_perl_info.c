@@ -388,28 +388,6 @@ build_perl_directions (const ELEMENT * const *e_l, int avoid_recursion)
   return sv;
 }
 
-/* TODO call build_string_list */
-SV *
-build_extra_misc_args (const STRING_LIST *l)
-{
-  size_t j;
-  AV *av;
-
-  dTHX;
-
-  av = newAV ();
-  av_unshift (av, l->number);
-
-  /* A small array of strings. */
-  for (j = 0; j < l->number; j++)
-    {
-      SV *sv = newSVpv_utf8 (l->list[j],
-                             strlen (l->list[j]));
-      av_store (av, j, sv);
-    }
-  return newRV_noinc ((SV *)av);
-}
-
 SV *
 build_extra_index_entry (const INDEX_ENTRY_LOCATION *entry_loc)
 {
@@ -522,7 +500,8 @@ build_key_pair_info (const KEY_PAIR *k, int avoid_recursion)
       }
     case extra_misc_args:
       {
-      return build_extra_misc_args (k->k.strings_list);
+      AV *av = build_string_list (k->k.strings_list, svt_char);
+      return newRV_noinc ((SV *)av);
       break;
       }
     case extra_index_entry:
@@ -1048,7 +1027,7 @@ build_tree_to_build (ELEMENT_LIST *tree_to_build)
 
 
 
-/* build often used C data to Perl */
+/* build C data to Perl that appears in or related to the Texinfo tree */
 
 AV *
 build_string_list (const STRING_LIST *strings_list, enum sv_string_type type)
@@ -1095,6 +1074,10 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
 
   return list_av;
 }
+
+
+
+/* languages and translations */
 
 HV *
 build_lang_info (const DOCUMENT_LANG_INFO *lang_info)

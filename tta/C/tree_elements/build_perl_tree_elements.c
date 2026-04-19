@@ -149,7 +149,10 @@ build_element_attribute (const ELEMENT *element, const char *attribute,
           {
           const KEY_PAIR *k = lookup_extra (element, key);
           if (k)
-            return build_extra_misc_args (k->k.strings_list);
+            {
+              AV *av = build_string_list (k->k.strings_list, svt_char);
+              return newRV_noinc ((SV *)av);
+            }
           break;
           }
         case extra_index_entry:
