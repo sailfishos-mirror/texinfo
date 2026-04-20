@@ -9,8 +9,8 @@ $result_tree_text{'macro_end_call_in_ignored_inlineraw'} = '*document_root C1
  *before_node_section C3
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{startraw}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: startraw\\n}
    {raw:Para @inlineraw{tex, in@something\\n}

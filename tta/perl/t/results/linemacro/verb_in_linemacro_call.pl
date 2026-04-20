@@ -9,8 +9,8 @@ $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
  *before_node_section C3
   *@linemacro C6 l1
   |EXTRA
+  |formal_args:A{a|b|c|d}
   |macro_name:{mycommand}
-  |misc_args:A{a|b|c|d}
    *arguments_line C1
     {macro_line: mycommand {a, b, c, d}\\n}
    {raw:first \\a\\\\n}

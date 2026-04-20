@@ -9,8 +9,8 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
  *before_node_section C13
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{openbrace}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: openbrace\\n}
    {raw:(\\n}
@@ -24,8 +24,8 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l5
   |EXTRA
+  |formal_args:A{}
   |macro_name:{openbracetext}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: openbracetext\\n}
    {raw:(begin\\n}
@@ -39,8 +39,8 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l9
   |EXTRA
+  |formal_args:A{}
   |macro_name:{manualnameend}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: manualnameend\\n}
    {raw:last\\n}
@@ -54,8 +54,8 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l13
   |EXTRA
+  |formal_args:A{}
   |macro_name:{manualnameendbrace}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: manualnameendbrace\\n}
    {raw:last)\\n}
@@ -69,8 +69,8 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l17
   |EXTRA
+  |formal_args:A{}
   |macro_name:{manualnameendbracespace}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: manualnameendbracespace\\n}
    {raw:last)   \\n}
@@ -84,8 +84,8 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l21
   |EXTRA
+  |formal_args:A{}
   |macro_name:{manualnameendbracespacetext}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: manualnameendbracespacetext\\n}
    {raw:last)  mynode\\n}

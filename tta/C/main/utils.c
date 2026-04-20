@@ -2548,7 +2548,7 @@ element_value_equivalent (const ELEMENT *element, enum command_id *cmd_out)
   if (cmd == CM_set || cmd == CM_clear)
     {
       const STRING_LIST *misc_args
-        = lookup_extra_misc_args (element, AI_key_misc_args);
+        = lookup_extra_string_list (element, AI_key_misc_args);
       if (misc_args && misc_args->number > 0)
         {
           if (!strcmp (misc_args->list[0], "txicodequoteundirected"))
@@ -2617,7 +2617,7 @@ informative_command_value (const ELEMENT *element, enum command_id *cmd_out)
   text_arg = lookup_extra_string (element, AI_key_text_arg);
   if (text_arg)
     return text_arg;
-  misc_args = lookup_extra_misc_args (element, AI_key_misc_args);
+  misc_args = lookup_extra_string_list (element, AI_key_misc_args);
   if (misc_args && misc_args->number > 0)
     return misc_args->list[0];
   if (builtin_command_data[cmd].flags & CF_line

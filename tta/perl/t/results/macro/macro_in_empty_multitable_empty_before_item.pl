@@ -9,8 +9,8 @@ $result_tree_text{'macro_in_empty_multitable_empty_before_item'} = '*document_ro
  *before_node_section C3
   *@macro C2 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{emptymacro}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: emptymacro\\n}
    *@end C1 l2

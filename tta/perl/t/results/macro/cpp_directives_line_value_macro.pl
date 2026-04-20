@@ -12,8 +12,8 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
   *preamble_before_content C2
    *@macro C3 cpp_directives_line_value_macro.texi:l2
    |EXTRA
+   |formal_args:A{}
    |macro_name:{vvv}
-   |misc_args:A{}
     *arguments_line C1
      {macro_line: vvv {}\\n}
     {raw:#line 30 "toto"\\n}
@@ -35,8 +35,8 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 cpp_directives_line_value_macro.texi:l8
   |EXTRA
+  |formal_args:A{}
   |macro_name:{machash}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: machash {}\\n}
    {raw:#\\n}
@@ -58,8 +58,8 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 cpp_directives_line_value_macro.texi:l14
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{numberfileflag}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: numberfileflag {arg}\\n}
    {raw:\\arg\\ "titi" 3\\arg\\\\n}

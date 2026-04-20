@@ -9,8 +9,8 @@ $result_tree_text{'macro_expansion_end_in_ignored_ifset_content'} = '*document_r
  *before_node_section C2
   *@macro C4 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{beginifsetcontent}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: beginifsetcontent\\n}
    {raw:@ifset a\\n}

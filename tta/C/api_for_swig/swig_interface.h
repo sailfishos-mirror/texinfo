@@ -44,6 +44,7 @@ char *txi_ext_string_list_string_by_index (STRING_LIST *string_list,
 int txi_ext_string_list_strings_number (STRING_LIST *string_list);
 
 const STRING_LIST *txi_ext_element_misc_args (ELEMENT *element);
+const STRING_LIST *txi_ext_element_formal_args (ELEMENT *element);
 
 INDEX_ENTRY *txi_ext_element_index_entry (DOCUMENT *document,
                                           ELEMENT *element);

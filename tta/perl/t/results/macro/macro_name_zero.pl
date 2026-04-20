@@ -9,8 +9,8 @@ $result_tree_text{'macro_name_zero'} = '*document_root C1
  *before_node_section C3
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{0}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: 0\\n}
    {raw:in macro\\n}

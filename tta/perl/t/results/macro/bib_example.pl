@@ -797,8 +797,8 @@ $result_tree_text{'bib_example'} = '*document_root C9
    {empty_line:\\n}
    *@macro C3 my-bib-macros.texi:l162
    |EXTRA
+   |formal_args:A{node}
    |macro_name:{mybibsetrefnode}
-   |misc_args:A{node}
     *arguments_line C1
      {macro_line: mybibsetrefnode{node}\\n}
     {raw:@set mybibrefnode \\node\\\\n}
@@ -823,8 +823,8 @@ $result_tree_text{'bib_example'} = '*document_root C9
    {empty_line:\\n}
    *@macro C3 my-bib-macros.texi:l169
    |EXTRA
+   |formal_args:A{}
    |macro_name:{mybibnode}
-   |misc_args:A{}
     *arguments_line C1
      {macro_line: mybibnode{}\\n}
     {raw:@value{mybibrefnode}\\n}
@@ -849,8 +849,8 @@ $result_tree_text{'bib_example'} = '*document_root C9
    {empty_line:\\n}
    *@macro C7 my-bib-macros.texi:l176
    |EXTRA
+   |formal_args:A{node}
    |macro_name:{mybibusetable}
-   |misc_args:A{node}
     *arguments_line C1
      {macro_line: mybibusetable{node}\\n}
     {raw:@set mybibtable true\\n}
@@ -879,8 +879,8 @@ $result_tree_text{'bib_example'} = '*document_root C9
    {empty_line:\\n}
    *@macro C7 my-bib-macros.texi:l187
    |EXTRA
+   |formal_args:A{node}
    |macro_name:{mybibuselist}
-   |misc_args:A{node}
     *arguments_line C1
      {macro_line: mybibuselist{node}\\n}
     {raw:@set mybiblist true\\n}
@@ -905,8 +905,8 @@ $result_tree_text{'bib_example'} = '*document_root C9
    {empty_line:\\n}
    *@macro C10 my-bib-macros.texi:l198
    |EXTRA
+   |formal_args:A{ref}
    |macro_name:{mybibcite}
-   |misc_args:A{ref}
     *arguments_line C1
      {macro_line: mybibcite{ref}\\n}
     {raw:@ifclear mybibrefnode\\n}
@@ -927,8 +927,8 @@ $result_tree_text{'bib_example'} = '*document_root C9
    {empty_line:\\n}
    *@macro C3 my-bib-macros.texi:l209
    |EXTRA
+   |formal_args:A{node|ref}
    |macro_name:{mybibmakeref}
-   |misc_args:A{node|ref}
     *arguments_line C1
      {macro_line: mybibmakeref{node, ref}\\n}
     {raw:(See item [\\ref\\] in @ref{\\node\\, \\ref\\}.)\\n}
@@ -948,8 +948,8 @@ $result_tree_text{'bib_example'} = '*document_root C9
    {empty_line:\\n}
    *@macro C16 my-bib-macros.texi:l215
    |EXTRA
+   |formal_args:A{ref}
    |macro_name:{mybibitem}
-   |misc_args:A{ref}
     *arguments_line C1
      {macro_line: mybibitem{ref}\\n}
     {raw:@ifclear mybiblist\\n}

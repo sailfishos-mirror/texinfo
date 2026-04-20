@@ -168,7 +168,7 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
             free (element_str);
             break;
           }
-        case extra_misc_args:
+        case extra_string_list:
           {
             size_t j;
             const STRING_LIST *l = k->k.strings_list;

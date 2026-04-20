@@ -9,8 +9,8 @@ $result_tree_text{'complex_argument'} = '*document_root C1
  *before_node_section C16
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{macrotwo}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: macrotwo{arg}\\n}
    {raw:coucou \\arg\\ after arg\\n}
@@ -24,8 +24,8 @@ $result_tree_text{'complex_argument'} = '*document_root C1
   {empty_line:\\n}
   *@macro C6 l5
   |EXTRA
+  |formal_args:A{}
   |macro_name:{macrofour}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: macrofour {}\\n}
    {raw:1\\n}
@@ -42,8 +42,8 @@ $result_tree_text{'complex_argument'} = '*document_root C1
   {empty_line:\\n}
   *@macro C4 l12
   |EXTRA
+  |formal_args:A{text|arg}
   |macro_name:{macrothree}
-  |misc_args:A{text|arg}
    *arguments_line C1
     {macro_line: macrothree{text, arg}\\n}
    {raw:\\text\\\\n}
@@ -133,8 +133,8 @@ $result_tree_text{'complex_argument'} = '*document_root C1
      {spaces_after_argument:\\n}
   *@macro C3 l38:@macrothree
   |EXTRA
+  |formal_args:A{truc}
   |macro_name:{macroseven}
-  |misc_args:A{truc}
    *arguments_line C1
     {macro_line: macroseven {truc}\\n}
    {raw:@emph{\\truc\\}\\n}

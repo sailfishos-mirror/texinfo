@@ -9,8 +9,8 @@ $result_tree_text{'closing_brace_in_macro_call_in_ignored_inline'} = '*document_
  *before_node_section C5
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{closebrace}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: closebrace\\n}
    {raw:}\\n}

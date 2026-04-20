@@ -9,8 +9,8 @@ $result_tree_text{'macro_name_with_hyphen'} = '*document_root C1
  *before_node_section C3
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{arg-one|arg2}
   |macro_name:{macro-one}
-  |misc_args:A{arg-one|arg2}
    *arguments_line C1
     {macro_line: macro-one {arg-one, arg2}\\n}
    {raw:This \\arg-one\\ and that \\arg2\\.\\n}

@@ -11,8 +11,8 @@ $result_tree_text{'text_before_after'} = '*document_root C1
    {before }
    *@macro C3 l1
    |EXTRA
+   |formal_args:A{}
    |macro_name:{mymacro}
-   |misc_args:A{}
     *arguments_line C1
      {macro_line: mymacro\\n}
     {raw:in macro\\n}

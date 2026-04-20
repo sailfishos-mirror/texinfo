@@ -9266,7 +9266,7 @@ html_convert_sp_command (CONVERTER *self, const enum command_id cmd,
                          const HTML_ARGS_FORMATTED *args_formatted,
                          const char *content, TEXT *result)
 {
-  const STRING_LIST *misc_args = lookup_extra_misc_args (element,
+  const STRING_LIST *misc_args = lookup_extra_string_list (element,
                                                 AI_key_misc_args);
   unsigned int sp_nr = 1;
   unsigned int i;
@@ -9717,7 +9717,7 @@ html_convert_tab_command (CONVERTER *self, const enum command_id cmd,
   if (columnfractions)
     {
       const STRING_LIST *cf_misc_args
-         = lookup_extra_misc_args (columnfractions, AI_key_misc_args);
+         = lookup_extra_string_list (columnfractions, AI_key_misc_args);
       if (cf_misc_args && cf_misc_args->number >= cell_nr)
         {
           const char *fraction_str
@@ -10062,7 +10062,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   if (html_in_string (self))
     return;
 
-  misc_args = lookup_extra_misc_args (element, AI_key_misc_args);
+  misc_args = lookup_extra_string_list (element, AI_key_misc_args);
   if (misc_args && misc_args->number > 0)
     index_name = misc_args->list[0];
   else

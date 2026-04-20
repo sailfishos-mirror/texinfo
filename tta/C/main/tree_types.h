@@ -45,7 +45,7 @@ enum extra_type {
    extra_contents,
    extra_container,
    extra_directions,
-   extra_misc_args,
+   extra_string_list,
    extra_index_entry, /* index name and position in index */
    extra_string,
    extra_integer,
@@ -139,7 +139,8 @@ enum string_info_type {
   ai_key(manual_content, container, 0) \
   ai_key(node_content, container, 0) \
   \
-  ai_key(misc_args, misc_args, 0) \
+  ai_key(formal_args, string_list, 0) \
+  ai_key(misc_args, string_list, 0) \
   \
   ai_key(index_entry, index_entry, 0) \
   ai_key(associated_index_entry, index_entry, 0) \
@@ -215,7 +216,7 @@ typedef struct KEY_PAIR {
       char *string;
       int integer;
       INDEX_ENTRY_LOCATION *index_entry;
-      /* for extra_misc_args */
+      /* for extra_string_list */
       STRING_LIST *strings_list;
       const struct ELEMENT **directions;
     } k;

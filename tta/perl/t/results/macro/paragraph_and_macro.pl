@@ -9,8 +9,8 @@ $result_tree_text{'paragraph_and_macro'} = '*document_root C1
  *before_node_section C19
   *@macro C2 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{aempty}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: aempty\\n}
    *@end C1 l2
@@ -23,8 +23,8 @@ $result_tree_text{'paragraph_and_macro'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l4
   |EXTRA
+  |formal_args:A{}
   |macro_name:{aspace}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: aspace\\n}
    {raw:   \\n}
@@ -38,8 +38,8 @@ $result_tree_text{'paragraph_and_macro'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l8
   |EXTRA
+  |formal_args:A{}
   |macro_name:{word}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: word\\n}
    {raw:a word\\n}

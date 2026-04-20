@@ -29,8 +29,8 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
   {empty_line:\\n}
   *@macro C3 l4
   |EXTRA
+  |formal_args:A{}
   |macro_name:{othermacro}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: othermacro{}\\n}
    {raw:Other macro\\n}

@@ -10,8 +10,8 @@ $result_tree_text{'implicit_quoting_one_arg'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l2
   |EXTRA
+  |formal_args:A{a}
   |macro_name:{FIXAME}
-  |misc_args:A{a}
    *arguments_line C1
     {macro_line: FIXAME{a}\\n}
    {raw:@strong{FIXAME: \\a\\}\\n}

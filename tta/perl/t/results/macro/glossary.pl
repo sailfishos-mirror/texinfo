@@ -22,8 +22,8 @@ $result_tree_text{'glossary'} = '*document_root C5
    {empty_line:\\n}
    *@macro C3 glossary.texi:l5
    |EXTRA
+   |formal_args:A{}
    |macro_name:{glossarytext}
-   |misc_args:A{}
     *arguments_line C1
      {macro_line: glossarytext\\n}
     {raw:@table @asis\\n}
@@ -37,8 +37,8 @@ $result_tree_text{'glossary'} = '*document_root C5
    {empty_line:\\n}
    *@macro C5 glossary.texi:l9
    |EXTRA
+   |formal_args:A{}
    |macro_name:{glossary}
-   |misc_args:A{}
     *arguments_line C1
      {macro_line: glossary\\n}
     {raw:@glossarytext\\n}
@@ -54,8 +54,8 @@ $result_tree_text{'glossary'} = '*document_root C5
    {empty_line:\\n}
    *@macro C19 glossary.texi:l15
    |EXTRA
+   |formal_args:A{id|name|text}
    |macro_name:{gentry}
-   |misc_args:A{id|name|text}
     *arguments_line C1
      {macro_line: gentry {id, name, text}\\n}
     {raw:@ifhtml\\n}
@@ -186,8 +186,8 @@ $result_tree_text{'glossary'} = '*document_root C5
      {spaces_after_argument:\\n}
    *@macro C8 glossary.texi:l42:@gentry
    |EXTRA
+   |formal_args:A{glossary}
    |macro_name:{expandglossary}
-   |misc_args:A{glossary}
    >SOURCEMARKS
    >macro_expansion<start;2>
     >*macro_call@expandglossary C1
@@ -220,8 +220,8 @@ $result_tree_text{'glossary'} = '*document_root C5
      {spaces_after_argument:\\n}
    *@macro C5 glossary.texi:l42:@expandglossary
    |EXTRA
+   |formal_args:A{}
    |macro_name:{glossarytext}
-   |misc_args:A{}
    >SOURCEMARKS
    >macro_expansion<end;1>
     *arguments_line C1
@@ -295,8 +295,8 @@ $result_tree_text{'glossary'} = '*document_root C5
      {spaces_after_argument:\\n}
    *@macro C8 glossary.texi:l43:@gentry
    |EXTRA
+   |formal_args:A{glossary}
    |macro_name:{expandglossary}
-   |misc_args:A{glossary}
    >SOURCEMARKS
    >macro_expansion<start;4>
     >*macro_call@expandglossary C1
@@ -329,8 +329,8 @@ $result_tree_text{'glossary'} = '*document_root C5
      {spaces_after_argument:\\n}
    *@macro C5 glossary.texi:l43:@expandglossary
    |EXTRA
+   |formal_args:A{}
    |macro_name:{glossarytext}
-   |misc_args:A{}
    >SOURCEMARKS
    >macro_expansion<end;3>
     *arguments_line C1

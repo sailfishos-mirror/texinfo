@@ -17,8 +17,8 @@ $result_tree_text{'definfoenclose_replaced_by_macro'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l3
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{phoo}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: phoo {arg}\\n}
    {raw:||\\arg\\||\\n}

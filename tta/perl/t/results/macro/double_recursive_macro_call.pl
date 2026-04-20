@@ -10,8 +10,8 @@ $result_tree_text{'double_recursive_macro_call'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l2
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{macone}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: macone {arg}\\n}
    {raw:@mactwo{}\\n}
@@ -25,8 +25,8 @@ $result_tree_text{'double_recursive_macro_call'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l6
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{mactwo}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: mactwo{arg}\\n}
    {raw:@macone{}\\n}

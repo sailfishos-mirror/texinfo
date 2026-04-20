@@ -1430,7 +1430,7 @@ sub _parse_macro_command_line($$$$$;$) {
   print STDERR "MACRO \@$command $macro_name\n"
                            if ($self->{'conf'}->{'DEBUG'});
 
-  $macro->{'extra'} = {'macro_name' => $macro_name, 'misc_args' => []};
+  $macro->{'extra'} = {'macro_name' => $macro_name, 'formal_args' => []};
 
   my $args_def = $line;
   $args_def =~ s/^\s*//;
@@ -1441,7 +1441,7 @@ sub _parse_macro_command_line($$$$$;$) {
   }
 
   foreach my $formal_arg (@args) {
-    push @{$macro->{'extra'}->{'misc_args'}}, $formal_arg;
+    push @{$macro->{'extra'}->{'formal_args'}}, $formal_arg;
     if ($formal_arg !~ /^[\w\-]+$/) {
       _line_error($self, sprintf(__("bad or empty \@%s formal argument: %s"),
                                  $command, $formal_arg), $source_info);
@@ -2779,7 +2779,7 @@ sub _expand_macro_arguments($$$$$) {
     = Texinfo::TreeElement::new({'text' => '',
                                  'type' => 'macro_call_arg_text'});
 
-  my $args_total = scalar(@{$macro->{'extra'}->{'misc_args'}});
+  my $args_total = scalar(@{$macro->{'extra'}->{'formal_args'}});
   my $name = $macro->{'extra'}->{'macro_name'};
 
   my $source_info_orig = $source_info;
@@ -2902,7 +2902,7 @@ sub _expand_linemacro_arguments($$$$$) {
                            'type' => 'spaces_before_argument'});
   }
   push @{$argument->{'contents'}}, $argument_content;
-  my $args_total = scalar(@{$macro->{'extra'}->{'misc_args'}});
+  my $args_total = scalar(@{$macro->{'extra'}->{'formal_args'}});
   my $name = $macro->{'extra'}->{'macro_name'};
 
   while (1) {
@@ -3035,7 +3035,7 @@ sub _expand_linemacro_arguments($$$$$) {
 sub _lookup_macro_parameter($$) {
   my ($macro, $name) = @_;
 
-  my $args_array = $macro->{'element'}->{'extra'}->{'misc_args'};
+  my $args_array = $macro->{'element'}->{'extra'}->{'formal_args'};
   my $args_total = scalar(@$args_array);
   if ($args_total > 0) {
     my $arg_index;
@@ -5444,7 +5444,7 @@ sub _handle_macro($$$$$$) {
      = _expand_linemacro_arguments($self, $expanded_macro, $line, $source_info,
                                    $macro_call_element);
   } else {
-    my $args_number = scalar(@{$expanded_macro->{'extra'}->{'misc_args'}});
+    my $args_number = scalar(@{$expanded_macro->{'extra'}->{'formal_args'}});
     if ($line =~ /^\s*{/) { # } macro with args
       if ($line =~ s/^(\s+)//) {
         my $spaces_element = Texinfo::TreeElement::new({'text' => $1,
@@ -9704,9 +9704,12 @@ I<code> is set depending on the context and C<@kbdinputstyle>.
 
 =item C<@macro>
 
+=item C<@linemacro>
+
 I<macro_name> holds the macro name.
 I<invalid_syntax> is set if there was an error on the C<@macro>
-line.
+line.  I<formal_args> is an array containing the name of the formal
+arguments.
 
 =item C<menu_entry_node>
 

@@ -9,8 +9,8 @@ $result_tree_text{'protection_of_end_of_line_by_command'} = '*document_root C1
  *before_node_section C3
   *@linemacro C3 l1
   |EXTRA
+  |formal_args:A{one}
   |macro_name:{lm}
-  |misc_args:A{one}
    *arguments_line C1
     {macro_line: lm {one}\\n}
    {raw:\\one\\bullet{}\\n}

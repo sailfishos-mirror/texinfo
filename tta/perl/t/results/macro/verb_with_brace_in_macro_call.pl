@@ -10,8 +10,8 @@ $result_tree_text{'verb_with_brace_in_macro_call'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l2
   |EXTRA
+  |formal_args:A{a|b|c}
   |macro_name:{mycommand}
-  |misc_args:A{a|b|c}
    *arguments_line C1
     {macro_line: mycommand {a, b, c}\\n}
    {raw:\\a\\|\\b\\|\\c\\\\n}

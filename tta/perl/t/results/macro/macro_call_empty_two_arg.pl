@@ -9,8 +9,8 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
  *before_node_section C24
   *@macro C4 l1
   |EXTRA
+  |formal_args:A{aa|bb}
   |macro_name:{twoa}
-  |misc_args:A{aa|bb}
    *arguments_line C1
     {macro_line: twoa {aa, bb}\\n}
    {raw:first \\aa\\,\\n}

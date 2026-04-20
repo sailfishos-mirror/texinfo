@@ -9,8 +9,8 @@ $result_tree_text{'macro_in_invalid_documentencoding'} = '*document_root C1
  *before_node_section C2
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{badmacro}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: badmacro\\n}
    {raw:badm\\n}

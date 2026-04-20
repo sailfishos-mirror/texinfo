@@ -9,8 +9,8 @@ $result_tree_text{'test_image'} = '*document_root C3
  *before_node_section C4
   *@macro C5 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{files-char}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: files-char\\n}
    {raw:@image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,,,,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}\\n}

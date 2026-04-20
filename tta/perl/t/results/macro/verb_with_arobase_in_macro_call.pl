@@ -9,8 +9,8 @@ $result_tree_text{'verb_with_arobase_in_macro_call'} = '*document_root C1
  *before_node_section C3
   *@macro C4 l1
   |EXTRA
+  |formal_args:A{a|b}
   |macro_name:{showarg}
-  |misc_args:A{a|b}
    *arguments_line C1
     {macro_line: showarg {a, b}\\n}
    {raw:first: \\a\\\\n}

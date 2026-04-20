@@ -9,8 +9,8 @@ $result_tree_text{'ignored_macro_definition'} = '*document_root C1
  *before_node_section C6
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{mymacro}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: mymacro{}\\n}
    {raw:outside\\n}

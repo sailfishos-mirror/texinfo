@@ -20,8 +20,8 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
   {empty_line:\\n}
   *@linemacro C3 l3
   |EXTRA
+  |formal_args:A{a|b|rest}
   |macro_name:{inside}
-  |misc_args:A{a|b|rest}
    *arguments_line C1
     {macro_line: inside {a, b, rest}\\n}
    {raw:inside {\\a\\ operator \\b\\} \\rest\\\\n}
@@ -35,8 +35,8 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
   {empty_line:\\n}
   *@linemacro C4 l7
   |EXTRA
+  |formal_args:A{one|two|three}
   |macro_name:{outside}
-  |misc_args:A{one|two|three}
    *arguments_line C1
     {macro_line: outside {one, two, three}\\n}
    {raw:@defline \\one\\ {\\two\\} \\three\\\\n}

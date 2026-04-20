@@ -31,8 +31,8 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
   {empty_line:\\n}
   *@macro C3 l4
   |EXTRA
+  |formal_args:A{TEXT}
   |macro_name:{funindex}
-  |misc_args:A{TEXT}
    *arguments_line C1
     {macro_line: funindex {TEXT}\\n}
    {raw:@findex \\TEXT\\\\n}

@@ -9,8 +9,8 @@ $result_tree_text{'macro_expansion_end_in_conditional_line'} = '*document_root C
  *before_node_section C5
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{begincond}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: begincond\\n}
    {raw:@ifset fl\\n}

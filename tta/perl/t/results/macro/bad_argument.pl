@@ -23,9 +23,9 @@ $result_tree_text{'bad_argument'} = '*document_root C1
   {empty_line:\\n}
   *@rmacro C3 l5
   |EXTRA
+  |formal_args:A{}
   |invalid_syntax:{1}
   |macro_name:{abar}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: abar aaa\\n}
    {raw:in\\n}
@@ -39,9 +39,9 @@ $result_tree_text{'bad_argument'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l9
   |EXTRA
+  |formal_args:A{ggg}
   |invalid_syntax:{1}
   |macro_name:{aftername}
-  |misc_args:A{ggg}
    *arguments_line C1
     {macro_line: aftername {ggg} more  \\n}
    {raw:in macro\\n}

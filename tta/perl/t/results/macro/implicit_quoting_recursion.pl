@@ -9,8 +9,8 @@ $result_tree_text{'implicit_quoting_recursion'} = '*document_root C1
  *before_node_section C3
   *@rmacro C3 l1
   |EXTRA
+  |formal_args:A{a|b}
   |macro_name:{cat}
-  |misc_args:A{a|b}
    *arguments_line C1
     {macro_line: cat{a,b}\\n}
    {raw:\\a\\\\b\\\\n}

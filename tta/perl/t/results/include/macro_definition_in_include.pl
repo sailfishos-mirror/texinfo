@@ -19,8 +19,8 @@ $result_tree_text{'macro_definition_in_include'} = '*document_root C1
      >{spaces_after_argument:\\n}
   *@macro C3 macro_included.texi:l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{themacro}
-  |misc_args:A{}
   >SOURCEMARKS
   >include<end;1>
    *arguments_line C1

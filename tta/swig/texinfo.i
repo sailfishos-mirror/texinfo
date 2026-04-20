@@ -527,6 +527,8 @@ INDEX *txi_ext_index_entry_index_info (DOCUMENT *document,
 %rename(element_misc_args) txi_ext_element_misc_args;
 const STRING_LIST *txi_ext_element_misc_args (ELEMENT *element);
 
+%rename(element_formal_args) txi_ext_element_formal_args;
+const STRING_LIST *txi_ext_element_formal_args (ELEMENT *element);
 
 // New element and element modification
 

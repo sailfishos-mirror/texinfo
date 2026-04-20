@@ -78,8 +78,8 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
     {spaces_after_argument:\\n}
   *@macro C3 l15
   |EXTRA
+  |formal_args:A{g}
   |macro_name:{aaa}
-  |misc_args:A{g}
    *arguments_line C1
     {macro_line: aaa {g}\\n}
    {raw:ll /g/\\n}

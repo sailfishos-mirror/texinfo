@@ -9,8 +9,8 @@ $result_tree_text{'zero_argument_comment'} = '*document_root C1
  *before_node_section C3
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{foo}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: foo {}@c foo c\\n}
    {raw:in foo\\n}
@@ -24,8 +24,8 @@ $result_tree_text{'zero_argument_comment'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l5
   |EXTRA
+  |formal_args:A{}
   |macro_name:{abar}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: abar@comment bar comment\\n}
    {raw:in bar\\n}

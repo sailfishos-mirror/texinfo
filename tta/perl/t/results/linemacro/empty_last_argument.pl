@@ -16,8 +16,8 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
     {spaces_after_argument:\\n}
   *@linemacro C4 l2
   |EXTRA
+  |formal_args:A{symbol|rest}
   |macro_name:{defbuiltin}
-  |misc_args:A{symbol|rest}
    *arguments_line C1
     {macro_line: defbuiltin {symbol, rest}\\n}
    {raw:@BIindex \\symbol\\\\n}

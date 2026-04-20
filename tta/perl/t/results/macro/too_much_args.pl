@@ -9,8 +9,8 @@ $result_tree_text{'too_much_args'} = '*document_root C1
  *before_node_section C3
   *@macro C4 l1
   |EXTRA
+  |formal_args:A{first|second}
   |macro_name:{twoargs}
-  |misc_args:A{first|second}
    *arguments_line C1
     {macro_line: twoargs {first, second}\\n}
    {raw:first arg: \\first\\\\n}

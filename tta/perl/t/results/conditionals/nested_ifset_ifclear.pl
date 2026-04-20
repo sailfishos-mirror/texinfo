@@ -10,8 +10,8 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
   {empty_line:\\n}
   *@macro C10 l2
   |EXTRA
+  |formal_args:A{}
   |macro_name:{conditionals}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: conditionals{}\\n}
    {raw:@ifset somevar\\n}

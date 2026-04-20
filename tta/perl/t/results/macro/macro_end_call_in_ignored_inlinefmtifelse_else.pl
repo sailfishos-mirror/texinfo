@@ -9,8 +9,8 @@ $result_tree_text{'macro_end_call_in_ignored_inlinefmtifelse_else'} = '*document
  *before_node_section C3
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{endcallinignoredinlineelse}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: endcallinignoredinlineelse\\n}
    {raw:own, ignored\\n}

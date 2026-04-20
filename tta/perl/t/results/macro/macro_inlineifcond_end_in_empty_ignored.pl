@@ -9,8 +9,8 @@ $result_tree_text{'macro_inlineifcond_end_in_empty_ignored'} = '*document_root C
  *before_node_section C4
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{setargendignored}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: setargendignored\\n}
    {raw:ag,\\n}

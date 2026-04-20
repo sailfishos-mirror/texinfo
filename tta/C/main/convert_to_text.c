@@ -974,7 +974,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           else if (data_cmd == CM_sp)
             {
               const STRING_LIST *misc_args
-                 = lookup_extra_misc_args (element, AI_key_misc_args);
+                 = lookup_extra_string_list (element, AI_key_misc_args);
               /* misc_args can be 0 with invalid args */
               if (misc_args && misc_args->number > 0)
                 {

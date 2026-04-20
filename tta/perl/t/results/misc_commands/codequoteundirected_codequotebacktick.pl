@@ -10,8 +10,8 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
   *preamble_before_content C8
    *@macro C8 l1
    |EXTRA
+   |formal_args:A{}
    |macro_name:{quotes}
-   |misc_args:A{}
     *arguments_line C1
      {macro_line: quotes\\n}
     {raw:``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{} @*\\n}
@@ -30,8 +30,8 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
    {empty_line:\\n}
    *@macro C19 l10
    |EXTRA
+   |formal_args:A{}
    |macro_name:{allquotes}
-   |misc_args:A{}
     *arguments_line C1
      {macro_line: allquotes\\n}
     {raw:@quotes{}\\n}

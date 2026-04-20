@@ -9,8 +9,8 @@ $result_tree_text{'macro_in_def_delimiters'} = '*document_root C1
  *before_node_section C3
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{string}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: string\\n}
    {raw:aa(b *c)\\n}

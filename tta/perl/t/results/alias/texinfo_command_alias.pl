@@ -9,8 +9,8 @@ $result_tree_text{'texinfo_command_alias'} = '*document_root C1
  *before_node_section C10
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{mystrong}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: mystrong {arg}\\n}
    {raw:!!\\arg\\!!\\n}

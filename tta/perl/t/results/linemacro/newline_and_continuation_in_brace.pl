@@ -10,8 +10,8 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
   {empty_line:\\n}
   *@linemacro C3 l2
   |EXTRA
+  |formal_args:A{first|second|rest}
   |macro_name:{mylinecommand}
-  |misc_args:A{first|second|rest}
    *arguments_line C1
     {macro_line: mylinecommand {first, second, rest}\\n}
    {raw:@defline category \\first\\ \\second\\ \\rest\\\\n}

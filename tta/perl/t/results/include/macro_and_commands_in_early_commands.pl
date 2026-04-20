@@ -9,8 +9,8 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
  *before_node_section C10
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{begin-file}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: begin-file\\n}
    {raw:macro_i--n_pass@@\\n}
@@ -40,8 +40,8 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
   {empty_line:\\n}
   *@macro C3 l7
   |EXTRA
+  |formal_args:A{}
   |macro_name:{latin1}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: latin1 \\n}
    {raw:ISO-8859-1@@\\n}
@@ -72,8 +72,8 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
   {empty_line:\\n}
   *@macro C4 l13
   |EXTRA
+  |formal_args:A{}
   |macro_name:{multiinclude}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: multiinclude\\n}
    {raw:macro_included.texi\\n}
@@ -131,8 +131,8 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
      >{spaces_after_argument:\\n}
   *@macro C3 macro_included.texi:l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{themacro}
-  |misc_args:A{}
   >SOURCEMARKS
   >include<end;1>
   >include<start;2>

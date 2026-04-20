@@ -9,8 +9,8 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
  *before_node_section C12
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{expand}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: expand {}\\n}
    {raw:@center A @ringaccent \\n}
@@ -43,8 +43,8 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l8
   |EXTRA
+  |formal_args:A{}
   |macro_name:{nospace}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: nospace {}\\n}
    {raw:@center B @ringaccent\\n}

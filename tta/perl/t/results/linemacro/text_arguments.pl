@@ -9,8 +9,8 @@ $result_tree_text{'text_arguments'} = '*document_root C1
  *before_node_section C3
   *@linemacro C3 l1
   |EXTRA
+  |formal_args:A{one|two|three}
   |macro_name:{nospace}
-  |misc_args:A{one|two|three}
    *arguments_line C1
     {macro_line: nospace{one, two, three}\\n}
    {raw:\\three\\@bullet{}\\two\\@minus{}\\one\\\\n}

@@ -1360,10 +1360,10 @@ sub _convert($$;$) {
             and defined($element->{'extra'}->{'macro_name'})) {
           my $macro_name = $element->{'extra'}->{'macro_name'};
           push @$attribute, ['name', $macro_name];
-          my $macro_args_nr = scalar(@{$element->{'extra'}->{'misc_args'}});
+          my $macro_args_nr = scalar(@{$element->{'extra'}->{'formal_args'}});
           if ($macro_args_nr) {
             for (my $i = 0; $i < $macro_args_nr; $i++) {
-              my $formal_arg = $element->{'extra'}->{'misc_args'}->[$i];
+              my $formal_arg = $element->{'extra'}->{'formal_args'}->[$i];
               $prepended_elements .= $self->txi_markup_open_element('formalarg')
                 .$self->txi_markup_protect_text($formal_arg)
                 .$self->txi_markup_close_element('formalarg');

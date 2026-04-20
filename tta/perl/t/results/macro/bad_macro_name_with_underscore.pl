@@ -9,8 +9,8 @@ $result_tree_text{'bad_macro_name_with_underscore'} = '*document_root C1
  *before_node_section C1
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{arg1|arg2}
   |macro_name:{the_macro}
-  |misc_args:A{arg1|arg2}
    *arguments_line C1
     {macro_line: the_macro {arg1, arg2}\\n}
    {raw:In macro\\n}

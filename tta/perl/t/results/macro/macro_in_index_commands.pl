@@ -9,8 +9,8 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
  *before_node_section C19
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{cp}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: cp\\n}
    {raw:cp\\n}
@@ -23,8 +23,8 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
      {spaces_after_argument:\\n}
   *@macro C3 l4
   |EXTRA
+  |formal_args:A{}
   |macro_name:{fn}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: fn \\n}
    {raw:fn\\n}
@@ -37,8 +37,8 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
      {spaces_after_argument:\\n}
   *@macro C3 l7
   |EXTRA
+  |formal_args:A{}
   |macro_name:{syncodeindexcommand}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: syncodeindexcommand \\n}
    {raw:@syncodeindex\\n}
@@ -83,8 +83,8 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
   {empty_line:\\n}
   *@macro C3 l14
   |EXTRA
+  |formal_args:A{}
   |macro_name:{truc}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: truc \\n}
    {raw:truc\\n}
@@ -115,8 +115,8 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
   {empty_line:\\n}
   *@macro C3 l22
   |EXTRA
+  |formal_args:A{}
   |macro_name:{trucindexcommand}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: trucindexcommand \\n}
    {raw:@trucindex\\n}
@@ -130,8 +130,8 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
   {empty_line:\\n}
   *@macro C3 l26
   |EXTRA
+  |formal_args:A{}
   |macro_name:{codeidx}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: codeidx \\n}
    {raw:codeidx\\n}
@@ -159,8 +159,8 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
   {empty_line:\\n}
   *@macro C3 l32
   |EXTRA
+  |formal_args:A{}
   |macro_name:{defcodeindexentry}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: defcodeindexentry \\n}
    {raw:a @var{index entry} t@\'e @^{@dotless{i}}\\n}

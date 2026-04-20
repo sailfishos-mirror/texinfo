@@ -9,8 +9,8 @@ $result_tree_text{'macro_in_brace_command'} = '*document_root C1
  *before_node_section C5
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{foo}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: foo\\n}
    {raw:foo-expansion\\n}
@@ -24,8 +24,8 @@ $result_tree_text{'macro_in_brace_command'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l5
   |EXTRA
+  |formal_args:A{}
   |macro_name:{abar}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: abar\\n}
    {raw:bar-expansion\\n}

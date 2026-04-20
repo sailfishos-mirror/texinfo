@@ -9,8 +9,8 @@ $result_tree_text{'empty_macro_in_text_no_arg'} = '*document_root C1
  *before_node_section C8
   *@macro C2 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{texnl}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: texnl{}\\n}
    *@end C1 l2
@@ -31,8 +31,8 @@ $result_tree_text{'empty_macro_in_text_no_arg'} = '*document_root C1
   {empty_line:\\n}
   *@macro C2 l6
   |EXTRA
+  |formal_args:A{}
   |macro_name:{texnltwo}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: texnltwo\\n}
    *@end C1 l7

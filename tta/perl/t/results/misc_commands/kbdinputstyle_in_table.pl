@@ -9,8 +9,8 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
  *before_node_section C34
   *@macro C19 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{codekbdmacro}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: codekbdmacro\\n}
    {raw:@table @kbd\\n}

@@ -9,8 +9,8 @@ $result_tree_text{'brace_command_not_closed'} = '*document_root C1
  *before_node_section C4
   *@linemacro C3 l1
   |EXTRA
+  |formal_args:A{a|b|c}
   |macro_name:{mycommand}
-  |misc_args:A{a|b|c}
    *arguments_line C1
     {macro_line: mycommand {a, b, c}\\n}
    {raw:\\a\\, \\b\\ \\c\\\\n}

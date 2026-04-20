@@ -9,8 +9,8 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
  *before_node_section C5
   *@linemacro C4 l1
   |EXTRA
+  |formal_args:A{a|b}
   |macro_name:{lm}
-  |misc_args:A{a|b}
    *arguments_line C1
     {macro_line: lm {a, b}\\n}
    {raw:@quotation \\a\\\\n}
@@ -25,8 +25,8 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
   {empty_line:\\n}
   *@macro C5 l6
   |EXTRA
+  |formal_args:A{c|d}
   |macro_name:{mymacro}
-  |misc_args:A{c|d}
    *arguments_line C1
     {macro_line: mymacro {c, d}\\n}
    {raw:@table \\c\\\\n}

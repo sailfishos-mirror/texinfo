@@ -10,8 +10,8 @@ $result_tree_text{'macro_in_ifset'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l2
   |EXTRA
+  |formal_args:A{}
   |macro_name:{truc}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: truc {}\\n}
    {raw:truc\\n}

@@ -9,8 +9,8 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
  *before_node_section C8
   *@linemacro C3 l1
   |EXTRA
+  |formal_args:A{param|type}
   |macro_name:{param}
-  |misc_args:A{param|type}
    *arguments_line C1
     {macro_line: param {param, type}\\n}
    {raw:@defline Parameter @var{\\param\\} @code{ : \\type\\}\\n}
@@ -23,8 +23,8 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
      {spaces_after_argument:\\n}
   *@linemacro C3 l4
   |EXTRA
+  |formal_args:A{param|type}
   |macro_name:{returns}
-  |misc_args:A{param|type}
    *arguments_line C1
     {macro_line: returns {param, type}\\n}
    {raw:@defline {Return Value} @var{\\param\\} @code{ : \\type\\}\\n}
@@ -37,8 +37,8 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
      {spaces_after_argument:\\n}
   *@linemacro C3 l7
   |EXTRA
+  |formal_args:A{exception}
   |macro_name:{raises}
-  |misc_args:A{exception}
    *arguments_line C1
     {macro_line: raises {exception}\\n}
    {raw:@defline {Exception} \\exception\\\\n}

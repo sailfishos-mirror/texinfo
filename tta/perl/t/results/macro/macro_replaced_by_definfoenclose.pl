@@ -9,8 +9,8 @@ $result_tree_text{'macro_replaced_by_definfoenclose'} = '*document_root C1
  *before_node_section C5
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{phoo}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: phoo {arg}\\n}
    {raw:||\\arg\\||\\n}

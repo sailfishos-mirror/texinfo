@@ -175,7 +175,7 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
   add_extra_string (macro, AI_key_macro_name, name);
 
   formal_args = new_string_list ();
-  add_extra_misc_args (macro, AI_key_misc_args, formal_args);
+  add_extra_string_list (macro, AI_key_formal_args, formal_args);
 
   args_ptr = pline;
   args_ptr += strspn (args_ptr, whitespace_chars);
@@ -285,8 +285,8 @@ lookup_macro_parameter (const char *name, const ELEMENT *macro)
 {
   size_t i;
   /* the args_list pointer is const not the ELEMENT */
-  const STRING_LIST *formal_args_list = lookup_extra_misc_args (macro,
-                                                      AI_key_misc_args);
+  const STRING_LIST *formal_args_list = lookup_extra_string_list (macro,
+                                                      AI_key_formal_args);
 
   /* Find 'arg' in MACRO parameters. */
   for (i = 0; i < formal_args_list->number; i++)
@@ -312,8 +312,8 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
   int whitespaces_len;
   ELEMENT *argument = new_element (ET_brace_arg);
   ELEMENT *argument_content = new_text_element (ET_macro_call_arg_text);
-  const STRING_LIST *formal_args_list = lookup_extra_misc_args (macro,
-                                                       AI_key_misc_args);
+  const STRING_LIST *formal_args_list = lookup_extra_string_list (macro,
+                                                       AI_key_formal_args);
 
   add_to_element_contents (current, argument);
   arg = argument_content->e.text;
@@ -467,8 +467,8 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   size_t i;
   ELEMENT *argument = new_element (ET_linemacro_arg);
   ELEMENT *argument_content = new_text_element (ET_macro_call_arg_text);
-  const STRING_LIST *formal_args_list = lookup_extra_misc_args (macro,
-                                                       AI_key_misc_args);
+  const STRING_LIST *formal_args_list = lookup_extra_string_list (macro,
+                                                       AI_key_formal_args);
 
   add_to_element_contents (current, argument);
   arg = argument_content->e.text;
@@ -817,7 +817,7 @@ handle_macro (ELEMENT *current, const char **line_inout,
   if (!macro_record)
     fatal ("no macro record");
   macro = macro_record->element;
-  formal_args_list = lookup_extra_misc_args (macro, AI_key_misc_args);
+  formal_args_list = lookup_extra_string_list (macro, AI_key_formal_args);
 
   /* It is important to check for expansion before the expansion and
      not after, as during the expansion, the text may go past the

@@ -9,8 +9,8 @@ $result_tree_text{'include_after_empty_line_arg'} = '*document_root C1
  *before_node_section C3
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{body}
   |macro_name:{mymacro}
-  |misc_args:A{body}
    *arguments_line C1
     {macro_line: mymacro{body}\\n}
    {raw:@code{\\body\\}\\n}

@@ -17,8 +17,8 @@ $result_tree_text{'value_in_macro_body'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l3
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{testvaluebody}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: testvaluebody { arg }\\n}
    {raw:result: @emph{\\@value{bodyarg}\\  }\\n}

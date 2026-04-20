@@ -871,7 +871,9 @@ sub _print_element_associated_info($$$$$;$$) {
         my $element_value = element_number_or_error($value);
         $result .= "[$element_value]";
       }
-    } elsif ($key eq 'misc_args') {
+    } elsif ($ref eq 'ARRAY'
+             and ($key eq 'misc_args'
+                  or $key eq 'formal_args')) {
       $result .= 'A{'.join('|', @{$value}).'}';
     } elsif ($key eq 'index_entry' or $key eq 'associated_index_entry') {
       my ($index_name, $number) = @{$value};

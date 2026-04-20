@@ -9,8 +9,8 @@ $result_tree_text{'two_macros_on_a_line'} = '*document_root C1
  *before_node_section C14
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{mymacro}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: mymacro\\n}
    {raw:in mymacro\\n}
@@ -24,8 +24,8 @@ $result_tree_text{'two_macros_on_a_line'} = '*document_root C1
   {empty_line:\\n}
   *@macro C5 l5
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{mymacrowithargs}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: mymacrowithargs{arg}\\n}
    {raw:in with args\\n}

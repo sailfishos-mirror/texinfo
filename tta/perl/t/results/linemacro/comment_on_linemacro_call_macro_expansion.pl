@@ -9,8 +9,8 @@ $result_tree_text{'comment_on_linemacro_call_macro_expansion'} = '*document_root
  *before_node_section C5
   *@linemacro C4 l1
   |EXTRA
+  |formal_args:A{a|b}
   |macro_name:{lm}
-  |misc_args:A{a|b}
    *arguments_line C1
     {macro_line: lm {a, b}\\n}
    {raw:first |\\a\\|\\n}
@@ -25,8 +25,8 @@ $result_tree_text{'comment_on_linemacro_call_macro_expansion'} = '*document_root
   {empty_line:\\n}
   *@macro C4 l6
   |EXTRA
+  |formal_args:A{a}
   |macro_name:{mymacro}
-  |misc_args:A{a}
    *arguments_line C1
     {macro_line: mymacro {a}\\n}
    {raw:macro \\a\\ text\\n}

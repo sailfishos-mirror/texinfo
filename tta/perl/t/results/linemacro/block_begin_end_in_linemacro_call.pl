@@ -9,8 +9,8 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
  *before_node_section C19
   *@linemacro C3 l1
   |EXTRA
+  |formal_args:A{a}
   |macro_name:{lm}
-  |misc_args:A{a}
    *arguments_line C1
     {macro_line: lm {a}\\n}
    {raw:b \\a\\ a\\n}
@@ -141,8 +141,8 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
       >{bracketed_linemacro_arg:\\n@macro mymac {e, f}\\nargs \\e\\|\\f\\|\\n@defline @lm {\\e\\} {\\f\\}\\n}
    *@macro C6 l34:@lm
    |EXTRA
+   |formal_args:A{e|f}
    |macro_name:{mymac}
-   |misc_args:A{e|f}
     *arguments_line C1
      {macro_line: mymac {e, f}\\n}
     {raw:args \\e\\|\\f\\|\\n}

@@ -9,8 +9,8 @@ $result_tree_text{'line_after_recursive_call'} = '*document_root C1
  *before_node_section C2
   *@macro C5 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{mac}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: mac\\n}
    {raw:ggg\\n}

@@ -9,8 +9,8 @@ $result_tree_text{'macro_expansion_in_set_comment'} = '*document_root C1
  *before_node_section C4
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{a}
   |macro_name:{mymac}
-  |misc_args:A{a}
    *arguments_line C1
     {macro_line: mymac {a}\\n}
    {raw:@set flag \\a\\ @comment in  \\n}

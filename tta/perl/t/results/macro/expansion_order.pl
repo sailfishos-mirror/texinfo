@@ -9,8 +9,8 @@ $result_tree_text{'expansion_order'} = '*document_root C1
  *before_node_section C6
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{bidule}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: bidule{arg}\\n}
    {raw:@machin{}\\n}
@@ -24,8 +24,8 @@ $result_tree_text{'expansion_order'} = '*document_root C1
   {empty_line:\\n}
   *@macro C4 l5
   |EXTRA
+  |formal_args:A{}
   |macro_name:{machin}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: machin\\n}
    {raw:\\\\arg\\\\\\n}

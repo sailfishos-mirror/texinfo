@@ -166,7 +166,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info,
             k->k.integer = k_ref->k.integer;
             break;
           }
-        case extra_misc_args:
+        case extra_string_list:
           {
           KEY_PAIR *k = get_associated_info_key (new_info, key);
           k->k.strings_list = new_string_list();
@@ -1563,7 +1563,7 @@ print_element_extra (ELEMENT *element, int level,
             need_eol = 1;
             break;
           }
-        case extra_misc_args:
+        case extra_string_list:
           {
             char *values_string = join_strings_list (k_pair->k.strings_list, 0);
             xasprintf (&value, "A{%s}", values_string);

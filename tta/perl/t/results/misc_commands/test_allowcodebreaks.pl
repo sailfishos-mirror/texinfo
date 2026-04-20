@@ -31,8 +31,8 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
   {empty_line:\\n}
   *@macro C8 l4
   |EXTRA
+  |formal_args:A{nr}
   |macro_name:{testallowcodebreakspara}
-  |misc_args:A{nr}
    *arguments_line C1
     {macro_line: testallowcodebreakspara {nr}\\n}
    {raw:Out of code --- out-of-code.\\n}
@@ -51,8 +51,8 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
   {empty_line:\\n}
   *@macro C6 l13
   |EXTRA
+  |formal_args:A{}
   |macro_name:{testallowcodebreaksexample}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: testallowcodebreaksexample{}\\n}
    {raw:\\n}

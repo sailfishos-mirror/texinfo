@@ -9,8 +9,8 @@ $result_tree_text{'macro_in_menu_comment_closed_by_detailmenu'} = '*document_roo
  *before_node_section C3
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{emptystring}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: emptystring\\n}
    {raw:\\n}

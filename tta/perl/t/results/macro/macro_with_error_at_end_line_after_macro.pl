@@ -9,8 +9,8 @@ $result_tree_text{'macro_with_error_at_end_line_after_macro'} = '*document_root 
  *before_node_section C3
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{string}
   |macro_name:{witherror}
-  |misc_args:A{string}
    *arguments_line C1
     {macro_line: witherror{string}\\n}
    {raw:@center\\n}

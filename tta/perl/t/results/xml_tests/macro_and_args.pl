@@ -9,8 +9,8 @@ $result_tree_text{'macro_and_args'} = '*document_root C1
  *before_node_section C3
   *@macro C2 l1
   |EXTRA
+  |formal_args:A{aaa|2b-bb}
   |macro_name:{good}
-  |misc_args:A{aaa|2b-bb}
    *arguments_line C1
     {macro_line: good { aaa, 2b-bb}\\n}
    *@end C1 l2
@@ -23,9 +23,9 @@ $result_tree_text{'macro_and_args'} = '*document_root C1
   {empty_line:\\n}
   *@macro C2 l4
   |EXTRA
+  |formal_args:A{ggg"@@^_ ff|nnn_b|ccc v}
   |invalid_syntax:{1}
   |macro_name:{bad}
-  |misc_args:A{ggg"@@^_ ff|nnn_b|ccc v}
    *arguments_line C1
     {macro_line: bad { ggg"@@^_ ff, nnn_b, ccc v}\\n}
    *@end C1 l5

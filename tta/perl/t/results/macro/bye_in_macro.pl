@@ -9,8 +9,8 @@ $result_tree_text{'bye_in_macro'} = '*document_root C3
  *before_node_section C3
   *@macro C6 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{byeinmacro}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: byeinmacro\\n}
    {raw:Text\\n}

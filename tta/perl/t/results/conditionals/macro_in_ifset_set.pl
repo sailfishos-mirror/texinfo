@@ -18,8 +18,8 @@ $result_tree_text{'macro_in_ifset_set'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l4
   |EXTRA
+  |formal_args:A{}
   |macro_name:{truc}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: truc {}\\n}
    {raw:truc\\n}
@@ -48,8 +48,8 @@ $result_tree_text{'macro_in_ifset_set'} = '*document_root C1
     {spaces_after_argument:\\n}
   *@macro C3 l10
   |EXTRA
+  |formal_args:A{}
   |macro_name:{truc}
-  |misc_args:A{}
   >SOURCEMARKS
   >expanded_conditional_command<end;1>
    >*@end C1 l13

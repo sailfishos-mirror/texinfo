@@ -9,8 +9,8 @@ $result_tree_text{'macro_expansion_end_in_ignored_nested_different_conditional'}
  *before_node_section C2
   *@macro C5 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{beginnestedcond}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: beginnestedcond\\n}
    {raw:@ifset a\\n}

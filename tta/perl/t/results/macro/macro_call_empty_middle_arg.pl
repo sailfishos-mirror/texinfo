@@ -9,8 +9,8 @@ $result_tree_text{'macro_call_empty_middle_arg'} = '*document_root C1
  *before_node_section C7
   *@macro C5 l1
   |EXTRA
+  |formal_args:A{aa|bb|cc}
   |macro_name:{threea}
-  |misc_args:A{aa|bb|cc}
    *arguments_line C1
     {macro_line: threea {aa, bb, cc}\\n}
    {raw:first \\aa\\,\\n}

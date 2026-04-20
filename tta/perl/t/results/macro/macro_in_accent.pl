@@ -9,8 +9,8 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
  *before_node_section C7
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{aletter}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: aletter\\n}
    {raw:a\\n}
@@ -24,8 +24,8 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l5
   |EXTRA
+  |formal_args:A{}
   |macro_name:{aspace}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: aspace\\n}
    {raw:  \\n}

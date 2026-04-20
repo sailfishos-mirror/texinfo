@@ -858,7 +858,7 @@ end_line_starting_block (ELEMENT *current)
       if (columnfractions)
         {
           const STRING_LIST *misc_args
-              = lookup_extra_misc_args (columnfractions, AI_key_misc_args);
+            = lookup_extra_string_list (columnfractions, AI_key_misc_args);
 
           if (misc_args)
             max_columns = misc_args->number;
@@ -1280,7 +1280,7 @@ end_line_misc_line (ELEMENT *current)
     {
       STRING_LIST *args = parse_line_command_args (current);
       if (args)
-        add_extra_misc_args (current, AI_key_misc_args, args);
+        add_extra_string_list (current, AI_key_misc_args, args);
     }
   else if (arg_spec == LINE_text)
     {

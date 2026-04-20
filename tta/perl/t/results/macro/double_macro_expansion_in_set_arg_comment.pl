@@ -9,8 +9,8 @@ $result_tree_text{'double_macro_expansion_in_set_arg_comment'} = '*document_root
  *before_node_section C5
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{a}
   |macro_name:{mymac}
-  |misc_args:A{a}
    *arguments_line C1
     {macro_line: mymac {a}\\n}
    {raw:@set \\a\\ value\\n}
@@ -24,8 +24,8 @@ $result_tree_text{'double_macro_expansion_in_set_arg_comment'} = '*document_root
   {empty_line:\\n}
   *@macro C3 l5
   |EXTRA
+  |formal_args:A{b}
   |macro_name:{callmymac}
-  |misc_args:A{b}
    *arguments_line C1
     {macro_line: callmymac {b}\\n}
    {raw:@mymac{\\b\\} alsov @comment in\\n}

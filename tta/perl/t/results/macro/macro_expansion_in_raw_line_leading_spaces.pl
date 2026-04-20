@@ -9,8 +9,8 @@ $result_tree_text{'macro_expansion_in_raw_line_leading_spaces'} = '*document_roo
  *before_node_section C7
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{a}
   |macro_name:{mymac}
-  |misc_args:A{a}
    *arguments_line C1
     {macro_line: mymac {a}\\n}
    {raw:@set \\n}
@@ -38,8 +38,8 @@ $result_tree_text{'macro_expansion_in_raw_line_leading_spaces'} = '*document_roo
   {empty_line:\\n}
   *@macro C3 l7
   |EXTRA
+  |formal_args:A{}
   |macro_name:{mycontents}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: mycontents {} \\n}
    {raw:@contents\\n}

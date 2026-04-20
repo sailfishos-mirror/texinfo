@@ -9,8 +9,8 @@ $result_tree_text{'arobase_brace_in_linemacro_call'} = '*document_root C1
  *before_node_section C5
   *@linemacro C4 l1
   |EXTRA
+  |formal_args:A{arg1|arg2}
   |macro_name:{simplemac}
-  |misc_args:A{arg1|arg2}
    *arguments_line C1
     {macro_line: simplemac { arg1 , arg2 }\\n}
    {raw:first: \\arg1\\|\\n}

@@ -9,8 +9,8 @@ $result_tree_text{'macro_end_call_in_ignored_inlinefmt'} = '*document_root C1
  *before_node_section C3
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{startfmt}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: startfmt\\n}
    {raw:Para @inlinefmt{tex, inT\\n}

@@ -9,8 +9,8 @@ $result_tree_text{'form_feeds'} = '*document_root C1
  *before_node_section C11
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{a|b}
   |macro_name:{mymacro}
-  |misc_args:A{a|b}
    *arguments_line C1
     {macro_line: mymacro{a, b}\\n}
    {raw:f \\a\\ n \\b\\\\n}
@@ -24,8 +24,8 @@ $result_tree_text{'form_feeds'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l5
   |EXTRA
+  |formal_args:A{c}
   |macro_name:{oneargmacro}
-  |misc_args:A{c}
    *arguments_line C1
     {macro_line: oneargmacro{c}\\n}
    {raw:g \\c\\ v\\n}

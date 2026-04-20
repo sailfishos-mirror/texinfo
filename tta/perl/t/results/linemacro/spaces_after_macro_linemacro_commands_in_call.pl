@@ -9,8 +9,8 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
  *before_node_section C10
   *@linemacro C5 l1
   |EXTRA
+  |formal_args:A{first|second|rest}
   |macro_name:{mylinecommand}
-  |misc_args:A{first|second|rest}
    *arguments_line C1
     {macro_line: mylinecommand {first, second, rest}\\n}
    {raw:@defblock\\n}
@@ -26,8 +26,8 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
   {empty_line:\\n}
   *@macro C3 l7
   |EXTRA
+  |formal_args:A{arg1}
   |macro_name:{mymac}
-  |misc_args:A{arg1}
    *arguments_line C1
     {macro_line: mymac {arg1}\\n}
    {raw:@samp{arg1}\\n}
@@ -41,8 +41,8 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
   {empty_line:\\n}
   *@linemacro C3 l11
   |EXTRA
+  |formal_args:A{name|rest}
   |macro_name:{mylinemac}
-  |misc_args:A{name|rest}
    *arguments_line C1
     {macro_line: mylinemac {name, rest}\\n}
    {raw:{\\name\\} \\rest\\\\n}

@@ -10,8 +10,8 @@ $result_tree_text{'recursive_call_in_rmacro'} = '*document_root C1
   {empty_line:\\n}
   *@rmacro C3 l2
   |EXTRA
+  |formal_args:A{}
   |macro_name:{rec}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: rec\\n}
    {raw:@rec{}\\n}

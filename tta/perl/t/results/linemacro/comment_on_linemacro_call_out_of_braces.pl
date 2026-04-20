@@ -9,8 +9,8 @@ $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C
  *before_node_section C7
   *@linemacro C5 l1
   |EXTRA
+  |formal_args:A{a|b|c}
   |macro_name:{lm}
-  |misc_args:A{a|b|c}
    *arguments_line C1
     {macro_line: lm {a, b, c}\\n}
    {raw:first |\\a\\|\\n}

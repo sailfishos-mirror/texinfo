@@ -1,3 +1,26 @@
+2026-04-20 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/tree_types.h (enum extra_type): rename extra_misc_args as
+	extra_string_list.  Update users.
+
+	* tta/C/main/extra.c (add_extra_string_list)
+	(lookup_extra_string_list): rename lookup_extra_misc_args as
+	lookup_extra_string_list and add_extra_misc_args as
+	add_extra_string_list.  Update callers.
+
+	* tta/C/main/tree_types.h (AI_KEYS_LIST), tta/C/parsetexi/macro.c
+	(parse_macro_command_line, lookup_macro_parameter)
+	(expand_macro_arguments, expand_linemacro_arguments, handle_macro),
+	tta/perl/Texinfo/Example/TexinfoMarkup.pm (_convert),
+	tta/perl/Texinfo/ManipulateTree.pm (_print_element_associated_info),
+	tta/perl/Texinfo/ParserNonXS.pm (_parse_macro_command_line)
+	(_expand_macro_arguments, _expand_linemacro_arguments)
+	(_handle_macro): add formal_args extra_string_list extra element for
+	macro formal arguments list and use it.
+
+	* tta/C/api_for_swig/swig_interface.c (txi_ext_element_formal_args),
+	tta/swig/texinfo.i (element_formal_args): add.
+
 2026-04-19 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/html_converter_finish.c (html_free_converter): clear

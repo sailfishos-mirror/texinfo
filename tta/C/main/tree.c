@@ -163,7 +163,7 @@ destroy_key_pair_value (KEY_PAIR *k_pair)
       if (k_pair->k.element)
         destroy_element (k_pair->k.element);
       break;
-    case extra_misc_args:
+    case extra_string_list:
       destroy_strings_list (k_pair->k.strings_list);
       break;
     case extra_index_entry:

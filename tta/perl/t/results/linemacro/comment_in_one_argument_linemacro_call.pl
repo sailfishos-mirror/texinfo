@@ -9,8 +9,8 @@ $result_tree_text{'comment_in_one_argument_linemacro_call'} = '*document_root C1
  *before_node_section C5
   *@linemacro C3 l1
   |EXTRA
+  |formal_args:A{a}
   |macro_name:{lm}
-  |misc_args:A{a}
    *arguments_line C1
     {macro_line: lm {a}\\n}
    {raw:c \\a\\ d\\n}

@@ -9,8 +9,8 @@ $result_tree_text{'macro_name_with_digit'} = '*document_root C1
  *before_node_section C5
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{macro1}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: macro1\\n}
    {raw:macro1\\n}
@@ -24,8 +24,8 @@ $result_tree_text{'macro_name_with_digit'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l5
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{macro11}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: macro11 {arg}\\n}
    {raw:expand \\arg\\\\n}

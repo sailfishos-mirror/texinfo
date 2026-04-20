@@ -9,8 +9,8 @@ $result_tree_text{'macro_in_macro_arg_simpler'} = '*document_root C1
  *before_node_section C5
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{macrooneone}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: macrooneone\\n}
    {raw:a, macro2\\n}
@@ -24,8 +24,8 @@ $result_tree_text{'macro_in_macro_arg_simpler'} = '*document_root C1
   {empty_line:\\n}
   *@macro C4 l5
   |EXTRA
+  |formal_args:A{text|arg}
   |macro_name:{macrothree}
-  |misc_args:A{text|arg}
    *arguments_line C1
     {macro_line: macrothree{text, arg}\\n}
    {raw:\\text\\\\n}

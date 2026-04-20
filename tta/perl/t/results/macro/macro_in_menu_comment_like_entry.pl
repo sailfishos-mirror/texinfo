@@ -10,8 +10,8 @@ $result_tree_text{'macro_in_menu_comment_like_entry'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l2
   |EXTRA
+  |formal_args:A{}
   |macro_name:{emptystring}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: emptystring\\n}
    {raw:\\n}

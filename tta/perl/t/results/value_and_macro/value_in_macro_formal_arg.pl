@@ -17,9 +17,9 @@ $result_tree_text{'value_in_macro_formal_arg'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l3
   |EXTRA
+  |formal_args:A{arg|the@value{argument}
   |invalid_syntax:{1}
   |macro_name:{testvalue}
-  |misc_args:A{arg|the@value{argument}
    *arguments_line C1
     {macro_line: testvalue { arg , the@value{argument} }\\n}
    {raw:result: @emph{\\arg\\} the \\the\\ thearg \\thearg\\ with value \\the@value{argument}\\\\n}

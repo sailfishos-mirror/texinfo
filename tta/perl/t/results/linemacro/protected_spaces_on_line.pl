@@ -9,8 +9,8 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
  *before_node_section C10
   *@linemacro C5 l1
   |EXTRA
+  |formal_args:A{first|rest}
   |macro_name:{test}
-  |misc_args:A{first|rest}
    *arguments_line C1
     {macro_line: test {first, rest}\\n}
    {raw:@deffn Function \\first\\ \\rest\\\\n}

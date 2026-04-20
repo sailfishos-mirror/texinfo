@@ -72,8 +72,8 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   {empty_line:\\n}
   *@macro C3 g_f:l53
   |EXTRA
+  |formal_args:A{}
   |macro_name:{macr}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: macr\\n}
    {raw:# line 7 "k"\\n}
@@ -107,8 +107,8 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   {empty_line:\\n}
   *@macro C4 g_f:l63
   |EXTRA
+  |formal_args:A{}
   |macro_name:{macrtwo}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: macrtwo\\n}
    {raw:line before\\n}

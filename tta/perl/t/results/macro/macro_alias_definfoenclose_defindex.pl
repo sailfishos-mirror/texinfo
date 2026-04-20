@@ -51,8 +51,8 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   {empty_line:\\n}
   *@macro C3 l7
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{phooindex}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: phooindex {arg}\\n}
    {raw:||\\arg\\||\\n}
@@ -137,8 +137,8 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   {empty_line:\\n}
   *@macro C3 l24
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{phooindex}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: phooindex {arg}\\n}
    {raw:!!\\arg\\!!\\n}
@@ -177,8 +177,8 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   {empty_line:\\n}
   *@macro C3 l32
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{phooindex}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: phooindex {arg}\\n}
    {raw:!!\\arg\\!!\\n}
@@ -263,8 +263,8 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
   {empty_line:\\n}
   *@macro C3 l49
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{phooindex}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: phooindex {arg}\\n}
    {raw:%%\\arg\\%%\\n}

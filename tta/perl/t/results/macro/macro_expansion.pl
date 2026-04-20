@@ -10,8 +10,8 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
   {empty_line:\\n}
   *@macro C6 l2
   |EXTRA
+  |formal_args:A{arg1|arg2}
   |macro_name:{macroone}
-  |misc_args:A{arg1|arg2}
    *arguments_line C1
     {macro_line: macroone {arg1, arg2 }\\n}
    {raw:result of a macro with \\arg1\\ and \\n}

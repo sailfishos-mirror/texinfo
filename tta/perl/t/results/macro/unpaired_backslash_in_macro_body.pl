@@ -9,8 +9,8 @@ $result_tree_text{'unpaired_backslash_in_macro_body'} = '*document_root C1
  *before_node_section C3
   *@macro C4 l1
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{mymacro}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: mymacro {arg}\\n}
    {raw:In macro \\not arg\\n}

@@ -10,9 +10,9 @@ $result_tree_text{'bad_formal_arg'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l2
   |EXTRA
+  |formal_args:A{|not_empty}
   |invalid_syntax:{1}
   |macro_name:{bad}
-  |misc_args:A{|not_empty}
    *arguments_line C1
     {macro_line: bad  { , not_empty}\\n}
    {raw:in bad macro\\n}
@@ -26,9 +26,9 @@ $result_tree_text{'bad_formal_arg'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l6
   |EXTRA
+  |formal_args:A{first|in 2arg}
   |invalid_syntax:{1}
   |macro_name:{badspace}
-  |misc_args:A{first|in 2arg}
    *arguments_line C1
     {macro_line: badspace{first, in 2arg}\\n}
    {raw:bad space\\n}
@@ -42,9 +42,9 @@ $result_tree_text{'bad_formal_arg'} = '*document_root C1
   {empty_line:\\n}
   *@macro C6 l10
   |EXTRA
+  |formal_args:A{:::}
   |invalid_syntax:{1}
   |macro_name:{abar}
-  |misc_args:A{:::}
    *arguments_line C1
     {macro_line: abar {:::}\\n}
    {raw:in bar\\n}

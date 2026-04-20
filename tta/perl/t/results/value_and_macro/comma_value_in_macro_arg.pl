@@ -17,8 +17,8 @@ $result_tree_text{'comma_value_in_macro_arg'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l3
   |EXTRA
+  |formal_args:A{arg1|arg2}
   |macro_name:{macro1}
-  |misc_args:A{arg1|arg2}
    *arguments_line C1
     {macro_line: macro1 { arg1 , arg2 }\\n}
    {raw:result: @emph{\\arg1\\} protected \\\\ -> \\\\arg1\\\\ @emph{\\arg2\\}\\n}

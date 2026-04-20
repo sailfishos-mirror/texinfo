@@ -10,8 +10,8 @@ $result_tree_text{'macro_in_macro_arg'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l2
   |EXTRA
+  |formal_args:A{}
   |macro_name:{macroone}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: macroone\\n}
    {raw:a, @macrotwo\\n}
@@ -25,8 +25,8 @@ $result_tree_text{'macro_in_macro_arg'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l6
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{macrotwo}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: macrotwo{arg}\\n}
    {raw:hello \\arg\\ after arg\\n}
@@ -40,8 +40,8 @@ $result_tree_text{'macro_in_macro_arg'} = '*document_root C1
   {empty_line:\\n}
   *@macro C4 l10
   |EXTRA
+  |formal_args:A{text|arg}
   |macro_name:{macrothree}
-  |misc_args:A{text|arg}
    *arguments_line C1
     {macro_line: macrothree{text, arg}\\n}
    {raw:\\text\\\\n}

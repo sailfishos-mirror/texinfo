@@ -9,8 +9,8 @@ $result_tree_text{'macro_imbricated_with_beginning_command_name'} = '*document_r
  *before_node_section C2
   *@macro C5 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{foo}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: foo\\n}
    {raw:\\n}

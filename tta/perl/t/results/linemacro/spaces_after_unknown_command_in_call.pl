@@ -9,8 +9,8 @@ $result_tree_text{'spaces_after_unknown_command_in_call'} = '*document_root C1
  *before_node_section C3
   *@linemacro C5 l1
   |EXTRA
+  |formal_args:A{first|second|rest}
   |macro_name:{mylinecommand}
-  |misc_args:A{first|second|rest}
    *arguments_line C1
     {macro_line: mylinecommand {first, second, rest}\\n}
    {raw:@defblock\\n}

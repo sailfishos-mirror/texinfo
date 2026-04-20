@@ -549,7 +549,7 @@ build_key_pair_info (const KEY_PAIR *k, int avoid_recursion)
       return newSViv (k->k.integer);
       break;
       }
-    case extra_misc_args:
+    case extra_string_list:
       {
       AV *av = build_string_list (k->k.strings_list, svt_char);
       return newRV_noinc ((SV *)av);

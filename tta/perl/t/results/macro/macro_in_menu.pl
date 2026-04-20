@@ -10,8 +10,8 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l2
   |EXTRA
+  |formal_args:A{}
   |macro_name:{astar}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: astar\\n}
    {raw:*\\n}
@@ -25,8 +25,8 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l6
   |EXTRA
+  |formal_args:A{}
   |macro_name:{starspaces}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: starspaces\\n}
    {raw:* \\n}
@@ -40,8 +40,8 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l10
   |EXTRA
+  |formal_args:A{}
   |macro_name:{spaces}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: spaces\\n}
    {raw:  \\n}
@@ -55,8 +55,8 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l14
   |EXTRA
+  |formal_args:A{}
   |macro_name:{aspace}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: aspace\\n}
    {raw: \\n}
@@ -70,8 +70,8 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l18
   |EXTRA
+  |formal_args:A{}
   |macro_name:{twocolon}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: twocolon\\n}
    {raw:::\\n}
@@ -85,8 +85,8 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l22
   |EXTRA
+  |formal_args:A{}
   |macro_name:{acolon}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: acolon\\n}
    {raw::\\n}

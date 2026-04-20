@@ -9,9 +9,9 @@ $result_tree_text{'missing_formal_arg'} = '*document_root C1
  *before_node_section C4
   *@linemacro C3 l1
   |EXTRA
+  |formal_args:A{a||b}
   |invalid_syntax:{1}
   |macro_name:{mymacro}
-  |misc_args:A{a||b}
    *arguments_line C1
     {macro_line: mymacro {a, , b}\\n}
    {raw:\\a\\ and \\b\\.\\n}

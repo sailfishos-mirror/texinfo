@@ -10,8 +10,8 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l2
   |EXTRA
+  |formal_args:A{}
   |macro_name:{othermacro}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: othermacro\\n}
    {raw:initial\\n}
@@ -25,8 +25,8 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
   {empty_line:\\n}
   *@macro C7 l6
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{redefineothermacro}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: redefineothermacro {arg}\\n}
    {raw:@unmacro othermacro\\n}
@@ -56,8 +56,8 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
     {spaces_after_argument:\\n}
   *@macro C3 l14:@redefineothermacro
   |EXTRA
+  |formal_args:A{}
   |macro_name:{othermacro}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: othermacro\\n}
    {raw:different\\n}

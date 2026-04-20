@@ -9,8 +9,8 @@ $result_tree_text{'ifset_in_macro'} = '*document_root C1
  *before_node_section C2
   *@macro C5 l1
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{note}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: note {arg}\\n}
    {raw:@ifset notes \\n}

@@ -9,8 +9,8 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
  *before_node_section C5
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{simple}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: simple\\n}
    {raw:ab\\n}
@@ -24,8 +24,8 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
   {empty_line:\\n}
   *@macro C3 l5
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{endbrace}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: endbrace {arg}\\n}
    {raw:c\\arg\\d}\\n}

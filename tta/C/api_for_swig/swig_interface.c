@@ -457,7 +457,13 @@ txi_ext_index_entry_index_info (DOCUMENT *document, INDEX_ENTRY *index_entry)
 const STRING_LIST *
 txi_ext_element_misc_args (ELEMENT *element)
 {
-  return lookup_extra_misc_args (element, AI_key_misc_args);
+  return lookup_extra_string_list (element, AI_key_misc_args);
+}
+
+const STRING_LIST *
+txi_ext_element_formal_args (ELEMENT *element)
+{
+  return lookup_extra_string_list (element, AI_key_formal_args);
 }
 
 

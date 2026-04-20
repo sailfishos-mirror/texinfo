@@ -9,8 +9,8 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
  *before_node_section C3
   *@linemacro C4 l1
   |EXTRA
+  |formal_args:A{symbol|rest}
   |macro_name:{defbuiltin}
-  |misc_args:A{symbol|rest}
    *arguments_line C1
     {macro_line: defbuiltin {symbol, rest}\\n}
    {raw:@defline \\symbol\\ f r\\n}

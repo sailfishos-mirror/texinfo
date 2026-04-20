@@ -9,8 +9,8 @@ $result_tree_text{'protect_comma_macro_line'} = '*document_root C1
  *before_node_section C5
   *@macro C6 l1
   |EXTRA
+  |formal_args:A{arg}
   |macro_name:{macrotwo}
-  |misc_args:A{arg}
    *arguments_line C1
     {macro_line: macrotwo { arg }\\n}
    {raw:we get \\arg\\ and another \\arg\\\\n}

@@ -867,7 +867,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
             }
 
           if (args)
-            add_extra_misc_args (command_e, AI_key_misc_args, args);
+            add_extra_string_list (command_e, AI_key_misc_args, args);
 
           element_value_equivalent (command_e, &global_cmd);
         }

@@ -9,8 +9,8 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
  *before_node_section C3
   *@linemacro C3 l1
   |EXTRA
+  |formal_args:A{a|b|c}
   |macro_name:{mymacro}
-  |misc_args:A{a|b|c}
    *arguments_line C1
     {macro_line: mymacro {a, b, c}\\n}
    {raw:@defline \\a\\ \\b\\ \\c\\\\n}

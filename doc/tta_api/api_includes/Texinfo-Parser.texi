@@ -1279,9 +1279,13 @@ should be formatted as code, the @emph{command_as_argument_kbd_code}
 @item @code{@@macro}
 @anchor{Texinfo@asis{::}Parser @code{@@macro}}
 
+@item @code{@@linemacro}
+@anchor{Texinfo@asis{::}Parser @code{@@linemacro}}
+
 @emph{macro_name} holds the macro name.
 @emph{invalid_syntax} is set if there was an error on the @code{@@macro}
-line.
+line.  @emph{formal_args} is an array containing the name of the formal
+arguments.
 
 @item @code{menu_entry_node}
 @anchor{Texinfo@asis{::}Parser @code{menu_entry_node} 1}

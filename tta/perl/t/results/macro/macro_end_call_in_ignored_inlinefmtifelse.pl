@@ -9,8 +9,8 @@ $result_tree_text{'macro_end_call_in_ignored_inlinefmtifelse'} = '*document_root
  *before_node_section C3
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{inlinefirstfmt}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: inlinefirstfmt\\n}
    {raw:Toto @inlinefmtifelse{tex, before\\n}

@@ -9,8 +9,8 @@ $result_tree_text{'ifset_and_end_isef_in_macro'} = '*document_root C1
  *before_node_section C4
   *@macro C3 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{beginifset}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: beginifset {}\\n}
    {raw:@ifset a\\n}
@@ -24,8 +24,8 @@ $result_tree_text{'ifset_and_end_isef_in_macro'} = '*document_root C1
   {empty_line:\\n}
   *@macro C3 l5
   |EXTRA
+  |formal_args:A{}
   |macro_name:{endifset}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: endifset {}\\n}
    {raw:@end ifset\\n}

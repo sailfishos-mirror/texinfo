@@ -9,8 +9,8 @@ $result_tree_text{'macro_after_paragraph'} = '*document_root C1
  *before_node_section C5
   *@macro C4 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{mymacro}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: mymacro\\n}
    {raw:\\n}

@@ -9,8 +9,8 @@ $result_tree_text{'empty_macro_no_arg'} = '*document_root C1
  *before_node_section C5
   *@macro C2 l1
   |EXTRA
+  |formal_args:A{}
   |macro_name:{foo}
-  |misc_args:A{}
    *arguments_line C1
     {macro_line: foo\\n}
    *@end C1 l2
