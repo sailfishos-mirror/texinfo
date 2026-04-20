@@ -410,6 +410,9 @@ check at latest automake/autoconf/gettext/help2man version:
     files under build-aux/m4.  run "ls -tl" under po to check for any
     leftover files.
 
+    check that the code at the end of po_document/Makevars is still in
+    line with updated Makefile.in.in.
+
     see http://gnu.org/s/gnulib/manual/html_node/gettextize-and-autopoint.html
     for some hints.
 

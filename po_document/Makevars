@@ -89,3 +89,27 @@ PO_DEPENDS_ON_POT = yes
 # "no".  Set this to no if the POT file and PO files are maintained
 # externally.
 DIST_DEPENDS_ON_UPDATE_PO = no
+
+
+# reset CATALOG using UNDESIRED_LINGUAS to avoid installing languages
+# used for tests.
+# The UNDESIRED_LINGUAS is based on the DESIRED_LINGUAS condition, it may
+# have been better not to use the variants.
+UNDESIRED_LINGUAS = qaa qaa@latin qaa@123
+INST_LINGUAS != for presentlang in $(ALL_LINGUAS); do \
+                  useit=false; \
+                  for desiredlang in $(DESIRED_LINGUAS); do \
+                    case "$$desiredlang" in \
+                      "$$presentlang" | "$$presentlang"_* | "$$presentlang".* | "$$presentlang"@*) \
+                        useit=true ;; \
+                    esac; \
+                  done; \
+                  for undesiredlang in $(UNDESIRED_LINGUAS); do \
+                    case "$$undesiredlang" in \
+                      "$$presentlang" | "$$presentlang"_* | "$$presentlang".* | "$$presentlang"@*) \
+                        useit=false ;; \
+                    esac; \
+                  done; \
+                  if $$useit; then echo $$presentlang; fi; \
+                done
+CATALOGS != for lang in $(INST_LINGUAS); do echo $$lang.gmo; done
