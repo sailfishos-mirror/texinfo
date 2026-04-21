@@ -1,5 +1,10 @@
 2026-04-20 Patrice Dumas  <pertusus@free.fr>
 
+	* po_document/qaa.po po_document/qaa@latin.po: add pseudo-translations
+	that make clear which file they come from.
+
+2026-04-20 Patrice Dumas  <pertusus@free.fr>
+
 	Setup po files with private use language for script and variant tests
 
 	* README-hacking, po_document/LINGUAS, po_document/Makevars
