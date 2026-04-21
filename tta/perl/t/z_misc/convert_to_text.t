@@ -27,7 +27,7 @@ use Texinfo::Convert::HTML;
 # * conversion to text is called for a whole document, so with
 #   sectioning commands converted, but the converter associated
 #   is the simple Texinfo::Convert::Text converter, which does not
-#   provides translations.
+#   provide translations.
 #
 # Therefore in this test, a converter is setup, which does nothing
 # except to be used by text conversion for translations, and the

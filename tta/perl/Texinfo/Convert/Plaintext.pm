@@ -86,7 +86,8 @@ my $NO_NUMBER_FOOTNOTE_SYMBOL = '*';
 # documentlanguage is used through cdt().
 my @informative_global_commands = ('paragraphindent', 'firstparagraphindent',
  'exampleindent',
- 'frenchspacing', 'footnotestyle', 'documentlanguage', 'deftypefnnewline');
+ 'frenchspacing', 'footnotestyle', 'documentlanguage', 'documentscript',
+ 'deftypefnnewline');
 
 my %informative_commands;
 foreach my $informative_command (@informative_global_commands) {
@@ -4047,6 +4048,9 @@ sub _convert($$) {
       if ($cmdname eq 'documentlanguage') {
         $self->converter_set_documentlanguage(
                                       $self->get_conf('documentlanguage'));
+      } elsif ($cmdname eq 'documentscript') {
+        $self->converter_set_documentscript(
+                                      $self->get_conf('documentscript'))
       }
       return;
     } else {

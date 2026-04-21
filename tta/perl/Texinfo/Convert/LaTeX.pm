@@ -1804,9 +1804,15 @@ roundcorner=10pt}
 sub _informative_command_output($$) {
   my ($self, $cmdname) = @_;
 
-  if ($cmdname eq 'documentlanguage') {
-    my $documentlanguage = $self->get_conf($cmdname);
-    $self->converter_set_documentlanguage($documentlanguage);
+  if ($cmdname eq 'documentlanguage'
+      or $cmdname eq 'documentscript') {
+    if ($cmdname eq 'documentlanguage') {
+      my $documentlanguage = $self->get_conf($cmdname);
+      $self->converter_set_documentlanguage($documentlanguage);
+    } else {
+      my $documentscript = $self->get_conf($cmdname);
+      $self->converter_set_documentscript($documentscript);
+    }
     my $bcp47_locale = $self->current_bcp47_locale();
     $self->{'packages'}->{'babel'} = 1;
     return "\\selectlanguage{$bcp47_locale}%\n";
@@ -1927,8 +1933,8 @@ sub _latex_begin_output($) {
       $result_text .= _informative_command_output($self, $informative_cmdname);
     }
   }
-  foreach my $informative_cmdname ('documentlanguage', 'pagesizes',
-                                               'paragraphindent') {
+  foreach my $informative_cmdname ('documentlanguage', 'documentscript',
+                                   'pagesizes', 'paragraphindent') {
     my $conf_value = $self->get_conf($informative_cmdname);
     if (defined($conf_value)) {
       $result_text .= _informative_command_output($self, $informative_cmdname);

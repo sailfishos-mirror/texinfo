@@ -154,7 +154,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
   DOCUMENT_LANG_INFO *lang_info;
 
   if (lang_translation)
-    lang_info = &lang_translation->info;
+    lang_info = lang_translation->info;
   else
     lang_info = &unknown_lang_info;
 
@@ -627,10 +627,18 @@ html_translate_names (CONVERTER *self)
 
   text_set_language (self->convert_text_options,
                      self->conf->documentlanguage.o.string);
+  text_set_script (self->convert_text_options,
+                   self->conf->documentscript.o.string);
 
   self->current_lang_translations =
     set_translations_documentlanguage (&translation_cache,
                               self->conf->documentlanguage.o.string,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+
+  self->current_lang_translations =
+    set_translations_documentscript (&translation_cache,
+                              self->conf->documentscript.o.string,
                               self->current_lang_translations,
                               TXI_CONVERT_STRINGS_NR);
 
@@ -787,7 +795,7 @@ html_translate_names (CONVERTER *self)
    Texinfo tree is possible */
 
 static const enum command_id conf_for_documentlanguage[]
-                          = {CM_documentlanguage, 0};
+                          = {CM_documentlanguage, CM_documentscript, 0};
 
 int
 html_run_stage_handlers (CONVERTER *self,
@@ -992,8 +1000,8 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
   int i;
   ELEMENT *fulltitle_tree = 0;
   char *html_title_string = 0;
-  char *default_document_language = 0;
-  char *preamble_document_language = 0;
+  const char *default_bcp47_locale = "";
+  const char *preamble_bcp47_locale = "";
   int init_handler_status;
   int handler_fatal_error_level
      = self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer;
@@ -1007,17 +1015,29 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
   else
     return 0;
 
-  if (self->conf->documentlanguage.o.string)
-    default_document_language = strdup (self->conf->documentlanguage.o.string);
+  if (self->current_lang_translations)
+    default_bcp47_locale
+      = get_lang_info_bcp47_locale (self->current_lang_translations->info);
 
   set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
 
-  if (self->conf->documentlanguage.o.string)
-    preamble_document_language = strdup (self->conf->documentlanguage.o.string);
+  self->current_lang_translations =
+    set_translations_documentlanguage (&translation_cache,
+                              self->conf->documentlanguage.o.string,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
 
-  if (! (!default_document_language && !preamble_document_language)
-      && (!default_document_language || !preamble_document_language
-          || strcmp (default_document_language, preamble_document_language)))
+  self->current_lang_translations =
+    set_translations_documentscript (&translation_cache,
+                              self->conf->documentscript.o.string,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+
+  if (self->current_lang_translations)
+    preamble_bcp47_locale
+      = get_lang_info_bcp47_locale (self->current_lang_translations->info);
+
+  if (strcmp (default_bcp47_locale, preamble_bcp47_locale))
     html_translate_names (self);
 
   html_prepare_direction_icons (self);
@@ -1180,9 +1200,6 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
     {}
   else
     {
-      free (default_document_language);
-      free (preamble_document_language);
-
       return 0;
     }
 
@@ -1190,18 +1207,13 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
 
   set_global_document_commands (self, CL_before, conf_for_documentlanguage);
 
-  if (! (!default_document_language && !preamble_document_language)
-      && (!default_document_language || !preamble_document_language
-          || strcmp (default_document_language, preamble_document_language)))
+  if (strcmp (default_bcp47_locale, preamble_bcp47_locale))
     html_translate_names (self);
 
   /* reset in case the user changed customization variables in handlers */
   destroy_text_options (self->convert_text_options);
   self->convert_text_options
     = copy_converter_options_for_convert_text (self);
-
-  free (default_document_language);
-  free (preamble_document_language);
 
   return 1;
 }
@@ -1717,7 +1729,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
           if (args_formatted)
             destroy_args_formatted (args_formatted);
 
-          if (cmd == CM_documentlanguage)
+          if (cmd == CM_documentlanguage || cmd == CM_documentscript)
             {
               html_translate_names (self);
             }

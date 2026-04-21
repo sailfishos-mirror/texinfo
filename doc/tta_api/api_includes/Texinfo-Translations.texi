@@ -16,9 +16,11 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
 
 
   my $language = $customization->get_conf('documentlanguage');
+  my $script = $customization->get_conf('documentscript');
 
   my $lang_translations
-   = Texinfo::Translations::new_documentlanguage_translation($language);
+   = Texinfo::Translations::new_lang_translations($language,
+                                                  $script, undef);
 
 
   my $tree_translated
@@ -64,19 +66,33 @@ domain.
 
 @end table
 
-The @code{new_documentlanguage_translation} method sets up a lang translation data that
+The @code{new_lang_translations} method sets up a lang translation data that
 is used as argument for the other method.  This data contains the language
 and associated already translated strings.
 
 @table @asis
-@item $lang_translations = new_documentlanguage_translation($documentlanguage)
-@anchor{Texinfo@asis{::}Translations $lang_translations = new_documentlanguage_translation($documentlanguage)}
-@cindex @code{new_documentlanguage_translation}
+@item $lang_translations = new_lang_translations($documentlanguage, $documentscript, \@@documentlanguagevariants)
+@anchor{Texinfo@asis{::}Translations $lang_translations = new_lang_translations($documentlanguage@comma{} $documentscript@comma{} \@@documentlanguagevariants)}
 
-@emph{$documentlanguage} is the language of the returned @emph{$lang_translations}
-In general, @emph{$lang_translations} should be considered as opaque and should not
-be accessed directly, but passed to @code{gdt} and @code{pgdt} (but see below the
+@cindex @code{new_lang_translations}
+
+
+@emph{$documentlanguage} is the language of the returned @emph{$lang_translations},
+@emph{$documentscript} is the optional script for the language and
+@emph{\@@documentlanguagevariants} holds the list of variants for the language.  In
+general, @emph{$lang_translations} should be considered as opaque and should not be
+accessed directly, but passed to @code{gdt} and @code{pgdt} (but see below the
 @emph{$translate_string_method} @code{gdt} argument).
+
+@item $lang_translations = new_element_language_translation($element)
+@anchor{Texinfo@asis{::}Translations $lang_translations = new_element_language_translation($element)}
+@cindex @code{new_element_language_translation}
+
+Return a @emph{$lang_translations} based on the language informations associated
+to the @emph{$element} Texinfo tree element.  Such information is only set for
+elements that have an associated information in english and need to be
+translated in all the output formats, for example for definition commands alias
+names, such as @emph{Instance Variable} for @code{@@defivar}.
 
 @end table
 
@@ -101,8 +117,8 @@ as Texinfo code after translation.  With @code{gdt_string} a string
 is returned.
 
 The @emph{$lang_translations} should be a reference set up by
-@ref{Texinfo@asis{::}Translations $lang_translations = new_documentlanguage_translation($documentlanguage),, @code{new_documentlanguage_translation}}
-in the default case.  If @emph{$translate_string_method} argument is passed,
+@ref{Texinfo@asis{::}Translations $lang_translations = new_lang_translations($documentlanguage@comma{} $documentscript@comma{} \@@documentlanguagevariants),, @code{new_lang_translations}}
+for example.  If @emph{$translate_string_method} argument is passed,
 this argument should instead be suitable for the replacement function.
 
 @emph{$replaced_substrings} is an optional hash reference specifying
@@ -170,18 +186,18 @@ fallback.
 
 The @emph{$string} is a string to be translated.  The @emph{$lang_translations}
 argument should be a reference set up by
-@ref{Texinfo@asis{::}Translations $lang_translations = new_documentlanguage_translation($documentlanguage),, @code{new_documentlanguage_translation}}.
+@ref{Texinfo@asis{::}Translations $lang_translations = new_lang_translations($documentlanguage@comma{} $documentscript@comma{} \@@documentlanguagevariants),, @code{new_lang_translations}}.
 
 In the current implementation @emph{$lang_translations} is an array reference.  The
-first element of the array is an array reference containing the
-BCP 47 language locale, the language anme and a region code or undef.
+first element of the array is an hash reference containing the
+language information (main language, region, script and variants).
 The second element is set to a string that can be used as @code{LANGUAGE}
 environment before calling a function gathering translated strings.
 The third element is set to an hash reference holding translations already
 done, with BCP 47 language locales as keys.  A user-defined replacement
 function could use different data structures for @emph{$lang_translations}.
 
-If the language is @code{undef} or an empty string, the input string does not
+If the language is not set, the input string does not
 need to be translated.  The @emph{$translation_context} is optional.  If not
 @code{undef} this is a translation context string for @emph{$string}.  It is the first
 argument of @code{pgettext} in the C API of Gettext.

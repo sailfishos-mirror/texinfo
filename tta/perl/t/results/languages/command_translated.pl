@@ -145,7 +145,7 @@ erreur→
 $result_converted{'info'}->{'command_translated'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: chapter error→,  Up: (dir)
+File: ,  Node: Top,  Next: chapter erreur→,  Up: (dir)
 
 top erreur→
 ***********
@@ -157,7 +157,7 @@ erreur→
 * chapter erreur→::
 
 
-File: ,  Node: chapter error→,  Prev: Top,  Up: Top
+File: ,  Node: chapter erreur→,  Prev: Top,  Up: Top
 
 1 Chapter
 *********
@@ -165,7 +165,7 @@ File: ,  Node: chapter error→,  Prev: Top,  Up: Top
 
 Tag Table:
 Node: Top27
-Node: chapter error→148
+Node: chapter erreur→149
 
 End Tag Table
 

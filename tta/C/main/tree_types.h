@@ -514,7 +514,7 @@ typedef struct DOCUMENT_LANG_INFO {
 } DOCUMENT_LANG_INFO;
 
 typedef struct LANG_TRANSLATION {
-    DOCUMENT_LANG_INFO info;
+    DOCUMENT_LANG_INFO *info;
     char *language_env;
     LANG_TRANSLATION_TREE_LIST *translations;
 } LANG_TRANSLATION;

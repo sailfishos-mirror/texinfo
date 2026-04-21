@@ -231,10 +231,10 @@ sub get_lang_info_xdg_locale($) {
     $xpg_locale .= '_'.$lang_info->{'region'};
   }
   if (exists($lang_info->{'script'})
-      and exists($Texinfo::Documentlanguage::documentscript_XPG_script{
+      and exists($Texinfo::Documentlanguages::documentscript_XPG_script{
                                                 $lang_info->{'script'}})) {
     $xpg_locale .=
-      '@'.$Texinfo::Documentlanguage::documentscript_XPG_script{
+      '@'.$Texinfo::Documentlanguages::documentscript_XPG_script{
                                                 $lang_info->{'script'}};
   } elsif (exists($lang_info->{'variants'})) {
     $xpg_locale .= '@'.$lang_info->{'variants'}->[0];
@@ -264,23 +264,6 @@ sub get_lang_info_bcp47_locale($) {
 }
 #### end of lang_info API
 
-sub fill_document_lang_info($$) {
-  my $lang_info = shift;
-  my $documentlanguage = shift;
-
-  my ($lang_code, $region_code);
-  if (defined($documentlanguage)) {
-    ($lang_code, $region_code)
-      = Texinfo::Common::analyze_documentlanguage_argument($documentlanguage);
-    if (defined($lang_code)) {
-      $lang_info->{'lang'} = $lang_code;
-      if (defined($region_code)) {
-        $lang_info->{'region'} = $region_code;
-      }
-    }
-  }
-}
-
 sub _new_lang_info_translation($) {
   my $lang_info = shift;
 
@@ -303,13 +286,43 @@ sub _new_lang_info_translation($) {
   return [$lang_info, $language_env];
 }
 
-sub new_documentlanguage_translation($) {
-  my $documentlanguage = shift;
+sub new_lang_info($;$$) {
+  my ($documentlanguage, $documentscript, $variants) = @_;
 
-  my $lang_info = {};
-  fill_document_lang_info($lang_info, $documentlanguage);
+  my ($lang_code, $region_code)
+    = Texinfo::Common::analyze_documentlanguage_argument($documentlanguage);
+
+  return undef if (!defined($lang_code));
+
+  my %lang_info = ('lang' => $lang_code);
+  $lang_info{'region'} = $region_code if (defined($region_code));
+
+  if (defined($documentscript)) {
+    my ($valid_script, $script)
+      = Texinfo::Common::analyze_documentscript_argument($documentscript);
+    # script should be well-formatted, otherwise it would not have been
+    # collected.  We account for the possibility of a malformed documentscript
+    # unexpectedly passed.
+    $lang_info{'script'} = $script if (defined($script) and $script ne '');
+  }
+  return \%lang_info;
+}
+
+sub new_lang_translations($;$$) {
+  my ($documentlanguage, $documentscript, $variants) = @_;
+
+  my $lang_info = new_lang_info($documentlanguage, $documentscript, $variants);
 
   return _new_lang_info_translation($lang_info);
+}
+
+sub new_element_language_translation($) {
+  my $element = shift;
+
+  my $documentlanguage = $element->{'extra'}->{'documentlanguage'};
+  my $documentscript = $element->{'extra'}->{'documentscript'};
+
+  return new_lang_translations($documentlanguage, $documentscript, undef);
 }
 
 sub _set_lang_info_translation($$) {
@@ -337,7 +350,7 @@ sub set_translations_documentlanguage($$$) {
   my ($lang_code, $region_code)
     = Texinfo::Common::analyze_documentlanguage_argument($documentlanguage);
 
-  return if (!defined($lang_code));
+  return $current_lang_translations if (!defined($lang_code));
 
   if (defined($current_lang_translations)) {
     my $current_lang_info = $current_lang_translations->[0];
@@ -360,6 +373,41 @@ sub set_translations_documentlanguage($$$) {
     $lang_info{'region'} = $region_code;
   } else {
     delete $lang_info{'region'};
+  }
+
+  return _set_lang_info_translation($translations, \%lang_info);
+}
+
+# TODO document?
+sub set_translations_documentscript($$$) {
+  my ($translations, $documentscript, $current_lang_translations) = @_;
+
+  my %lang_info;
+
+  my ($valid_script, $script)
+    = Texinfo::Common::analyze_documentscript_argument($documentscript);
+
+  return $current_lang_translations if (!defined($script));
+
+  if (defined($current_lang_translations)) {
+    my $current_lang_info = $current_lang_translations->[0];
+    if ((exists($current_lang_info->{'script'})
+         and $current_lang_info->{'script'} eq $script)
+        or (!exists($current_lang_info->{'script'})
+            and $script eq "")) {
+      # Nothing to do
+      return $current_lang_translations;
+    }
+
+    # copy lang info
+    %lang_info = %$current_lang_info;
+    delete $lang_info{'bcp47_locale'};
+  }
+
+  if ($script eq "") {
+    delete $lang_info{'script'};
+  } else {
+    $lang_info{'script'} = $script;
   }
 
   return _set_lang_info_translation($translations, \%lang_info);
@@ -582,7 +630,7 @@ my $lang_translations_cache = {};
 sub complete_indices($;$$) {
   my ($index_names, $command_line_encoding, $debug_level) = @_;
 
-  my $current_lang;
+  my $current_lang_locale;
   my $current_lang_translations;
 
   foreach my $index_name (sort(keys(%{$index_names}))) {
@@ -635,20 +683,21 @@ sub complete_indices($;$$) {
 
           # Use the document language that was current when the command was
           # used for getting the translation.
-          my $entry_language
-             = $main_entry_element->{'extra'}->{'documentlanguage'};
-          $entry_language = '' if (!defined($entry_language));
-          if (!defined($current_lang)
-              or $entry_language ne $current_lang) {
-            $current_lang_translations
-              = new_documentlanguage_translation($entry_language);
+          my $lang_translations
+            = new_element_language_translation($main_entry_element);
+          if (defined($lang_translations)) {
             my $lang_locale
-              = get_lang_info_bcp47_locale($current_lang_translations->[0]);
-            if (!exists($lang_translations_cache->{$lang_locale})) {
-              $lang_translations_cache->{$lang_locale} = {};
+              = get_lang_info_bcp47_locale($lang_translations->[0]);
+            if (!defined($current_lang_locale)
+                or $lang_locale ne $current_lang_locale) {
+              if (!exists($lang_translations_cache->{$lang_locale})) {
+                $lang_translations_cache->{$lang_locale} = {};
+              }
+              $current_lang_translations = $lang_translations;
+              $current_lang_locale = $lang_locale;
+              $current_lang_translations->[2]
+                = $lang_translations_cache->{$lang_locale};
             }
-            $current_lang_translations->[2]
-              = $lang_translations_cache->{$lang_locale};
           }
           if ($def_command eq 'defop'
               or $def_command eq 'deftypeop'
@@ -708,9 +757,11 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
 
 
   my $language = $customization->get_conf('documentlanguage');
+  my $script = $customization->get_conf('documentscript');
 
   my $lang_translations
-   = Texinfo::Translations::new_documentlanguage_translation($language);
+   = Texinfo::Translations::new_lang_translations($language,
+                                                  $script, undef);
 
 
   my $tree_translated
@@ -753,19 +804,31 @@ domain.
 
 =back
 
-The C<new_documentlanguage_translation> method sets up a lang translation data that
+The C<new_lang_translations> method sets up a lang translation data that
 is used as argument for the other method.  This data contains the language
 and associated already translated strings.
 
 =over
 
-=item $lang_translations = new_documentlanguage_translation($documentlanguage)
-X<C<new_documentlanguage_translation>>
+=item $lang_translations = new_lang_translations($documentlanguage, $documentscript, \@documentlanguagevariants)
 
-I<$documentlanguage> is the language of the returned I<$lang_translations>
-In general, I<$lang_translations> should be considered as opaque and should not
-be accessed directly, but passed to C<gdt> and C<pgdt> (but see below the
+X<C<new_lang_translations>>
+
+I<$documentlanguage> is the language of the returned I<$lang_translations>,
+I<$documentscript> is the optional script for the language and
+I<\@documentlanguagevariants> holds the list of variants for the language.  In
+general, I<$lang_translations> should be considered as opaque and should not be
+accessed directly, but passed to C<gdt> and C<pgdt> (but see below the
 I<$translate_string_method> C<gdt> argument).
+
+=item $lang_translations = new_element_language_translation($element)
+X<C<new_element_language_translation>>
+
+Return a I<$lang_translations> based on the language informations associated
+to the I<$element> Texinfo tree element.  Such information is only set for
+elements that have an associated information in english and need to be
+translated in all the output formats, for example for definition commands alias
+names, such as I<Instance Variable> for C<@defivar>.
 
 =back
 
@@ -787,8 +850,8 @@ as Texinfo code after translation.  With C<gdt_string> a string
 is returned.
 
 The I<$lang_translations> should be a reference set up by
-L<< C<new_documentlanguage_translation>|/$lang_translations = new_documentlanguage_translation($documentlanguage) >>
-in the default case.  If I<$translate_string_method> argument is passed,
+L<< C<new_lang_translations>|/$lang_translations = new_lang_translations($documentlanguage, $documentscript, \@documentlanguagevariants) >>
+for example.  If I<$translate_string_method> argument is passed,
 this argument should instead be suitable for the replacement function.
 
 I<$replaced_substrings> is an optional hash reference specifying
@@ -853,18 +916,18 @@ X<C<cache_translate_string>>
 
 The I<$string> is a string to be translated.  The I<$lang_translations>
 argument should be a reference set up by
-L<< C<new_documentlanguage_translation>|/$lang_translations = new_documentlanguage_translation($documentlanguage) >>.
+L<< C<new_lang_translations>|/$lang_translations = new_lang_translations($documentlanguage, $documentscript, \@documentlanguagevariants) >>.
 
 In the current implementation I<$lang_translations> is an array reference.  The
-first element of the array is an array reference containing the
-BCP 47 language locale, the language anme and a region code or undef.
+first element of the array is an hash reference containing the
+language information (main language, region, script and variants).
 The second element is set to a string that can be used as C<LANGUAGE>
 environment before calling a function gathering translated strings.
 The third element is set to an hash reference holding translations already
 done, with BCP 47 language locales as keys.  A user-defined replacement
 function could use different data structures for I<$lang_translations>.
 
-If the language is C<undef> or an empty string, the input string does not
+If the language is not set, the input string does not
 need to be translated.  The I<$translation_context> is optional.  If not
 C<undef> this is a translation context string for I<$string>.  It is the first
 argument of C<pgettext> in the C API of Gettext.

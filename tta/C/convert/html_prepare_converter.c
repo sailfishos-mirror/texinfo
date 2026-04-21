@@ -53,7 +53,7 @@
 #include "manipulate_indices.h"
 /* nobrace_symbol_text text_brace_no_arg_commands */
 #include "convert_to_text.h"
-/* fill_document_lang_info free_document_lang_info free_translation_cache */
+/* new_lang_info destroy_document_lang_info free_translation_cache */
 #include "translations.h"
 #include "output_unit.h"
 #include "html_conversion_state.h"
@@ -186,12 +186,12 @@ static const enum command_id contents_elements_options[]
              = {CM_contents, CM_shortcontents, CM_summarycontents, 0};
 
 static const enum command_id informative_global_commands[]
-             = {CM_documentlanguage, CM_footnotestyle,
+             = {CM_documentlanguage, CM_documentscript, CM_footnotestyle,
                 CM_xrefautomaticsectiontitle,
                 CM_deftypefnnewline, 0};
 
 static const enum command_id conf_for_documentlanguage[]
-                          = {CM_documentlanguage, 0};
+                      = {CM_documentlanguage, CM_documentscript, 0};
 
 static enum element_type ignored_types[] = {
     ET_ignorable_spaces_after_command,
@@ -2408,6 +2408,7 @@ static const COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = 
   {CM_printindex, &html_convert_printindex_command},
   /* @informative_global_commands in perl */
   {CM_documentlanguage, &html_convert_informative_command},
+  {CM_documentscript, &html_convert_informative_command},
   {CM_footnotestyle, &html_convert_informative_command},
   {CM_xrefautomaticsectiontitle, &html_convert_informative_command},
   {CM_deftypefnnewline, &html_convert_informative_command},
@@ -4135,8 +4136,7 @@ html_setup_output (CONVERTER *self, char **paths)
   int handler_fatal_error_level;
   int setup_handler_status;
   int js_categories_list_nr = 0;
-  const char *documentlanguage;
-  static DOCUMENT_LANG_INFO lang_info;
+  DOCUMENT_LANG_INFO *lang_info;
   char *body_element_attributes;
 
   /* Should not actually be needed, as it is already deleted after conversion
@@ -4215,17 +4215,17 @@ html_setup_output (CONVERTER *self, char **paths)
 
   set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
 
-  documentlanguage = self->conf->documentlanguage.o.string;
-  memset (&lang_info, 0, sizeof (DOCUMENT_LANG_INFO));
-  fill_document_lang_info (&lang_info, documentlanguage);
-
-  if (strcmp (get_lang_info_bcp47_locale(&lang_info), ""))
+  lang_info = new_lang_info (self->conf->documentlanguage.o.string,
+                             self->conf->documentscript.o.string,
+                             NULL);
+  if (lang_info)
     {
       xasprintf (&body_element_attributes, "lang=\"%s\"",
-                 get_lang_info_bcp47_locale(&lang_info));
+                 get_lang_info_bcp47_locale(lang_info));
       option_set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,
                        0, body_element_attributes);
       free (body_element_attributes);
+      destroy_document_lang_info (lang_info);
     }
   else
     {
@@ -4233,8 +4233,6 @@ html_setup_output (CONVERTER *self, char **paths)
          take an empty string as its value to specify that the language
          is unknown.  However, outputting lang="" is unnecessary. */
     }
-
-  free_document_lang_info (&lang_info);
 
   set_global_document_commands (self, CL_before, conf_for_documentlanguage);
 

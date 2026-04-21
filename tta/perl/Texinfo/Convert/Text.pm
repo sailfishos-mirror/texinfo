@@ -189,14 +189,20 @@ sub copy_options_for_convert_text($;$) {
   }
 
   foreach my $string_option ('COMMAND_LINE_ENCODING',
-                             'documentlanguage', 'INPUT_FILE_NAME_ENCODING',
+                             'INPUT_FILE_NAME_ENCODING',
                              'LOCALE_ENCODING') {
     $options{$string_option} = $converter->get_conf($string_option);
   }
 
-  my $documentlanguage = $options{'documentlanguage'};
+  # documentlanguage and documentscript are not directly passed, but are
+  # passed through setting the current lang translations.
+  my $documentlanguage = $converter->get_conf('documentlanguage');
   if (defined($documentlanguage)) {
     set_language(\%options, $documentlanguage);
+  }
+  my $documentscript = $converter->get_conf('documentscript');
+  if (defined($documentscript)) {
+    set_script(\%options, $documentscript);
   }
 
   my $include_directories = $converter->get_conf('INCLUDE_DIRECTORIES');
@@ -281,6 +287,19 @@ sub set_language($$) {
   $options->{'current_lang_translations'}
     = Texinfo::Translations::set_translations_documentlanguage(
          $options->{'translations'}, $documentlanguage,
+         $options->{'current_lang_translations'});
+}
+
+sub set_script($$) {
+  my ($options, $documentscript) = @_;
+
+  if (!exists($options->{'translations'})) {
+    $options->{'translations'} = $Texinfo::Translations::translation_cache;
+  }
+
+  $options->{'current_lang_translations'}
+    = Texinfo::Translations::set_translations_documentscript(
+         $options->{'translations'}, $documentscript,
          $options->{'current_lang_translations'});
 }
 
@@ -794,8 +813,7 @@ sub _convert($$) {
         # if there is no documentlanguage information, we use the
         # documentlanguage available in the tree.
         my $new_lang_translations
-           = Texinfo::Translations::new_documentlanguage_translation(
-                                  $element->{'extra'}->{'documentlanguage'});
+         = Texinfo::Translations::new_element_language_translation($element);
 
         $tree = Texinfo::Translations::gdt($category_text,
                              $new_lang_translations, undef, undef,

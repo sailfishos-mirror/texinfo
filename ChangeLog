@@ -1,3 +1,111 @@
+2026-04-21 Patrice Dumas  <pertusus@free.fr>
+
+	Use documentscript in conversion
+
+	* tta/C/main/utils.c (analyze_documentscript_argument): handle NULL
+	text.
+
+	* tta/perl/Texinfo/Translations.pm (get_lang_info_xdg_locale): fix
+	typo in module name.
+
+	* tta/perl/Texinfo/Translations.pm
+	(set_translations_documentlanguage): return current_lang_translations
+	if the documentlanguage is bogus.
+
+	* tta/C/convert/build_html_perl_state.c
+	(set_perl_translations_documentlanguage),
+	tta/C/convert/get_converter_perl_info.c
+	(copy_sv_options_for_convert_text): use converter
+	current_lang_translations to build the lang info Perl information
+	through a call to build_lang_info.
+
+	* tta/C/main/translations.c (new_lang_info, new_element_lang_info)
+	(new_lang_translations, new_element_language_translation)
+	(set_translations_documentlanguage), tta/C/main/tree_types.h
+	(LANG_TRANSLATION), tta/perl/Texinfo/Translations.pm (new_lang_info)
+	(new_lang_translations, new_element_language_translation),
+	tta/perl/XSTexinfo/parser_document/TranslationsXS.xs
+	(cache_translate_string): add new_lang_info and new_element_lang_info,
+	new_lang_translations and new_element_language_translation.  Use a
+	pointer for DOCUMENT_LANG_INFO info in LANG_TRANSLATION.  Update
+	set_translations_documentlanguage and other users.  Remove
+	new_documentlanguage_translation, get_documentlanguage_translation and
+	fill_document_lang_info.
+
+	* tta/C/main/translations.c (destroy_document_lang_info): replace
+	free_document_lang_info by and free the lang_info too.
+
+	* tta/C/main/translations.c (set_translations_documentscript),
+	tta/perl/Texinfo/Translations.pm (set_translations_documentscript):
+	add.
+
+	* tta/C/main/build_perl_info.c (build_convert_text_options),
+	tta/C/main/convert_to_text.c (destroy_text_options)
+	(copy_options_for_convert_text, text_set_language, text_set_script)
+	tta/C/main/convert_to_text.h (TEXT_OPTIONS),
+	tta/perl/Texinfo/Convert/Text.pm (copy_options_for_convert_text)
+	(set_script): remove documentlanguage from text options, instead set
+	current_lang_translations based on documentlanguage and documentscript
+	options values.  Add text_set_script and set_script.
+
+	* tta/C/convert/converter.c (set_converter_init_information),
+	tta/perl/Texinfo/Convert/Converter.pm (converter_set_documentscript),
+	tta/perl/Texinfo/Convert/ConverterNonXS.pm (_generic_converter_init):
+	pass documentscript.  Add converter_set_documentscript.
+
+	* tta/C/convert/convert_html.c (html_prepare_converted_output_info),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm (_prepare_converted_output_info)
+
+	use current_lang_translations to get bcp47_locale and set
+	documentlanguage and documentscript in
+	html_prepare_converted_output_info.
+
+	* tta/C/parsetexi/indices.c (complete_indices),
+	tta/perl/Texinfo/Translations.pm (complete_indices): use
+	new_element_lang_info and set_lang_info_translation in
+	complete_indices in C and new_element_language_translation in Perl.
+
+	* tta/C/structuring_transfo/transformations.c
+	(complete_tree_nodes_missing_menu, regenerate_master_menu),
+	tta/perl/Texinfo/TransformationsNonXS.pm
+	(complete_tree_nodes_missing_menu, regenerate_master_menu): setup
+	lang_translation with a call to new_lang_translations.
+
+	* tta/C/convert/convert_html.c (html_translate_names)
+	(conf_for_documentlanguage, html_convert_tree_append),
+	tta/C/convert/html_prepare_converter.c (informative_global_commands)
+	(conf_for_documentlanguage, commands_internal_conversion_table),
+	tta/perl/Texinfo/Convert/HTML.pm (@informative_global_commands)
+	(_convert), tta/perl/Texinfo/Convert/HTMLNonXS.pm (_translate_names): in
+	html_translate_names, call text_set_script and
+	set_translations_documentscript based on documentscript option.  Get
+	documentscript value during conversion, and call html_translate_names
+	for documentscript too.
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (%docbook_global_commands)
+	(conversion_output_begin, _convert), tta/perl/Texinfo/Convert/LaTeX.pm
+	(_informative_command_output, _latex_begin_output),
+	tta/perl/Texinfo/Convert/Plaintext.pm (@informative_global_commands)
+	(_convert): handle documentscript.
+
+	* tta/C/main/convert_to_text.c (convert_to_text_internal),
+	tta/C/main/convert_utils.c (definition_category_tree),
+	tta/perl/Texinfo/Convert/Text.pm (_convert),
+	tta/perl/Texinfo/Convert/Utils.pm (definition_category_tree): use
+	new_element_language_translation to set lang translations for category
+	text when there is no converter.
+
+	* tta/C/convert/html_prepare_converter.c (html_setup_output),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm (_setup_output): use
+	new_lang_info with configuration options to determine the body lang
+	attribute.
+
+	* tta/perl/t/languages.t (documentscript_conversion),
+	tta/perl/Makefile.tres: add test for documentscript in conversions.
+
+	* tta/perl/t/z_misc/do_master_menu.t: simply pass undef for
+	lang_translation.
+
 2026-04-20 Patrice Dumas  <pertusus@free.fr>
 
 	* po_document/qaa.po po_document/qaa@latin.po: add pseudo-translations

@@ -399,8 +399,6 @@ void
 complete_indices (DOCUMENT *document, int debug_level)
 {
   INDEX_LIST *indices;
-  const char *current_lang = 0;
-  LANG_TRANSLATION *current_lang_translations;
   size_t i;
 
   indices = &document->indices_info;
@@ -450,9 +448,7 @@ complete_indices (DOCUMENT *document, int debug_level)
 
                   if (name && class)
                     {
-                      const char *documentlanguage
-                            = lookup_extra_string (main_entry_element,
-                                                       AI_key_documentlanguage);
+                      LANG_TRANSLATION *current_lang_translations = 0;
                       ELEMENT *index_entry;
                   /* container without type in extra "def_index_ref_element" */
                       ELEMENT *index_entry_normalized = new_element (ET_NONE);
@@ -470,18 +466,14 @@ complete_indices (DOCUMENT *document, int debug_level)
                       ELEMENT *ref_class_copy = copy_element_tree (class, 0);
                       remove_def_types (ref_class_copy);
 
-                      if (!documentlanguage)
-                        documentlanguage = "";
-
-                      if (!current_lang || strcmp (documentlanguage,
-                                                   current_lang))
+                      DOCUMENT_LANG_INFO *lang_info
+                       = new_element_lang_info (main_entry_element);
+                      if (lang_info)
                         {
                           current_lang_translations
-                           = get_documentlanguage_translation
-                                                  (&lang_translations,
-                                                   documentlanguage,
+                            = set_lang_info_translation (&lang_translations,
+                                                   lang_info,
                                                    TXI_PARSER_STRINGS_NR);
-                          current_lang = documentlanguage;
                         }
 
                       add_element_to_named_string_element_list (substrings,

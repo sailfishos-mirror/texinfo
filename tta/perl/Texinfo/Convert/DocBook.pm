@@ -188,6 +188,7 @@ foreach my $command ('itemx') {
 
 my %docbook_global_commands = (
   'documentlanguage' => 1,
+  'documentscript' => 1,
 );
 
 my %default_args_code_style
@@ -382,21 +383,22 @@ sub conversion_output_begin($;$$) {
     $id = '';
   }
 
-  my $lang_attribute;
-  $self->set_global_document_commands('preamble', ['documentlanguage']);
+  $self->set_global_document_commands('preamble', ['documentlanguage',
+                                                   'documentscript']);
   my $documentlanguage = $self->get_conf('documentlanguage');
-  if (defined($documentlanguage)) {
-    $self->converter_set_documentlanguage($documentlanguage);
-    my $bcp47_locale = $self->current_bcp47_locale();
-    push @{$self->{'lang_stack'}}, $bcp47_locale;
-    if ($bcp47_locale ne '') {
-      $lang_attribute = " lang=\"$bcp47_locale\"";
-    }
+  $self->converter_set_documentlanguage($documentlanguage);
+  my $documentscript = $self->get_conf('documentscript');
+  $self->converter_set_documentscript($documentscript);
+  my $bcp47_locale = $self->current_bcp47_locale();
+  push @{$self->{'lang_stack'}}, $bcp47_locale;
+
+  my $lang_attribute;
+  if ($bcp47_locale ne '') {
+    $lang_attribute = " lang=\"$bcp47_locale\"";
   } else {
     $lang_attribute = '';
-    # start with an empty string if there is no documentlanguage
-    push @{$self->{'lang_stack'}}, '';
   }
+
   my $result =  "<?xml version=\"1.0\"${encoding}?>".'
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY tex "TeX">
@@ -543,8 +545,10 @@ sub conversion_output_begin($;$$) {
       }
     }
   }
-  $self->set_global_document_commands('before', ['documentlanguage']);
+  $self->set_global_document_commands('before', ['documentlanguage',
+                                                 'documentscript']);
   $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
+  $self->converter_set_documentscript($self->get_conf('documentscript'));
 
   my $document_info = '';
   $document_info .= $title_info . $authors_info;
@@ -1008,6 +1012,9 @@ sub _convert($$;$) {
         if ($cmdname eq 'documentlanguage') {
           $self->converter_set_documentlanguage(
                                       $self->get_conf('documentlanguage'));
+        } elsif ($cmdname eq 'documentscript') {
+          $self->converter_set_documentscript(
+                                      $self->get_conf('documentscript'));
         }
         return '';
       }
@@ -1130,15 +1137,12 @@ sub _convert($$;$) {
               }
             }
             my $language = '';
-            my $documentlanguage = $self->get_conf('documentlanguage');
-            if (defined($documentlanguage)) {
-              my $bcp47_locale = $self->current_bcp47_locale();
-              if ($self->{'lang_stack'}->[-1] ne $bcp47_locale
-                  and $bcp47_locale ne '') {
-                $section_attribute .= ' lang="'.$bcp47_locale.'"';
-              }
-              $language = $bcp47_locale;
+            my $bcp47_locale = $self->current_bcp47_locale();
+            if ($self->{'lang_stack'}->[-1] ne $bcp47_locale
+                and $bcp47_locale ne '') {
+              $section_attribute .= ' lang="'.$bcp47_locale.'"';
             }
+            $language = $bcp47_locale;
             push @{$self->{'lang_stack'}}, $language;
             $result .= "<$docbook_sectioning_element${section_attribute}>\n";
             # argument_line type

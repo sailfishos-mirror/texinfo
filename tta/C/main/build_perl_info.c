@@ -3218,10 +3218,6 @@ build_convert_text_options (TEXT_OPTIONS *text_options)
   if (text_options->code_state)
     STORE("_code_state", newSViv (text_options->code_state));
 
-  if (text_options->documentlanguage)
-    STORE("documentlanguage",
-           newSVpv_utf8 (text_options->documentlanguage, 0));
-
   if (text_options->INPUT_FILE_NAME_ENCODING)
     STORE("INPUT_FILE_NAME_ENCODING",
            newSVpv_utf8 (text_options->INPUT_FILE_NAME_ENCODING, 0));

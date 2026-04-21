@@ -1321,6 +1321,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/languages/documentlanguage_unknown/res_html \
   t/results/languages/documentlanguage_unknown/res_info \
   t/results/languages/documentscript_before_documentlanguage.pl \
+  t/results/languages/documentscript_conversion.pl \
   t/results/languages/documentscript_selection.pl \
   t/results/languages/invalid_documentlanguage.pl \
   t/results/languages/multiple_documentlanguage.pl \

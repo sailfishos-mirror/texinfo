@@ -34,13 +34,7 @@ void set_output_strings_translate_method (int use_external_translate_string_in);
 void setup_output_strings_translations (const char *localesdir,
                                         const char *strings_textdomain_in);
 
-void fill_document_lang_info (DOCUMENT_LANG_INFO *lang_info,
-                              const char *documentlanguage);
 const char *get_lang_info_bcp47_locale (DOCUMENT_LANG_INFO *lang_info);
-LANG_TRANSLATION *get_documentlanguage_translation (
-                      LANG_TRANSLATION ***lang_translations_ptr,
-                      const char *documentlanguage,
-                      size_t cache_size);
 const LANG_TRANSLATION *get_lang_info_translation (
                         LANG_TRANSLATION ***lang_translations_ptr,
                         DOCUMENT_LANG_INFO *info,
@@ -49,12 +43,18 @@ LANG_TRANSLATION *set_lang_info_translation (
                         LANG_TRANSLATION ***lang_translations_ptr,
                         DOCUMENT_LANG_INFO *info,
                         size_t cache_size);
-LANG_TRANSLATION *new_documentlanguage_translation (
-                                       const char *documentlanguage);
+DOCUMENT_LANG_INFO *new_lang_info (const char *documentlanguage,
+               const char *documentscript,
+               const STRING_LIST *variants);
+LANG_TRANSLATION *new_lang_translations (const char *documentlanguage,
+                       const char *documentscript,
+                       const STRING_LIST *variants);
+DOCUMENT_LANG_INFO *new_element_lang_info (const ELEMENT *element);
+LANG_TRANSLATION *new_element_language_translation (const ELEMENT *element);
 TRANSLATION_TREE *add_translation_tree (
                    LANG_TRANSLATION_TREE_LIST *translations,
                       const char *translated);
-void free_document_lang_info (DOCUMENT_LANG_INFO *lang_info);
+void destroy_document_lang_info (DOCUMENT_LANG_INFO *lang_info);
 void free_lang_translation (LANG_TRANSLATION *lang_translation);
 void free_translation_cache (LANG_TRANSLATION **translation_cache);
 LANG_TRANSLATION *set_translations_documentlanguage (
@@ -62,6 +62,11 @@ LANG_TRANSLATION *set_translations_documentlanguage (
                                    const char *documentlanguage,
                                    LANG_TRANSLATION *current_lang_translations,
                                    size_t cache_size);
+LANG_TRANSLATION *set_translations_documentscript (
+                                 LANG_TRANSLATION ***lang_translations,
+                                 const char *documentscript,
+                                 LANG_TRANSLATION *current_lang_translations,
+                                 size_t cache_size);
 char *translate_string (const char *string, const char *language_env,
                         const char *translation_context);
 TRANSLATION_TREE *cache_translate_string (const char *string,

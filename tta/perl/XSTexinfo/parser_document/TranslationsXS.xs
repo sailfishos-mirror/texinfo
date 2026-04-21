@@ -26,6 +26,7 @@
 #undef context
 
 #include "tree_types.h"
+#include "xs_utils.h"
 #include "translations.h"
 /* for newSVpv_utf8 */
 #include "build_perl_info.h"
@@ -65,12 +66,13 @@ cache_translate_string (string, SV *lang_translations, SV *translation_context_s
             if (lang_info_sv && SvOK (*lang_info_sv))
               {
                 HV *lang_info_hv = (HV *) SvRV (*lang_info_sv);
-                static DOCUMENT_LANG_INFO info;
-                memset (&info, 0, sizeof (DOCUMENT_LANG_INFO));
-                get_lang_info_hv (&info, lang_info_hv);
+                DOCUMENT_LANG_INFO *info = (DOCUMENT_LANG_INFO *)
+                  non_perl_malloc (sizeof (DOCUMENT_LANG_INFO));
+                memset (info, 0, sizeof (DOCUMENT_LANG_INFO));
+                get_lang_info_hv (info, lang_info_hv);
                 lang_translation
                       = set_lang_info_translation (
-                                &translation_cache, &info,
+                                &translation_cache, info,
                                 TXI_CONVERT_STRINGS_NR);
               }
 

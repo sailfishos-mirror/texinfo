@@ -53,52 +53,32 @@
 static const char *lang_trans_key = "current_lang_translations";
 
 #define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
-/* similar to Texinfo::Convert::Converter::converter_set_documentlanguage */
+/* same as calls to Texinfo::Convert::Converter::converter_set_document* */
 static void
 set_perl_translations_documentlanguage (HV *converter_hv,
-                                        const char *documentlanguage)
+                                        CONVERTER *converter)
 {
-  AV *current_lang_translations_av;
   SV *translations;
   SV *bcp47_locale_sv;
   SV **translations_sv;
   HV *translations_hv;
   HE *translations_lang_he;
   HV *translations_lang_hv;
-  SV **current_lang_translations_sv;
+  AV *current_lang_translations_av;
   LANG_TRANSLATION *lang_translation;
   DOCUMENT_LANG_INFO *lang_info;
   HV *lang_info_hv;
 
   dTHX;
 
-  /* FIXME should use current_lang_translations */
-  lang_translation = new_documentlanguage_translation (documentlanguage);
-  lang_info = &lang_translation->info;
+  lang_translation = converter->current_lang_translations;
 
-  bcp47_locale_sv = newSVpv_byte (get_lang_info_bcp47_locale (lang_info), 0);
+  if (!lang_translation)
+    return;
 
-  FETCH(current_lang_translations);
-  if (current_lang_translations_sv
-      && SvOK (*current_lang_translations_sv))
-    {
-      AV *lang_trans_av = (AV *)SvRV (*current_lang_translations_sv);
-      SV **current_lang_info_sv = av_fetch (lang_trans_av, 0, 0);
-      if (current_lang_info_sv && SvOK (*current_lang_info_sv))
-        {
-          HV *current_lang_info_hv = (HV *)SvRV (*current_lang_info_sv);
-          SV **current_bcp47_locale_sv
-            = hv_fetch (current_lang_info_hv, "bcp47_locale",
-                        strlen ("bcp47_locale"), 0);
-          if (current_bcp47_locale_sv
-              && SvOK (*current_bcp47_locale_sv)
-              && !sv_cmp (bcp47_locale_sv, *current_bcp47_locale_sv))
-            {
-              free_lang_translation (lang_translation);
-              return;
-            }
-        }
-    }
+  lang_info = lang_translation->info;
+
+  lang_info_hv = build_lang_info (lang_info);
 
   FETCH(translations);
 
@@ -114,6 +94,8 @@ set_perl_translations_documentlanguage (HV *converter_hv,
       translations = *translations_sv;
     }
 
+  bcp47_locale_sv = newSVpv_byte (get_lang_info_bcp47_locale (lang_info), 0);
+
   translations_hv = (HV *)SvRV (translations);
   translations_lang_he = hv_fetch_ent (translations_hv, bcp47_locale_sv,
                                        0, 0);
@@ -128,7 +110,6 @@ set_perl_translations_documentlanguage (HV *converter_hv,
 
   current_lang_translations_av = newAV ();
 
-  lang_info_hv = build_lang_info (lang_info);
   av_push (current_lang_translations_av,
            newRV_noinc ((SV *) lang_info_hv));
 
@@ -140,8 +121,6 @@ set_perl_translations_documentlanguage (HV *converter_hv,
 
   hv_store (converter_hv, lang_trans_key, strlen (lang_trans_key),
             newRV_noinc ((SV *) current_lang_translations_av), 0);
-
-  free_lang_translation (lang_translation);
 }
 
 /* TODO should set the same as
@@ -159,8 +138,7 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
   FETCH(convert_text_options);
   if (convert_text_options_sv)
     {
-      /* TODO does not seems to be up to date.  Maybe call
-         set_perl_translations_documentlanguage? */
+      /* FIXME does not seems to be up to date + documentscript. */
       SV *documentlanguage_sv;
       HV *text_options_hv = (HV *) SvRV (*convert_text_options_sv);
 
@@ -172,7 +150,7 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
                 strlen ("documentlanguage"), documentlanguage_sv, 0);
     }
 
-  set_perl_translations_documentlanguage (converter_hv, documentlanguage);
+  set_perl_translations_documentlanguage (converter_hv, converter);
 
   /* pass all the information for each context for translated commands */
   if (converter->no_arg_formatted_cmd_translated.number)

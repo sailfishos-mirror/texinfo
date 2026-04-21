@@ -1571,7 +1571,8 @@ foreach my $accent_command (keys(%accent_commands)) {
 
 my %kept_line_commands;
 
-my @informative_global_commands = ('documentlanguage', 'footnotestyle',
+my @informative_global_commands = ('documentlanguage',
+  'documentscript', 'footnotestyle',
   'xrefautomaticsectiontitle', 'deftypefnnewline');
 
 my @contents_commands = ('contents', 'shortcontents', 'summarycontents');
@@ -8693,7 +8694,8 @@ sub _convert($$;$) {
         $result .= &{$self->{'commands_conversion'}->{$command_name}}($self,
                 $command_name, $element, undef, $content_formatted);
       }
-      if ($command_name eq 'documentlanguage') {
+      if ($command_name eq 'documentlanguage'
+          or $command_name eq 'documentscript') {
         _translate_names($self);
       }
       return $result;

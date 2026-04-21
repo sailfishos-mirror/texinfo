@@ -146,6 +146,9 @@ sub _generic_converter_init($$;$) {
     if (exists($conf->{'documentlanguage'})) {
       $converter->converter_set_documentlanguage($conf->{'documentlanguage'});
     }
+    if (exists($conf->{'documentscript'})) {
+      $converter->converter_set_documentscript($conf->{'documentscript'});
+    }
   }
   # used for output files information, to register opened
   # and not closed files.  Accessed through output_files_information()

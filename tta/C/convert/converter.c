@@ -390,6 +390,14 @@ set_converter_init_information (CONVERTER *converter,
                          converter->conf->documentlanguage.o.string, 0,
                             TXI_CONVERT_STRINGS_NR);
     }
+  if (converter->conf->documentscript.o.string)
+    {
+      converter->current_lang_translations
+       = set_translations_documentscript (&translation_cache,
+                         converter->conf->documentscript.o.string,
+                            converter->current_lang_translations,
+                            TXI_CONVERT_STRINGS_NR);
+    }
 
   /*
   fprintf (stderr, "C|CONVERTER Fill conf: %d; %s, %s\n",

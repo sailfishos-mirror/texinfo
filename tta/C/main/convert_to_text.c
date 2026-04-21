@@ -70,7 +70,6 @@ destroy_text_options (TEXT_OPTIONS *text_options)
 {
   free (text_options->encoding);
   free (text_options->expanded_formats);
-  free (text_options->documentlanguage);
   free (text_options->LOCALE_ENCODING);
   free (text_options->COMMAND_LINE_ENCODING);
   free (text_options->INPUT_FILE_NAME_ENCODING);
@@ -117,17 +116,21 @@ copy_options_for_convert_text (OPTIONS *options)
   copy_strings (&text_options->include_directories,
                 options->INCLUDE_DIRECTORIES.o.strlist);
 
-  if (options->documentlanguage.o.string)
-    text_options->documentlanguage
-      = strdup (options->documentlanguage.o.string);
-
   if (options->COMMAND_LINE_ENCODING.o.string)
     text_options->COMMAND_LINE_ENCODING
       = strdup (options->COMMAND_LINE_ENCODING.o.string);
 
-  text_options->current_lang_translations
-    = set_translations_documentlanguage (&translation_cache,
-                                text_options->documentlanguage, 0,
+  if (options->documentlanguage.o.string)
+    text_options->current_lang_translations
+      = set_translations_documentlanguage (&translation_cache,
+                                options->documentlanguage.o.string, 0,
+                                TXI_CONVERT_STRINGS_NR);
+
+  if (options->documentscript.o.string)
+    text_options->current_lang_translations
+      = set_translations_documentscript (&translation_cache,
+                                options->documentscript.o.string,
+                                text_options->current_lang_translations,
                                 TXI_CONVERT_STRINGS_NR);
 
   if (options->INPUT_FILE_NAME_ENCODING.o.string)
@@ -231,20 +234,24 @@ text_reset_options_encoding (TEXT_OPTIONS *text_options)
 }
 
 void
-text_set_language (TEXT_OPTIONS *text_options, const char *lang)
+text_set_language (TEXT_OPTIONS *text_options, const char *documentlanguage)
 {
-  free (text_options->documentlanguage);
-  if (lang)
-    text_options->documentlanguage = strdup (lang);
-  else
-    text_options->documentlanguage = 0;
-
   text_options->current_lang_translations
     = set_translations_documentlanguage (&translation_cache,
-                                text_options->documentlanguage, 0,
+                                         documentlanguage,
+                            text_options->current_lang_translations,
                                 TXI_CONVERT_STRINGS_NR);
 }
 
+void
+text_set_script (TEXT_OPTIONS *text_options, const char *documentscript)
+{
+  text_options->current_lang_translations
+    = set_translations_documentscript (&translation_cache,
+                                       documentscript,
+                            text_options->current_lang_translations,
+                                TXI_CONVERT_STRINGS_NR);
+}
 
 /* the CONVERTER argument is not used, it is there solely to match the
    calling prototype in accent formatting commands */
@@ -1041,7 +1048,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       const char *translation_context
         = lookup_extra_string (element, AI_key_translation_context);
 
-      if (text_options->documentlanguage)
+      if (text_options->current_lang_translations)
         {
        /*
        the tree documentlanguage corresponds to the documentlanguage
@@ -1055,13 +1062,11 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         }
       else
         {
-        /* if there is no current documentlanguage, we use the
+        /* if there is no current lang translations, we use the
            documentlanguage available in the tree. */
 
-          const char *documentlanguage
-            = lookup_extra_string (element, AI_key_documentlanguage);
           LANG_TRANSLATION *lang_translation
-             = new_documentlanguage_translation (documentlanguage);
+            = new_element_language_translation (element);
 
           /* there is a possibility that some small strings are associated
              to the tree, and there is no document to get them.  However

@@ -1300,8 +1300,10 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
 
   if (options)
     {
-      lang_translation = new_documentlanguage_translation (
-                                 options->documentlanguage.o.string);
+      lang_translation = new_lang_translations (
+                                 options->documentlanguage.o.string,
+                                 options->documentscript.o.string,
+                                 NULL);
       debug_level = options->DEBUG.o.integer;
     }
   size_t i;
@@ -1367,8 +1369,10 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
     return 0;
 
   if (document->options)
-    lang_translation = new_documentlanguage_translation (
-                    document->options->documentlanguage.o.string);
+    lang_translation = new_lang_translations (
+                         document->options->documentlanguage.o.string,
+                         document->options->documentscript.o.string,
+                                 NULL);
 
   new_detailmenu_e = new_detailmenu (&document->error_messages,
                                     document->options,

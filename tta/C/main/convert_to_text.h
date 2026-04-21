@@ -23,7 +23,6 @@ typedef struct TEXT_OPTIONS {
     int DOC_ENCODING_FOR_INPUT_FILE_NAME;
     EXPANDED_FORMAT *expanded_formats;
     STRING_LIST include_directories;
-    char *documentlanguage;
     char *INPUT_FILE_NAME_ENCODING;
     char *LOCALE_ENCODING;
     char *COMMAND_LINE_ENCODING;
@@ -56,7 +55,9 @@ void text_set_options_encoding_if_not_ascii (CONVERTER *self,
                                         TEXT_OPTIONS *text_options);
 void text_set_options_encoding (TEXT_OPTIONS *text_options, char *encoding);
 void text_reset_options_encoding (TEXT_OPTIONS *text_options);
-void text_set_language (TEXT_OPTIONS *text_options, const char *lang);
+void text_set_language (TEXT_OPTIONS *text_options,
+                        const char *documentlanguage);
+void text_set_script (TEXT_OPTIONS *text_options, const char *documentscript);
 
 /* used in converters in Perl */
 char *text_accents (const ELEMENT *accent, char *encoding, int set_case);

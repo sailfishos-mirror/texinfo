@@ -36,6 +36,7 @@
 #include "utils.h"
 /* wipe_error_message_list */
 #include "errors.h"
+#include "translations.h"
 #include "customization_options.h"
 #include "convert_to_text.h"
 #include "get_perl_info.h"
@@ -209,7 +210,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
   SV **enabled_encoding_sv;
   SV **sort_string_sv;
   SV **set_case_sv;
-  SV **documentlanguage_sv;
+  SV **current_lang_translations_sv;
   SV **DEBUG_sv;
   SV **DOC_ENCODING_FOR_INPUT_FILE_NAME_sv;
   SV **INPUT_FILE_NAME_ENCODING_sv;
@@ -217,7 +218,6 @@ copy_sv_options_for_convert_text (SV *sv_in)
   SV **COMMAND_LINE_ENCODING_sv;
   SV **translated_commands_sv;
   TEXT_OPTIONS *text_options = new_text_options ();
-  const char *documentlanguage = 0;
 
   dTHX;
 
@@ -259,21 +259,25 @@ copy_sv_options_for_convert_text (SV *sv_in)
 
   get_expanded_formats (hv_in, &text_options->expanded_formats);
 
-  FETCH(documentlanguage)
-  if (documentlanguage_sv)
-    documentlanguage
-      = SvPVutf8_nolen (*documentlanguage_sv);
+  FETCH(current_lang_translations)
+  if (current_lang_translations_sv && SvOK (*current_lang_translations_sv))
+    {
+      AV *lang_translations_av = (AV *) SvRV (*current_lang_translations_sv);
+      SV **lang_info_sv = av_fetch (lang_translations_av, 0, 0);
 
-  /* call text_set_language to switch translations cache based on the
-     documentlanguage coming from the converter, as in Perl.
-     Only if there is actually a documentlanguage such that if there
-     is no explicit language the documentlanguage in tree information
-     is used.  It should not be possible to get back to an undefined
-     documentlanguage, so it is not a problem not to be able to
-     reset to an unspecified language after setting to another language.
-   */
-  if (documentlanguage)
-    text_set_language (text_options, documentlanguage);
+      if (lang_info_sv && SvOK (*lang_info_sv))
+        {
+          HV *lang_info_hv = (HV *) SvRV (*lang_info_sv);
+          DOCUMENT_LANG_INFO *info = (DOCUMENT_LANG_INFO *)
+            non_perl_malloc (sizeof (DOCUMENT_LANG_INFO));
+          memset (info, 0, sizeof (DOCUMENT_LANG_INFO));
+          get_lang_info_hv (info, lang_info_hv);
+          text_options->current_lang_translations
+                = set_lang_info_translation (
+                          &translation_cache, info,
+                          TXI_CONVERT_STRINGS_NR);
+        }
+    }
 
   FETCH(DEBUG)
   if (DEBUG_sv && SvOK (*DEBUG_sv))

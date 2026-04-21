@@ -1586,6 +1586,12 @@ analyze_documentscript_argument (const char *text, int *valid_script)
 {
   const char *p = text;
 
+  if (!text)
+    {
+      *valid_script = 0;
+      return NULL;
+    }
+
   if (!strcmp (p, ""))
     {
       *valid_script = 1;

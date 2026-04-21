@@ -1803,8 +1803,11 @@ sub _translate_names($) {
 
   Texinfo::Convert::Text::set_language($self->{'convert_text_options'},
                                        $self->get_conf('documentlanguage'));
+  Texinfo::Convert::Text::set_script($self->{'convert_text_options'},
+                                     $self->get_conf('documentscript'));
 
   $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
+  $self->converter_set_documentscript($self->get_conf('documentscript'));
 
   if ($self->get_conf('DEBUG')) {
     my $output_encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
@@ -4508,17 +4511,14 @@ sub _prepare_converted_output_info($$$$) {
     return 0;
   }
 
-  my $default_document_language = $self->get_conf('documentlanguage');
+  my $default_bcp47_locale = $self->current_bcp47_locale();
+  $self->set_global_document_commands('preamble',
+                    ['documentlanguage', 'documentscript']);
+  $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
+  $self->converter_set_documentscript($self->get_conf('documentscript'));
+  my $preamble_bcp47_locale = $self->current_bcp47_locale();
 
-  $self->set_global_document_commands('preamble', ['documentlanguage']);
-
-  my $preamble_document_language = $self->get_conf('documentlanguage');
-
-  if (not (!defined($default_document_language)
-           and !defined($preamble_document_language))
-      and (!defined($default_document_language)
-           or !defined($preamble_document_language)
-           or $default_document_language ne $preamble_document_language)) {
+  if ($default_bcp47_locale ne $preamble_bcp47_locale) {
     _translate_names($self);
   }
 
@@ -4643,13 +4643,10 @@ sub _prepare_converted_output_info($$$$) {
   _prepare_title_titlepage($self, $output_file, $output_filename,
                                   $output_units);
 
-  $self->set_global_document_commands('before', ['documentlanguage']);
+  $self->set_global_document_commands('before',
+                           ['documentlanguage', 'documentscript']);
 
-  if (not (!defined($default_document_language)
-           and !defined($preamble_document_language))
-      and (!defined($default_document_language)
-           or !defined($preamble_document_language)
-           or $default_document_language ne $preamble_document_language)) {
+  if ($default_bcp47_locale ne $preamble_bcp47_locale) {
     _translate_names($self);
   }
 
@@ -5125,18 +5122,19 @@ sub _setup_output($) {
   # set BODY_ELEMENT_ATTRIBUTES
   $self->set_global_document_commands('preamble',
                          ['documentlanguage', 'documentscript']);
-  # cannot use set_global_document_commands for a variadic command
-  my $global_commands;
-  if (exists($self->{'document'})) {
-    $global_commands = $self->{'document'}->global_commands_information();
-  }
-  my $documentlanguagevariant_e
-    = Texinfo::Common::get_global_document_command($global_commands,
-                                  'documentlanguagevariant', 'preamble');
+  ## cannot use set_global_document_commands for a variadic command
+  #my $global_commands;
+  #if (exists($self->{'document'})) {
+  #  $global_commands = $self->{'document'}->global_commands_information();
+  #}
+  #my $documentlanguagevariant_e
+  #  = Texinfo::Common::get_global_document_command($global_commands,
+  #                                'documentlanguagevariant', 'preamble');
   my $documentlanguage = $self->get_conf('documentlanguage');
   my $documentscript = $self->get_conf('documentscript');
-  my $lang_info = {};
-  Texinfo::Translations::fill_document_lang_info($lang_info, $documentlanguage);
+  my $lang_info
+    = Texinfo::Translations::new_lang_info($documentlanguage,
+                                           $documentscript);
   my $bcp47_locale
     = Texinfo::Translations::get_lang_info_bcp47_locale($lang_info);
   if (defined($bcp47_locale) and $bcp47_locale ne '') {
