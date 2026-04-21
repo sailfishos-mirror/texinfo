@@ -33,7 +33,8 @@
 	fill_document_lang_info.
 
 	* tta/C/main/translations.c (destroy_document_lang_info): replace
-	free_document_lang_info by and free the lang_info too.
+	free_document_lang_info by destroy_document_lang_info and free the
+	lang_info too.
 
 	* tta/C/main/translations.c (set_translations_documentscript),
 	tta/perl/Texinfo/Translations.pm (set_translations_documentscript):
@@ -54,10 +55,9 @@
 	pass documentscript.  Add converter_set_documentscript.
 
 	* tta/C/convert/convert_html.c (html_prepare_converted_output_info),
-	tta/perl/Texinfo/Convert/HTMLNonXS.pm (_prepare_converted_output_info)
-
-	use current_lang_translations to get bcp47_locale and set
-	documentlanguage and documentscript in
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm
+	(_prepare_converted_output_info): use current_lang_translations to get
+	bcp47_locale and set documentlanguage and documentscript in
 	html_prepare_converted_output_info.
 
 	* tta/C/parsetexi/indices.c (complete_indices),
@@ -76,8 +76,8 @@
 	tta/C/convert/html_prepare_converter.c (informative_global_commands)
 	(conf_for_documentlanguage, commands_internal_conversion_table),
 	tta/perl/Texinfo/Convert/HTML.pm (@informative_global_commands)
-	(_convert), tta/perl/Texinfo/Convert/HTMLNonXS.pm (_translate_names): in
-	html_translate_names, call text_set_script and
+	(_convert), tta/perl/Texinfo/Convert/HTMLNonXS.pm (_translate_names):
+	in html_translate_names, call text_set_script and
 	set_translations_documentscript based on documentscript option.  Get
 	documentscript value during conversion, and call html_translate_names
 	for documentscript too.
