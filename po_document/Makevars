@@ -95,7 +95,7 @@ DIST_DEPENDS_ON_UPDATE_PO = no
 # used for tests.
 # The UNDESIRED_LINGUAS is based on the DESIRED_LINGUAS condition, it may
 # have been better not to use the variants.
-UNDESIRED_LINGUAS = qaa qaa@latin qaa@123
+UNDESIRED_LINGUAS = qaa qaa@latin qaa@1234
 INST_LINGUAS != for presentlang in $(ALL_LINGUAS); do \
                   useit=false; \
                   for desiredlang in $(DESIRED_LINGUAS); do \

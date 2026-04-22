@@ -1,5 +1,12 @@
 2026-04-22 Patrice Dumas  <pertusus@free.fr>
 
+	* po_document/LINGUAS, po_document/Makevars (UNDESIRED_LINGUAS),
+	po_document/qaa@1234.po: rename qaa@123.po as qaa@1234.po and update
+	translations.  A variant with numbers must be at least 4 characters
+	long.
+
+2026-04-22 Patrice Dumas  <pertusus@free.fr>
+
 	Set documentlanguagevariant in extra for translations and global info
 
 	* tta/C/main/utils.c (analyze_documentlanguagevariant_argument_e),
