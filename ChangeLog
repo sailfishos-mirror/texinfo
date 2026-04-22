@@ -1,5 +1,22 @@
 2026-04-22 Patrice Dumas  <pertusus@free.fr>
 
+	use documentlanguagevariant in completed def alias translations
+
+	* tta/C/main/translations.c (init_lang_translation): use both the XPG
+	full locale and the lang part if they are different.
+
+	* tta/C/main/translations.c (new_lang_info), tta/C/main/translations.c
+	(new_element_lang_info, new_element_language_translation),
+	tta/perl/Texinfo/Translations.pm (new_lang_info)
+	(new_element_language_translation): get documentlanguagevariant from
+	element and put variants in lang info.
+
+	* tta/perl/Makefile.tres, tta/perl/t/languages.t
+	(documentlanguagevariant_conversion): add test of
+	@documentlanguagevariant for conversion.
+
+2026-04-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/gnulib/lib/bcp47.c (bcp47_to_xpg): do not consider a subtag with
 	numbers to possibly be a script subtag.  Local fix reported upstream:
 	https://lists.gnu.org/archive/html/bug-gnulib/2026-04/msg00154.html

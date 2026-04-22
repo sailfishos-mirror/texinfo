@@ -326,7 +326,6 @@ translate_string (const char *string, const char *language_env,
   /*
   fprintf (stderr, "TRANSLATED(%s): '%s' (%s) '%s'\n", language_env,
                                string, translation_context, translated_string);
-
   */
 
   if (saved_LANGUAGE)
@@ -425,7 +424,7 @@ init_lang_translation (LANG_TRANSLATION *lang_translation)
   memset (xpg_locale, 0x77, BCP47_MAX);
 
   bcp47_to_xpg (xpg_locale, get_lang_info_bcp47_locale (lang_info), 0);
-  if (lang_info->region)
+  if (lang_info->lang && strcmp (xpg_locale, lang_info->lang))
     {
   /* NOTE gettext should already try the main language if it follows the
      optional logic proposed in POSIX gettext description.  We nevertheless
@@ -471,6 +470,10 @@ new_lang_info (const char *documentlanguage, const char *documentscript,
       if (script && strcmp (script, ""))
         lang_info->script = strdup (script);
     }
+
+  if (variants)
+    copy_strings (&lang_info->variants, variants);
+
   return lang_info;
 }
 
@@ -481,8 +484,11 @@ new_element_lang_info (const ELEMENT *element)
     = lookup_extra_string (element, AI_key_documentlanguage);
   const char *documentscript
     = lookup_extra_string (element, AI_key_documentscript);
+  const STRING_LIST *documentlanguagevariant
+    = lookup_extra_string_list (element, AI_key_documentlanguagevariant);
 
-  return new_lang_info(documentlanguage, documentscript, NULL);
+  return new_lang_info(documentlanguage, documentscript,
+                       documentlanguagevariant);
 }
 
 LANG_TRANSLATION *
@@ -511,8 +517,11 @@ new_element_language_translation (const ELEMENT *element)
     = lookup_extra_string (element, AI_key_documentlanguage);
   const char *documentscript
     = lookup_extra_string (element, AI_key_documentscript);
+  const STRING_LIST *documentlanguagevariant
+    = lookup_extra_string_list (element, AI_key_documentlanguagevariant);
 
-  return new_lang_translations(documentlanguage, documentscript, NULL);
+  return new_lang_translations(documentlanguage, documentscript,
+                               documentlanguagevariant);
 }
 
 static void

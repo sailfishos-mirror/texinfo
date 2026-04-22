@@ -305,6 +305,11 @@ sub new_lang_info($;$$) {
     # unexpectedly passed.
     $lang_info{'script'} = $script if (defined($script) and $script ne '');
   }
+
+  if (defined($variants)) {
+    $lang_info{'variants'} = [@$variants];
+  }
+
   return \%lang_info;
 }
 
@@ -321,8 +326,11 @@ sub new_element_language_translation($) {
 
   my $documentlanguage = $element->{'extra'}->{'documentlanguage'};
   my $documentscript = $element->{'extra'}->{'documentscript'};
+  my $documentlanguagevariant
+    = $element->{'extra'}->{'documentlanguagevariant'};
 
-  return new_lang_translations($documentlanguage, $documentscript, undef);
+  return new_lang_translations($documentlanguage, $documentscript,
+                               $documentlanguagevariant);
 }
 
 sub _set_lang_info_translation($$) {

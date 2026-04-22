@@ -1320,6 +1320,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/languages/documentlanguage_unknown.pl \
   t/results/languages/documentlanguage_unknown/res_html \
   t/results/languages/documentlanguage_unknown/res_info \
+  t/results/languages/documentlanguagevariant_conversion.pl \
   t/results/languages/documentlanguagevariant_selection.pl \
   t/results/languages/documentscript_before_documentlanguage.pl \
   t/results/languages/documentscript_conversion.pl \

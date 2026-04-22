@@ -395,6 +395,46 @@ Another unknown language. @xref{Top}.
 @defivar script before change
 @end defivar
 '],
+['documentlanguagevariant_conversion',
+'
+@copying
+@defivar SSS BBB CCC
+@end defivar
+@end copying
+
+@documentlanguage qaa
+@documentlanguagevariant 1234
+
+@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+@xref{Top, f}.
+@abbr{A, Akl}
+
+@defivar some other ivar
+@end defivar
+
+@documentlanguagevariant
+
+@defivar after reset ivar
+@end defivar
+
+@xref{Top, s}.
+@abbr{B, Bkl}
+
+@documentlanguagevariant 1234
+@documentlanguage qaa
+
+@xref{Top, t}.
+@abbr{C, Ckl}
+
+
+@defivar script before change
+@end defivar
+'],
 );
 
 my $multiple_lang_chapters_text = 
@@ -500,6 +540,7 @@ my %info_tests = (
   'unknown_region' => 1,
   'documentlanguage_generated_master_menu' => 1,
   'documentscript_conversion' => 1,
+  'documentlanguagevariant_conversion' => 1,
 );
 
 my %xml_tests = (
@@ -513,10 +554,12 @@ my %docbook_doc_tests = (
   'multiple_in_preamble' => 1,
   'multiple_in_preamble_before_node' => 1,
   'documentscript_conversion' => 1,
+  'documentlanguagevariant_conversion' => 1,
 );
 
 my %latex_tests = (
   'documentscript_conversion' => 1,
+  'documentlanguagevariant_conversion' => 1,
 );
 
 
