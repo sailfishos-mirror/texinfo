@@ -89,7 +89,6 @@ initialize_parsing (enum context root_ct)
     global_documentscript = 0;
 
   /* initialize document state */
-  /* initialize document state */
   global_kbdinputstyle = kbd_distinct;
 
   current_node = 0;

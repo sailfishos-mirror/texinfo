@@ -1,5 +1,36 @@
 2026-04-22 Patrice Dumas  <pertusus@free.fr>
 
+	Set documentlanguagevariant in extra for translations and global info
+
+	* tta/C/main/utils.c (analyze_documentlanguagevariant_argument_e),
+	tta/C/parsetexi/end_line.c (end_line_misc_line),
+	tta/perl/Texinfo/Common.pm
+	(_analyze_documentlanguagevariant_argument_e)
+	(warn_documentlanguagevariant_arguments)
+	(documentlanguagevariant_variants), tta/perl/Texinfo/ParserNonXS.pm
+	(_end_line_misc_line) (@translation_commands), : add
+	analyze_documentlanguagevariant_argument_e.  Add warnings on malformed
+	or unknown documentlanguagevariant arguments.
+
+	* tta/C/main/tree_types.h (AI_KEYS_LIST), tta/C/parsetexi/def.c
+	(parse_def), tta/C/parsetexi/end_line.c (end_line_def_line),
+	tta/perl/Texinfo/ManipulateTree.pm (_print_element_associated_info),
+	tta/perl/Texinfo/ParserNonXS.pm (@translation_commands): add extra
+	documentlanguagevariant and pass it to def elements to translate.
+
+	* tta/C/main/build_perl_info.c (pass_global_info),
+	tta/C/main/document_types.h (GLOBAL_INFO), tta/C/main/utils.c
+	(delete_global_info), tta/C/parsetexi/end_line.c (end_line_misc_line),
+	tta/perl/Texinfo/ParserNonXS.pm (get_parser_info): pass
+	documentlanguagevariant to global info.
+
+	* tta/perl/Makefile.tres, tta/perl/t/08misc_commands.t
+	(documentlanguagevariant_validity), tta/perl/t/languages.t
+	(documentlanguagevariant_selection): add tests for malformed
+	documentlanguagevariant arguments, and to see extra being set.
+
+2026-04-22 Patrice Dumas  <pertusus@free.fr>
+
 	* po_document/qaa@123.po: add pseudo-translations that make clear
 	which file they come from.
 

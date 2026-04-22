@@ -1641,6 +1641,49 @@ analyze_documentscript_argument (const char *text, int *valid_script)
   return 0;
 }
 
+const char *
+analyze_documentlanguagevariant_argument_e (const ELEMENT *element,
+                                            int *valid_variant,
+                                            int *surplus_arg)
+{
+  const TEXT *arg_text = simple_arg_text (element, surplus_arg);
+
+  *valid_variant = 1;
+
+  if (arg_text)
+    {
+      const char *text = arg_text->text;
+      const char *p = text;
+      while (isascii_alnum (*p))
+        p++;
+      if (p > text && !*p)
+        {
+          const char *variant;
+          char normalized[p - text+1];
+          int i;
+          for (i = 0; i < p - text; i++)
+            normalized[i] = tolower (text[i]);
+          normalized[p - text] = '\0';
+          variant = txi_in_language_variants (normalized, p - text);
+          if (variant)
+            return variant;
+          else
+            {
+              *valid_variant = 0;
+              return text;
+            }
+        }
+      else if (!*p)
+        return "";
+
+      *valid_variant = 0;
+      return 0;
+    }
+  return "";
+}
+
+
+
 
 /* index related functions used in diverse situations, not only in parser */
 void
@@ -2466,6 +2509,7 @@ delete_global_info (GLOBAL_INFO *global_info)
 {
   size_t i;
   free_strings_list (&global_info->included_files);
+  free_strings_list (&global_info->documentlanguagevariant);
 
   free (global_info->input_encoding_name);
   free (global_info->input_file_name);

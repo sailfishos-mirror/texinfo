@@ -1731,6 +1731,15 @@ pass_global_info (HV *hv, const GLOBAL_INFO *global_info_ref,
                 newRV_noinc ((SV *) av), 0);
     }
 
+  if (global_info.documentlanguagevariant.number)
+    {
+      AV *av = build_string_list (&global_info.documentlanguagevariant,
+                                  svt_byte);
+      hv_store (hv, "documentlanguagevariant",
+                strlen ("documentlanguagevariant"),
+                newRV_noinc ((SV *) av), 0);
+    }
+
   for (i = 0; i < global_info.other_info.info_number; i++)
     {
       const KEY_STRING_PAIR *k = &global_info.other_info.info[i];

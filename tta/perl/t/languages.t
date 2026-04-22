@@ -364,7 +364,37 @@ Another unknown language. @xref{Top}.
 
 @defivar script before change
 @end defivar
-']
+'],
+['documentlanguagevariant_selection',
+'
+@copying
+@defivar SSS BBB CCC
+@end defivar
+@end copying
+
+@documentlanguage sr
+@documentlanguagevariant 1959acad@^e , , 1694acad
+
+@node Top
+@top top 
+
+@node chap
+@chapter Chap
+
+@defivar some other ivar
+@end defivar 
+
+@documentlanguagevariant
+
+@defivar after reset ivar
+@end defivar
+
+@documentlanguagevariant abl1943 s, 1901, 
+@documentlanguage az
+
+@defivar script before change
+@end defivar
+'],
 );
 
 my $multiple_lang_chapters_text = 

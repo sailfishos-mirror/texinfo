@@ -157,8 +157,21 @@ documentlanguage @documentlanguage  en
 '@documentlanguagevariant arg
 @documentlanguagevariant one, two
 @documentlanguagevariant before comma ,
+@documentlanguagevariant    
 @documentlanguagevariant first , second, third ,fourth,   
 @documentlanguagevariant
+@documentlanguagevariant   ,  
+'],
+['documentlanguagevariant_validity',
+'@documentlanguagevariant a%v, 1606nict
+@documentlanguagevariant 1901@code{something}
+@documentlanguagevariant 1959acad@^e
+@documentlanguagevariant unknown@TeX{}
+@documentlanguagevariant 1694acad , a b
+@documentlanguagevariant abl1943 s, !l
+@documentlanguagevariant @TeX{}
+@documentlanguagevariant aùbc
+@documentlanguagevariant M让
 '],
 ['documentscript_argument',
 '@documentscript Kits

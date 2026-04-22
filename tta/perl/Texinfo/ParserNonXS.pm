@@ -304,7 +304,8 @@ my %parser_state_initialization = (%parser_document_state_initialization,
 # set at the parser initialization.
 my %initialization_overrides;
 
-my @translation_commands = ('documentlanguage', 'documentscript');
+my @translation_commands = ('documentlanguage', 'documentscript',
+                            'documentlanguagevariant');
 foreach my $translation_cmdname (@translation_commands) {
   $initialization_overrides{$translation_cmdname} = 1;
 }
@@ -926,7 +927,8 @@ sub _input_push_file($$;$) {
 }
 
 # ALTIMP C/main/build_perl_info.c pass_global_info
-# No direct equivalent in pure C code, as document.c set_document_options
+# No direct equivalent in pure C code.  Some global info is set during
+# parsing.  For the remaining, document.c set_document_options
 # sets the options from global_commands, and does not need to get them
 # from global_info, therefore they are not in global_info fields.
 sub get_parser_info($) {
@@ -954,9 +956,18 @@ sub get_parser_info($) {
                                                    $translation_cmdname,
                                                    'preamble');
     if (defined($command_element)) {
-      my $informative_cmdname;
-      ($informative_cmdname, $document->{'global_info'}->{$translation_cmdname})
-        = Texinfo::Common::informative_command_value($command_element);
+      if ($translation_cmdname eq 'documentlanguagevariant') {
+        my $variants = Texinfo::Common::documentlanguagevariant_variants(
+                                                  $command_element);
+        if (scalar(@$variants)) {
+          $document->{'global_info'}->{$translation_cmdname} = $variants;
+        }
+      } else {
+        my $informative_cmdname;
+        ($informative_cmdname,
+         $document->{'global_info'}->{$translation_cmdname})
+          = Texinfo::Common::informative_command_value($command_element);
+      }
     }
   }
 }
@@ -4158,6 +4169,20 @@ sub _end_line_misc_line($$$) {
         and $command ne 'documentscript') {
       _command_warn($self, $current,
              __("\@%s missing argument"), $command);
+    } elsif ($command eq 'documentlanguagevariant') {
+      my ($messages, $variants)
+        = Texinfo::Common::warn_documentlanguagevariant_arguments(
+                                                  $command_element);
+      if (defined($messages)) {
+        foreach my $message(@$messages) {
+          _command_warn($self, $current, $message);
+        }
+      }
+      if (scalar(@$variants)) {
+        $self->{'documentlanguagevariant'} = $variants;
+      } else {
+        delete $self->{'documentlanguagevariant'};
+      }
     } else {
       if (($command eq 'item' or $command eq 'itemx')
           and exists($current->{'parent'}->{'cmdname'})

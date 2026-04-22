@@ -536,6 +536,86 @@ sub analyze_documentscript_argument($) {
   return 0, undef;
 }
 
+# return (valid, surplus, variant)
+#  surplus: 1 if there was an unexpected trailing @-command, or 0
+#  variant: if undef, means that the argument was not empty and
+#           malformed.  Otherwise the returned variant is
+#           case-normalized if known.
+#  valid: 1 if empty or known, or 0
+sub _analyze_documentlanguagevariant_argument_e($) {
+  my $element = shift;
+
+  my ($arg, $surplus) = simple_arg_text($element);
+  if (defined($arg)) {
+    if ($arg =~ /^([a-zA-Z0-9]+)$/) {
+      my $normalized = lc($arg);
+      if (exists($Texinfo::Documentlanguages::variants{$normalized})) {
+        return 1, $surplus, $normalized;
+      }
+      return 0, $surplus, $arg;
+    } elsif ($arg eq '') {
+      return 1, $surplus, '';
+    }
+    return 0, $surplus, undef;
+  }
+  return 1, $surplus, '';
+}
+
+sub warn_documentlanguagevariant_arguments($) {
+  my $element = shift;
+
+  my $messages = [];
+  my @variants;
+  if (!exists($element->{'contents'})) {
+    return $messages, \@variants;
+  }
+  my $cmdname = $element->{'cmdname'};
+  my $number = 1;
+  foreach my $content (@{$element->{'contents'}}) {
+    my ($valid, $surplus, $variant)
+      = _analyze_documentlanguagevariant_argument_e($content);
+    if (defined($variant)) {
+      if ($surplus) {
+        push @$messages,
+           sprintf(__("superfluous content in number %d argument to \@%s"),
+                   $number, $cmdname);
+      }
+      if ($valid) {
+        if ($variant ne '') {
+          push @variants, $variant;
+        }
+      } else {
+        push @$messages,
+          sprintf(__("unknown language variant: `%s'"), $variant);
+        push @variants, $variant;
+      }
+    } else { # no different message for malformed and only surplus
+      push @$messages,
+           sprintf(__("bad number %d argument to \@%s"), $number, $cmdname);
+    }
+    $number++;
+  }
+  return $messages, \@variants;
+}
+
+sub documentlanguagevariant_variants($) {
+  my $element = shift;
+
+  my @variants;
+  if (!exists($element->{'contents'})) {
+    return \@variants;
+  }
+  my $is_empty = 1;
+  foreach my $content (@{$element->{'contents'}}) {
+    my ($valid, $surplus, $variant)
+      = _analyze_documentlanguagevariant_argument_e($content);
+    if (defined($variant) and $variant ne '') {
+      push @variants, $variant;
+    }
+  }
+  return \@variants;
+}
+
 # next functions are for code used in Structuring or Indices in addition
 # to Parser.  Also possibly used in Texinfo::Transformations.
 

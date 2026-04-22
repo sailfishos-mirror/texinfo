@@ -400,6 +400,9 @@ parse_def (enum command_id command, ELEMENT *current)
       add_to_contents_as_array (e, e1);
       if (global_documentlanguage && *global_documentlanguage)
         {
+          STRING_LIST *global_documentlanguagevariant
+            = &parsed_document->global_info.documentlanguagevariant;
+
           e->type = ET_untranslated_def_line_arg;
           e1->type = ET_untranslated;
           add_extra_string_dup (e, AI_key_documentlanguage,
@@ -410,6 +413,15 @@ parse_def (enum command_id command, ELEMENT *current)
           if (def_aliases[i].translation_context)
             add_extra_string_dup (e, AI_key_translation_context,
                                   def_aliases[i].translation_context);
+
+          if (global_documentlanguagevariant->number)
+            {
+              STRING_LIST *documentlanguagevariant = new_string_list ();
+              copy_strings (documentlanguagevariant,
+                            global_documentlanguagevariant);
+              add_extra_string_list (e, AI_key_documentlanguagevariant,
+                                     documentlanguagevariant);
+            }
         }
 
       spaces_before = new_text_element (ET_spaces_before_argument);

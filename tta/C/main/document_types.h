@@ -100,6 +100,7 @@ typedef struct GLOBAL_INFO {
     /* Ignored characters for index sort key */
     IGNORED_CHARS ignored_chars;
     STRING_LIST included_files;
+    STRING_LIST documentlanguagevariant;
 
     /* remaining, in general passed to/from perl but not used in C */
     OTHER_GLOBAL_INFO other_info;

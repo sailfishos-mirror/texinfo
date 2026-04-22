@@ -871,9 +871,12 @@ sub _print_element_associated_info($$$$$;$$) {
         my $element_value = element_number_or_error($value);
         $result .= "[$element_value]";
       }
+    # sync next two with main/tree_types.h AI_KEYS_LIST
+    # string_list and index_entry
     } elsif ($ref eq 'ARRAY'
              and ($key eq 'misc_args'
-                  or $key eq 'formal_args')) {
+                  or $key eq 'formal_args'
+                  or $key eq 'documentlanguagevariant')) {
       $result .= 'A{'.join('|', @{$value}).'}';
     } elsif ($key eq 'index_entry' or $key eq 'associated_index_entry') {
       my ($index_name, $number) = @{$value};

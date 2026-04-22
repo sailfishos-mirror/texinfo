@@ -768,6 +768,9 @@ end_line_def_line (ELEMENT *current)
                   || def_command == CM_deftypeivar
                   || def_command == CM_deftypecv))
             {
+              STRING_LIST *global_documentlanguagevariant
+                = &parsed_document->global_info.documentlanguagevariant;
+
               /* def_index_element will be set in complete_indices */
               if (global_documentlanguage)
                 add_extra_string_dup (current, AI_key_documentlanguage,
@@ -775,6 +778,16 @@ end_line_def_line (ELEMENT *current)
               if (global_documentscript)
                 add_extra_string_dup (current, AI_key_documentscript,
                                       global_documentscript);
+
+              if (global_documentlanguagevariant->number)
+                {
+                  STRING_LIST *documentlanguagevariant = new_string_list ();
+                  copy_strings (documentlanguagevariant,
+                                global_documentlanguagevariant);
+                  add_extra_string_list (current,
+                                         AI_key_documentlanguagevariant,
+                                         documentlanguagevariant);
+                }
             }
           else
             {
@@ -1515,6 +1528,7 @@ end_line_misc_line (ELEMENT *current)
             }
           else if (current->e.c->cmd == CM_documentlanguage)
             {
+              /* message setup in Texinfo::Common warn_unknown_language */
               char *region_code;
               int lang_is_valid;
               int region_is_valid;
@@ -1685,6 +1699,55 @@ end_line_misc_line (ELEMENT *current)
         {
           command_warn (current, "@%s missing argument",
                         command_name(current->e.c->cmd));
+        }
+      else if (current->e.c->cmd == CM_documentlanguagevariant)
+        {
+      /* done in Texinfo::Common::warn_documentlanguagevariant_arguments */
+          if (current->e.c->contents.number > 0)
+            {
+              size_t i;
+              STRING_LIST *documentlanguagevariant
+                = &parsed_document->global_info.documentlanguagevariant;
+
+              clear_strings_list (documentlanguagevariant);
+
+              for (i = 0; i < current->e.c->contents.number; i++)
+                {
+                  int valid_variant;
+                  int surplus_arg;
+                  const ELEMENT *content = current->e.c->contents.list[i];
+
+                  const char *variant
+                    = analyze_documentlanguagevariant_argument_e (content,
+                                               &valid_variant, &surplus_arg);
+                  if (variant)
+                    {
+                      if (surplus_arg)
+                        command_warn (current,
+                         "superfluous content in number %zu argument to @%s",
+                              i+1, command_name(current->e.c->cmd));
+
+                      if (valid_variant)
+                        {
+                          if (strcmp (variant, ""))
+                            add_string (variant, documentlanguagevariant);
+                        }
+                      else
+                        {
+                          command_warn (current,
+                            "unknown language variant: `%s'", variant);
+                          add_string (variant, documentlanguagevariant);
+                        }
+                    }
+                  else
+                    {
+                     /* no different message for malformed and only surplus */
+                       command_warn (current,
+                                     "bad number %zu argument to @%s",
+                                     i+1, command_name(current->e.c->cmd));
+                    }
+                }
+            }
         }
       else
         {

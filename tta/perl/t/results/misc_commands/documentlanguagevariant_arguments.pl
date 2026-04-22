@@ -6,7 +6,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'documentlanguagevariant_arguments'} = '*document_root C1
- *before_node_section C5
+ *before_node_section C7
   *@documentlanguagevariant C1 l1
   |EXTRA
   |global_command_number:{1}
@@ -33,9 +33,14 @@ $result_tree_text{'documentlanguagevariant_arguments'} = '*document_root C1
     {spaces_after_argument: }
    *line_arg C1
     {spaces_before_argument:\\n}
-  *@documentlanguagevariant C5 l4
+  *@documentlanguagevariant C1 l4
   |EXTRA
   |global_command_number:{4}
+   *line_arg C1
+    {spaces_before_argument:    \\n}
+  *@documentlanguagevariant C5 l5
+  |EXTRA
+  |global_command_number:{5}
    *line_arg C3
     {spaces_before_argument: }
     {first}
@@ -51,25 +56,58 @@ $result_tree_text{'documentlanguagevariant_arguments'} = '*document_root C1
     {fourth}
    *line_arg C1
     {spaces_before_argument:   \\n}
-  *@documentlanguagevariant C1 l5
+  *@documentlanguagevariant C1 l6
   |EXTRA
-  |global_command_number:{5}
+  |global_command_number:{6}
    *line_arg C1
     {spaces_before_argument:\\n}
+  *@documentlanguagevariant C2 l7
+  |EXTRA
+  |global_command_number:{7}
+   *line_arg C1
+    {spaces_before_argument:   }
+   *line_arg C1
+    {spaces_before_argument:  \\n}
 ';
 
 
 $result_texis{'documentlanguagevariant_arguments'} = '@documentlanguagevariant arg
 @documentlanguagevariant one, two
 @documentlanguagevariant before comma ,
+@documentlanguagevariant    
 @documentlanguagevariant first , second, third ,fourth,   
 @documentlanguagevariant
+@documentlanguagevariant   ,  
 ';
 
 
 $result_texts{'documentlanguagevariant_arguments'} = '';
 
-$result_errors{'documentlanguagevariant_arguments'} = '';
+$result_errors{'documentlanguagevariant_arguments'} = '* W l1|unknown language variant: `arg\'
+ warning: unknown language variant: `arg\'
+
+* W l2|unknown language variant: `one\'
+ warning: unknown language variant: `one\'
+
+* W l2|unknown language variant: `two\'
+ warning: unknown language variant: `two\'
+
+* W l3|bad number 1 argument to @documentlanguagevariant
+ warning: bad number 1 argument to @documentlanguagevariant
+
+* W l5|unknown language variant: `first\'
+ warning: unknown language variant: `first\'
+
+* W l5|unknown language variant: `second\'
+ warning: unknown language variant: `second\'
+
+* W l5|unknown language variant: `third\'
+ warning: unknown language variant: `third\'
+
+* W l5|unknown language variant: `fourth\'
+ warning: unknown language variant: `fourth\'
+
+';
 
 $result_nodes_list{'documentlanguagevariant_arguments'} = '';
 
