@@ -69,7 +69,7 @@ msgstr ""
 msgctxt ""
 "category of instance variables in object-oriented programming for @defivar"
 msgid "Instance Variable"
-msgstr ""
+msgstr "v123-InstV-v"
 
 #: tta/perl/Texinfo/Common.pm:371 tta/C/main/utils.c:126
 msgctxt ""
@@ -434,7 +434,7 @@ msgstr ""
 #: tta/perl/Texinfo/Translations.pm:541 tta/C/parsetexi/indices.c:509
 #, perl-brace-format
 msgid "{name} of {class}"
-msgstr ""
+msgstr "{name} v123-o-v {class}"
 
 #. TRANSLATORS: expansion of @error{} as Texinfo code
 #: tta/perl/Texinfo/Convert/Converter.pm:103 tta/C/convert/converter.c:167
@@ -584,7 +584,7 @@ msgstr ""
 #: tta/perl/Texinfo/Convert/DocBook.pm:1485
 #, perl-brace-format
 msgid "See {title_ref}"
-msgstr ""
+msgstr "See d_v123-{title_ref}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1490
 #, perl-brace-format
@@ -596,7 +596,7 @@ msgstr ""
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3394
 #, perl-brace-format
 msgid "{abbr_or_acronym} ({explanation})"
-msgstr ""
+msgstr "{abbr_or_acronym} dp_v123-({explanation})"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1847
 #: tta/perl/Texinfo/Convert/LaTeX.pm:4164
@@ -871,7 +871,7 @@ msgstr ""
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2695
 #, perl-brace-format
 msgid "@tie{}--- {category} of {class}: {name} {arguments}"
-msgstr ""
+msgstr "@tie{}--- p_V123-{category} of {class}: p_V123-{name} {arguments}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2699
 #, perl-brace-format
@@ -970,7 +970,7 @@ msgstr ""
 #: tta/perl/Texinfo/Convert/HTML.pm:4454 tta/C/convert/format_html.c:7998
 #, perl-brace-format
 msgid "See {reference_name}"
-msgstr ""
+msgstr "See h_v123-{reference_name}"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:4456 tta/C/convert/format_html.c:8003
 #, perl-brace-format
@@ -1096,7 +1096,7 @@ msgstr ""
 #: tta/perl/Texinfo/Convert/HTML.pm:6309 tta/C/convert/format_html.c:12671
 #, perl-brace-format
 msgid "{category} of @code{{class}}: "
-msgstr ""
+msgstr "{category} h_V123-of @code{{class}}: "
 
 #: tta/perl/Texinfo/Convert/HTML.pm:6326 tta/C/convert/format_html.c:12683
 #, perl-brace-format
