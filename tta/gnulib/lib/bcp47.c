@@ -405,7 +405,11 @@ bcp47_to_xpg (char *xpg, const char *bcp47, const char *codeset)
               p++;
             size_t subtag_len = p - subtag_start;
 
-            if (!past_script && subtag_len == 4)
+            if (!past_script && subtag_len == 4
+                && (subtag_start[0] < '0' || subtag_start[0] > '9')
+                && (subtag_start[1] < '0' || subtag_start[0] > '9')
+                && (subtag_start[2] < '0' || subtag_start[0] > '9')
+                && (subtag_start[3] < '0' || subtag_start[0] > '9'))
               {
                 /* Parsed -script.  */
                 script_start = subtag_start;

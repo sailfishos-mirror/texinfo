@@ -1,5 +1,11 @@
 2026-04-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/gnulib/lib/bcp47.c (bcp47_to_xpg): do not consider a subtag with
+	numbers to possibly be a script subtag.  Local fix reported upstream:
+	https://lists.gnu.org/archive/html/bug-gnulib/2026-04/msg00154.html
+
+2026-04-22 Patrice Dumas  <pertusus@free.fr>
+
 	* po_document/LINGUAS, po_document/Makevars (UNDESIRED_LINGUAS),
 	po_document/qaa@1234.po: rename qaa@123.po as qaa@1234.po and update
 	translations.  A variant with numbers must be at least 4 characters
