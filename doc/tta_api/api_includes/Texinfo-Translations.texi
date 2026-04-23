@@ -214,7 +214,7 @@ replacement could do otherwise.
 
 @end table
 
-In converters based on @code{Texinfo::Convert::Converter}, an 
+In converters based on @code{Texinfo::Convert::Converter}, an
 @ref{Texinfo@asis{::}Convert@asis{::}Converter Translations in output documents,, higher level interface}
 should be used for translations that avoids explicit use of
 lang translations references

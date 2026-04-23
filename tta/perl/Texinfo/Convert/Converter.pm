@@ -480,6 +480,19 @@ sub converter_set_documentscript($$) {
          $self->{'current_lang_translations'});
 }
 
+sub converter_set_documentlanguagevariant($$) {
+ my ($options, $documentlanguagevariant) = @_;
+
+  if (!exists($options->{'translations'})) {
+    $options->{'translations'} = $Texinfo::Translations::translation_cache;
+  }
+
+  $options->{'current_lang_translations'}
+    = Texinfo::Translations::set_translations_documentlanguagevariant(
+         $options->{'translations'}, $documentlanguagevariant,
+         $options->{'current_lang_translations'});
+}
+
 # language
 sub current_bcp47_locale($) {
   my $self = shift;

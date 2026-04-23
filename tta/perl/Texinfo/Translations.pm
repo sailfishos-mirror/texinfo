@@ -421,6 +421,39 @@ sub set_translations_documentscript($$$) {
   return _set_lang_info_translation($translations, \%lang_info);
 }
 
+# TODO document?
+sub set_translations_documentlanguagevariant($$$) {
+  my ($translations, $documentlanguagevariant, $current_lang_translations) = @_;
+
+  my %lang_info;
+
+  return $current_lang_translations if (!defined($documentlanguagevariant));
+
+  if (defined($current_lang_translations)) {
+    my $current_lang_info = $current_lang_translations->[0];
+    if ((exists($current_lang_info->{'variants'})
+         and join("|", @{$current_lang_info->{'variants'}})
+              eq join ("|", @$documentlanguagevariant))
+        or (!exists($current_lang_info->{'variants'})
+            and scalar(@$documentlanguagevariant) == 0)) {
+      # Nothing to do
+      return $current_lang_translations;
+    }
+
+    # copy lang info
+    %lang_info = %$current_lang_info;
+    delete $lang_info{'bcp47_locale'};
+  }
+
+  if (scalar(@$documentlanguagevariant) == 0) {
+    delete $lang_info{'variants'};
+  } else {
+    $lang_info{'variants'} = [@$documentlanguagevariant];
+  }
+
+  return _set_lang_info_translation($translations, \%lang_info);
+}
+
 # Cache translations in a hash to avoid having to go through the locale
 # system rigmarole every time.
 our $translation_cache = {};
@@ -952,7 +985,7 @@ replacement could do otherwise.
 
 =back
 
-In converters based on C<Texinfo::Convert::Converter>, an 
+In converters based on C<Texinfo::Convert::Converter>, an
 L<higher level interface|Texinfo::Convert::Converter/Translations in output documents>
 should be used for translations that avoids explicit use of
 lang translations references

@@ -521,17 +521,17 @@ $result_converted{'plaintext'}->{'documentlanguagevariant_conversion'} = 'top
 1 Chap
 ******
 
-See f: Top.  A dp_l-(Akl)
+See f: Top.  A dp_v1234-(Akl)
 
- -- p_L-l-InstV-l of some: p_L-other ivar
+ -- p_V1234-v1234-InstV-v of some: p_V1234-other ivar
 
  -- p_L-l-InstV-l of after: p_L-reset ivar
 
    See s: Top.  B dp_l-(Bkl)
 
-   See t: Top.  C dp_l-(Ckl)
+   See t: Top.  C dp_v1234-(Ckl)
 
- -- p_L-l-InstV-l of script: p_L-before change
+ -- p_V1234-v1234-InstV-v of script: p_V1234-before change
 ';
 
 
@@ -555,17 +555,17 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 1 Chap
 ******
 
-*Note f: Top.  A dp_l-(Akl)
+*Note f: Top.  A dp_v1234-(Akl)
 
- -- p_L-l-InstV-l of some: p_L-other ivar
+ -- p_V1234-v1234-InstV-v of some: p_V1234-other ivar
 
  -- p_L-l-InstV-l of after: p_L-reset ivar
 
    *Note s: Top.  B dp_l-(Bkl)
 
-   *Note t: Top.  C dp_l-(Ckl)
+   *Note t: Top.  C dp_v1234-(Ckl)
 
- -- p_L-l-InstV-l of script: p_L-before change
+ -- p_V1234-v1234-InstV-v of script: p_V1234-before change
 
 
 Tag Table:

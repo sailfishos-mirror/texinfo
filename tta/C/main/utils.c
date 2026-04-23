@@ -1934,7 +1934,7 @@ string_exists_in_sorted_strings_list (STRING_LIST *strings, const char *target)
 }
 
 char *
-join_strings_list (STRING_LIST *strings, const char *delimiter)
+join_strings_list (const STRING_LIST *strings, const char *delimiter)
 {
   size_t i;
   const char *used_delimiter;

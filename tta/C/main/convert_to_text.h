@@ -46,9 +46,11 @@ void destroy_text_options (TEXT_OPTIONS *text_options);
 TEXT_OPTIONS *copy_converter_options_for_convert_text (CONVERTER *self);
 
 /* only used in external interface */
-TEXT_OPTIONS *copy_options_for_convert_text (OPTIONS *options);
+TEXT_OPTIONS *copy_options_for_convert_text (OPTIONS *options,
+                                             DOCUMENT *document);
 
-TEXT_OPTIONS *setup_index_entry_keys_formatting (OPTIONS *options);
+TEXT_OPTIONS *setup_index_entry_keys_formatting (OPTIONS *options,
+                                                 DOCUMENT *document);
 TEXT_OPTIONS *setup_converter_index_entry_keys_formatting (CONVERTER *self);
 
 void text_set_options_encoding_if_not_ascii (CONVERTER *self,

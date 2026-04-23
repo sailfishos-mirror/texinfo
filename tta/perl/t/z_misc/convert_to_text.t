@@ -6,8 +6,6 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 3);
 
 use Test::More;
 
-BEGIN { plan tests => 5; }
-
 use Texinfo::Parser;
 use Texinfo::Document;
 use Texinfo::Config;
@@ -26,8 +24,9 @@ use Texinfo::Convert::HTML;
 #   directly in the root of the tree, so no sectioning commands.
 # * conversion to text is called for a whole document, so with
 #   sectioning commands converted, but the converter associated
-#   is the simple Texinfo::Convert::Text converter, which does not
-#   provide translations.
+#   is the simple Texinfo::Convert::Text converter, which provides
+#   translations using only information registered in the elements
+#   by the parser.
 #
 # Therefore in this test, a converter is setup, which does nothing
 # except to be used by text conversion for translations, and the
@@ -39,6 +38,9 @@ use Texinfo::Convert::HTML;
 # with translations support.
 #
 # This tests an HTML converter initialization without options.
+#
+# TODO this test does not meaningfully test the C code corresponding to
+# copy_options_for_convert_text, since the XS interface is used.
 
 
 # setup translated strings
@@ -52,13 +54,7 @@ if (-d $locales_dir) {
   warn "Locales dir for document strings not found\n";
 }
 
-ok(1, 'modules loading');
-
-my $parser = Texinfo::Parser::parser();
-
-my $document = $parser->parse_texi_piece('
-@documentlanguage fr
-
+my $document_texi = '
 @node top
 @top A top
 
@@ -68,36 +64,88 @@ my $document = $parser->parse_texi_piece('
 
 @node appendix
 @appendix Conclusion
-');
+';
 
-my $tree = $document->tree();
+my @tests_specs = (
+['add_heading_number translations fr with a converter',
+'@documentlanguage fr
+'.$document_texi,
+'Annexe A Conclusion
+*******************
+'],
+['add_heading_number translations qaa with a converter',
+'@documentlanguage qaa
+'.$document_texi,
+'Appendix al-A Conclusion
+************************
+'],
+['add_heading_number translations qaa-Latn with a converter',
+'@documentlanguage qaa
+@documentscript Latn
+'.$document_texi,
+'Appendix as-A Conclusion
+************************
+'],
+#);
+#my @tests_specs = (
+['add_heading_number translations qaa-1234 with a converter',
+'@documentlanguage qaa
+@documentlanguagevariant 1234
+'.$document_texi,
+'Appendix a1234-A Conclusion
+***************************
+'],
+['add_heading_number translations qaa-1234 reset language',
+'@documentlanguage qaa
+@documentlanguagevariant 1234
+'.$document_texi
+.'@documentlanguage pt
+',
+'Appendix a1234-A Conclusion
+***************************
+'],
+);
 
-#use Texinfo::DebugTree;
-#print STDERR Texinfo::DebugTree->convert_tree($tree);
+plan tests => (1 + 3 + scalar(@tests_specs));
 
-# Setup sectioning commands numbers
-Texinfo::Structuring::sectioning_structure($document);
+ok(1, 'modules loading');
 
-# rebuild the tree
-$tree = $document->tree();
+#my $parser = Texinfo::Parser::parser({'DEBUG' => 1});
+my $parser = Texinfo::Parser::parser();
 
-# a converter only used for translation in text conversion, not
-# to convert anything.
-my $converter = Texinfo::Convert::HTML->converter();
-$converter->set_document($document);
-# note that parse_texi_piece is used, so there is no preamble
-$converter->set_global_document_commands('preamble_or_first',
-                                         ['documentlanguage']);
-#print STDERR 'DOCUMENTLANGUAGE '.$converter->get_conf('documentlanguage')."\n";
+sub run_test($) {
+  my $spec = shift;
 
-my $text_options
- = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
+  my ($test_string, $test_texi, $result) = @$spec;
 
-my $result_text
- = Texinfo::Convert::Text::convert_to_text($document->tree(), $text_options);
+  my $document = $parser->parse_texi_text($test_texi);
 
-is($result_text, '
+  my $tree = $document->tree();
 
+  #use Texinfo::DebugTree;
+  #print STDERR Texinfo::DebugTree->convert_tree($tree);
+
+  # Setup sectioning commands numbers
+  Texinfo::Structuring::sectioning_structure($document);
+
+  # rebuild the tree
+  $tree = $document->tree();
+
+  # a converter only used for translation in text conversion, not
+  # to convert anything.
+  my $converter = Texinfo::Convert::HTML->converter();
+  $converter->set_document($document);
+
+  my $text_options
+   = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
+
+  my $result_text
+   = Texinfo::Convert::Text::convert_to_text($document->tree(), $text_options);
+
+  if (!defined($result)) {
+    print STDERR " --> '$result_text'\n";
+  } else {
+    is($result_text, '
 A top
 *****
 
@@ -105,23 +153,23 @@ A top
 1 Chap
 ******
 
-Annexe A Conclusion
-*******************
-', 'test add_heading_number translations with a converter');
+'.$result, $test_string);
+  }
+}
 
-#print STDERR "RRR '$result_text'\n";
-
-
+foreach my $test (@tests_specs) {
+  run_test($test);
+};
 
 # Text setting the set_case options for Text conversion.  It is documented
 # that it may be used as an option to convert_to_text in the POD, but there
 # is no way to test it except when called from code.
 
-$document = $parser->parse_texi_piece ('
+my $document = $parser->parse_texi_piece ('
 Some text. @^o. @aa{}.  @AA{}.  @copyright{}.
 ');
 
-$result_text
+my $result_text
  = Texinfo::Convert::Text::convert_to_text($document->tree(),
                                            {'set_case' => 1});
 is($result_text, '

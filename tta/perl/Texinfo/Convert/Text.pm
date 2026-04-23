@@ -194,16 +194,38 @@ sub copy_options_for_convert_text($;$) {
     $options{$string_option} = $converter->get_conf($string_option);
   }
 
-  # documentlanguage and documentscript are not directly passed, but are
-  # passed through setting the current lang translations.
-  my $documentlanguage = $converter->get_conf('documentlanguage');
-  if (defined($documentlanguage)) {
-    set_language(\%options, $documentlanguage);
+  # documentlanguage, documentscript and documentlanguagevariant
+  # are not directly passed, but are passed through setting the current
+  # lang translations.
+  # Set to the values at the end of the preamble.
+  if (exists($converter->{'document'})) {
+    my $document_info = $converter->{'document'}->global_information();
+    if (defined($document_info)) {
+      if (exists($document_info->{'documentlanguagevariant'})) {
+        set_languagevariant(\%options,
+                            $document_info->{'documentlanguagevariant'});
+      }
+      if (exists($document_info->{'documentlanguage'})) {
+        set_language(\%options, $document_info->{'documentlanguage'});
+      }
+      if (exists($document_info->{'documentscript'})) {
+        set_script(\%options, $document_info->{'documentscript'});
+      }
+    }
   }
-  my $documentscript = $converter->get_conf('documentscript');
-  if (defined($documentscript)) {
-    set_script(\%options, $documentscript);
-  }
+
+  # May be better to setup dynamically, but not if it is supposed
+  # to represent the whole document.
+  # FIXME is document_info/preamble or current conf is better?
+  # In different situations?
+  #my $documentlanguage = $converter->get_conf('documentlanguage');
+  #if (defined($documentlanguage)) {
+  #  set_language(\%options, $documentlanguage);
+  #}
+  #my $documentscript = $converter->get_conf('documentscript');
+  #if (defined($documentscript)) {
+  #  set_script(\%options, $documentscript);
+  #}
 
   my $include_directories = $converter->get_conf('INCLUDE_DIRECTORIES');
   if (defined($include_directories) and scalar(@{$include_directories})) {
@@ -300,6 +322,19 @@ sub set_script($$) {
   $options->{'current_lang_translations'}
     = Texinfo::Translations::set_translations_documentscript(
          $options->{'translations'}, $documentscript,
+         $options->{'current_lang_translations'});
+}
+
+sub set_languagevariant($$) {
+  my ($options, $documentlanguagevariant) = @_;
+
+  if (!exists($options->{'translations'})) {
+    $options->{'translations'} = $Texinfo::Translations::translation_cache;
+  }
+
+  $options->{'current_lang_translations'}
+    = Texinfo::Translations::set_translations_documentlanguagevariant(
+         $options->{'translations'}, $documentlanguagevariant,
          $options->{'current_lang_translations'});
 }
 

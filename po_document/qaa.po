@@ -634,7 +634,7 @@ msgstr ""
 #: tta/C/main/convert_utils.c:440
 #, perl-brace-format
 msgid "Appendix {number} {section_title}"
-msgstr ""
+msgstr "Appendix al-{number} {section_title}"
 
 #. TRANSLATORS: numbered section title
 #: tta/perl/Texinfo/Convert/Plaintext.pm:1667

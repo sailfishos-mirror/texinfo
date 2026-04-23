@@ -524,35 +524,22 @@ new_element_language_translation (const ELEMENT *element)
                                documentlanguagevariant);
 }
 
-static void
-copy_lang_info (DOCUMENT_LANG_INFO *translation_lang_info,
-                const DOCUMENT_LANG_INFO *lang_info)
-{
-  if (lang_info->lang)
-    translation_lang_info->lang = strdup (lang_info->lang);
-  else
-    translation_lang_info->lang = 0;
-  if (lang_info->region)
-    translation_lang_info->region = strdup (lang_info->region);
-  else
-    translation_lang_info->region = 0;
-  if (lang_info->script)
-    translation_lang_info->script = strdup (lang_info->script);
-  else
-    translation_lang_info->script = 0;
-  memset (&translation_lang_info->variants, 0, sizeof (STRING_LIST));
-  copy_strings (&translation_lang_info->variants, &lang_info->variants);
-  translation_lang_info->bcp47_locale = 0;
-}
-
 static LANG_TRANSLATION *
 new_copy_translation (const DOCUMENT_LANG_INFO *lang_info)
 {
   LANG_TRANSLATION *result = (LANG_TRANSLATION *)
     malloc (sizeof (LANG_TRANSLATION));
-  result->info = (DOCUMENT_LANG_INFO *)
-    malloc (sizeof (DOCUMENT_LANG_INFO));
-  copy_lang_info (result->info, lang_info);
+
+  result->info = (DOCUMENT_LANG_INFO *) malloc (sizeof (DOCUMENT_LANG_INFO));
+  memset (result->info, 0, sizeof (DOCUMENT_LANG_INFO));
+  if (lang_info->lang)
+    result->info->lang = strdup (lang_info->lang);
+  if (lang_info->region)
+    result->info->region = strdup (lang_info->region);
+  if (lang_info->script)
+    result->info->script = strdup (lang_info->script);
+  copy_strings (&result->info->variants, &lang_info->variants);
+
   init_lang_translation (result);
   return result;
 }
@@ -785,22 +772,71 @@ set_translations_documentscript (LANG_TRANSLATION ***lang_translations,
     }
 
   lang_info = (DOCUMENT_LANG_INFO *) malloc (sizeof (DOCUMENT_LANG_INFO));
+  memset (lang_info, 0, sizeof (DOCUMENT_LANG_INFO));
   if (current_lang_info)
     {
       lang_info->lang = strdup (current_lang_info->lang);
       if (current_lang_info->region)
         lang_info->region = strdup (current_lang_info->region);
-      else
-        lang_info->region = 0;
-      memset (&lang_info->variants, 0, sizeof (STRING_LIST));
       copy_strings (&lang_info->variants, &current_lang_info->variants);
     }
 
   if (strcmp (script, ""))
     lang_info->script = strdup (script);
-  else
-    lang_info->script = 0;
-  lang_info->bcp47_locale = 0;
+
+  lang_translation
+    = set_lang_info_translation (lang_translations, lang_info,
+                                 cache_size);
+
+  return lang_translation;
+}
+
+LANG_TRANSLATION *
+set_translations_documentlanguagevariant (LANG_TRANSLATION ***lang_translations,
+                                 const STRING_LIST *documentlanguagevariant,
+                                 LANG_TRANSLATION *current_lang_translations,
+                                 size_t cache_size)
+{
+  LANG_TRANSLATION *lang_translation;
+  const DOCUMENT_LANG_INFO *current_lang_info = 0;
+  DOCUMENT_LANG_INFO *lang_info;
+
+  if (!documentlanguagevariant)
+    return current_lang_translations;
+
+  if (current_lang_translations)
+    {
+      current_lang_info = current_lang_translations->info;
+      char *current_joined_documentlanguagevariant
+        = join_strings_list (&current_lang_info->variants, 0);
+      char *joined_documentlanguagevariant
+        = join_strings_list (documentlanguagevariant, 0);
+
+      if (!strcmp (current_joined_documentlanguagevariant,
+                   joined_documentlanguagevariant))
+        {
+          /* Nothing to do */
+          free (joined_documentlanguagevariant);
+          free (current_joined_documentlanguagevariant);
+          return current_lang_translations;
+        }
+      free (current_joined_documentlanguagevariant);
+      free (joined_documentlanguagevariant);
+    }
+
+  lang_info = (DOCUMENT_LANG_INFO *) malloc (sizeof (DOCUMENT_LANG_INFO));
+  memset (lang_info, 0, sizeof (DOCUMENT_LANG_INFO));
+
+  if (current_lang_info)
+    {
+      lang_info->lang = strdup (current_lang_info->lang);
+      if (current_lang_info->region)
+        lang_info->region = strdup (current_lang_info->region);
+      if (current_lang_info->script)
+        lang_info->script = strdup (current_lang_info->script);
+    }
+
+  copy_strings (&lang_info->variants, documentlanguagevariant);
 
   lang_translation
     = set_lang_info_translation (lang_translations, lang_info,

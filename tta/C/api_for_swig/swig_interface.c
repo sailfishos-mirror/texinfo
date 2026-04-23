@@ -936,7 +936,8 @@ txi_ext_document_text_options (DOCUMENT *document)
 {
   TEXT_OPTIONS *result;
   if (document->options)
-    result = copy_options_for_convert_text (document->options);
+    result = copy_options_for_convert_text (document->options,
+                                            document);
   else
     result = new_text_options ();
   return result;

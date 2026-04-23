@@ -90,10 +90,21 @@ destroy_text_options (TEXT_OPTIONS *text_options)
   tico_option_name(NUMBER_SECTIONS) \
   tico_option_name(TEST)
 
+/* TODO different from Perl, in Perl the document global_information
+   is also used for documentlanguage and documentscript.  It probably
+   does not matter because this code is not used in any situation where
+   a correct documentlanguage and documentscript are needed as this
+   requires a carefully crafted code where a converter is associated
+   to the text converter and called for a whole document as done in 
+    t/z_misc/convert_to_text.t
+   And in this test file, the XS interface is used to setup the
+   options used for conversion, not pure C and the XS interface uses
+   global_information as in Perl.
+ */
 /* the string and strlist options need to be copied, in case they are
    deallocated if options are reset */
 TEXT_OPTIONS *
-copy_options_for_convert_text (OPTIONS *options)
+copy_options_for_convert_text (OPTIONS *options, DOCUMENT *document)
 {
   TEXT_OPTIONS *text_options = new_text_options ();
   int text_indicator_option;
@@ -133,6 +144,15 @@ copy_options_for_convert_text (OPTIONS *options)
                                 text_options->current_lang_translations,
                                 TXI_CONVERT_STRINGS_NR);
 
+  if (document
+      && document->global_info.documentlanguagevariant.number > 0)
+    text_options->current_lang_translations
+        = set_translations_documentlanguagevariant (&translation_cache,
+                         &document->global_info.documentlanguagevariant,
+                                text_options->current_lang_translations,
+                                TXI_CONVERT_STRINGS_NR);
+
+
   if (options->INPUT_FILE_NAME_ENCODING.o.string)
     text_options->INPUT_FILE_NAME_ENCODING
       = strdup (options->INPUT_FILE_NAME_ENCODING.o.string);
@@ -147,7 +167,8 @@ copy_options_for_convert_text (OPTIONS *options)
 TEXT_OPTIONS *
 copy_converter_options_for_convert_text (CONVERTER *self)
 {
-  TEXT_OPTIONS *text_options = copy_options_for_convert_text (self->conf);
+  TEXT_OPTIONS *text_options = copy_options_for_convert_text (self->conf,
+                                                             self->document);
   copy_translated_commands (&text_options->translated_commands,
                             &self->translated_commands);
 
@@ -172,9 +193,10 @@ set_additional_index_entry_keys_options (OPTIONS *options,
    index entries formatting as text in case this is done with a
    converter or without. */
 TEXT_OPTIONS *
-setup_index_entry_keys_formatting (OPTIONS *options)
+setup_index_entry_keys_formatting (OPTIONS *options, DOCUMENT *document)
 {
-  TEXT_OPTIONS *text_options = copy_options_for_convert_text (options);
+  TEXT_OPTIONS *text_options = copy_options_for_convert_text (options,
+                                                              document);
   set_additional_index_entry_keys_options (options, text_options);
   return text_options;
 }
@@ -249,6 +271,17 @@ text_set_script (TEXT_OPTIONS *text_options, const char *documentscript)
   text_options->current_lang_translations
     = set_translations_documentscript (&translation_cache,
                                        documentscript,
+                            text_options->current_lang_translations,
+                                TXI_CONVERT_STRINGS_NR);
+}
+
+void
+text_set_languagevariant (TEXT_OPTIONS *text_options,
+                          const STRING_LIST *documentlanguagevariant)
+{
+  text_options->current_lang_translations
+    = set_translations_documentlanguagevariant (&translation_cache,
+                                        documentlanguagevariant,
                             text_options->current_lang_translations,
                                 TXI_CONVERT_STRINGS_NR);
 }

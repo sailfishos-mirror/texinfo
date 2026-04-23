@@ -1,3 +1,40 @@
+2026-04-23 Patrice Dumas  <pertusus@free.fr>
+
+	use documentlanguagevariant in Plaintext and in Text with converter
+
+	* tta/C/main/utils.c (join_strings_list): add const.
+
+	* tta/C/main/convert_to_text.c (copy_options_for_convert_text)
+	(text_set_languagevariant), tta/C/main/translations.c
+	(set_translations_documentlanguagevariant),
+	tta/perl/Texinfo/Convert/Converter.pm (converter_set_documentscript),
+	tta/perl/Texinfo/Convert/Text.pm (copy_options_for_convert_text)
+	(set_languagevariant), tta/perl/Texinfo/Translations.pm
+	(set_translations_documentlanguagevariant): handle
+	documentlanguagevariant with set_translations_documentlanguagevariant,
+	converter_set_documentscript and text_set_languagevariant.  Add
+	document argument to copy_options_for_convert_text and update callers.
+	Use global_information for documentlanguage and documentscript in Perl
+	copy_options_for_convert_text.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (%formatted_line_commands)
+	(_convert): set current lang translation based on
+	documentlanguagevariant.
+
+	* tta/C/main/translations.c (new_copy_translation): inline
+	copy_lang_info in new_copy_translation.
+
+	* tta/C/main/translations.c (set_translations_documentscript): set to
+	0 before copying.
+
+	* po_document/qaa.po, po_document/qaa@1234.po,
+	po_document/qaa@latin.po, tta/perl/t/z_misc/convert_to_text.t
+	(@tests_specs, run_test): add a function to generalize running tests
+	and tests specifications that also test documentscript and
+	documentlanguagevariant.  Call parse_texi_text instead of
+	parse_texi_piece and let the generic code set documentlanguage and
+	documentscript.
+
 2026-04-22 Patrice Dumas  <pertusus@free.fr>
 
 	use documentlanguagevariant in completed def alias translations

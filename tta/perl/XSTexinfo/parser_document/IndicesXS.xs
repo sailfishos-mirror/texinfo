@@ -79,7 +79,8 @@ setup_index_entry_keys_formatting (SV *customization_info_sv)
             if (document && document->options)
               {
                 TEXT_OPTIONS *text_options
-                 = setup_index_entry_keys_formatting (document->options);
+                 = setup_index_entry_keys_formatting (document->options,
+                                                      document);
                 register_document_convert_index_text_options (document,
                                                            text_options);
               }

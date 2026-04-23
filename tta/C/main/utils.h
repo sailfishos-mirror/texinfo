@@ -222,7 +222,7 @@ size_t find_string (const STRING_LIST *strings_list, const char *string);
 void sort_strings_list (STRING_LIST *strings);
 int string_exists_in_sorted_strings_list (STRING_LIST *strings,
                                           const char *target);
-char *join_strings_list (STRING_LIST *strings, const char *delimiter);
+char *join_strings_list (const STRING_LIST *strings, const char *delimiter);
 
 ACCENTS_STACK *find_innermost_accent_contents (const ELEMENT *element);
 void destroy_accent_stack (ACCENTS_STACK *accent_stack);

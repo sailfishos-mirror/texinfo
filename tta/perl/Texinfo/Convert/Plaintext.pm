@@ -128,7 +128,8 @@ my %brace_code_commands       = %Texinfo::Commands::brace_code_commands;
 my @contents_commands = ('contents', 'shortcontents', 'summarycontents');
 
 foreach my $kept_command (keys (%informative_commands), @contents_commands,
-  keys (%default_index_commands), keys(%formattable_line_commands)) {
+  keys (%default_index_commands), keys(%formattable_line_commands),
+  'documentlanguagevariant') {
   $formatted_line_commands{$kept_command} = 1;
 }
 
@@ -4052,6 +4053,12 @@ sub _convert($$) {
         $self->converter_set_documentscript(
                                       $self->get_conf('documentscript'))
       }
+      return;
+    } elsif ($cmdname eq 'documentlanguagevariant') {
+      # special case, array argument
+      my $variants
+        = Texinfo::Common::documentlanguagevariant_variants($element);
+      $self->converter_set_documentlanguagevariant($variants);
       return;
     } else {
       $unknown_command = 1;
