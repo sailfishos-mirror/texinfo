@@ -620,7 +620,8 @@ html_complete_no_arg_commands_formatting (CONVERTER *self, enum command_id cmd,
 }
 
 void
-html_translate_names (CONVERTER *self)
+html_translate_names (CONVERTER *self,
+                      const STRING_LIST *documentlanguagevariant)
 {
   size_t j;
   const STRING_LIST *special_unit_varieties = &self->special_unit_varieties;
@@ -642,12 +643,26 @@ html_translate_names (CONVERTER *self)
                               self->current_lang_translations,
                               TXI_CONVERT_STRINGS_NR);
 
+  if (documentlanguagevariant)
+    {
+      text_set_languagevariant(self->convert_text_options,
+                               documentlanguagevariant);
+      self->current_lang_translations =
+        set_translations_documentlanguagevariant (&translation_cache,
+                              documentlanguagevariant,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+
+    }
+
   if (self->conf->DEBUG.o.integer > 0)
     {
+      const char *bcp47_locale
+        = get_lang_info_bcp47_locale (self->current_lang_translations->info);
       fprintf (stderr, "\nC|TRANSLATE_NAMES encoding_name: %s"
-               " documentlanguage: %s\n",
+               " bcp47_locale: %s\n",
                self->conf->OUTPUT_ENCODING_NAME.o.string,
-               self->conf->documentlanguage.o.string);
+               bcp47_locale);
     }
 
   /* reset strings such that they are translated when needed. */
@@ -992,16 +1007,19 @@ html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
 static const enum command_id fulltitle_cmds[] =
  {CM_settitle, CM_title, CM_shorttitlepage, 0};
 
+static const STRING_LIST empty_string_list = {0, 0, 0};
 
 int
 html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
                                     const char *output_filename)
 {
   int i;
+  const ELEMENT *documentlanguagevariant_e;
   ELEMENT *fulltitle_tree = 0;
   char *html_title_string = 0;
   const char *default_bcp47_locale = "";
   const char *preamble_bcp47_locale = "";
+  STRING_LIST *language_variants = 0;
   int init_handler_status;
   int handler_fatal_error_level
      = self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer;
@@ -1033,12 +1051,29 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
                               self->current_lang_translations,
                               TXI_CONVERT_STRINGS_NR);
 
+  documentlanguagevariant_e
+    = get_global_document_command (&self->document->global_commands,
+                                   CM_documentlanguagevariant, CL_preamble);
+  if (documentlanguagevariant_e)
+    {
+      language_variants
+        = documentlanguagevariant_variants (documentlanguagevariant_e);
+      self->current_lang_translations =
+        set_translations_documentlanguagevariant (&translation_cache,
+                              language_variants,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+    }
+
   if (self->current_lang_translations)
     preamble_bcp47_locale
       = get_lang_info_bcp47_locale (self->current_lang_translations->info);
 
   if (strcmp (default_bcp47_locale, preamble_bcp47_locale))
-    html_translate_names (self);
+    html_translate_names (self, language_variants);
+
+  if (language_variants)
+    destroy_strings_list (language_variants);
 
   html_prepare_direction_icons (self);
 
@@ -1208,7 +1243,7 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
   set_global_document_commands (self, CL_before, conf_for_documentlanguage);
 
   if (strcmp (default_bcp47_locale, preamble_bcp47_locale))
-    html_translate_names (self);
+    html_translate_names (self, &empty_string_list);
 
   /* reset in case the user changed customization variables in handlers */
   destroy_text_options (self->convert_text_options);
@@ -1731,7 +1766,14 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
 
           if (cmd == CM_documentlanguage || cmd == CM_documentscript)
             {
-              html_translate_names (self);
+              html_translate_names (self, 0);
+            }
+          else if (cmd == CM_documentlanguagevariant)
+            {
+              STRING_LIST *language_variants
+                = documentlanguagevariant_variants (element);
+              html_translate_names (self, language_variants);
+              destroy_strings_list (language_variants);
             }
 
           free (content_formatted.text);

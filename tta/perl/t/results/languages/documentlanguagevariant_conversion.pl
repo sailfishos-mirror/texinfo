@@ -607,7 +607,7 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </head>
 
-<body lang="qaa">
+<body lang="qaa-1234">
 
 
 <div class="top-level-extent" id="Top">
@@ -624,11 +624,11 @@ strong.def-name {font-family: monospace; font-weight: bold}
 <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Top" accesskey="p" rel="prev">top</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 
-<p>See h_l-<a class="xref" href="#Top">f</a>.
+<p>See h_v1234-<a class="xref" href="#Top">f</a>.
 <abbr class="abbr" title="Akl">A</abbr> (Akl)
 </p>
 <dl class="first-defcv first-defivar-alias-first-defcv def-block">
-<dt class="defcv defivar-alias-defcv def-line" id="index-other-of-some"><span class="category-def">l-InstV-l h_L-of <code class="code">some</code>: </span><span><strong class="def-name">other</strong> <var class="def-var-arguments">ivar</var><a class="copiable-link" href="#index-other-of-some"> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv def-line" id="index-other-of-some"><span class="category-def">v1234-InstV-v h_V1234-of <code class="code">some</code>: </span><span><strong class="def-name">other</strong> <var class="def-var-arguments">ivar</var><a class="copiable-link" href="#index-other-of-some"> &para;</a></span></dt>
 </dl>
 
 
@@ -640,12 +640,12 @@ strong.def-name {font-family: monospace; font-weight: bold}
 <abbr class="abbr" title="Bkl">B</abbr> (Bkl)
 </p>
 
-<p>See h_l-<a class="xref" href="#Top">t</a>.
+<p>See h_v1234-<a class="xref" href="#Top">t</a>.
 <abbr class="abbr" title="Ckl">C</abbr> (Ckl)
 </p>
 
 <dl class="first-defcv first-defivar-alias-first-defcv def-block">
-<dt class="defcv defivar-alias-defcv def-line" id="index-before-of-script"><span class="category-def">l-InstV-l h_L-of <code class="code">script</code>: </span><span><strong class="def-name">before</strong> <var class="def-var-arguments">change</var><a class="copiable-link" href="#index-before-of-script"> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv def-line" id="index-before-of-script"><span class="category-def">v1234-InstV-v h_V1234-of <code class="code">script</code>: </span><span><strong class="def-name">before</strong> <var class="def-var-arguments">change</var><a class="copiable-link" href="#index-before-of-script"> &para;</a></span></dt>
 </dl>
 </div>
 </div>
@@ -662,7 +662,7 @@ $result_converted{'docbook_doc'}->{'documentlanguagevariant_conversion'} = '<?xm
   <!ENTITY tex "TeX">
   <!ENTITY latex "LaTeX">
 ]>
-<book lang="qaa">
+<book lang="qaa-1234">
 <title>top</title>
 <bookinfo><title>top</title>
 <legalnotice><synopsis><indexterm role="vr"><primary>BBB of SSS</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>SSS</classname></ooclass> <property>BBB</property> <emphasis role="arg">CCC</emphasis></synopsis>
@@ -670,8 +670,8 @@ $result_converted{'docbook_doc'}->{'documentlanguagevariant_conversion'} = '<?xm
 <chapter label="1" id="chap">
 <title>Chap</title>
 
-<para>See d_l-<link linkend="Top">f</link>.
-<abbrev>A</abbrev> dp_l-(Akl)
+<para>See d_v1234-<link linkend="Top">f</link>.
+<abbrev>A</abbrev> dp_v1234-(Akl)
 </para>
 <synopsis><indexterm role="vr"><primary>other v1234-o-v some</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>some</classname></ooclass> <property>other</property> <emphasis role="arg">ivar</emphasis></synopsis>
 
@@ -682,8 +682,8 @@ $result_converted{'docbook_doc'}->{'documentlanguagevariant_conversion'} = '<?xm
 <abbrev>B</abbrev> dp_l-(Bkl)
 </para>
 
-<para>See d_l-<link linkend="Top">t</link>.
-<abbrev>C</abbrev> dp_l-(Ckl)
+<para>See d_v1234-<link linkend="Top">t</link>.
+<abbrev>C</abbrev> dp_v1234-(Ckl)
 </para>
 
 <synopsis><indexterm role="vr"><primary>before v1234-o-v script</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>script</classname></ooclass> <property>before</property> <emphasis role="arg">change</emphasis></synopsis>
@@ -787,6 +787,7 @@ $result_converted{'latex'}->{'documentlanguagevariant_conversion'} = '\\document
 
 
 \\selectlanguage{qaa}%
+\\selectlanguage{qaa-1234}%
 
 \\begin{document}
 \\label{anchor:Top}%
@@ -794,16 +795,17 @@ $result_converted{'latex'}->{'documentlanguagevariant_conversion'} = '\\document
 \\label{anchor:chap}%
 
 See \\hyperref[anchor:Top]{\\chaptername~\\ref*{anchor:Top} [Top], page~\\pageref*{anchor:Top}}.
-A dp\\_l-(Akl)
+A dp\\_v1234-(Akl)
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
-\\texttt{other \\EmbracOn{}\\textnormal{\\textsl{ivar}}\\EmbracOff{}}& [l-InstV-l of \\texttt{some}]
+\\texttt{other \\EmbracOn{}\\textnormal{\\textsl{ivar}}\\EmbracOff{}}& [v1234-InstV-v of \\texttt{some}]
 \\end{tabularx}
 
 \\index[vr]{other of some@\\texttt{other\\ of some}}%
 
+\\selectlanguage{qaa}%
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -816,16 +818,17 @@ A dp\\_l-(Akl)
 See \\hyperref[anchor:Top]{\\chaptername~\\ref*{anchor:Top} [Top], page~\\pageref*{anchor:Top}}.
 B dp\\_l-(Bkl)
 
-\\selectlanguage{qaa}%
+\\selectlanguage{qaa-1234}%
+\\selectlanguage{qaa-1234}%
 
 See \\hyperref[anchor:Top]{\\chaptername~\\ref*{anchor:Top} [Top], page~\\pageref*{anchor:Top}}.
-C dp\\_l-(Ckl)
+C dp\\_v1234-(Ckl)
 
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
-\\texttt{before \\EmbracOn{}\\textnormal{\\textsl{change}}\\EmbracOff{}}& [l-InstV-l of \\texttt{script}]
+\\texttt{before \\EmbracOn{}\\textnormal{\\textsl{change}}\\EmbracOff{}}& [v1234-InstV-v of \\texttt{script}]
 \\end{tabularx}
 
 \\index[vr]{before of script@\\texttt{before\\ of script}}%

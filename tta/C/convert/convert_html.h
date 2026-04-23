@@ -66,7 +66,8 @@ void html_complete_no_arg_commands_formatting (CONVERTER *self,
                                                int translate);
 void html_reset_translated_special_unit_info_tree (CONVERTER *self);
 
-/* void html_translate_names (CONVERTER *self); */
+/* void html_translate_names (CONVERTER *self)
+                      const STRING_LIST *documentlanguagevariant); */
 
 
 int html_run_stage_handlers (CONVERTER *self,

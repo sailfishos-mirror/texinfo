@@ -288,7 +288,7 @@ output (SV *converter_in, SV *document_in)
         html_prepare_conversion_units_targets (self, document_name);
 
         /* _translate_names */
-        html_translate_names (self);
+        html_translate_names (self, 0);
         build_html_formatting_state (self);
 
         html_prepare_units_directions_files (self,
@@ -410,7 +410,7 @@ convert (SV *converter_in, SV *document_in)
 
         /* _translate_names */
         /* setup untranslated strings */
-        html_translate_names (self);
+        html_translate_names (self, 0);
         build_html_formatting_state (self);
 
         html_prepare_direction_icons (self);
@@ -1630,13 +1630,22 @@ global_direction_text (SV *converter_in, direction_name)
         RETVAL
 
 void
-_translate_names (SV *converter_in)
+_translate_names (SV *converter_in, SV *documentlanguagevariant_sv=0)
   PREINIT:
         CONVERTER *self = 0;
+        STRING_LIST *documentlanguagevariant = 0;
      CODE:
         self = get_sv_converter (converter_in, "_translate_names");
 
-        html_translate_names (self);
+        if (documentlanguagevariant_sv
+            && SvOK (documentlanguagevariant_sv)) {
+          documentlanguagevariant = new_string_list ();
+          add_svav_to_string_list (documentlanguagevariant_sv,
+                                   documentlanguagevariant, svt_byte);
+        }
+        html_translate_names (self, documentlanguagevariant);
+        if (documentlanguagevariant)
+          destroy_strings_list (documentlanguagevariant);
         build_html_formatting_state (self);
 
 void

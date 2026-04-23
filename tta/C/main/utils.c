@@ -1682,7 +1682,25 @@ analyze_documentlanguagevariant_argument_e (const ELEMENT *element,
   return "";
 }
 
+STRING_LIST *
+documentlanguagevariant_variants (const ELEMENT *element)
+{
+  STRING_LIST *variants = new_string_list ();
+  size_t i;
 
+  for (i = 0; i < element->e.c->contents.number; i++)
+    {
+      int valid_variant;
+      int surplus_arg;
+      const ELEMENT *content = element->e.c->contents.list[i];
+      const char *variant
+       = analyze_documentlanguagevariant_argument_e (content, &valid_variant,
+                                                     &surplus_arg);
+      if (variant && strcmp (variant, ""))
+        add_string (variant, variants);
+    }
+  return variants;
+}
 
 
 /* index related functions used in diverse situations, not only in parser */

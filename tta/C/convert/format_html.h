@@ -195,6 +195,7 @@ COMMAND_CONVERSION_FUNCTION(maketitle_command)
 COMMAND_CONVERSION_FUNCTION(listoffloats_command)
 COMMAND_CONVERSION_FUNCTION(printindex_command)
 COMMAND_CONVERSION_FUNCTION(informative_command)
+COMMAND_CONVERSION_FUNCTION(documentlanguagevariant_command)
 COMMAND_CONVERSION_FUNCTION(contents_command)
 COMMAND_CONVERSION_FUNCTION(def_command)
 

@@ -1578,6 +1578,7 @@ my @informative_global_commands = ('documentlanguage',
 my @contents_commands = ('contents', 'shortcontents', 'summarycontents');
 
 foreach my $line_command (@informative_global_commands,
+        'documentlanguagevariant',
         @contents_commands, keys(%formattable_line_commands),
         keys(%formatted_line_commands),
         keys(%default_index_commands)) {
@@ -5261,6 +5262,15 @@ foreach my $informative_command (@informative_global_commands) {
     = \&_convert_informative_command;
 }
 
+sub _convert_documentlanguagevariant_command($$$) {
+  my ($self, $cmdname, $command) = @_;
+
+  return '';
+}
+
+$default_commands_conversion{'documentlanguagevariant'}
+  = \&_convert_documentlanguagevariant_command;
+
 sub _convert_contents_command($$$) {
   my ($self, $cmdname, $command) = @_;
 
@@ -8697,6 +8707,10 @@ sub _convert($$;$) {
       if ($command_name eq 'documentlanguage'
           or $command_name eq 'documentscript') {
         _translate_names($self);
+      } elsif ($command_name eq 'documentlanguagevariant') {
+        my $language_variants
+          = Texinfo::Common::documentlanguagevariant_variants($element);
+        _translate_names($self, $language_variants);
       }
       return $result;
     } else {

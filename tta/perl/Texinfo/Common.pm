@@ -605,7 +605,6 @@ sub documentlanguagevariant_variants($) {
   if (!exists($element->{'contents'})) {
     return \@variants;
   }
-  my $is_empty = 1;
   foreach my $content (@{$element->{'contents'}}) {
     my ($valid, $surplus, $variant)
       = _analyze_documentlanguagevariant_argument_e($content);

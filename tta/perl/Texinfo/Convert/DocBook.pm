@@ -189,6 +189,7 @@ foreach my $command ('itemx') {
 my %docbook_global_commands = (
   'documentlanguage' => 1,
   'documentscript' => 1,
+  'documentlanguagevariant' => 1,
 );
 
 my %default_args_code_style
@@ -383,12 +384,29 @@ sub conversion_output_begin($;$$) {
     $id = '';
   }
 
+  my $global_commands;
+  if (exists($self->{'document'})) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+
   $self->set_global_document_commands('preamble', ['documentlanguage',
                                                    'documentscript']);
   my $documentlanguage = $self->get_conf('documentlanguage');
   $self->converter_set_documentlanguage($documentlanguage);
   my $documentscript = $self->get_conf('documentscript');
   $self->converter_set_documentscript($documentscript);
+  if (defined($global_commands)) {
+    my $documentlanguagevariant_e
+     = Texinfo::Common::get_global_document_command($global_commands,
+                                  'documentlanguagevariant', 'preamble');
+    if (defined($documentlanguagevariant_e)) {
+      my $variants
+       = Texinfo::Common::documentlanguagevariant_variants(
+                                            $documentlanguagevariant_e);
+      $self->converter_set_documentlanguagevariant($variants);
+    }
+  }
+
   my $bcp47_locale = $self->current_bcp47_locale();
   push @{$self->{'lang_stack'}}, $bcp47_locale;
 
@@ -407,10 +425,6 @@ sub conversion_output_begin($;$$) {
 '. "<book${id}${lang_attribute}>\n";
 
   my $legalnotice;
-  my $global_commands;
-  if (exists($self->{'document'})) {
-    $global_commands = $self->{'document'}->global_commands_information();
-  }
   if (defined($global_commands) and exists($global_commands->{'copying'})) {
     my $copying_element = $global_commands->{'copying'};
     my $copying_result
@@ -549,6 +563,7 @@ sub conversion_output_begin($;$$) {
                                                  'documentscript']);
   $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
   $self->converter_set_documentscript($self->get_conf('documentscript'));
+  $self->converter_set_documentlanguagevariant([]);
 
   my $document_info = '';
   $document_info .= $title_info . $authors_info;
@@ -1008,13 +1023,19 @@ sub _convert($$;$) {
     } elsif (exists($docbook_line_commands{$cmdname})) {
       #warn "  is dbk line command\n";
       if ($docbook_global_commands{$cmdname}) {
-        Texinfo::Common::set_informative_command_value($self, $element);
-        if ($cmdname eq 'documentlanguage') {
-          $self->converter_set_documentlanguage(
+        if ($cmdname eq 'documentlanguagevariant') {
+          my $variants
+            = Texinfo::Common::documentlanguagevariant_variants($element);
+          $self->converter_set_documentlanguagevariant($variants);
+        } else {
+          Texinfo::Common::set_informative_command_value($self, $element);
+          if ($cmdname eq 'documentlanguage') {
+            $self->converter_set_documentlanguage(
                                       $self->get_conf('documentlanguage'));
-        } elsif ($cmdname eq 'documentscript') {
-          $self->converter_set_documentscript(
+          } elsif ($cmdname eq 'documentscript') {
+            $self->converter_set_documentscript(
                                       $self->get_conf('documentscript'));
+          }
         }
         return '';
       }

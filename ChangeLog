@@ -1,5 +1,40 @@
 2026-04-23 Patrice Dumas  <pertusus@free.fr>
 
+	use documentlanguagevariant in HTML, DocBook and LaTeX conversion
+
+	* tta/C/main/utils.c (documentlanguagevariant_variants): add.
+
+	* tta/C/convert/convert_html.c (html_translate_names)
+	(html_prepare_converted_output_info, html_convert_tree_append),
+	tta/C/convert/format_html.c
+	(html_convert_documentlanguagevariant_command),
+	tta/C/convert/html_prepare_converter.c
+	(commands_internal_conversion_table), tta/perl/Texinfo/Convert/HTML.pm
+	(_convert_documentlanguagevariant_command, _convert),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm (_translate_names)
+	(_prepare_converted_output_info),
+	tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs (_translate_names): add
+	language_variants argument to *_translate_names.  Set variants based
+	on documentlanguagevariant and value at the end of the preamble and
+	pass to translate_names.  Update *_translate_names callers.
+
+	* tta/C/convert/html_prepare_converter.c (html_setup_output),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm (_setup_output): handle
+	documentlanguagevariant for BODY_ELEMENT_ATTRIBUTES lang attribute.
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (%docbook_global_commands)
+	(conversion_output_begin, _convert): handle documentlanguagevariant.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (%LaTeX_formatted_line_commands)
+	(%LaTeX_formatted_nobrace_commands): rename %formatted_line_commands
+	as %LaTeX_formatted_line_commands and %formatted_nobrace_commands as
+	%LaTeX_formatted_nobrace_commands.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (%LaTeX_formatted_line_commands)
+	(_convert): handle documentlanguagevariant.
+
+2026-04-23 Patrice Dumas  <pertusus@free.fr>
+
 	use documentlanguagevariant in Plaintext and in Text with converter
 
 	* tta/C/main/utils.c (join_strings_list): add const.

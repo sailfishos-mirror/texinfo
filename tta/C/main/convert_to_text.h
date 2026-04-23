@@ -60,6 +60,8 @@ void text_reset_options_encoding (TEXT_OPTIONS *text_options);
 void text_set_language (TEXT_OPTIONS *text_options,
                         const char *documentlanguage);
 void text_set_script (TEXT_OPTIONS *text_options, const char *documentscript);
+void text_set_languagevariant (TEXT_OPTIONS *text_options,
+                          const STRING_LIST *documentlanguagevariant);
 
 /* used in converters in Perl */
 char *text_accents (const ELEMENT *accent, char *encoding, int set_case);

@@ -191,8 +191,8 @@ our $VERSION = '7.3dev';
 
 
 # commands that are of use for formatting.
-my %formatted_line_commands = %Texinfo::Commands::formatted_line_commands;
-my %formatted_nobrace_commands = %Texinfo::Commands::formatted_nobrace_commands;
+my %LaTeX_formatted_line_commands = %Texinfo::Commands::formatted_line_commands;
+my %LaTeX_formatted_nobrace_commands = %Texinfo::Commands::formatted_nobrace_commands;
 my %formattable_line_commands = %Texinfo::Commands::formattable_line_commands;
 
 my %paper_geometry_commands = (
@@ -254,15 +254,16 @@ my %non_formatted_brace_command = %Texinfo::Commands::non_formatted_brace_comman
 my %nobrace_symbol_text = %Texinfo::CommandsValues::nobrace_symbol_text;
 
 foreach my $kept_command (keys(%informative_commands),
+   'documentlanguagevariant',
    keys(%default_index_commands),
    keys(%formattable_line_commands)) {
-  $formatted_line_commands{$kept_command} = 1;
+  $LaTeX_formatted_line_commands{$kept_command} = 1;
 }
 
 my %def_line_commands;
 foreach my $def_command (keys(%def_commands)) {
   if ($line_commands{$def_command}) {
-    $formatted_line_commands{$def_command} = 1;
+    $LaTeX_formatted_line_commands{$def_command} = 1;
     $def_line_commands{$def_command} = 1;
   }
 }
@@ -294,7 +295,7 @@ my %LaTeX_in_heading_commands_formatting = (
 
 foreach my $kept_command (keys(%LaTeX_in_heading_commands_formatting),
                                        'indent', 'noindent') {
-  $formatted_nobrace_commands{$kept_command} = 1;
+  $LaTeX_formatted_nobrace_commands{$kept_command} = 1;
 }
 
 my %block_math_commands;
@@ -307,13 +308,13 @@ foreach my $block_math_command (keys(%math_commands)) {
 my %ignored_line_commands;
 foreach my $line_command (keys(%line_commands)) {
   $ignored_line_commands{$line_command} = 1
-    unless (exists($formatted_line_commands{$line_command}));
+    unless (exists($LaTeX_formatted_line_commands{$line_command}));
 }
 
 my %ignored_nobrace_commands;
 foreach my $nobrace_command (keys(%nobrace_commands)) {
   $ignored_nobrace_commands{$nobrace_command} = 1
-    unless (exists($formatted_nobrace_commands{$nobrace_command}));
+    unless (exists($LaTeX_formatted_nobrace_commands{$nobrace_command}));
 }
 
 # from \def\Gin@extensions in graphics-def/pdftex.def
@@ -4629,6 +4630,13 @@ sub _convert($$) {
         $result .= _informative_command_output($self, $cmdname);
       }
       return $result;
+    } elsif ($cmdname eq 'documentlanguagevariant') {
+      my $variants
+        = Texinfo::Common::documentlanguagevariant_variants($element);
+      $self->converter_set_documentlanguagevariant($variants);
+      my $bcp47_locale = $self->current_bcp47_locale();
+      $self->{'packages'}->{'babel'} = 1;
+      return "\\selectlanguage{$bcp47_locale}%\n";
     } else {
       $unknown_command = 1;
     }

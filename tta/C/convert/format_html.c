@@ -11115,6 +11115,18 @@ html_convert_informative_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+html_convert_documentlanguagevariant_command (CONVERTER *self,
+                                  const enum command_id cmd,
+                                  const ELEMENT *element,
+                                  const HTML_ARGS_FORMATTED *args_formatted,
+                                  const char *content, TEXT *result)
+{
+  if (html_in_string (self))
+    return;
+
+}
+
+void
 html_convert_contents_command (CONVERTER *self, const enum command_id cmd,
                                const ELEMENT *element,
                                const HTML_ARGS_FORMATTED *args_formatted,

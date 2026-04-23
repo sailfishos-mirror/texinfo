@@ -2413,6 +2413,8 @@ static const COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = 
   {CM_xrefautomaticsectiontitle, &html_convert_informative_command},
   {CM_deftypefnnewline, &html_convert_informative_command},
 
+  {CM_documentlanguagevariant, &html_convert_documentlanguagevariant_command},
+
   {CM_contents, &html_convert_contents_command},
   {CM_shortcontents, &html_convert_contents_command},
   {CM_summarycontents, &html_convert_contents_command},
@@ -4138,6 +4140,8 @@ html_setup_output (CONVERTER *self, char **paths)
   int js_categories_list_nr = 0;
   DOCUMENT_LANG_INFO *lang_info;
   char *body_element_attributes;
+  const ELEMENT *documentlanguagevariant_e;
+  STRING_LIST *language_variants = 0;
 
   /* Should not actually be needed, as it is already deleted after conversion
      and each time it is set out of the conversion. */
@@ -4215,9 +4219,21 @@ html_setup_output (CONVERTER *self, char **paths)
 
   set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
 
+  documentlanguagevariant_e
+    = get_global_document_command (&self->document->global_commands,
+                                   CM_documentlanguagevariant, CL_preamble);
+  if (documentlanguagevariant_e)
+    {
+      language_variants
+        = documentlanguagevariant_variants (documentlanguagevariant_e);
+    }
+
   lang_info = new_lang_info (self->conf->documentlanguage.o.string,
                              self->conf->documentscript.o.string,
-                             NULL);
+                             language_variants);
+  if (language_variants)
+    destroy_strings_list (language_variants);
+
   if (lang_info)
     {
       xasprintf (&body_element_attributes, "lang=\"%s\"",
