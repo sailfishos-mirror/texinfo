@@ -1,5 +1,27 @@
 2026-04-23 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/get_converter_perl_info.c
+	(copy_sv_options_for_convert_text), tta/C/main/get_perl_info.c
+	(get_lang_info_hv),
+	tta/perl/XSTexinfo/parser_document/TranslationsXS.xs
+	(cache_translate_string): allocate lang info in get_lang_info_hv.
+
+	* tta/C/main/translations.c (lang_info_bcp47_locale): add.
+
+	* tta/C/main/get_perl_info.c (get_lang_info_hv),
+	tta/C/main/translations.c (new_lang_info, new_copy_translation)
+	(set_translations_documentlanguage, set_translations_documentscript)
+	(set_translations_documentlanguagevariant): always set bcp47_locale
+	when creating a lang info.  Remove get_lang_info_bcp47_locale.  Update
+	get_lang_info_bcp47_locale callers to access directly bcp47_locale.
+	The bcp47_locale is always needed soon after the creation and it
+	simplifies the code.
+
+	* tta/C/parsetexi/indices.c (complete_indices): rename
+	current_lang_translations variable as element_lang_translations.
+
+2026-04-23 Patrice Dumas  <pertusus@free.fr>
+
 	use documentlanguagevariant in HTML, DocBook and LaTeX conversion
 
 	* tta/C/main/utils.c (documentlanguagevariant_variants): add.

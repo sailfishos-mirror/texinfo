@@ -448,7 +448,7 @@ complete_indices (DOCUMENT *document, int debug_level)
 
                   if (name && class)
                     {
-                      LANG_TRANSLATION *current_lang_translations = 0;
+                      LANG_TRANSLATION *element_lang_translations = 0;
                       ELEMENT *index_entry;
                   /* container without type in extra "def_index_ref_element" */
                       ELEMENT *index_entry_normalized = new_element (ET_NONE);
@@ -470,7 +470,7 @@ complete_indices (DOCUMENT *document, int debug_level)
                        = new_element_lang_info (main_entry_element);
                       if (lang_info)
                         {
-                          current_lang_translations
+                          element_lang_translations
                             = set_lang_info_translation (&lang_translations,
                                                    lang_info,
                                                    TXI_PARSER_STRINGS_NR);
@@ -486,7 +486,7 @@ complete_indices (DOCUMENT *document, int debug_level)
                           || def_command == CM_deftypemethod)
                         {
                           index_entry = gdt_tree ("{name} on {class}",
-                                          document, current_lang_translations,
+                                          document, element_lang_translations,
                                           substrings, debug_level, 0);
 
                           text_append (text_element->e.text, " on ");
@@ -497,7 +497,7 @@ complete_indices (DOCUMENT *document, int debug_level)
                                || def_command == CM_deftypecv)
                         {
                           index_entry = gdt_tree ("{name} of {class}",
-                                          document, current_lang_translations,
+                                          document, element_lang_translations,
                                           substrings, debug_level, 0);
 
                           text_append (text_element->e.text, " of ");

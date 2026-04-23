@@ -658,7 +658,7 @@ html_translate_names (CONVERTER *self,
   if (self->conf->DEBUG.o.integer > 0)
     {
       const char *bcp47_locale
-        = get_lang_info_bcp47_locale (self->current_lang_translations->info);
+        = self->current_lang_translations->info->bcp47_locale;
       fprintf (stderr, "\nC|TRANSLATE_NAMES encoding_name: %s"
                " bcp47_locale: %s\n",
                self->conf->OUTPUT_ENCODING_NAME.o.string,
@@ -1035,7 +1035,7 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
 
   if (self->current_lang_translations)
     default_bcp47_locale
-      = get_lang_info_bcp47_locale (self->current_lang_translations->info);
+      = self->current_lang_translations->info->bcp47_locale;
 
   set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
 
@@ -1067,7 +1067,7 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
 
   if (self->current_lang_translations)
     preamble_bcp47_locale
-      = get_lang_info_bcp47_locale (self->current_lang_translations->info);
+      = self->current_lang_translations->info->bcp47_locale;
 
   if (strcmp (default_bcp47_locale, preamble_bcp47_locale))
     html_translate_names (self, language_variants);

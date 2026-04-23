@@ -94,7 +94,7 @@ set_perl_translations_documentlanguage (HV *converter_hv,
       translations = *translations_sv;
     }
 
-  bcp47_locale_sv = newSVpv_byte (get_lang_info_bcp47_locale (lang_info), 0);
+  bcp47_locale_sv = newSVpv_byte (lang_info->bcp47_locale, 0);
 
   translations_hv = (HV *)SvRV (translations);
   translations_lang_he = hv_fetch_ent (translations_hv, bcp47_locale_sv,

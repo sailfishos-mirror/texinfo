@@ -34,7 +34,7 @@ void set_output_strings_translate_method (int use_external_translate_string_in);
 void setup_output_strings_translations (const char *localesdir,
                                         const char *strings_textdomain_in);
 
-const char *get_lang_info_bcp47_locale (DOCUMENT_LANG_INFO *lang_info);
+char *lang_info_bcp47_locale (const DOCUMENT_LANG_INFO *lang_info);
 const LANG_TRANSLATION *get_lang_info_translation (
                         LANG_TRANSLATION ***lang_translations_ptr,
                         DOCUMENT_LANG_INFO *info,

@@ -4237,7 +4237,7 @@ html_setup_output (CONVERTER *self, char **paths)
   if (lang_info)
     {
       xasprintf (&body_element_attributes, "lang=\"%s\"",
-                 get_lang_info_bcp47_locale(lang_info));
+                 lang_info->bcp47_locale);
       option_set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,
                        0, body_element_attributes);
       free (body_element_attributes);
