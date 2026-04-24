@@ -1710,6 +1710,7 @@ pass_global_info (HV *hv, const GLOBAL_INFO *global_info_ref,
   const GLOBAL_COMMANDS global_commands = *global_commands_ref;
   const ELEMENT *document_language;
   const ELEMENT *document_script;
+  const ELEMENT *documentlanguagevariant;
   size_t i;
 
   dTHX;
@@ -1728,15 +1729,6 @@ pass_global_info (HV *hv, const GLOBAL_INFO *global_info_ref,
     {
       AV *av = build_string_list (&global_info.included_files, svt_byte);
       hv_store (hv, "included_files", strlen ("included_files"),
-                newRV_noinc ((SV *) av), 0);
-    }
-
-  if (global_info.documentlanguagevariant.number)
-    {
-      AV *av = build_string_list (&global_info.documentlanguagevariant,
-                                  svt_byte);
-      hv_store (hv, "documentlanguagevariant",
-                strlen ("documentlanguagevariant"),
                 newRV_noinc ((SV *) av), 0);
     }
 
@@ -1783,6 +1775,23 @@ pass_global_info (HV *hv, const GLOBAL_INFO *global_info_ref,
         = informative_command_value (document_script, &cmd);
       hv_store (hv, "documentscript", strlen ("documentscript"),
                 newSVpv (script, 0), 0);
+    }
+
+  documentlanguagevariant = get_global_document_command (global_commands_ref,
+                                        CM_documentlanguagevariant,
+                                        CL_preamble);
+  if (documentlanguagevariant)
+    {
+      STRING_LIST *language_variants
+        = documentlanguagevariant_variants (documentlanguagevariant);
+      if (language_variants->number > 0)
+        {
+          AV *av = build_string_list (language_variants, svt_byte);
+          hv_store (hv, "documentlanguagevariant",
+                    strlen ("documentlanguagevariant"),
+                    newRV_noinc ((SV *) av), 0);
+        }
+      destroy_strings_list (language_variants);
     }
 }
 

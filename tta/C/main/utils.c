@@ -1685,7 +1685,7 @@ analyze_documentlanguagevariant_argument_e (const ELEMENT *element,
 STRING_LIST *
 documentlanguagevariant_variants (const ELEMENT *element)
 {
-  STRING_LIST *variants = new_string_list ();
+  STRING_LIST *language_variants = new_string_list ();
   size_t i;
 
   for (i = 0; i < element->e.c->contents.number; i++)
@@ -1697,9 +1697,9 @@ documentlanguagevariant_variants (const ELEMENT *element)
        = analyze_documentlanguagevariant_argument_e (content, &valid_variant,
                                                      &surplus_arg);
       if (variant && strcmp (variant, ""))
-        add_string (variant, variants);
+        add_string (variant, language_variants);
     }
-  return variants;
+  return language_variants;
 }
 
 
