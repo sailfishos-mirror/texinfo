@@ -324,6 +324,12 @@ Another unknown language. @xref{Top}.
 
 @defivar script before change
 @end defivar
+
+@documentscript wwrong
+
+@defivar after script change
+@end defivar
+
 '],
 ['documentscript_conversion',
 '
@@ -393,6 +399,11 @@ Another unknown language. @xref{Top}.
 @documentlanguage az
 
 @defivar script before change
+@end defivar
+
+@documentlanguagevariant akhmimic c, aluku,
+
+@defivar one after change
 @end defivar
 '],
 ['documentlanguagevariant_conversion',

@@ -129,7 +129,7 @@ $result_tree_text{'documentlanguagevariant_selection'} = '*document_root C5
     {spaces_before_argument: }
     {chap}
     {spaces_after_argument:\\n}
- *@chapter C12 l14 {Chap}
+ *@chapter C16 l14 {Chap}
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -338,6 +338,77 @@ $result_tree_text{'documentlanguagevariant_selection'} = '*document_root C5
      {spaces_before_argument: }
      {defivar}
      {spaces_after_argument:\\n}
+  {empty_line:\\n}
+  *@documentlanguagevariant C3 l30
+  |EXTRA
+  |global_command_number:{4}
+   *line_arg C2
+    {spaces_before_argument: }
+    {akhmimic c}
+   *line_arg C2
+    {spaces_before_argument: }
+    {aluku}
+   *line_arg C1
+    {spaces_before_argument:\\n}
+  {empty_line:\\n}
+  *@defivar C2 l32
+   *def_line C1 l32
+   |EXTRA
+   |def_command:{defivar}
+   |def_index_element:
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{after}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{one}
+   |def_index_ref_element:
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{after}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{one}
+   |documentlanguage:{az}
+   |documentlanguagevariant:A{aluku}
+   |element_node:{chap}
+   |index_entry:I{vr,5}
+   |original_def_cmdname:{defivar}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *untranslated_def_line_arg C1
+      |EXTRA
+      |documentlanguage:{az}
+      |documentlanguagevariant:A{aluku}
+      |translation_context:{category of instance variables in object-oriented programming for @defivar}
+       {untranslated:Instance Variable}
+     {spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {one}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {after}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {change}
+     {spaces_after_argument:\\n}
+   *@end C1 l33
+   |EXTRA
+   |text_arg:{defivar}
+    *line_arg C3
+     {spaces_before_argument: }
+     {defivar}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -369,6 +440,11 @@ $result_texis{'documentlanguagevariant_selection'} = '
 
 @defivar script before change
 @end defivar
+
+@documentlanguagevariant akhmimic c, aluku,
+
+@defivar one after change
+@end defivar
 ';
 
 
@@ -387,12 +463,18 @@ top
 
 
 Instance Variable of script: before change
+
+
+Instance Variable of one: after change
 ';
 
 $result_errors{'documentlanguagevariant_selection'} = '* W l8|superfluous content in number 1 argument to @documentlanguagevariant
  warning: superfluous content in number 1 argument to @documentlanguagevariant
 
 * W l24|bad number 1 argument to @documentlanguagevariant
+ warning: bad number 1 argument to @documentlanguagevariant
+
+* W l30|bad number 1 argument to @documentlanguagevariant
  warning: bad number 1 argument to @documentlanguagevariant
 
 ';
@@ -435,6 +517,7 @@ list:
 $result_headings_list{'documentlanguagevariant_selection'} = '';
 
 $result_indices_sort_strings{'documentlanguagevariant_selection'} = 'vr:
+ after of one
  BBB of SSS
  before of script
  other од some
@@ -453,6 +536,8 @@ $result_converted{'plaintext'}->{'documentlanguagevariant_selection'} = 'top
  -- Променљива примерка од after: reset ivar
 
  -- Instance Variable of script: before change
+
+ -- Instance Variable of one: after change
 ';
 
 1;

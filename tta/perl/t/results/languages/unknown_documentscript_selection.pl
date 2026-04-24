@@ -121,7 +121,7 @@ $result_tree_text{'unknown_documentscript_selection'} = '*document_root C5
     {spaces_before_argument: }
     {chap}
     {spaces_after_argument:\\n}
- *@chapter C12 l14 {Chap}
+ *@chapter C17 l14 {Chap}
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -328,6 +328,75 @@ $result_tree_text{'unknown_documentscript_selection'} = '*document_root C5
      {spaces_before_argument: }
      {defivar}
      {spaces_after_argument:\\n}
+  {empty_line:\\n}
+  *@documentscript C1 l30
+  |EXTRA
+  |global_command_number:{4}
+  |text_arg:{wwrong}
+   *line_arg C3
+    {spaces_before_argument: }
+    {wwrong}
+    {spaces_after_argument:\\n}
+  {empty_line:\\n}
+  *@defivar C2 l32
+   *def_line C1 l32
+   |EXTRA
+   |def_command:{defivar}
+   |def_index_element:
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{script}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{after}
+   |def_index_ref_element:
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{script}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{after}
+   |documentlanguage:{az}
+   |documentscript:{wwrong}
+   |element_node:{chap}
+   |index_entry:I{vr,5}
+   |original_def_cmdname:{defivar}
+    *block_line_arg C9
+     (i){spaces_before_argument: }
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *untranslated_def_line_arg C1
+      |EXTRA
+      |documentlanguage:{az}
+      |documentscript:{wwrong}
+      |translation_context:{category of instance variables in object-oriented programming for @defivar}
+       {untranslated:Instance Variable}
+     {spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {after}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {script}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {change}
+     {spaces_after_argument:\\n}
+   *@end C1 l33
+   |EXTRA
+   |text_arg:{defivar}
+    *line_arg C3
+     {spaces_before_argument: }
+     {defivar}
+     {spaces_after_argument:\\n}
+  {empty_line:\\n}
 ';
 
 
@@ -359,6 +428,12 @@ $result_texis{'unknown_documentscript_selection'} = '
 
 @defivar script before change
 @end defivar
+
+@documentscript wwrong
+
+@defivar after script change
+@end defivar
+
 ';
 
 
@@ -377,6 +452,10 @@ top
 
 
 Instance Variable of script: before change
+
+
+Instance Variable of after: script change
+
 ';
 
 $result_errors{'unknown_documentscript_selection'} = '* W l8|unknown language script name `UkNo\'
@@ -384,6 +463,9 @@ $result_errors{'unknown_documentscript_selection'} = '* W l8|unknown language sc
 
 * W l24|unknown language script name `Bad\'
  warning: unknown language script name `Bad\'
+
+* W l30|unknown language script name `wwrong\'
+ warning: unknown language script name `wwrong\'
 
 ';
 
@@ -429,6 +511,7 @@ $result_indices_sort_strings{'unknown_documentscript_selection'} = 'vr:
  before of script
  other од some
  reset од after
+ script of after
 ';
 
 
@@ -443,6 +526,9 @@ $result_converted{'plaintext'}->{'unknown_documentscript_selection'} = 'top
  -- Променљива примерка од after: reset ivar
 
  -- Instance Variable of script: before change
+
+ -- Instance Variable of after: script change
+
 ';
 
 1;

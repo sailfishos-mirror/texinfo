@@ -1,5 +1,12 @@
 2026-04-24 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/languages.t (unknown_documentscript_selection)
+	(documentlanguagevariant_selection): add more testing to have some
+	combinations now that documentlanguage unset the other language
+	commands.
+
+2026-04-24 Patrice Dumas  <pertusus@free.fr>
+
 	documentlanguage resets documentscript and variants in conversion
 
 	* tta/C/main/translations.c (set_translations_documentlanguage),
