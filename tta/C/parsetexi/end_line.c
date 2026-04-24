@@ -1560,6 +1560,17 @@ end_line_misc_line (ELEMENT *current)
                     {
                       free (global_documentlanguage);
                       global_documentlanguage = strdup (text);
+
+          /* setting documentlanguage resets documentscript and
+             documentlanguagevariant. */
+
+                      if (!global_parser_conf->global_documentscript_fixed)
+                        {
+                          free (global_documentscript);
+                          global_documentscript = 0;
+                        }
+                      clear_strings_list (
+                       &parsed_document->global_info.documentlanguagevariant);
                     }
                 }
             }

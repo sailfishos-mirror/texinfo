@@ -4070,6 +4070,12 @@ sub _end_line_misc_line($$$) {
         if (!$self->{'set'}->{'documentlanguage'}
             and defined($lang)) {
           $self->{'documentlanguage'} = $text;
+          # setting documentlanguage resets documentscript and
+          # documentlanguagevariant.
+          if (!$self->{'set'}->{'documentscript'}) {
+            delete $self->{'documentscript'};
+          }
+          delete $self->{'documentlanguagevariant'};
         }
       } elsif ($command eq 'documentscript') {
         # the script name is normalized if found in known script names

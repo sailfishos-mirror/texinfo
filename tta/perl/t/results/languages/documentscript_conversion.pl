@@ -339,7 +339,7 @@ $result_tree_text{'documentscript_conversion'} = '*document_root C5
      |* C1
       |*def_line_arg C1
        |{before}
-     |{ s-o-s }
+     |{ l-o-l }
      |* C1
       |*def_line_arg C1
        |{script}
@@ -353,7 +353,6 @@ $result_tree_text{'documentscript_conversion'} = '*document_root C5
       |*def_line_arg C1
        |{script}
    |documentlanguage:{qaa}
-   |documentscript:{Latn}
    |element_node:{chap}
    |index_entry:I{vr,4}
    |original_def_cmdname:{defivar}
@@ -365,7 +364,6 @@ $result_tree_text{'documentscript_conversion'} = '*document_root C5
       *untranslated_def_line_arg C1
       |EXTRA
       |documentlanguage:{qaa}
-      |documentscript:{Latn}
       |translation_context:{category of instance variables in object-oriented programming for @defivar}
        {untranslated:Instance Variable}
      {spaces: }
@@ -456,7 +454,7 @@ Top.
 C (Ckl)
 
 
-s-InstV-s of script: before change
+l-InstV-l of script: before change
 ';
 
 $result_errors{'documentscript_conversion'} = '* W l7|qaa is not a valid language code
@@ -506,7 +504,7 @@ $result_headings_list{'documentscript_conversion'} = '';
 
 $result_indices_sort_strings{'documentscript_conversion'} = 'vr:
  BBB of SSS
- before s-o-s script
+ before l-o-l script
  other s-o-s some
  reset l-o-l after
 ';
@@ -683,7 +681,7 @@ $result_converted{'docbook_doc'}->{'documentscript_conversion'} = '<?xml version
 <abbrev>C</abbrev> dp_s-(Ckl)
 </para>
 
-<synopsis><indexterm role="vr"><primary>before s-o-s script</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>script</classname></ooclass> <property>before</property> <emphasis role="arg">change</emphasis></synopsis>
+<synopsis><indexterm role="vr"><primary>before l-o-l script</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>script</classname></ooclass> <property>before</property> <emphasis role="arg">change</emphasis></synopsis>
 </chapter>
 </book>
 ';

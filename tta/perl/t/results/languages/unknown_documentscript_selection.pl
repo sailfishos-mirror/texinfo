@@ -295,7 +295,6 @@ $result_tree_text{'unknown_documentscript_selection'} = '*document_root C5
       |*def_line_arg C1
        |{script}
    |documentlanguage:{az}
-   |documentscript:{Bad}
    |element_node:{chap}
    |index_entry:I{vr,4}
    |original_def_cmdname:{defivar}
@@ -307,7 +306,6 @@ $result_tree_text{'unknown_documentscript_selection'} = '*document_root C5
       *untranslated_def_line_arg C1
       |EXTRA
       |documentlanguage:{az}
-      |documentscript:{Bad}
       |translation_context:{category of instance variables in object-oriented programming for @defivar}
        {untranslated:Instance Variable}
      {spaces: }

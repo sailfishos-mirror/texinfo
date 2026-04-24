@@ -92,7 +92,6 @@ $result_tree_text{'documentscript_before_documentlanguage'} = '*document_root C5
       |*def_line_arg C1
        |{some}
    |documentlanguage:{sr}
-   |documentscript:{Latn}
    |element_node:{chap}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defivar}
@@ -104,7 +103,6 @@ $result_tree_text{'documentscript_before_documentlanguage'} = '*document_root C5
       *untranslated_def_line_arg C1
       |EXTRA
       |documentlanguage:{sr}
-      |documentscript:{Latn}
       |translation_context:{category of instance variables in object-oriented programming for @defivar}
        {untranslated:Instance Variable}
      {spaces: }

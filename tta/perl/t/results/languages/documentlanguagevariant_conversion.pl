@@ -336,7 +336,7 @@ $result_tree_text{'documentlanguagevariant_conversion'} = '*document_root C5
      |* C1
       |*def_line_arg C1
        |{before}
-     |{ v1234-o-v }
+     |{ l-o-l }
      |* C1
       |*def_line_arg C1
        |{script}
@@ -350,7 +350,6 @@ $result_tree_text{'documentlanguagevariant_conversion'} = '*document_root C5
       |*def_line_arg C1
        |{script}
    |documentlanguage:{qaa}
-   |documentlanguagevariant:A{1234}
    |element_node:{chap}
    |index_entry:I{vr,4}
    |original_def_cmdname:{defivar}
@@ -362,7 +361,6 @@ $result_tree_text{'documentlanguagevariant_conversion'} = '*document_root C5
       *untranslated_def_line_arg C1
       |EXTRA
       |documentlanguage:{qaa}
-      |documentlanguagevariant:A{1234}
       |translation_context:{category of instance variables in object-oriented programming for @defivar}
        {untranslated:Instance Variable}
      {spaces: }
@@ -453,7 +451,7 @@ Top.
 C (Ckl)
 
 
-v1234-InstV-v of script: before change
+l-InstV-l of script: before change
 ';
 
 $result_errors{'documentlanguagevariant_conversion'} = '* W l7|qaa is not a valid language code
@@ -509,7 +507,7 @@ $result_headings_list{'documentlanguagevariant_conversion'} = '';
 
 $result_indices_sort_strings{'documentlanguagevariant_conversion'} = 'vr:
  BBB of SSS
- before v1234-o-v script
+ before l-o-l script
  other v1234-o-v some
  reset l-o-l after
 ';
@@ -686,7 +684,7 @@ $result_converted{'docbook_doc'}->{'documentlanguagevariant_conversion'} = '<?xm
 <abbrev>C</abbrev> dp_v1234-(Ckl)
 </para>
 
-<synopsis><indexterm role="vr"><primary>before v1234-o-v script</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>script</classname></ooclass> <property>before</property> <emphasis role="arg">change</emphasis></synopsis>
+<synopsis><indexterm role="vr"><primary>before l-o-l script</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>script</classname></ooclass> <property>before</property> <emphasis role="arg">change</emphasis></synopsis>
 </chapter>
 </book>
 ';
