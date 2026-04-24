@@ -5163,9 +5163,8 @@ sub _setup_output($) {
     = Texinfo::Translations::new_lang_info($documentlanguage,
                                            $documentscript,
                                            $language_variants);
-  my $bcp47_locale
-    = Texinfo::Translations::get_lang_info_bcp47_locale($lang_info);
-  if (defined($bcp47_locale) and $bcp47_locale ne '') {
+  if (defined($lang_info)) {
+    my $bcp47_locale = $lang_info->{'bcp47_locale'};
     $self->set_conf('BODY_ELEMENT_ATTRIBUTES', 'lang="'.$bcp47_locale.'"');
   } else {
     #$self->set_conf('BODY_ELEMENT_ATTRIBUTES', 'lang=""');

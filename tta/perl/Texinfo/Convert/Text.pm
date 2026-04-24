@@ -306,10 +306,13 @@ sub set_language($$) {
     $options->{'translations'} = $Texinfo::Translations::translation_cache;
   }
 
-  $options->{'current_lang_translations'}
+  my $lang_translation
     = Texinfo::Translations::set_translations_documentlanguage(
          $options->{'translations'}, $documentlanguage,
          $options->{'current_lang_translations'});
+
+  $options->{'current_lang_translations'} = $lang_translation
+    if (defined($lang_translation));
 }
 
 sub set_script($$) {
@@ -319,10 +322,13 @@ sub set_script($$) {
     $options->{'translations'} = $Texinfo::Translations::translation_cache;
   }
 
-  $options->{'current_lang_translations'}
+  my $lang_translation
     = Texinfo::Translations::set_translations_documentscript(
          $options->{'translations'}, $documentscript,
          $options->{'current_lang_translations'});
+
+  $options->{'current_lang_translations'} = $lang_translation
+    if (defined($lang_translation));
 }
 
 sub set_languagevariant($$) {
@@ -332,10 +338,13 @@ sub set_languagevariant($$) {
     $options->{'translations'} = $Texinfo::Translations::translation_cache;
   }
 
-  $options->{'current_lang_translations'}
+  my $lang_translation
     = Texinfo::Translations::set_translations_documentlanguagevariant(
          $options->{'translations'}, $documentlanguagevariant,
          $options->{'current_lang_translations'});
+
+  $options->{'current_lang_translations'} = $lang_translation
+    if (defined($lang_translation));
 }
 
 

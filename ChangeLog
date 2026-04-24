@@ -1,5 +1,28 @@
 2026-04-24 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm
+	(converter_set_documentlanguage, converter_set_documentscript)
+	(converter_set_documentlanguagevariant),
+	tta/perl/Texinfo/Convert/Text.pm (set_language, set_script)
+	(set_languagevariant): do not register undef as
+	current_lang_translations.
+
+	* tta/perl/Texinfo/Translations.pm (new_lang_translations): return
+	directly undef if $lang_info is undef.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (_html_cache_translate_string): use
+	a file scoped $unknown_lang_info when lang_translation is undef.
+
+	* tta/perl/Texinfo/Translations.pm (lang_info_bcp47_locale): add.
+
+	* tta/perl/Texinfo/Translations.pm (new_lang_info)
+	(set_translations_documentlanguage, set_translations_documentscript)
+	(set_translations_documentlanguagevariant): always set 'bcp47_locale'
+	when creating a lang translations.  Remove get_lang_info_bcp47_locale.
+	Update get_lang_info_bcp47_locale callers.
+
+2026-04-24 Patrice Dumas  <pertusus@free.fr>
+
 	documentlanguage resets documentscript and variants in parsers
 
 	* tta/C/parsetexi/end_line.c (end_line_misc_line),

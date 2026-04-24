@@ -242,25 +242,22 @@ sub get_lang_info_xdg_locale($) {
   return $xpg_locale;
 }
 
-sub get_lang_info_bcp47_locale($) {
+sub lang_info_bcp47_locale($) {
   my $lang_info = shift;
 
-  return '' if (!defined($lang_info) or !exists($lang_info->{'lang'}));
-  if (!exists($lang_info->{'bcp47_locale'})) {
-    my $bcp47_locale = $lang_info->{'lang'};
-    if (exists($lang_info->{'script'})) {
-      $bcp47_locale .= '-'.$lang_info->{'script'};
-    }
-    if (exists($lang_info->{'region'})) {
-      $bcp47_locale .= '-'.$lang_info->{'region'};
-    }
-    if (exists($lang_info->{'variants'})) {
-      $bcp47_locale .= '-'.join('-', @{$lang_info->{'variants'}});
-    }
-    $lang_info->{'bcp47_locale'} = $bcp47_locale;
-    return $bcp47_locale;
+  return "" if (!exists($lang_info->{'lang'}));
+
+  my $bcp47_locale = $lang_info->{'lang'};
+  if (exists($lang_info->{'script'})) {
+    $bcp47_locale .= '-'.$lang_info->{'script'};
   }
-  return $lang_info->{'bcp47_locale'};
+  if (exists($lang_info->{'region'})) {
+    $bcp47_locale .= '-'.$lang_info->{'region'};
+  }
+  if (exists($lang_info->{'variants'})) {
+    $bcp47_locale .= '-'.join('-', @{$lang_info->{'variants'}});
+  }
+  return $bcp47_locale;
 }
 #### end of lang_info API
 
@@ -310,6 +307,8 @@ sub new_lang_info($;$$) {
     $lang_info{'variants'} = [@$variants];
   }
 
+  $lang_info{'bcp47_locale'} = lang_info_bcp47_locale(\%lang_info);
+
   return \%lang_info;
 }
 
@@ -317,6 +316,10 @@ sub new_lang_translations($;$$) {
   my ($documentlanguage, $documentscript, $variants) = @_;
 
   my $lang_info = new_lang_info($documentlanguage, $documentscript, $variants);
+
+  if (!defined($lang_info)) {
+    return undef;
+  }
 
   return _new_lang_info_translation($lang_info);
 }
@@ -338,8 +341,7 @@ sub _set_lang_info_translation($$) {
 
   my $new_lang_translations = _new_lang_info_translation($lang_info);
 
-  my $bcp47_locale
-    = get_lang_info_bcp47_locale($new_lang_translations->[0]);
+  my $bcp47_locale = $new_lang_translations->[0]->{'bcp47_locale'};
 
   if (!exists($translations->{$bcp47_locale})) {
     $translations->{$bcp47_locale} = {};
@@ -373,7 +375,6 @@ sub set_translations_documentlanguage($$$) {
 
     # copy lang info
     %lang_info = %$current_lang_info;
-    delete $lang_info{'bcp47_locale'};
   }
 
   $lang_info{'lang'} = $lang_code;
@@ -382,6 +383,8 @@ sub set_translations_documentlanguage($$$) {
   } else {
     delete $lang_info{'region'};
   }
+
+  $lang_info{'bcp47_locale'} = lang_info_bcp47_locale(\%lang_info);
 
   return _set_lang_info_translation($translations, \%lang_info);
 }
@@ -409,7 +412,6 @@ sub set_translations_documentscript($$$) {
 
     # copy lang info
     %lang_info = %$current_lang_info;
-    delete $lang_info{'bcp47_locale'};
   }
 
   if ($script eq "") {
@@ -417,6 +419,8 @@ sub set_translations_documentscript($$$) {
   } else {
     $lang_info{'script'} = $script;
   }
+
+  $lang_info{'bcp47_locale'} = lang_info_bcp47_locale(\%lang_info);
 
   return _set_lang_info_translation($translations, \%lang_info);
 }
@@ -442,7 +446,6 @@ sub set_translations_documentlanguagevariant($$$) {
 
     # copy lang info
     %lang_info = %$current_lang_info;
-    delete $lang_info{'bcp47_locale'};
   }
 
   if (scalar(@$documentlanguagevariant) == 0) {
@@ -450,6 +453,8 @@ sub set_translations_documentlanguagevariant($$$) {
   } else {
     $lang_info{'variants'} = [@$documentlanguagevariant];
   }
+
+  $lang_info{'bcp47_locale'} = lang_info_bcp47_locale(\%lang_info);
 
   return _set_lang_info_translation($translations, \%lang_info);
 }
@@ -724,11 +729,18 @@ sub complete_indices($;$$) {
 
           # Use the document language that was current when the command was
           # used for getting the translation.
+          # TODO it would probably be more efficient and logical to
+          # do like in C, add and call or inline new_element_lang_info,
+          # and based
+          # on the 'bcp47_locale' retrieve a current_lang_translations
+          # instead of creating it each time.  There is an access
+          # to lang_translations_cache->{$lang_locale} which would not be
+          # needed, so it should be slightly more efficient, but use more
+          # memory.
           my $lang_translations
             = new_element_language_translation($main_entry_element);
           if (defined($lang_translations)) {
-            my $lang_locale
-              = get_lang_info_bcp47_locale($lang_translations->[0]);
+            my $lang_locale = $lang_translations->[0]->{'bcp47_locale'};
             if (!defined($current_lang_locale)
                 or $lang_locale ne $current_lang_locale) {
               if (!exists($lang_translations_cache->{$lang_locale})) {
