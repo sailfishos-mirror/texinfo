@@ -1,5 +1,19 @@
 2026-04-24 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Translations.pm (%indices_lang_translations)
+	(complete_indices): collect a lang_info only from the definition
+	element, and cache the corresponding lang_translations.  Separate the
+	current_lang_translations and the element lang_translations such that
+	the element lang_translations can be undef independently of the
+	current_lang_translations.
+
+	* tta/C/main/translations.c (new_element_lang_info)
+	(new_element_language_translation), tta/perl/Texinfo/Translations.pm
+	(new_element_language_translation): return undef/NULL immediately
+	if documentlanguage is not present.
+
+2026-04-24 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Converter.pm
 	(converter_set_documentlanguage, converter_set_documentscript)
 	(converter_set_documentlanguagevariant),

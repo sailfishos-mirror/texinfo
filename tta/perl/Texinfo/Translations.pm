@@ -328,6 +328,11 @@ sub new_element_language_translation($) {
   my $element = shift;
 
   my $documentlanguage = $element->{'extra'}->{'documentlanguage'};
+
+  if (!defined($documentlanguage)) {
+    return undef;
+  }
+
   my $documentscript = $element->{'extra'}->{'documentscript'};
   my $documentlanguagevariant
     = $element->{'extra'}->{'documentlanguagevariant'};
@@ -670,6 +675,8 @@ sub pgdt($$;$$$$$) {
 
 my $lang_translations_cache = {};
 
+my %indices_lang_translations;
+
 # For some @def* commands, we delay storing the contents of the
 # index entry until now to avoid needing Texinfo::Translations::gdt
 # in the main code of ParserNonXS.pm.
@@ -727,30 +734,47 @@ sub complete_indices($;$$) {
             }
           }
 
-          # Use the document language that was current when the command was
+          # Use the language information that was current when the command was
           # used for getting the translation.
-          # TODO it would probably be more efficient and logical to
-          # do like in C, add and call or inline new_element_lang_info,
-          # and based
-          # on the 'bcp47_locale' retrieve a current_lang_translations
-          # instead of creating it each time.  There is an access
-          # to lang_translations_cache->{$lang_locale} which would not be
-          # needed, so it should be slightly more efficient, but use more
-          # memory.
-          my $lang_translations
-            = new_element_language_translation($main_entry_element);
-          if (defined($lang_translations)) {
-            my $lang_locale = $lang_translations->[0]->{'bcp47_locale'};
+          my $element_lang_translations;
+          my $lang_info;
+          # ALTIMPL C/main/translations.c new_element_lang_info
+          my $documentlanguage
+            = $main_entry_element->{'extra'}->{'documentlanguage'};
+          if (defined($documentlanguage)) {
+            my $documentscript
+              = $main_entry_element->{'extra'}->{'documentscript'};
+            my $documentlanguagevariant
+              = $main_entry_element->{'extra'}->{'documentlanguagevariant'};
+            $lang_info = new_lang_info($documentlanguage, $documentscript,
+                                       $documentlanguagevariant);
+          }
+
+          if (defined($lang_info)) {
+            my $lang_locale = $lang_info->{'bcp47_locale'};
             if (!defined($current_lang_locale)
                 or $lang_locale ne $current_lang_locale) {
-              if (!exists($lang_translations_cache->{$lang_locale})) {
-                $lang_translations_cache->{$lang_locale} = {};
+              if (!exists($indices_lang_translations{$lang_locale})) {
+                $element_lang_translations
+                  = _new_lang_info_translation($lang_info);
+                if (!exists($lang_translations_cache->{$lang_locale})) {
+                  $lang_translations_cache->{$lang_locale} = {};
+                }
+                $element_lang_translations->[2]
+                  = $lang_translations_cache->{$lang_locale};
+                $indices_lang_translations{$lang_locale}
+                  = $element_lang_translations;
+              } else {
+                $element_lang_translations
+                  = $indices_lang_translations{$lang_locale};
               }
-              $current_lang_translations = $lang_translations;
+              $current_lang_translations = $element_lang_translations;
               $current_lang_locale = $lang_locale;
-              $current_lang_translations->[2]
-                = $lang_translations_cache->{$lang_locale};
+            } else {
+              $element_lang_translations = $current_lang_translations;
             }
+          } else {
+            $element_lang_translations = undef;
           }
           if ($def_command eq 'defop'
               or $def_command eq 'deftypeop'
@@ -758,7 +782,7 @@ sub complete_indices($;$$) {
               or $def_command eq 'deftypemethod') {
   # TRANSLATORS: association of a method or operation name with a class
   # in descriptions of object-oriented programming methods or operations.
-            $index_entry = gdt('{name} on {class}', $current_lang_translations,
+            $index_entry = gdt('{name} on {class}', $element_lang_translations,
                                {'name' => $name_copy, 'class' => $class_copy},
                                $debug_level);
             $text_element = Texinfo::TreeElement::new({'text' => ' on '});
@@ -770,7 +794,7 @@ sub complete_indices($;$$) {
   # a class in descriptions of object-oriented programming variables or
   # instance variable.
             $index_entry = gdt('{name} of {class}',
-                               $current_lang_translations,
+                               $element_lang_translations,
                                {'name' => $name_copy, 'class' => $class_copy},
                                $debug_level);
             $text_element = Texinfo::TreeElement::new({'text' => ' of '});

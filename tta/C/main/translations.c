@@ -484,6 +484,10 @@ new_element_lang_info (const ELEMENT *element)
 {
   const char *documentlanguage
     = lookup_extra_string (element, AI_key_documentlanguage);
+
+  if (!documentlanguage)
+    return NULL;
+
   const char *documentscript
     = lookup_extra_string (element, AI_key_documentscript);
   const STRING_LIST *documentlanguagevariant
@@ -517,6 +521,10 @@ new_element_language_translation (const ELEMENT *element)
 {
   const char *documentlanguage
     = lookup_extra_string (element, AI_key_documentlanguage);
+
+  if (!documentlanguage)
+    return NULL;
+
   const char *documentscript
     = lookup_extra_string (element, AI_key_documentscript);
   const STRING_LIST *documentlanguagevariant
