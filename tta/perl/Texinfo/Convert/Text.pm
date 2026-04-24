@@ -201,15 +201,15 @@ sub copy_options_for_convert_text($;$) {
   if (exists($converter->{'document'})) {
     my $document_info = $converter->{'document'}->global_information();
     if (defined($document_info)) {
-      if (exists($document_info->{'documentlanguagevariant'})) {
-        set_languagevariant(\%options,
-                            $document_info->{'documentlanguagevariant'});
-      }
       if (exists($document_info->{'documentlanguage'})) {
         set_language(\%options, $document_info->{'documentlanguage'});
       }
       if (exists($document_info->{'documentscript'})) {
         set_script(\%options, $document_info->{'documentscript'});
+      }
+      if (exists($document_info->{'documentlanguagevariant'})) {
+        set_languagevariant(\%options,
+                            $document_info->{'documentlanguagevariant'});
       }
     }
   }
@@ -218,6 +218,8 @@ sub copy_options_for_convert_text($;$) {
   # to represent the whole document.
   # FIXME is document_info/preamble or current conf is better?
   # In different situations?
+  # Beware that documentlanguage should be done first as it resets
+  # the others
   #my $documentlanguage = $converter->get_conf('documentlanguage');
   #if (defined($documentlanguage)) {
   #  set_language(\%options, $documentlanguage);

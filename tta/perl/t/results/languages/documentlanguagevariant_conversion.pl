@@ -527,9 +527,9 @@ See f: Top.  A dp_v1234-(Akl)
 
    See s: Top.  B dp_l-(Bkl)
 
-   See t: Top.  C dp_v1234-(Ckl)
+   See t: Top.  C dp_l-(Ckl)
 
- -- p_V1234-v1234-InstV-v of script: p_V1234-before change
+ -- p_L-l-InstV-l of script: p_L-before change
 ';
 
 
@@ -561,9 +561,9 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 
    *Note s: Top.  B dp_l-(Bkl)
 
-   *Note t: Top.  C dp_v1234-(Ckl)
+   *Note t: Top.  C dp_l-(Ckl)
 
- -- p_V1234-v1234-InstV-v of script: p_V1234-before change
+ -- p_L-l-InstV-l of script: p_L-before change
 
 
 Tag Table:
@@ -638,12 +638,12 @@ strong.def-name {font-family: monospace; font-weight: bold}
 <abbr class="abbr" title="Bkl">B</abbr> (Bkl)
 </p>
 
-<p>See h_v1234-<a class="xref" href="#Top">t</a>.
+<p>See h_l-<a class="xref" href="#Top">t</a>.
 <abbr class="abbr" title="Ckl">C</abbr> (Ckl)
 </p>
 
 <dl class="first-defcv first-defivar-alias-first-defcv def-block">
-<dt class="defcv defivar-alias-defcv def-line" id="index-before-of-script"><span class="category-def">v1234-InstV-v h_V1234-of <code class="code">script</code>: </span><span><strong class="def-name">before</strong> <var class="def-var-arguments">change</var><a class="copiable-link" href="#index-before-of-script"> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv def-line" id="index-before-of-script"><span class="category-def">l-InstV-l h_L-of <code class="code">script</code>: </span><span><strong class="def-name">before</strong> <var class="def-var-arguments">change</var><a class="copiable-link" href="#index-before-of-script"> &para;</a></span></dt>
 </dl>
 </div>
 </div>
@@ -680,8 +680,8 @@ $result_converted{'docbook_doc'}->{'documentlanguagevariant_conversion'} = '<?xm
 <abbrev>B</abbrev> dp_l-(Bkl)
 </para>
 
-<para>See d_v1234-<link linkend="Top">t</link>.
-<abbrev>C</abbrev> dp_v1234-(Ckl)
+<para>See d_l-<link linkend="Top">t</link>.
+<abbrev>C</abbrev> dp_l-(Ckl)
 </para>
 
 <synopsis><indexterm role="vr"><primary>before l-o-l script</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>script</classname></ooclass> <property>before</property> <emphasis role="arg">change</emphasis></synopsis>
@@ -817,16 +817,16 @@ See \\hyperref[anchor:Top]{\\chaptername~\\ref*{anchor:Top} [Top], page~\\pagere
 B dp\\_l-(Bkl)
 
 \\selectlanguage{qaa-1234}%
-\\selectlanguage{qaa-1234}%
+\\selectlanguage{qaa}%
 
 See \\hyperref[anchor:Top]{\\chaptername~\\ref*{anchor:Top} [Top], page~\\pageref*{anchor:Top}}.
-C dp\\_v1234-(Ckl)
+C dp\\_l-(Ckl)
 
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
-\\texttt{before \\EmbracOn{}\\textnormal{\\textsl{change}}\\EmbracOff{}}& [v1234-InstV-v of \\texttt{script}]
+\\texttt{before \\EmbracOn{}\\textnormal{\\textsl{change}}\\EmbracOff{}}& [l-InstV-l of \\texttt{script}]
 \\end{tabularx}
 
 \\index[vr]{before of script@\\texttt{before\\ of script}}%

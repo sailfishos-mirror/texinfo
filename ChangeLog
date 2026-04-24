@@ -1,5 +1,17 @@
 2026-04-24 Patrice Dumas  <pertusus@free.fr>
 
+	documentlanguage resets documentscript and variants in conversion
+
+	* tta/C/main/translations.c (set_translations_documentlanguage),
+	tta/perl/Texinfo/Translations.pm (set_translations_documentlanguage):
+	reset script and language variants.
+
+	* tta/perl/Texinfo/Convert/Text.pm (copy_options_for_convert_text):
+	call set_translations_documentlanguage first to avoid resetting the
+	other commands values.
+
+2026-04-24 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Translations.pm (%indices_lang_translations)
 	(complete_indices): collect a lang_info only from the definition
 	element, and cache the corresponding lang_translations.  Separate the

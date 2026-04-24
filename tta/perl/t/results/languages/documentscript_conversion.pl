@@ -524,9 +524,9 @@ See f: Top.  A dp_s-(Akl)
 
    See s: Top.  B dp_l-(Bkl)
 
-   See t: Top.  C dp_s-(Ckl)
+   See t: Top.  C dp_l-(Ckl)
 
- -- p_S-s-InstV-s of script: p_S-before change
+ -- p_L-l-InstV-l of script: p_L-before change
 ';
 
 
@@ -558,9 +558,9 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 
    *Note s: Top.  B dp_l-(Bkl)
 
-   *Note t: Top.  C dp_s-(Ckl)
+   *Note t: Top.  C dp_l-(Ckl)
 
- -- p_S-s-InstV-s of script: p_S-before change
+ -- p_L-l-InstV-l of script: p_L-before change
 
 
 Tag Table:
@@ -677,8 +677,8 @@ $result_converted{'docbook_doc'}->{'documentscript_conversion'} = '<?xml version
 <abbrev>B</abbrev> dp_l-(Bkl)
 </para>
 
-<para>See d_s-<link linkend="Top">t</link>.
-<abbrev>C</abbrev> dp_s-(Ckl)
+<para>See d_l-<link linkend="Top">t</link>.
+<abbrev>C</abbrev> dp_l-(Ckl)
 </para>
 
 <synopsis><indexterm role="vr"><primary>before l-o-l script</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>script</classname></ooclass> <property>before</property> <emphasis role="arg">change</emphasis></synopsis>
@@ -814,16 +814,16 @@ See \\hyperref[anchor:Top]{\\chaptername~\\ref*{anchor:Top} [Top], page~\\pagere
 B dp\\_l-(Bkl)
 
 \\selectlanguage{qaa-Latn}%
-\\selectlanguage{qaa-Latn}%
+\\selectlanguage{qaa}%
 
 See \\hyperref[anchor:Top]{\\chaptername~\\ref*{anchor:Top} [Top], page~\\pageref*{anchor:Top}}.
-C dp\\_s-(Ckl)
+C dp\\_l-(Ckl)
 
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
-\\texttt{before \\EmbracOn{}\\textnormal{\\textsl{change}}\\EmbracOff{}}& [s-InstV-s of \\texttt{script}]
+\\texttt{before \\EmbracOn{}\\textnormal{\\textsl{change}}\\EmbracOff{}}& [l-InstV-l of \\texttt{script}]
 \\end{tabularx}
 
 \\index[vr]{before of script@\\texttt{before\\ of script}}%

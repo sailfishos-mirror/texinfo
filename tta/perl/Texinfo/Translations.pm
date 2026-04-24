@@ -357,6 +357,7 @@ sub _set_lang_info_translation($$) {
 }
 
 # TODO document?
+# resets script and language variants.
 sub set_translations_documentlanguage($$$) {
   my ($translations, $documentlanguage, $current_lang_translations) = @_;
 
@@ -367,29 +368,19 @@ sub set_translations_documentlanguage($$$) {
 
   return $current_lang_translations if (!defined($lang_code));
 
-  if (defined($current_lang_translations)) {
-    my $current_lang_info = $current_lang_translations->[0];
-    if (exists($current_lang_info->{'lang'})
-        and $current_lang_info->{'lang'} eq $lang_code
-        and ((!exists($current_lang_info->{'region'})
-              and !defined($region_code))
-             or $current_lang_info->{'region'} eq $region_code)) {
-      # Nothing to do
-      return $current_lang_translations;
-    }
-
-    # copy lang info
-    %lang_info = %$current_lang_info;
-  }
-
   $lang_info{'lang'} = $lang_code;
   if (defined($region_code)) {
     $lang_info{'region'} = $region_code;
-  } else {
-    delete $lang_info{'region'};
   }
 
   $lang_info{'bcp47_locale'} = lang_info_bcp47_locale(\%lang_info);
+
+  if (defined($current_lang_translations)) {
+    my $current_lang_info = $current_lang_translations->[0];
+    if ($current_lang_info->{'bcp47_locale'} eq $lang_info{'bcp47_locale'}) {
+      return $current_lang_translations;
+    }
+  }
 
   return _set_lang_info_translation($translations, \%lang_info);
 }

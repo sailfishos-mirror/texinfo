@@ -717,35 +717,28 @@ set_translations_documentlanguage (LANG_TRANSLATION ***lang_translations,
   if (!lang)
     return current_lang_translations;
 
-  if (current_lang_translations)
-    {
-      current_lang_info = current_lang_translations->info;
-      if (current_lang_info->lang && !strcmp (current_lang_info->lang, lang)
-          && ((!region_code && !current_lang_info->region)
-              || !strcmp (current_lang_info->region, region_code)))
-        {
-          /* Nothing to do */
-          free (lang);
-          free (region_code);
-          return current_lang_translations;
-        }
-    }
-
   lang_info = (DOCUMENT_LANG_INFO *) malloc (sizeof (DOCUMENT_LANG_INFO));
   memset (lang_info, 0, sizeof (DOCUMENT_LANG_INFO));
-
-  if (current_lang_info)
-    {
-      if (current_lang_info->script)
-        lang_info->script = strdup (current_lang_info->script);
-      copy_strings (&lang_info->variants, &current_lang_info->variants);
-    }
 
   lang_info->lang = lang;
   if (region_code)
     lang_info->region = region_code;
 
   lang_info->bcp47_locale = lang_info_bcp47_locale (lang_info);
+
+  if (current_lang_translations)
+    {
+      current_lang_info = current_lang_translations->info;
+      if (! strcmp (current_lang_info->bcp47_locale,
+                    lang_info->bcp47_locale))
+        {
+          /* Nothing to do */
+          free (lang);
+          free (region_code);
+          free (lang_info);
+          return current_lang_translations;
+        }
+    }
 
   lang_translation
     = set_lang_info_translation (lang_translations, lang_info,
