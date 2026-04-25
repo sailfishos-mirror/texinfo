@@ -1,3 +1,29 @@
+2026-04-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Index sort key output for UTF-8
+
+	* doc/texinfo.tex
+	(\ifinindexsortkey): Define with \newif.
+	(\doindexsegment): Set \inindexsortkeytrue when processing index
+	sort key.
+	(\UTFviiiSortkeyTwo, \UTFviiiSortkeyThree, \UTFviiiSortkeyFour):
+	Special definitions for UTF-8 sequences inside UTF-8 sequences.
+	By default, output the sequences as they are within a pair of
+	curly brackets.  Check for special sort key definition and
+	use that instead if available.
+	(\DefineSortKey): Add macro to define special sort key for
+	Unicode codepoint.  Do not actually use it anywhere yet.
+	(\DeclareUnicodeCharacterNative): Handle \ifinindexsortkey similarly
+	for luatex and xetex.
+	(\DeclareUnicodeCharacterUTFviii): Correct a comment.
+
+	There would be errors with texindex output with a UTF-8-encoded
+	Texinfo file under a non-UTF-8 locale, or with an awk program
+	that didn't pay attention to the locale encoding.
+
+	Report from Vincent Belaïche, March 2026, and Werner Lemberg,
+	November 2022.
+
 2026-04-23 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/get_converter_perl_info.c
