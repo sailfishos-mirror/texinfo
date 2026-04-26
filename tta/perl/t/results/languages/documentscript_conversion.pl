@@ -635,12 +635,12 @@ strong.def-name {font-family: monospace; font-weight: bold}
 <abbr class="abbr" title="Bkl">B</abbr> (Bkl)
 </p>
 
-<p>See h_s-<a class="xref" href="#Top">t</a>.
+<p>See h_l-<a class="xref" href="#Top">t</a>.
 <abbr class="abbr" title="Ckl">C</abbr> (Ckl)
 </p>
 
 <dl class="first-defcv first-defivar-alias-first-defcv def-block">
-<dt class="defcv defivar-alias-defcv def-line" id="index-before-of-script"><span class="category-def">s-InstV-s h_S-of <code class="code">script</code>: </span><span><strong class="def-name">before</strong> <var class="def-var-arguments">change</var><a class="copiable-link" href="#index-before-of-script"> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv def-line" id="index-before-of-script"><span class="category-def">l-InstV-l h_L-of <code class="code">script</code>: </span><span><strong class="def-name">before</strong> <var class="def-var-arguments">change</var><a class="copiable-link" href="#index-before-of-script"> &para;</a></span></dt>
 </dl>
 </div>
 </div>

@@ -8705,13 +8705,19 @@ sub _convert($$;$) {
         $result .= &{$self->{'commands_conversion'}->{$command_name}}($self,
                 $command_name, $element, undef, $content_formatted);
       }
-      if ($command_name eq 'documentlanguage'
-          or $command_name eq 'documentscript') {
+      if ($command_name eq 'documentlanguage') {
+        $self->converter_set_documentlanguage(
+                                  $self->get_conf('documentlanguage'));
+        _translate_names($self);
+      } elsif ($command_name eq 'documentscript') {
+        $self->converter_set_documentscript(
+                                  $self->get_conf('documentscript'));
         _translate_names($self);
       } elsif ($command_name eq 'documentlanguagevariant') {
         my $language_variants
           = Texinfo::Common::documentlanguagevariant_variants($element);
-        _translate_names($self, $language_variants);
+        $self->converter_set_documentlanguagevariant($language_variants);
+        _translate_names($self);
       }
       return $result;
     } else {

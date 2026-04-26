@@ -1,3 +1,60 @@
+2026-04-26 Patrice Dumas  <pertusus@free.fr>
+
+	for HTML, take into account resetting by @documentlanguage in preamble
+
+	* tta/C/convert/convert_html.c (html_translate_names)
+	(html_convert_tree_append), tta/perl/Texinfo/Convert/HTML.pm
+	(_convert), tta/perl/Texinfo/Convert/HTMLNonXS.pm (_translate_names),
+	tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs (_translate_names): do not
+	set current_lang_translations converter in *_translate_names, set it
+	before calling *_translate_names, for instance in
+	html_convert_tree_append.  Remove language_variants *_translate_names
+	argument, update callers.
+
+	* tta/perl/Texinfo/Common.pm (in_preamble), tta/C/main/utils.c
+	(in_preamble): rename _in_preamble as in_preamble in Perl.  Make
+	function extern in C and add const.
+
+	* tta/C/main/command_data.awk, tta/C/parsetexi/end_line.c
+	(end_line_misc_line), tta/C/main/build_perl_info.c
+	(build_global_commands), tta/C/main/utils.c (delete_global_commands),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line): add new elemnts
+	list in global_commands with all the language related commands in the
+	order they appear in in the document.  This allows to get the commands
+	in order to take into acount that @documentlanguage resets
+	@documentscript and @documentlanguagevariant.
+
+	* tta/C/main/document_types.h (PREAMBLE_LANG_CMD)
+	(PREAMBLE_LANG_CMD_LIST, GLOBAL_INFO), tta/C/main/utils.c
+	(delete_global_info), tta/C/parsetexi/parser.c (add_preamble_lang_cmd),
+	(get_document_info, parse_texi_document), tta/C/main/build_perl_info.c
+	(pass_global_info), tta/perl/Texinfo/ParserNonXS.pm (get_parser_info):
+	new global info field, preamble_lang_cmd with add textual information
+	on lang related commands appearing in preamble in the order the appear
+	in the preamble, and only if the values are not already set from
+	command-line.
+
+	* tta/C/convert/converter.c
+	(set_converter_preamble_language_commands), tta/C/main/translations.c
+	(set_preamble_language_commands), tta/C/main/convert_to_text.c
+	(copy_options_for_convert_text), tta/perl/Texinfo/Convert/Converter.pm
+	(set_converter_preamble_language_commands),
+	tta/perl/Texinfo/Translations.pm (set_preamble_language_commands),
+	tta/perl/Texinfo/Convert/Text.pm (copy_options_for_convert_text): add
+	to set current_lang_translations based on global info
+	preamble_lang_cmd.  Use in copy_options_for_convert_text.
+
+	* tta/C/convert/convert_html.c (html_prepare_converted_output_info),
+	tta/C/convert/html_prepare_converter.c (html_setup_output),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm (_prepare_converted_output_info)
+	(_setup_output): call set_converter_preamble_language_commands to set
+	current_lang_translations to the end of the preamble values.  Reset
+	afterwards.
+
+	* tta/perl/t/languages.t (documentscript_variant_reset_in_preamble),
+	tta/perl/Makefile.tres: add a test with @documentscript and
+	@documentlanguagevariant reset by @documentlanguge in preamble.
+
 2026-04-24 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/t/languages.t (unknown_documentscript_selection)

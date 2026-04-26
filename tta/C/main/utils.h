@@ -151,6 +151,8 @@ void messages_and_encodings_setup (const char *datadir);
 
 void setup_structuring_data (void);
 
+int in_preamble (const ELEMENT *element);
+
 ERROR_MESSAGE_LIST *set_check_element_interpreter_refcount (void);
 void unset_check_element_interpreter_refcount (void);
 ERROR_MESSAGE_LIST *get_check_element_interpreter_refcount (void);

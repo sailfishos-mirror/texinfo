@@ -392,6 +392,7 @@ register_global_command (ELEMENT *current, enum command_id cmd_in)
           /* do nothing; just silence -Wswitch about lots of un-covered cases */
           break;
         }
+
       return 1;
     }
   else if ((command_data(cmd).flags & CF_global_unique))
@@ -538,6 +539,73 @@ rearrange_tree_beginning (ELEMENT *before_node_section,
 }
 
 
+
+static void
+add_preamble_lang_cmd (PREAMBLE_LANG_CMD_LIST *preamble_lang,
+                       enum command_id cmd, const char *lang_string,
+                       STRING_LIST *lang_variants)
+{
+  PREAMBLE_LANG_CMD *preamble_lang_cmd;
+  if (preamble_lang->number >= preamble_lang->space)
+    {
+      preamble_lang->space += 3;
+      preamble_lang->list
+         = realloc (preamble_lang->list,
+                    preamble_lang->space * sizeof (TRANSLATED_COMMAND));
+      if (!preamble_lang->list)
+        fatal ("realloc failed");
+    }
+
+  preamble_lang_cmd = &preamble_lang->list[preamble_lang->number];
+  preamble_lang_cmd->cmd = cmd;
+
+  if (lang_string)
+    preamble_lang_cmd->plc.lang_string = strdup (lang_string);
+  else
+    preamble_lang_cmd->plc.lang_variants = lang_variants;
+
+  preamble_lang->number++;
+}
+
+/* ALTIMPL perl/Texinfo/ParserNonXS.pm get_parser_info */
+static void
+get_document_info (DOCUMENT *document)
+{
+  const GLOBAL_COMMANDS *global_commands = &document->global_commands;
+  PREAMBLE_LANG_CMD_LIST *preamble_lang
+    = &document->global_info.preamble_lang_cmd;
+  if (global_commands->language_commands.number > 0)
+    {
+      size_t i;
+
+      for (i = 0; i < global_commands->language_commands.number; i++)
+        {
+          const ELEMENT *element = global_commands->language_commands.list[i];
+
+          if (!in_preamble (element))
+            break;
+
+          if (element->e.c->cmd == CM_documentlanguagevariant)
+            {
+              STRING_LIST *language_variants
+                = documentlanguagevariant_variants (element);
+              add_preamble_lang_cmd (preamble_lang, element->e.c->cmd,
+                                     0, language_variants);
+            }
+          else
+            {
+              const char *text_arg
+                = lookup_extra_string (element, AI_key_text_arg);
+              if (text_arg)
+                {
+                  add_preamble_lang_cmd (preamble_lang, element->e.c->cmd,
+                                         text_arg, 0);
+                }
+            }
+        }
+    }
+}
+
 void
 parse_texi_document (void)
 {
@@ -592,6 +660,7 @@ parse_texi_document (void)
    */
 
   rearrange_tree_beginning (before_node_section, document);
+  get_document_info (document);
 }
 
 

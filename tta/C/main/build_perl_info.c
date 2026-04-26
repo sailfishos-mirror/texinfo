@@ -1751,9 +1751,40 @@ pass_global_info (HV *hv, const GLOBAL_INFO *global_info_ref,
       const char *setfilename_text
         = informative_command_value (global_commands.setfilename, &cmd);
       if (setfilename_text)
-      hv_store (hv, "setfilename", strlen ("setfilename"),
-                newSVpv_utf8 (setfilename_text, 0), 0);
+        hv_store (hv, "setfilename", strlen ("setfilename"),
+                  newSVpv_utf8 (setfilename_text, 0), 0);
     }
+
+  if (global_info.preamble_lang_cmd.number > 0)
+    {
+      AV *preamble_lang_av = newAV ();
+      for (i = 0; i < global_info.preamble_lang_cmd.number; i++)
+        {
+          const PREAMBLE_LANG_CMD *preamble_lang_cmd
+            = &global_info.preamble_lang_cmd.list[i];
+          AV *preamble_lang_cmd_av = newAV ();
+          av_push (preamble_lang_av,
+                   newRV_noinc ((SV *) preamble_lang_cmd_av));
+          const char *cmdname = builtin_command_name (preamble_lang_cmd->cmd);
+          av_push (preamble_lang_cmd_av, newSVpv (cmdname, 0));
+          if (preamble_lang_cmd->cmd == CM_documentlanguagevariant)
+            {
+              AV *av = build_string_list (
+                  preamble_lang_cmd->plc.lang_variants, svt_byte);
+              av_push (preamble_lang_cmd_av, newRV_noinc ((SV *) av));
+            }
+          else
+            {
+              av_push (preamble_lang_cmd_av, newSVpv (
+                         preamble_lang_cmd->plc.lang_string, 0));
+            }
+        }
+      hv_store (hv, "preamble_lang_cmd",
+                strlen ("preamble_lang_cmd"),
+                newRV_noinc ((SV *) preamble_lang_av), 0);
+    }
+
+  /* FIXME remove next, probably not used */
 
   document_language = get_global_document_command (global_commands_ref,
                                        CM_documentlanguage, CL_preamble);
@@ -1777,6 +1808,7 @@ pass_global_info (HV *hv, const GLOBAL_INFO *global_info_ref,
                 newSVpv (script, 0), 0);
     }
 
+  /* TODO remove */
   documentlanguagevariant = get_global_document_command (global_commands_ref,
                                         CM_documentlanguagevariant,
                                         CL_preamble);
@@ -1833,6 +1865,19 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
       for (i = 0; i < global_commands.dircategory_direntry.number; i++)
         {
           const ELEMENT *e = global_commands.dircategory_direntry.list[i];
+          if (e->sv)
+            av_push (av, newSVsv ((SV *) e->sv));
+        }
+    }
+
+  if (global_commands.language_commands.number > 0)
+    {
+      AV *av = newAV ();
+      hv_store (hv, "language_commands", strlen ("language_commands"),
+                newRV_noinc ((SV *) av), 0);
+      for (i = 0; i < global_commands.language_commands.number; i++)
+        {
+          const ELEMENT *e = global_commands.language_commands.list[i];
           if (e->sv)
             av_push (av, newSVsv ((SV *) e->sv));
         }

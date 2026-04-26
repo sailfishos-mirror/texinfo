@@ -92,6 +92,20 @@ typedef struct OTHER_GLOBAL_INFO {
     size_t info_space;
 } OTHER_GLOBAL_INFO;
 
+typedef struct PREAMBLE_LANG_CMD {
+    enum command_id cmd;
+    union {
+      char *lang_string;
+      STRING_LIST *lang_variants;
+    } plc;
+} PREAMBLE_LANG_CMD;
+
+typedef struct PREAMBLE_LANG_CMD_LIST {
+  size_t space;
+  size_t number;
+  PREAMBLE_LANG_CMD *list;
+} PREAMBLE_LANG_CMD_LIST;
+
 typedef struct GLOBAL_INFO {
     char *input_file_name;
     char *input_directory;
@@ -100,7 +114,9 @@ typedef struct GLOBAL_INFO {
     /* Ignored characters for index sort key */
     IGNORED_CHARS ignored_chars;
     STRING_LIST included_files;
+    /* TODO check that it is unused and remove */
     STRING_LIST documentlanguagevariant;
+    PREAMBLE_LANG_CMD_LIST preamble_lang_cmd;
 
     /* remaining, in general passed to/from perl but not used in C */
     OTHER_GLOBAL_INFO other_info;

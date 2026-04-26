@@ -1538,7 +1538,7 @@ sub set_informative_command_value($$) {
   return 0;
 }
 
-sub _in_preamble($) {
+sub in_preamble($) {
   my $element = shift;
 
   my $current_element = $element;
@@ -1577,12 +1577,12 @@ sub get_global_document_command($$$) {
         $element = $global_commands_information->{$global_command}->[-1];
       } else {
         if ($command_location eq 'preamble_or_first'
-            and not _in_preamble($global_commands_information->{$global_command}->[0])) {
+            and not in_preamble($global_commands_information->{$global_command}->[0])) {
           $element =
             $global_commands_information->{$global_command}->[0];
         } else {
           foreach my $command_element (@{$global_commands_information->{$global_command}}) {
-            if (_in_preamble($command_element)) {
+            if (in_preamble($command_element)) {
               $element = $command_element;
             } else {
               last;

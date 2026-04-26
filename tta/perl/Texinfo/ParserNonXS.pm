@@ -927,7 +927,11 @@ sub _input_push_file($$;$) {
 }
 
 # ALTIMP C/main/build_perl_info.c pass_global_info
-# No direct equivalent in pure C code.  Some global info is set during
+# ALTIMP C/parsetexi/parser.c get_document_info
+# We want to avoid passing data requiring building the Perl Texinfo
+# tree, therefore we get textual data from commands.
+# Less set in pure C code, because there is no such constraint, the
+# tree is always available.  Some global info is set during
 # parsing.  For the remaining, document.c set_document_options
 # sets the options from global_commands, and does not need to get them
 # from global_info, therefore they are not in global_info fields.
@@ -948,6 +952,22 @@ sub get_parser_info($) {
       and defined($global_commands->{'setfilename'}->{'extra'}->{'text_arg'})) {
     $document->{'global_info'}->{'setfilename'}
       = $global_commands->{'setfilename'}->{'extra'}->{'text_arg'};
+  }
+
+  if (exists($global_commands->{'language_commands'})) {
+    foreach my $element (@{$global_commands->{'language_commands'}}) {
+      last if (!Texinfo::Common::in_preamble($element));
+      if ($element->{'cmdname'} eq 'documentlanguagevariant') {
+        my $language_variants
+         = Texinfo::Common::documentlanguagevariant_variants($element);
+        push @{$document->{'global_info'}->{'preamble_lang_cmd'}},
+              [$element->{'cmdname'}, $language_variants];
+      } elsif (exists($element->{'extra'})
+               and exists($element->{'extra'}->{'text_arg'})) {
+        push @{$document->{'global_info'}->{'preamble_lang_cmd'}},
+              [$element->{'cmdname'}, $element->{'extra'}->{'text_arg'}];
+      }
+    }
   }
 
   foreach my $translation_cmdname (@translation_commands) {
@@ -4076,6 +4096,8 @@ sub _end_line_misc_line($$$) {
             delete $self->{'documentscript'};
           }
           delete $self->{'documentlanguagevariant'};
+          push @{$document->{'commands_info'}->{'language_commands'}},
+               $current;
         }
       } elsif ($command eq 'documentscript') {
         # the script name is normalized if found in known script names
@@ -4095,6 +4117,8 @@ sub _end_line_misc_line($$$) {
             } else {
               $self->{'documentscript'} = $script;
             }
+            push @{$document->{'commands_info'}->{'language_commands'}},
+                 $current;
           }
         }
       }
@@ -4189,6 +4213,8 @@ sub _end_line_misc_line($$$) {
       } else {
         delete $self->{'documentlanguagevariant'};
       }
+      push @{$document->{'commands_info'}->{'language_commands'}},
+           $command_element;
     } else {
       if (($command eq 'item' or $command eq 'itemx')
           and exists($current->{'parent'}->{'cmdname'})

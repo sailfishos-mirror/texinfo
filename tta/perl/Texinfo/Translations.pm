@@ -455,6 +455,48 @@ sub set_translations_documentlanguagevariant($$$) {
   return _set_lang_info_translation($translations, \%lang_info);
 }
 
+sub set_preamble_language_commands($$$$$) {
+  my ($language_command_elements, $translations,
+      $set_documentlanguage, $set_documentscript,
+      $current_lang_translations) = @_;
+
+  my $lang_translations = $current_lang_translations;
+
+  if (defined($set_documentlanguage)) {
+    $lang_translations
+      = set_translations_documentlanguage($translations,
+                                      $set_documentlanguage,
+                                      $lang_translations);
+  }
+  if (defined($set_documentscript)) {
+    $lang_translations
+      = set_translations_documentscript($translations,
+                                      $set_documentscript,
+                                      $lang_translations);
+  }
+
+  if (defined($language_command_elements)) {
+    foreach my $lang_cmd_spec (@$language_command_elements) {
+      my ($cmdname, $value) = @$lang_cmd_spec;
+      if ($cmdname eq 'documentlanguagevariant') {
+        $lang_translations
+          = set_translations_documentlanguagevariant($translations,
+              $value, $lang_translations);
+      } elsif ($cmdname eq 'documentlanguage') {
+        $lang_translations
+              = set_translations_documentlanguage($translations,
+                $value, $lang_translations);
+      } else {
+        $lang_translations
+          = set_translations_documentscript($translations,
+             $value, $lang_translations);
+      }
+    }
+  }
+
+  return $lang_translations;
+}
+
 # Cache translations in a hash to avoid having to go through the locale
 # system rigmarole every time.
 our $translation_cache = {};

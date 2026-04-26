@@ -1798,24 +1798,8 @@ sub _complete_no_arg_commands_formatting($$;$) {
                                    'css_string', 'string', $translate);
 }
 
-sub _translate_names($;$) {
+sub _translate_names($) {
   my $self = shift;
-  my $documentlanguagevariant = shift;
-
-  Texinfo::Convert::Text::set_language($self->{'convert_text_options'},
-                                       $self->get_conf('documentlanguage'));
-  Texinfo::Convert::Text::set_script($self->{'convert_text_options'},
-                                     $self->get_conf('documentscript'));
-
-  $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
-  $self->converter_set_documentscript($self->get_conf('documentscript'));
-
-  if (defined($documentlanguagevariant)) {
-    Texinfo::Convert::Text::set_languagevariant(
-                                      $self->{'convert_text_options'},
-                                          $documentlanguagevariant);
-    $self->converter_set_documentlanguagevariant($documentlanguagevariant);
-  }
 
   if ($self->get_conf('DEBUG')) {
     my $output_encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
@@ -1877,7 +1861,8 @@ sub _translate_names($;$) {
           and not exists($conversion_contexts->{$context}->{'unset'})) {
         $translated_commands{$cmdname} = 1;
         $conversion_contexts->{$context}->{'text'}
-         = $self->cdt_string($conversion_contexts->{$context}->{'translated_converted'});
+         = $self->cdt_string(
+             $conversion_contexts->{$context}->{'translated_converted'});
       }
     }
   }
@@ -4524,26 +4509,16 @@ sub _prepare_converted_output_info($$$$) {
   }
 
   my $default_bcp47_locale = $self->current_bcp47_locale();
-  $self->set_global_document_commands('preamble',
+
+  $self->set_global_document_commands('before',
                     ['documentlanguage', 'documentscript']);
-  $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
-  $self->converter_set_documentscript($self->get_conf('documentscript'));
-  my $language_variants;
-  if (defined($global_commands)) {
-    my $documentlanguagevariant_e
-     = Texinfo::Common::get_global_document_command($global_commands,
-                                  'documentlanguagevariant', 'preamble');
-    if (defined($documentlanguagevariant_e)) {
-      $language_variants
-       = Texinfo::Common::documentlanguagevariant_variants(
-                                            $documentlanguagevariant_e);
-      $self->converter_set_documentlanguagevariant($language_variants);
-    }
-  }
+
+  $self->set_converter_preamble_language_commands();
+
   my $preamble_bcp47_locale = $self->current_bcp47_locale();
 
   if ($default_bcp47_locale ne $preamble_bcp47_locale) {
-    _translate_names($self, $language_variants);
+    _translate_names($self);
   }
 
   # prepare title.  fulltitle uses more possibility than simpletitle for
@@ -4662,11 +4637,14 @@ sub _prepare_converted_output_info($$$$) {
   _prepare_title_titlepage($self, $output_file, $output_filename,
                                   $output_units);
 
-  $self->set_global_document_commands('before',
-                           ['documentlanguage', 'documentscript']);
+  #$self->set_global_document_commands('before',
+  #                         ['documentlanguage', 'documentscript']);
 
   if ($default_bcp47_locale ne $preamble_bcp47_locale) {
-    _translate_names($self, []);
+    $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
+    $self->converter_set_documentscript($self->get_conf('documentscript'));
+    $self->converter_set_documentlanguagevariant([]);
+    _translate_names($self);
   }
 
   # reset in case the user changed customization variables in handlers
@@ -5139,33 +5117,15 @@ sub _setup_output($) {
   }
 
   # set BODY_ELEMENT_ATTRIBUTES
-  my $global_commands;
-  if (exists($self->{'document'})) {
-    $global_commands = $self->{'document'}->global_commands_information();
-  }
+  my $default_bcp47_locale = $self->current_bcp47_locale();
+  #$self->set_global_document_commands('before',
+  #                   ['documentlanguage', 'documentscript']);
+  $self->set_converter_preamble_language_commands();
 
-  $self->set_global_document_commands('preamble',
-                         ['documentlanguage', 'documentscript']);
-  my $language_variants;
-  if (defined($global_commands)) {
-    my $documentlanguagevariant_e
-     = Texinfo::Common::get_global_document_command($global_commands,
-                                  'documentlanguagevariant', 'preamble');
-    if (defined($documentlanguagevariant_e)) {
-      $language_variants
-       = Texinfo::Common::documentlanguagevariant_variants(
-                                   $documentlanguagevariant_e);
-    }
-  }
-  my $documentlanguage = $self->get_conf('documentlanguage');
-  my $documentscript = $self->get_conf('documentscript');
-  my $lang_info
-    = Texinfo::Translations::new_lang_info($documentlanguage,
-                                           $documentscript,
-                                           $language_variants);
-  if (defined($lang_info)) {
-    my $bcp47_locale = $lang_info->{'bcp47_locale'};
-    $self->set_conf('BODY_ELEMENT_ATTRIBUTES', 'lang="'.$bcp47_locale.'"');
+  my $preamble_bcp47_locale = $self->current_bcp47_locale();
+  if ($preamble_bcp47_locale ne '') {
+    $self->set_conf('BODY_ELEMENT_ATTRIBUTES', 'lang="'
+                                       .$preamble_bcp47_locale.'"');
   } else {
     #$self->set_conf('BODY_ELEMENT_ATTRIBUTES', 'lang=""');
 
@@ -5174,7 +5134,11 @@ sub _setup_output($) {
     # is unknown.  However, outputting lang="" is unnecessary.
   }
 
-  $self->set_global_document_commands('before', ['documentlanguage']);
+  if ($default_bcp47_locale ne $preamble_bcp47_locale) {
+    $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
+    $self->converter_set_documentscript($self->get_conf('documentscript'));
+    $self->converter_set_documentlanguagevariant([]);
+  }
 
   _init_conversion_after_setup_handler($self);
 

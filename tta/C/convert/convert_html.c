@@ -620,40 +620,10 @@ html_complete_no_arg_commands_formatting (CONVERTER *self, enum command_id cmd,
 }
 
 void
-html_translate_names (CONVERTER *self,
-                      const STRING_LIST *documentlanguagevariant)
+html_translate_names (CONVERTER *self)
 {
   size_t j;
   const STRING_LIST *special_unit_varieties = &self->special_unit_varieties;
-
-  text_set_language (self->convert_text_options,
-                     self->conf->documentlanguage.o.string);
-  text_set_script (self->convert_text_options,
-                   self->conf->documentscript.o.string);
-
-  self->current_lang_translations =
-    set_translations_documentlanguage (&translation_cache,
-                              self->conf->documentlanguage.o.string,
-                              self->current_lang_translations,
-                              TXI_CONVERT_STRINGS_NR);
-
-  self->current_lang_translations =
-    set_translations_documentscript (&translation_cache,
-                              self->conf->documentscript.o.string,
-                              self->current_lang_translations,
-                              TXI_CONVERT_STRINGS_NR);
-
-  if (documentlanguagevariant)
-    {
-      text_set_languagevariant(self->convert_text_options,
-                               documentlanguagevariant);
-      self->current_lang_translations =
-        set_translations_documentlanguagevariant (&translation_cache,
-                              documentlanguagevariant,
-                              self->current_lang_translations,
-                              TXI_CONVERT_STRINGS_NR);
-
-    }
 
   if (self->conf->DEBUG.o.integer > 0)
     {
@@ -1014,7 +984,6 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
                                     const char *output_filename)
 {
   int i;
-  const ELEMENT *documentlanguagevariant_e;
   ELEMENT *fulltitle_tree = 0;
   char *html_title_string = 0;
   const char *default_bcp47_locale = "";
@@ -1037,40 +1006,16 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
     default_bcp47_locale
       = self->current_lang_translations->info->bcp47_locale;
 
-  set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
+  set_global_document_commands (self, CL_before, conf_for_documentlanguage);
 
-  self->current_lang_translations =
-    set_translations_documentlanguage (&translation_cache,
-                              self->conf->documentlanguage.o.string,
-                              self->current_lang_translations,
-                              TXI_CONVERT_STRINGS_NR);
-
-  self->current_lang_translations =
-    set_translations_documentscript (&translation_cache,
-                              self->conf->documentscript.o.string,
-                              self->current_lang_translations,
-                              TXI_CONVERT_STRINGS_NR);
-
-  documentlanguagevariant_e
-    = get_global_document_command (&self->document->global_commands,
-                                   CM_documentlanguagevariant, CL_preamble);
-  if (documentlanguagevariant_e)
-    {
-      language_variants
-        = documentlanguagevariant_variants (documentlanguagevariant_e);
-      self->current_lang_translations =
-        set_translations_documentlanguagevariant (&translation_cache,
-                              language_variants,
-                              self->current_lang_translations,
-                              TXI_CONVERT_STRINGS_NR);
-    }
+  set_converter_preamble_language_commands (self);
 
   if (self->current_lang_translations)
     preamble_bcp47_locale
       = self->current_lang_translations->info->bcp47_locale;
 
   if (strcmp (default_bcp47_locale, preamble_bcp47_locale))
-    html_translate_names (self, language_variants);
+    html_translate_names (self);
 
   if (language_variants)
     destroy_strings_list (language_variants);
@@ -1240,10 +1185,33 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
 
   html_prepare_title_titlepage (self, output_file, output_filename);
 
+   /*
   set_global_document_commands (self, CL_before, conf_for_documentlanguage);
+    */
 
   if (strcmp (default_bcp47_locale, preamble_bcp47_locale))
-    html_translate_names (self, &empty_string_list);
+    {
+      self->current_lang_translations =
+        set_translations_documentlanguage (&translation_cache,
+                              self->conf->documentlanguage.o.string,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+
+     self->current_lang_translations =
+        set_translations_documentscript (&translation_cache,
+                              self->conf->documentscript.o.string,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+
+      self->current_lang_translations =
+        set_translations_documentlanguagevariant (&translation_cache,
+                              &empty_string_list,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+
+      html_translate_names (self);
+    }
+
 
   /* reset in case the user changed customization variables in handlers */
   destroy_text_options (self->convert_text_options);
@@ -1764,15 +1732,37 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
           if (args_formatted)
             destroy_args_formatted (args_formatted);
 
-          if (cmd == CM_documentlanguage || cmd == CM_documentscript)
+          if (cmd == CM_documentlanguage)
             {
-              html_translate_names (self, 0);
+              self->current_lang_translations =
+                 set_translations_documentlanguage (&translation_cache,
+                              self->conf->documentlanguage.o.string,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+
+              html_translate_names (self);
+            }
+          else if (cmd == CM_documentscript)
+            {
+              self->current_lang_translations =
+                 set_translations_documentscript (&translation_cache,
+                              self->conf->documentscript.o.string,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+
+              html_translate_names (self);
             }
           else if (cmd == CM_documentlanguagevariant)
             {
               STRING_LIST *language_variants
                 = documentlanguagevariant_variants (element);
-              html_translate_names (self, language_variants);
+              self->current_lang_translations =
+               set_translations_documentlanguagevariant (&translation_cache,
+                              language_variants,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+
+              html_translate_names (self);
               destroy_strings_list (language_variants);
             }
 

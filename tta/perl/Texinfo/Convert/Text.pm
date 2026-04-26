@@ -194,40 +194,31 @@ sub copy_options_for_convert_text($;$) {
     $options{$string_option} = $converter->get_conf($string_option);
   }
 
+  # TODO the documentlanguage and documenscript values obtained with get_conf
+  # calls will not be the correct ones if this is not called at the very
+  # beginning.  It is probably not a real issue, as the need for translation
+  # outside of preamble only arise in especially crafted code.
+
   # documentlanguage, documentscript and documentlanguagevariant
   # are not directly passed, but are passed through setting the current
   # lang translations.
-  # Set to the values at the end of the preamble.
+  # Similar as set_converter_preamble_language_commands.
   if (exists($converter->{'document'})) {
     my $document_info = $converter->{'document'}->global_information();
-    if (defined($document_info)) {
-      if (exists($document_info->{'documentlanguage'})) {
-        set_language(\%options, $document_info->{'documentlanguage'});
-      }
-      if (exists($document_info->{'documentscript'})) {
-        set_script(\%options, $document_info->{'documentscript'});
-      }
-      if (exists($document_info->{'documentlanguagevariant'})) {
-        set_languagevariant(\%options,
-                            $document_info->{'documentlanguagevariant'});
-      }
-    }
-  }
 
-  # May be better to setup dynamically, but not if it is supposed
-  # to represent the whole document.
-  # FIXME is document_info/preamble or current conf is better?
-  # In different situations?
-  # Beware that documentlanguage should be done first as it resets
-  # the others
-  #my $documentlanguage = $converter->get_conf('documentlanguage');
-  #if (defined($documentlanguage)) {
-  #  set_language(\%options, $documentlanguage);
-  #}
-  #my $documentscript = $converter->get_conf('documentscript');
-  #if (defined($documentscript)) {
-  #  set_script(\%options, $documentscript);
-  #}
+    if (!exists($options{'translations'})) {
+      $options{'translations'} = $Texinfo::Translations::translation_cache;
+    }
+
+    my $lang_translation
+        = Texinfo::Translations::set_preamble_language_commands(
+           $document_info->{'preamble_lang_cmd'}, $options{'translations'},
+           $converter->get_conf('documentlanguage'),
+           $converter->get_conf('documentscript'),
+           undef);
+    $options{'current_lang_translations'} = $lang_translation
+           if (defined($lang_translation));
+  }
 
   my $include_directories = $converter->get_conf('INCLUDE_DIRECTORIES');
   if (defined($include_directories) and scalar(@{$include_directories})) {

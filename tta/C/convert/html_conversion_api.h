@@ -60,8 +60,7 @@ FILE_SOURCE_INFO_LIST *html_prepare_units_directions_files (CONVERTER *self,
           const char *output_filename, const char *document_name);
 
 /* in convert_html.c */
-void html_translate_names (CONVERTER *self,
-                      const STRING_LIST *documentlanguagevariant);
+void html_translate_names (CONVERTER *self);
 void html_setup_output_simple_page (CONVERTER *self,
                                     const char *output_filename);
 

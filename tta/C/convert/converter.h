@@ -165,6 +165,8 @@ int create_destination_directory (CONVERTER *self,
                                   const char *destination_directory_path,
                                   const char *destination_directory_name);
 
+void set_converter_preamble_language_commands (CONVERTER *self);
+
 ELEMENT *converter_expand_today (CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,

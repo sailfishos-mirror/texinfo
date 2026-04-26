@@ -190,8 +190,10 @@ static const enum command_id informative_global_commands[]
                 CM_xrefautomaticsectiontitle,
                 CM_deftypefnnewline, 0};
 
+/*
 static const enum command_id conf_for_documentlanguage[]
                       = {CM_documentlanguage, CM_documentscript, 0};
+ */
 
 static enum element_type ignored_types[] = {
     ET_ignorable_spaces_after_command,
@@ -4131,6 +4133,8 @@ initialize_jslicense_files (JSLICENSE_FILE_INFO_LIST *jslicences_files_info,
   jslicences_files_info->number = size;
 }
 
+static const STRING_LIST empty_string_list = {0, 0, 0};
+
 /* first function to call a stage handler */
 int
 html_setup_output (CONVERTER *self, char **paths)
@@ -4138,10 +4142,9 @@ html_setup_output (CONVERTER *self, char **paths)
   int handler_fatal_error_level;
   int setup_handler_status;
   int js_categories_list_nr = 0;
-  DOCUMENT_LANG_INFO *lang_info;
   char *body_element_attributes;
-  const ELEMENT *documentlanguagevariant_e;
-  STRING_LIST *language_variants = 0;
+  const char *default_bcp47_locale = "";
+  const char *preamble_bcp47_locale = "";
 
   /* Should not actually be needed, as it is already deleted after conversion
      and each time it is set out of the conversion. */
@@ -4217,31 +4220,29 @@ html_setup_output (CONVERTER *self, char **paths)
   set_commands_options_value (self->commands_init_conf,
                               self->sorted_options, 0);
 
+  /*
   set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
+   */
 
-  documentlanguagevariant_e
-    = get_global_document_command (&self->document->global_commands,
-                                   CM_documentlanguagevariant, CL_preamble);
-  if (documentlanguagevariant_e)
+  if (self->current_lang_translations)
+    default_bcp47_locale
+      = self->current_lang_translations->info->bcp47_locale;
+
+  set_converter_preamble_language_commands (self);
+
+  if (self->current_lang_translations)
     {
-      language_variants
-        = documentlanguagevariant_variants (documentlanguagevariant_e);
-    }
-
-  lang_info = new_lang_info (self->conf->documentlanguage.o.string,
-                             self->conf->documentscript.o.string,
-                             language_variants);
-  if (language_variants)
-    destroy_strings_list (language_variants);
-
-  if (lang_info)
-    {
-      xasprintf (&body_element_attributes, "lang=\"%s\"",
-                 lang_info->bcp47_locale);
-      option_set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,
-                       0, body_element_attributes);
-      free (body_element_attributes);
-      destroy_document_lang_info (lang_info);
+      preamble_bcp47_locale
+        = self->current_lang_translations->info->bcp47_locale;
+      /* TODO can preamble_bcp47_locale be ""? */
+      if (strcmp (preamble_bcp47_locale, ""))
+        {
+          xasprintf (&body_element_attributes, "lang=\"%s\"",
+                     preamble_bcp47_locale);
+          option_set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,
+                           0, body_element_attributes);
+          free (body_element_attributes);
+        }
     }
   else
     {
@@ -4250,7 +4251,26 @@ html_setup_output (CONVERTER *self, char **paths)
          is unknown.  However, outputting lang="" is unnecessary. */
     }
 
-  set_global_document_commands (self, CL_before, conf_for_documentlanguage);
+  if (strcmp (default_bcp47_locale, preamble_bcp47_locale))
+    {
+      self->current_lang_translations =
+        set_translations_documentlanguage (&translation_cache,
+                              self->conf->documentlanguage.o.string,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+
+     self->current_lang_translations =
+        set_translations_documentscript (&translation_cache,
+                              self->conf->documentscript.o.string,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+
+      self->current_lang_translations =
+        set_translations_documentlanguagevariant (&translation_cache,
+                              &empty_string_list,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+    }
 
   init_conversion_after_setup_handler (self);
 

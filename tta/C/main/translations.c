@@ -855,6 +855,57 @@ set_translations_documentlanguagevariant (LANG_TRANSLATION ***lang_translations,
   return lang_translation;
 }
 
+LANG_TRANSLATION *
+set_preamble_language_commands (PREAMBLE_LANG_CMD_LIST *preamble_lang,
+                                LANG_TRANSLATION ***lang_translations,
+                                const char *set_documentlanguage,
+                                const char *set_documentscript,
+                                LANG_TRANSLATION *current_lang_translations,
+                                size_t cache_size)
+{
+  LANG_TRANSLATION *cur_lang_trans = current_lang_translations;
+
+  if (set_documentlanguage)
+    cur_lang_trans = set_translations_documentlanguage (lang_translations,
+                          set_documentlanguage, cur_lang_trans, cache_size);
+  if (set_documentscript)
+    cur_lang_trans = set_translations_documentscript (lang_translations,
+                          set_documentscript, cur_lang_trans, cache_size);
+
+  if (preamble_lang && preamble_lang->number > 0)
+    {
+      size_t i;
+      for (i = 0; i < preamble_lang->number; i++)
+        {
+          const PREAMBLE_LANG_CMD *preamble_lang_cmd = &preamble_lang->list[i];
+
+          if (preamble_lang_cmd->cmd == CM_documentlanguagevariant)
+            {
+              cur_lang_trans
+                = set_translations_documentlanguagevariant (lang_translations,
+                           preamble_lang_cmd->plc.lang_variants,
+                           cur_lang_trans, cache_size);
+            }
+          else if (preamble_lang_cmd->cmd == CM_documentlanguage)
+            {
+              cur_lang_trans
+                = set_translations_documentlanguage (lang_translations,
+                             preamble_lang_cmd->plc.lang_string,
+                             cur_lang_trans, cache_size);
+            }
+          else
+            {
+              cur_lang_trans
+                      = set_translations_documentscript (lang_translations,
+                             preamble_lang_cmd->plc.lang_string,
+                             cur_lang_trans, cache_size);
+            }
+        }
+    }
+
+  return cur_lang_trans;
+}
+
 TRANSLATION_TREE *
 new_translation_tree (const char *translated)
 {

@@ -76,7 +76,7 @@ html_output (CONVERTER *converter, DOCUMENT *document)
 
   html_prepare_conversion_units_targets (converter, document_name);
 
-  html_translate_names (converter, 0);
+  html_translate_names (converter);
 
   html_prepare_units_directions_files (converter,
                    output_file, destination_directory, output_filename,
@@ -154,7 +154,7 @@ html_convert (CONVERTER *converter, DOCUMENT *document)
          */
   html_prepare_output_units_global_targets (converter);
 
-  html_translate_names (converter, 0);
+  html_translate_names (converter);
 
   html_prepare_direction_icons (converter);
 

@@ -446,6 +446,26 @@ Another unknown language. @xref{Top}.
 @defivar script before change
 @end defivar
 '],
+['documentscript_variant_reset_in_preamble',
+'@documentlanguage sr
+@documentscript Latn
+@documentlanguagevariant ekavsk
+
+@documentlanguage sr
+
+@node Top
+@top top
+
+@node chap
+@chapter chap
+
+@defivar used by test  ivar
+@end defivar
+
+@xref{Top, t}.
+@abbr{C, Ckl}
+
+']
 );
 
 my $multiple_lang_chapters_text = 
@@ -552,6 +572,7 @@ my %info_tests = (
   'documentlanguage_generated_master_menu' => 1,
   'documentscript_conversion' => 1,
   'documentlanguagevariant_conversion' => 1,
+  'documentscript_variant_reset_in_preamble' => 1,
 );
 
 my %xml_tests = (
@@ -566,6 +587,7 @@ my %docbook_doc_tests = (
   'multiple_in_preamble_before_node' => 1,
   'documentscript_conversion' => 1,
   'documentlanguagevariant_conversion' => 1,
+  'documentscript_variant_reset_in_preamble' => 1,
 );
 
 my %latex_tests = (

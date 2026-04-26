@@ -131,26 +131,17 @@ copy_options_for_convert_text (OPTIONS *options, DOCUMENT *document)
     text_options->COMMAND_LINE_ENCODING
       = strdup (options->COMMAND_LINE_ENCODING.o.string);
 
-  if (options->documentlanguage.o.string)
-    text_options->current_lang_translations
-      = set_translations_documentlanguage (&translation_cache,
-                                options->documentlanguage.o.string, 0,
-                                TXI_CONVERT_STRINGS_NR);
-
-  if (options->documentscript.o.string)
-    text_options->current_lang_translations
-      = set_translations_documentscript (&translation_cache,
-                                options->documentscript.o.string,
-                                text_options->current_lang_translations,
-                                TXI_CONVERT_STRINGS_NR);
-
-  if (document
-      && document->global_info.documentlanguagevariant.number > 0)
-    text_options->current_lang_translations
-        = set_translations_documentlanguagevariant (&translation_cache,
-                         &document->global_info.documentlanguagevariant,
-                                text_options->current_lang_translations,
-                                TXI_CONVERT_STRINGS_NR);
+  if (document)
+    {
+      text_options->current_lang_translations
+        = set_preamble_language_commands (
+                &document->global_info.preamble_lang_cmd,
+                &translation_cache,
+                options->documentlanguage.o.string,
+                options->documentscript.o.string,
+                NULL,
+                TXI_CONVERT_STRINGS_NR);
+    }
 
 
   if (options->INPUT_FILE_NAME_ENCODING.o.string)

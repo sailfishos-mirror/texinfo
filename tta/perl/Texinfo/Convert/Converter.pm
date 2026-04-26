@@ -512,6 +512,28 @@ sub current_bcp47_locale($) {
   return $self->{'current_lang_translations'}->[0]->{'bcp47_locale'};
 }
 
+sub set_converter_preamble_language_commands($) {
+  my $self = shift;
+
+  if (!exists($self->{'translations'})) {
+    $self->{'translations'} = $Texinfo::Translations::translation_cache;
+  }
+
+  if (exists($self->{'document'})) {
+    my $document_info = $self->{'document'}->global_information();
+
+    my $lang_translation
+        = Texinfo::Translations::set_preamble_language_commands(
+           $document_info->{'preamble_lang_cmd'}, $self->{'translations'},
+           $self->get_conf('documentlanguage'),
+           $self->get_conf('documentscript'),
+           $self->{'current_lang_translations'});
+
+    $self->{'current_lang_translations'} = $lang_translation
+           if (defined($lang_translation));
+  }
+}
+
 
 
 #####################################################################

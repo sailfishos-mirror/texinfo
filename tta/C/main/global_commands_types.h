@@ -44,6 +44,8 @@ typedef struct GLOBAL_COMMANDS {
    /* Arrays of elements */
    ELEMENT_LIST dircategory_direntry;
 
+   ELEMENT_LIST language_commands;
+
    ELEMENT_LIST floats;
    ELEMENT_LIST footnotes;
 

@@ -1076,6 +1076,25 @@ create_destination_directory (CONVERTER *self,
 
 
 
+void
+set_converter_preamble_language_commands (CONVERTER *self)
+{
+  if (self->document)
+    {
+      self->current_lang_translations =
+       set_preamble_language_commands (
+                &self->document->global_info.preamble_lang_cmd,
+                &translation_cache,
+                self->conf->documentlanguage.o.string,
+                self->conf->documentscript.o.string,
+                self->current_lang_translations,
+                TXI_CONVERT_STRINGS_NR);
+
+    }
+}
+
+
+
 ELEMENT *
 converter_expand_today (CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,

@@ -72,6 +72,13 @@ LANG_TRANSLATION *set_translations_documentlanguagevariant (
                                  const STRING_LIST *documentlanguagevariant,
                                  LANG_TRANSLATION *current_lang_translations,
                                  size_t cache_size);
+LANG_TRANSLATION *set_preamble_language_commands (
+                                PREAMBLE_LANG_CMD_LIST *preamble_lang,
+                                LANG_TRANSLATION ***lang_translations,
+                                const char *documentlanguage,
+                                const char *documentscript,
+                                LANG_TRANSLATION *current_lang_translations,
+                                size_t cache_size);
 char *translate_string (const char *string, const char *language_env,
                         const char *translation_context);
 TRANSLATION_TREE *cache_translate_string (const char *string,
