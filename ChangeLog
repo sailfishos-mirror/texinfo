@@ -1,5 +1,13 @@
 2026-04-26 Patrice Dumas  <pertusus@free.fr>
 
+	for DocBook, take into account resetting by @documentlanguage in preamble
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (conversion_output_begin): call
+	set_converter_preamble_language_commands to determine the bcp47_locale
+	at the end of the preamble.
+
+2026-04-26 Patrice Dumas  <pertusus@free.fr>
+
 	for HTML, take into account resetting by @documentlanguage in preamble
 
 	* tta/C/convert/convert_html.c (html_translate_names)

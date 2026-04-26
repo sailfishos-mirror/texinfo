@@ -358,8 +358,8 @@ $result_converted{'docbook_doc'}->{'documentscript_variant_reset_in_preamble'} =
   <!ENTITY tex "TeX">
   <!ENTITY latex "LaTeX">
 ]>
-<book lang="sr-Latn-ekavsk">
-<chapter label="1" id="chap" lang="sr">
+<book lang="sr">
+<chapter label="1" id="chap">
 <title>chap</title>
 
 <synopsis><indexterm role="vr"><primary>by од used</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>used</classname></ooclass> <property>by</property> <emphasis role="arg">test</emphasis>  <emphasis role="arg">ivar</emphasis></synopsis>
