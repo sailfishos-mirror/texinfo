@@ -1,5 +1,10 @@
 2026-04-26 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (pass_global_info): do not register
+	language related commands information directly in global_info.
+
+2026-04-26 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/manipulate_tree.c (copy_tree_internal),
 	tta/perl/Texinfo/ManipulateTree.pm (_copy_tree): do not add a parent
 	to the copied element if the source element does not have a parent.

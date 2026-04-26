@@ -1783,48 +1783,6 @@ pass_global_info (HV *hv, const GLOBAL_INFO *global_info_ref,
                 strlen ("preamble_lang_cmd"),
                 newRV_noinc ((SV *) preamble_lang_av), 0);
     }
-
-  /* FIXME remove next, probably not used */
-
-  document_language = get_global_document_command (global_commands_ref,
-                                       CM_documentlanguage, CL_preamble);
-  if (document_language)
-    {
-      enum command_id cmd;
-      const char *language
-        = informative_command_value (document_language, &cmd);
-      hv_store (hv, "documentlanguage", strlen ("documentlanguage"),
-                newSVpv (language, 0), 0);
-    }
-
-  document_script = get_global_document_command (global_commands_ref,
-                                       CM_documentscript, CL_preamble);
-  if (document_script)
-    {
-      enum command_id cmd;
-      const char *script
-        = informative_command_value (document_script, &cmd);
-      hv_store (hv, "documentscript", strlen ("documentscript"),
-                newSVpv (script, 0), 0);
-    }
-
-  /* TODO remove */
-  documentlanguagevariant = get_global_document_command (global_commands_ref,
-                                        CM_documentlanguagevariant,
-                                        CL_preamble);
-  if (documentlanguagevariant)
-    {
-      STRING_LIST *language_variants
-        = documentlanguagevariant_variants (documentlanguagevariant);
-      if (language_variants->number > 0)
-        {
-          AV *av = build_string_list (language_variants, svt_byte);
-          hv_store (hv, "documentlanguagevariant",
-                    strlen ("documentlanguagevariant"),
-                    newRV_noinc ((SV *) av), 0);
-        }
-      destroy_strings_list (language_variants);
-    }
 }
 
 /* Return object to be used as 'commands_info', which holds references
