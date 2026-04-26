@@ -1300,10 +1300,14 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
 
   if (options)
     {
-      lang_translation = new_lang_translations (
-                                 options->documentlanguage.o.string,
-                                 options->documentscript.o.string,
-                                 NULL);
+      lang_translation = set_preamble_language_commands (
+                    &document->global_info.preamble_lang_cmd,
+                    &translation_cache,
+                    options->documentlanguage.o.string,
+                    options->documentscript.o.string,
+                    NULL,
+                    TXI_CONVERT_STRINGS_NR);
+
       debug_level = options->DEBUG.o.integer;
     }
   size_t i;
@@ -1332,11 +1336,6 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
     }
   free (non_automatic_nodes->list);
   free (non_automatic_nodes);
-  if (lang_translation)
-    {
-      free_lang_translation (lang_translation);
-      free (lang_translation);
-    }
 }
 
 int
@@ -1369,22 +1368,19 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
     return 0;
 
   if (document->options)
-    lang_translation = new_lang_translations (
-                         document->options->documentlanguage.o.string,
-                         document->options->documentscript.o.string,
-                                 NULL);
+    lang_translation = set_preamble_language_commands (
+                    &document->global_info.preamble_lang_cmd,
+                    &translation_cache,
+                    document->options->documentlanguage.o.string,
+                    document->options->documentscript.o.string,
+                    NULL,
+                    TXI_CONVERT_STRINGS_NR);
 
   new_detailmenu_e = new_detailmenu (&document->error_messages,
                                     document->options,
                                     lang_translation, identifiers_target,
                                     nodes_list,
                                     menus, use_sections);
-
-  if (lang_translation)
-    {
-      free_lang_translation (lang_translation);
-      free (lang_translation);
-    }
 
   /* no need for a master menu */
   if (!new_detailmenu_e)

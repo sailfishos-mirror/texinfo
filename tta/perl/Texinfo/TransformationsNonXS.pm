@@ -626,11 +626,15 @@ sub complete_tree_nodes_menus_in_document($;$) {
 sub complete_tree_nodes_missing_menu($;$) {
   my ($document, $use_sections) = @_;
 
+  my $document_info = $document->global_information();
+
   my $lang_translations
-     = Texinfo::Translations::new_lang_translations(
-                              $document->get_conf('documentlanguage'),
-                              $document->get_conf('documentscript'),
-                              undef);
+        = Texinfo::Translations::set_preamble_language_commands(
+           $document_info->{'preamble_lang_cmd'}, undef,
+           $document->get_conf('documentlanguage'),
+           $document->get_conf('documentscript'),
+           undef);
+
   my $debug = $document->get_conf('DEBUG');
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
@@ -655,6 +659,7 @@ sub regenerate_master_menu($;$) {
 
   my $identifier_target = $document->labels_information();
   my $nodes_list = $document->nodes_list();
+  my $document_info = $document->global_information();
 
   my $top_node = $identifier_target->{'Top'};
 
@@ -667,10 +672,12 @@ sub regenerate_master_menu($;$) {
                    or !scalar(@{$top_node_relations->{'menus'}}));
 
   my $lang_translation
-     = Texinfo::Translations::new_lang_translations(
-                              $document->get_conf('documentlanguage'),
-                              $document->get_conf('documentscript'),
-                              undef);
+        = Texinfo::Translations::set_preamble_language_commands(
+           $document_info->{'preamble_lang_cmd'}, undef,
+           $document->get_conf('documentlanguage'),
+           $document->get_conf('documentscript'),
+           undef);
+
   my $new_detailmenu
       = Texinfo::Structuring::new_detailmenu(
                       $lang_translation,

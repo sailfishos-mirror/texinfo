@@ -63,8 +63,19 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
      *block_line_arg C1
       {spaces_before_argument:\\n}
     *menu_comment C1
-     *preformatted C6
-      { --- The Detailed Node Listing ---}
+     *preformatted C12
+      { --- Liste d}
+      *@\' C1
+       *following_arg C1
+        {e}
+      {taill}
+      *@\' C1
+       *following_arg C1
+        {e}
+      {e des n}
+      *@oe C1
+       *brace_container
+      {uds ---}
       {\\n}
       {empty_line:\\n}
       {chap}
@@ -174,7 +185,7 @@ $result_texis{'master_menu_fr'} = '\\input texinfo.tex
 * chap::
 
 @detailmenu
- --- The Detailed Node Listing ---
+ --- Liste d@\'etaill@\'ee des n@oe{}uds ---
 
 chap
 
@@ -200,7 +211,7 @@ max
 
 * chap::
 
- -- The Detailed Node Listing --
+ -- Liste de\'taille\'e des noeuds --
 
 chap
 
@@ -283,7 +294,7 @@ max
 
 * chap::
 
- -- The Detailed Node Listing --
+ -- Liste détaillée des nœuds --
 
 chap
 

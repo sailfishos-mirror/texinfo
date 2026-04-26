@@ -246,12 +246,15 @@ copy_tree_internal (ELEMENT* current, ELEMENT_LIST *other_trees)
       return new;
     }
 
-  /* the parent of new is set in add_to_element* */
   for (i = 0; i < current->e.c->contents.number; i++)
     {
-      ELEMENT *added = copy_tree_internal (current->e.c->contents.list[i],
-                                           other_trees);
-      add_element_to_element_contents (new, added);
+      ELEMENT *child = current->e.c->contents.list[i];
+      ELEMENT *added = copy_tree_internal (child, other_trees);
+      if (child->e.c->parent)
+        /* the parent of new is set in add_to_element* */
+        add_element_to_element_contents (new, added);
+      else
+        add_to_contents_as_array (new, added);
     }
 
   if (elt_info_nr > 0)

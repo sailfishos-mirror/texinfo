@@ -1,5 +1,27 @@
 2026-04-26 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_tree.c (copy_tree_internal),
+	tta/perl/Texinfo/ManipulateTree.pm (_copy_tree): do not add a parent
+	to the copied element if the source element does not have a parent.
+
+	* tta/perl/Texinfo/Translations.pm (gdt): use
+	Texinfo::ManipulateTree::copy_element_tree to copy tree, and not
+	dclone, to get the same detailed tree as in C.
+
+	* tta/perl/Texinfo/Translations.pm (_set_lang_info_translation):
+	handle an undef $translations.
+
+	* tta/C/structuring_transfo/transformations.c
+	(complete_tree_nodes_missing_menu, regenerate_master_menu),
+	tta/perl/Texinfo/TransformationsNonXS.pm
+	(complete_tree_nodes_missing_menu, regenerate_master_menu): create
+	lang_translation by calling set_preamble_language_commands.
+
+	* tta/perl/Texinfo/ParserNonXS.pm (get_parser_info): do not register
+	language related commands information directly in global_info.
+
+2026-04-26 Patrice Dumas  <pertusus@free.fr>
+
 	for DocBook, take into account resetting by @documentlanguage in preamble
 
 	* tta/perl/Texinfo/Convert/DocBook.pm (conversion_output_begin): call

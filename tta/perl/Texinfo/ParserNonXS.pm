@@ -969,27 +969,6 @@ sub get_parser_info($) {
       }
     }
   }
-
-  foreach my $translation_cmdname (@translation_commands) {
-    my $command_element
-      = Texinfo::Common::get_global_document_command($global_commands,
-                                                   $translation_cmdname,
-                                                   'preamble');
-    if (defined($command_element)) {
-      if ($translation_cmdname eq 'documentlanguagevariant') {
-        my $variants = Texinfo::Common::documentlanguagevariant_variants(
-                                                  $command_element);
-        if (scalar(@$variants)) {
-          $document->{'global_info'}->{$translation_cmdname} = $variants;
-        }
-      } else {
-        my $informative_cmdname;
-        ($informative_cmdname,
-         $document->{'global_info'}->{$translation_cmdname})
-          = Texinfo::Common::informative_command_value($command_element);
-      }
-    }
-  }
 }
 
 # parse a texi file

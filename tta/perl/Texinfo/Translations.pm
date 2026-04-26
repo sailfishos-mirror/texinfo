@@ -346,12 +346,16 @@ sub _set_lang_info_translation($$) {
 
   my $new_lang_translations = _new_lang_info_translation($lang_info);
 
-  my $bcp47_locale = $new_lang_translations->[0]->{'bcp47_locale'};
+  # $translations node defined should only happen for lang_translations
+  # setup in automatic menu generation.
+  if (defined($translations)) {
+    my $bcp47_locale = $new_lang_translations->[0]->{'bcp47_locale'};
 
-  if (!exists($translations->{$bcp47_locale})) {
-    $translations->{$bcp47_locale} = {};
+    if (!exists($translations->{$bcp47_locale})) {
+      $translations->{$bcp47_locale} = {};
+    }
+    $new_lang_translations->[2] = $translations->{$bcp47_locale};
   }
-  $new_lang_translations->[2] = $translations->{$bcp47_locale};
 
   return $new_lang_translations;
 }
@@ -551,7 +555,11 @@ sub gdt($;$$$$$$) {
     Texinfo::ManipulateTree::tree_remove_parents($tree);
   }
 
-  $result_tree = dclone($translated_string_tree->[1]);
+  # TODO maybe dclone could be more efficient, but we want to have the same
+  # detailed tree as with C, (probably only really useful if TEST is set).
+  #$result_tree = dclone($translated_string_tree->[1]);
+  $result_tree
+    = Texinfo::ManipulateTree::copy_element_tree($translated_string_tree->[1]);
 
   if (defined($replaced_substrings)) {
     $result_tree = _substitute_substrings_in_tree($result_tree,

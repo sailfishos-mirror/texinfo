@@ -201,7 +201,9 @@ sub _copy_tree($;$) {
     $new->{'contents'} = [];
     foreach my $child (@{$current->{'contents'}}) {
       my $added = _copy_tree($child, $other_trees);
-      $added->{'parent'} = $new unless(exists($added->{'text'}));
+      if (exists($child->{'parent'})) {
+        $added->{'parent'} = $new;
+      }
       push @{$new->{'contents'}}, $added;
     }
   }
