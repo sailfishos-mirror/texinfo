@@ -2,6 +2,14 @@
 
 	Index sort key output for UTF-8
 
+	* doc/texinfo.tex (\unicodechardefs):
+	Use \DeclareUnicodeCharacterSK instead of \DeclareUnicodeCharacter
+	for several characters in the Latin-1 block (U+00A0-U+OOFF).
+
+2026-04-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Index sort key output for UTF-8
+
 	* doc/texinfo.tex (\DeclareUnicodeCharacterSK): Add definition
 	to be used in place of \DeclareUnicodeCharacter to allow defining
 	sort string for index sort key along with the main definition for
