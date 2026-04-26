@@ -2,6 +2,15 @@
 
 	Index sort key output for UTF-8
 
+	* doc/texinfo.tex (\DeclareUnicodeCharacterSK): Add definition
+	to be used in place of \DeclareUnicodeCharacter to allow defining
+	sort string for index sort key along with the main definition for
+	the character.
+
+2026-04-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Index sort key output for UTF-8
+
 	* doc/texinfo.tex
 	(\ifinindexsortkey): Define with \newif.
 	(\doindexsegment): Set \inindexsortkeytrue when processing index

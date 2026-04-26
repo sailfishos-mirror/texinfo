@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2026-04-25.23}
+\def\texinfoversion{2026-04-26.10}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -10969,12 +10969,14 @@ directory should work if nowhere else does.}
 \endgroup
 
 % Used in \DefineSortKey as temporary definitions of \UTFviiiTwoOctetsName etc.
+% Use \expandafter\noexpand to prevent excessive expansion if \DefineSortKey is
+% called more than once for the same codepoint.
 \def\UTFviiiSortTwoOctetsName#1#2{%
-  \csname sort:#1\string #2\endcsname}%
+  \expandafter\noexpand\csname sort:#1\string #2\endcsname}%
 \def\UTFviiiSortThreeOctetsName#1#2#3{%
-  \csname sort:#1\string #2\string #3\endcsname}%
+  \expandafter\noexpand\csname sort:#1\string #2\string #3\endcsname}%
 \def\UTFviiiSortFourOctetsName#1#2#3#4{%
-  \csname sort:#1\string #2\string #3\string #4\endcsname}%
+  \expandafter\noexpand\csname sort:#1\string #2\string #3\string #4\endcsname}%
 
 % To be used in translation files to provide strings to be output
 % in the index sort key where a character occurs.
@@ -10988,18 +10990,32 @@ directory should work if nowhere else does.}
     \let\UTFviiiThreeOctetsName\UTFviiiSortThreeOctetsName
     \let\UTFviiiFourOctetsName\UTFviiiSortFourOctetsName
     %
-    % Completely expand \UTFviiiTmp, which looks like:
+    % Expand \UTFviiiTmp fully, which looks like:
     % 1.  \UTFviiiTwoOctetsName B1 B2
-    % 2.  \csname sort:B1 \string B2 \endcsname
-    % 3.  \sort: B1 B2  (a single control sequence token)
+    % 2.  \expandafter\noexpand\csname sort:B1 \string B2 \endcsname
+    % 3.  \noexpand\sort: B1 B2
+    % 4.  \sort: B1 B2 (a single control sequence token)
+    %
     \xdef\UTFviiiTmp{\UTFviiiTmp}%
   \egroup
-  \expandafter\def\UTFviiiTmp{#2}%
+  \expandafter\gdef\UTFviiiTmp{#2}%
 }
 
 % this could be used as follows
 %\DefineSortKey{00F1}{nzzz} % n tilde - sort between n and o
 %\DefineSortKey{00D1}{Nzzz} % N tilde - sort between n and o
+
+% Can be used in place of \DeclareUnicodeCharacter where the value for
+% the character is completely expandable when writing to indices:
+% Good: \DeclareUnicodeCharacterSK{00C9}{\'E}
+%         (\' expands to empty string)
+% Bad:  \DeclareUnicodeCharacterSK{03BB}{\ensuremath\lambda}%
+%         (\ensuremath expands to junk)
+\def\DeclareUnicodeCharacterSK#1#2{%
+  \DeclareUnicodeCharacter{#1}{#2}%
+  \DefineSortKey{#1}{#2}%
+}
+
 
 % For native Unicode handling (XeTeX and LuaTeX),
 % provide a definition macro that sets a catcode to `other' non-globally
