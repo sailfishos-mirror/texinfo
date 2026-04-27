@@ -10,9 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-document language_commands not forgetting that a command is only added
-if not set by commmand-line
-
 Document command_is_in_referred_command_stack in texi2any_api
 
 verify input_files/cpp_lines parse_refold.pl

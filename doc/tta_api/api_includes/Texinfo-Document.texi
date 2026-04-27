@@ -149,6 +149,14 @@ The following list of commands is also available as a key:
 An array of successive @code{@@dircategory} and @code{@@direntry} as they appear
 in the document.
 
+@item language_commands
+@anchor{Texinfo@asis{::}Document language_commands}
+
+An array of successive @code{@@documentlanguage}, @code{@@documentscript}
+and @code{@@documentlanguagevariant} as they appear in the document.
+@code{@@documentlanguage} and @code{@@documentscript} elements are not registered
+if already set from command-line or from initialization files.
+
 @end table
 
 @end table

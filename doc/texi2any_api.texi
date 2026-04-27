@@ -2271,6 +2271,12 @@ The @code{dircategory_direntry} key is also available, containing the
 array of successive @code{@@dircategory} and @code{@@direntry}, if these
 commands are present in the document.
 
+The @code{language_commands} key is also available, containing the
+the array of successive @code{@@documentlanguage}, @code{@@documentscript}
+and @code{@@documentlanguagevariant}, if these commands are present in the
+document and not overriden by command-line or initialization files
+values, for @code{@@documentlanguage} and @code{@@documentscript}.
+
 @c not directly used in default formatting text, probably not interesting
 @c @item global_information
 @c Diverse information.

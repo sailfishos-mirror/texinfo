@@ -614,6 +614,13 @@ The following list of commands is also available as a key:
 An array of successive C<@dircategory> and C<@direntry> as they appear
 in the document.
 
+=item language_commands
+
+An array of successive C<@documentlanguage>, C<@documentscript>
+and C<@documentlanguagevariant> as they appear in the document.
+C<@documentlanguage> and C<@documentscript> elements are not registered
+if already set from command-line or from initialization files.
+
 =back
 
 =back
