@@ -114,8 +114,11 @@ typedef struct GLOBAL_INFO {
     /* Ignored characters for index sort key */
     IGNORED_CHARS ignored_chars;
     STRING_LIST included_files;
-    /* TODO check that it is unused and remove */
+    /* current documentlanguagevariant argument */
     STRING_LIST documentlanguagevariant;
+    /* based on the successive @documentlanguage, @documentscript and
+       @documentlanguagevariant in the document preamble, if
+       not overriden by command-line or initialization files */
     PREAMBLE_LANG_CMD_LIST preamble_lang_cmd;
 
     /* remaining, in general passed to/from perl but not used in C */

@@ -1708,9 +1708,6 @@ pass_global_info (HV *hv, const GLOBAL_INFO *global_info_ref,
 {
   const GLOBAL_INFO global_info = *global_info_ref;
   const GLOBAL_COMMANDS global_commands = *global_commands_ref;
-  const ELEMENT *document_language;
-  const ELEMENT *document_script;
-  const ELEMENT *documentlanguagevariant;
   size_t i;
 
   dTHX;
