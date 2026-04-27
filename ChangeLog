@@ -1,5 +1,18 @@
 2026-04-27 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/texi2any.pl: do not set main_configuration documentlanguage
+	based on document information, as it is not gathered in document
+	information anymore.  It wouldn't be needed from there anyway, as
+	values set from command-line or init files are already in
+	main_configuration.
+
+	* tta/C/parsetexi/parser.c (get_parser_info): rename get_document_info
+	as get_parser_info to have the same name as in Perl.
+
+	Changes in comments.
+
+2026-04-27 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl (test): pass documentlanguage and
 	documentscript to test_customization_options.
 

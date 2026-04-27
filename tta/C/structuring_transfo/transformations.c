@@ -1289,6 +1289,7 @@ complete_tree_nodes_menus_in_document (DOCUMENT *document, int use_sections)
   free (non_automatic_nodes);
 }
 
+/* used for tree transformation only */
 void
 complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
 {
@@ -1298,10 +1299,10 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
   LANG_TRANSLATION *lang_translation = 0;
   int debug_level = 0;
 
-  /* TODO check what the options documentlanguage and
-     documentscript could be.  Values at the beginning, at the end? */
   if (options)
     {
+      /* document options hold the options set at the command-line
+         or in init files set by set_document_options */
       lang_translation = set_preamble_language_commands (
                     &document->global_info.preamble_lang_cmd,
                     &translation_cache,
@@ -1339,6 +1340,7 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
   free (non_automatic_nodes);
 }
 
+/* used for tree transformation only */
 int
 regenerate_master_menu (DOCUMENT *document, int use_sections)
 {

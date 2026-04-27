@@ -568,8 +568,15 @@ add_preamble_lang_cmd (PREAMBLE_LANG_CMD_LIST *preamble_lang,
 }
 
 /* ALTIMPL perl/Texinfo/ParserNonXS.pm get_parser_info */
+/* less to do here than in Perl, as the global_commands information is always
+   available in C */
+/* It could also have been possible to call dynamically such code
+   where preamble_lang_cmd is used, but we do it here to be more
+   like Perl, and also because the intermediary structure is easier to
+   use than the tree for language information in preamble.
+ */
 static void
-get_document_info (DOCUMENT *document)
+get_parser_info (DOCUMENT *document)
 {
   const GLOBAL_COMMANDS *global_commands = &document->global_commands;
   PREAMBLE_LANG_CMD_LIST *preamble_lang
@@ -660,7 +667,7 @@ parse_texi_document (void)
    */
 
   rearrange_tree_beginning (before_node_section, document);
-  get_document_info (document);
+  get_parser_info (document);
 }
 
 

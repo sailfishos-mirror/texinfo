@@ -1817,22 +1817,14 @@ while (@input_files) {
   # The following variables are used in Structuring/Transformations:
   # novalidate, FORMAT_MENU, CHECK_NORMAL_MENU_STRUCTURE,
   # CHECK_MISSING_MENU_ENTRY.  And DEBUG.
-  # documentlanguage, documentscript and COMMAND_LINE_ENCODING is used in
-  # Structuring/Transformations for translations.
+  # documentlanguage and documentscript are used in
+  # Structuring/Transformations for gdt() in regenerate_master_menu
   my $main_configuration = Texinfo::MainConfig::new();
 
   # ALTIMP tta/C/main/document.c set_document_options
   my $document_information = $document->global_information();
   # encoding is needed for output files
-  # documentlanguage is needed for gdt() in regenerate_master_menu
   Texinfo::Common::set_output_encoding($main_configuration, $document);
-  foreach my $translation_cmdname ('documentlanguage', 'documentscript') {
-    if (not defined($main_configuration->get_conf($translation_cmdname))
-        and defined($document_information->{$translation_cmdname})) {
-      $main_configuration->set_conf($translation_cmdname,
-                            $document_information->{$translation_cmdname});
-    }
-  }
   # relevant for many Structuring methods.
   if ($document_information->{'novalidate'}) {
     $main_configuration->set_conf('novalidate', 1);

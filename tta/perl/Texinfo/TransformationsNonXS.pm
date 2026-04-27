@@ -653,7 +653,7 @@ sub complete_tree_nodes_missing_menu($;$) {
 
 # Called as tree transformation only.
 # The $DOCUMENT is used to get the nodes information, but also to determine
-# the languages information at the end of the preamble and to register
+# the languages information for the end of the preamble and to register
 # error messages.
 sub regenerate_master_menu($;$) {
   my ($document, $use_sections) = @_;
