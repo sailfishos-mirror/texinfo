@@ -1101,6 +1101,7 @@ build_lang_info (const DOCUMENT_LANG_INFO *lang_info)
       SV *sv = newRV_noinc ((SV *) variants_av);
       STORE(variants, sv);
     }
+  STORE(bcp47_locale, newSVpv (lang_info->bcp47_locale, 0));
 #undef STORE
 
   return lang_info_hv;
