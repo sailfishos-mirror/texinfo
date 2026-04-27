@@ -855,15 +855,19 @@ set_translations_documentlanguagevariant (LANG_TRANSLATION ***lang_translations,
   return lang_translation;
 }
 
+/* SET_DOCUMENTLANGUE and SET_DOCUMENTSCRIPT are meant to reset
+   to values set at the beginning of the document, for example
+   from command-line.  Depending on the situation, they may be
+   needed or not.
+ */
 LANG_TRANSLATION *
 set_preamble_language_commands (PREAMBLE_LANG_CMD_LIST *preamble_lang,
                                 LANG_TRANSLATION ***lang_translations,
                                 const char *set_documentlanguage,
                                 const char *set_documentscript,
-                                LANG_TRANSLATION *current_lang_translations,
                                 size_t cache_size)
 {
-  LANG_TRANSLATION *cur_lang_trans = current_lang_translations;
+  LANG_TRANSLATION *cur_lang_trans = NULL;
 
   if (set_documentlanguage)
     cur_lang_trans = set_translations_documentlanguage (lang_translations,

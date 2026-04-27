@@ -4234,7 +4234,8 @@ html_setup_output (CONVERTER *self, char **paths)
     {
       preamble_bcp47_locale
         = self->current_lang_translations->info->bcp47_locale;
-      /* TODO can preamble_bcp47_locale be ""? */
+      /* preamble_bcp47_locale could be "" if documentscript was given,
+         but there is no documentlanguage */
       if (strcmp (preamble_bcp47_locale, ""))
         {
           xasprintf (&body_element_attributes, "lang=\"%s\"",

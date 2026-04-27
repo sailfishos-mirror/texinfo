@@ -4510,9 +4510,8 @@ sub _prepare_converted_output_info($$$$) {
 
   my $default_bcp47_locale = $self->current_bcp47_locale();
 
-  $self->set_global_document_commands('before',
-                    ['documentlanguage', 'documentscript']);
-
+  # This also sets the language related options to their pre-conversion
+  # values.
   $self->set_converter_preamble_language_commands();
 
   my $preamble_bcp47_locale = $self->current_bcp47_locale();
@@ -5118,8 +5117,9 @@ sub _setup_output($) {
 
   # set BODY_ELEMENT_ATTRIBUTES
   my $default_bcp47_locale = $self->current_bcp47_locale();
-  #$self->set_global_document_commands('before',
-  #                   ['documentlanguage', 'documentscript']);
+
+  # This also sets the language related options to their pre-conversion
+  # values.
   $self->set_converter_preamble_language_commands();
 
   my $preamble_bcp47_locale = $self->current_bcp47_locale();

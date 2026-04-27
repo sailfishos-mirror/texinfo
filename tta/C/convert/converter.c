@@ -1076,20 +1076,24 @@ create_destination_directory (CONVERTER *self,
 
 
 
+static const enum command_id conf_for_documentlanguage[]
+                          = {CM_documentlanguage, CM_documentscript, 0};
+
 void
 set_converter_preamble_language_commands (CONVERTER *self)
 {
   if (self->document)
     {
+      set_global_document_commands (self, CL_before,
+                                    conf_for_documentlanguage);
+
       self->current_lang_translations =
        set_preamble_language_commands (
                 &self->document->global_info.preamble_lang_cmd,
                 &translation_cache,
                 self->conf->documentlanguage.o.string,
                 self->conf->documentscript.o.string,
-                self->current_lang_translations,
                 TXI_CONVERT_STRINGS_NR);
-
     }
 }
 

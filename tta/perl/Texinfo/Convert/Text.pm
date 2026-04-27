@@ -202,7 +202,6 @@ sub copy_options_for_convert_text($;$) {
   # documentlanguage, documentscript and documentlanguagevariant
   # are not directly passed, but are passed through setting the current
   # lang translations.
-  # Similar as set_converter_preamble_language_commands.
   if (exists($converter->{'document'})) {
     my $document_info = $converter->{'document'}->global_information();
 
@@ -214,8 +213,8 @@ sub copy_options_for_convert_text($;$) {
         = Texinfo::Translations::set_preamble_language_commands(
            $document_info->{'preamble_lang_cmd'}, $options{'translations'},
            $converter->get_conf('documentlanguage'),
-           $converter->get_conf('documentscript'),
-           undef);
+           $converter->get_conf('documentscript'));
+
     $options{'current_lang_translations'} = $lang_translation
            if (defined($lang_translation));
   }

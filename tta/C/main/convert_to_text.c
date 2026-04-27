@@ -90,12 +90,10 @@ destroy_text_options (TEXT_OPTIONS *text_options)
   tico_option_name(NUMBER_SECTIONS) \
   tico_option_name(TEST)
 
-/* TODO different from Perl, in Perl the document global_information
-   is also used for documentlanguage and documentscript.  It probably
-   does not matter because this code is not used in any situation where
-   a correct documentlanguage and documentscript are needed as this
-   requires a carefully crafted code where a converter is associated
-   to the text converter and called for a whole document as done in 
+/* NOTE not tested in a situation with translations in text converter
+   as it can only be tested with a carefully crafted code where a
+   converter is associated to the text converter and called for a whole
+   document as done in
     t/z_misc/convert_to_text.t
    And in this test file, the XS interface is used to setup the
    options used for conversion, not pure C and the XS interface uses
@@ -139,7 +137,6 @@ copy_options_for_convert_text (OPTIONS *options, DOCUMENT *document)
                 &translation_cache,
                 options->documentlanguage.o.string,
                 options->documentscript.o.string,
-                NULL,
                 TXI_CONVERT_STRINGS_NR);
     }
 

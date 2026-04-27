@@ -459,12 +459,11 @@ sub set_translations_documentlanguagevariant($$$) {
   return _set_lang_info_translation($translations, \%lang_info);
 }
 
-sub set_preamble_language_commands($$$$$) {
+sub set_preamble_language_commands($$$$) {
   my ($language_command_elements, $translations,
-      $set_documentlanguage, $set_documentscript,
-      $current_lang_translations) = @_;
+      $set_documentlanguage, $set_documentscript) = @_;
 
-  my $lang_translations = $current_lang_translations;
+  my $lang_translations;
 
   if (defined($set_documentlanguage)) {
     $lang_translations

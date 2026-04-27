@@ -77,7 +77,6 @@ LANG_TRANSLATION *set_preamble_language_commands (
                                 LANG_TRANSLATION ***lang_translations,
                                 const char *documentlanguage,
                                 const char *documentscript,
-                                LANG_TRANSLATION *current_lang_translations,
                                 size_t cache_size);
 char *translate_string (const char *string, const char *language_env,
                         const char *translation_context);

@@ -1298,6 +1298,8 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
   LANG_TRANSLATION *lang_translation = 0;
   int debug_level = 0;
 
+  /* TODO check what the options documentlanguage and
+     documentscript could be.  Values at the beginning, at the end? */
   if (options)
     {
       lang_translation = set_preamble_language_commands (
@@ -1305,7 +1307,6 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
                     &translation_cache,
                     options->documentlanguage.o.string,
                     options->documentscript.o.string,
-                    NULL,
                     TXI_CONVERT_STRINGS_NR);
 
       debug_level = options->DEBUG.o.integer;
@@ -1373,7 +1374,6 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
                     &translation_cache,
                     document->options->documentlanguage.o.string,
                     document->options->documentscript.o.string,
-                    NULL,
                     TXI_CONVERT_STRINGS_NR);
 
   new_detailmenu_e = new_detailmenu (&document->error_messages,

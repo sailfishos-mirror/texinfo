@@ -53,10 +53,9 @@
 static const char *lang_trans_key = "current_lang_translations";
 
 #define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
-/* same as calls to Texinfo::Convert::Converter::converter_set_document* */
+/* initialize 'translations' and pass current_lang_translations */
 static void
-set_perl_translations_documentlanguage (HV *converter_hv,
-                                        CONVERTER *converter)
+set_perl_lang_translations (HV *converter_hv, CONVERTER *converter)
 {
   SV *translations;
   SV *bcp47_locale_sv;
@@ -129,28 +128,21 @@ static void
 build_html_translated_names (HV *converter_hv, CONVERTER *converter)
 {
   SV **no_arg_commands_formatting_sv;
+  /*
   SV **convert_text_options_sv;
-  const char *documentlanguage
-    = converter->conf->documentlanguage.o.string;
+   */
 
   dTHX;
 
+  /* FIXME pass preamble languages information to convert_text_options?
+     Or document why it is not needed?
   FETCH(convert_text_options);
   if (convert_text_options_sv)
     {
-      /* FIXME does not seems to be up to date + documentscript. */
-      SV *documentlanguage_sv;
-      HV *text_options_hv = (HV *) SvRV (*convert_text_options_sv);
-
-      if (documentlanguage)
-        documentlanguage_sv = newSVpv_utf8 (documentlanguage, 0);
-      else
-        documentlanguage_sv = newSV (0);
-      hv_store (text_options_hv, "documentlanguage",
-                strlen ("documentlanguage"), documentlanguage_sv, 0);
     }
+   */
 
-  set_perl_translations_documentlanguage (converter_hv, converter);
+  set_perl_lang_translations (converter_hv, converter);
 
   /* pass all the information for each context for translated commands */
   if (converter->no_arg_formatted_cmd_translated.number)

@@ -632,8 +632,7 @@ sub complete_tree_nodes_missing_menu($;$) {
         = Texinfo::Translations::set_preamble_language_commands(
            $document_info->{'preamble_lang_cmd'}, undef,
            $document->get_conf('documentlanguage'),
-           $document->get_conf('documentscript'),
-           undef);
+           $document->get_conf('documentscript'));
 
   my $debug = $document->get_conf('DEBUG');
 
@@ -675,8 +674,7 @@ sub regenerate_master_menu($;$) {
         = Texinfo::Translations::set_preamble_language_commands(
            $document_info->{'preamble_lang_cmd'}, undef,
            $document->get_conf('documentlanguage'),
-           $document->get_conf('documentscript'),
-           undef);
+           $document->get_conf('documentscript'));
 
   my $new_detailmenu
       = Texinfo::Structuring::new_detailmenu(

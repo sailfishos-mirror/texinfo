@@ -779,9 +779,6 @@ html_translate_names (CONVERTER *self)
 /* last preparations of conversion.  At this point conversion of
    Texinfo tree is possible */
 
-static const enum command_id conf_for_documentlanguage[]
-                          = {CM_documentlanguage, CM_documentscript, 0};
-
 int
 html_run_stage_handlers (CONVERTER *self,
                          enum html_stage_handler_stage_type stage)
@@ -1006,8 +1003,6 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
     default_bcp47_locale
       = self->current_lang_translations->info->bcp47_locale;
 
-  set_global_document_commands (self, CL_before, conf_for_documentlanguage);
-
   set_converter_preamble_language_commands (self);
 
   if (self->current_lang_translations)
@@ -1184,10 +1179,6 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
     }
 
   html_prepare_title_titlepage (self, output_file, output_filename);
-
-   /*
-  set_global_document_commands (self, CL_before, conf_for_documentlanguage);
-    */
 
   if (strcmp (default_bcp47_locale, preamble_bcp47_locale))
     {
