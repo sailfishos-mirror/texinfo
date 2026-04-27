@@ -975,7 +975,9 @@ sub test($$)
   # change anymore, and it is registered in the document and used by
   # Structuring/Transformations methods needing access to configuration
   # information.
-  foreach my $parser_and_structuring_option ('FORMAT_MENU', 'DEBUG') {
+  foreach my $parser_and_structuring_option ('FORMAT_MENU', 'DEBUG',
+                                             'documentlanguage',
+                                             'documentscript') {
     if (exists($parser_options->{$parser_and_structuring_option})) {
       $test_customization_options->{$parser_and_structuring_option}
         = $parser_options->{$parser_and_structuring_option};

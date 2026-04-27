@@ -246,6 +246,22 @@ D2
     'FORMAT_MENU' => 'menu'},
    {'FORMAT_MENU' => 'menu'},
 ],
+['regenerate_master_menu_language_at_beginning_and_end',
+  undef,
+  {'test_file'
+       => '../../../tests/formatting/no_detailmenu_lang_at_begin_end.texi',
+   'TREE_TRANSFORMATIONS' => 'regenerate_master_menu',
+   'FORMAT_MENU' => 'menu',},
+  {'FORMAT_MENU' => 'menu',},
+],
+['regenerate_master_menu_language_at_beginning_end_set_lang',
+  undef,
+  {'test_file'
+       => '../../../tests/formatting/no_detailmenu_lang_at_begin_end.texi',
+   'TREE_TRANSFORMATIONS' => 'regenerate_master_menu',
+   'FORMAT_MENU' => 'menu', 'documentlanguage' => 'pl'},
+  {'FORMAT_MENU' => 'menu', 'documentlanguage' => 'pl'},
+],
 );
 
 my @tests_files = (
@@ -277,6 +293,8 @@ my @tests_files = (
 foreach my $test (@tests_converted) {
   push @{$test->[2]->{'test_formats'}}, 'html';
   push @{$test->[2]->{'test_formats'}}, 'info';
+
+  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 foreach my $test (@tests_files) {

@@ -817,15 +817,14 @@ X<C<new_detailmenu>>
 
 Returns a detailmenu tree element formatted as a master node.
 I<$menus> is an array reference containing the regular menus of the Top node.
-I<$lang_translations> argument should be an array reference with one or two
-elements.  The first element of the array is the language used for translations.
-The second element, if set, should be an hash reference holding translations
-already done.  If I<$debug> optional arguments is set, debugging mode
-is assumed.  I<$converter> should hold information needed for
-translations and error reporting.  I<$identifier_target> should hold
+I<$lang_translations> argument should be a language translations object holding
+information on document language and script and cached translations.
+I<TODO: refer to something relevant about $lang_translations>.
+If I<$debug> optional arguments is set, debugging mode
+is assumed.  I<$identifier_target> should hold
 information on cross-reference target commands, typically obtained by
 calling L<< C<Texinfo::Document::labels_information>|Texinfo::Document/$identifier_target = labels_information($document) >>.
-I<$nodes_list> should be the list of nores relations information, typically
+I<$nodes_list> should be the list of nodes relations information, typically
 obtained by calling L<< C<Texinfo::Document::nodes_list>|Texinfo::Document/$nodes_relations_list = nodes_list($document) >>.
 
 I<$converter>, if set, is used for error reporting

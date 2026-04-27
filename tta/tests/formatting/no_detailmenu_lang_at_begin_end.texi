@@ -1,0 +1,23 @@
+\input texinfo   @c -*-texinfo-*-
+
+@documentlanguage sr
+
+@node Top
+@top top
+
+@menu
+* chap::
+@end menu
+
+@node chap
+@chapter Chapter
+
+@menu
+* sec::
+@end menu
+
+@node sec
+@section Sec
+
+@documentlanguage fr
+

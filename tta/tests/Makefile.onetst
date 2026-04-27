@@ -36,6 +36,8 @@ type_base_one_test_files_generated_list =  \
     test_scripts/formatting_indices_in_begin_tables_lists_latex.sh \
     test_scripts/formatting_formatting_customizations_input_raw_text.sh \
     test_scripts/formatting_index_entries_relate_to_item.sh \
+    test_scripts/formatting_no_detailmenu_lang_at_begin_end.sh \
+    test_scripts/formatting_no_detailmenu_lang_at_begin_end_set_lang.sh \
     test_scripts/formatting_info_extension_warning.sh \
     test_scripts/formatting_js_license_reuse_output_file.sh \
     test_scripts/formatting_reuse_macro_expand_file.sh \

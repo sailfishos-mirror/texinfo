@@ -1,0 +1,48 @@
+This is no_detailmenu_lang_at_begin_end.info, produced by texi2any
+version from no_detailmenu_lang_at_begin_end.texi.
+
+
+File: no_detailmenu_lang_at_begin_end.info,  Node: Top,  Next: chap,  Up: (dir)
+
+top
+***
+
+* Menu:
+
+* chap::
+
+ -- Детаљан списак чворова --
+
+Chapter
+
+* sec::
+
+
+File: no_detailmenu_lang_at_begin_end.info,  Node: chap,  Prev: Top,  Up: Top
+
+1 Chapter
+*********
+
+* Menu:
+
+* sec::
+
+
+File: no_detailmenu_lang_at_begin_end.info,  Node: sec,  Up: chap
+
+1.1 Sec
+=======
+
+
+Tag Table:
+Node: Top119
+Node: chap299
+Node: sec419
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+Info-documentlanguage: fr
+End:

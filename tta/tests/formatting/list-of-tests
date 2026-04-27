@@ -35,6 +35,10 @@ formatting_customizations_input_raw_text ../../perl/t/input_files/formatting_cus
 # but it is interesting to have automatic tree transformations tested here too.
 index_entries_relate_to_item index_entries_relate_to_item.texi --html --no-split
 
+# Same file also tested in t/transformations.t
+no_detailmenu_lang_at_begin_end no_detailmenu_lang_at_begin_end.texi -c TREE_TRANSFORMATIONS=regenerate_master_menu
+no_detailmenu_lang_at_begin_end_set_lang no_detailmenu_lang_at_begin_end.texi -c TREE_TRANSFORMATIONS=regenerate_master_menu -c documentlanguage=pl
+
 info_extension_warning foo.info
 
 # test JS_WEBLABELS_FILE set to a file already output as part of the manual
