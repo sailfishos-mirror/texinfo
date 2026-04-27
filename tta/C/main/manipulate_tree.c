@@ -1039,9 +1039,13 @@ parse_node_manual (ELEMENT *node, int modify_node)
                                           - orig_contents_len);
     }
 
-  if (node_content && node_content->e.c->contents.number > 0)
-    result->node_content = node_content;
-
+  if (node_content)
+    {
+      if (node_content->e.c->contents.number > 0)
+        result->node_content = node_content;
+      else
+        destroy_element (node_content);
+    }
   return result;
 }
 

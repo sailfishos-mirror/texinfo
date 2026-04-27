@@ -735,6 +735,7 @@ set_translations_documentlanguage (LANG_TRANSLATION ***lang_translations,
           /* Nothing to do */
           free (lang);
           free (region_code);
+          free (lang_info->bcp47_locale);
           free (lang_info);
           return current_lang_translations;
         }
