@@ -104,6 +104,25 @@ my @tests_specs = (
 'Appendix a1234-A Conclusion
 ***************************
 '],
+# this shows that the preamble language is used and not the
+# current language
+['add_heading_number translations change before command',
+'@documentlanguage fr
+
+@node top
+@top A top
+
+
+@node chap
+@chapter Chap
+@documentlanguage pt
+
+@node appendix
+@appendix Conclusion
+',
+'Annexe A Conclusion
+*******************
+'],
 );
 
 plan tests => (1 + 3 + scalar(@tests_specs));

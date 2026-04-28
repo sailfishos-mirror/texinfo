@@ -20,6 +20,14 @@
 
 # ALTIMP C/main/convert_to_text.c
 
+# Called with two interfaces
+#  - by calling convert_to_text
+#    * to prepare index entries sort strings
+#    * from a converter to convert pieces of Texinfo tree to raw text.
+#  - from the main program using the Texinfo::Convert::Converter
+#    interface implementation from this here file.  Not very useful
+#    as the output is suboptimal compared to Plaintext.
+
 package Texinfo::Convert::Text;
 
 use 5.006;
@@ -132,32 +140,34 @@ my @text_indicator_converter_options
       = ('ASCII_GLYPH', 'DEBUG', 'DOC_ENCODING_FOR_INPUT_FILE_NAME',
          'NUMBER_SECTIONS', 'TEST');
 
-# for this module converter
-sub _initialize_text_options_encoding($) {
-  my $text_options = shift;
+
 
-  if ($text_options->{'ENABLE_ENCODING'}
-       and defined($text_options->{'OUTPUT_ENCODING_NAME'})) {
-    $text_options->{'enabled_encoding'}
-       = $text_options->{'OUTPUT_ENCODING_NAME'};
-  }
-}
+# methods called from converters to convert to text.
 
-# for a converter inheriting Texinfo::Convert::Converter
-sub _initialize_converter_text_options_encoding($$) {
-  my ($converter, $text_options) = @_;
+# NOTE the language information in current_lang_translations is initialized
+# based on the preamble language information.
+# There is no interface to change the current_lang_translations based
+# for new occurences of @documentlanguage, @documentscript or
+# @documentvariant.
+# When called from the converter API it is because we want to keep things
+# simple.
+# When called from convert_to_text the reason is that it is, in general, not
+# useful.  Indeed, convert_to_text is called on top-level Texinfo code
+# with language information set to preamble language information, but otherwise
+# the function is only called for specific @-commands arguments or where
+# only a small number of @-commands may happen, and there are only a few
+# commands for which a translation is needed in the Text converter, for
+# instance @error{}, @def* and heading commands.
+#
+# Especially crafted code may be setup to use a converter to convert
+# top-level Texinfo code, as done in t/z_misc/convert_to_text.t, but
+# it is not necessarily a good idea to do that.
 
-  if ($converter->get_conf('ENABLE_ENCODING')
-       and defined($converter->get_conf('OUTPUT_ENCODING_NAME'))) {
-    $text_options->{'enabled_encoding'}
-       = $converter->get_conf('OUTPUT_ENCODING_NAME');
-  }
-}
 
 # NOTE not documented.  In general, it is not useful to call that
 # function, as it the function is already called in Texinfo::Convert::Converter
 # to setup options that can be reused.
-#
+
 # $CONVERTER is an object implementing get_conf and other methods for
 # translation, in general a converter.
 # Setup options as used by Texinfo::Convert::Text::convert_to_text
@@ -170,7 +180,11 @@ sub copy_options_for_convert_text($;$) {
   # same as Converter.pm common_converters_non_options_defaults
   my %options;
 
-  _initialize_converter_text_options_encoding($converter, \%options);
+  if ($converter->get_conf('ENABLE_ENCODING')
+       and defined($converter->get_conf('OUTPUT_ENCODING_NAME'))) {
+    $options{'enabled_encoding'}
+       = $converter->get_conf('OUTPUT_ENCODING_NAME');
+  }
 
   foreach my $option (@text_indicator_converter_options) {
     my $conf = $converter->get_conf($option);
@@ -194,10 +208,11 @@ sub copy_options_for_convert_text($;$) {
     $options{$string_option} = $converter->get_conf($string_option);
   }
 
-  # TODO the documentlanguage and documenscript values obtained with get_conf
+  # TODO the documentlanguage and documentscript values obtained with get_conf
   # calls will not be the correct ones if this is not called at the very
   # beginning.  It is probably not a real issue, as the need for translation
-  # outside of preamble only arise in especially crafted code.
+  # when called from a converter outside of preamble only arise in
+  # especially crafted code only.
 
   # documentlanguage, documentscript and documentlanguagevariant
   # are not directly passed, but are passed through setting the current
@@ -291,54 +306,9 @@ sub reset_options_encoding($) {
   }
 }
 
-sub set_language($$) {
-  my ($options, $documentlanguage) = @_;
+
 
-  if (!exists($options->{'translations'})) {
-    $options->{'translations'} = $Texinfo::Translations::translation_cache;
-  }
-
-  my $lang_translation
-    = Texinfo::Translations::set_translations_documentlanguage(
-         $options->{'translations'}, $documentlanguage,
-         $options->{'current_lang_translations'});
-
-  $options->{'current_lang_translations'} = $lang_translation
-    if (defined($lang_translation));
-}
-
-sub set_script($$) {
-  my ($options, $documentscript) = @_;
-
-  if (!exists($options->{'translations'})) {
-    $options->{'translations'} = $Texinfo::Translations::translation_cache;
-  }
-
-  my $lang_translation
-    = Texinfo::Translations::set_translations_documentscript(
-         $options->{'translations'}, $documentscript,
-         $options->{'current_lang_translations'});
-
-  $options->{'current_lang_translations'} = $lang_translation
-    if (defined($lang_translation));
-}
-
-sub set_languagevariant($$) {
-  my ($options, $documentlanguagevariant) = @_;
-
-  if (!exists($options->{'translations'})) {
-    $options->{'translations'} = $Texinfo::Translations::translation_cache;
-  }
-
-  my $lang_translation
-    = Texinfo::Translations::set_translations_documentlanguagevariant(
-         $options->{'translations'}, $documentlanguagevariant,
-         $options->{'current_lang_translations'});
-
-  $options->{'current_lang_translations'} = $lang_translation
-    if (defined($lang_translation));
-}
-
+# formatting functions, some used in other codes
 
 sub _ascii_accent($$) {
   my ($text, $command) = @_;
@@ -932,6 +902,7 @@ sub convert_to_text($;$) {
   return $result;
 }
 
+
 
 # Implement the converters API simply.  The POD documentation does not
 # cover this possibility for doing the conversion.
@@ -991,7 +962,12 @@ sub convert($$) {
   }
 
   # Cf comment in output() on using $self for options.
-  _initialize_text_options_encoding($self);
+  if ($self->{'ENABLE_ENCODING'}
+       and defined($self->{'OUTPUT_ENCODING_NAME'})) {
+    $self->{'enabled_encoding'}
+       = $self->{'OUTPUT_ENCODING_NAME'};
+  }
+
 
   # for expand_verbatiminclude call.
   $self->{'document'} = $document;
@@ -1024,13 +1000,18 @@ sub output($$) {
   # Text options and converter are of different nature.
   # However, since the option keys are very similar between the converter
   # and text options and expanded_formats is already set in the converter,
-  # we use the converter object as text options and we call
-  # _initialize_text_options_encoding for the only option that is set up
+  # we use the converter object as text options and we set just below
+  # the 'enabled_encoding' options, the only option that is set up
   # based on other customization options.
   # Also, we need a blessed reference as converter_line_error
   # and other methods can be called on the options, using the converter
   # brings that too.
-  _initialize_text_options_encoding($self);
+  # option set up based on other customization options.
+  if ($self->{'ENABLE_ENCODING'}
+       and defined($self->{'OUTPUT_ENCODING_NAME'})) {
+    $self->{'enabled_encoding'}
+       = $self->{'OUTPUT_ENCODING_NAME'};
+  }
 
   # for expand_verbatiminclude call.
   $self->{'document'} = $document;

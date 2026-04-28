@@ -740,7 +740,6 @@ char *convert_contents_to_texinfo (const ELEMENT *e);
 // convert_to_text.h
 void text_set_options_encoding (TEXT_OPTIONS *text_options, char *encoding);
 void text_reset_options_encoding (TEXT_OPTIONS *text_options);
-void text_set_language (TEXT_OPTIONS *text_options, const char *lang);
 
 %newobject convert_to_text;
 char *convert_to_text (const ELEMENT *root, TEXT_OPTIONS *text_options);

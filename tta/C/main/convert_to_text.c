@@ -129,6 +129,12 @@ copy_options_for_convert_text (OPTIONS *options, DOCUMENT *document)
     text_options->COMMAND_LINE_ENCODING
       = strdup (options->COMMAND_LINE_ENCODING.o.string);
 
+  /* TODO? possibly current documentlanguage and documentscript
+     option value used with preamble preamble_lang_cmd commands
+     information.  For output prepared before starting the main
+     conversion, as is the case for the comment formatting,
+     the values should be ok.
+   */
   if (document)
     {
       text_options->current_lang_translations
@@ -241,37 +247,6 @@ text_reset_options_encoding (TEXT_OPTIONS *text_options)
 {
   text_options->encoding = text_options->_saved_enabled_encoding;
   text_options->_saved_enabled_encoding = 0;
-}
-
-void
-text_set_language (TEXT_OPTIONS *text_options, const char *documentlanguage)
-{
-  text_options->current_lang_translations
-    = set_translations_documentlanguage (&translation_cache,
-                                         documentlanguage,
-                            text_options->current_lang_translations,
-                                TXI_CONVERT_STRINGS_NR);
-}
-
-void
-text_set_script (TEXT_OPTIONS *text_options, const char *documentscript)
-{
-  text_options->current_lang_translations
-    = set_translations_documentscript (&translation_cache,
-                                       documentscript,
-                            text_options->current_lang_translations,
-                                TXI_CONVERT_STRINGS_NR);
-}
-
-void
-text_set_languagevariant (TEXT_OPTIONS *text_options,
-                          const STRING_LIST *documentlanguagevariant)
-{
-  text_options->current_lang_translations
-    = set_translations_documentlanguagevariant (&translation_cache,
-                                        documentlanguagevariant,
-                            text_options->current_lang_translations,
-                                TXI_CONVERT_STRINGS_NR);
 }
 
 /* the CONVERTER argument is not used, it is there solely to match the

@@ -128,19 +128,8 @@ static void
 build_html_translated_names (HV *converter_hv, CONVERTER *converter)
 {
   SV **no_arg_commands_formatting_sv;
-  /*
-  SV **convert_text_options_sv;
-   */
 
   dTHX;
-
-  /* FIXME pass preamble languages information to convert_text_options?
-     Or document why it is not needed?
-  FETCH(convert_text_options);
-  if (convert_text_options_sv)
-    {
-    }
-   */
 
   set_perl_lang_translations (converter_hv, converter);
 

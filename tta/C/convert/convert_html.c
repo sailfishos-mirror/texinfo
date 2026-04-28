@@ -985,7 +985,6 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
   char *html_title_string = 0;
   const char *default_bcp47_locale = "";
   const char *preamble_bcp47_locale = "";
-  STRING_LIST *language_variants = 0;
   int init_handler_status;
   int handler_fatal_error_level
      = self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer;
@@ -1011,9 +1010,6 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
 
   if (strcmp (default_bcp47_locale, preamble_bcp47_locale))
     html_translate_names (self);
-
-  if (language_variants)
-    destroy_strings_list (language_variants);
 
   html_prepare_direction_icons (self);
 
