@@ -1,5 +1,9 @@
 2026-04-29 Patrice Dumas  <pertusus@free.fr>
 
+	revert 2026-04-22 change of bcp47.c now fixed upstream
+
+2026-04-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Converter.pm (converter_perl_release)
 	(converter_set_documentlanguage, converter_set_documentscript)
 	(converter_set_documentlanguagevariant)
