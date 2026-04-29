@@ -72,6 +72,16 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
       av_push (current_lang_translations_av,
                newRV_noinc ((SV *) lang_info_hv));
 
+  /* Needed if XS is used for conversion, while cache_translate_string
+     is not overriden */
+      av_push (current_lang_translations_av,
+               newSVpv_byte (
+                 converter->current_lang_translations->language_env, 0));
+
+  /* We do not set the translations hash.  If cache_translate_string is
+     overriden it is not useful, if not overriden, it will be set in Perl
+     when needed */
+
       hv_store (converter_hv, lang_trans_key, strlen (lang_trans_key),
                 newRV_noinc ((SV *) current_lang_translations_av), 0);
     }

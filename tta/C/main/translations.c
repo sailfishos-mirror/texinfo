@@ -944,8 +944,7 @@ add_translation_tree (LANG_TRANSLATION_TREE_LIST *translations,
   return result;
 }
 
-/* actually const, because bcp47_locale is set */
-static DOCUMENT_LANG_INFO unknown_lang_info = {"", 0, 0, 0, {0, 0, 0}};
+static const DOCUMENT_LANG_INFO unknown_lang_info = {"", 0, 0, 0, {0, 0, 0}};
 
 TRANSLATION_TREE *
 cache_translate_string (const char *string,
@@ -958,14 +957,6 @@ cache_translate_string (const char *string,
   TRANSLATION_TREE *result;
   uintptr_t string_nr;
   int found;
-
-  if (translation_context)
-    translation_context_str = translation_context;
-  else
-    translation_context_str = "";
-
-  xasprintf (&translated_context_string, "%s-%s",
-             string, translation_context_str);
 
   if (lang_translation && lang_translation->translations)
     translations = lang_translation->translations;
@@ -987,6 +978,14 @@ cache_translate_string (const char *string,
                                      TXI_CONVERT_STRINGS_NR);
       translations = general_lang_translation->translations;
     }
+
+  if (translation_context)
+    translation_context_str = translation_context;
+  else
+    translation_context_str = "";
+
+  xasprintf (&translated_context_string, "%s-%s",
+             string, translation_context_str);
 
   string_nr = (uintptr_t) c_hashmap_value (translations->hash,
                                            translated_context_string, &found);

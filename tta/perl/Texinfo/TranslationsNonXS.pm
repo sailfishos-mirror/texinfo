@@ -52,10 +52,13 @@ sub setup_output_strings($;$) {
 }
 
 # Return an array reference with a translated string.
-# The LANG_TRANSLATIONS argument is an array reference with the language
-# translated to as first element, and as optional second element an hash
-# that is used to hold translations already done for that language.
-# If the language is undef or an empty string, no translation is needed.
+# The LANG_TRANSLATIONS argument holds the current language information,
+# including the string that can be used as gettext lang selection LANGUAGE,
+# and possibly an hash that is used to hold translations already done for
+# that language information.
+# There is no such hash if the language information is passed from C.
+# If the language information is undef or the language is an empty string,
+# no translation is needed.
 sub cache_translate_string($$;$) {
   my ($string, $lang_translations, $translation_context) = @_;
 
@@ -64,30 +67,35 @@ sub cache_translate_string($$;$) {
   #}
   my $cached_lang;
   my $translations;
-  if (defined($lang_translations)) {
-    if (scalar(@$lang_translations) > 2) {
-      $translations = $lang_translations->[2];
-    }
-    $cached_lang = $lang_translations->[0]->{'bcp47_locale'};
-  } else {
-    $cached_lang = '';
-  }
 
-  my $translation_context_str;
-  if (defined($translation_context)) {
-    $translation_context_str = $translation_context;
+  if (defined($lang_translations) and scalar(@$lang_translations) > 2) {
+    $translations = $lang_translations->[2];
   } else {
-    $translation_context_str = '';
-  }
-  my $strings_cache;
-  # use default translated string and tree cache if none was passed
-  if (!defined($translations)) {
+    if (defined($lang_translations)) {
+      # unique identifier for the language information.
+      $cached_lang = $lang_translations->[0]->{'bcp47_locale'};
+    } else {
+      $cached_lang = '';
+    }
+    # use default translated string and tree cache if none was passed
     if (!exists($Texinfo::Translations::converters_translation_cache->{
                                                          $cached_lang})) {
       $Texinfo::Translations::converters_translation_cache->{$cached_lang} = {}
     }
     $translations = $Texinfo::Translations::converters_translation_cache->{
                                                                 $cached_lang};
+    if (defined($lang_translations)) {
+      # set for the next time
+      $lang_translations->[2] = $translations;
+    }
+  }
+
+  my $translation_context_str;
+
+  if (defined($translation_context)) {
+    $translation_context_str = $translation_context;
+  } else {
+    $translation_context_str = '';
   }
 
   if (exists($translations->{$translation_context_str})) {
@@ -99,7 +107,10 @@ sub cache_translate_string($$;$) {
     $translations->{$translation_context_str} = {};
   }
 
-  $strings_cache = $translations->{$translation_context_str};
+  my $strings_cache = $translations->{$translation_context_str};
+
+  $cached_lang = $lang_translations->[0]->{'bcp47_locale'}
+    if (!defined($cached_lang));
 
   # no translation, but still needed to setup caching for the associated
   # tree

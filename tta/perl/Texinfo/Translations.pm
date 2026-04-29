@@ -506,19 +506,18 @@ our $converters_translation_cache = {};
 
 # Get document translation - handle translations of in-document strings.
 # Return a parsed Texinfo tree.
-# The LANG_TRANSLATIONS argument is an array reference with the language
-# translated to as first element, and as optional second element an hash
-# that is used to hold translations already done for that language.
-# If the language is undef or an empty string, no translation is needed.
+# The LANG_TRANSLATIONS argument holds information on the current language
+# and associated translated strings.
 # NOTE If called from a converter, the language will in general be set from
-# the document documentlanguage when it is encountered.  Before the first
-# @documentlanguage, it depends on the converter.  Some do not set
-# @documentlanguage before it is encountered, some set based on
-# @documentlanguage if in the preamble.
-# $TRANSLATED_STRING_METHOD is optional.  If set, it is called instead
-# of cache_translate_string.  $TRANSLATED_STRING_METHOD takes
-# $CUSTOMIZATION_INFORMATION as first argument in addition to other
-# cache_translate_string arguments.
+# document language related @-commands, primarily documentlanguage, when
+# encountered.  Before the first @documentlanguage, it depends on the
+# converter.  Some do not set the language before it @documentlanguage
+# encountered, some set based on @documentlanguage and other language
+# related @-commands from the preamble.
+# $TRANSLATED_STRING_METHOD is optional.  If set, it is called instead of
+# cache_translate_string.
+# $TRANSLATED_STRING_METHOD takes $CUSTOMIZATION_INFORMATION as first argument
+# in addition to other cache_translate_string arguments.
 sub gdt($;$$$$$$) {
   my ($string, $lang_translations, $replaced_substrings, $debug_level,
       $translation_context, $customization_information,
