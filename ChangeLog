@@ -1,5 +1,11 @@
 2026-04-29 Patrice Dumas  <pertusus@free.fr>
 
+	gnulib update
+
+	* tta: run "gnulib-tool --add-import".
+
+2026-04-29 Patrice Dumas  <pertusus@free.fr>
+
 	revert 2026-04-22 change of bcp47.c now fixed upstream
 
 2026-04-29 Patrice Dumas  <pertusus@free.fr>

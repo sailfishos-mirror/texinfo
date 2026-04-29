@@ -420,16 +420,19 @@ _GL_WARN_ON_USE_CXX (memchr,
 
 /* Are S1 and S2, of size N, bytewise equal?  */
 #if @GNULIB_MEMEQ@ && !@HAVE_DECL_MEMEQ@
-# ifdef __cplusplus
+# if !GNULIB_defined_memeq
+#  ifdef __cplusplus
 extern "C" {
-# endif
+#  endif
 _GL_MEMEQ_INLINE bool
 memeq (void const *__s1, void const *__s2, size_t __n)
 {
   return !memcmp (__s1, __s2, __n);
 }
-# ifdef __cplusplus
+#  ifdef __cplusplus
 }
+#  endif
+#  define GNULIB_defined_memeq 1
 # endif
 #endif
 
@@ -805,16 +808,19 @@ _GL_CXXALIASWARN (strdup);
 
 /* Are strings S1 and S2 equal?  */
 #if @GNULIB_STREQ@ && !@HAVE_DECL_STREQ@
-# ifdef __cplusplus
+# if !GNULIB_defined_streq
+#  ifdef __cplusplus
 extern "C" {
-# endif
+#  endif
 _GL_STREQ_INLINE bool
 streq (char const *__s1, char const *__s2)
 {
   return !strcmp (__s1, __s2);
 }
-# ifdef __cplusplus
+#  ifdef __cplusplus
 }
+#  endif
+#  define GNULIB_defined_streq 1
 # endif
 #endif
 
@@ -1041,7 +1047,7 @@ _GL_WARN_ON_USE_CXX (strrchr,
    If *STRINGP was already NULL, nothing happens.
    Return the old value of *STRINGP.
 
-   This is a variant of strtok() that is multithread-safe and supports
+   This is a variant of strtok() that is thread-safe and supports
    empty fields.
 
    Caveat: It modifies the original string.
@@ -1179,7 +1185,7 @@ _GL_WARN_ON_USE (strcasestr, "strcasestr does work correctly on character "
         x = strtok_r(NULL, "=", &sp);   // x = NULL
                 // s = "abc\0-def\0"
 
-   This is a variant of strtok() that is multithread-safe.
+   This is a variant of strtok() that is thread-safe.
 
    For the POSIX documentation for this function, see:
    https://pubs.opengroup.org/onlinepubs/9699919799/functions/strtok.html
@@ -1245,9 +1251,10 @@ _GL_WARN_ON_USE (strtok_r, "strtok_r is unportable - "
      string + strlen (string)
    or to
      strchr (string, '\0').  */
-# ifdef __cplusplus
+# if !GNULIB_defined_strnul
+#  ifdef __cplusplus
 extern "C" {
-# endif
+#  endif
 _GL_STRNUL_INLINE const char *_gl_strnul (const char *string)
      _GL_ATTRIBUTE_PURE
      _GL_ARG_NONNULL ((1));
@@ -1261,10 +1268,10 @@ _GL_STRNUL_INLINE const char *_gl_strnul (const char *string)
      option '-fno-builtin' is in use.  */
   return string + strlen (string);
 }
-# ifdef __cplusplus
+#  ifdef __cplusplus
 }
-# endif
-# ifdef __cplusplus
+#  endif
+#  ifdef __cplusplus
 _GL_BEGIN_NAMESPACE
 template <typename T> T strnul (T);
 template <> inline const char *strnul<const char *> (const char *s)
@@ -1272,11 +1279,11 @@ template <> inline const char *strnul<const char *> (const char *s)
 template <> inline       char *strnul<      char *> (      char *s)
 { return const_cast<char *>(_gl_strnul (s)); }
 _GL_END_NAMESPACE
-# else
-#  if (defined __GNUC__ && __GNUC__ + (__GNUC_MINOR__ >= 9) > 4 && !defined __cplusplus) \
-      || (defined __clang__ && __clang_major__ >= 3) \
-      || (defined __SUNPRO_C && __SUNPRO_C >= 0x5150) \
-      || (__STDC_VERSION__ >= 201112L && !defined __GNUC__)
+#  else
+#   if (defined __GNUC__ && __GNUC__ + (__GNUC_MINOR__ >= 9) > 4 && !defined __cplusplus) \
+       || (defined __clang__ && __clang_major__ >= 3) \
+       || (defined __SUNPRO_C && __SUNPRO_C >= 0x5150) \
+       || (__STDC_VERSION__ >= 201112L && !defined __GNUC__)
 /* The compiler supports _Generic from ISO C11.  */
 /* Since in C (but not in C++!), any function that accepts a '[const] char *'
    also accepts a '[const] void *' as argument, we make sure that the function-
@@ -1284,14 +1291,16 @@ _GL_END_NAMESPACE
      char *, void *             -> void *
      const char *, const void * -> const void *
    This mapping is done through the conditional expression.  */
-#   define strnul(s) \
-      _Generic (1 ? (s) : (void *) 99, \
-                void *       : (char *) _gl_strnul (s), \
-                const void * : _gl_strnul (s))
-#  else
-#   define strnul(s) \
-      ((char *) _gl_strnul (s))
+#    define strnul(s) \
+       _Generic (1 ? (s) : (void *) 99, \
+                 void *       : (char *) _gl_strnul (s), \
+                 const void * : _gl_strnul (s))
+#   else
+#    define strnul(s) \
+       ((char *) _gl_strnul (s))
+#   endif
 #  endif
+#  define GNULIB_defined_strnul 1
 # endif
 #endif
 
@@ -1655,7 +1664,7 @@ _GL_WARN_ON_USE (strerror, "strerror is unportable - "
                  "use gnulib module strerror to guarantee non-NULL result");
 #endif
 
-/* Map any int, typically from errno, into an error message.  Multithread-safe.
+/* Map any int, typically from errno, into an error message.  Thread-safe.
    Uses the POSIX declaration, not the glibc declaration.  */
 #if @GNULIB_STRERROR_R@
 # if @REPLACE_STRERROR_R@
@@ -1711,7 +1720,7 @@ _GL_WARN_ON_USE (strerror_l, "strerror_l is unportable - "
 # endif
 #endif
 
-/* Map any int, typically from errno, into an error message.  Multithread-safe,
+/* Map any int, typically from errno, into an error message.  Thread-safe,
    with locale_t argument.
    Not portable! Only provided by gnulib.  */
 #if @GNULIB_STRERROR_L@
