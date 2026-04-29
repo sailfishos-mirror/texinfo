@@ -69,7 +69,7 @@ cache_translate_string (string, SV *lang_translations, SV *translation_context_s
                 DOCUMENT_LANG_INFO *info = get_lang_info_hv (lang_info_hv);
                 lang_translation
                       = set_lang_info_translation (
-                                &translation_cache, info,
+                                &converters_translation_cache, info,
                                 TXI_CONVERT_STRINGS_NR);
               }
 

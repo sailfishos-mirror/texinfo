@@ -45,7 +45,7 @@ TEXT_OPTIONS *new_text_options (void);
 void destroy_text_options (TEXT_OPTIONS *text_options);
 TEXT_OPTIONS *copy_converter_options_for_convert_text (CONVERTER *self);
 
-/* only used in external interface */
+/* only externally used in SWIG interface */
 TEXT_OPTIONS *copy_options_for_convert_text (OPTIONS *options,
                                              DOCUMENT *document);
 

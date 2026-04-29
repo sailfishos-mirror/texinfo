@@ -271,7 +271,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
           DOCUMENT_LANG_INFO *info = get_lang_info_hv (lang_info_hv);
           text_options->current_lang_translations
                 = set_lang_info_translation (
-                          &translation_cache, info,
+                          &converters_translation_cache, info,
                           TXI_CONVERT_STRINGS_NR);
         }
     }

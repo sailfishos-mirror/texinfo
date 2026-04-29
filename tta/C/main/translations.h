@@ -28,7 +28,7 @@
 #define TXI_CONVERT_STRINGS_NR \
   (TXI_DOCUMENT_TRANSLATED_STRINGS_NR - TXI_PARSER_STRINGS_NR)
 
-extern LANG_TRANSLATION **translation_cache;
+extern LANG_TRANSLATION **converters_translation_cache;
 
 void set_output_strings_translate_method (int use_external_translate_string_in);
 void setup_output_strings_translations (const char *localesdir,
@@ -37,7 +37,7 @@ void setup_output_strings_translations (const char *localesdir,
 char *lang_info_bcp47_locale (const DOCUMENT_LANG_INFO *lang_info);
 const LANG_TRANSLATION *get_lang_info_translation (
                         LANG_TRANSLATION ***lang_translations_ptr,
-                        DOCUMENT_LANG_INFO *info,
+                        const DOCUMENT_LANG_INFO *info,
                         size_t cache_size);
 LANG_TRANSLATION *set_lang_info_translation (
                         LANG_TRANSLATION ***lang_translations_ptr,

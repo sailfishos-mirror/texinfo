@@ -140,7 +140,7 @@ copy_options_for_convert_text (OPTIONS *options, DOCUMENT *document)
       text_options->current_lang_translations
         = set_preamble_language_commands (
                 &document->global_info.preamble_lang_cmd,
-                &translation_cache,
+                &converters_translation_cache,
                 options->documentlanguage.o.string,
                 options->documentscript.o.string,
                 TXI_CONVERT_STRINGS_NR);

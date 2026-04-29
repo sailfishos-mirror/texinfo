@@ -1452,7 +1452,7 @@ sub _html_cache_translate_string($$$;$) {
       }
 
       my $strings_cache = $translations->{$translation_context_str};
-      if ($strings_cache) {
+      if (defined($strings_cache)) {
         my $translated_string_tree = $strings_cache->{$string};
         if (defined($translated_string_tree)) {
           if ($translated_string_tree->[0] eq $translated_string) {

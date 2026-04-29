@@ -624,7 +624,7 @@ find_lang_translation (LANG_TRANSLATION * const *lang_translations,
   return 0;
 }
 
-LANG_TRANSLATION **translation_cache;
+LANG_TRANSLATION **converters_translation_cache;
 
 static LANG_TRANSLATION *
 store_new_lang_translation (LANG_TRANSLATION *** lang_translations_ptr,
@@ -644,7 +644,7 @@ store_new_lang_translation (LANG_TRANSLATION *** lang_translations_ptr,
 
   lang_translations[idx]->translations = (LANG_TRANSLATION_TREE_LIST *)
      malloc (sizeof(LANG_TRANSLATION_TREE_LIST));
-   memset (lang_translations[idx]->translations, 0,
+  memset (lang_translations[idx]->translations, 0,
            sizeof (LANG_TRANSLATION_TREE_LIST));
 
   lang_translations[idx]->translations->hash = new_c_hashmap (cache_size);
@@ -678,10 +678,10 @@ set_lang_info_translation (LANG_TRANSLATION ***lang_translations_ptr,
                                      result);
 }
 
-/* copy info. INFO is not const because the bcp47_locale may not be set */
+/* copy info */
 const LANG_TRANSLATION *
 get_lang_info_translation (LANG_TRANSLATION ***lang_translations_ptr,
-                           DOCUMENT_LANG_INFO *info,
+                           const DOCUMENT_LANG_INFO *info,
                            size_t cache_size)
 {
   size_t i;
@@ -982,7 +982,7 @@ cache_translate_string (const char *string,
         lang_info = &unknown_lang_info;
 
       const LANG_TRANSLATION *general_lang_translation
-        = get_lang_info_translation (&translation_cache,
+        = get_lang_info_translation (&converters_translation_cache,
                                      lang_info,
                                      TXI_CONVERT_STRINGS_NR);
       translations = general_lang_translation->translations;

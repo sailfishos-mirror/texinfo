@@ -221,7 +221,8 @@ sub copy_options_for_convert_text($;$) {
     my $document_info = $converter->{'document'}->global_information();
 
     if (!exists($options{'translations'})) {
-      $options{'translations'} = $Texinfo::Translations::translation_cache;
+      $options{'translations'}
+        = $Texinfo::Translations::converters_translation_cache;
     }
 
     my $lang_translation

@@ -82,10 +82,12 @@ sub cache_translate_string($$;$) {
   my $strings_cache;
   # use default translated string and tree cache if none was passed
   if (!defined($translations)) {
-    if (!exists($Texinfo::Translations::translation_cache->{$cached_lang})) {
-      $Texinfo::Translations::translation_cache->{$cached_lang} = {}
+    if (!exists($Texinfo::Translations::converters_translation_cache->{
+                                                         $cached_lang})) {
+      $Texinfo::Translations::converters_translation_cache->{$cached_lang} = {}
     }
-    $translations = $Texinfo::Translations::translation_cache->{$cached_lang};
+    $translations = $Texinfo::Translations::converters_translation_cache->{
+                                                                $cached_lang};
   }
 
   if (exists($translations->{$translation_context_str})) {

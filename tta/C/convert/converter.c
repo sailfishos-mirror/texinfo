@@ -386,14 +386,14 @@ set_converter_init_information (CONVERTER *converter,
   if (converter->conf->documentlanguage.o.string)
     {
       converter->current_lang_translations
-       = set_translations_documentlanguage (&translation_cache,
+       = set_translations_documentlanguage (&converters_translation_cache,
                          converter->conf->documentlanguage.o.string, 0,
                             TXI_CONVERT_STRINGS_NR);
     }
   if (converter->conf->documentscript.o.string)
     {
       converter->current_lang_translations
-       = set_translations_documentscript (&translation_cache,
+       = set_translations_documentscript (&converters_translation_cache,
                          converter->conf->documentscript.o.string,
                             converter->current_lang_translations,
                             TXI_CONVERT_STRINGS_NR);
@@ -1090,7 +1090,7 @@ set_converter_preamble_language_commands (CONVERTER *self)
       self->current_lang_translations =
        set_preamble_language_commands (
                 &self->document->global_info.preamble_lang_cmd,
-                &translation_cache,
+                &converters_translation_cache,
                 self->conf->documentlanguage.o.string,
                 self->conf->documentscript.o.string,
                 TXI_CONVERT_STRINGS_NR);

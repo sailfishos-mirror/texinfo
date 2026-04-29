@@ -458,7 +458,8 @@ sub converter_set_documentlanguage($$) {
   my ($self, $documentlanguage) = @_;
 
   if (!exists($self->{'translations'})) {
-    $self->{'translations'} = $Texinfo::Translations::translation_cache;
+    $self->{'translations'}
+     = $Texinfo::Translations::converters_translation_cache;
   }
 
   my $lang_translation
@@ -474,7 +475,8 @@ sub converter_set_documentscript($$) {
   my ($self, $documentscript) = @_;
 
   if (!exists($self->{'translations'})) {
-    $self->{'translations'} = $Texinfo::Translations::translation_cache;
+    $self->{'translations'}
+      = $Texinfo::Translations::converters_translation_cache;
   }
 
   my $lang_translation
@@ -490,7 +492,8 @@ sub converter_set_documentlanguagevariant($$) {
  my ($self, $documentlanguagevariant) = @_;
 
   if (!exists($self->{'translations'})) {
-    $self->{'translations'} = $Texinfo::Translations::translation_cache;
+    $self->{'translations'}
+      = $Texinfo::Translations::converters_translation_cache;
   }
 
   my $lang_translation
@@ -516,7 +519,8 @@ sub set_converter_preamble_language_commands($) {
   my $self = shift;
 
   if (!exists($self->{'translations'})) {
-    $self->{'translations'} = $Texinfo::Translations::translation_cache;
+    $self->{'translations'}
+     = $Texinfo::Translations::converters_translation_cache;
   }
 
   # For now, the method is called at the beginning of output, so this

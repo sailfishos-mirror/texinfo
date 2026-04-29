@@ -4255,19 +4255,20 @@ html_setup_output (CONVERTER *self, char **paths)
   if (strcmp (default_bcp47_locale, preamble_bcp47_locale))
     {
       self->current_lang_translations =
-        set_translations_documentlanguage (&translation_cache,
+        set_translations_documentlanguage (&converters_translation_cache,
                               self->conf->documentlanguage.o.string,
                               self->current_lang_translations,
                               TXI_CONVERT_STRINGS_NR);
 
      self->current_lang_translations =
-        set_translations_documentscript (&translation_cache,
+        set_translations_documentscript (&converters_translation_cache,
                               self->conf->documentscript.o.string,
                               self->current_lang_translations,
                               TXI_CONVERT_STRINGS_NR);
 
       self->current_lang_translations =
-        set_translations_documentlanguagevariant (&translation_cache,
+        set_translations_documentlanguagevariant (
+                              &converters_translation_cache,
                               &empty_string_list,
                               self->current_lang_translations,
                               TXI_CONVERT_STRINGS_NR);

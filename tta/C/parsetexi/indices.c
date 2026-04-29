@@ -380,7 +380,7 @@ resolve_indices_merged_in (const INDEX_LIST *indices_info)
     }
 }
 
-static LANG_TRANSLATION **lang_translations;
+static LANG_TRANSLATION **parser_translation_cache;
 
 static void
 remove_def_types (ELEMENT *element)
@@ -471,7 +471,8 @@ complete_indices (DOCUMENT *document, int debug_level)
                       if (lang_info)
                         {
                           element_lang_translations
-                            = set_lang_info_translation (&lang_translations,
+                            = set_lang_info_translation (
+                                                   &parser_translation_cache,
                                                    lang_info,
                                                    TXI_PARSER_STRINGS_NR);
                         }

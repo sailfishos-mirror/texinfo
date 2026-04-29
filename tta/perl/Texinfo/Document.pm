@@ -248,8 +248,9 @@ sub remove_document_references($;$) {
     #if (1) {
     if (0) {
       foreach my $lang (sort(keys(
-                         %{$Texinfo::Translations::translation_cache}))) {
-        my $lang_cache = $Texinfo::Translations::translation_cache->{$lang};
+                 %{$Texinfo::Translations::converters_translation_cache}))) {
+        my $lang_cache
+           = $Texinfo::Translations::converters_translation_cache->{$lang};
         foreach my $string (sort(keys(%$lang_cache))) {
           foreach my $context (sort(keys(%{$lang_cache->{$string}}))) {
             my ($translation, $trans_tree)

@@ -502,7 +502,7 @@ sub set_preamble_language_commands($$$$) {
 
 # Cache translations in a hash to avoid having to go through the locale
 # system rigmarole every time.
-our $translation_cache = {};
+our $converters_translation_cache = {};
 
 # Get document translation - handle translations of in-document strings.
 # Return a parsed Texinfo tree.
@@ -713,7 +713,7 @@ sub pgdt($$;$$$$$) {
              $translate_string_method);
 }
 
-my $lang_translations_cache = {};
+my $parser_translation_cache = {};
 
 my %indices_lang_translations;
 
@@ -797,11 +797,11 @@ sub complete_indices($;$$) {
               if (!exists($indices_lang_translations{$lang_locale})) {
                 $element_lang_translations
                   = _new_lang_info_translation($lang_info);
-                if (!exists($lang_translations_cache->{$lang_locale})) {
-                  $lang_translations_cache->{$lang_locale} = {};
+                if (!exists($parser_translation_cache->{$lang_locale})) {
+                  $parser_translation_cache->{$lang_locale} = {};
                 }
                 $element_lang_translations->[2]
-                  = $lang_translations_cache->{$lang_locale};
+                  = $parser_translation_cache->{$lang_locale};
                 $indices_lang_translations{$lang_locale}
                   = $element_lang_translations;
               } else {

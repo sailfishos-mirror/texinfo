@@ -1305,7 +1305,7 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
          or in init files set by set_document_options */
       lang_translation = set_preamble_language_commands (
                     &document->global_info.preamble_lang_cmd,
-                    &translation_cache,
+                    &converters_translation_cache,
                     options->documentlanguage.o.string,
                     options->documentscript.o.string,
                     TXI_CONVERT_STRINGS_NR);
@@ -1373,7 +1373,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   if (document->options)
     lang_translation = set_preamble_language_commands (
                     &document->global_info.preamble_lang_cmd,
-                    &translation_cache,
+                    &converters_translation_cache,
                     document->options->documentlanguage.o.string,
                     document->options->documentscript.o.string,
                     TXI_CONVERT_STRINGS_NR);

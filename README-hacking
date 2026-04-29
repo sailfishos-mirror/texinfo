@@ -466,6 +466,8 @@ different versions of Perl:
 make po-check             # update po/POTFILES.in as needed
 make po_document-check    # update po_document/POTFILES.in as needed
 
+Update TXI_DOCUMENT_TRANSLATED_STRINGS_NR in tta/C/main/translations.h
+
 check indices of Texinfo manuals and check for duplicates (with <1> in Info)
 
 Check "make ccheck" and "make vcheck" work in "doc".

@@ -1179,19 +1179,20 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
   if (strcmp (default_bcp47_locale, preamble_bcp47_locale))
     {
       self->current_lang_translations =
-        set_translations_documentlanguage (&translation_cache,
+        set_translations_documentlanguage (&converters_translation_cache,
                               self->conf->documentlanguage.o.string,
                               self->current_lang_translations,
                               TXI_CONVERT_STRINGS_NR);
 
      self->current_lang_translations =
-        set_translations_documentscript (&translation_cache,
+        set_translations_documentscript (&converters_translation_cache,
                               self->conf->documentscript.o.string,
                               self->current_lang_translations,
                               TXI_CONVERT_STRINGS_NR);
 
       self->current_lang_translations =
-        set_translations_documentlanguagevariant (&translation_cache,
+        set_translations_documentlanguagevariant (
+                              &converters_translation_cache,
                               &empty_string_list,
                               self->current_lang_translations,
                               TXI_CONVERT_STRINGS_NR);
@@ -1722,7 +1723,8 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
           if (cmd == CM_documentlanguage)
             {
               self->current_lang_translations =
-                 set_translations_documentlanguage (&translation_cache,
+                 set_translations_documentlanguage (
+                              &converters_translation_cache,
                               self->conf->documentlanguage.o.string,
                               self->current_lang_translations,
                               TXI_CONVERT_STRINGS_NR);
@@ -1732,7 +1734,8 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
           else if (cmd == CM_documentscript)
             {
               self->current_lang_translations =
-                 set_translations_documentscript (&translation_cache,
+                 set_translations_documentscript (
+                              &converters_translation_cache,
                               self->conf->documentscript.o.string,
                               self->current_lang_translations,
                               TXI_CONVERT_STRINGS_NR);
@@ -1744,7 +1747,8 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
               STRING_LIST *language_variants
                 = documentlanguagevariant_variants (element);
               self->current_lang_translations =
-               set_translations_documentlanguagevariant (&translation_cache,
+               set_translations_documentlanguagevariant (
+                              &converters_translation_cache,
                               language_variants,
                               self->current_lang_translations,
                               TXI_CONVERT_STRINGS_NR);

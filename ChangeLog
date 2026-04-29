@@ -1,3 +1,17 @@
+2026-04-29 Patrice Dumas  <pertusus@free.fr>
+
+	* README-hacking: add a note to update TXI_DOCUMENT_TRANSLATED_STRINGS_NR
+
+	* tta/C/main/translations.c (converters_translation_cache),
+	tta/C/parsetexi/indices.c (parser_translation_cache),
+	tta/perl/Texinfo/Translations.pm ($converters_translation_cache)
+	($parser_translation_cache): rename translation_cache as
+	converters_translation_cache and
+	lang_translations_cache/lang_translations as parser_translation_cache.
+	Update users
+
+	* tta/C/main/translations.c (get_lang_info_translation): add const.
+
 2026-04-28 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/Text.pm (copy_options_for_convert_text)
