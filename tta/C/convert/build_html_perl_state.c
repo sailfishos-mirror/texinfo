@@ -59,7 +59,6 @@ set_perl_lang_translations (HV *converter_hv, CONVERTER *converter)
 {
   SV *translations;
   SV *bcp47_locale_sv;
-  SV **translations_sv;
   HV *translations_hv;
   HE *translations_lang_he;
   HV *translations_lang_hv;
@@ -79,19 +78,8 @@ set_perl_lang_translations (HV *converter_hv, CONVERTER *converter)
 
   lang_info_hv = build_lang_info (lang_info);
 
-  FETCH(translations);
-
-  if (!translations_sv || !SvOK (*translations_sv))
-    {
-      translations = get_sv ("Texinfo::Translations::translation_cache",
-                             0);
-      hv_store (converter_hv, "translations", strlen ("translations"),
-                newSVsv (translations), 0);
-    }
-  else
-    {
-      translations = *translations_sv;
-    }
+  translations
+    = get_sv ("Texinfo::Translations::converters_translation_cache", 0);
 
   bcp47_locale_sv = newSVpv_byte (lang_info->bcp47_locale, 0);
 

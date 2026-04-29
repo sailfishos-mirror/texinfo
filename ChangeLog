@@ -1,5 +1,11 @@
 2026-04-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/build_html_perl_state.c (set_perl_lang_translations):
+	update for the changes in Perl code, by using converters_translation_cache
+	directly.
+
+2026-04-29 Patrice Dumas  <pertusus@free.fr>
+
 	gnulib update
 
 	* tta: run "gnulib-tool --add-import".
