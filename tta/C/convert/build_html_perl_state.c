@@ -78,9 +78,6 @@ set_perl_lang_translations (HV *converter_hv, CONVERTER *converter)
   av_push (current_lang_translations_av,
            newRV_noinc ((SV *) lang_info_hv));
 
-  av_push (current_lang_translations_av,
-           newSVpv_byte (lang_translation->language_env, 0));
-
   hv_store (converter_hv, lang_trans_key, strlen (lang_trans_key),
             newRV_noinc ((SV *) current_lang_translations_av), 0);
 }
