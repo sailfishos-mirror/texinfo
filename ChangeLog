@@ -1,5 +1,15 @@
 2026-04-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (converter_perl_release)
+	(converter_set_documentlanguage, converter_set_documentscript)
+	(converter_set_documentlanguagevariant)
+	(set_converter_preamble_language_commands),
+	tta/perl/Texinfo/Convert/Text.pm (copy_options_for_convert_text): do
+	not add a 'translations' state in converters, pass directly
+	$Texinfo::Translations::converters_translation_cache argument.
+
+2026-04-29 Patrice Dumas  <pertusus@free.fr>
+
 	* README-hacking: add a note to update TXI_DOCUMENT_TRANSLATED_STRINGS_NR
 
 	* tta/C/main/translations.c (converters_translation_cache),

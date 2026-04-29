@@ -404,7 +404,6 @@ sub converter_perl_release($) {
   if (exists($self->{'convert_text_options'})) {
     delete $self->{'convert_text_options'}->{'converter'};
     # common translations cache
-    delete $self->{'convert_text_options'}->{'translations'};
     delete $self->{'convert_text_options'}->{'current_lang_translations'};
   }
 
@@ -413,7 +412,6 @@ sub converter_perl_release($) {
   }
 
   # common translations cache
-  delete $self->{'translations'};
   delete $self->{'current_lang_translations'};
 }
 
@@ -457,14 +455,10 @@ sub pcdt($$;$$) {
 sub converter_set_documentlanguage($$) {
   my ($self, $documentlanguage) = @_;
 
-  if (!exists($self->{'translations'})) {
-    $self->{'translations'}
-     = $Texinfo::Translations::converters_translation_cache;
-  }
-
   my $lang_translation
     = Texinfo::Translations::set_translations_documentlanguage(
-         $self->{'translations'}, $documentlanguage,
+         $Texinfo::Translations::converters_translation_cache,
+         $documentlanguage,
          $self->{'current_lang_translations'});
 
   $self->{'current_lang_translations'} = $lang_translation
@@ -474,14 +468,10 @@ sub converter_set_documentlanguage($$) {
 sub converter_set_documentscript($$) {
   my ($self, $documentscript) = @_;
 
-  if (!exists($self->{'translations'})) {
-    $self->{'translations'}
-      = $Texinfo::Translations::converters_translation_cache;
-  }
-
   my $lang_translation
     = Texinfo::Translations::set_translations_documentscript(
-         $self->{'translations'}, $documentscript,
+         $Texinfo::Translations::converters_translation_cache,
+         $documentscript,
          $self->{'current_lang_translations'});
 
   $self->{'current_lang_translations'} = $lang_translation
@@ -491,14 +481,10 @@ sub converter_set_documentscript($$) {
 sub converter_set_documentlanguagevariant($$) {
  my ($self, $documentlanguagevariant) = @_;
 
-  if (!exists($self->{'translations'})) {
-    $self->{'translations'}
-      = $Texinfo::Translations::converters_translation_cache;
-  }
-
   my $lang_translation
     = Texinfo::Translations::set_translations_documentlanguagevariant(
-         $self->{'translations'}, $documentlanguagevariant,
+         $Texinfo::Translations::converters_translation_cache,
+         $documentlanguagevariant,
          $self->{'current_lang_translations'});
 
   $self->{'current_lang_translations'} = $lang_translation
@@ -518,11 +504,6 @@ sub current_bcp47_locale($) {
 sub set_converter_preamble_language_commands($) {
   my $self = shift;
 
-  if (!exists($self->{'translations'})) {
-    $self->{'translations'}
-     = $Texinfo::Translations::converters_translation_cache;
-  }
-
   # For now, the method is called at the beginning of output, so this
   # is not needed.  However, it is more consistent to do it
   # anyway
@@ -534,7 +515,8 @@ sub set_converter_preamble_language_commands($) {
 
     my $lang_translation
         = Texinfo::Translations::set_preamble_language_commands(
-           $document_info->{'preamble_lang_cmd'}, $self->{'translations'},
+           $document_info->{'preamble_lang_cmd'},
+           $Texinfo::Translations::converters_translation_cache,
            $self->get_conf('documentlanguage'),
            $self->get_conf('documentscript'));
 

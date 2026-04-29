@@ -220,14 +220,10 @@ sub copy_options_for_convert_text($;$) {
   if (exists($converter->{'document'})) {
     my $document_info = $converter->{'document'}->global_information();
 
-    if (!exists($options{'translations'})) {
-      $options{'translations'}
-        = $Texinfo::Translations::converters_translation_cache;
-    }
-
     my $lang_translation
         = Texinfo::Translations::set_preamble_language_commands(
-           $document_info->{'preamble_lang_cmd'}, $options{'translations'},
+           $document_info->{'preamble_lang_cmd'},
+           $Texinfo::Translations::converters_translation_cache,
            $converter->get_conf('documentlanguage'),
            $converter->get_conf('documentscript'));
 
