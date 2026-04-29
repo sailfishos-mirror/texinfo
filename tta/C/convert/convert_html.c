@@ -147,7 +147,7 @@ static DOCUMENT_LANG_INFO unknown_lang_info = {"", 0, 0, 0, {0, 0, 0}};
    converter translations cache for user-defined translations */
 static TRANSLATION_TREE *
 html_cache_translate_string (CONVERTER *self, const char *string,
-                             LANG_TRANSLATION *lang_translation,
+                             const LANG_TRANSLATION *lang_translation,
                              const char *translation_context)
 {
   char *translated_string;
@@ -223,7 +223,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
    cache_translate_string */
 ELEMENT *
 html_gdt_tree (const char *string, CONVERTER *self,
-               LANG_TRANSLATION *lang_translation,
+               const LANG_TRANSLATION *lang_translation,
                NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                const char *translation_context)
 {

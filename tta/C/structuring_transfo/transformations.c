@@ -1296,7 +1296,7 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
   const OPTIONS *options = document->options;
   NODE_RELATIONS_LIST *non_automatic_nodes
      = get_non_automatic_nodes_with_sections (document);
-  LANG_TRANSLATION *lang_translation = 0;
+  const LANG_TRANSLATION *lang_translation = 0;
   int debug_level = 0;
 
   if (options)
@@ -1354,7 +1354,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   const ELEMENT *last_content;
   size_t i;
   size_t index;
-  LANG_TRANSLATION *lang_translation = 0;
+  const LANG_TRANSLATION *lang_translation = 0;
 
   if (top_node)
     {

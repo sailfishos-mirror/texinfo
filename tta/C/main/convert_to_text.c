@@ -391,7 +391,7 @@ static const char *underline_symbol[5] = {"*", "*", "=", "-", "."};
 /* return to be freed by caller */
 static char *
 text_heading (const ELEMENT *current, const char *text,
-              int numbered, LANG_TRANSLATION *lang_translation)
+              int numbered, const LANG_TRANSLATION *lang_translation)
 {
   int i;
   TEXT result;

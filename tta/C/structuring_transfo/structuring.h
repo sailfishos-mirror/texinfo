@@ -22,18 +22,18 @@ ELEMENT *new_node_menu_entry (const NODE_RELATIONS *node_relations,
                               int use_sections);
 ELEMENT *new_complete_node_menu (const NODE_RELATIONS *node_relations,
                         DOCUMENT *document,
-                        LANG_TRANSLATION *lang_translations,
+                        const LANG_TRANSLATION *lang_translations,
                         int debug_level, int use_sections);
 void new_block_command (ELEMENT *element);
 ELEMENT *new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                 const OPTIONS *options,
-                LANG_TRANSLATION *lang_translation,
+                const LANG_TRANSLATION *lang_translation,
                 const C_HASHMAP *identifiers_target,
                 const NODE_RELATIONS_LIST *nodes_list,
                 const CONST_ELEMENT_LIST *menus, int use_sections);
 ELEMENT *new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
                                const OPTIONS *options,
-                               LANG_TRANSLATION *lang_translations,
+                               const LANG_TRANSLATION *lang_translations,
                                const C_HASHMAP *identifiers_target,
                                const NODE_RELATIONS_LIST *nodes_list,
                                const NODE_RELATIONS *node_relations);

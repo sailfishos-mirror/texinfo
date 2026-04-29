@@ -39,7 +39,7 @@ const LANG_TRANSLATION *get_lang_info_translation (
                         LANG_TRANSLATION ***lang_translations_ptr,
                         const DOCUMENT_LANG_INFO *info,
                         size_t cache_size);
-LANG_TRANSLATION *set_lang_info_translation (
+const LANG_TRANSLATION *set_lang_info_translation (
                         LANG_TRANSLATION ***lang_translations_ptr,
                         DOCUMENT_LANG_INFO *info,
                         size_t cache_size);
@@ -57,22 +57,22 @@ TRANSLATION_TREE *add_translation_tree (
 void destroy_document_lang_info (DOCUMENT_LANG_INFO *lang_info);
 void free_lang_translation (LANG_TRANSLATION *lang_translation);
 void free_translation_cache (LANG_TRANSLATION **translation_cache);
-LANG_TRANSLATION *set_translations_documentlanguage (
+const LANG_TRANSLATION *set_translations_documentlanguage (
                                    LANG_TRANSLATION ***lang_translations,
                                    const char *documentlanguage,
-                                   LANG_TRANSLATION *current_lang_translations,
+                                   const LANG_TRANSLATION *current_lang_translations,
                                    size_t cache_size);
-LANG_TRANSLATION *set_translations_documentscript (
+const LANG_TRANSLATION *set_translations_documentscript (
                                  LANG_TRANSLATION ***lang_translations,
                                  const char *documentscript,
-                                 LANG_TRANSLATION *current_lang_translations,
+                                 const LANG_TRANSLATION *current_lang_translations,
                                  size_t cache_size);
-LANG_TRANSLATION *set_translations_documentlanguagevariant (
+const LANG_TRANSLATION *set_translations_documentlanguagevariant (
                                  LANG_TRANSLATION ***lang_translations,
                                  const STRING_LIST *documentlanguagevariant,
-                                 LANG_TRANSLATION *current_lang_translations,
+                                 const LANG_TRANSLATION *current_lang_translations,
                                  size_t cache_size);
-LANG_TRANSLATION *set_preamble_language_commands (
+const LANG_TRANSLATION *set_preamble_language_commands (
                                 PREAMBLE_LANG_CMD_LIST *preamble_lang,
                                 LANG_TRANSLATION ***lang_translations,
                                 const char *documentlanguage,
@@ -81,7 +81,7 @@ LANG_TRANSLATION *set_preamble_language_commands (
 char *translate_string (const char *string, const char *language_env,
                         const char *translation_context);
 TRANSLATION_TREE *cache_translate_string (const char *string,
-                        LANG_TRANSLATION *lang_translation,
+                        const LANG_TRANSLATION *lang_translation,
                         const char *translation_context);
 DOCUMENT *replace_convert_substrings (const char *translated_string,
                           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -92,18 +92,18 @@ char *replace_substrings (const char *string,
                     const NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 
 ELEMENT *gdt_tree (const char *string, DOCUMENT *document,
-                   LANG_TRANSLATION *lang_translation,
+                   const LANG_TRANSLATION *lang_translation,
                    NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                    int debug_level, const char *translation_context);
 
 char *gdt_string (const char *string,
-                  LANG_TRANSLATION *lang_translation,
+                  const LANG_TRANSLATION *lang_translation,
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                   const char *translation_context);
 
 ELEMENT *pgdt_tree (const char *translation_context, const char *string,
                     DOCUMENT *document,
-                    LANG_TRANSLATION *lang_translation,
+                    const LANG_TRANSLATION *lang_translation,
                     NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                     int debug_level);
 

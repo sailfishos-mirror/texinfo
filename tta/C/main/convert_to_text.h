@@ -31,7 +31,7 @@ typedef struct TEXT_OPTIONS {
     ERROR_MESSAGE_LIST error_messages; /* used if there is a Perl text
                               converter, XS is used and there is no C
                               converter */
-    LANG_TRANSLATION *current_lang_translations;
+    const LANG_TRANSLATION *current_lang_translations;
     DOCUMENT *document;
 } TEXT_OPTIONS;
 

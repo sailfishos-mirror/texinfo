@@ -58,7 +58,7 @@ static void
 set_perl_lang_translations (HV *converter_hv, CONVERTER *converter)
 {
   AV *current_lang_translations_av;
-  LANG_TRANSLATION *lang_translation;
+  const LANG_TRANSLATION *lang_translation;
   DOCUMENT_LANG_INFO *lang_info;
   HV *lang_info_hv;
 

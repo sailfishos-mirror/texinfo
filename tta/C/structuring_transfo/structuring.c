@@ -2287,7 +2287,7 @@ insert_menu_comment_content (ELEMENT_LIST *element_list, size_t position,
 ELEMENT *
 new_complete_node_menu (const NODE_RELATIONS *node_relations,
                         DOCUMENT *document,
-                        LANG_TRANSLATION *lang_translations,
+                        const LANG_TRANSLATION *lang_translations,
                         int debug_level, int use_sections)
 {
   CONST_NODE_RELATIONS_LIST *node_childs
@@ -2614,7 +2614,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
 ELEMENT *
 new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                 const OPTIONS *options,
-                LANG_TRANSLATION *lang_translation,
+                const LANG_TRANSLATION *lang_translation,
                 const C_HASHMAP *identifiers_target,
                 const NODE_RELATIONS_LIST *nodes_list,
                 const CONST_ELEMENT_LIST *menus, int use_sections)
@@ -2715,7 +2715,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
 ELEMENT *
 new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
                                const OPTIONS *options,
-                               LANG_TRANSLATION *lang_translations,
+                               const LANG_TRANSLATION *lang_translations,
                                const C_HASHMAP *identifiers_target,
                                const NODE_RELATIONS_LIST *nodes_list,
                                const NODE_RELATIONS *node_relations)

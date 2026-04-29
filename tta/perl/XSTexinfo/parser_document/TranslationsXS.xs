@@ -57,16 +57,17 @@ cache_translate_string (string, SV *lang_translations, SV *translation_context_s
      CODE:
         if (SvOK (lang_translations))
           {
+            const char *translated_context_string = 0;
+            const LANG_TRANSLATION *lang_translation = 0;
+
             AV *lang_translations_av = (AV *) SvRV (lang_translations);
             SV **lang_info_sv = av_fetch (lang_translations_av, 0, 0);
-
-            const char *translated_context_string = 0;
-            LANG_TRANSLATION *lang_translation = 0;
 
             if (lang_info_sv && SvOK (*lang_info_sv))
               {
                 HV *lang_info_hv = (HV *) SvRV (*lang_info_sv);
                 DOCUMENT_LANG_INFO *info = get_lang_info_hv (lang_info_hv);
+
                 lang_translation
                       = set_lang_info_translation (
                                 &converters_translation_cache, info,
@@ -76,6 +77,7 @@ cache_translate_string (string, SV *lang_translations, SV *translation_context_s
             if (lang_translation)
               {
                 const TRANSLATION_TREE *translation_cache_result;
+
                 if (translation_context_sv
                     && SvOK (translation_context_sv))
                   translated_context_string

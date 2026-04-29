@@ -448,7 +448,7 @@ complete_indices (DOCUMENT *document, int debug_level)
 
                   if (name && class)
                     {
-                      LANG_TRANSLATION *element_lang_translations = 0;
+                      const LANG_TRANSLATION *element_lang_translations = 0;
                       ELEMENT *index_entry;
                   /* container without type in extra "def_index_ref_element" */
                       ELEMENT *index_entry_normalized = new_element (ET_NONE);

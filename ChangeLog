@@ -1,5 +1,9 @@
 2026-04-29 Patrice Dumas  <pertusus@free.fr>
 
+	add const for current lang translation in argument and return
+
+2026-04-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/build_html_perl_state.c (set_perl_lang_translations):
 	do not pass translations at all, it is not needed as
 	cache_translate_string is overriden.
