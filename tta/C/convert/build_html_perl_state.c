@@ -57,11 +57,6 @@ static const char *lang_trans_key = "current_lang_translations";
 static void
 set_perl_lang_translations (HV *converter_hv, CONVERTER *converter)
 {
-  SV *translations;
-  SV *bcp47_locale_sv;
-  HV *translations_hv;
-  HE *translations_lang_he;
-  HV *translations_lang_hv;
   AV *current_lang_translations_av;
   LANG_TRANSLATION *lang_translation;
   DOCUMENT_LANG_INFO *lang_info;
@@ -78,23 +73,6 @@ set_perl_lang_translations (HV *converter_hv, CONVERTER *converter)
 
   lang_info_hv = build_lang_info (lang_info);
 
-  translations
-    = get_sv ("Texinfo::Translations::converters_translation_cache", 0);
-
-  bcp47_locale_sv = newSVpv_byte (lang_info->bcp47_locale, 0);
-
-  translations_hv = (HV *)SvRV (translations);
-  translations_lang_he = hv_fetch_ent (translations_hv, bcp47_locale_sv,
-                                       0, 0);
-  if (!translations_lang_he)
-    {
-      translations_lang_hv = newHV ();
-      hv_store_ent (translations_hv, bcp47_locale_sv,
-                    newRV_noinc ((SV *)translations_lang_hv), 0);
-    }
-  else
-    translations_lang_hv = (HV *)SvRV (HeVAL (translations_lang_he));
-
   current_lang_translations_av = newAV ();
 
   av_push (current_lang_translations_av,
@@ -102,9 +80,6 @@ set_perl_lang_translations (HV *converter_hv, CONVERTER *converter)
 
   av_push (current_lang_translations_av,
            newSVpv_byte (lang_translation->language_env, 0));
-
-  av_push (current_lang_translations_av,
-           newRV_inc ((SV *) translations_lang_hv));
 
   hv_store (converter_hv, lang_trans_key, strlen (lang_trans_key),
             newRV_noinc ((SV *) current_lang_translations_av), 0);
