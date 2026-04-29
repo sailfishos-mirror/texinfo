@@ -53,35 +53,6 @@
 static const char *lang_trans_key = "current_lang_translations";
 
 #define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
-/* initialize 'translations' and pass current_lang_translations */
-static void
-set_perl_lang_translations (HV *converter_hv, CONVERTER *converter)
-{
-  AV *current_lang_translations_av;
-  const LANG_TRANSLATION *lang_translation;
-  DOCUMENT_LANG_INFO *lang_info;
-  HV *lang_info_hv;
-
-  dTHX;
-
-  lang_translation = converter->current_lang_translations;
-
-  if (!lang_translation)
-    return;
-
-  lang_info = lang_translation->info;
-
-  lang_info_hv = build_lang_info (lang_info);
-
-  current_lang_translations_av = newAV ();
-
-  av_push (current_lang_translations_av,
-           newRV_noinc ((SV *) lang_info_hv));
-
-  hv_store (converter_hv, lang_trans_key, strlen (lang_trans_key),
-            newRV_noinc ((SV *) current_lang_translations_av), 0);
-}
-
 /* TODO should set the same as
    Texinfo::Convert::HTMLNonXS::_translate_names */
 static void
@@ -91,7 +62,19 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
 
   dTHX;
 
-  set_perl_lang_translations (converter_hv, converter);
+  /* pass current_lang_translations lang info */
+  if (converter->current_lang_translations)
+    {
+      AV *current_lang_translations_av = newAV ();
+      HV *lang_info_hv
+        = build_lang_info (converter->current_lang_translations->info);
+
+      av_push (current_lang_translations_av,
+               newRV_noinc ((SV *) lang_info_hv));
+
+      hv_store (converter_hv, lang_trans_key, strlen (lang_trans_key),
+                newRV_noinc ((SV *) current_lang_translations_av), 0);
+    }
 
   /* pass all the information for each context for translated commands */
   if (converter->no_arg_formatted_cmd_translated.number)
