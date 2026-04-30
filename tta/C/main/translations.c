@@ -446,71 +446,6 @@ init_lang_translation (LANG_TRANSLATION *lang_translation)
   lang_translation->translations = 0;
 }
 
-static DOCUMENT_LANG_INFO *
-new_lang_info (const char *documentlanguage, const char *documentscript,
-               const STRING_LIST *variants)
-{
-  int lang_is_valid;
-  int region_is_valid;
-  char *region_code;
-  DOCUMENT_LANG_INFO *lang_info;
-
-  char *lang = analyze_documentlanguage_argument (documentlanguage,
-                                          &region_code,
-                                          &lang_is_valid, &region_is_valid);
-  if (!lang)
-    return NULL;
-
-  lang_info = (DOCUMENT_LANG_INFO *) malloc (sizeof (DOCUMENT_LANG_INFO));
-  memset (lang_info, 0, sizeof (DOCUMENT_LANG_INFO));
-
-  lang_info->lang = lang;
-  if (region_code)
-    lang_info->region = region_code;
-
-  if (documentscript)
-    {
-      int script_is_valid;
-      const char *script = analyze_documentscript_argument (documentscript,
-                                                         &script_is_valid);
-      if (script && strcmp (script, ""))
-        lang_info->script = strdup (script);
-    }
-
-  if (variants)
-    copy_strings (&lang_info->variants, variants);
-
-  lang_info->bcp47_locale = lang_info_bcp47_locale (lang_info);
-
-  return lang_info;
-}
-
-const LANG_TRANSLATION *
-new_element_language_translation (LANG_TRANSLATION ***lang_translations_ptr,
-                                  const ELEMENT *element,
-                                  size_t cache_size)
-{
-  const char *documentlanguage
-    = lookup_extra_string (element, AI_key_documentlanguage);
-
-  if (!documentlanguage)
-    return NULL;
-
-  const char *documentscript
-    = lookup_extra_string (element, AI_key_documentscript);
-  const STRING_LIST *language_variants
-    = lookup_extra_string_list (element, AI_key_documentlanguagevariant);
-
-  DOCUMENT_LANG_INFO *lang_info
-    = new_lang_info (documentlanguage, documentscript, language_variants);
-
-  if (!lang_info)
-    return NULL;
-
-  return set_lang_info_translation (lang_translations_ptr, lang_info,
-                                    cache_size);
-}
-
 static LANG_TRANSLATION *
 new_copy_translation (const DOCUMENT_LANG_INFO *lang_info)
 {
@@ -653,6 +588,71 @@ set_lang_info_translation (LANG_TRANSLATION ***lang_translations_ptr,
 
   return store_new_lang_translation (lang_translations_ptr, i, cache_size,
                                      result);
+}
+
+static DOCUMENT_LANG_INFO *
+new_lang_info (const char *documentlanguage, const char *documentscript,
+               const STRING_LIST *variants)
+{
+  int lang_is_valid;
+  int region_is_valid;
+  char *region_code;
+  DOCUMENT_LANG_INFO *lang_info;
+
+  char *lang = analyze_documentlanguage_argument (documentlanguage,
+                                          &region_code,
+                                          &lang_is_valid, &region_is_valid);
+  if (!lang)
+    return NULL;
+
+  lang_info = (DOCUMENT_LANG_INFO *) malloc (sizeof (DOCUMENT_LANG_INFO));
+  memset (lang_info, 0, sizeof (DOCUMENT_LANG_INFO));
+
+  lang_info->lang = lang;
+  if (region_code)
+    lang_info->region = region_code;
+
+  if (documentscript)
+    {
+      int script_is_valid;
+      const char *script = analyze_documentscript_argument (documentscript,
+                                                         &script_is_valid);
+      if (script && strcmp (script, ""))
+        lang_info->script = strdup (script);
+    }
+
+  if (variants)
+    copy_strings (&lang_info->variants, variants);
+
+  lang_info->bcp47_locale = lang_info_bcp47_locale (lang_info);
+
+  return lang_info;
+}
+
+const LANG_TRANSLATION *
+new_element_language_translation (LANG_TRANSLATION ***lang_translations_ptr,
+                                  const ELEMENT *element,
+                                  size_t cache_size)
+{
+  const char *documentlanguage
+    = lookup_extra_string (element, AI_key_documentlanguage);
+
+  if (!documentlanguage)
+    return NULL;
+
+  const char *documentscript
+    = lookup_extra_string (element, AI_key_documentscript);
+  const STRING_LIST *language_variants
+    = lookup_extra_string_list (element, AI_key_documentlanguagevariant);
+
+  DOCUMENT_LANG_INFO *lang_info
+    = new_lang_info (documentlanguage, documentscript, language_variants);
+
+  if (!lang_info)
+    return NULL;
+
+  return set_lang_info_translation (lang_translations_ptr, lang_info,
+                                    cache_size);
 }
 
 /* copy info */
@@ -888,7 +888,7 @@ set_preamble_language_commands (PREAMBLE_LANG_CMD_LIST *preamble_lang,
   return cur_lang_trans;
 }
 
-TRANSLATION_TREE *
+static TRANSLATION_TREE *
 new_translation_tree (const char *translated)
 {
   TRANSLATION_TREE *result = (TRANSLATION_TREE *) malloc

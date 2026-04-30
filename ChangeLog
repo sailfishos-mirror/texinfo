@@ -1,5 +1,9 @@
 2026-04-30 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/translations.c: move code around.
+
+2026-04-30 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/translations.c (new_element_language_translation): add
 	lang translation cache arguments, such that they are always set by the
 	callers, call set_lang_info_translation.  Update callers.
