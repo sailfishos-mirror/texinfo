@@ -140,8 +140,7 @@ html_custom_translate_string (CONVERTER *self, const char *string,
   return 0;
 }
 
-/* actually const, because bcp47_locale is set */
-static DOCUMENT_LANG_INFO unknown_lang_info = {"", 0, 0, 0, {0, 0, 0}};
+static const DOCUMENT_LANG_INFO unknown_lang_info = {"", 0, 0, 0, {0, 0, 0}};
 
 /* Same as translations.c cache_translate_string, but using the
    converter translations cache for user-defined translations */
@@ -151,7 +150,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
                              const char *translation_context)
 {
   char *translated_string;
-  DOCUMENT_LANG_INFO *lang_info;
+  const DOCUMENT_LANG_INFO *lang_info;
 
   if (lang_translation)
     lang_info = lang_translation->info;

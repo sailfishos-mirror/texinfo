@@ -448,7 +448,7 @@ complete_indices (DOCUMENT *document, int debug_level)
 
                   if (name && class)
                     {
-                      const LANG_TRANSLATION *element_lang_translations = 0;
+                      const LANG_TRANSLATION *element_lang_translations;
                       ELEMENT *index_entry;
                   /* container without type in extra "def_index_ref_element" */
                       ELEMENT *index_entry_normalized = new_element (ET_NONE);
@@ -466,16 +466,10 @@ complete_indices (DOCUMENT *document, int debug_level)
                       ELEMENT *ref_class_copy = copy_element_tree (class, 0);
                       remove_def_types (ref_class_copy);
 
-                      DOCUMENT_LANG_INFO *lang_info
-                       = new_element_lang_info (main_entry_element);
-                      if (lang_info)
-                        {
-                          element_lang_translations
-                            = set_lang_info_translation (
-                                                   &parser_translation_cache,
-                                                   lang_info,
-                                                   TXI_PARSER_STRINGS_NR);
-                        }
+                      element_lang_translations
+                        = new_element_language_translation (
+                           &parser_translation_cache, main_entry_element,
+                           TXI_PARSER_STRINGS_NR);
 
                       add_element_to_named_string_element_list (substrings,
                                                            "name", name_copy);

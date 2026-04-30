@@ -71,6 +71,10 @@ static const char *strings_textdomain = "texinfo_document";
 
 static int use_external_translate_string;
 
+/* Used to cache untranslated strings tree when there is no language
+   set at all */
+static LANG_TRANSLATION_TREE_LIST unknown_lang_translations;
+
 /* This function should always be called.
 
    USE_EXTERNAL_TRANSLATE_STRING_IN:
@@ -91,10 +95,12 @@ set_output_strings_translate_method (int use_external_translate_string_in)
       use_external_translate_string = 1;
 #endif
     }
+
+  unknown_lang_translations.hash = new_c_hashmap (TXI_CONVERT_STRINGS_NR);
 }
 
-/* Need to be called only if output strings translation is done in C
- */
+/* Need to be called only if output strings translation gettext call
+   is done in C */
 void
 setup_output_strings_translations (const char *localesdir,
                                    const char *strings_textdomain_in)
@@ -403,7 +409,7 @@ lang_info_bcp47_locale (const DOCUMENT_LANG_INFO *lang_info)
   return bcp47_text.text;
 }
 
-void
+static void
 destroy_document_lang_info (DOCUMENT_LANG_INFO *lang_info)
 {
   free (lang_info->lang);
@@ -440,7 +446,7 @@ init_lang_translation (LANG_TRANSLATION *lang_translation)
   lang_translation->translations = 0;
 }
 
-DOCUMENT_LANG_INFO *
+static DOCUMENT_LANG_INFO *
 new_lang_info (const char *documentlanguage, const char *documentscript,
                const STRING_LIST *variants)
 {
@@ -479,8 +485,10 @@ new_lang_info (const char *documentlanguage, const char *documentscript,
   return lang_info;
 }
 
-DOCUMENT_LANG_INFO *
-new_element_lang_info (const ELEMENT *element)
+const LANG_TRANSLATION *
+new_element_language_translation (LANG_TRANSLATION ***lang_translations_ptr,
+                                  const ELEMENT *element,
+                                  size_t cache_size)
 {
   const char *documentlanguage
     = lookup_extra_string (element, AI_key_documentlanguage);
@@ -490,48 +498,17 @@ new_element_lang_info (const ELEMENT *element)
 
   const char *documentscript
     = lookup_extra_string (element, AI_key_documentscript);
-  const STRING_LIST *documentlanguagevariant
+  const STRING_LIST *language_variants
     = lookup_extra_string_list (element, AI_key_documentlanguagevariant);
 
-  return new_lang_info (documentlanguage, documentscript,
-                        documentlanguagevariant);
-}
-
-LANG_TRANSLATION *
-new_lang_translations (const char *documentlanguage,
-                       const char *documentscript,
-                       const STRING_LIST *variants)
-{
-  LANG_TRANSLATION *result;
   DOCUMENT_LANG_INFO *lang_info
-    = new_lang_info (documentlanguage, documentscript, variants);
+    = new_lang_info (documentlanguage, documentscript, language_variants);
 
   if (!lang_info)
     return NULL;
 
-  result = (LANG_TRANSLATION *) malloc (sizeof (LANG_TRANSLATION));
-  result->info = lang_info;
-
-  init_lang_translation (result);
-  return result;
-}
-
-LANG_TRANSLATION *
-new_element_language_translation (const ELEMENT *element)
-{
-  const char *documentlanguage
-    = lookup_extra_string (element, AI_key_documentlanguage);
-
-  if (!documentlanguage)
-    return NULL;
-
-  const char *documentscript
-    = lookup_extra_string (element, AI_key_documentscript);
-  const STRING_LIST *documentlanguagevariant
-    = lookup_extra_string_list (element, AI_key_documentlanguagevariant);
-
-  return new_lang_translations(documentlanguage, documentscript,
-                               documentlanguagevariant);
+  return set_lang_info_translation (lang_translations_ptr, lang_info,
+                                    cache_size);
 }
 
 static LANG_TRANSLATION *
@@ -575,7 +552,7 @@ free_lang_translation_tree_list (LANG_TRANSLATION_TREE_LIST *translations)
   free (translations->list);
 }
 
-void
+static void
 free_lang_translation (LANG_TRANSLATION *lang_translation)
 {
   destroy_document_lang_info (lang_translation->info);
@@ -626,7 +603,7 @@ find_lang_translation (LANG_TRANSLATION * const *lang_translations,
 
 LANG_TRANSLATION **converters_translation_cache;
 
-static LANG_TRANSLATION *
+static const LANG_TRANSLATION *
 store_new_lang_translation (LANG_TRANSLATION *** lang_translations_ptr,
                             size_t idx, size_t cache_size,
                             LANG_TRANSLATION *lang_translation)
@@ -660,7 +637,7 @@ set_lang_info_translation (LANG_TRANSLATION ***lang_translations_ptr,
 {
   size_t i;
   LANG_TRANSLATION *result;
-  LANG_TRANSLATION *found_lang_translation
+  const LANG_TRANSLATION *found_lang_translation
     = find_lang_translation (*lang_translations_ptr,
                              lang_info->bcp47_locale, &i);
 
@@ -944,8 +921,6 @@ add_translation_tree (LANG_TRANSLATION_TREE_LIST *translations,
   return result;
 }
 
-static const DOCUMENT_LANG_INFO unknown_lang_info = {"", 0, 0, 0, {0, 0, 0}};
-
 TRANSLATION_TREE *
 cache_translate_string (const char *string,
                         const LANG_TRANSLATION *lang_translation,
@@ -958,26 +933,18 @@ cache_translate_string (const char *string,
   uintptr_t string_nr;
   int found;
 
-  if (lang_translation && lang_translation->translations)
-    translations = lang_translation->translations;
-  else
-    {
-      DOCUMENT_LANG_INFO *lang_info;
-      /* This happens in convert_to_text for conversion to raw text (not
-         when called from another converter) and with regenerate_master_menu
-         TREE_TRANSFORMATIONS for the detailed node listing header translation.
-       */
-      if (lang_translation)
-        lang_info = lang_translation->info;
-      else
-        lang_info = &unknown_lang_info;
+  if (!lang_translation)
+    {/* if the language is unknown, unknown_lang_translations translations
+        tree list is used and the context is not useful */
+      string_nr = (uintptr_t) c_hashmap_value (unknown_lang_translations.hash,
+                                               string, &found);
+      if (found)
+        return unknown_lang_translations.list[string_nr -1];
 
-      const LANG_TRANSLATION *general_lang_translation
-        = get_lang_info_translation (&converters_translation_cache,
-                                     lang_info,
-                                     TXI_CONVERT_STRINGS_NR);
-      translations = general_lang_translation->translations;
+      return add_translation_tree (&unknown_lang_translations, string);
     }
+
+  translations = lang_translation->translations;
 
   if (translation_context)
     translation_context_str = translation_context;
@@ -998,7 +965,7 @@ cache_translate_string (const char *string,
 
   result = add_translation_tree (translations, translated_context_string);
 
-  if (lang_translation && strcmp (lang_translation->language_env, ""))
+  if (strcmp (lang_translation->language_env, ""))
     {
       char *translated_string
         = translate_string (string, lang_translation->language_env,

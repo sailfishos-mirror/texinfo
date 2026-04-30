@@ -1,3 +1,24 @@
+2026-04-30 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/translations.c (new_element_language_translation): add
+	lang translation cache arguments, such that they are always set by the
+	callers, call set_lang_info_translation.  Update callers.
+
+	* tta/C/parsetexi/indices.c (complete_indices): call
+	new_element_language_translation.
+
+	* tta/C/main/translations.c: remove new_element_lang_info and
+	new_lang_translations.  Make more functions static.
+
+	* tta/C/main/translations.c (cache_translate_string): simplify now
+	that translations can only be unset if the lang_translation argument
+	is NULL.
+
+	* tta/C/main/translations.c (unknown_lang_translations)
+	(set_output_strings_translate_method, cache_translate_string):
+	add a specific lang translation tree list for unknown language, and
+	simpler code for that case.  Remove unknown_lang_info.
+
 2026-04-29 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/build_html_perl_state.c (build_html_translated_names):

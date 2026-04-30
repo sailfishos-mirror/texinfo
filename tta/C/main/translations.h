@@ -43,19 +43,13 @@ const LANG_TRANSLATION *set_lang_info_translation (
                         LANG_TRANSLATION ***lang_translations_ptr,
                         DOCUMENT_LANG_INFO *info,
                         size_t cache_size);
-DOCUMENT_LANG_INFO *new_lang_info (const char *documentlanguage,
-               const char *documentscript,
-               const STRING_LIST *variants);
-LANG_TRANSLATION *new_lang_translations (const char *documentlanguage,
-                       const char *documentscript,
-                       const STRING_LIST *variants);
-DOCUMENT_LANG_INFO *new_element_lang_info (const ELEMENT *element);
-LANG_TRANSLATION *new_element_language_translation (const ELEMENT *element);
+const LANG_TRANSLATION *new_element_language_translation (
+                        LANG_TRANSLATION ***lang_translations_ptr,
+                        const ELEMENT *element,
+                        size_t cache_size);
 TRANSLATION_TREE *add_translation_tree (
                    LANG_TRANSLATION_TREE_LIST *translations,
                       const char *translated);
-void destroy_document_lang_info (DOCUMENT_LANG_INFO *lang_info);
-void free_lang_translation (LANG_TRANSLATION *lang_translation);
 void free_translation_cache (LANG_TRANSLATION **translation_cache);
 const LANG_TRANSLATION *set_translations_documentlanguage (
                                    LANG_TRANSLATION ***lang_translations,

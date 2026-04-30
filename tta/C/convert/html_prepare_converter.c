@@ -53,7 +53,7 @@
 #include "manipulate_indices.h"
 /* nobrace_symbol_text text_brace_no_arg_commands */
 #include "convert_to_text.h"
-/* new_lang_info destroy_document_lang_info free_translation_cache */
+/* free_translation_cache */
 #include "translations.h"
 #include "output_unit.h"
 #include "html_conversion_state.h"

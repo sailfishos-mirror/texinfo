@@ -1061,8 +1061,9 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         /* if there is no current lang translations, we use the
            documentlanguage available in the tree. */
 
-          LANG_TRANSLATION *lang_translation
-            = new_element_language_translation (element);
+          const LANG_TRANSLATION *lang_translation
+           = new_element_language_translation (&converters_translation_cache,
+                                            element, TXI_CONVERT_STRINGS_NR);
 
           /* there is a possibility that some small strings are associated
              to the tree, and there is no document to get them.  However
@@ -1071,9 +1072,6 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
              no macro, no file */
           tree = gdt_tree (category_text, 0, lang_translation,
                            0, 0, translation_context);
-
-          free_lang_translation (lang_translation);
-          free (lang_translation);
         }
 
       if (tree)

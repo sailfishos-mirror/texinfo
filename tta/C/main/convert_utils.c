@@ -887,17 +887,12 @@ definition_category_tree (const ELEMENT *current,
         }
       else
         {
-          LANG_TRANSLATION *lang_translation
-            = new_element_language_translation (current);
+          const LANG_TRANSLATION *lang_translation
+           = new_element_language_translation (&converters_translation_cache,
+                                            current, TXI_CONVERT_STRINGS_NR);
 
           result = gdt_tree ("{category} on @code{{class}}", 0,
                              lang_translation, substrings, 0, 0);
-
-          if (lang_translation)
-            {
-              free_lang_translation (lang_translation);
-              free (lang_translation);
-            }
         }
       destroy_named_string_element_list (substrings);
     } else if (!strcmp (def_command, "defivar")
@@ -912,6 +907,7 @@ definition_category_tree (const ELEMENT *current,
                                                 "category", category_copy);
       add_element_to_named_string_element_list (substrings,
                                                 "class", class_copy);
+
       if (converter && cdt_tree_fn)
         {
           result = cdt_tree_fn ("{category} of @code{{class}}", converter,
@@ -928,17 +924,12 @@ definition_category_tree (const ELEMENT *current,
         }
       else
         {
-          LANG_TRANSLATION *lang_translation
-            = new_element_language_translation (current);
+          const LANG_TRANSLATION *lang_translation
+           = new_element_language_translation (&converters_translation_cache,
+                                            current, TXI_CONVERT_STRINGS_NR);
 
           result = gdt_tree ("{category} of @code{{class}}", 0,
                              lang_translation, substrings, 0, 0);
-
-          if (lang_translation)
-            {
-              free_lang_translation (lang_translation);
-              free (lang_translation);
-            }
         }
       destroy_named_string_element_list (substrings);
     }
