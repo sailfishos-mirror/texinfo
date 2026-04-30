@@ -1,0 +1,112 @@
+use vars qw(%result_texis %result_texts %result_tree_text %result_errors
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_sectioning_root %result_headings_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
+
+use utf8;
+
+$result_tree_text{'documentscript_documentlanguagevariant'} = '*document_root C1
+ *before_node_section C2
+  *preamble_before_content C3
+   *@documentscript C1 l1
+   |EXTRA
+   |global_command_number:{1}
+   |text_arg:{Latn}
+    *line_arg C3
+     {spaces_before_argument: }
+     {Latn}
+     {spaces_after_argument:\\n}
+   *@documentlanguagevariant C1 l2
+   |EXTRA
+   |global_command_number:{1}
+    *line_arg C3
+     {spaces_before_argument: }
+     {1901}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
+  *paragraph C2
+   *@error C1 l4
+    *brace_container
+   {.\\n}
+';
+
+
+$result_texis{'documentscript_documentlanguagevariant'} = '@documentscript Latn
+@documentlanguagevariant 1901
+
+@error{}.
+';
+
+
+$result_texts{'documentscript_documentlanguagevariant'} = '
+error->.
+';
+
+$result_errors{'documentscript_documentlanguagevariant'} = '';
+
+$result_nodes_list{'documentscript_documentlanguagevariant'} = '';
+
+$result_sections_list{'documentscript_documentlanguagevariant'} = '';
+
+$result_sectioning_root{'documentscript_documentlanguagevariant'} = '';
+
+$result_headings_list{'documentscript_documentlanguagevariant'} = '';
+
+
+$result_converted{'plaintext'}->{'documentscript_documentlanguagevariant'} = 'error→.
+';
+
+
+$result_converted{'info'}->{'documentscript_documentlanguagevariant'} = 'This is , produced from .
+
+error→.
+
+Tag Table:
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
+';
+
+$result_converted_errors{'info'}->{'documentscript_documentlanguagevariant'} = '* W |document without nodes
+ warning: document without nodes
+
+';
+
+
+$result_converted{'html'}->{'documentscript_documentlanguagevariant'} = '<!DOCTYPE html>
+<html>
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+
+<meta name="description" content="Untitled Document">
+<meta name="keywords" content="Untitled Document">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+
+</head>
+
+<body>
+
+<p>error&rarr;.
+</p>
+
+
+</body>
+</html>
+';
+
+$result_converted_errors{'html'}->{'documentscript_documentlanguagevariant'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
+
+';
+
+1;

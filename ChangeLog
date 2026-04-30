@@ -1,5 +1,16 @@
 2026-04-30 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/translations.c (set_translations_documentscript)
+	(set_translations_documentlanguagevariant): copy lang only if it is
+	set.
+
+	* tta/perl/Makefile.tres, tta/perl/t/languages.t
+	(documentscript_documentlanguagevariant)
+	(documentlanguagevariant_documentscript): add tests for current lang
+	translations without @documentlanguage being set.
+
+2026-04-30 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/translations.c: move code around.
 
 2026-04-30 Patrice Dumas  <pertusus@free.fr>

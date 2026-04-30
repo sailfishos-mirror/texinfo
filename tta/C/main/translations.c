@@ -757,9 +757,11 @@ set_translations_documentscript (LANG_TRANSLATION ***lang_translations,
 
   lang_info = (DOCUMENT_LANG_INFO *) malloc (sizeof (DOCUMENT_LANG_INFO));
   memset (lang_info, 0, sizeof (DOCUMENT_LANG_INFO));
+
   if (current_lang_info)
     {
-      lang_info->lang = strdup (current_lang_info->lang);
+      if (current_lang_info->lang)
+        lang_info->lang = strdup (current_lang_info->lang);
       if (current_lang_info->region)
         lang_info->region = strdup (current_lang_info->region);
       copy_strings (&lang_info->variants, &current_lang_info->variants);
@@ -815,7 +817,8 @@ set_translations_documentlanguagevariant (LANG_TRANSLATION ***lang_translations,
 
   if (current_lang_info)
     {
-      lang_info->lang = strdup (current_lang_info->lang);
+      if (current_lang_info->lang)
+        lang_info->lang = strdup (current_lang_info->lang);
       if (current_lang_info->region)
         lang_info->region = strdup (current_lang_info->region);
       if (current_lang_info->script)

@@ -465,7 +465,21 @@ Another unknown language. @xref{Top}.
 @xref{Top, t}.
 @abbr{C, Ckl}
 
-']
+'],
+# next two tests test current lang translations without @documentlanguage
+# being set.
+['documentscript_documentlanguagevariant',
+'@documentscript Latn
+@documentlanguagevariant 1901
+
+@error{}.
+'],
+['documentlanguagevariant_documentscript',
+'@documentlanguagevariant 1901
+@documentscript Latn
+
+@error{}.
+'],
 );
 
 my $multiple_lang_chapters_text = 
@@ -573,6 +587,8 @@ my %info_tests = (
   'documentscript_conversion' => 1,
   'documentlanguagevariant_conversion' => 1,
   'documentscript_variant_reset_in_preamble' => 1,
+  'documentscript_documentlanguagevariant' => 1,
+  'documentlanguagevariant_documentscript' => 1,
 );
 
 my %xml_tests = (
