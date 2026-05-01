@@ -2784,7 +2784,6 @@ sub _convert_def_line($$) {
     my $category
       = Texinfo::Convert::Utils::definition_category_tree($element,
                                      $self->{'current_lang_translations'},
-                                     $self->get_conf('COMMAND_LINE_ENCODING'),
                                              $self->get_conf('DEBUG'));
     if (defined($category)) {
       # category is converted in normal text context

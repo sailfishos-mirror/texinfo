@@ -456,7 +456,6 @@ convert_def_line (const ELEMENT *element, TEXT_OPTIONS *text_options,
   ELEMENT *parsed_definition_category
      = definition_category_tree (element,
                                  text_options->current_lang_translations,
-                                 text_options->COMMAND_LINE_ENCODING,
                                  text_options->DEBUG, 0, 0);
   if (parsed_definition_category)
     {

@@ -462,7 +462,6 @@ sub _convert_def_line($$) {
   my $parsed_definition_category
     = Texinfo::Convert::Utils::definition_category_tree($element,
                                    $options->{'current_lang_translations'},
-                                   $options->{'COMMAND_LINE_ENCODING'},
                                    $options->{'DEBUG'});
   if (defined($parsed_definition_category)) {
     my $converted_element = Texinfo::TreeElement::new(

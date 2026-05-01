@@ -53,8 +53,16 @@
 static const char *lang_trans_key = "current_lang_translations";
 
 #define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
-/* TODO should set the same as
-   Texinfo::Convert::HTMLNonXS::_translate_names */
+/* Set the information set/modified by *_translate_names and pass
+   current_lang_translations.
+
+   current_lang_translations is not set in translate_names.  However
+   translate_names is called after the current_lang_translations
+   initialization, and is also called each time current_lang_translations
+   changes.  Therefore needing to pass current_lang_translations and
+   translated names happens at the same time and can be driven by the
+   same indicators (in practice set by translate_names).
+ */
 static void
 build_html_translated_names (HV *converter_hv, CONVERTER *converter)
 {

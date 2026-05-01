@@ -6295,7 +6295,6 @@ sub _convert_def_line_type($$$$) {
     my $def_category_tree
       = Texinfo::Convert::Utils::definition_category_tree($element,
                                      $self->{'current_lang_translations'},
-                                     $self->get_conf('COMMAND_LINE_ENCODING'),
                                      $self->get_conf('DEBUG'), $self);
     $category_result
       = $self->convert_tree($def_category_tree)

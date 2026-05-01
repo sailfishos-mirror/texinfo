@@ -807,12 +807,10 @@ destroy_parsed_def (PARSED_DEF *parsed_def)
    If they are not specified, LANG_TRANSLATION is used for translations
    information.
    If not set, translation is based on information in the element.
-   FIXME COMMAND_LINE_ENCODING is never used.
  */
 ELEMENT *
 definition_category_tree (const ELEMENT *current,
                           const LANG_TRANSLATION *lang_translation,
-                          const char *command_line_encoding,
                           int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
