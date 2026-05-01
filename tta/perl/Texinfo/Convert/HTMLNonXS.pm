@@ -4511,7 +4511,7 @@ sub _prepare_converted_output_info($$$$) {
   my $default_bcp47_locale = $self->current_bcp47_locale();
 
   # This also sets the language related options to their pre-conversion
-  # values.
+  # values (which is not really needed here).
   $self->set_converter_preamble_language_commands();
 
   my $preamble_bcp47_locale = $self->current_bcp47_locale();
@@ -4635,9 +4635,6 @@ sub _prepare_converted_output_info($$$$) {
 
   _prepare_title_titlepage($self, $output_file, $output_filename,
                                   $output_units);
-
-  #$self->set_global_document_commands('before',
-  #                         ['documentlanguage', 'documentscript']);
 
   if ($default_bcp47_locale ne $preamble_bcp47_locale) {
     $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));

@@ -974,8 +974,6 @@ html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
 static const enum command_id fulltitle_cmds[] =
  {CM_settitle, CM_title, CM_shorttitlepage, 0};
 
-static const STRING_LIST empty_string_list = {0, 0, 0};
-
 int
 html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
                                     const char *output_filename)
@@ -1178,23 +1176,11 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
 
   if (strcmp (default_bcp47_locale, preamble_bcp47_locale))
     {
-      self->current_lang_translations =
-        set_translations_documentlanguage (&converters_translation_cache,
-                              self->conf->documentlanguage.o.string,
-                              self->current_lang_translations,
-                              TXI_CONVERT_STRINGS_NR);
-
-     self->current_lang_translations =
-        set_translations_documentscript (&converters_translation_cache,
-                              self->conf->documentscript.o.string,
-                              self->current_lang_translations,
-                              TXI_CONVERT_STRINGS_NR);
-
-      self->current_lang_translations =
-        set_translations_documentlanguagevariant (
+      self->current_lang_translations
+       = reset_lang_translation_from_customization (
                               &converters_translation_cache,
-                              &empty_string_list,
-                              self->current_lang_translations,
+                              self->conf->documentlanguage.o.string,
+                              self->conf->documentscript.o.string,
                               TXI_CONVERT_STRINGS_NR);
 
       html_translate_names (self);

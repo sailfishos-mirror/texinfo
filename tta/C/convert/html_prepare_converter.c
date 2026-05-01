@@ -190,11 +190,6 @@ static const enum command_id informative_global_commands[]
                 CM_xrefautomaticsectiontitle,
                 CM_deftypefnnewline, 0};
 
-/*
-static const enum command_id conf_for_documentlanguage[]
-                      = {CM_documentlanguage, CM_documentscript, 0};
- */
-
 static enum element_type ignored_types[] = {
     ET_ignorable_spaces_after_command,
     ET_postamble_after_end,
@@ -4133,8 +4128,6 @@ initialize_jslicense_files (JSLICENSE_FILE_INFO_LIST *jslicences_files_info,
   jslicences_files_info->number = size;
 }
 
-static const STRING_LIST empty_string_list = {0, 0, 0};
-
 /* first function to call a stage handler */
 int
 html_setup_output (CONVERTER *self, char **paths)
@@ -4220,10 +4213,6 @@ html_setup_output (CONVERTER *self, char **paths)
   set_commands_options_value (self->commands_init_conf,
                               self->sorted_options, 0);
 
-  /*
-  set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
-   */
-
   if (self->current_lang_translations)
     default_bcp47_locale
       = self->current_lang_translations->info->bcp47_locale;
@@ -4254,23 +4243,11 @@ html_setup_output (CONVERTER *self, char **paths)
 
   if (strcmp (default_bcp47_locale, preamble_bcp47_locale))
     {
-      self->current_lang_translations =
-        set_translations_documentlanguage (&converters_translation_cache,
-                              self->conf->documentlanguage.o.string,
-                              self->current_lang_translations,
-                              TXI_CONVERT_STRINGS_NR);
-
-     self->current_lang_translations =
-        set_translations_documentscript (&converters_translation_cache,
-                              self->conf->documentscript.o.string,
-                              self->current_lang_translations,
-                              TXI_CONVERT_STRINGS_NR);
-
-      self->current_lang_translations =
-        set_translations_documentlanguagevariant (
+      self->current_lang_translations
+       = reset_lang_translation_from_customization (
                               &converters_translation_cache,
-                              &empty_string_list,
-                              self->current_lang_translations,
+                              self->conf->documentlanguage.o.string,
+                              self->conf->documentscript.o.string,
                               TXI_CONVERT_STRINGS_NR);
     }
 

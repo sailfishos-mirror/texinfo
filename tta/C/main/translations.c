@@ -75,7 +75,8 @@ static int use_external_translate_string;
    set at all */
 static LANG_TRANSLATION_TREE_LIST unknown_lang_translations;
 
-/* This function should always be called.
+/* This function should always be called and therefore can also be
+   used more generally for initialization.
 
    USE_EXTERNAL_TRANSLATE_STRING_IN:
     -1: never call external (Perl) translate string
@@ -96,6 +97,7 @@ set_output_strings_translate_method (int use_external_translate_string_in)
 #endif
     }
 
+  /* initialization */
   unknown_lang_translations.hash = new_c_hashmap (TXI_CONVERT_STRINGS_NR);
 }
 
@@ -626,6 +628,11 @@ new_lang_info (const char *documentlanguage, const char *documentscript,
   return lang_info;
 }
 
+/* setup lang translation based on extra information associated to
+   ELEMENT setup by the Parser, which only happens for elements with
+   strings in english set by the Parser (definition category alias
+   for example).
+ */
 const LANG_TRANSLATION *
 new_element_language_translation (LANG_TRANSLATION ***lang_translations_ptr,
                                   const ELEMENT *element,
@@ -652,7 +659,11 @@ new_element_language_translation (LANG_TRANSLATION ***lang_translations_ptr,
                                     cache_size);
 }
 
-/* copy info */
+/* if the lang translation is not found, copy the LANG_INFO to setup
+   a new lang translation.  This is not used in general, only from
+   HTML to setup translation info for user-defined customization function
+   based on the current lang translation lang info.
+ */
 const LANG_TRANSLATION *
 set_lang_info_copy_translation (LANG_TRANSLATION ***lang_translations_ptr,
                                 const DOCUMENT_LANG_INFO *lang_info,
@@ -838,10 +849,13 @@ set_translations_documentlanguagevariant (LANG_TRANSLATION ***lang_translations,
   return lang_translation;
 }
 
-/* SET_DOCUMENTLANGUE and SET_DOCUMENTSCRIPT are meant to reset
-   to values set at the beginning of the document, for example
-   from command-line.  Depending on the situation, they may be
-   needed or not.
+/* Returns a lang translation corresponding to the state at the
+   end of the preamble.
+   PREAMBLE_LANG should hold the succession of values and
+   command names related to language set in the preamble, usually
+   taken from document global information.
+   SET_DOCUMENTLANGUAGE and SET_DOCUMENTSCRIPT are supposed to
+   to be values set from the command-line or similar.
  */
 const LANG_TRANSLATION *
 set_preamble_language_commands (PREAMBLE_LANG_CMD_LIST *preamble_lang,
@@ -889,6 +903,40 @@ set_preamble_language_commands (PREAMBLE_LANG_CMD_LIST *preamble_lang,
             }
         }
     }
+
+  return cur_lang_trans;
+}
+
+static const STRING_LIST empty_string_list = {0, 0, 0};
+
+/* No equivalent in Perl, in Perl call to converter wrappers
+   are used inline instead */
+/* Returns a lang_transtation set to the pre-conversion statues.
+   Typically used to reset current lang translation after
+   having set to end of preamble with set_preamble_language_commands.
+   SET_DOCUMENTLANGUAGE and SET_DOCUMENTSCRIPT are supposed to
+   to be values set from the command-line or similar.
+ */
+const LANG_TRANSLATION *
+reset_lang_translation_from_customization (
+                                LANG_TRANSLATION ***lang_translations,
+                                const char *set_documentlanguage,
+                                const char *set_documentscript,
+                                size_t cache_size)
+{
+  const LANG_TRANSLATION *cur_lang_trans
+    = set_translations_documentlanguage (lang_translations,
+                                         set_documentlanguage,
+                                         NULL, cache_size);
+
+  cur_lang_trans = set_translations_documentscript (lang_translations,
+                                         set_documentscript,
+                                         cur_lang_trans, cache_size);
+
+  cur_lang_trans =
+        set_translations_documentlanguagevariant (lang_translations,
+                                         &empty_string_list,
+                                         cur_lang_trans, cache_size);
 
   return cur_lang_trans;
 }

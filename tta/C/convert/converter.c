@@ -1084,6 +1084,8 @@ set_converter_preamble_language_commands (CONVERTER *self)
 {
   if (self->document)
     {
+  /* in general not needed as the values have not been reset when called
+     but it is clearer to mark that intent. */
       set_global_document_commands (self, CL_before,
                                     conf_for_documentlanguage);
 
