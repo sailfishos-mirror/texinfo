@@ -242,7 +242,9 @@ sub get_lang_info_xdg_locale($) {
   return $xpg_locale;
 }
 
-sub lang_info_bcp47_locale($) {
+#### end of lang_info API
+
+sub _lang_info_bcp47_locale($) {
   my $lang_info = shift;
 
   return "" if (!exists($lang_info->{'lang'}));
@@ -259,7 +261,6 @@ sub lang_info_bcp47_locale($) {
   }
   return $bcp47_locale;
 }
-#### end of lang_info API
 
 sub _init_lang_translation($) {
   my $lang_info = shift;
@@ -286,6 +287,8 @@ sub _init_lang_translation($) {
 sub _set_lang_info_translation($$) {
   my ($translations, $lang_info) = @_;
 
+  $lang_info->{'bcp47_locale'} = _lang_info_bcp47_locale($lang_info);
+
   my $new_lang_translations = _init_lang_translation($lang_info);
 
   my $bcp47_locale = $new_lang_translations->[0]->{'bcp47_locale'};
@@ -298,8 +301,14 @@ sub _set_lang_info_translation($$) {
   return $new_lang_translations;
 }
 
-sub _new_lang_info($;$$) {
-  my ($documentlanguage, $documentscript, $variants) = @_;
+sub new_element_language_translation($$) {
+  my ($translations, $element) = @_;
+
+  my $documentlanguage = $element->{'extra'}->{'documentlanguage'};
+
+  if (!defined($documentlanguage)) {
+    return undef;
+  }
 
   my ($lang_code, $region_code)
     = Texinfo::Common::analyze_documentlanguage_argument($documentlanguage);
@@ -308,6 +317,10 @@ sub _new_lang_info($;$$) {
 
   my %lang_info = ('lang' => $lang_code);
   $lang_info{'region'} = $region_code if (defined($region_code));
+
+  my $documentscript = $element->{'extra'}->{'documentscript'};
+  my $language_variants
+    = $element->{'extra'}->{'documentlanguagevariant'};
 
   if (defined($documentscript)) {
     my ($valid_script, $script)
@@ -318,36 +331,11 @@ sub _new_lang_info($;$$) {
     $lang_info{'script'} = $script if (defined($script) and $script ne '');
   }
 
-  if (defined($variants)) {
-    $lang_info{'variants'} = [@$variants];
+  if (defined($language_variants)) {
+    $lang_info{'variants'} = [@$language_variants];
   }
 
-  $lang_info{'bcp47_locale'} = lang_info_bcp47_locale(\%lang_info);
-
-  return \%lang_info;
-}
-
-sub new_element_language_translation($$) {
-  my ($translations, $element) = @_;
-
-  my $documentlanguage = $element->{'extra'}->{'documentlanguage'};
-
-  if (!defined($documentlanguage)) {
-    return undef;
-  }
-
-  my $documentscript = $element->{'extra'}->{'documentscript'};
-  my $language_variants
-    = $element->{'extra'}->{'documentlanguagevariant'};
-
-  my $lang_info = _new_lang_info($documentlanguage, $documentscript,
-                                 $language_variants);
-
-  if (!defined($lang_info)) {
-    return undef;
-  }
-
-  return _set_lang_info_translation($translations, $lang_info);
+  return _set_lang_info_translation($translations, \%lang_info);
 }
 
 # TODO document?
@@ -366,8 +354,6 @@ sub set_translations_documentlanguage($$$) {
   if (defined($region_code)) {
     $lang_info{'region'} = $region_code;
   }
-
-  $lang_info{'bcp47_locale'} = lang_info_bcp47_locale(\%lang_info);
 
   return _set_lang_info_translation($translations, \%lang_info);
 }
@@ -395,8 +381,6 @@ sub set_translations_documentscript($$$) {
     $lang_info{'script'} = $script;
   }
 
-  $lang_info{'bcp47_locale'} = lang_info_bcp47_locale(\%lang_info);
-
   return _set_lang_info_translation($translations, \%lang_info);
 }
 
@@ -419,8 +403,6 @@ sub set_translations_documentlanguagevariant($$$) {
   } else {
     $lang_info{'variants'} = [@$documentlanguagevariant];
   }
-
-  $lang_info{'bcp47_locale'} = lang_info_bcp47_locale(\%lang_info);
 
   return _set_lang_info_translation($translations, \%lang_info);
 }
