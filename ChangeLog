@@ -1,5 +1,16 @@
 2026-05-01 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/translations.c (set_translations_documentlanguage)
+	(set_translations_documentscript)
+	(set_translations_documentlanguagevariant),
+	tta/perl/Texinfo/Translations.pm (set_translations_documentlanguage)
+	(set_translations_documentscript)
+	(set_translations_documentlanguagevariant): do not check the current
+	lang translations to return it, as it can only happen if the
+	user use the same command twice, which is not supposed to happen.
+
+2026-05-01 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c (html_prepare_converted_output_info),
 	tta/C/convert/html_prepare_converter.c (html_setup_output),
 	tta/C/main/translations.c (reset_lang_translation_from_customization):

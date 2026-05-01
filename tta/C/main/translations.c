@@ -695,7 +695,6 @@ set_translations_documentlanguage (LANG_TRANSLATION ***lang_translations,
                                    size_t cache_size)
 {
   const LANG_TRANSLATION *lang_translation;
-  const DOCUMENT_LANG_INFO *current_lang_info = 0;
   char *region_code;
   int lang_is_valid, region_is_valid;
   DOCUMENT_LANG_INFO *lang_info;
@@ -716,21 +715,6 @@ set_translations_documentlanguage (LANG_TRANSLATION ***lang_translations,
 
   lang_info->bcp47_locale = lang_info_bcp47_locale (lang_info);
 
-  if (current_lang_translations)
-    {
-      current_lang_info = current_lang_translations->info;
-      if (! strcmp (current_lang_info->bcp47_locale,
-                    lang_info->bcp47_locale))
-        {
-          /* Nothing to do */
-          free (lang);
-          free (region_code);
-          free (lang_info->bcp47_locale);
-          free (lang_info);
-          return current_lang_translations;
-        }
-    }
-
   lang_translation
     = set_lang_info_translation (lang_translations, lang_info,
                                  cache_size);
@@ -745,7 +729,6 @@ set_translations_documentscript (LANG_TRANSLATION ***lang_translations,
                                  size_t cache_size)
 {
   const LANG_TRANSLATION *lang_translation;
-  const DOCUMENT_LANG_INFO *current_lang_info = 0;
   int script_is_valid;
   DOCUMENT_LANG_INFO *lang_info;
 
@@ -755,24 +738,14 @@ set_translations_documentscript (LANG_TRANSLATION ***lang_translations,
   if (!script)
     return current_lang_translations;
 
-  if (current_lang_translations)
-    {
-      current_lang_info = current_lang_translations->info;
-      if ((current_lang_info->script
-           && !strcmp (current_lang_info->script, script))
-          || (!current_lang_info->script
-              && !strcmp (script, "")))
-        {
-          /* Nothing to do */
-          return current_lang_translations;
-        }
-    }
-
   lang_info = (DOCUMENT_LANG_INFO *) malloc (sizeof (DOCUMENT_LANG_INFO));
   memset (lang_info, 0, sizeof (DOCUMENT_LANG_INFO));
 
-  if (current_lang_info)
+  if (current_lang_translations)
     {
+      const DOCUMENT_LANG_INFO *current_lang_info
+        = current_lang_translations->info;
+
       if (current_lang_info->lang)
         lang_info->lang = strdup (current_lang_info->lang);
       if (current_lang_info->region)
@@ -799,37 +772,19 @@ set_translations_documentlanguagevariant (LANG_TRANSLATION ***lang_translations,
                                  size_t cache_size)
 {
   const LANG_TRANSLATION *lang_translation;
-  const DOCUMENT_LANG_INFO *current_lang_info = 0;
   DOCUMENT_LANG_INFO *lang_info;
 
   if (!documentlanguagevariant)
     return current_lang_translations;
 
-  if (current_lang_translations)
-    {
-      current_lang_info = current_lang_translations->info;
-      char *current_joined_documentlanguagevariant
-        = join_strings_list (&current_lang_info->variants, 0);
-      char *joined_documentlanguagevariant
-        = join_strings_list (documentlanguagevariant, 0);
-
-      if (!strcmp (current_joined_documentlanguagevariant,
-                   joined_documentlanguagevariant))
-        {
-          /* Nothing to do */
-          free (joined_documentlanguagevariant);
-          free (current_joined_documentlanguagevariant);
-          return current_lang_translations;
-        }
-      free (current_joined_documentlanguagevariant);
-      free (joined_documentlanguagevariant);
-    }
-
   lang_info = (DOCUMENT_LANG_INFO *) malloc (sizeof (DOCUMENT_LANG_INFO));
   memset (lang_info, 0, sizeof (DOCUMENT_LANG_INFO));
 
-  if (current_lang_info)
+  if (current_lang_translations)
     {
+      const DOCUMENT_LANG_INFO *current_lang_info
+        = current_lang_translations->info;
+
       if (current_lang_info->lang)
         lang_info->lang = strdup (current_lang_info->lang);
       if (current_lang_info->region)

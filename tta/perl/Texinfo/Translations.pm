@@ -369,13 +369,6 @@ sub set_translations_documentlanguage($$$) {
 
   $lang_info{'bcp47_locale'} = lang_info_bcp47_locale(\%lang_info);
 
-  if (defined($current_lang_translations)) {
-    my $current_lang_info = $current_lang_translations->[0];
-    if ($current_lang_info->{'bcp47_locale'} eq $lang_info{'bcp47_locale'}) {
-      return $current_lang_translations;
-    }
-  }
-
   return _set_lang_info_translation($translations, \%lang_info);
 }
 
@@ -391,16 +384,8 @@ sub set_translations_documentscript($$$) {
   return $current_lang_translations if (!defined($script));
 
   if (defined($current_lang_translations)) {
-    my $current_lang_info = $current_lang_translations->[0];
-    if ((exists($current_lang_info->{'script'})
-         and $current_lang_info->{'script'} eq $script)
-        or (!exists($current_lang_info->{'script'})
-            and $script eq "")) {
-      # Nothing to do
-      return $current_lang_translations;
-    }
-
     # copy lang info
+    my $current_lang_info = $current_lang_translations->[0];
     %lang_info = %$current_lang_info;
   }
 
@@ -425,15 +410,6 @@ sub set_translations_documentlanguagevariant($$$) {
 
   if (defined($current_lang_translations)) {
     my $current_lang_info = $current_lang_translations->[0];
-    if ((exists($current_lang_info->{'variants'})
-         and join("|", @{$current_lang_info->{'variants'}})
-              eq join ("|", @$documentlanguagevariant))
-        or (!exists($current_lang_info->{'variants'})
-            and scalar(@$documentlanguagevariant) == 0)) {
-      # Nothing to do
-      return $current_lang_translations;
-    }
-
     # copy lang info
     %lang_info = %$current_lang_info;
   }
