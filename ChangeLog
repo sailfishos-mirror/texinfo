@@ -1,5 +1,15 @@
 2026-04-01 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/build_html_perl_state.c (build_html_translated_names):
+	pass a full current_lang_translations including the translated strings
+	cache hash, setup if needed.
+
+	* tta/perl/Texinfo/TranslationsNonXS.pm (cache_translate_string):
+	update code now that lang translations always have a translation cache
+	associated.
+
+2026-04-01 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/get_perl_info.c (get_lang_info_hv): get bcp47_locale from
 	Perl data.
 

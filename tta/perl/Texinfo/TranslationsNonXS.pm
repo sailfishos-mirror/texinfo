@@ -65,29 +65,20 @@ sub cache_translate_string($$;$) {
   #if (!defined($string)) {
   #  confess("cache_translate_string: undef string\n");
   #}
-  my $cached_lang;
   my $translations;
 
-  if (defined($lang_translations) and scalar(@$lang_translations) > 2) {
+  if (defined($lang_translations)) {
     $translations = $lang_translations->[2];
   } else {
-    if (defined($lang_translations)) {
-      # unique identifier for the language information.
-      $cached_lang = $lang_translations->[0]->{'bcp47_locale'};
-    } else {
-      $cached_lang = '';
-    }
-    # use default translated string and tree cache if none was passed
+    # unknown language, use default translated string and tree cache
+    # associated to the empty string.
+    my $cached = '';
     if (!exists($Texinfo::Translations::converters_translation_cache->{
-                                                         $cached_lang})) {
-      $Texinfo::Translations::converters_translation_cache->{$cached_lang} = {}
+                                                         $cached})) {
+      $Texinfo::Translations::converters_translation_cache->{$cached} = {}
     }
-    $translations = $Texinfo::Translations::converters_translation_cache->{
-                                                                $cached_lang};
-    if (defined($lang_translations)) {
-      # set for the next time
-      $lang_translations->[2] = $translations;
-    }
+    $translations
+      = $Texinfo::Translations::converters_translation_cache->{$cached};
   }
 
   my $translation_context_str;
@@ -109,12 +100,10 @@ sub cache_translate_string($$;$) {
 
   my $strings_cache = $translations->{$translation_context_str};
 
-  $cached_lang = $lang_translations->[0]->{'bcp47_locale'}
-    if (!defined($cached_lang));
-
   # no translation, but still needed to setup caching for the associated
   # tree
-  if ($cached_lang eq '') {
+  if (!defined($lang_translations)
+      or $lang_translations->[0]->{'bcp47_locale'} eq '') {
     my $result = [undef];
     $strings_cache->{$string} = $result;
     return $result;
