@@ -1676,6 +1676,7 @@ get_lang_info_hv (HV *lang_info_hv)
   SV **region_sv;
   SV **script_sv;
   SV **variants_sv;
+  SV **bcp47_locale_sv;
   DOCUMENT_LANG_INFO *lang_info;
 
   dTHX;
@@ -1699,8 +1700,9 @@ get_lang_info_hv (HV *lang_info_hv)
       add_svav_to_string_list (*variants_sv,
                                &lang_info->variants, svt_byte);
     }
-
-  lang_info->bcp47_locale = lang_info_bcp47_locale (lang_info);
+  FETCH(bcp47_locale)
+  if (bcp47_locale_sv && SvOK (*bcp47_locale_sv))
+    lang_info->bcp47_locale = strdup (SvPV_nolen (*bcp47_locale_sv));
 
   return lang_info;
 }

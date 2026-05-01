@@ -34,11 +34,8 @@ void set_output_strings_translate_method (int use_external_translate_string_in);
 void setup_output_strings_translations (const char *localesdir,
                                         const char *strings_textdomain_in);
 
-char *lang_info_bcp47_locale (const DOCUMENT_LANG_INFO *lang_info);
-const LANG_TRANSLATION *get_lang_info_translation (
-                        LANG_TRANSLATION ***lang_translations_ptr,
-                        const DOCUMENT_LANG_INFO *info,
-                        size_t cache_size);
+void free_translation_cache (LANG_TRANSLATION **translation_cache);
+
 const LANG_TRANSLATION *set_lang_info_translation (
                         LANG_TRANSLATION ***lang_translations_ptr,
                         DOCUMENT_LANG_INFO *info,
@@ -47,10 +44,13 @@ const LANG_TRANSLATION *new_element_language_translation (
                         LANG_TRANSLATION ***lang_translations_ptr,
                         const ELEMENT *element,
                         size_t cache_size);
+const LANG_TRANSLATION *set_lang_info_copy_translation (
+                        LANG_TRANSLATION ***lang_translations_ptr,
+                        const DOCUMENT_LANG_INFO *info,
+                        size_t cache_size);
 TRANSLATION_TREE *add_translation_tree (
                    LANG_TRANSLATION_TREE_LIST *translations,
                       const char *translated);
-void free_translation_cache (LANG_TRANSLATION **translation_cache);
 const LANG_TRANSLATION *set_translations_documentlanguage (
                                    LANG_TRANSLATION ***lang_translations,
                                    const char *documentlanguage,

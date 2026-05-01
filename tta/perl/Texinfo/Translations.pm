@@ -261,7 +261,7 @@ sub lang_info_bcp47_locale($) {
 }
 #### end of lang_info API
 
-sub _new_lang_info_translation($) {
+sub _init_lang_translation($) {
   my $lang_info = shift;
 
   my $language_env;
@@ -283,7 +283,22 @@ sub _new_lang_info_translation($) {
   return [$lang_info, $language_env];
 }
 
-sub new_lang_info($;$$) {
+sub _set_lang_info_translation($$) {
+  my ($translations, $lang_info) = @_;
+
+  my $new_lang_translations = _init_lang_translation($lang_info);
+
+  my $bcp47_locale = $new_lang_translations->[0]->{'bcp47_locale'};
+
+  if (!exists($translations->{$bcp47_locale})) {
+    $translations->{$bcp47_locale} = {};
+  }
+  $new_lang_translations->[2] = $translations->{$bcp47_locale};
+
+  return $new_lang_translations;
+}
+
+sub _new_lang_info($;$$) {
   my ($documentlanguage, $documentscript, $variants) = @_;
 
   my ($lang_code, $region_code)
@@ -312,21 +327,6 @@ sub new_lang_info($;$$) {
   return \%lang_info;
 }
 
-sub _set_lang_info_translation($$) {
-  my ($translations, $lang_info) = @_;
-
-  my $new_lang_translations = _new_lang_info_translation($lang_info);
-
-  my $bcp47_locale = $new_lang_translations->[0]->{'bcp47_locale'};
-
-  if (!exists($translations->{$bcp47_locale})) {
-    $translations->{$bcp47_locale} = {};
-  }
-  $new_lang_translations->[2] = $translations->{$bcp47_locale};
-
-  return $new_lang_translations;
-}
-
 sub new_element_language_translation($$) {
   my ($translations, $element) = @_;
 
@@ -340,8 +340,8 @@ sub new_element_language_translation($$) {
   my $language_variants
     = $element->{'extra'}->{'documentlanguagevariant'};
 
-  my $lang_info = new_lang_info($documentlanguage, $documentscript,
-                                $language_variants);
+  my $lang_info = _new_lang_info($documentlanguage, $documentscript,
+                                 $language_variants);
 
   if (!defined($lang_info)) {
     return undef;
@@ -702,18 +702,13 @@ sub pgdt($$;$$$$$) {
              $translate_string_method);
 }
 
-my $parser_translation_cache = {};
-
-my %indices_lang_translations;
+my %parser_translation_cache;
 
 # For some @def* commands, we delay storing the contents of the
 # index entry until now to avoid needing Texinfo::Translations::gdt
 # in the main code of ParserNonXS.pm.
 sub complete_indices($;$$) {
   my ($index_names, $command_line_encoding, $debug_level) = @_;
-
-  my $current_lang_locale;
-  my $current_lang_translations;
 
   foreach my $index_name (sort(keys(%{$index_names}))) {
     next if (not exists($index_names->{$index_name}->{'index_entries'}));
@@ -765,46 +760,11 @@ sub complete_indices($;$$) {
 
           # Use the language information that was current when the command was
           # used for getting the translation.
-          my $element_lang_translations;
-          my $lang_info;
-          # ALTIMPL C/main/translations.c new_element_lang_info
-          my $documentlanguage
-            = $main_entry_element->{'extra'}->{'documentlanguage'};
-          if (defined($documentlanguage)) {
-            my $documentscript
-              = $main_entry_element->{'extra'}->{'documentscript'};
-            my $documentlanguagevariant
-              = $main_entry_element->{'extra'}->{'documentlanguagevariant'};
-            $lang_info = new_lang_info($documentlanguage, $documentscript,
-                                       $documentlanguagevariant);
-          }
+          my $element_lang_translations
+            = Texinfo::Translations::new_element_language_translation(
+                                \%parser_translation_cache,
+                                $main_entry_element);
 
-          if (defined($lang_info)) {
-            my $lang_locale = $lang_info->{'bcp47_locale'};
-            if (!defined($current_lang_locale)
-                or $lang_locale ne $current_lang_locale) {
-              if (!exists($indices_lang_translations{$lang_locale})) {
-                $element_lang_translations
-                  = _new_lang_info_translation($lang_info);
-                if (!exists($parser_translation_cache->{$lang_locale})) {
-                  $parser_translation_cache->{$lang_locale} = {};
-                }
-                $element_lang_translations->[2]
-                  = $parser_translation_cache->{$lang_locale};
-                $indices_lang_translations{$lang_locale}
-                  = $element_lang_translations;
-              } else {
-                $element_lang_translations
-                  = $indices_lang_translations{$lang_locale};
-              }
-              $current_lang_translations = $element_lang_translations;
-              $current_lang_locale = $lang_locale;
-            } else {
-              $element_lang_translations = $current_lang_translations;
-            }
-          } else {
-            $element_lang_translations = undef;
-          }
           if ($def_command eq 'defop'
               or $def_command eq 'deftypeop'
               or $def_command eq 'defmethod'

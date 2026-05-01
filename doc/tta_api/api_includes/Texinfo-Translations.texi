@@ -15,12 +15,16 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
   Texinfo::Translations::setup_output_strings('LocaleData');
 
 
-  my $language = $customization->get_conf('documentlanguage');
-  my $script = $customization->get_conf('documentscript');
+  my $lang_translations;
 
-  my $lang_translations
-   = Texinfo::Translations::new_lang_translations($language,
-                                                  $script, undef);
+  my $language = $customization->get_conf('documentlanguage');
+
+  if (defined($language)) {
+    $lang_translations
+     = Texinfo::Translations::set_translations_documentlanguage(
+         $Texinfo::Translations::converters_translation_cache,
+         $language, undef);
+  }
 
 
   my $tree_translated

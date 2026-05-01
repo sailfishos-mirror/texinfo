@@ -170,7 +170,8 @@ html_cache_translate_string (CONVERTER *self, const char *string,
       uintptr_t string_nr;
       int found;
 
-      user_lang_transl = get_lang_info_translation (&self->translation_cache,
+      user_lang_transl = set_lang_info_copy_translation (
+                                               &self->translation_cache,
                                                lang_info,
                                                TXI_CONVERT_STRINGS_NR);
       translations = user_lang_transl->translations;

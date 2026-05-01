@@ -374,7 +374,7 @@ translate_string (const char *string, const char *language_env,
 #endif
 }
 
-char *
+static char *
 lang_info_bcp47_locale (const DOCUMENT_LANG_INFO *lang_info)
 {
   TEXT bcp47_text;
@@ -446,26 +446,23 @@ init_lang_translation (LANG_TRANSLATION *lang_translation)
   lang_translation->translations = 0;
 }
 
-static LANG_TRANSLATION *
-new_copy_translation (const DOCUMENT_LANG_INFO *lang_info)
+static DOCUMENT_LANG_INFO *
+new_lang_info_copy (const DOCUMENT_LANG_INFO *lang_info)
 {
-  LANG_TRANSLATION *result = (LANG_TRANSLATION *)
-    malloc (sizeof (LANG_TRANSLATION));
-
-  result->info = (DOCUMENT_LANG_INFO *) malloc (sizeof (DOCUMENT_LANG_INFO));
-  memset (result->info, 0, sizeof (DOCUMENT_LANG_INFO));
+  DOCUMENT_LANG_INFO *info
+    = (DOCUMENT_LANG_INFO *) malloc (sizeof (DOCUMENT_LANG_INFO));
+  memset (info, 0, sizeof (DOCUMENT_LANG_INFO));
   if (lang_info->lang)
-    result->info->lang = strdup (lang_info->lang);
+    info->lang = strdup (lang_info->lang);
   if (lang_info->region)
-    result->info->region = strdup (lang_info->region);
+    info->region = strdup (lang_info->region);
   if (lang_info->script)
-    result->info->script = strdup (lang_info->script);
-  copy_strings (&result->info->variants, &lang_info->variants);
+    info->script = strdup (lang_info->script);
+  copy_strings (&info->variants, &lang_info->variants);
 
-  result->info->bcp47_locale = strdup (lang_info->bcp47_locale);
+  info->bcp47_locale = strdup (lang_info->bcp47_locale);
 
-  init_lang_translation (result);
-  return result;
+  return info;
 }
 
 static void
@@ -657,22 +654,27 @@ new_element_language_translation (LANG_TRANSLATION ***lang_translations_ptr,
 
 /* copy info */
 const LANG_TRANSLATION *
-get_lang_info_translation (LANG_TRANSLATION ***lang_translations_ptr,
-                           const DOCUMENT_LANG_INFO *info,
-                           size_t cache_size)
+set_lang_info_copy_translation (LANG_TRANSLATION ***lang_translations_ptr,
+                                const DOCUMENT_LANG_INFO *lang_info,
+                                size_t cache_size)
 {
   size_t i;
+  LANG_TRANSLATION *result;
   const LANG_TRANSLATION *found_lang_translation
     = find_lang_translation (*lang_translations_ptr,
-                             info->bcp47_locale, &i);
+                             lang_info->bcp47_locale, &i);
 
   if (found_lang_translation)
     return found_lang_translation;
 
-  LANG_TRANSLATION *lang_translation = new_copy_translation (info);
+  result = (LANG_TRANSLATION *) malloc (sizeof (LANG_TRANSLATION));
+
+  result->info = new_lang_info_copy (lang_info);
+
+  init_lang_translation (result);
 
   return store_new_lang_translation (lang_translations_ptr, i, cache_size,
-                                     lang_translation);
+                                     result);
 }
 
 const LANG_TRANSLATION *
