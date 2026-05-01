@@ -816,7 +816,9 @@ sub _convert($$) {
         # if there is no documentlanguage information, we use the
         # documentlanguage available in the tree.
         my $new_lang_translations
-         = Texinfo::Translations::new_element_language_translation($element);
+          = Texinfo::Translations::new_element_language_translation(
+               $Texinfo::Translations::converters_translation_cache,
+               $element);
 
         $tree = Texinfo::Translations::gdt($category_text,
                              $new_lang_translations, undef, undef,

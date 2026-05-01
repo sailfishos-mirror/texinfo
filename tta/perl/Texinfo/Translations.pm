@@ -312,20 +312,23 @@ sub new_lang_info($;$$) {
   return \%lang_info;
 }
 
-sub new_lang_translations($;$$) {
-  my ($documentlanguage, $documentscript, $variants) = @_;
+sub _set_lang_info_translation($$) {
+  my ($translations, $lang_info) = @_;
 
-  my $lang_info = new_lang_info($documentlanguage, $documentscript, $variants);
+  my $new_lang_translations = _new_lang_info_translation($lang_info);
 
-  if (!defined($lang_info)) {
-    return undef;
+  my $bcp47_locale = $new_lang_translations->[0]->{'bcp47_locale'};
+
+  if (!exists($translations->{$bcp47_locale})) {
+    $translations->{$bcp47_locale} = {};
   }
+  $new_lang_translations->[2] = $translations->{$bcp47_locale};
 
-  return _new_lang_info_translation($lang_info);
+  return $new_lang_translations;
 }
 
-sub new_element_language_translation($) {
-  my $element = shift;
+sub new_element_language_translation($$) {
+  my ($translations, $element) = @_;
 
   my $documentlanguage = $element->{'extra'}->{'documentlanguage'};
 
@@ -334,30 +337,17 @@ sub new_element_language_translation($) {
   }
 
   my $documentscript = $element->{'extra'}->{'documentscript'};
-  my $documentlanguagevariant
+  my $language_variants
     = $element->{'extra'}->{'documentlanguagevariant'};
 
-  return new_lang_translations($documentlanguage, $documentscript,
-                               $documentlanguagevariant);
-}
+  my $lang_info = new_lang_info($documentlanguage, $documentscript,
+                                $language_variants);
 
-sub _set_lang_info_translation($$) {
-  my ($translations, $lang_info) = @_;
-
-  my $new_lang_translations = _new_lang_info_translation($lang_info);
-
-  # $translations node defined should only happen for lang_translations
-  # setup in automatic menu generation.
-  if (defined($translations)) {
-    my $bcp47_locale = $new_lang_translations->[0]->{'bcp47_locale'};
-
-    if (!exists($translations->{$bcp47_locale})) {
-      $translations->{$bcp47_locale} = {};
-    }
-    $new_lang_translations->[2] = $translations->{$bcp47_locale};
+  if (!defined($lang_info)) {
+    return undef;
   }
 
-  return $new_lang_translations;
+  return _set_lang_info_translation($translations, $lang_info);
 }
 
 # TODO document?
@@ -872,12 +862,16 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
   Texinfo::Translations::setup_output_strings('LocaleData');
 
 
-  my $language = $customization->get_conf('documentlanguage');
-  my $script = $customization->get_conf('documentscript');
+  my $lang_translations;
 
-  my $lang_translations
-   = Texinfo::Translations::new_lang_translations($language,
-                                                  $script, undef);
+  my $language = $customization->get_conf('documentlanguage');
+
+  if (defined($language)) {
+    $lang_translations
+     = Texinfo::Translations::set_translations_documentlanguage(
+         $Texinfo::Translations::converters_translation_cache,
+         $language, undef);
+  }
 
 
   my $tree_translated
@@ -920,31 +914,21 @@ domain.
 
 =back
 
-The C<new_lang_translations> method sets up a lang translation data that
-is used as argument for the other method.  This data contains the language
-and associated already translated strings.
-
 =over
 
-=item $lang_translations = new_lang_translations($documentlanguage, $documentscript, \@documentlanguagevariants)
-
-X<C<new_lang_translations>>
-
-I<$documentlanguage> is the language of the returned I<$lang_translations>,
-I<$documentscript> is the optional script for the language and
-I<\@documentlanguagevariants> holds the list of variants for the language.  In
-general, I<$lang_translations> should be considered as opaque and should not be
-accessed directly, but passed to C<gdt> and C<pgdt> (but see below the
-I<$translate_string_method> C<gdt> argument).
-
-=item $lang_translations = new_element_language_translation($element)
+=item $lang_translations = new_element_language_translation(\%translations, $element)
 X<C<new_element_language_translation>>
 
 Return a I<$lang_translations> based on the language informations associated
 to the I<$element> Texinfo tree element.  Such information is only set for
 elements that have an associated information in english and need to be
 translated in all the output formats, for example for definition commands alias
-names, such as I<Instance Variable> for C<@defivar>.
+names, such as I<Instance Variable> for C<@defivar>.  I<\%translations> hash
+reference keys are language identifiers and associated values contain already
+translated strings.  In general,
+C<$Texinfo::Translations::converters_translation_cache> is used for the
+I<\%translations> argument in order to reuse the same translations in all the
+converters.
 
 =back
 
@@ -965,10 +949,10 @@ the function returns a Texinfo tree, as the string is interpreted
 as Texinfo code after translation.  With C<gdt_string> a string
 is returned.
 
-The I<$lang_translations> should be a reference set up by
-L<< C<new_lang_translations>|/$lang_translations = new_lang_translations($documentlanguage, $documentscript, \@documentlanguagevariants) >>
-for example.  If I<$translate_string_method> argument is passed,
-this argument should instead be suitable for the replacement function.
+The I<$lang_translations> should be a reference with information on the
+language and already translated strings I<TODO reference something?>.  If
+I<$translate_string_method> argument is passed, this argument should instead be
+suitable for the replacement function.
 
 I<$replaced_substrings> is an optional hash reference specifying
 some substitution to be done after the translation.  The key of the
@@ -1031,8 +1015,8 @@ fallback.
 X<C<cache_translate_string>>
 
 The I<$string> is a string to be translated.  The I<$lang_translations>
-argument should be a reference set up by
-L<< C<new_lang_translations>|/$lang_translations = new_lang_translations($documentlanguage, $documentscript, \@documentlanguagevariants) >>.
+argument should be a reference  with information on the
+language and already translated strings I<TODO reference something?>.
 
 In the current implementation I<$lang_translations> is an array reference.  The
 first element of the array is an hash reference containing the

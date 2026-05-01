@@ -66,33 +66,21 @@ domain.
 
 @end table
 
-The @code{new_lang_translations} method sets up a lang translation data that
-is used as argument for the other method.  This data contains the language
-and associated already translated strings.
-
 @table @asis
-@item $lang_translations = new_lang_translations($documentlanguage, $documentscript, \@@documentlanguagevariants)
-@anchor{Texinfo@asis{::}Translations $lang_translations = new_lang_translations($documentlanguage@comma{} $documentscript@comma{} \@@documentlanguagevariants)}
-
-@cindex @code{new_lang_translations}
-
-
-@emph{$documentlanguage} is the language of the returned @emph{$lang_translations},
-@emph{$documentscript} is the optional script for the language and
-@emph{\@@documentlanguagevariants} holds the list of variants for the language.  In
-general, @emph{$lang_translations} should be considered as opaque and should not be
-accessed directly, but passed to @code{gdt} and @code{pgdt} (but see below the
-@emph{$translate_string_method} @code{gdt} argument).
-
-@item $lang_translations = new_element_language_translation($element)
-@anchor{Texinfo@asis{::}Translations $lang_translations = new_element_language_translation($element)}
+@item $lang_translations = new_element_language_translation(\%translations, $element)
+@anchor{Texinfo@asis{::}Translations $lang_translations = new_element_language_translation(\%translations@comma{} $element)}
 @cindex @code{new_element_language_translation}
 
 Return a @emph{$lang_translations} based on the language informations associated
 to the @emph{$element} Texinfo tree element.  Such information is only set for
 elements that have an associated information in english and need to be
 translated in all the output formats, for example for definition commands alias
-names, such as @emph{Instance Variable} for @code{@@defivar}.
+names, such as @emph{Instance Variable} for @code{@@defivar}.  @emph{\%translations} hash
+reference keys are language identifiers and associated values contain already
+translated strings.  In general,
+@code{$Texinfo::Translations::converters_translation_cache} is used for the
+@emph{\%translations} argument in order to reuse the same translations in all the
+converters.
 
 @end table
 
@@ -116,10 +104,10 @@ the function returns a Texinfo tree, as the string is interpreted
 as Texinfo code after translation.  With @code{gdt_string} a string
 is returned.
 
-The @emph{$lang_translations} should be a reference set up by
-@ref{Texinfo@asis{::}Translations $lang_translations = new_lang_translations($documentlanguage@comma{} $documentscript@comma{} \@@documentlanguagevariants),, @code{new_lang_translations}}
-for example.  If @emph{$translate_string_method} argument is passed,
-this argument should instead be suitable for the replacement function.
+The @emph{$lang_translations} should be a reference with information on the
+language and already translated strings @emph{TODO reference something?}.  If
+@emph{$translate_string_method} argument is passed, this argument should instead be
+suitable for the replacement function.
 
 @emph{$replaced_substrings} is an optional hash reference specifying
 some substitution to be done after the translation.  The key of the
@@ -185,8 +173,8 @@ fallback.
 @cindex @code{cache_translate_string}
 
 The @emph{$string} is a string to be translated.  The @emph{$lang_translations}
-argument should be a reference set up by
-@ref{Texinfo@asis{::}Translations $lang_translations = new_lang_translations($documentlanguage@comma{} $documentscript@comma{} \@@documentlanguagevariants),, @code{new_lang_translations}}.
+argument should be a reference  with information on the
+language and already translated strings @emph{TODO reference something?}.
 
 In the current implementation @emph{$lang_translations} is an array reference.  The
 first element of the array is an hash reference containing the
