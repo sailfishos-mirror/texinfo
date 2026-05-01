@@ -1,5 +1,18 @@
 2026-05-01 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/build_html_perl_state.c (build_html_translated_names),
+	tta/perl/Texinfo/Translations.pm (_init_lang_translation)
+	(_set_lang_info_translation, $converters_translation_cache),
+	tta/perl/Texinfo/TranslationsNonXS.pm (cache_translate_string): use
+	lang_translations array references as
+	$Texinfo::Translations::converters_translation_cache values, not
+	translated strings hash.  The translated strings hash is last in the
+	lang_translations array references and now set in
+	_init_lang_translation.  Preset the empty string lang_translations in
+	converters_translation_cache for the unknown language.
+
+2026-05-01 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Translations.pm (_lang_info_bcp47_locale): rename
 	lang_info_bcp47_locale as _lang_info_bcp47_locale.
 

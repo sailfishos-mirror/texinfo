@@ -281,22 +281,21 @@ sub _init_lang_translation($) {
     $language_env = "";
   }
 
-  return [$lang_info, $language_env];
+  return [$lang_info, $language_env, {}];
 }
 
 sub _set_lang_info_translation($$) {
-  my ($translations, $lang_info) = @_;
+  my ($translations_cache, $lang_info) = @_;
 
-  $lang_info->{'bcp47_locale'} = _lang_info_bcp47_locale($lang_info);
+  my $bcp47_locale = _lang_info_bcp47_locale($lang_info);
+
+  if (exists($translations_cache->{$bcp47_locale})) {
+    return $translations_cache->{$bcp47_locale};
+  }
+
+  $lang_info->{'bcp47_locale'} = $bcp47_locale;
 
   my $new_lang_translations = _init_lang_translation($lang_info);
-
-  my $bcp47_locale = $new_lang_translations->[0]->{'bcp47_locale'};
-
-  if (!exists($translations->{$bcp47_locale})) {
-    $translations->{$bcp47_locale} = {};
-  }
-  $new_lang_translations->[2] = $translations->{$bcp47_locale};
 
   return $new_lang_translations;
 }
@@ -450,7 +449,8 @@ sub set_preamble_language_commands($$$$) {
 
 # Cache translations in a hash to avoid having to go through the locale
 # system rigmarole every time.
-our $converters_translation_cache = {};
+# Unknown language is preset.
+our $converters_translation_cache = {'' => [{'bcp47_locale' => ''}, '', {}]};
 
 # Get document translation - handle translations of in-document strings.
 # Return a parsed Texinfo tree.

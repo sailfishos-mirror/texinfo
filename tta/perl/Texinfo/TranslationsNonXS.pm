@@ -65,20 +65,16 @@ sub cache_translate_string($$;$) {
   #if (!defined($string)) {
   #  confess("cache_translate_string: undef string\n");
   #}
+
   my $translations;
 
-  if (defined($lang_translations)) {
-    $translations = $lang_translations->[2];
-  } else {
+  if (!defined($lang_translations)) {
     # unknown language, use default translated string and tree cache
     # associated to the empty string.
-    my $cached = '';
-    if (!exists($Texinfo::Translations::converters_translation_cache->{
-                                                         $cached})) {
-      $Texinfo::Translations::converters_translation_cache->{$cached} = {}
-    }
     $translations
-      = $Texinfo::Translations::converters_translation_cache->{$cached};
+      = $Texinfo::Translations::converters_translation_cache->{''}->[2];
+  } else {
+    $translations = $lang_translations->[2];
   }
 
   my $translation_context_str;

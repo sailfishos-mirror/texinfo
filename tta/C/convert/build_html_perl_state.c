@@ -73,50 +73,45 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
   /* setup current_lang_translations, passing lang info */
   if (converter->current_lang_translations)
     {
-      AV *current_lang_translations_av = newAV ();
-      HV *lang_info_hv
-        = build_lang_info (converter->current_lang_translations->info);
       SV *translations_cache_sv
         = get_sv ("Texinfo::Translations::converters_translation_cache", 0);
       HV *translations_cache_hv = (HV *)SvRV (translations_cache_sv);
       SV **translations_lang_sv;
-      SV *current_translations_lang_sv;
       const char *bcp47_locale
         = converter->current_lang_translations->info->bcp47_locale;
       size_t bcp47_locale_len = strlen (bcp47_locale);
 
-      hv_store (converter_hv, lang_trans_key, strlen (lang_trans_key),
-                newRV_noinc ((SV *) current_lang_translations_av), 0);
-
-      av_push (current_lang_translations_av,
-               newRV_noinc ((SV *) lang_info_hv));
-
-  /* Next allow to build to a full lang_translations.  It is only needed
-     if XS is used for conversion, while cache_translate_string is not
-     overriden, but we always set as it should not be set often and it
-     is better to have the expected data.
-   */
-      av_push (current_lang_translations_av,
-               newSVpv_byte (
-                 converter->current_lang_translations->language_env, 0));
-
-  /* setup language translated strings cache if needed and put in next
-     position in the current lang translation. */
-
       translations_lang_sv = hv_fetch (translations_cache_hv,
-                                    bcp47_locale, bcp47_locale_len, 0);
+                                 bcp47_locale, bcp47_locale_len, 0);
 
       if (translations_lang_sv)
-        current_translations_lang_sv = newSVsv (*translations_lang_sv);
+        {
+           hv_store (converter_hv, lang_trans_key, strlen (lang_trans_key),
+                     newSVsv (*translations_lang_sv), 0);
+        }
       else
         {
+          AV *current_lang_translations_av = newAV ();
+          HV *lang_info_hv
+            = build_lang_info (converter->current_lang_translations->info);
           HV *translations_lang_hv = newHV ();
-          hv_store (translations_cache_hv, bcp47_locale, bcp47_locale_len,
-                    newRV_noinc ((SV *)translations_lang_hv), 0);
-          current_translations_lang_sv = newRV_inc ((SV *)translations_lang_hv);
-        }
 
-      av_push (current_lang_translations_av, current_translations_lang_sv);
+          av_push (current_lang_translations_av,
+                   newRV_noinc ((SV *) lang_info_hv));
+
+          av_push (current_lang_translations_av,
+                   newSVpv_byte (
+                converter->current_lang_translations->language_env, 0));
+
+          av_push (current_lang_translations_av, 
+                   newRV_noinc ((SV *)translations_lang_hv));
+
+          hv_store (translations_cache_hv, bcp47_locale, bcp47_locale_len,
+                    newRV_noinc ((SV *) current_lang_translations_av), 0);
+
+          hv_store (converter_hv, lang_trans_key, strlen (lang_trans_key),
+                    newRV_inc ((SV *) current_lang_translations_av), 0);
+        }
     }
 
   /* pass all the information for each context for translated commands */
