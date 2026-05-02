@@ -301,7 +301,7 @@ sub _set_lang_info_translation($$) {
 }
 
 sub new_element_language_translation($$) {
-  my ($translations, $element) = @_;
+  my ($translations_cache, $element) = @_;
 
   my $documentlanguage = $element->{'extra'}->{'documentlanguage'};
 
@@ -334,13 +334,13 @@ sub new_element_language_translation($$) {
     $lang_info{'variants'} = [@$language_variants];
   }
 
-  return _set_lang_info_translation($translations, \%lang_info);
+  return _set_lang_info_translation($translations_cache, \%lang_info);
 }
 
 # TODO document?
 # resets script and language variants.
 sub set_translations_documentlanguage($$$) {
-  my ($translations, $documentlanguage, $current_lang_translations) = @_;
+  my ($translations_cache, $documentlanguage, $current_lang_translations) = @_;
 
   my %lang_info;
 
@@ -354,12 +354,12 @@ sub set_translations_documentlanguage($$$) {
     $lang_info{'region'} = $region_code;
   }
 
-  return _set_lang_info_translation($translations, \%lang_info);
+  return _set_lang_info_translation($translations_cache, \%lang_info);
 }
 
 # TODO document?
 sub set_translations_documentscript($$$) {
-  my ($translations, $documentscript, $current_lang_translations) = @_;
+  my ($translations_cache, $documentscript, $current_lang_translations) = @_;
 
   my %lang_info;
 
@@ -380,12 +380,13 @@ sub set_translations_documentscript($$$) {
     $lang_info{'script'} = $script;
   }
 
-  return _set_lang_info_translation($translations, \%lang_info);
+  return _set_lang_info_translation($translations_cache, \%lang_info);
 }
 
 # TODO document?
 sub set_translations_documentlanguagevariant($$$) {
-  my ($translations, $documentlanguagevariant, $current_lang_translations) = @_;
+  my ($translations_cache, $documentlanguagevariant,
+      $current_lang_translations) = @_;
 
   my %lang_info;
 
@@ -403,24 +404,24 @@ sub set_translations_documentlanguagevariant($$$) {
     $lang_info{'variants'} = [@$documentlanguagevariant];
   }
 
-  return _set_lang_info_translation($translations, \%lang_info);
+  return _set_lang_info_translation($translations_cache, \%lang_info);
 }
 
 sub set_preamble_language_commands($$$$) {
-  my ($language_command_elements, $translations,
+  my ($language_command_elements, $translations_cache,
       $set_documentlanguage, $set_documentscript) = @_;
 
   my $lang_translations;
 
   if (defined($set_documentlanguage)) {
     $lang_translations
-      = set_translations_documentlanguage($translations,
+      = set_translations_documentlanguage($translations_cache,
                                       $set_documentlanguage,
                                       $lang_translations);
   }
   if (defined($set_documentscript)) {
     $lang_translations
-      = set_translations_documentscript($translations,
+      = set_translations_documentscript($translations_cache,
                                       $set_documentscript,
                                       $lang_translations);
   }
@@ -430,15 +431,15 @@ sub set_preamble_language_commands($$$$) {
       my ($cmdname, $value) = @$lang_cmd_spec;
       if ($cmdname eq 'documentlanguagevariant') {
         $lang_translations
-          = set_translations_documentlanguagevariant($translations,
+          = set_translations_documentlanguagevariant($translations_cache,
               $value, $lang_translations);
       } elsif ($cmdname eq 'documentlanguage') {
         $lang_translations
-              = set_translations_documentlanguage($translations,
+              = set_translations_documentlanguage($translations_cache,
                 $value, $lang_translations);
       } else {
         $lang_translations
-          = set_translations_documentscript($translations,
+          = set_translations_documentscript($translations_cache,
              $value, $lang_translations);
       }
     }
@@ -834,19 +835,22 @@ domain.
 
 =over
 
-=item $lang_translations = new_element_language_translation(\%translations, $element)
+=item $lang_translations = new_element_language_translation(\%translations_cache, $element)
 X<C<new_element_language_translation>>
 
-Return a I<$lang_translations> based on the language informations associated
-to the I<$element> Texinfo tree element.  Such information is only set for
-elements that have an associated information in english and need to be
-translated in all the output formats, for example for definition commands alias
-names, such as I<Instance Variable> for C<@defivar>.  I<\%translations> hash
-reference keys are language identifiers and associated values contain already
-translated strings.  In general,
+Return a I<$lang_translations> based on the language information associated
+to the I<$element> Texinfo tree element, or C<undef> if the language is
+not found.  Language information is only set for tree elements that have
+associated information in English and need to be translated into all output
+formats, for example for definition commands alias names such as I<Instance
+Variable> for C<@defivar>.
+
+I<$lang_translations> contains information on the language and already
+translated strings.  I<\%translations_cache> hash is used to cache the lang
+translations (including for an unknown language).  In general,
 C<$Texinfo::Translations::converters_translation_cache> is used for the
-I<\%translations> argument in order to reuse the same translations in all the
-converters.
+I<\%translations_cache> argument in order to reuse the translations and languages
+information in all the converters.
 
 =back
 
@@ -868,9 +872,8 @@ as Texinfo code after translation.  With C<gdt_string> a string
 is returned.
 
 The I<$lang_translations> should be a reference with information on the
-language and already translated strings I<TODO reference something?>.  If
-I<$translate_string_method> argument is passed, this argument should instead be
-suitable for the replacement function.
+language and already translated strings and can be C<undef> if there is no
+information on the language I<TODO reference set_translations_* when documented>.
 
 I<$replaced_substrings> is an optional hash reference specifying
 some substitution to be done after the translation.  The key of the
@@ -933,8 +936,8 @@ fallback.
 X<C<cache_translate_string>>
 
 The I<$string> is a string to be translated.  The I<$lang_translations>
-argument should be a reference  with information on the
-language and already translated strings I<TODO reference something?>.
+argument should be a reference with information on the
+language and already translated strings.
 
 In the current implementation I<$lang_translations> is an array reference.  The
 first element of the array is an hash reference containing the
@@ -942,8 +945,8 @@ language information (main language, region, script and variants).
 The second element is set to a string that can be used as C<LANGUAGE>
 environment before calling a function gathering translated strings.
 The third element is set to an hash reference holding translations already
-done, with BCP 47 language locales as keys.  A user-defined replacement
-function could use different data structures for I<$lang_translations>.
+done.  A user-defined replacement function could use different data structures
+for I<$lang_translations>.
 
 If the language is not set, the input string does not
 need to be translated.  The I<$translation_context> is optional.  If not
@@ -957,8 +960,7 @@ tree corresponding to the translated string, without the braced arguments
 substituted.
 
 C<cache_translate_string> uses a gettext-like infrastructure to retrieve the
-translated strings, using the I<texinfo_document> domain.  A user-defined
-replacement could do otherwise.
+translated strings, using the I<texinfo_document> domain.
 
 =back
 

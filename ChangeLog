@@ -1,3 +1,8 @@
+2026-05-02 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Translations.pm: rename translations argument as
+	translations_cache.
+
 2026-05-01 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/build_html_perl_state.c (build_html_translated_names),
