@@ -1,5 +1,19 @@
 2026-05-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm (bcp47_tag),
+	tta/perl/t/init/translated_strings_customization.pm: rename
+	bcp47_locale as bcp47_tag.
+
+	* doc/texi2any_api.texi (Translated Strings Customization): document
+	the lang_info argument of format_translate_message and xpg_locale and
+	bcp47_tag use.
+
+	* tta/perl/init/documentation_examples.pm, doc/texi2any_api.texi
+	(Translated Strings Customization): use a country code in language to
+	show an XPG locale name in example.
+
+2026-05-02 Patrice Dumas  <pertusus@free.fr>
+
 	object-based interface for format_translate_message lang info argument
 
 	* tta/perl/Texinfo/Translations.pm (get_lang_info_xpg_locale): rename

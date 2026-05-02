@@ -1428,14 +1428,12 @@ sub new($) {
   return $lang_info;
 }
 
-# TODO document
-sub bcp47_locale($) {
+sub bcp47_tag($) {
   my $self = shift;
 
   return $self->{'bcp47_locale'};
 }
 
-# TODO document
 sub xpg_locale($) {
   my $self = shift;
 

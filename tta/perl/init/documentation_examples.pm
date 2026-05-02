@@ -59,7 +59,7 @@ my %translations = (
               => 'Vers l\'avant @result{}',},
 # ...
 },
-'de' => {
+'de_AT' => {
 'error--&gt;' => {'' => 'Fehler--&gt;',},
 # ...
 },

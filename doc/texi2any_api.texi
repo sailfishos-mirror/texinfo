@@ -4544,11 +4544,27 @@ To customize strings translations, register the @code{format_translate_message}
 function reference:
 
 @deftypefn {Function Reference} @var{$translated_string} format_translate_message @
-  (@var{$converter}, @var{$string}, @var{$lang}, @var{$translation_context})
-@var{$string} is the string to be translated, @var{$lang} is the language.
-@var{$lang} may be @code{undef} or the empty string, if
-@code{@@documentlanguage} is not set.  In that case you can return the string
-untranslated.  @var{$translation_context} is an optional translation context.
+  (@var{$converter}, @var{$string}, @var{$lang_info}, @var{$translation_context})
+@var{$string} is the string to be translated, @var{$lang_info} holds information on
+the language.  @var{$translation_context} is an optional translation context.
+
+The language can be accessed through @var{$lang_info}.  Two representations are
+available, as an @dfn{XPG locale} (@pxref{Locale Names,,,gettext,
+GNU @code{gettext} utilities}) or as a @uref{BCP47 language tag,
+https://www.rfc-editor.org/rfc/rfc5646.html}:
+@table @asis
+@item XPG locale
+@cindex XPG locale
+@code{@var{$lang_info}->xpg_locale()}
+@item BCP47 language tag
+@cindex BCP47 language tag
+@code{@var{$lang_info}->bcp47_tag()}
+@end table
+The returned string may be empty if @code{@@documentlanguage} is not set.
+In that case you can return the string untranslated.  Unless
+@code{@@documentscript} or @code{@@documentlanguagevariant} are used, the
+two representations are similar and return the @code{@@documentlanguage}, except that
+the BCP47 language tag have @samp{-} instead of @samp{_} as separator.
 
 The result returned should be the translated string. The result returned may
 also be @samp{undef}, in which case the translation is done as if the function
@@ -4574,7 +4590,7 @@ my %translations = (
            'error--&gt;' => @{'' => 'erreur--&gt;',@},
            # @dots{}
          @},
- 'de' => @{
+ 'de_AT' => @{
            'error--&gt;' => @{'' => 'Fehler--&gt;',@},
            # @dots{}
          @}
@@ -4582,8 +4598,9 @@ my %translations = (
 );
 
 sub my_format_translate_message($$$;$) @{
-  my ($self, $string, $lang, $translation_context) = @@_;
+  my ($self, $string, $lang_info, $translation_context) = @@_;
 
+  my $lang = $lang_info->xpg_locale();
   return $string if (!defined($lang) or $lang eq '');
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations@{$lang@})
