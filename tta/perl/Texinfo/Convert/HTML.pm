@@ -1412,7 +1412,44 @@ my @style_commands_contexts = ('normal', 'preformatted');
 our @no_args_commands_contexts
     = ('normal', 'preformatted', 'string', 'css_string');
 
-my $unknown_lang_info = {'bcp47_locale' => ''};
+
+# a small package providing an API for the argument of
+# format_translate_message.  The idea is to be able to change the
+# argument of format_translate_message, for example if a instead of
+# a lang_info, a translations_lang is used, without a need to change
+# user code.
+
+package Texinfo::Convert::HTML::Language;
+
+sub new($) {
+  my $lang_info = shift;
+
+  bless $lang_info;
+  return $lang_info;
+}
+
+# TODO document
+sub bcp47_locale($) {
+  my $self = shift;
+
+  return $self->{'bcp47_locale'};
+}
+
+# TODO document
+sub xpg_locale($) {
+  my $self = shift;
+
+  if (!exists($self->{'xpg_locale'})) {
+    $self->{'xpg_locale'}
+      = Texinfo::Translations::get_lang_info_xpg_locale($self);
+  }
+  return $self->{'xpg_locale'};
+}
+
+package Texinfo::Convert::HTML;
+
+my $unknown_lang_info
+  = Texinfo::Convert::HTML::Language::new({'bcp47_locale' => ''});
 
 # redefined functions
 #
@@ -1424,7 +1461,8 @@ sub _html_cache_translate_string($$$;$) {
   if (defined($self->{'formatting_function'}->{'format_translate_message'})) {
     my $lang_info;
     if (defined($lang_translations)) {
-      $lang_info = $lang_translations->[0];
+      $lang_info
+        = Texinfo::Convert::HTML::Language::new($lang_translations->[0]);
     } else {
       $lang_info = $unknown_lang_info;
     }

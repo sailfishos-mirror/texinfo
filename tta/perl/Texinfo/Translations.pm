@@ -219,10 +219,8 @@ sub translate_string($$;$) {
   return $translated_string;
 }
 
-# lang_info API
-# Used in HTML customization code.
-# TODO document in texi2any_api
-sub get_lang_info_xdg_locale($) {
+# TODO document?
+sub get_lang_info_xpg_locale($) {
   my $lang_info = shift;
 
   return '' if (!defined($lang_info) or !exists($lang_info->{'lang'}));
@@ -241,8 +239,6 @@ sub get_lang_info_xdg_locale($) {
   }
   return $xpg_locale;
 }
-
-#### end of lang_info API
 
 sub _lang_info_bcp47_locale($) {
   my $lang_info = shift;
@@ -267,7 +263,7 @@ sub _init_lang_translation($) {
 
   my $language_env;
   if (exists($lang_info->{'lang'})) {
-    my $xpg_locale = get_lang_info_xdg_locale($lang_info);
+    my $xpg_locale = get_lang_info_xpg_locale($lang_info);
     if ($xpg_locale ne $lang_info->{'lang'}) {
   # NOTE gettext should already try the main language if it follows the
   # optional logic proposed in POSIX gettext description.  We nevertheless

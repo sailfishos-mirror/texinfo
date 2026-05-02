@@ -181,6 +181,12 @@ my @file_tests = (
 
 @error{}.
 
+@documentlanguage de_AT
+@node Chapter de_AT
+@chapter chap de_AT
+
+@error{}.
+
 @node Last chapter
 @chapter Last Chapter
 

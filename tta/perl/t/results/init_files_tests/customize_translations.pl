@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'customize_translations'} = '*document_root C13
+$result_tree_text{'customize_translations'} = '*document_root C15
  *before_node_section C2
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
@@ -135,7 +135,7 @@ $result_tree_text{'customize_translations'} = '*document_root C13
     {spaces_before_argument: }
     {Chapter de}
     {spaces_after_argument:\\n}
- *@chapter C4 l23 {chap de}
+ *@chapter C5 l23 {chap de}
  |EXTRA
  |section_heading_number:{3}
  |section_level:{1}
@@ -151,21 +151,55 @@ $result_tree_text{'customize_translations'} = '*document_root C13
     *brace_container
    {.\\n}
   {empty_line:\\n}
- *@node C1 l27 {Last chapter}
+  *@documentlanguage C1 l27
+  |EXTRA
+  |global_command_number:{3}
+  |text_arg:{de_AT}
+   *line_arg C3
+    {spaces_before_argument: }
+    {de_AT}
+    {spaces_after_argument:\\n}
+ *@node C1 l28 {Chapter de_AT}
  |EXTRA
- |identifier:{Last-chapter}
+ |identifier:{Chapter-de_005fAT}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
    *line_arg C3
     {spaces_before_argument: }
-    {Last chapter}
+    {Chapter de_AT}
     {spaces_after_argument:\\n}
- *@chapter C2 l28 {Last Chapter}
+ *@chapter C4 l29 {chap de_AT}
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{6}
+  *arguments_line C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {chap de_AT}
+    {spaces_after_argument:\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *@error C1 l31
+    *brace_container
+   {.\\n}
+  {empty_line:\\n}
+ *@node C1 l33 {Last chapter}
+ |EXTRA
+ |identifier:{Last-chapter}
+ |is_target:{1}
+ |node_number:{7}
+  *arguments_line C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {Last chapter}
+    {spaces_after_argument:\\n}
+ *@chapter C2 l34 {Last Chapter}
+ |EXTRA
+ |section_heading_number:{5}
+ |section_level:{1}
+ |section_number:{7}
   *arguments_line C1
    *line_arg C3
     {spaces_before_argument: }
@@ -201,6 +235,12 @@ $result_texis{'customize_translations'} = '
 
 @error{}.
 
+@documentlanguage de_AT
+@node Chapter de_AT
+@chapter chap de_AT
+
+@error{}.
+
 @node Last chapter
 @chapter Last Chapter
 
@@ -229,7 +269,12 @@ error->.
 
 error->.
 
-4 Last Chapter
+4 chap de_AT
+************
+
+error->.
+
+5 Last Chapter
 **************
 
 ';
@@ -264,14 +309,21 @@ $result_nodes_list{'customize_translations'} = '1|Top
  associated_section: 3 chap de
  associated_title_command: 3 chap de
  node_directions:
-  next->Last chapter
+  next->Chapter de_AT
   prev->Chapter fr
   up->Top
-6|Last chapter
- associated_section: 4 Last Chapter
- associated_title_command: 4 Last Chapter
+6|Chapter de_AT
+ associated_section: 4 chap de_AT
+ associated_title_command: 4 chap de_AT
  node_directions:
+  next->Last chapter
   prev->Chapter de
+  up->Top
+7|Last chapter
+ associated_section: 5 Last Chapter
+ associated_title_command: 5 Last Chapter
+ node_directions:
+  prev->Chapter de_AT
   up->Top
 ';
 
@@ -284,7 +336,8 @@ $result_sections_list{'customize_translations'} = '1|top
   1|chap
   2|chap fr
   3|chap de
-  4|Last Chapter
+  4|chap de_AT
+  5|Last Chapter
 2|chap
  associated_anchor_command: Chapter
  associated_node: Chapter
@@ -317,21 +370,32 @@ $result_sections_list{'customize_translations'} = '1|top
  associated_anchor_command: Chapter de
  associated_node: Chapter de
  section_directions:
-  next->Last Chapter
+  next->chap de_AT
   prev->chap fr
   up->top
  toplevel_directions:
-  next->Last Chapter
+  next->chap de_AT
   prev->chap fr
   up->top
-6|Last Chapter
+6|chap de_AT
+ associated_anchor_command: Chapter de_AT
+ associated_node: Chapter de_AT
+ section_directions:
+  next->Last Chapter
+  prev->chap de
+  up->top
+ toplevel_directions:
+  next->Last Chapter
+  prev->chap de
+  up->top
+7|Last Chapter
  associated_anchor_command: Last chapter
  associated_node: Last chapter
  section_directions:
-  prev->chap de
+  prev->chap de_AT
   up->top
  toplevel_directions:
-  prev->chap de
+  prev->chap de_AT
   up->top
 ';
 

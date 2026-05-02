@@ -548,7 +548,7 @@ texinfo_register_file_id_setting_function('label_target_name',
 sub my_format_translate_message($$$;$) {
   my ($converter, $string, $lang_info, $translation_context) = @_;
 
-  my $lang = Texinfo::Translations::get_lang_info_xdg_locale($lang_info);
+  my $lang = $lang_info->xpg_locale();
   return $string if (!defined($lang) or $lang eq '');
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations{$lang})

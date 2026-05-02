@@ -1,5 +1,31 @@
 2026-05-02 Patrice Dumas  <pertusus@free.fr>
 
+	object-based interface for format_translate_message lang info argument
+
+	* tta/perl/Texinfo/Translations.pm (get_lang_info_xpg_locale): rename
+	get_lang_info_xdg_locale as get_lang_info_xpg_locale.  Update callers.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (Texinfo::Convert::HTML::Language)
+	(new, bcp47_locale, xpg_locale): new package turning lang_info to a
+	blessed reference, with two accessors xpg_locale and bcp47_locale.
+
+	* tta/perl/Texinfo/Convert/HTML.pm ($unknown_lang_info)
+	(_html_cache_translate_string): call
+	Texinfo::Convert::HTML::Language::new on the lang_info argument of
+	format_translate_message.
+
+	* tta/C/convert/call_html_perl_function.c
+	(call_formatting_function_format_translate_message): bless lang_info
+	argument of format_translate_message into the
+	Texinfo::Convert::HTML::Language class.
+
+	* tta/perl/t/init/translated_strings_customization.pm (%translations)
+	(_texi2any_tests_format_translate_message),
+	tta/perl/t/init_files_tests.t (customize_translations): use bcp47
+	locale name, add test of language with country code.
+
+2026-05-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Translations.pm: rename translations argument as
 	translations_cache.
 
