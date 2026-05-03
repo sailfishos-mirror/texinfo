@@ -9267,6 +9267,12 @@ here.  @xref{Not Ending a Sentence}.
 @cindex Accents, inserting
 @cindex Floating accents, inserting
 
+In general, accented and other non-ASCII characters commonly used in languages
+based on the Latin alphabet can be input directly as encoded characters in
+Texinfo (@pxref{@code{@@documentencoding}}).  However, @@-commands are also
+available for some characters, in particular if a 7-bit ASCII Texinfo source is
+desired.
+
 Here is a table with the commands Texinfo provides for inserting
 floating accents.  They all need an argument, the character to accent,
 which can either be given in braces as usual (@code{@@'@{e@}}), or, as
@@ -11919,36 +11925,54 @@ In this manual, this function is listed in the Command Index under
 @chapter Internationalization
 
 @cindex Internationalization
-Texinfo has some support for writing in languages other than English,
-although this area still needs considerable work.  (If you are
+Many Texinfo manuals are written in English because it is often used as
+a common language in computer engineering in general, and in free software
+projects in particular.  Texinfo, however, aims to support writing in any
+language.  This area still needs work for @TeX{} to be able to support
+any language.  More generally translations for strings output in documents are
+missing for many languages and conventions for manuals installations and
+cross-references in multilingual environments are still unclear.  (If you are
 the one helping to translate the fixed strings written to documents,
 @pxref{Internationalization of Document Strings}.)
 
-For a list of the various accented and special characters Texinfo
-supports, see @ref{Inserting Accents}.
+@cindex Locale, declaring
+The current document locale is mainly determined by the main language and
+optional country code, set by @code{@@documentlanguage}.  The document
+@dfn{script} (also called alphabet) is set by @code{@@documentscript}.
+For example the Serbian language is generally written in the Cyrillic alphabet,
+but can also be written in the Latin alphabet.  Lastly language variants that
+cannot be specified with the country code are set with
+@code{@@documentlanguagevariant}.  These variants may correspond to dialects or
+specific orthographies, among others.  @code{@@documentlanguagevariant} should
+rarely be useful for technical documentation, but is needed in Texinfo to make
+sure that all the languages can be specified.
+
+For a list of the various accented and special characters that Texinfo
+supports via @@-commands, see @ref{Inserting Accents}.
 
 
-@node @code{@@documentlanguage}
+@node Setting the language
 @nodedescription Declaring the current language.
-@section @code{@@documentlanguage @var{ll}[_@var{cc}]}: Set the Document Language
+@section Setting the language
+@c old names
 @anchor{documentlanguage}
+@anchor{@code{@@documentlanguage}}
 
 @findex documentlanguage
 @cindex Language, declaring
-@cindex Locale, declaring
 @cindex Document language, declaring
 
 The @code{@@documentlanguage} command declares the current document
-locale.  Write it on a line by itself, near the beginning of the file.
+main language.  Write it on a line by itself, near the beginning of the file.
 
 @example
-@@documentlanguage @var{ll}[_@var{cc}]
+@@documentlanguage @var{ll}[_@var{CC}]
 @end example
 
-Include a two-letter (or three-letter) ISO@tie{}639-2 language code
+Include a two-letter (or three-letter) ISO@tie{}639 language code
 (@var{ll}) following
 the command name, optionally followed by an underscore and two-letter
-ISO@tie{}3166 two-letter country code (@var{cc}).  If you have a
+ISO@tie{}3166 country code (@var{CC}).  If you have a
 multilingual document, the intent is to be able to use this command
 multiple times, to declare each language change.
 
@@ -11957,29 +11981,70 @@ code is omitted, the main dialect is assumed where possible.  For
 example, @code{de} is equivalent to @code{de_DE} (German as spoken in
 Germany).
 
+The @code{@@documentlanguagevariant} command declares additional language
+variants on top of the main language (and optional country code).  A list of
+variants can be specified.  Write it on a line by itself, after
+@code{@@documentlanguage}.
+
+@findex documentlanguagevariant
+@cindex Language variants, declaring
+
+@example
+@@documentlanguagevariant [@var{variant1}][, @var{variant2}][, @dots{}]
+@end example
+
+Include variants (@var{variant1}, optionally @var{variant2}, @dots{})
+registered in the IANA language subtags registry, separated by commas,
+following the command name.  An empty argument unsets the language variants.
+Language variants should rarely be needed.  Their support also requires
+associated translations, therefore specifying variants will not often have
+a practical effect.
+
+@findex documentscript
+@cindex Language alphabet, declaring
+@cindex Language script, declaring
+@cindex Document language script, declaring
+
+The @code{@@documentscript} command sets an alternative script.  Do not set the
+script if the usual script for the language is used.  Write it on a line by
+itself, after @code{@@documentlanguage}.
+
+@example
+@@documentscript [@var{script}]
+@end example
+
+Include a script name, either a four letter ISO@tie{}15924 script code name,
+such as @samp{Latn} or a well-known alias, such as @samp{latin} or
+@samp{cyrillic} following the command name.  An empty argument unsets the
+script.
+
+Setting @code{@@documentlanguage} unsets both language variants
+and script.
+
 @cindex Document strings, translation of
-This command changes the translation of various @dfn{document strings}
+These commands change the translation of various @dfn{document strings}
 such as ``see'' in cross-references (@pxref{Cross References}),
 ``Function'' in defuns (@pxref{Definition Commands}), and so on.
-Optionally, this command may also affect how @command{texi2any}
-sorts indices (@pxref{Global Customization Variables}, under
-@code{DOCUMENTLANGUAGE_COLLATION}).  If the document language is not
-specified, the default English document strings are output as they
-are.
+Optionally, @code{@@documentlanguage} and @code{@@documentscript} may also
+affect how @command{texi2any} sorts indices (@pxref{Global Customization
+Variables}, under @code{DOCUMENTLANGUAGE_COLLATION}).  If the document language
+is not specified, the default English document strings are output as they are.
 
 Note that in Info output, some strings, such as ``Node:'', ``Next:'',
 ``Menu:'', etc., are keywords and so are not translated.
 
-In DocBook output @code{@@documentlanguage} sets the language for
+In DocBook and HTML, the language at the end of the preamble set by
+these commands determine the language specified in output file headers.
+In DocBook output these commands also set or reset the language for
 following sections.
 
-For @LaTeX{}, this command causes code to load the @samp{babel} package
+For @LaTeX{}, these commands cause code to load the @samp{babel} package
 to be output in the preamble, and @code{\selectlanguage} to be output.
 
-@cindex @file{txi-@var{cc}.tex}
-For @TeX{}, this command causes a file @file{txi-@var{locale}.tex} to
+@cindex @file{txi-@var{locale}.tex}
+For @TeX{}, these commands cause a file @file{txi-@var{locale}.tex} to
 be read (if it exists).  If @code{@@documentlanguage} argument
-contains the optional @samp{_@var{cc}} suffix, this is tried first.
+contains the optional @samp{_@var{CC}} suffix, this is tried first.
 For example, with @code{@@documentlanguage de_DE}, @TeX{} first looks
 for @file{txi-de_DE.tex}, then @file{txi-de.tex}.
 
@@ -11991,8 +12056,8 @@ ideographic (among other) scripts.  Help in improving Texinfo's
 language support is welcome.
 
 @cindex Hyphenation patterns, language-dependent
-@code{@@documentlanguage} also changes @TeX{}'s current hyphenation
-patterns, if the @TeX{} program being run has the necessary support
+@code{@@documentlanguage} and @code{@@documentscript} also changes @TeX{}'s
+current hyphenation patterns, if the @TeX{} program being run has the necessary support
 included.  This will generally not be the case for @command{tex}
 itself, but will usually be the case for up-to-date distributions of
 the extended @TeX{} programs @command{etex} (DVI output) and
@@ -12000,16 +12065,18 @@ the extended @TeX{} programs @command{etex} (DVI output) and
 extended @TeX{}s if they are available (@pxref{Format with
 @command{texi2dvi}}).
 
-@cindex ISO 639-2 language codes
+@cindex ISO 639 language codes
 @cindex ISO 3166 country codes
 @cindex Language codes
 @cindex Country codes
-Since the lists of language codes and country codes are updated
-relatively frequently, we don't attempt to list them here.  The valid
-language codes are on the official home page for ISO@tie{}639,
-@url{http://www.loc.gov/standards/iso639-2/}.  The country codes and
-the official web site for ISO@tie{}3166 can be found via
-@url{https://en.wikipedia.org/wiki/ISO_3166}.
+@cindex IANA language subtag registry
+@cindex Language variants
+@cindex Language script codes
+@cindex ISO 15924 script codes
+We use the IANA language subtag registry
+@url{https://www.iana.org/assignments/language-subtag-registry} to get
+the up-to-date list of ISO@tie{}639 languages, ISO@tie{}3166 country codes,
+ISO@tie{}15924 script code names and language variants names.
 
 
 @node @code{@@documentencoding}
@@ -14905,10 +14972,10 @@ Generate DocBook output (rather than Info).
 
 @item --document-language=@var{lang}
 @opindex --document-language
-Use @var{lang} to translate Texinfo keywords which end up in the
-output document.  The default is the locale specified by the
+Use @var{lang} as main language to translate Texinfo keywords which
+end up in the output document.  The default is the language specified by the
 @code{@@documentlanguage} command if there is one, otherwise English
-(@pxref{@code{@@documentlanguage}}).
+strings are output (@pxref{Setting the language}).
 
 @item --dvi
 @opindex --dvi
@@ -15636,10 +15703,11 @@ variable with the same name (minus the leading @code{@@}):
 @@afourwide             @@allowcodebreaks   @@bsixpaper
 @@contents              @@codequotebacktick
 @@codequoteundirected   @@deftypefnnewline  @@documentdescription
-@@documentencoding      @@documentlanguage  @@evenfooting
-@@evenfootingmarks      @@evenheading       @@evenheadingmarks
-@@everyfooting          @@everyfootingmarks @@everyheading
-@@everyheadingmarks     @@exampleindent     @@firstparagraphindent
+@@documentencoding      @@documentlanguage  @@documentscript
+@@evenfooting           @@evenfootingmarks  @@evenheading
+@@evenheadingmarks      @@everyfooting      @@everyfootingmarks
+@@everyheading          @@everyheadingmarks
+@@exampleindent         @@firstparagraphindent
 @@fonttextsize          @@footnotestyle     @@frenchspacing
 @@headings              @@kbdinputstyle     @@microtype
 @@novalidate            @@oddfooting        @@oddfootingmarks
@@ -15907,9 +15975,9 @@ The @code{OUTPUT_FILE_NAME_ENCODING} variable overrides this variable.
 
 @item DOCUMENTLANGUAGE_COLLATION
 If set, try to use the language specified in a @code{@@documentlanguage}
-directive for language-specific tailoring of index sorting.
-See also the @code{COLLATION_LANGUAGE} variable, described above.
-(@xref{@code{@@documentlanguage}}.)
+(and @code{@@documentscript}) directive for language-specific tailoring of
+index sorting.  See also the @code{COLLATION_LANGUAGE} variable, described
+above.  (@xref{Setting the language}.)
 
 @item DUMP_STRUCTURE
 For debugging.  If set, the tree constructed upon parsing a Texinfo
@@ -16428,11 +16496,14 @@ entities.  By default, set to true for DocBook output.
 @cindex Translating strings in output documents
 
 @vindex documentlanguage @r{customization variable}
+@vindex documentscript @r{customization variable}
 @command{texi2any} writes fixed strings into the output document at
 various places: cross-references, page footers, the help page,
 alternate text for images, and so on.  The string chosen depends on
-the value of the @code{documentlanguage} at the time of the string
-being output (@pxref{@code{@@documentlanguage}}, for the Texinfo
+the value of the @code{documentlanguage}, @code{documentscript}
+and @code{@@documentlanguagevariant}
+at the time of the string
+being output (@pxref{Setting the language}, for the Texinfo
 command interface).
 
 @vindex texinfo_document @r{Gettext domain}
@@ -16461,11 +16532,12 @@ orders depending on the output format.
 The expansion of a translation string is done like this:
 
 @enumerate
-@item First, the string is translated.  The locale
-is @var{documentlanguage}@code{.}@var{documentencoding}.
+@item First, the string is translated.  The locale is based on the
+@var{documentlanguage}, with a @samp{@@modifier} appended based on
+@var{documentscript} or @var{documentlanguagevariant}, if set.
 
-If the @var{documentlanguage} has the form @samp{ll_CC}, that is
-tried first, and then just @samp{ll}.
+If the locale has the form @samp{ll_CC}, @samp{ll@@modifier} or
+@samp{ll_CC@@modifier}, that is tried first, and then just @samp{ll}.
 
 @item Next, in most cases, the string is expanded as Texinfo, and converted.
 The arguments are substituted; for example, @samp{@{arg_name@}} is replaced by
@@ -18882,7 +18954,7 @@ These variables are empty by default.
 You can set the attributes of the @code{<body>} element by defining the
 customization variable @code{BODY_ELEMENT_ATTRIBUTES}.
 By default, the @samp{lang} attribute is set to the document language
-(@pxref{@code{@@documentlanguage}}).
+(@pxref{Setting the language}).
 
 @vindex PRE_BODY_CLOSE
 You can define the variable @code{PRE_BODY_CLOSE} to add text just
@@ -19282,7 +19354,7 @@ special elements, but not for footers and headers; default
 @item BODY_ELEMENT_ATTRIBUTES
 The @code{<body>} attributes text.  By default, sets the
 HTML @code{lang} attribute to the document language
-(@pxref{@code{@@documentlanguage}}).
+(@pxref{Setting the language}).
 
 @item CASE_INSENSITIVE_FILENAMES
 Construct output file names as if the filesystem were case
@@ -20186,9 +20258,18 @@ Declare the input encoding to be @var{enc}.
 Start the document metadata block. Pair with @samp{@@end documentinfo}.
 @xref{Document Metadata}.
 
-@item @@documentlanguage @var{CC}
+@item @@documentlanguage @var{ll[_CC]}
 Declare the document language as the two-character ISO-639 abbreviation
-@var{CC}.  @xref{@code{@@documentlanguage}}.
+@var{ll} with optional country code @var{CC}.  @xref{Setting the language}.
+
+@item @@documentlanguagevariant [@var{variant1}][, @var{variant2}][, @dots{}]
+Declare a list of language variants on top of the main language.  An empty
+argument unsets the language variants.  @xref{Setting the language}.
+
+@item @@documentscript [@var{script}]
+Declare the document script as the four letter @var{script} ISO@tie{}15924 script
+code name or well-known alias. An empty argument unsets the script.
+@xref{Setting the language}.
 
 @item @@dotaccent@{@var{c}@}
 Generate a dot accent over the character @var{c}, as in @dotaccent{o}.

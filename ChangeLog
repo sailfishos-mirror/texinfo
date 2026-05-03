@@ -1,3 +1,31 @@
+2026-05-03 Patrice Dumas  <pertusus@free.fr>
+
+	document @documentscript and @documentlanguagevariant
+
+	* doc/texinfo.texi (Inserting Accents): add a pragraph stating that
+	accented chracters and other can in general be input as encoded
+	characters.
+
+	* doc/texinfo.texi (Internationalization): be more precise on the
+	current status of Internationalization in Texinfo.
+
+	* doc/texinfo.texi (Internationalization): introduce the @-commands
+	and elements of a language locale.
+
+	* doc/texinfo.texi (Setting the language): rename
+	@code{@@documentlanguage} as "Setting the language".  Document that
+	the IANA language subtag registry is used, use CC for the country code
+	and do not use a precise ISO 639 standard.
+
+	* doc/texinfo.texi (Setting the language)
+	(Customization Variables for @@-Commands)
+	(Global Customization Variables, Command List)
+	(Internationalization of Document Strings): add
+	@documentlanguagevariant and @documentscript.
+
+	* doc/texinfo.texi (Invoking @command{texi2any}): update description
+	of --document-language.
+
 2026-05-02 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/HTML.pm (bcp47_tag),
