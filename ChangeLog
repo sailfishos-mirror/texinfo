@@ -1,3 +1,8 @@
+2026-05-03  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Internationalization, Setting the language):
+	Grammar fixes.
+
 2026-05-03 Patrice Dumas  <pertusus@free.fr>
 
 	document @documentscript and @documentlanguagevariant

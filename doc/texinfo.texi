@@ -11930,7 +11930,7 @@ a common language in computer engineering in general, and in free software
 projects in particular.  Texinfo, however, aims to support writing in any
 language.  This area still needs work for @TeX{} to be able to support
 any language.  More generally translations for strings output in documents are
-missing for many languages and conventions for manuals installations and
+missing for many languages and conventions for installation of manuals and
 cross-references in multilingual environments are still unclear.  (If you are
 the one helping to translate the fixed strings written to documents,
 @pxref{Internationalization of Document Strings}.)
@@ -12034,7 +12034,7 @@ Note that in Info output, some strings, such as ``Node:'', ``Next:'',
 ``Menu:'', etc., are keywords and so are not translated.
 
 In DocBook and HTML, the language at the end of the preamble set by
-these commands determine the language specified in output file headers.
+these commands determines the language specified in output file headers.
 In DocBook output these commands also set or reset the language for
 following sections.
 
@@ -12056,9 +12056,9 @@ ideographic (among other) scripts.  Help in improving Texinfo's
 language support is welcome.
 
 @cindex Hyphenation patterns, language-dependent
-@code{@@documentlanguage} and @code{@@documentscript} also changes @TeX{}'s
-current hyphenation patterns, if the @TeX{} program being run has the necessary support
-included.  This will generally not be the case for @command{tex}
+@code{@@documentlanguage} and @code{@@documentscript} also change @TeX{}'s
+current hyphenation patterns, if the @TeX{} program being run has the necessary
+support included.  This will generally not be the case for @command{tex}
 itself, but will usually be the case for up-to-date distributions of
 the extended @TeX{} programs @command{etex} (DVI output) and
 @command{pdftex} (PDF output).  @command{texi2dvi} will use the
