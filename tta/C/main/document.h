@@ -57,13 +57,13 @@ COLLATION_INDICES_SORTED_BY_INDEX *sorted_indices_by_index (
                          DOCUMENT *document,
                          ERROR_MESSAGE_LIST *error_messages,
                          OPTIONS *options, int use_unicode_collation,
-                         const char *collation_language,
+                         SORTING_LANG_INFO *sorting_lang_info,
                          const char *collation_locale);
 COLLATION_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter (
                           DOCUMENT *document,
                           ERROR_MESSAGE_LIST *error_messages,
                           OPTIONS *options, int use_unicode_collation,
-                          const char *collation_language,
+                          SORTING_LANG_INFO *sorting_lang_info,
                           const char *collation_locale);
 
 void destroy_document (DOCUMENT *document);

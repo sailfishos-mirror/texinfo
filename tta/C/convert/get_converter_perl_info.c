@@ -192,11 +192,25 @@ get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
     }
 }
 
+#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen (#key), 0);
+const LANG_TRANSLATION *
+get_hv_lang_translation (HV *hv_in)
+{
+  SV **current_lang_translations_sv;
+
+  dTHX;
+
+  FETCH(current_lang_translations)
+  if (current_lang_translations_sv && SvOK (*current_lang_translations_sv))
+    return get_lang_translation_sv (*current_lang_translations_sv);
+
+  return 0;
+}
+
 /* map hash reference of Convert::Text options to TEXT_OPTIONS */
 /* _raw_state is not fetched, as it is not documented as an option,
    and there is no way to set it through text options either, it can only
    be set as a state during conversion */
-#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen (#key), 0);
 TEXT_OPTIONS *
 copy_sv_options_for_convert_text (SV *sv_in)
 {
@@ -210,7 +224,6 @@ copy_sv_options_for_convert_text (SV *sv_in)
   SV **enabled_encoding_sv;
   SV **sort_string_sv;
   SV **set_case_sv;
-  SV **current_lang_translations_sv;
   SV **DEBUG_sv;
   SV **DOC_ENCODING_FOR_INPUT_FILE_NAME_sv;
   SV **INPUT_FILE_NAME_ENCODING_sv;
@@ -259,22 +272,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
 
   get_expanded_formats (hv_in, &text_options->expanded_formats);
 
-  FETCH(current_lang_translations)
-  if (current_lang_translations_sv && SvOK (*current_lang_translations_sv))
-    {
-      AV *lang_translations_av = (AV *) SvRV (*current_lang_translations_sv);
-      SV **lang_info_sv = av_fetch (lang_translations_av, 0, 0);
-
-      if (lang_info_sv && SvOK (*lang_info_sv))
-        {
-          HV *lang_info_hv = (HV *) SvRV (*lang_info_sv);
-          DOCUMENT_LANG_INFO *info = get_lang_info_hv (lang_info_hv);
-          text_options->current_lang_translations
-                = set_lang_info_translation (
-                          &converters_translation_cache, info,
-                          TXI_CONVERT_STRINGS_NR);
-        }
-    }
+  text_options->current_lang_translations = get_hv_lang_translation (hv_in);
 
   FETCH(DEBUG)
   if (DEBUG_sv && SvOK (*DEBUG_sv))

@@ -216,6 +216,7 @@ sub _unicode_to_file_name($) {
   return $result;
 }
 
+# called from C/main/call_perl_function.c
 sub _unicode_to_transliterate($;$$) {
   my ($text, $in_test, $no_unidecode) = @_;
 

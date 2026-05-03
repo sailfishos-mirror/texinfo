@@ -23,6 +23,8 @@ CONVERTER *converter_set_document_from_sv (SV *converter_in, SV *document_in);
 
 DOCUMENT *get_converter_sv_document (SV *converter_sv, const char *warn_string);
 
+const LANG_TRANSLATION *get_hv_lang_translation (HV *hv_in);
+
 TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);
 
 SV *convert_element_options_sv_to_text (DOCUMENT *document,

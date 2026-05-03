@@ -70,6 +70,7 @@ $xs_version =~ s/dev$//; # XS bootstrap functions choke on non-numeric version
 # required through an XS interface.
 our $mandatory_xs;
 
+# called from C/main/call_perl_function.c
 # Should be called before any module with XS is loaded.
 sub set_XS_mandatory {
   $mandatory_xs = 1;

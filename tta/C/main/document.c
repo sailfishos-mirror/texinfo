@@ -392,13 +392,31 @@ find_collation_sorted_indices_by_index (
   return 0;
 }
 
+static char *
+lang_info_sorting_locale (const DOCUMENT_LANG_INFO *lang_info)
+{
+  TEXT t_lang_sorting;
+
+  text_init (&t_lang_sorting);
+
+  text_append (&t_lang_sorting, lang_info->lang);
+  if (lang_info->script)
+    {
+      text_append_n (&t_lang_sorting, "_", 1);
+      text_append (&t_lang_sorting, lang_info->script);
+    }
+
+  return t_lang_sorting.text;
+}
+
 COLLATION_INDICES_SORTED_BY_INDEX *
 sorted_indices_by_index (DOCUMENT *document,
                          ERROR_MESSAGE_LIST *error_messages,
                          OPTIONS *options, int use_unicode_collation,
-                         const char *collation_language,
+                         SORTING_LANG_INFO *sorting_lang_info,
                          const char *collation_locale)
 {
+  const char *lang_sorting_locale = 0;
   COLLATIONS_INDICES_SORTED_BY_INDEX *collations;
   COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices = 0;
   if (!document->sorted_indices_by_index)
@@ -421,29 +439,53 @@ sorted_indices_by_index (DOCUMENT *document,
   if (use_unicode_collation == 0)
     collation_sorted_indices
       = &collations->collation_sorted_indices[ctn_no_unicode];
-  else if (!collation_language && !collation_locale)
+  else if (!sorting_lang_info && !collation_locale)
     collation_sorted_indices
       = &collations->collation_sorted_indices[ctn_unicode];
   else
     {
       enum collation_type_name type;
-      const char *language;
-      if (collation_language)
+      char *new_lang_sorting_locale = 0;
+
+      if (sorting_lang_info)
         {
           type = ctn_language_collation;
-          language = collation_language;
+          if (sorting_lang_info->collation_language)
+            lang_sorting_locale = sorting_lang_info->collation_language;
+          else
+            new_lang_sorting_locale = lang_info_sorting_locale (
+                                           sorting_lang_info->lang_info);
         }
       else
         {
           type = ctn_locale_collation;
-          language = collation_locale;
+          lang_sorting_locale = collation_locale;
         }
-      collation_sorted_indices
-        = find_collation_sorted_indices_by_index (collations, type, language);
-      if (!collation_sorted_indices)
-        collation_sorted_indices
-          = new_collation_sorted_indices_by_index (collations,
-                                                   type, language);
+
+      if (lang_sorting_locale)
+        {
+          collation_sorted_indices
+            = find_collation_sorted_indices_by_index (collations, type,
+                                                     lang_sorting_locale);
+          if (!collation_sorted_indices)
+            collation_sorted_indices
+              = new_collation_sorted_indices_by_index (collations,
+                                                   type, lang_sorting_locale);
+        }
+      else
+        {/* in that case the lang_sorting_locale is taken from
+            collation_sorted_indices to avoid needing to keep
+            new_lang_sorting_locale allocated somewhere */
+          collation_sorted_indices
+            = find_collation_sorted_indices_by_index (collations, type,
+                                                     new_lang_sorting_locale);
+          if (!collation_sorted_indices)
+            collation_sorted_indices
+              = new_collation_sorted_indices_by_index (collations,
+                                               type, new_lang_sorting_locale);
+          lang_sorting_locale = collation_sorted_indices->language;
+          free (new_lang_sorting_locale);
+        }
     }
 
   if (!collation_sorted_indices->sorted_indices)
@@ -451,7 +493,7 @@ sorted_indices_by_index (DOCUMENT *document,
       document_merged_indices (document);
       collation_sorted_indices->sorted_indices
         = sort_indices_by_index (document, error_messages, options,
-                                 use_unicode_collation, collation_language,
+                                 use_unicode_collation, lang_sorting_locale,
                                  collation_locale);
     }
   return collation_sorted_indices;
@@ -507,9 +549,10 @@ COLLATION_INDICES_SORTED_BY_LETTER *
 sorted_indices_by_letter (DOCUMENT *document,
                           ERROR_MESSAGE_LIST *error_messages,
                           OPTIONS *options, int use_unicode_collation,
-                          const char *collation_language,
+                          SORTING_LANG_INFO *sorting_lang_info,
                           const char *collation_locale)
 {
+  const char *lang_sorting_locale = 0;
   COLLATIONS_INDICES_SORTED_BY_LETTER *collations;
   COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices = 0;
   if (!document->sorted_indices_by_letter)
@@ -532,29 +575,53 @@ sorted_indices_by_letter (DOCUMENT *document,
   if (use_unicode_collation == 0)
     collation_sorted_indices
       = &collations->collation_sorted_indices[ctn_no_unicode];
-  else if (!collation_language && !collation_locale)
+  else if (!sorting_lang_info && !collation_locale)
     collation_sorted_indices
       = &collations->collation_sorted_indices[ctn_unicode];
   else
     {
       enum collation_type_name type;
-      const char *language;
-      if (collation_language)
+      char *new_lang_sorting_locale = 0;
+
+      if (sorting_lang_info)
         {
           type = ctn_language_collation;
-          language = collation_language;
+          if (sorting_lang_info->collation_language)
+            lang_sorting_locale = sorting_lang_info->collation_language;
+          else
+            new_lang_sorting_locale = lang_info_sorting_locale (
+                                           sorting_lang_info->lang_info);
         }
       else
         {
           type = ctn_locale_collation;
-          language = collation_locale;
+          lang_sorting_locale = collation_locale;
         }
-      collation_sorted_indices
-        = find_collation_sorted_indices_by_letter (collations, type, language);
-      if (!collation_sorted_indices)
-        collation_sorted_indices
-          = new_collation_sorted_indices_by_letter (collations,
-                                                    type, language);
+
+      if (lang_sorting_locale)
+        {
+          collation_sorted_indices
+            = find_collation_sorted_indices_by_letter (collations, type,
+                                                     lang_sorting_locale);
+          if (!collation_sorted_indices)
+            collation_sorted_indices
+              = new_collation_sorted_indices_by_letter (collations,
+                                                   type, lang_sorting_locale);
+        }
+      else
+        {/* in that case the lang_sorting_locale is taken from
+            collation_sorted_indices to avoid needing to keep
+            new_lang_sorting_locale allocated somewhere */
+          collation_sorted_indices
+            = find_collation_sorted_indices_by_letter (collations, type,
+                                                     new_lang_sorting_locale);
+          if (!collation_sorted_indices)
+            collation_sorted_indices
+              = new_collation_sorted_indices_by_letter (collations,
+                                               type, new_lang_sorting_locale);
+          lang_sorting_locale = collation_sorted_indices->language;
+          free (new_lang_sorting_locale);
+        }
     }
 
   if (!collation_sorted_indices->sorted_indices)
@@ -562,7 +629,7 @@ sorted_indices_by_letter (DOCUMENT *document,
       document_merged_indices (document);
       collation_sorted_indices->sorted_indices
         = sort_indices_by_letter (document, error_messages, options,
-                                  use_unicode_collation, collation_language,
+                                  use_unicode_collation, lang_sorting_locale,
                                   collation_locale);
     }
   return collation_sorted_indices;
@@ -895,10 +962,10 @@ print_document_indices_sort_strings (DOCUMENT *document)
   NAME_NUMBER_LIST indices_sort_strings_n_nr;
   NAME_NUMBER_LIST sorted_index_entries_n_nr;
   int use_unicode_collation = 1;
-  const char *locale_lang = 0;
   const INDICES_SORT_STRINGS *indices_sort_strings;
   const COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_index_entries;
   INDICES_ENTRIES_SORT_STRINGS indices_entries_sort_string;
+  SORTING_LANG_INFO *sorting_lang_info = 0;
   TEXT result;
 
   merged_indices = document_merged_indices (document);
@@ -911,11 +978,16 @@ print_document_indices_sort_strings (DOCUMENT *document)
 
   if (document->options)
     {
+      const char *locale_lang;
       use_unicode_collation
         = document->options->USE_UNICODE_COLLATION.o.integer;
 
       if (use_unicode_collation != 0)
-        locale_lang = document->options->COLLATION_LANGUAGE.o.string;
+        {
+          locale_lang = document->options->COLLATION_LANGUAGE.o.string;
+          if (locale_lang)
+            sorting_lang_info = new_sorting_lang_info (locale_lang, 0);
+        }
     }
 
   indices_sort_strings = document_indices_sort_strings (document,
@@ -924,7 +996,7 @@ print_document_indices_sort_strings (DOCUMENT *document)
   collation_sorted_index_entries
    = sorted_indices_by_index (document, &document->error_messages,
                               document->options, use_unicode_collation,
-                              locale_lang, 0);
+                              sorting_lang_info, 0);
 
   memset (&indices_sort_strings_n_nr, 0, sizeof (NAME_NUMBER_LIST));
 

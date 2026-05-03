@@ -1513,20 +1513,26 @@ get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
   *language = 0;
   if (self->document)
     {
-      char *collation_language = 0;
       COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices;
+      SORTING_LANG_INFO *sorting_lang_info = 0;
       if (self->conf->COLLATION_LANGUAGE.o.string)
-        collation_language = self->conf->COLLATION_LANGUAGE.o.string;
+        sorting_lang_info
+          = new_sorting_lang_info (self->conf->COLLATION_LANGUAGE.o.string, 0);
       else if (self->conf->DOCUMENTLANGUAGE_COLLATION.o.integer > 0
-               && self->conf->documentlanguage.o.string)
-        collation_language = self->conf->documentlanguage.o.string;
+               && self->current_lang_translations)
+        sorting_lang_info
+          = new_sorting_lang_info (0, self->current_lang_translations->info);
 
       collation_sorted_indices
         = sorted_indices_by_index (self->document,
                                    &self->error_messages, self->conf,
                                    self->conf->USE_UNICODE_COLLATION.o.integer,
-                                   collation_language,
+                                   sorting_lang_info,
                            self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);
+
+      if (sorting_lang_info)
+        free (sorting_lang_info);
+
       if (collation_sorted_indices->type != ctn_locale_collation)
         *language = collation_sorted_indices->language;
       return collation_sorted_indices->sorted_indices;
@@ -1540,20 +1546,26 @@ get_converter_indices_sorted_by_letter (CONVERTER *self, char **language)
   *language = 0;
   if (self->document)
     {
-      char *collation_language = 0;
       COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices;
+      SORTING_LANG_INFO *sorting_lang_info = 0;
       if (self->conf->COLLATION_LANGUAGE.o.string)
-        collation_language = self->conf->COLLATION_LANGUAGE.o.string;
+        sorting_lang_info
+          = new_sorting_lang_info (self->conf->COLLATION_LANGUAGE.o.string, 0);
       else if (self->conf->DOCUMENTLANGUAGE_COLLATION.o.integer > 0
-               && self->conf->documentlanguage.o.string)
-        collation_language = self->conf->documentlanguage.o.string;
+               && self->current_lang_translations)
+        sorting_lang_info
+          = new_sorting_lang_info (0, self->current_lang_translations->info);
 
       collation_sorted_indices
         = sorted_indices_by_letter (self->document,
                                     &self->error_messages, self->conf,
                                     self->conf->USE_UNICODE_COLLATION.o.integer,
-                                    collation_language,
+                                    sorting_lang_info,
                             self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);
+
+      if (sorting_lang_info)
+        free (sorting_lang_info);
+
       if (collation_sorted_indices->type != ctn_locale_collation)
         *language = collation_sorted_indices->language;
       return collation_sorted_indices->sorted_indices;

@@ -1,3 +1,49 @@
+2026-05-03 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/get_converter_perl_info.c (get_hv_lang_translation)
+	(copy_sv_options_for_convert_text), tta/C/main/get_perl_info.c
+	(get_lang_translation_sv),
+	tta/perl/XSTexinfo/parser_document/TranslationsXS.xs
+	(cache_translate_string): add get_hv_lang_translation and
+	get_lang_translation_sv based on copy_sv_options_for_convert_text
+	code.  Use in TranslationsXS.xs cache_translate_string.
+
+	* tta/C/api_for_swig/swig_interface.c
+	(txi_ext_get_index_sorted_by_index), tta/C/convert/converter.c
+	(get_converter_indices_sorted_by_index)
+	(get_converter_indices_sorted_by_letter), tta/C/main/document.c
+	(lang_info_sorting_locale, sorted_indices_by_index)
+	(sorted_indices_by_letter, print_document_indices_sort_strings),
+	tta/C/main/document.h (SORTING_LANG_INFO), tta/C/main/utils.c
+	(new_sorting_lang_info), tta/perl/Texinfo/Convert/ConverterNonXS.pm
+	(get_converter_indices_sorted_by_letter), tta/perl/Texinfo/Document.pm
+	(sorted_indices_by_letter, sorted_indices_by_index),
+	tta/perl/Texinfo/DocumentNonXS.pm
+	(print_document_indices_sort_strings),
+	tta/perl/XSTexinfo/convert/ConvertConverterXS.xs
+	(get_converter_indices_sorted_by_index): setup information on
+	language for sorting based COLLATION_LANGUAGE or on current lang
+	translations lang_info in a SORTING_LANG_INFO structure in
+	get_converter_indices_sorted_by_*, using new_sorting_lang_info in C.
+	Use this information in sorted_indices_by_* to determine the
+	language to use for sorting, based either on COLLATION_LANGUAGE
+	or on the main language and script from the lang_info, using
+	lang_info_sorting_locale in C.
+
+	* tta/perl/Texinfo/Indices.pm (_setup_collator): rename $locale_lang
+	as $lang_sorting_locale.
+
+	* tta/tests/other/Makefile.am (EXTRA_DIST),
+	tta/tests/other/index_collation_script_test.texi,
+	tta/tests/other/list-of-tests
+	(index_collation_script_test_documentlanguage_collation): add test
+	with documentscript and DOCUMENTLANGUAGE_COLLATION set.  This test is
+	not final, as the order is not different with and without the
+	documentscript for the selected index entries.
+
+	* tta/tests/other/list-of-tests: comment out tests of
+	XS_STRXFRM_COLLATION_LOCALE.
+
 2026-05-03  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Internationalization, Setting the language):

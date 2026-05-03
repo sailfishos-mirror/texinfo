@@ -338,5 +338,7 @@ TARGET_CONTENTS_FILENAME *new_target_contents_filename (void);
 FILE_NAME_PATH *new_file_name_path (void);
 TARGET_DIRECTORY_FILENAME *new_target_directory_filename (void);
 FORMATTED_BUTTON_INFO *new_formatted_button_info (void);
+SORTING_LANG_INFO *new_sorting_lang_info (const char *collation_language,
+                                          const DOCUMENT_LANG_INFO *lang_info);
 
 #endif

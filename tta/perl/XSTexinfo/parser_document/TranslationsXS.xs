@@ -30,7 +30,7 @@
 #include "translations.h"
 /* for newSVpv_utf8 */
 #include "build_perl_info.h"
-/* for get_lang_info_hv */
+/* for get_lang_translation_sv */
 #include "get_perl_info.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
@@ -58,21 +58,8 @@ cache_translate_string (string, SV *lang_translations, SV *translation_context_s
         if (SvOK (lang_translations))
           {
             const char *translated_context_string = 0;
-            const LANG_TRANSLATION *lang_translation = 0;
-
-            AV *lang_translations_av = (AV *) SvRV (lang_translations);
-            SV **lang_info_sv = av_fetch (lang_translations_av, 0, 0);
-
-            if (lang_info_sv && SvOK (*lang_info_sv))
-              {
-                HV *lang_info_hv = (HV *) SvRV (*lang_info_sv);
-                DOCUMENT_LANG_INFO *info = get_lang_info_hv (lang_info_hv);
-
-                lang_translation
-                      = set_lang_info_translation (
-                                &converters_translation_cache, info,
-                                TXI_CONVERT_STRINGS_NR);
-              }
+            const LANG_TRANSLATION *lang_translation
+              = get_lang_translation_sv (lang_translations);
 
             if (lang_translation)
               {

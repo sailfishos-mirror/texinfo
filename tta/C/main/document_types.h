@@ -151,6 +151,14 @@ typedef struct DOCUMENT_INFO {
     const ELEMENT *publication;
 } DOCUMENT_INFO;
 
+/* used to transmit information on language for indices sorting */
+typedef struct SORTING_LANG_INFO {
+    /* COLLATION_LANGUAGE customization variable */
+    const char *collation_language;
+    /* current lang translations */
+    const DOCUMENT_LANG_INFO *lang_info;
+} SORTING_LANG_INFO;
+
 /* not used in document, but used for indices for sort keys that can
    contain NUL */
 typedef struct BYTES_STRING {

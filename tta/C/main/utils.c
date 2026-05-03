@@ -3275,3 +3275,18 @@ new_formatted_button_info (void)
   return result;
 }
 
+SORTING_LANG_INFO *
+new_sorting_lang_info (const char *collation_language,
+                       const DOCUMENT_LANG_INFO *lang_info)
+{
+  SORTING_LANG_INFO *sorting_lang_info = (SORTING_LANG_INFO *)
+                                malloc (sizeof (SORTING_LANG_INFO));
+  memset (sorting_lang_info, 0, sizeof (SORTING_LANG_INFO));
+  if (collation_language)
+    sorting_lang_info->collation_language = collation_language;
+  else
+    sorting_lang_info->lang_info = lang_info;
+
+  return sorting_lang_info;
+}
+

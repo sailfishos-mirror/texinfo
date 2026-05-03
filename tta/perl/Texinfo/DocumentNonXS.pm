@@ -237,10 +237,12 @@ sub print_document_indices_sort_strings($) {
 
   my $use_unicode_collation
     = $document->get_conf('USE_UNICODE_COLLATION');
-  my $locale_lang;
+  my $sorting_lang_info;
   if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
-    $locale_lang
-     = $document->get_conf('COLLATION_LANGUAGE');
+    my $collation_language = $document->get_conf('COLLATION_LANGUAGE');
+    if (defined($collation_language)) {
+      $sorting_lang_info = [$collation_language];
+    }
   }
 
   my $indices_sort_strings = indices_sort_strings($document, undef);
@@ -251,7 +253,7 @@ sub print_document_indices_sort_strings($) {
 
   my $sorted_index_entries
        = sorted_indices_by_index($document, undef,
-                               $use_unicode_collation, $locale_lang);
+                               $use_unicode_collation, $sorting_lang_info);
 
   my $idx_sort_strings_str = '';
   foreach my $index_name (sort(keys(%$sorted_index_entries))) {

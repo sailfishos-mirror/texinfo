@@ -318,17 +318,28 @@ sub merged_indices($) {
 # In general a CONVERTER argument is given, but if not the DOCUMENT is
 # used instead to register error messages.
 sub sorted_indices_by_letter($$$$) {
-  my ($document, $converter, $use_unicode_collation, $locale_lang) = @_;
+  my ($document, $converter, $use_unicode_collation, $sorting_lang_info) = @_;
 
+  my $lang_sorting_locale;
   my $lang_key;
   if (!$use_unicode_collation) {
     $lang_key = '';
-  } elsif (!defined($locale_lang)) {
+  } elsif (!defined($sorting_lang_info)) {
     # special name corresponding to Unicode Collation with 'Non-Ignorable'
     # set for variable collation elements
     $lang_key = '-';
   } else {
-    $lang_key = $locale_lang;
+    if (scalar(@$sorting_lang_info) > 1) {
+      my $lang_info = $sorting_lang_info->[1];
+      $lang_sorting_locale = $lang_info->{'lang'};
+      if (exists($lang_info->{'script'})) {
+        $lang_sorting_locale .= '_'.$lang_info->{'script'};
+      }
+    } else {
+      $lang_sorting_locale = $sorting_lang_info->[0];
+    }
+
+    $lang_key = $lang_sorting_locale;
   }
 
   $document->{'sorted_indices_by_letter'} = {}
@@ -339,7 +350,7 @@ sub sorted_indices_by_letter($$$$) {
     $document->{'sorted_indices_by_letter'}->{$lang_key}
       = Texinfo::Indices::sort_indices_by_letter
                     ($document, $converter,
-                     $use_unicode_collation, $locale_lang);
+                     $use_unicode_collation, $lang_sorting_locale);
   }
   return $document->{'sorted_indices_by_letter'}->{$lang_key};
 }
@@ -351,17 +362,28 @@ sub sorted_indices_by_letter($$$$) {
 # In general a CONVERTER argument is given, but if not the DOCUMENT is
 # used instead to register error messages.
 sub sorted_indices_by_index($$$$) {
-  my ($document, $converter, $use_unicode_collation, $locale_lang) = @_;
+  my ($document, $converter, $use_unicode_collation, $sorting_lang_info) = @_;
 
+  my $lang_sorting_locale;
   my $lang_key;
   if (!$use_unicode_collation) {
     $lang_key = '';
-  } elsif (!defined($locale_lang)) {
+  } elsif (!defined($sorting_lang_info)) {
     # special name corresponding to Unicode Collation with 'Non-Ignorable'
     # set for variable collation elements
     $lang_key = '-';
   } else {
-    $lang_key = $locale_lang;
+    if (scalar(@$sorting_lang_info) > 1) {
+      my $lang_info = $sorting_lang_info->[1];
+      $lang_sorting_locale = $lang_info->{'lang'};
+      if (exists($lang_info->{'script'})) {
+        $lang_sorting_locale .= '_'.$lang_info->{'script'};
+      }
+    } else {
+      $lang_sorting_locale = $sorting_lang_info->[0];
+    }
+
+    $lang_key = $lang_sorting_locale;
   }
 
   $document->{'sorted_indices_by_index'} = {}
@@ -372,7 +394,7 @@ sub sorted_indices_by_index($$$$) {
     $document->{'sorted_indices_by_index'}->{$lang_key}
       = Texinfo::Indices::sort_indices_by_index
                       ($document, $converter,
-                       $use_unicode_collation, $locale_lang);
+                       $use_unicode_collation, $lang_sorting_locale);
   }
   return $document->{'sorted_indices_by_index'}->{$lang_key};
 }

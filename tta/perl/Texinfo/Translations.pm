@@ -166,6 +166,7 @@ sub _switch_messages_locale() {
 }
 
 # TODO document?
+# called from C/main/call_perl_function.c
 sub translate_string($$;$) {
   my ($string, $language_env, $translation_context) = @_;
 

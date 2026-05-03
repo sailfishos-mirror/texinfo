@@ -426,11 +426,16 @@ get_converter_indices_sorted_by_index (SV *converter_sv)
      CODE:
         self = get_sv_converter (converter_sv,
                                  "get_converter_indices_sorted_by_index");
-        if (self)
-          index_entries_by_index
-            = get_converter_indices_sorted_by_index (self, &language);
-
         converter_hv = (HV *) SvRV (converter_sv);
+        if (self)
+          {
+            self->current_lang_translations
+              = get_hv_lang_translation (converter_hv);
+
+            index_entries_by_index
+              = get_converter_indices_sorted_by_index (self, &language);
+          }
+
         document_sv = hv_fetch (converter_hv, "document",
                                 strlen ("document"), 0);
         RETVAL = 0;

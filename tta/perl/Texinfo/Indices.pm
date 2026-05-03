@@ -162,8 +162,9 @@ sub getSortKey($$) {
 
 package Texinfo::Indices;
 
+# called from C/main/call_perl_function.c
 sub _setup_collator($$) {
-  my ($use_unicode_collation, $locale_lang) = @_;
+  my ($use_unicode_collation, $lang_sorting_locale) = @_;
 
   my $collator;
 
@@ -198,12 +199,13 @@ sub _setup_collator($$) {
   if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
     # Unicode::Collate::Locale is present in perl core since perl major
     # version 5.14 released in 2011.
-    if (defined($locale_lang)) {
+    if (defined($lang_sorting_locale)) {
       eval { require Unicode::Collate::Locale;
              Unicode::Collate::Locale->import; };
       my $unicode_collate_locale_loading_error = $@;
       if ($unicode_collate_locale_loading_error eq '') {
-        $collator = Unicode::Collate::Locale->new('locale' => $locale_lang,
+        $collator = Unicode::Collate::Locale->new(
+                                     'locale' => $lang_sorting_locale,
                                                   %collate_options);
       }
     }

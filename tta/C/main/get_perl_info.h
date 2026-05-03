@@ -73,7 +73,8 @@ OUTPUT_FILES_INFORMATION *get_output_files_information (SV *output_files_sv);
 void converter_release_output_units_built (CONVERTER *converter);
 void release_output_units_lists_built (OUTPUT_UNIT_LISTS *output_units_lists);
 
-DOCUMENT_LANG_INFO *get_lang_info_hv (HV *lang_info_hv);
+const LANG_TRANSLATION *get_lang_translation_sv (
+                                SV *current_lang_translations_sv);
 
 void set_translated_commands (SV *translated_commands_sv,
                          TRANSLATED_COMMAND_LIST *translated_commands);

@@ -1669,7 +1669,7 @@ release_output_units_lists_built (OUTPUT_UNIT_LISTS *output_units_lists)
 
 
 #define FETCH(key) key##_sv = hv_fetch (lang_info_hv, #key, strlen (#key), 0);
-DOCUMENT_LANG_INFO *
+static DOCUMENT_LANG_INFO *
 get_lang_info_hv (HV *lang_info_hv)
 {
   SV **lang_sv;
@@ -1707,6 +1707,30 @@ get_lang_info_hv (HV *lang_info_hv)
   return lang_info;
 }
 #undef FETCH
+
+const LANG_TRANSLATION *
+get_lang_translation_sv (SV *current_lang_translations_sv)
+{
+  AV *lang_translations_av;
+  SV **lang_info_sv;
+  const LANG_TRANSLATION *lang_translations = 0;
+
+  dTHX;
+
+  lang_translations_av = (AV *) SvRV (current_lang_translations_sv);
+  lang_info_sv = av_fetch (lang_translations_av, 0, 0);
+
+  if (lang_info_sv && SvOK (*lang_info_sv))
+    {
+      HV *lang_info_hv = (HV *) SvRV (*lang_info_sv);
+      DOCUMENT_LANG_INFO *info = get_lang_info_hv (lang_info_hv);
+      lang_translations
+           = set_lang_info_translation (
+                      &converters_translation_cache, info,
+                      TXI_CONVERT_STRINGS_NR);
+    }
+  return lang_translations;
+}
 
 
 

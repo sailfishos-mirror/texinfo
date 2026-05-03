@@ -1,6 +1,8 @@
 EXTRA_DIST = \
- highlight_example.texi index_collation_test.texi \
  accented_lang_index_collation.texi \
+ highlight_example.texi \
+ index_collation_script_test.texi \
+ index_collation_test.texi \
  list-of-tests res_parser
 
 DISTCLEANFILES = tests.log tests.out

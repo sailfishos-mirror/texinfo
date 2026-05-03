@@ -850,11 +850,18 @@ txi_ext_get_index_sorted_by_index (DOCUMENT *document, const char *index_name,
 {
   const INDEX_SORTED_BY_INDEX *idx;
   const INDEX_SORTED_BY_INDEX *index_sorted = 0;
+  SORTING_LANG_INFO *sorting_lang_info = 0;
+
+  if (collation_language)
+    sorting_lang_info = new_sorting_lang_info (collation_language, 0);
 
   COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices
     = sorted_indices_by_index (document, &document->error_messages,
                                document->options, use_unicode_collation,
-                               collation_language, collation_locale);
+                               sorting_lang_info, collation_locale);
+
+  if (sorting_lang_info)
+    free (sorting_lang_info);
 
   INDEX_SORTED_BY_INDEX *indices_sorted_by_index
     = collation_sorted_indices->sorted_indices;
