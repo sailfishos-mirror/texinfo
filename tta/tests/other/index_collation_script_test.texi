@@ -1,0 +1,29 @@
+\input texinfo @c -*-texinfo-*-
+
+@documentlanguage sr
+@documentscript Latn
+
+@node Top
+@top top
+
+@node Chapter
+@chapter chap
+
+@c TODO add some things in Serbian, maybe in cyrillic? to check the sorting order
+
+@cindex cdab
+@cindex e
+@cindex @'e
+@cindex z
+@cindex ö
+
+@printindex cp
+
+@node Indices
+@appendix Indices
+
+@documentlanguage fr
+
+@printindex cp
+
+@bye
