@@ -1,3 +1,8 @@
+2026-05-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (@documentlanguagevariant, @documentscript):
+	Add stub implementations.
+
 2026-05-03 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/get_converter_perl_info.c (get_hv_lang_translation)
