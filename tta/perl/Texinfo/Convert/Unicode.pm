@@ -674,7 +674,7 @@ Texinfo::Convert::Unicode - Representation as Unicode characters
 
   my $formatted_accents = encoded_accents($converter,
                  convert_to_text($contents_element), $stack, $encoding,
-                        \&Texinfo::Text::ascii_accent_fallback);
+                   \&Texinfo::Convert::Text::ascii_accent_fallback);
 
 =head1 NOTES
 

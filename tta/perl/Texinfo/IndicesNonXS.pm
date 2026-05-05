@@ -45,7 +45,11 @@ our $VERSION = '7.3dev';
 # XS override, because it is only a helper function, if needed the calling
 # functions should have XS interfaces.
 
-# Only called from converters.  Has an XS override
+# Only called from converters.  Called directly, not through index sorting
+# functions.
+# The options setup are typically used in calls to
+# index_entry_element_sort_string.
+# Has an XS override.
 sub setup_index_entry_keys_formatting($) {
   my $customization_information = shift;
 
@@ -66,8 +70,12 @@ sub setup_index_entry_keys_formatting($) {
   return $text_options;
 }
 
-# can be used for subentries.
-# $DOCUMENT_INFO is used in XS to retrieve the document.
+# Format a sort string for an index entry.  Can also be used on a subentry.
+# Could be called internally by index sorting functions.
+# Can also be called directly by converters to get a string relevant for sorting
+# that could also be output, independently of index sorting functions.
+# $DOCUMENT_INFO is only used in XS to retrieve the document and can either be
+# a Document or a Converter.
 sub index_entry_element_sort_string($$$$;$) {
   my ($document_info, $main_entry, $index_entry_element, $options,
       $prefer_reference_element) = @_;

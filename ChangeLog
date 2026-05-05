@@ -1,3 +1,13 @@
+2026-05-05 Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi: add indices entries.
+
+	* tta/perl/Texinfo/Indices.pm (setup_index_entries_sort_strings)
+	(_setup_sortable_index_entries, sort_indices_by_letter): cosmetic
+	changes and variable names change.
+
+	Changes in POD and comments.
+
 2026-05-05  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/session-cmd.c (forward_move_node_structure):

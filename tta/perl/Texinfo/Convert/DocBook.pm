@@ -546,8 +546,7 @@ sub conversion_output_begin($;$$) {
       }
     }
   }
-  #$self->set_global_document_commands('before', ['documentlanguage',
-  #                                               'documentscript']);
+
   if ($default_bcp47_locale ne $bcp47_locale) {
     $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
     $self->converter_set_documentscript($self->get_conf('documentscript'));

@@ -39,10 +39,22 @@ Texinfo to other formats.  There is no promise of API stability.
 @node Texinfo@asis{::}Indices DESCRIPTION
 @section Texinfo::Indices DESCRIPTION
 
+Main functions merge and sort indices.  These functions should generally be
+called indirectly.
+
+Other functions help presenting sorting strings especially generated to be
+output or deal with getting information on or format especially index
+entries.
+
+@node Texinfo@asis{::}Indices METHODS
+@section Texinfo::Indices METHODS
+
+No method is exported.
+
 @code{merge_indices} may be used to merge indices.  Document indices may be sorted
-with @code{sort_indices_by_index} or @code{sort_indices_by_letter}.  Other functions
-deal with formatting of index entries as text or getting information on
-index entry.
+with @code{sort_indices_by_index} or @code{sort_indices_by_letter}.  The sorting may
+be influenced by the current language.  In the current implementation,
+sorting keys formatted internally in a language-independent manner are used.
 
 Note that, in general, the functions used to merge or sort indices
 should not be called directly, corresponding functions
@@ -50,47 +62,7 @@ in @ref{Texinfo@asis{::}Document NAME,, Texinfo::Document} already call the func
 in addition, cache the result with the document.  Furthermore, it should
 be even better to call converter functions, which call document functions.
 
-@node Texinfo@asis{::}Indices METHODS
-@section Texinfo::Indices METHODS
-
-No method is exported.
-
 @table @asis
-@item $sort_string = index_entry_element_sort_string($document_info, $main_entry, $index_entry_element, $options, $prefer_reference_element)
-@anchor{Texinfo@asis{::}Indices $sort_string = index_entry_element_sort_string($document_info@comma{} $main_entry@comma{} $index_entry_element@comma{} $options@comma{} $prefer_reference_element)}
-@cindex @code{index_entry_element_sort_string}
-
-Return a string suitable as a sort string, for index entries.
-@emph{$document_info} is used by C code to retrieve the document data,
-using the @code{document_descriptor} key.  @emph{$document_info} can be a
-converter based on @ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter}, a @ref{Texinfo@asis{::}Document NAME,, Texinfo::Document}
-document, otherwise @code{document_descriptor} need, in general, to be
-set up explicitely.
-
-The tree element index entry processed is @emph{$index_entry_element},
-and can be a @code{@@subentry}.  @emph{$main_entry} is the main index entry
-that can be used to gather information.
-
-The @emph{$options} are options used for Texinfo to text conversion for the
-generation of the sort string.  If the sort string is supposed to be output,
-the @emph{$options} are typically obtained from
-@ref{Texinfo@asis{::}Indices $option = setup_index_entry_keys_formatting($customization_information),, setup_index_entry_keys_formatting}.
-
-If @emph{$prefer_reference_element} is set, prefer an untranslated
-element for the formatting as sort string.
-
-@item ($text, $command) = index_entry_first_letter_text_or_command($index_entry)
-@anchor{Texinfo@asis{::}Indices ($text@comma{} $command) = index_entry_first_letter_text_or_command($index_entry)}
-
-Return the @emph{$index_entry} leading text @emph{$text} or textual command Texinfo
-tree hash reference @emph{$command}.  Here textual commands means accent
-commands, brace commands without arguments used for character and glyph
-insertion and @code{@@U}.
-
-This method can in particular be used to format the leading letter
-of an index entry using @emph{$command} instead of the sort string set by
-@code{sort_indices_by_letter}.
-
 @item $merged_indices = merge_indices($indices_information)
 @anchor{Texinfo@asis{::}Indices $merged_indices = merge_indices($indices_information)}
 @cindex @code{merge_indices}
@@ -109,13 +81,6 @@ In general, this method should not be called directly, instead
 @ref{Texinfo@asis{::}Document $merged_indices = $document->merged_indices(),, @code{Texinfo::Document::merged_indices}}
 should be called on a document, which calls @code{merge_indices} if needed and
 associate the merged indices to the document.
-
-@item $option = setup_index_entry_keys_formatting($customization_information)
-@anchor{Texinfo@asis{::}Indices $option = setup_index_entry_keys_formatting($customization_information)}
-@cindex @code{setup_index_entry_keys_formatting}
-
-Return options relevant for index keys sorting for conversion of Texinfo
-to text to be output.
 
 @item $index_entries_sorted = sort_indices_by_index($document, $converter, $use_unicode_collation, $locale_lang)
 @anchor{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_index($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $locale_lang)}
@@ -160,6 +125,65 @@ or @ref{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_letter($doc
 should be called on a document. The @code{Texinfo::Document} functions call
 @code{sort_indices_by_index} or @code{sort_indices_by_letter} if needed and associate
 the sorted indices to the document.
+
+@end table
+
+Functions help setting up textual sorting strings, for instance for output.
+Although they may be generated by calling the same functions, these sorting
+strings are independent from the sorting keys used internally to sort indices.
+
+@table @asis
+@item $sort_string = index_entry_element_sort_string($document_info, $main_entry, $index_entry_element, $options, $prefer_reference_element)
+@anchor{Texinfo@asis{::}Indices $sort_string = index_entry_element_sort_string($document_info@comma{} $main_entry@comma{} $index_entry_element@comma{} $options@comma{} $prefer_reference_element)}
+@cindex @code{index_entry_element_sort_string}
+
+Return a string suitable as a sorting string for index entries, possibly
+to be used in output.
+@emph{$document_info} is solely used by C code to retrieve the document data.
+@emph{$document_info} can be a converter based on @ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter} or
+a @ref{Texinfo@asis{::}Document NAME,, Texinfo::Document} document.
+
+The tree element index entry processed is @emph{$index_entry_element},
+and can be a @code{@@subentry}.  @emph{$main_entry} is the main index entry
+that can be used to gather information.
+
+The @emph{$options} are options used for Texinfo conversion to text for the
+generation of the sorting string and, when called directly (and not through
+index sorting functions), are generally obtained from
+@ref{Texinfo@asis{::}Indices $option = setup_index_entry_keys_formatting($customization_information),, setup_index_entry_keys_formatting}
+early on, and reused in every call.
+
+If @emph{$prefer_reference_element} is set, prefer an untranslated
+element for the formatting as sorting string.
+
+@item $option = setup_index_entry_keys_formatting($customization_information)
+@anchor{Texinfo@asis{::}Indices $option = setup_index_entry_keys_formatting($customization_information)}
+@cindex @code{setup_index_entry_keys_formatting}
+
+Return options relevant for index keys sorting for conversion of Texinfo
+to output.
+
+Should be called early, since it sets up language information corresponding to
+the language current at the end of the preamble.  Note that commands appearing
+in index entry whose output may depend on a language are rare.  The @emph{$option}
+is meant to be reused.
+
+@end table
+
+Other functions.
+
+@table @asis
+@item ($text, $command) = index_entry_first_letter_text_or_command($index_entry)
+@anchor{Texinfo@asis{::}Indices ($text@comma{} $command) = index_entry_first_letter_text_or_command($index_entry)}
+
+Return the @emph{$index_entry} leading text @emph{$text} or textual command Texinfo
+tree hash reference @emph{$command}.  Here textual commands means accent
+commands, brace commands without arguments used for character and glyph
+insertion and @code{@@U}.
+
+This method can in particular be used to format the leading letter
+of an index entry using @emph{$command} instead of using the sort string letters
+returned by @code{sort_indices_by_letter}.
 
 @end table
 

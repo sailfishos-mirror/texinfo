@@ -129,7 +129,7 @@ my $man_url_prefix = 'http://man.he.net/man';
 my $pod_links_html_parser = Pod::Simple::XHTML->new();
 
 # taken from recent Pod::Simple::XHTML in case it is missing (on Solaris
-# for example).
+# for example).  The copyright conditions for this function are the following:
 # COPYRIGHT AND DISCLAIMERS for Pod::Simple::XHTML:
 # Copyright (c) 2003-2005 Allison Randal.
 #

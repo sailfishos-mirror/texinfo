@@ -140,28 +140,42 @@ my @text_indicator_converter_options
       = ('ASCII_GLYPH', 'DEBUG', 'DOC_ENCODING_FOR_INPUT_FILE_NAME',
          'NUMBER_SECTIONS', 'TEST');
 
+# When called from the converter API, current_lang_translations is never
+# initialized.  We want to keep things very simple in that case.  The
+# information available directly in the tree for a few elements set by the
+# parser is used in that case for translations.
+#
+# When called from a converter for another output format through
+# convert_to_text, the language information in current_lang_translations is
+# initialized once in copy_options_for_convert_text, based on the preamble
+# language information taken from this other converter.
+# There is no interface to change the current_lang_translations
+# when converting @documentlanguage, @documentscript or @documentvariant
+# afterwards.
+# It works correctly that way because
+# 1) convert_to_text is called on top-level Texinfo code (for example to
+#   convert copying information to text) in contexts where having language
+#   information set to preamble language information is the best, in general
+#   before the actual conversion.
+# 2) otherwise, the function is only called for specific @-commands arguments
+#   in inline contexts where only a small number of @-commands may happen
+#   or to setup sort strings that we do not allow to be dependent on the
+#   current language.
+# 3) There are only a few commands for which a translation is needed in the
+#   Text converter, for instance @error{}, @def* and heading commands, which
+#   should not appear in specific inline contexts, hence no need to ever change
+#   the language when called from other converters.
+#
+# Especially crafted code may be setup to use a converter and convert top-level
+# Texinfo code with a call to convert_to_text, as done in
+# t/z_misc/convert_to_text.t, but it is not a good idea to do that, except
+# for code coverage checking as it is done in convert_to_text.t, to be able
+# to test code paths that cannot happen otherwise.
+
+
 
 
-# methods called from converters to convert to text.
-
-# NOTE the language information in current_lang_translations is initialized
-# based on the preamble language information.
-# There is no interface to change the current_lang_translations based
-# for new occurences of @documentlanguage, @documentscript or
-# @documentvariant.
-# When called from the converter API it is because we want to keep things
-# simple.
-# When called from convert_to_text the reason is that it is, in general, not
-# useful.  Indeed, convert_to_text is called on top-level Texinfo code
-# with language information set to preamble language information, but otherwise
-# the function is only called for specific @-commands arguments or where
-# only a small number of @-commands may happen, and there are only a few
-# commands for which a translation is needed in the Text converter, for
-# instance @error{}, @def* and heading commands.
-#
-# Especially crafted code may be setup to use a converter to convert
-# top-level Texinfo code, as done in t/z_misc/convert_to_text.t, but
-# it is not necessarily a good idea to do that.
+# methods called from converters to other output formats to convert to text.
 
 
 # NOTE not documented.  In general, it is not useful to call that
@@ -173,7 +187,7 @@ my @text_indicator_converter_options
 # Setup options as used by Texinfo::Convert::Text::convert_to_text
 # based on the converter information.
 # This is relevant for file names, for instance.
-# $OPTIONS_IN can be used to pass additional options, for now 'sort_string'.
+# $OPTIONS_IN can be used to pass additional options, in practice 'sort_string'.
 sub copy_options_for_convert_text($;$) {
   my ($converter, $options_in) = @_;
 
@@ -208,15 +222,14 @@ sub copy_options_for_convert_text($;$) {
     $options{$string_option} = $converter->get_conf($string_option);
   }
 
-  # TODO the documentlanguage and documentscript values obtained with get_conf
-  # calls will not be the correct ones if this is not called at the very
-  # beginning.  It is probably not a real issue, as the need for translation
-  # when called from a converter outside of preamble only arise in
-  # especially crafted code only.
+  # NOTE the documentlanguage and documentscript values obtained with get_conf
+  # calls are not fit for the call below if this is not called at the very
+  # beginning.  It is probably not a real issue, as the function are
+  # called early in converters and it is also documented for the other caller,
+  # setup_index_entry_keys_formatting, that it should be called early.
 
   # documentlanguage, documentscript and documentlanguagevariant
-  # are not directly passed, but are passed through setting the current
-  # lang translations.
+  # set in the preamble are passed through preamble_lang_cmd.
   if (exists($converter->{'document'})) {
     my $document_info = $converter->{'document'}->global_information();
 
@@ -902,8 +915,9 @@ sub convert_to_text($;$) {
 
 
 
-# Implement the converters API simply.  The POD documentation does not
-# cover this possibility for doing the conversion.
+# Implement the converters API simply, used mainly by the main program.  The POD
+# documentation does not cover this possibility for doing the conversion.
+
 # initialization
 sub converter($;$) {
   my ($class, $conf) = @_;
@@ -966,7 +980,6 @@ sub convert($$) {
        = $self->{'OUTPUT_ENCODING_NAME'};
   }
 
-
   # for expand_verbatiminclude call.
   $self->{'document'} = $document;
 
@@ -1004,6 +1017,7 @@ sub output($$) {
   # Also, we need a blessed reference as converter_line_error
   # and other methods can be called on the options, using the converter
   # brings that too.
+
   # option set up based on other customization options.
   if ($self->{'ENABLE_ENCODING'}
        and defined($self->{'OUTPUT_ENCODING_NAME'})) {
@@ -1235,16 +1249,17 @@ Texinfo to other formats.  There is no promise of API stability.
 =head1 DESCRIPTION
 
 C<Texinfo::Convert::Text> is a simple backend that converts a Texinfo tree
-to simple text.  It is used in converters, especially for file names.
+to simple text.  It is used in converters, especially for file names, also
+for comments.
 
 Converters derived from L<Texinfo::Convert::Converter> should have conversion
 text options preset associated to the C<convert_text_options> key.
 
+=head1 METHODS
+
 The main function is C<convert_to_text>.  The text conversion options
 can be modified with the C<set_*> functions before calling C<convert_to_text>,
 and reset afterwards with the corresponding C<reset_*> functions.
-
-=head1 METHODS
 
 =over
 
@@ -1252,7 +1267,76 @@ and reset afterwards with the corresponding C<reset_*> functions.
 X<C<convert_to_text>>
 
 Convert a Texinfo tree to simple text.  I<$text_options> is a hash reference of
-options.
+options.  I<$text_options> is usually obtained as C<< $converter->{'convert_text_options'} >>.
+
+=item set_options_code($text_options)
+
+=item reset_options_code($text_options)
+X<C<set_options_code>>X<C<reset_options_code>>
+
+C<set_options_code> sets I<$text_options> to be in code style.
+(mostly C<-->, C<--->, C<''> and C<``> are kept as is).  C<reset_options_code>
+undo the effect of C<set_options_code>.
+
+C<reset_options_code> should always be called after C<set_options_code>.
+
+=item set_options_encoding($text_options, $encoding)
+
+=item set_options_encoding_if_not_ascii($customization_information, $text_options)
+
+=item reset_options_encoding($text_options)
+X<C<set_options_encoding>>X<C<set_options_encoding_if_not_ascii>>
+X<C<reset_options_encoding>>
+
+C<set_options_encoding> sets C<enabled_encoding> in I<$text_options>
+to I<$encoding>.  C<set_options_encoding_if_not_ascii> sets C<enabled_encoding>
+in I<$text_options> based on customization options associated to
+I<$customization_information>.  In that case, C<enabled_encoding> is set unless
+the output encoding is US-ASCII even if C<ENABLE_ENCODING> is not set.
+
+C<reset_options_encoding> undo the effect of C<set_options_encoding> and
+C<set_options_encoding_if_not_ascii> and should always be called after these
+functions.
+
+=back
+
+The following method can be used in other converters to convert
+accents as simple text.
+
+=over
+
+=item $result_accent_text = ascii_accent_fallback($converter, $text, $accent_command, $index_in_stack, $accents_stack, $in_upper_case $converter)
+X<C<ascii_accent_fallback>>
+
+I<$text> is the text appearing within an accent command.  I<$accent_command>
+should be a Texinfo tree element corresponding to an accent command taking
+an argument.  The function returns a transliteration of the accented
+character.  The I<$converter> argument is ignored, but needed for this
+function to be in argument of functions as fallback function for accents
+conversion.  The remaining arguments are also ignored and similarly
+may be needed for this function to be in argument of functions that need a
+fallback function for accents conversion.
+
+=item $accents_text = text_accents($accents, $encoding, $set_case)
+X<C<text_accents>>
+
+I<$accents> is an accent command that may contain other nested accent
+commands.  The function will format the whole stack of nested accent
+commands and the innermost text.  If I<$encoding> is set, the formatted
+text is converted to this encoding as much as possible instead of being
+converted as simple ASCII.  If I<$set_case> is positive, the result
+is meant to be upper-cased, if it is negative, the result is to be
+lower-cased.
+
+=back
+
+=head1 OPTIONS
+
+The text conversion options are not supposed to be set directly, they
+are set automatically at initialization or through
+L<< C<set_options_code>|/set_options_code($text_options) >>
+or L<< C<set_options_code>|/set_options_encoding($text_options, $encoding) >>.
+The following description of options is therefore mainly informative.
 
 The C<ASCII_GLYPH>, C<DEBUG>, C<DOC_ENCODING_FOR_INPUT_FILE_NAME>,
 C<COMMAND_LINE_ENCODING>,
@@ -1293,60 +1377,6 @@ If positive, the text is upper-cased, if negative, the text is lower-cased.
 
 A somehow internal option to convert to text more suitable for alphabetical
 sorting rather than presentation.
-
-=back
-
-=item $result_accent_text = ascii_accent_fallback($converter, $text, $accent_command, $index_in_stack, $accents_stack, $in_upper_case $converter)
-X<C<ascii_accent_fallback>>
-
-I<$text> is the text appearing within an accent command.  I<$accent_command>
-should be a Texinfo tree element corresponding to an accent command taking
-an argument.  The function returns a transliteration of the accented
-character.  The I<$converter> argument is ignored, but needed for this
-function to be in argument of functions that need a fallback for accents
-conversion.  The remaining arguments are also ignored and similarly
-may be needed for this function to be in argument of functions that need a
-fallback for accents conversion.
-
-=item set_options_code($text_options)
-
-=item reset_options_code($text_options)
-X<C<set_options_code>>X<C<reset_options_code>>
-
-C<set_options_code> sets I<$text_options> to be in code style.
-(mostly C<-->, C<--->, C<''> and C<``> are kept as is).  C<reset_options_code>
-undo the effect of C<set_options_code>.
-
-C<reset_options_code> should always be called after C<set_options_code>.
-
-=item set_options_encoding($text_options, $encoding)
-
-=item set_options_encoding_if_not_ascii($customization_information, $text_options)
-
-=item reset_options_encoding($text_options)
-X<C<set_options_encoding>>X<C<set_options_encoding_if_not_ascii>>
-X<C<reset_options_encoding>>
-
-C<set_options_encoding> sets C<enabled_encoding> in I<$text_options>
-to I<$encoding>.  C<set_options_encoding_if_not_ascii> sets C<enabled_encoding>
-in I<$text_options> based on customization options associated to
-I<$customization_information>.  In that case, C<enabled_encoding> is set unless
-the output encoding is US-ASCII even if C<ENABLE_ENCODING> is not set.
-
-C<reset_options_encoding> undo the effect of C<set_options_encoding> and
-C<set_options_encoding_if_not_ascii> and should always be called after these
-functions.
-
-=item $accents_text = text_accents($accents, $encoding, $set_case)
-X<C<text_accents>>
-
-I<$accents> is an accent command that may contain other nested accent
-commands.  The function will format the whole stack of nested accent
-commands and the innermost text.  If I<$encoding> is set, the formatted
-text is converted to this encoding as much as possible instead of being
-converted as simple ASCII.  If I<$set_case> is positive, the result
-is meant to be upper-cased, if it is negative, the result is to be
-lower-cased.
 
 =back
 

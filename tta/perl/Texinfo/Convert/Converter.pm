@@ -426,6 +426,8 @@ sub output_files_information($) {
 
 # translations and languages
 
+# translations
+
 sub cdt($$;$$) {
   my ($self, $string, $replaced_substrings, $translation_context) = @_;
 
@@ -450,6 +452,8 @@ sub pcdt($$;$$) {
 
   return $self->cdt($string, $replaced_substrings, $translation_context);
 }
+
+# language
 
 # TODO document
 sub converter_set_documentlanguage($$) {
@@ -491,7 +495,6 @@ sub converter_set_documentlanguagevariant($$) {
          if (defined($lang_translation));
 }
 
-# language
 sub current_bcp47_locale($) {
   my $self = shift;
 

@@ -129,11 +129,11 @@ copy_options_for_convert_text (OPTIONS *options, DOCUMENT *document)
     text_options->COMMAND_LINE_ENCODING
       = strdup (options->COMMAND_LINE_ENCODING.o.string);
 
-  /* TODO? possibly current documentlanguage and documentscript
-     option value used with preamble preamble_lang_cmd commands
-     information.  For output prepared before starting the main
-     conversion, as is the case for the comment formatting,
-     the values should be ok.
+  /* The documentlanguage and documentscript options values
+     are not fit for the call below if this is not called at the very
+     beginning.  It is probably not a real issue, as the function are
+     called early in converters and it is also documented for the other caller,
+     setup_*index_entry_keys_formatting, that it should be called early.
    */
   if (document)
     {

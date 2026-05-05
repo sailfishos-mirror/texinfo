@@ -2705,6 +2705,8 @@ return "<i title=\"$result_string\">$text</i>\n"
 @node Conversion to Plain Text
 @subsection Conversion to Plain Text
 
+@findex convert_to_text
+@findex Texinfo::Convert::Text::convert_to_text
 The conversion to plain text can be achieved by using the @code{Texinfo::Text}
 converter @code{convert_to_text} function.
 
@@ -2720,6 +2722,8 @@ my $plain_text = Texinfo::Convert::Text::convert_to_text($element,
                                   $converter->@{'convert_text_options'@});
 @end example
 
+@findex Texinfo::Convert::Text::set_options_code
+@findex Texinfo::Convert::Text::set_options_code
 Conversion to plain text is often used for strings that are
 to be formatted in code context.  Code context can be set and reset
 by using @code{Texinfo::Convert::Text::set_options_code} and
@@ -2733,6 +2737,7 @@ Texinfo::Convert::Text::reset_options_code(
                $converter->@{'convert_text_options'@});
 @end example
 
+@findex Texinfo::Convert::Text::set_options_encoding_if_not_ascii
 If encoded characters should be used irrespective of the specified document
 encoding, a possibility relevant, in general, for file names,
 @code{Texinfo::Convert::Text::set_options_encoding_if_not_ascii}
@@ -2750,7 +2755,6 @@ Texinfo::Convert::Text::reset_options_code(
 Texinfo::Convert::Text::reset_options_encoding(
                $converter->@{'convert_text_options'@});
 @end example
-
 
 
 @node Texinfo Tree Elements in User Defined Functions

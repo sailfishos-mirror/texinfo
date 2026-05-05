@@ -728,6 +728,9 @@ char *convert_contents_to_texinfo (const ELEMENT *e);
 %rename(text_options_set_encoding) txi_ext_text_options_set_encoding;
 %rename(text_options_clear_expanded_formats) txi_ext_text_options_clear_expanded_formats;
 %rename(text_options_add_expanded_format) txi_ext_text_options_add_expanded_format;
+// TODO document that it should be called early to be set to values before
+// starting conversion, to set as expected the language to end of preamble
+// language
 %rename(document_text_options) txi_ext_document_text_options;
 
 #define tico_option_name(name) \

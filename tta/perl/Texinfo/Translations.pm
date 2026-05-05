@@ -456,7 +456,7 @@ our $converters_translation_cache = {'' => [{'bcp47_locale' => ''}, '', {}]};
 # and associated translated strings.
 # NOTE If called from a converter, the language will in general be set from
 # document language related @-commands, primarily documentlanguage, when
-# encountered.  Before the first @documentlanguage, it depends on the
+# encountered.  Before the first @documentlanguage, it could depend on the
 # converter.  Some do not set the language before it @documentlanguage
 # encountered, some set based on @documentlanguage and other language
 # related @-commands from the preamble.

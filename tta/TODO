@@ -116,6 +116,11 @@ in perlapi for XS: sv_rvweaken
 
 inline contents_child_by_index in C?
 
+Do an XS interface for converter current_lang_translations?  It is
+somewhat similar to customization setting based on @-commands in the
+document, so it would be more consistent, but it requires adding quite a
+few accessors, as cdt/gdt cannot be overriden.
+
 The Perl/C interface when no XS code is used for structuring works because
 all the C data is built as Perl structure at one point after which C code
 is not called anymore to modify the tree or other Document data.  At that

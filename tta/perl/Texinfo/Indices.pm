@@ -107,7 +107,7 @@ sub _sort_index_entries($$) {
     if ($res != 0) {
       return $res;
     }
-    $key_index ++;
+    $key_index++;
     if (scalar(@{$key2->{'keys'}}) <= $key_index) {
       last;
     }
@@ -224,9 +224,10 @@ sub _setup_collator($$) {
   return $collator;
 }
 
-# Not documented, no XS, as, in general, it should not be called directly, but
+# Considered as kind of internal for index sorting functions, therefore
+# not documented, no XS since it should not be called directly, but
 # through Texinfo::Document::indices_sort_strings that caches the
-# result in the document, itself, in general, called through sorting functions.
+# result in the document, itself called possibly through sorting functions.
 sub setup_index_entries_sort_strings($$$$;$) {
   my ($document, $converter, $index_entries, $indices_information,
       $prefer_reference_element) = @_;
@@ -253,7 +254,7 @@ sub setup_index_entries_sort_strings($$$$;$) {
 
   my $indices_sort_strings = {};
   foreach my $index_name (keys(%$index_entries)) {
-    my $index_entries_sort_strings = [];
+    my @index_entries_sort_strings;
     foreach my $index_entry (@{$index_entries->{$index_name}}) {
       my $entry_index_name = $index_entry->{'index_name'};
       my $main_entry_element = $index_entry->{'entry_element'};
@@ -261,12 +262,13 @@ sub setup_index_entries_sort_strings($$$$;$) {
       if ($in_code) {
         Texinfo::Convert::Text::set_options_code($convert_text_options);
       }
+      # gather entry and subentries sort strings
+      my @entry_subentries_sort_strings;
+      my $non_empty_entry_subentries = 0;
       my $entry_sort_string
         = index_entry_element_sort_string($document_info,
                                $index_entry, $main_entry_element,
                            $convert_text_options, $prefer_reference_element);
-      my $non_empty_index_subentries = 0;
-      my @entry_sort_strings;
       if ($entry_sort_string !~ /\S/) {
         my $entry_cmdname = $main_entry_element->{'cmdname'};
         $entry_cmdname
@@ -277,17 +279,17 @@ sub setup_index_entries_sort_strings($$$$;$) {
                        sprintf(__("empty index key in \@%s"),
                                   $entry_cmdname),
                                $main_entry_element->{'source_info'});
-        push @entry_sort_strings, '';
+        push @entry_subentries_sort_strings, '';
       } else {
-        push @entry_sort_strings, $entry_sort_string;
-        $non_empty_index_subentries++;
+        push @entry_subentries_sort_strings, $entry_sort_string;
+        $non_empty_entry_subentries++;
       }
       my $subentry_nr = 0;
       my @subentries;
       Texinfo::Common::collect_subentries($main_entry_element,
                                           \@subentries);
       foreach my $subentry (@subentries) {
-        $subentry_nr ++;
+        $subentry_nr++;
         my $subentry_sort_string
               = index_entry_element_sort_string($document_info,
                              $index_entry, $subentry, $convert_text_options);
@@ -301,24 +303,27 @@ sub setup_index_entries_sort_strings($$$$;$) {
                          sprintf(__("empty index sub entry %d key in \@%s"),
                                     $subentry_nr, $entry_cmdname),
                                   $main_entry_element->{'source_info'});
-          push @entry_sort_strings, '';
+          push @entry_subentries_sort_strings, '';
         } else {
-          push @entry_sort_strings, $subentry_sort_string;
-          $non_empty_index_subentries++;
+          push @entry_subentries_sort_strings, $subentry_sort_string;
+          $non_empty_entry_subentries++;
         }
       }
-      if ($non_empty_index_subentries > 0) {
-        my $subentries_alpha_strings;
-        for (my $i = 0; $i < scalar (@entry_sort_strings); $i++) {
+
+      if ($non_empty_entry_subentries > 0) {
+        # register index entry sort strings information based on gathered
+        # entry and subentries sort strings and main entry information
+        my @entry_subentries_alpha_strings;
+        foreach my $sort_string (@entry_subentries_sort_strings) {
           my $alpha = 0;
-          if ($entry_sort_strings[$i] =~ /^[[:alpha:]]/) {
+          if ($sort_string =~ /^[[:alpha:]]/) {
             $alpha = 1;
           }
-          push @$subentries_alpha_strings,
-             {'sort_string' => $entry_sort_strings[$i], 'alpha' => $alpha};
+          push @entry_subentries_alpha_strings,
+             {'sort_string' => $sort_string, 'alpha' => $alpha};
         }
-        push @{$index_entries_sort_strings}, {'entry' => $index_entry,
-                              'sort_strings' => $subentries_alpha_strings,
+        push @index_entries_sort_strings, {'entry' => $index_entry,
+                       'sort_strings' => \@entry_subentries_alpha_strings,
                                  'number' => $index_entry->{'entry_number'},
                               'index_name' => $entry_index_name};
       }
@@ -326,7 +331,7 @@ sub setup_index_entries_sort_strings($$$$;$) {
         Texinfo::Convert::Text::reset_options_code($convert_text_options);
       }
     }
-    $indices_sort_strings->{$index_name} = $index_entries_sort_strings;
+    $indices_sort_strings->{$index_name} = \@index_entries_sort_strings;
   }
 
   return $indices_sort_strings;
@@ -335,7 +340,7 @@ sub setup_index_entries_sort_strings($$$$;$) {
 # Returns a hash reference associating the index entries with the strings
 # that were used to sort them.
 # Used in tests, but not documented, as it is unlikely for this function
-# to be of any direct use for users.
+# to be of any other use.
 sub format_index_entries_sort_strings($) {
   my $indices_sort_strings = shift;
 
@@ -363,19 +368,21 @@ sub _setup_sortable_index_entries($$) {
     my $sortable_index_entries = [];
     foreach my $index_entry (@{$indices_sort_strings->{$index_name}}) {
       my @keys_and_alpha;
-      foreach my $sort_string_alpha (@{$index_entry->{'sort_strings'}}) {
-        my $sort_string = $sort_string_alpha->{'sort_string'};
-        # TODO $sort_string is never used directly to sort anymore, so
-        # it is possible that utf8::upgrade is not needed anymore.  To be safe,
+      foreach my $entry_subentries_sort_string_alpha
+                                   (@{$index_entry->{'sort_strings'}}) {
+        my $sort_string = $entry_subentries_sort_string_alpha->{'sort_string'};
+        # TODO we do not mix decoded and non-decoded strings anymore so
+        # utf8::upgrade is probably not needed anymore.  To be safe,
         # we can keep it until we only support perl > 5.12. (5.14.0 released
         # in 2011).
         # This avoids varying results depending on whether the string is
         # represented internally in UTF-8.  See 'the "Unicode bug"' in the
         # "perlunicode" man page.
         utf8::upgrade($sort_string);
+        # $sort_key is a byte string
         my $sort_key = $collator->getSortKey(uc($sort_string));
-        push @keys_and_alpha, [$sort_key, $sort_string_alpha->{'alpha'}];
-
+        push @keys_and_alpha, [$sort_key,
+                               $entry_subentries_sort_string_alpha->{'alpha'}];
       }
       my $sortable_entry = {'entry' => $index_entry->{'entry'},
                             'keys' => \@keys_and_alpha,
@@ -393,8 +400,8 @@ sub _setup_sortable_index_entries($$) {
 sub _setup_sort_sortable_strings_collator($$$$) {
   my ($document, $converter, $use_unicode_collation, $locale_lang) = @_;
 
-  # simple wrapper around setup_index_entries_sort_strings that caches the
-  # result
+  # call a simple wrapper around setup_index_entries_sort_strings that
+  # caches the result
   my $indices_sort_strings
     = Texinfo::Document::indices_sort_strings($document, $converter);
 
@@ -565,18 +572,19 @@ sub sort_indices_by_letter($$;$$) {
     my $sortable_index_entries = $index_sortable_index_entries->{$index_name};
     my $index_letter_hash = {};
     foreach my $sortable_entry (@{$sortable_index_entries}) {
-      my $sort_string
+      my $main_entry_sort_string
         = $sortable_entry->{'entry_strings_alpha'}->[0]->{'sort_string'};
       # the following line leads to each accented letter being separate
-      # $letter = uc(substr($sort_string, 0, 1));
-      my $letter_string = uc(substr($sort_string, 0, 1));
+      # $letter = uc(substr($main_entry_sort_string, 0, 1));
+      my $letter_string = uc(substr($main_entry_sort_string, 0, 1));
       # determine main letter by decomposing and removing diacritics
       my $letter = Unicode::Normalize::NFKD($letter_string);
       $letter =~ s/\p{NonspacingMark}//g;
       # following code is less good, as the upper-casing may lead to
       # two letters in case of the german Eszett that becomes SS.  So
       # it is better to upper-case first and remove diacritics after.
-      #my $normalized_string = Unicode::Normalize::NFKD(uc($sort_string));
+      #my $normalized_string
+      #  = Unicode::Normalize::NFKD(uc($main_entry_sort_string));
       #$normalized_string =~ s/\p{NonspacingMark}//g;
       #$letter = substr($normalized_string, 0, 1);
 
@@ -690,10 +698,21 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
+Main functions merge and sort indices.  These functions should generally be
+called indirectly.
+
+Other functions help presenting sorting strings especially generated to be
+output or deal with getting information on or format especially index
+entries.
+
+=head1 METHODS
+
+No method is exported.
+
 C<merge_indices> may be used to merge indices.  Document indices may be sorted
-with C<sort_indices_by_index> or C<sort_indices_by_letter>.  Other functions
-deal with formatting of index entries as text or getting information on
-index entry.
+with C<sort_indices_by_index> or C<sort_indices_by_letter>.  The sorting may
+be influenced by the current language.  In the current implementation,
+sorting keys formatted internally in a language-independent manner are used.
 
 Note that, in general, the functions used to merge or sort indices
 should not be called directly, corresponding functions
@@ -701,44 +720,7 @@ in L<Texinfo::Document> already call the functions in this module, and,
 in addition, cache the result with the document.  Furthermore, it should
 be even better to call converter functions, which call document functions.
 
-=head1 METHODS
-
-No method is exported.
-
 =over
-
-=item $sort_string = index_entry_element_sort_string($document_info, $main_entry, $index_entry_element, $options, $prefer_reference_element)
-X<C<index_entry_element_sort_string>>
-
-Return a string suitable as a sort string, for index entries.
-I<$document_info> is used by C code to retrieve the document data,
-using the C<document_descriptor> key.  I<$document_info> can be a
-converter based on L<Texinfo::Convert::Converter>, a L<Texinfo::Document>
-document, otherwise C<document_descriptor> need, in general, to be
-set up explicitely.
-
-The tree element index entry processed is I<$index_entry_element>,
-and can be a C<@subentry>.  I<$main_entry> is the main index entry
-that can be used to gather information.
-
-The I<$options> are options used for Texinfo to text conversion for the
-generation of the sort string.  If the sort string is supposed to be output,
-the I<$options> are typically obtained from
-L<setup_index_entry_keys_formatting|/$option = setup_index_entry_keys_formatting($customization_information)>.
-
-If I<$prefer_reference_element> is set, prefer an untranslated
-element for the formatting as sort string.
-
-=item ($text, $command) = index_entry_first_letter_text_or_command($index_entry)
-
-Return the I<$index_entry> leading text I<$text> or textual command Texinfo
-tree hash reference I<$command>.  Here textual commands means accent
-commands, brace commands without arguments used for character and glyph
-insertion and C<@U>.
-
-This method can in particular be used to format the leading letter
-of an index entry using I<$command> instead of the sort string set by
-C<sort_indices_by_letter>.
 
 =item $merged_indices = merge_indices($indices_information)
 X<C<merge_indices>>
@@ -757,12 +739,6 @@ In general, this method should not be called directly, instead
 L<< C<Texinfo::Document::merged_indices>|Texinfo::Document/$merged_indices = $document->merged_indices() >>
 should be called on a document, which calls C<merge_indices> if needed and
 associate the merged indices to the document.
-
-=item $option = setup_index_entry_keys_formatting($customization_information)
-X<C<setup_index_entry_keys_formatting>>
-
-Return options relevant for index keys sorting for conversion of Texinfo
-to text to be output.
 
 =item $index_entries_sorted = sort_indices_by_index($document, $converter, $use_unicode_collation, $locale_lang)
 
@@ -804,6 +780,64 @@ or L<< C<Texinfo::Document::sorted_indices_by_letter>|Texinfo::Document/$sorted_
 should be called on a document. The C<Texinfo::Document> functions call
 C<sort_indices_by_index> or C<sort_indices_by_letter> if needed and associate
 the sorted indices to the document.
+
+=back
+
+Functions help setting up textual sorting strings, for instance for output.
+Although they may be generated by calling the same functions, these sorting
+strings are independent from the sorting keys used internally to sort indices.
+
+=over
+
+=item $sort_string = index_entry_element_sort_string($document_info, $main_entry, $index_entry_element, $options, $prefer_reference_element)
+X<C<index_entry_element_sort_string>>
+
+Return a string suitable as a sorting string for index entries, possibly
+to be used in output.
+I<$document_info> is solely used by C code to retrieve the document data.
+I<$document_info> can be a converter based on L<Texinfo::Convert::Converter> or
+a L<Texinfo::Document> document.
+
+The tree element index entry processed is I<$index_entry_element>,
+and can be a C<@subentry>.  I<$main_entry> is the main index entry
+that can be used to gather information.
+
+The I<$options> are options used for Texinfo conversion to text for the
+generation of the sorting string and, when called directly (and not through
+index sorting functions), are generally obtained from
+L<setup_index_entry_keys_formatting|/$option = setup_index_entry_keys_formatting($customization_information)>
+early on, and reused in every call.
+
+If I<$prefer_reference_element> is set, prefer an untranslated
+element for the formatting as sorting string.
+
+=item $option = setup_index_entry_keys_formatting($customization_information)
+X<C<setup_index_entry_keys_formatting>>
+
+Return options relevant for index keys sorting for conversion of Texinfo
+to output.
+
+Should be called early, since it sets up language information corresponding to
+the language current at the end of the preamble.  Note that commands appearing
+in index entry whose output may depend on a language are rare.  The I<$option>
+is meant to be reused.
+
+=back
+
+Other functions.
+
+=over
+
+=item ($text, $command) = index_entry_first_letter_text_or_command($index_entry)
+
+Return the I<$index_entry> leading text I<$text> or textual command Texinfo
+tree hash reference I<$command>.  Here textual commands means accent
+commands, brace commands without arguments used for character and glyph
+insertion and C<@U>.
+
+This method can in particular be used to format the leading letter
+of an index entry using I<$command> instead of using the sort string letters
+returned by C<sort_indices_by_letter>.
 
 =back
 

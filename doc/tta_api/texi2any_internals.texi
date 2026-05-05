@@ -283,6 +283,7 @@ Texinfo::Convert::Text
 * Texinfo@asis{::}Convert@asis{::}Text NOTES::
 * Texinfo@asis{::}Convert@asis{::}Text DESCRIPTION::
 * Texinfo@asis{::}Convert@asis{::}Text METHODS::
+* Texinfo@asis{::}Convert@asis{::}Text OPTIONS::
 * Texinfo@asis{::}Convert@asis{::}Text AUTHOR::
 * Texinfo@asis{::}Convert@asis{::}Text COPYRIGHT AND LICENSE::
 
