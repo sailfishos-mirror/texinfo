@@ -1,3 +1,24 @@
+2026-05-06 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/api_for_swig/swig_interface.c
+	(txi_ext_get_index_sorted_by_index), tta/C/convert/converter.c
+	(lang_info_sorting_locale, get_converter_indices_sorted_by_index)
+	(get_converter_indices_sorted_by_letter), tta/C/main/document.c
+	(sorted_indices_by_index, sorted_indices_by_letter)
+	(print_document_indices_sort_strings), tta/C/main/document_types.h,
+	tta/C/main/utils.c, tta/perl/Texinfo/Convert/ConverterNonXS.pm
+	(get_converter_indices_sorted_by_letter)
+	(get_converter_indices_sorted_by_index), tta/perl/Texinfo/Document.pm
+	(sorted_indices_by_letter, sorted_indices_by_index),
+	tta/perl/Texinfo/DocumentNonXS.pm
+	(print_document_indices_sort_strings): determine the
+	lang_sorting_locale based either on COLLATION_LANGUAGE customization
+	variable or current_lang_translations lang and script in Converter
+	code, in get_converter_indices_sorted_by_index and
+	get_converter_indices_sorted_by_letter instead of in Document code.
+	Move lang_info_sorting_locale to converter.c.  Remove
+	SORTING_LANG_INFO and new_sorting_lang_info.
+
 2026-05-05 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi: add indices entries.

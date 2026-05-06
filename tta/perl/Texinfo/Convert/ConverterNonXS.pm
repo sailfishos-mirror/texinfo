@@ -435,22 +435,25 @@ sub get_converter_indices_sorted_by_letter($) {
     if (defined($indices_information)) {
       my $use_unicode_collation
         = $self->get_conf('USE_UNICODE_COLLATION');
-      my $sorting_lang_info;
+      my $lang_sorting_locale;
       if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
-        my $locale_lang = $self->get_conf('COLLATION_LANGUAGE');
-        if (defined($locale_lang)) {
-          $sorting_lang_info = [$locale_lang];
-        } elsif ($self->get_conf('DOCUMENTLANGUAGE_COLLATION')
-                 and defined($self->{'current_lang_translations'})) {
+        $lang_sorting_locale = $self->get_conf('COLLATION_LANGUAGE');
+        if (!defined($lang_sorting_locale)
+            and $self->get_conf('DOCUMENTLANGUAGE_COLLATION')
+            and defined($self->{'current_lang_translations'})) {
           my $lang_info = $self->{'current_lang_translations'}->[0];
           if (exists($lang_info->{'lang'})) {
-            $sorting_lang_info = [undef, $lang_info];
+            # use a name expected by Unicode::Collate::Locale
+            $lang_sorting_locale = $lang_info->{'lang'};
+            if (exists($lang_info->{'script'})) {
+              $lang_sorting_locale .= '_'.$lang_info->{'script'};
+            }
           }
         }
       }
 
       return Texinfo::Document::sorted_indices_by_letter($self->{'document'},
-                            $self, $use_unicode_collation, $sorting_lang_info);
+                        $self, $use_unicode_collation, $lang_sorting_locale);
     }
   }
   return undef;
@@ -466,22 +469,25 @@ sub get_converter_indices_sorted_by_index($) {
     if (defined($indices_information)) {
       my $use_unicode_collation
         = $self->get_conf('USE_UNICODE_COLLATION');
-      my $sorting_lang_info;
+      my $lang_sorting_locale;
       if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
-        my $locale_lang = $self->get_conf('COLLATION_LANGUAGE');
-        if (defined($locale_lang)) {
-          $sorting_lang_info = [$locale_lang];
-        } elsif ($self->get_conf('DOCUMENTLANGUAGE_COLLATION')
-                 and defined($self->{'current_lang_translations'})) {
+        $lang_sorting_locale = $self->get_conf('COLLATION_LANGUAGE');
+        if (!defined($lang_sorting_locale)
+            and $self->get_conf('DOCUMENTLANGUAGE_COLLATION')
+            and defined($self->{'current_lang_translations'})) {
           my $lang_info = $self->{'current_lang_translations'}->[0];
           if (exists($lang_info->{'lang'})) {
-            $sorting_lang_info = [undef, $lang_info];
+            # use a name expected by Unicode::Collate::Locale
+            $lang_sorting_locale = $lang_info->{'lang'};
+            if (exists($lang_info->{'script'})) {
+              $lang_sorting_locale .= '_'.$lang_info->{'script'};
+            }
           }
         }
       }
 
       return Texinfo::Document::sorted_indices_by_index($self->{'document'},
-                            $self, $use_unicode_collation, $sorting_lang_info);
+                        $self, $use_unicode_collation, $lang_sorting_locale);
     }
   }
   return undef;

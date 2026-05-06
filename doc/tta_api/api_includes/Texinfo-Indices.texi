@@ -82,11 +82,11 @@ In general, this method should not be called directly, instead
 should be called on a document, which calls @code{merge_indices} if needed and
 associate the merged indices to the document.
 
-@item $index_entries_sorted = sort_indices_by_index($document, $converter, $use_unicode_collation, $locale_lang)
-@anchor{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_index($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $locale_lang)}
+@item $index_entries_sorted = sort_indices_by_index($document, $converter, $use_unicode_collation, $lang_sorting_locale)
+@anchor{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_index($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $lang_sorting_locale)}
 
-@item $index_entries_sorted = sort_indices_by_letter($document, $converter, $use_unicode_collation, $locale_lang)
-@anchor{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_letter($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $locale_lang)}
+@item $index_entries_sorted = sort_indices_by_letter($document, $converter, $use_unicode_collation, $lang_sorting_locale)
+@anchor{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_letter($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $lang_sorting_locale)}
 @cindex @code{sort_indices_by_index}
 @cindex @code{sort_indices_by_letter}
 
@@ -103,7 +103,7 @@ defined in the @url{http://www.unicode.org/reports/tr10/, Unicode Technical Stan
 #10}, without language-specific collation
 tailoring.  If @emph{$use_unicode_collation} is set to 0, the sorting will not use
 the @emph{Unicode Collation Algorithm} and simply sort according to the codepoints.
-If @emph{$locale_lang} is set, the language is used for linguistic tailoring of the
+If @emph{$lang_sorting_locale} is set, the language is used for linguistic tailoring of the
 sorting, if possible.
 
 When sorting by letter, an array reference of letter hash references is
@@ -120,8 +120,8 @@ The optional argument @emph{$converter} is used for error reporting if present,
 otherwise the @emph{$document} is used.
 
 In general, those methods should not be called directly, instead
-@ref{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_index($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $locale_lang),, @code{Texinfo::Document::sorted_indices_by_index}}
-or @ref{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_letter($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $locale_lang),, @code{Texinfo::Document::sorted_indices_by_letter}}
+@ref{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_index($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $lang_sorting_locale),, @code{Texinfo::Document::sorted_indices_by_index}}
+or @ref{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_letter($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $lang_sorting_locale),, @code{Texinfo::Document::sorted_indices_by_letter}}
 should be called on a document. The @code{Texinfo::Document} functions call
 @code{sort_indices_by_index} or @code{sort_indices_by_letter} if needed and associate
 the sorted indices to the document.

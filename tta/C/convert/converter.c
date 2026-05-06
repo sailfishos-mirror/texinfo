@@ -1507,6 +1507,23 @@ convert_accents (CONVERTER *self, const ELEMENT *accent,
   return result;
 }
 
+static char *
+lang_info_sorting_locale (const DOCUMENT_LANG_INFO *lang_info)
+{
+  TEXT t_lang_sorting;
+
+  text_init (&t_lang_sorting);
+
+  text_append (&t_lang_sorting, lang_info->lang);
+  if (lang_info->script)
+    {
+      text_append_n (&t_lang_sorting, "_", 1);
+      text_append (&t_lang_sorting, lang_info->script);
+    }
+
+  return t_lang_sorting.text;
+}
+
 INDEX_SORTED_BY_INDEX *
 get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
 {
@@ -1514,24 +1531,27 @@ get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
   if (self->document)
     {
       COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices;
-      SORTING_LANG_INFO *sorting_lang_info = 0;
-      if (self->conf->COLLATION_LANGUAGE.o.string)
-        sorting_lang_info
-          = new_sorting_lang_info (self->conf->COLLATION_LANGUAGE.o.string, 0);
-      else if (self->conf->DOCUMENTLANGUAGE_COLLATION.o.integer > 0
-               && self->current_lang_translations)
-        sorting_lang_info
-          = new_sorting_lang_info (0, self->current_lang_translations->info);
+      char *lang_sorting_locale = 0;
+      if (self->conf->USE_UNICODE_COLLATION.o.integer >= 0)
+        {
+          if (self->conf->COLLATION_LANGUAGE.o.string)
+            lang_sorting_locale
+              = strdup (self->conf->COLLATION_LANGUAGE.o.string);
+          else if (self->conf->DOCUMENTLANGUAGE_COLLATION.o.integer > 0
+                   && self->current_lang_translations)
+            lang_sorting_locale = lang_info_sorting_locale
+                              (self->current_lang_translations->info);
+        }
 
       collation_sorted_indices
         = sorted_indices_by_index (self->document,
                                    &self->error_messages, self->conf,
                                    self->conf->USE_UNICODE_COLLATION.o.integer,
-                                   sorting_lang_info,
+                                   lang_sorting_locale,
                            self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);
 
-      if (sorting_lang_info)
-        free (sorting_lang_info);
+      if (lang_sorting_locale)
+        free (lang_sorting_locale);
 
       if (collation_sorted_indices->type != ctn_locale_collation)
         *language = collation_sorted_indices->language;
@@ -1547,24 +1567,27 @@ get_converter_indices_sorted_by_letter (CONVERTER *self, char **language)
   if (self->document)
     {
       COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices;
-      SORTING_LANG_INFO *sorting_lang_info = 0;
-      if (self->conf->COLLATION_LANGUAGE.o.string)
-        sorting_lang_info
-          = new_sorting_lang_info (self->conf->COLLATION_LANGUAGE.o.string, 0);
-      else if (self->conf->DOCUMENTLANGUAGE_COLLATION.o.integer > 0
-               && self->current_lang_translations)
-        sorting_lang_info
-          = new_sorting_lang_info (0, self->current_lang_translations->info);
+      char *lang_sorting_locale = 0;
+      if (self->conf->USE_UNICODE_COLLATION.o.integer >= 0)
+        {
+          if (self->conf->COLLATION_LANGUAGE.o.string)
+            lang_sorting_locale
+              = strdup (self->conf->COLLATION_LANGUAGE.o.string);
+          else if (self->conf->DOCUMENTLANGUAGE_COLLATION.o.integer > 0
+                   && self->current_lang_translations)
+            lang_sorting_locale = lang_info_sorting_locale
+                              (self->current_lang_translations->info);
+        }
 
       collation_sorted_indices
         = sorted_indices_by_letter (self->document,
                                     &self->error_messages, self->conf,
                                     self->conf->USE_UNICODE_COLLATION.o.integer,
-                                    sorting_lang_info,
+                                    lang_sorting_locale,
                             self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);
 
-      if (sorting_lang_info)
-        free (sorting_lang_info);
+      if (lang_sorting_locale)
+        free (lang_sorting_locale);
 
       if (collation_sorted_indices->type != ctn_locale_collation)
         *language = collation_sorted_indices->language;

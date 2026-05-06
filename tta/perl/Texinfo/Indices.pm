@@ -398,14 +398,14 @@ sub _setup_sortable_index_entries($$) {
 }
 
 sub _setup_sort_sortable_strings_collator($$$$) {
-  my ($document, $converter, $use_unicode_collation, $locale_lang) = @_;
+  my ($document, $converter, $use_unicode_collation, $lang_sorting_locale) = @_;
 
   # call a simple wrapper around setup_index_entries_sort_strings that
   # caches the result
   my $indices_sort_strings
     = Texinfo::Document::indices_sort_strings($document, $converter);
 
-  my $collator = _setup_collator($use_unicode_collation, $locale_lang);
+  my $collator = _setup_collator($use_unicode_collation, $lang_sorting_locale);
 
   my $index_sortable_index_entries
     = _setup_sortable_index_entries($collator, $indices_sort_strings);
@@ -415,12 +415,12 @@ sub _setup_sort_sortable_strings_collator($$$$) {
 
 # Normally called through Texinfo::Document::sorted_indices_by_index only
 sub sort_indices_by_index($$;$$) {
-  my ($document, $converter, $use_unicode_collation, $locale_lang) = @_;
+  my ($document, $converter, $use_unicode_collation, $lang_sorting_locale) = @_;
 
   my ($index_sortable_index_entries, $collator)
      = _setup_sort_sortable_strings_collator($document,
                        $converter, $use_unicode_collation,
-                       $locale_lang);
+                       $lang_sorting_locale);
 
   if (!defined($index_sortable_index_entries)) {
     return undef;
@@ -556,12 +556,12 @@ sub index_entry_first_letter_text_or_command($;$) {
 
 # Normally called through Texinfo::Document::sorted_indices_by_letter only
 sub sort_indices_by_letter($$;$$) {
-  my ($document, $converter, $use_unicode_collation, $locale_lang) = @_;
+  my ($document, $converter, $use_unicode_collation, $lang_sorting_locale) = @_;
 
   my ($index_sortable_index_entries, $collator)
      = _setup_sort_sortable_strings_collator($document,
                        $converter, $use_unicode_collation,
-                       $locale_lang);
+                       $lang_sorting_locale);
 
   if (!defined($index_sortable_index_entries)) {
     return undef;
@@ -740,9 +740,9 @@ L<< C<Texinfo::Document::merged_indices>|Texinfo::Document/$merged_indices = $do
 should be called on a document, which calls C<merge_indices> if needed and
 associate the merged indices to the document.
 
-=item $index_entries_sorted = sort_indices_by_index($document, $converter, $use_unicode_collation, $locale_lang)
+=item $index_entries_sorted = sort_indices_by_index($document, $converter, $use_unicode_collation, $lang_sorting_locale)
 
-=item $index_entries_sorted = sort_indices_by_letter($document, $converter, $use_unicode_collation, $locale_lang)
+=item $index_entries_sorted = sort_indices_by_letter($document, $converter, $use_unicode_collation, $lang_sorting_locale)
 X<C<sort_indices_by_index>> X<C<sort_indices_by_letter>>
 
 C<sort_indices_by_letter> sorts by index and letter, while
@@ -758,7 +758,7 @@ defined in the L<Unicode Technical Standard
 #10|http://www.unicode.org/reports/tr10/>, without language-specific collation
 tailoring.  If I<$use_unicode_collation> is set to 0, the sorting will not use
 the I<Unicode Collation Algorithm> and simply sort according to the codepoints.
-If I<$locale_lang> is set, the language is used for linguistic tailoring of the
+If I<$lang_sorting_locale> is set, the language is used for linguistic tailoring of the
 sorting, if possible.
 
 When sorting by letter, an array reference of letter hash references is
@@ -775,8 +775,8 @@ The optional argument I<$converter> is used for error reporting if present,
 otherwise the I<$document> is used.
 
 In general, those methods should not be called directly, instead
-L<< C<Texinfo::Document::sorted_indices_by_index>|Texinfo::Document/$sorted_indices = sorted_indices_by_index($document, $converter, $use_unicode_collation, $locale_lang) >>
-or L<< C<Texinfo::Document::sorted_indices_by_letter>|Texinfo::Document/$sorted_indices = sorted_indices_by_letter($document, $converter, $use_unicode_collation, $locale_lang) >>
+L<< C<Texinfo::Document::sorted_indices_by_index>|Texinfo::Document/$sorted_indices = sorted_indices_by_index($document, $converter, $use_unicode_collation, $lang_sorting_locale) >>
+or L<< C<Texinfo::Document::sorted_indices_by_letter>|Texinfo::Document/$sorted_indices = sorted_indices_by_letter($document, $converter, $use_unicode_collation, $lang_sorting_locale) >>
 should be called on a document. The C<Texinfo::Document> functions call
 C<sort_indices_by_index> or C<sort_indices_by_letter> if needed and associate
 the sorted indices to the document.
