@@ -1,3 +1,10 @@
+2026-04-19  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/dir.c (build_dir_node): avoid crash if dir file is malformed
+	or couldn't be loaded.
+
+	Report from Hilmar Preuße.
+
 2026-04-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	No menu positioning after "Up" to different file
