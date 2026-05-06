@@ -1,5 +1,15 @@
 2026-05-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Replace use of strcat
+
+	* install-info/install-info.c (split_entry):
+	Eliminate use of strcat in this function, as it always needs to scan
+	the string from the beginning, which is a well-known defect in the use
+	of this function.
+	Remove pointless division by "sizeof (char)".
+
+2026-05-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* install-info/install-info.c (split_entry):
 	Only convert "\n" to "  " a limited number of times, and allocate
 	enough memory to do so.

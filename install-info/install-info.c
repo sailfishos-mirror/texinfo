@@ -1627,7 +1627,10 @@ split_entry (const char *entry, char **name, size_t *name_len,
   ptr++;
   int extra = 10;
   *description = xmalloc (strlen (ptr) + extra + 1);
-  (*description)[0] = '\0';
+  char *pdesc = *description;
+  *pdesc = '\0';
+
+#define cat(out, str, len) { memcpy (out, str, len); out += len; }
 
   while (ptr[0] != '\0')
     {
@@ -1644,8 +1647,8 @@ split_entry (const char *entry, char **name, size_t *name_len,
       /* Either the description continues up to the next newline. */
       if (endptr)
         {
-          size_t length  = (size_t) (endptr - ptr) / sizeof (char);
-          strncat (*description, ptr, length);
+          size_t length  = (size_t) (endptr - ptr);
+          cat (pdesc, ptr, length);
           ptr = endptr;
           /* First of all, we eat the newline here.  But then what?
              Sometimes the newline separates 2 sentences, so we
@@ -1665,24 +1668,31 @@ split_entry (const char *entry, char **name, size_t *name_len,
               /* *ENDPTR is the 2nd last character */
               if (*endptr == '.')
                 {
-                  strcat (*description,
-                          extra ? (extra--, "  ") : " ");
+                  if (extra)
+                    {
+                      cat (pdesc, "  ", 2);
+                      extra--;
+                    }
+                  else
+                    cat (pdesc, " ", 1);
                 }
               else if (!isspace ((unsigned char) *endptr))
-                strcat (*description, " ");
+                cat (pdesc, " ", 1);
             }
         }
       /* Or the description continues to the end of the string. */
       else
         {
           /* Just show the rest when there's no newline. */
-          strcat (*description, ptr);
-          ptr += strlen (ptr);
+          size_t ptrlen = strlen (ptr);
+          cat (pdesc, (ptr += ptrlen), ptrlen);
         }
     }
   /* Descriptions end in a new line. */
-  strcat (*description, "\n");
-  *description_len = strlen (*description);
+  cat (pdesc, "\n", 1);
+  *pdesc = '\0';
+  *description_len = pdesc - *description;
+#undef cat
 }
 
 
