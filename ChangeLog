@@ -1,7 +1,3 @@
-2026-05-05  Gavin Smith <gavinsmith0123@gmail.com>
-
-	info: Fix infinite loop
-
 2026-05-06 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Texinfo Tree Conversion Functions),
@@ -39,6 +35,8 @@
 	Changes in POD and comments.
 
 2026-05-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	info: Fix infinite loop
 
 	* info/session-cmd.c (forward_move_node_structure):
 	Replace call to info_handle_pointer to follow "Up" pointer.
