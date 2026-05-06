@@ -1625,7 +1625,8 @@ split_entry (const char *entry, char **name, size_t *name_len,
   strncat (*name, entry, *name_len);
 
   ptr++;
-  *description = xmalloc (strlen (entry));
+  int extra = 10;
+  *description = xmalloc (strlen (ptr) + extra + 1);
   (*description)[0] = '\0';
 
   while (ptr[0] != '\0')
@@ -1649,9 +1650,11 @@ split_entry (const char *entry, char **name, size_t *name_len,
           /* First of all, we eat the newline here.  But then what?
              Sometimes the newline separates 2 sentences, so we
              end up with the next word starting directly after the period,
-             instead of after the customary 2 spaces in english. 
+             instead of after the customary 2 spaces in English.
              If the previous character was a `.', then we should add 2
              spaces if there is anything on the next line.
+             (We can only do this a limited number of times as each time
+             we consume an extra byte.)
              if it's a comma, then we should put one space.
              If it's neither, we just put a space.
              If it's some other whitespace, we shouldn't do anything. */
@@ -1661,7 +1664,10 @@ split_entry (const char *entry, char **name, size_t *name_len,
               endptr--;
               /* *ENDPTR is the 2nd last character */
               if (*endptr == '.')
-                strcat (*description, "  ");
+                {
+                  strcat (*description,
+                          extra ? (extra--, "  ") : " ");
+                }
               else if (!isspace ((unsigned char) *endptr))
                 strcat (*description, " ");
             }

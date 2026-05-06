@@ -1,3 +1,11 @@
+2026-05-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* install-info/install-info.c (split_entry):
+	Only convert "\n" to "  " a limited number of times, and allocate
+	enough memory to do so.
+	
+	Memory overflow reported by LogicLuminary <memorylogicdev@gmail.com>.
+
 2026-05-06 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Texinfo Tree Conversion Functions),
