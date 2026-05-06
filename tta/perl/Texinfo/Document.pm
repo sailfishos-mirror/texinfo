@@ -809,8 +809,8 @@ defined in the L<Unicode Technical Standard
 #10|http://www.unicode.org/reports/tr10/>, without language-specific collation
 tailoring.  If I<$use_unicode_collation> is set to 0, the sorting will not use
 the I<Unicode Collation Algorithm> and simply sort according to the codepoints.
-If I<$lang_sorting_locale> is set, the language is used for linguistic tailoring of the
-sorting, if possible.
+The optional I<$lang_sorting_locale> language is used for linguistic
+tailoring of the sorting, if possible.
 
 When sorting by letter, an array reference of letter hash references is
 associated with each index name.  Each letter hash reference has two

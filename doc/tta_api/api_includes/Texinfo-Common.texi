@@ -109,8 +109,8 @@ Keys are null devices names, such as @code{/dev/null} or @code{NUL}.
 @cindex @code{%texinfo_output_formats}
 
 Cannonical output formats that have associated conditionals.  In
-practice corresponds to @code{format_raw} @code{%block_commands} plus @code{info}
-and @code{plaintext}.
+practice corresponds to @code{format_raw} @code{%block_commands} plus @code{info},
+@code{plaintext} and @code{epub}.
 
 @end table
 

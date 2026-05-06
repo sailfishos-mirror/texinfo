@@ -2467,8 +2467,8 @@ Keys are null devices names, such as C</dev/null> or C<NUL>.
 X<C<%texinfo_output_formats>>
 
 Cannonical output formats that have associated conditionals.  In
-practice corresponds to C<format_raw> C<%block_commands> plus C<info>
-and C<plaintext>.
+practice corresponds to C<format_raw> C<%block_commands> plus C<info>,
+C<plaintext> and C<epub>.
 
 =back
 

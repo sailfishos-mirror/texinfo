@@ -1,5 +1,10 @@
 2026-05-06 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Texinfo Tree Conversion Functions),
+	POD documentation: update/improve.
+
+2026-05-06 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/api_for_swig/swig_interface.c
 	(txi_ext_get_index_sorted_by_index), tta/C/convert/converter.c
 	(lang_info_sorting_locale, get_converter_indices_sorted_by_index)

@@ -515,13 +515,9 @@ described in @ref{Texinfo@asis{::}Report $error_count
 @node Texinfo@asis{::}Convert@asis{::}Converter Translations in output documents
 @subsection Translations in output documents
 
-@code{Texinfo::Convert::Converter} provides wrappers around
-@ref{Texinfo@asis{::}Translations NAME,, Texinfo::Translations} methods that use the current language.  The
-current language is set by a call to @code{converter_set_documentlanguage}, like:
-
-@verbatim
- $converter->converter_set_documentlanguage($documentlanguage);
-@end verbatim
+@code{Texinfo::Convert::Converter} provides methods useful for translation.
+These methods use the current language and are wrappers around
+@ref{Texinfo@asis{::}Translations NAME,, Texinfo::Translations} methods.
 
 The @code{cdt} and @code{pcdt} methods are used to translate strings to be output in
 converted documents, and return a Texinfo tree.  The @code{cdt_string} is similar
@@ -595,8 +591,8 @@ with the index name.
 The functions call @ref{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_letter($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $lang_sorting_locale),, @code{Texinfo::Document::sorted_indices_by_letter}}
 or @ref{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_index($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $lang_sorting_locale),, @code{Texinfo::Document::sorted_indices_by_index}}
 with arguments based on @code{USE_UNICODE_COLLATION}, @code{COLLATION_LANGUAGE} and
-@code{DOCUMENTLANGUAGE_COLLATION} customization options, and, if relevant, current
-@code{@@documentlanguage}.
+@code{DOCUMENTLANGUAGE_COLLATION} customization options, and, if relevant, the
+current language.
 
 @end table
 
@@ -623,6 +619,12 @@ command argument (usually a letter), is also converted, by calling
 @ref{Texinfo@asis{::}Convert@asis{::}Converter $result = $converter->convert_tree($tree),, @code{$converter->convert_tree}}. If @emph{$in_upper_case} is
 set, the result should be uppercased.
 
+@end table
+
+The user-defined accent formatting function reference given in argument of
+@code{convert_accents} is called like:
+
+@table @asis
 @item $result = &$format_accents($self, $text, $accent_command, $index_in_stack, $accents_stack, $in_upper_case)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter $result = &$format_accents($self@comma{} $text@comma{} $accent_command@comma{} $index_in_stack@comma{} $accents_stack@comma{} $in_upper_case)}
 

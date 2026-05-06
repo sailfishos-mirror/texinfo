@@ -358,8 +358,8 @@ defined in the @url{http://www.unicode.org/reports/tr10/, Unicode Technical Stan
 #10}, without language-specific collation
 tailoring.  If @emph{$use_unicode_collation} is set to 0, the sorting will not use
 the @emph{Unicode Collation Algorithm} and simply sort according to the codepoints.
-If @emph{$lang_sorting_locale} is set, the language is used for linguistic tailoring of the
-sorting, if possible.
+The optional @emph{$lang_sorting_locale} language is used for linguistic
+tailoring of the sorting, if possible.
 
 When sorting by letter, an array reference of letter hash references is
 associated with each index name.  Each letter hash reference has two

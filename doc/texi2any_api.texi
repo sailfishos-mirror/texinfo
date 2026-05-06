@@ -2590,6 +2590,7 @@ For such cases, the function is
 formatting context appropriately.
 @code{convert_tree_new_formatting_context} ultimately calls @code{convert_tree}.
 
+@anchor{@code{convert_tree_new_formatting_context}}
 @deftypefun {@var{$converted_text} =} @var{$converter}->convert_tree_new_formatting_context @
       (@var{\%element}, @var{$context}, @var{$expansion_context_flags}, @var{$multiple_pass}, @var{$global_context}, @
        @var{$block_command_name})
@@ -2657,11 +2658,11 @@ Since the main document expansion context should never be in string expansion
 context it is not possible to set string expansion context in the main
 formatting document context.
 
-You can set the expansion context with
-@code{convert_tree_new_formatting_context}
-by setting the expansion context flags argument with flags
+To set the expansion context in other formatting contexts, you should call
+@ref{@code{convert_tree_new_formatting_context}}
+and set the expansion context flags argument with flags
 set for the expansions you want.  You can set different flags concurrently,
-in case you want to set multiple explansion contexts.  The flags
+in case you want to set multiple expansion contexts.  The flags
 are:
 
 @table @code

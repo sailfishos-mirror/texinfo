@@ -702,8 +702,7 @@ Main functions merge and sort indices.  These functions should generally be
 called indirectly.
 
 Other functions help presenting sorting strings especially generated to be
-output or deal with getting information on or format especially index
-entries.
+output or are helper functions related to indices or index entries.
 
 =head1 METHODS
 
@@ -711,8 +710,8 @@ No method is exported.
 
 C<merge_indices> may be used to merge indices.  Document indices may be sorted
 with C<sort_indices_by_index> or C<sort_indices_by_letter>.  The sorting may
-be influenced by the current language.  In the current implementation,
-sorting keys formatted internally in a language-independent manner are used.
+be influenced by the current language.  (In the current implementation,
+sorting keys formatted internally in a language-independent manner are used.)
 
 Note that, in general, the functions used to merge or sort indices
 should not be called directly, corresponding functions
@@ -747,19 +746,19 @@ X<C<sort_indices_by_index>> X<C<sort_indices_by_letter>>
 
 C<sort_indices_by_letter> sorts by index and letter, while
 C<sort_indices_by_index> sort all entries of an index together.
+In both cases, a hash reference with index names as keys I<$index_entries_sorted>
+is returned.
 Indices are obtained from I<$document>, and should have been merged
 previously, in general by using
 L<< C<Texinfo::Document::merged_indices>|Texinfo::Document/$merged_indices = $document->merged_indices() >>.
-In both cases, a hash reference with index names as keys I<$index_entries_sorted>
-is returned.
 
 By default, indices are sorted according to the I<Unicode Collation Algorithm>
 defined in the L<Unicode Technical Standard
 #10|http://www.unicode.org/reports/tr10/>, without language-specific collation
 tailoring.  If I<$use_unicode_collation> is set to 0, the sorting will not use
 the I<Unicode Collation Algorithm> and simply sort according to the codepoints.
-If I<$lang_sorting_locale> is set, the language is used for linguistic tailoring of the
-sorting, if possible.
+The optional I<$lang_sorting_locale> language is used for linguistic
+tailoring of the sorting, if possible.
 
 When sorting by letter, an array reference of letter hash references is
 associated with each index name.  Each letter hash reference has two
@@ -818,9 +817,8 @@ Return options relevant for index keys sorting for conversion of Texinfo
 to output.
 
 Should be called early, since it sets up language information corresponding to
-the language current at the end of the preamble.  Note that commands appearing
-in index entry whose output may depend on a language are rare.  The I<$option>
-is meant to be reused.
+the language current at the end of the preamble.  (Note that commands appearing
+in index entry whose output may depend on a language are rare.)
 
 =back
 

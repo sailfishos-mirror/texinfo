@@ -2311,11 +2311,9 @@ described in L<Texinfo::Report::count_errors|Texinfo::Report/$error_count
 
 =head2 Translations in output documents
 
-C<Texinfo::Convert::Converter> provides wrappers around
-L<Texinfo::Translations> methods that use the current language.  The
-current language is set by a call to C<converter_set_documentlanguage>, like:
-
- $converter->converter_set_documentlanguage($documentlanguage);
+C<Texinfo::Convert::Converter> provides methods useful for translation.
+These methods use the current language and are wrappers around
+L<Texinfo::Translations> methods.
 
 The C<cdt> and C<pcdt> methods are used to translate strings to be output in
 converted documents, and return a Texinfo tree.  The C<cdt_string> is similar
@@ -2384,8 +2382,8 @@ with the index name.
 The functions call L<< C<Texinfo::Document::sorted_indices_by_letter>|Texinfo::Document/$sorted_indices = sorted_indices_by_letter($document, $converter, $use_unicode_collation, $lang_sorting_locale) >>
 or L<< C<Texinfo::Document::sorted_indices_by_index>|Texinfo::Document/$sorted_indices = sorted_indices_by_index($document, $converter, $use_unicode_collation, $lang_sorting_locale) >>
 with arguments based on C<USE_UNICODE_COLLATION>, C<COLLATION_LANGUAGE> and
-C<DOCUMENTLANGUAGE_COLLATION> customization options, and, if relevant, current
-C<@documentlanguage>.
+C<DOCUMENTLANGUAGE_COLLATION> customization options, and, if relevant, the
+current language.
 
 =back
 
@@ -2410,6 +2408,13 @@ accent command tree element within I<$accent_command>.  The innermost accent
 command argument (usually a letter), is also converted, by calling
 L<< C<< $converter->convert_tree >>|/$result = $converter->convert_tree($tree) >>. If I<$in_upper_case> is
 set, the result should be uppercased.
+
+=back
+
+The user-defined accent formatting function reference given in argument of
+C<convert_accents> is called like:
+
+=over
 
 =item $result = &$format_accents($self, $text, $accent_command, $index_in_stack, $accents_stack, $in_upper_case)
 
