@@ -2,6 +2,13 @@
 
 	Replace use of strcat
 
+	* install-info/install-info.c (format_entry):
+	Eliminate use of strcat and strncat.
+
+2026-05-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Replace use of strcat
+
 	* install-info/install-info.c (split_entry):
 	Eliminate use of strcat in this function, as it always needs to scan
 	the string from the beginning, which is a well-known defect in the use
