@@ -2353,8 +2353,8 @@ forward_move_node_structure (WINDOW *window, int behaviour)
                     if (!window->node->next)
                       continue;
 
-                    /* If this node's first menu item is the same as this node's
-                       Next pointer, keep backing up. */
+                    /* If this node's first menu item is the same as this
+                       node's Next pointer, keep backing up. */
                     entry = select_menu_digit (window, '1');
                     if (entry && !strcmp (window->node->next, entry->nodename))
                       continue;
@@ -2394,7 +2394,7 @@ forward_move_node_structure (WINDOW *window, int behaviour)
                 abort ();
               }
           }
-        break;
+        break; /* case IS_Continuous: */
       }
     }
   return 0;

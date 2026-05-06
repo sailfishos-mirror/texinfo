@@ -1,3 +1,7 @@
+2026-05-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	info: Fix infinite loop
+
 2026-05-06 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Texinfo Tree Conversion Functions),
@@ -37,7 +41,7 @@
 2026-05-05  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/session-cmd.c (forward_move_node_structure):
-	Replace call ito info_handle_pointer to follow "Up" pointer.
+	Replace call to info_handle_pointer to follow "Up" pointer.
 	Check Up pointer is not to a different file, to avoid going
 	all the way up to "(dir)".  Also check that it does not point
 	to the current node, to avoid an infinite loop.  Fall through to
