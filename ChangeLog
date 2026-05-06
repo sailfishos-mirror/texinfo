@@ -1,5 +1,12 @@
 2026-05-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Replace use of strcat and strncat
+
+	* install-info/install-info.c (split_entry):
+	Remove sole remaining use of strncat.
+
+2026-05-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Replace use of strcat
 
 	* install-info/install-info.c (format_entry):

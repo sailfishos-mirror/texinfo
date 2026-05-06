@@ -1625,8 +1625,8 @@ split_entry (const char *entry, char **name, size_t *name_len,
   /* The name is everything up to and including the period. */
   *name_len = (size_t) (ptr - entry + 1);
   *name = xmalloc (*name_len + 1);
-  (*name)[0] = '\0';
-  strncat (*name, entry, *name_len);
+  memcpy (*name, entry, *name_len);
+  (*name)[*name_len] = '\0';
 
   ptr++;
   int extra = 10;
