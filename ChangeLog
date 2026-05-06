@@ -1,3 +1,11 @@
+2026-05-06 Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Command Tree Element Conversion)
+	(Functions and Data for Default Formatting): put information on
+	default formatting functions used for diverse commands in a spearate
+	chapter, keeping only formatting of commands that require calling some
+	specific functions in "Command Tree Element Conversion".
+
 2026-05-06  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Replace use of strcat and strncat

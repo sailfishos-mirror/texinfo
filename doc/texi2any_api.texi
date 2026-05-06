@@ -3700,213 +3700,6 @@ my $index_element_id = $converter->command_id($root_command);
 @end example
 
 
-@node Commands Without Arguments Formatting
-@subsection Commands Without Arguments Formatting
-
-The information on commands without arguments formatting obtained from defaults
-and customization (@pxref{Simple Customization for Commands Without Arguments})
-can be accessed through the @samp{no_arg_commands_formatting} key of the
-converter.  The value is a hash, with command name keys (without @@).  The
-value associated to a command name is also a hash with the following
-keys corresponding to expansion contexts (@pxref{Init File Expansion Contexts}):
-
-@table @code
-@item normal
-Formatting for the normal context.
-
-@item preformatted
-Formatting for the code, preformatted and math context.
-
-@item string
-Formatting for the string context.
-
-@end table
-
-The value associated is also a hash, with the following
-keys:
-
-@table @code
-@item text
-HTML text, possibly with elements (not in the string expansion context) corresponding
-to the @@-command.  Can be directly specified or obtained through translation,
-and also possibly through translation and conversion.
-
-@item element
-HTML element.  Directly specified.
-@end table
-
-for example, for the @code{@@equiv} command in preformatted context:
-@example
-@group
-if ($converter->in_preformatted_context() or $converter->in_math()) @{
-  my $specification
-   = $converter->@{'no_arg_commands_formatting'@}->@{'equiv'@}
-                                             ->@{'preformatted'@};
-  my $text = '';
-  if (exists($specification->@{'text'@})) @{
-    $text = $specification->@{'text'@};
-  @}
-  if (exists($specification->@{'element'@})) @{
-    return '<'.$specification->@{'element'@}.'>'
-       . $text . '</'.$specification->@{'element'@}.'>';
-  @} else @{
-    return $text;
-  @}
-@}
-@end group
-@end example
-
-
-@node Simple Commands with Braces Formatting
-@subsection Simple Commands with Braces Formatting
-
-The information on commands without arguments formatting obtained from defaults
-and customization (@pxref{Simple Output Customization for Simple Commands with Braces})
-can be accessed through the @samp{style_commands_formatting} key of the
-converter.  The value is a hash, with command name keys (without @@).  The
-value associated to a command name is also a hash with the following
-keys corresponding to expansion contexts (@pxref{Init File Expansion Contexts}):
-
-@table @code
-@item normal
-Formatting for the normal context.
-
-@item preformatted
-Formatting for the code, preformatted and math context.
-@end table
-
-The value associated is also a hash, with the following
-keys:
-
-@table @code
-@item element
-HTML element.
-
-@item quote
-Set if the argument is expected to be in quotes.
-@end table
-
-
-@node Accent Commands with Arguments Formatting
-@subsection Accent Commands with Arguments Formatting
-
-In the default case, accent commands with arguments are formatted using
-a generic conversion fonction defined by the converter,
-@code{convert_accents}.  This function does not do all the work, it
-presents the nested accents, removing the need to go through the tree
-but still requires a function used to convert the presented accents.
-
-@deftypefun {@var{$result} =} @var{$converter}->convert_accents(@var{$accent_command}, @
- @var{\&format_accents}, @var{$output_encoded_characters}, @var{$in_upper_case})
-@var{$accent_command} is an accent command tree elements, which may have other
-accent commands tree elements nested inside.  The function returns the accents
-formatted either as encoded letters if @var{$output_encoded_characters} is set,
-or formatted by calling @var{\&format_accents} repeatedly starting from the
-innermost accent command tree element within @var{$accent_command}.  The
-innermost accent command argument (usually a letter), is also converted, by
-calling @code{convert_tree}. If @var{$in_upper_case} is set, the result should
-be uppercased.
-@end deftypefun
-
-The @var{\&format_accents} function is called by @code{convert_accents} like:
-
-@deftypefn {Function Reference} @var{$text} format_accents (@var{$converter}, @
- @var{$text}, @var{$command}, @var{$index_in_stack}, @var{$accents_stack}, @
- @var{$in_upper_case})
-@var{$converter} is the converter in the call to @code{convert_accents}.
-For the innermost accent command, @var{$text} is the text appearing within
-the accent command converted.  For the other accent commands,
-@var{$text} is the result of the previously converted
-accent command.  @var{$accent_command} the Texinfo tree element corresponding
-to the accent command being converted.  @var{$index_in_stack} is the position
-in the @var{$accents_stack} of the accent command being converted.  The
-@var{$accents_stack} is an array holding the nested accent command
-Texinfo tree elements.  The innermost tree element command is last.
-@var{$in_upper_case} is optional, and, if set, the text should be put
-in upper case.  The function should return the converted accent argument
-to be processed by the following accent command.
-@end deftypefn
-
-@c describe?
-@c Texinfo::UnicodeData::unicode_accented_letters
-
-You can use @code{xml_numeric_entity_accent} to format an accent command
-as a numeric entity:
-
-@deftypefun {@var{$result} =} Texinfo::Convert::Converter::xml_numeric_entity_accent @
- (@var{$accent_command_name}, @var{$text})
-@var{$accent_command_name} is the name of an accent command.  @var{$text} is
-the text appearing within the accent command.  Returns the accented letter as
-XML numeric entity, or @code{undef} if there is no such entity.
-@end deftypefun
-
-
-@node Specific Formatting for Indices
-@subsection Specific Formatting for Indices
-
-Index formatting customization is achieved through registering a conversion
-function for @code{@@printindex} (@pxref{Command Tree Element Conversion
-Functions}).  The Texinfo parsed document indices information directly
-obtained from the Texinfo manual parsing is available in document information
-(@pxref{@code{indices_information}}).  Sorted index entries, which are
-usually used for index formatting are available through
-@code{get_converter_indices_sorted_by_letter}:
-
-@deftypefun {@var{\%sorted_index_entries} = } @var{$converter}->get_converter_indices_sorted_by_letter ()
-Returns an hash reference holding index entries sorted by index and letter
-for each of the indices.  The keys are index names, the values are
-array reference of letter hash references.   Each letter hash reference has two
-keys, a @code{letter} key with the letter, and an @code{entries} key with an
-array reference of sorted index entries beginning with the letter.
-
-This function should be called each time sorted indices are needed,
-in case the sorting depends on the @code{@@documentlanguage} value.
-@end deftypefun
-
-The index entry information hash reference available from
-@code{indices_information} @code{index_entries} or letter @code{entries}
-has the following keys:
-
-@table @code
-@item index_name
-The index name associated to the command.  Not modified if the corresponding
-index is merged in another index (with @code{@@synindex}, for example).
-
-@item entry_element
-The Texinfo tree element associated with the @@-command holding the
-index entry.
-
-@item entry_number
-The number of the index entry in the index.
-@end table
-
-@node Image Formatting
-@subsection Image Formatting
-
-Image @code{@@image} command formatting is customized by registering a
-conversion function for @code{@@image} (@pxref{Command Tree Element Conversion
-Functions}).  To get the location of an image file, it could be useful to use
-@code{html_image_file_location_name}:
-
-@deftypefun {(@var{$image_file}, @var{$image_basefile}, @var{$image_extension}, @var{$image_path}, @var{$image_path_encoding}) =} @
- @var{$converter}->html_image_file_location_name (@var{$command_name}, @var{\%element}, @var{\@@args})
-@var{$command_name}, @var{\%element} and @var{\@@args} should be the arguments
-of an @code{@@image} @@-command formatting (@pxref{Command Tree Element
-Conversion Functions}).
-
-The return values gives information on the image file if found, or fallback values.
-@var{$image_file} is the relative image file name.  It is the file name used in
-formatting of the @code{@@image} command in the default case.  @var{$image_basefile}
-is the base file name of the image, without extension, corresponding to the
-@code{@@image} @@-command first argument.  @var{$image_extension} is the image
-file extension (without a leading dot).  @var{$image_path} is the path to the
-actual image file, @code{undef} if no file was found.  @var{$image_path} is
-returned as a binary string, the other strings returned are character strings.
-@var{$image_path_encoding} is the encoding used to encode the image path to a
-binary string.
-@end deftypefun
-
-
 @node Type Tree Element Conversion
 @section Type Tree Element Conversion
 
@@ -5927,6 +5720,222 @@ HTML cross manual references (@pxref{HTML Xref,,, texinfo, Texinfo}).
 
 Returns the content of the node redirection file.
 @end deftypefn
+
+
+@node Functions and Data for Default Formatting
+@chapter Functions and Data for Default Formatting
+
+Default formatting function of tree elements use functions and data that
+can also be used in user-defined conversion functions registered to be
+called by the converter.  @xref{Command Tree Element Conversion}
+for commands that need to call specific functions.
+
+
+@node Commands Without Arguments Formatting
+@section Commands Without Arguments Formatting
+
+The information on commands without arguments formatting obtained from defaults
+and customization (@pxref{Simple Customization for Commands Without Arguments})
+can be accessed through the @samp{no_arg_commands_formatting} key of the
+converter.  The value is a hash, with command name keys (without @@).  The
+value associated to a command name is also a hash with the following
+keys corresponding to expansion contexts (@pxref{Init File Expansion Contexts}):
+
+@table @code
+@item normal
+Formatting for the normal context.
+
+@item preformatted
+Formatting for the code, preformatted and math context.
+
+@item string
+Formatting for the string context.
+
+@end table
+
+The value associated is also a hash, with the following
+keys:
+
+@table @code
+@item text
+HTML text, possibly with elements (not in the string expansion context) corresponding
+to the @@-command.  Can be directly specified or obtained through translation,
+and also possibly through translation and conversion.
+
+@item element
+HTML element.  Directly specified.
+@end table
+
+for example, for the @code{@@equiv} command in preformatted context:
+@example
+@group
+if ($converter->in_preformatted_context() or $converter->in_math()) @{
+  my $specification
+   = $converter->@{'no_arg_commands_formatting'@}->@{'equiv'@}
+                                             ->@{'preformatted'@};
+  my $text = '';
+  if (exists($specification->@{'text'@})) @{
+    $text = $specification->@{'text'@};
+  @}
+  if (exists($specification->@{'element'@})) @{
+    return '<'.$specification->@{'element'@}.'>'
+       . $text . '</'.$specification->@{'element'@}.'>';
+  @} else @{
+    return $text;
+  @}
+@}
+@end group
+@end example
+
+
+@node Simple Commands with Braces Formatting
+@section Simple Commands with Braces Formatting
+
+The information on commands without arguments formatting obtained from defaults
+and customization (@pxref{Simple Output Customization for Simple Commands with Braces})
+can be accessed through the @samp{style_commands_formatting} key of the
+converter.  The value is a hash, with command name keys (without @@).  The
+value associated to a command name is also a hash with the following
+keys corresponding to expansion contexts (@pxref{Init File Expansion Contexts}):
+
+@table @code
+@item normal
+Formatting for the normal context.
+
+@item preformatted
+Formatting for the code, preformatted and math context.
+@end table
+
+The value associated is also a hash, with the following
+keys:
+
+@table @code
+@item element
+HTML element.
+
+@item quote
+Set if the argument is expected to be in quotes.
+@end table
+
+
+@node Accent Commands with Arguments Formatting
+@section Accent Commands with Arguments Formatting
+
+In the default case, accent commands with arguments are formatted using
+a generic conversion fonction defined by the converter,
+@code{convert_accents}.  This function does not do all the work, it
+presents the nested accents, removing the need to go through the tree
+but still requires a function used to convert the presented accents.
+
+@deftypefun {@var{$result} =} @var{$converter}->convert_accents(@var{$accent_command}, @
+ @var{\&format_accents}, @var{$output_encoded_characters}, @var{$in_upper_case})
+@var{$accent_command} is an accent command tree elements, which may have other
+accent commands tree elements nested inside.  The function returns the accents
+formatted either as encoded letters if @var{$output_encoded_characters} is set,
+or formatted by calling @var{\&format_accents} repeatedly starting from the
+innermost accent command tree element within @var{$accent_command}.  The
+innermost accent command argument (usually a letter), is also converted, by
+calling @code{convert_tree}. If @var{$in_upper_case} is set, the result should
+be uppercased.
+@end deftypefun
+
+The @var{\&format_accents} function is called by @code{convert_accents} like:
+
+@deftypefn {Function Reference} @var{$text} format_accents (@var{$converter}, @
+ @var{$text}, @var{$command}, @var{$index_in_stack}, @var{$accents_stack}, @
+ @var{$in_upper_case})
+@var{$converter} is the converter in the call to @code{convert_accents}.
+For the innermost accent command, @var{$text} is the text appearing within
+the accent command converted.  For the other accent commands,
+@var{$text} is the result of the previously converted
+accent command.  @var{$accent_command} the Texinfo tree element corresponding
+to the accent command being converted.  @var{$index_in_stack} is the position
+in the @var{$accents_stack} of the accent command being converted.  The
+@var{$accents_stack} is an array holding the nested accent command
+Texinfo tree elements.  The innermost tree element command is last.
+@var{$in_upper_case} is optional, and, if set, the text should be put
+in upper case.  The function should return the converted accent argument
+to be processed by the following accent command.
+@end deftypefn
+
+@c TODO describe?
+@c Texinfo::UnicodeData::unicode_accented_letters
+
+You can use @code{xml_numeric_entity_accent} to format an accent command
+as a numeric entity:
+
+@deftypefun {@var{$result} =} Texinfo::Convert::Converter::xml_numeric_entity_accent @
+ (@var{$accent_command_name}, @var{$text})
+@var{$accent_command_name} is the name of an accent command.  @var{$text} is
+the text appearing within the accent command.  Returns the accented letter as
+XML numeric entity, or @code{undef} if there is no such entity.
+@end deftypefun
+
+
+@node Specific Formatting for Indices
+@section Specific Formatting for Indices
+
+Index formatting customization is achieved through registering a conversion
+function for @code{@@printindex} (@pxref{Command Tree Element Conversion
+Functions}).  The Texinfo parsed document indices information directly
+obtained from the Texinfo manual parsing is available in document information
+(@pxref{@code{indices_information}}).  Sorted index entries, which are
+usually used for index formatting are available through
+@code{get_converter_indices_sorted_by_letter}:
+
+@deftypefun {@var{\%sorted_index_entries} = } @var{$converter}->get_converter_indices_sorted_by_letter ()
+Returns an hash reference holding index entries sorted by index and letter
+for each of the indices.  The keys are index names, the values are
+array reference of letter hash references.   Each letter hash reference has two
+keys, a @code{letter} key with the letter, and an @code{entries} key with an
+array reference of sorted index entries beginning with the letter.
+
+This function should be called each time sorted indices are needed,
+in case the sorting depends on the @code{@@documentlanguage} value.
+@end deftypefun
+
+The index entry information hash reference available from
+@code{indices_information} @code{index_entries} or letter @code{entries}
+has the following keys:
+
+@table @code
+@item index_name
+The index name associated to the command.  Not modified if the corresponding
+index is merged in another index (with @code{@@synindex}, for example).
+
+@item entry_element
+The Texinfo tree element associated with the @@-command holding the
+index entry.
+
+@item entry_number
+The number of the index entry in the index.
+@end table
+
+@node Image Formatting
+@section Image Formatting
+
+Image @code{@@image} command formatting is customized by registering a
+conversion function for @code{@@image} (@pxref{Command Tree Element Conversion
+Functions}).  To get the location of an image file, it could be useful to use
+@code{html_image_file_location_name}:
+
+@deftypefun {(@var{$image_file}, @var{$image_basefile}, @var{$image_extension}, @var{$image_path}, @var{$image_path_encoding}) =} @
+ @var{$converter}->html_image_file_location_name (@var{$command_name}, @var{\%element}, @var{\@@args})
+@var{$command_name}, @var{\%element} and @var{\@@args} should be the arguments
+of an @code{@@image} @@-command formatting (@pxref{Command Tree Element
+Conversion Functions}).
+
+The return values gives information on the image file if found, or fallback values.
+@var{$image_file} is the relative image file name.  It is the file name used in
+formatting of the @code{@@image} command in the default case.  @var{$image_basefile}
+is the base file name of the image, without extension, corresponding to the
+@code{@@image} @@-command first argument.  @var{$image_extension} is the image
+file extension (without a leading dot).  @var{$image_path} is the path to the
+actual image file, @code{undef} if no file was found.  @var{$image_path} is
+returned as a binary string, the other strings returned are character strings.
+@var{$image_path_encoding} is the encoding used to encode the image path to a
+binary string.
+@end deftypefun
 
 
 @node Specific Functions for Specific Elements
