@@ -3913,8 +3913,7 @@ sub _convert_float_command($$$$$) {
 
   $content = '' if (!defined($content));
 
-  my ($caption_element, $prepended)
-     = Texinfo::Convert::Converter::float_name_caption($self, $command);
+  my ($caption_element, $prepended) = $self->float_name_caption($command);
 
   if (in_string($self)) {
     my $prepended_text;

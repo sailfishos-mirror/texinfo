@@ -976,7 +976,7 @@ sub file_separator_canonpath($) {
   }
 }
 
-# TODO document
+# TODO document (documented in texi2any_api, not in POD)
 sub empty_spaces_argument($) {
   my $element = shift;
 
@@ -1004,7 +1004,7 @@ sub empty_spaces_argument($) {
   return 1;
 }
 
-# TODO document
+# TODO document (documented in texi2any_api, not in POD)
 # Return argument of a brace command with simple text as argument, for
 # example @U
 sub simple_arg_text($) {
@@ -1121,7 +1121,7 @@ sub find_innermost_accent_contents($) {
 }
 
 # ALTIMP C/main/utils.c
-# TODO document
+# TODO document in POD? (already in texi2any_api) 
 # Used in converters and parser
 sub multitable_columnfractions($) {
   my $multitable = shift;
@@ -1172,6 +1172,7 @@ sub block_line_argument_command($) {
 my $default_bullet_command = Texinfo::TreeElement::new({'cmdname' => 'bullet'});
 
 # ALTIMP C/main/convert_utils.c
+# TODO document in POD? (already in texi2any_api) 
 sub itemize_line_prepended_element($) {
   my $block_line_arg = shift;
 
@@ -1229,6 +1230,7 @@ sub block_item_line_command($) {
 }
 
 # ALTIMP C/main/utils.c
+# TODO document in POD? (already in texi2any_api) 
 sub find_float_caption_shortcaption($) {
   my $float = shift;
 
@@ -1250,7 +1252,7 @@ sub find_float_caption_shortcaption($) {
 }
 
 # ALTIMP C/main/utils.c
-# TODO document
+# TODO document in POD (already in texi2any_api)
 # used in Texinfo::Indices and converters
 sub collect_subentries($$);
 sub collect_subentries($$) {
@@ -1269,9 +1271,9 @@ sub collect_subentries($$) {
 sub index_entry_referred_entry($$);
 
 # ALTIMP C/main/utils.c
-# TODO document
+# TODO document in POD (already in texi2any_api)
 # Gather REFERRED_CMDNAME, either seeenentry or seealso, in
-# index command tree element $ELEMENT, recusring into subebtry.
+# index command tree element $ELEMENT, recursing into subentry.
 # Used in converters
 sub index_entry_referred_entry($$) {
   my ($element, $referred_cmdname) = @_;

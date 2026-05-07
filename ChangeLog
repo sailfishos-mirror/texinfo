@@ -1,3 +1,38 @@
+2026-05-07 Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Text Tree Elements Conversion): document
+	xml_format_text_with_numeric_entities.
+
+	* doc/texi2any_api.texi (Commands Without Arguments Formatting):
+	document expand_today.
+
+	* doc/texi2any_api.texi (Accent Commands with Arguments Formatting):
+	document %Texinfo::UnicodeData::unicode_accented_letters.
+
+	* doc/texi2any_api.texi (Specific Formatting for Indices): add
+	the description of more indices related formatting functions. 
+
+	* doc/texi2any_api.texi (@code{@@verbatiminclude} Formatting)
+	(Definition Commands Formatting)
+	(Float and List of Floats Formatting)
+	(Block Commands with @code{@@item})
+	(Informative Commands): add nodes for diverse elements.
+
+	* doc/texi2any_api.texi (Specific Functions for Specific Elements):
+	remove previous "Specific Functions for Specific Elements" node and
+	rename "Functions and Data for Default Formatting" as "Specific
+	Functions for Specific Elements".
+
+	* doc/texi2any_api.texi (Specific Functions for Specific Elements):
+	document simple_arg_text, empty_spaces_argument and
+	Texinfo::Convert::NodeNameNormalization methods.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (_convert_float_command): call
+	float_name_caption object oriented.
+
+	* tta/perl/Texinfo/Convert/NodeNameNormalization.pm (@EXPORT_OK):
+	export convert_to_normalized.
+
 2026-05-06 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Command Tree Element Conversion)

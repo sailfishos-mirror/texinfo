@@ -54,6 +54,7 @@ our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(
   convert_to_identifier
   convert_to_node_identifier
+  convert_to_normalized
   normalize_transliterate_texinfo
   transliterate_texinfo
   transliterate_protect_file_name
@@ -435,7 +436,7 @@ The result will be poor for Texinfo trees which are not @-command arguments
 (on an @-command line or in braces), for instance if the tree contains
 C<@node> or block commands.
 
-=item $transliterated = normalize_transliterate_texinfo($tree, $no_unidecode)
+=item $transliterated = normalize_transliterate_texinfo($tree, $in_text, $no_unidecode)
 X<C<normalize_transliterate_texinfo>>
 
 The Texinfo I<$tree> is returned as a string, with non-ASCII letters

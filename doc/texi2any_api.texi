@@ -3913,6 +3913,14 @@ corresponding to @code{@@verb}.
 @end deftypefun
 @end table
 
+You can use the @code{xml_format_text_with_numeric_entities} method
+for conversion to text if you want to output numeric entities:
+@deftypefun {@var{$formatted_text} =} @var{$converter}->xml_format_text_with_numeric_entities (@var{$text})
+Replace quotation marks and hyphens used to represent dash in
+Texinfo code in the @var{$text} string by numeric XML entities
+and return the resulting string.
+@end deftypefun
+
 
 @node Inline Text Containers Formatting
 @subsection Inline Text Containers Paragraph and Preformatted Formatting
@@ -5722,13 +5730,60 @@ Returns the content of the node redirection file.
 @end deftypefn
 
 
-@node Functions and Data for Default Formatting
-@chapter Functions and Data for Default Formatting
+@node Specific Functions for Specific Elements
+@chapter Specific Functions for Specific Elements
 
-Default formatting function of tree elements use functions and data that
-can also be used in user-defined conversion functions registered to be
-called by the converter.  @xref{Command Tree Element Conversion}
-for commands that need to call specific functions.
+This chapter describes functions and data that you can use to format
+Texinfo tree elements in user-defined conversion functions registered to be
+called by the converter.  They are used in the default HTML formatting
+functions.
+
+@xref{Command Tree Element Conversion} for functions that should be
+called for formatting.
+
+For @@-commands accepting only a simple textual argument, such as
+@code{@@enumerate} or @code{@@U}, you can get the @@-command argument without
+leading and trailing spaces with @code{Texinfo::Common::simple_arg_text}:
+
+@deftypefun {(@var{$arg}, @var{$surplus}) =} Texinfo::Common::simple_arg_text (@var{$element})
+The @var{$element} Texinfo tree element should be an @@-command argument.
+Returns the argument as string in @var{$arg}, an empty string if the argument
+is empty or @code{undef} for an unexpected argument (such as an @@-command).
+Set @var{$surplus} to a true value if an unexpected content follows the textual
+argument (such as an @@-command).
+@end deftypefun
+
+You can get the information that an @@-command argument is empty except
+maybe for leading spaces, trailing space and comments by calling
+@code{Texinfo::Common::empty_spaces_argument}:
+
+@deftypefun {@var{$is_empty} =} Texinfo::Common::empty_spaces_argument (@var{$element})
+The @var{$element} Texinfo tree element should be an @@-command argument.
+Returns a true value if the @var{$element} contains only ignorable
+leading or trailing spaces or comments.
+@end deftypefun
+
+The @code{Texinfo::Convert::NodeNameNormalization} converter, used
+for normalization of labels, defines functions that can be used on Texinfo
+elements trees to obtain strings that are unique and can be used in attributes:
+
+@deftypefun {@var{$normalized} =} convert_to_identifier (@var{$element})
+@deftypefunx {@var{$normalized} =} convert_to_node_identifier (@var{$element})
+@deftypefunx {@var{$normalized} =} normalize_transliterate_texinfo (@var{$element})
+@deftypefunx {@var{$partially_normalized} =} convert_to_normalized (@var{$element})
+
+Texinfo tree @var{$element} is returned as a
+string, normalized as described in @ref{HTML Xref,,, texinfo, Texinfo}.
+@code{convert_to_identifier} leaves out the normalization of the name if it
+is a @samp{Top} node name.
+
+@code{normalize_transliterate_texinfo} transliterates non-ASCII letters as
+ASCII, but is otherwise similar to @code{convert_to_identifier}.
+
+With @code{convert_to_normalized}, ASCII 7-bit characters other than spaces and
+non-ASCII characters are left as is in the resulting string instead of
+being changed to hexadecimal strings representations.
+@end deftypefun
 
 
 @node Commands Without Arguments Formatting
@@ -5786,6 +5841,14 @@ if ($converter->in_preformatted_context() or $converter->in_math()) @{
 @}
 @end group
 @end example
+
+@cindex @code{@@today} formatting
+@code{@@today} is formatted differently, using @code{expand_today}
+generic converter method and converting the resulting tree.
+
+@deftypefun {@var{$tree} =} @var{$converter}->expand_today()
+Expand today's date, as a Texinfo tree with translations.
+@end deftypefun
 
 
 @node Simple Commands with Braces Formatting
@@ -5858,9 +5921,6 @@ in upper case.  The function should return the converted accent argument
 to be processed by the following accent command.
 @end deftypefn
 
-@c TODO describe?
-@c Texinfo::UnicodeData::unicode_accented_letters
-
 You can use @code{xml_numeric_entity_accent} to format an accent command
 as a numeric entity:
 
@@ -5870,6 +5930,15 @@ as a numeric entity:
 the text appearing within the accent command.  Returns the accented letter as
 XML numeric entity, or @code{undef} if there is no such entity.
 @end deftypefun
+
+You can also use the following variable, used in the formatting in the default
+case:
+
+@defvar %Texinfo::UnicodeData::unicode_accented_letters
+Associates Texinfo
+accent command names to a hash reference with letters as keys and
+the accented character unicode codepoint strings (in hexadecimal) as value.
+@end defvar
 
 
 @node Specific Formatting for Indices
@@ -5911,9 +5980,57 @@ index entry.
 The number of the index entry in the index.
 @end table
 
+You can also use helper functions to collect or prepare index entries,
+@code{@@subentry}, @code{@@seeenentry} and @code{@@seealso}:
+
+@deftypefun {@var{$entry_content_element} =} Texinfo::Common::index_content_element @
+  (@var{$element}, @var{$prefer_reference_element})
+Return a Texinfo tree element corresponding to the content of the index
+entry associated to @var{$element}.  If @var{$prefer_reference_element} is set,
+prefer an untranslated element.  If the element is an index command like
+@code{@@cindex} or an @code{@@ftable} @code{@@item}, the content element is the
+argument of the command.  If the element is a definition line, the index entry
+element content is based on the name and class.
+@end deftypefun
+
+@deftypefun {(@var{$text}, @var{$command}) =} Texinfo::Indices::index_entry_first_letter_text_or_command (@var{$index_entry})
+Return the @var{$index_entry} leading text @var{$text} or textual command
+Texinfo tree hash reference @var{$command}.  Here textual commands means accent
+commands, brace commands without arguments used for character and glyph
+insertion and @code{@@U}.
+
+This method can in particular be used to format the leading letter
+of an index entry using @var{$command} instead of using the sort string letters
+returned by @code{get_converter_indices_sorted_by_letter}.
+@end deftypefun
+
+@deftypefun {@var{$referred_element} =} Texinfo::Common::index_entry_referred_entry @
+     (@var{$element}, @var{$cmdname})
+Return the tree element of @var{$cmdname}, which should be set to
+@samp{seeenentry} or @samp{seealso} in index command (or @code{@@subentry})
+tree element @var{$element}, recursing into @code{@@subentry}.  Returns
+@code{undef} if not found.
+@end deftypefun
+
+@defun Texinfo::Common::collect_subentries (@var{$element}, @var{\@@subentries})
+Collect @code{@@subentry} within @var{$element} (an index entry or a
+@code{@@subentry}) recursively in @var{\@@subentries}.
+@end defun
+
+@deftypefun {@var{$contents_element} =} Texinfo::Convert::Utils::comma_index_subentries_tree @
+  (@var{$entry}, @var{$separator})
+@var{$entry} is a Texinfo index entry tree element. The function sets up an
+array with the @var{$entry} @code{@@subentry} contents. The result is returned
+as contents in the @var{$contents_element} tree element.  @code{undef} is
+returned is there is no such content. @var{$separator} is an optional separator
+argument used, if given, instead of the default: a comma followed by a space.
+@end deftypefun
+
+
 @node Image Formatting
 @section Image Formatting
 
+@cindex @code{@@image} formatting
 Image @code{@@image} command formatting is customized by registering a
 conversion function for @code{@@image} (@pxref{Command Tree Element Conversion
 Functions}).  To get the location of an image file, it could be useful to use
@@ -5938,109 +6055,178 @@ binary string.
 @end deftypefun
 
 
-@node Specific Functions for Specific Elements
-@appendix Specific Functions for Specific Elements
+@node @code{@@verbatiminclude} Formatting
+@section @code{@@verbatiminclude} Formatting
 
-Links on Texinfo Perl modules functions or descriptions of functions that can
-be used for specific elements formatting:
+In the default case, an helper function provided by the generic converter is
+used to read @code{@@verbatiminclude} argument file content and provide with a
+tree element, that could then be converted:
 
-@table @asis
+@deftypefun {@var{$tree} =} @var{$converter}->expand_verbatiminclude(@var{$verbatiminclude})
+@var{$verbatiminclude} is a @code{@@verbatiminclude} tree element.  This
+function returns a @code{@@verbatim} tree elements containing the included
+file content after finding and reading the @code{@@verbatiminclude}
+file argument.
+@end deftypefun
 
-@item @code{@@today}
-@c now is  $self->expand_today();
-@xref{Texinfo::Convert::Utils $tree = expand_today($converter),,
-Texinfo::Convert::Utils::expand_today, texi2any_internals}.
 
-@item @code{@@verbatiminclude}
-@xref{Texinfo::Convert::Utils $tree = expand_verbatiminclude($registrar@comma{} $configuration_information@comma{} $verbatiminclude),,
-Texinfo::Convert::Utils::expand_verbatiminclude, texi2any_internals}.
+@node Definition Commands Formatting
+@section Definition Commands Formatting
 
-@item @code{@@def*} @@-commands
-@xref{Texinfo::Convert::Utils $arguments = definition_arguments_content($element),,
-Texinfo::Convert::Utils::definition_arguments_content, texi2any_internals}.
-@xref{Texinfo::Convert::Utils $tree = definition_category_tree($converter@comma{} $def_line),,
-Texinfo::Convert::Utils::definition_category_tree, texi2any_internals}.
-@c %Texinfo::Common::def_aliases
-@c %Texinfo::Common::def_no_var_arg_commands
+In the default case, information on definition commands such as
+@code{@@deffun} as well as helper functions that gather information
+from the @@-command Texinfo tree element are used:
 
-@item @code{@@float}
-@xref{Texinfo::Convert::Converter ($caption@comma{} $prepended) = $converter->float_name_caption ($float),,
-Texinfo::Convert::Converter::float_name_caption, texi2any_internals}.
-Can be called as @code{$converter->float_name_caption}.
-@c Texinfo::Common::find_float_caption_shortcaption
+@deftypefun {(@var{$category}, @var{$class}, @var{$type}, @var{$name}, @var{$arguments}) =} @
+  Texinfo::Convert::Utils::definition_arguments_content (@var{$def})
+@var{$def} should be a @code{@@def*} Texinfo tree element. The @var{$category},
+@var{$class}, @var{$type}, @var{$name} are tree elements corresponding to the
+definition @@-command line. Texinfo elements on the @-command line
+corresponding to arguments in the function definition are returned in the
+@var{$arguments} tree element. Arguments correspond to text following the other
+elements on the @@-command line. If there is no argument, @var{$arguments} will
+be @code{undef}.
+@end deftypefun
 
-@item text element
-@xref{Texinfo::Convert::Converter $formatted_text = $converter->xml_format_text_with_numeric_entities($text),,
-Texinfo::Convert::Converter::xml_format_text_with_numeric_entities,
-texi2any_internals}. Can be called as
-@code{$converter->xml_format_text_with_numeric_entities}.
+@deftypefun {@var{$tree} =} Texinfo::Convert::Utils::definition_category_tree (@var{$def_line}, undef, undef, @var{$converter})
+@var{$def_line} is a @code{def_line} Texinfo tree container. This function
+returns a Texinfo tree corresponding to the category of the @var{$def_line}
+taking the class into account, if there is one.  @var{$converter} is the
+HTML converter, the arguments with @code{undef} as value in the function call
+are obtained from the @var{$converter}.
+@end deftypefun
 
-@item @code{@@item} in @code{@@table} and similar @@-commands
-@xref{Texinfo::Convert::Converter $table_item_tree = $converter->table_item_content_tree($element@comma{} $contents),,
-Texinfo::Convert::Converter::table_item_content_tree, texi2any_internals}.
-Can be called as @code{$converter->table_item_content_tree}.
+@defvar %Texinfo::Common::def_aliases
+Associates an aliased command to the original command, for
+example @code{defun} is associated to @code{deffn}.
+@end defvar
 
-@item @code{@@*index} @code{@@subentry}
-@xref{Texinfo@asis{::}Convert@asis{::}Utils $contents_element = comma_index_subentries_tree($entry@comma{} $separator),,
-@code{Texinfo::Convert::Utils::comma_index_subentries_tree}, texi2any_internals}.
-@c Texinfo::Common::collect_subentries
-@c Texinfo::Common::index_entry_referred_entry
-@c Texinfo::Common::index_content_element
-@c Texinfo::Indices::index_entry_first_letter_text_or_command
+@defvar %Texinfo::Common::def_no_var_arg_commands
+Associates a definition command name with a true value if the argument on the
+definition command line can contain non-metasyntactic variables. For instance,
+it is true for @code{deftypevr} but false for @code{defun}, since
+@code{@@defun} argument is supposed to contain metasyntactic variables only.
+@end defvar
 
-@item global informative commands (@code{@@contents}, @code{@@footnotestyle} @enddots{})
-@xref{Texinfo::Common set_informative_command_value($configuration_information@comma{} $element),,
-Texinfo::Common::set_informative_command_value, texi2any_internals}.
 
-@item @code{@@itemize}
-@code{@@itemize} normally have an @@-command as argument.  If, instead,
-the argument is some Texinfo code, @code{html_convert_css_string_for_list_mark}
-can be used to convert that argument to text usable in CSS style specifications.
+@node Float and List of Floats Formatting
+@section Float and List of Floats Formatting
 
-@deftypefun {@var{$text_for_css} =} @var{$converter}->html_convert_css_string_for_list_mark @
-             (@var{\%element}, @var{$explanation})
-@var{\%element} is the Texinfo element that is converted to CSS text.
-In general, it is obtained from the @var{$itemize} @code{@@itemize}
+@deftypefun {(@var{$caption}, @var{$prependend}) =} @var{$converter}->float_name_caption (@var{$float})
+@var{$float} is a Texinfo tree @code{@@float} element. This function returns
+the caption tree element that should be used for the float formatting and the
+@var{$prepended} Texinfo tree combining the type and label of the float.
+@end deftypefun
+
+@deftypefun {(@var{$caption}, @var{$shortcaption}) =} Texinfo::Common::find_float_caption_shortcaption (@var{$float})
+Returns the @var{$caption} and @var{$shortcaption} tree elements associated
+to the @var{$float} tree element if present, or @code{undef}.
+@end deftypefun
+
+
+@node Block Commands with @code{@@item}
+@section Block Commands with @code{@@item}
+
+You can call @code{table_item_content_tree} to apply the block command
+@@-command argument to an @code{@@item} or @code{@@itemx}:
+
+@deftypefun {@var{$table_item_tree} =} @var{$converter}->table_item_content_tree (@var{$element})
+@var{$element} should be an @code{@@item} or @code{@@itemx} tree element.
+Returns a tree in which the @-command in argument of @code{@@*table}
+of the @var{$element} has been applied to the @var{$element} line argument,
+or @code{undef}.
+
+For example, with the following Texinfo code:
+@example
+@@table @@code
+@@item first
+...
+@@end table
+@end example
+@code{table_item_content_tree} applied to the first table item returns the
+Texinfo tree corresponding to @code{@@code@{first@}}.
+@end deftypefun
+
+@code{@@itemize} normally have an @@-command as argument, but can also have
+some text or no argument at all.  You can call helper functions to simplify
+the handling of the @code{@@itemize} argument.  In general, the
+@code{@@itemize} argument is obtained from the @var{$itemize} @code{@@itemize}
 Texinfo tree element with:
+
 @example
 my $arguments_line = $itemize->@{'contents'@}->[0];
 my $element = $arguments_line->@{'contents'@}->[0];
 @end example
+
+@code{Texinfo::Common::itemize_line_prepended_element} returns a tree
+element representing the argument that can be prepended to
+@code{@@itemize} @code{@@item}:
+
+@deftypefun {@var{$prepended_element} =} Texinfo::Common::itemize_line_prepended_element (@var{\%element})
+@var{\%element} is the @code{@@itemize} argument.  If the argument
+is an @-command or some non-empty text, it is returned, otherwise the
+default @code{@@itemize} argument @@-command is returned as a Texinfo tree
+element.
+@end deftypefun
+
+If the argument of @code{@@itemize} is some Texinfo code,
+@code{html_convert_css_string_for_list_mark} can be used to convert that
+argument to text usable in CSS style specifications.
+
+@deftypefun {@var{$text_for_css} =} @var{$converter}->html_convert_css_string_for_list_mark @
+             (@var{\%element}, @var{$explanation})
+@var{\%element} is the Texinfo element that is converted to CSS text.
 @var{$explanation} is an optional string describing what is
 being done that can be useful for debugging.
 
 Returns @var{\%element} formatted as text suitable for CSS.
 @end deftypefun
 
-@c Texinfo::Common::itemize_line_prepended_element
+A multitable @@-commant columnfractions tree element is returned
+by @code{Texinfo::Common::multitable_columnfractions}:
 
-@c @item @@enumerate
-@c Texinfo::Common::simple_arg_text
-
-@c @item @@item
-@c and others
-@c Texinfo::Common::empty_spaces_argument
-
-@c @item @@multitable
-@c Texinfo::Common::multitable_columnfractions
+@deftypefun {@var{$columnfractions_element} =} Texinfo::Common::multitable_columnfractions (@var{$multitable})
+@var{$multitable} is a multitable @@-command tree element.  Returns the
+associated columnfractions @@-command tree element if it exists, @code{undef}
+otherwise.
+@end deftypefun
 
 
-@end table
+@node Informative Commands
+@section Informative Commands
 
-The @code{Texinfo::Convert::NodeNameNormalization} converter, used
-for normalization of labels, exports functions that can be used on Texinfo
-elements trees to obtain strings that are unique and can be used in attributes.
-@xref{Texinfo::Convert::NodeNameNormalization,,,texi2any_internals}.
+Informative @@-commands with a textual argument (or without argument) are
+considered customization variables to unify their handling, whether
+they come from the command-line, initialization files or from the Texinfo
+document (@pxref{Customization Variables for @@-Commands,,, texinfo, Texinfo}).
+
+The @code{Texinfo::Common::set_informative_command_value} function sets
+the value of the customization variable associated to an @@-command to
+the @@-command argument:
+
+@deftypefun {@var{$status} =} Texinfo::Common::set_informative_command_value (@var{$converter}, @var{$element})
+Set the Texinfo customization variable corresponding to the tree element
+@var{$element}.  The command associated to the tree element should be a command
+that sets some information, such as @code{@@documentlanguage},
+@code{@@contents} or @code{@@footnotestyle}.  Returns true if the
+command argument was found and the customization variable was set.
+@end deftypefun
+
+@xref{Conversion Customization Variables} for more
+on customization variables in conversion.
+
 
 @node Functions Index
 @appendix Functions Index
 
 @printindex fn
 
+
 @node Variables Index
 @appendix Variables Index
 
 @printindex vr
+
 
 @node General Index
 @appendix General Index
