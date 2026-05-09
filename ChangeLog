@@ -1,3 +1,19 @@
+2026-05-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix M-TAB moving before DEL-quoted cross-reference
+
+	* info/scan.c (scan_reference_label) [hide-note-references=On]:
+	If "quoting" DEL bytes surround the reference label, remove them
+	when rewriting the node contents.
+	
+	Because these bytes are invisible, if the node position is placed
+	on one of these bytes, it would be advanced past that byte in
+	display_cursor_at_point, which is called in the main loop in
+	info_read_and_dispatch.  Then the cursor would get "stuck"
+	when trying to move before a cross-reference with M-TAB.
+	
+	Report from Aidan <aidanczhai@gmail.com>.
+
 2026-05-07 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Text Tree Elements Conversion): document

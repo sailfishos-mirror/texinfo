@@ -1208,7 +1208,14 @@ scan_reference_label (REFERENCE *entry, int in_index)
     entry->start = text_buffer_off (&output_buf);
 
   /* Write text of label. */
-  copy_input_to_output (label_len);
+  if (inptr[0] == INFO_QUOTE && inptr[label_len - 1] == INFO_QUOTE)
+    {
+      skip_input (1);
+      copy_input_to_output (label_len - 2);
+      skip_input (1);
+    }
+  else
+    copy_input_to_output (label_len);
 
   if (rewrite_p)
     entry->end = text_buffer_off (&output_buf);
