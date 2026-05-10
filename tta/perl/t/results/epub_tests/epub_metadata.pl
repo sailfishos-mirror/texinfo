@@ -1,0 +1,196 @@
+use vars qw(%result_texis %result_texts %result_tree_text %result_errors
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_sectioning_root %result_headings_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
+
+use utf8;
+
+$result_tree_text{'epub_metadata'} = '*document_root C5
+ *before_node_section C1
+  *preamble_before_content C2
+   *@documentinfo C4 l1
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *@title C1 l2
+    >SOURCEMARKS
+    >expanded_conditional_command<start;1>
+     >*@ifepub C1 l3
+      >*arguments_line C1
+       >*block_line_arg C1
+        >{spaces_before_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
+      {The Title}
+      {spaces_after_argument:\\n}
+    *@html C3 l4
+    >SOURCEMARKS
+    >expanded_conditional_command<end;1>
+     >*@end C1 l17
+     >|EXTRA
+     >|text_arg:{ifepub}
+      >*line_arg C3
+       >{spaces_before_argument: }
+       >{ifepub}
+       >{spaces_after_argument:\\n}
+    >ignored_conditional_block<1>
+     >*@ifnotepub C5 l18
+      >*arguments_line C1
+       >*block_line_arg C1
+        >{spaces_before_argument:\\n}
+      >{raw:@html\\n}
+      >{raw:<meta name="creator" content="Some Body" />\\n}
+      >{raw:@end html\\n}
+      >*@end C1 l22
+      >|EXTRA
+      >|text_arg:{ifnotepub}
+       >*line_arg C3
+        >{spaces_before_argument: }
+        >{ifnotepub}
+        >{spaces_after_argument:\\n}
+     *arguments_line C1
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
+     *rawpreformatted C11
+      {   <dc:creator\\n}
+      {       id="creator">\\n}
+      {      Some Body\\n}
+      {   </dc:creator>\\n}
+      {   <meta\\n}
+      {       refines="#creator"\\n}
+      {       property="role"\\n}
+      {       scheme="marc:relators"\\n}
+      {       id="role">\\n}
+      {      aut\\n}
+      {   </meta>\\n}
+     *@end C1 l16
+     |EXTRA
+     |text_arg:{html}
+      *line_arg C3
+       {spaces_before_argument: }
+       {html}
+       {spaces_after_argument:\\n}
+    *@end C1 l23
+    |EXTRA
+    |text_arg:{documentinfo}
+     *line_arg C3
+      {spaces_before_argument: }
+      {documentinfo}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+ *@node C1 l25 {Top}
+ |EXTRA
+ |identifier:{Top}
+ |is_target:{1}
+ |node_number:{1}
+  *arguments_line C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {Top}
+    {spaces_after_argument:\\n}
+ *@top C2 l26 {top}
+ |EXTRA
+ |section_level:{0}
+ |section_number:{1}
+  *arguments_line C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {top}
+    {spaces_after_argument:\\n}
+  {empty_line:\\n}
+ *@node C1 l28 {chapter}
+ |EXTRA
+ |identifier:{chapter}
+ |is_target:{1}
+ |node_number:{2}
+  *arguments_line C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {chapter}
+    {spaces_after_argument:\\n}
+ *@chapter C1 l29 {Chap}
+ |EXTRA
+ |section_heading_number:{1}
+ |section_level:{1}
+ |section_number:{2}
+  *arguments_line C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {Chap}
+    {spaces_after_argument:\\n}
+';
+
+
+$result_texis{'epub_metadata'} = '@documentinfo
+@title The Title
+@html
+   <dc:creator
+       id="creator">
+      Some Body
+   </dc:creator>
+   <meta
+       refines="#creator"
+       property="role"
+       scheme="marc:relators"
+       id="role">
+      aut
+   </meta>
+@end html
+@end documentinfo
+
+@node Top
+@top top
+
+@node chapter
+@chapter Chap
+';
+
+
+$result_texts{'epub_metadata'} = '
+top
+***
+
+1 Chap
+******
+';
+
+$result_errors{'epub_metadata'} = '';
+
+$result_nodes_list{'epub_metadata'} = '1|Top
+ associated_section: top
+ associated_title_command: top
+ node_directions:
+  next->chapter
+2|chapter
+ associated_section: 1 Chap
+ associated_title_command: 1 Chap
+ node_directions:
+  prev->Top
+  up->Top
+';
+
+$result_sections_list{'epub_metadata'} = '1|top
+ associated_anchor_command: Top
+ associated_node: Top
+ toplevel_directions:
+  next->Chap
+ section_children:
+  1|Chap
+2|Chap
+ associated_anchor_command: chapter
+ associated_node: chapter
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
+';
+
+$result_sectioning_root{'epub_metadata'} = 'level: -1
+list:
+ 1|top
+';
+
+$result_headings_list{'epub_metadata'} = '';
+
+1;
