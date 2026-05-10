@@ -7322,6 +7322,9 @@ sub _file_header_information($$;$) {
         "<meta name=\"Generator\" content=\"$program\"") . "\n";
   }
 
+  my $documentinfo_metadata = $self->get_info('documentinfo_metadata');
+  $documentinfo_metadata = '' if (not defined($documentinfo_metadata));
+
   my $extra_head = '';
   $extra_head = $self->get_conf('EXTRA_HEAD')
     if (defined($self->get_conf('EXTRA_HEAD')));
@@ -7405,7 +7408,8 @@ for (let component in MathJax_conf) {
   return ($title, $description, $keywords, $encoding, $date, $css_lines,
           $doctype, $root_html_element_attributes, $body_attributes,
           $copying_comment, $after_body_open, $extra_head,
-          $program_and_version, $program_homepage, $program, $generator);
+          $program_and_version, $program_homepage, $program, $generator,
+          $documentinfo_metadata);
 }
 
 sub _get_links($$$$) {
@@ -7455,7 +7459,7 @@ sub _default_format_begin_file($$$) {
   my ($title, $description, $keywords, $encoding, $date, $css_lines, $doctype,
       $root_html_element_attributes, $body_attributes, $copying_comment,
       $after_body_open, $extra_head, $program_and_version, $program_homepage,
-      $program, $generator)
+      $program, $generator, $documentinfo_metadata)
         = _file_header_information($self, $command_for_title, $filename);
 
   my $links = _get_links($self, $filename, $output_unit, $node_command);
@@ -7482,6 +7486,7 @@ $description\n".
     ${generator} . ${date} .
     $self->close_html_lone_element(
       "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"")."\n".
+   $documentinfo_metadata.
 "
 ${links}$css_lines
 $extra_head
@@ -7510,8 +7515,8 @@ sub _default_format_node_redirection_page($$;$) {
   my ($title, $description, $keywords, $encoding, $date, $css_lines, $doctype,
       $root_html_element_attributes, $body_attributes, $copying_comment,
       $after_body_open, $extra_head, $program_and_version, $program_homepage,
-      $program, $generator) = _file_header_information($self, $command,
-                                                              $filename);
+      $program, $generator, $documentinfo_metadata)
+        = _file_header_information($self, $command, $filename);
 
   my $keywords_output = '';
   if (defined($keywords)) {
@@ -7538,6 +7543,7 @@ $description\n".
      "<meta http-equiv=\"Refresh\" content=\"0; url=$href\"")."\n".
    $self->close_html_lone_element(
      "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"")."\n".
+   $documentinfo_metadata.
 "$extra_head
 </head>
 

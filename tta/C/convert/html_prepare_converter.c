@@ -3658,6 +3658,8 @@ html_conversion_initialization (CONVERTER *self, const char *context)
   self->title_string = 0;
   free (self->documentdescription_string);
   self->documentdescription_string = 0;
+  free (self->documentinfo_metadata);
+  self->documentinfo_metadata = 0;
   free (self->copying_comment);
   self->copying_comment = 0;
   free (self->destination_directory);

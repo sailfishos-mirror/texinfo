@@ -237,6 +237,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/inlinerawspaces.pl \
   t/results/converters_tests/line_breaks.pl \
   t/results/converters_tests/link.pl \
+  t/results/converters_tests/metadata_in_documentinfo.pl \
   t/results/converters_tests/minimal_empty_empty.pl \
   t/results/converters_tests/minimal_empty_empty/res_docbook \
   t/results/converters_tests/minimal_empty_empty/res_html \

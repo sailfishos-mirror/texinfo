@@ -4291,8 +4291,12 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
   text_append (&result,
     "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"");
   html_close_lone_element (self, &result);
-  text_append_n (&result, "\n\n", 2);
+  text_append_n (&result, "\n", 1);
 
+  if (self->documentinfo_metadata)
+    text_append (&result, self->documentinfo_metadata);
+
+  text_append_n (&result, "\n", 1);
   get_links (self, filename, output_unit, node_command, &result);
 
   text_append (&result, begin_info->css_lines);
@@ -5522,6 +5526,9 @@ html_default_format_node_redirection_page (CONVERTER *self,
   text_append_n (&result, "\n", 1);
 
   free (href);
+
+  if (self->documentinfo_metadata)
+    text_append (&result, self->documentinfo_metadata);
 
   if (begin_info->extra_head)
     text_append (&result, begin_info->extra_head);

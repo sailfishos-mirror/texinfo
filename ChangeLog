@@ -1,5 +1,35 @@
 2026-05-10 Patrice Dumas  <pertusus@free.fr>
 
+	Generic metadata in HTML and DocBook in @documentinfo
+
+	* tta/C/convert/build_html_perl_info.c (pass_sv_converter_info),
+	tta/C/convert/convert_html.c (html_prepare_converted_output_info),
+	tta/C/convert/format_html.c (html_default_format_begin_file)
+	(html_default_format_node_redirection_page),
+	tta/C/convert/html_converter_finish.c (html_free_converter),
+	tta/C/convert/html_prepare_converter.c
+	(html_conversion_initialization), tta/C/main/converter_types.h
+	(CONVERTER), tta/perl/Texinfo/Convert/HTML.pm
+	(_file_header_information, _default_format_begin_file)
+	(_default_format_node_redirection_page),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm (%available_converter_info)
+	(_prepare_converted_output_info): add documentinfo_metadata
+	to converter in C and to 'converter_info' in Perl with @documentinfo
+	content except for metadata_commands.  Get in _file_header_information
+	in Perl.  Output in file headers.
+
+	* doc/texi2any_api.texi (Converter General Information): document
+	documentinfo_metadata in converter information.
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (conversion_output_begin):
+	gather @documentinfo content except for metadata_commands and output
+	in documentinfo element.
+
+	* tta/perl/t/converters_tests.t (metadata_in_documentinfo),
+	tta/perl/Makefile.tres: new test for metadata in @documentinfo.
+
+2026-05-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/ext/epub3.pm ($epub_doc_dest_dir): reindent.  Rename
 	$epub_document_destination_directory as $epub_doc_dest_dir.
 

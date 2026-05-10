@@ -1,0 +1,398 @@
+use vars qw(%result_texis %result_texts %result_tree_text %result_errors
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_sectioning_root %result_headings_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
+
+use utf8;
+
+$result_tree_text{'metadata_in_documentinfo'} = '*document_root C5
+ *before_node_section C2
+  *@documentinfo C5 l1
+   *arguments_line C1
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
+   *@title C1 l2
+   >SOURCEMARKS
+   >ignored_conditional_block<1>
+    >*@ifepub C15 l3
+     >*arguments_line C1
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
+     >{raw:@html\\n}
+     >{raw:   <dc:creator\\n}
+     >{raw:       id="creator">\\n}
+     >{raw:      Some Body\\n}
+     >{raw:   </dc:creator>\\n}
+     >{raw:   <meta\\n}
+     >{raw:       refines="#creator"\\n}
+     >{raw:       property="role"\\n}
+     >{raw:       scheme="marc:relators"\\n}
+     >{raw:       id="role">\\n}
+     >{raw:      aut\\n}
+     >{raw:   </meta>\\n}
+     >{raw:@end html\\n}
+     >*@end C1 l17
+     >|EXTRA
+     >|text_arg:{ifepub}
+      >*line_arg C3
+       >{spaces_before_argument: }
+       >{ifepub}
+       >{spaces_after_argument:\\n}
+   >expanded_conditional_command<start;1>
+    >*@ifnotepub C1 l18
+     >*arguments_line C1
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
+     {The Title}
+     {spaces_after_argument:\\n}
+   *@html C3 l19
+   >SOURCEMARKS
+   >expanded_conditional_command<end;1>
+    >*@end C1 l22
+    >|EXTRA
+    >|text_arg:{ifnotepub}
+     >*line_arg C3
+      >{spaces_before_argument: }
+      >{ifnotepub}
+      >{spaces_after_argument:\\n}
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *rawpreformatted C1
+     {<meta name="creator" content="Some Body" />\\n}
+    *@end C1 l21
+    |EXTRA
+    |text_arg:{html}
+     *line_arg C3
+      {spaces_before_argument: }
+      {html}
+      {spaces_after_argument:\\n}
+   *@docbook C3 l23
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *rawpreformatted C25
+     {<authorgroup>\\n}
+     {  <author>\\n}
+     {    <honorific>Dr.</honorific>\\n}
+     {    <firstname>Lois</firstname>\\n}
+     {    <surname>Common-Demoninator</surname>\\n}
+     {    <affiliation>\\n}
+     {      <shortaffil>Director, M. Behn School of Coop. Eng.</shortaffil>\\n}
+     {      <jobtitle>Director of Cooperative Efforts</jobtitle>\\n}
+     {      <orgname>The Marguerite Behn International School of\\n}
+     {               Cooperative Engineering</orgname>\\n}
+     {    </affiliation>\\n}
+     {  </author>\\n}
+     {empty_line:\\n}
+     {  <editor>\\n}
+     {    <firstname>Peter</firstname>\\n}
+     {    <surname>Parker</surname>\\n}
+     {    <lineage>Sr.</lineage>\\n}
+     {    <othername>Spiderman</othername>\\n}
+     {    <authorblurb>\\n}
+     {      <para>\\n}
+     {      Peter is a super hero in his spare time.\\n}
+     {      </para>\\n}
+     {    </authorblurb>\\n}
+     {  </editor>\\n}
+     {</authorgroup>\\n}
+    *@end C1 l49
+    |EXTRA
+    |text_arg:{docbook}
+     *line_arg C3
+      {spaces_before_argument: }
+      {docbook}
+      {spaces_after_argument:\\n}
+   *@end C1 l50
+   |EXTRA
+   |text_arg:{documentinfo}
+    *line_arg C3
+     {spaces_before_argument: }
+     {documentinfo}
+     {spaces_after_argument:\\n}
+  {empty_line:\\n}
+ *@node C1 l52 {Top}
+ |EXTRA
+ |identifier:{Top}
+ |is_target:{1}
+ |node_number:{1}
+  *arguments_line C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {Top}
+    {spaces_after_argument:\\n}
+ *@top C2 l53 {top}
+ |EXTRA
+ |section_level:{0}
+ |section_number:{1}
+  *arguments_line C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {top}
+    {spaces_after_argument:\\n}
+  {empty_line:\\n}
+ *@node C1 l55 {chapter}
+ |EXTRA
+ |identifier:{chapter}
+ |is_target:{1}
+ |node_number:{2}
+  *arguments_line C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {chapter}
+    {spaces_after_argument:\\n}
+ *@chapter C1 l56 {Chap}
+ |EXTRA
+ |section_heading_number:{1}
+ |section_level:{1}
+ |section_number:{2}
+  *arguments_line C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {Chap}
+    {spaces_after_argument:\\n}
+';
+
+
+$result_texis{'metadata_in_documentinfo'} = '@documentinfo
+@title The Title
+@html
+<meta name="creator" content="Some Body" />
+@end html
+@docbook
+<authorgroup>
+  <author>
+    <honorific>Dr.</honorific>
+    <firstname>Lois</firstname>
+    <surname>Common-Demoninator</surname>
+    <affiliation>
+      <shortaffil>Director, M. Behn School of Coop. Eng.</shortaffil>
+      <jobtitle>Director of Cooperative Efforts</jobtitle>
+      <orgname>The Marguerite Behn International School of
+               Cooperative Engineering</orgname>
+    </affiliation>
+  </author>
+
+  <editor>
+    <firstname>Peter</firstname>
+    <surname>Parker</surname>
+    <lineage>Sr.</lineage>
+    <othername>Spiderman</othername>
+    <authorblurb>
+      <para>
+      Peter is a super hero in his spare time.
+      </para>
+    </authorblurb>
+  </editor>
+</authorgroup>
+@end docbook
+@end documentinfo
+
+@node Top
+@top top
+
+@node chapter
+@chapter Chap
+';
+
+
+$result_texts{'metadata_in_documentinfo'} = '
+top
+***
+
+1 Chap
+******
+';
+
+$result_errors{'metadata_in_documentinfo'} = '';
+
+$result_nodes_list{'metadata_in_documentinfo'} = '1|Top
+ associated_section: top
+ associated_title_command: top
+ node_directions:
+  next->chapter
+2|chapter
+ associated_section: 1 Chap
+ associated_title_command: 1 Chap
+ node_directions:
+  prev->Top
+  up->Top
+';
+
+$result_sections_list{'metadata_in_documentinfo'} = '1|top
+ associated_anchor_command: Top
+ associated_node: Top
+ toplevel_directions:
+  next->Chap
+ section_children:
+  1|Chap
+2|Chap
+ associated_anchor_command: chapter
+ associated_node: chapter
+ section_directions:
+  up->top
+ toplevel_directions:
+  prev->top
+  up->top
+';
+
+$result_sectioning_root{'metadata_in_documentinfo'} = 'level: -1
+list:
+ 1|top
+';
+
+$result_headings_list{'metadata_in_documentinfo'} = '';
+
+
+$result_converted{'plaintext'}->{'metadata_in_documentinfo'} = 'top
+***
+
+1 Chap
+******
+
+';
+
+
+$result_converted{'html'}->{'metadata_in_documentinfo'} = '<!DOCTYPE html>
+<html>
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>The Title</title>
+
+<meta name="description" content="The Title">
+<meta name="keywords" content="The Title">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="creator" content="Some Body" />
+
+<link href="#Top" rel="start" title="Top">
+<style type="text/css">
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+</style>
+
+
+</head>
+
+<body>
+
+<div class="top-level-extent" id="Top">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#chapter" accesskey="n" rel="next">Chap</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
+
+<ul class="mini-toc">
+<li><a href="#chapter" accesskey="1">Chap</a></li>
+</ul>
+<hr>
+<div class="chapter-level-extent" id="chapter">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Top" accesskey="p" rel="prev">top</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
+</div>
+</div>
+
+
+
+</body>
+</html>
+';
+
+
+$result_converted{'xml'}->{'metadata_in_documentinfo'} = '<documentinfo endspaces=" ">
+<title> The Title</title>
+<html endspaces=" ">
+&lt;meta name=&quot;creator&quot; content=&quot;Some Body&quot; /&gt;
+</html>
+<docbook endspaces=" ">
+&lt;authorgroup&gt;
+  &lt;author&gt;
+    &lt;honorific&gt;Dr.&lt;/honorific&gt;
+    &lt;firstname&gt;Lois&lt;/firstname&gt;
+    &lt;surname&gt;Common-Demoninator&lt;/surname&gt;
+    &lt;affiliation&gt;
+      &lt;shortaffil&gt;Director, M. Behn School of Coop. Eng.&lt;/shortaffil&gt;
+      &lt;jobtitle&gt;Director of Cooperative Efforts&lt;/jobtitle&gt;
+      &lt;orgname&gt;The Marguerite Behn International School of
+               Cooperative Engineering&lt;/orgname&gt;
+    &lt;/affiliation&gt;
+  &lt;/author&gt;
+
+  &lt;editor&gt;
+    &lt;firstname&gt;Peter&lt;/firstname&gt;
+    &lt;surname&gt;Parker&lt;/surname&gt;
+    &lt;lineage&gt;Sr.&lt;/lineage&gt;
+    &lt;othername&gt;Spiderman&lt;/othername&gt;
+    &lt;authorblurb&gt;
+      &lt;para&gt;
+      Peter is a super hero in his spare time.
+      &lt;/para&gt;
+    &lt;/authorblurb&gt;
+  &lt;/editor&gt;
+&lt;/authorgroup&gt;
+</docbook>
+</documentinfo>
+
+<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapter</nodenext></node>
+<top><sectiontitle> top</sectiontitle>
+
+</top>
+<node identifier="chapter"><nodename> chapter</nodename><nodeprev automatic="on"> Top</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> Chap</sectiontitle>
+</chapter>
+';
+
+
+$result_converted{'docbook_doc'}->{'metadata_in_documentinfo'} = '<?xml version="1.0"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY tex "TeX">
+  <!ENTITY latex "LaTeX">
+]>
+<book>
+<title>The Title</title>
+<bookinfo><title>The Title</title>
+<authorgroup>
+  <author>
+    <honorific>Dr.</honorific>
+    <firstname>Lois</firstname>
+    <surname>Common-Demoninator</surname>
+    <affiliation>
+      <shortaffil>Director, M. Behn School of Coop. Eng.</shortaffil>
+      <jobtitle>Director of Cooperative Efforts</jobtitle>
+      <orgname>The Marguerite Behn International School of
+               Cooperative Engineering</orgname>
+    </affiliation>
+  </author>
+
+  <editor>
+    <firstname>Peter</firstname>
+    <surname>Parker</surname>
+    <lineage>Sr.</lineage>
+    <othername>Spiderman</othername>
+    <authorblurb>
+      <para>
+      Peter is a super hero in his spare time.
+      </para>
+    </authorblurb>
+  </editor>
+</authorgroup>
+</bookinfo>
+<chapter label="1" id="chapter">
+<title>Chap</title>
+</chapter>
+</book>
+';
+
+
+$result_converted{'latex_text'}->{'metadata_in_documentinfo'} = '
+\\label{anchor:Top}%
+\\Texinfochapter{{Chap}}
+\\label{anchor:chapter}%
+';
+
+1;

@@ -1482,6 +1482,64 @@ xrefautomaticsectiontitle on @ref{ntiti}.
 
 xrefautomaticsectiontitle on @ref{entiti}.
 '],
+['metadata_in_documentinfo',
+'@documentinfo
+@title The Title
+@ifepub
+@html
+   <dc:creator
+       id="creator">
+      Some Body
+   </dc:creator>
+   <meta
+       refines="#creator"
+       property="role"
+       scheme="marc:relators"
+       id="role">
+      aut
+   </meta>
+@end html
+@end ifepub
+@ifnotepub
+@html
+<meta name="creator" content="Some Body" />
+@end html
+@end ifnotepub
+@docbook
+<authorgroup>
+  <author>
+    <honorific>Dr.</honorific>
+    <firstname>Lois</firstname>
+    <surname>Common-Demoninator</surname>
+    <affiliation>
+      <shortaffil>Director, M. Behn School of Coop. Eng.</shortaffil>
+      <jobtitle>Director of Cooperative Efforts</jobtitle>
+      <orgname>The Marguerite Behn International School of
+               Cooperative Engineering</orgname>
+    </affiliation>
+  </author>
+
+  <editor>
+    <firstname>Peter</firstname>
+    <surname>Parker</surname>
+    <lineage>Sr.</lineage>
+    <othername>Spiderman</othername>
+    <authorblurb>
+      <para>
+      Peter is a super hero in his spare time.
+      </para>
+    </authorblurb>
+  </editor>
+</authorgroup>
+@end docbook
+@end documentinfo
+
+@node Top
+@top top
+
+@node chapter
+@chapter Chap
+'],
 );
 
 my @html_text_cases = (
@@ -1730,6 +1788,7 @@ my %html_tests = (
  'contents_at_document_begin' => 1,
  'contents_at_document_begin_inline' => 1,
  'contents_at_document_begin_separate_element' => 1,
+ 'metadata_in_documentinfo' => 1,
 );
 
 my %file_html_tests = (
@@ -1741,6 +1800,7 @@ my %file_html_tests = (
 
 my %docbooc_doc_tests = (
  'line_breaks' => 1,
+ 'metadata_in_documentinfo' => 1,
 );
 
 my %file_latex_tests = (

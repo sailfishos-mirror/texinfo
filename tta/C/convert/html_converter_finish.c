@@ -111,6 +111,7 @@ html_free_converter (CONVERTER *self)
   free (self->title_string);
   free (self->documentdescription_string);
   free (self->copying_comment);
+  free (self->documentinfo_metadata);
   free (self->destination_directory);
   free (self->document_name);
 

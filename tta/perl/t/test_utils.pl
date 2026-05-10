@@ -196,6 +196,7 @@ my %formats = (
   'file_xml' => \&convert_to_xml,
   'docbook' => \&convert_to_docbook,
   'file_docbook' => \&convert_to_docbook,
+  # call output, not convert
   'docbook_doc' => \&convert_to_docbook,
   'latex' => \&convert_to_latex,
   'latex_text' => \&convert_to_latex,

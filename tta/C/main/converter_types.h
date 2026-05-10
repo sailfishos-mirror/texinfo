@@ -969,6 +969,7 @@ typedef struct CONVERTER {
     char *title_string;
     char *documentdescription_string;
     char *copying_comment;
+    char *documentinfo_metadata;
     char *destination_directory;
     char *document_name;
     /* for user-defined translations */

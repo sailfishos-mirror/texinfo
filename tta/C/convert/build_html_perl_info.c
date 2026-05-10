@@ -574,6 +574,11 @@ pass_sv_converter_info (const CONVERTER *converter,
       if (converter->documentdescription_string)
         new_sv = newSVpv_utf8 (converter->documentdescription_string, 0);
     }
+  else if (!strcmp (converter_info, "documentinfo_metadata"))
+    {
+      if (converter->documentinfo_metadata)
+        new_sv = newSVpv_utf8 (converter->documentinfo_metadata, 0);
+    }
   else if (!strcmp (converter_info, "title_titlepage"))
     {
       if (converter->title_titlepage)

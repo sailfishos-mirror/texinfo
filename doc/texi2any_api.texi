@@ -2325,6 +2325,12 @@ string needs to be encoded.  @xref{Encoding File Path Strings}.
 (@pxref{@code{@@documentdescription},,, texinfo, Texinfo}).  @xref{Init File
 Expansion Contexts}.
 
+@item documentinfo_metadata
+@code{@@documentinfo} content converted to HTML.  @@-commands
+already registering document information such as @code{@@title},
+@code{@@author} and other similar commands should already be handled
+specifically, they are ignored here.
+
 @item expanded_formats
 Information on output formats such as @samp{html} or @samp{tex}
 expansion (@pxref{Conditional Commands,,, texinfo, Texinfo}).  An

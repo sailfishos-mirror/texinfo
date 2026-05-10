@@ -557,6 +557,28 @@ sub conversion_output_begin($;$$) {
   $document_info .= $title_info . $authors_info;
   $document_info .= $legalnotice if (defined($legalnotice));
 
+  # documentinfo metadata
+  if (defined($global_commands)
+      and exists($global_commands->{'documentinfo'})) {
+    my $documentinfo = $global_commands->{'documentinfo'};
+    if (exists($documentinfo->{'contents'})) {
+      my $metadata_in_documentinfo = '';
+      foreach my $element (@{$documentinfo->{'contents'}}) {
+        if ((exists($element->{'type'})
+             and $element->{'type'} eq 'arguments_line'
+            or (exists($element->{'cmdname'})
+                and exists(
+        $Texinfo::Commands::metadata_commands{$element->{'cmdname'}})))) {
+          next;
+        }
+        $metadata_in_documentinfo .= $self->convert_tree($element);
+      }
+      if ($metadata_in_documentinfo =~ /\S/) {
+        $document_info .= $metadata_in_documentinfo;
+      }
+    }
+  }
+
   # we duplicate title info, as it is explicitly said in the DocBook manual
   # that it can be duplicated if exactly the same
   $result .= $title_info;

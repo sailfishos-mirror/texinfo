@@ -1162,6 +1162,48 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
       self->documentdescription_string = documentdescription_string;
     }
 
+  if (self->document->global_commands.documentinfo)
+    {
+      const ELEMENT *documentinfo
+        = self->document->global_commands.documentinfo;
+      if (documentinfo->e.c->contents.number > 0)
+        {
+          size_t i;
+          TEXT t_info_metadata;
+
+          text_init (&t_info_metadata);
+          text_append (&t_info_metadata, "");
+
+          for (i = 0; i < documentinfo->e.c->contents.number; i++)
+            {
+              const ELEMENT *element = documentinfo->e.c->contents.list[i];
+              char *element_metadata_str;
+
+              if (element->type == ET_arguments_line
+                  || command_other_flags (element) & CF_metadata)
+                continue;
+
+              /* can be NULL in case the element is ignored, for example
+                 @docbook */
+              element_metadata_str
+                = html_convert_tree_new_formatting_context (self,
+                                       element, "documentinfo metadata",
+                                       0, 0, 0, 0);
+              if (element_metadata_str)
+                {
+                  text_append (&t_info_metadata, element_metadata_str);
+                  free (element_metadata_str);
+                }
+            }
+
+          if (t_info_metadata.text[strspn (t_info_metadata.text,
+                                            whitespace_chars)] == '\0')
+            free (t_info_metadata.text);
+          else
+            self->documentinfo_metadata = t_info_metadata.text;
+        }
+    }
+
   init_handler_status = html_run_stage_handlers (self, HSHT_type_init);
 
   if (init_handler_status < handler_fatal_error_level

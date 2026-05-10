@@ -286,7 +286,8 @@ $result_converted{'html'}->{'maketitle_documentinfo_publication'} = '<!DOCTYPE h
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
+<p>Toto
+</p>
 <link href="#Top" rel="start" title="top">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">

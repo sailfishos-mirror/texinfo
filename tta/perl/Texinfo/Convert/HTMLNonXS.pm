@@ -1649,7 +1649,8 @@ sub current_output_unit($) {
 my %available_converter_info;
 foreach my $converter_info ('copying_comment',
    'destination_directory', 'document', 'document_name',
-   'documentdescription_string', 'expanded_formats',
+   'documentdescription_string', 'documentinfo_metadata',
+   'expanded_formats',
    'jslicenses', 'line_break_element', 'non_breaking_space',
    'paragraph_symbol', 'simpletitle_command_name', 'simpletitle_tree',
    'title_string', 'title_tree', 'title_titlepage') {
@@ -4622,6 +4623,31 @@ sub _prepare_converted_output_info($$$$) {
     chomp($documentdescription_string);
     $self->{'converter_info'}->{'documentdescription_string'}
       = $documentdescription_string;
+  }
+
+  # documentinfo metadata
+  if (defined($global_commands)
+      and exists($global_commands->{'documentinfo'})) {
+    my $documentinfo = $global_commands->{'documentinfo'};
+    if (exists($documentinfo->{'contents'})) {
+      my $metadata_in_documentinfo = '';
+      foreach my $element (@{$documentinfo->{'contents'}}) {
+        if ((exists($element->{'type'})
+             and $element->{'type'} eq 'arguments_line'
+            or (exists($element->{'cmdname'})
+                and exists(
+        $Texinfo::Commands::metadata_commands{$element->{'cmdname'}})))) {
+          next;
+        }
+        $metadata_in_documentinfo
+          .= $self->convert_tree_new_formatting_context($element,
+                                             'documentinfo metadata');
+      }
+      if ($metadata_in_documentinfo =~ /\S/) {
+        $self->{'converter_info'}->{'documentinfo_metadata'}
+          = $metadata_in_documentinfo;
+      }
+    }
   }
 
   # TODO document that this stage handler is called with end of preamble

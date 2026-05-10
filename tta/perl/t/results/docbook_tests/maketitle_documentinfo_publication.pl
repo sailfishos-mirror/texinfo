@@ -290,7 +290,8 @@ ST2</subtitle>
 <collab><collabname>Gàther Person</collabname></collab>
 </authorgroup>
 <legalnotice><para>You shoukd
-</para></legalnotice></bookinfo>
+</para></legalnotice><para>Toto
+</para></bookinfo>
 <chapter label="1" id="ch_00f9pter">
 <title>chap</title>
  
