@@ -78,7 +78,38 @@ Some content
 Text @inlinefmt{epub, here if EPUB}.
 Format @inlineraw{epub, <section>raw EPUB</section>}.
 ', {'init_files' => ['epub3.pm']},],
-);
+['epub_metadata',
+'@documentinfo
+@title The Title
+@ifepub
+@html
+   <dc:creator
+       id="creator">
+      Some Body
+   </dc:creator>
+   <meta
+       refines="#creator"
+       property="role"
+       scheme="marc:relators"
+       id="role">
+      aut
+   </meta>
+@end html
+@end ifepub
+@ifnotepub
+@html
+<meta name="creator" content="Some Body" />
+@end html
+@end ifnotepub
+@end documentinfo
+
+@node Top
+@top top
+
+@node chapter
+@chapter Chap
+',
+ {'init_files' => ['epub3.pm']},]);
 
 foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_epub';

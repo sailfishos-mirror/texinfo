@@ -1,3 +1,14 @@
+2026-05-10 Patrice Dumas  <pertusus@free.fr>
+
+	Generic metadata in EPUB in @documentinfo
+
+	* tta/perl/ext/epub3.pm (%metadata_commands, conversion_output_begin):
+	convert content of @documentinfo that is not an explicit @-command
+	usually used for metadata in the <metadata> EPUB element.
+
+	* tta/perl/t/epub_tests.t (epub_metadata), tta/perl/Makefile.tres: new
+	test.
+
 2026-05-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix M-TAB moving before DEL-quoted cross-reference
@@ -626,7 +637,7 @@
 	* tta/C/main/command_data.awk, tta/C/parsetexi/end_line.c
 	(end_line_misc_line), tta/C/main/build_perl_info.c
 	(build_global_commands), tta/C/main/utils.c (delete_global_commands),
-	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line): add new elemnts
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line): add new elements
 	list in global_commands with all the language related commands in the
 	order they appear in in the document.  This allows to get the commands
 	in order to take into acount that @documentlanguage resets
