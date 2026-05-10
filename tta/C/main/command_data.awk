@@ -210,7 +210,8 @@ END {
                     && flags_array[flag_idx] != "formatted_nobrace" \
                     && flags_array[flag_idx] != "formattable_line" \
                     && flags_array[flag_idx] != "non_formatted_brace" \
-                    && flags_array[flag_idx] != "non_formatted_block") {
+                    && flags_array[flag_idx] != "non_formatted_block" \
+                    && flags_array[flag_idx] != "metadata") {
                   old_str = flags_str
                   flags_str = old_str "," flags_array[flag_idx]
                 } else {

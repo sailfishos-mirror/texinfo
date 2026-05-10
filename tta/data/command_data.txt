@@ -239,9 +239,9 @@ defindex                line,preamble,contain_plain_text         specific  1
 defcodeindex            line,preamble,contain_plain_text         specific  1
 
 # language code arg
-documentlanguage        line,global,preamble,contain_plain_text  text
-documentscript          line,global,preamble,contain_plain_text  text
-documentlanguagevariant   line,global,preamble,contain_plain_text,variadic  line
+documentlanguage        line,global,preamble,metadata,contain_plain_text  text
+documentscript          line,global,preamble,metadata,contain_plain_text  text
+documentlanguagevariant   line,global,preamble,metadata,contain_plain_text,variadic  line
 
 # arg code example distinct
 kbdinputstyle           line,global,preamble,contain_plain_text  specific  1
@@ -270,13 +270,13 @@ vskip                   line,formattable_line                       lineraw 1
 # one numerical/real arg
 need                    line,formattable_line,close_paragraph,contain_plain_text   specific  1
 
-shorttitlepage          line,global_unique,preamble,contain_basic_inline     line
-settitle                line,global_unique,preamble,contain_basic_inline     line
+shorttitlepage          line,global_unique,preamble,metadata,contain_basic_inline     line
+settitle                line,global_unique,preamble,metadata,contain_basic_inline     line
 # especially in titlepage
 # can appear in preamble only within @titlepage
-author                  line,formatted_line,global,contain_basic_inline            line
-subtitle                line,formatted_line,global,contain_basic_inline            line
-title                   line,formatted_line,global_unique,contain_basic_inline     line
+author                  line,formatted_line,global,metadata,contain_basic_inline            line
+subtitle                line,formatted_line,global,metadata,contain_basic_inline            line
+title                   line,formatted_line,global_unique,metadata,contain_basic_inline     line
 # numerical arg
 sp                      line,formattable_line,close_paragraph,contain_plain_text    specific  1
 page                    line,formatted_line,close_paragraph        lineraw
@@ -478,7 +478,7 @@ w                       brace,contain_basic_inline      special
 
 # other brace commands, leading and trailing spaces kept in main text
 dmn                     brace,contain_plain_text        other         1
-titlefont               brace,close_paragraph,global,contain_basic_inline,no_paragraph    other         1
+titlefont               brace,close_paragraph,global,metadata,contain_basic_inline,no_paragraph    other         1
 
 
 ##########################################################
@@ -563,11 +563,11 @@ group                   block,close_paragraph
 nodedescriptionblock    block,close_paragraph,non_formatted_block
 
 # region commands
-titlepage               block,close_paragraph,global_unique,preamble     region
-copying                 block,close_paragraph,global_unique,preamble     region
-documentdescription     block,close_paragraph,global_unique,preamble     region
+titlepage               block,close_paragraph,global_unique,preamble,metadata     region
+copying                 block,close_paragraph,global_unique,preamble,metadata     region
+documentdescription     block,close_paragraph,global_unique,preamble,metadata     region
 documentinfo            block,close_paragraph,global_unique,preamble     region
-publication             block,close_paragraph,global_unique,preamble     region
+publication             block,close_paragraph,global_unique,preamble,metadata     region
 
 # preformatted commands
 example           block,close_paragraph,preformatted,preformatted_code,variadic,contain_basic_inline   preformatted

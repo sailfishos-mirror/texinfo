@@ -1,5 +1,16 @@
 2026-05-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/api_for_swig/swig_element_types.h (TXI_CM_OTHER_FLAGS_LIST),
+	tta/C/main/builtin_commands.h (CF_metadata),
+	tta/C/main/command_data.awk, tta/data/command_data.txt: add metadata
+	flag for @-commands with document metadata information that are
+	supposed to be handled explicitly in output formats conversion.
+
+	* tta/perl/ext/epub3.pm: remove local definition of
+	$metadata_commands, use Texinfo::Commands::metadata_commands.
+
+2026-05-10 Patrice Dumas  <pertusus@free.fr>
+
 	Generic metadata in EPUB in @documentinfo
 
 	* tta/perl/ext/epub3.pm (%metadata_commands, conversion_output_begin):

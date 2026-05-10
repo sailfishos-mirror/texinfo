@@ -46,7 +46,7 @@ enum command_id element_builtin_cmd (const ELEMENT *e);
 enum command_id element_builtin_data_cmd (const ELEMENT *e);
 
 /* Base command flags, .flags in COMMAND */
-/* sync with TXI_CM_FLAGS_LIST list in swig_command_data.h, listing
+/* sync with TXI_CM_FLAGS_LIST list in swig_element_types.h, listing
    there only the flags that are relevant in conversion codes */
 
 #define CF_line			        0x0001
@@ -103,7 +103,7 @@ enum command_id element_builtin_data_cmd (const ELEMENT *e);
 
 /* Other command flags. .other_flags in COMMAND. Not used in parser, but
    in other codes, or only used in perl */
-/* sync with TXI_CM_OTHER_FLAGS_LIST list in swig_command_data.h */
+/* sync with TXI_CM_OTHER_FLAGS_LIST list in swig_element_types.h */
 #define CF_letter_no_arg		0x0001
 #define CF_inline_format		0x0002
 #define CF_inline_conditional		0x0004
@@ -118,6 +118,9 @@ enum command_id element_builtin_data_cmd (const ELEMENT *e);
 #define CF_non_formatted_brace		0x0800
 #define CF_appendix		0x1000
 #define CF_unnumbered		0x2000
+/* @-commands with document metadata information.  They are supposed to be
+   handled explicitly in output formats conversion */
+#define CF_metadata		0x4000
 /*
 #define CF_		0x00800000
 */

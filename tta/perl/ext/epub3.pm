@@ -582,17 +582,6 @@ sub epub_setup($)
 }
 
 # TODO format subtitle
-# TODO make it a general property of commands
-# the title commands are taken into account through title_tree.
-# For titlefont, in addition, there is not enough information to
-# convert it to relevant metadata.
-my @metadata_commands = ('titlepage', 'author', 'documentlanguage',
-  'documentscript', 'documentlanguagevariant', 'settitle', 'title',
-  'shorttitlepage', 'titlefont', 'subtitle');
-my %metadata_commands;
-foreach my $cmdname (@metadata_commands) {
-  $metadata_commands{$cmdname} = 1;
-}
 
 texinfo_register_handler('setup', \&epub_setup);
 
@@ -933,7 +922,8 @@ EOT
         if ((exists($element->{'type'})
              and $element->{'type'} eq 'arguments_line'
             or (exists($element->{'cmdname'})
-                and exists($metadata_commands{$element->{'cmdname'}})))) {
+                and exists(
+        $Texinfo::Commands::metadata_commands{$element->{'cmdname'}})))) {
           next;
         }
         $metadata_in_documentinfo .= $self->convert_tree($element);

@@ -1077,6 +1077,22 @@ our %math_commands = (
   "math"                    => 1,
 );
 
+our %metadata_commands = (
+  "author"                  => 1,
+  "copying"                 => 1,
+  "documentdescription"     => 1,
+  "documentlanguage"        => 1,
+  "documentlanguagevariant" => 1,
+  "documentscript"          => 1,
+  "publication"             => 1,
+  "settitle"                => 1,
+  "shorttitlepage"          => 1,
+  "subtitle"                => 1,
+  "title"                   => 1,
+  "titlefont"               => 1,
+  "titlepage"               => 1,
+);
+
 our %no_paragraph_commands = (
   "*"                       => 1,
   "afivepaper"              => 1,

@@ -38,7 +38,8 @@
   cm_oflag(non_formatted_block) \
   cm_oflag(non_formatted_brace) \
   cm_oflag(appendix) \
-  cm_oflag(unnumbered)
+  cm_oflag(unnumbered) \
+  cm_oflag(metadata)
 
 /* next list may need changes for types_data.h flags modifications */
 #define TXI_TY_FLAGS_LIST \
