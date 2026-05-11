@@ -1,5 +1,11 @@
 2026-05-11 Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm: change formatting of
+	functions beginning.  Use defined or exists if the value is not used.
+	Change in spacing.
+
+2026-05-11 Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (%line_commands)
 	(_texinfo_handle_element_end): keep %pod_head_commands_level levels
 	out of %line_commands.

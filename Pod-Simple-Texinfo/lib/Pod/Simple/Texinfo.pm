@@ -255,8 +255,7 @@ sub run($) {
 }
 
 my $STDIN_DOCU_NAME = 'stdin';
-sub _preamble($)
-{
+sub _preamble($) {
   my $self = shift;
 
   $self->{'texinfo_accumulated'} = [];
@@ -327,14 +326,10 @@ sub _preamble($)
 }
 
 # 'out' is out of the context, for now for index entries.
-sub _output($$$;$)
-{
-  my $fh = shift;
-  my $accumulated_stack = shift;
-  my $text = shift;
-  my $out = shift;
+sub _output($$$;$) {
+  my ($fh, $accumulated_stack, $text, $out) = @_;
 
-  if (scalar(@$accumulated_stack)) {
+  if (scalar(@$accumulated_stack) > 0) {
     if ($out) {
       $accumulated_stack->[-1]->{'out'} .= $text;
     } else {
@@ -345,28 +340,26 @@ sub _output($$$;$)
   }
 }
 
-sub _begin_context($$)
-{
-  my $accumulated_stack = shift;
-  my $tag = shift;
+sub _begin_context($$) {
+  my ($accumulated_stack, $tag) = @_;
+
   push @$accumulated_stack, {'text' => '', 'tag' => $tag,
                              'out' => ''};
 }
 
-sub _end_context($)
-{
+sub _end_context($) {
   my $accumulated_stack = shift;
+
   my $previous_context = pop @$accumulated_stack;
   return ($previous_context->{'text'}, $previous_context->{'out'});
 }
 
 # Also used in pod2texi.pl but not public.
-sub protect_text($;$$)
-{
-  my $text = shift;
-  my $remove_new_lines = shift;
-  my $in_code = shift;
+sub protect_text($;$$) {
+  my ($text, $remove_new_lines, $in_code) = @_;
+
   cluck if (!defined($text));
+
   $text =~ s/\n/ /g if ($remove_new_lines);
   $text =~ s/([\@\{\}])/\@$1/g;
   # from perlpodspec
@@ -389,9 +382,9 @@ sub protect_text($;$$)
 }
 
 # Used in pod2texi.pl but not public
-sub pod_title_to_file_name($)
-{
+sub pod_title_to_file_name($) {
   my $name = shift;
+
   $name =~ s/[\n\r]//g;
   $name =~ s/\s+/_/g;
   $name =~ s/::/-/g;
@@ -400,27 +393,27 @@ sub pod_title_to_file_name($)
   return $name;
 }
 
-sub _protect_comma($)
-{
+sub _protect_comma($) {
   my $texinfo = shift;
+
   my $parser = Texinfo::Parser::parser();
   my $tree = $parser->parse_texi_line($texinfo, undef, 1);
   Texinfo::ManipulateTree::protect_comma_in_tree($tree);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
-sub _protect_colon($)
-{
+sub _protect_colon($) {
   my $texinfo = shift;
+
   my $parser = Texinfo::Parser::parser();
   my $tree = $parser->parse_texi_line($texinfo, undef, 1);
   Texinfo::ManipulateTree::protect_colon_in_tree($tree);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
-sub _protect_hashchar($)
-{
+sub _protect_hashchar($) {
   my $texinfo = shift;
+
   # protect # first in line
   if ($texinfo =~ /#/) {
     my $parser = Texinfo::Parser::parser();
@@ -438,9 +431,9 @@ sub _protect_hashchar($)
   }
 }
 
-sub _reference_to_text_in_texi($)
-{
+sub _reference_to_text_in_texi($) {
   my $texinfo = shift;
+
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_piece($texinfo);
   my $tree = $document->tree();
@@ -451,13 +444,8 @@ sub _reference_to_text_in_texi($)
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
-sub _prepend_internal_section_manual($$$;$$)
-{
-  my $manual = shift;
-  my $section = shift;
-  my $base_level = shift;
-  my $protect_text = shift;
-  my $in_code = shift;
+sub _prepend_internal_section_manual($$$;$$) {
+  my ($manual, $section, $base_level, $protect_text, $in_code) = @_;
 
   if (defined($manual) and $base_level > 0) {
     $manual = protect_text($manual, 1, $in_code) if ($protect_text);
@@ -468,11 +456,8 @@ sub _prepend_internal_section_manual($$$;$$)
 }
 
 # also used in pod2texi.pl, not public.
-sub print_texinfo_errors($$;$)
-{
-  my $error_messages = shift;
-  my $error_count = shift;
-  my $location = shift;
+sub print_texinfo_errors($$;$) {
+  my ($error_messages, $error_count, $location) = @_;
 
   foreach my $error_message (@$error_messages) {
     my $type_string;
@@ -498,13 +483,10 @@ sub print_texinfo_errors($$;$)
   }
 }
 
-sub _normalize_texinfo_name($$;$)
-{
+sub _normalize_texinfo_name($$;$) {
   # Pod may be more forgiven than Texinfo, so we go through
   # a normalization, by parsing and converting back to Texinfo
-  my $name = shift;
-  my $command = shift;
-  my $debug = shift;
+  my ($name, $command, $debug) = @_;
 
   my $texinfo_text;
   if ($command eq 'anchor') {
@@ -561,24 +543,20 @@ sub _normalize_texinfo_name($$;$)
   return $result;
 }
 
-sub _node_name($$)
-{
-  my $self = shift;
-  my $texinfo_node_name = shift;
+sub _node_name($$) {
+  my ($self, $texinfo_node_name) = @_;
 
   chomp $texinfo_node_name;
   $texinfo_node_name
    = _prepend_internal_section_manual($self->texinfo_short_title(),
-                                  $texinfo_node_name,
-                                  $self->texinfo_sectioning_base_level(), 1, 1);
+                                $texinfo_node_name,
+                                $self->texinfo_sectioning_base_level(), 1, 1);
   # also change refs to text
   return _reference_to_text_in_texi($texinfo_node_name);
 }
 
-sub _prepare_anchor($$)
-{
-  my $self = shift;
-  my $texinfo_node_name = shift;
+sub _prepare_anchor($$) {
+  my ($self, $texinfo_node_name) = @_;
 
   my $node = _normalize_texinfo_name($texinfo_node_name, 'anchor',
                                      $self->texinfo_debug());
@@ -592,7 +570,7 @@ sub _prepare_anchor($$)
   my $normalized_base = convert_to_identifier($node_tree);
   my $normalized = $normalized_base;
   my $number_appended = 0;
-  while ($self->{'texinfo_nodes'}->{$normalized}) {
+  while (exists($self->{'texinfo_nodes'}->{$normalized})) {
     $number_appended++;
     $normalized = "${normalized_base}-$number_appended";
   }
@@ -604,13 +582,13 @@ sub _prepare_anchor($$)
   Texinfo::ManipulateTree::protect_comma_in_tree($node_tree);
   Texinfo::ManipulateTree::protect_colon_in_tree($node_tree);
   $self->{'texinfo_nodes'}->{$normalized} = $node_tree;
-  my $final_node_name = Texinfo::Convert::Texinfo::convert_to_texinfo($node_tree);
+  my $final_node_name
+    = Texinfo::Convert::Texinfo::convert_to_texinfo($node_tree);
   return $final_node_name;
 }
 
 # from Pod::Simple::HTML general_url_escape
-sub _url_escape($)
-{
+sub _url_escape($) {
   my $string = shift;
 
   $string =~ s/([^\x00-\xFF])/join '', map sprintf('%%%02X',$_), unpack 'C*', $1/eg;
@@ -696,9 +674,11 @@ sub _texinfo_handle_element_start($$$) {
         # here, maybe this should be in the Texinfo HTML converter.
         # However, there is a 'man' category here and not in Texinfo,
         # so the information is more precise in pod.
-        # NOTE 3: the section within the man (and not the numeric section in the
-        # man page specification) which is in $attr_hash->{'section'} is ignored.
-        # Maybe there would be a way to specify it, but it is not very important.
+        # NOTE 3: the section within the man (and not the numeric section in
+        # the man page specification) which is in $attr_hash->{'section'}
+        # is ignored.
+        # Maybe there would be a way to specify it, but it is not very
+        # important.
         my $replacement_arg = $attr_hash->{'to'}.'';
         # regexp from Pod::Simple::HTML resolve_man_page_link
         # since it is very small, it is likely that copyright cannot be
