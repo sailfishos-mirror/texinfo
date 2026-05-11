@@ -105,27 +105,26 @@ BEGIN
     # Look for modules in their installed locations.
     my $modules_dir = join('/', ($datadir, $converter));
     # look for package data in the installed location.
-    my $modules_converterdatadir = $modules_dir;
+    my $converter_libdir = join('/', ($libdir, $converter));
 
     # try to make package relocatable, will only work if
     # standard relative paths are used
     if (! -f join('/', ($modules_dir, 'Texinfo', 'Parser.pm'))
         and -f join('/', ($command_directory, $updir, 'share',
-                                   $converter, 'Texinfo', 'Parser.pm'))) {
-      $modules_dir = join('/', ($command_directory, $updir,
-                                          'share', $converter));
-      $modules_converterdatadir = join('/', ($command_directory, $updir,
-                                          'share', $converter));
-      $xsdir = join('/', ($command_directory, $updir, 'lib', $converter));
+                          $converter, 'Texinfo', 'Parser.pm'))) {
+      $datadir = join('/', ($command_directory, $updir, 'share'));
+      $modules_dir = join('/', ($datadir, $converter));
+      $converter_libdir = join('/', ($command_directory, $updir,
+                                          'lib', $converter));
     }
 
     unshift @INC, $modules_dir;
     require Texinfo::ModulePath;
-    Texinfo::ModulePath::init($modules_dir, $xsdir, $modules_converterdatadir,
-                              'installed' => 1);
+    Texinfo::ModulePath::init($modules_dir, $converter_libdir,
+                              $datadir, 'installed' => 1);
 
     # To find Pod::Simple::Texinfo
-    unshift @INC, join('/', ($modules_converterdatadir, 'Pod-Simple-Texinfo'));
+    unshift @INC, join('/', ($modules_dir, 'Pod-Simple-Texinfo'));
   }
 }
 
