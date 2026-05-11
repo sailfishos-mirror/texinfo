@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="texi-uid">
+   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <dc:identifier id="texi-uid">texinfo:languages_scripts_variants</dc:identifier>
+      <dc:title>top</dc:title>
+      <meta property="dcterms:modified">1976-11-04T12:00:00Z</meta>
+      <dc:language>az-Latn</dc:language>
+      <dc:language>sr-Latn-ekavsk</dc:language>
+      <dc:language>sr-ekavsk</dc:language>
+      <dc:language>sr-ijekavsk</dc:language>
+      <dc:language>sr-Cyrl</dc:language>
+      <dc:language>fr</dc:language>
+      <dc:language>az</dc:language>
+      <dc:language>az-Cyrl</dc:language>
+      <dc:language>az-Arab</dc:language>
+      <dc:language>fr-FR</dc:language>
+      <dc:language>oc-aranes</dc:language>
+      <dc:language>oc-auvern</dc:language>
+   </metadata>
+   <manifest>
+      <item id="nav" properties="nav" media-type="application/xhtml+xml" href="xhtml/nav_toc.xhtml"/>
+      <item id="unit1" media-type="application/xhtml+xml" href="xhtml/languages_scripts_variants.xhtml"/>
+      <item id="unit2" media-type="application/xhtml+xml" href="xhtml/chap.xhtml"/>
+   </manifest>
+   <spine>
+      <itemref idref="unit1"/>
+      <itemref idref="unit2"/>
+   </spine>
+</package>
