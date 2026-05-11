@@ -109,7 +109,50 @@ Format @inlineraw{epub, <section>raw EPUB</section>}.
 @node chapter
 @chapter Chap
 ',
- {'init_files' => ['epub3.pm']},]);
+ {'init_files' => ['epub3.pm']},],
+['languages_scripts_variants',
+'@documentlanguage az
+@documentscript Latn
+
+@node top
+@top top
+
+node chap
+@chapter chap
+
+@documentlanguage sr
+@documentscript Latn
+@documentlanguagevariant ekavsk
+
+@documentscript
+
+@documentlanguagevariant ijekavsk
+
+@documentlanguagevariant ,
+
+@documentscript Cyrl
+
+@documentlanguage fr
+
+@documentlanguage az
+
+@documentlanguage az
+@documentscript Cyrl
+
+@documentscript Arab
+
+@documentscript Cyrl
+
+@documentlanguage fr_FR
+
+@documentlanguage oc
+
+@documentlanguagevariant aranes
+
+@documentlanguagevariant auvern
+',
+ {'init_files' => ['epub3.pm']},],
+);
 
 foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_epub';

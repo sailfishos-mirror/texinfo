@@ -534,6 +534,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/epub_tests/epub_inline_conditional/res_epub \
   t/results/epub_tests/epub_metadata.pl \
   t/results/epub_tests/epub_metadata/res_epub \
+  t/results/epub_tests/languages_scripts_variants.pl \
+  t/results/epub_tests/languages_scripts_variants/res_epub \
   t/results/epub_tests/section_part_epub.pl \
   t/results/epub_tests/section_part_epub/res_epub \
   t/results/epub_tests/setfilename_on_top_and_after_node_epub.pl \

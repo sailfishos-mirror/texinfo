@@ -1,3 +1,18 @@
+2026-05-11 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/ext/epub3.pm (@epub_language, epub_setup, epub_init)
+	(epub_finish): add epub_init handler where all the languages are
+	gathered.  Use configured documentlanguage and documentscript and
+	go through global commands information language_commands to gather
+	all the language in the document, and use all the languages to set
+	dc:language elements.  Only add a language with @documentscript or
+	@documentlanguagevariant if there was already a script or variant
+	setup, to avoid setting languages without following @documentscript or
+	@documentlanguagevariant values set.
+
+	* tta/perl/Makefile.tres, tta/perl/t/epub_tests.t
+	(languages_scripts_variants): new test of multilingual document.
+
 2026-05-10 Patrice Dumas  <pertusus@free.fr>
 
 	Generic metadata in HTML and DocBook in @documentinfo

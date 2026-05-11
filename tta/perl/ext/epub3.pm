@@ -452,9 +452,10 @@ my $nav_filename;
 my $epub_outfile;
 
 my $epub_info_js_dir_name;
+my @epub_languages;
 
-sub epub_setup($)
-{
+
+sub epub_setup($) {
   my $self = shift;
 
   $epub_outfile = undef;
@@ -463,6 +464,7 @@ sub epub_setup($)
   $encoded_epub_destination_directory = undef;
   @epub_output_units_filenames = ();
   @epub_special_elements_filenames = ();
+  @epub_languages = ();
   %epub_images = ();
   $nav_filename = $default_nav_filename;
   $epub_file_nr = 1;
@@ -583,13 +585,129 @@ sub epub_setup($)
   return 0;
 }
 
-# TODO format subtitle
-
 texinfo_register_handler('setup', \&epub_setup);
 
+my $translations_cache
+  = $Texinfo::Translations::converters_translation_cache;
+
+sub epub_init($$) {
+  my $self = shift;
+  my $document = shift;
+
+  my $global_commands_information = $document->global_commands_information();
+
+  my $lang_translations;
+  my %languages_set;
+
+  # We gather all the languages as proposed by the standard for multilingual
+  # publications.  Note that the first one is likely to be the only one taken
+  # into account:
+  # "Although additional dc:language elements MAY be specified for multilingual
+  # EPUB publications, reading systems will treat the first dc:language element
+  # in document order as the primary language."
+  # Also, the standard says that:
+  # "Publication resources do not inherit their language from dc:language
+  # element(s). The language of each resource has to be set using the intrinsic
+  # methods of the format."
+  # Which means that the xhtml lang attributes have precedence when the
+  # xhtml files are rendered.
+  my $set_documentlanguage = $self->get_conf('documentlanguage');
+  my $set_documentscript = $self->get_conf('documentscript');
+
+  if (defined($set_documentlanguage)) {
+    $lang_translations
+      = Texinfo::Translations::set_translations_documentlanguage(
+                      $translations_cache, $set_documentlanguage,
+                                              $lang_translations);
+  }
+  if (defined($set_documentscript)) {
+    $lang_translations
+     = Texinfo::Translations::set_translations_documentscript(
+                       $translations_cache, $set_documentscript,
+                                             $lang_translations);
+  }
+
+  if (defined($global_commands_information)) {
+    if (exists($global_commands_information->{'language_commands'})) {
+      my $lang_commands = $global_commands_information->{'language_commands'};
+      foreach my $element (@$lang_commands) {
+        if ($element->{'cmdname'} eq 'documentlanguagevariant') {
+          my $language_variants
+           = Texinfo::Common::documentlanguagevariant_variants($element);
+          # register if unsetting or resetting
+          if (!scalar(@$language_variants)
+              or (defined($lang_translations)
+                     and exists($lang_translations->[0]->{'variants'}))) {
+            my $bcp47_locale = $lang_translations->[0]->{'bcp47_locale'};
+            if (!exists($languages_set{$bcp47_locale})) {
+              push @epub_languages, $bcp47_locale;
+              $languages_set{$bcp47_locale} = 1;
+            }
+          }
+          $lang_translations
+            = Texinfo::Translations::set_translations_documentlanguagevariant(
+                                    $translations_cache,
+                                    $language_variants, $lang_translations);
+        } elsif (exists($element->{'extra'})
+                 and exists($element->{'extra'}->{'text_arg'})) {
+          my $value = $element->{'extra'}->{'text_arg'};
+          if ($element->{'cmdname'} eq 'documentlanguage') {
+            # register previously set language
+            if (defined($lang_translations)) {
+              my $bcp47_locale = $lang_translations->[0]->{'bcp47_locale'};
+              if (!exists($languages_set{$bcp47_locale})) {
+                push @epub_languages, $bcp47_locale;
+                $languages_set{$bcp47_locale} = 1;
+              }
+            }
+            $lang_translations
+              = Texinfo::Translations::set_translations_documentlanguage(
+                                           $translations_cache,
+                                           $value, $lang_translations);
+          } elsif ($element->{'cmdname'} eq 'documentscript') {
+            # register if unsetting or resetting
+            if ($value eq ''
+                or (defined($lang_translations)
+                     and exists($lang_translations->[0]->{'script'}))) {
+              my $bcp47_locale = $lang_translations->[0]->{'bcp47_locale'};
+              if (!exists($languages_set{$bcp47_locale})) {
+                push @epub_languages, $bcp47_locale;
+                $languages_set{$bcp47_locale} = 1;
+              }
+            }
+            $lang_translations
+              = Texinfo::Translations::set_translations_documentscript(
+                                                $translations_cache,
+                                                $value, $lang_translations);
+          }
+        }
+      }
+    }
+  }
+
+  # register previously set language
+  if (defined($lang_translations)) {
+    my $bcp47_locale = $lang_translations->[0]->{'bcp47_locale'};
+    if (!exists($languages_set{$bcp47_locale})) {
+      push @epub_languages, $bcp47_locale;
+      $languages_set{$bcp47_locale} = 1;
+    }
+  }
+
+  # the standard mandates at least one language specifier
+  if (scalar(@epub_languages) == 0) {
+    @epub_languages = ('en');
+  }
+
+  return 0;
+}
+
+texinfo_register_handler('init', \&epub_init);
+
+# TODO format subtitle
+
 # need to be after tree units and images conversion
-sub epub_finish($$)
-{
+sub epub_finish($$) {
   my $self = shift;
   my $document = shift;
 
@@ -871,7 +989,6 @@ EOT
   my $global_commands_information = $document->global_commands_information();
 
   my @authors = ();
-  my @languages = ();
 
   if (defined($global_commands_information)) {
     foreach my $information_block ('documentinfo', 'titlepage') {
@@ -895,25 +1012,8 @@ EOT
         last;
       }
     }
-    if ($global_commands_information->{'documentlanguage'}) {
-      # TODO use $global_commands->{'language_commands'}, code similar
-      # to the code setting preamble_lang_cmd, calling in addition the
-      # set_* commands from Translations to gather all the languages
-      # in the document and their BCP47 locale
-      foreach my $element (
-                 @{$global_commands_information->{'documentlanguage'}}) {
-        if (defined($element->{'extra'}->{'text_arg'})) {
-          push @languages, $element->{'extra'}->{'text_arg'};
-        }
-      }
-    }
   }
-
-  # the standard mandates at least one language specifier
-  if (scalar(@languages) == 0) {
-    @languages = ('en');
-  }
-  foreach my $language (@languages) {
+  foreach my $language (@epub_languages) {
     print $opf_fh "      <dc:language>$language</dc:language>\n";
   }
   foreach my $author (@authors) {
