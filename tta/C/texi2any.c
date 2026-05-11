@@ -188,7 +188,7 @@ add_config_paths (const char *env_string, const char *subdir,
   size_t i;
   /*
    read the env directories to avoid setting the overriding_dirs
-   as deprecated if they are explicitely specified in the environnement
+   as deprecated if they are explicitly specified in the environnement
    variable.
    */
   const char *env_value = getenv (env_string);

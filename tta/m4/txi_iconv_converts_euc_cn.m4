@@ -66,7 +66,7 @@ if test "x$am_func_iconv" = "xyes" ; then
    ])
   if test "$texinfo_cv_sys_iconv_converts_euc_cn" = yes; then
     ICONV_CONVERTS_EUC_CN=yes
-    # We exclude explicitely Solaris even when there is a conversion.
+    # We exclude explicitly Solaris even when there is a conversion.
     # Indeed, the conversion is not the same as with GNU libiconv, at least
     # for some minus sign, which becomes "Fullwidth Hyphen-Minus" U+FF0D with
     # GNU libiconv and "Minus Sign" U+2212 on Solaris.

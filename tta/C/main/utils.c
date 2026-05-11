@@ -86,7 +86,7 @@
     command line options.
   This means that _WIN32 may be defined on Cygwin while the null device
   name seems to always be different from MS-Windows null device name, so
-  we exclude explicitely __CYGWIN__.
+  we exclude explicitly __CYGWIN__.
   In similar code used for the info reader, the logic is different, as
   O_BINARY is used first and cygwin is tested afterwards.  We also use
   O_BINARY in the C texi2any code for paths related defines.

@@ -73,7 +73,7 @@ variable to the tta/ build directory, in order to have compiled modules
 and translated in-document strings found.  If you use scripts with
 names ending in .pl or .t test files, the source directory obtained
 from the script name might be used to determine the source directories
-and you may not need to set them explicitely.  Otherwise, you could
+and you may not need to set them explicitly.  Otherwise, you could
 need to set the srcdir environment variable, and/or set the t2a_srcdir
 environment variables to the in-source tta/ directory.
 

@@ -450,7 +450,7 @@ sub add_config_paths($$$$;$$) {
       $overriding_dirs, $deprecated_dirs) = @_;
 
   # read the env directories first to avoid setting the overriding_dirs
-  # as deprecated if they are explicitely specified in the environnement
+  # as deprecated if they are explicitly specified in the environnement
   # variable.
   my @xdg_result_dirs;
   my %used_xdg_base_dirs;

@@ -42,7 +42,7 @@ s/'$d//
 s/$b$b/$b//g"
 #'
 
-# In general there is no need to remove a carriage return explicitely,
+# In general there is no need to remove a carriage return explicitly,
 # either there is none to begin with (on Unix, with Cygwin Perl) or
 # the shell (case of mingw on MSYS) does it already.  When doing a
 # mingw on Cygwin 'fake' cross-compilation using native Perl, however,

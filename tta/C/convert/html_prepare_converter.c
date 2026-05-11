@@ -536,7 +536,7 @@ html_format_setup (void)
 
           /* preset unset for string and preformatted contexts */
           /* css_string coverage is checked when setting css string context
-             values below and unset is set explicitely if needed */
+             values below and unset is set explicitly if needed */
           default_no_arg_commands_formatting[i][HCC_type_string].unset = 1;
           default_no_arg_commands_formatting[i][HCC_type_preformatted].unset = 1;
         }

@@ -649,7 +649,7 @@ undef, {'test_file' => 'character_and_spaces_in_refs_text.texi',
   {'test_file' => 'topic_guide.texi',
    'test_formats' => ['file_info', 'file_html'],
    'CHECK_NORMAL_MENU_STRUCTURE' => 0,},
-  {'FORMAT_MENU' => 'menu', } # add explicitely for the converter
+  {'FORMAT_MENU' => 'menu', } # add explicitly for the converter
 ],
 ['anchor_in_footnote_split_node',
 $anchor_in_footnote_text,

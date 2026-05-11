@@ -1811,7 +1811,7 @@ call_formatting_function_format_element_footer (CONVERTER *self,
   PUSHs(sv_2mortal (newSVpv (output_unit_type_names[unit_type], 0)));
   PUSHs(sv_2mortal (newRV_inc ((SV *) output_unit->hv)));
   /* content == 0 is possible, hope that newSVpv result corresponds to
-     undef in that case, but could also need to explicitely use newSV(0) */
+     undef in that case, but could also need to explicitly use newSV(0) */
   PUSHs(sv_2mortal (newSVpv_utf8 (content, 0)));
   PUSHs(sv_2mortal (newSVsv ((SV *) command->sv)));
   PUTBACK;
@@ -1931,7 +1931,7 @@ call_types_conversion (CONVERTER *self, const enum element_type type,
   PUSHs(sv_2mortal (newSVpv (type_data[type].name, 0)));
   PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
   /* content == 0 is possible, hope that newSVpv result corresponds to
-     undef in that case, but could also need to explicitely use newSV(0) */
+     undef in that case, but could also need to explicitly use newSV(0) */
   PUSHs(sv_2mortal (newSVpv_utf8 (content, 0)));
   PUTBACK;
 
@@ -2102,7 +2102,7 @@ call_commands_conversion (CONVERTER *self, const enum command_id cmd,
   PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
   PUSHs(sv_2mortal (args_formatted_sv));
   /* content == 0 is possible, hope that newSVpv result corresponds to
-     undef in that case, but could also need to explicitely use newSV(0) */
+     undef in that case, but could also need to explicitly use newSV(0) */
   PUSHs(sv_2mortal (newSVpv_utf8 (content, 0)));
   PUTBACK;
 
@@ -2220,7 +2220,7 @@ call_output_units_conversion (CONVERTER *self,
   PUSHs(sv_2mortal (newSVpv (output_unit_type_names[unit_type], 0)));
   PUSHs(sv_2mortal (newRV_inc ((SV *) output_unit->hv)));
   /* content == 0 is possible, hope that newSVpv result corresponds to
-     undef in that case, but could also need to explicitely use newSV(0) */
+     undef in that case, but could also need to explicitly use newSV(0) */
   PUSHs(sv_2mortal (newSVpv_utf8 (content, 0)));
   PUTBACK;
 

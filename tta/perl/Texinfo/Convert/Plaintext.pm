@@ -1223,7 +1223,7 @@ sub _stream_encode($$) {
     # TODO currently encoding cannot be ascii unless directly
     # specified as OUTPUT_ENCODING_NAME customization variable as
     # ascii documentencoding is mapped to us-ascii as input encoding
-    # (either explicitely in C or through Encode mime_name in Perl)
+    # (either explicitly in C or through Encode mime_name in Perl)
     # and then us-ascii is mapped to iso-8859-1 output perl encoding
     # through Texinfo::Common::encoding_name_conversion_map.
     if (!defined($encoding) or $encoding eq 'ascii') {
