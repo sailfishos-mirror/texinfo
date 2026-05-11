@@ -144,17 +144,18 @@ use Texinfo::Transformations;
 package Pod::Simple::PullParserRun;
 
 our @ISA = qw(Pod::Simple::PullParser);
-sub new
-{
+
+sub new {
   return shift->SUPER::new(@_);
 }
+
 sub run(){};
+
 }
 
 my ($real_command_name, $directories, $suffix) = fileparse($0);
 
-sub pod2texi_help()
-{
+sub pod2texi_help() {
   my $pod2texi_help = __("Usage: pod2texi [OPTION]... POD...");
   $pod2texi_help .= "\n\n";
   $pod2texi_help .= __("Convert Perl Pod documentation file(s) to Texinfo.  There are two
@@ -214,17 +215,21 @@ my $debug = 0;
 
 my $result_options = Getopt::Long::GetOptions (
   'help|h' => sub { print pod2texi_help(); exit 0; },
-  'version|V' => sub {print "$real_command_name $Pod::Simple::Texinfo::VERSION\n\n";
-    printf __("Copyright (C) %s Free Software Foundation, Inc.
+  'version|V' => sub {
+     print "$real_command_name $Pod::Simple::Texinfo::VERSION\n\n";
+     printf __("Copyright (C) %s Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.")."\n", "2024";
-      exit 0;},
+     exit 0;
+   },
   'base-level=s' => sub {
      if ($_[1] =~ /^[0-4]$/) {
        $base_level = $_[1];
-     } elsif (defined($Texinfo::CommandsValues::command_structuring_level{$_[1]})) {
-       $base_level = $Texinfo::CommandsValues::command_structuring_level{$_[1]};
+     } elsif (exists(
+                $Texinfo::CommandsValues::command_structuring_level{$_[1]})) {
+       $base_level
+           = $Texinfo::CommandsValues::command_structuring_level{$_[1]};
      } else {
        die sprintf(__("%s: wrong argument for --base-level")."\n",
                    $real_command_name);
@@ -270,7 +275,8 @@ my @input_files = @ARGV;
 # use STDIN if not a tty, like makeinfo does
 @input_files = ('-') if (!scalar(@input_files) and !-t STDIN);
 die sprintf(__("%s: missing file argument")."\n", $real_command_name)
-   .sprintf(__("Try `%s --help' for more information.")."\n", $real_command_name)
+ . sprintf(__("Try `%s --help' for more information.")."\n",
+           $real_command_name)
      unless (scalar(@input_files) >= 1);
 
 my %file_manual_title;
@@ -295,7 +301,7 @@ if ($base_level > 0) {
         $manual_name = $short_title;
         #print STDERR "NEW MANUAL: $manual_name\n";
       } else {
-        if (!$parser->content_seen) {
+        if (!$parser->content_seen()) {
           warn sprintf(__("%s: warning: %s without content")."\n",
                        $real_command_name, $file);
         }
@@ -311,7 +317,8 @@ if ($base_level > 0) {
     }
     if (exists($manual_name_file{$manual_name})
         and $manual_name_file{$manual_name} ne $file) {
-      warn sprintf(__("%s: same manual name `%s' for different files: %s and %s"),
+      warn sprintf(
+           __("%s: same manual name `%s' for different files: %s and %s"),
                   $real_command_name, $manual_name, $file,
                   $manual_name_file{$manual_name})."\n";
     } else {
@@ -322,13 +329,9 @@ if ($base_level > 0) {
 }
 
 # return a parser and parsed tree
-sub _parsed_manual_tree($$$$$)
-{
-  my $self = shift;
-  my $manual_texi = shift;
-  my $section_nodes = shift;
-  my $fill_gaps_in_sectioning = shift;
-  my $do_node_menus = shift;
+sub _parsed_manual_tree($$$$$) {
+  my ($self, $manual_texi, $section_nodes, $fill_gaps_in_sectioning,
+      $do_node_menus) = @_;
 
   my $parser_options = {};
   if ($debug > 3) {
@@ -389,14 +392,9 @@ sub _parsed_manual_tree($$$$$)
   return ($texi_parser, $document, $identifier_target);
 }
 
-sub _fix_texinfo_tree($$$$;$$)
-{
-  my $self = shift;
-  my $manual_texi = shift;
-  my $section_nodes = shift;
-  my $fill_gaps_in_sectioning = shift;
-  my $do_node_menus = shift;
-  my $do_master_menu = shift;
+sub _fix_texinfo_tree($$$$;$$) {
+  my ($self, $manual_texi, $section_nodes, $fill_gaps_in_sectioning,
+      $do_node_menus, $do_master_menu) = @_;
 
   my ($texi_parser, $document, $updated_labels)
     = _parsed_manual_tree($self, $manual_texi, $section_nodes,
@@ -425,11 +423,11 @@ sub _fix_texinfo_tree($$$$;$$)
        = _parsed_manual_tree($self, $manual_texi, $section_nodes,
                              $fill_gaps_in_sectioning, 1);
       my $top_node_menus = $updated_labels_menus->{'Top'};
-      if ($top_node_menus) {
+      if (defined($top_node_menus)) {
         my $menus_nodes_list = $document_menus->nodes_list();
         my $top_node_menus_relations
         = $menus_nodes_list->[$top_node_menus->{'extra'}->{'node_number'} -1];
-        if ($top_node_menus_relations->{'menus'}
+        if (exists($top_node_menus_relations->{'menus'})
             and scalar(@{$top_node_menus_relations->{'menus'}})) {
           my $top_node_menus_menu = $top_node_menus_relations->{'menus'}->[0];
           my $top_node = $updated_labels->{'Top'};
@@ -446,14 +444,9 @@ sub _fix_texinfo_tree($$$$;$$)
   return ($texi_parser, $document);
 }
 
-sub _fix_texinfo_manual($$$$;$$)
-{
-  my $self = shift;
-  my $manual_texi = shift;
-  my $section_nodes = shift;
-  my $fill_gaps_in_sectioning = shift;
-  my $do_node_menus = shift;
-  my $do_master_menu = shift;
+sub _fix_texinfo_manual($$$$;$$) {
+  my ($self, $manual_texi, $section_nodes, $fill_gaps_in_sectioning,
+      $do_node_menus, $do_master_menu) = @_;
 
   my ($texi_parser, $document)
       = _fix_texinfo_tree($self, $manual_texi, $section_nodes,
@@ -463,8 +456,7 @@ sub _fix_texinfo_manual($$$$;$$)
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
-sub _do_top_node_menu($)
-{
+sub _do_top_node_menu($) {
   my $manual_texi = shift;
 
   my ($texi_parser, $document)
@@ -474,11 +466,10 @@ sub _do_top_node_menu($)
   my $nodes_list = $document->nodes_list();
   my $top_node_relations
     = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
-  if ($top_node_relations->{'menus'}) {
+  if (exists($top_node_relations->{'menus'})
+      and scalar(@{$top_node_relations->{'menus'}}) > 0) {
     my $top_node_menu = $top_node_relations->{'menus'}->[0];
-    if ($top_node_menu) {
-      return Texinfo::Convert::Texinfo::convert_to_texinfo($top_node_menu);
-    }
+    return Texinfo::Convert::Texinfo::convert_to_texinfo($top_node_menu);
   }
   return '';
 }
@@ -502,7 +493,8 @@ foreach my $file (@input_files) {
   } else {
     $manual_name = $file_manual_name{$file};
     if (defined($manual_title)) {
-      $outfile_name = Pod::Simple::Texinfo::pod_title_to_file_name($manual_title);
+      $outfile_name
+        = Pod::Simple::Texinfo::pod_title_to_file_name($manual_title);
     } else {
       $outfile_name = $manual_name;
     }
@@ -559,7 +551,7 @@ foreach my $file (@input_files) {
   } elsif ($headings_as_sections) {
     $new->texinfo_sectioning_style('heading');
   }
-  if ($base_level > 0 and @manuals) {
+  if ($base_level > 0 and scalar(@manuals) > 0) {
     # names without formatting from Pod::Simple::PullParser->get_short_title
     $new->texinfo_internal_pod_manuals(\@manuals);
   }
@@ -578,8 +570,8 @@ foreach my $file (@input_files) {
     if ($debug > 4) {
       # print the manual obtained before fixing the Texinfo code to a file
       open(DBGFILE, ">$outfile-dbg")
-                             or die sprintf(__("%s: could not open %s: %s")."\n",
-                                      $real_command_name, "$outfile-dbg", $!);
+            or die sprintf(__("%s: could not open %s: %s")."\n",
+                           $real_command_name, "$outfile-dbg", $!);
       binmode(DBGFILE, ':encoding(utf-8)');
       print DBGFILE $manual_texi;
     }
@@ -625,7 +617,7 @@ foreach my $file (@input_files) {
         }
 
         if ($new_outfile ne $outfile) {
-          unless (rename ($outfile, $new_outfile)) {
+          unless (rename($outfile, $new_outfile)) {
             die sprintf(__("%s: rename %s failed: %s")."\n",
                         $real_command_name, $outfile, $!);
           }
@@ -640,8 +632,8 @@ if ($base_level > 0) {
   my $fh;
   if ($output ne '-') {
     open(OUT, ">$output")
-              or die sprintf(__("%s: could not open %s for writing: %s")."\n",
-                                          $real_command_name, $output, $!);
+      or die sprintf(__("%s: could not open %s for writing: %s")."\n",
+                                    $real_command_name, $output, $!);
     $fh = *OUT;
   } else {
     $fh = *STDOUT;
@@ -659,7 +651,7 @@ if ($base_level > 0) {
 
   my $preamble_result;
 
-  if (! defined ($preamble)) {
+  if (! defined($preamble)) {
     $preamble_result = '\input texinfo
 ' . $setfilename_string
 . "\@settitle $top

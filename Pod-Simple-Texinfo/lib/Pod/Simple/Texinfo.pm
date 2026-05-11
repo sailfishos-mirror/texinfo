@@ -156,9 +156,9 @@ sub _compatibility_idify {
     return "$t$i";
 }
 
-sub new
-{
+sub new($) {
   my $class = shift;
+
   my $new = $class->SUPER::new(@_);
   $new->accept_targets(@raw_formats);
   $new->preserve_whitespace(1);
@@ -180,8 +180,7 @@ sub new
 
 # This needs to be defined so that users can call parse_file and other
 # similar Pod::Simple/Pod::Simple::PullParser methods.
-sub run
-{
+sub run($) {
   my $self = shift;
 
   # In case the caller changed the formats
@@ -218,7 +217,8 @@ sub run
   if ($main_command_sectioning_style eq 'numbered') {
     $self->{'texinfo_sectioning_main_command'} = \@numbered_sectioning_commands;
   } elsif ($main_command_sectioning_style eq 'unnumbered') {
-    $self->{'texinfo_sectioning_main_command'} = \@unnumbered_sectioning_commands;
+    $self->{'texinfo_sectioning_main_command'}
+       = \@unnumbered_sectioning_commands;
   } else {
     $self->{'texinfo_sectioning_main_command'} = \@appendix_sectioning_commands;
   }
@@ -237,7 +237,7 @@ sub run
   # contain all the manuals that are part of the same output
   $self->{'texinfo_internal_pod_manuals_hash'} = {};
   my $manuals = $self->texinfo_internal_pod_manuals();
-  if ($manuals) {
+  if (defined($manuals)) {
     foreach my $manual (@$manuals) {
       $self->{'texinfo_internal_pod_manuals_hash'}->{$manual} = 1;
     }
@@ -658,20 +658,14 @@ my %line_commands = (
 #  'encoding' => 'documentencoding'
 );
 
-foreach my $pod_head_command (keys(%pod_head_commands_level)) {
-  $line_commands{$pod_head_command} = 1;
-}
-
 my %context_tags;
-foreach my $context_tag (keys(%line_commands), 'L', 'X', 'Para') {
+foreach my $context_tag (keys(%line_commands),
+                         keys(%pod_head_commands_level), 'L', 'X', 'Para') {
   $context_tags{$context_tag} = 1;
 }
 
-sub _texinfo_handle_element_start($$$)
-{
-  my $self = shift;
-  my $tagname = shift;
-  my $attr_hash = shift;
+sub _texinfo_handle_element_start($$$) {
+  my ($self, $tagname, $attr_hash) = @_;
 
   my $debug = $self->texinfo_debug();
 
@@ -682,7 +676,7 @@ sub _texinfo_handle_element_start($$$)
   if ($self->{'texinfo_ignore_leading_spaces'}) {
     $self->{'texinfo_ignore_leading_spaces'} = 0;
   }
-  if ($context_tags{$tagname}) {
+  if (exists($context_tags{$tagname})) {
     if ($tagname eq 'L') {
       my $linktype = $attr_hash->{'type'};
       # set when the link text is redundant with the to argument.
@@ -795,7 +789,8 @@ sub _texinfo_handle_element_start($$$)
           if (! defined($section) or $section_text !~ m/\S/) {
             # use plain text string without formatting to match with what should
             # be given through texinfo_internal_pod_manuals().
-            if ($self->{'texinfo_internal_pod_manuals_hash'}->{$manual_text}) {
+            if (exists(
+                $self->{'texinfo_internal_pod_manuals_hash'}->{$manual_text})) {
               # should always be the first section in pods
               $section_texi = 'NAME';
               # use the manual name as texinfo section name, otherwise
@@ -807,7 +802,8 @@ sub _texinfo_handle_element_start($$$)
           }
           # use plain text string without formatting to match with what should
           # be given through texinfo_internal_pod_manuals().
-          if ($self->{'texinfo_internal_pod_manuals_hash'}->{$manual_text}) {
+          if (exists(
+               $self->{'texinfo_internal_pod_manuals_hash'}->{$manual_text})) {
             $texinfo_node =
              _prepend_internal_section_manual($manual_texi, $section_texi,
                                  $self->texinfo_sectioning_base_level());
@@ -853,19 +849,21 @@ sub _texinfo_handle_element_start($$$)
       #print STDERR $token->dump."\n";
     }
     _begin_context($self->{'texinfo_accumulated'}, $tagname);
-  } elsif ($tag_commands{$tagname}) {
+  } elsif (exists($tag_commands{$tagname})) {
     _output($fh, $self->{'texinfo_accumulated'}, "\@$tag_commands{$tagname}\{");
-    if ($Texinfo::Commands::brace_code_commands{$tag_commands{$tagname}}) {
-      if (@{$self->{'texinfo_stack'}} and ref($self->{'texinfo_stack'}->[-1]) eq ''
+    if (exists($Texinfo::Commands::brace_code_commands{
+                                                $tag_commands{$tagname}})) {
+      if (scalar(@{$self->{'texinfo_stack'}}) > 0
+          and ref($self->{'texinfo_stack'}->[-1]) eq ''
           and defined($self->{'texinfo_raw_format_commands'}
                                         ->{$self->{'texinfo_stack'}->[-1]})) {
         cluck "in $self->{'texinfo_stack'}->[-1]: $tagname $tag_commands{$tagname}";
       }
       push @{$self->{'texinfo_stack'}}, 'in_code';
     }
-  } elsif ($environment_commands{$tagname}) {
+  } elsif (exists($environment_commands{$tagname})) {
     _output($fh, $self->{'texinfo_accumulated'},
-                                         "\@$environment_commands{$tagname}\n");
+                             "\@$environment_commands{$tagname}\n");
     if ($tagname eq 'Verbatim') {
       push @{$self->{'texinfo_stack'}}, 'verbatim';
     }
@@ -882,10 +880,8 @@ sub _texinfo_handle_element_start($$$)
   }
 }
 
-sub _texinfo_handle_text($$)
-{
-  my $self = shift;
-  my $text = shift;
+sub _texinfo_handle_text($$) {
+  my ($self, $text) = @_;
 
   my $fh = $self->{'output_fh'};
 
@@ -895,22 +891,25 @@ sub _texinfo_handle_text($$)
     $self->{'texinfo_ignore_leading_spaces'} = 0;
   }
   my $result_text;
-  if (@{$self->{'texinfo_stack'}} and ref($self->{'texinfo_stack'}->[-1]) eq ''
-      and ((defined($self->{'texinfo_raw_format_commands'}
+  if (scalar(@{$self->{'texinfo_stack'}}) > 0
+      and ref($self->{'texinfo_stack'}->[-1]) eq ''
+      and ((exists($self->{'texinfo_raw_format_commands'}
                                            ->{$self->{'texinfo_stack'}->[-1]})
             and !$self->{'texinfo_raw_format_commands'}
                                            ->{$self->{'texinfo_stack'}->[-1]})
            or ($self->{'texinfo_stack'}->[-1] eq 'verbatim'))) {
     $result_text = $text;
   } else {
-    if (@{$self->{'texinfo_stack'}} and ref($self->{'texinfo_stack'}->[-1]) eq ''
-        and ($self->{'texinfo_raw_format_commands'}->{$self->{'texinfo_stack'}->[-1]})) {
+    if (scalar(@{$self->{'texinfo_stack'}}) > 0
+        and ref($self->{'texinfo_stack'}->[-1]) eq ''
+        and ($self->{'texinfo_raw_format_commands'}->{
+                                         $self->{'texinfo_stack'}->[-1]})) {
       $result_text = protect_text($text, 0, 1);
       $result_text
   =~ s/^(\s*)#(\s*(line)? (\d+)(( "([^"]+)")(\s+\d+)*)?\s*)$/$1\@hashchar{}$2/mg;
     } else {
       $result_text = protect_text($text, 0,
-                           (@{$self->{'texinfo_stack'}}
+                           (scalar(@{$self->{'texinfo_stack'}}) > 0
                             and $self->{'texinfo_stack'}->[-1] eq 'in_code'));
     }
   }
@@ -921,14 +920,11 @@ sub _texinfo_handle_text($$)
 # to remain compatible with PullParser, the $attr_hash should not be
 # used, information should be gathered at the start of the tag,
 # and passed through the stack $self->{'texinfo_stack'}.
-sub _texinfo_handle_element_end($$$)
-{
-  my $self = shift;
-  my $tagname = shift;
-  my $attr_hash = shift;
+sub _texinfo_handle_element_end($$$) {
+  my ($self, $tagname, $attr_hash) = @_;
 
   my $fh = $self->{'output_fh'};
-  if ($context_tags{$tagname}) {
+  if (exists($context_tags{$tagname})) {
     # note that if the Pod command argument contains --- or -- they
     # will already have been protected as text with -@asis{}-, so
     # this will end up in the @anchor{} even if text protection
@@ -936,16 +932,17 @@ sub _texinfo_handle_element_end($$$)
     my ($result, $out) = _end_context($self->{'texinfo_accumulated'});
     #print STDERR "end: $tagname: $result, $out\n";
     my $texinfo_node = '';
-    if ($line_commands{$tagname}) {
-
+    if (exists($line_commands{$tagname})
+        or exists($pod_head_commands_level{$tagname})) {
       my ($command, $command_argument);
-      if ($pod_head_commands_level{$tagname}) {
+      if (exists($pod_head_commands_level{$tagname})) {
         $command = $self->{'texinfo_head_commands'}->{$tagname};
-      } elsif ($line_commands{$tagname}) {
+      } else {
         $command = $line_commands{$tagname};
       }
 
-      if ($pod_head_commands_level{$tagname} or $tagname eq 'item-text') {
+      if (exists($pod_head_commands_level{$tagname})
+          or $tagname eq 'item-text') {
         chomp ($result);
         $result =~ s/\n/ /g;
         $result =~ s/^\s*//;
@@ -962,9 +959,9 @@ sub _texinfo_handle_element_end($$$)
           $command_argument = protect_text($converter->convert_tree($tree));
         }
 
-        if ($pod_head_commands_level{$tagname}
+        if (exists($pod_head_commands_level{$tagname})
             and $pod_head_commands_level{$tagname} == 1
-            and $standard_headers{lc($result)}) {
+            and exists($standard_headers{lc($result)})) {
           # prepend the manual name for the top level texinfo section name for
           # internal manuals, otherwise the section name does not
           # allow to understand which module the following text refers to,
@@ -1014,14 +1011,14 @@ sub _texinfo_handle_element_end($$$)
           }
         } elsif ($linktype eq 'pod') {
           if (defined($texinfo_manual)) {
-            if ($self->texinfo_external_pod_as_url) {
+            if ($self->texinfo_external_pod_as_url()) {
               my $node_manual = _protect_comma(protect_text($manual_text));
               if (defined($explanation)) {
                 $node_manual .= $explanation;
               } elsif (defined($texinfo_node) and $texinfo_node ne '') {
                 $node_manual .= ' '.$texinfo_node;
               }
-              my $href = $self->texinfo_perldoc_url_prefix
+              my $href = $self->texinfo_perldoc_url_prefix()
                   . $manual_text;
               if (defined($explanation)) {
                 my $target;
@@ -1071,18 +1068,19 @@ sub _texinfo_handle_element_end($$$)
       $result .= "\n";
       _output($fh, $self->{'texinfo_accumulated'}, "\@cindex $result", 1);
     }
-  } elsif ($tag_commands{$tagname}) {
+  } elsif (exists($tag_commands{$tagname})) {
     _output($fh, $self->{'texinfo_accumulated'}, "}");
-    if ($Texinfo::Commands::brace_code_commands{$tag_commands{$tagname}}) {
+    if (exists($Texinfo::Commands::brace_code_commands{
+                                              $tag_commands{$tagname}})) {
       pop @{$self->{'texinfo_stack'}};
     }
-  } elsif ($environment_commands{$tagname}) {
+  } elsif (exists($environment_commands{$tagname})) {
     if ($tagname eq 'Verbatim') {
       pop @{$self->{'texinfo_stack'}};
       _output($fh, $self->{'texinfo_accumulated'}, "\n");
     }
     my $tag = $environment_commands{$tagname};
-    $tag =~ s/ .*//;
+    $tag =~ s/ .*$//;
     _output($fh, $self->{'texinfo_accumulated'}, "\@end $tag\n\n");
   } elsif ($tagname eq 'for') {
     my $target = pop @{$self->{'texinfo_stack'}};
@@ -1103,15 +1101,14 @@ sub _texinfo_handle_element_end($$$)
 # is done in the functions called, and not directly in the function such
 # that it is easy to implement parsing through other Pod::Simple interfaces
 # too.
-sub _convert_pod_tokens($)
-{
+sub _convert_pod_tokens($) {
   my $self = shift;
 
   my $fh = $self->{'output_fh'};
 
   $self->{'texinfo_accumulated'} = [];
   $self->{'texinfo_stack'} = [];
-  while(my $token = $self->get_token()) {
+  while (my $token = $self->get_token()) {
     my $type = $token->type();
     #print STDERR "* type $type\n";
     #print STDERR $token->dump()."\n";
@@ -1130,8 +1127,7 @@ sub _convert_pod_tokens($)
   }
 }
 
-sub _postamble($)
-{
+sub _postamble($) {
   my $self = shift;
 
   my $fh = $self->{'output_fh'};
@@ -1143,10 +1139,8 @@ sub _postamble($)
 
 # convert a tree, for instance a tree produced by
 # Pod::Simple::SimpleTree, or Pod::Simple::LinkSection trees.
-sub _convert_pod_simple_tree($$)
-{
-  my $self = shift;
-  my $simple_tree = shift;
+sub _convert_pod_simple_tree($$) {
+  my ($self, $simple_tree) = @_;
 
   my @simple_tree = @$simple_tree;
   my $tagname = shift @simple_tree;
