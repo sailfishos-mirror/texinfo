@@ -16596,11 +16596,11 @@ made at build-time).
 @cindex Pod, converting to Texinfo
 @cindex Perl Pod, converting to Texinfo
 
-The @command{pod2texi} program translates Perl Pod documentation file(s)
+The @command{pod2texi} program converts Perl Pod documentation file(s)
 to Texinfo.  There are two basic modes of operation: generating a
-standalone manual from each input Pod, or (if @code{--base-level=1} or
-higher is given) generating Texinfo subfiles suitable for use
-with @code{@@include}.
+standalone Texinfo document from each input Pod, or (if @code{--base-level=1}
+or higher is given) generating Texinfo subfiles suitable for use with
+@code{@@include}.
 
 @c Although ordinarily this documentation in the Texinfo manual would be
 @c the best place to look, in this case we have documented all the

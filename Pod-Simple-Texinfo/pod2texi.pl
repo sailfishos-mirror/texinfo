@@ -158,11 +158,11 @@ sub pod2texi_help()
 {
   my $pod2texi_help = __("Usage: pod2texi [OPTION]... POD...");
   $pod2texi_help .= "\n\n";
-  $pod2texi_help .= __("Translate Perl Pod documentation file(s) to Texinfo.  There are two
-basic modes of operation.  First, by default, each Pod is translated to
-a standalone Texinfo manual.
+  $pod2texi_help .= __("Convert Perl Pod documentation file(s) to Texinfo.  There are two
+basic modes of operation.  First, by default, each Pod is converted to
+a standalone Texinfo document.
 
-Second, if --base-level is set higher than 0, each Pod is translated
+Second, if --base-level is set higher than 0, each Pod is converted
 to a file suitable for \@include, and one more file with a main menu
 and all the \@include is generated.");
   $pod2texi_help .= "\n\n";
@@ -171,7 +171,7 @@ and all the \@include is generated.");
   $pod2texi_help .= __("    --base-level=NUM|NAME   level of the head1 commands; default 0")."\n";
   $pod2texi_help .= __("    --debug=NUM             set debugging level")."\n";
   $pod2texi_help .= __("    --generate-setfilename  generate \@setfilename for standalone
-                              manuals")."\n";
+                              Texinfo documents")."\n";
   $pod2texi_help .= __("    --headings-as-sections  no structuring command for sections")."\n";
   $pod2texi_help .= __("    --help                  display this help and exit")."\n";
   $pod2texi_help .= __("    --no-fill-section-gaps  do not fill sectioning gaps")."\n";
@@ -179,13 +179,13 @@ and all the \@include is generated.");
   $pod2texi_help .= __("    --menus                 generate node menus")."\n";
   $pod2texi_help .= __("    --outdir=NAME           output included files in NAME;
                               defaults to --subdir")."\n";
-  $pod2texi_help .= __("    --output=NAME           output to NAME for the first or main manual
+  $pod2texi_help .= __("    --output=NAME           output to NAME for the first or main document
                               instead of standard output")."\n";
   $pod2texi_help .= __("    --preamble=STR          insert STR as beginning boilerplate;
                               defaults to a minimal Texinfo document beginning")."\n";
-  $pod2texi_help .= __("    --setfilename           \@setfilename for the main manual")."\n";
-  $pod2texi_help .= __("    --subdir=NAME           include files from NAME in the main manual")."\n";
-  $pod2texi_help .= __("    --top                   top for the main manual")."\n";
+  $pod2texi_help .= __("    --setfilename           \@setfilename for the main document")."\n";
+  $pod2texi_help .= __("    --subdir=NAME           include files from NAME in the main document")."\n";
+  $pod2texi_help .= __("    --top                   top for the main document")."\n";
   $pod2texi_help .= __("    --unnumbered-sections   do not number sections")."\n";
   $pod2texi_help .= __("    --version               display version information and exit");
   $pod2texi_help .= "\n\n";
@@ -716,7 +716,7 @@ pod2texi - convert Pod to Texinfo
 
 Translate Pod file(s) to Texinfo.  There are two basic modes of
 operation.  First, by default, each Pod is translated to a standalone
-Texinfo manual.
+Texinfo document.
 
 Second, if C<--base-level> is set higher than 0, each Pod is translated
 to a file suitable for C<@include>, and one more file with a main menu
@@ -743,22 +743,23 @@ C<@section>, ...).
 
 =item B<--base-level>=I<NUM|NAME>
 
-Sets the level of the C<head1> commands.  It may be an integer or a
-Texinfo sectioning command (without the C<@>): 1 corresponds to the
-C<@chapter>/C<@unnumbered> level, 2 to the C<@section> level, and so on.
-The default is 0, meaning that C<head1> commands are still output as
-chapters, but the output is arranged as a standalone manual.
+The default is 0, meaning that C<head1> commands are output as chapters and the
+output is arranged as a standalone Texinfo document.
 
 If the level is not 0, the Pod file is rendered as a fragment of a
-Texinfo manual suitable for C<@include>.  In this case, each Pod file
-has an additional sectioning command covering the entire file, one level
-above the C<--base-level> value.  Therefore, to make each Pod file a
-chapter in a large manual, you should use C<section> as the base level.
+Texinfo document suitable for C<@include>.  In that case, the
+option argument sets the level of the C<head1> commands.  It may be an
+integer or a Texinfo sectioning command (without the C<@>): 1 corresponds to
+the C<@chapter>/C<@unnumbered> level, 2 to the C<@section> level, and so on.
+Each included Pod file has an additional sectioning command covering the
+entire file, one level above the C<--base-level> value.  Therefore, to make
+each Pod file a chapter in a large document, you should use C<section> as the
+base level.
+
+=begin comment
 
 For an example of making Texinfo out of the Perl documentation itself,
 see C<contrib/perldoc-all> in the Texinfo source distribution.
-
-=begin comment
 
 with output available at L<http://www.gnu.org/software/perl/manual>.
 
@@ -770,15 +771,16 @@ Set debugging level to I<NUM>.
 
 =item B<--generate-setfilename>
 
-Generate a C<@setfilename> line for standalone manuals.  Can be negated
-with C<--no-generate-setfilename>.  Ignored if C<--base-level> is not 0.
+Generate a C<@setfilename> line for standalone Texinfo documents.  Can be
+negated with C<--no-generate-setfilename>.  Ignored unless C<--base-level> is
+0.
 
 =item B<--headings-as-sections>
 
 Use headings commands (C<@heading>, ...) instead of the
 default numbered sectioning Texinfo @-commands (C<@chapter>,
 C<@section>, ...). The sectioning command covering the entire
-file output for each Pod file if B<--base-level> is not 0 is a
+file output for each Pod file if C<--base-level> is not 0 is a
 numbered command.
 
 =item B<--help>
@@ -787,19 +789,20 @@ Display help and exit.
 
 =item B<--menus>
 
-Output node menus. If there is a main manual, its Top node menu
+Output node menus. If there is a main Texinfo document, its Top node menu
 is always output, since a master menu is generated. Other nodes
 menus are not output in the default case.
 
 =item B<--outdir>=I<NAME>
 
-If there is a main manual with include files (each corresponding to
+If there is a main Texinfo document with include files (each corresponding to
 an input Pod file), then the generated Texinfo files are put in
 directory I<NAME>.  Default is based on C<--subdir>.
 
 =item B<--output>=I<NAME>
 
-Name for the first manual, or the main manual if there is a main manual.
+Name for the first Texinfo document output, or for the main Texinfo
+document if there is a main Texinfo document.
 Default is to write to standard output.
 
 =item B<--no-section-nodes>
@@ -808,7 +811,7 @@ Use anchors for sections instead of nodes.
 
 =item B<--no-fill-section-gaps>
 
-Do not fill sectioning gaps with empty C<@unnumbered> files.
+Do not fill sectioning gaps with empty C<@unnumbered>.
 Ordinarily, it's good to keep the sectioning hierarchy intact.
 
 =item B<--preamble>=I<STR>
@@ -820,17 +823,17 @@ boilerplate is a minimal beginning for a Texinfo document.
 =item B<--setfilename>=I<STR>
 
 Use I<STR> in top boilerplate before menu and includes for C<@setfilename>
-for the main manual, if C<--base-level> is not set to 0.  Ignored if
+for the main Texinfo document, if C<--base-level> is not set to 0.  Ignored if
 C<--base-level> is 0.  No C<@setfilename> is output in the default case
-for the main manual.
+for the main Texinfo document.
 
 =item B<--subdir>=I<NAME>
 
-If there is a main manual with include files (each corresponding to
+If there is a main Texinfo document with include files (each corresponding to
 an input Pod file), then those include files are included from I<NAME>.
 
 If C<--outdir> is set, I<NAME> should in general be set to the relative
-directory between the main manual and C<--outdir> argument.
+directory between the main Texinfo document and C<--outdir> argument.
 
 =item B<--unnumbered-sections>
 
@@ -840,7 +843,8 @@ C<@section>, ...).
 
 =item B<--top>=I<TOP>
 
-Name of the C<@top> element for the main manual.  May contain Texinfo code.
+Name of the C<@top> element for the main Texinfo document.  Also used for
+the title.  May contain Texinfo code.  Ignored if C<--base-level> is 0.
 
 =item B<--version>
 

@@ -1,5 +1,13 @@
 2026-05-11 Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/pod2texi.pl (pod2texi_help), POD: use document
+	instead of manual, convert instead of translate.  Other updates.
+
+	* doc/texinfo.texi (Invoking @command{pod2texi}): use document
+	instead of manual, convert instead of translate.
+
+2026-05-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/ext/epub3.pm (@epub_language, epub_setup, epub_init)
 	(epub_finish): add epub_init handler where all the languages are
 	gathered.  Use configured documentlanguage and documentscript and
