@@ -110,7 +110,7 @@ __PACKAGE__->_accessorize(
   'texinfo_add_upper_sectioning_command',
   'texinfo_debug',
   'texinfo_external_pod_as_url',
-  'texinfo_generate_setfilename', # for standalone manuals
+  'texinfo_generate_setfilename', # for standalone Texinfo documents
   'texinfo_internal_pod_manuals',
   'texinfo_man_url_prefix',
   'texinfo_main_command_sectioning_style',
@@ -1164,8 +1164,9 @@ This class is for making a Texinfo rendering of a Pod document.
 This is a subclass of L<Pod::Simple::PullParser> and inherits all its
 methods (and options).
 
-It supports producing a standalone manual per Pod (the default) or
-render the Pod as a chapter, see L</texinfo_sectioning_base_level>.
+It supports producing a standalone Texinfo document per Pod (the default)
+or rendering the Pod files as Texinfo files suitable for C<@include>,
+see L</texinfo_sectioning_base_level>.
 
 C<@documentencoding> is not output, which is consistent with outputting
 Texinfo in UTF-8.
@@ -1181,12 +1182,12 @@ Initialize a parser object.
 =item run
 
 Run the parser.  In general, you should not use this method directly,
-but instead use C<parse_file> or similar methods from L<Pod::Simple>.
+but instead use C<parse_file> or a similar L<Pod::Simple> method.
 
 =back
 
-You can set these attributes on the parser object before you call
-C<parse_file> (or a similar method) on it:
+You can set parser attributes before a call to C<parse_file> (or a similar
+method) by calling the following methods:
 
 =over
 
@@ -1202,7 +1203,7 @@ output instead.
 =item texinfo_debug
 
 Debug level.  Mainly or only used to turn on Texinfo parsing debugging, when
-Texinfo obtained from Pod is parsed as Texinfo code to be normalized or
+Texinfo converted from Pod is parsed as Texinfo code to be normalized or
 modified and to report associated Texinfo processing errors.  More information
 output with higher levels.  Default 0, no debugging information output.
 
@@ -1214,8 +1215,8 @@ a website collecting CPAN documentation is output for external Pod pages.
 
 =item texinfo_generate_setfilename
 
-If set, generate a C<@setfilename> line in standalone manuals. Ignored
-unless L</texinfo_sectioning_base_level> is 0.
+If set, generate a C<@setfilename> line in standalone Texinfo documents.
+Ignored unless L</texinfo_sectioning_base_level> is 0.
 
 =item texinfo_internal_pod_manuals
 
@@ -1231,9 +1232,9 @@ Relevant if L</texinfo_sectioning_base_level> is not set to 0.
 =item texinfo_main_command_sectioning_style
 
 Sectioning style for the main command appearing at the beginning of the output
-file if L</texinfo_sectioning_base_level> not 0.  Unset in the default case.
-If unset, use L</texinfo_sectioning_style>, except for style C<heading>, for
-which the C<numbered> style is used in the default case.
+file if L</texinfo_sectioning_base_level> is not 0.  Unset in the default case.
+If unset, use L</texinfo_sectioning_style>, except for style I<heading>, for
+which the I<numbered> style is used in the default case.
 
 =item texinfo_man_url_prefix
 
@@ -1252,18 +1253,19 @@ Set to 0 in the default case.
 
 =item texinfo_sectioning_base_level
 
-Sets the level of the head1 commands.  1 is for the @chapter/@unnumbered
-level.  If set to 0, the head1 commands level is still 1, but the output
-manual is considered to be a standalone manual.  If not 0, the Pod file is
-rendered as a fragment of a Texinfo manual.  Default is 0.
+If 0, the default, C<head1> commands are output as chapters and
+the output is arranged as a standalone Texinfo document.  If not 0,
+the Pod file is rendered as a fragment of a Texinfo document suitable for
+C<@include>.  In that case, sets the level of the head1 commands.
+1 is for the C<@chapter>/C<@unnumbered> level.
 
 =item texinfo_sectioning_style
 
-Default is C<numbered>, using the numbered sectioning Texinfo @-commands
-(@chapter, @section...).  Giving C<unnumbered> leads to using unnumbered
-sectioning command variants (C<@unnumbered>...), giving C<heading> leads to
+Default is I<numbered>, using the numbered sectioning Texinfo @-commands
+(C<@chapter>, C<@section>...).  I<unnumbered> leads to using unnumbered
+sectioning command variants (C<@unnumbered>...), I<heading> leads to
 using headings that are not associated with document structuring
-(C<@heading>...) and any other value would lead to using appendix sectioning
+(C<@heading>...) and any other value leads to using appendix sectioning
 command variants (C<@appendix>...).
 
 =item texinfo_short_title
