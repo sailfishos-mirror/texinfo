@@ -70,6 +70,10 @@ automake	node	${GS}/automake/manual/html_node/
  automake-history mono	${GS}/automake/history/automake-history.html
  automake-history node	${GS}/automake/history/html_node/
 
+# from gettext libasprinf, could also be grouped with gettext
+autosprintf	mono	${GS}/gettext/libasprintf/manual/autosprintf.html
+autosprintf	node	${GS}/gettext/libasprintf/manual/html_node/
+
 avl		node	http://adtinfo.org/libavl.html/
 
 bash		mono	${GS}/bash/manual/bash.html
