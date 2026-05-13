@@ -13,7 +13,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#include "use_interpreter_types.h"
+#include "interpreter_use_types.h"
 
 #include "xs_utils.h"
 

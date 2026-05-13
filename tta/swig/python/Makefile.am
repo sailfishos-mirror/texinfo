@@ -34,7 +34,7 @@ BUILT_SOURCES = python_texinfo_wrap.c Texinfo.py
 
 SWIG_include_directories = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/api_for_swig
 SWIG_header_dependencies = \
-                 $(txi_libs_srcdir)/main/use_interpreter_types.h \
+                 $(txi_libs_srcdir)/main/interpreter_use_types.h \
                  $(txi_libs_srcdir)/main/source_mark_types.h \
                  $(txi_libs_srcdir)/api_for_swig/swig_element_data.h \
                  $(txi_libs_srcdir)/api_for_swig/swig_text_options.h \

@@ -35,7 +35,7 @@
 /* not necessarily used, but could be for debugging */
 #include <stdio.h>
 
-#include "use_interpreter_types.h"
+#include "interpreter_use_types.h"
 #include "source_mark_types.h"
 #include "element_types.h"
 #include "types_data.h"
@@ -74,7 +74,7 @@ txi_general_output_strings_setup ();
 reset_parser (0);
 %}
 
-%include "use_interpreter_types.h"
+%include "interpreter_use_types.h"
 
 %rename(setup) txi_ext_inline_setup;
 void

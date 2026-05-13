@@ -16,7 +16,7 @@
 /* replace setting and getting Perl interpreter information to always unset
    and replace functions when called from pure C code */
 
-#include "use_interpreter_types.h"
+#include "interpreter_use_types.h"
 
 #include "xs_utils.h"
 

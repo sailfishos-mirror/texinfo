@@ -22,7 +22,7 @@
 #include <stdarg.h>
 #include <stddef.h>
 
-#include "use_interpreter_types.h"
+#include "interpreter_use_types.h"
 
 /* in set_perl_interpreter.c */
 void set_use_perl_interpreter (enum interpreter_use value);

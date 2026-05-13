@@ -1,5 +1,11 @@
 2026-05-13 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/Makefile.am (libperlcall_utils_la_SOURCES),
+	tta/C/main/interpreter_use_types.h: rename use_interpreter_types.h as
+	interpreter_use_types.h.
+
+2026-05-13 Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Other Dynamic Information): document
 	command_is_in_referred_command_stack.
 

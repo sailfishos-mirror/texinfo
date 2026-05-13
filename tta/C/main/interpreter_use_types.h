@@ -1,6 +1,6 @@
-/* use_interpreter_types.h - types for interpreter use */
-#ifndef USE_INTEPRETER_TYPES_H
-#define USE_INTEPRETER_TYPES_H
+/* interpreter_use_types.h - types for interpreter use */
+#ifndef INTERPETER_USE_TYPES_H
+#define INTERPETER_USE_TYPES_H
 /* Copyright 2025-2026 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -16,6 +16,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
+/* interpreter is a Perl interpreter in practice */
 enum interpreter_use {
    txi_interpreter_use_none = -1,
    txi_interpreter_use_no_interpreter,

@@ -35,7 +35,7 @@
    is not set */
 #include "gettext.h"
 
-#include "use_interpreter_types.h"
+#include "interpreter_use_types.h"
 #include "document_types.h"
 #include "option_types.h"
 #include "options_defaults.h"

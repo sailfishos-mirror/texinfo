@@ -39,7 +39,7 @@ SWIG_include_directories = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/api_fo
 BUILT_SOURCES = perl_texinfo_wrap.c Texinfo.pm
 
 SWIG_header_dependencies = \
-                 $(txi_libs_srcdir)/main/use_interpreter_types.h \
+                 $(txi_libs_srcdir)/main/interpreter_use_types.h \
                  $(txi_libs_srcdir)/main/source_mark_types.h \
                  $(txi_libs_srcdir)/api_for_swig/swig_element_types.h \
                  $(txi_libs_srcdir)/api_for_swig/swig_element_data.h \
@@ -79,7 +79,7 @@ all-local: .libs/auto/Texinfo
 # The .pm that load the XS modules seems to always be installed in
 # installsitearch or installvendorarch.
 # configure sets archlibdir to installsitearch or installvendorarch depending
-# on configure flags, also taking prefix into account as should be.
+# on configure variables, also taking prefix into account as should be.
 nodist_perlarch_DATA = Texinfo.pm
 
 module = Texinfo
