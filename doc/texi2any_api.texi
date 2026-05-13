@@ -2305,11 +2305,13 @@ associated with the index.  @xref{Specific Formatting for Indices}.
 @end table
 
 @item sections_list
+@anchor{@code{sections_list}}
 List of the sectioning commands relations associated to each of the
 document sectioning commands in document order.
 @xref{Sectioning Commands Elements and Document Structure}.
 
 @item nodes_list
+@anchor{@code{nodes_list}}
 List of the node relations in the document associated to each of the
 @code{@@node} in document order.
 @xref{Node Elements and Document Structure}.
@@ -2549,6 +2551,268 @@ context.
 @end deftypefun
 
 
+@node Document Structure
+@section Document Structure
+
+@cindex Document structure
+
+The document structure information is mainly obtained from section
+relations, nodes relations and headings relations information
+associated to sectioning, nodes and heading elements.  Output units
+also provide information on the document structure.
+
+Sections relations can also be retrieved by calling
+@code{$document->sections_list()} on the @code{$document} obtained
+through @code{get_info} (@pxref{@code{sections_list}}).  Similarly,
+nodes relations can also be retrieved by calling
+@code{$document->nodes_list()} on the @code{$document} obtained
+through @code{get_info} (@pxref{@code{nodes_list}}).
+
+You can also find additional information on document structure associated to
+node, sectioning and heading elements by looking at the tree element
+@code{extra} information.
+
+
+@node Sectioning Commands Elements and Document Structure
+@subsection Sectioning Commands Elements and Document Structure
+
+Sectioning commands tree elements section level, taking into account
+@code{@@raisesections} and @code{@@lowersections} is available in @code{extra}
+@code{section_level}.  Level 0 corresponds to @code{@@top} or @code{@@part} and
+level 1 to @code{@@chapter} level sectioning commands.
+@xref{Raise/lower sections,,, texinfo, Texinfo}.
+
+Level of heading commands, such as @code{subheading} is returned by the
+@code{Texinfo::Common::section_level} function:
+
+@deftypefun {@var{$level} =} Texinfo::Common::section_level (@var{\%element})
+Return the numbered level of the heading or sectioning command tree element
+@var{\%element}, as modified by raise/lowersections for sections.
+@end deftypefun
+
+Call @code{Texinfo::Structuring::section_level_adjusted_command_name} for the command
+name adjusted for @code{@@raisesections} and @code{@@lowersections}:
+
+@deftypefun {@var{$command_name}} = @
+  Texinfo::Structuring::section_level_adjusted_command_name (@var{\%element})
+Return the sectioning command name corresponding to the sectioning
+element @var{\%element}, adjusted in order to take into account raised
+and lowered sections, when needed.
+@end deftypefun
+
+@cindex Sectioning command relations
+
+Most of the information on document structure associated to a sectioning
+command tree element is available in the sectioning command relations
+information associated to the sectioning command tree element.  This is an hash
+reference obtained by calling @code{converter_section_relations_of_section}:
+
+@deftypefun {@var{\%section_relations} =} @var{$converter}->converter_section_relations_of_section (@var{\%element})
+Return the sectioning command relations information associated to the
+sectioning command tree element @var{\%element}, or @samp{undef} if it
+cannot be found@footnote{If there is a document associated to the
+converter and the tree element is actually a sectioning command tree
+element, the relations information should always be found.}.
+@end deftypefun
+
+The following keys are in section relations hash references:
+
+@table @code
+@item element
+The sectioning command Texinfo tree element associated to the section
+relations.
+
+@item associated_node
+Node relations information corresponding to the node associated
+to the sectioning command.
+
+@item associated_part
+Part @@-command relations information of the @code{@@part} preceding
+the sectioning command.
+
+@item section_children
+The children of the section relations element in the sectioning tree.  These
+children are also section relations.
+
+@c not clearly useful in user-defined code
+@c @item associated_anchor_command
+
+@item section_directions
+Hash reference with @code{up}, @code{next} and @code{prev} keys associated
+to the corresponding section relations directions.
+
+@item toplevel_directions
+Hash reference with @code{up}, @code{next} and @code{prev} keys associated
+to toplevel sectioning relations directions, for elements like @code{@@top},
+@code{@@chapter}, @code{@@appendix}, not taking into account @code{@@part}
+elements.
+
+@item part_associated_section
+For @code{@@part} tree elements only.  Sectioning command relations
+following the @code{@@part}.
+
+@item part_following_node
+For @code{@@part} tree elements only.  Node relations of the node associated
+to the @code{@@part}.
+
+@end table
+
+
+
+@node Node Elements and Document Structure
+@subsection Node Elements and Document Structure
+
+The following keys of the @code{extra} node elements hash
+can be interesting in user-defined formatting and conversion functions:
+
+@table @code
+@item normalized
+Normalized node name. @xref{HTML Xref,,, texinfo, Texinfo}.
+@end table
+
+@cindex Node relations
+
+Most of the information on document structure associated to a @code{@@node}
+tree element is available in the node relations
+information associated to the node tree element.  This is an hash
+reference obtained by calling @code{converter_node_relations_of_node}:
+
+@deftypefun {@var{\%node_relations} =} @var{$converter}->converter_node_relations_of_node (@var{\%element})
+Return the node relations information associated to the
+node tree element @var{\%element}, or @samp{undef} if it
+cannot be found@footnote{If there is a document associated to the
+converter, the tree element is actually a @code{@@node} tree
+element and is not empty, the relations information should always be found.}.
+@end deftypefun
+
+The following keys are in node relations hash references:
+
+@table @code
+@item element
+The @code{@@node} Texinfo tree element associated to the node
+relations.
+
+@item associated_section
+Sectioning command relations information corresponding to the sectioning
+command associated to the node.
+
+@item associated_title_command
+Sectioning command, heading command or @code{@@xrefname} tree element following
+the node.
+
+@item node_preceding_part
+Part @@-command relations information of the @code{@@part} associated
+to the node.
+
+@item menus
+A list of menu tree elements found in the node.
+
+@item node_directions
+Hash reference with @code{up}, @code{next} and @code{prev} keys associated
+to the corresponding node relations directions.
+
+@item node_description
+Tree element holding a description of the node, either a
+@code{@@nodedescription} or a @code{@@nodedescriptionblock}.
+
+@item node_long_description
+Tree element holding a long description of the node,
+corresponding to a @code{@@nodedescriptionblock} tree element.
+
+@end table
+
+
+@node Heading Elements and Document Structure
+@subsection Heading Elements and Document Structure
+
+@cindex Heading relations
+
+Information on document structure associated to an heading
+command or to an @code{@@xrefname} command
+tree element is available in the heading relations
+information associated to the tree element.  This is an hash
+reference obtained by calling @code{converter_heading_relations_of_heading}:
+
+@deftypefun {@var{\%heading_relations} =} @var{$converter}->converter_heading_relations_of_heading (@var{\%element})
+Return the heading relations information associated to the
+heading tree element @var{\%element}, or @samp{undef} if it
+cannot be found@footnote{If there is a document associated to the
+converter, the tree element is actually a heading tree element,
+the relations information should always be found.}.
+@end deftypefun
+
+The following keys are in heading relations hash references:
+
+@table @code
+@item element
+The Texinfo tree element associated to the heading relations.
+
+@item associated_anchor_command
+Node relations associated to the heading or @code{@@xrefname} command.
+@end table
+
+
+@node Output Units Information
+@subsection Output Units Information
+
+Some information is available only in output units.  Finding an output unit
+and using the information associated with the output unit hash reference keys
+may be needed in user-defined conversion functions.
+
+Both normal and special output units (@pxref{Output Units}) can be obtained as
+output units conversion function arguments (@pxref{Output Units Conversion
+Functions}).  The current output unit being processed is also available as
+@code{$converter->current_output_unit()} (@pxref{Other Dynamic Information}).
+Root command (@code{@@node} or sectioning command) @code{associated_unit} key
+value points to the associated output unit.  Lastly
+@code{get_element_root_command_element} may be used to get the the output
+unit associated with an element
+(@pxref{@code{get_element_root_command_element}}).
+
+The following keys of output unit hashes can be interesting:
+
+@table @code
+@item unit_type
+@anchor{Unit Type}
+@cindex Unit type
+@code{unit} for normal output units, @code{special_unit} for
+special units and @code{external_node_unit} for external nodes virtual units
+corresponding to references to external manuals.
+
+@item unit_command
+For normal output units, points to the associated @code{@@node} or sectioning
+@@-command depending on which of nodes or sectioning commands are the main
+components of output units. @xref{Output Units}.  The corresponding sectioning
+and @code{@@node} @@-command elements have an @code{associated_unit} key
+directly in their hash that points to the associated output unit.
+@cindex @code{unit_command} element
+@cindex @code{associated_unit} output unit
+
+For special units, points to a ``virtual'' tree element with type
+@code{special_unit_element} associated with the special element, that does
+not appear in the Texinfo tree but can be used as a target for directions
+to the special unit.  This element has an @code{associated_unit} key that
+points to the associated output unit.
+
+for references to external manuals virtual units, points to the tree
+element corresponding to the external manual and node label.
+
+@item unit_contents
+Array reference on tree elements associated with the output unit.
+
+@item unit_filename
+The associated file name.
+
+@item tree_unit_directions
+Hash with @code{next} and @code{prev} for the
+next and previous output units in document order.
+
+@item special_unit_variety
+The variety of the special output unit.
+For special units only. @xref{Special Units Varieties}.
+@end table
+
+
 @node Converting Texinfo Trees
 @section Converting Texinfo Trees
 
@@ -2784,264 +3048,6 @@ The following is incorrect:
 @example
 push @@@{$element->@{'contents'@}@}, @{'text' => ' my added text'@};
 @end example
-
-
-@node Tree Elements and Document Structure
-@subsection Tree Elements and Document Structure
-
-@cindex Document structure
-
-You can find information on document structure associated to each node,
-sectioning and heading element by looking at the tree element @code{extra}
-information, and by accessing relations information associated to each of these
-elements.
-
-
-@node Sectioning Commands Elements and Document Structure
-@subsubsection Sectioning Commands Elements and Document Structure
-
-Sectioning commands tree elements section level, taking into account
-@code{@@raisesections} and @code{@@lowersections} is available in @code{extra}
-@code{section_level}.  Level 0 corresponds to @code{@@top} or @code{@@part} and
-level 1 to @code{@@chapter} level sectioning commands.
-@xref{Raise/lower sections,,, texinfo, Texinfo}.
-
-Level of heading commands, such as @code{subheading} is returned by the
-@code{Texinfo::Common::section_level} function:
-
-@deftypefun {@var{$level} =} Texinfo::Common::section_level (@var{\%element})
-Return the numbered level of the heading or sectioning command tree element
-@var{\%element}, as modified by raise/lowersections for sections.
-@end deftypefun
-
-Call @code{Texinfo::Structuring::section_level_adjusted_command_name} for the command
-name adjusted for @code{@@raisesections} and @code{@@lowersections}:
-
-@deftypefun {@var{$command_name}} = @
-  Texinfo::Structuring::section_level_adjusted_command_name (@var{\%element})
-Return the sectioning command name corresponding to the sectioning
-element @var{\%element}, adjusted in order to take into account raised
-and lowered sections, when needed.
-@end deftypefun
-
-@cindex Sectioning command relations
-
-Most of the information on document structure associated to a sectioning
-command tree element is available in the sectioning command relations
-information associated to the sectioning command tree element.  This is an hash
-reference obtained by calling @code{converter_section_relations_of_section}:
-
-@deftypefun {@var{\%section_relations} =} @var{$converter}->converter_section_relations_of_section (@var{\%element})
-Return the sectioning command relations information associated to the
-sectioning command tree element @var{\%element}, or @samp{undef} if it
-cannot be found@footnote{If there is a document associated to the
-converter and the tree element is actually a sectioning command tree
-element, the relations information should always be found.}.
-@end deftypefun
-
-The following keys are in section relations hash references:
-
-@table @code
-@item element
-The sectioning command Texinfo tree element associated to the section
-relations.
-
-@item associated_node
-Node relations information corresponding to the node associated
-to the sectioning command.
-
-@item associated_part
-Part @@-command relations information of the @code{@@part} preceding
-the sectioning command.
-
-@item section_children
-The children of the section relations element in the sectioning tree.  These
-children are also section relations.
-
-@c not clearly useful in user-defined code
-@c @item associated_anchor_command
-
-@item section_directions
-Hash reference with @code{up}, @code{next} and @code{prev} keys associated
-to the corresponding section relations directions.
-
-@item toplevel_directions
-Hash reference with @code{up}, @code{next} and @code{prev} keys associated
-to toplevel sectioning relations directions, for elements like @code{@@top},
-@code{@@chapter}, @code{@@appendix}, not taking into account @code{@@part}
-elements.
-
-@item part_associated_section
-For @code{@@part} tree elements only.  Sectioning command relations
-following the @code{@@part}.
-
-@item part_following_node
-For @code{@@part} tree elements only.  Node relations of the node associated
-to the @code{@@part}.
-
-@end table
-
-Sections relations can also be retrieved by calling
-@code{$document->sections_list()} on the @code{$document} obtained
-through @code{get_info} (@pxref{Converter General Information}).
-
-
-@node Node Elements and Document Structure
-@subsubsection Node Elements and Document Structure
-
-The following keys of the @code{extra} node elements hash
-can be interesting in user-defined formatting and conversion functions:
-
-@table @code
-@item normalized
-Normalized node name. @xref{HTML Xref,,, texinfo, Texinfo}.
-@end table
-
-@cindex Node relations
-
-Most of the information on document structure associated to a @code{@@node}
-tree element is available in the node relations
-information associated to the node tree element.  This is an hash
-reference obtained by calling @code{converter_node_relations_of_node}:
-
-@deftypefun {@var{\%node_relations} =} @var{$converter}->converter_node_relations_of_node (@var{\%element})
-Return the node relations information associated to the
-node tree element @var{\%element}, or @samp{undef} if it
-cannot be found@footnote{If there is a document associated to the
-converter, the tree element is actually a @code{@@node} tree
-element and is not empty, the relations information should always be found.}.
-@end deftypefun
-
-The following keys are in node relations hash references:
-
-@table @code
-@item element
-The @code{@@node} Texinfo tree element associated to the node
-relations.
-
-@item associated_section
-Sectioning command relations information corresponding to the sectioning
-command associated to the node.
-
-@item associated_title_command
-Sectioning command, heading command or @code{@@xrefname} tree element following
-the node.
-
-@item node_preceding_part
-Part @@-command relations information of the @code{@@part} associated
-to the node.
-
-@item menus
-A list of menu tree elements found in the node.
-
-@item node_directions
-Hash reference with @code{up}, @code{next} and @code{prev} keys associated
-to the corresponding node relations directions.
-
-@item node_description
-Tree element holding a description of the node, either a
-@code{@@nodedescription} or a @code{@@nodedescriptionblock}.
-
-@item node_long_description
-Tree element holding a long description of the node,
-corresponding to a @code{@@nodedescriptionblock} tree element.
-
-@end table
-
-Nodes relations can also be retrieved by calling
-@code{$document->nodes_list()} on the @code{$document} obtained
-through @code{get_info} (@pxref{Converter General Information}).
-
-
-@node Heading Elements and Document Structure
-@subsubsection Heading Elements and Document Structure
-
-@cindex Heading relations
-
-Information on document structure associated to an heading
-command or to an @code{@@xrefname} command
-tree element is available in the heading relations
-information associated to the tree element.  This is an hash
-reference obtained by calling @code{converter_heading_relations_of_heading}:
-
-@deftypefun {@var{\%heading_relations} =} @var{$converter}->converter_heading_relations_of_heading (@var{\%element})
-Return the heading relations information associated to the
-heading tree element @var{\%element}, or @samp{undef} if it
-cannot be found@footnote{If there is a document associated to the
-converter, the tree element is actually a heading tree element,
-the relations information should always be found.}.
-@end deftypefun
-
-The following keys are in heading relations hash references:
-
-@table @code
-@item element
-The Texinfo tree element associated to the heading relations.
-
-@item associated_anchor_command
-Node relations associated to the heading or @code{@@xrefname} command.
-@end table
-
-
-@node Output Units in User Defined Functions
-@subsection Output Units in User Defined Functions
-
-Some information is available only in output units.  Finding an output unit
-and using the information associated with the output unit hash reference keys
-may be needed in user-defined conversion functions.
-
-Both normal and special output units (@pxref{Output Units}) can be obtained as
-output units conversion function arguments (@pxref{Output Units Conversion
-Functions}).  The current output unit being processed is also available as
-@code{$converter->current_output_unit()} (@pxref{Other Dynamic Information}).
-Root command (@code{@@node} or sectioning command) @code{associated_unit} key
-value points to the associated output unit.  Lastly
-@code{get_element_root_command_element} may be used to get the the output
-unit associated with an element
-(@pxref{@code{get_element_root_command_element}}).
-
-The following keys of output unit hashes can be interesting:
-
-@table @code
-@item unit_type
-@anchor{Unit Type}
-@cindex Unit type
-@code{unit} for normal output units, @code{special_unit} for
-special units and @code{external_node_unit} for external nodes virtual units
-corresponding to references to external manuals.
-
-@item unit_command
-For normal output units, points to the associated @code{@@node} or sectioning
-@@-command depending on which of nodes or sectioning commands are the main
-components of output units. @xref{Output Units}.  The corresponding sectioning
-and @code{@@node} @@-command elements have an @code{associated_unit} key
-directly in their hash that points to the associated output unit.
-@cindex @code{unit_command} element
-@cindex @code{associated_unit} output unit
-
-For special units, points to a ``virtual'' tree element with type
-@code{special_unit_element} associated with the special element, that does
-not appear in the Texinfo tree but can be used as a target for directions
-to the special unit.  This element has an @code{associated_unit} key that
-points to the associated output unit.
-
-for references to external manuals virtual units, points to the tree
-element corresponding to the external manual and node label.
-
-@item unit_contents
-Array reference on tree elements associated with the output unit.
-
-@item unit_filename
-The associated file name.
-
-@item tree_unit_directions
-Hash with @code{next} and @code{prev} for the
-next and previous output units in document order.
-
-@item special_unit_variety
-The variety of the special output unit.
-For special units only. @xref{Special Units Varieties}.
-@end table
 
 
 @node Customization and Use of Formatting Functions
@@ -3518,7 +3524,7 @@ used as labels, @code{@@node}, @code{@@anchor} and @code{@@float}.  Sectioning
 commands, index entries, footnotes are also associated with targets.  The
 ``virtual'' elements associated with special output units are also
 associated with targets leading to each special unit
-(@pxref{Output Units in User Defined Functions}).
+(@pxref{Output Units Information}).
 
 To get the unique Texinfo tree element corresponding to an identifier, use
 @code{converter_find_identifier_target}:
@@ -4995,7 +5001,7 @@ Texinfo document.
 
 For example, to associate the first @code{@@appendix} command to the
 @samp{Appendix} direction by using section and node relations
-(@pxref{Tree Elements and Document Structure}):
+(@pxref{Document Structure}):
 
 @example
 use Texinfo::Common;

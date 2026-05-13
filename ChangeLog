@@ -1,5 +1,15 @@
 2026-05-13 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Document Structure): rename "Tree Elements and
+	Document Structure" as "Document Structure" and make it a section
+	directly in "Formatting HTML Output".
+
+	* doc/texi2any_api.texi (Output Units Information): rename "Output
+	Units in User Defined Functions" as "Output Units Information" and
+	move to "Document Structure".
+
+2026-05-13 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c (html_prepare_converted_output_info):
 	access command flags only if an element is not a text element.
 
