@@ -1180,7 +1180,8 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
               char *element_metadata_str;
 
               if (element->type == ET_arguments_line
-                  || command_other_flags (element) & CF_metadata)
+                  || (! (type_data[element->type].flags & TF_text)
+                      && command_other_flags (element) & CF_metadata))
                 continue;
 
               /* can be NULL in case the element is ignored, for example
@@ -1227,7 +1228,6 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
 
       html_translate_names (self);
     }
-
 
   /* reset in case the user changed customization variables in handlers */
   destroy_text_options (self->convert_text_options);

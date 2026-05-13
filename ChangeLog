@@ -1,5 +1,14 @@
 2026-05-13 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c (html_prepare_converted_output_info):
+	access command flags only if an element is not a text element.
+
+	* tta/perl/Makefile.tres, tta/perl/t/converters_tests.t
+	(documentinfo_with_empty_line): new test with empty line in
+	@documentinfo.
+
+2026-05-13 Patrice Dumas  <pertusus@free.fr>
+
 	Do not install nor put on the web the texi2any internals manual
 
 	* doc/Makefile.am (wwwdoc-build, wwwdoc-install): do not generate the

@@ -191,6 +191,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/definition_commands.pl \
   t/results/converters_tests/definition_commands/res_html \
   t/results/converters_tests/definition_commands/res_latex \
+  t/results/converters_tests/documentinfo_with_empty_line.pl \
   t/results/converters_tests/email_table_command_as_argument.pl \
   t/results/converters_tests/empty.pl \
   t/results/converters_tests/empty/res_docbook \

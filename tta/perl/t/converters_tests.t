@@ -1540,6 +1540,20 @@ xrefautomaticsectiontitle on @ref{entiti}.
 @node chapter
 @chapter Chap
 '],
+['documentinfo_with_empty_line',
+'
+@documentinfo
+@title yup
+
+@author Toto
+@end documentinfo
+
+@node Top
+@top top
+
+@node chapter
+@chapter Chap
+']
 );
 
 my @html_text_cases = (
@@ -1789,6 +1803,7 @@ my %html_tests = (
  'contents_at_document_begin_inline' => 1,
  'contents_at_document_begin_separate_element' => 1,
  'metadata_in_documentinfo' => 1,
+ 'documentinfo_with_empty_line' => 1,
 );
 
 my %file_html_tests = (
@@ -1801,6 +1816,7 @@ my %file_html_tests = (
 my %docbooc_doc_tests = (
  'line_breaks' => 1,
  'metadata_in_documentinfo' => 1,
+ 'documentinfo_with_empty_line' => 1,
 );
 
 my %file_latex_tests = (
