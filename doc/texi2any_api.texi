@@ -2504,6 +2504,18 @@ If the alignment context is the default alignement context, return @code{undef}.
 Otherwise, returns the command name of the alignment context.
 @end deftypefun
 
+To determine if a tree element that can be the target of cross-references
+is already being converted you can call @code{is_in_referred_command_stack}.
+It is used in the default case for @code{@@ref} and similar @@-command
+tree element conversion to avoid infinite recursion.  Indeed, if @code{@@ref}
+is inside of an @@-command and refers to that @@-command, directly or
+indirectly, an infinite recursion could happen.
+
+@deftypefun {@var{$is_being_converted} =} @var{$converter}->is_in_referred_command_stack (@var{\%element})
+Return true if the @var{\%element} is being converted.  Only for @@-commands
+that can be the target of links (@pxref{Target Tree Element Link}).
+@end deftypefun
+
 To determine if in a context of multiple conversions,
 use @code{in_multiple_conversions}:
 @deftypefun {@var{$multiple_conversion} =} @var{$converter}->in_multiple_conversions ()
