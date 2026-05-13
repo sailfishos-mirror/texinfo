@@ -14,11 +14,8 @@ use Texinfo::Transformations;
 
 ok(1, 'modules loading');
 
-sub run_test($$$)
-{
-  my $in = shift;
-  my $out = shift;
-  my $name = shift;
+sub run_test($$$) {
+  my ($in, $out, $name) = @_;
 
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_piece($in);

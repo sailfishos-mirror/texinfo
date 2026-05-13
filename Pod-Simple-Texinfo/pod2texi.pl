@@ -43,7 +43,6 @@ BEGIN
   my $datadir = '@datadir@';
   my $converter = '@CONVERTER@';
   my $libdir = '@libdir@';
-  my $xsdir;
 
   my $in_source = 0;
   # set if we detect that the command comes from a Perl build with Makefile.PL.
@@ -91,7 +90,8 @@ BEGIN
 
     require Texinfo::ModulePath;
     # NOTE updirs argument cannot point to the right place, as it is only
-    # valid in texi2any directory.  t2a_srcdir and t2a_builddir should be used.
+    # valid in texi2any directory.  t2a_srcdir and t2a_builddir are set and
+    # should be used instead.
     Texinfo::ModulePath::init(undef, undef, undef);
 
     # To find Pod::Simple::Texinfo

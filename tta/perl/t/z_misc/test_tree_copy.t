@@ -199,11 +199,4 @@ foreach my $file_include (['Texinfo', $manual_file, $manual_include_dir],
   #print STDERR $test_texi_copy;
 }
 
-#{
-#  local $Data::Dumper::Purity = 1;
-#  local $Data::Dumper::Indent = 1;
-#  print STDERR Data::Dumper->Dump([$copy]);
-#}
-
-
 1;

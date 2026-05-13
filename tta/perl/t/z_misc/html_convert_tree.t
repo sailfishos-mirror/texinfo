@@ -55,6 +55,7 @@ my $result_from_handle = $converter->convert_tree($tree_handle);
 my $reference_output = '<p>N <toto class="code">M</toto></p>';
 my $reference_from_handle;
 
+# TODO check if this is still true with the changes in XSLoader
 SKIP: {
   # Even if $XS_parser is set, if iconv is not functional the Parser XS
   # won't be built, so we cannot be sure that the XS function is called,

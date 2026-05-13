@@ -25,12 +25,8 @@ $ENV{LANGUAGE} = 'C';
 
 ok(1, 'modules loading');
 
-sub run_test($$$;$)
-{
-  my $in = shift;
-  my $out = shift;
-  my $test_name = shift;
-  my $errors_references = shift;
+sub run_test($$$;$) {
+  my ($in, $out, $test_name, $errors_references) = @_;
 
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_piece($in, 1);
@@ -82,7 +78,7 @@ sub run_test($$$;$)
   }
 }
 
-run_test ('# line 4 "ggggg"
+run_test('# line 4 "ggggg"
 and
  # line 5 "fff"
 # 46
@@ -100,7 +96,7 @@ and
 @hashchar{} 7 "aaaa"
 ', 'two paragraphs');
 
-run_test ('
+run_test('
 @example
 # line 5 "fff"
 aaa
@@ -122,7 +118,7 @@ b
 @end example
 ', 'in example');
 
-run_test ('
+run_test('
 @table @asis
 @item truc
 
@@ -203,9 +199,3 @@ in quotation
 ', 'on quotation line');
 
 
-#{
-#  local $Data::Dumper::Purity = 1;
-#  local $Data::Dumper::Indent = 1;
-#
-#  print STDERR Data::Dumper->Dump([$tree]);
-#}

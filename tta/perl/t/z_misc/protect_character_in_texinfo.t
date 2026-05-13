@@ -11,25 +11,11 @@ use Texinfo::Parser;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
 use Texinfo::ManipulateTree;
-use Texinfo::XSLoader;
-
-my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 
 ok(1, 'modules loading');
 
-#my %avoided_keys_tree;
-#my @avoided_keys_tree = ('parent', 'tree_document_descriptor');
-#foreach my $avoided_key(@avoided_keys_tree) {
-#  $avoided_keys_tree{$avoided_key} = 1;
-#}
-#sub filter_tree_keys { [grep {!$avoided_keys_tree{$_}} ( sort keys %{$_[0]} )] }
-
-sub run_test($$$$)
-{
-  my $do = shift;
-  my $in = shift;
-  my $out = shift;
-  my $name = shift;
+sub run_test($$$$) {
+  my ($do, $in, $out, $name) = @_;
 
   my ($reference_as_text, $reference_as_line);
   if ($out) {
@@ -74,10 +60,6 @@ sub run_test($$$$)
   } else {
     is($texi_result_as_text, $reference_as_text, "text $name");
     is($texi_result_as_line, $reference_as_line, "line $name");
-    #local $Data::Dumper::Purity = 1;
-    #local $Data::Dumper::Indent = 1;
-    #local $Data::Dumper::Sortkeys = \&filter_tree_keys;
-    #print STDERR Data::Dumper->Dump([$tree_as_line]);
   }
 }
 

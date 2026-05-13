@@ -1,3 +1,9 @@
+2026-05-13 Patrice Dumas  <pertusus@free.fr>
+
+	* Pod-Simple-Texinfo/pod2texi.pl, tta/perl/t/*.t: remove unused code,
+	change formatting of functions beginning.  Change in spacing.
+	Cosmetic changes.
+
 2026-05-12 Patrice Dumas  <pertusus@free.fr>
 
 	* util/htmlxref.d/Texinfo_GNU.cnf: add autosprintf.

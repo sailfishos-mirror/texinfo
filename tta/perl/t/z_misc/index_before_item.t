@@ -15,11 +15,8 @@ use Texinfo::DebugTree;
 
 ok(1, 'modules loading');
 
-sub run_test($$$)
-{
-  my $in = shift;
-  my $out = shift;
-  my $name = shift;
+sub run_test($$$) {
+  my ($in, $out, $name) = @_;
 
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_piece($in);
@@ -40,7 +37,7 @@ sub run_test($$$)
   }
 }
 
-run_test ('@itemize
+run_test('@itemize
 
 @c comment
 @cindex index entry
@@ -78,7 +75,7 @@ third
 @end itemize
 ', 'entries before items');
 
-run_test ('@example
+run_test('@example
 
 @enumerate
 

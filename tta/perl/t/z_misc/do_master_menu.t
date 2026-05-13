@@ -17,10 +17,9 @@ use Texinfo::Structuring;
 
 ok(1, 'modules loading');
 
-sub _get_in($;$)
-{
-  my $fragment = shift;
-  my $other_fragment = shift;
+sub _get_in($;$) {
+  my ($fragment, $other_fragment) = @_;
+
   $other_fragment = '' if (!defined($other_fragment));
 
   my $in = '@node Top

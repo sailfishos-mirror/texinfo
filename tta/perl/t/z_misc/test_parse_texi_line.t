@@ -19,12 +19,8 @@ ok(1, 'modules loading');
 
 # test regressions specific of parse_texi_line
 
-sub test_line($$$$)
-{
-  my $parser = shift;
-  my $texinfo_line = shift;
-  my $test_name = shift;
-  my $errors_references = shift;
+sub test_line($$$$) {
+  my ($parser, $texinfo_line, $test_name, $errors_references) = @_;
 
   if (not defined($parser)) {
     $parser = Texinfo::Parser::parser();

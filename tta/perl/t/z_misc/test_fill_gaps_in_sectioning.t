@@ -15,13 +15,10 @@ use Texinfo::Document;
 
 ok(1, 'modules loading');
 
-sub test_correction($$$;$)
-{
-  my $in = shift;
-  my $out = shift;
-  my $name = shift;
-  # if set, test _correct_level instead of fill_gaps_in_sectioning_in_document
-  my $test_correct_level = shift;
+# If $TEST_CORRECT_LEVEL is defined, test _correct_level instead
+# of fill_gaps_in_sectioning_in_document
+sub test_correction($$$;$) {
+  my ($in, $out, $name, $test_correct_level) = @_;
 
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_text($in);
@@ -30,8 +27,11 @@ sub test_correction($$$;$)
   if (! defined($test_correct_level)) {
     Texinfo::Transformations::fill_gaps_in_sectioning_in_document($document);
   } else {
-    # If set to 0, undef to mimic not giving the argument
-    $test_correct_level = undef if (!$test_correct_level);
+    my $test_correct_level_argument;
+    # If set to 0, leave undef to mimic not giving the argument
+    if ($test_correct_level != 0) {
+      $test_correct_level_argument = $test_correct_level;
+    }
     # the sectioning command is always $tree->{'contents'}->[1], while
     # $tree->{'contents'}->[0] is the before_sections container,
     # which contains the raise/lowersections that modify the
@@ -40,17 +40,11 @@ sub test_correction($$$;$)
     # to before_sections.
     Texinfo::Transformations::_correct_level($tree->{'contents'}->[1],
                                              $tree->{'contents'}->[0],
-                                             $test_correct_level);
+                                             $test_correct_level_argument);
   }
 
   # rebuild the tree
   $tree = $document->tree();
-  #{
-  #local $Data::Dumper::Purity = 1;
-  ##local $Data::Dumper::Maxdepth = 2;
-  #local $Data::Dumper::Indent = 1;
-  #print STDERR Data::Dumper->Dump([$tree]);
-  #}
 
   my $texi_result
    = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);

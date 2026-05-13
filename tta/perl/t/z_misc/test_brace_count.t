@@ -34,15 +34,17 @@ ok(($braces_count == 2 and $before eq $string_open_brace_and_text
     and !defined($after)), 'more braces opened and text');
 
 
-sub _find_text($)
-{
+sub _find_text($) {
   my $root = shift;
+
   my $current = $root;
-  while ($current->{'type'} and ($current->{'type'} eq 'root_line'
-                      # following could be useful if parse_texi_piece is used
-                                 or $current->{'type'} eq 'before_node_section'
-                                 or $current->{'type'} eq 'document_root'
-                                 or $current->{'type'} eq 'paragraph')) {
+  while (exists($current->{'contents'})
+         and exists($current->{'type'})
+         and ($current->{'type'} eq 'root_line'
+          # following could be useful if parse_texi_piece is used
+              or $current->{'type'} eq 'before_node_section'
+              or $current->{'type'} eq 'document_root'
+              or $current->{'type'} eq 'paragraph')) {
     $current = $current->{'contents'}->[0];
   }
   if (not exists($current->{'text'})) {
@@ -51,12 +53,8 @@ sub _find_text($)
   return $current;
 }
 
-sub run_test($$$$)
-{
-  my $in = shift;
-  my $initial_brace_count = shift;
-  my $ref_braces_count = shift;
-  my $name = shift;
+sub run_test($$$$) {
+  my ($in, $initial_brace_count, $ref_braces_count, $name) = @_;
 
   my $parser = Texinfo::Parser::parser();
   my $tree = $parser->parse_texi_line($in);

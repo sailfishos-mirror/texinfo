@@ -201,7 +201,8 @@ is($top_and_space_before_text_normalized, 'Top',
 # when parsed with parse_texi_line, the text is not put in a
 # paragraph and the first space is retained, such that there
 # is no normalization
-my $top_and_space_before_tree_line = $parser->parse_texi_line($top_and_space_before);
+my $top_and_space_before_tree_line
+   = $parser->parse_texi_line($top_and_space_before);
 my $top_and_space_before_line_normalized
    = convert_to_node_identifier($top_and_space_before_tree_line);
 is($top_and_space_before_line_normalized, '-tOp',
@@ -224,11 +225,13 @@ my $string_for_upper_case = 'a @~n @aa{} @TeX{} @image{myimage} @ref{chap} @xref
 @U{00ff} @math{ma+th} @footnote{infootnote} @url{la} @url{a,b} @url{ ,lb}
 @url{,,c} @email{a@@c, e} @abbr{ab, d}';
 
-my $effect_of_sc_node_tree = $parser->parse_texi_line('@sc{'.$string_for_upper_case
+my $effect_of_sc_node_tree
+     = $parser->parse_texi_line('@sc{'.$string_for_upper_case
   # we add a @verb out of @inline*.  @verb is in @inline* to have valid LaTeX output
   # in the t/converters_tests.t test
        . ' @verb{!mverb!}}');
-my $effect_of_sc_node_normalized = convert_to_node_identifier($effect_of_sc_node_tree);
+my $effect_of_sc_node_normalized
+     = convert_to_node_identifier($effect_of_sc_node_tree);
 is($effect_of_sc_node_normalized,
    'a-_00f1-_00e5-TeX-myimage-chap-_0028f_0029node-ext-latex-00ff-ma_002bth-la-a-a_0040c-ab-mverb',
    '@sc content');

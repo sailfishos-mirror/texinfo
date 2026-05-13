@@ -14,12 +14,8 @@ use Texinfo::Common;
 
 ok(1, 'modules loading');
 
-sub test_is_empty($$$;$)
-{
-  my $name = shift;
-  my $is_empty = shift;
-  my $in = shift;
-  my $do_not_ignore_index_entries = shift;
+sub test_is_empty($$$;$) {
+  my ($name, $is_empty, $in, $do_not_ignore_index_entries) = @_;
 
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_piece($in);

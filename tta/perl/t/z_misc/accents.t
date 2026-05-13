@@ -17,24 +17,26 @@ use Texinfo::Convert::HTML;
 
 ok(1, 'modules loading');
 
-sub _find_accent($)
-{
+sub _find_accent($) {
   my $root = shift;
+
   my $current = $root;
-  while ($current->{'type'} and ($current->{'type'} eq 'root_line'
-                           # following could be useful if parse_texi_piece is used
-                                 or $current->{'type'} eq 'before_node_section'
-                                 or $current->{'type'} eq 'document_root'
-                                 or $current->{'type'} eq 'paragraph')) {
+  while (exists($current->{'contents'})
+         and exists($current->{'type'})
+         and ($current->{'type'} eq 'root_line'
+              # following could be useful if parse_texi_piece is used
+              or $current->{'type'} eq 'before_node_section'
+              or $current->{'type'} eq 'document_root'
+              or $current->{'type'} eq 'paragraph')) {
     $current = $current->{'contents'}->[0];
   }
   return $current;
 }
 
 # FIXME does not test the XS code
-sub test_accent_stack ($)
-{
+sub test_accent_stack ($) {
   my $test = shift;
+
   my $texi = $test->[0];
   my $name = $test->[1];
   my $reference = $test->[2];
@@ -69,12 +71,12 @@ e}', 'comment', 'e|~'],
   test_accent_stack($test);
 }
 
-sub ord_hex_string($)
-{
+sub ord_hex_string($) {
   my $result = shift;
+
   my $ord = '';
   my $hex = '';
-  foreach my $char (split '', $result) {
+  foreach my $char (split('', $result)) {
     $ord .= ord($char).'-';
     $hex .= sprintf('%04x-', ord($char));
   }
@@ -84,9 +86,9 @@ sub ord_hex_string($)
 }
 
 # FIXME does not test the XS code
-sub test_enable_encoding ($)
-{
+sub test_enable_encoding ($) {
   my $test = shift;
+
   my $texi = $test->[0];
   my $name = $test->[1];
   my $reference = $test->[2];
@@ -103,9 +105,9 @@ sub test_enable_encoding ($)
   my $text = Texinfo::Convert::Text::convert_to_text($contents_element);
 
   my $result =
-       Texinfo::Convert::Unicode::encoded_accents(undef, $text,
-                                                 $commands_stack, 'iso-8859-1',
-                                \&Texinfo::Convert::Text::ascii_accent_fallback);
+    Texinfo::Convert::Unicode::encoded_accents(undef, $text,
+                                        $commands_stack, 'iso-8859-1',
+                            \&Texinfo::Convert::Text::ascii_accent_fallback);
 
   my $options = {};
   my $html_converter = Texinfo::Convert::HTML->converter($options);
@@ -115,15 +117,16 @@ sub test_enable_encoding ($)
                                                             $accent_tree);
   $html_converter->set_conf('USE_NUMERIC_ENTITY', 1);
   my $result_xml_numeric_entity
-      = Texinfo::Convert::Converter::xml_accents($html_converter, $accent_tree);
+   = Texinfo::Convert::Converter::xml_accents($html_converter, $accent_tree);
 
   ($contents_element, $commands_stack) =
     Texinfo::Common::find_innermost_accent_contents($accent_tree);
   $text = Texinfo::Convert::Text::convert_to_text($contents_element,
                                {'enabled_encoding' => 'utf-8'});
-  my $result_unicode = Texinfo::Convert::Unicode::encoded_accents(undef, $text,
-                                 $commands_stack, 'utf-8',
-                               \&Texinfo::Convert::Text::ascii_accent_fallback);
+  my $result_unicode
+    = Texinfo::Convert::Unicode::encoded_accents(undef, $text,
+                               $commands_stack, 'utf-8',
+                             \&Texinfo::Convert::Text::ascii_accent_fallback);
 
   if (defined($reference)) {
     is(Encode::encode('iso-8859-1', $result), $reference, $name);
@@ -148,13 +151,14 @@ sub test_enable_encoding ($)
   } else {
     my ($ord, $hex) = ord_hex_string($result);
     my ($ord_unicode, $hex_unicode) = ord_hex_string($result_unicode);
-    print STDERR "$name ($ord/$hex)--> result utf8: ".Encode::encode('utf8', $result).
-         " ($ord_unicode/$hex_unicode)--> unicode: ".Encode::encode('utf8', $result_unicode)."\n";
+    print STDERR "$name ($ord/$hex)--> result utf8: "
+                                    . Encode::encode('utf8', $result)
+      . " ($ord_unicode/$hex_unicode)--> unicode: "
+                           . Encode::encode('utf8', $result_unicode)."\n";
   }
 }
 
-sub chrx(@)
-{
+sub chrx(@) {
   my $result = '';
   foreach my $hex_string(@_) {
     $result .= chr(hex($hex_string));
@@ -176,7 +180,8 @@ foreach my $test (
                                                    '&#238;', chrx('00ee')],
   ['@~{@dotless{i}}',       'no 8bit dotless',     'i~', '&#297;', '&#297;',
                                                    chrx('0129')],
-  ['@={@~{@dotless{i}}}',   'no 8 cplx dotless',   'i~=', '&#297;&#772;', '&#297;&#772;',
+  ['@={@~{@dotless{i}}}',   'no 8 cplx dotless',   'i~=', '&#297;&#772;',
+                                                   '&#297;&#772;',
                                                    chrx('0129','0304')],
   ['@={@^{@dotless{i}}}',   'complex dotless',     chr(238).'=', '&icirc;&#772;',
                                                    '&#238;&#772;',
@@ -186,9 +191,12 @@ foreach my $test (
                                                    chrx('0146','0303','0304')],
   ['@udotaccent{r}',        'udotaccent',          '.r', '&#7771;', '&#7771;',
                                                    chrx('1e5b')],
-  ['@={@ubaraccent{a}}',    'complex ubaraccent',  'a_=', 'a&#818;&#772;', 'a&#818;&#772;',
+  ['@={@ubaraccent{a}}',    'complex ubaraccent',  'a_=', 'a&#818;&#772;',
+                                                   'a&#818;&#772;',
                                                    chrx('0101','0332')],
-  ['@^{@udotaccent{@`r}}',  'complex udotaccent',  '.r`^', 'r&#768;&#803;&#770;', 'r&#768;&#803;&#770;',
+  ['@^{@udotaccent{@`r}}',  'complex udotaccent',  '.r`^',
+                                                   'r&#768;&#803;&#770;',
+                                                   'r&#768;&#803;&#770;',
                                                    chrx('1e5b','0300','0302')],
   ['@v{@\'{r}}',            'utf8 possible inside', 'r\'<', '&#341;&#780;',
                                                     '&#341;&#780;',
@@ -199,14 +207,17 @@ foreach my $test (
 
 my $parser = Texinfo::Parser::parser();
 my $res_e = $parser->parse_texi_line('@^e');
-my $result = Texinfo::Convert::Text::convert_to_text($res_e, {'enabled_encoding' => 'utf-8'});
+my $result = Texinfo::Convert::Text::convert_to_text($res_e,
+                                             {'enabled_encoding' => 'utf-8'});
 is($result, "\x{00EA}", 'enable encoding @^e');
 
 my $res_aa = $parser->parse_texi_line('@aa{}');
-$result = Texinfo::Convert::Text::convert_to_text($res_aa, {'enabled_encoding' => 'utf-8'});
+$result = Texinfo::Convert::Text::convert_to_text($res_aa,
+                                            {'enabled_encoding' => 'utf-8'});
 is($result, "\x{00E5}", 'enable encoding @aa{}');
 
-$result = Texinfo::Convert::Text::convert_to_text($res_aa, {'enabled_encoding' => 'iso-8859-1'});
+$result = Texinfo::Convert::Text::convert_to_text($res_aa,
+                                      {'enabled_encoding' => 'iso-8859-1'});
 is($result, "\x{00E5}", 'enable encoding latin1 @aa{}');
 
 1;

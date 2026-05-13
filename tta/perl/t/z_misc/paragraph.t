@@ -14,12 +14,8 @@ use Texinfo::Convert::Paragraph qw(add_end_sentence add_next add_pending_word
 
 ok(1, 'modules loading');
 
-sub test_para($$$;$)
-{
-  my $args = shift;
-  my $reference = shift;
-  my $name = shift;
-  my $conf = shift;
+sub test_para($$$;$) {
+  my ($args, $reference, $name, $conf) = @_;
 
   my $result = '';
   $conf = {} if (!defined($conf));

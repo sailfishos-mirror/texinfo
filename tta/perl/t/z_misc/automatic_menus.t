@@ -17,13 +17,8 @@ use Texinfo::Transformations;
 
 ok(1, 'modules loading');
 
-sub test($$$;$$)
-{
-  my $in = shift;
-  my $out = shift;
-  my $name = shift;
-  my $complete_missing_menus = shift;
-  my $use_sections = shift;
+sub test($$$;$$) {
+  my ($in, $out, $name, $complete_missing_menus, $use_sections) = @_;
 
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_text($in);
