@@ -163,10 +163,6 @@ manual2_title = "GNU Texinfo manual"
 manual3 = texi2any_api
 manual3_title = "GNU Texinfo texi2any Output Customization"
 manual3_flags = --common "-c INFO_SPECIAL_CHARS_WARNING=0"
-#
-manual4 = texi2any_internals
-manual4_title = "GNU Texinfo texi2any modules documentation"
-manual4_flags = --split chapter --common "-c INFO_SPECIAL_CHARS_WARNING=0"
 
 # We also make little HTML documents for pod2texi script and
 # Pod::Simple::Texinfo documentation.  Texinfo.pm is linked to
@@ -177,6 +173,8 @@ manual4_flags = --split chapter --common "-c INFO_SPECIAL_CHARS_WARNING=0"
 doctemp = wwwtemp
 www_target = $(HOME)/gnu/www/texinfo/manual
 #
+# We copy all the Texinfo manuals, but we call gendoc on and distribute
+# a selection only.
 # Beware that the beginning of the --outfile pod2html option and --htmldir
 # must match in order to have --htmldir actually used.
 wwwdoc-build:
@@ -192,8 +190,6 @@ wwwdoc-build:
 	&& $(gendocs_invoke) -o $(manual2) $(manual2) $(manual2_title) \
 	&& $(gendocs_invoke) $(manual3_flags) \
 	                     -o $(manual3) $(manual3) $(manual3_title) \
-	&& $(gendocs_invoke) $(manual4_flags) \
-	                     -o $(manual4) $(manual4) $(manual4_title) \
 	&& pod2html --podpath . --htmldir='.' --quiet $(pod2texi_pl) --outfile=./pod2texi.html \
 	&& pod2html --quiet Pod/Simple/Texinfo.pm >Pod/Simple/Texinfo.html \
 	&& echo "Manuals ready for web distribution under: $(doctemp)/"
@@ -202,7 +198,7 @@ wwwdoc-build:
 # https://www.gnu.org/software/texinfo/manual/
 wwwdoc-install:
 	cp -arf $(doctemp)/$(manual1) $(doctemp)/$(manual2) \
-	        $(doctemp)/$(manual3) $(doctemp)/$(manual4) \
+	        $(doctemp)/$(manual3) \
 	        $(doctemp)/pod2texi.html \
 	        $(www_target)
 	$(MKDIR_P) $(www_target)/Pod/Simple

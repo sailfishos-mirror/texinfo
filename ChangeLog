@@ -1,5 +1,16 @@
 2026-05-13 Patrice Dumas  <pertusus@free.fr>
 
+	Do not install nor put on the web the texi2any internals manual
+
+	* doc/Makefile.am (wwwdoc-build, wwwdoc-install): do not generate the
+	texi2any internals manual.  The manual is only useful to develop
+	texi2any and can be with the sources only.
+
+	* doc/tta_api/Makefile.am (AUTOMAKE_OPTIONS): add no-installinfo to
+	avoid installing the texi2any internals Info manual.
+
+2026-05-13 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/z_misc/html_convert_tree.t,
 	tta/perl/t/z_misc/test_fill_gaps_in_sectioning.t: use a combination of
 	XS_parser_enabled call return true and core_modules_built set to

@@ -10,6 +10,10 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+# Do not install the Info manual, as it is only of use for Texinfo
+# development and can be read from the build directory.
+AUTOMAKE_OPTIONS = foreign no-installinfo
+
 # Without menus completed the Index appendix node in
 # texi2any_internals_indices.texi does not appear in any menu.
 AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0 -c TREE_TRANSFORMATIONS=complete_tree_nodes_menus
@@ -29,8 +33,6 @@ TEXI2DVI = $(TEXI2DVI_ENVIRONMENT) $(top_srcdir)/util/texi2dvi
 # of each module, so split at chapters.
 AM_MAKEINFOHTMLFLAGS = --split=chapter
 
-# since the texi2any_internals 'manual' is referred to extensively in the
-# texi2any_api, we setup the build targets.
 info_TEXINFOS = texi2any_internals.texi
 
 TEXINFO_TEX = ../texinfo.tex
