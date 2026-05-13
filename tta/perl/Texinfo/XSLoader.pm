@@ -62,8 +62,8 @@ $xs_version =~ s/dev$//; # XS bootstrap functions choke on non-numeric version
 #my $xs_version = version->declare($VERSION)->numify;
 
 # Set from code to notify that XS needs to be used, for instance when Perl is
-# embedded in C.  When Perl is embedded in C, many computations are done in C and
-# are not directly passed to Perl.  These C data should be accessed/modified
+# embedded in C.  When Perl is embedded in C, many computations are done in C
+# and are not directly passed to Perl.  These C data should be accessed/modified
 # through XS interfaces.  The situation is similar to setting only handlers
 # when calling XS methods from Perl, such that the data is not built to Perl,
 # the changes are done in C only, at least until Perl structures are explicitly

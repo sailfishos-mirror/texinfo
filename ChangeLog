@@ -1,5 +1,13 @@
 2026-05-13 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/z_misc/html_convert_tree.t,
+	tta/perl/t/z_misc/test_fill_gaps_in_sectioning.t: use a combination of
+	XS_parser_enabled call return true and core_modules_built set to
+	determine if the XS Parser is used, as it is the good way to check
+	that the XS Parser is actually used.
+
+2026-05-13 Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl, tta/perl/t/*.t: remove unused code,
 	change formatting of functions beginning.  Change in spacing.
 	Cosmetic changes.

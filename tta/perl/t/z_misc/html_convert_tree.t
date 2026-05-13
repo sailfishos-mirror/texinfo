@@ -12,8 +12,6 @@ use Texinfo::Parser;
 use Texinfo::Config;
 use Texinfo::Convert::HTML;
 
-my $XS_parser = Texinfo::XSLoader::XS_parser_enabled();
-
 # Test convert_tree from HTML without converter options nor document.
 # conversion_initialization needs to be called, otherwise there
 # are many structures that are not set for conversion.  This is expected
@@ -55,14 +53,8 @@ my $result_from_handle = $converter->convert_tree($tree_handle);
 my $reference_output = '<p>N <toto class="code">M</toto></p>';
 my $reference_from_handle;
 
-# TODO check if this is still true with the changes in XSLoader
-SKIP: {
-  # Even if $XS_parser is set, if iconv is not functional the Parser XS
-  # won't be built, so we cannot be sure that the XS function is called,
-  # therefore we skip the test if $XS_parser.
-  skip 'Parser may not be XS even with XS_parser set', 1 if ($XS_parser);
-
-if ($XS_parser) {
+if (Texinfo::XSLoader::XS_parser_enabled()
+    and $Texinfo::XSLoader::core_modules_built) {
   # there is no Perl tree, as there is only a handle, convert_tree
   # returns an empty string.
   $reference_from_handle = '';
@@ -72,7 +64,6 @@ if ($XS_parser) {
 
 is($result_from_handle, $reference_from_handle,
    'convert tree with tree handle');
-}
 
 my $tree_rebuilt = Texinfo::Document::build_tree($tree_handle, 0);
 my $result_from_rebuilt = $converter->convert_tree($tree_rebuilt);
