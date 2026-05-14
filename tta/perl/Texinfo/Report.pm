@@ -17,7 +17,6 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 #
-# ALTIMP C/parsetexi/errors_parser.c
 # ALTIMP C/main/errors.c
 
 package Texinfo::Report;
@@ -51,19 +50,11 @@ sub __p($$) {
   return Locale::Messages::dpgettext($messages_textdomain, $context, $msgid);
 }
 
-sub count_errors($) {
-  my $error_messages_list = shift;
+
 
-  my $error_nr = 0;
-  foreach my $message (@$error_messages_list) {
-    if ($message->{'type'} eq 'error' and !$message->{'continuation'}) {
-      $error_nr++;
-    }
-  }
-  return $error_nr;
-}
+# Prepare error and warning messages structures
 
-# Used in generic converter API.
+# TODO document?  Used in generic Converter.
 sub format_line_message($$$$;$) {
   my ($type, $text, $error_location_info, $continuation, $warn) = @_;
 
@@ -177,6 +168,26 @@ sub document_error($;$$) {
   return $error;
 }
 
+
+
+# count error and warning messages
+
+sub count_errors($) {
+  my $error_messages_list = shift;
+
+  my $error_nr = 0;
+  foreach my $message (@$error_messages_list) {
+    if ($message->{'type'} eq 'error' and !$message->{'continuation'}) {
+      $error_nr++;
+    }
+  }
+  return $error_nr;
+}
+
+
+
+# Used in tests, and for debugging
+
 # TODO document?
 # used in tests
 sub print_source_info_details($;$$) {
@@ -229,6 +240,7 @@ sub _print_error_details($;$$) {
   return $result;
 }
 
+# No equivalent in C.
 # used in tests
 sub errors_print_details($;$$) {
   my ($error_messages_list, $fname_encoding, $use_filename) = @_;
@@ -247,7 +259,7 @@ __END__
 
 =head1 NAME
 
-Texinfo::Report - Error storing for Texinfo modules
+Texinfo::Report - Prepare messages for Texinfo modules
 
 =head1 SYNOPSIS
 
@@ -273,25 +285,12 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-The C<Texinfo::Report> module helps with error handling.  Errors
-and warnings can be setup, stored and retrieved later on.
-This module methods are used by the L<Texinfo::Parser> and
-L<Texinfo::Convert::Converter> modules.
+The C<Texinfo::Report> module helps with error handling.  Error
+or warning message hash references can be setup, and errors counted.
+In general, there are wrappers around the module functions, for converters,
+see L<< Texinfo::Convert::Converter/Registering error and warning messages >>.
 
-=head1 METHODS
-
-No method is exported in the default case.
-
-The methods allow registering errors and warnings.
-
-=over
-
-=item $error_count = count_errors ($error_messages)
-
-This function returns as I<$error_count> the count of errors in the error
-messages list (as opposed to warnings).  The I<$error_warnings_list> is an
-array of hash references one for each error, warning or error line
-continuation.  Each of these has the following keys:
+The message hash reference can contain these keys:
 
 =over
 
@@ -326,21 +325,29 @@ May be C<warning>, or C<error>.
 
 =back
 
+=head1 METHODS
+
+No method is exported in the default case.
+
+You call the following functions to set up a message hash:
+
+=over
+
 =item $message = line_warn ($text, $error_location_info, $continuation, $debug, $silent)
 
 =item $message = line_error ($text, $error_location_info, $continuation, $debug, $silent)
 X<C<line_warn>>
 X<C<line_error>>
 
-Register a warning or an error message structure.  The I<$text> is the text of
-the error or warning.  The mandatory I<$error_location_info> holds the
-information on the error or warning location.  The I<$error_location_info>
-reference on hash may be obtained from Texinfo elements I<source_info> keys.
-It may also be setup to point to a file name, using the C<file_name> key and to
-a line number, using the C<line_nr> key.  The C<file_name> key value should be
-a binary string.
+Return a warning or an error message structure associated to a location in a
+file.  I<$text> is the text of the error or warning.  I<$error_location_info>
+holds the information on the error or warning location.  The
+I<$error_location_info> reference on hash may be obtained from Texinfo elements
+I<source_info> keys.  It may also be setup to point to a file name, using the
+C<file_name> key and to a line number, using the C<line_nr> key.  The
+C<file_name> key value should be a binary string.
 
-The I<$continuation> optional arguments, if true, conveys that
+The I<$continuation> optional argument, if true, conveys that
 the line is a continuation line of a message.
 
 The I<$debug> optional integer arguments sets the debug level.
@@ -361,6 +368,20 @@ Returns a document-wide error or warning message structure.  I<$text> is the
 error or warning message.  The I<$program_name> is prepended to the message, if
 defined.  The I<$continuation> optional arguments, if true, conveys that the
 line is a continuation line of a message.
+
+=back
+
+To count errors in an array of messages hash:
+
+=over
+
+=item $error_count = count_errors ($error_messages)
+
+Returns as I<$error_count> the count of errors in
+I<$error_warnings_list> (as opposed to warnings).
+I<$error_warnings_list> is an array of message hash references, one for each
+error, warning or error line continuation, as described in
+L</DESCRIPTION>.
 
 =back
 

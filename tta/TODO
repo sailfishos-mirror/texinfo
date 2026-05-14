@@ -20,13 +20,6 @@ HTML API
 Issues
 ------
 
-Some private function used in conversion
-_convert_printindex_command
- _new_document_context
-_convert_def_line_type
- _set_code_context
- _pop_code_context
-
 
 Missing documentation
 =====================
@@ -38,8 +31,8 @@ messages?
 Tree documentation in ParserNonXS.pm
 ------------------------------------
 
-Change strategy of documentation, document extra and info as arguments
-as in the SWIG interface?
+Document extra and info together as 'arguments' as in the SWIG interface
+instead of separately?
 
 Document the tree by showing the relations of inclusion?
 
@@ -52,15 +45,7 @@ source marks.
 
 special_unit_element type (only in HTML code)
 
-Node, headings and section relations are explicitly and correctly documented in
-the HTML customization manual.  However, they are also mentioned in
-Texinfo::Structuring POD without being clearly introduced in this POD.  See
-also FIXMEs in ParserNonXS.pm in =begin comment blocks.  It is not clear
-whether there need to be something more explicit in the POD documentation,
-what is in the HTML customization manual may be sufficient.
-
-extra node_number, heading_number and section_number are not documented
-anywhere.
+extra node_number, heading_number and section_number are not documented.
 
 Other
 -----
@@ -118,6 +103,13 @@ somewhat similar to customization setting based on @-commands in the
 document, so it would be more consistent, but it requires adding quite a
 few accessors, as cdt/gdt cannot be overriden.
 
+In HTML, some private function used in conversion
+_convert_printindex_command
+ _new_document_context
+_convert_def_line_type
+ _set_code_context
+ _pop_code_context
+
 The Perl/C interface when no XS code is used for structuring works because
 all the C data is built as Perl structure at one point after which C code
 is not called anymore to modify the tree or other Document data.  At that
@@ -146,7 +138,8 @@ if better and compatible libraries are installed they will be prefered
 to same version library.
 
 Could libraries be compiled with Perl C compiler or other C compiler
-and be mixed at the library level?  Ask on the list.
+and be mixed at the library level?  Probably not, we had to use the
+Perl compilation and linking flags everywhere such that they match.
 
 Gavin on using CSV files and a Perl script to generate code for Perl and C.
 For something like html_style_commands_element.csv, it could potentially
@@ -311,6 +304,13 @@ Default is false.
 
 In Plaintext, @quotation text could have the right margin narrowed to be more
 in line with other output formats.
+
+Node, headings and section relations are explicitly and correctly documented in
+the HTML customization manual.  However, they are also mentioned in
+Texinfo::Structuring POD without being clearly introduced in this POD.  See
+also FIXMEs in ParserNonXS.pm in =begin comment blocks.  It is not clear
+whether there need to be something more explicit in the POD documentation,
+what is in the HTML customization manual may be sufficient.
 
 
 DocBook

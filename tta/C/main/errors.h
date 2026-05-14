@@ -13,7 +13,10 @@
 
 void wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages);
 void clear_error_message_list (ERROR_MESSAGE_LIST *error_messages);
-void message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
+void merge_error_messages_lists (ERROR_MESSAGE_LIST *dst,
+                                 ERROR_MESSAGE_LIST *src);
+
+void message_list_format_line_message (ERROR_MESSAGE_LIST *error_messages,
                            enum error_type type, int continuation,
                            const SOURCE_INFO *cmd_source_info,
                            const char *message, int warn);
@@ -39,7 +42,7 @@ void pmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
                             const char *translation_context,
                             const char *format, ...);
 
-void message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
+void message_list_format_document_message (ERROR_MESSAGE_LIST *error_messages,
                                          const OPTIONS *conf,
                                          enum error_type type, int continuation,
                                          const char *message);
@@ -63,8 +66,6 @@ size_t output_error_messages (ERROR_MESSAGE_LIST *error_messages,
                               const char *message_encoding,
                               int no_warn, int use_filename);
 
-void merge_error_messages_lists (ERROR_MESSAGE_LIST *dst,
-                                 ERROR_MESSAGE_LIST *src);
 
 void print_source_info_details (SOURCE_INFO *source_info, TEXT *result,
                                 const char *fname_encoding, int use_filename);

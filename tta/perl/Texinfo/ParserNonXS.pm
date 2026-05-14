@@ -21,12 +21,6 @@
 # ALTIMP XSTexinfo/parser_document/ParserXS.xs
 # ALTIMP C/parsetexi/*.[ch]
 
-# Since there are different parser implementation, XS and NonXS, it is
-# better to have the Texinfo::Parser packages define only the parser
-# API functions.  Constants, functions useful in both parsers, and other
-# functions useful in other codes are better defined in other Texinfo
-# modules.
-
 # The organization of the file is the following:
 #  default parser state.  With explanation of the internal structures.
 #  determination of command types.
@@ -87,7 +81,7 @@ use Texinfo::Common;
 # associate tree element to its class
 use Texinfo::TreeElement;
 
-# Error reporting and counting
+# Error structures formatting
 use Texinfo::Report;
 
 # for tree copy and tree_remove_parents
@@ -8787,8 +8781,7 @@ X<C<parser_errors>>
 
 This function returns the I<$error_warnings_list> as an array of hash
 references one for each error, warning or error line continuation.  They are
-described in detail in
-L<Texinfo::Report::count_errors|Texinfo::Report/$error_count  = count_errors ($error_messages)>.
+described in detail in L<Texinfo::Report/DESCRIPTION>.
 
 =back
 

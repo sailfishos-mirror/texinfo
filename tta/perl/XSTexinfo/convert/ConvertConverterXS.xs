@@ -35,7 +35,7 @@
 #include "document_types.h"
 #include "converter_types.h"
 #include "builtin_commands.h"
-/* message_list_document_error message_list_document_formatted_message
+/* message_list_document_error message_list_format_document_message
    wipe_error_message_list */
 #include "errors.h"
 /*
@@ -312,7 +312,7 @@ converter_document_error (SV *converter_in, text, ...)
           continuation = SvIV (ST(2));
         if (self)
           {
-            message_list_document_formatted_message (&self->error_messages,
+            message_list_format_document_message (&self->error_messages,
               self->conf, MSG_document_error, continuation, text);
           }
 
@@ -329,7 +329,7 @@ converter_document_warn (SV *converter_in, text, ...)
           continuation = SvIV (ST(2));
         if (self)
           {
-            message_list_document_formatted_message (&self->error_messages,
+            message_list_format_document_message (&self->error_messages,
                      self->conf, MSG_document_warning, continuation, text);
           }
 

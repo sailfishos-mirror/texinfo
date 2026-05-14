@@ -13,7 +13,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-/* ALTIMP perl/Texinfo/Report.pm */
+/* wrapper around errors.c function pre-setting parser global variables */
 
 #include <config.h>
 

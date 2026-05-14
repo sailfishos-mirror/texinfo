@@ -1468,16 +1468,6 @@ sub _exit($$) {
      or $error_count > get_conf('ERROR_LIMIT')));
 }
 
-sub handle_errors($$$) {
-  my ($errors, $error_count, $opened_files) = @_;
-
-  $error_count += Texinfo::Report::count_errors($errors);
-  _output_error_messages($errors);
-
-  _exit($error_count, $opened_files);
-  return $error_count;
-}
-
 sub _output_error_messages($) {
   my $errors = shift;
 
@@ -1504,6 +1494,16 @@ sub _output_error_messages($) {
       warn $s;
     }
   }
+}
+
+sub handle_errors($$$) {
+  my ($errors, $error_count, $opened_files) = @_;
+
+  $error_count += Texinfo::Report::count_errors($errors);
+  _output_error_messages($errors);
+
+  _exit($error_count, $opened_files);
+  return $error_count;
 }
 
 # If the file overwriting becomes an error, should increase $ERROR_COUNT.

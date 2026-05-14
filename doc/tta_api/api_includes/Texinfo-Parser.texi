@@ -170,8 +170,7 @@ the resulting document @code{parser_errors}.
 
 This function returns the @emph{$error_warnings_list} as an array of hash
 references one for each error, warning or error line continuation.  They are
-described in detail in
-@ref{Texinfo@asis{::}Report $error_count  = count_errors ($error_messages),, Texinfo::Report::count_errors}.
+described in detail in @ref{Texinfo@asis{::}Report DESCRIPTION}.
 
 @end table
 

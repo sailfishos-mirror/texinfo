@@ -13,12 +13,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# Since there are different parser implementation, XS and NonXS, it is
-# better to have the Texinfo::Parser packages define only the parser
-# API functions.  Constants, functions useful in both parsers, and other
-# functions useful in other codes are better defined in other Texinfo
-# modules.
-
 # File to be loaded in conjunction with ParserXS.xs module
 #
 # In general, the Parser works with character strings decoded from the

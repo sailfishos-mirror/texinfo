@@ -418,9 +418,9 @@ get_line_message (CONVERTER *self, enum error_type type, int continuation,
       source_info->macro = saved_string;
     }
 
-  message_list_line_formatted_message (&self->error_messages,
-                                       type, continuation, source_info,
-                                       message, do_warn);
+  message_list_format_line_message (&self->error_messages,
+                                    type, continuation, source_info,
+                                    message, do_warn);
 
   non_perl_free (source_info);
 }

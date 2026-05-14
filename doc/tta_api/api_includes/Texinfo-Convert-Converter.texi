@@ -465,7 +465,8 @@ was not set.
 
 @code{Texinfo::Convert::Converter} implements an interface to register error and
 warning messages in the converter, that can be retrieved later on.
-Underneath, @code{Texinfo::Report} is used to setup the messages data structure.
+Underneath, @ref{Texinfo@asis{::}Report NAME,, @code{Texinfo::Report}} is used to setup the
+messages data structure.
 
 @table @asis
 @item $converter->converter_document_error($text, $continuation)

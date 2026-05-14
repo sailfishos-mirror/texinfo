@@ -13,6 +13,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
+/* ALTIMPL perl/Texinfo/Report.pm */
+
 #include <config.h>
 
 #ifdef ENABLE_NLS
@@ -67,13 +69,56 @@ new_error_message (ERROR_MESSAGE_LIST *error_messages)
   return error_message;
 }
 
-/* only directly used for messages passed from Perl */
+static void
+wipe_error_messages (ERROR_MESSAGE_LIST *error_messages)
+{
+  size_t j;
+  for (j = 0; j < error_messages->number; j++)
+    {
+      free (error_messages->list[j].message);
+      free (error_messages->list[j].error_line);
+    }
+}
+
+void
+wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages)
+{
+  wipe_error_messages (error_messages);
+  free (error_messages->list);
+  memset (error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
+}
+
+void
+clear_error_message_list (ERROR_MESSAGE_LIST *error_messages)
+{
+  wipe_error_messages (error_messages);
+  error_messages->number = 0;
+}
+
+void
+merge_error_messages_lists (ERROR_MESSAGE_LIST *dst,
+                            ERROR_MESSAGE_LIST *src)
+{
+  reallocate_error_messages (dst, dst->number + src->number);
+
+  memcpy (&dst->list[dst->number], &src->list[0],
+          sizeof (ERROR_MESSAGE) * src->number);
+  dst->number += src->number;
+  src->number = 0;
+  wipe_error_message_list (src);
+}
+
+
+
+/* Prepare and register error and warning messages structures */
+
+/* only called from another file for messages passed from Perl */
 /* Format and register a message.  The file information present in
    CMD_SOURCE_INFO is not included in the message, because the file name
    should be in the input encoding while the message is in UTF-8, encoding
    the message and adding the file information is left for later */
 void
-message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
+message_list_format_line_message (ERROR_MESSAGE_LIST *error_messages,
                            enum error_type type, int continuation,
                            const SOURCE_INFO *cmd_source_info,
                            const char *message, int warn)
@@ -148,6 +193,9 @@ message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
     fprintf (stderr, "%s", error_message->error_line);
 }
 
+/* This function should not be called from other files, with the exception
+   of errors_parser.c.
+ */
 void
 vmessage_list_line_error (ERROR_MESSAGE_LIST *error_messages,
                           enum error_type type,
@@ -170,7 +218,7 @@ vmessage_list_line_error (ERROR_MESSAGE_LIST *error_messages,
 
   if (!message) fatal ("vasprintf failed");
 
-  message_list_line_formatted_message (error_messages,
+  message_list_format_line_message (error_messages,
                              type, continuation,
                              cmd_source_info, message, warn);
   free (message);
@@ -178,10 +226,10 @@ vmessage_list_line_error (ERROR_MESSAGE_LIST *error_messages,
 
 /* Format and register a message. */
 void
-message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
-                                         const OPTIONS *conf,
-                                         enum error_type type, int continuation,
-                                         const char *message)
+message_list_format_document_message (ERROR_MESSAGE_LIST *error_messages,
+                                      const OPTIONS *conf,
+                                      enum error_type type, int continuation,
+                                      const char *message)
 {
   TEXT error_line;
   ERROR_MESSAGE *error_message;
@@ -259,8 +307,8 @@ message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
 #endif
   if (!message) fatal ("vasprintf failed");
 
-  message_list_document_formatted_message (error_messages, conf, type,
-                                           continuation, message);
+  message_list_format_document_message (error_messages, conf, type,
+                                        continuation, message);
 
   free (message);
 }
@@ -351,8 +399,33 @@ message_list_document_warn (ERROR_MESSAGE_LIST *error_messages,
   va_end (v);
 }
 
+
+
+/* count and prepare error and warning messages for output */
+
+/* returns the number of messages of type error that are not continuations */
+size_t
+count_errors (ERROR_MESSAGE_LIST *error_messages)
+{
+  size_t count = 0;
+  size_t i;
+
+  for (i = 0; i < error_messages->number; i++)
+    {
+      const ERROR_MESSAGE *error_msg = &error_messages->list[i];
+      if (!error_msg->continuation
+          && (error_msg->type == MSG_document_error
+              || error_msg->type == MSG_error))
+        count++;
+    }
+  return count;
+}
+
+/* ALTIMPL texi2any.pl inside _output_error_messages loop */
 /* setup error message by adding file information and converting the
-   error line to message encoding */
+   error line to message encoding.
+   Used from main C program and/or SWIG interface only.
+ */
 /* if USE_FILENAME is set, remove file information directories */
 void
 error_message_text (const ERROR_MESSAGE *error_msg, int use_filename,
@@ -397,53 +470,12 @@ error_message_text (const ERROR_MESSAGE *error_msg, int use_filename,
     text_append (text, error_msg->error_line);
 }
 
-static void
-wipe_error_messages (ERROR_MESSAGE_LIST *error_messages)
-{
-  size_t j;
-  for (j = 0; j < error_messages->number; j++)
-    {
-      free (error_messages->list[j].message);
-      free (error_messages->list[j].error_line);
-    }
-}
-
-void
-wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages)
-{
-  wipe_error_messages (error_messages);
-  free (error_messages->list);
-  memset (error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
-}
-
-void
-clear_error_message_list (ERROR_MESSAGE_LIST *error_messages)
-{
-  wipe_error_messages (error_messages);
-  error_messages->number = 0;
-}
-
-/* returns the number of messages of type error that are not continuations */
-size_t
-count_errors (ERROR_MESSAGE_LIST *error_messages)
-{
-  size_t count = 0;
-  size_t i;
-
-  for (i = 0; i < error_messages->number; i++)
-    {
-      const ERROR_MESSAGE *error_msg = &error_messages->list[i];
-      if (!error_msg->continuation
-          && (error_msg->type == MSG_document_error
-              || error_msg->type == MSG_error))
-        count++;
-    }
-  return count;
-}
-
-/* add file information to message and print out.  Similar to texi2any.pl
-   _output_error_messages.  Main difference is that converter
-   error messages are cleared in this function.  Used from C only */
+/* ALTIMPL texi2any.pl _output_error_messages */
+/* add file information to message and print out.
+   Main difference with _output_error_messages is that error messages
+   list is cleared in this function.
+   Used from main C program and/or SWIG interface only.
+ */
 size_t
 output_error_messages (ERROR_MESSAGE_LIST *error_messages,
                        const char *message_encoding,
@@ -478,20 +510,10 @@ output_error_messages (ERROR_MESSAGE_LIST *error_messages,
   return error_nrs;
 }
 
-void
-merge_error_messages_lists (ERROR_MESSAGE_LIST *dst,
-                            ERROR_MESSAGE_LIST *src)
-{
-  reallocate_error_messages (dst, dst->number + src->number);
+
 
-  memcpy (&dst->list[dst->number], &src->list[0],
-          sizeof (ERROR_MESSAGE) * src->number);
-  dst->number += src->number;
-  src->number = 0;
-  wipe_error_message_list (src);
-}
+/* Used in tests, and for debugging */
 
-/* In Texinfo::Report */
 void
 print_source_info_details (SOURCE_INFO *source_info, TEXT *result,
                            const char *fname_encoding, int use_filename)

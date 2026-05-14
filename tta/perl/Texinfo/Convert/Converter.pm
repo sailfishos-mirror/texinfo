@@ -2268,7 +2268,8 @@ was not set.
 
 C<Texinfo::Convert::Converter> implements an interface to register error and
 warning messages in the converter, that can be retrieved later on.
-Underneath, C<Texinfo::Report> is used to setup the messages data structure.
+Underneath, L<< C<Texinfo::Report>|Texinfo::Report >> is used to setup the
+messages data structure.
 
 =over
 

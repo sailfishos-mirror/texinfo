@@ -4,7 +4,7 @@
 @node Texinfo@asis{::}Report NAME
 @section Texinfo::Report NAME
 
-Texinfo::Report - Error storing for Texinfo modules
+Texinfo::Report - Prepare messages for Texinfo modules
 
 @node Texinfo@asis{::}Report SYNOPSIS
 @section Texinfo::Report SYNOPSIS
@@ -35,26 +35,12 @@ Texinfo to other formats.  There is no promise of API stability.
 @node Texinfo@asis{::}Report DESCRIPTION
 @section Texinfo::Report DESCRIPTION
 
-The @code{Texinfo::Report} module helps with error handling.  Errors
-and warnings can be setup, stored and retrieved later on.
-This module methods are used by the @ref{Texinfo@asis{::}Parser NAME,, Texinfo::Parser} and
-@ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter} modules.
+The @code{Texinfo::Report} module helps with error handling.  Error
+or warning message hash references can be setup, and errors counted.
+In general, there are wrappers around the module functions, for converters,
+see @ref{Texinfo@asis{::}Convert@asis{::}Converter Registering error and warning messages}.
 
-@node Texinfo@asis{::}Report METHODS
-@section Texinfo::Report METHODS
-
-No method is exported in the default case.
-
-The methods allow registering errors and warnings.
-
-@table @asis
-@item $error_count = count_errors ($error_messages)
-@anchor{Texinfo@asis{::}Report $error_count = count_errors ($error_messages)}
-
-This function returns as @emph{$error_count} the count of errors in the error
-messages list (as opposed to warnings).  The @emph{$error_warnings_list} is an
-array of hash references one for each error, warning or error line
-continuation.  Each of these has the following keys:
+The message hash reference can contain these keys:
 
 @table @asis
 @item continuation
@@ -95,6 +81,14 @@ May be @code{warning}, or @code{error}.
 
 @end table
 
+@node Texinfo@asis{::}Report METHODS
+@section Texinfo::Report METHODS
+
+No method is exported in the default case.
+
+You call the following functions to set up a message hash:
+
+@table @asis
 @item $message = line_warn ($text, $error_location_info, $continuation, $debug, $silent)
 @anchor{Texinfo@asis{::}Report $message = line_warn ($text@comma{} $error_location_info@comma{} $continuation@comma{} $debug@comma{} $silent)}
 
@@ -103,15 +97,15 @@ May be @code{warning}, or @code{error}.
 @cindex @code{line_warn}
 @cindex @code{line_error}
 
-Register a warning or an error message structure.  The @emph{$text} is the text of
-the error or warning.  The mandatory @emph{$error_location_info} holds the
-information on the error or warning location.  The @emph{$error_location_info}
-reference on hash may be obtained from Texinfo elements @emph{source_info} keys.
-It may also be setup to point to a file name, using the @code{file_name} key and to
-a line number, using the @code{line_nr} key.  The @code{file_name} key value should be
-a binary string.
+Return a warning or an error message structure associated to a location in a
+file.  @emph{$text} is the text of the error or warning.  @emph{$error_location_info}
+holds the information on the error or warning location.  The
+@emph{$error_location_info} reference on hash may be obtained from Texinfo elements
+@emph{source_info} keys.  It may also be setup to point to a file name, using the
+@code{file_name} key and to a line number, using the @code{line_nr} key.  The
+@code{file_name} key value should be a binary string.
 
-The @emph{$continuation} optional arguments, if true, conveys that
+The @emph{$continuation} optional argument, if true, conveys that
 the line is a continuation line of a message.
 
 The @emph{$debug} optional integer arguments sets the debug level.
@@ -134,6 +128,20 @@ Returns a document-wide error or warning message structure.  @emph{$text} is the
 error or warning message.  The @emph{$program_name} is prepended to the message, if
 defined.  The @emph{$continuation} optional arguments, if true, conveys that the
 line is a continuation line of a message.
+
+@end table
+
+To count errors in an array of messages hash:
+
+@table @asis
+@item $error_count = count_errors ($error_messages)
+@anchor{Texinfo@asis{::}Report $error_count = count_errors ($error_messages)}
+
+Returns as @emph{$error_count} the count of errors in
+@emph{$error_warnings_list} (as opposed to warnings).
+@emph{$error_warnings_list} is an array of message hash references, one for each
+error, warning or error line continuation, as described in
+@ref{Texinfo@asis{::}Report DESCRIPTION,, DESCRIPTION}.
 
 @end table
 
