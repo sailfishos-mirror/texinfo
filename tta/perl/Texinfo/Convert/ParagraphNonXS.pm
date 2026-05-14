@@ -23,6 +23,7 @@ package Texinfo::Convert::Paragraph;
 
 use 5.006;
 use strict;
+use warnings;
 
 use if $] >= 5.014, re => '/a';  # ASCII-only character classes in regexes
 

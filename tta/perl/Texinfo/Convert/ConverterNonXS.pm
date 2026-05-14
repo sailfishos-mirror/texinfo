@@ -24,6 +24,7 @@ package Texinfo::Convert::Converter;
 
 use 5.006;
 use strict;
+use warnings;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
@@ -44,8 +45,6 @@ use Texinfo::Document;
 
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
-
-our $VERSION = '7.3dev';
 
 # values for integer and string options in code generated from
 # Texinfo/Convert/converters_defaults.txt

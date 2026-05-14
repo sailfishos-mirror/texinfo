@@ -568,11 +568,14 @@ add_preamble_lang_cmd (PREAMBLE_LANG_CMD_LIST *preamble_lang,
 }
 
 /* ALTIMPL perl/Texinfo/ParserNonXS.pm get_parser_info */
-/* less to do here than in Perl, as the global_commands information is always
-   available in C */
+/* Less to do here than in Perl, as the global_commands information is always
+   available in C, therefore document.c set_document_options sets the
+   options from global_commands, and does not need to get them from
+   global_info, therefore they are not in global_info fields.
+   Also, some global info is set during parsing.  */
 /* It could also have been possible to call dynamically such code
    where preamble_lang_cmd is used, but we do it here to be more
-   like Perl, and also because the intermediary structure is easier to
+   like Perl, and also because this intermediary structure is easier to
    use than the tree for language information in preamble.
  */
 static void

@@ -32,15 +32,13 @@ use warnings;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
-# Not directly used, but the returned variables are in this module, this
-# import makes sure that the functions associated to the objects are found.
-use Texinfo::Document;
-
-# ALTIMP tta/C/convert/texinfo.c txi_parser
+# ALTIMP C/convert/texinfo.c txi_parser
+# ALTIMP perl/Texinfo/ParserNonXS.pm
+#
 # Initialize the parser
 # The last argument, optional, is a hash provided by the user to change
 # the default values for what is present in %parser_document_parsing_options
-# (actually taken from defaults in C for the XS interface).
+# in the Perl Parser (these defaults values are set in C for the XS interface).
 sub parser(;$) {
   my $conf = shift;
 

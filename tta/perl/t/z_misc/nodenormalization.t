@@ -14,6 +14,9 @@ use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::NodeNameNormalization qw(convert_to_node_identifier
                                        normalize_transliterate_texinfo);
 use Texinfo::Parser;
+# not used directly, but useful to find functions used through the
+# Texinfo::Document returned by the Parser.
+use Texinfo::Document;
 
 my $srcdir = $ENV{'srcdir'};
 if (defined($srcdir)) {

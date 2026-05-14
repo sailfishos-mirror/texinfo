@@ -37,6 +37,7 @@ use 5.006;
 use if $] >= 5.014, re => '/a';
 
 use strict;
+use warnings;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
@@ -60,6 +61,8 @@ use Texinfo::Common;
 require Exporter;
 our @ISA = qw(Exporter);
 
+our $VERSION = '7.3dev';
+
 our @EXPORT_OK = qw(
 move_index_entries_after_items_in_document
 relate_index_entries_to_table_items_in_document
@@ -69,8 +72,6 @@ protect_first_parenthesis
 protect_node_after_label_in_tree
 normalized_entry_associated_internal_node
 );
-
-our $VERSION = '7.3dev';
 
 BEGIN {
   my $shared_library_name = "ManipulateTreeXS";

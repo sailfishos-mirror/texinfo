@@ -24,8 +24,8 @@
 package Texinfo::Transformations;
 
 use 5.006;
-
 use strict;
+use warnings;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
@@ -43,8 +43,6 @@ use Texinfo::Translations;
 use Texinfo::Document;
 use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
-
-our $VERSION = '7.3dev';
 
 # Add raise/lowersections to be back at the normal level from
 # the $SECTION level.  The raise/lowersections are added at the

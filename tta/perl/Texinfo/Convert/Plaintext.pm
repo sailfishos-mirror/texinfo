@@ -29,6 +29,7 @@ use if $] >= 5.012, feature => qw(unicode_strings);
 use if $] >= 5.014, re => '/a';
 
 use strict;
+use warnings;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
@@ -58,6 +59,8 @@ use Texinfo::Convert::Paragraph qw(add_end_sentence add_next add_pending_word
 require Exporter;
 our @ISA = qw(Texinfo::Convert::Converter);
 
+our $VERSION = '7.3dev';
+
 # Some extra initialization for the first time this module is loaded.
 my $module_loaded = 0;
 sub import {
@@ -70,9 +73,6 @@ sub import {
   # The usual import method
   goto &Exporter::import;
 }
-
-our $VERSION = '7.3dev';
-
 
 # commands that are of use for formatting.
 my %formatted_line_commands = %Texinfo::Commands::formatted_line_commands;

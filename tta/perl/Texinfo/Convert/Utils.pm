@@ -26,9 +26,9 @@
 
 package Texinfo::Convert::Utils;
 
-use strict;
-
 use 5.006;
+use strict;
+use warnings;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
@@ -45,8 +45,9 @@ use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
 
 require Exporter;
-
 our @ISA = qw(Exporter);
+
+our $VERSION = '7.3dev';
 
 # There is no specific reason to export those functions and not
 # other functions of the module.  It could be possible not to
@@ -55,8 +56,6 @@ our @EXPORT_OK = qw(
 expand_verbatiminclude
 add_heading_number
 );
-
-our $VERSION = '7.3dev';
 
 # API to open, set encoding and register files.  Used in main program
 # and converters.

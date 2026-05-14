@@ -26,13 +26,16 @@
 
 package Texinfo::Reader;
 
+use 5.006;
 use strict;
 use warnings;
 
-use Carp qw(cluck confess);
-
 # check that autovivification do not happen incorrectly.
 #no autovivification qw(fetch delete exists store strict);
+
+use Carp qw(cluck confess);
+
+our $VERSION = '7.3dev';
 
 use constant {
   # for elements with contents, a start token is emitted when encountering

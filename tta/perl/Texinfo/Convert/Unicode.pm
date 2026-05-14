@@ -23,6 +23,7 @@ package Texinfo::Convert::Unicode;
 # charnames::vianame is not documented in 5.6.0.
 use 5.008;
 use strict;
+use warnings;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
@@ -44,6 +45,8 @@ use Texinfo::UnicodeData;
 
 require Exporter;
 
+our $VERSION = '7.3dev';
+
 # Some extra initialization for the first time this module is loaded.
 my $module_loaded = 0;
 sub import {
@@ -63,8 +66,6 @@ our @EXPORT_OK = qw(
   unicode_text
   string_width
 );
-
-our $VERSION = '7.3dev';
 
 my %unicode_accented_letters = %Texinfo::UnicodeData::unicode_accented_letters;
 my %unicode_to_eight_bit = %Texinfo::UnicodeData::unicode_to_eight_bit;

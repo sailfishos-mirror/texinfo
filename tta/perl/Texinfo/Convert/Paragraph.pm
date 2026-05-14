@@ -19,8 +19,12 @@ use 5.006;
 use strict;
 use warnings;
 
+use Texinfo::XSLoader;
+
 require Exporter;
 our @ISA = qw(Exporter);
+
+our $VERSION = '7.3dev';
 
 our @EXPORT_OK = qw(
     add_text
@@ -33,10 +37,6 @@ our @EXPORT_OK = qw(
     add_pending_word
     get_pending
   );
-
-our $VERSION = '7.3dev';
-
-use Texinfo::XSLoader;
 
 BEGIN {
   Texinfo::XSLoader::init (

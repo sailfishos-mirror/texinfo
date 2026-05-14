@@ -18,8 +18,8 @@
 package Texinfo::Tests;
 
 use 5.006;
-
 use strict;
+use warnings;
 
 use Test::More;
 
@@ -28,6 +28,8 @@ use File::Spec;
 
 require Exporter;
 our @ISA = qw(Exporter);
+
+our $VERSION = '7.3dev';
 
 our @EXPORT_OK = qw(
 compare_dirs_files

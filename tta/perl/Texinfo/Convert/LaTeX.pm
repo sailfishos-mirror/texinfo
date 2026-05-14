@@ -162,6 +162,7 @@ use 5.006;
 use if $] >= 5.012, feature => qw(unicode_strings);
 
 use strict;
+use warnings;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);

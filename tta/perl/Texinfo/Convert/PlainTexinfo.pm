@@ -26,6 +26,7 @@ package Texinfo::Convert::PlainTexinfo;
 
 use 5.006;
 use strict;
+use warnings;
 
 use Texinfo::Options;
 

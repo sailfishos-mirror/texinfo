@@ -31,13 +31,12 @@
 
 package Texinfo::ManipulateTree;
 
-use 5.006;
-
 # stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
 # used to match Unicode character classes.
 use if $] >= 5.014, re => '/a';
 
 use strict;
+use warnings;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
@@ -52,8 +51,6 @@ use Carp qw(cluck confess);
 #eval { require Devel::Peek; Devel::Peek->import(); };
 
 use Texinfo::Common;
-
-our $VERSION = '7.3dev';
 
 sub copy_tree_root($) {
   my $root = shift;

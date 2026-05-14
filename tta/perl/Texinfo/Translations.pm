@@ -26,6 +26,7 @@ package Texinfo::Translations;
 
 use 5.006;
 use strict;
+use warnings;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);

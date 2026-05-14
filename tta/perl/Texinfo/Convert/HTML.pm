@@ -51,6 +51,7 @@ use if $] >= 5.012, feature => 'unicode_strings';
 use if $] >= 5.014, re => '/a';  # ASCII-only character classes in regexes
 
 use strict;
+use warnings;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);

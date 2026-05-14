@@ -18,10 +18,9 @@
 
 package Texinfo::Structuring;
 
+use 5.006;
 use strict;
 use warnings;
-
-our $VERSION = '7.3dev';
 
 use Texinfo::XSLoader;
 
@@ -41,6 +40,8 @@ use Texinfo::Convert::Texinfo qw(target_element_to_texi_label
 use Texinfo::Convert::NodeNameNormalization;
 # for translations related to new master menu
 use Texinfo::Translations;
+
+our $VERSION = '7.3dev';
 
 BEGIN {
   my $shared_library_name = "StructuringXS";

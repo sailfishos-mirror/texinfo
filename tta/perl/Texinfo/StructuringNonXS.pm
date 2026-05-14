@@ -34,6 +34,7 @@ use if $] >= 5.012, feature => 'unicode_strings';
 use if $] >= 5.014, re => '/a';
 
 use strict;
+use warnings;
 
 # Can be used to check that there is no incorrect autovivfication
 #no autovivification qw(fetch delete exists store strict);
@@ -51,7 +52,6 @@ use Texinfo::ManipulateTree qw(normalized_entry_associated_internal_node);
 # for error messages
 use Texinfo::Convert::Texinfo qw(target_element_to_texi_label
                                  link_element_to_texi);
-our $VERSION = '7.3dev';
 
 my %command_structuring_level = %Texinfo::CommandsValues::command_structuring_level;
 

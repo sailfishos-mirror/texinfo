@@ -21,9 +21,9 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '7.3dev';
-
 use Texinfo::XSLoader;
+
+our $VERSION = '7.3dev';
 
 BEGIN {
   Texinfo::XSLoader::init (

@@ -25,7 +25,9 @@
 # --debug=10 (or more), the tree is printed at the end of the run,
 # --debug=100 (or more), the tree is printed at each newline.
 
+use 5.006;
 use strict;
+use warnings;
 
 package Texinfo::DebugTree;
 
@@ -34,6 +36,8 @@ use Texinfo::Common;
 use Texinfo::Convert::Converter;
 
 our @ISA = qw(Texinfo::Convert::Converter);
+
+our $VERSION = '7.3dev';
 
 my %defaults = (
   'EXTENSION' => 'debugtree',

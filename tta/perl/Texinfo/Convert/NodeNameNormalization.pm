@@ -24,6 +24,7 @@ package Texinfo::Convert::NodeNameNormalization;
 
 use 5.006;
 use strict;
+use warnings;
 
 # stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
 # used to match Unicode character classes.
@@ -51,6 +52,8 @@ use Texinfo::Convert::Unicode;
 require Exporter;
 our @ISA = qw(Exporter);
 
+our $VERSION = '7.3dev';
+
 our @EXPORT_OK = qw(
   convert_to_identifier
   convert_to_node_identifier
@@ -59,8 +62,6 @@ our @EXPORT_OK = qw(
   transliterate_texinfo
   transliterate_protect_file_name
 );
-
-our $VERSION = '7.3dev';
 
 
 my %normalize_node_brace_no_arg_commands

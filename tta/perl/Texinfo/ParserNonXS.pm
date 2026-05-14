@@ -48,6 +48,7 @@ package Texinfo::Parser;
 # We need the unicode stuff.
 use 5.006;
 use strict;
+use warnings;
 
 # stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
 # used to match Unicode character classes.
@@ -116,8 +117,6 @@ sub import {
   # The usual import method
   goto &Exporter::import;
 }
-
-our $VERSION = '7.3dev';
 
 
 # Document information set in the parser.  The initialization is done by
@@ -589,10 +588,6 @@ foreach my $begin_paragraph_context ('base') {
   $begin_paragraph_contexts{'ct_'.$begin_paragraph_context} = 1;
 }
 
-
-
-# Interface and internal functions for input management
-
 # can be modified through command-line, but not customization options
 my %parser_document_state_configuration = (
   # parsed document parsing information still relevant after parsing
@@ -617,6 +612,10 @@ my %parser_document_parsing_options = (
    %parser_document_state_configuration,
    %parser_inner_options);
 
+
+
+# Interface and internal functions for input management
+
 # ALTIMP perl/Texinfo/ParserXS.pm
 # initialization entry point.  Set up a parser.
 # The last argument, optional, is a hash provided by the user to change
@@ -628,12 +627,12 @@ sub parser(;$) {
   my $parser = {};
   bless $parser;
 
-  # Reset conf from argument, restricting to parser_document_parsing_options
+  # Copy conf from argument, only for keys of parser_document_parsing_options
   $parser->{'set'} = {};
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
       if (exists($parser_document_parsing_options{$key})) {
-        if (ref($conf->{$key})) {
+        if (ref($conf->{$key}) ne '') {
           $parser_conf->{$key} = dclone($conf->{$key});
         } else {
           $parser_conf->{$key} = $conf->{$key};
@@ -647,21 +646,20 @@ sub parser(;$) {
     }
   }
 
+  # Set to the parser initialization values.  Should not be modified
+  # when parsing a document.  Used to get customization variables values
+  # and also to initialize members of the parsing state.
+  $parser->{'conf'} = $parser_conf;
+
   # This is not very useful in perl, but mimics the XS parser
   print STDERR "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n"
     if ($parser_conf->{'DEBUG'});
 
-  # turn the array to a hash for speed.  Not sure it really matters for such
-  # a small array.
+  # turn the array to a hash.
   $parser->{'expanded_formats_hash'} = {};
   foreach my $expanded_format(@{$parser_conf->{'EXPANDED_FORMATS'}}) {
     $parser->{'expanded_formats_hash'}->{$expanded_format} = 1;
   }
-
-  # variables set to the parser initialization values only.  What is
-  # found in the document has no effect.  Also used to initialize some
-  # parsing state.
-  $parser->{'conf'} = $parser_conf;
 
   return $parser;
 }
@@ -885,8 +883,7 @@ sub parse_texi_text($$;$) {
 # No need to call to reset the parser, this is rather to have Perl release
 # memory when the parser is destroyed.
 # Remove cycles only
-sub release($)
-{
+sub release($) {
   my $self = shift;
 
   delete $self->{'document'};
@@ -894,7 +891,6 @@ sub release($)
   $self->{'macros'} = {};
   #find_cycle($self);
 }
-
 
 # $INPUT_FILE_PATH the name of the opened file should be a binary string.
 # Returns binary strings too.
@@ -940,14 +936,13 @@ sub _input_push_file($$;$) {
 }
 
 # ALTIMP C/main/build_perl_info.c pass_global_info
-# ALTIMP C/parsetexi/parser.c get_document_info
-# We want to avoid passing data requiring building the Perl Texinfo
-# tree, therefore we get textual data from commands.
-# Less set in pure C code, because there is no such constraint, the
-# tree is always available.  Some global info is set during
-# parsing.  For the remaining, document.c set_document_options
-# sets the options from global_commands, and does not need to get them
-# from global_info, therefore they are not in global_info fields.
+# ALTIMP C/parsetexi/parser.c get_parser_info
+# With XS, we want to avoid passing data requiring building the Perl
+# Texinfo tree, therefore we set textual information based on commands in
+# 'global_info' in XS code, and also here to have the same interface.
+# Note that less is set in pure C code, because there is no such
+# constraint, the tree is always available and can be accessed directly from
+# set_document_options, therefore they are not in global_info fields.
 sub get_parser_info($) {
   my $self = shift;
 

@@ -20,6 +20,7 @@
 
 package Texinfo::TreeElement;
 
+use 5.006;
 use strict;
 use warnings;
 

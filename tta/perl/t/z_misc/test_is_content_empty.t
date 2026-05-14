@@ -7,9 +7,14 @@ use Test::More;
 
 BEGIN { plan tests => 23; }
 
-use Texinfo::Parser;
-#use Texinfo::Convert::Texinfo;
 use Texinfo::Common;
+
+use Texinfo::Parser;
+# not used directly, but useful to find functions used through the
+# Texinfo::Document returned by the Parser.
+use Texinfo::Document;
+
+#use Texinfo::Convert::Texinfo;
 #use Data::Dumper;
 
 ok(1, 'modules loading');

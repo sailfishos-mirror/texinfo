@@ -30,6 +30,7 @@ use if $] >= 5.012, feature => 'unicode_strings';
 use if $] >= 5.014, re => '/a';
 
 use strict;
+use warnings;
 
 # Can be used to check that there is no incorrect autovivfication
 #no autovivification qw(fetch delete exists store strict);
@@ -56,6 +57,8 @@ use Texinfo::ManipulateTree;
 require Exporter;
 our @ISA = qw(Exporter);
 
+our $VERSION = '7.3dev';
+
 our @EXPORT_OK = qw(
   units_directions
   units_file_directions
@@ -63,8 +66,6 @@ our @EXPORT_OK = qw(
   split_by_section
   split_pages
 );
-
-our $VERSION = '7.3dev';
 
 BEGIN {
   my $shared_library_name = "OutputUnitsXS";

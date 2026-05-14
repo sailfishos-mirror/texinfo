@@ -27,6 +27,7 @@
 
 package Texinfo::Document;
 
+use 5.006;
 use strict;
 use warnings;
 

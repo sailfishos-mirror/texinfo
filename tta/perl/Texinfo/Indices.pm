@@ -37,6 +37,7 @@ use if $] >= 5.012, feature => 'unicode_strings';
 #use if $] >= 5.014, re => '/a';
 
 use strict;
+use warnings;
 
 # Can be used to check that there is no incorrect autovivfication
 #no autovivification qw(fetch delete exists store strict);
@@ -53,6 +54,8 @@ use Texinfo::Common;
 
 use Texinfo::Convert::Text;
 
+our $VERSION = '7.3dev';
+
 # In general, Texinfo::Document depends on this here module, but there
 # is also a dependence to Texinfo::Document through the call to
 # Texinfo::Document::indices_sort_strings call, hence a circular dependency.
@@ -62,14 +65,10 @@ use Texinfo::Convert::Text;
 # loading is not important.
 #use Texinfo::Document;
 
-our $VERSION = '7.3dev';
-
 # The methods that are usefully called directly (outside of tests) are:
 # index_entry_element_sort_string
 # setup_index_entry_keys_formatting
 # index_entry_first_letter_text_or_command
-
-my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 
 BEGIN {
   my $shared_library_name = "IndicesXS";

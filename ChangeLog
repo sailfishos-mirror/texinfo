@@ -1,5 +1,17 @@
 2026-05-14 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/*.pm, tta/perl/Texinfo/Convert/*.pm: verify that
+	there is a VERSIN for all modules that are not *NonXS modules.  Add
+	use warnings and use 5.006 if needed for our VERSION.
+
+	* tta/perl/t/z_misc/test_is_content_empty.t,
+	tta/perl/t/z_misc/nodenormalization.t: add "use Texinfo::Document;".
+
+	* tta/perl/Texinfo/Parser*: small misc changes.  Add "use
+	Texinfo::Document;" in the main Parser.pm module.
+
+2026-05-14 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/parser_document/ParserXS.xs
 	(_register_parser_conf, _parser_store_values)
 	(_parser_store_INCLUDE_DIRECTORIES, _parser_store_EXPANDED_FORMATS):

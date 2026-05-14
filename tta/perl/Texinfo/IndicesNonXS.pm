@@ -21,8 +21,6 @@
 
 package Texinfo::Indices;
 
-use 5.006;
-
 # See comment at start of HTML.pm
 use if $] >= 5.012, feature => 'unicode_strings';
 
@@ -36,8 +34,6 @@ use Carp qw(cluck confess);
 use Texinfo::Common;
 
 use Texinfo::Convert::Text;
-
-our $VERSION = '7.3dev';
 
 # There is a full coverage by the C implementation.
 # Relevant XS interfaces are all implemented.

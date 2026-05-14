@@ -49,13 +49,13 @@ use Texinfo::Common;
 require Exporter;
 our @ISA = qw(Exporter);
 
+our $VERSION = '7.3dev';
+
 our @EXPORT_OK = qw(
   convert_to_texinfo
   link_element_to_texi
   target_element_to_texi_label
 );
-
-our $VERSION = '7.3dev';
 
 
 BEGIN {

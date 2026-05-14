@@ -33,7 +33,9 @@
 
 package Texinfo::Config;
 
+use 5.006;
 use strict;
+use warnings;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
@@ -48,11 +50,20 @@ use Texinfo::Common;
 
 use Texinfo::XSLoader;
 
+require Exporter;
+
+our $VERSION = '7.3dev';
+
+# When the main program is the C implementation, the way init files options
+# are shared with the main program cannot work.  Instead, the functions
+# are overriden such that the init files options stored in C data are
+# set and accessed.  Functions are overriden only in that case,
+# if customization data is managed from C code.
+# Otherwise, the customization code related to init files
+# is run early in Perl and customization variables are passed through the XS
+# interfaces of converters.
 BEGIN {
-  # Functions are overriden only if customization data is managed
-  # from C code.  Otherwise, all the customization code related to init files
-  # is run early and customization variables are passed through the XS
-  # interfaces of converters.
+  # load XS only if main caller is a C caller
   if ($Texinfo::XSLoader::mandatory_xs) {
     Texinfo::XSLoader::init (
       "Texinfo::ConfigXS",
@@ -68,11 +79,6 @@ BEGIN {
 # interface because it would be complicated to separate the overriden
 # Perl functions as they use file scoped variables and it is better to
 # keep it that way.
-
-# When the main program is the C implementation, the way init files options
-# are shared with the main program cannot work.  Instead, the functions
-# are overriden such that the init files options stored in C data are
-# set and accessed.
 my %XS_overrides = (
   "Texinfo::Config::texinfo_get_conf"
     => "Texinfo::ConfigXS::texinfo_get_conf",
@@ -89,7 +95,7 @@ my %XS_overrides = (
 my $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    # override only if customization data is managed from C code
+    # override only if main caller is a C caller
     if ($Texinfo::XSLoader::mandatory_xs) {
       foreach my $sub (keys(%XS_overrides)) {
         Texinfo::XSLoader::override($sub, $XS_overrides{$sub});

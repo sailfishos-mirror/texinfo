@@ -21,8 +21,9 @@
 
 package Texinfo::Report;
 
-use 5.00405;
+use 5.006;
 use strict;
+use warnings;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
@@ -33,6 +34,8 @@ use Carp qw(cluck);
 use File::Basename;
 
 use Locale::Messages;
+
+our $VERSION = '7.3dev';
 
 my $messages_textdomain = 'texinfo';
 

@@ -19,9 +19,15 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '7.3dev';
-
 use Texinfo::XSLoader;
+
+# Not necessarily directly used, but a Texinfo::Document is returned by
+# most Parser methods and loading the module here makes sure that the
+# functions directly called on the returned object are found even if
+# the caller does not load the module.
+use Texinfo::Document;
+
+our $VERSION = '7.3dev';
 
 BEGIN {
   my $shared_library_name = "ParserXS";

@@ -25,6 +25,7 @@ package Texinfo::Common;
 use 5.008001;
 
 use strict;
+use warnings;
 
 # have :alpha: match only ASCII
 use if $] >= 5.014, re => '/a';
@@ -58,6 +59,8 @@ use Texinfo::TreeElement;
 require Exporter;
 our @ISA = qw(Exporter);
 
+our $VERSION = '7.3dev';
+
 our @EXPORT_OK = qw(
 collect_commands_in_tree
 collect_commands_list_in_tree
@@ -70,8 +73,6 @@ valid_tree_transformation
 our @EXPORT = qw(
 __ __p
 );
-
-our $VERSION = '7.3dev';
 
 # TODO document?
 use constant {

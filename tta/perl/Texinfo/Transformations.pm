@@ -24,8 +24,8 @@
 package Texinfo::Transformations;
 
 use 5.006;
-
 use strict;
+use warnings;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
@@ -46,12 +46,12 @@ use Texinfo::ManipulateTree;
 require Exporter;
 our @ISA = qw(Exporter);
 
+our $VERSION = '7.3dev';
+
 our @EXPORT_OK = qw(
 protect_hashchar_at_line_beginning
 reference_to_arg_in_tree
 );
-
-our $VERSION = '7.3dev';
 
 BEGIN {
   my $shared_library_name = "TransformationsXS";

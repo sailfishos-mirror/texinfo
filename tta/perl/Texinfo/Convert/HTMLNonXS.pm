@@ -39,6 +39,7 @@ use if $] >= 5.012, feature => 'unicode_strings';
 use if $] >= 5.014, re => '/a';  # ASCII-only character classes in regexes
 
 use strict;
+use warnings;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
@@ -75,8 +76,6 @@ use Texinfo::OutputUnits;
 
 # copy_options_for_convert_to_latex_math
 use Texinfo::Convert::LaTeX;
-
-our $VERSION = '7.3dev';
 
 my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
 my %brace_commands = %Texinfo::Commands::brace_commands;

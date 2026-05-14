@@ -24,10 +24,8 @@
 
 package Texinfo::Convert::Text;
 
-use 5.006;
 use strict;
-
-our $VERSION = '7.3dev';
+use warnings;
 
 # if the output or convert functions are overriden the following
 # should probably be overriden using that kind of function

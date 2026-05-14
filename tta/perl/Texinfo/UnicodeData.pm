@@ -1,4 +1,4 @@
-# Unicode.pm: handle conversion to unicode.
+# UnicodeData.pm: data related to Unicode.
 #
 # Copyright 2010-2026 Free Software Foundation, Inc.
 #
@@ -17,7 +17,9 @@
 
 package Texinfo::UnicodeData;
 
+use 5.006;
 use strict;
+use warnings;
 
 our $VERSION = '7.3dev';
 
