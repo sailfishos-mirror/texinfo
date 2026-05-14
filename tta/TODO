@@ -91,11 +91,6 @@ copied by "make install".  That is, on Windows there will be two copies of each
 DLL installed, not one.
 https://lists.gnu.org/archive/html/bug-texinfo/2026-02/msg00090.html
 
-Do not add parent in tree in the first place instead of removing afterwards,
-in gdt?  Or, possibly even better mark parent as weak reference with
-Scalar::Util weaken as explained in man perlref (Gavin).
-in perlapi for XS: sv_rvweaken
-
 inline contents_child_by_index in C?
 
 Do an XS interface for converter current_lang_translations?  It is
@@ -971,6 +966,19 @@ And, in the <body> tag of manual.html:
 
 Need to make sure that a fix needed
 -----------------------------------
+
+We mark Perl tree element parent as weaken for tree copies to avoid having
+to remove parent in trees returned after translation, such that they
+do not have cycles already and can be destroyed by Perl.
+
+It could be possible to mark Perl tree element parent as weak reference
+with Scalar::Util weaken in Texinfo::ParserNonXS more generally, such that
+there is no need to remove the parent to break cycles and remove tree element
+references.  In perlapi for XS there is sv_rvweaken for the elements built from
+C.  However, this would slow down the Parsers although for the majority of
+cases, we do not call the code that deletes the tree element parent, we do it
+only if there is more than one manual converted.  So it is not clear that it
+is a good idea.
 
 In HTML, HEADERS is used.  But not in other modules, especially not in
 Plaintext.pm or Info.pm, this is determined by the module used (Plaintext.pm

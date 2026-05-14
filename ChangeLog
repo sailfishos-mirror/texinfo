@@ -15,7 +15,7 @@
 2026-05-14 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/*.pm, tta/perl/Texinfo/Convert/*.pm: verify that
-	there is a VERSIN for all modules that are not *NonXS modules.  Add
+	there is a VERSION for all modules that are not *NonXS modules.  Add
 	use warnings and use 5.006 if needed for our VERSION.
 
 	* tta/perl/t/z_misc/test_is_content_empty.t,
