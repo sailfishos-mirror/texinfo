@@ -39,7 +39,8 @@ use Texinfo::Document;
 # ALTIMP tta/C/convert/texinfo.c txi_parser
 # Initialize the parser
 # The last argument, optional, is a hash provided by the user to change
-# the default values for what is present in %parser_document_parsing_options.
+# the default values for what is present in %parser_document_parsing_options
+# (actually taken from defaults in C for the XS interface).
 sub parser(;$) {
   my $conf = shift;
 
@@ -53,7 +54,7 @@ sub parser(;$) {
   $debug = $conf->{'DEBUG'} if (defined($conf) and defined($conf->{'DEBUG'}));
 
   # The reset_parser call resets the conf to the same values as found in
-  # Texinfo::Common parser_document_parsing_options.
+  # %parser_document_parsing_options.
   reset_parser($debug);
 
   # (re)set debug in any case, assuming that undef DEBUG is no debug
@@ -67,11 +68,11 @@ sub parser(;$) {
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
       if ($key eq 'INCLUDE_DIRECTORIES') {
-        parser_store_INCLUDE_DIRECTORIES($conf->{'INCLUDE_DIRECTORIES'});
+        _parser_store_INCLUDE_DIRECTORIES($conf->{'INCLUDE_DIRECTORIES'});
       } elsif ($key eq 'values') {
-        parser_store_values($conf->{'values'});
+        _parser_store_values($conf->{'values'});
       } elsif ($key eq 'EXPANDED_FORMATS') {
-        parser_store_EXPANDED_FORMATS($conf->{'EXPANDED_FORMATS'});
+        _parser_store_EXPANDED_FORMATS($conf->{'EXPANDED_FORMATS'});
       } elsif ($key eq 'documentlanguage') {
         if (defined($conf->{$key})) {
           parser_conf_set_documentlanguage($conf->{$key});
@@ -125,7 +126,7 @@ sub parser(;$) {
     }
   }
   if ($store_conf) {
-    register_parser_conf($parser);
+    _register_parser_conf($parser);
   }
 
   return $parser;

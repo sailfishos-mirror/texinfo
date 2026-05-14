@@ -1,5 +1,17 @@
 2026-05-14 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/parser_document/ParserXS.xs
+	(_register_parser_conf, _parser_store_values)
+	(_parser_store_INCLUDE_DIRECTORIES, _parser_store_EXPANDED_FORMATS):
+	add leading _ for functions that should only be called from
+	ParserXS.pm in XS.
+
+	* tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/ParserNonXS.pm
+	(%parser_document_state_configuration, %parser_inner_options)
+	(%parser_document_parsing_options): move to ParserNonXS.pm.
+
+2026-05-14 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/errors.c (message_list_format_line_message)
 	(message_list_format_document_message): rename
 	message_list_line_formatted_message as

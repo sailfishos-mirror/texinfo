@@ -76,7 +76,7 @@ release (SV *)
 
 
 void
-register_parser_conf (SV *parser_sv)
+_register_parser_conf (SV *parser_sv)
     PREINIT:
         HV *parser_hv;
         const char *key = "parser_conf_descriptor";
@@ -202,8 +202,8 @@ parse_texi_text (SV *parser_sv, SV *string_sv, ...)
         RETVAL
 
 void
-parser_store_values (SV *values_sv)
-      CODE:
+_parser_store_values (SV *values_sv)
+       CODE:
         parser_conf_reset_values ();
         if (SvOK (values_sv))
           {
@@ -226,7 +226,7 @@ parser_store_values (SV *values_sv)
           }
 
 void
-parser_store_INCLUDE_DIRECTORIES (SV *directories_sv)
+_parser_store_INCLUDE_DIRECTORIES (SV *directories_sv)
       CODE:
         parser_conf_clear_INCLUDE_DIRECTORIES ();
         if (SvOK (directories_sv))
@@ -250,7 +250,7 @@ parser_store_INCLUDE_DIRECTORIES (SV *directories_sv)
           }
 
 void
-parser_store_EXPANDED_FORMATS (SV *expanded_formats_sv)
+_parser_store_EXPANDED_FORMATS (SV *expanded_formats_sv)
       CODE:
         parser_conf_clear_expanded_formats ();
         if (SvOK (expanded_formats_sv))

@@ -142,25 +142,6 @@ foreach my $variable_name ('MACRO_EXPAND', 'INTERNAL_LINKS') {
   $non_decoded_customization_variables{$variable_name} = 1;
 }
 
-# can be modified through command-line, but not customization options
-my %parser_document_state_configuration = (
-  # parsed document parsing information still relevant after parsing
-  'values' => {'txicommandconditionals' => 1},
-                              # the key is the name, the value the @set name
-                              # argument.
-                              # The txicommandconditionals is a special value
-                              # that is set to mark that @ifcommandnotdefined
-                              # is implemented
-);
-
-# parser keys related to customization
-# Set when initializing a parser, but never from command-line/init files
-my %parser_inner_options = (
-  'accept_internalvalue' => 0, # whether @txiinternalvalue should be added
-                               # to the tree or considered invalid.
-                               # currently set if called by gdt.
-);
-
 # this serves both to set defaults and list customization variable
 # valid for the parser.
 my $common_parser_regular_options_defaults
@@ -169,12 +150,6 @@ my $common_parser_regular_options_defaults
 our %default_parser_customization_values = (
                   %Texinfo::Options::parser_options,
                   %$common_parser_regular_options_defaults);
-
-# used in Parser, not documented
-our %parser_document_parsing_options = (
-                  %default_parser_customization_values,
-                  %parser_document_state_configuration,
-                  %parser_inner_options);
 
 # check that settable commands are contained in global commands
 # from command_data.txt

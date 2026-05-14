@@ -593,19 +593,38 @@ foreach my $begin_paragraph_context ('base') {
 
 # Interface and internal functions for input management
 
+# can be modified through command-line, but not customization options
+my %parser_document_state_configuration = (
+  # parsed document parsing information still relevant after parsing
+  'values' => {'txicommandconditionals' => 1},
+                              # the key is the name, the value the @set name
+                              # argument.
+                              # The txicommandconditionals is a special value
+                              # that is set to mark that @ifcommandnotdefined
+                              # is implemented
+);
+
+# parser keys related to customization
+# Set when initializing a parser, but never from command-line/init files
+my %parser_inner_options = (
+  'accept_internalvalue' => 0, # whether @txiinternalvalue should be added
+                               # to the tree or considered invalid.
+                               # currently set if called by gdt.
+);
+
+my %parser_document_parsing_options = (
+   %Texinfo::Common::default_parser_customization_values,
+   %parser_document_state_configuration,
+   %parser_inner_options);
+
+# ALTIMP perl/Texinfo/ParserXS.pm
 # initialization entry point.  Set up a parser.
 # The last argument, optional, is a hash provided by the user to change
 # the default values for what is present in %parser_document_parsing_options.
 sub parser(;$) {
   my $conf = shift;
 
-  # In Texinfo::Common because all the
-  # customization options information is gathered here, and also
-  # because it is used in other codes, in particular the XS parser.
-  # Note that it also contains inner options like accept_internalvalue
-  # and customizable document parser state values in addition to
-  # regular customization options.
-  my $parser_conf = dclone(\%Texinfo::Common::parser_document_parsing_options);
+  my $parser_conf = dclone(\%parser_document_parsing_options);
   my $parser = {};
   bless $parser;
 
@@ -613,7 +632,7 @@ sub parser(;$) {
   $parser->{'set'} = {};
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
-      if (exists($Texinfo::Common::parser_document_parsing_options{$key})) {
+      if (exists($parser_document_parsing_options{$key})) {
         if (ref($conf->{$key})) {
           $parser_conf->{$key} = dclone($conf->{$key});
         } else {
