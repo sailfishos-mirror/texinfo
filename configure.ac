@@ -52,7 +52,7 @@ AC_ARG_VAR([PERL_EXT_LDFLAGS], [Linker flags for a Perl extension])
 AC_ARG_VAR([PERL_EXT_CC], [Compiler for a Perl extension])
 
 AC_MSG_CHECKING([Perl version and modules])
-if $PERL -e "use 5.008_001; use Encode; use Data::Dumper; use Getopt::Long qw(GetOptions); use Storable; use File::Spec; use File::Basename; use Unicode::Normalize" >/dev/null 2>&AS_MESSAGE_LOG_FD; then
+if $PERL -e "use 5.008_001; use Encode; use Data::Dumper; use Getopt::Long qw(GetOptions); use Storable; use File::Spec; use File::Basename; use Scalar::Util; use Unicode::Normalize" >/dev/null 2>&AS_MESSAGE_LOG_FD; then
   perl_version_requirement='yes'
 else
   perl_version_requirement='no'

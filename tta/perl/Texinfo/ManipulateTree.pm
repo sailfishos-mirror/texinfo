@@ -45,6 +45,8 @@ use warnings;
 # debugging
 use Carp qw(cluck confess);
 
+use Scalar::Util qw(weaken);
+
 # Next two only needed for debugging, if customization variable TEST
 # is set > 2 (which never happens automatically).
 eval { require Devel::Refcount; Devel::Refcount->import(); };
@@ -204,6 +206,7 @@ sub _copy_tree($;$) {
       my $added = _copy_tree($child, $other_trees);
       if (exists($child->{'parent'})) {
         $added->{'parent'} = $new;
+        weaken($added->{'parent'});
       }
       push @{$new->{'contents'}}, $added;
     }

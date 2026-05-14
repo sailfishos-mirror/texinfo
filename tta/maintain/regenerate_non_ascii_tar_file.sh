@@ -3,6 +3,7 @@
 #
 # Copyright 2024-2026 Free Software Foundation, Inc.
 #
+# This script is used by tta/tests/Makefile.am to regenerate the archive
 
 #set -x
 
