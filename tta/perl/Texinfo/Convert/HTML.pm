@@ -8835,9 +8835,8 @@ sub _convert($$;$) {
 1;
 
 # The documentation of the customization API is in the texi2any_api
-# Texinfo manual.  POD format is not suitable for such a documentation, because
-# of the module documentation style, the language limitations, and also because
-# the customization API involves multiple modules as well as the main program.
+# Texinfo manual, which also includes documentation of functions and
+# data from multiple modules.
 
 __END__
 # Automatically generated from Convert_format_template.pod

@@ -493,5 +493,3 @@ sub get_converter_indices_sorted_by_index($) {
 }
 
 1;
-
-__END__

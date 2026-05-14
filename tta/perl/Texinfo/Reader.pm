@@ -201,6 +201,7 @@ sub reader_collect_commands_list($$) {
 
 1;
 __END__
+
 =head1 NAME
 
 Texinfo::Reader - Texinfo tree reader

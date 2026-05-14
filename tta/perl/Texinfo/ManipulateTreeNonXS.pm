@@ -328,5 +328,3 @@ sub relate_index_entries_to_table_items_in_document($) {
 }
 
 1;
-
-__END__

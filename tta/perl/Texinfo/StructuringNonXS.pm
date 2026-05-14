@@ -1534,4 +1534,3 @@ sub print_document_listoffloats($) {
 }
 
 1;
-__END__

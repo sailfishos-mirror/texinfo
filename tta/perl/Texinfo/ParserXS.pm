@@ -131,6 +131,3 @@ sub parser(;$) {
 }
 
 1;
-__END__
-
-The POD documentation of Texinfo::Parser is in Texinfo::ParserNonXS.

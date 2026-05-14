@@ -481,6 +481,7 @@ sub register_label_element($$;$$) {
 
 1;
 __END__
+
 =head1 NAME
 
 Texinfo::Document - Texinfo document tree and information

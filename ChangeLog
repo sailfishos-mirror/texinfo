@@ -1,5 +1,11 @@
 2026-05-14 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/tta_api/Makefile.am (texi2any_internals_dependencies),
+	tta/perl/Texinfo/Parser.pm: move POD documentation of the Parser out
+	of ParserNonXS.pm to Parser.pm.
+
+2026-05-14 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/*.pm, tta/perl/Texinfo/Convert/*.pm: verify that
 	there is a VERSIN for all modules that are not *NonXS modules.  Add
 	use warnings and use 5.006 if needed for our VERSION.
