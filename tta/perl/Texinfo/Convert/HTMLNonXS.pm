@@ -2026,9 +2026,10 @@ sub _open_command_update_context($$) {
 
   my $convert_to_latex;
 
-  if (exists($brace_commands{$command_name})
-      and ($brace_commands{$command_name} eq 'context'
-            or exists($math_commands{$command_name}))) {
+  if ((exists($brace_commands{$command_name})
+       and ($brace_commands{$command_name} eq 'context'
+            or exists($math_commands{$command_name})))
+      or $command_name eq 'printindex') {
     _new_document_context($self, $command_name);
   }
   if (exists($format_context_commands{$command_name})) {
@@ -2127,9 +2128,10 @@ sub _convert_command_update_context($$) {
   if (exists($format_context_commands{$command_name})) {
     pop @{$self->{'document_context'}->[-1]->{'formatting_context'}};
   }
-  if (exists($brace_commands{$command_name})
-      and ($brace_commands{$command_name} eq 'context'
-            or exists($math_commands{$command_name}))) {
+  if ((exists($brace_commands{$command_name})
+       and ($brace_commands{$command_name} eq 'context'
+            or exists($math_commands{$command_name})))
+      or $command_name eq 'printindex') {
     _pop_document_context($self);
   }
 }

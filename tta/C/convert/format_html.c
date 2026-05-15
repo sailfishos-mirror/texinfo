@@ -10164,8 +10164,6 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
         }
     }
 
-  html_new_document_context (self, builtin_command_name (cmd), 0, 0, 0);
-
   STRING_LIST *entry_classes = new_string_list ();
   STRING_LIST *section_classes  = new_string_list ();
 
@@ -10984,7 +10982,6 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
     {
       free (alpha);
       free (non_alpha);
-      html_pop_document_context (self);
       free (entries_text.text);
       free (result_index_entries.text);
       destroy_strings_list (entry_classes);
@@ -11085,8 +11082,6 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   text_append (result, result_index_entries.text);
   text_append_n (result, "</table>\n", 9);
 
-
-  html_pop_document_context (self);
 
   if (non_alpha_nr + alpha_nr > 1)
     {

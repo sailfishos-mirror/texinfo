@@ -4760,9 +4760,6 @@ sub _convert_printindex_command($$$$) {
 
   }
 
-  # FIXME not part of the API
-  _new_document_context($self, $cmdname);
-
   my $rule = $self->get_conf('DEFAULT_RULE');
   $rule = '' if (!defined($rule));
 
@@ -5223,7 +5220,6 @@ sub _convert_printindex_command($$$$) {
   }
 
   if (scalar(@non_alpha) + scalar(@alpha) == 0) {
-    _pop_document_context($self);
     return '';
   }
 
@@ -5266,8 +5262,6 @@ sub _convert_printindex_command($$$$) {
   $result .= "<tr><td colspan=\"2\">${rule}</td></tr>\n";
   $result .= $result_index_entries;
   $result .= "</table>\n";
-
-  _pop_document_context($self);
 
   if (scalar(@non_alpha) + scalar(@alpha) > 1) {
     my $summary_footer = $self->html_attribute_class('table',

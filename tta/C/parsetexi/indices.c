@@ -330,8 +330,6 @@ set_non_ignored_space_in_index_before_command (ELEMENT *content)
   size_t i;
   for (i = 0; i < content->e.c->contents.number; i++)
     {
-      /* could also be, but it does not seems to be needed here:
-         e = contents_child_by_index (content, i); */
       e = content->e.c->contents.list[i];
       if (e->type == ET_internal_spaces_before_brace_in_index)
         {

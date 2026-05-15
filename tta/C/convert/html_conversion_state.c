@@ -157,9 +157,10 @@ html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   HTML_FORMATTING_CONTEXT *top_formating_ctx;
 
-  if (builtin_command_data[data_cmd].flags & CF_brace
-      && (builtin_command_data[data_cmd].data == BRACE_context
-          || builtin_command_data[data_cmd].flags & CF_math))
+  if ((builtin_command_data[data_cmd].flags & CF_brace
+       && (builtin_command_data[data_cmd].data == BRACE_context
+           || builtin_command_data[data_cmd].flags & CF_math))
+      || data_cmd == CM_printindex)
     {
       html_new_document_context (self,
                    builtin_command_data[data_cmd].cmdname, 0, 0, 0);
@@ -317,9 +318,10 @@ html_convert_command_update_context (CONVERTER *self, enum command_id data_cmd)
                  &top_document_ctx->formatting_context);
     }
 
-  if (builtin_command_data[data_cmd].flags & CF_brace
-      && (builtin_command_data[data_cmd].data == BRACE_context
-          || builtin_command_data[data_cmd].flags & CF_math))
+  if ((builtin_command_data[data_cmd].flags & CF_brace
+       && (builtin_command_data[data_cmd].data == BRACE_context
+           || builtin_command_data[data_cmd].flags & CF_math))
+      || data_cmd == CM_printindex)
     {
       html_pop_document_context (self);
     }
