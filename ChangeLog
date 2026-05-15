@@ -1,5 +1,17 @@
 2026-05-15 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm (set_context_convert_tree)
+	($CTXF_normal): add CTXF_normal, flag that can be used to unset code
+	context.  Add set_context_convert_tree that accepts CTXF_normal or
+	CTXF_code to set or unset code context.  Remove
+	convert_tree_in_code_context.  Update callers.
+
+	* doc/texi2any_api.texi (Setting the Expansion Context for
+	Conversion): update for the replacement of
+	convert_tree_in_code_context by set_context_convert_tree.
+
+2026-05-15 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (html_convert_printindex_command),
 	tta/C/convert/html_conversion_state.c
 	(html_open_command_update_context)

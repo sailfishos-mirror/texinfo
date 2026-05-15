@@ -420,6 +420,7 @@ sub html_image_file_location_name($$$$$) {
 # passing to C.
 our $CTXF_string = 0x0001;
 our $CTXF_code = 0x0002;
+our $CTXF_normal = 0x0004;
 
 my %default_css_string_commands_conversion;
 my %default_css_string_types_conversion;
@@ -4536,15 +4537,15 @@ sub _convert_xref_command($$$$) {
         $label_element->{'extra'} = {};
       }
       $label_element->{'extra'}->{'manual_content'} = $manual_content;
-      $file = $self->convert_tree_in_code_context($manual_content,
-                                                  'node file in ref');
+      $file = $self->set_context_convert_tree($manual_content, $CTXF_code,
+                                              'node file in ref');
     }
 
     if (!defined($name)) {
       if (defined($book)) {
         if (defined($node_content)) {
-          my $node_name = $self->convert_tree_in_code_context($node_content,
-                                                              'node in ref');
+          my $node_name = $self->set_context_convert_tree($node_content,
+                                                 $CTXF_code, 'node in ref');
           if (defined($node_name) and $node_name ne 'Top') {
             $name = $node_name;
           }
@@ -4892,8 +4893,8 @@ sub _convert_printindex_command($$$$) {
                                   "index-formatted-$formatted_index_entry_nr");
         } else {
           if ($in_code) {
-            $entry = $self->convert_tree_in_code_context($entry_trees[$level],
-                                                         $convert_info);
+            $entry = $self->set_context_convert_tree($entry_trees[$level],
+                                                $CTXF_code, $convert_info);
           } else {
             $entry = $self->convert_tree($entry_trees[$level],
                                          $convert_info);
@@ -4994,8 +4995,8 @@ sub _convert_printindex_command($$$$) {
                                 "index-formatted-$formatted_index_entry_nr");
           } else {
             if ($in_code) {
-              $entry = $self->convert_tree_in_code_context($entry_tree,
-                                                           $conv_str_entry);
+              $entry = $self->set_context_convert_tree($entry_tree,
+                                           $CTXF_code, $conv_str_entry);
             } else {
               $entry = $self->convert_tree($entry_tree,
                                            $conv_str_entry);
@@ -5043,8 +5044,8 @@ sub _convert_printindex_command($$$$) {
                                "index-formatted-$formatted_index_entry_nr");
           } else {
             if ($in_code) {
-              $entry = $self->convert_tree_in_code_context($entry_tree,
-                                                           $convert_info);
+              $entry = $self->set_context_convert_tree($entry_tree,
+                                            $CTXF_code, $convert_info);
             } else {
               $entry = $self->convert_tree($entry_tree, $convert_info);
             }
@@ -6043,8 +6044,8 @@ sub _convert_menu_entry_type($$$) {
     }
 
     if (defined($menu_entry_node)) {
-      my $name = $self->convert_tree_in_code_context($menu_entry_node,
-                              "menu_arg menu_entry_node preformatted");
+      my $name = $self->set_context_convert_tree($menu_entry_node,
+                  $CTXF_code, "menu_arg menu_entry_node preformatted");
       if (defined($href) and !$in_string) {
         $result_name_node .= "<a href=\"$href\"$rel$accesskey>$name</a>";
       } else {
@@ -6115,10 +6116,10 @@ sub _convert_menu_entry_type($$$) {
         $name = $self->command_text($menu_entry_node);
       } elsif (exists($menu_entry_node->{'extra'})
                and exists($menu_entry_node->{'extra'}->{'node_content'})) {
-        $name = $self->convert_tree_in_code_context(
+        $name = $self->set_context_convert_tree(
                  Texinfo::TreeElement::new({
             'contents' => [$menu_entry_node->{'extra'}->{'node_content'}]}),
-                                    'menu_arg name');
+                               $CTXF_code, 'menu_arg name');
       } else {
         $name = '';
       }
@@ -6266,8 +6267,8 @@ sub _convert_def_line_type($$$$) {
   my $def_call = '';
   if (defined($type_element)) {
     my $explanation = "DEF_TYPE $def_command";
-    my $type_text = $self->convert_tree_in_code_context($type_element,
-                                                        $explanation);
+    my $type_text = $self->set_context_convert_tree($type_element,
+                                          $CTXF_code, $explanation);
     if ($type_text ne '') {
       $def_call .= $self->html_attribute_class('code', ['def-type']).'>'.
           $type_text .'</code>';
@@ -6283,8 +6284,8 @@ sub _convert_def_line_type($$$$) {
   }
 
   if (defined($name_element)) {
-    my $def_name_text = $self->convert_tree_in_code_context($name_element,
-                                                     "DEF_NAME $def_command");
+    my $def_name_text = $self->set_context_convert_tree($name_element,
+                                  $CTXF_code, "DEF_NAME $def_command");
 
     $def_call .= $self->html_attribute_class('strong', ['def-name']).'>'.
        $def_name_text .'</strong>';
@@ -6295,8 +6296,8 @@ sub _convert_def_line_type($$$$) {
   # arguments not only metasyntactic variables
   # (deftypefn, deftypevr, deftypeop, deftypecv)
     if (exists($Texinfo::Common::def_no_var_arg_commands{$base_command_name})) {
-      my $arguments_formatted = $self->convert_tree_in_code_context($arguments,
-                                                                 $explanation);
+      my $arguments_formatted = $self->set_context_convert_tree($arguments,
+                                                   $CTXF_code, $explanation);
       if ($arguments_formatted =~ /\S/) {
         $def_call .= ' ' unless($element->{'extra'}->{'omit_def_name_space'});
         $def_call .= $self->html_attribute_class('code',
@@ -8414,14 +8415,25 @@ sub converter_destroy($) {
   }
 }
 
-# wrappers around convert_tree setting some context
-sub convert_tree_in_code_context($$;$) {
-  my ($self, $tree, $explanation) = @_;
+# wrapper around convert_tree setting some context
+sub set_context_convert_tree($$$;$) {
+  my ($self, $tree, $context_type, $explanation) = @_;
 
-  _set_code_context($self, 1);
+  my $code_context_set;
+  if (defined($context_type)) {
+    if ($context_type & $CTXF_code) {
+      _set_code_context($self, 1);
+      $code_context_set = 1;
+    } elsif ($context_type & $CTXF_normal) {
+      _set_code_context($self, 0);
+      $code_context_set = 1;
+    }
+  }
   my $result = $self->convert_tree($tree, $explanation);
-  _pop_code_context($self);
 
+  if ($code_context_set) {
+    _pop_code_context($self);
+  }
   return $result;
 }
 

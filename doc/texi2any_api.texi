@@ -2912,15 +2912,36 @@ example, node names appearing in headings,
 most parts of the definition lines (except for the category), and index
 entries in index defined by @code{@@defcodeindex} in
 @code{@@printindex} formatting should be formatted in code expansion context.
+Conversly, in some cases, you may want to unset code expansion context and
+convert in the normal context.
+
+You set the expansion context through flags passed in function arguments.  You
+can set different flags concurrently, in case you want to set multiple
+expansion contexts.  The flags are:
+
+@table @code
+@item $Texinfo::Convert::HTML::CTXF_string
+Add this flag for an expansion in string context.
+
+@item $Texinfo::Convert::HTML::CTXF_code
+Add this flag for an expansion in code context.
+
+@item $Texinfo::Convert::HTML::CTXF_normal
+Add this flag to unset code context.
+@end table
 
 To set code expansion in the main formatting document context, call
-@code{convert_tree_in_code_context}:
+@code{set_context_convert_tree}:
 
-@deftypefun {@var{$converted_text} =} @var{$converter}->convert_tree_in_code_context (@var{\%element}, @var{$explanation})
-@var{\%element} is a Texinfo tree element. @var{$explanation} is
-optional, it is a string explaining why the function was called, to help
-in case of debugging.  The function sets code expansion context and
-returns @var{\%element} converted by @code{convert_tree}.
+@deftypefun {@var{$converted_text} =} @var{$converter}->set_context_convert_tree (@var{\%element}, @var{$expansion_context_flags}, @var{$explanation})
+@var{\%element} is a Texinfo tree element. @var{$expansion_context_flags} is
+an integer specifying the expansion context that is wanted. @var{$explanation}
+is optional, it is a string explaining why the function was called, to help in
+case of debugging.  The function sets the expansion context and returns
+@var{\%element} converted by @code{convert_tree}.
+
+Since the main document expansion context should never be in string expansion
+context string expansion context flag is ignored.
 @end deftypefun
 
 In the following example, the content of an existing tree element is copied,
@@ -2931,29 +2952,19 @@ code expansion context:
 my @@contents = @@@{$element->@{'contents'@}@};
 push @@contents, Texinfo::TreeElement::new(@{'text' => ' HTML text '@});
 my $new_element = Texinfo::TreeElement::new(@{'contents' => \@@contents@});
-my $result = $converter->convert_tree_in_code_context($new_element);
+my $result = $converter->set_context_convert_tree($new_element,
+                              $Texinfo::Convert::HTML::CTXF_code);
 return "<p>".$result."</p>";
 @end group
 @end example
-
-Since the main document expansion context should never be in string expansion
-context it is not possible to set string expansion context in the main
-formatting document context.
 
 To set the expansion context in other formatting contexts, you should call
 @ref{@code{convert_tree_new_formatting_context}}
 and set the expansion context flags argument with flags
 set for the expansions you want.  You can set different flags concurrently,
-in case you want to set multiple expansion contexts.  The flags
-are:
-
-@table @code
-@item $Texinfo::Convert::HTML::CTXF_string
-Add this flag for an expansion in string context.
-
-@item $Texinfo::Convert::HTML::CTXF_code
-Add this flag for an expansion in code context.
-@end table
+in case you want to set multiple expansion contexts.  Since a new context
+is created, there cannot be a code context to unset, therefore
+the normal context flag is ignored.
 
 For example:
 
@@ -3804,7 +3815,8 @@ sub my_tree_element_convert_paragraph_type($$$$) @{
   my @@contents = @@@{$element->@{'contents'@}@};
   push @@contents, Texinfo::TreeElement::new(@{'text' => ' HTML text '@});
   my $new_element = Texinfo::TreeElement::new(@{'contents' => \@@contents@});
-  my $result = $converter->convert_tree_in_code_context($new_element);
+  my $result = $converter->set_context_convert_tree($new_element,
+                              $Texinfo::Convert::HTML::CTXF_code);
   return "<p>".$result."</p>";
 @}
 @end group
@@ -4051,7 +4063,8 @@ sub my_final_convert_paragraph_type($$$$) @{
   my @@contents = @@@{$element->@{'contents'@}@};
   push @@contents, Texinfo::TreeElement::new(@{'text' => ' HTML text '@});
   my $new_element = Texinfo::TreeElement::new(@{'contents' => \@@contents@});
-  my $result = $converter->convert_tree_in_code_context($new_element);
+  my $result = $converter->set_context_convert_tree($new_element,
+                                $Texinfo::Convert::HTML::CTXF_code);
   return "<p>".$prepended.$result."</p>";
 @}
 @end group

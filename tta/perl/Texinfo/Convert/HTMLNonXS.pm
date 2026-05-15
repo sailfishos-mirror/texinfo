@@ -310,6 +310,7 @@ sub css_get_selector_style($$) {
 # flags used to specify the conversion contexts.
 our $CTXF_string;
 our $CTXF_code;
+our $CTXF_normal;
 
 our %special_list_mark_css_string_no_arg_command;
 
