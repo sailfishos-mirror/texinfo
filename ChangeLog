@@ -1,5 +1,11 @@
 2026-05-15 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm (_convert_def_line_type): call
+	set_context_convert_tree instead of _set_code_context to use the
+	HTML customization API.
+
+2026-05-15 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/HTML.pm (set_context_convert_tree)
 	($CTXF_normal): add CTXF_normal, flag that can be used to unset code
 	context.  Add set_context_convert_tree that accepts CTXF_normal or
