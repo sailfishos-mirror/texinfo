@@ -259,8 +259,19 @@ html_gdt_tree (const char *string, CONVERTER *self,
   result_tree = copy_element_tree (translated_string_tree->tree, 0);
 
   if (replaced_substrings)
+    substitute_substrings_in_tree (result_tree, replaced_substrings);
+
+  if (debug_level > 0)
     {
-      substitute_substrings_in_tree (result_tree, replaced_substrings);
+      char *result_texi = convert_to_texinfo (result_tree);
+      const char *translated_string = translated_string_tree->translation;
+
+      if (!translated_string)
+        translated_string = string;
+
+      fprintf (stderr, "C|RESULT GDT: '%s' '%s' '%s'\n", string,
+                                     translated_string, result_texi);
+      free (result_texi);
     }
 
   return result_tree;

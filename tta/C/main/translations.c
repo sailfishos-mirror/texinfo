@@ -1205,9 +1205,7 @@ gdt_tree (const char *string, DOCUMENT *document,
   result_tree = copy_element_tree (translated_string_tree->tree, 0);
 
   if (replaced_substrings)
-    {
-      substitute_substrings_in_tree (result_tree, replaced_substrings);
-    }
+    substitute_substrings_in_tree (result_tree, replaced_substrings);
 
   if (debug_level > 0)
     {
