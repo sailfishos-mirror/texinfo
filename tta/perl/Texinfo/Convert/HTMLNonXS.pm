@@ -4652,8 +4652,6 @@ sub _prepare_converted_output_info($$$$) {
     }
   }
 
-  # TODO document that this stage handler is called with end of preamble
-  # documentlanguage when it is certain that this will not change ever.
   my $init_status = _run_stage_handlers($self, $stage_handlers,
                                         $self->{'document'}, 'init');
   unless ($init_status < $handler_fatal_error_level

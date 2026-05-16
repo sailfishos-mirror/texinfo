@@ -380,6 +380,23 @@ convert_contents_to_identifier (const ELEMENT *e)
   return result;
 }
 
+/* Transliteration/protection with GNU iconv leads to a result different
+   from Perl for some characters.  It seems that the iconv result depends
+   on the locale, and there are quite a bit of ? output, probably when
+   there is no obvious transliteration.  In those cases, the Unidecode
+   transliterations are not necessarily very good, either.  There is
+   no reason to think that all the iconv implementations transliterate
+   the same way, nor the same as Perl, therefore differences are expected.
+
+   If EXTERNAL_TRANSLIT is set, call Perl to always get the same
+   transliteration.  This is important for tests to get a reproducible
+   output.  Out of tests, it is not important, as transliteration should
+   only be used for identifiers that only need to be internally consistent,
+   not for "external" reproducible identifiers.
+
+   TODO if Perl is not required, additional code would be needed to
+   have reproducible test results, from _unicode_to_transliterate.
+ */
 static char *
 unicode_to_transliterate (char *text, int external,
                           int in_test, int no_unidecode)

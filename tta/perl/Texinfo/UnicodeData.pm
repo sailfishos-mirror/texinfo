@@ -366,6 +366,8 @@ our %unicode_accented_letters = (
     }
 );
 
+# maps ASCII printable characters (in print POSIX class) except for
+# alphanumeric characters (alnum POSIX class)
 our %unicode_simple_character_map = (
             ' ' => '0020',
             '!' => '0021',

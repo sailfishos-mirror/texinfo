@@ -164,14 +164,10 @@ sub convert_to_normalized($) {
 sub _protect_unicode_char($) {
   my $char = shift;
 
-  if (exists($Texinfo::UnicodeData::unicode_simple_character_map{$char})) {
-    return '_' . lc($Texinfo::UnicodeData::unicode_simple_character_map{$char});
+  if (ord($char) <= hex(0xFFFF)) {
+    return '_' . lc(sprintf("%04x",ord($char)));
   } else {
-    if (ord($char) <= hex(0xFFFF)) {
-      return '_' . lc(sprintf("%04x",ord($char)));
-    } else {
-      return '__' . lc(sprintf("%06x",ord($char)));
-    }
+    return '__' . lc(sprintf("%06x",ord($char)));
   }
 }
 
@@ -227,6 +223,11 @@ sub _unicode_to_transliterate($;$$) {
   }
   my $result = '';
   while ($text ne '') {
+    # TODO instead of having the other ASCII printable characters handled
+    # with unicode_simple_character_map below, it would be better to
+    # match [[:print:]] here in ASCII.  For Perl >= 5.014, this is ok, as
+    # we use re => '/a'.  But for Perl version below, no idea how to
+    # force [:print:] to correspond to ASCII only.
     if ($text =~ s/^([A-Za-z0-9 ]+)//) {
       $result .= $1;
     } elsif ($text =~ s/^(.)//s) {
@@ -235,22 +236,19 @@ sub _unicode_to_transliterate($;$$) {
            $Texinfo::UnicodeData::unicode_simple_character_map{$char})) {
         $result .= $char;
       } else {
-        my $hex_repr;
         if (ord($char) <= hex(0xFFFF)) {
-          $hex_repr = uc(sprintf("%04x",ord($char)));
-        } else {
-          $hex_repr = '';
-        }
-        if ($hex_repr and $in_test and exists(
-             $Texinfo::Convert::Unicode::tests_transliterate_map{$hex_repr})) {
-          $result
-           .= $Texinfo::Convert::Unicode::tests_transliterate_map{$hex_repr};
-        } elsif ($hex_repr and exists(
+          my $hex_repr = uc(sprintf("%04x", ord($char)));
+
+          if ($in_test and exists(
+           $Texinfo::Convert::Unicode::tests_transliterate_map{$hex_repr})) {
+            $result
+             .= $Texinfo::Convert::Unicode::tests_transliterate_map{$hex_repr};
+          } elsif (exists(
                  $Texinfo::Convert::Unicode::transliterate_map{$hex_repr})) {
-          $result .= $Texinfo::Convert::Unicode::transliterate_map{$hex_repr};
-        } elsif ($hex_repr and exists(
+            $result .= $Texinfo::Convert::Unicode::transliterate_map{$hex_repr};
+          } elsif (exists(
            $Texinfo::Convert::Unicode::diacritics_accent_commands{$hex_repr})) {
-          $result .= '';
+            $result .= '';
       # in those cases, we want to avoid calling unidecode, as there is no
       # useful transliteration of the unicode character, instead we want to
       # keep it as is such that it is protected as itself.
@@ -259,18 +257,23 @@ sub _unicode_to_transliterate($;$$) {
       # as _0021, we want to avoid that and keep _00a1 in the transliterated
       # file name.  These case also do not have a good transliteration with
       # iconv, although this could also depend on the locale.
-        } elsif ($hex_repr and exists(
-            $Texinfo::Convert::Unicode::no_transliterate_map{$hex_repr})) {
-          $result .= $char;
-        } else {
-          if ($no_unidecode) {
-            if ($hex_repr and exists(
-          $Texinfo::Convert::Unicode::transliterate_accent_map{$hex_repr})) {
+          } elsif (exists(
+             $Texinfo::Convert::Unicode::no_transliterate_map{$hex_repr})) {
+            $result .= $char;
+          } elsif ($no_unidecode) {
+            if (exists(
+             $Texinfo::Convert::Unicode::transliterate_accent_map{$hex_repr})) {
               $result .=
-               $Texinfo::Convert::Unicode::transliterate_accent_map{$hex_repr};
+                $Texinfo::Convert::Unicode::transliterate_accent_map{$hex_repr};
             } else {
               $result .= $char;
             }
+          } else {
+            $result .= unidecode($char);
+          }
+        } else { # > 0xFFFF
+          if ($no_unidecode) {
+            $result .= $char;
           } else {
             $result .= unidecode($char);
           }
