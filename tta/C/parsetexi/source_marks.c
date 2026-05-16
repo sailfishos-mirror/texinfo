@@ -98,7 +98,7 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
       add_element_string = "add";
     }
 
-  debug_nonl ("MARK %s c: %d p: %d %s %s ",
+  debug_nonl ("C|MARK %s c: %d p: %d %s %s ",
          source_marks_names[source_mark->type],
          source_mark->counter, source_mark->position,
          source_mark->status == SM_status_start ? "start"

@@ -1,5 +1,15 @@
 2026-05-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ParserNonXS.pm (_process_remaining_on_line)
+	(_parse_texi), tta/C/parsetexi/parser.c (parse_texi)
+	(process_verb_contents): protect end of line and always add an end of
+	line.
+
+	* tta/C/parsetexi/*.c: prepand debug messagaes by C| to distinguish
+	from Perl parser debug messages.
+
+2026-05-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/translations.c (gdt_tree),
 	tta/perl/Texinfo/Translations.pm (gdt): improved and same error
 	message for gdt.

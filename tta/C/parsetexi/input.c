@@ -260,8 +260,8 @@ next_text (ELEMENT *current)
           char *new;
         case IN_text:
           /*
-          debug_nonl ("IN_TEXT '"); debug_print_protected_string (input->ptext);
-          debug ("'");
+          debug_nonl ("C|IN_TEXT '");
+          debug_print_protected_string (input->ptext); debug ("'");
           */
           if (!*input->ptext)
             break;
@@ -273,7 +273,7 @@ next_text (ELEMENT *current)
           else
             input->ptext = p; /* The next time, we will pop the input source. */
           /*
-          debug_nonl ("NEW IN_TEXT '"); debug_print_protected_string (new);
+          debug_nonl ("C|NEW IN_TEXT '"); debug_print_protected_string (new);
           debug_nonl ("' next: '");
           debug_print_protected_string (input->ptext); debug ("'");
           */
@@ -390,7 +390,7 @@ next_text (ELEMENT *current)
               register_source_mark (current, end_include_source_mark);
             }
           else
-            debug ("INPUT MARK MISSED");
+            debug ("C|INPUT MARK MISSED");
 
           input->input_source_mark = 0;
         }
@@ -411,9 +411,9 @@ next_text (ELEMENT *current)
       */
       after_end_fetch_nr++;
       if (after_end_fetch_nr > 1)
-        debug ("AFTER END FETCHED INPUT NR: %d", after_end_fetch_nr);
+        debug ("C|AFTER END FETCHED INPUT NR: %d", after_end_fetch_nr);
     }
-  debug ("INPUT FINISHED");
+  debug ("C|INPUT FINISHED");
   return 0;
 }
 

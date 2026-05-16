@@ -7918,7 +7918,8 @@ sub _process_remaining_on_line($$$$) {
         }
         push @{$current->{'contents'}},
           Texinfo::TreeElement::new({ 'text' => $line, 'type' => 'raw'});
-        print STDERR "LINE VERB: $line" if ($self->{'conf'}->{'DEBUG'});
+        print STDERR "LINE VERB: "._debug_protect_eol($line)."\n"
+              if ($self->{'conf'}->{'DEBUG'});
         ($line, $source_info) = _next_text($self, $current);
         if (!defined($line)) {
           return ($current, $line, $source_info, $retval);
@@ -8063,7 +8064,8 @@ sub _parse_texi($$) {
         $additional_debug = '('.join('|', _get_context_stack($self))
           .":@cond_commands:$source_info_text)";
       }
-      print STDERR "NEW LINE${additional_debug} $line";
+      print STDERR "NEW LINE${additional_debug} "
+                    . _debug_protect_eol($line)."\n";
       #print STDERR "  $current: "
       #             .Texinfo::Common::debug_print_element($current)."\n";
     }

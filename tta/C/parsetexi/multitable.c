@@ -179,7 +179,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
       remove_slice_from_contents (current, term_begin_idx, begin_idx);
       if (before_item && before_item_content_nr > 0)
         {
-          debug ("REPARENT before_item content");
+          debug ("C|REPARENT before_item content");
           /* Reparent any trailing index entries in the before_item to the
              beginning of table term. */
           for (i = 0; i < before_item_content_nr; i++)

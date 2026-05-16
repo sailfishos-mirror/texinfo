@@ -170,7 +170,7 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
       return macro;
     }
 
-  debug ("MACRO @%s %s", command_name (cmd), name);
+  debug ("C|MACRO @%s %s", command_name (cmd), name);
 
   add_extra_string (macro, AI_key_macro_name, name);
 
@@ -342,7 +342,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
       sep = pline + strcspn (pline, "\\,{}");
       if (!*sep)
         {
-          debug ("MACRO ARG end of line");
+          debug ("C|MACRO ARG end of line");
           text_append (arg, pline);
           free (alloc_line);
           line = alloc_line = next_text (argument);
@@ -423,7 +423,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
                       add_to_contents_as_array (argument, spaces_element);
                     }
                   add_to_contents_as_array (argument, argument_content);
-                  debug ("MACRO NEW ARG");
+                  debug ("C|MACRO NEW ARG");
                 }
               else
                 /* too many args */
@@ -448,7 +448,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
         ("macro `%s' declared without argument called with an argument",
          command_name(cmd));
     }
-  debug ("END MACRO ARGS EXPANSION");
+  debug ("C|END MACRO ARGS EXPANSION");
 
 funexit:
   *line_inout = line;
@@ -498,7 +498,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
       sep = pline + strcspn (pline, linecommand_expansion_delimiters);
       if (!*sep)
         {
-          debug_nonl ("LINEMACRO ARGS no separator %d '", braces_level);
+          debug_nonl ("C|LINEMACRO ARGS no separator %d '", braces_level);
           debug_print_protected_string (pline); debug ("'");
           if (braces_level > 0)
             {
@@ -526,7 +526,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
                   line = alloc_line = next_text (argument);
                   if (!line)
                     {
-                      debug ("LINEMACRO ARGS end no EOL");
+                      debug ("C|LINEMACRO ARGS end no EOL");
                       line = "";
                       goto funexit;
                     }
@@ -618,7 +618,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
                              whitespaces_len);
               add_to_contents_as_array (argument, spaces_element);
               add_to_contents_as_array (argument, argument_content);
-              debug ("LINEMACRO NEW ARG");
+              debug ("C|LINEMACRO NEW ARG");
             }
           pline += whitespaces_len;
           break;
@@ -648,7 +648,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
               && argument_content->e.text->text[text_len -1] == '}')
             {
               char *braced_text = strdup (argument_content->e.text->text);
-              debug_nonl ("TURN to bracketed %d ", i);
+              debug_nonl ("C|TURN to bracketed %d ", i);
               debug_parser_print_element (argument_content, 0); debug ("");
 
               text_reset (argument_content->e.text);
@@ -660,7 +660,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
         }
     }
   counter_reset (&argument_brace_groups, 0);
-  debug ("END LINEMACRO ARGS EXPANSION");
+  debug ("C|END LINEMACRO ARGS EXPANSION");
 
   *line_inout = line;
 }
@@ -826,7 +826,8 @@ handle_macro (ELEMENT *current, const char **line_inout,
   */
 
   macro_expansion_nr++;
-  debug ("MACRO EXPANSION NUMBER %d %s", macro_expansion_nr, command_name(cmd));
+  debug ("C|MACRO EXPANSION NUMBER %d %s", macro_expansion_nr,
+                                           command_name(cmd));
 
   if (macro->e.c->cmd != CM_rmacro)
     {
@@ -965,7 +966,7 @@ handle_macro (ELEMENT *current, const char **line_inout,
   if (error)
     {
       macro_expansion_nr--;
-      debug ("DROPPING CALL OF MACRO %s", command_name(cmd));
+      debug ("C|DROPPING CALL OF MACRO %s", command_name(cmd));
       macro_call_element = 0;
       goto funexit;
     }
@@ -988,7 +989,7 @@ handle_macro (ELEMENT *current, const char **line_inout,
       expanded_macro_text = strdup ("");
     }
 
-  debug ("MACROBODY: %s||||||", expanded_macro_text);
+  debug ("C|MACROBODY: %s||||||", expanded_macro_text);
 
   /* first put the line that was interrupted by the macro call
      on the input pending text stack */

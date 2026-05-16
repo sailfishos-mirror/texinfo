@@ -170,7 +170,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
           add_to_element_contents (current, arg);
           current = arg;
         }
-      debug_nonl ("OPENED @%s, remaining: %d ",
+      debug_nonl ("C|OPENED @%s, remaining: %d ",
                   command_name (current->e.c->parent->e.c->cmd),
                   counter_value (&count_remaining_args,
                                  current->e.c->parent) > 0 ?
@@ -193,11 +193,11 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
          end of the line and also for misplaced { errors.  */
       current->e.c->source_info = current_source_info;
 
-      debug ("BRACKETED in def/multitable");
+      debug ("C|BRACKETED in def/multitable");
     }
   else if (current->type == ET_rawpreformatted)
     {
-      debug ("LONE OPEN BRACE in rawpreformatted");
+      debug ("C|LONE OPEN BRACE in rawpreformatted");
       current = merge_text (current, "{", 1, 0);
     }
   /* matching braces accepted in a rawpreformatted, inline raw or
@@ -216,7 +216,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
       current = b;
       text_append (open_brace->e.text, "{");
       add_to_contents_as_array (current, open_brace);
-      debug ("BALANCED BRACES in math/rawpreformatted/inlineraw");
+      debug ("C|BALANCED BRACES in math/rawpreformatted/inlineraw");
     }
   else
     {
@@ -251,7 +251,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
 {
   const char *line = *line_inout;
 
-  debug ("CLOSE BRACE");
+  debug ("C|CLOSE BRACE");
 
   /* For footnote and caption closing, when there is a paragraph inside.
      This makes the brace command the parent element. */
@@ -260,7 +260,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
       && current->type == ET_paragraph)
     {
       abort_empty_line (current);
-      debug ("IN BRACE_COMMAND_CONTEXT end paragraph");
+      debug ("C|IN BRACE_COMMAND_CONTEXT end paragraph");
       current = close_container (current);
     }
 
@@ -288,7 +288,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                && current->type != ET_elided_brace_command_arg)
         isolate_leading_trailing (current, 1);
 
-      debug ("CLOSING(brace) @%s", command_data(closed_cmd).cmdname);
+      debug ("C|CLOSING(brace) @%s", command_data(closed_cmd).cmdname);
 
 
       if (closed_cmd == CM_anchor || closed_cmd == CM_namedanchor)
@@ -489,7 +489,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                   ret = sscanf (arg_text, "%lx", &val);
                   if (ret != 1)
                     {
-                      debug ("hex sscanf failed %s", arg_text);
+                      debug ("C|hex sscanf failed %s", arg_text);
                       /* unknown error.  possibly argument is too large
                          for an int. */
                     }
@@ -620,12 +620,12 @@ handle_comma (ELEMENT *current, const char **line_inout)
           if (!inline_type)
             {
               /* Condition is missing */
-              debug ("INLINE COND MISSING");
+              debug ("C|INLINE COND MISSING");
               /* add_extra_string (command_element, AI_key_format, 0); */
             }
           else
             {
-              debug ("INLINE: %s", inline_type);
+              debug ("C|INLINE: %s", inline_type);
               if (command_element->e.c->cmd == CM_inlineraw
                   || command_element->e.c->cmd == CM_inlinefmt
                   || command_element->e.c->cmd == CM_inlinefmtifelse)

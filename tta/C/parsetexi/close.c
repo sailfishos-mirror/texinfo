@@ -123,7 +123,7 @@ close_all_style_commands (ELEMENT *current,
          && !(command_data(current->e.c->parent->e.c->cmd).data
                                                   == BRACE_context))
     {
-      debug ("CLOSING(all_style_commands) @%s",
+      debug ("C|CLOSING(all_style_commands) @%s",
              command_name(current->e.c->parent->e.c->cmd));
 
       if (current->type == ET_brace_container
@@ -192,7 +192,7 @@ remove_empty_content (ELEMENT *current)
               transfer_source_marks (child_element, destination,
                                      additional_length);
 
-              debug_nonl ("REMOVE empty child ");
+              debug_nonl ("C|REMOVE empty child ");
               debug_parser_print_element (child_element, 0);
               debug_nonl (" from ");
               debug_parser_print_element (current, 0); debug ("");
@@ -229,7 +229,7 @@ close_container (ELEMENT *current)
 
   if (current->source_mark_list)
     source_marks_nr = current->source_mark_list->number;
-  debug_nonl ("CONTAINER EMPTY ");
+  debug_nonl ("C|CONTAINER EMPTY ");
   debug_parser_print_element (current, 1);
   debug_nonl (" (%d source marks)", source_marks_nr); debug ("");
 
@@ -240,7 +240,7 @@ close_container (ELEMENT *current)
   element_to_remove = current;
   current = current->e.c->parent;
 
-  debug_nonl ("REMOVE empty type ");
+  debug_nonl ("C|REMOVE empty type ");
   debug_parser_print_element (element_to_remove, 1); debug ("");
 
   destroy_element (pop_element_from_contents (current));
@@ -427,7 +427,7 @@ close_current (ELEMENT *current,
   if (current->e.c->cmd)
     {
       enum command_id cmd = current->e.c->cmd;
-      debug ("CLOSING(close_current) @%s", command_name(cmd));
+      debug ("C|CLOSING(close_current) @%s", command_name(cmd));
       if (command_flags(current) & CF_brace)
         {
           current = close_brace_command (current, closed_block_cmd,
@@ -471,7 +471,7 @@ close_current (ELEMENT *current,
     {
       ELEMENT *close_brace;
 
-      debug ("CLOSING type %s", type_data[current->type].name);
+      debug ("C|CLOSING type %s", type_data[current->type].name);
 
       switch (current->type)
         {
@@ -570,7 +570,7 @@ close_commands (ELEMENT *current, enum command_id closed_block_cmd,
              || (current->type == ET_root_line)
              || (current->type == ET_document_root)))
         {
-          debug_nonl ("close_commands unexpectedly stopped ");
+          debug_nonl ("C|close_commands unexpectedly stopped ");
           debug_parser_print_element (current, 1); debug ("");
         }
     }

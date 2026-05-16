@@ -744,7 +744,7 @@ begin_paragraph (ELEMENT *current)
   add_to_element_contents (current, e);
 
   push_context (ct_paragraph, 0);
-  debug ("PARAGRAPH");
+  debug ("C|PARAGRAPH");
 
   return e;
 }
@@ -758,7 +758,7 @@ begin_preformatted (ELEMENT *current)
       ELEMENT *preformatted = new_element (ET_preformatted);
       add_to_element_contents (current, preformatted);
       current = preformatted;
-      debug ("PREFORMATTED");
+      debug ("C|PREFORMATTED");
     }
   return current;
 }
@@ -772,7 +772,7 @@ end_paragraph (ELEMENT *current,
                                       interrupting_cmd);
   if (current->type == ET_paragraph)
     {
-      debug ("CLOSE PARA");
+      debug ("C|CLOSE PARA");
       current = close_container (current);
     }
 
@@ -788,7 +788,7 @@ end_preformatted (ELEMENT *current,
                                       interrupting_cmd);
   if (current->type == ET_preformatted)
     {
-      debug ("CLOSE PREFORMATTED");
+      debug ("C|CLOSE PREFORMATTED");
       current = close_container (current);
     }
   return current;
@@ -804,12 +804,12 @@ end_paragraph_preformatted (ELEMENT *current,
                                       interrupting_cmd);
   if (current->type == ET_paragraph)
     {
-      debug ("CLOSE PARA");
+      debug ("C|CLOSE PARA");
       current = close_container (current);
     }
   else if (current->type == ET_preformatted)
     {
-      debug ("CLOSE PREFORMATTED");
+      debug ("C|CLOSE PREFORMATTED");
       current = close_container (current);
     }
 
@@ -837,7 +837,7 @@ do_abort_empty_line (ELEMENT *current, ELEMENT *last_elt)
 {
   if (global_parser_conf->debug)
     {
-      debug_nonl ("ABORT EMPTY in ");
+      debug_nonl ("C|ABORT EMPTY in ");
       debug_parser_print_element (current, 0);
       debug (": %s; |%s|", type_data[last_elt->type].name,
                            last_elt->e.text->text);
@@ -909,7 +909,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
               if (global_parser_conf->debug)
                 {
                   char *additional_text_dbg = strndup (text, leading_spaces);
-                  debug ("MERGE_TEXT ADD leading empty |%s| to %s",
+                  debug ("C|MERGE_TEXT ADD leading empty |%s| to %s",
                          additional_text_dbg,
                          type_data[last_elt_type].name);
                   free (additional_text_dbg);
@@ -993,7 +993,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
       if (global_parser_conf->debug)
         {
           char *dbg_text = strndup (text, len_text);
-          debug_nonl ("MERGED TEXT: %s||| in ", dbg_text);
+          debug_nonl ("C|MERGED TEXT: %s||| in ", dbg_text);
           free (dbg_text);
           debug_parser_print_element (last_element, 0);
           debug_nonl (" last of ");
@@ -1015,7 +1015,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
       if (global_parser_conf->debug)
         {
           char *dbg_text = strndup (text, len_text);
-          debug ("NEW TEXT (merge): %s|||", dbg_text);
+          debug ("C|NEW TEXT (merge): %s|||", dbg_text);
           free (dbg_text);
         }
     }
@@ -1214,7 +1214,7 @@ isolate_leading_trailing (ELEMENT *current, int isolate_leading_only)
                 spaces_element->type = ET_spaces_after_argument;
               else
                 {
-                  debug ("NOT ISOLATING SPACES ONLY %zu %s", i,
+                  debug ("C|NOT ISOLATING SPACES ONLY %zu %s", i,
                                     type_data[last_element->type].name);
                 }
             }
@@ -1282,7 +1282,7 @@ register_command_as_argument (ELEMENT *cmd_as_arg)
       && kbd_formatted_as_code ()) {
     ELEMENT *command_element
       = cmd_as_arg->e.c->parent->e.c->parent->e.c->parent;
-    debug ("FOR PARENT @%s command_as_argument %s",
+    debug ("C|FOR PARENT @%s command_as_argument %s",
            command_name(command_element->e.c->cmd),
            command_name(cmd_as_arg->e.c->cmd));
     command_element->flags |= EF_command_as_argument_kbd_code;
@@ -1624,7 +1624,7 @@ process_macro_block_contents (ELEMENT *current, const char **line_out)
         cmd = CM_NONE;
       if (cmd != CM_NONE)
         {
-          debug ("RAW SECOND LEVEL %s in @%s", command_name(cmd),
+          debug ("C|RAW SECOND LEVEL %s in @%s", command_name(cmd),
                  command_name(current->e.c->cmd));
           push_macro_block_stack (cmd);
         }
@@ -1688,7 +1688,7 @@ process_macro_block_contents (ELEMENT *current, const char **line_out)
                           new_macro (name, current);
                         }
                     }
-                  debug ("CLOSED user-defined %s",
+                  debug ("C|CLOSED user-defined %s",
                          command_name(top_stack_cmd));
            /* start a new line for the @end line (without the first spaces on
               the line that have already been put in a raw container).
@@ -1731,7 +1731,7 @@ process_raw_block_contents (ELEMENT *current, const char **line_out)
   const char *line;
   int level = 1;
 
-  debug ("BLOCK raw or ignored %s", block_name);
+  debug ("C|BLOCK raw or ignored %s", block_name);
 
   free (allocated_text);
   line = allocated_text = next_text (current);
@@ -1768,7 +1768,7 @@ process_raw_block_contents (ELEMENT *current, const char **line_out)
         }
       if (new_opened)
         {
-          debug ("RAW SECOND LEVEL @%s", block_name);
+          debug ("C|RAW SECOND LEVEL @%s", block_name);
           level++;
         }
       /* Else check if line is "@end ..." for current command. */
@@ -1789,7 +1789,7 @@ process_raw_block_contents (ELEMENT *current, const char **line_out)
                   line_warn ("@end %s should only appear at the "
                              "beginning of a line", command_name(cmd));
                 }
-              debug ("CLOSED raw or ignored %s", command_name(cmd));
+              debug ("C|CLOSED raw or ignored %s", command_name(cmd));
        /* start a new line for the @end line (without the first spaces on
           the line that have already been put in a raw container).
           This is normally done at the beginning of a line, but not here,
@@ -1853,7 +1853,7 @@ process_ignored_raw_format_block_contents (ELEMENT *current,
           line_dummy = line;
           if (is_end_current_command (current->e.c->cmd, &line_dummy))
             {
-              debug ("CLOSED ignored raw preformated %s",
+              debug ("C|CLOSED ignored raw preformated %s",
                      command_name(current->e.c->cmd));
               /* start a new line for the @end line, this is normally done
                  at the beginning of a line, but not here, as we directly
@@ -1926,7 +1926,7 @@ process_verb_contents (ELEMENT *current, const char **line_inout)
               text_append_n (e->e.text, line, q - line);
               add_to_contents_as_array (current, e);
             }
-          debug ("END VERB");
+          debug ("C|END VERB");
           line = q + delimiter_len;
           /* The '}' will close the @verb command in handle_separator. */
           break;
@@ -1937,7 +1937,8 @@ process_verb_contents (ELEMENT *current, const char **line_inout)
       text_append (e->e.text, line);
       add_to_contents_as_array (current, e);
 
-      debug_nonl ("LINE VERB: %s", line);
+      debug_nonl ("C|LINE VERB: ");
+      debug_print_protected_string (line); debug("");
 
       free (allocated_text);
       line = allocated_text = next_text (current);
@@ -1972,7 +1973,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
   char *command = 0;
 
   /*
-  debug_nonl ("PROCESS "); debug_print_protected_string (line); debug ("");
+  debug_nonl ("C|PROCESS "); debug_print_protected_string (line); debug ("");
   */
 
   /* Skip empty lines.  If we reach the end of input, continue in case there
@@ -1986,7 +1987,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
    */
   while (*line == '\0')
     {
-      debug_nonl ("EMPTY TEXT in: ");
+      debug_nonl ("C|EMPTY TEXT in: ");
       debug_parser_print_element (current, 0); debug ("");
 
       /* Each place we supply Texinfo input we store the supplied
@@ -1998,7 +1999,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       if (!line)
         {
           /* End of the file or of a text fragment. */
-          debug ("NO MORE LINE for empty text");
+          debug ("C|NO MORE LINE for empty text");
           goto funexit;
         }
     }
@@ -2204,14 +2205,14 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         {
           unknown_cmd = command_name (cmd);
           /* Would there be something similar in the perl parser?
-          debug ("COMMAND (REGISTERED UNKNOWN) %d %s", cmd, unknown_cmd);
+          debug ("C|COMMAND (REGISTERED UNKNOWN) %d %s", cmd, unknown_cmd);
           */
         }
       else
         {
           unknown_cmd = command;
           /* Would there be something similar in the perl parser?
-          debug ("COMMAND (UNKNOWN) %s", command);
+          debug ("C|COMMAND (UNKNOWN) %s", command);
           */
         }
       line_error ("unknown command `%s'", unknown_cmd);
@@ -2231,7 +2232,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
      command container. */
   if (command_flags(current) & CF_brace && *line != '{')
     {
-      debug_nonl ("BRACE CMD: no brace after @%s||| ",
+      debug_nonl ("C|BRACE CMD: no brace after @%s||| ",
                   command_name (current->e.c->cmd));
       debug_print_protected_string (line); debug ("");
 
@@ -2278,7 +2279,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                current->elt_info[eit_spaces_after_cmd_before_arg]
                   = e_spaces_after_cmd_before_arg;
 
-               debug_nonl ("BRACE CMD before brace init spaces '");
+               debug_nonl ("C|BRACE CMD before brace init spaces '");
                debug_print_protected_string
                                   (e_spaces_after_cmd_before_arg->e.text->text);
                debug ("'");
@@ -2295,7 +2296,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                                                              ->e.text->text;
                if (additional_newline && strchr ("\n", *previous_value))
                  {
-                   debug ("BRACE CMD before brace second newline stops spaces");
+                   debug ("C|BRACE CMD before brace second newline stops spaces");
                    line_error ("@%s expected braces",
                                command_name(current->e.c->cmd));
                    current = current->e.c->parent;
@@ -2305,7 +2306,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                    text_append_n (current
                         ->elt_info[eit_spaces_after_cmd_before_arg]->e.text,
                                   line, whitespaces_len);
-                   debug ("BRACE CMD before brace add spaces '%s'",
+                   debug ("C|BRACE CMD before brace add spaces '%s'",
                current->elt_info[eit_spaces_after_cmd_before_arg]->e.text->text
    + strlen (current->elt_info[eit_spaces_after_cmd_before_arg]->e.text->text)
                                                          - whitespaces_len);
@@ -2331,8 +2332,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
           e2 = new_text_element (ET_normal_text);
           text_append_n (e2->e.text, line, char_len);
-          debug ("ACCENT @%s following_arg: %s", command_name(current->e.c->cmd),
-                 e2->e.text->text);
+          debug ("C|ACCENT @%s following_arg: %s",
+                 command_name(current->e.c->cmd), e2->e.text->text);
           add_to_contents_as_array (e, e2);
 
           if (current->e.c->cmd == CM_dotless
@@ -2364,7 +2365,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       ELEMENT *command_element;
       ELEMENT *last_element = last_contents_child (current);
 
-      debug ("COMMAND @%s", debug_parser_command_name (cmd));
+      debug ("C|COMMAND @%s", debug_parser_command_name (cmd));
 
       line = line_after_command;
 
@@ -2660,7 +2661,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
   else if (*line == '\f')
     {
       line++;
-      debug_nonl ("FORM FEED in "); debug_parser_print_element (current, 1);
+      debug_nonl ("C|FORM FEED in "); debug_parser_print_element (current, 1);
       debug_nonl (": "); debug_print_protected_string (line); debug ("");
       if (current->type == ET_paragraph)
         {
@@ -2691,9 +2692,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
     }
   else /*  End of line */
     {
-      debug_nonl ("END LINE ");
-      debug_parser_print_element (current, 1);
-      debug ("");
+      debug_nonl ("C|END LINE ");
+      debug_parser_print_element (current, 1); debug ("");
 
       if (*line == '\n')
         {
@@ -2788,12 +2788,12 @@ parse_texi (ELEMENT *current_elt)
       line = allocated_line = next_text (current);
       if (!allocated_line)
         {
-          debug ("NEXT_LINE NO MORE");
+          debug ("C|NEXT_LINE NO MORE");
           break; /* Out of input. */
         }
 
-      debug_nonl ("NEW LINE %s", line);
-
+      debug_nonl ("C|NEW LINE ");
+      debug_print_protected_string (line); debug ("");
       if (check_line_directive (current, line))
         continue;
 
@@ -2817,18 +2817,18 @@ parse_texi (ELEMENT *current_elt)
           status = process_remaining_on_line (&current, &line);
           if (status == GET_A_NEW_LINE)
             {
-              debug ("GET_A_NEW_LINE");
+              debug ("C|GET_A_NEW_LINE");
               break;
             }
           if (status == FINISHED_TOTALLY)
             {
-              debug ("FINISHED_TOTALLY");
+              debug ("C|FINISHED_TOTALLY");
               goto finished_totally;
             }
           if (!line)
             {
               ELEMENT *last_element = last_contents_child (current);
-              debug ("END LINE in line loop STILL_MORE_TO_PROCESS");
+              debug ("C|END LINE in line loop STILL_MORE_TO_PROCESS");
               /* If we are in an empty line, we want to end the line as usual.
                  If we are after an opening brace or comma or after an empty
                  string, there won't be any more output to abort those
@@ -2877,7 +2877,7 @@ parse_texi (ELEMENT *current_elt)
     ELEMENT *element_after_bye;
     element_after_bye = new_element (ET_postamble_after_end);
 
-    debug ("GATHER AFTER BYE");
+    debug ("C|GATHER AFTER BYE");
 
     while (1)
       {

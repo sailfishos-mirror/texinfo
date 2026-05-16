@@ -121,11 +121,11 @@ reset_parser (int local_debug_output)
      not been read, so we need to pass the configuration information
      directly */
   /*
-  debug ("!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!");
+  debug ("C|!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!");
   */
   if (local_debug_output)
     fprintf (stderr,
-          "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n");
+          "C|!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n");
 
   reset_parser_conf ();
 }

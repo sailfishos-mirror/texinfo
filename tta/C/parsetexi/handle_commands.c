@@ -315,7 +315,7 @@ parse_rawline_command (const char *line, enum command_id cmd,
       delete_macro (value);
       args = new_string_list ();
       ADD_ARG(value, q - p);
-      debug ("UNMACRO %s", value);
+      debug ("C|UNMACRO %s", value);
       free (value);
 
       if (has_comment)
@@ -403,7 +403,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
             {
               if (cmd == CM_item)
                 {
-                  debug ("ITEM CONTAINER");
+                  debug ("C|ITEM CONTAINER");
                   counter_inc (&count_items);
                   command_e = new_command_element (ET_nobrace_command, cmd);
 
@@ -462,7 +462,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
                         = new_command_element (ET_nobrace_command, cmd);
                       add_to_element_contents (row, command_e);
                       current = command_e;
-                      debug ("TAB");
+                      debug ("C|TAB");
 
                       add_extra_integer (current, AI_key_cell_number,
                                          counter_value (&count_cells, row));
@@ -472,7 +472,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
                 {
                   ELEMENT *row;
 
-                  debug ("ROW");
+                  debug ("C|ROW");
                   row = new_element (ET_row);
                   add_to_element_contents (parent, row);
 
@@ -924,7 +924,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           ELEMENT *parent;
           if ((parent = item_line_parent (current)))
             {
-              debug ("ITEM LINE %s", command_name(cmd));
+              debug ("C|ITEM LINE %s", command_name(cmd));
               current = parent;
               gather_previous_item (current, cmd);
             }
@@ -1358,7 +1358,7 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
 {
   ELEMENT *command_e;
 
-  debug ("OPEN BRACE @%s", command_name(cmd));
+  debug ("C|OPEN BRACE @%s", command_name(cmd));
 
   if (command_data(cmd).flags & CF_INFOENCLOSE)
     command_e = new_command_element (ET_definfoenclose_command, cmd);

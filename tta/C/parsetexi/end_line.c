@@ -288,7 +288,7 @@ parse_line_command_args (ELEMENT *line_command)
         /* Remember it. */
         new_cmd = add_texinfo_command (new_command);
         add_infoenclose (new_cmd, start, end);
-        debug ("DEFINFOENCLOSE @%s: %s, %s", new_command, start, end);
+        debug ("C|DEFINFOENCLOSE @%s: %s, %s", new_command, start, end);
         new_cmd &= ~USER_COMMAND_BIT;
 
         user_defined_command_data[new_cmd].flags
@@ -713,7 +713,7 @@ end_line_def_line (ELEMENT *current)
                                      AI_key_def_command);
   def_command = lookup_command (def_cmdname);
 
-  debug_nonl ("END DEF LINE %s; current ",
+  debug_nonl ("C|END DEF LINE %s; current ",
                command_name(def_command));
   debug_parser_print_element (current, 1); debug ("");
 
@@ -858,7 +858,7 @@ end_line_starting_block (ELEMENT *current)
   if (pop_context () != ct_line)
     fatal ("line context expected");
 
-  debug_nonl ("END BLOCK LINE: ");
+  debug_nonl ("C|END BLOCK LINE: ");
   debug_parser_print_element (current, 1); debug ("");
 
   /* @multitable args */
@@ -1139,7 +1139,7 @@ end_line_starting_block (ELEMENT *current)
                           if (command == CM_ifcommandnotdefined)
                             iftrue = !iftrue;
                         }
-                      debug ("CONDITIONAL @%s %s: %d",
+                      debug ("C|CONDITIONAL @%s %s: %d",
                              command_name(command), flag, iftrue);
                       free (flag);
                     }
@@ -1164,7 +1164,7 @@ end_line_starting_block (ELEMENT *current)
           if (!memcmp (command_name(command), "ifnot", 5))
             iftrue = !iftrue;
 
-          debug ("CONDITIONAL @%s format %s: %d", command_name(command),
+          debug ("C|CONDITIONAL @%s format %s: %d", command_name(command),
                  p, iftrue);
         }
       else
@@ -1181,7 +1181,7 @@ end_line_starting_block (ELEMENT *current)
           source_mark->status = SM_status_start;
           source_mark->element = e;
           register_source_mark (current, source_mark);
-          debug ("PUSH BEGIN COND %s", command_name(command));
+          debug ("C|PUSH BEGIN COND %s", command_name(command));
           push_conditional_stack (command, source_mark);
         }
     }
@@ -1194,7 +1194,7 @@ end_line_starting_block (ELEMENT *current)
       ELEMENT *menu_comment = new_element (ET_menu_comment);
       add_to_element_contents (current, menu_comment);
       current = menu_comment;
-      debug ("MENU_COMMENT OPEN");
+      debug ("C|MENU_COMMENT OPEN");
     }
   if (command_data(command).data == BLOCK_format_raw)
     {
@@ -1284,7 +1284,7 @@ end_line_misc_line (ELEMENT *current)
   current = command_element;
   misc_cmd = current;
 
-  debug ("MISC END %s", command_name(cmd));
+  debug ("C|MISC END %s", command_name(cmd));
 
   if (pop_context () != ct_line)
     fatal ("line context expected");
@@ -1329,7 +1329,7 @@ end_line_misc_line (ELEMENT *current)
                     }
                   else
                     {
-                      debug ("END BLOCK @end %s", end_command);
+                      debug ("C|END BLOCK @end %s", end_command);
 
                       /* If there is superfluous text after @end argument, set
                          superfluous_arg such that the error message triggered by an
@@ -1381,7 +1381,7 @@ end_line_misc_line (ELEMENT *current)
                   else
                     {
                       included_file = 1;
-                      debug ("Included %s", fullpath);
+                      debug ("C|Included %s", fullpath);
 
                       include_source_mark = new_source_mark (SM_type_include);
                       include_source_mark->status = SM_status_start;
@@ -1804,7 +1804,7 @@ end_line_misc_line (ELEMENT *current)
       /* More processing of @end */
       ELEMENT *end_elt;
 
-      debug ("END COMMAND %s", end_command);
+      debug ("C|END COMMAND %s", end_command);
       free (end_command);
 
       /* Reparent the "@end" element to be a child of the block element. */
@@ -1836,7 +1836,7 @@ end_line_misc_line (ELEMENT *current)
                                                               == BLOCK_menu)
                 {
                   ELEMENT *e;
-                  debug ("CLOSE menu but still in menu context");
+                  debug ("C|CLOSE menu but still in menu context");
                   e = new_element (ET_menu_comment);
                   add_to_element_contents (current, e);
                   current = e;
@@ -1890,7 +1890,7 @@ end_line_misc_line (ELEMENT *current)
           SOURCE_MARK *end_source_mark;
           SOURCE_MARK *cond_source_mark = cond_info->source_mark;
 
-          debug ("POP END COND %s %s", command_name(end_id),
+          debug ("C|POP END COND %s %s", command_name(end_id),
                  command_name(cond_info->command));
 
           end_source_mark = new_source_mark (cond_source_mark->type);
@@ -2029,7 +2029,7 @@ end_line (ELEMENT *current)
   /* If empty line, start a new paragraph. */
   if (last_element_type == ET_empty_line)
     {
-      debug_nonl ("END EMPTY LINE in ");
+      debug_nonl ("C|END EMPTY LINE in ");
       debug_parser_print_element (current, 0); debug ("");
       if (current->type == ET_paragraph)
         {
@@ -2037,7 +2037,7 @@ end_line (ELEMENT *current)
           /* Remove empty_line element. */
           e = pop_element_from_contents (current);
 
-          debug ("CLOSE PARA");
+          debug ("C|CLOSE PARA");
           current = close_container (current);
 
           /* Add empty_line to higher-level element. */
@@ -2074,7 +2074,7 @@ end_line (ELEMENT *current)
           destroy_element (empty_line);
           add_to_contents_as_array (current, e);
 
-          debug ("MENU: END DESCRIPTION, OPEN COMMENT");
+          debug ("C|MENU: END DESCRIPTION, OPEN COMMENT");
         }
       else if (current_context () == ct_paragraph)
         {/* in a paragraph, but not directly.  For instance an empty line
@@ -2114,7 +2114,7 @@ end_line (ELEMENT *current)
        && top_context_command () != CM_NONE)
        || current_context () == ct_def)
     {
-      debug_nonl ("Still opened line/block command %s: ",
+      debug_nonl ("C|Still opened line/block command %s: ",
                   context_name (current_context ()));
       debug_parser_print_element (current, 1); debug ("");
 
