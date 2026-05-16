@@ -165,6 +165,7 @@ int create_destination_directory (CONVERTER *self,
                                   const char *destination_directory_path,
                                   const char *destination_directory_name);
 
+const char *current_bcp47_locale (CONVERTER *self);
 void set_converter_preamble_language_commands (CONVERTER *self);
 
 ELEMENT *converter_expand_today (CONVERTER *converter,

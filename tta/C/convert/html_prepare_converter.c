@@ -4138,8 +4138,8 @@ html_setup_output (CONVERTER *self, char **paths)
   int setup_handler_status;
   int js_categories_list_nr = 0;
   char *body_element_attributes;
-  const char *default_bcp47_locale = "";
-  const char *preamble_bcp47_locale = "";
+  const char *default_bcp47_locale;
+  const char *preamble_bcp47_locale;
 
   /* Should not actually be needed, as it is already deleted after conversion
      and each time it is set out of the conversion. */
@@ -4215,26 +4215,19 @@ html_setup_output (CONVERTER *self, char **paths)
   set_commands_options_value (self->commands_init_conf,
                               self->sorted_options, 0);
 
-  if (self->current_lang_translations)
-    default_bcp47_locale
-      = self->current_lang_translations->info->bcp47_locale;
+  default_bcp47_locale = current_bcp47_locale (self);
 
   set_converter_preamble_language_commands (self);
 
-  if (self->current_lang_translations)
+  preamble_bcp47_locale = current_bcp47_locale (self);
+
+  if (strcmp (preamble_bcp47_locale, ""))
     {
-      preamble_bcp47_locale
-        = self->current_lang_translations->info->bcp47_locale;
-      /* preamble_bcp47_locale could be "" if documentscript was given,
-         but there is no documentlanguage */
-      if (strcmp (preamble_bcp47_locale, ""))
-        {
-          xasprintf (&body_element_attributes, "lang=\"%s\"",
-                     preamble_bcp47_locale);
-          option_set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,
-                           0, body_element_attributes);
-          free (body_element_attributes);
-        }
+      xasprintf (&body_element_attributes, "lang=\"%s\"",
+                 preamble_bcp47_locale);
+      option_set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,
+                       0, body_element_attributes);
+      free (body_element_attributes);
     }
   else
     {

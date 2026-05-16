@@ -627,8 +627,7 @@ html_translate_names (CONVERTER *self)
 
   if (self->conf->DEBUG.o.integer > 0)
     {
-      const char *bcp47_locale
-        = self->current_lang_translations->info->bcp47_locale;
+      const char *bcp47_locale = current_bcp47_locale (self);
       fprintf (stderr, "\nC|TRANSLATE_NAMES encoding_name: %s"
                " bcp47_locale: %s\n",
                self->conf->OUTPUT_ENCODING_NAME.o.string,
@@ -981,8 +980,8 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
   int i;
   ELEMENT *fulltitle_tree = 0;
   char *html_title_string = 0;
-  const char *default_bcp47_locale = "";
-  const char *preamble_bcp47_locale = "";
+  const char *default_bcp47_locale;
+  const char *preamble_bcp47_locale;
   int init_handler_status;
   int handler_fatal_error_level
      = self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer;
@@ -996,15 +995,11 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
   else
     return 0;
 
-  if (self->current_lang_translations)
-    default_bcp47_locale
-      = self->current_lang_translations->info->bcp47_locale;
+  default_bcp47_locale = current_bcp47_locale (self);
 
   set_converter_preamble_language_commands (self);
 
-  if (self->current_lang_translations)
-    preamble_bcp47_locale
-      = self->current_lang_translations->info->bcp47_locale;
+  preamble_bcp47_locale = current_bcp47_locale (self);
 
   if (strcmp (default_bcp47_locale, preamble_bcp47_locale))
     html_translate_names (self);

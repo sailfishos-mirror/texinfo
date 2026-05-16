@@ -1,5 +1,14 @@
 2026-05-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (current_bcp47_locale): add.
+
+	* tta/C/convert/convert_html.c (html_translate_names)
+	(html_prepare_converted_output_info),
+	tta/C/convert/html_prepare_converter.c (html_setup_output): use
+	current_bcp47_locale.
+
+2026-05-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/NodeNameNormalization.pm
 	(_protect_unicode_char): no need to check
 	unicode_simple_character_map, the result is the same with sprintf.

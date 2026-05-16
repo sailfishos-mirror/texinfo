@@ -1079,6 +1079,15 @@ create_destination_directory (CONVERTER *self,
 static const enum command_id conf_for_documentlanguage[]
                           = {CM_documentlanguage, CM_documentscript, 0};
 
+const char *
+current_bcp47_locale (CONVERTER *self)
+{
+  if (!self->current_lang_translations)
+    return "";
+  else
+    return self->current_lang_translations->info->bcp47_locale;
+}
+
 void
 set_converter_preamble_language_commands (CONVERTER *self)
 {
