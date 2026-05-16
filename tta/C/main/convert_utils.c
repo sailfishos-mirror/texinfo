@@ -1236,6 +1236,7 @@ cdt_tree (const char *string, CONVERTER *self,
                    debug_level, translation_context);
 }
 
+/* called from generic converter and conversion to raw text converter */
 ELEMENT *
 translated_command_tree (TRANSLATED_COMMAND_LIST *translated_commands,
                          enum command_id cmd,

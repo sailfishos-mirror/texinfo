@@ -1136,12 +1136,17 @@ replace_convert_substrings (const char *translated_string,
   parser_conf_set_NO_USER_COMMANDS (1);
 
   if (replaced_substrings)
-    document = parse_string (texinfo_line, 1);
+    {
+      document = parse_string (texinfo_line, 1);
+      if (debug_level > 0)
+        fprintf (stderr, "C|IN TR PARSER subst '%s'\n", texinfo_line);
+    }
   else
-    document = parse_string (translated_string, 1);
-
-  if (debug_level > 0)
-    fprintf (stderr, "C|IN TR PARSER '%s'\n", texinfo_line);
+    {
+      document = parse_string (translated_string, 1);
+      if (debug_level > 0)
+        fprintf (stderr, "C|IN TR PARSER '%s'\n", translated_string);
+    }
 
   if (document->parser_error_messages.number > 0)
     {
@@ -1149,6 +1154,8 @@ replace_convert_substrings (const char *translated_string,
       fprintf (stderr, "translation %zu error(s)\n",
                error_messages->number);
       fprintf (stderr, "translated string: %s\n", translated_string);
+      if (texinfo_line)
+        fprintf (stderr, "Texinfo code: %s\n", texinfo_line);
       fprintf (stderr, "Error messages: \n");
       for (i = 0; i < error_messages->number; i++)
         fprintf (stderr, "%s", error_messages->list[i].error_line);

@@ -190,8 +190,7 @@ sub root_heading_command_to_texinfo($) {
   }
   if (defined($tree)) {
     return '@'.$element->{'cmdname'}.' '
-                .convert_to_texinfo(
-               Texinfo::TreeElement::new({'contents' => $tree->{'contents'}}));
+     . convert_to_texinfo(Texinfo::Common::non_leading_trailing_tree($tree));
   } else {
     return '@'.$element->{'cmdname'};
   }

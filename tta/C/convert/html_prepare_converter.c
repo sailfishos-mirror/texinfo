@@ -3622,8 +3622,7 @@ static const enum command_id spaces_cmd[] = {
   CM_SPACE, CM_TAB, CM_NEWLINE, CM_tie
 };
 
-/* called very early in conversion functions, before updating
-   customization, before calling user-defined functions...  */
+/* called first in convert and output */
 void
 html_conversion_initialization (CONVERTER *self, const char *context)
 {
@@ -3640,7 +3639,7 @@ html_conversion_initialization (CONVERTER *self, const char *context)
   if (!self->document && self->conf->DEBUG.o.integer > 0)
     {
       fprintf (stderr,
-               "C|REMARK: html_conversion_initialization: no document\n");
+               "C|REMARK: conversion_initialization: no document\n");
     }
 
   /* corresponds with default_no_arg_commands_formatting

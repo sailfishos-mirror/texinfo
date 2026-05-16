@@ -3142,8 +3142,6 @@ sub _convert_heading_command($$$$$) {
   my $element_id = $self->command_id($element);
 
   print STDERR "CONVERT elt heading "
-        # uncomment next line for the perl object name
-        #."$element "
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
 

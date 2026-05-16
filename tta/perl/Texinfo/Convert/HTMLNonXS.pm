@@ -1850,7 +1850,7 @@ sub _translate_names($) {
       $translated_tree
         = $self->cdt($conversion_contexts->{'translated_to_convert'});
     } else {
-      # default translated commands
+      # generic Converter default translated commands
       $translated_tree = $self->translated_command_tree($cmdname);
     }
     if (defined($translated_tree)) {
@@ -2774,6 +2774,8 @@ sub conversion_initialization($$;$) {
   if (defined($document)) {
     $self->set_document($document);
     $self->{'converter_info'}->{'document'} = $document;
+  } elsif ($self->get_conf('DEBUG')) {
+    print STDERR "REMARK: conversion_initialization: no document\n";
   }
 
   # needed if a converter is reused

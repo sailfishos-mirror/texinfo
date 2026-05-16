@@ -1,5 +1,21 @@
 2026-05-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/translations.c (replace_convert_substrings):
+	print debug message both with substitute substrings and without.
+
+	* tta/perl/Texinfo/Translations.pm (_replace_convert_substrings):
+	distinguish translated string and parsed strng with substitutions.
+	Print different messages with substitute substrings and without.
+
+	* tta/perl/Texinfo/Convert/Texinfo.pm
+	(root_heading_command_to_texinfo): call non_leading_trailing_tree to
+	avoid returning leading and trailing spaces and comment.
+
+	* tta/perl/Texinfo/Convert/HTMLNonXS.pm (conversion_initialization):
+	add debug message output in C.
+
+2026-05-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c,
 	tta/C/convert/html_prepare_converter.c: prepend C| in debug messages.
 

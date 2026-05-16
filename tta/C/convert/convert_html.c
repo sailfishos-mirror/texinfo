@@ -689,8 +689,10 @@ html_translate_names (CONVERTER *self)
       COMMAND_ID_LIST *translated_cmds
         = &self->no_arg_formatted_cmd_translated;
 
-      /* in general this is done in build_html_translated_names.  Still need
-         to do it here if build_html_translated_names is never called */
+      /* resetting translated_cmds is often done in build_html_translated_names
+         when passing the translations to Perl.
+         Need to do it here too if build_html_translated_names is never
+         called */
       if (translated_cmds->number)
         {
           memset (translated_cmds->list, 0, translated_cmds->number
@@ -715,6 +717,7 @@ html_translate_names (CONVERTER *self)
                                self, 0, 0);
             }
           else
+             /* generic Converter default translated commands */
              translated_tree
                         = converter_translated_command_tree (self, cmd,
                                                              &html_cdt_tree);

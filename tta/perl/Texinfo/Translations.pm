@@ -556,7 +556,7 @@ sub _replace_substrings($;$) {
 sub _replace_convert_substrings($;$$) {
   my ($translated_string, $replaced_substrings, $debug_level) = @_;
 
-  my $texinfo_line = $translated_string;
+  my $texinfo_line;
 
   # we change the substituted brace-enclosed strings to internal
   # values marked by @txiinternalvalue such that their location
@@ -566,6 +566,7 @@ sub _replace_convert_substrings($;$$) {
   # configuration is set means that there should be no clash
   # with @-commands used in translations.
   if (defined($replaced_substrings) and ref($replaced_substrings) ne '') {
+    $texinfo_line = $translated_string;
     my $re = join '|', map { quotemeta $_ } keys %$replaced_substrings;
     $texinfo_line =~ s/\{($re)\}/\@txiinternalvalue\{$1\}/g;
   }
@@ -587,16 +588,27 @@ sub _replace_convert_substrings($;$$) {
   }
   my $parser = Texinfo::Parser::parser($parser_conf);
 
-  if ($debug_level) {
-    print STDERR "IN TR PARSER '$texinfo_line'\n";
-  }
 
-  my $tree = $parser->parse_texi_line($texinfo_line, undef, 1);
+  my $tree;
+  if (defined($texinfo_line)) {
+    if ($debug_level) {
+      print STDERR "IN TR PARSER subst '$texinfo_line'\n";
+    }
+    $tree = $parser->parse_texi_line($texinfo_line, undef, 1);
+  } else {
+    if ($debug_level) {
+      print STDERR "IN TR PARSER '$translated_string'\n";
+    }
+    $tree = $parser->parse_texi_line($translated_string, undef, 1);
+  }
   my $errors = $parser->errors();
   my $errors_count = Texinfo::Report::count_errors($errors);
   if ($errors_count) {
     warn "translation $errors_count error(s)\n";
     warn "translated string: $translated_string\n";
+    if (defined($texinfo_line)) {
+      warn "Texinfo code: $texinfo_line\n";
+    }
     warn "Error messages: \n";
     foreach my $error_message (@$errors) {
       warn $error_message->{'error_line'};
