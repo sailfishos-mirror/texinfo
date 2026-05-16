@@ -4175,9 +4175,6 @@ sub _end_line_misc_line($$$) {
   } elsif ($command eq 'listoffloats') {
     _parse_float_type($current, $current->{'contents'}->[0]);
   } else {
-    if ($self->{'index_entry_commands'}->{$current->{'cmdname'}}) {
-      $current->{'type'} = 'index_entry_command';
-    }
     # Handle all the other 'line' commands.  Here just check that they
     # have an argument.  Empty @top and @xrefname are allowed
     if (Texinfo::Common::empty_spaces_argument($line_arg)
@@ -6260,6 +6257,9 @@ sub _handle_line_command($$$$$$) {
     } else {
       $command_e = Texinfo::TreeElement::new({ 'cmdname' => $command,
                                       'source_info' => {%$source_info} });
+      if ($self->{'index_entry_commands'}->{$command}) {
+        $command_e->{'type'} = 'index_entry_command';
+      }
       if ($command eq 'nodedescription') {
         if (exists($self->{'current_node'})) {
           my $node_relations = $self->{'current_node'};
@@ -7316,7 +7316,7 @@ sub _process_raw_block_contents($$) {
   my $cmdname = $current->{'cmdname'};
 
   print STDERR "BLOCK raw or ignored $cmdname\n"
-    if ($self->{'DEBUG'});
+    if ($self->{'conf'}->{'DEBUG'});
 
   my ($line, $source_info) = _next_text($self, $current);
 

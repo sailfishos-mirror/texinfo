@@ -305,7 +305,8 @@ $result_converted{'docbook'}->{'table'} = '
 <varlistentry><term><indexterm role="vr"><primary>vtable item</primary></indexterm>&#8216;<literal>vtable item</literal>&#8217;
 </term><!-- after item -->
 <indexterm role="ky"><primary>key</primary></indexterm>
-<term><indexterm role="vr"><primary>itemx vtable</primary></indexterm>&#8216;<literal>itemx vtable</literal>&#8217;
+<term><indexterm role="vr"><primary>itemx vtable</primary></indexterm>&#8216;<literal>itemx vtable<!-- comment in itemx line -->
+</literal>&#8217;
 </term><listitem>
 </listitem></varlistentry></variablelist>
 <variablelist><varlistentry><term><emphasis role="bold">unknown command after indicating command</emphasis>

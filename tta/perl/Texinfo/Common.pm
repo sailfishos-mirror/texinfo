@@ -1021,8 +1021,12 @@ sub non_leading_trailing_tree($) {
   if (!defined($start_idx)) {
     return undef;
   }
+  my $new = {};
+  # TODO In some places, in C the type is set.  Always do it here?
+  #$new->{'type'} = $tree->{'type'} if (exists($tree->{'type'}));
 
-  my $result = Texinfo::TreeElement::new({});
+  my $result = Texinfo::TreeElement::new($new);
+
   $result->{'contents'} = [@{$tree->{'contents'}}[$start_idx .. $end_idx]];
 
   return $result;

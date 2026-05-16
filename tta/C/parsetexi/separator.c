@@ -424,7 +424,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
             {
               const char *text = 0;
               if (type_data[current->e.c->contents.list[0]->type].flags
-                   == TF_text)
+                   & TF_text)
                 text = current->e.c->contents.list[0]->e.text->text;
               if (!text || (strcmp (text, "i") && strcmp (text, "j")))
                 {

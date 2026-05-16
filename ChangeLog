@@ -1,3 +1,24 @@
+2026-05-16 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/Converter.pm (table_item_content_tree): do
+	not use the tree provided by non_leading_trailing_tree such that a
+	comment is kept.
+
+	* tta/C/parsetexi/separator.c (handle_close_brace): use & for flag.
+
+	* tta/C/main/element_types.txt (normal_text): add c_only.
+
+	* tta/C/convert/convert_html.c (html_convert_tree_append),
+	tta/C/parsetexi/debug_parser.c (print_element_debug_parser): do not
+	print type in debugging if c_only flag is set.
+
+	* tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line)
+	(_handle_line_command): set index_entry_command type as soon as
+	possible.
+
+	* tta/perl/Texinfo/ParserNonXS.pm (_process_raw_block_contents):
+	fix missing 'conf' key.
+
 2026-05-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: add note for removal of texi2any_internals

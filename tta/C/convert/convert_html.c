@@ -1334,7 +1334,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
         text_printf (&command_type, "@%s ", command_name);
     }
 
-  if (element->type)
+  if (element->type && !(type_data[element->type].flags & TF_c_only))
     text_append (&command_type, type_data[element->type].name);
 
   if (self->conf->DEBUG.o.integer > 0)
@@ -1348,9 +1348,10 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
       text_printf (&debug_str, "C|ELEMENT(%s) %s, ->", explanation_str,
                                                         contexts_str);
       free (contexts_str);
+      /* TODO try to use generic element debugging code */
       if (command_name)
         text_printf (&debug_str, " cmd: %s,", command_name);
-      if (element->type)
+      if (element->type && !(type_data[element->type].flags & TF_c_only))
         text_printf (&debug_str, " type: %s",
                      type_data[element->type].name);
       if (type_data[element->type].flags & TF_text)
