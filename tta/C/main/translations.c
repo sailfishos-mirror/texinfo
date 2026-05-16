@@ -1205,7 +1205,13 @@ gdt_tree (const char *string, DOCUMENT *document,
   if (debug_level > 0)
     {
       char *result_texi = convert_to_texinfo (result_tree);
-      fprintf (stderr, "C|RESULT GDT: '%s'\n", result_texi);
+      const char *translated_string = translated_string_tree->translation;
+
+      if (!translated_string)
+        translated_string = string;
+
+      fprintf (stderr, "C|RESULT GDT: '%s' '%s' '%s'\n", string,
+                                     translated_string, result_texi);
       free (result_texi);
     }
 

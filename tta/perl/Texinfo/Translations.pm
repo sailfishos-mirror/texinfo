@@ -511,7 +511,7 @@ sub gdt($;$$$$$$) {
     my $translated_string = $translated_string_tree->[0];
     $translated_string = $string if (!defined($translated_string));
 
-    print STDERR "RESULT GDT: '$string' '$translated_string' ".
+    print STDERR "RESULT GDT: '$string' '$translated_string' '".
        Texinfo::Convert::Texinfo::convert_to_texinfo($result_tree)."'\n";
   }
   return $result_tree;
