@@ -1008,7 +1008,7 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
       int line_nr = 0;
 
       if (self->conf->DEBUG.o.integer > 0)
-        fprintf (stderr, "html refs config file: %s\n", file);
+        fprintf (stderr, "C|html refs config file: %s\n", file);
 
       stream = fopen (file, "r");
       if (!stream)
@@ -1943,13 +1943,13 @@ html_prepare_css (CONVERTER *self)
     {
       if (css_import_lines->number > 0)
         {
-          fprintf (stderr, "# css import lines\n");
+          fprintf (stderr, "C|# css import lines\n");
           for (i = 0; i < css_import_lines->number; i++)
             fprintf (stderr, "%s", css_import_lines->list[i]);
         }
       if (css_rule_lines->number > 0)
         {
-          fprintf (stderr, "# css rule lines\n");
+          fprintf (stderr, "C|# css rule lines\n");
           for (i = 0; i < css_rule_lines->number; i++)
             fprintf (stderr, "%s", css_rule_lines->list[i]);
         }
@@ -3639,7 +3639,8 @@ html_conversion_initialization (CONVERTER *self, const char *context)
 
   if (!self->document && self->conf->DEBUG.o.integer > 0)
     {
-      fprintf (stderr, "REMARK: html_conversion_initialization: no document\n");
+      fprintf (stderr,
+               "C|REMARK: html_conversion_initialization: no document\n");
     }
 
   /* corresponds with default_no_arg_commands_formatting
@@ -4717,7 +4718,7 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
           const char *fileout = filename;
           if (!fileout)
             fileout = "UNDEF";
-          fprintf (stderr, "Add special %s: target %s,\n    filename %s\n",
+          fprintf (stderr, "C|Add special %s: target %s,\n    filename %s\n",
                             special_unit_variety, target, fileout);
         }
 
@@ -4783,7 +4784,7 @@ prepare_associated_special_units_targets (CONVERTER *self)
                 str_target = target;
               else
                 str_target = "UNDEF";
-              fprintf (stderr, "Add content %s: target %s,\n"
+              fprintf (stderr, "C|Add content %s: target %s,\n"
                                 "    filename %s\n", special_unit_variety,
                                 str_target, str_filename);
             }
@@ -4996,7 +4997,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
               else if (self->conf->DEBUG.o.integer > 0)
                 {
                   fprintf (stderr,
-                     "user-defined node file name undef for `%s'\n",
+                     "C|user-defined node file name undef for `%s'\n",
                        node_filename);
                 }
             }
@@ -5004,7 +5005,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
           if (self->conf->DEBUG.o.integer > 0)
             {
               const char *command_name = element_command_name (target_element);
-              fprintf (stderr, "Label @%s %s, %s\n", command_name, target,
+              fprintf (stderr, "C|Label @%s %s, %s\n", command_name, target,
                                node_filename);
             }
 
@@ -5199,7 +5200,7 @@ prepare_footnotes_targets (CONVERTER *self)
           if (self->conf->DEBUG.o.integer > 0)
             {
               char *footnote_txi = convert_to_texinfo (footnote);
-              fprintf (stderr, "Enter footnote: target %s, nr %d\n%s\n",
+              fprintf (stderr, "C|Enter footnote: target %s, nr %d\n%s\n",
                        footid.text, nr, footnote_txi);
               free (footnote_txi);
             }
@@ -5651,7 +5652,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
   if (self->conf->DEBUG.o.integer > 0)
     {
       int i;
-      fprintf (stderr, "GLOBAL DIRECTIONS:\n");
+      fprintf (stderr, "C|GLOBAL DIRECTIONS:\n");
       for (i = 0; i < DEFAULT_GLOBAL_DIRECTION_LAST_IDX+1; i++)
         {
           if (self->global_units_directions[i])
@@ -5663,7 +5664,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
               free (unit_texi);
             }
         }
-      fprintf (stderr, "TEXT DIRECTIONS:\n");
+      fprintf (stderr, "C|TEXT DIRECTIONS:\n");
       for (i = DEFAULT_GLOBAL_DIRECTION_LAST_IDX+1;
            i < DEFAULT_TEXT_DIRECTION_LAST_IDX+1; i++)
         {
@@ -6303,7 +6304,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
       if (self->conf->DEBUG.o.integer > 0)
         {
           char *output_unit_text = output_unit_texi (output_unit);
-          fprintf (stderr, "Page %s: %s(%d)\n", output_unit_text,
+          fprintf (stderr, "C|Page %s: %s(%d)\n", output_unit_text,
                  output_unit->unit_filename, output_unit_file->counter);
           free (output_unit_text);
         }
@@ -6360,7 +6361,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
           special_unit_file
              = &self->output_unit_files.list[special_unit_file_idx];
           if (self->conf->DEBUG.o.integer > 0)
-            fprintf (stderr, "Special page: %s(%d)\n", filename,
+            fprintf (stderr, "C|Special page: %s(%d)\n", filename,
                              special_unit_file->counter);
         }
     }

@@ -3128,7 +3128,7 @@ sub _html_convert_convert($$$$) {
   # NOTE there is no rule before the footnotes special element in
   # case of separate footnotes in this setting.
   foreach my $output_unit (@$output_units, @$special_units) {
-    print STDERR "\nC UNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
+    print STDERR "\nUNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
     my $output_unit_text = $self->convert_output_unit($output_unit,
                                                "convert unit $unit_nr");
     $result .= $output_unit_text;

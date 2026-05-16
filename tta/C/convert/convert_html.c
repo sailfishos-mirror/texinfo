@@ -768,7 +768,7 @@ html_translate_names (CONVERTER *self)
     }
 
   if (self->conf->DEBUG.o.integer > 0)
-    fprintf (stderr, "END TRANSLATE_NAMES\n\n");
+    fprintf (stderr, "C|END TRANSLATE_NAMES\n\n");
 
   self->modified_state |= HMSF_translations;
 }
@@ -797,7 +797,7 @@ html_run_stage_handlers (CONVERTER *self,
             = &stage_handlers->list[i];
 
           if (self->conf->DEBUG.o.integer > 0)
-            fprintf (stderr, "RUN handler %zu: stage %s, priority %s\n",
+            fprintf (stderr, "C|RUN handler %zu: stage %s, priority %s\n",
                      i +1, stage_name, stage_handler->priority);
 
           if (stage_handler->sv)
@@ -1385,7 +1385,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
         {
           if (self->conf->DEBUG.o.integer > 0)
             {
-              fprintf (stderr, "IGNORE TEXT %s\n", command_type.text);
+              fprintf (stderr, "C|IGNORE TEXT %s\n", command_type.text);
             }
           goto out;
         }
@@ -1432,7 +1432,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
     {
       if (self->conf->DEBUG.o.integer > 0)
         {
-          fprintf (stderr, "IGNORED %s\n", command_type.text);
+          fprintf (stderr, "C|IGNORED %s\n", command_type.text);
         }
       goto out;
     }
@@ -1445,7 +1445,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
       /* C only debug message */
       /*
       if (self->conf->DEBUG.o.integer > 0)
-        fprintf (stderr, "COMMAND: %s %s\n",
+        fprintf (stderr, "C|COMMAND: %s %s\n",
                  builtin_command_data[data_cmd].cmdname,
                  builtin_command_data[cmd].cmdname);
       */
@@ -1894,7 +1894,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
         }
 
       if (self->conf->DEBUG.o.integer > 0)
-        fprintf (stderr, "UNNAMED HOLDER => `%s'\n", content_formatted.text);
+        fprintf (stderr, "C|UNNAMED HOLDER => `%s'\n", content_formatted.text);
       ADD(content_formatted.text);
       free (content_formatted.text);
       goto out;
@@ -1902,7 +1902,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
   else
     {
       if (self->conf->DEBUG.o.integer > 0)
-        fprintf (stderr, "UNNAMED empty\n");
+        fprintf (stderr, "C|UNNAMED empty\n");
       if (self->current_types_conversion_function[0].type_conversion)
         {
           if (!self->current_types_conversion_function[0].type_conversion)
@@ -1936,7 +1936,7 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
     {
       if (self->conf->DEBUG.o.integer > 0)
         {
-          fprintf (stderr, "IGNORED OU %s\n",
+          fprintf (stderr, "C|IGNORED OU %s\n",
                            output_unit_type_names[unit_type]);
         }
       return;
@@ -1988,7 +1988,8 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
   self->current_output_unit = 0;
 
   if (self->conf->DEBUG.o.integer > 0)
-    fprintf (stderr, "DOUNIT (%s) => `%s'\n", output_unit_type_names[unit_type],
+    fprintf (stderr, "C|DOUNIT (%s) => `%s'\n",
+                     output_unit_type_names[unit_type],
                      result->text + input_result_end);
 }
 
@@ -2031,7 +2032,7 @@ html_convert_convert (CONVERTER *self, const ELEMENT *root)
     {
       const OUTPUT_UNIT *output_unit = output_units->list[i];
       convert_convert_output_unit_internal (self, &result, output_unit,
-                            unit_nr, "C UNIT", "convert unit");
+                            unit_nr, "C|UNIT", "convert unit");
       unit_nr++;
     }
   if (special_units && special_units->number)
@@ -2040,7 +2041,7 @@ html_convert_convert (CONVERTER *self, const ELEMENT *root)
         {
           const OUTPUT_UNIT *special_unit = special_units->list[i];
           convert_convert_output_unit_internal (self, &result,
-                    special_unit, unit_nr, "C UNIT", "convert unit");
+                    special_unit, unit_nr, "C|UNIT", "convert unit");
           unit_nr++;
         }
     }
@@ -2076,7 +2077,7 @@ convert_output_output_unit_internal (CONVERTER *self,
       self->current_filename.file_number = file_index +1;
       unit_file = &self->output_unit_files.list[file_index];
 
-      xasprintf (&debug_str, "UNIT SPECIAL %s", special_unit_variety);
+      xasprintf (&debug_str, "C|UNIT SPECIAL %s", special_unit_variety);
       convert_convert_output_unit_internal (self, text,
                     output_unit, unit_nr, debug_str, "output s-unit");
       free (debug_str);
@@ -2091,7 +2092,7 @@ convert_output_output_unit_internal (CONVERTER *self,
       unit_file = &self->output_unit_files.list[file_index];
 
       convert_convert_output_unit_internal (self, text, output_unit,
-                                            unit_nr, "UNIT", "output unit");
+                                            unit_nr, "C|UNIT", "output unit");
     }
 
   unit_file->counter--;
@@ -2284,7 +2285,7 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
         {
           const OUTPUT_UNIT *output_unit = output_units->list[i];
           convert_convert_output_unit_internal (self, &text, output_unit,
-                         unit_nr, "UNIT NO-PAGE", "no-page output unit");
+                         unit_nr, "C|UNIT NO-PAGE", "no-page output unit");
           unit_nr++;
         }
       if (special_units && special_units->number)
@@ -2293,7 +2294,7 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
             {
               const OUTPUT_UNIT *special_unit = special_units->list[i];
               convert_convert_output_unit_internal (self, &text,
-                             special_unit, unit_nr, "UNIT NO-PAGE",
+                             special_unit, unit_nr, "C|UNIT NO-PAGE",
                              "no-page output unit");
               unit_nr++;
             }
@@ -2330,7 +2331,7 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
         }
 
       if (self->conf->DEBUG.o.integer > 0)
-        fprintf (stderr, "DO Units with filenames\n");
+        fprintf (stderr, "C|DO Units with filenames\n");
 
       for (i = 0; i < output_units->number; i++)
         {
