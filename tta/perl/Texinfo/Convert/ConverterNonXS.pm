@@ -87,11 +87,11 @@ my %all_converters_defaults
 sub set_document($$) {
   my ($converter, $document) = @_;
 
-  confess('set_document: document undef') if (!defined($document));
+  if (defined($document)) {
+    $converter->{'document'} = $document;
 
-  $converter->{'document'} = $document;
-
-  Texinfo::Common::set_output_encoding($converter, $document);
+    Texinfo::Common::set_output_encoding($converter, $document);
+  }
 
   $converter->{'convert_text_options'}
      = Texinfo::Convert::Text::copy_options_for_convert_text($converter);

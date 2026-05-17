@@ -1,5 +1,26 @@
 2026-05-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (converter_set_document),
+	tta/perl/Texinfo/Convert/ConverterNonXS.pm (set_document),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm (conversion_initialization):
+	allow an undef/NULL document such that copy_options_for_convert_text
+	is still called in that case.
+
+	* tta/C/convert/get_converter_perl_info.c
+	(get_converter_and_document_from_sv),
+	tta/C/convert/html_converter_api.c (html_output, html_convert),
+	tta/C/convert/html_prepare_converter.c
+	(html_conversion_initialization),
+	tta/perl/XSTexinfo/convert/ConvertConverterXS.xs (set_document),
+	tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs
+	(conversion_initialization, output, convert): add document argument to
+	html_conversion_initialization, and call set_document in
+	html_conversion_initialization, as in Perl.  Update callers.  Add
+	get_converter_and_document_from_sv to get both document and converter
+	to use in XS.  Remove converter_set_document_from_sv.
+
+2026-05-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/get_perl_info.c (get_lang_info_hv): comment out unused
 	variable.
 

@@ -231,13 +231,15 @@ _XS_html_converter_get_customization (SV *converter_in, SV *default_formatting_r
 void
 conversion_initialization (SV *converter_in, const char *context, SV *document_in=0)
       PREINIT:
+        DOCUMENT *document;
         CONVERTER *self;
       CODE:
         /* if a converter is properly initialized, the XS converter should
            always be found when XS is used */
-        self = converter_set_document_from_sv (converter_in, document_in);
+        document = get_converter_and_document_from_sv (converter_in,
+                                                     document_in, &self);
 
-        html_conversion_initialization (self, context);
+        html_conversion_initialization (self, context, document);
 
         html_pass_conversion_initialization (self, converter_in);
 
@@ -246,6 +248,7 @@ SV *
 output (SV *converter_in, SV *document_in)
       PREINIT:
         CONVERTER *self;
+        DOCUMENT *document;
         char *paths[5];
         int status;
         char *result = 0;
@@ -255,9 +258,10 @@ output (SV *converter_in, SV *document_in)
         const char *output_filename;
         const char *document_name;
       CODE:
-        self = converter_set_document_from_sv (converter_in, document_in);
+        document = get_converter_and_document_from_sv (converter_in,
+                                                     document_in, &self);
 
-        html_conversion_initialization (self, "_output");
+        html_conversion_initialization (self, "_output", document);
 
         html_pass_conversion_initialization (self, converter_in);
 
@@ -366,12 +370,14 @@ output (SV *converter_in, SV *document_in)
 SV *
 convert (SV *converter_in, SV *document_in)
       PREINIT:
+        DOCUMENT *document;
         CONVERTER *self;
         char *result;
       CODE:
-        self = converter_set_document_from_sv (converter_in, document_in);
+        document = get_converter_and_document_from_sv (converter_in,
+                                                     document_in, &self);
 
-        html_conversion_initialization (self, "_convert");
+        html_conversion_initialization (self, "_convert", document);
 
         html_pass_conversion_initialization (self, converter_in);
 

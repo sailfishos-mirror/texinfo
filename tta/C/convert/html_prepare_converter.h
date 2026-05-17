@@ -61,7 +61,10 @@ void free_js_categories_list (JSLICENSE_CATEGORY_LIST *js_files_info);
 
 void reset_html_page_css (CONVERTER *self);
 
-/* void html_conversion_initialization (CONVERTER *self, const char *context); */
+ /*
+void html_conversion_initialization (CONVERTER *self, const char *context,
+                                     DOCUMENT *document);
+  */
 
 void initialize_js_categories_list (JSLICENSE_CATEGORY_LIST *js_files_info,
                                    size_t size);

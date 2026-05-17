@@ -55,9 +55,7 @@ html_output (CONVERTER *converter, DOCUMENT *document)
   int status;
 
   /* prepare conversion to HTML */
-  converter_set_document (converter, document);
-
-  html_conversion_initialization (converter, "_output");
+  html_conversion_initialization (converter, "_output", document);
 
   status = html_setup_output (converter, paths);
 
@@ -130,9 +128,7 @@ html_convert (CONVERTER *converter, DOCUMENT *document)
 {
   char *result;
 
-  converter_set_document (converter, document);
-
-  html_conversion_initialization (converter, "_convert");
+  html_conversion_initialization (converter, "_convert", document);
 
   html_setup_convert (converter);
 

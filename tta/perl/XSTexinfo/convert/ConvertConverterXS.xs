@@ -149,13 +149,16 @@ _generic_converter_init (SV *converter_in, SV *format_defaults_sv, SV *conf_sv=0
 void
 set_document (SV *converter_in, SV *document_in)
       PREINIT:
+        DOCUMENT *document;
         CONVERTER *self;
       CODE:
         pass_document_sv_to_converter_sv (converter_in, document_in);
 
         /* if a converter is properly initialized, the XS converter should
            always be found when XS is used */
-        self = converter_set_document_from_sv (converter_in, document_in);
+        document = get_converter_and_document_from_sv (converter_in,
+                                                     document_in, &self);
+        converter_set_document (self, document);
 
         pass_converter_text_options (self, converter_in);
 

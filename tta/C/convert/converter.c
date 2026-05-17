@@ -597,11 +597,15 @@ converter_set_document (CONVERTER *converter, DOCUMENT *document)
       int i;
       for (i = 0; i < OUDT_external_nodes_units+1; i++)
         converter->output_units_descriptors[i] = 0;
+      converter->document = 0;
     }
 
-  converter->document = document;
+  if (document)
+    {
+      converter->document = document;
 
-  set_output_encoding (converter->conf, converter->document);
+      set_output_encoding (converter->conf, converter->document);
+    }
 
   if (converter->convert_text_options)
     /* should only happen if a converter is reused */

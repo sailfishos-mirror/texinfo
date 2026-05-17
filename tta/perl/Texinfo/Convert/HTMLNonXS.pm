@@ -2773,8 +2773,9 @@ sub conversion_initialization($$;$) {
 
   $self->{'converter_info'} = {};
 
+  $self->set_document($document);
+
   if (defined($document)) {
-    $self->set_document($document);
     $self->{'converter_info'}->{'document'} = $document;
   } elsif ($self->get_conf('DEBUG')) {
     print STDERR "REMARK: conversion_initialization: no document\n";

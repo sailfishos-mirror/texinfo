@@ -84,21 +84,19 @@ get_or_create_sv_converter (SV *converter_in, const char *input_class)
   return converter;
 }
 
-CONVERTER *
-converter_set_document_from_sv (SV *converter_in, SV *document_in)
+DOCUMENT *
+get_converter_and_document_from_sv (SV *converter_in, SV *document_in,
+                                    CONVERTER **converter)
 {
-  CONVERTER *converter;
   DOCUMENT *document = 0;
 
   dTHX;
 
-  converter = get_sv_converter (converter_in, "converter_set_document");
+  *converter = get_sv_converter (converter_in, "converter_set_document");
   if (document_in && SvOK (document_in))
     document = get_sv_document_document (document_in, 0);
 
-  converter_set_document (converter, document);
-
-  return converter;
+  return document;
 }
 
 DOCUMENT *

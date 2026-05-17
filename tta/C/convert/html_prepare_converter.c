@@ -3624,7 +3624,8 @@ static const enum command_id spaces_cmd[] = {
 
 /* called first in convert and output */
 void
-html_conversion_initialization (CONVERTER *self, const char *context)
+html_conversion_initialization (CONVERTER *self, const char *context,
+                                DOCUMENT *document)
 {
   int i;
   size_t j;
@@ -3636,7 +3637,9 @@ html_conversion_initialization (CONVERTER *self, const char *context)
   int *non_default_special_unit_directions =
      determine_non_default_special_unit_directions (self);
 
-  if (!self->document && self->conf->DEBUG.o.integer > 0)
+  converter_set_document (self, document);
+
+  if (!document && self->conf->DEBUG.o.integer > 0)
     {
       fprintf (stderr,
                "C|REMARK: conversion_initialization: no document\n");
