@@ -378,6 +378,19 @@ Manual testing:
     a Texinfo with external references to HTML, and that translated output
     strings are found by converting a manual with @documentlanguage.
   - do the same with ctexi2any.
+. check that the debug output of pure Perl modules and XS/C are the same.
+  They do not need to be exactly the same, but differences should be
+  investigated for two reasons:
+   1) differences are very often associated to bugs in one implementation
+      that are not visible without debug output;
+   2) when a bug affects only one implementation, being able to do
+      clean diffs between implementations debug output may help.
+
+  rm -rf t/check_debug_differences/
+  mkdir t/check_debug_differences/
+  unset TEXINFO_XS; for file in t/*.t ; do bfile=`basename $file .t`; perl -w $file -d 1 2>t/check_debug_differences/XS_$bfile.err ; done
+  export TEXINFO_XS=omit; for file in t/*.t ; do bfile=`basename $file .t`; perl -w $file -d 1 2>t/check_debug_differences/PL_$bfile.err ; done
+  for file in t/*.t ; do bfile=`basename $file .t`; sed 's/^C|//' t/check_debug_differences/XS_$bfile.err | diff -u t/check_debug_differences/PL_$bfile.err - > t/check_debug_differences/debug_$bfile.diff; done
 
 check for C compiler warnings by configuring with
 

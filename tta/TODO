@@ -1209,12 +1209,10 @@ texi2pdf -I ../tta/tests/layout/ ../tta/tests/formatting_valid.texi
 
 To generate valgrind .supp rules: --gen-suppressions=all --log-file=gen_supp_rules.log
 
+Check memory leaks
 mkdir -p val_res
 PERL_DESTRUCT_LEVEL=2
 export PERL_DESTRUCT_LEVEL
-for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --suppressions=../texi2any.supp -q perl -w $file > val_res/$bfile.out 2>&1 ; done
-
-With memory leaks
 for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --suppressions=../texi2any.supp -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
 for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
 (for file in t/z_misc/*.t ; do bfile=`basename $file .t`; echo z_misc/$bfile; valgrind -q --leak-check=full perl -w $file ; done) > val_res/z_misc.out 2>&1
@@ -1234,17 +1232,12 @@ of valgrind hints that the memory appearing as leaked could have come a
 dlclosed object.  In that case adding --keep-debuginfo=yes showed the
 missing symbols as seen in the valgrind documentation.
 
-To check debug output differences between Perl and C Parser
-rm -rf t/check_debug_differences/
-mkdir t/check_debug_differences/
-unset TEXINFO_XS; for file in t/*.t ; do bfile=`basename $file .t`; perl -w $file -d 1 2>t/check_debug_differences/XS_$bfile.err ; done
-export TEXINFO_XS=omit; for file in t/*.t ; do bfile=`basename $file .t`; perl -w $file -d 1 2>t/check_debug_differences/PL_$bfile.err ; done
-for file in t/*.t ; do bfile=`basename $file .t`; sed 's/^C|//' t/check_debug_differences/XS_$bfile.err | diff -u t/check_debug_differences/PL_$bfile.err - > t/check_debug_differences/debug_$bfile.diff; done
-
-Full check, including XS conversion and memory leaks in debug:
+To complement the "check that the debug output of pure Perl modules and XS/C
+are the same" desribed in README-hacking, an additional check with memory leaks
+in debug:
 PERL_DESTRUCT_LEVEL=2
 export PERL_DESTRUCT_LEVEL
-for file in t/*.t ; do bfile=`basename $file .t`; valgrind -q --leak-check=full --keep-debuginfo=yes perl -w $file -d 1 2>t/check_debug_differences/XS_$bfile.err ; done
+unset TEXINFO_XS; for file in t/*.t ; do bfile=`basename $file .t`; valgrind -q --leak-check=full perl -w $file -d 1 2>t/check_debug_differences/XS_$bfile.err ; done
 
 Check of XS interface to Perl
 export TEXINFO_XS_EXTERNAL_FORMATTING=1

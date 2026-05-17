@@ -1,5 +1,11 @@
 2026-05-17 Patrice Dumas  <pertusus@free.fr>
 
+	* README-hacking: add check that the debug output of pure Perl modules
+	and XS/C are the same before the release as a manual test, since it
+	allows to find real bugs.
+
+2026-05-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/get_perl_info.c (get_lang_info_hv): do not set
 	lang_info->bcp47_locale, it will be set in set_lang_info_translation.
 	Found with valgrind as there was a memory leak.
