@@ -1799,6 +1799,8 @@ sub _complete_no_arg_commands_formatting($$;$) {
                                    'css_string', 'string', $translate);
 }
 
+my @sorted_no_arg_commands;
+
 sub _translate_names($) {
   my $self = shift;
 
@@ -1842,7 +1844,7 @@ sub _translate_names($) {
     }
   }
   my %translated_commands;
-  foreach my $cmdname (keys(%{$self->{'no_arg_commands_formatting'}})) {
+  foreach my $cmdname (@sorted_no_arg_commands) {
     my $conversion_contexts = $self->{'no_arg_commands_formatting'}->{$cmdname};
 
     my $translated_tree;
@@ -2895,6 +2897,9 @@ sub conversion_initialization($$;$) {
   my $conf_default_no_arg_commands_formatting_normal
     = Storable::dclone($default_no_arg_commands_formatting{'normal'});
 
+  @sorted_no_arg_commands
+    = sort(keys(%{$default_no_arg_commands_formatting{'normal'}}));
+
   my $non_breaking_space = $self->get_info('non_breaking_space');
 
   if ($non_breaking_space ne $xml_named_entity_nbsp) {
@@ -2920,7 +2925,8 @@ sub conversion_initialization($$;$) {
   # initialized here and not with the converter because it may depend on
   # the document encoding.
   $self->{'no_arg_commands_formatting'} = {};
-  foreach my $cmdname (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
+  # use sorted for reproducible debug output
+  foreach my $cmdname (@sorted_no_arg_commands) {
     $self->{'no_arg_commands_formatting'}->{$cmdname} = {};
     # For now, there are no 'translated_to_convert' Texinfo code for
     # no args commands in the default case.  The translated command
@@ -2990,7 +2996,7 @@ sub conversion_initialization($$;$) {
 
   # set sane defaults in case there is none and the default formatting
   # function is used
-  foreach my $cmdname (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
+  foreach my $cmdname (@sorted_no_arg_commands) {
     if (exists($self->{'commands_conversion'}->{$cmdname})
         and $self->{'commands_conversion'}->{$cmdname}
             eq $default_commands_conversion{$cmdname}) {
