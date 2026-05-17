@@ -1647,7 +1647,7 @@ sub current_output_unit($) {
 # information from converter available 'read-only', set up before
 # really starting the formatting.
 my %available_converter_info;
-foreach my $converter_info ('copying_comment',
+foreach my $converter_info ('copying_comment', 'date_in_header',
    'destination_directory', 'document', 'document_name',
    'documentdescription_string', 'documentinfo_metadata',
    'expanded_formats',
@@ -4652,6 +4652,18 @@ sub _prepare_converted_output_info($$$$) {
           = $metadata_in_documentinfo;
       }
     }
+  }
+
+  if ($self->get_conf('DATE_IN_HEADER')) {
+    my $today
+      = $self->convert_tree_new_formatting_context(
+           Texinfo::TreeElement::new({'cmdname' => 'today'}),
+                                                   'DATE_IN_HEADER');
+    my $date =
+      $self->close_html_lone_element(
+        "<meta name=\"date\" content=\"$today\"")."\n";
+
+    $self->{'converter_info'}->{'date_in_header'} = $date;
   }
 
   my $init_status = _run_stage_handlers($self, $stage_handlers,

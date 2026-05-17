@@ -1216,6 +1216,16 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
         }
     }
 
+  if (self->conf->DATE_IN_HEADER.o.integer > 0)
+    {
+      TEXT text;
+
+      text_init (&text);
+      html_default_format_date_in_header (self, &text);
+      free (self->date_in_header);
+      self->date_in_header = text.text;
+    }
+
   init_handler_status = html_run_stage_handlers (self, HSHT_type_init);
 
   if (init_handler_status < handler_fatal_error_level
@@ -2272,15 +2282,6 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
 
   text_init (&result);
   text_init (&text);
-
-  /* set self->date_in_header to format it only once */
-  if (self->conf->DATE_IN_HEADER.o.integer > 0)
-    {
-      html_default_format_date_in_header (self, &text);
-      free (self->date_in_header);
-      self->date_in_header = strdup (text.text);
-      text_reset (&text);
-    }
 
   text_append (&result, "");
 

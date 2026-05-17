@@ -1785,14 +1785,14 @@ set_file_path (CONVERTER *self, const char *filename, const char *filepath,
       if (!strcmp (output_unit_file->filepath, filepath_str))
         {
           if (self->conf->DEBUG.o.integer > 0)
-            fprintf (stderr, "C: set_file_path: filepath set: %s\n",
+            fprintf (stderr, "C|set_file_path: filepath set: %s\n",
                              filepath_str);
           free (filepath_str);
         }
       else
         {
           if (self->conf->DEBUG.o.integer > 0)
-            fprintf (stderr, "C: set_file_path: filepath reset: %s, %s\n",
+            fprintf (stderr, "C|set_file_path: filepath reset: %s, %s\n",
                              output_unit_file->filepath, filepath_str);
           free (output_unit_file->filepath);
           output_unit_file->filepath = filepath_str;

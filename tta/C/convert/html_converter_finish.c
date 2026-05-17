@@ -112,6 +112,7 @@ html_free_converter (CONVERTER *self)
   free (self->documentdescription_string);
   free (self->copying_comment);
   free (self->documentinfo_metadata);
+  free (self->date_in_header);
   free (self->destination_directory);
   free (self->document_name);
 
@@ -369,8 +370,6 @@ html_free_converter (CONVERTER *self)
   clear_c_hashmap (&self->units_direction_names_index);
 
   free_translation_cache (self->translation_cache);
-
-  free (self->date_in_header);
 
   free (self->html_customized_upper_case_commands);
   self->html_customized_upper_case_commands = 0;

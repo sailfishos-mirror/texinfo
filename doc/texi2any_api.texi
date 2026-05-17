@@ -2241,6 +2241,9 @@ The available information is about:
 Text appearing in @code{@@copying} with all the Texinfo commands
 put into comments (@pxref{@code{@@copying},,, texinfo, Texinfo}).
 
+@item date_in_header
+Date formatted as metadata for HTML @code{<head>}.
+
 @item destination_directory
 Destination directory for the output files.  It is common to use that string in directory
 or file paths with functions requiring binary strings.  In that case the

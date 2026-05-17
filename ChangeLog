@@ -1,5 +1,21 @@
 2026-05-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/build_html_perl_info.c (pass_sv_converter_info),
+	tta/C/convert/convert_html.c (html_prepare_converted_output_info)
+	(html_convert_output), tta/perl/Texinfo/Convert/HTML.pm
+	(_file_header_information), tta/perl/Texinfo/Convert/HTMLNonXS.pm
+	(%available_converter_info, _prepare_converted_output_info): set
+	date_in_header in prepare_converted_output_info.  Add it to
+	converter_info.  Use it from converter_info in
+	_file_header_information.
+
+	* doc/texi2any_api.texi (Converter General Information): document
+	date_in_header.
+
+	* tta/C/convert/converter.c (set_file_path): fix debug message.
+
+2026-05-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/translations.c
 	(reset_lang_translation_from_customization): no need to call
 	set_translations_documentlanguagevariant, as a NULL lang_translations

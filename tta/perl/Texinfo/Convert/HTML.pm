@@ -7268,16 +7268,8 @@ sub _file_header_information($$;$) {
     if (defined($self->get_conf('OUTPUT_ENCODING_NAME'))
         and ($self->get_conf('OUTPUT_ENCODING_NAME') ne ''));
 
-  my $date = '';
-  if ($self->get_conf('DATE_IN_HEADER')) {
-    my $today
-      = $self->convert_tree_new_formatting_context(
-           Texinfo::TreeElement::new({'cmdname' => 'today'}),
-                                                   'DATE_IN_HEADER');
-    $date =
-      $self->close_html_lone_element(
-        "<meta name=\"date\" content=\"$today\"")."\n";
-  }
+  my $date = $self->get_info('date_in_header');
+  $date = '' if (!defined($date));
 
   my $css_lines = &{$self->formatting_function('format_css_lines')}($self,
                                                                   $filename);
