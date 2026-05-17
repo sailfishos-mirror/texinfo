@@ -1455,7 +1455,7 @@ special_unit_info_text (SV *converter_in, type_name, special_unit_variety, SV *c
         if (self)
           {
             int j;
-            enum conversion_context context_type = 0;
+            enum direction_string_context context_type = 0;
             enum special_unit_info_tree type = SUIT_type_none;
 
             for (j = 0; j < SPECIAL_UNIT_INFO_TREE_NR; j++)
@@ -1482,7 +1482,7 @@ special_unit_info_text (SV *converter_in, type_name, special_unit_variety, SV *c
                        = SvPVutf8_nolen(context_type_sv);
 
                     if (!strcmp (context_type_name, "string"))
-                      context_type = HCC_type_string;
+                      context_type = TDS_context_string;
                   }
                 text
                   = html_special_unit_info_text (self, type,

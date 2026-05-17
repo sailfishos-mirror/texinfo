@@ -61,6 +61,7 @@ enum direction_unit_direction {
 
 #define NON_SPECIAL_DIRECTIONS_NR (FIRSTINFILE_MAX_IDX +1)
 
+/* used in from_element_direction and in functions such as command_name... */
 enum html_text_type {
    HTT_text,
    HTT_text_nonumber,
@@ -111,7 +112,9 @@ typedef struct BUTTON_SPECIFICATION_INFO {
     union {
       BUTTON_FUNCTION button_function; /* BIT_function */
      /* BIT_direction_information_type
-        text string in perl, element direction information type */
+        text string in perl, element direction information type,
+        used in tests only, for a call to from_element_direction
+      */
       enum html_text_type direction_information_type;
     } bi;
 } BUTTON_SPECIFICATION_INFO;

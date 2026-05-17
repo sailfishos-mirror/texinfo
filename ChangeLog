@@ -1,3 +1,9 @@
+2026-05-17 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/format_html.c (html_special_unit_info_text): use enum
+	direction_string_context instead of enum conversion_context.  Update
+	callers.
+
 2026-05-16 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_html.c (html_gdt_tree): add debugging message.

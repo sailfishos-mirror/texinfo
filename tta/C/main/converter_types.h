@@ -74,6 +74,8 @@ enum command_type_variety {
    CTV_type_type,
 };
 
+/* for style commands up to STYLE_COMMAND_CONTEXT_NR and for
+   no args commands up to NO_ARG_COMMAND_CONTEXT_NR */
 #define HCC_CONTEXT_TYPES_LIST \
   cctx_type(normal) \
   cctx_type(preformatted) \
@@ -102,6 +104,7 @@ enum direction_string_type {
   #undef tds_type
 };
 
+/* used both for direction strings and special unit info text */
 enum direction_string_context {
   TDS_context_normal,
   TDS_context_string,

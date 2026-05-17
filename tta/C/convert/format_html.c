@@ -1884,7 +1884,7 @@ char *
 html_special_unit_info_text (CONVERTER *self,
                              const enum special_unit_info_tree type,
                              const char *special_unit_variety,
-                             enum conversion_context context_type)
+                             enum direction_string_context context_type)
 {
   ELEMENT *unit_info_tree;
   char *explanation;
@@ -1898,11 +1898,11 @@ html_special_unit_info_text (CONVERTER *self,
   xasprintf (&explanation, "convert %s %s/%s",
                            special_unit_variety,
                            special_unit_info_tree_names[type],
-                           html_command_text_type_name[context_type]);
+                           direction_string_context_names[context_type]);
 
   add_tree_to_build (self, unit_info_tree);
 
-  if (context_type == HCC_type_string)
+  if (context_type == TDS_context_string)
     result = html_convert_tree_new_formatting_context (self,
                                      unit_info_tree, explanation,
                                      CTXF_string, 0, 0, 0);
