@@ -1022,6 +1022,9 @@ in UTF-8).  Not clear that it is an issue.  For example with
 export TEXINFO_XS=omit
 /usr/bin/perl -w ./../perl/texi2any.pl  --force --conf-dir ./../perl/t/init/ --conf-dir ./../perl/init --conf-dir ./../perl/ext -I ./coverage/ -I coverage// -I ./ -I . -I built_input --error-limit=1000 -c TEST=1  --output coverage//out_parser/formatting_macro_expand/ --macro-expand=coverage//out_parser/formatting_macro_expand/formatting.texi -c TEXINFO_OUTPUT_FORMAT=structure ./coverage//formatting.texi --debug=1 2>t.err
 
+This does not happen for t/*.t tests, as STDERR is encoded in UTF-8
+in test_utils.pl.
+
 
 HTML5 validation tidy errors that do not need fixing
 ----------------------------------------------------

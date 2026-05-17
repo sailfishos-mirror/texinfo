@@ -1,5 +1,10 @@
 2026-05-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl: encode STDERR in UTF-8, to have the same
+	encoding as C direct output on stderr (for debugging output).
+
+2026-05-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/translations.c (replace_convert_substrings),
 	tta/perl/Texinfo/Translations.pm (_replace_convert_substrings): show
 	debug messages if debug > 1 to avoid seeing spurious differences

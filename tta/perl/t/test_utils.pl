@@ -97,6 +97,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 Locale::Messages->select_package('gettext_pp');
 
+# Force Perl STDERR to be in UTF-8, to have the same encoding as C
+# direct output on stderr.
+binmode(STDERR, ":encoding(UTF-8)");
+
 use File::Spec;
 my $updir = File::Spec->updir();
 
