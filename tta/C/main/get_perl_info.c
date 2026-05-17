@@ -1676,7 +1676,9 @@ get_lang_info_hv (HV *lang_info_hv)
   SV **region_sv;
   SV **script_sv;
   SV **variants_sv;
+   /*
   SV **bcp47_locale_sv;
+    */
   DOCUMENT_LANG_INFO *lang_info;
 
   dTHX;
