@@ -2158,6 +2158,12 @@ sub debug_command_name($) {
   }
 }
 
+my %spaces_protection = (
+                  "\n" => '\\n',
+                  "\t" => '\\t',
+                  "\f" => '\\f',
+);
+
 # informations on a tree element, short version
 sub debug_print_element($;$) {
   my ($current, $print_parent) = @_;
@@ -2184,7 +2190,7 @@ sub debug_print_element($;$) {
       $text = "[T]";
     } else {
       my $text_str = $current->{'text'};
-      $text_str =~ s/\n/\\n/g;
+      $text_str =~ s/([\n\t\f])/$spaces_protection{$1}/ge;
       $text = "[T: $text_str]";
     }
   } else {

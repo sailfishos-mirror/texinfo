@@ -669,8 +669,10 @@ sub output_unit_texi($) {
   my $unit_command = $output_unit->{'unit_command'};
 
   if ($output_unit->{'unit_type'} eq 'external_node_unit') {
-    return "_EXT_NODE: ".Texinfo::Convert::Texinfo::convert_to_texinfo(
+    my $tree = Texinfo::Common::non_leading_trailing_tree(
       Texinfo::TreeElement::new({'contents' => $unit_command->{'contents'}}));
+    return "_EXT_NODE: "
+         . Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
   } elsif ($output_unit->{'unit_type'} eq 'special_unit') {
     return "_SPECIAL_UNIT: $output_unit->{'special_unit_variety'}";
   }

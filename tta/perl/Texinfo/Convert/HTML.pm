@@ -5947,11 +5947,9 @@ sub _convert_menu_entry_type($$$) {
   my $formatted_nodedescription_nr;
 
   # external node
-  my $external_node;
   if (exists($menu_entry_node->{'extra'})
       and exists($menu_entry_node->{'extra'}->{'manual_content'})) {
     $href = $self->command_href($menu_entry_node, undef, $element);
-    $external_node = 1;
   # may not exist in case of menu entry node consisting only of spaces
   } elsif (exists($menu_entry_node->{'extra'})
            and exists($menu_entry_node->{'extra'}->{'normalized'})) {
@@ -6034,16 +6032,16 @@ sub _convert_menu_entry_type($$$) {
     if (defined($name_entry)) {
       $result_name_node
         .= $self->convert_tree($name_entry,
-                               "menu_arg menu_entry_name preformatted");
+                               'menu_arg menu_entry_name preformatted');
       my $name_separator = shift @menu_entry_separators;
       $result_name_node
         .= $self->convert_tree($name_separator,
-                               "menu_arg name separator preformatted");
+                               'menu_arg name separator preformatted');
     }
 
     if (defined($menu_entry_node)) {
       my $name = $self->set_context_convert_tree($menu_entry_node,
-                  $CTXF_code, "menu_arg menu_entry_node preformatted");
+                  $CTXF_code, 'menu_arg menu_entry_node preformatted');
       if (defined($href) and !$in_string) {
         $result_name_node .= "<a href=\"$href\"$rel$accesskey>$name</a>";
       } else {
@@ -6054,7 +6052,7 @@ sub _convert_menu_entry_type($$$) {
       my $node_separator = shift @menu_entry_separators;
       $result_name_node
         .= $self->convert_tree($node_separator,
-                               "menu_arg node separator preformatted");
+                               'menu_arg node separator preformatted');
     }
 
     if (not $in_string) {
@@ -6115,8 +6113,7 @@ sub _convert_menu_entry_type($$$) {
       } elsif (exists($menu_entry_node->{'extra'})
                and exists($menu_entry_node->{'extra'}->{'node_content'})) {
         $name = $self->set_context_convert_tree(
-                 Texinfo::TreeElement::new({
-            'contents' => [$menu_entry_node->{'extra'}->{'node_content'}]}),
+                     $menu_entry_node->{'extra'}->{'node_content'},
                                $CTXF_code, 'menu_arg name');
       } else {
         $name = '';
@@ -7228,10 +7225,12 @@ sub _file_header_information($$;$) {
         and $command_string ne $title_string) {
       # TRANSLATORS: sectioning element title for the page header
       my $title_tree = $self->cdt('{element_text} ({title})',
-                                  {'title' => {'text' => $title_string,
-                                               'type' => '_converted'},
-                                   'element_text' => {'text' => $command_string,
-                                                       'type' => '_converted'}});
+                                  {'title' =>
+                      Texinfo::TreeElement::new({'text' => $title_string,
+                                                 'type' => '_converted'}),
+                                   'element_text' =>
+                      Texinfo::TreeElement::new({'text' => $command_string,
+                                                 'type' => '_converted'})});
 
       my $context_str = 'file_header_title-element-';
       if (exists($command->{'cmdname'})) {
@@ -8475,6 +8474,12 @@ sub convert_tree($$;$) {
   return _convert($self, $tree, $explanation);
 }
 
+my %spaces_protection = (
+                  "\n" => '\\n',
+                  "\t" => '\\t',
+                  "\f" => '\\f',
+);
+
 # implementation of convert_tree.
 
 # Convert tree element $ELEMENT, and return HTML text for the output files.
@@ -8513,7 +8518,7 @@ sub _convert($$;$) {
         print STDERR ' text(EMPTY)';
       } else {
         my $text = $element->{'text'};
-        $text =~ s/\n/\\n/;
+        $text =~ s/([\n\t\f])/$spaces_protection{$1}/ge;
         print STDERR " text: $text";
       }
     }

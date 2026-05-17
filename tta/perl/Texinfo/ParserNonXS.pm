@@ -1405,10 +1405,17 @@ sub _transfer_source_marks($$) {
   }
 }
 
+
+my %spaces_protection = (
+                  "\n" => '\\n',
+                  "\t" => '\\t',
+                  "\f" => '\\f',
+);
+
 sub _debug_protect_eol($) {
   my $line = shift;
 
-  $line =~ s/\n/\\n/g;
+  $line =~ s/([\n\t\f])/$spaces_protection{$1}/ge;
   return $line;
 }
 
