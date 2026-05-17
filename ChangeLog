@@ -1,5 +1,10 @@
 2026-05-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/convert_to_texinfo.c (root_heading_command_to_texinfo):
+	reorganize code, use xasprintf instead of TEXT, never return NULL.
+
+2026-05-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl: encode STDERR in UTF-8, to have the same
 	encoding as C direct output on stderr (for debugging output).
 

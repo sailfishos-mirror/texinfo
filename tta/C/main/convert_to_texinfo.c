@@ -324,8 +324,8 @@ check_node_same_texinfo_code (const ELEMENT *reference_node,
 char *
 root_heading_command_to_texinfo (const ELEMENT *element)
 {
-  const ELEMENT *tree = 0;
-  TEXT text;
+  char *tree_txi = 0;
+  char *result;
 
   enum command_id data_cmd = element_builtin_data_cmd (element);
 
@@ -339,21 +339,23 @@ root_heading_command_to_texinfo (const ELEMENT *element)
                                                              == ET_line_arg
           && element->e.c->contents.list[0]->e.c->contents.list[0]
                                               ->e.c->contents.number > 0)
-        tree = element->e.c->contents.list[0]->e.c->contents.list[0];
+        {
+          const ELEMENT *tree
+            = element->e.c->contents.list[0]->e.c->contents.list[0];
+          tree_txi = convert_contents_to_texinfo (tree);
+        }
     }
   else
     return strdup ("Not a command");
 
-  text_init (&text);
-  if (tree)
+  if (tree_txi)
     {
-      char *tree_txi = convert_contents_to_texinfo (tree);
-      text_printf (&text, "@%s %s", builtin_command_name (data_cmd),
+      xasprintf (&result, "@%s %s", builtin_command_name (data_cmd),
                                     tree_txi);
       free (tree_txi);
     }
   else
-   text_printf (&text, "@%s", builtin_command_name (data_cmd));
+   xasprintf (&result, "@%s", builtin_command_name (data_cmd));
 
-  return (text.text);
+  return (result);
 }
