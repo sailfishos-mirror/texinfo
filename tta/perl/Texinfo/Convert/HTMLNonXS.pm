@@ -4665,9 +4665,9 @@ sub _prepare_converted_output_info($$$$) {
                                   $output_units);
 
   if ($default_bcp47_locale ne $preamble_bcp47_locale) {
-    $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
-    $self->converter_set_documentscript($self->get_conf('documentscript'));
-    $self->converter_set_documentlanguagevariant([]);
+    $self->reset_lang_translation_from_customization(
+                           $self->get_conf('documentlanguage'),
+                           $self->get_conf('documentscript'));
     _translate_names($self);
   }
 
@@ -5148,6 +5148,7 @@ sub _setup_output($) {
   $self->set_converter_preamble_language_commands();
 
   my $preamble_bcp47_locale = $self->current_bcp47_locale();
+
   if ($preamble_bcp47_locale ne '') {
     $self->set_conf('BODY_ELEMENT_ATTRIBUTES', 'lang="'
                                        .$preamble_bcp47_locale.'"');
@@ -5160,9 +5161,9 @@ sub _setup_output($) {
   }
 
   if ($default_bcp47_locale ne $preamble_bcp47_locale) {
-    $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
-    $self->converter_set_documentscript($self->get_conf('documentscript'));
-    $self->converter_set_documentlanguagevariant([]);
+    $self->reset_lang_translation_from_customization(
+                           $self->get_conf('documentlanguage'),
+                           $self->get_conf('documentscript'));
   }
 
   _init_conversion_after_setup_handler($self);

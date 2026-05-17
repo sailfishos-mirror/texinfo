@@ -549,9 +549,9 @@ sub conversion_output_begin($;$$) {
   }
 
   if ($default_bcp47_locale ne $bcp47_locale) {
-    $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
-    $self->converter_set_documentscript($self->get_conf('documentscript'));
-    $self->converter_set_documentlanguagevariant([]);
+    $self->reset_lang_translation_from_customization(
+                           $self->get_conf('documentlanguage'),
+                           $self->get_conf('documentscript'));
   }
 
   my $document_info = '';

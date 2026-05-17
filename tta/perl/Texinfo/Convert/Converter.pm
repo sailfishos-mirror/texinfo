@@ -529,6 +529,31 @@ sub set_converter_preamble_language_commands($) {
   }
 }
 
+# Returns a lang_transtation set to the pre-conversion statues.
+# Typically used to reset current lang translation after
+#  having set to end of preamble with set_preamble_language_commands.
+#  SET_DOCUMENTLANGUAGE and SET_DOCUMENTSCRIPT are supposed to
+#  to be values set from the command-line or similar.
+sub reset_lang_translation_from_customization($$$) {
+  my ($self, $set_documentlanguage, $set_documentscript) = @_;
+
+  my $cur_lang_trans
+    = Texinfo::Translations::set_translations_documentlanguage(
+         $Texinfo::Translations::converters_translation_cache,
+         $set_documentlanguage, undef);
+
+  $cur_lang_trans
+    = Texinfo::Translations::set_translations_documentscript(
+         $Texinfo::Translations::converters_translation_cache,
+         $set_documentscript, $cur_lang_trans);
+
+  if (defined($cur_lang_trans)) {
+    $self->{'current_lang_translations'} = $cur_lang_trans;
+  } else {
+    delete $self->{'current_lang_translations'};
+  }
+}
+
 
 
 #####################################################################

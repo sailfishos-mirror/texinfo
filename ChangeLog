@@ -1,5 +1,20 @@
 2026-05-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/translations.c
+	(reset_lang_translation_from_customization): no need to call
+	set_translations_documentlanguagevariant, as a NULL lang_translations
+	is used to reset fully the cur_lang_trans.
+
+	* tta/perl/Texinfo/Convert/Converter.pm
+	(reset_lang_translation_from_customization): add.
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (conversion_output_begin),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm (_prepare_converted_output_info)
+	(_setup_output): call reset_lang_translation_from_customization to
+	properly reset the current lang_translations.
+
+2026-05-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/utils.c (add_include_directory),
 	tta/perl/Texinfo/ParserNonXS.pm (parser): canonicalize include
 	directories in parsers.
@@ -80,7 +95,7 @@
 	print debug message both with substitute substrings and without.
 
 	* tta/perl/Texinfo/Translations.pm (_replace_convert_substrings):
-	distinguish translated string and parsed strng with substitutions.
+	distinguish translated string and parsed string with substitutions.
 	Print different messages with substitute substrings and without.
 
 	* tta/perl/Texinfo/Convert/Texinfo.pm

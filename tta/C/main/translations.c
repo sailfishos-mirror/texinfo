@@ -847,8 +847,6 @@ set_preamble_language_commands (PREAMBLE_LANG_CMD_LIST *preamble_lang,
 
 static const STRING_LIST empty_string_list = {0, 0, 0};
 
-/* No equivalent in Perl, in Perl call to converter wrappers
-   are used inline instead */
 /* Returns a lang_transtation set to the pre-conversion statues.
    Typically used to reset current lang translation after
    having set to end of preamble with set_preamble_language_commands.
@@ -869,11 +867,6 @@ reset_lang_translation_from_customization (
 
   cur_lang_trans = set_translations_documentscript (lang_translations,
                                          set_documentscript,
-                                         cur_lang_trans, cache_size);
-
-  cur_lang_trans =
-        set_translations_documentlanguagevariant (lang_translations,
-                                         &empty_string_list,
                                          cur_lang_trans, cache_size);
 
   return cur_lang_trans;
