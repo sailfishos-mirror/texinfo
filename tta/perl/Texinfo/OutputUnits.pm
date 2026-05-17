@@ -380,17 +380,18 @@ sub units_directions($$$;$) {
           and $output_unit->{'tree_unit_directions'}->{'prev'}
                                                      ->{'unit_type'} eq 'unit');
     my $node;
-    if (exists($output_unit->{'unit_node'})
-        and exists($output_unit->{'unit_node'}->{'node_directions'})) {
+    if (exists($output_unit->{'unit_node'})) {
       my $node_relations = $output_unit->{'unit_node'};
       my $node = $node_relations->{'element'};
-      foreach my $direction(['NodeUp', 'up'], ['NodeNext', 'next'],
-                            ['NodePrev', 'prev']) {
-        if (exists($node_relations->{'node_directions'}->{$direction->[1]})) {
-          my $target_unit = _label_target_unit_element(
-               $node_relations->{'node_directions'}->{$direction->[1]});
-          if (defined($target_unit)) {
-            $directions->{$direction->[0]} = $target_unit;
+      if (exists($output_unit->{'unit_node'}->{'node_directions'})) {
+        foreach my $direction(['NodeUp', 'up'], ['NodeNext', 'next'],
+                              ['NodePrev', 'prev']) {
+          if (exists($node_relations->{'node_directions'}->{$direction->[1]})) {
+            my $target_unit = _label_target_unit_element(
+                 $node_relations->{'node_directions'}->{$direction->[1]});
+            if (defined($target_unit)) {
+              $directions->{$direction->[0]} = $target_unit;
+            }
           }
         }
       }

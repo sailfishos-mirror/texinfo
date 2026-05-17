@@ -633,7 +633,12 @@ sub parser(;$) {
     foreach my $key (keys(%$conf)) {
       if (exists($parser_document_parsing_options{$key})) {
         if (ref($conf->{$key}) ne '') {
-          $parser_conf->{$key} = dclone($conf->{$key});
+          if ($key eq 'INCLUDE_DIRECTORIES') {
+            $parser_conf->{$key}
+              = [map {File::Spec->canonpath($_)} @{$conf->{$key}}];
+          } else {
+            $parser_conf->{$key} = dclone($conf->{$key});
+          }
         } else {
           $parser_conf->{$key} = $conf->{$key};
         }

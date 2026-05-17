@@ -1354,24 +1354,24 @@ end_line_misc_line (ELEMENT *current)
           else if (current->e.c->cmd == CM_include)
             {
               int status;
-              char *fullpath, *file_path;
+              char *included_file_path, *file_path;
 
               file_path = parser_encode_file_name (text);
-              fullpath = parser_locate_include_file (file_path);
+              included_file_path = parser_locate_include_file (file_path);
               free (file_path);
 
-              if (!fullpath)
+              if (!included_file_path)
                 {
                   command_error (current,
                                  "@include: could not find %s", text);
                 }
               else
                 {
-                  status = input_push_file (fullpath);
+                  status = input_push_file (included_file_path);
                   if (status)
                     {
                       char *decoded_file_path
-                         = convert_to_utf8 (strdup (fullpath));
+                         = convert_to_utf8 (strdup (included_file_path));
                       command_error (current,
                                      "@include: could not open %s: %s",
                                      decoded_file_path,
@@ -1381,15 +1381,15 @@ end_line_misc_line (ELEMENT *current)
                   else
                     {
                       included_file = 1;
-                      debug ("C|Included %s", fullpath);
+                      debug ("C|Included %s", included_file_path);
 
                       include_source_mark = new_source_mark (SM_type_include);
                       include_source_mark->status = SM_status_start;
                       set_input_source_mark (include_source_mark);
-                      add_string (fullpath,
+                      add_string (included_file_path,
                                   &parsed_document->global_info.included_files);
                     }
-                  free (fullpath);
+                  free (included_file_path);
                 }
             }
           else if (current->e.c->cmd == CM_verbatiminclude)

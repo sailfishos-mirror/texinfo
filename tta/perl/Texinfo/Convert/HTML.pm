@@ -7633,7 +7633,7 @@ sub _default_format_special_body_about($$$) {
 
   if (!defined($buttons)) {
     $about .= $self->convert_tree(
-      $self->cdt('There are no buttons for this document.')). "\n";
+      $self->cdt('There are no buttons for this document.'), 'ABOUT'). "\n";
     $about .= "</p>\n";
     return $about;
   }

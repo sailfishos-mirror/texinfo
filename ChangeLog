@@ -1,5 +1,24 @@
 2026-05-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/utils.c (add_include_directory),
+	tta/perl/Texinfo/ParserNonXS.pm (parser): canonicalize include
+	directories in parsers.
+
+	* tta/perl/Texinfo/OutputUnits.pm (units_directions): setup
+	NodeForward and similar directions even if there are no node
+	directions (no next, prev up).
+
+	* tta/C/parsetexi/end_line.c (end_line_misc_line): rename fullpath as
+	included_file_path.
+
+	* tta/perl/Texinfo/Convert/HTML.pm
+	(_default_format_special_body_about): add explanation.
+
+	* tta/C/convert/convert_html.c (html_translate_names): handle NULL
+	OUTPUT_ENCODING_NAME in debug message.
+
+2026-05-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Common.pm (%spaces_protection)
 	(debug_print_element), tta/perl/Texinfo/Convert/HTML.pm
 	(%spaces_protection, _convert), tta/perl/Texinfo/ParserNonXS.pm

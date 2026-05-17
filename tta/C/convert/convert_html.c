@@ -639,10 +639,12 @@ html_translate_names (CONVERTER *self)
   if (self->conf->DEBUG.o.integer > 0)
     {
       const char *bcp47_locale = current_bcp47_locale (self);
+      const char *output_encoding_name
+        = self->conf->OUTPUT_ENCODING_NAME.o.string;
+      if (!output_encoding_name)
+        output_encoding_name = "UNDEF";
       fprintf (stderr, "\nC|TRANSLATE_NAMES encoding_name: %s"
-               " bcp47_locale: %s\n",
-               self->conf->OUTPUT_ENCODING_NAME.o.string,
-               bcp47_locale);
+               " bcp47_locale: %s\n", output_encoding_name, bcp47_locale);
     }
 
   /* reset strings such that they are translated when needed. */
