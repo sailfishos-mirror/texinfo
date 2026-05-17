@@ -590,13 +590,18 @@ sub _replace_convert_substrings($;$$) {
 
 
   my $tree;
+  # show debug messages if debug > 1 to avoid seeing spurious
+  # differences between C and Perl debugging output, as C and
+  # Perl do not share translation caches, therefore when translations happen
+  # both in C and in Perl there will be more translations than when
+  # translation happen only in C or only in Perl
   if (defined($texinfo_line)) {
-    if ($debug_level) {
+    if (defined($debug_level) and $debug_level > 1) {
       print STDERR "IN TR PARSER subst '$texinfo_line'\n";
     }
     $tree = $parser->parse_texi_line($texinfo_line, undef, 1);
   } else {
-    if ($debug_level) {
+    if (defined($debug_level) and $debug_level > 1) {
       print STDERR "IN TR PARSER '$translated_string'\n";
     }
     $tree = $parser->parse_texi_line($translated_string, undef, 1);

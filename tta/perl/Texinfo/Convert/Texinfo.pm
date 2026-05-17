@@ -183,14 +183,14 @@ sub root_heading_command_to_texinfo($) {
                                                            eq 'line_arg'
         and exists(
               $element->{'contents'}->[0]->{'contents'}->[0]->{'contents'})) {
-      $tree = $element->{'contents'}->[0]->{'contents'}->[0];
+      my $heading_content = $element->{'contents'}->[0]->{'contents'}->[0];
+      $tree = Texinfo::Common::non_leading_trailing_tree($heading_content);
     }
   } else {
     return "Not a command";
   }
   if (defined($tree)) {
-    return '@'.$element->{'cmdname'}.' '
-     . convert_to_texinfo(Texinfo::Common::non_leading_trailing_tree($tree));
+    return '@'.$element->{'cmdname'}.' '. convert_to_texinfo($tree);
   } else {
     return '@'.$element->{'cmdname'};
   }

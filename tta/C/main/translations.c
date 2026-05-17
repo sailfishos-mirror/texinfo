@@ -1113,11 +1113,6 @@ replace_convert_substrings (const char *translated_string,
         free (replaced_substrings->list[i].string);
     }
 
-  /*
-  fprintf (stderr, "INTERNAL V CMDS '%s' '%s'\n", translated_string,
-                                                 texinfo_line);
-   */
-
   /* set parser debug level to one less than debug_level */
   if (debug_level > 0)
     parser_debug_level = debug_level - 1;
@@ -1135,17 +1130,22 @@ replace_convert_substrings (const char *translated_string,
   parser_conf_set_NO_INDEX (1);
   parser_conf_set_NO_USER_COMMANDS (1);
 
+  /* show debug messages if debug > 1 to avoid seeing spurious
+     differences between C and Perl debugging output, as C and
+     Perl do not share translation caches, therefore when translations happen
+     both in C and in Perl there will be more translations than when
+     translation happen only in C or only in Perl */
   if (replaced_substrings)
     {
-      document = parse_string (texinfo_line, 1);
-      if (debug_level > 0)
+      if (debug_level > 1)
         fprintf (stderr, "C|IN TR PARSER subst '%s'\n", texinfo_line);
+      document = parse_string (texinfo_line, 1);
     }
   else
     {
-      document = parse_string (translated_string, 1);
-      if (debug_level > 0)
+      if (debug_level > 1)
         fprintf (stderr, "C|IN TR PARSER '%s'\n", translated_string);
+      document = parse_string (translated_string, 1);
     }
 
   if (document->parser_error_messages.number > 0)

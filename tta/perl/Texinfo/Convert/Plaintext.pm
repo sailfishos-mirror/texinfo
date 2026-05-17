@@ -946,7 +946,10 @@ sub new_formatter($$;$) {
   $container_conf->{'counter'}
     = $self->{'text_element_context'}->[-1]->{'counter'}
       if (defined($self->{'text_element_context'}->[-1]->{'counter'}));
-  $container_conf->{'DEBUG'} = 1 if ($self->{'debug'});
+  # only if debug > 1 as there is no corresponding debugging output
+  # in the C code.
+  $container_conf->{'DEBUG'} = 1 if (defined($self->{'debug'})
+                                     and $self->{'debug'} > 1);
 
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {

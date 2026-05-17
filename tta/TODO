@@ -1234,9 +1234,8 @@ missing symbols as seen in the valgrind documentation.
 To check debug output differences between Perl and C Parser
 rm -rf t/check_debug_differences/
 mkdir t/check_debug_differences/
-for file in t/*.t ; do bfile=`basename $file .t`; perl -w $file -d 1 2>t/check_debug_differences/XS_$bfile.err ; done
-export TEXINFO_XS_PARSER=0
-for file in t/*.t ; do bfile=`basename $file .t`; perl -w $file -d 1 2>t/check_debug_differences/PL_$bfile.err ; done
+unset TEXINFO_XS; for file in t/*.t ; do bfile=`basename $file .t`; perl -w $file -d 1 2>t/check_debug_differences/XS_$bfile.err ; done
+export TEXINFO_XS=omit; for file in t/*.t ; do bfile=`basename $file .t`; perl -w $file -d 1 2>t/check_debug_differences/PL_$bfile.err ; done
 for file in t/*.t ; do bfile=`basename $file .t`; sed 's/^C|//' t/check_debug_differences/XS_$bfile.err | diff -u t/check_debug_differences/PL_$bfile.err - > t/check_debug_differences/debug_$bfile.diff; done
 
 Full check, including XS conversion and memory leaks in debug:

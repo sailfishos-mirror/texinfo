@@ -2199,7 +2199,7 @@ sub debug_print_element($;$) {
     $parent_string = _parent_string($current);
     $parent_string = '' if (!defined($parent_string));
   }
-  return "$warning$cmd$type$text$args$contents$parent_string";
+  return "$warning$type$cmd$text$args$contents$parent_string";
 }
 
 # for debugging
