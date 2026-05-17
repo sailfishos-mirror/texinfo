@@ -650,6 +650,11 @@ as needed.
 remove links to refcard from website as we don't update it any more.
 delete this note when done.
 
+(next release only):
+remove texinfo/manual/texi2any_internals from webpages (link already
+removed from landing page).
+delete this note when done.
+
 #  ... set up dtd directory on web pages:
 cd CVS_WEB/dtd # or wherever webpages checkout is
 mkdir $ver && cvs add $ver
