@@ -128,13 +128,13 @@ print_element_debug_parser (const ELEMENT *e, int print_parent)
       if (print_parent && e->e.c->parent)
         {
           text_append (&text, " <- ");
-          if (e->e.c->parent->e.c->cmd)
-            text_printf (&text, "@%s",
-                         command_name (e->e.c->parent->e.c->cmd));
           if (e->e.c->parent->type
               && !(type_data[e->e.c->parent->type].flags & TF_c_only))
             text_printf (&text, "(%s)",
                          type_data[e->e.c->parent->type].name);
+          if (e->e.c->parent->e.c->cmd)
+            text_printf (&text, "@%s",
+                         command_name (e->e.c->parent->e.c->cmd));
         }
     }
   return text.text;

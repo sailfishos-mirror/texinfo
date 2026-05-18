@@ -1365,39 +1365,13 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
 
   if (self->conf->DEBUG.o.integer > 0)
     {
-      TEXT debug_str;
       char *contexts_str = debug_print_html_contexts (self);
+      char *element_str = print_element_debug (element, 0);;
       const char *explanation_str = explanation;
       if (!explanation)
         explanation_str = "NO EXPLANATION";
-      text_init (&debug_str);
-      text_printf (&debug_str, "C|ELEMENT(%s) %s, ->", explanation_str,
-                                                        contexts_str);
-      free (contexts_str);
-      /* TODO try to use generic element debugging code */
-      if (command_name)
-        text_printf (&debug_str, " cmd: %s,", command_name);
-      if (element->type && !(type_data[element->type].flags & TF_c_only))
-        text_printf (&debug_str, " type: %s",
-                     type_data[element->type].name);
-      if (type_data[element->type].flags & TF_text)
-        {
-          if (element->e.text->end > 0)
-            {
-              char *text = debug_protect_eol (element->e.text->text);
-              text_printf (&debug_str, " text: %s", text);
-              free (text);
-            }
-          else
-            text_append_n (&debug_str, " text(EMPTY)", 12);
-        }
-      text_append (&debug_str, "\n");
-       /*
-      text_printf (&debug_str, "DETAILS: %s",
-                               print_element_debug_details (element, 0));
-        */
-      fprintf (stderr, "%s", debug_str.text);
-      free (debug_str.text);
+      fprintf (stderr, "C|ELEMENT(%s) %s: %s\n", explanation_str,
+                                               contexts_str, element_str);
     }
 
   /* Process text */

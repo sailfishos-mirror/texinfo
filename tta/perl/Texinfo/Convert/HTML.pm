@@ -5180,6 +5180,7 @@ sub _convert_printindex_command($$$$) {
           and $letter_command->{'cmdname'} ne 'ss') {
         my $cmdname = $letter_command->{'cmdname'};
         if (exists($letter_no_arg_commands{$cmdname})
+            and $cmdname ne uc($cmdname)
             and exists($letter_no_arg_commands{uc($cmdname)})) {
           $letter_command
             = Texinfo::TreeElement::new({'cmdname' => uc($cmdname)});
@@ -8466,12 +8467,6 @@ sub convert_tree($$;$) {
   return _convert($self, $tree, $explanation);
 }
 
-my %spaces_protection = (
-                  "\n" => '\\n',
-                  "\t" => '\\t',
-                  "\f" => '\\f',
-);
-
 # implementation of convert_tree.
 
 # Convert tree element $ELEMENT, and return HTML text for the output files.
@@ -8494,27 +8489,15 @@ sub _convert($$;$) {
     $command_type .= $element->{'type'};
   }
 
-  $debug = $self->get_conf('DEBUG') if !defined($debug);
   # cache return value of get_conf for speed
+  $debug = $self->get_conf('DEBUG') if !defined($debug);
 
   if ($debug) {
     #cluck() if (!defined($explanation));
     $explanation = 'NO EXPLANATION' if (!defined($explanation));
     my $contexts_str = _debug_print_html_contexts($self);
-    print STDERR "ELEMENT($explanation) ".$contexts_str.", ->";
-    print STDERR " cmd: $element->{'cmdname'},"
-                               if (exists($element->{'cmdname'}));
-    print STDERR " type: $element->{'type'}" if (exists($element->{'type'}));
-    if (exists($element->{'text'})) {
-      if ($element->{'text'} eq '') {
-        print STDERR ' text(EMPTY)';
-      } else {
-        my $text = $element->{'text'};
-        $text =~ s/([\n\t\f])/$spaces_protection{$1}/ge;
-        print STDERR " text: $text";
-      }
-    }
-    print STDERR "\n";
+    print STDERR "ELEMENT($explanation) ".$contexts_str
+        . ": " . Texinfo::Common::debug_print_element($element) . "\n";
   }
 
   if (ref($element) ne 'HASH' and ref($element) ne 'Texinfo::TreeElement') {

@@ -2131,21 +2131,6 @@ sub converter_or_document_line_warn($$$$;$) {
 # functions used for debugging.  May be used in other modules.
 # Not documented.
 
-sub _parent_string($) {
-  my $current = shift;
-
-  my $parent_string;
-  if (exists($current->{'parent'})) {
-    my $parent = $current->{'parent'};
-    my $parent_cmd = '';
-    my $parent_type = '';
-    $parent_cmd = "\@$parent->{'cmdname'}" if (exists($parent->{'cmdname'}));
-    $parent_type = "($parent->{'type'})" if (exists($parent->{'type'}));
-    $parent_string = " <- $parent_cmd$parent_type";
-  }
-  return $parent_string
-}
-
 sub debug_command_name($) {
   my $cmdname = shift;
 
@@ -2171,41 +2156,37 @@ sub debug_print_element($;$) {
   if (!defined($current)) {
     return "debug_print_element: UNDEF";
   }
-  my $warning = '';
+  my $result = '';
   if (ref($current) ne 'Texinfo::TreeElement') {
     if (ref($current) eq 'HASH') {
-      $warning = '[ERROR:HASH]';
+      $result = '[ERROR:HASH]';
     } else {
       return "debug_print_element: $current not a tree element";
     }
   }
-  my $type = '';
-  my $cmd = '';
-  my $text = '';
-  my $args = '';
-  my $contents = '';
-  $type = "($current->{'type'})" if (exists($current->{'type'}));
+  $result .= "($current->{'type'})" if (exists($current->{'type'}));
   if (exists($current->{'text'})) {
     if ($current->{'text'} eq '') {
-      $text = "[T]";
+      $result .= "[T]";
     } else {
       my $text_str = $current->{'text'};
       $text_str =~ s/([\n\t\f])/$spaces_protection{$1}/ge;
-      $text = "[T: $text_str]";
+      $result .= "[T: $text_str]";
     }
   } else {
     if (exists($current->{'cmdname'})) {
-      $cmd = '@' . debug_command_name($current->{'cmdname'});
+      $result .= '@' . debug_command_name($current->{'cmdname'});
     }
-    $contents = "[C".scalar(@{$current->{'contents'}}).']'
-       if $current->{'contents'};
+    $result .= "[C".scalar(@{$current->{'contents'}}).']'
+       if (exists($current->{'contents'}));
   }
-  my $parent_string = '';
-  if ($print_parent) {
-    $parent_string = _parent_string($current);
-    $parent_string = '' if (!defined($parent_string));
+  if ($print_parent and exists($current->{'parent'})) {
+    my $parent = $current->{'parent'};
+    $result .= ' <- ';
+    $result .= "($parent->{'type'})" if (exists($parent->{'type'}));
+    $result .= "\@$parent->{'cmdname'}" if (exists($parent->{'cmdname'}));
   }
-  return "$warning$type$cmd$text$args$contents$parent_string";
+  return $result;
 }
 
 # for debugging
