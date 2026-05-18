@@ -1,4 +1,4 @@
-Association of default directions to associated information
+Default directions information -- converted to Perl and C code
 rel: used for the rel attribute
 accesskey: used for the accesskey attribute
 example: Section number corresponding to the example used in the About special

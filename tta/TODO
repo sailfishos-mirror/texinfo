@@ -10,26 +10,16 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-
 Bugs
 ====
-
-HTML API
-========
-
-Issues
-------
-
 
 Missing documentation
 =====================
 
-Document the "language" used for the tta/perl/t/*.t tests results for the tree,
-node and sectioning relations, output units, floats, indices and error
-messages?
+Tree documentation
+------------------
 
-Tree documentation in ParserNonXS.pm
-------------------------------------
+Document the tree in texi2any_api instead of ParserNonXS.pm.
 
 Document extra and info together as 'arguments' as in the SWIG interface
 instead of separately?
@@ -49,6 +39,10 @@ extra node_number, heading_number and section_number are not documented.
 
 Other
 -----
+
+Document the "language" used for the tta/perl/t/*.t tests results for the tree,
+node and sectioning relations, output units, floats, indices and error
+messages?
 
 Document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
 
@@ -90,51 +84,6 @@ texi2any.exe is installed (in addition to the directory where they are already
 copied by "make install".  That is, on Windows there will be two copies of each
 DLL installed, not one.
 https://lists.gnu.org/archive/html/bug-texinfo/2026-02/msg00090.html
-
-The Perl/C interface when no XS code is used for structuring works because
-all the C data is built as Perl structure at one point after which C code
-is not called anymore to modify the tree or other Document data.  At that
-point the F_DOCM_* flags should remain unset as there is no modification in
-C data needing to be built to Perl.  Therefore all the calls to XS interfaces
-afterwards, mainly on a Document, returns the Perl data.  This is not
-fundamentaly problematic, as it works.  However, the design of the Document XS
-interface was that the Perl structure could be built on demand, and in that
-case, it is not possible.
-
-When the structure code is done in C and conversion is done in Perl, there
-is no need to rebuild all the document data to Perl.  This is probably
-because there is no Perl code modifying the document data without also
-modifying the underlying C code, ie no case of missing XS interface in
-code run in tests at that point, before conversion.  But it is probably
-more by chance than by design, if code changing the structure of the tree
-that lack XS to change the C data was called at that point, the C and Perl
-data would diverge.
-
-There is disagreement on the strategy to use for libraries versioning.
-For Gavin, the code that can link against libraries should be the code
-with the exact same version than the libraries.
-For Patrice it is possible to explicitly say that mixing versions is
-not supported, but still follow the libtool versioning scheme such that
-if better and compatible libraries are installed they will be prefered
-to same version library.
-
-Gavin on using CSV files and a Perl script to generate code for Perl and C.
-For something like html_style_commands_element.csv, it could potentially
-make the code more impenetrable.  Suppose for example someone wants to
-find which part of the code handles the @sansserif command.  If they
-search HTML.pm for 'sansserif' that string isn't there.  As this file
-is shorter, there is less benefit to avoiding duplicating its contents.
-However, the purpose, structure and meaning of this file is quite clear.
-(Files such as HTML.pm are also not self-contained, accessing information
-in files such as Commands.pm, so having another file to access does not
-really change the situation.)
-
-For shorter files like default_special_unit_info.csv and
-default_direction_strings.csv it is less clear that it offers a net
-benefit.  To be honest, the function of these files is not particularly
-clear to me other than one of them is something to do with node direction
-pointers.  I don't someone looking at these files for the first time
-would have an easy time figuring out what they are for.
 
 
 hyphenation: should only appear in toplevel.
@@ -886,9 +835,54 @@ translate a perl tree in input, but access directly the C tree that was setup
 by the XS parser.  When using the TreeElements interface, being able to
 create a C element based on a Perl element is needed, though.
 
-There is no forward looking code anymore, so maybe a lex/yacc parser
-could be used for the main loop.  More simply, a binary tokenizer, at
-least, could make for a notable speedup.
+The Perl/C interface when no XS code is used for structuring works because
+all the C data is built as Perl structure at one point after which C code
+is not called anymore to modify the tree or other Document data.  At that
+point the F_DOCM_* flags should remain unset as there is no modification in
+C data needing to be built to Perl.  Therefore all the calls to XS interfaces
+afterwards, mainly on a Document, returns the Perl data.  This is not
+fundamentaly problematic, as it works.  However, the design of the Document XS
+interface was that the Perl structure could be built on demand, and in that
+case, it is not possible.
+
+When the structure code is done in C and conversion is done in Perl, there
+is no need to rebuild all the document data to Perl.  This is probably
+because there is no Perl code modifying the document data without also
+modifying the underlying C code, ie no case of missing XS interface in
+code run in tests at that point, before conversion.  But it is probably
+more by chance than by design, if code changing the structure of the tree
+that lack XS to change the C data was called at that point, the C and Perl
+data would diverge.
+
+There is disagreement on the strategy to use for libraries versioning.
+For Gavin, the code that can link against libraries should be the code
+with the exact same version than the libraries.
+For Patrice it is possible to explicitly say that mixing versions is
+not supported, but still follow the libtool versioning scheme such that
+if better and compatible libraries are installed they will be prefered
+to same version library.
+
+Gavin on using CSV files and a Perl script to generate code for Perl and C.
+For something like html_style_commands_element.csv, it could potentially
+make the code more impenetrable.  Suppose for example someone wants to
+find which part of the code handles the @sansserif command.  If they
+search HTML.pm for 'sansserif' that string isn't there.  As this file
+is shorter, there is less benefit to avoiding duplicating its contents.
+However, the purpose, structure and meaning of this file is quite clear.
+(Files such as HTML.pm are also not self-contained, accessing information
+in files such as Commands.pm, so having another file to access does not
+really change the situation.)
+
+For shorter files like default_special_unit_info.csv and
+default_direction_strings.csv it is less clear that it offers a net
+benefit.  To be honest, the function of these files is not particularly
+clear to me other than one of them is something to do with node direction
+pointers.  I don't think someone looking at these files for the first time
+would have an easy time figuring out what they are for.
+
+There is no forward looking code in the Parsers anymore, so maybe a
+lex/yacc parser could be used for the main loop.  More simply, a binary
+tokenizer, at least, could make for a notable speedup.
 
 From vincent Belaïche. About svg image files in HTML:
 

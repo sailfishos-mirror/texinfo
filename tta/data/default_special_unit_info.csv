@@ -1,4 +1,4 @@
-Special output unit associated information
+Special output units associated information -- converted to Perl and C code
 class: class name used in HTML attributes
 direction: global direction name linking to the special output unit
 order: index determining the sorting order of special output units
