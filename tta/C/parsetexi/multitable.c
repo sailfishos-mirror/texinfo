@@ -86,7 +86,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
   /* > 1 because first content is the arguments_line */
   for (position = contents_count; position > 1; position--)
     {
-      e = contents_child_by_index (current, position -1);
+      e = current->e.c->contents.list[position -1];
       /* e can be a text element with spaces, mainly empty_line */
       if (!(type_data[e->type].flags & TF_text)
           && (e->e.c->cmd == CM_item || e->e.c->cmd == CM_itemx))
@@ -105,7 +105,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
          following @item. */
       for (position = contents_count; position > begin_idx; position--)
         {
-          e = contents_child_by_index (current, position -1);
+          e = current->e.c->contents.list[position -1];
           if (e->type != ET_index_entry_command)
             {
               end_pos = position;
@@ -121,7 +121,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
   insert_slice_into_contents (table_after_terms, 0, current, begin_idx, end_pos);
   for (i = 0; i < table_after_terms->e.c->contents.number; i++)
     {
-      ELEMENT *content = contents_child_by_index (table_after_terms, i);
+      ELEMENT *content = table_after_terms->e.c->contents.list[i];
       /* there is no normal text, but text elements at least for empty lines */
       if (!(type_data[content->type].flags & TF_text))
         content->e.c->parent = table_after_terms;
@@ -149,7 +149,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
          end up in the table_term */
        for (position = begin_idx; position > 0; position--)
          {
-           e = contents_child_by_index (current, position -1);
+           e = current->e.c->contents.list[position -1];
            if (e->type == ET_before_item
                || e->type == ET_table_entry)
              {
@@ -169,7 +169,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
                                   term_begin_idx, begin_idx);
       for (i = 0; i < table_term->e.c->contents.number; i++)
         {
-          ELEMENT *content = contents_child_by_index (table_term, i);
+          ELEMENT *content = table_term->e.c->contents.list[i];
         /* there can only be @item and @itemx here, as everything
            else following was already gathered, and everything else before
            was also gathered in table_* containers by previous

@@ -46,7 +46,6 @@ ELEMENT *remove_from_contents (ELEMENT *parent, size_t where);
 void remove_slice_from_contents (ELEMENT *parent, size_t start, size_t end);
 ELEMENT *last_contents_child (const ELEMENT *current);
 ELEMENT *pop_element_from_contents (ELEMENT *parent);
-ELEMENT *contents_child_by_index (const ELEMENT *e, size_t index);
 void destroy_list (ELEMENT_LIST *list);
 void destroy_const_element_list (CONST_ELEMENT_LIST *list);
 void destroy_element (ELEMENT *e);

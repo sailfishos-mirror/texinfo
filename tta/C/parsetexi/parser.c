@@ -205,7 +205,6 @@ char *
 text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
 {
 #define ADD(x,n) text_append_n (&result, x, n)
-
   TEXT result;
   size_t i;
 
@@ -213,7 +212,7 @@ text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
   text_append (&result, "");
   for (i = 0; i < e->e.c->contents.number; i++)
     {
-      const ELEMENT *e1 = contents_child_by_index (e, i);
+      const ELEMENT *e1 = e->e.c->contents.list[i];
       if (type_data[e1->type].flags & TF_text)
         {
           if (e1->type == ET_spaces_before_argument
@@ -708,7 +707,7 @@ begin_paragraph (ELEMENT *current)
     {
       for (j = current->e.c->contents.number; j > 0; j--)
         {
-          ELEMENT *child = contents_child_by_index (current, j - 1);
+          ELEMENT *child = current->e.c->contents.list[j - 1];
           if (child->type == ET_empty_line
               || child->type == ET_paragraph)
             break;

@@ -730,7 +730,7 @@ expand_macro_body (const MACRO *macro_record, const ELEMENT *arguments,
               if (index < arguments->e.c->contents.number)
                 {
                   const ELEMENT *argument
-                    = contents_child_by_index (arguments, index);
+                    = arguments->e.c->contents.list[index];
                   int surplus_arg;
                   const TEXT *arg_text = simple_arg_text (argument,
                                                           &surplus_arg);

@@ -275,7 +275,7 @@ close_command_cleanup (ELEMENT *current)
               if (counter_index < 0)
                 fprintf (stderr, "BUG: could not remove row counter\n");
               /* Check if we need to open a new container. */
-              if (contents_child_by_index (row, 0)->e.c->cmd == CM_headitem)
+              if (row->e.c->contents.list[0]->e.c->cmd == CM_headitem)
                 {
                   if (in_head_or_rows <= 0)
                     {
@@ -284,7 +284,7 @@ close_command_cleanup (ELEMENT *current)
                       in_head_or_rows = 1;
                     }
                 }
-              else if (contents_child_by_index (row, 0)->e.c->cmd == CM_item)
+              else if (row->e.c->contents.list[0]->e.c->cmd == CM_item)
                 {
                   if (in_head_or_rows == 1 || in_head_or_rows == -1)
                     {

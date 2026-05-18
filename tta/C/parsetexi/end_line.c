@@ -895,7 +895,7 @@ end_line_starting_block (ELEMENT *current)
               for (i = arg_indices.start;
                    i < current->e.c->contents.number; i++)
                 {
-                  ELEMENT *e = contents_child_by_index (current, i);
+                  ELEMENT *e = current->e.c->contents.list[i];
 
                   if (e->type == ET_bracketed_arg)
                     {
@@ -951,7 +951,7 @@ end_line_starting_block (ELEMENT *current)
       if (arguments_line->e.c->contents.number >= 2)
         {
           ELEMENT *float_label_element
-            = contents_child_by_index (arguments_line, 1);
+            = arguments_line->e.c->contents.list[1];
           check_register_target_element_label (float_label_element, current);
         }
       float_type = parse_float_type (current,
@@ -1613,7 +1613,7 @@ end_line_misc_line (ELEMENT *current)
           const char *p;
           char *p1;
           char *texi_line
-            = convert_to_texinfo (contents_child_by_index (current, 0));
+            = convert_to_texinfo (current->e.c->contents.list[0]);
 
           p = texi_line;
 

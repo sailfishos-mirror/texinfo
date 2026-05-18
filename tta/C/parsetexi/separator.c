@@ -329,7 +329,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
             }
           else
             {
-              ELEMENT *arg_label = contents_child_by_index (ref, 0);
+              ELEMENT *arg_label = ref->e.c->contents.list[0];
               NODE_SPEC_EXTRA *ref_label_info = parse_node_manual (arg_label, 1);
 
               if (ref_label_info && (ref_label_info->manual_content

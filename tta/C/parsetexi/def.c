@@ -67,7 +67,7 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
      an ET_def_line */
   for (pos = contents_count; pos > 0; pos--)
     {
-      ELEMENT *last_child = contents_child_by_index (current, pos -1);
+      ELEMENT *last_child = current->e.c->contents.list[pos -1];
       if (last_child->flags & EF_def_line
           || last_child->type == ET_arguments_line)
         break;
@@ -96,7 +96,7 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
       insert_slice_into_contents (def_item, 0, current, pos, contents_count);
       for (j = contents_count; j > pos; j--)
         {
-          ELEMENT *e = contents_child_by_index (current, j-1);
+          ELEMENT *e = current->e.c->contents.list[j-1];
           /* no normal text element, but at least empty lines text elements */
           if (!(type_data[e->type].flags & TF_text))
             e->e.c->parent = def_item;
@@ -498,7 +498,7 @@ parse_def (enum command_id command, ELEMENT *current)
   for (i = contents_idx; i < current->e.c->contents.number; i++)
     {
       enum element_type def_arg_type = ET_def_arg;
-      e = contents_child_by_index (current, i);
+      e = current->e.c->contents.list[i];
       if (e->type == ET_spaces)
         {
           continue;

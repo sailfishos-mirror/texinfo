@@ -1808,7 +1808,6 @@ void
 add_include_directory (const char *input_filename,
                        STRING_LIST *include_dirs_list)
 {
-  int len;
   char *filename = file_separator_canonpath (input_filename);
   add_string (filename, include_dirs_list);
   free (filename);

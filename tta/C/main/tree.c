@@ -644,15 +644,6 @@ last_contents_child (const ELEMENT *current)
   return current->e.c->contents.list[current->e.c->contents.number - 1];
 }
 
-ELEMENT *
-contents_child_by_index (const ELEMENT *e, size_t index)
-{
-  if (index >= e->e.c->contents.number)
-    return 0;
-
-  return e->e.c->contents.list[index];
-}
-
 /* Remove or replace first REMOVED from LIST */
 const ELEMENT *
 replace_remove_list_element (ELEMENT_LIST *list, const ELEMENT *removed,

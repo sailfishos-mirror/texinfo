@@ -1,5 +1,11 @@
 2026-05-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/tree.c: inline and remove contents_child_by_index.  It
+	has been checked that bound checking in contents_child_by_index was
+	never useful.  Update callers.
+
+2026-05-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ManipulateTree.pm (copy_element_tree): inline
 	non_leading_trailing_tree and reorganize code to set type early, as in
 	C.
