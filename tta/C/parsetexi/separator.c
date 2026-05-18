@@ -141,7 +141,6 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
             = new_text_element (ET_spaces_before_argument);
 
           add_to_contents_as_array (current, space_e);
-          internal_space_holder = current->e.c->parent;
 
           n = strspn (line, whitespace_chars_except_newline);
           if (n > 0)

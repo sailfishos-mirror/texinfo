@@ -829,8 +829,9 @@ end_paragraph_preformatted (ELEMENT *current,
    when internal_space_holder is set the previous value is 0 and not
    the previous internal_space_holder, which is now irrelevant as
    its associated space has disappeared.
- */
+
 const ELEMENT *internal_space_holder;
+ */
 
 static void
 do_abort_empty_line (ELEMENT *current, ELEMENT *last_elt)

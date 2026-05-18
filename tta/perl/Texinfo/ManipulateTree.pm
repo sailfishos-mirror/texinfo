@@ -385,17 +385,21 @@ sub copy_element_tree($;$) {
 sub copy_contents($;$) {
   my ($element, $type) = @_;
 
-  my $copy;
-  my $tmp = Texinfo::Common::non_leading_trailing_tree($element);
-  if (defined($tmp)) {
-    $copy = copy_element_tree($tmp);
-  } else {
-    $copy = Texinfo::TreeElement::new({});
-  }
+  my $tmp = {};
   if (defined($type)) {
-    $copy->{'type'} = $type;
+    $tmp->{'type'} = $type;
   }
-  return $copy;
+  my $copied = Texinfo::TreeElement::new($tmp);
+
+  my ($start_idx, $end_idx)
+    = Texinfo::Common::non_leading_trailing_indices($element);
+  if (!defined($start_idx)) {
+    return $copied;
+  }
+
+  $copied->{'contents'} = [@{$element->{'contents'}}[$start_idx .. $end_idx]];
+
+  return copy_element_tree($copied);
 }
 
 

@@ -28,7 +28,9 @@
 #include "counter.h"
 
 
+/* Not set currently.
 extern const ELEMENT *internal_space_holder;
+ */
 
 /* In close.c */
 void remove_empty_content (ELEMENT *current);

@@ -171,6 +171,7 @@ my %parser_document_state_initialization = (
   #'current_section' => undef,     # last seen section relations.
   #'current_part'    => undef,     # last seen part relations.
   #'internal_space_holder' => undef, # probably not so relevant at the end.
+   # Not set currently.
    # the element associated with the last internal spaces element added.
    # We know that there can only be one at a time as a non space
    # character should always lead to abort_empty_line or another
@@ -185,7 +186,7 @@ my %parser_document_state_initialization = (
    # the previous internal_space_holder, which is now irrelevant as
    # its associated space has disappeared.  This would also help when
    # references are counted as the internal_space_holder holds a reference
-   # untill the next internal_space_holder or the end of document, which
+   # until the next internal_space_holder or the end of document, which
    # source may not be easy to determine.
 
   'sections_level_modifier' => 0, # modified by raise/lowersections
@@ -6706,12 +6707,10 @@ sub _handle_open_brace($$$$) {
       # It is important to have a leading_space_types text element
       # here, even if empty, such that a paragraph is started in
       # merge_text (in most cases this role is played by an empty_line).
-      my $spaces_e = Texinfo::TreeElement::new({});
+      my $spaces_e
+        = Texinfo::TreeElement::new({'type' => 'spaces_before_argument'});
       push @{$current->{'contents'}}, $spaces_e;
 
-      $spaces_e->{'type'} = 'spaces_before_argument';
-
-      $self->{'internal_space_holder'} = $current->{'parent'};
       # based on whitespace_chars_except_newline in XS parser
       $line =~ s/([ \t\cK\f]*)//;
       $spaces_e->{'text'} = $1;
@@ -8138,8 +8137,6 @@ sub _parse_texi($$) {
   }
  finished_totally:
 
-  delete $self->{'internal_space_holder'};
-
   while (@{$self->{'conditional_stack'}}) {
     my $cond_info = pop @{$self->{'conditional_stack'}};
     my ($cond_command, $cond_source_mark) = @$cond_info;
@@ -8199,7 +8196,6 @@ sub _parse_texi($$) {
     die;
   }
 
-  # TODO if the parser can be reused, could avoid doing that or transfer
   delete $self->{'current_node'};
   delete $self->{'current_section'};
   delete $self->{'current_part'};

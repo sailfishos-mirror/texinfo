@@ -1014,6 +1014,7 @@ sub simple_arg_text($) {
   return ('', 0);
 }
 
+# Equivalent code in C is inlined
 sub non_leading_trailing_tree($) {
   my $tree = shift;
 
@@ -1021,11 +1022,8 @@ sub non_leading_trailing_tree($) {
   if (!defined($start_idx)) {
     return undef;
   }
-  my $new = {};
-  # TODO In some places, in C the type is set.  Always do it here?
-  #$new->{'type'} = $tree->{'type'} if (exists($tree->{'type'}));
 
-  my $result = Texinfo::TreeElement::new($new);
+  my $result = Texinfo::TreeElement::new({});
 
   $result->{'contents'} = [@{$tree->{'contents'}}[$start_idx .. $end_idx]];
 
@@ -1914,9 +1912,10 @@ my $last_encoding;
 sub count_bytes($;$) {
   my ($string, $encoding) = @_;
 
-  # TODO encoding is unlikely to be ascii, as documentencoding ascii
-  # is mapped to output encoding name us-ascii, also it may have been
-  # better to call Texinfo::Common::processing_output_encoding, in
+  # TODO if/when code is used again.  Encoding is unlikely to be ascii, as
+  # documentencoding ascii is mapped to output encoding name us-ascii.
+  # Also it may have been better to call
+  # Texinfo::Common::processing_output_encoding, in
   # which case us-ascii would be mapped to iso-8859-1.
   if (defined($encoding) and $encoding ne 'ascii') {
     if (!defined($last_encoding) or $last_encoding ne $encoding) {
