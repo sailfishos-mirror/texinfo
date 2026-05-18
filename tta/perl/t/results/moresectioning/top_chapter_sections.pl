@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'top_chapter_sections'} = 'U0 unit{S:top}
+$result_tree_text{'top_chapter_sections'} = 'U0 unit{C2}{S:@top top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -22,7 +22,7 @@ FastForward: [U1]
     {top}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U1 unit{S:unnumbered}
+U1 unit{C1}{S:@unnumbered unnumbered}
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -42,7 +42,7 @@ Up: [U0]
     {unnumbered}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U2 unit{S:1 First chapter}
+U2 unit{C1}{S:@chapter 1 First chapter}
 unit_directions:D[next->[U3]|prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]
@@ -64,7 +64,7 @@ Up: [U0]
     {First chapter}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U3 unit{S:1.1 second}
+U3 unit{C1}{S:@section 1.1 second}
 unit_directions:D[next->[U4]|prev->[U2]]
 UNIT_DIRECTIONS
 This: [U3]
@@ -84,7 +84,7 @@ Up: [U2]
     {second}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U4 unit{S:2 Chapter}
+U4 unit{C1}{S:@chapter 2 Chapter}
 unit_directions:D[next->[U5]|prev->[U3]]
 UNIT_DIRECTIONS
 This: [U4]
@@ -106,7 +106,7 @@ Up: [U0]
     {Chapter}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U5 unit{S:2.1 Section of chapter}
+U5 unit{C1}{S:@section 2.1 Section of chapter}
 unit_directions:D[next->[U6]|prev->[U4]]
 UNIT_DIRECTIONS
 This: [U5]
@@ -126,7 +126,7 @@ Up: [U4]
     {Section of chapter}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U6 unit{S:2.1.1 subsection 1}
+U6 unit{C1}{S:@subsection 2.1.1 subsection 1}
 unit_directions:D[next->[U7]|prev->[U5]]
 UNIT_DIRECTIONS
 This: [U6]
@@ -147,7 +147,7 @@ Up: [U5]
     {subsection 1}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U7 unit{S:2.1.2 subsection 2}
+U7 unit{C1}{S:@subsection 2.1.2 subsection 2}
 unit_directions:D[next->[U8]|prev->[U6]]
 UNIT_DIRECTIONS
 This: [U7]
@@ -168,7 +168,7 @@ Up: [U5]
     {subsection 2}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U8 unit{S:3 Chapter 2}
+U8 unit{C1}{S:@chapter 3 Chapter 2}
 unit_directions:D[prev->[U7]]
 UNIT_DIRECTIONS
 This: [U8]

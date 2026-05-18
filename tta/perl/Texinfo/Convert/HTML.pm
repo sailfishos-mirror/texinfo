@@ -967,7 +967,7 @@ sub _html_get_tree_root_element($$;$) {
       }
     }
     if (exists($current->{'associated_unit'})) {
-      #print STDERR "ASSOCIATED_UNIT ".Texinfo::Common::debug_print_output_unit($current->{'associated_unit'})."\n" if ($debug);
+      #print STDERR "ASSOCIATED_UNIT ".Texinfo::OutputUnits::debug_print_output_unit($current->{'associated_unit'})."\n" if ($debug);
       return ($current->{'associated_unit'}, $root_command);
     } elsif (exists($current->{'parent'})) {
       #print STDERR "PARENT ".Texinfo::Common::debug_print_element($current->{'parent'})."\n" if ($debug);
@@ -1110,7 +1110,7 @@ sub from_element_direction($$$;$$$) {
     ######## debug
     if (!exists($target_unit->{'unit_type'})) {
       die "No unit type for element_target $direction $target_unit: "
-       . Texinfo::Common::debug_print_output_unit($target_unit)
+       . Texinfo::OutputUnits::debug_print_output_unit($target_unit)
        . "directions :"
            . Texinfo::OutputUnits::print_output_unit_directions($source_unit);
     }

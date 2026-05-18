@@ -2149,6 +2149,7 @@ my %spaces_protection = (
 );
 
 # informations on a tree element, short version
+# Texinfo::ManipulateTree::element_print_details can be used for details.
 sub debug_print_element($;$) {
   my ($current, $print_parent) = @_;
 
@@ -2189,6 +2190,9 @@ sub debug_print_element($;$) {
 }
 
 # for debugging
+# Shows Perl references; values are not always in a readable format.
+# Texinfo::ManipulateTree::element_print_details does not show the
+# references, but shows all the information in a readable format.
 sub debug_print_element_details($;$) {
   my ($current, $print_parent) = @_;
 
@@ -2209,54 +2213,6 @@ sub debug_print_element_details($;$) {
     }
   }
   return $string;
-}
-
-sub debug_print_output_unit($) {
-  my $current = shift;
-
-  if (!defined($current)) {
-    return "debug_print_output_unit: UNDEF\n";
-  }
-  if (ref($current) ne 'HASH') {
-    return "debug_print_output_unit: $current not a hash\n";
-  }
-  my $type = $current->{'unit_type'};
-  # Should never happen
-  $type = 'UNDEF' if (!defined($type));
-  my $node_unit_cmd = '';
-  if (exists($current->{'unit_node'})) {
-    my $node_element = $current->{'unit_node'}->{'element'};
-    $node_unit_cmd = '{N';
-    if ($node_element eq $current->{'unit_command'}) {
-      $node_unit_cmd .= '*';
-    }
-    $node_unit_cmd .= ':' . debug_print_element($node_element, 0)
-    .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo(
-                                                $node_element).'}';
-  }
-  my $section_unit_cmd = '';
-  if (exists($current->{'unit_section'})) {
-    my $section_element = $current->{'unit_section'}->{'element'};
-    $section_unit_cmd = '{S';
-    if ($section_element eq $current->{'unit_command'}) {
-      $section_unit_cmd .= '*';
-    }
-    $section_unit_cmd .= ':'.debug_print_element($section_element, 0)
-      .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo(
-                                               $section_element).'}';
-  }
-  my $fname = '';
-  if (exists($current->{'unit_filename'})) {
-    $fname = "{F:$current->{'unit_filename'}}";
-  }
-  my $variety = '';
-  if (exists($current->{'special_unit_variety'})) {
-    $variety = "{V:$current->{'special_unit_variety'}}";
-  }
-  my $contents = '';
-  $contents = "{C".scalar(@{$current->{'unit_contents'}}).'}'
-    if (exists($current->{'unit_contents'}));
-  return "{$type}$fname$variety$contents$node_unit_cmd$section_unit_cmd";
 }
 
 # format list for debugging messages

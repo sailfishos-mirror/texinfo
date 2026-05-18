@@ -44,6 +44,7 @@ void do_units_directions_pages (DOCUMENT *document,
                            enum units_split_type units_split,
                            const char *split_pages_string, int debug);
 
+char *print_output_unit (const OUTPUT_UNIT *output_unit, int use_filename);
 char *print_output_units_tree_details (OUTPUT_UNIT_LIST *output_units,
                                  ELEMENT *tree,
                                  const char *fname_encoding, int use_filename);

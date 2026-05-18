@@ -664,7 +664,7 @@ sub output_unit_texi($) {
     # an element was passed in argument instead of an output unit
     return "unit $output_unit without type: ".
        Texinfo::Common::debug_print_element_details($output_unit, 1)
-      .' '.Texinfo::Common::debug_print_output_unit($output_unit);
+      .' '.debug_print_output_unit($output_unit);
   }
 
   my $unit_command = $output_unit->{'unit_command'};
@@ -711,6 +711,84 @@ my @all_directions_order
     = (@relative_directions_order, @file_directions_order,
        map {'FirstInFile'.$_} @relative_directions_order);
 
+sub print_output_unit($;$) {
+  my ($output_unit, $use_filename) = @_;
+
+  my $result = "$output_unit->{'unit_type'}";
+  if (exists($output_unit->{'special_unit_variety'})) {
+    $result .= "-$output_unit->{'special_unit_variety'}";
+  }
+  if (exists($output_unit->{'unit_contents'})) {
+    $result .= '{C'.scalar(@{$output_unit->{'unit_contents'}}).'}';
+  }
+
+  if ($output_unit->{'unit_type'} ne 'special_unit'
+      and exists($output_unit->{'unit_command'})) {
+
+    my $additional_info = '';
+
+    my $node_or_section_indicator = '?';
+
+    my $root_command_texi
+      = Texinfo::ManipulateTree::root_command_element_string(
+                                  $output_unit->{'unit_command'});
+    $root_command_texi = '' if (!defined($root_command_texi));
+
+    # determine the kind of command by comparing with
+    # unit node or unit section.  Also show the texinfo code
+    # of the node or section not associated to unit_command.
+    if (exists($output_unit->{'unit_node'})) {
+      if ($output_unit->{'unit_node'}->{'element'}
+                   eq $output_unit->{'unit_command'}) {
+        $node_or_section_indicator = 'N:';
+      } else {
+        my $node_texi
+          = Texinfo::ManipulateTree::root_command_element_string(
+                                $output_unit->{'unit_node'}->{'element'});
+        $node_texi = '' if (!defined($node_texi));
+        $additional_info .= "{n:$node_texi}";
+      }
+    }
+    if (exists($output_unit->{'unit_section'})) {
+      my $section_element = $output_unit->{'unit_section'}->{'element'};
+      my $cmdname = '@'.$section_element->{'cmdname'};
+      if ($section_element eq $output_unit->{'unit_command'}) {
+        $node_or_section_indicator = 'S:'.$cmdname;
+        if ($root_command_texi ne '') {
+          $node_or_section_indicator .= ' ';
+        }
+      } else {
+        my $section_texi
+          = Texinfo::ManipulateTree::root_command_element_string(
+                                                          $section_element);
+        if (!defined($section_texi)) {
+          $section_texi = '';
+        } else {
+          $section_texi = $cmdname.' '.$section_texi;
+        }
+        $additional_info
+           .= "{s:$section_texi}";
+      }
+    }
+    $result .= "{${node_or_section_indicator}$root_command_texi}";
+    $result .= $additional_info;
+  }
+
+  if (exists($output_unit->{'unit_filename'})) {
+    my $file_name = $output_unit->{'unit_filename'};
+    if ($use_filename) {
+      my ($directories, $suffix);
+       ($file_name, $directories, $suffix) = fileparse($file_name);
+    }
+    $result .= " $file_name";
+  }
+
+  $result .= "\n";
+
+  return $result;
+}
+
+
 sub print_output_units_details($$;$$) {
   my ($output_units, $current_nr, $fname_encoding, $use_filename) = @_;
 
@@ -722,64 +800,8 @@ sub print_output_units_details($$;$$) {
   }
 
   foreach my $output_unit (@$output_units) {
-    $result .= "U$output_unit->{'_index'} $output_unit->{'unit_type'}";
-    if (exists($output_unit->{'special_unit_variety'})) {
-      $result .= "-$output_unit->{'special_unit_variety'}";
-    }
-
-    if ($output_unit->{'unit_type'} ne 'special_unit'
-        and exists($output_unit->{'unit_command'})) {
-
-      my $additional_info = '';
-
-      my $node_or_section_indicator = '?';
-
-      my $root_command_texi
-        = Texinfo::ManipulateTree::root_command_element_string(
-                                    $output_unit->{'unit_command'});
-      $root_command_texi = '' if (!defined($root_command_texi));
-
-      # determine the kind of command by comparing with
-      # unit node or unit section.  Also show the texinfo code
-      # of the node or section not associated to unit_command.
-      if (exists($output_unit->{'unit_node'})) {
-        if ($output_unit->{'unit_node'}->{'element'}
-                     eq $output_unit->{'unit_command'}) {
-          $node_or_section_indicator = 'N';
-        } else {
-          my $node_texi
-            = Texinfo::ManipulateTree::root_command_element_string(
-                                  $output_unit->{'unit_node'}->{'element'});
-          $node_texi = '' if (!defined($node_texi));
-          $additional_info .= "{n:$node_texi}";
-        }
-      }
-      if (exists($output_unit->{'unit_section'})) {
-        if ($output_unit->{'unit_section'}->{'element'}
-                     eq $output_unit->{'unit_command'}) {
-          $node_or_section_indicator = 'S';
-        } else {
-          my $section_texi
-            = Texinfo::ManipulateTree::root_command_element_string(
-                               $output_unit->{'unit_section'}->{'element'});
-          $section_texi = '' if (!defined($section_texi));
-          $additional_info .= "{s:$section_texi}";
-        }
-      }
-      $result .= "{$node_or_section_indicator:$root_command_texi}";
-      $result .= $additional_info;
-    }
-
-    if (exists($output_unit->{'unit_filename'})) {
-      my $file_name = $output_unit->{'unit_filename'};
-      if ($use_filename) {
-        my ($directories, $suffix);
-         ($file_name, $directories, $suffix) = fileparse($file_name);
-      }
-      $result .= " $file_name";
-    }
-
-    $result .= "\n";
+    $result .= "U$output_unit->{'_index'} ";
+    $result .= print_output_unit($output_unit, $use_filename);
 
     my @ou_directions_text;
     if (exists($output_unit->{'tree_unit_directions'})) {
@@ -836,6 +858,19 @@ sub print_output_units_details($$;$$) {
   }
 
   return ($current_nr, $result);
+}
+
+sub debug_print_output_unit($) {
+  my $current = shift;
+
+  if (!defined($current)) {
+    return "debug_print_output_unit: UNDEF\n";
+  }
+  if (ref($current) ne 'HASH') {
+    return "debug_print_output_unit: $current not a hash\n";
+  }
+
+  return print_output_unit($current);
 }
 
 # Used for debugging and in test suite, but not generally useful. Not

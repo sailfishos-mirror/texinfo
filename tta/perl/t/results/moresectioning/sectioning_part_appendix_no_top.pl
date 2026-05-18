@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'sectioning_part_appendix_no_top'} = 'U0 unit{S:1 chapter}
+$result_tree_text{'sectioning_part_appendix_no_top'} = 'U0 unit{C2}{S:@chapter 1 chapter}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -23,7 +23,7 @@ FastForward: [U4]
     {chapter}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U1 unit{S:1.1 section}
+U1 unit{C1}{S:@section 1.1 section}
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -43,7 +43,7 @@ Up: [U0]
     {section}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U2 unit{S:1.1.1 subsection}
+U2 unit{C1}{S:@subsection 1.1.1 subsection}
 unit_directions:D[next->[U3]|prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]
@@ -63,7 +63,7 @@ Up: [U1]
     {subsection}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U3 unit{S:1.1.1.1 subsubsection}
+U3 unit{C1}{S:@subsubsection 1.1.1.1 subsubsection}
 unit_directions:D[next->[U4]|prev->[U2]]
 UNIT_DIRECTIONS
 This: [U3]
@@ -83,7 +83,7 @@ Up: [U2]
     {subsubsection}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U4 unit{S:2 chapter in part}
+U4 unit{C2}{S:@chapter 2 chapter in part}
 unit_directions:D[next->[U5]|prev->[U3]]
 UNIT_DIRECTIONS
 This: [U4]
@@ -114,7 +114,7 @@ Next: [U5]
     {chapter in part}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U5 unit{S:3 second chapter in part}
+U5 unit{C1}{S:@chapter 3 second chapter in part}
 unit_directions:D[next->[U6]|prev->[U4]]
 UNIT_DIRECTIONS
 This: [U5]
@@ -136,7 +136,7 @@ Up: [U4]
     {second chapter in part}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U6 unit{S:unnumbered}
+U6 unit{C1}{S:@unnumbered unnumbered}
 unit_directions:D[next->[U7]|prev->[U5]]
 UNIT_DIRECTIONS
 This: [U6]
@@ -156,7 +156,7 @@ Up: [U4]
     {unnumbered}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U7 unit{S:A appendix}
+U7 unit{C1}{S:@appendix A appendix}
 unit_directions:D[next->[U8]|prev->[U6]]
 UNIT_DIRECTIONS
 This: [U7]
@@ -175,7 +175,7 @@ Prev: [U4]
     {appendix}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U8 unit{S:A.1 appendixsec}
+U8 unit{C1}{S:@appendixsec A.1 appendixsec}
 unit_directions:D[prev->[U7]]
 UNIT_DIRECTIONS
 This: [U8]

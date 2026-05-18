@@ -1,5 +1,22 @@
 2026-05-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/debug.c: remove print_associate_info_debug and
+	print_element_debug_details.  Detailed tree element information in
+	a compact format is available from manipulate_tree.c functions also
+	used for tests.
+
+	* tta/C/main/output_unit.c (print_output_unit)
+	(print_output_units_details), tta/perl/Texinfo/OutputUnits.pm
+	(print_output_unit, print_output_units_details): add print_output_unit
+	based on print_output_units_details.  Add more information to
+	print_output_unit, the number of contents and the sectioning commands.
+
+	* tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/OutputUnits.pm
+	(debug_print_output_unit): move debug_print_output_unit to
+	OutputUnits.pm and use print_output_unit to display the output unit.
+
+2026-05-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/tree.c: inline and remove contents_child_by_index.  It
 	has been checked that bound checking in contents_child_by_index was
 	never useful.  Update callers.

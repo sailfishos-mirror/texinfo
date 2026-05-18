@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'redirection_same_labels'} = 'U0 unit{S:the top}{n:Top}
+$result_tree_text{'redirection_same_labels'} = 'U0 unit{C3}{S:@top the top}{n:Top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -86,7 +86,7 @@ NodeForward: [U1]
      {menu}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
-U1 unit{S:1 umlaut}{n:umlaut}
+U1 unit{C4}{S:@chapter 1 umlaut}{n:umlaut}
 unit_directions:D[next->[U2]|prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
@@ -190,7 +190,7 @@ NodeBack: [U0]
         {i}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-U2 unit{S:2 circumflex}{n:circumflex}
+U2 unit{C3}{S:@chapter 2 circumflex}{n:circumflex}
 unit_directions:D[prev->[U1]]
 UNIT_DIRECTIONS
 This: [U2]

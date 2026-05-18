@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'unnumbered_before_node_top_top'} = 'U0 unit{S:before nodes}
+$result_tree_text{'unnumbered_before_node_top_top'} = 'U0 unit{C2}{S:@unnumbered before nodes}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -26,7 +26,7 @@ Next: [U1]
   *paragraph C1
    {in unnumbered\\n}
   {empty_line:\\n}
-U1 unit{S:top section}{n:Top}
+U1 unit{C2}{S:@top top section}{n:Top}
 unit_directions:D[prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]

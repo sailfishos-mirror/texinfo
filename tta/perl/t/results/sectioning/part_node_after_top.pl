@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'part_node_after_top'} = 'U0 unit{S:top}{n:Top}
+$result_tree_text{'part_node_after_top'} = 'U0 unit{C4}{S:@top top}{n:Top}
 unit_directions:D[next->[U1]]
 UNIT_DIRECTIONS
 This: [U0]
@@ -69,7 +69,7 @@ NodeBack: [U0]
     {spaces_before_argument: }
     {chap part node after top}
     {spaces_after_argument:\\n}
-U1 unit{S:part}
+U1 unit{C1}{S:@part part}
 unit_directions:D[prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]

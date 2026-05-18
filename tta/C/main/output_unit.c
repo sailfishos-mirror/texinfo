@@ -1079,6 +1079,115 @@ add_ou_direction (STRING_LIST *ou_directions,
     }
 }
 
+/* can be called for debugging */
+char *
+print_output_unit (const OUTPUT_UNIT *output_unit, int use_filename)
+{
+  TEXT result;
+
+  text_init (&result);
+
+  text_append (&result, output_unit_type_names[output_unit->unit_type]);
+  if (output_unit->special_unit_variety)
+    text_printf (&result, "-%s", output_unit->special_unit_variety);
+
+  if (output_unit->unit_contents.number > 0)
+    text_printf (&result, "{C%zu}", output_unit->unit_contents.number);
+
+  if (output_unit->unit_type != OU_special_unit
+      && output_unit->uc.unit_command)
+    {
+      char *additional_info = 0;
+      char *root_command_texi
+        = root_command_element_string (output_unit->uc.unit_command);
+
+      /* determine the kind of command by comparing with
+         unit node or unit section.  Also show the texinfo code
+         of the node or section relations not associated to unit_command.
+       */
+      if (output_unit->unit_node)
+        {
+          if (output_unit->unit_node->element
+                 == output_unit->uc.unit_command)
+            {
+              text_append_n (&result, "{N:", 3);
+              if (root_command_texi)
+                text_append (&result, root_command_texi);
+            }
+          else
+            {
+              char *node_texi
+                = root_command_element_string (
+                                output_unit->unit_node->element);
+              if (node_texi)
+                {
+                  xasprintf (&additional_info, "{n:%s}", node_texi);
+                  free (node_texi);
+                }
+              else
+                xasprintf (&additional_info, "{n:}");
+            }
+        }
+
+      if (output_unit->unit_section)
+        {
+          const ELEMENT *section_element = output_unit->unit_section->element;
+          if (section_element == output_unit->uc.unit_command)
+            {
+              text_append_n (&result, "{S:@", 4);
+              text_append (&result, element_command_name (section_element));
+              if (root_command_texi)
+                {
+                  text_append_n (&result, " ", 1);
+                  text_append (&result, root_command_texi);
+                }
+            }
+          else
+            {
+              char *section_texi
+                = root_command_element_string (section_element);
+              if (section_texi)
+                {
+                  xasprintf (&additional_info, "{s:@%s %s}",
+                             element_command_name (section_element),
+                             section_texi);
+                  free (section_texi);
+                }
+              else
+                xasprintf (&additional_info, "{s:}");
+            }
+        }
+      text_append_n (&result, "}", 1);
+      if (additional_info)
+        {
+          text_append (&result, additional_info);
+          free (additional_info);
+        }
+      free (root_command_texi);
+    }
+
+  if (output_unit->unit_filename)
+    {
+      text_append_n (&result, " ", 1);
+      if (use_filename)
+        {
+          char *file_name_and_directory[2];
+          parse_file_path (output_unit->unit_filename,
+                           file_name_and_directory);
+
+          text_append (&result, file_name_and_directory[0]);
+
+          free (file_name_and_directory[0]);
+          free (file_name_and_directory[1]);
+        }
+      else
+        text_append (&result, output_unit->unit_filename);
+    }
+  text_append_n (&result, "\n", 1);
+
+  return result.text;
+}
+
 /* If numbering elements is needed, the caller should have prepared the
    Texinfo tree elements for detailed printing by calling functions
    to number elements.  The argument CURRENT_NR should be the numbering
@@ -1102,97 +1211,10 @@ print_output_units_details (OUTPUT_UNIT_LIST *output_units,
     {
       size_t j;
       OUTPUT_UNIT *output_unit = output_units->list[i];
+      char *output_unit_str = print_output_unit (output_unit, use_filename);
 
-      text_printf (result, "U%zu %s", output_unit->index,
-                   output_unit_type_names[output_unit->unit_type]);
-      if (output_unit->special_unit_variety)
-        text_printf (result, "-%s", output_unit->special_unit_variety);
-
-      if (output_unit->unit_type != OU_special_unit
-          && output_unit->uc.unit_command)
-        {
-          char *additional_info = 0;
-          char *root_command_texi
-            = root_command_element_string (output_unit->uc.unit_command);
-
-          /* determine the kind of command by comparing with
-             unit node or unit section.  Also show the texinfo code
-             of the node or section relations not associated to unit_command.
-           */
-          if (output_unit->unit_node)
-            {
-              if (output_unit->unit_node->element
-                     == output_unit->uc.unit_command)
-                {
-                  text_append_n (result, "{N:", 3);
-                  if (root_command_texi)
-                    text_append (result, root_command_texi);
-                }
-              else
-                {
-                  char *node_texi
-                    = root_command_element_string (
-                                    output_unit->unit_node->element);
-                  if (node_texi)
-                    {
-                      xasprintf (&additional_info, "{n:%s}", node_texi);
-                      free (node_texi);
-                    }
-                  else
-                    xasprintf (&additional_info, "{n:}");
-                }
-            }
-
-          if (output_unit->unit_section)
-            {
-              if (output_unit->unit_section->element
-                     == output_unit->uc.unit_command)
-                {
-                  text_append_n (result, "{S:", 3);
-                  if (root_command_texi)
-                    text_append (result, root_command_texi);
-                }
-              else
-                {
-                  char *section_texi
-                    = root_command_element_string (
-                                  output_unit->unit_section->element);
-                  if (section_texi)
-                    {
-                      xasprintf (&additional_info, "{s:%s}", section_texi);
-                      free (section_texi);
-                    }
-                  else
-                    xasprintf (&additional_info, "{s:}");
-                }
-            }
-          text_append_n (result, "}", 1);
-          if (additional_info)
-            {
-              text_append (result, additional_info);
-              free (additional_info);
-            }
-          free (root_command_texi);
-        }
-
-      if (output_unit->unit_filename)
-        {
-          text_append_n (result, " ", 1);
-          if (use_filename)
-            {
-              char *file_name_and_directory[2];
-              parse_file_path (output_unit->unit_filename,
-                               file_name_and_directory);
-
-              text_append (result, file_name_and_directory[0]);
-
-              free (file_name_and_directory[0]);
-              free (file_name_and_directory[1]);
-            }
-          else
-            text_append (result, output_unit->unit_filename);
-        }
-      text_append_n (result, "\n", 1);
+      text_printf (result, "U%zu %s", output_unit->index, output_unit_str);
+      free (output_unit_str);
 
       if (output_unit->tree_unit_directions[D_prev]
           || output_unit->tree_unit_directions[D_next])
