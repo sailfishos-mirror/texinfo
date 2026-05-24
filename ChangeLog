@@ -1,3 +1,8 @@
+2026-05-24  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* configure.ac (AM_INIT_AUTOMAKE):
+	Remove dist-xz from options for speed when testing.
+
 2026-05-18 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/debug.c: remove print_associate_info_debug and
