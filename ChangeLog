@@ -1,5 +1,27 @@
 2026-05-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Integrate native Unicode collation code
+
+	* tta/C/main/unicode-collation/collation-table.c,
+	tta/C/main/unicode-collation/collation_data_loader.c,
+	tta/C/main/unicode-collation/collation_data_loader.h,
+	tta/C/main/unicode-collation/collation_key.c,
+	tta/C/main/unicode-collation/collation_key.h:
+	Copy files from 'experimental/unicode-collation' branch.
+
+	* tta/C/main/unicode-collation/REAMDE: New file, explaining
+	origin of the files under this subdirectory.
+
+	* tta/C/main/manipulate_indices.c (get_sort_key) <ctn_unicode>:
+	Add code to call 'u8_make_collation_key' in new code, rather than
+	calling call_collator_getSortKey in order to call Perl subroutines.
+	
+	* tta/C/Makefile.am (libtexinfo_la_SOURCES): Add new files.
+	(libtexinfo_la_LDFLAGS): Add flags that may be needed by the
+	gnulib dependencies of the collation code.
+
+2026-05-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* configure.ac (AM_INIT_AUTOMAKE):
 	Remove dist-xz from options for speed when testing.
 

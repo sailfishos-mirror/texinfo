@@ -385,6 +385,7 @@ tta/C/config.h
 tta/C/stamp-h1
 tta/C/main/.libs
 tta/C/main/*.lo
+tta/C/main/unicode-collation/*.lo
 tta/C/structuring_transfo/.libs
 tta/C/structuring_transfo/*.lo
 tta/C/parsetexi/.libs

@@ -168,6 +168,10 @@ C_libtexinfo_sources = \
 		      main/txi_documentlanguage_regions.c \
 		      main/txi_documentlanguage_scripts.c \
 		      main/txi_documentlanguage_variants.c \
+		      main/unicode-collation/collation_data_loader.c \
+		      main/unicode-collation/collation_data_loader.h \
+		      main/unicode-collation/collation_key.c \
+		      main/unicode-collation/collation_key.h \
 		      parsetexi/api.c \
 		      parsetexi/api.h \
 		      parsetexi/parser.c \
@@ -214,6 +218,9 @@ EXTRA_DIST += main/cmd_unicode.c
 EXTRA_DIST += main/cmd_text.c
 EXTRA_DIST += main/global_multi_commands_case.c
 EXTRA_DIST += main/global_unique_commands_case.c
+EXTRA_DIST += main/unicode-collation/collation-table.c
+
+EXTRA_DIST += main/unicode-collation/README
 
 libtexinfo_la_SOURCES = \
    $(C_libtexinfo_sources)
@@ -251,6 +258,14 @@ libcallperl_libtexinfo_la_LDFLAGS = $(perl_conf_LIB_LDFLAGS)
 libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libtexinfo_la_LIBADD = libcallperl_libtexinfo.la $(platform_PERL_LIBADD)
 libtexinfo_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+
+# flags possibly used by gnulib dependencies of Unicode collation code
+libtexinfo_la_LDFLAGS += \
+  $(HARD_LOCALE_LIB) $(LIBPTHREAD) $(LIBTHREAD) \
+  $(LIBC32CONV) $(LIBICONV) $(LIBUNISTRING) $(MBRTOWC_LIB) \
+  $(PTHREAD_ONCE_LIB) $(SETLOCALE_NULL_LIB)
+
+
 #libtexinfo_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(perl_conf_LIBS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \

@@ -1,0 +1,7 @@
+This directory contains an implementation of the Unicode Collation
+Algorithm.  Files are copied from the "experimental/unicode-collation"
+branch of the git repository for Texinfo.
+
+Texinfo project page at Savannah:
+
+https://savannah.gnu.org/projects/texinfo

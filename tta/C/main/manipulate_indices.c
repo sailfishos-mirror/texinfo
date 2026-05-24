@@ -47,6 +47,12 @@
 #include "api_to_perl.h"
 #include "manipulate_indices.h"
 
+#define NATIVE_UTS10_COLLATION
+
+#ifdef NATIVE_UTS10_COLLATION
+#include "unicode-collation/collation_key.h"
+#endif
+
 /* corresponding perl code in Texinfo::Indices */
 
 MERGED_INDICES *
@@ -339,6 +345,18 @@ get_sort_key (const INDEX_COLLATOR *collator, const char *sort_string)
         break;
       #endif
       case ctn_unicode:
+      #ifdef NATIVE_UTS10_COLLATION
+          sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
+
+          sort_key->bytes = u8_make_collation_key
+            (sort_string, strlen (sort_string),
+             UNICOLL_VARIABLE_NONIGNORABLE,
+             NULL, &sort_key->len);
+
+          break;
+      #else
+        /* fall through */
+      #endif
       case ctn_language_collation:
       default: /* !HAVE_STRXFRM_L && ctn_locale_collation */
         sort_key = call_collator_getSortKey (collator->coll.sv,
