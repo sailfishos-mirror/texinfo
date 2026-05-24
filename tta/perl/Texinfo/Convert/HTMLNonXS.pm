@@ -4646,8 +4646,14 @@ sub _prepare_converted_output_info($$$$) {
         if ((exists($element->{'type'})
              and $element->{'type'} eq 'arguments_line'
             or (exists($element->{'cmdname'})
-                and exists(
-        $Texinfo::Commands::metadata_commands{$element->{'cmdname'}})))) {
+                and (exists(
+        $Texinfo::Commands::metadata_commands{$element->{'cmdname'}})
+    # If EPUB is expanded, @html metadata is used for the EPUB specific
+    # metadata, not for each converted HTML file metadata included in the EPUB
+    # container.  This allows to have EPUB metadata even without a specific
+    # @epub raw format command.
+                     or ($element->{'cmdname'} eq 'html'
+                         and $self->is_format_expanded('epub')))))) {
           next;
         }
         $metadata_in_documentinfo

@@ -1,3 +1,12 @@
+2026-05-24 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_html.c (html_prepare_converted_output_info),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm
+	(_prepare_converted_output_info): do not output @html in @documentinfo
+	in the HTML preamble if EPUB is generated, such that the @html in
+	@documentinfo is only output in the EPUB metadata and can be EPUB
+	specific metadata.
+
 2026-05-24  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Integrate native Unicode collation code

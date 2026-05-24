@@ -1192,7 +1192,14 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
 
               if (element->type == ET_arguments_line
                   || (! (type_data[element->type].flags & TF_text)
-                      && command_other_flags (element) & CF_metadata))
+                      && (command_other_flags (element) & CF_metadata)
+   /* If EPUB is expanded, @html metadata is used for the EPUB specific
+      metadata, not for each converted HTML file metadata included in the EPUB
+      container.  This allows to have EPUB metadata even without a specific
+      @epub raw format command. */
+                          || (element->e.c->cmd == CM_html
+                              && format_expanded_p (
+                                       self->expanded_formats, "epub"))))
                 continue;
 
               /* can be NULL in case the element is ignored, for example
