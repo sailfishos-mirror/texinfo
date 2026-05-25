@@ -130,7 +130,8 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   /* Three levels (primary/secondary/tertiary).  Two bytes per
      collation element at primary, one byte at secondary, one byte
      at tertiary.  "\x01\x01" between primary and secondary level
-     and "\x01" between secondary and tertiary level. */
+     and "\x01" between secondary and tertiary level.  Not all of
+     these bytes are used if there are null weights. */
   sort_key_alloc = num_elements * 4 + 3;
 
   /* Add space for quaternary level if necessary. */
@@ -144,7 +145,6 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
     sort_key = resultbuf;
   else
     sort_key = malloc (sort_key_alloc);
-  *lengthp = sort_key_alloc;
 
   psort_key = sort_key;
 
@@ -307,6 +307,7 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
     }
 
   *psort_key = '\0';
+  *lengthp = psort_key - sort_key;
 
   free (elements);
   free (codepoints);
