@@ -173,6 +173,14 @@ After next release:
   Decide at that time if the Perl modules in Example and the formats in
   texi2any formats_table should be removed.
 
+* tta:
+  The following gnulib modules are only needed for
+  tta/C/main/unicode-collation, and could be considered for removal
+  if unicode-collation is not shipped in texinfo:
+   unictype/property-unified-ideograph uninorm/nfd
+   uninorm/u32-normalize unistr/u8-to-u32
+   and uchar-h-c23 instead of uchar-h (although it could be more robust)
+
 ***********************************************************************
 
 * Ideas that will not be implemented:

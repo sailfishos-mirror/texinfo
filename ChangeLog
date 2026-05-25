@@ -1,5 +1,9 @@
 2026-05-25 Patrice Dumas  <pertusus@free.fr>
 
+	TODO: After next release about unicode collation gnulib
+
+2026-05-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/, tta/C/Makefile.am (libtexinfo_la_LDFLAGS, ctexi2any_LDADD)
 	(teximakehtml_LDADD): replace uchar-h by uchar-h-c23 gnulib module. In
 	the unicode collation C code char32_t is considered as unicode point.
