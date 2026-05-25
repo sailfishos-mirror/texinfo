@@ -1,3 +1,14 @@
+2026-05-25  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Attempt at fixing index collation bug
+
+	* tta/C/main/unicode-collation/collation_key.c
+	(u32_make_collation_key_ext): Set length of collation key differently.
+	It was possible the length would include uninitialised memory after
+	a terminating null leading comparisons to be made incorrectly.
+	
+	Report from Bruno Haible.
+
 2026-05-25 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/Makefile.am (libtexinfo_la_LDFLAGS, ctexi2any_LDADD)

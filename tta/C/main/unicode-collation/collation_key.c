@@ -144,7 +144,6 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
     sort_key = resultbuf;
   else
     sort_key = malloc (sort_key_alloc);
-  *lengthp = sort_key_alloc;
 
   psort_key = sort_key;
 
@@ -307,6 +306,7 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
     }
 
   *psort_key = '\0';
+  *lengthp = psort_key - sort_key;
 
   free (elements);
   free (codepoints);
