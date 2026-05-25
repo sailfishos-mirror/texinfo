@@ -257,13 +257,13 @@ libcallperl_libtexinfo_la_LDFLAGS = $(perl_conf_LIB_LDFLAGS)
 # locate include files under out-of-source builds.
 libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libtexinfo_la_LIBADD = libcallperl_libtexinfo.la $(platform_PERL_LIBADD)
-libtexinfo_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+libtexinfo_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(HARD_LOCALE_LIB) $(LTLIBC32CONV) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(MBRTOWC_LIB) $(SETLOCALE_NULL_LIB)
 
 # flags possibly used by gnulib dependencies of Unicode collation code
-libtexinfo_la_LDFLAGS += \
-  $(HARD_LOCALE_LIB) $(LIBPTHREAD) $(LIBTHREAD) \
-  $(LIBC32CONV) $(LIBICONV) $(LIBUNISTRING) $(MBRTOWC_LIB) \
-  $(PTHREAD_ONCE_LIB) $(SETLOCALE_NULL_LIB)
+#libtexinfo_la_LDFLAGS += \
+#  $(HARD_LOCALE_LIB) $(LIBPTHREAD) $(LIBTHREAD) \
+#  $(LIBC32CONV) $(LIBICONV) $(LIBUNISTRING) $(MBRTOWC_LIB) \
+#  $(PTHREAD_ONCE_LIB) $(SETLOCALE_NULL_LIB)
 
 
 #libtexinfo_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(perl_conf_LIBS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
@@ -659,7 +659,7 @@ ctexi2any_SOURCES = \
 # Gnulib is directly needed on some platforms for getopt-gnu.
 # The Gnulib link variables are needed at least on Solaris and not added
 # by libtool.
-ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(perl_conf_LIBS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(perl_conf_LIBS) $(EUIDACCESS_LIBGEN) $(LTLIBC32CONV) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(MBRTOWC_LIB) $(SETLOCALE_NULL_LIB)
 
 # NOTE it is important to use perl_conf_CFLAGS here to match
 # with perl_conf_LDFLAGS used for linking, or in some platforms where
@@ -710,7 +710,7 @@ teximakehtml_SOURCES = \
 # configure checks, such that they are consistent for detected
 # libraries flags such as LTLIBINTL.
 teximakehtml_CFLAGS = $(perl_conf_CFLAGS)
-teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la $(EUIDACCESS_LIBGEN) $(HARD_LOCALE_LIB) $(LTLIBC32CONV) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(MBRTOWC_LIB) $(SETLOCALE_NULL_LIB)
 
 teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 

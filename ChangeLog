@@ -1,3 +1,8 @@
+2026-05-25 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/Makefile.am (libtexinfo_la_LDFLAGS, ctexi2any_LDADD)
+	(teximakehtml_LDADD): add link flags needed by gnulib.
+
 2026-05-24 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_html.c (html_prepare_converted_output_info),
