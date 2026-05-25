@@ -44,7 +44,7 @@
 #  gettext-h \
 #  iconv \
 #  libunistring \
-#  locale \
+#  locale-h \
 #  setenv \
 #  strchrnul \
 #  strndup \
@@ -89,7 +89,7 @@ gl_MODULES([
   gettext-h
   iconv
   libunistring
-  locale
+  locale-h
   setenv
   strchrnul
   strndup

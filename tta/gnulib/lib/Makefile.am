@@ -39,7 +39,7 @@
 #  gettext-h \
 #  iconv \
 #  libunistring \
-#  locale \
+#  locale-h \
 #  setenv \
 #  strchrnul \
 #  strndup \

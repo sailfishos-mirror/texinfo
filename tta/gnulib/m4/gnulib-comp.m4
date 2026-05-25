@@ -111,7 +111,6 @@ AC_DEFUN([gl_EARLY],
   # Code from module libunistring:
   # Code from module limits-h:
   # Code from module localcharset:
-  # Code from module locale:
   # Code from module locale-h:
   # Code from module localeconv:
   # Code from module malloc-gnu:

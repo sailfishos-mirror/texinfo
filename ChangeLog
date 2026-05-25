@@ -1,5 +1,9 @@
 2026-05-25 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/: replace deprecated locale gnulib module by locale-h.
+
+2026-05-25 Patrice Dumas  <pertusus@free.fr>
+
 	TODO: After next release about unicode collation gnulib
 
 2026-05-25 Patrice Dumas  <pertusus@free.fr>
