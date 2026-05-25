@@ -130,9 +130,14 @@ AC_DEFUN([gl_EARLY],
   # Code from module msvc-nothrow:
   # Code from module multiarch:
   # Code from module nocrash:
+  # Code from module once:
   # Code from module pathmax:
+  # Code from module pthread-h:
+  gl_ANYTHREADLIB_EARLY
+  # Code from module pthread-once:
   # Code from module rawmemchr:
   # Code from module root-uid:
+  # Code from module sched-h:
   # Code from module setenv:
   # Code from module setlocale-null:
   # Code from module setlocale-null-unlocked:
@@ -162,8 +167,12 @@ AC_DEFUN([gl_EARLY],
   # Code from module sys_stat-h:
   # Code from module sys_types-h:
   AC_REQUIRE([AC_USE_SYSTEM_EXTENSIONS])
+  # Code from module threadlib:
+  gl_THREADLIB_EARLY
   # Code from module time-h:
+  # Code from module tls:
   # Code from module uchar-h:
+  # Code from module uchar-h-c23:
   # Code from module unicase/base:
   # Code from module unicase/cased:
   # Code from module unicase/empty-prefix-context:
@@ -238,8 +247,11 @@ AC_DEFUN([gl_EARLY],
   # Code from module vasnprintf:
   # Code from module vasprintf:
   # Code from module wchar-h:
+  # Code from module wcrtomb:
   # Code from module wctype-h:
   # Code from module wcwidth:
+  # Code from module windows-once:
+  # Code from module windows-tls:
   # Code from module xalloc-oversized:
   # Code from module xsize:
 ])
@@ -576,13 +588,24 @@ AC_DEFUN([gl_INIT],
                  [test $HAVE_MSVC_INVALID_PARAMETER_HANDLER = 1])
   gl_MODULE_INDICATOR([msvc-nothrow])
   gl_MULTIARCH
+  gl_ONCE
   gl_PATHMAX
+  gl_PTHREAD_H
+  gl_PTHREAD_H_REQUIRE_DEFAULTS
+  AC_PROG_MKDIR_P
+  gl_PTHREAD_ONCE
+  gl_CONDITIONAL([GL_COND_OBJ_PTHREAD_ONCE],
+                 [test $HAVE_PTHREAD_ONCE = 0 || test $REPLACE_PTHREAD_ONCE = 1])
+  gl_PTHREAD_MODULE_INDICATOR([pthread-once])
   gl_FUNC_RAWMEMCHR
   gl_CONDITIONAL([GL_COND_OBJ_RAWMEMCHR], [test $HAVE_RAWMEMCHR = 0])
   AM_COND_IF([GL_COND_OBJ_RAWMEMCHR], [
     gl_PREREQ_RAWMEMCHR
   ])
   gl_STRING_MODULE_INDICATOR([rawmemchr])
+  gl_SCHED_H
+  gl_SCHED_H_REQUIRE_DEFAULTS
+  AC_PROG_MKDIR_P
   gl_FUNC_SETENV
   gl_CONDITIONAL([GL_COND_OBJ_SETENV],
                  [test $HAVE_SETENV = 0 || test $REPLACE_SETENV = 1])
@@ -699,12 +722,34 @@ AC_DEFUN([gl_INIT],
   gl_SYS_TYPES_H
   gl_SYS_TYPES_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
+  AC_REQUIRE([gl_THREADLIB])
   gl_TIME_H
   gl_TIME_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
+  gl_TLS
   gl_UCHAR_H
   gl_UCHAR_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
+  AC_REQUIRE([AC_CANONICAL_HOST])
+  AC_REQUIRE([AM_ICONV])
+  AC_DEFINE([GL_CHAR32_T_IS_UNICODE], [1],
+    [Define if gnulib's char32_t values are always Unicode code points.])
+  dnl On macOS, FreeBSD, NetBSD, Solaris, the functions mbrtoc32 and c32rtomb
+  dnl need to convert between the wchar_t encoding and Unicode.
+  case "$host_os" in
+    darwin* | freebsd* | dragonfly* | netbsd* | solaris*)
+      AC_DEFINE([GL_CHAR32_T_VS_WCHAR_T_NEEDS_CONVERSION], [1],
+        [Define if gnulib needs to convert between the wchar_t encoding and Unicode.])
+      LIBC32CONV="$LIBICONV"
+      LTLIBC32CONV="$LTLIBICONV"
+      ;;
+    *)
+      LIBC32CONV=
+      LTLIBC32CONV=
+      ;;
+  esac
+  AC_SUBST([LIBC32CONV])
+  AC_SUBST([LTLIBC32CONV])
   gl_LIBUNISTRING_LIBHEADER([1.2], [unicase.h])
   gl_UNICASE_H
   gl_UNICASE_H_REQUIRE_DEFAULTS
@@ -842,6 +887,13 @@ AC_DEFUN([gl_INIT],
   gl_WCHAR_H
   gl_WCHAR_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
+  gl_FUNC_WCRTOMB
+  gl_CONDITIONAL([GL_COND_OBJ_WCRTOMB],
+                 [test $HAVE_WCRTOMB = 0 || test $REPLACE_WCRTOMB = 1])
+  AM_COND_IF([GL_COND_OBJ_WCRTOMB], [
+    gl_PREREQ_WCRTOMB
+  ])
+  gl_WCHAR_MODULE_INDICATOR([wcrtomb])
   gl_WCTYPE_H
   gl_WCTYPE_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
@@ -852,6 +904,12 @@ AC_DEFUN([gl_INIT],
     gl_PREREQ_WCWIDTH
   ])
   gl_WCHAR_MODULE_INDICATOR([wcwidth])
+  AC_REQUIRE([AC_CANONICAL_HOST])
+  gl_CONDITIONAL([GL_COND_OBJ_WINDOWS_ONCE],
+                 [case "$host_os" in mingw* | windows*) true;; *) false;; esac])
+  AC_REQUIRE([AC_CANONICAL_HOST])
+  gl_CONDITIONAL([GL_COND_OBJ_WINDOWS_TLS],
+                 [case "$host_os" in mingw* | windows*) true;; *) false;; esac])
   gl_XSIZE
   # End of code from modules
   m4_ifval(gl_LIBSOURCES_LIST, [
@@ -1097,6 +1155,11 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/getopt1.c
   lib/getopt_int.h
   lib/gettext.h
+  lib/glthread/once.c
+  lib/glthread/once.h
+  lib/glthread/threadlib.c
+  lib/glthread/tls.c
+  lib/glthread/tls.h
   lib/group-member.c
   lib/hard-locale.c
   lib/hard-locale.h
@@ -1110,6 +1173,8 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/itold.c
   lib/lc-charset-dispatch.c
   lib/lc-charset-dispatch.h
+  lib/lc-charset-unicode.c
+  lib/lc-charset-unicode.h
   lib/libunistring.valgrind
   lib/limits.in.h
   lib/localcharset.c
@@ -1144,9 +1209,12 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/printf-args.h
   lib/printf-parse.c
   lib/printf-parse.h
+  lib/pthread-once.c
+  lib/pthread.in.h
   lib/rawmemchr.c
   lib/rawmemchr.valgrind
   lib/root-uid.h
+  lib/sched.in.h
   lib/setenv.c
   lib/setlocale-lock.c
   lib/setlocale_null-unlocked.c
@@ -1305,10 +1373,15 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/verify.h
   lib/warn-on-use.h
   lib/wchar.in.h
+  lib/wcrtomb.c
   lib/wctype-h.c
   lib/wctype.in.h
   lib/wcwidth.c
   lib/windows-initguard.h
+  lib/windows-once.c
+  lib/windows-once.h
+  lib/windows-tls.c
+  lib/windows-tls.h
   lib/xalloc-oversized.h
   lib/xsize.c
   lib/xsize.h
@@ -1389,10 +1462,15 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/nocrash.m4
   m4/off64_t.m4
   m4/off_t.m4
+  m4/once.m4
   m4/pathmax.m4
   m4/pid_t.m4
   m4/printf.m4
+  m4/pthread-once.m4
+  m4/pthread-spin.m4
+  m4/pthread_h.m4
   m4/rawmemchr.m4
+  m4/sched_h.m4
   m4/setenv.m4
   m4/setlocale_null.m4
   m4/size_max.m4
@@ -1417,6 +1495,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/sys_types_h.m4
   m4/threadlib.m4
   m4/time_h.m4
+  m4/tls.m4
   m4/uchar_h.m4
   m4/unicase_h.m4
   m4/unictype_h.m4
@@ -1429,6 +1508,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/visibility.m4
   m4/warn-on-use.m4
   m4/wchar_h.m4
+  m4/wcrtomb.m4
   m4/wctype_h.m4
   m4/wcwidth.m4
   m4/wint_t.m4

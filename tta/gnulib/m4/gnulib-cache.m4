@@ -48,7 +48,7 @@
 #  setenv \
 #  strchrnul \
 #  strndup \
-#  uchar-h \
+#  uchar-h-c23 \
 #  unicase/u8-tolower \
 #  unicase/u8-toupper \
 #  unictype/category-L \
@@ -93,7 +93,7 @@ gl_MODULES([
   setenv
   strchrnul
   strndup
-  uchar-h
+  uchar-h-c23
   unicase/u8-tolower
   unicase/u8-toupper
   unictype/category-L
