@@ -219,13 +219,19 @@ lookup_collation_data_at_char (char32_t *const string,
   return data;
 }
 
+/* Return 1 if element found, 0 if not found, and -1 if found
+   but output array too small. */
 int
 lookup_codepoint (char32_t codepoint,
-                  CollationElement *elements, size_t *num_elements)
+                  CollationElement *elements,
+                  size_t elements_size,
+                  size_t *num_elements)
 {
   COLLATION_DATA data = lookup_codepoint_data (codepoint);
   if (data.data_index)
     {
+      if (data.num_elements > elements_size)
+        return -1;
       (*num_elements) = data.num_elements;
       return read_collation_data (data, elements);
     }

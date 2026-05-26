@@ -20,7 +20,8 @@ struct collation_data_ref {
 typedef struct collation_data_ref COLLATION_DATA;
 
 int lookup_codepoint (char32_t codepoint,
-                      CollationElement *elements, size_t *num_elements);
+                      CollationElement *elements, size_t elements_size,
+                      size_t *num_elements);
 
 COLLATION_DATA lookup_collation_data_at_char (char32_t *const string,
                                               size_t length,

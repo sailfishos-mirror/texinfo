@@ -69,7 +69,9 @@ main (int argc, char *argv[])
       int found = 0;
       if (len == 1)
         {
-          found = lookup_codepoint (codepoints[0], elements, &num_elements);
+          found = lookup_codepoint (codepoints[0],
+                                    elements, MAX_COLLATION_ELEMENTS,
+                                    &num_elements);
         }
       else
         {
