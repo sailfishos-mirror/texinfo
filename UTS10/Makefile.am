@@ -24,7 +24,7 @@ allkeys_query_SOURCES = allkeys_query.c collation_data_loader.c \
 
 collation_test_SOURCES = collation_test.c \
                          collation_data_loader.c collation_data_loader.h \
-                         collation_key.c collation_key.h allkeys_bin.h
+                         collation_key.c collation_key.h
 
 
 TESTS=t/collation-test-non-ignorable.sh \
