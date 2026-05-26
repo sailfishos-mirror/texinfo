@@ -84,9 +84,7 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   for (size_t i = 0; i < n_entries; i++)
     {
       if (entry_array[i].data.data_index)
-        {
-          num_elements += entry_array[i].data.num_elements;
-        }
+        num_elements += entry_array[i].data.num_elements;
       else
         num_elements += 3;      /* implicitly determined weights? */
     }

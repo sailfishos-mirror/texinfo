@@ -41,7 +41,7 @@ read_collation_data (COLLATION_DATA data,
 }
 
 /* Lookup single codepoint and return data offset */
-COLLATION_DATA
+static COLLATION_DATA
 lookup_codepoint_data (char32_t codepoint)
 {
   if (codepoint >= 0x110000)
@@ -219,7 +219,9 @@ lookup_collation_data_at_char (char32_t *const string,
   return data;
 }
 
-/* Return 1 if element found, 0 if not found, and -1 if found
+/* Lookup CODEPOINT and place collation element(s) in
+   ELEMENTS array.
+   Return 1 if element found, 0 if not found, and -1 if found
    but output array too small. */
 /* Not currently used. */
 int
