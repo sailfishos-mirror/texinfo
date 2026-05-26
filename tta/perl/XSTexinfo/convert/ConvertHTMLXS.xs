@@ -85,7 +85,7 @@ PROTOTYPES: ENABLE
 # HTML C data initialization independent of customization and of Perl
 # default variables.
 int
-init (SV *, SV *, SV *, SV *)
+init (SV *, SV *, SV *, SV *, SV *)
       CODE:
         html_format_setup ();
         RETVAL = 1;

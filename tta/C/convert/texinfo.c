@@ -143,14 +143,10 @@ txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
       else if (status < 0)
         {
           fprintf (stderr, "WARNING: no interpreter embedding code built\n");
-          /* Initialize C libraries.
-
+          /*
              no need to call set_use_perl_interpreter
              txi_interpreter_use_no_interpreter, it is the default in
              that case */
-          messages_and_encodings_setup (datadir);
-          setup_texinfo_main (texinfo_uninstalled, datadir,
-                              t2a_builddir, t2a_srcdir);
         }
       free (load_modules_path);
     }
@@ -164,14 +160,9 @@ txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
                                       converter_libdir, datadir);
       if (loaded <= 0)
         {
-          /* XS code that calls C library initialization was not loaded,
-             initialize the C library now */
           /* In general this cannot happen, because failure to call Perl
              if embedded or to load modules should lead to dying/croaking
              earlier, notably in XSLoader */
-          messages_and_encodings_setup (datadir);
-          setup_texinfo_main (texinfo_uninstalled, datadir,
-                              t2a_builddir, t2a_srcdir);
         }
 
       if (loaded < 0)
@@ -184,15 +175,6 @@ txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
     }
   else
     {
-  /* There is no embedded interpreter and therefore no initialization of
-     C libraries through XS.  Therefore, we call the libraries initialization
-     functions here.
-   */
-      /* sets up gettext and iconv */
-      messages_and_encodings_setup (datadir);
-      setup_texinfo_main (texinfo_uninstalled, datadir,
-                          t2a_builddir, t2a_srcdir);
-
       set_use_perl_interpreter (txi_interpreter_use_no_interpreter);
     }
 }

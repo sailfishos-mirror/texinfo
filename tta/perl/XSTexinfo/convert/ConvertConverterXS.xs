@@ -72,7 +72,7 @@ PROTOTYPES: ENABLE
 # The paths are not of interest here, but we know that init is called
 # early, which is what we want.
 int
-init (SV *, SV *, SV *, SV *)
+init (SV *, SV *, SV *, SV *, SV *)
       CODE:
         setup_converter_generic ();
         RETVAL = 1;

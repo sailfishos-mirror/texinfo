@@ -1276,31 +1276,13 @@ valgrind --tool=callgrind --separate-callers=3 --separate-recs=10 perl -w texi2a
 valgrind --tool=callgrind --separate-callers=4 --separate-recs=11 perl -w texi2any.pl ../../doc/texinfo.texi
 kcachegrind callgrind.out.XXXXXX
 
-This is obsolete with output overriding, although the distribution changed
-very little after reattributing the shares.
-For the Texinfo manual with full XS, in 2024, Perl uses 22% of the time
-(for html), now only for code hopefully called once.  The switch to
-global locales for setlocale calling that is needed for Perl takes also 4%.
-Calling Perl getSortKey uses about 28%.
+For the Texinfo manual with full XS, in 2026, Perl uses 37% of the time
+(for html) for the main program and some HTML parser initialization.
 Decomposition of the time used for the Texinfo manual with full XS
 (in percent):
- parser: 11.5
- index sorting: 30
- main conversion to HTML: 24.8 = 54.8 - 30
-
- node redirections: 2.6
- prepare conversion units: 2.3
- remove document: 1.8
- associate internal references: 0.53
- prepare unit directions: 0.41
- setup indices sort strings: 0.36
- reset converter: 0.23
- structuring transformation1: 0.19
- structuring transformation2: 0.19
- remaining Texinfo XS code: 0.35
-  = 8.95
- Perl: 22.5 = 7 + 15.2 + (75.57 - 54.8 - 11.5 - 8.95)
-SUM: 98
+ parser: 17
+ main conversion to HTML: 43
+SUM: 97
 
 
 Setting flags

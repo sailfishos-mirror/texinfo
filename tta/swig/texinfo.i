@@ -155,6 +155,11 @@ txi_ext_inline_setup (int texinfo_uninstalled,
         converterlibdir = LIBDIR "/" CONVERTER_CONFIG;
     }
 
+  /* initialize the C library */
+  messages_and_encodings_setup (datadir);
+  setup_texinfo_main (texinfo_uninstalled, datadir,
+                      t2a_builddir, t2a_srcdir);
+
   if (texinfo_uninstalled)
     version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+nc";
   else

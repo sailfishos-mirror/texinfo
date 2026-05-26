@@ -1,5 +1,24 @@
 2026-05-26 Patrice Dumas  <pertusus@free.fr>
 
+	When C code is called first, always initialize libraries from C
+
+	* tta/C/convert/texinfo.c (txi_setup_main_load_interpreter),
+	tta/C/texi2any.c (main), tta/perl/Texinfo/XSLoader.pm (init),
+	tta/perl/XSTexinfo/convert/ConvertConverterXS.xs (init),
+	tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs (init),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs (init),
+	tta/swig/texinfo.i (txi_ext_inline_setup): call
+	messages_and_encodings_setup and setup_texinfo_main in main and in
+	txi_ext_inline_setup, never in txi_setup_main_load_interpreter.  Pass
+	$mandatory_xs in XSLoader.pm init, such that init in DocumentXS.xs
+	does not call messages_and_encodings_setup nor setup_texinfo_main
+	when $mandatory_xs is set, as it will always have been already called.
+
+	* tta/C/texi2any.c (main): do not set XS_STRXFRM_COLLATION_LOCALE, now
+	we have a good collation in the default case.
+
+2026-05-26 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/manipulate_indices.c (setup_collator): do not call
 	call_setup_collator if NATIVE_UTS10_COLLATION set.
 

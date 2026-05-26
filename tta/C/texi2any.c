@@ -59,14 +59,15 @@
 /* for xvasprintf */
 #include "text.h"
 /* parse_file_path whitespace_chars xasprintf digit_chars encode_with_iconv
-   wipe_values locate_file_in_dirs null_device_names */
+   wipe_values locate_file_in_dirs null_device_names
+   messages_and_encodings_setup */
 #include "utils.h"
 #include "errors.h"
 #include "customization_options.h"
 #include "txi_config.h"
 /* tree_print_details */
 #include "manipulate_tree.h"
-/* set_document_options */
+/* setup_texinfo_main set_document_options */
 #include "document.h"
 #include "convert_to_texinfo.h"
 /* needed because commands are used to determine expanded regions names */
@@ -1185,6 +1186,11 @@ main (int argc, char *argv[], char *env[])
   else
     version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
 
+  /* initialize texinfo libraries */
+  messages_and_encodings_setup (datadir);
+  setup_texinfo_main (texinfo_uninstalled, datadir,
+                      t2a_builddir, t2a_srcdir);
+
   /* load interpreter if needed and setup paths and defauts if not already
      done by the interpreter.
      Done early because options defaults are used in help
@@ -2178,11 +2184,6 @@ main (int argc, char *argv[], char *env[])
       set_format ("html");
       store_value (&values, "TEXI2HTML", "1");
     }
-
-  if (embedded_interpreter != txi_interpreter_use_embedded)
-    /* it is the best we have without an embedded interpreter */
-    add_option_value (&program_options, "XS_STRXFRM_COLLATION_LOCALE", 0,
-                      "en_US");
 
   html_math_option = GNUT_get_conf (program_options.options->HTML_MATH.number);
   if (html_math_option && html_math_option->o.string
