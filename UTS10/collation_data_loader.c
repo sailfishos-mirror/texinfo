@@ -31,7 +31,7 @@ read_collation_data (COLLATION_DATA data,
       if (elements[i].secondary != 0x00)
         {
           /* this would match
-             get-collation-table.c:expand_collation_sequence: */
+             gen-collation-table.c:expand_collation_sequence: */
           /* elements[i].secondary += 0x1F; */
           /* but keep it in a single byte to reduce sort key length. */
         }
