@@ -25,7 +25,7 @@
 /* to set to 0 if Perl code is compiled in, but there is no Perl
    interpreter */
 static enum interpreter_use use_perl_interpreter
-  = txi_interpreter_use_embedded;
+  = txi_interpreter_want_embedded;
 
 void
 set_use_perl_interpreter (enum interpreter_use value)

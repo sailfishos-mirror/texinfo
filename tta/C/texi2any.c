@@ -669,7 +669,8 @@ int loaded_init_files_nr = 0;
 
 static void
 locate_and_load_init_file (const char *filename, STRING_LIST *directories,
-                           DEPRECATED_DIRS_LIST *deprecated_dirs)
+                           DEPRECATED_DIRS_LIST *deprecated_dirs,
+                           INTERPRETER_LOADING_INFO *loading_info)
 {
   static DEPRECATED_DIRS_LIST deprecated_dirs_used;
 
@@ -678,7 +679,8 @@ locate_and_load_init_file (const char *filename, STRING_LIST *directories,
 
   if (file)
     {
-      int status = txi_load_init_file (file, embedded_interpreter);
+      int status = txi_load_init_file (file, loading_info,
+                                       &embedded_interpreter);
 
       if (status)
         loaded_init_files_nr++;
@@ -709,13 +711,15 @@ locate_and_load_init_file (const char *filename, STRING_LIST *directories,
 }
 
 static void
-locate_and_load_extension_file (const char *filename, STRING_LIST *directories)
+locate_and_load_extension_file (const char *filename, STRING_LIST *directories,
+                                const INTERPRETER_LOADING_INFO *loading_info)
 {
   char *file = locate_file_in_dirs (filename, directories, 0, 0, 0);
 
   if (file)
     {
-      int status = txi_load_init_file (file, embedded_interpreter);
+      int status = txi_load_init_file (file, loading_info,
+                                       &embedded_interpreter);
 
       if (status)
         loaded_init_files_nr++;
@@ -1064,6 +1068,7 @@ main (int argc, char *argv[], char *env[])
   char *program_basename;
   size_t file_index;
   int remove_references = 0;
+  INTERPRETER_LOADING_INFO loading_info;
 
   memset (&main_program_unclosed_stdout, 0, sizeof (FILE_STREAM));
 
@@ -1103,7 +1108,7 @@ main (int argc, char *argv[], char *env[])
     }
 
 #ifdef EMBED_PERL
-  embedded_interpreter = txi_interpreter_use_embedded;
+  embedded_interpreter = txi_interpreter_want_embedded;
   default_is_html = 0;
 #endif
 
@@ -1181,28 +1186,25 @@ main (int argc, char *argv[], char *env[])
   add_string (extensions_dir, &internal_extension_dirs);
 
 
-  if (texinfo_uninstalled)
-    version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+nc";
-  else
-    version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
-
   /* initialize texinfo libraries */
   messages_and_encodings_setup (datadir);
   setup_texinfo_main (texinfo_uninstalled, datadir,
                       t2a_builddir, t2a_srcdir);
 
-  /* load interpreter if needed and setup paths and defauts if not already
-     done by the interpreter.
-     Done early because options defaults are used in help
-     and paths are needed to locate file used for interpreter embedding
-     and setup by the interpreter */
+  if (texinfo_uninstalled)
+    version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+nc";
+  else
+    version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
+
+  /* load interpreter or setup loading_info if needed */
   /* no converter_libdir argument because it is only needed when
      (re)using a Perl interpreter, which is never the case here */
   txi_setup_main_load_interpreter (embedded_interpreter,
                         texinfo_uninstalled, datadir,
                         converter_datadir, 0, t2a_builddir, t2a_srcdir, 0,
                         &argc, &argv, &env,
-                        version_for_embedded_interpreter_check);
+                        version_for_embedded_interpreter_check,
+                        &loading_info);
 
   free (t2a_builddir);
   free (t2a_srcdir);
@@ -1380,7 +1382,8 @@ main (int argc, char *argv[], char *env[])
   for (i = 0; i < config_init_files.number; i++)
     {
       int status = txi_load_init_file (config_init_files.list[i],
-                                       embedded_interpreter);
+                                       &loading_info,
+                                       &embedded_interpreter);
       if (status)
         loaded_init_files_nr++;
     }
@@ -1629,13 +1632,14 @@ main (int argc, char *argv[], char *env[])
               test_mode_set = 1;
 
             if (test_mode_set)
-              locate_and_load_init_file (optarg, &conf_dirs, 0);
+              locate_and_load_init_file (optarg, &conf_dirs, 0, &loading_info);
             else
               {
                 copy_strings (&init_file_dirs, &conf_dirs);
                 copy_strings (&init_file_dirs, &converter_init_dirs);
                 locate_and_load_init_file (optarg, &init_file_dirs,
-                                           &deprecated_directories);
+                                           &deprecated_directories,
+                                           &loading_info);
                 clear_strings_list (&init_file_dirs);
               }
           }
@@ -2188,18 +2192,21 @@ main (int argc, char *argv[], char *env[])
   html_math_option = GNUT_get_conf (program_options.options->HTML_MATH.number);
   if (html_math_option && html_math_option->o.string
       && !strcmp (html_math_option->o.string, "l2h"))
-    locate_and_load_extension_file ("latex2html.pm", &internal_extension_dirs);
+    locate_and_load_extension_file ("latex2html.pm", &internal_extension_dirs,
+                                    &loading_info);
 
   if (html_math_option && html_math_option->o.string
       && !strcmp (html_math_option->o.string, "t4h"))
-    locate_and_load_extension_file ("tex4ht.pm", &internal_extension_dirs);
+    locate_and_load_extension_file ("tex4ht.pm", &internal_extension_dirs,
+                                    &loading_info);
 
   highlight_syntax_option
     = GNUT_get_conf (program_options.options->HIGHLIGHT_SYNTAX.number);
   if (highlight_syntax_option && highlight_syntax_option->o.string
       && strlen (highlight_syntax_option->o.string))
     locate_and_load_extension_file ("highlight_syntax.pm",
-                                    &internal_extension_dirs);
+                                    &internal_extension_dirs,
+                                    &loading_info);
 
   /* re-set in case it was set in init files */
   test_option = GNUT_get_conf (program_options.options->TEST.number);
@@ -2261,6 +2268,33 @@ main (int argc, char *argv[], char *env[])
   /* Setup output string translations (including Locales path). */
   txi_general_output_strings_setup ();
 
+  /* reproducible transliteration uses Perl.  It is used for diverse
+     identifiers, not only if TRANSLITERATE_FILE_NAMES is set */
+  /* TODO this looks wrong, it should be set only if TRANSLITERATE_FILE_NAMES
+     is set */
+  if ((test_mode_set
+       && embedded_interpreter == txi_interpreter_want_embedded)
+ #ifdef USE_LIBINTL_PERL_IN_XS
+      || 1
+ #endif
+     )
+    {
+      /*
+      OPTION *transliterate_file_names_option
+        = GNUT_get_conf (
+                    program_options.options->TRANSLITERATE_FILE_NAMES.number);
+      if (transliterate_file_names_option
+          && transliterate_file_names_option->o.integer > 0)
+        {
+       */
+          int status = txi_load_interpreter (&loading_info);
+          if (!status)
+            embedded_interpreter = txi_interpreter_use_embedded;
+       /*
+        }
+        */
+    }
+
   /* determine the format_specification now that the output format is known */
   for (i = 0; formats_table[i].name; i++)
     {
@@ -2299,7 +2333,8 @@ main (int argc, char *argv[], char *env[])
   /* for a format setup with an init file */
   if (format_specification->init_file)
     locate_and_load_extension_file (format_specification->init_file,
-                                    &internal_extension_dirs);
+                                    &internal_extension_dirs,
+                                    &loading_info);
 
   if (format_specification->converted_format)
     {
@@ -2457,6 +2492,13 @@ main (int argc, char *argv[], char *env[])
 
       if (external_module)
         {
+          if (embedded_interpreter == txi_interpreter_want_embedded)
+            {
+              int status = txi_load_interpreter (&loading_info);
+              if (!status)
+                embedded_interpreter = txi_interpreter_use_embedded;
+            }
+
           if (embedded_interpreter != txi_interpreter_use_embedded)
             {
               fprintf (stderr, "ERROR: no interpreter for %s\n",

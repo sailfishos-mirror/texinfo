@@ -102,6 +102,7 @@ txi_ext_inline_setup (int texinfo_uninstalled,
   char *converterdatadir = 0;
   const char *converterlibdir = 0;
   const char *datadir;
+  INTERPRETER_LOADING_INFO loading_info;
   enum interpreter_use do_use_interpreter = txi_interpreter_use_no_interpreter;
 #ifdef EMBED_PERL
   do_use_interpreter = txi_interpreter_use_embedded;
@@ -110,7 +111,9 @@ txi_ext_inline_setup (int texinfo_uninstalled,
   do_use_interpreter = txi_interpreter_use_interpreter;
 #endif
 
-  if (use_interpreter != txi_interpreter_use_none)
+  if (use_interpreter == txi_interpreter_want_embedded)
+    do_use_interpreter = txi_interpreter_use_embedded;
+  else if (use_interpreter != txi_interpreter_use_none)
     do_use_interpreter = use_interpreter;
 
   if (datadir_in)
@@ -169,7 +172,8 @@ txi_ext_inline_setup (int texinfo_uninstalled,
                                    datadir, converterdatadir, converterlibdir,
                                    t2a_builddir, t2a_srcdir, updirs,
                                    0, 0, 0,
-                                   version_for_embedded_interpreter_check);
+                                   version_for_embedded_interpreter_check,
+                                   &loading_info);
   free (t2a_builddir);
   free (t2a_srcdir);
   free (converterdatadir);

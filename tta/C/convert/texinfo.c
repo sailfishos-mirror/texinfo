@@ -62,7 +62,7 @@
 #include "call_conversion_perl.h"
 #include "call_embed_perl.h"
 #include "call_document_perl_functions.h"
-/* set_use_perl_interpreter */
+/* definition of set_use_perl_interpreter */
 #include "xs_utils.h"
 #include "api_to_perl.h"
 #include "texinfo.h"
@@ -91,8 +91,56 @@ txi_find_tree_transformation (const char *transformation_name)
   return 0;
 }
 
-/* Start an embedded interpreter or initialize an existing interpreter,
-   or do the basic initialization if not done through an interpreter.
+/*
+  Start an embedded Perl interpreter and initialize by passing the
+  load_txi_modules_basename script to be called from the embedded
+  interpreter.
+ */
+int
+txi_load_interpreter (const INTERPRETER_LOADING_INFO *loading_info)
+{
+  const char *load_txi_modules_basename = "load_txi_modules";
+  char *load_modules_path;
+  int status;
+
+  if (txi_paths_info.texinfo_uninstalled)
+    xasprintf (&load_modules_path, "%s/perl/%s.pl",
+               txi_paths_info.p.uninstalled.t2a_srcdir,
+               load_txi_modules_basename);
+  else
+    xasprintf (&load_modules_path, "%s/%s",
+               txi_paths_info.p.installed.converter_datadir,
+               load_txi_modules_basename);
+  status = call_init_perl (loading_info->argc_ref, loading_info->argv_ref,
+                           loading_info->env_ref, load_modules_path,
+                           loading_info->version_checked);
+
+  /* status < 0 means no functioning call_init_perl */
+  if (status > 0)
+    {
+      char *message;
+      /* unexpected failure, no point continuing, the output needs
+         the interpreter and libperl will segfault */
+      xasprintf (&message, "call_init_perl status: %d", status);
+      fatal (message);
+      free (message);
+    }
+  else if (status < 0)
+    {
+      fprintf (stderr, "WARNING: no interpreter embedding code built\n");
+      /*
+         no need to call set_use_perl_interpreter
+         txi_interpreter_use_no_interpreter, it is the default in
+         that case */
+    }
+  else
+    set_use_perl_interpreter (txi_interpreter_use_embedded);
+
+  free (load_modules_path);
+  return status;
+}
+
+/* Start an embedded interpreter or initialize an existing interpreter.
    To be called before loading init files.
  */
 void
@@ -104,51 +152,18 @@ txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
                       const char *t2a_builddir,
                       const char *t2a_srcdir, int updirs,
                       int *argc_ref, char ***argv_ref, char ***env_ref,
-                      const char *version_checked)
+                      const char *version_checked,
+                      INTERPRETER_LOADING_INFO *loading_info)
 {
-  if (use_interpreter == txi_interpreter_use_embedded)
+  if (use_interpreter == txi_interpreter_use_embedded
+      || use_interpreter == txi_interpreter_want_embedded)
     {
-      const char *load_txi_modules_basename = "load_txi_modules";
-      char *load_modules_path;
-      int status;
-
-      /*
-     Start an embedded Perl interpreter and initialize by passing the
-     load_txi_modules_basename script to be called from the embedded
-     interpreter.
-
-     In case of successful loading, importing Texinfo::Document causes
-     XSLoader init to calls DocumentXS init, which calls the functions
-     initializing the C libraries.
-       */
-
-      if (texinfo_uninstalled)
-        xasprintf (&load_modules_path, "%s/perl/%s.pl",
-                   t2a_srcdir, load_txi_modules_basename);
-      else
-        xasprintf (&load_modules_path, "%s/%s", converter_datadir,
-                   load_txi_modules_basename);
-      status = call_init_perl (argc_ref, argv_ref, env_ref, load_modules_path,
-                               version_checked);
-      /* status < 0 means no functioning call_init_perl */
-      if (status > 0)
-        {
-          char *message;
-          /* unexpected failure, no point continuing, the output needs
-             the interpreter and libperl will segfault */
-          xasprintf (&message, "call_init_perl status: %d", status);
-          fatal (message);
-          free (message);
-        }
-      else if (status < 0)
-        {
-          fprintf (stderr, "WARNING: no interpreter embedding code built\n");
-          /*
-             no need to call set_use_perl_interpreter
-             txi_interpreter_use_no_interpreter, it is the default in
-             that case */
-        }
-      free (load_modules_path);
+      loading_info->argc_ref = argc_ref;
+      loading_info->argv_ref = argv_ref;
+      loading_info->env_ref = env_ref;
+      loading_info->version_checked = version_checked;
+      if (use_interpreter == txi_interpreter_use_embedded)
+        txi_load_interpreter (loading_info);
     }
   else if (use_interpreter == txi_interpreter_use_interpreter)
     {/* assume that there is already a Perl interpreter loaded, but the
@@ -158,12 +173,10 @@ txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
          = call_eval_load_texinfo_modules (texinfo_uninstalled, t2a_builddir,
                                       updirs, converter_datadir,
                                       converter_libdir, datadir);
-      if (loaded <= 0)
-        {
-          /* In general this cannot happen, because failure to call Perl
-             if embedded or to load modules should lead to dying/croaking
-             earlier, notably in XSLoader */
-        }
+
+      /* In general, loaded <= 0 cannot happen, because failure to call Perl
+         if embedded or to load modules should lead to dying/croaking
+         earlier, notably in XSLoader */
 
       if (loaded < 0)
         /* Unexpected failure loading Perl modules, consider that there is no
@@ -270,11 +283,21 @@ txi_general_output_strings_setup (void)
 }
 
 int
-txi_load_init_file (const char *file, enum interpreter_use embedded_interpreter)
+txi_load_init_file (const char *file,
+                    const INTERPRETER_LOADING_INFO *loading_info,
+                    enum interpreter_use *embedded_interpreter)
 {
   int status = 0;
-  if (embedded_interpreter == txi_interpreter_use_embedded)
+  if (*embedded_interpreter == txi_interpreter_want_embedded)
+    {
+      status = txi_load_interpreter (loading_info);
+      if (!status)
+        *embedded_interpreter = txi_interpreter_use_embedded;
+    }
+
+  if (*embedded_interpreter == txi_interpreter_use_embedded)
     status = call_config_GNUT_load_init_file (file);
+
   return status;
 }
 

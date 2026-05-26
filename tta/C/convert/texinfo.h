@@ -53,6 +53,13 @@ typedef struct TRANSFORMATION_NAME_FLAG {
 /* mark a format handled by texi2dvi */
 #define STTF_texi2dvi_format                        0x4000
 
+typedef struct INTERPRETER_LOADING_INFO {
+    int *argc_ref;
+    char ***argv_ref;
+    char ***env_ref;
+    const char *version_checked;
+} INTERPRETER_LOADING_INFO;
+
 unsigned long txi_find_tree_transformation (const char *transformation_name);
 
 void txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
@@ -62,6 +69,8 @@ void txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
 
 void txi_general_output_strings_setup (void);
 
+int txi_load_interpreter (const INTERPRETER_LOADING_INFO *loading_info);
+
 void txi_setup_main_load_interpreter (enum interpreter_use embedded_interpreter,
                       int texinfo_uninstalled,
                       const char *datadir,
@@ -70,7 +79,8 @@ void txi_setup_main_load_interpreter (enum interpreter_use embedded_interpreter,
                       const char *t2a_builddir,
                       const char *t2a_srcdir, int updirs,
                       int *argc_ref, char ***argv_ref, char ***env_ref,
-                      const char *version_checked);
+                      const char *version_checked,
+                      INTERPRETER_LOADING_INFO *loading_info);
 
 void txi_converter_output_format_setup (const char *converted_format,
                                         const char *external_module);
@@ -92,7 +102,8 @@ void txi_converter_initialization_setup (CONVERTER_INITIALIZATION_INFO *conf,
                                     const DEPRECATED_DIRS_LIST *deprecated_dirs,
                                     const OPTIONS_LIST *customizations);
 int txi_load_init_file (const char *file,
-                        enum interpreter_use embedded_interpreter);
+                        const INTERPRETER_LOADING_INFO *loading_info,
+                        enum interpreter_use *embedded_interpreter);
 void txi_stop_interpreter (enum interpreter_use embedded_interpreter);
 
 CONVERTER *txi_converter_setup (const char *external_module,

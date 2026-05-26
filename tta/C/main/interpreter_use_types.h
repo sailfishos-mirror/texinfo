@@ -18,7 +18,8 @@
 
 /* interpreter is a Perl interpreter in practice */
 enum interpreter_use {
-   txi_interpreter_use_none = -1,
+   txi_interpreter_use_none = -2,
+   txi_interpreter_want_embedded,
    txi_interpreter_use_no_interpreter,
    txi_interpreter_use_embedded,
    txi_interpreter_use_interpreter,
