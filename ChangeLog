@@ -1,3 +1,8 @@
+2026-05-26 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/manipulate_indices.c (setup_collator): do not call
+	call_setup_collator if NATIVE_UTS10_COLLATION set.
+
 2026-05-25 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/: replace deprecated locale gnulib module by locale-h.

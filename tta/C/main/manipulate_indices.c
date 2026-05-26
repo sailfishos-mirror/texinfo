@@ -653,6 +653,9 @@ setup_collator (int use_unicode_collation, const char *collation_language,
       #endif
       #endif
 
+      #ifdef NATIVE_UTS10_COLLATION
+      result->type = ctn_unicode;
+      #else
       result->coll.sv = call_setup_collator (1, 0);
       if (result->coll.sv == 0)
         /* if not linked against Perl or there is no strxfrm_l, this is
@@ -661,6 +664,7 @@ setup_collator (int use_unicode_collation, const char *collation_language,
         result->type = ctn_no_unicode;
       else
         result->type = ctn_unicode;
+      #endif
     }
   return result;
 }
