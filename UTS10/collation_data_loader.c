@@ -296,7 +296,7 @@ get_implicit_weight (char32_t codepoint,
   if (AAAA && BBBB)
     {
       CollationElement e1 = { AAAA, 0x0020, 0x0002, 0 };
-      /* same in allkeys_bin_dumper.c:expand_collation_sequence to
+      /* same in gen-collation-table.c:expand_collation_sequence to
          fit secondary weight in a single byte. */
       e1.secondary -= 0x1f;
 
