@@ -28,7 +28,8 @@ COLLATION_DATA lookup_collation_data_at_char (char32_t *const string,
                                               size_t *n_codepoints_out);
 
 int lookup_sequence (const char32_t *codepoints, size_t len,
-                     CollationElement *elements, size_t *num_elements);
+                     CollationElement *elements, size_t elements_size,
+                     size_t *num_elements);
 
 int read_collation_data (COLLATION_DATA data_offset,
                          CollationElement *elements);

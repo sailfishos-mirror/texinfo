@@ -22,9 +22,6 @@ print_usage (const char *prog)
   printf ("  %s lookup 006C 00B7\n", prog);
 }
 
-/* FIXME: lookup_codepoint and lookup_sequence should be able to warn
-   if output buffer is too small, so we don't need to hardcode these
-   numbers here. */
 #define MAX_COLLATION_ELEMENTS 18
 #define MAX_SEQUENCE_LENGTH 3
 
@@ -75,10 +72,12 @@ main (int argc, char *argv[])
         }
       else
         {
-          found = lookup_sequence (codepoints, len, elements, &num_elements);
+          found = lookup_sequence (codepoints, len,
+                                   elements, MAX_COLLATION_ELEMENTS,
+                                   &num_elements);
         }
 
-      if (found)
+      if (found > 0)
         {
           print_collation (stdout, elements, num_elements);
         }

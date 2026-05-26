@@ -327,10 +327,13 @@ get_implicit_weight (char32_t codepoint,
     }
 }
 
-/* Lookup sequence */
+/* Lookup sequence.
+   Return 1 if element found, 0 if not found, and -1 if found
+   but output array too small. */
 int
 lookup_sequence (const uint32_t *codepoints, size_t len,
-                 CollationElement *elements, size_t *num_elements)
+                 CollationElement *elements, size_t elements_size,
+                 size_t *num_elements)
 {
   if (len == 0)
     return 0;
@@ -368,6 +371,9 @@ lookup_sequence (const uint32_t *codepoints, size_t len,
                   data.num_elements = node->num_elements;
                   if (data.data_index != 0)
                     {
+                      if (data.num_elements > elements_size)
+                        return -1;
+
                       *num_elements = data.num_elements;
                       return read_collation_data (data, elements);
                     }
