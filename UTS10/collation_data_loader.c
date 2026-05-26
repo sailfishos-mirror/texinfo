@@ -221,6 +221,7 @@ lookup_collation_data_at_char (char32_t *const string,
 
 /* Return 1 if element found, 0 if not found, and -1 if found
    but output array too small. */
+/* Not currently used. */
 int
 lookup_codepoint (char32_t codepoint,
                   CollationElement *elements,
@@ -330,6 +331,7 @@ get_implicit_weight (char32_t codepoint,
 /* Lookup sequence.
    Return 1 if element found, 0 if not found, and -1 if found
    but output array too small. */
+/* Not currently used. */
 int
 lookup_sequence (const uint32_t *codepoints, size_t len,
                  CollationElement *elements, size_t elements_size,

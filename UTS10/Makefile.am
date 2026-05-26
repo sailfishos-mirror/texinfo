@@ -17,10 +17,7 @@ gen_collation_table_SOURCES = gen-collation-table.c
 collation-table.c: gen-collation-table allkeys.txt
 	./gen-collation-table ./allkeys.txt collation-table.c
 
-bin_PROGRAMS += allkeys_query collation_test
-
-allkeys_query_SOURCES = allkeys_query.c collation_data_loader.c \
-  collation_data_loader.h
+bin_PROGRAMS += collation_test
 
 collation_test_SOURCES = collation_test.c \
                          collation_data_loader.c collation_data_loader.h \
