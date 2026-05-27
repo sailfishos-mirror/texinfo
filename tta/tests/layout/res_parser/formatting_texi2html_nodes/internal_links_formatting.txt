@@ -24,7 +24,7 @@ subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027.html#subsub
 chapter2.html#chapter2	node	chapter2
 node-with-empty-xrefname.html#node-with-empty-xrefname	node	node with empty xrefname
 subsection.html#anchor	anchor	anchor
-chapter.html#index-a-index_002d_002d_002dentry-te-_002d_002d_002d-i	codeidx	a index---entry tẽ --- î
+chapter.html#index-a-index_002d_002d_002dentry-t_1ebd-_002d_002d_002d-_00ee	codeidx	a index---entry tẽ --- î
 index.html#index-copying-_002d_002doption	cp	-option
 index.html#index-titlepage-_002d_002doption	cp	-option
 chapter.html#index-_002d_002doption	cp	-option

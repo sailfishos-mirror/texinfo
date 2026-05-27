@@ -3717,12 +3717,6 @@ sub _prepare_index_entries_targets($) {
   }
 
   if (defined($indices_information)) {
-    my $no_unidecode;
-    $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
-                          and !$self->get_conf('USE_UNIDECODE'));
-    my $in_test;
-    $in_test = 1 if ($self->get_conf('TEST'));
-
     foreach my $index_name (sort(keys(%$indices_information))) {
       foreach my $index_entry (@{$indices_information->{$index_name}
                                                     ->{'index_entries'}}) {
@@ -3757,8 +3751,8 @@ sub _prepare_index_entries_targets($) {
         }
 
         my $normalized_index =
-          Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-             $normalize_index_element, $in_test, $no_unidecode);
+          Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+                                                 $normalize_index_element);
         my $target_base = "index-" . $region .$normalized_index;
         my $target = _unique_target($self, $target_base);
         _register_id($self, $target);

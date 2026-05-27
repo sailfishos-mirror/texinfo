@@ -24,7 +24,7 @@ formatting.html#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_
 formatting.html#chapter2	node	chapter2
 formatting.html#node-with-empty-xrefname	node	node with empty xrefname
 formatting.html#anchor	anchor	anchor
-formatting.html#index-a-index_002d_002d_002dentry-te-_002d_002d_002d-i	codeidx	a index---entry tẽ --- î
+formatting.html#index-a-index_002d_002d_002dentry-t_1ebd-_002d_002d_002d-_00ee	codeidx	a index---entry tẽ --- î
 formatting.html#index-copying-_002d_002doption	cp	-option
 formatting.html#index-titlepage-_002d_002doption	cp	-option
 formatting.html#index-_002d_002doption	cp	-option

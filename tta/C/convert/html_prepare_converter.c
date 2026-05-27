@@ -5042,9 +5042,6 @@ prepare_index_entries_targets (CONVERTER *self)
       self->shared_conversion_state.formatted_index_entries
         = (int **) malloc (self->sorted_index_names.number * sizeof (int *));
 
-      /* used both to select an 'external' Perl call and pass in_test */
-      int in_test = (self->conf->TEST.o.integer > 0);
-
       for (i = 0; i < self->sorted_index_names.number; i++)
         {
           size_t j;
@@ -5103,9 +5100,7 @@ prepare_index_entries_targets (CONVERTER *self)
                                    subentries_tree->number);
                 }
               normalized_index
-                = normalize_transliterate_texinfo (normalize_index_element,
-                                                          in_test, in_test,
-                                 (self->conf->USE_UNIDECODE.o.integer == 0));
+                = convert_to_identifier (normalize_index_element);
 
               destroy_element (normalize_index_element);
               if (subentries_tree)

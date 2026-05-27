@@ -1,5 +1,14 @@
 2026-05-28 Patrice Dumas  <pertusus@free.fr>
 
+	do not transliterate when generating index entry target
+
+	* tta/C/convert/html_prepare_converter.c
+	(prepare_index_entries_targets), tta/perl/Texinfo/Convert/HTMLNonXS.pm
+	(_prepare_index_entries_targets): convert to identifier only instead
+	of using transliteration and conversion to identifier.
+
+2026-05-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/manipulate_indices.c (setup_collator): handle the case of
 	language collation and no Perl interpreter.  Warn in that case.
 
