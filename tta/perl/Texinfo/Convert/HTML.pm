@@ -4727,12 +4727,6 @@ sub _convert_printindex_command($$$$) {
   my $symbol_idx = 0;
   my $normalized_letter_idx = 0;
 
-  my $no_unidecode;
-  $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
-                        and !$self->get_conf('USE_UNIDECODE'));
-  my $in_test;
-  $in_test = 1 if ($self->get_conf('TEST'));
-
   foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
     my $letter = $letter_entry->{'letter'};
     my $is_symbol = $letter !~ /^\p{Alpha}/;
@@ -4743,17 +4737,10 @@ sub _convert_printindex_command($$$$) {
       $identifier = $index_element_id . "_${index_name}_symbol-$symbol_idx";
     } else {
       my $normalized_letter =
-  Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-              Texinfo::TreeElement::new({'text' => $letter}),
-                                              $in_test, $no_unidecode);
-      my $letter_identifier = $normalized_letter;
-      if ($normalized_letter ne $letter) {
-        # disambiguate, as it could be another letter, case of @l, for example
-        $normalized_letter_idx++;
-        $letter_identifier = "${normalized_letter}-${normalized_letter_idx}";
-      }
+        Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+              Texinfo::TreeElement::new({'text' => $letter}));
       $identifier = $index_element_id
-                       . "_${index_name}_letter-${letter_identifier}";
+                       . "_${index_name}_letter-${normalized_letter}";
     }
     $letter_id{$letter} = $identifier;
 

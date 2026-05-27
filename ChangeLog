@@ -1,5 +1,14 @@
 2026-05-28 Patrice Dumas  <pertusus@free.fr>
 
+	do not transliterate letter in identifier
+
+	* tta/C/convert/format_html.c (html_convert_printindex_command),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_printindex_command):
+	convert to identifier only instead of using transliteration and
+	conversion to identifier for letter in identifier.
+
+2026-05-28 Patrice Dumas  <pertusus@free.fr>
+
 	do not transliterate when generating index entry target
 
 	* tta/C/convert/html_prepare_converter.c

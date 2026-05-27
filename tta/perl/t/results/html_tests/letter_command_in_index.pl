@@ -215,9 +215,9 @@ th.index-letter-header-printindex {text-align: left}
 <div class="printindex cp-printindex">
 <table class="index-letters-header-printindex cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_cp_letter-E"><b>E</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#chap_cp_letter-L-1"><b>&#321;</b></a>
+<a class="summary-letter-printindex" href="#chap_cp_letter-_0141"><b>&#321;</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#chap_cp_letter-TH-2"><b>&THORN;</b></a>
+<a class="summary-letter-printindex" href="#chap_cp_letter-_00de"><b>&THORN;</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="index-entries-printindex cp-entries-printindex">
@@ -225,18 +225,18 @@ th.index-letter-header-printindex {text-align: left}
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-E">E</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-_00ea">&ecirc;</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="2"><hr></td></tr>
-<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-L-1">&#321;</th></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-_0141">&#321;</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-_0142">&#322;</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="2"><hr></td></tr>
-<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-TH-2">&THORN;</th></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-_00de">&THORN;</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-_00de">&THORN;</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="2"><hr></td></tr>
 </table>
 <table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_cp_letter-E"><b>E</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#chap_cp_letter-L-1"><b>&#321;</b></a>
+<a class="summary-letter-printindex" href="#chap_cp_letter-_0141"><b>&#321;</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#chap_cp_letter-TH-2"><b>&THORN;</b></a>
+<a class="summary-letter-printindex" href="#chap_cp_letter-_00de"><b>&THORN;</b></a>
  &nbsp; 
 </td></tr></table>
 </div>

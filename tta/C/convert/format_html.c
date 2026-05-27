@@ -10119,9 +10119,6 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   formatted_letters = (char **) malloc
       (index_sorted->letter_number * sizeof (char *));
 
-  /* used both to select an 'external' Perl call and pass in_test */
-  in_test = (self->conf->TEST.o.integer > 0);
-
   for (i = 0; i < index_sorted->letter_number; i++)
     {
       const char *letter = index_sorted->letter_entries[i].letter;
@@ -10142,21 +10139,8 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           char *normalized_letter;
           ELEMENT *letter_text = new_text_element (ET_normal_text);
           text_append (letter_text->e.text, letter);
-          normalized_letter = normalize_transliterate_texinfo (letter_text,
-                                                          in_test, in_test,
-                                 (self->conf->USE_UNIDECODE.o.integer == 0));
+          normalized_letter = convert_to_identifier (letter_text);
           destroy_element (letter_text);
-
-          if (strcmp (letter, normalized_letter))
-            {
-              char *tmp_normalized_letter;
-   /* disambiguate, as it could be another letter, case of @l, for example */
-              normalized_letter_idx++;
-              xasprintf (&tmp_normalized_letter, "%s-%zu", normalized_letter,
-                                                 normalized_letter_idx);
-              free (normalized_letter);
-              normalized_letter = tmp_normalized_letter;
-            }
 
           xasprintf (&letter_id[i], "%s_%s_letter-%s", index_element_id,
                                      index_name, normalized_letter);
