@@ -1,5 +1,11 @@
 2026-05-28 Patrice Dumas  <pertusus@free.fr>
 
+	remove USE_UNIDECODE customization variable, always set
+
+	* NEWS, tta/data/options_data.txt: remove USE_UNIDECODE.
+
+2026-05-28 Patrice Dumas  <pertusus@free.fr>
+
 	always use unidecode for transliteration
 
 	* tta/perl/Texinfo/Convert/NodeNameNormalization.pm

@@ -155,7 +155,6 @@ our %converter_customization_options = (
   'USE_NUMERIC_ENTITY'               => undef,
   'USE_SETFILENAME_EXTENSION'        => undef,
   'USE_TITLEPAGE_FOR_TITLE'          => undef,
-  'USE_UNIDECODE'                    => undef,
   'USE_XML_SYNTAX'                   => undef,
   'VERTICAL_HEAD_NAVIGATION'         => undef,
   'WORDS_IN_PAGE'                    => undef,
