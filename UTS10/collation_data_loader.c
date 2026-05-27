@@ -12,7 +12,7 @@
 
 /* Read collation data at offset */
 /* TODO: simplify or inline function?? */
-int
+static int
 read_collation_data (COLLATION_DATA data,
                      struct collation_data *elements)
 {
