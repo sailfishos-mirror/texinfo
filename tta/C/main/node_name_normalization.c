@@ -393,12 +393,9 @@ convert_contents_to_identifier (const ELEMENT *e)
    output.  Out of tests, it is not important, as transliteration should
    only be used for identifiers that only need to be internally consistent,
    not for "external" reproducible identifiers.
-
-   TODO if Perl is not required, additional code would be needed to
-   have reproducible test results, from _unicode_to_transliterate.
  */
 static char *
-unicode_to_transliterate (char *text, int external, int in_test)
+unicode_to_transliterate (char *text, int external)
 {
   char *result;
   int status;
@@ -406,7 +403,7 @@ unicode_to_transliterate (char *text, int external, int in_test)
   if (external)
     {
       result
-        = call_nodenamenormalization_unicode_to_transliterate (text, in_test);
+        = call_nodenamenormalization_unicode_to_transliterate (text);
       if (result)
         return result;
     }
@@ -422,13 +419,12 @@ unicode_to_transliterate (char *text, int external, int in_test)
 }
 
 char *
-normalize_transliterate_texinfo (const ELEMENT *e, int external_translit,
-                                 int in_test)
+normalize_transliterate_texinfo (const ELEMENT *e, int external_translit)
 {
   char *converted_name = convert_to_normalized (e);
   char *normalized_name = normalize_NFC (converted_name);
   char *transliterated = unicode_to_transliterate (normalized_name,
-                                                   external_translit, in_test);
+                                                   external_translit);
   char *result = unicode_to_protected (transliterated);
 
   free (converted_name);
@@ -439,13 +435,13 @@ normalize_transliterate_texinfo (const ELEMENT *e, int external_translit,
 
 char *
 normalize_transliterate_texinfo_contents (const ELEMENT *e,
-                                    int external_translit, int in_test)
+                                          int external_translit)
 {
   ELEMENT *tmp = new_element (ET_NONE);
   char *result;
 
   tmp->e.c->contents = e->e.c->contents;
-  result = normalize_transliterate_texinfo (tmp, external_translit, in_test);
+  result = normalize_transliterate_texinfo (tmp, external_translit);
   tmp->e.c->contents.list = 0;
   destroy_element (tmp);
 

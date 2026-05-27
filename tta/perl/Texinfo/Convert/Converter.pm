@@ -578,9 +578,6 @@ sub _id_to_filename($$) {
 sub normalized_sectioning_command_filename($$) {
   my ($self, $command) = @_;
 
-  my $in_test;
-  $in_test = 1 if ($self->get_conf('TEST'));
-
   my $label_element;
   if ($Texinfo::Commands::root_commands{$command->{'cmdname'}}) {
     # for root level sectioning commands, the first element is the
@@ -595,7 +592,7 @@ sub normalized_sectioning_command_filename($$) {
     $normalized_name
     = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
         Texinfo::TreeElement::new(
-         {'contents' => $label_element->{'contents'}}), $in_test);
+         {'contents' => $label_element->{'contents'}}));
   } else {
     $normalized_name
      = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
@@ -613,16 +610,13 @@ sub normalized_sectioning_command_filename($$) {
 sub node_information_filename($$$) {
   my ($self, $normalized, $label_element) = @_;
 
-  my $in_test;
-  $in_test = 1 if ($self->get_conf('TEST'));
-
   my $filename;
   if (defined($normalized)) {
     if ($self->get_conf('TRANSLITERATE_FILE_NAMES')) {
       $filename
   = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
      Texinfo::TreeElement::new(
-       {'contents' => $label_element->{'contents'}}), $in_test);
+       {'contents' => $label_element->{'contents'}}));
     } else {
       $filename = $normalized;
     }

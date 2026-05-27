@@ -62,8 +62,7 @@ newSVpv_byte (const char *str, STRLEN len)
 }
 
 char *
-call_nodenamenormalization_unicode_to_transliterate (const char *text,
-                                                     int in_test)
+call_nodenamenormalization_unicode_to_transliterate (const char *text)
 {
   int count;
   char *result;
@@ -87,7 +86,6 @@ call_nodenamenormalization_unicode_to_transliterate (const char *text,
   EXTEND(SP, 3);
 
   PUSHs(sv_2mortal (newSVpv_utf8 (text, 0)));
-  PUSHs(sv_2mortal (newSViv (in_test)));
   PUTBACK;
 
   count = call_pv (

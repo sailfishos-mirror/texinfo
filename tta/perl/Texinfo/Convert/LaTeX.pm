@@ -969,9 +969,6 @@ sub _prepare_floats($) {
     $self->{'normalized_float_latex'} = {};
     my %latex_floats;
 
-    my $in_test;
-    $in_test = 1 if ($self->get_conf('TEST'));
-
     foreach my $normalized_float_type (sort(keys(%{$floats}))) {
       my $latex_variable_float_name;
       if (scalar(@{$floats->{$normalized_float_type}})) {
@@ -979,7 +976,7 @@ sub _prepare_floats($) {
         my ($float, $float_section) = @$float_and_section;
         $latex_variable_float_name
           = Texinfo::Convert::NodeNameNormalization::transliterate_texinfo(
-                      $float->{'contents'}->[0]->{'contents'}->[0], $in_test);
+                               $float->{'contents'}->[0]->{'contents'}->[0]);
       } else {
         $latex_variable_float_name = $normalized_float_type;
       }

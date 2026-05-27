@@ -4994,13 +4994,10 @@ sub _node_redirections($$$$) {
       if ($add_translit_redirection and $normalized ne 'Top') {
         # based on Texinfo::Convert::Converter node_information_filename
 
-        my $in_test;
-        $in_test = 1 if ($self->get_conf('TEST'));
-
         my $translit_filename
    = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
         Texinfo::TreeElement::new(
-          {'contents' => $label_element->{'contents'}}), $in_test);
+          {'contents' => $label_element->{'contents'}}));
 
         $translit_filename = $self->_id_to_filename($translit_filename);
         $translit_filename = $translit_filename.$added_translit_extension;
