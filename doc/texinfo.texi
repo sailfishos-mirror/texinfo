@@ -16208,12 +16208,6 @@ have many non-ASCII characters in index entry text, or if you don't care
 about having the indices sorted correctly, especially when working on
 the draft of a manual.
 
-
-@pindex Text::Unidecode
-@item USE_UNIDECODE
-If set to false, do not use the @code{Text::Unidecode} Perl module to
-transliterate more characters from Perl code; default true.
-
 @end vtable
 
 

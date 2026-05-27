@@ -127,31 +127,31 @@ sub convert_to_identifier($) {
   return $result;
 }
 
-sub normalize_transliterate_texinfo($;$$) {
-  my ($element, $in_test, $no_unidecode) = @_;
+sub normalize_transliterate_texinfo($;$) {
+  my ($element, $in_test) = @_;
 
   my $result = _convert($element);
   $result = Unicode::Normalize::NFC($result);
   $result = _unicode_to_protected(
-                _unicode_to_transliterate($result, $in_test, $no_unidecode));
+                _unicode_to_transliterate($result, $in_test));
   return $result;
 }
 
-sub transliterate_texinfo($;$$) {
-  my ($element, $in_test, $no_unidecode) = @_;
+sub transliterate_texinfo($;$) {
+  my ($element, $in_test) = @_;
 
   my $result = _convert($element);
   $result = Unicode::Normalize::NFC($result);
-  $result = _unicode_to_transliterate($result, $in_test, $no_unidecode);
+  $result = _unicode_to_transliterate($result, $in_test);
   return $result;
 }
 
-sub transliterate_protect_file_name($;$$) {
-  my ($input_text, $in_test, $no_unidecode) = @_;
+sub transliterate_protect_file_name($;$) {
+  my ($input_text, $in_test) = @_;
 
   my $result = Unicode::Normalize::NFC($input_text);
   $result = _unicode_to_file_name(
-                _unicode_to_transliterate($result, $in_test, $no_unidecode));
+                _unicode_to_transliterate($result, $in_test));
   return $result;
 }
 
@@ -215,8 +215,8 @@ sub _unicode_to_file_name($) {
 }
 
 # called from C/main/call_perl_function.c
-sub _unicode_to_transliterate($;$$) {
-  my ($text, $in_test, $no_unidecode) = @_;
+sub _unicode_to_transliterate($;$) {
+  my ($text, $in_test) = @_;
 
   if (chomp($text)) {
     warn "Bug: end of line to transliterate: $text\n";
@@ -260,26 +260,14 @@ sub _unicode_to_transliterate($;$$) {
           } elsif (exists(
              $Texinfo::Convert::Unicode::no_transliterate_map{$hex_repr})) {
             $result .= $char;
-          } elsif ($no_unidecode) {
-            if (exists(
-             $Texinfo::Convert::Unicode::transliterate_accent_map{$hex_repr})) {
-              $result .=
-                $Texinfo::Convert::Unicode::transliterate_accent_map{$hex_repr};
-            } else {
-              $result .= $char;
-            }
           } else {
             $result .= unidecode($char);
           }
         } else { # > 0xFFFF
-          if ($no_unidecode) {
-            $result .= $char;
-          } else {
-            $result .= unidecode($char);
-          }
+          $result .= unidecode($char);
         }
       }
-      #print STDERR " ($no_unidecode) $text -> CHAR: ".ord($char)." ".uc(sprintf("%04x",ord($char)))."\n$result\n";
+      #print STDERR " $text -> CHAR: ".ord($char)." ".uc(sprintf("%04x",ord($char)))."\n$result\n";
     } else {
       warn "Bug: unknown character _unicode_to_transliterate (likely in infinite loop)\n";
       print STDERR "Text: !!$text!!\n";
@@ -440,30 +428,25 @@ The result will be poor for Texinfo trees which are not @-command arguments
 (on an @-command line or in braces), for instance if the tree contains
 C<@node> or block commands.
 
-=item $transliterated = normalize_transliterate_texinfo($tree, $in_text, $no_unidecode)
+=item $transliterated = normalize_transliterate_texinfo($tree, $in_text)
 X<C<normalize_transliterate_texinfo>>
 
 The Texinfo I<$tree> is returned as a string, with non-ASCII letters
 transliterated as ASCII, but otherwise similar with C<convert_to_identifier>
-output.  If the optional I<$no_unidecode> argument is set, C<Text::Unidecode>
-is not used for characters whose transliteration is not built-in.
+output.
 
-=item $transliterated = transliterate_texinfo($tree, $no_unidecode)
+=item $transliterated = transliterate_texinfo($tree)
 X<C<transliterate_texinfo>>
 
 The Texinfo I<$tree> is returned as a string, with non-ASCII letters
-transliterated as ASCII.  If the optional I<$no_unidecode> argument is set,
-C<Text::Unidecode> is not used for characters whose transliteration is not
-built-in.
+transliterated as ASCII.
 
-=item $file_name = transliterate_protect_file_name($string, $no_unidecode)
+=item $file_name = transliterate_protect_file_name($string)
 X<C<transliterate_protect_file_name>>
 
 The string I<$string> is returned with non-ASCII letters transliterated as
 ASCII, and ASCII characters not safe in file names protected as in
-node normalization.  If the optional I<$no_unidecode> argument is set,
-C<Text::Unidecode> is not used for characters whose transliteration is not
-built-in.
+node normalization.
 
 =back
 

@@ -77,7 +77,7 @@ get_sv_hv (const void *sv)
 /* it is up to the caller to do something useful if NULL is returned */
 char *
 call_nodenamenormalization_unicode_to_transliterate (const char *text,
-                                         int in_test, int no_unidecode)
+                                                     int in_test)
 {
   return 0;
 }

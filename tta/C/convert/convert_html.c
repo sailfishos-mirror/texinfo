@@ -3231,8 +3231,7 @@ html_node_redirections (CONVERTER *self,
               char *translit_filename;
               char *translit_basename
                = normalize_transliterate_texinfo_contents (label_element,
-                                                          in_test, in_test,
-                                (self->conf->USE_UNIDECODE.o.integer == 0));
+                                                          in_test, in_test);
 
               id_to_filename (self, &translit_basename);
 

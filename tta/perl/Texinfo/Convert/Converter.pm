@@ -576,10 +576,8 @@ sub _id_to_filename($$) {
 }
 
 sub normalized_sectioning_command_filename($$) {
-  my ($self, $command, $no_unidecode) = @_;
+  my ($self, $command) = @_;
 
-  $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
-                        and !$self->get_conf('USE_UNIDECODE'));
   my $in_test;
   $in_test = 1 if ($self->get_conf('TEST'));
 
@@ -597,8 +595,7 @@ sub normalized_sectioning_command_filename($$) {
     $normalized_name
     = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
         Texinfo::TreeElement::new(
-         {'contents' => $label_element->{'contents'}}), $in_test,
-                  $no_unidecode);
+         {'contents' => $label_element->{'contents'}}), $in_test);
   } else {
     $normalized_name
      = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
@@ -616,9 +613,6 @@ sub normalized_sectioning_command_filename($$) {
 sub node_information_filename($$$) {
   my ($self, $normalized, $label_element) = @_;
 
-  my $no_unidecode;
-  $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
-                        and !$self->get_conf('USE_UNIDECODE'));
   my $in_test;
   $in_test = 1 if ($self->get_conf('TEST'));
 
@@ -628,8 +622,7 @@ sub node_information_filename($$$) {
       $filename
   = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
      Texinfo::TreeElement::new(
-       {'contents' => $label_element->{'contents'}}), $in_test,
-            $no_unidecode);
+       {'contents' => $label_element->{'contents'}}), $in_test);
     } else {
       $filename = $normalized;
     }

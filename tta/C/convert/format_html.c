@@ -10042,7 +10042,6 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   int *letter_is_symbol;
   char **formatted_letters;
   size_t symbol_idx = 0;
-  size_t normalized_letter_idx = 0;
   size_t i;
   char *entry_class_seeentry;
   char *section_class_seeentry;
@@ -10061,7 +10060,6 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   char *language;
   INDEX_SORTED_BY_LETTER *index_entries_by_letter
     = get_converter_indices_sorted_by_letter (self, &language);
-  int in_test;
 
   if (!index_entries_by_letter)
     return;

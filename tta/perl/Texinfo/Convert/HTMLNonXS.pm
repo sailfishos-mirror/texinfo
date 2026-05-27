@@ -4993,9 +4993,6 @@ sub _node_redirections($$$$) {
 
       if ($add_translit_redirection and $normalized ne 'Top') {
         # based on Texinfo::Convert::Converter node_information_filename
-        my $no_unidecode;
-        $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
-                              and !$self->get_conf('USE_UNIDECODE'));
 
         my $in_test;
         $in_test = 1 if ($self->get_conf('TEST'));
@@ -5003,8 +5000,7 @@ sub _node_redirections($$$$) {
         my $translit_filename
    = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
         Texinfo::TreeElement::new(
-          {'contents' => $label_element->{'contents'}}), $in_test,
-            $no_unidecode);
+          {'contents' => $label_element->{'contents'}}), $in_test);
 
         $translit_filename = $self->_id_to_filename($translit_filename);
         $translit_filename = $translit_filename.$added_translit_extension;

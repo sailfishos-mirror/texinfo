@@ -6,7 +6,7 @@
 #include "document_types.h"
 
 char *call_nodenamenormalization_unicode_to_transliterate (const char *text,
-                                              int in_test, int no_unidecode);
+                                                           int in_test);
 
 char *call_translations_translate_string (const char *string,
                                           const char *language_env,

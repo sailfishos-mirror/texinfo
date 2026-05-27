@@ -76,33 +76,28 @@ The result will be poor for Texinfo trees which are not @@-command arguments
 (on an @@-command line or in braces), for instance if the tree contains
 @code{@@node} or block commands.
 
-@item $transliterated = normalize_transliterate_texinfo($tree, $in_text, $no_unidecode)
-@anchor{Texinfo@asis{::}Convert@asis{::}NodeNameNormalization $transliterated = normalize_transliterate_texinfo($tree@comma{} $in_text@comma{} $no_unidecode)}
+@item $transliterated = normalize_transliterate_texinfo($tree, $in_text)
+@anchor{Texinfo@asis{::}Convert@asis{::}NodeNameNormalization $transliterated = normalize_transliterate_texinfo($tree@comma{} $in_text)}
 @cindex @code{normalize_transliterate_texinfo}
 
 The Texinfo @emph{$tree} is returned as a string, with non-ASCII letters
 transliterated as ASCII, but otherwise similar with @code{convert_to_identifier}
-output.  If the optional @emph{$no_unidecode} argument is set, @code{Text::Unidecode}
-is not used for characters whose transliteration is not built-in.
+output.
 
-@item $transliterated = transliterate_texinfo($tree, $no_unidecode)
-@anchor{Texinfo@asis{::}Convert@asis{::}NodeNameNormalization $transliterated = transliterate_texinfo($tree@comma{} $no_unidecode)}
+@item $transliterated = transliterate_texinfo($tree)
+@anchor{Texinfo@asis{::}Convert@asis{::}NodeNameNormalization $transliterated = transliterate_texinfo($tree)}
 @cindex @code{transliterate_texinfo}
 
 The Texinfo @emph{$tree} is returned as a string, with non-ASCII letters
-transliterated as ASCII.  If the optional @emph{$no_unidecode} argument is set,
-@code{Text::Unidecode} is not used for characters whose transliteration is not
-built-in.
+transliterated as ASCII.
 
-@item $file_name = transliterate_protect_file_name($string, $no_unidecode)
-@anchor{Texinfo@asis{::}Convert@asis{::}NodeNameNormalization $file_name = transliterate_protect_file_name($string@comma{} $no_unidecode)}
+@item $file_name = transliterate_protect_file_name($string)
+@anchor{Texinfo@asis{::}Convert@asis{::}NodeNameNormalization $file_name = transliterate_protect_file_name($string)}
 @cindex @code{transliterate_protect_file_name}
 
 The string @emph{$string} is returned with non-ASCII letters transliterated as
 ASCII, and ASCII characters not safe in file names protected as in
-node normalization.  If the optional @emph{$no_unidecode} argument is set,
-@code{Text::Unidecode} is not used for characters whose transliteration is not
-built-in.
+node normalization.
 
 @end table
 

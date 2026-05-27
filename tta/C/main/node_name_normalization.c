@@ -398,16 +398,15 @@ convert_contents_to_identifier (const ELEMENT *e)
    have reproducible test results, from _unicode_to_transliterate.
  */
 static char *
-unicode_to_transliterate (char *text, int external,
-                          int in_test, int no_unidecode)
+unicode_to_transliterate (char *text, int external, int in_test)
 {
   char *result;
   int status;
 
   if (external)
     {
-      result = call_nodenamenormalization_unicode_to_transliterate (text,
-                                                   in_test, no_unidecode);
+      result
+        = call_nodenamenormalization_unicode_to_transliterate (text, in_test);
       if (result)
         return result;
     }
@@ -424,12 +423,12 @@ unicode_to_transliterate (char *text, int external,
 
 char *
 normalize_transliterate_texinfo (const ELEMENT *e, int external_translit,
-                                 int in_test, int no_unidecode)
+                                 int in_test)
 {
   char *converted_name = convert_to_normalized (e);
   char *normalized_name = normalize_NFC (converted_name);
   char *transliterated = unicode_to_transliterate (normalized_name,
-                          external_translit, in_test, no_unidecode);
+                                                   external_translit, in_test);
   char *result = unicode_to_protected (transliterated);
 
   free (converted_name);
@@ -440,14 +439,13 @@ normalize_transliterate_texinfo (const ELEMENT *e, int external_translit,
 
 char *
 normalize_transliterate_texinfo_contents (const ELEMENT *e,
-                    int external_translit, int in_test, int no_unidecode)
+                                    int external_translit, int in_test)
 {
   ELEMENT *tmp = new_element (ET_NONE);
   char *result;
 
   tmp->e.c->contents = e->e.c->contents;
-  result = normalize_transliterate_texinfo (tmp, external_translit,
-                                            in_test, no_unidecode);
+  result = normalize_transliterate_texinfo (tmp, external_translit, in_test);
   tmp->e.c->contents.list = 0;
   destroy_element (tmp);
 
