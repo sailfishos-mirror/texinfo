@@ -746,11 +746,6 @@ write_c_source (const char *output_file, Allkeys_Info *info)
 
   fprintf (fp, "#include <stdint.h>\n\n");
 
-  fprintf (fp, "struct collation_data {\n");
-  fprintf (fp, "  uint16_t primary;\n");
-  fprintf (fp, "  uint8_t secondary;\n");
-  fprintf (fp, "  uint8_t tertiary;\n");
-  fprintf (fp, "};\n");
   fprintf (fp, "struct block256_data {\n");
   fprintf (fp, "  uint8_t num_elements[256];\n");
   fprintf (fp, "  uint32_t data_index[256];\n");

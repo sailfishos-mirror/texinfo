@@ -4,11 +4,6 @@
 
 #include <stdint.h>
 
-struct collation_data {
-  uint16_t primary;
-  uint8_t secondary;
-  uint8_t tertiary;
-};
 struct block256_data {
   uint8_t num_elements[256];
   uint32_t data_index[256];
