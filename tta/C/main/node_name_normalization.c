@@ -387,26 +387,12 @@ convert_contents_to_identifier (const ELEMENT *e)
    transliterations are not necessarily very good, either.  There is
    no reason to think that all the iconv implementations transliterate
    the same way, nor the same as Perl, therefore differences are expected.
-
-   If EXTERNAL_TRANSLIT is set, call Perl to always get the same
-   transliteration.  This is important for tests to get a reproducible
-   output.  Out of tests, it is not important, as transliteration should
-   only be used for identifiers that only need to be internally consistent,
-   not for "external" reproducible identifiers.
  */
 static char *
-unicode_to_transliterate (char *text, int external)
+unicode_to_transliterate (char *text)
 {
   char *result;
   int status;
-
-  if (external)
-    {
-      result
-        = call_nodenamenormalization_unicode_to_transliterate (text);
-      if (result)
-        return result;
-    }
 
   /* We silence the transliteration errors that may happen (for example on
      solaris 11).  The calling code should never depend on a specific
@@ -419,12 +405,11 @@ unicode_to_transliterate (char *text, int external)
 }
 
 char *
-normalize_transliterate_texinfo (const ELEMENT *e, int external_translit)
+normalize_transliterate_texinfo (const ELEMENT *e)
 {
   char *converted_name = convert_to_normalized (e);
   char *normalized_name = normalize_NFC (converted_name);
-  char *transliterated = unicode_to_transliterate (normalized_name,
-                                                   external_translit);
+  char *transliterated = unicode_to_transliterate (normalized_name);
   char *result = unicode_to_protected (transliterated);
 
   free (converted_name);
@@ -434,14 +419,13 @@ normalize_transliterate_texinfo (const ELEMENT *e, int external_translit)
 }
 
 char *
-normalize_transliterate_texinfo_contents (const ELEMENT *e,
-                                          int external_translit)
+normalize_transliterate_texinfo_contents (const ELEMENT *e)
 {
   ELEMENT *tmp = new_element (ET_NONE);
   char *result;
 
   tmp->e.c->contents = e->e.c->contents;
-  result = normalize_transliterate_texinfo (tmp, external_translit);
+  result = normalize_transliterate_texinfo (tmp);
   tmp->e.c->contents.list = 0;
   destroy_element (tmp);
 

@@ -1274,8 +1274,6 @@ normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
   char *normalized_file_name;
   char *normalized_name;
   const ELEMENT *label_element;
-  /* used to select an 'external' Perl call */
-  int in_test = (self->conf->TEST.o.integer > 0);
 
   if (builtin_command_data[command->e.c->cmd].flags & CF_root)
     /* for root level sectioning commands, the first element is the
@@ -1288,7 +1286,7 @@ normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
   if (self->conf->TRANSLITERATE_FILE_NAMES.o.integer > 0)
     {
       normalized_name
-        = normalize_transliterate_texinfo_contents (label_element, in_test);
+        = normalize_transliterate_texinfo_contents (label_element);
     }
   else
     {
@@ -1321,15 +1319,11 @@ node_information_filename (CONVERTER *self, const char *normalized,
 {
   char *filename;
 
-  /* used to select an 'external' Perl call */
-  int in_test = (self->conf->TEST.o.integer > 0);
-
   if (normalized)
     {
       if (self->conf->TRANSLITERATE_FILE_NAMES.o.integer > 0)
         {
-          filename = normalize_transliterate_texinfo_contents (label_element,
-                                                               in_test);
+          filename = normalize_transliterate_texinfo_contents (label_element);
         }
       else
         filename = strdup (normalized);

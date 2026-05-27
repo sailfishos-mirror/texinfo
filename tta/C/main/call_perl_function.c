@@ -62,54 +62,6 @@ newSVpv_byte (const char *str, STRLEN len)
 }
 
 char *
-call_nodenamenormalization_unicode_to_transliterate (const char *text)
-{
-  int count;
-  char *result;
-  char *result_ret;
-  STRLEN len;
-  SV *result_sv;
-
-  dTHX;
-
-  /* this happens if the customization variable TEST is set while there
-     is no embedded Perl */
-  if (!has_perl_interpreter ())
-    return 0;
-
-  dSP;
-
-  ENTER;
-  SAVETMPS;
-
-  PUSHMARK(SP);
-  EXTEND(SP, 3);
-
-  PUSHs(sv_2mortal (newSVpv_utf8 (text, 0)));
-  PUTBACK;
-
-  count = call_pv (
-    "Texinfo::Convert::NodeNameNormalization::_unicode_to_transliterate",
-    G_SCALAR);
-
-  SPAGAIN;
-
-  if (count != 1)
-    croak ("_unicode_to_transliterate should return 1 item\n");
-
-  result_sv = POPs;
-  result_ret = SvPVutf8 (result_sv, len);
-  result = non_perl_strndup (result_ret, len);
-
-  PUTBACK;
-
-  FREETMPS;
-  LEAVE;
-
-  return result;
-}
-
-char *
 call_translations_translate_string (const char *string,
                                     const char *language_env,
                                     const char *translation_context)

@@ -177,13 +177,16 @@ undef, {'test_file' => 'character_and_spaces_in_refs_text.texi'}],
 ['special_spaces_in_nodes',
 undef, {'test_file' => 'special_spaces_in_nodes.texi',
         'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, }],
-# TODO for the LINE SEPARATOR and PARAGRAPH SEPARATOR Unicode characters
+# NOTE for the LINE SEPARATOR and PARAGRAPH SEPARATOR Unicode characters
 # Perl and XS code give different width, therefore the corresponding
 # Texinfo code is commented out in the input file.
 ['only_special_spaces_node',
 undef, {'test_file' => 'only_special_spaces_node.texi',
         'skip' => ($] < 5.018) ? 'Perl too old: LINE TABULATION in /a needed' : undef, },
   {'TRANSLITERATE_FILE_NAMES' => 0}],
+# NOTE transliteration of some spaces in chapter arguments are different
+# with Perl and XS code, therefore the corresponding Texinfo code is
+# commented out in the input file.
 ['only_special_spaces_node_transliterate',
 undef, {'test_file' => 'only_special_spaces_node.texi',
         'skip' => ($] < 5.018) ? 'Perl too old: LINE TABULATION in /a needed' : undef, },

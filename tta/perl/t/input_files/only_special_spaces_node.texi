@@ -12,13 +12,19 @@
 @chapter CARRIAGE RETURN||
 
 @node   
-@chapter NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+@chapter NO-BREAK SPACE| |
+@c different transliteration in Perl and C
+@c NEXT LINE (NEL)|| OGHAM SPACE MARK| |
 
 @node ᠎ 
-@chapter MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+@chapter EM SPACE| |
+@c different transliteration in Perl and C
+@c MONGOLIAN VOWEL SEPARATOR|᠎| 
 
 @node          　
-@chapter THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
+@chapter THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|
+@c different transliteration in Perl and C
+@c FIGURE SPACE| | MEDIUM MATHEMATICAL SPACE| |
 
 @c Perl and XS code give different width.
 @c @node   

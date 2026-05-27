@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'at_commands_in_refs'} = '*document_root C58
+$result_tree_text{'at_commands_in_refs'} = '*document_root C63
  *before_node_section C1
   *preamble_before_content
  *@node C1 l1 {Top}
@@ -28,7 +28,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     {Top}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
-  *@menu C29 l4
+  *@menu C28 l4
    *arguments_line C1
     *block_line_arg C1
      {spaces_before_argument:\\n}
@@ -100,23 +100,17 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       {\\n}
    *menu_entry C4 l8
     {menu_entry_leading_text:* }
-    *menu_entry_node C13
+    *menu_entry_node C9
     |EXTRA
-    |node_content:{@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}}
-    |normalized:{LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e}
+    |node_content:{@LaTeX{} @TeX{} @comma{} @dots{} @enddots{}}
+    |normalized:{LaTeX-TeX-_002c-_2026-_002e_002e_002e}
      *@LaTeX C1 l8
       *brace_container
      { }
      *@TeX C1 l8
       *brace_container
      { }
-     *@bullet C1 l8
-      *brace_container
-     { }
      *@comma C1 l8
-      *brace_container
-     { }
-     *@copyright C1 l8
       *brace_container
      { }
      *@dots C1 l8
@@ -130,13 +124,10 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       {\\n}
    *menu_entry C4 l9
     {menu_entry_leading_text:* }
-    *menu_entry_node C11
+    *menu_entry_node C5
     |EXTRA
-    |node_content:{@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}}
-    |normalized:{_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212}
-     *@equiv C1 l9
-      *brace_container
-     { }
+    |node_content:{@error{} @euro{} @exclamdown{}}
+    |normalized:{error_002d_002d_003e-_20ac-_00a1}
      *@error C1 l9
       *brace_container
      { }
@@ -145,29 +136,26 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      { }
      *@exclamdown C1 l9
       *brace_container
-     { }
-     *@expansion C1 l9
-      *brace_container
-     { }
-     *@minus C1 l9
-      *brace_container
     {menu_entry_separator:::}
     *menu_entry_description C1
      *preformatted C1
       {\\n}
    *menu_entry C4 l10
     {menu_entry_leading_text:* }
-    *menu_entry_node C5
+    *menu_entry_node C7
     |EXTRA
-    |node_content:{@geq{} @leq{} @arrow{}}
-    |normalized:{_2265-_2264-_2192}
-     *@geq C1 l10
+    |node_content:{@ordf{} @ordm{} @questiondown{} @registeredsymbol{}}
+    |normalized:{_00aa-_00ba-_00bf-_00ae}
+     *@ordf C1 l10
       *brace_container
      { }
-     *@leq C1 l10
+     *@ordm C1 l10
       *brace_container
      { }
-     *@arrow C1 l10
+     *@questiondown C1 l10
+      *brace_container
+     { }
+     *@registeredsymbol C1 l10
       *brace_container
     {menu_entry_separator:::}
     *menu_entry_description C1
@@ -175,29 +163,18 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       {\\n}
    *menu_entry C4 l11
     {menu_entry_leading_text:* }
-    *menu_entry_node C13
+    *menu_entry_node C6
     |EXTRA
-    |node_content:{@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}}
-    |normalized:{_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae}
-     *@ordf C1 l11
+    |node_content:{a@tie{}b @today{} @aa{}}
+    |normalized:{a-b-_00e5}
+     {a}
+     *@tie C1 l11
+      *brace_container
+     {b }
+     *@today C1 l11
       *brace_container
      { }
-     *@ordm C1 l11
-      *brace_container
-     { }
-     *@point C1 l11
-      *brace_container
-     { }
-     *@pounds C1 l11
-      *brace_container
-     { }
-     *@print C1 l11
-      *brace_container
-     { }
-     *@questiondown C1 l11
-      *brace_container
-     { }
-     *@registeredsymbol C1 l11
+     *@aa C1 l11
       *brace_container
     {menu_entry_separator:::}
     *menu_entry_description C1
@@ -205,23 +182,47 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       {\\n}
    *menu_entry C4 l12
     {menu_entry_leading_text:* }
-    *menu_entry_node C9
+    *menu_entry_node C25
     |EXTRA
-    |node_content:{@result{} @textdegree{} a@tie{}b @today{} @aa{}}
-    |normalized:{_21d2-_00b0-a-b-_00e5}
-     *@result C1 l12
+    |node_content:{@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}}
+    |normalized:{_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe}
+     *@AA C1 l12
       *brace_container
      { }
-     *@textdegree C1 l12
-      *brace_container
-     { a}
-     *@tie C1 l12
-      *brace_container
-     {b }
-     *@today C1 l12
+     *@ae C1 l12
       *brace_container
      { }
-     *@aa C1 l12
+     *@oe C1 l12
+      *brace_container
+     { }
+     *@AE C1 l12
+      *brace_container
+     { }
+     *@OE C1 l12
+      *brace_container
+     { }
+     *@o C1 l12
+      *brace_container
+     { }
+     *@O C1 l12
+      *brace_container
+     { }
+     *@ss C1 l12
+      *brace_container
+     { }
+     *@l C1 l12
+      *brace_container
+     { }
+     *@L C1 l12
+      *brace_container
+     { }
+     *@DH C1 l12
+      *brace_container
+     { }
+     *@dh C1 l12
+      *brace_container
+     { }
+     *@th C1 l12
       *brace_container
     {menu_entry_separator:::}
     *menu_entry_description C1
@@ -229,168 +230,144 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       {\\n}
    *menu_entry C4 l13
     {menu_entry_leading_text:* }
-    *menu_entry_node C27
+    *menu_entry_node C21
     |EXTRA
-    |node_content:{@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}}
-    |normalized:{_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe}
-     *@AA C1 l13
-      *brace_container
+    |node_content:{@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}}
+    |normalized:{_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119}
+     *@" C1 l13
+      *brace_container C1
+       {a}
      { }
-     *@ae C1 l13
-      *brace_container
+     *@~ C1 l13
+      *brace_container C1
+       {e}
      { }
-     *@oe C1 l13
-      *brace_container
+     *@^ C1 l13
+      *brace_container C1
+       *@dotless C1 l13
+        *brace_container C1
+         {i}
      { }
-     *@AE C1 l13
-      *brace_container
+     *@^ C1 l13
+      *brace_container C1
+       {a}
      { }
-     *@OE C1 l13
-      *brace_container
+     *@` C1 l13
+      *brace_container C1
+       {a}
      { }
-     *@o C1 l13
-      *brace_container
+     *@\' C1 l13
+      *following_arg C1
+       {e}
      { }
-     *@O C1 l13
-      *brace_container
+     *@, C1 l13
+      *brace_container C1
+       {c}
      { }
-     *@ss C1 l13
-      *brace_container
+     *@= C1 l13
+      *brace_container C1
+       {e}
      { }
-     *@l C1 l13
-      *brace_container
+     *@ringaccent C1 l13
+      *brace_container C1
+       {e}
      { }
-     *@L C1 l13
-      *brace_container
+     *@H C1 l13
+      *brace_container C1
+       {e}
      { }
-     *@DH C1 l13
-      *brace_container
-     { }
-     *@dh C1 l13
-      *brace_container
-     { }
-     *@TH C1 l13
-      *brace_container
-     { }
-     *@th C1 l13
-      *brace_container
+     *@ogonek C1 l13
+      *brace_container C1
+       {e}
     {menu_entry_separator:::}
     *menu_entry_description C1
      *preformatted C1
       {\\n}
    *menu_entry C4 l14
     {menu_entry_leading_text:* }
-    *menu_entry_node C21
-    |EXTRA
-    |node_content:{@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}}
-    |normalized:{_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119}
-     *@" C1 l14
-      *brace_container C1
-       {a}
-     { }
-     *@~ C1 l14
-      *brace_container C1
-       {e}
-     { }
-     *@^ C1 l14
-      *brace_container C1
-       *@dotless C1 l14
-        *brace_container C1
-         {i}
-     { }
-     *@^ C1 l14
-      *brace_container C1
-       {a}
-     { }
-     *@` C1 l14
-      *brace_container C1
-       {a}
-     { }
-     *@\' C1 l14
-      *following_arg C1
-       {e}
-     { }
-     *@, C1 l14
-      *brace_container C1
-       {c}
-     { }
-     *@= C1 l14
-      *brace_container C1
-       {e}
-     { }
-     *@ringaccent C1 l14
-      *brace_container C1
-       {e}
-     { }
-     *@H C1 l14
-      *brace_container C1
-       {e}
-     { }
-     *@ogonek C1 l14
-      *brace_container C1
-       {e}
-    {menu_entry_separator:::}
-    *menu_entry_description C1
-     *preformatted C1
-      {\\n}
-   *menu_entry C4 l15
-    {menu_entry_leading_text:* }
     *menu_entry_node C13
     |EXTRA
     |node_content:{@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}}
     |normalized:{_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e}
-     *@dotaccent C1 l15
+     *@dotaccent C1 l14
       *brace_container C1
        {e}
      { }
-     *@u C1 l15
+     *@u C1 l14
       *brace_container C1
        {e}
      { }
-     *@ubaraccent C1 l15
+     *@ubaraccent C1 l14
       *brace_container C1
        {e}
      { }
-     *@udotaccent C1 l15
+     *@udotaccent C1 l14
       *brace_container C1
        {e}
      { }
-     *@v C1 l15
+     *@v C1 l14
       *brace_container C1
        {e}
      { }
-     *@dotless C1 l15
+     *@dotless C1 l14
       *brace_container C1
        {j}
      { }
-     *@tieaccent C1 l15
+     *@tieaccent C1 l14
       *brace_container C1
        {ee}
     {menu_entry_separator:::}
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 l16
+   *menu_entry C4 l15
     {menu_entry_leading_text:* }
     *menu_entry_node C5
     |EXTRA
     |node_content:{@dotless{i} @`{@=E} @,{@\'C}}
     |normalized:{_0131-_1e14-_1e08}
-     *@dotless C1 l16
+     *@dotless C1 l15
       *brace_container C1
        {i}
      { }
-     *@` C1 l16
+     *@` C1 l15
       *brace_container C1
-       *@= C1 l16
+       *@= C1 l15
         *following_arg C1
          {E}
      { }
-     *@, C1 l16
+     *@, C1 l15
       *brace_container C1
-       *@\' C1 l16
+       *@\' C1 l15
         *following_arg C1
          {C}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l16
+    {menu_entry_leading_text:* }
+    *menu_entry_node C11
+    |EXTRA
+    |node_content:{@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}}
+    |normalized:{_201c-_201d-_2018-_2019-_201e-_201a}
+     *@quotedblleft C1 l16
+      *brace_container
+     { }
+     *@quotedblright C1 l16
+      *brace_container
+     { }
+     *@quoteleft C1 l16
+      *brace_container
+     { }
+     *@quoteright C1 l16
+      *brace_container
+     { }
+     *@quotedblbase C1 l16
+      *brace_container
+     { }
+     *@quotesinglbase C1 l16
+      *brace_container
     {menu_entry_separator:::}
     *menu_entry_description C1
      *preformatted C1
@@ -399,57 +376,30 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     {menu_entry_leading_text:* }
     *menu_entry_node C11
     |EXTRA
-    |node_content:{@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}}
-    |normalized:{_201c-_201d-_2018-_2019-_201e-_201a}
-     *@quotedblleft C1 l17
+    |node_content:{@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}}
+    |normalized:{_00ab-_00bb-_00ab-_00bb-_2039-_203a}
+     *@guillemetleft C1 l17
       *brace_container
      { }
-     *@quotedblright C1 l17
+     *@guillemetright C1 l17
       *brace_container
      { }
-     *@quoteleft C1 l17
+     *@guillemotleft C1 l17
       *brace_container
      { }
-     *@quoteright C1 l17
+     *@guillemotright C1 l17
       *brace_container
      { }
-     *@quotedblbase C1 l17
+     *@guilsinglleft C1 l17
       *brace_container
      { }
-     *@quotesinglbase C1 l17
+     *@guilsinglright C1 l17
       *brace_container
     {menu_entry_separator:::}
     *menu_entry_description C1
      *preformatted C1
       {\\n}
    *menu_entry C4 l18
-    {menu_entry_leading_text:* }
-    *menu_entry_node C11
-    |EXTRA
-    |node_content:{@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}}
-    |normalized:{_00ab-_00bb-_00ab-_00bb-_2039-_203a}
-     *@guillemetleft C1 l18
-      *brace_container
-     { }
-     *@guillemetright C1 l18
-      *brace_container
-     { }
-     *@guillemotleft C1 l18
-      *brace_container
-     { }
-     *@guillemotright C1 l18
-      *brace_container
-     { }
-     *@guilsinglleft C1 l18
-      *brace_container
-     { }
-     *@guilsinglright C1 l18
-      *brace_container
-    {menu_entry_separator:::}
-    *menu_entry_description C1
-     *preformatted C1
-      {\\n}
-   *menu_entry C4 l19
     {menu_entry_leading_text:* }
     *menu_entry_node C1
     |EXTRA
@@ -460,61 +410,61 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 l20
+   *menu_entry C4 l19
     {menu_entry_leading_text:* }
     *menu_entry_node C5
     |EXTRA
     |node_content:{@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}}
     |normalized:{AAA-AAA-BBB}
-     *@acronym C2 l20
+     *@acronym C2 l19
       *brace_arg C1
        {AAA}
       *brace_arg C2
        {spaces_before_argument: }
        {fff}
      { }
-     *@acronym C1 l20
+     *@acronym C1 l19
       *brace_arg C1
        {AAA}
      { }
-     *@acronym C1 l20
+     *@acronym C1 l19
       *brace_arg C1
        {BBB}
     {menu_entry_separator:::}
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 l21
+   *menu_entry C4 l20
     {menu_entry_leading_text:* }
     *menu_entry_node C5
     |EXTRA
     |node_content:{@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}}
     |normalized:{CCC-CCC-DDD}
-     *@abbr C2 l21
+     *@abbr C2 l20
       *brace_arg C1
        {CCC}
       *brace_arg C2
        {spaces_before_argument: }
        {rrr}
      { }
-     *@abbr C1 l21
+     *@abbr C1 l20
       *brace_arg C1
        {CCC}
      { }
-     *@abbr C1 l21
+     *@abbr C1 l20
       *brace_arg C1
        {DDD}
     {menu_entry_separator:::}
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 l22
+   *menu_entry C4 l21
     {menu_entry_leading_text:* }
     *menu_entry_node C3
     |EXTRA
     |node_content:{@email{someone@@somewher, the someone} @email{no_explain@@there}}
     |normalized:{someone_0040somewher-no_005fexplain_0040there}
-     *@email C2 l22
+     *@email C2 l21
       *brace_arg C3
        {someone}
        *@@
@@ -523,7 +473,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
        {spaces_before_argument: }
        {the someone}
      { }
-     *@email C1 l22
+     *@email C1 l21
       *brace_arg C3
        {no_explain}
        *@@
@@ -532,19 +482,19 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 l23
+   *menu_entry C4 l22
     {menu_entry_leading_text:* }
     *menu_entry_node C3
     |EXTRA
     |node_content:{@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}}
     |normalized:{f_002d_002dile1-f_002d_002dile}
-     *@image C1 l23
+     *@image C1 l22
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C1
        {f--ile1}
      {  }
-     *@image C5 l23
+     *@image C5 l22
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C1
@@ -561,13 +511,13 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 l24
+   *menu_entry C4 l23
     {menu_entry_leading_text:* }
     *menu_entry_node C1
     |EXTRA
     |node_content:{@verb{. @ {} . .}}
     |normalized:{-_0040-_007b_007d-_002e-}
-     *@verb C1 l24
+     *@verb C1 l23
      |INFO
      |delimiter:{.}
       *brace_container C1
@@ -576,178 +526,178 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 l25
+   *menu_entry C4 l24
     {menu_entry_leading_text:* }
     *menu_entry_node C17
     |EXTRA
     |node_content:{@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}}
     |normalized:{cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i}
-     *@cite C1 l25
+     *@cite C1 l24
       *brace_container C2
        {cite }
-       *@asis C1 l25
+       *@asis C1 l24
         *brace_container C1
          {asis}
      { }
-     *@w C1 l25
+     *@w C1 l24
       *brace_container C4
        {in }
        *@@
        {w }
-       *@b C1 l25
+       *@b C1 l24
         *brace_container C1
          {b}
      { }
-     *@r C1 l25
+     *@r C1 l24
       *brace_container C1
        {in r}
      { }
-     *@sc C1 l25
+     *@sc C1 l24
       *brace_container C1
        {sc}
      { }
-     *@strong C1 l25
+     *@strong C1 l24
       *brace_container C1
        {str}
      { }
-     *@t C1 l25
+     *@t C1 l24
       *brace_container C1
        {t}
      { }
-     *@var C1 l25
+     *@var C1 l24
       *brace_container C1
        {var}
      { }
-     *@dfn C1 l25
+     *@dfn C1 l24
       *brace_container C1
        {dfn}
      { }
-     *@i C1 l25
+     *@i C1 l24
       *brace_container C1
        {i}
     {menu_entry_separator:::}
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 l26
+   *menu_entry C4 l25
     {menu_entry_leading_text:* }
     *menu_entry_node C13
     |EXTRA
     |node_content:{@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}}
     |normalized:{env-code-option-samp-command-file-C_002dx-ESC}
-     *@env C1 l26
+     *@env C1 l25
       *brace_container C1
        {env}
      { }
-     *@code C1 l26
+     *@code C1 l25
       *brace_container C1
        {code}
      { }
-     *@option C1 l26
+     *@option C1 l25
       *brace_container C1
        {option}
      { }
-     *@samp C1 l26
+     *@samp C1 l25
       *brace_container C1
        {samp}
      { }
-     *@command C1 l26
+     *@command C1 l25
       *brace_container C1
        {command}
      { }
-     *@file C1 l26
+     *@file C1 l25
       *brace_container C1
        {file}
      { }
-     *@kbd C1 l26
+     *@kbd C1 l25
       *brace_container C2
        {C-x }
-       *@key C1 l26
+       *@key C1 l25
         *brace_container C1
          {ESC}
     {menu_entry_separator:::}
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 l27
+   *menu_entry C4 l26
     {menu_entry_leading_text:* }
     *menu_entry_node C2
     |EXTRA
     |node_content:{8.27@dmn{in}}
     |normalized:{8_002e27in}
      {8.27}
-     *@dmn C1 l27
+     *@dmn C1 l26
       *brace_container C1
        {in}
     {menu_entry_separator:::}
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 l28
+   *menu_entry C4 l27
     {menu_entry_leading_text:* }
     *menu_entry_node C3
     |EXTRA
     |node_content:{@sansserif{sansserif} @slanted{slanted}}
     |normalized:{sansserif-slanted}
-     *@sansserif C1 l28
+     *@sansserif C1 l27
       *brace_container C1
        {sansserif}
      { }
-     *@slanted C1 l28
+     *@slanted C1 l27
       *brace_container C1
        {slanted}
     {menu_entry_separator:::}
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 l29
+   *menu_entry C4 l28
     {menu_entry_leading_text:* }
     *menu_entry_node C1
     |EXTRA
     |node_content:{@indicateurl{indicateurl}}
     |normalized:{indicateurl}
-     *@indicateurl C1 l29
+     *@indicateurl C1 l28
       *brace_container C1
        {indicateurl}
     {menu_entry_separator:::}
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 l30
+   *menu_entry C4 l29
     {menu_entry_leading_text:* }
     *menu_entry_node C3
     |EXTRA
     |node_content:{@sub{g}H 3@sup{rd}}
     |normalized:{gH-3rd}
-     *@sub C1 l30
+     *@sub C1 l29
       *brace_container C1
        {g}
      {H 3}
-     *@sup C1 l30
+     *@sup C1 l29
       *brace_container C1
        {rd}
     {menu_entry_separator:::}
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *menu_entry C4 l31
+   *menu_entry C4 l30
     {menu_entry_leading_text:* }
     *menu_entry_node C5
     |EXTRA
     |node_content:{@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}}
     |normalized:{http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls}
-     *@url C1 l31
+     *@url C1 l30
       *brace_arg C1
        {http://somewhere_aaa}
      { }
-     *@url C2 l31
+     *@url C2 l30
       *brace_arg C1
        {url}
       *brace_arg C2
        {spaces_before_argument: }
        {text}
      { }
-     *@uref C3 l31
+     *@uref C3 l30
       *brace_arg C1
        {/man.cgi/1/ls}
       *brace_arg
@@ -757,7 +707,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *menu_entry_description C1
      *preformatted C1
       {\\n}
-   *@end C1 l32
+   *@end C1 l31
    |EXTRA
    |text_arg:{menu}
     *line_arg C3
@@ -765,7 +715,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      {menu}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l34 {@- @{ @}}
+ *@node C1 l33 {@- @{ @}}
  |EXTRA
  |identifier:{-_007b-_007d}
  |is_target:{1}
@@ -779,7 +729,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@}
     {spaces_after_argument:\\n}
- *@chapter C2 l35 {@- @{ @}}
+ *@chapter C2 l34 {@- @{ @}}
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -794,7 +744,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l37 {@  @	 @! @* @. @: .@: @? @@}
+ *@node C1 l36 {@  @	 @! @* @. @: .@: @? @@}
  |EXTRA
  |identifier:{-_0021-_002e-_002e-_003f-_0040}
  |is_target:{1}
@@ -820,7 +770,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@@
     {spaces_after_argument:\\n}
- *@chapter C2 l38 {@  @	 @! @* @. @: .@: @? @@}
+ *@chapter C2 l37 {@  @	 @! @* @. @: .@: @? @@}
  |EXTRA
  |section_heading_number:{2}
  |section_level:{1}
@@ -847,11 +797,34 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@@
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l40 {@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}}
+ *@node C1 l39 {@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}}
  |EXTRA
  |identifier:{_0040-_007b-_007d-_005c-_0023}
  |is_target:{1}
  |node_number:{4}
+  *arguments_line C1
+   *line_arg C11
+    {spaces_before_argument: }
+    *@atchar C1 l39
+     *brace_container
+    { }
+    *@lbracechar C1 l39
+     *brace_container
+    { }
+    *@rbracechar C1 l39
+     *brace_container
+    { }
+    *@backslashchar C1 l39
+     *brace_container
+    { }
+    *@hashchar C1 l39
+     *brace_container
+    {spaces_after_argument:\\n}
+ *@chapter C2 l40 {@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}}
+ |EXTRA
+ |section_heading_number:{3}
+ |section_level:{1}
+ |section_number:{4}
   *arguments_line C1
    *line_arg C11
     {spaces_before_argument: }
@@ -870,37 +843,37 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@hashchar C1 l40
      *brace_container
     {spaces_after_argument:\\n}
- *@chapter C2 l41 {@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}}
- |EXTRA
- |section_heading_number:{3}
- |section_level:{1}
- |section_number:{4}
-  *arguments_line C1
-   *line_arg C11
-    {spaces_before_argument: }
-    *@atchar C1 l41
-     *brace_container
-    { }
-    *@lbracechar C1 l41
-     *brace_container
-    { }
-    *@rbracechar C1 l41
-     *brace_container
-    { }
-    *@backslashchar C1 l41
-     *brace_container
-    { }
-    *@hashchar C1 l41
-     *brace_container
-    {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l43 {@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}}
+ *@node C1 l42 {@LaTeX{} @TeX{} @comma{} @dots{} @enddots{}}
  |EXTRA
- |identifier:{LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e}
+ |identifier:{LaTeX-TeX-_002c-_2026-_002e_002e_002e}
  |is_target:{1}
  |node_number:{5}
   *arguments_line C1
-   *line_arg C15
+   *line_arg C11
+    {spaces_before_argument: }
+    *@LaTeX C1 l42
+     *brace_container
+    { }
+    *@TeX C1 l42
+     *brace_container
+    { }
+    *@comma C1 l42
+     *brace_container
+    { }
+    *@dots C1 l42
+     *brace_container
+    { }
+    *@enddots C1 l42
+     *brace_container
+    {spaces_after_argument:\\n}
+ *@chapter C2 l43 {@LaTeX{} @TeX{} @comma{} @dots{} @enddots{}}
+ |EXTRA
+ |section_heading_number:{4}
+ |section_level:{1}
+ |section_number:{5}
+  *arguments_line C1
+   *line_arg C11
     {spaces_before_argument: }
     *@LaTeX C1 l43
      *brace_container
@@ -908,13 +881,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@TeX C1 l43
      *brace_container
     { }
-    *@bullet C1 l43
-     *brace_container
-    { }
     *@comma C1 l43
-     *brace_container
-    { }
-    *@copyright C1 l43
      *brace_container
     { }
     *@dots C1 l43
@@ -923,47 +890,32 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@enddots C1 l43
      *brace_container
     {spaces_after_argument:\\n}
- *@chapter C2 l44 {@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}}
- |EXTRA
- |section_heading_number:{4}
- |section_level:{1}
- |section_number:{5}
-  *arguments_line C1
-   *line_arg C15
-    {spaces_before_argument: }
-    *@LaTeX C1 l44
-     *brace_container
-    { }
-    *@TeX C1 l44
-     *brace_container
-    { }
-    *@bullet C1 l44
-     *brace_container
-    { }
-    *@comma C1 l44
-     *brace_container
-    { }
-    *@copyright C1 l44
-     *brace_container
-    { }
-    *@dots C1 l44
-     *brace_container
-    { }
-    *@enddots C1 l44
-     *brace_container
-    {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l46 {@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}}
+ *@node C1 l45 {@error{} @euro{} @exclamdown{}}
  |EXTRA
- |identifier:{_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212}
+ |identifier:{error_002d_002d_003e-_20ac-_00a1}
  |is_target:{1}
  |node_number:{6}
   *arguments_line C1
-   *line_arg C13
+   *line_arg C7
     {spaces_before_argument: }
-    *@equiv C1 l46
+    *@error C1 l45
      *brace_container
     { }
+    *@euro C1 l45
+     *brace_container
+    { }
+    *@exclamdown C1 l45
+     *brace_container
+    {spaces_after_argument:\\n}
+ *@chapter C2 l46 {@error{} @euro{} @exclamdown{}}
+ |EXTRA
+ |section_heading_number:{5}
+ |section_level:{1}
+ |section_number:{6}
+  *arguments_line C1
+   *line_arg C7
+    {spaces_before_argument: }
     *@error C1 l46
      *brace_container
     { }
@@ -972,58 +924,26 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     { }
     *@exclamdown C1 l46
      *brace_container
-    { }
-    *@expansion C1 l46
-     *brace_container
-    { }
-    *@minus C1 l46
-     *brace_container
-    {spaces_after_argument:\\n}
- *@chapter C2 l47 {@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}}
- |EXTRA
- |section_heading_number:{5}
- |section_level:{1}
- |section_number:{6}
-  *arguments_line C1
-   *line_arg C13
-    {spaces_before_argument: }
-    *@equiv C1 l47
-     *brace_container
-    { }
-    *@error C1 l47
-     *brace_container
-    { }
-    *@euro C1 l47
-     *brace_container
-    { }
-    *@exclamdown C1 l47
-     *brace_container
-    { }
-    *@expansion C1 l47
-     *brace_container
-    { }
-    *@minus C1 l47
-     *brace_container
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l49 {@geq{} @leq{} @arrow{}}
+ *@node C1 l48 {@ordf{} @ordm{} @questiondown{}}
  |EXTRA
- |identifier:{_2265-_2264-_2192}
+ |identifier:{_00aa-_00ba-_00bf}
  |is_target:{1}
  |node_number:{7}
   *arguments_line C1
    *line_arg C7
     {spaces_before_argument: }
-    *@geq C1 l49
+    *@ordf C1 l48
      *brace_container
     { }
-    *@leq C1 l49
+    *@ordm C1 l48
      *brace_container
     { }
-    *@arrow C1 l49
+    *@questiondown C1 l48
      *brace_container
     {spaces_after_argument:\\n}
- *@chapter C2 l50 {@geq{} @leq{} @arrow{}}
+ *@chapter C2 l49 {@ordf{} @ordm{} @questiondown{}}
  |EXTRA
  |section_heading_number:{6}
  |section_level:{1}
@@ -1031,481 +951,459 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
   *arguments_line C1
    *line_arg C7
     {spaces_before_argument: }
-    *@geq C1 l50
+    *@ordf C1 l49
      *brace_container
     { }
-    *@leq C1 l50
+    *@ordm C1 l49
      *brace_container
     { }
-    *@arrow C1 l50
+    *@questiondown C1 l49
      *brace_container
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l52 {@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}}
+ *@node C1 l51 {a@tie{}b @today{} @aa{}}
  |EXTRA
- |identifier:{_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae}
+ |identifier:{a-b-_00e5}
  |is_target:{1}
  |node_number:{8}
   *arguments_line C1
-   *line_arg C15
+   *line_arg C8
     {spaces_before_argument: }
-    *@ordf C1 l52
+    {a}
+    *@tie C1 l51
+     *brace_container
+    {b }
+    *@today C1 l51
      *brace_container
     { }
-    *@ordm C1 l52
-     *brace_container
-    { }
-    *@point C1 l52
-     *brace_container
-    { }
-    *@pounds C1 l52
-     *brace_container
-    { }
-    *@print C1 l52
-     *brace_container
-    { }
-    *@questiondown C1 l52
-     *brace_container
-    { }
-    *@registeredsymbol C1 l52
+    *@aa C1 l51
      *brace_container
     {spaces_after_argument:\\n}
- *@chapter C2 l53 {@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}}
+ *@chapter C2 l52 {a@tie{}b @today{} @aa{}}
  |EXTRA
  |section_heading_number:{7}
  |section_level:{1}
  |section_number:{8}
   *arguments_line C1
-   *line_arg C15
+   *line_arg C8
     {spaces_before_argument: }
-    *@ordf C1 l53
+    {a}
+    *@tie C1 l52
+     *brace_container
+    {b }
+    *@today C1 l52
      *brace_container
     { }
-    *@ordm C1 l53
-     *brace_container
-    { }
-    *@point C1 l53
-     *brace_container
-    { }
-    *@pounds C1 l53
-     *brace_container
-    { }
-    *@print C1 l53
-     *brace_container
-    { }
-    *@questiondown C1 l53
-     *brace_container
-    { }
-    *@registeredsymbol C1 l53
+    *@aa C1 l52
      *brace_container
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l55 {@result{} @textdegree{} a@tie{}b @today{} @aa{}}
+ *@node C1 l54 {@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}}
  |EXTRA
- |identifier:{_21d2-_00b0-a-b-_00e5}
+ |identifier:{_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe}
  |is_target:{1}
  |node_number:{9}
   *arguments_line C1
-   *line_arg C11
+   *line_arg C27
     {spaces_before_argument: }
-    *@result C1 l55
+    *@AA C1 l54
      *brace_container
     { }
-    *@textdegree C1 l55
-     *brace_container
-    { a}
-    *@tie C1 l55
-     *brace_container
-    {b }
-    *@today C1 l55
+    *@ae C1 l54
      *brace_container
     { }
-    *@aa C1 l55
+    *@oe C1 l54
+     *brace_container
+    { }
+    *@AE C1 l54
+     *brace_container
+    { }
+    *@OE C1 l54
+     *brace_container
+    { }
+    *@o C1 l54
+     *brace_container
+    { }
+    *@O C1 l54
+     *brace_container
+    { }
+    *@ss C1 l54
+     *brace_container
+    { }
+    *@l C1 l54
+     *brace_container
+    { }
+    *@L C1 l54
+     *brace_container
+    { }
+    *@DH C1 l54
+     *brace_container
+    { }
+    *@dh C1 l54
+     *brace_container
+    { }
+    *@th C1 l54
      *brace_container
     {spaces_after_argument:\\n}
- *@chapter C2 l56 {@result{} @textdegree{} a@tie{}b @today{} @aa{}}
+ *@chapter C2 l55 {@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}}
  |EXTRA
  |section_heading_number:{8}
  |section_level:{1}
  |section_number:{9}
   *arguments_line C1
-   *line_arg C11
+   *line_arg C27
     {spaces_before_argument: }
-    *@result C1 l56
+    *@AA C1 l55
      *brace_container
     { }
-    *@textdegree C1 l56
-     *brace_container
-    { a}
-    *@tie C1 l56
-     *brace_container
-    {b }
-    *@today C1 l56
+    *@ae C1 l55
      *brace_container
     { }
-    *@aa C1 l56
+    *@oe C1 l55
+     *brace_container
+    { }
+    *@AE C1 l55
+     *brace_container
+    { }
+    *@OE C1 l55
+     *brace_container
+    { }
+    *@o C1 l55
+     *brace_container
+    { }
+    *@O C1 l55
+     *brace_container
+    { }
+    *@ss C1 l55
+     *brace_container
+    { }
+    *@l C1 l55
+     *brace_container
+    { }
+    *@L C1 l55
+     *brace_container
+    { }
+    *@DH C1 l55
+     *brace_container
+    { }
+    *@dh C1 l55
+     *brace_container
+    { }
+    *@th C1 l55
      *brace_container
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l58 {@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}}
+ *@node C1 l57 {@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}}
  |EXTRA
- |identifier:{_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe}
+ |identifier:{_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119}
  |is_target:{1}
  |node_number:{10}
   *arguments_line C1
-   *line_arg C29
+   *line_arg C23
     {spaces_before_argument: }
-    *@AA C1 l58
-     *brace_container
+    *@" C1 l57
+     *brace_container C1
+      {a}
     { }
-    *@ae C1 l58
-     *brace_container
+    *@~ C1 l57
+     *brace_container C1
+      {e}
     { }
-    *@oe C1 l58
-     *brace_container
+    *@^ C1 l57
+     *brace_container C1
+      *@dotless C1 l57
+       *brace_container C1
+        {i}
     { }
-    *@AE C1 l58
-     *brace_container
+    *@^ C1 l57
+     *brace_container C1
+      {a}
     { }
-    *@OE C1 l58
-     *brace_container
+    *@` C1 l57
+     *brace_container C1
+      {a}
     { }
-    *@o C1 l58
-     *brace_container
+    *@\' C1 l57
+     *following_arg C1
+      {e}
     { }
-    *@O C1 l58
-     *brace_container
+    *@, C1 l57
+     *brace_container C1
+      {c}
     { }
-    *@ss C1 l58
-     *brace_container
+    *@= C1 l57
+     *brace_container C1
+      {e}
     { }
-    *@l C1 l58
-     *brace_container
+    *@ringaccent C1 l57
+     *brace_container C1
+      {e}
     { }
-    *@L C1 l58
-     *brace_container
+    *@H C1 l57
+     *brace_container C1
+      {e}
     { }
-    *@DH C1 l58
-     *brace_container
-    { }
-    *@dh C1 l58
-     *brace_container
-    { }
-    *@TH C1 l58
-     *brace_container
-    { }
-    *@th C1 l58
-     *brace_container
-    {spaces_after_argument: \\n}
- *@chapter C2 l59 {@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}}
+    *@ogonek C1 l57
+     *brace_container C1
+      {e}
+    {spaces_after_argument:\\n}
+ *@chapter C2 l58 {@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}}
  |EXTRA
  |section_heading_number:{9}
  |section_level:{1}
  |section_number:{10}
   *arguments_line C1
-   *line_arg C29
-    {spaces_before_argument: }
-    *@AA C1 l59
-     *brace_container
-    { }
-    *@ae C1 l59
-     *brace_container
-    { }
-    *@oe C1 l59
-     *brace_container
-    { }
-    *@AE C1 l59
-     *brace_container
-    { }
-    *@OE C1 l59
-     *brace_container
-    { }
-    *@o C1 l59
-     *brace_container
-    { }
-    *@O C1 l59
-     *brace_container
-    { }
-    *@ss C1 l59
-     *brace_container
-    { }
-    *@l C1 l59
-     *brace_container
-    { }
-    *@L C1 l59
-     *brace_container
-    { }
-    *@DH C1 l59
-     *brace_container
-    { }
-    *@dh C1 l59
-     *brace_container
-    { }
-    *@TH C1 l59
-     *brace_container
-    { }
-    *@th C1 l59
-     *brace_container
-    {spaces_after_argument: \\n}
-  {empty_line:\\n}
- *@node C1 l61 {@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}}
- |EXTRA
- |identifier:{_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119}
- |is_target:{1}
- |node_number:{11}
-  *arguments_line C1
    *line_arg C23
-    {spaces_before_argument: }
-    *@" C1 l61
+    {spaces_before_argument:  }
+    *@" C1 l58
      *brace_container C1
       {a}
     { }
-    *@~ C1 l61
+    *@~ C1 l58
      *brace_container C1
       {e}
     { }
-    *@^ C1 l61
+    *@^ C1 l58
      *brace_container C1
-      *@dotless C1 l61
+      *@dotless C1 l58
        *brace_container C1
         {i}
     { }
-    *@^ C1 l61
+    *@^ C1 l58
      *brace_container C1
       {a}
     { }
-    *@` C1 l61
+    *@` C1 l58
      *brace_container C1
       {a}
     { }
-    *@\' C1 l61
+    *@\' C1 l58
      *following_arg C1
       {e}
     { }
-    *@, C1 l61
+    *@, C1 l58
      *brace_container C1
       {c}
     { }
-    *@= C1 l61
+    *@= C1 l58
      *brace_container C1
       {e}
     { }
-    *@ringaccent C1 l61
+    *@ringaccent C1 l58
      *brace_container C1
       {e}
     { }
-    *@H C1 l61
+    *@H C1 l58
      *brace_container C1
       {e}
     { }
-    *@ogonek C1 l61
+    *@ogonek C1 l58
      *brace_container C1
       {e}
     {spaces_after_argument:\\n}
- *@chapter C2 l62 {@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}}
+  {empty_line:\\n}
+ *@node C1 l60 {@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}}
+ |EXTRA
+ |identifier:{_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e}
+ |is_target:{1}
+ |node_number:{11}
+  *arguments_line C1
+   *line_arg C15
+    {spaces_before_argument: }
+    *@dotaccent C1 l60
+     *brace_container C1
+      {e}
+    { }
+    *@u C1 l60
+     *brace_container C1
+      {e}
+    { }
+    *@ubaraccent C1 l60
+     *brace_container C1
+      {e}
+    { }
+    *@udotaccent C1 l60
+     *brace_container C1
+      {e}
+    { }
+    *@v C1 l60
+     *brace_container C1
+      {e}
+    { }
+    *@dotless C1 l60
+     *brace_container C1
+      {j}
+    { }
+    *@tieaccent C1 l60
+     *brace_container C1
+      {ee}
+    {spaces_after_argument:\\n}
+ *@chapter C2 l61 {@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}}
  |EXTRA
  |section_heading_number:{10}
  |section_level:{1}
  |section_number:{11}
   *arguments_line C1
-   *line_arg C23
-    {spaces_before_argument:  }
-    *@" C1 l62
-     *brace_container C1
-      {a}
-    { }
-    *@~ C1 l62
-     *brace_container C1
-      {e}
-    { }
-    *@^ C1 l62
-     *brace_container C1
-      *@dotless C1 l62
-       *brace_container C1
-        {i}
-    { }
-    *@^ C1 l62
-     *brace_container C1
-      {a}
-    { }
-    *@` C1 l62
-     *brace_container C1
-      {a}
-    { }
-    *@\' C1 l62
-     *following_arg C1
-      {e}
-    { }
-    *@, C1 l62
-     *brace_container C1
-      {c}
-    { }
-    *@= C1 l62
-     *brace_container C1
-      {e}
-    { }
-    *@ringaccent C1 l62
-     *brace_container C1
-      {e}
-    { }
-    *@H C1 l62
-     *brace_container C1
-      {e}
-    { }
-    *@ogonek C1 l62
-     *brace_container C1
-      {e}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
- *@node C1 l64 {@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}}
- |EXTRA
- |identifier:{_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e}
- |is_target:{1}
- |node_number:{12}
-  *arguments_line C1
    *line_arg C15
     {spaces_before_argument: }
-    *@dotaccent C1 l64
+    *@dotaccent C1 l61
      *brace_container C1
       {e}
     { }
-    *@u C1 l64
+    *@u C1 l61
      *brace_container C1
       {e}
     { }
-    *@ubaraccent C1 l64
+    *@ubaraccent C1 l61
      *brace_container C1
       {e}
     { }
-    *@udotaccent C1 l64
+    *@udotaccent C1 l61
      *brace_container C1
       {e}
     { }
-    *@v C1 l64
+    *@v C1 l61
      *brace_container C1
       {e}
     { }
-    *@dotless C1 l64
+    *@dotless C1 l61
      *brace_container C1
       {j}
     { }
-    *@tieaccent C1 l64
+    *@tieaccent C1 l61
      *brace_container C1
       {ee}
     {spaces_after_argument:\\n}
- *@chapter C2 l65 {@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}}
+  {empty_line:\\n}
+ *@node C1 l63 {@dotless{i} @`{@=E} @,{@\'C}}
+ |EXTRA
+ |identifier:{_0131-_1e14-_1e08}
+ |is_target:{1}
+ |node_number:{12}
+  *arguments_line C1
+   *line_arg C7
+    {spaces_before_argument: }
+    *@dotless C1 l63
+     *brace_container C1
+      {i}
+    { }
+    *@` C1 l63
+     *brace_container C1
+      *@= C1 l63
+       *following_arg C1
+        {E}
+    { }
+    *@, C1 l63
+     *brace_container C1
+      *@\' C1 l63
+       *following_arg C1
+        {C}
+    {spaces_after_argument:\\n}
+ *@chapter C2 l64 {@dotless{i} @`{@=E} @,{@\'C}}
  |EXTRA
  |section_heading_number:{11}
  |section_level:{1}
  |section_number:{12}
   *arguments_line C1
-   *line_arg C15
-    {spaces_before_argument: }
-    *@dotaccent C1 l65
-     *brace_container C1
-      {e}
-    { }
-    *@u C1 l65
-     *brace_container C1
-      {e}
-    { }
-    *@ubaraccent C1 l65
-     *brace_container C1
-      {e}
-    { }
-    *@udotaccent C1 l65
-     *brace_container C1
-      {e}
-    { }
-    *@v C1 l65
-     *brace_container C1
-      {e}
-    { }
-    *@dotless C1 l65
-     *brace_container C1
-      {j}
-    { }
-    *@tieaccent C1 l65
-     *brace_container C1
-      {ee}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
- *@node C1 l67 {@dotless{i} @`{@=E} @,{@\'C}}
- |EXTRA
- |identifier:{_0131-_1e14-_1e08}
- |is_target:{1}
- |node_number:{13}
-  *arguments_line C1
    *line_arg C7
     {spaces_before_argument: }
-    *@dotless C1 l67
+    *@dotless C1 l64
      *brace_container C1
       {i}
     { }
-    *@` C1 l67
+    *@` C1 l64
      *brace_container C1
-      *@= C1 l67
+      *@= C1 l64
        *following_arg C1
         {E}
     { }
-    *@, C1 l67
+    *@, C1 l64
      *brace_container C1
-      *@\' C1 l67
+      *@\' C1 l64
        *following_arg C1
         {C}
     {spaces_after_argument:\\n}
- *@chapter C2 l68 {@dotless{i} @`{@=E} @,{@\'C}}
+  {empty_line:\\n}
+ *@node C1 l66 {@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}}
+ |EXTRA
+ |identifier:{_201c-_201d-_2018-_2019-_201e-_201a}
+ |is_target:{1}
+ |node_number:{13}
+  *arguments_line C1
+   *line_arg C13
+    {spaces_before_argument: }
+    *@quotedblleft C1 l66
+     *brace_container
+    { }
+    *@quotedblright C1 l66
+     *brace_container
+    { }
+    *@quoteleft C1 l66
+     *brace_container
+    { }
+    *@quoteright C1 l66
+     *brace_container
+    { }
+    *@quotedblbase C1 l66
+     *brace_container
+    { }
+    *@quotesinglbase C1 l66
+     *brace_container
+    {spaces_after_argument:\\n}
+ *@chapter C2 l67 {@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}}
  |EXTRA
  |section_heading_number:{12}
  |section_level:{1}
  |section_number:{13}
   *arguments_line C1
-   *line_arg C7
+   *line_arg C13
     {spaces_before_argument: }
-    *@dotless C1 l68
-     *brace_container C1
-      {i}
+    *@quotedblleft C1 l67
+     *brace_container
     { }
-    *@` C1 l68
-     *brace_container C1
-      *@= C1 l68
-       *following_arg C1
-        {E}
+    *@quotedblright C1 l67
+     *brace_container
     { }
-    *@, C1 l68
-     *brace_container C1
-      *@\' C1 l68
-       *following_arg C1
-        {C}
+    *@quoteleft C1 l67
+     *brace_container
+    { }
+    *@quoteright C1 l67
+     *brace_container
+    { }
+    *@quotedblbase C1 l67
+     *brace_container
+    { }
+    *@quotesinglbase C1 l67
+     *brace_container
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l70 {@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}}
+ *@node C1 l69 {@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}}
  |EXTRA
- |identifier:{_201c-_201d-_2018-_2019-_201e-_201a}
+ |identifier:{_00ab-_00bb-_00ab-_00bb-_2039-_203a}
  |is_target:{1}
  |node_number:{14}
   *arguments_line C1
    *line_arg C13
     {spaces_before_argument: }
-    *@quotedblleft C1 l70
+    *@guillemetleft C1 l69
      *brace_container
     { }
-    *@quotedblright C1 l70
+    *@guillemetright C1 l69
      *brace_container
     { }
-    *@quoteleft C1 l70
+    *@guillemotleft C1 l69
      *brace_container
     { }
-    *@quoteright C1 l70
+    *@guillemotright C1 l69
      *brace_container
     { }
-    *@quotedblbase C1 l70
+    *@guilsinglleft C1 l69
      *brace_container
     { }
-    *@quotesinglbase C1 l70
+    *@guilsinglright C1 l69
      *brace_container
     {spaces_after_argument:\\n}
- *@chapter C2 l71 {@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}}
+ *@chapter C2 l70 {@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}}
  |EXTRA
  |section_heading_number:{13}
  |section_level:{1}
@@ -1513,185 +1411,132 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
   *arguments_line C1
    *line_arg C13
     {spaces_before_argument: }
-    *@quotedblleft C1 l71
+    *@guillemetleft C1 l70
      *brace_container
     { }
-    *@quotedblright C1 l71
+    *@guillemetright C1 l70
      *brace_container
     { }
-    *@quoteleft C1 l71
+    *@guillemotleft C1 l70
      *brace_container
     { }
-    *@quoteright C1 l71
+    *@guillemotright C1 l70
      *brace_container
     { }
-    *@quotedblbase C1 l71
+    *@guilsinglleft C1 l70
      *brace_container
     { }
-    *@quotesinglbase C1 l71
+    *@guilsinglright C1 l70
      *brace_container
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l73 {@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}}
+ *@node C1 l72 {`` \'\' --- -- ` \'}
  |EXTRA
- |identifier:{_00ab-_00bb-_00ab-_00bb-_2039-_203a}
+ |identifier:{_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027}
  |is_target:{1}
  |node_number:{15}
   *arguments_line C1
-   *line_arg C13
+   *line_arg C3
     {spaces_before_argument: }
-    *@guillemetleft C1 l73
-     *brace_container
-    { }
-    *@guillemetright C1 l73
-     *brace_container
-    { }
-    *@guillemotleft C1 l73
-     *brace_container
-    { }
-    *@guillemotright C1 l73
-     *brace_container
-    { }
-    *@guilsinglleft C1 l73
-     *brace_container
-    { }
-    *@guilsinglright C1 l73
-     *brace_container
+    {`` \'\' --- -- ` \'}
     {spaces_after_argument:\\n}
- *@chapter C2 l74 {@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}}
+ *@chapter C2 l73 {`` \'\' --- -- ` \'}
  |EXTRA
  |section_heading_number:{14}
  |section_level:{1}
  |section_number:{15}
   *arguments_line C1
-   *line_arg C13
-    {spaces_before_argument: }
-    *@guillemetleft C1 l74
-     *brace_container
-    { }
-    *@guillemetright C1 l74
-     *brace_container
-    { }
-    *@guillemotleft C1 l74
-     *brace_container
-    { }
-    *@guillemotright C1 l74
-     *brace_container
-    { }
-    *@guilsinglleft C1 l74
-     *brace_container
-    { }
-    *@guilsinglright C1 l74
-     *brace_container
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
- *@node C1 l76 {`` \'\' --- -- ` \'}
- |EXTRA
- |identifier:{_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027}
- |is_target:{1}
- |node_number:{16}
-  *arguments_line C1
-   *line_arg C3
-    {spaces_before_argument: }
-    {`` \'\' --- -- ` \'}
-    {spaces_after_argument:\\n}
- *@chapter C2 l77 {`` \'\' --- -- ` \'}
- |EXTRA
- |section_heading_number:{15}
- |section_level:{1}
- |section_number:{16}
-  *arguments_line C1
    *line_arg C3
     {spaces_before_argument: }
     {`` \'\' --- -- ` \'}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l79 {@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}}
+ *@node C1 l75 {@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}}
  |EXTRA
  |identifier:{AAA-AAA-BBB}
  |is_target:{1}
- |node_number:{17}
+ |node_number:{16}
   *arguments_line C1
    *line_arg C7
     {spaces_before_argument: }
-    *@acronym C2 l79
+    *@acronym C2 l75
      *brace_arg C1
       {AAA}
      *brace_arg C2
       {spaces_before_argument: }
       {fff}
     { }
-    *@acronym C1 l79
+    *@acronym C1 l75
      *brace_arg C1
       {AAA}
     { }
-    *@acronym C1 l79
+    *@acronym C1 l75
      *brace_arg C1
       {BBB}
     {spaces_after_argument:\\n}
- *@chapter C2 l80 {@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}}
+ *@chapter C2 l76 {@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}}
+ |EXTRA
+ |section_heading_number:{15}
+ |section_level:{1}
+ |section_number:{16}
+  *arguments_line C1
+   *line_arg C7
+    {spaces_before_argument: }
+    *@acronym C2 l76
+     *brace_arg C1
+      {AAA}
+     *brace_arg C2
+      {spaces_before_argument: }
+      {fff}
+    { }
+    *@acronym C1 l76
+     *brace_arg C1
+      {AAA}
+    { }
+    *@acronym C1 l76
+     *brace_arg C1
+      {BBB}
+    {spaces_after_argument:\\n}
+  {empty_line:\\n}
+ *@node C1 l78 {@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}}
+ |EXTRA
+ |identifier:{CCC-CCC-DDD}
+ |is_target:{1}
+ |node_number:{17}
+  *arguments_line C1
+   *line_arg C7
+   >SOURCEMARKS
+   >expanded_conditional_command<start;1>
+    >*@ifnottex C1 l79
+     >*arguments_line C1
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
+    {spaces_before_argument: }
+    *@abbr C2 l78
+     *brace_arg C1
+      {CCC}
+     *brace_arg C2
+      {spaces_before_argument: }
+      {rrr}
+    { }
+    *@abbr C1 l78
+     *brace_arg C1
+      {CCC}
+    { }
+    *@abbr C1 l78
+     *brace_arg C1
+      {DDD}
+    {spaces_after_argument:\\n}
+ *@chapter C2 l80 {@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}}
  |EXTRA
  |section_heading_number:{16}
  |section_level:{1}
  |section_number:{17}
   *arguments_line C1
    *line_arg C7
-    {spaces_before_argument: }
-    *@acronym C2 l80
-     *brace_arg C1
-      {AAA}
-     *brace_arg C2
-      {spaces_before_argument: }
-      {fff}
-    { }
-    *@acronym C1 l80
-     *brace_arg C1
-      {AAA}
-    { }
-    *@acronym C1 l80
-     *brace_arg C1
-      {BBB}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
- *@node C1 l82 {@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}}
- |EXTRA
- |identifier:{CCC-CCC-DDD}
- |is_target:{1}
- |node_number:{18}
-  *arguments_line C1
-   *line_arg C7
-   >SOURCEMARKS
-   >expanded_conditional_command<start;1>
-    >*@ifnottex C1 l83
-     >*arguments_line C1
-      >*block_line_arg C1
-       >{spaces_before_argument:\\n}
-    {spaces_before_argument: }
-    *@abbr C2 l82
-     *brace_arg C1
-      {CCC}
-     *brace_arg C2
-      {spaces_before_argument: }
-      {rrr}
-    { }
-    *@abbr C1 l82
-     *brace_arg C1
-      {CCC}
-    { }
-    *@abbr C1 l82
-     *brace_arg C1
-      {DDD}
-    {spaces_after_argument:\\n}
- *@chapter C2 l84 {@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}}
- |EXTRA
- |section_heading_number:{17}
- |section_level:{1}
- |section_number:{18}
-  *arguments_line C1
-   *line_arg C7
    >SOURCEMARKS
    >expanded_conditional_command<end;1>
-    >*@end C1 l85
+    >*@end C1 l81
     >|EXTRA
     >|text_arg:{ifnottex}
      >*line_arg C3
@@ -1699,31 +1544,31 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       >{ifnottex}
       >{spaces_after_argument:\\n}
     {spaces_before_argument: }
-    *@abbr C2 l84
+    *@abbr C2 l80
      *brace_arg C1
       {CCC}
      *brace_arg C2
       {spaces_before_argument: }
       {rrr}
     { }
-    *@abbr C1 l84
+    *@abbr C1 l80
      *brace_arg C1
       {CCC}
     { }
-    *@abbr C1 l84
+    *@abbr C1 l80
      *brace_arg C1
       {DDD}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l87 {@email{someone@@somewher, the someone} @email{no_explain@@there}}
+ *@node C1 l83 {@email{someone@@somewher, the someone} @email{no_explain@@there}}
  |EXTRA
  |identifier:{someone_0040somewher-no_005fexplain_0040there}
  |is_target:{1}
- |node_number:{19}
+ |node_number:{18}
   *arguments_line C1
    *line_arg C5
     {spaces_before_argument: }
-    *@email C2 l87
+    *@email C2 l83
      *brace_arg C3
       {someone}
       *@@
@@ -1732,57 +1577,94 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       {spaces_before_argument: }
       {the someone}
     { }
-    *@email C1 l87
+    *@email C1 l83
      *brace_arg C3
       {no_explain}
       *@@
       {there}
     {spaces_after_argument:\\n}
- *@chapter C2 l88 {@email{someone@@somewher, the someone} @email{no_explain@@there}}
+ *@chapter C2 l84 {@email{someone@@somewher, the someone} @email{no_explain@@there}}
+ |EXTRA
+ |section_heading_number:{17}
+ |section_level:{1}
+ |section_number:{18}
+  *arguments_line C1
+   *line_arg C5
+    {spaces_before_argument: }
+    *@email C2 l84
+     *brace_arg C3
+      {someone}
+      *@@
+      {somewher}
+     *brace_arg C2
+      {spaces_before_argument: }
+      {the someone}
+    { }
+    *@email C1 l84
+     *brace_arg C3
+      {no_explain}
+      *@@
+      {there}
+    {spaces_after_argument:\\n}
+  {empty_line:\\n}
+ *@node C1 l86 {@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}}
+ |EXTRA
+ |identifier:{f_002d_002dile1-f_002d_002dile}
+ |is_target:{1}
+ |node_number:{19}
+  *arguments_line C1
+   *line_arg C5
+   >SOURCEMARKS
+   >expanded_conditional_command<start;2>
+    >*@ifnottex C1 l87
+     >*arguments_line C1
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
+    {spaces_before_argument: }
+    *@image C1 l86
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {f--ile1}
+    {  }
+    *@image C5 l86
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {f--ile}
+     *brace_arg C1
+      {aze}
+     *brace_arg C1
+      {az}
+     *brace_arg C1
+      {alt}
+     *brace_arg C1
+      {e--xt}
+    {spaces_after_argument:\\n}
+ *@chapter C2 l88 {@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}}
  |EXTRA
  |section_heading_number:{18}
  |section_level:{1}
  |section_number:{19}
   *arguments_line C1
    *line_arg C5
-    {spaces_before_argument: }
-    *@email C2 l88
-     *brace_arg C3
-      {someone}
-      *@@
-      {somewher}
-     *brace_arg C2
-      {spaces_before_argument: }
-      {the someone}
-    { }
-    *@email C1 l88
-     *brace_arg C3
-      {no_explain}
-      *@@
-      {there}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
- *@node C1 l90 {@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}}
- |EXTRA
- |identifier:{f_002d_002dile1-f_002d_002dile}
- |is_target:{1}
- |node_number:{20}
-  *arguments_line C1
-   *line_arg C5
    >SOURCEMARKS
-   >expanded_conditional_command<start;2>
-    >*@ifnottex C1 l91
-     >*arguments_line C1
-      >*block_line_arg C1
-       >{spaces_before_argument:\\n}
+   >expanded_conditional_command<end;2>
+    >*@end C1 l89
+    >|EXTRA
+    >|text_arg:{ifnottex}
+     >*line_arg C3
+      >{spaces_before_argument: }
+      >{ifnottex}
+      >{spaces_after_argument:\\n}
     {spaces_before_argument: }
-    *@image C1 l90
+    *@image C1 l88
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
       {f--ile1}
     {  }
-    *@image C5 l90
+    *@image C5 l88
     |EXTRA
     |input_encoding_name:{utf-8}
      *brace_arg C1
@@ -1796,16 +1678,37 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      *brace_arg C1
       {e--xt}
     {spaces_after_argument:\\n}
- *@chapter C2 l92 {@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}}
+  {empty_line:\\n}
+ *@node C1 l91 {@verb{. @ {} . .}}
+ |EXTRA
+ |identifier:{-_0040-_007b_007d-_002e-}
+ |is_target:{1}
+ |node_number:{20}
+  *arguments_line C1
+   *line_arg C3
+   >SOURCEMARKS
+   >expanded_conditional_command<start;3>
+    >*@ifnottex C1 l92
+     >*arguments_line C1
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
+    {spaces_before_argument: }
+    *@verb C1 l91
+    |INFO
+    |delimiter:{.}
+     *brace_container C1
+      {raw: @ {} . }
+    {spaces_after_argument:\\n}
+ *@chapter C2 l93 {@verb{. @ {} . .}}
  |EXTRA
  |section_heading_number:{19}
  |section_level:{1}
  |section_number:{20}
   *arguments_line C1
-   *line_arg C5
+   *line_arg C3
    >SOURCEMARKS
-   >expanded_conditional_command<end;2>
-    >*@end C1 l93
+   >expanded_conditional_command<end;3>
+    >*@end C1 l94
     >|EXTRA
     >|text_arg:{ifnottex}
      >*line_arg C3
@@ -1813,419 +1716,361 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       >{ifnottex}
       >{spaces_after_argument:\\n}
     {spaces_before_argument: }
-    *@image C1 l92
-    |EXTRA
-    |input_encoding_name:{utf-8}
-     *brace_arg C1
-      {f--ile1}
-    {  }
-    *@image C5 l92
-    |EXTRA
-    |input_encoding_name:{utf-8}
-     *brace_arg C1
-      {f--ile}
-     *brace_arg C1
-      {aze}
-     *brace_arg C1
-      {az}
-     *brace_arg C1
-      {alt}
-     *brace_arg C1
-      {e--xt}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
- *@node C1 l95 {@verb{. @ {} . .}}
- |EXTRA
- |identifier:{-_0040-_007b_007d-_002e-}
- |is_target:{1}
- |node_number:{21}
-  *arguments_line C1
-   *line_arg C3
-   >SOURCEMARKS
-   >expanded_conditional_command<start;3>
-    >*@ifnottex C1 l96
-     >*arguments_line C1
-      >*block_line_arg C1
-       >{spaces_before_argument:\\n}
-    {spaces_before_argument: }
-    *@verb C1 l95
+    *@verb C1 l93
     |INFO
     |delimiter:{.}
      *brace_container C1
       {raw: @ {} . }
     {spaces_after_argument:\\n}
- *@chapter C2 l97 {@verb{. @ {} . .}}
+  {empty_line:\\n}
+ *@node C1 l96 {@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}}
+ |EXTRA
+ |identifier:{cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i}
+ |is_target:{1}
+ |node_number:{21}
+  *arguments_line C1
+   *line_arg C19
+    {spaces_before_argument: }
+    *@cite C1 l96
+     *brace_container C2
+      {cite }
+      *@asis C1 l96
+       *brace_container C1
+        {asis}
+    { }
+    *@w C1 l96
+     *brace_container C4
+      {in }
+      *@@
+      {w }
+      *@b C1 l96
+       *brace_container C1
+        {b}
+    { }
+    *@r C1 l96
+     *brace_container C1
+      {in r}
+    { }
+    *@sc C1 l96
+     *brace_container C1
+      {sc}
+    { }
+    *@strong C1 l96
+     *brace_container C1
+      {str}
+    { }
+    *@t C1 l96
+     *brace_container C1
+      {t}
+    { }
+    *@var C1 l96
+     *brace_container C1
+      {var}
+    { }
+    *@dfn C1 l96
+     *brace_container C1
+      {dfn}
+    { }
+    *@i C1 l96
+     *brace_container C1
+      {i}
+    {spaces_after_argument:\\n}
+ *@chapter C2 l97 {@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}}
  |EXTRA
  |section_heading_number:{20}
  |section_level:{1}
  |section_number:{21}
   *arguments_line C1
-   *line_arg C3
-   >SOURCEMARKS
-   >expanded_conditional_command<end;3>
-    >*@end C1 l98
-    >|EXTRA
-    >|text_arg:{ifnottex}
-     >*line_arg C3
-      >{spaces_before_argument: }
-      >{ifnottex}
-      >{spaces_after_argument:\\n}
-    {spaces_before_argument: }
-    *@verb C1 l97
-    |INFO
-    |delimiter:{.}
-     *brace_container C1
-      {raw: @ {} . }
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
- *@node C1 l100 {@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}}
- |EXTRA
- |identifier:{cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i}
- |is_target:{1}
- |node_number:{22}
-  *arguments_line C1
    *line_arg C19
     {spaces_before_argument: }
-    *@cite C1 l100
+    *@cite C1 l97
      *brace_container C2
       {cite }
-      *@asis C1 l100
+      *@asis C1 l97
        *brace_container C1
         {asis}
     { }
-    *@w C1 l100
+    *@w C1 l97
      *brace_container C4
       {in }
       *@@
       {w }
-      *@b C1 l100
+      *@b C1 l97
        *brace_container C1
         {b}
     { }
-    *@r C1 l100
+    *@r C1 l97
      *brace_container C1
       {in r}
     { }
-    *@sc C1 l100
+    *@sc C1 l97
      *brace_container C1
       {sc}
     { }
-    *@strong C1 l100
+    *@strong C1 l97
      *brace_container C1
       {str}
     { }
-    *@t C1 l100
+    *@t C1 l97
      *brace_container C1
       {t}
     { }
-    *@var C1 l100
+    *@var C1 l97
      *brace_container C1
       {var}
     { }
-    *@dfn C1 l100
+    *@dfn C1 l97
      *brace_container C1
       {dfn}
     { }
-    *@i C1 l100
+    *@i C1 l97
      *brace_container C1
       {i}
     {spaces_after_argument:\\n}
- *@chapter C2 l101 {@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}}
+  {empty_line:\\n}
+ *@node C1 l99 {@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}}
+ |EXTRA
+ |identifier:{env-code-option-samp-command-file-C_002dx-ESC}
+ |is_target:{1}
+ |node_number:{22}
+  *arguments_line C1
+   *line_arg C15
+    {spaces_before_argument: }
+    *@env C1 l99
+     *brace_container C1
+      {env}
+    { }
+    *@code C1 l99
+     *brace_container C1
+      {code}
+    { }
+    *@option C1 l99
+     *brace_container C1
+      {option}
+    { }
+    *@samp C1 l99
+     *brace_container C1
+      {samp}
+    { }
+    *@command C1 l99
+     *brace_container C1
+      {command}
+    { }
+    *@file C1 l99
+     *brace_container C1
+      {file}
+    { }
+    *@kbd C1 l99
+     *brace_container C2
+      {C-x }
+      *@key C1 l99
+       *brace_container C1
+        {ESC}
+    {spaces_after_argument:\\n}
+ *@chapter C2 l100 {@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}}
  |EXTRA
  |section_heading_number:{21}
  |section_level:{1}
  |section_number:{22}
   *arguments_line C1
-   *line_arg C19
-    {spaces_before_argument: }
-    *@cite C1 l101
-     *brace_container C2
-      {cite }
-      *@asis C1 l101
-       *brace_container C1
-        {asis}
-    { }
-    *@w C1 l101
-     *brace_container C4
-      {in }
-      *@@
-      {w }
-      *@b C1 l101
-       *brace_container C1
-        {b}
-    { }
-    *@r C1 l101
-     *brace_container C1
-      {in r}
-    { }
-    *@sc C1 l101
-     *brace_container C1
-      {sc}
-    { }
-    *@strong C1 l101
-     *brace_container C1
-      {str}
-    { }
-    *@t C1 l101
-     *brace_container C1
-      {t}
-    { }
-    *@var C1 l101
-     *brace_container C1
-      {var}
-    { }
-    *@dfn C1 l101
-     *brace_container C1
-      {dfn}
-    { }
-    *@i C1 l101
-     *brace_container C1
-      {i}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
- *@node C1 l103 {@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}}
- |EXTRA
- |identifier:{env-code-option-samp-command-file-C_002dx-ESC}
- |is_target:{1}
- |node_number:{23}
-  *arguments_line C1
    *line_arg C15
     {spaces_before_argument: }
-    *@env C1 l103
+    *@env C1 l100
      *brace_container C1
       {env}
     { }
-    *@code C1 l103
+    *@code C1 l100
      *brace_container C1
       {code}
     { }
-    *@option C1 l103
+    *@option C1 l100
      *brace_container C1
       {option}
     { }
-    *@samp C1 l103
+    *@samp C1 l100
      *brace_container C1
       {samp}
     { }
-    *@command C1 l103
+    *@command C1 l100
      *brace_container C1
       {command}
     { }
-    *@file C1 l103
+    *@file C1 l100
      *brace_container C1
       {file}
     { }
-    *@kbd C1 l103
+    *@kbd C1 l100
      *brace_container C2
       {C-x }
-      *@key C1 l103
+      *@key C1 l100
        *brace_container C1
         {ESC}
     {spaces_after_argument:\\n}
- *@chapter C2 l104 {@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}}
+  {empty_line:\\n}
+ *@node C1 l102 {8.27@dmn{in}}
+ |EXTRA
+ |identifier:{8_002e27in}
+ |is_target:{1}
+ |node_number:{23}
+  *arguments_line C1
+   *line_arg C4
+    {spaces_before_argument: }
+    {8.27}
+    *@dmn C1 l102
+     *brace_container C1
+      {in}
+    {spaces_after_argument:\\n}
+ *@chapter C2 l103 {8.27@dmn{in}}
  |EXTRA
  |section_heading_number:{22}
  |section_level:{1}
  |section_number:{23}
   *arguments_line C1
-   *line_arg C15
-    {spaces_before_argument: }
-    *@env C1 l104
-     *brace_container C1
-      {env}
-    { }
-    *@code C1 l104
-     *brace_container C1
-      {code}
-    { }
-    *@option C1 l104
-     *brace_container C1
-      {option}
-    { }
-    *@samp C1 l104
-     *brace_container C1
-      {samp}
-    { }
-    *@command C1 l104
-     *brace_container C1
-      {command}
-    { }
-    *@file C1 l104
-     *brace_container C1
-      {file}
-    { }
-    *@kbd C1 l104
-     *brace_container C2
-      {C-x }
-      *@key C1 l104
-       *brace_container C1
-        {ESC}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
- *@node C1 l106 {8.27@dmn{in}}
- |EXTRA
- |identifier:{8_002e27in}
- |is_target:{1}
- |node_number:{24}
-  *arguments_line C1
    *line_arg C4
     {spaces_before_argument: }
     {8.27}
-    *@dmn C1 l106
+    *@dmn C1 l103
      *brace_container C1
       {in}
     {spaces_after_argument:\\n}
- *@chapter C2 l107 {8.27@dmn{in}}
+  {empty_line:\\n}
+ *@node C1 l105 {@sansserif{sansserif} @slanted{slanted}}
+ |EXTRA
+ |identifier:{sansserif-slanted}
+ |is_target:{1}
+ |node_number:{24}
+  *arguments_line C1
+   *line_arg C5
+    {spaces_before_argument: }
+    *@sansserif C1 l105
+     *brace_container C1
+      {sansserif}
+    { }
+    *@slanted C1 l105
+     *brace_container C1
+      {slanted}
+    {spaces_after_argument:\\n}
+ *@chapter C2 l106 {@sansserif{sansserif} @slanted{slanted}}
  |EXTRA
  |section_heading_number:{23}
  |section_level:{1}
  |section_number:{24}
   *arguments_line C1
-   *line_arg C4
-    {spaces_before_argument: }
-    {8.27}
-    *@dmn C1 l107
-     *brace_container C1
-      {in}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
- *@node C1 l109 {@sansserif{sansserif} @slanted{slanted}}
- |EXTRA
- |identifier:{sansserif-slanted}
- |is_target:{1}
- |node_number:{25}
-  *arguments_line C1
    *line_arg C5
     {spaces_before_argument: }
-    *@sansserif C1 l109
+    *@sansserif C1 l106
      *brace_container C1
       {sansserif}
     { }
-    *@slanted C1 l109
+    *@slanted C1 l106
      *brace_container C1
       {slanted}
     {spaces_after_argument:\\n}
- *@chapter C2 l110 {@sansserif{sansserif} @slanted{slanted}}
+  {empty_line:\\n}
+ *@node C1 l108 {@indicateurl{indicateurl}}
+ |EXTRA
+ |identifier:{indicateurl}
+ |is_target:{1}
+ |node_number:{25}
+  *arguments_line C1
+   *line_arg C3
+    {spaces_before_argument: }
+    *@indicateurl C1 l108
+     *brace_container C1
+      {indicateurl}
+    {spaces_after_argument:\\n}
+ *@chapter C2 l109 {@indicateurl{indicateurl}}
  |EXTRA
  |section_heading_number:{24}
  |section_level:{1}
  |section_number:{25}
   *arguments_line C1
-   *line_arg C5
-    {spaces_before_argument: }
-    *@sansserif C1 l110
-     *brace_container C1
-      {sansserif}
-    { }
-    *@slanted C1 l110
-     *brace_container C1
-      {slanted}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
- *@node C1 l112 {@indicateurl{indicateurl}}
- |EXTRA
- |identifier:{indicateurl}
- |is_target:{1}
- |node_number:{26}
-  *arguments_line C1
    *line_arg C3
     {spaces_before_argument: }
-    *@indicateurl C1 l112
+    *@indicateurl C1 l109
      *brace_container C1
       {indicateurl}
     {spaces_after_argument:\\n}
- *@chapter C2 l113 {@indicateurl{indicateurl}}
+  {empty_line:\\n}
+ *@node C1 l111 {@sub{g}H 3@sup{rd}}
+ |EXTRA
+ |identifier:{gH-3rd}
+ |is_target:{1}
+ |node_number:{26}
+  *arguments_line C1
+   *line_arg C5
+    {spaces_before_argument: }
+    *@sub C1 l111
+     *brace_container C1
+      {g}
+    {H 3}
+    *@sup C1 l111
+     *brace_container C1
+      {rd}
+    {spaces_after_argument:\\n}
+ *@chapter C2 l112 {@sub{g}H 3@sup{rd}}
  |EXTRA
  |section_heading_number:{25}
  |section_level:{1}
  |section_number:{26}
   *arguments_line C1
-   *line_arg C3
-    {spaces_before_argument: }
-    *@indicateurl C1 l113
-     *brace_container C1
-      {indicateurl}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
- *@node C1 l115 {@sub{g}H 3@sup{rd}}
- |EXTRA
- |identifier:{gH-3rd}
- |is_target:{1}
- |node_number:{27}
-  *arguments_line C1
    *line_arg C5
     {spaces_before_argument: }
-    *@sub C1 l115
+    *@sub C1 l112
      *brace_container C1
       {g}
     {H 3}
-    *@sup C1 l115
-     *brace_container C1
-      {rd}
-    {spaces_after_argument:\\n}
- *@chapter C2 l116 {@sub{g}H 3@sup{rd}}
- |EXTRA
- |section_heading_number:{26}
- |section_level:{1}
- |section_number:{27}
-  *arguments_line C1
-   *line_arg C5
-    {spaces_before_argument: }
-    *@sub C1 l116
-     *brace_container C1
-      {g}
-    {H 3}
-    *@sup C1 l116
+    *@sup C1 l112
      *brace_container C1
       {rd}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l118 {@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}}
+ *@node C1 l114 {@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}}
  |EXTRA
  |identifier:{http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls}
  |is_target:{1}
- |node_number:{28}
+ |node_number:{27}
   *arguments_line C1
    *line_arg C7
     {spaces_before_argument: }
-    *@url C1 l118
+    *@url C1 l114
      *brace_arg C1
       {http://somewhere_aaa}
     { }
-    *@url C2 l118
+    *@url C2 l114
      *brace_arg C1
       {url}
      *brace_arg C2
       {spaces_before_argument: }
       {text}
     { }
-    *@uref C3 l118
+    *@uref C3 l114
      *brace_arg C1
       {/man.cgi/1/ls}
      *brace_arg
      *brace_arg C1
       {ls}
     {spaces_after_argument:\\n}
- *@chapter C56 l119 {@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}}
+ *@chapter C65 l115 {@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}}
  |EXTRA
- |section_heading_number:{27}
+ |section_heading_number:{26}
  |section_level:{1}
- |section_number:{28}
+ |section_number:{27}
   *arguments_line C1
    *line_arg C7
     {spaces_before_argument: }
-    *@url C1 l119
+    *@url C1 l115
      *brace_arg C1
       {http://somewhere_aaa}
     { }
-    *@url C2 l119
+    *@url C2 l115
      *brace_arg C1
       {url}
      *brace_arg C2
       {spaces_before_argument: }
       {text}
     { }
-    *@uref C3 l119
+    *@uref C3 l115
      *brace_arg C1
       {/man.cgi/1/ls}
      *brace_arg
@@ -2234,7 +2079,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l121
+   *@ref C1 l117
     *brace_arg C5
     |EXTRA
     |node_content:{@- @{ @}}
@@ -2247,7 +2092,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l123
+   *@ref C1 l119
     *brace_arg C17
     |EXTRA
     |node_content:{@  @\\t @! @* @. @: .@: @? @@}
@@ -2272,358 +2117,310 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l125
+   *@ref C1 l121
     *brace_arg C9
     |EXTRA
     |node_content:{@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}}
     |normalized:{_0040-_007b-_007d-_005c-_0023}
-     *@atchar C1 l125
+     *@atchar C1 l121
       *brace_container
      { }
-     *@lbracechar C1 l125
+     *@lbracechar C1 l121
       *brace_container
      { }
-     *@rbracechar C1 l125
+     *@rbracechar C1 l121
       *brace_container
      { }
-     *@backslashchar C1 l125
+     *@backslashchar C1 l121
       *brace_container
      { }
-     *@hashchar C1 l125
+     *@hashchar C1 l121
+      *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *@ref C1 l123
+    *brace_arg C9
+    |EXTRA
+    |node_content:{@LaTeX{} @TeX{} @comma{} @dots{} @enddots{}}
+    |normalized:{LaTeX-TeX-_002c-_2026-_002e_002e_002e}
+     *@LaTeX C1 l123
+      *brace_container
+     { }
+     *@TeX C1 l123
+      *brace_container
+     { }
+     *@comma C1 l123
+      *brace_container
+     { }
+     *@dots C1 l123
+      *brace_container
+     { }
+     *@enddots C1 l123
+      *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *@ref C1 l125
+    *brace_arg C5
+    |EXTRA
+    |node_content:{@error{} @euro{} @exclamdown{}}
+    |normalized:{error_002d_002d_003e-_20ac-_00a1}
+     *@error C1 l125
+      *brace_container
+     { }
+     *@euro C1 l125
+      *brace_container
+     { }
+     *@exclamdown C1 l125
       *brace_container
    {\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l127
-    *brace_arg C13
+    *brace_arg C7
     |EXTRA
-    |node_content:{@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}}
-    |normalized:{LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e}
-     *@LaTeX C1 l127
+    |node_content:{@ordf{} @ordm{} @questiondown{} @registeredsymbol{}}
+    |normalized:{_00aa-_00ba-_00bf-_00ae}
+     *@ordf C1 l127
       *brace_container
      { }
-     *@TeX C1 l127
+     *@ordm C1 l127
       *brace_container
      { }
-     *@bullet C1 l127
+     *@questiondown C1 l127
       *brace_container
      { }
-     *@comma C1 l127
-      *brace_container
-     { }
-     *@copyright C1 l127
-      *brace_container
-     { }
-     *@dots C1 l127
-      *brace_container
-     { }
-     *@enddots C1 l127
+     *@registeredsymbol C1 l127
       *brace_container
    {\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l129
-    *brace_arg C11
+    *brace_arg C6
     |EXTRA
-    |node_content:{@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}}
-    |normalized:{_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212}
-     *@equiv C1 l129
+    |node_content:{a@tie{}b @today{} @aa{}}
+    |normalized:{a-b-_00e5}
+     {a}
+     *@tie C1 l129
+      *brace_container
+     {b }
+     *@today C1 l129
       *brace_container
      { }
-     *@error C1 l129
-      *brace_container
-     { }
-     *@euro C1 l129
-      *brace_container
-     { }
-     *@exclamdown C1 l129
-      *brace_container
-     { }
-     *@expansion C1 l129
-      *brace_container
-     { }
-     *@minus C1 l129
+     *@aa C1 l129
       *brace_container
    {\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l131
-    *brace_arg C5
+    *brace_arg C25
     |EXTRA
-    |node_content:{@geq{} @leq{} @arrow{}}
-    |normalized:{_2265-_2264-_2192}
-     *@geq C1 l131
+    |node_content:{@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}}
+    |normalized:{_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe}
+     *@AA C1 l131
       *brace_container
      { }
-     *@leq C1 l131
+     *@ae C1 l131
       *brace_container
      { }
-     *@arrow C1 l131
+     *@oe C1 l131
+      *brace_container
+     { }
+     *@AE C1 l131
+      *brace_container
+     { }
+     *@OE C1 l131
+      *brace_container
+     { }
+     *@o C1 l131
+      *brace_container
+     { }
+     *@O C1 l131
+      *brace_container
+     { }
+     *@ss C1 l131
+      *brace_container
+     { }
+     *@l C1 l131
+      *brace_container
+     { }
+     *@L C1 l131
+      *brace_container
+     { }
+     *@DH C1 l131
+      *brace_container
+     { }
+     *@dh C1 l131
+      *brace_container
+     { }
+     *@th C1 l131
       *brace_container
    {\\n}
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l133
-    *brace_arg C13
-    |EXTRA
-    |node_content:{@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}}
-    |normalized:{_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae}
-     *@ordf C1 l133
-      *brace_container
-     { }
-     *@ordm C1 l133
-      *brace_container
-     { }
-     *@point C1 l133
-      *brace_container
-     { }
-     *@pounds C1 l133
-      *brace_container
-     { }
-     *@print C1 l133
-      *brace_container
-     { }
-     *@questiondown C1 l133
-      *brace_container
-     { }
-     *@registeredsymbol C1 l133
-      *brace_container
-   {\\n}
-  {empty_line:\\n}
-  *paragraph C2
-   *@ref C1 l135
-    *brace_arg C9
-    |EXTRA
-    |node_content:{@result{} @textdegree{} a@tie{}b @today{} @aa{}}
-    |normalized:{_21d2-_00b0-a-b-_00e5}
-     *@result C1 l135
-      *brace_container
-     { }
-     *@textdegree C1 l135
-      *brace_container
-     { a}
-     *@tie C1 l135
-      *brace_container
-     {b }
-     *@today C1 l135
-      *brace_container
-     { }
-     *@aa C1 l135
-      *brace_container
-   {\\n}
-  {empty_line:\\n}
-  *paragraph C2
-   *@ref C1 l137
-    *brace_arg C27
-    |EXTRA
-    |node_content:{@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}}
-    |normalized:{_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe}
-     *@AA C1 l137
-      *brace_container
-     { }
-     *@ae C1 l137
-      *brace_container
-     { }
-     *@oe C1 l137
-      *brace_container
-     { }
-     *@AE C1 l137
-      *brace_container
-     { }
-     *@OE C1 l137
-      *brace_container
-     { }
-     *@o C1 l137
-      *brace_container
-     { }
-     *@O C1 l137
-      *brace_container
-     { }
-     *@ss C1 l137
-      *brace_container
-     { }
-     *@l C1 l137
-      *brace_container
-     { }
-     *@L C1 l137
-      *brace_container
-     { }
-     *@DH C1 l137
-      *brace_container
-     { }
-     *@dh C1 l137
-      *brace_container
-     { }
-     *@TH C1 l137
-      *brace_container
-     { }
-     *@th C1 l137
-      *brace_container
-   {\\n}
-  {empty_line:\\n}
-  *paragraph C2
-   *@ref C1 l139
     *brace_arg C21
     |EXTRA
     |node_content:{@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}}
     |normalized:{_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119}
-     *@" C1 l139
+     *@" C1 l133
       *brace_container C1
        {a}
      { }
-     *@~ C1 l139
+     *@~ C1 l133
       *brace_container C1
        {e}
      { }
-     *@^ C1 l139
+     *@^ C1 l133
       *brace_container C1
-       *@dotless C1 l139
+       *@dotless C1 l133
         *brace_container C1
          {i}
      { }
-     *@^ C1 l139
+     *@^ C1 l133
       *brace_container C1
        {a}
      { }
-     *@` C1 l139
+     *@` C1 l133
       *brace_container C1
        {a}
      { }
-     *@\' C1 l139
+     *@\' C1 l133
       *following_arg C1
        {e}
      { }
-     *@, C1 l139
+     *@, C1 l133
       *brace_container C1
        {c}
      { }
-     *@= C1 l139
+     *@= C1 l133
       *brace_container C1
        {e}
      { }
-     *@ringaccent C1 l139
+     *@ringaccent C1 l133
       *brace_container C1
        {e}
      { }
-     *@H C1 l139
+     *@H C1 l133
       *brace_container C1
        {e}
      { }
-     *@ogonek C1 l139
+     *@ogonek C1 l133
       *brace_container C1
        {e}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l141
+   *@ref C1 l135
     *brace_arg C13
     |EXTRA
     |node_content:{@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}}
     |normalized:{_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e}
-     *@dotaccent C1 l141
+     *@dotaccent C1 l135
       *brace_container C1
        {e}
      { }
-     *@u C1 l141
+     *@u C1 l135
       *brace_container C1
        {e}
      { }
-     *@ubaraccent C1 l141
+     *@ubaraccent C1 l135
       *brace_container C1
        {e}
      { }
-     *@udotaccent C1 l141
+     *@udotaccent C1 l135
       *brace_container C1
        {e}
      { }
-     *@v C1 l141
+     *@v C1 l135
       *brace_container C1
        {e}
      { }
-     *@dotless C1 l141
+     *@dotless C1 l135
       *brace_container C1
        {j}
      { }
-     *@tieaccent C1 l141
+     *@tieaccent C1 l135
       *brace_container C1
        {ee}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l143
+   *@ref C1 l137
     *brace_arg C5
     |EXTRA
     |node_content:{@dotless{i} @`{@=E} @,{@\'C}}
     |normalized:{_0131-_1e14-_1e08}
-     *@dotless C1 l143
+     *@dotless C1 l137
       *brace_container C1
        {i}
      { }
-     *@` C1 l143
+     *@` C1 l137
       *brace_container C1
-       *@= C1 l143
+       *@= C1 l137
         *following_arg C1
          {E}
      { }
-     *@, C1 l143
+     *@, C1 l137
       *brace_container C1
-       *@\' C1 l143
+       *@\' C1 l137
         *following_arg C1
          {C}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l145
+   *@ref C1 l139
     *brace_arg C11
     |EXTRA
     |node_content:{@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}}
     |normalized:{_201c-_201d-_2018-_2019-_201e-_201a}
-     *@quotedblleft C1 l145
+     *@quotedblleft C1 l139
       *brace_container
      { }
-     *@quotedblright C1 l145
+     *@quotedblright C1 l139
       *brace_container
      { }
-     *@quoteleft C1 l145
+     *@quoteleft C1 l139
       *brace_container
      { }
-     *@quoteright C1 l145
+     *@quoteright C1 l139
       *brace_container
      { }
-     *@quotedblbase C1 l145
+     *@quotedblbase C1 l139
       *brace_container
      { }
-     *@quotesinglbase C1 l145
+     *@quotesinglbase C1 l139
       *brace_container
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l147
+   *@ref C1 l141
     *brace_arg C11
     |EXTRA
     |node_content:{@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}}
     |normalized:{_00ab-_00bb-_00ab-_00bb-_2039-_203a}
-     *@guillemetleft C1 l147
+     *@guillemetleft C1 l141
       *brace_container
      { }
-     *@guillemetright C1 l147
+     *@guillemetright C1 l141
       *brace_container
      { }
-     *@guillemotleft C1 l147
+     *@guillemotleft C1 l141
       *brace_container
      { }
-     *@guillemotright C1 l147
+     *@guillemotright C1 l141
       *brace_container
      { }
-     *@guilsinglleft C1 l147
+     *@guilsinglleft C1 l141
       *brace_container
      { }
-     *@guilsinglright C1 l147
+     *@guilsinglright C1 l141
       *brace_container
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l149
+   *@ref C1 l143
     *brace_arg C1
     |EXTRA
     |node_content:{`` \'\' --- -- ` \'}
@@ -2632,57 +2429,57 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l151
+   *@ref C1 l145
     *brace_arg C5
     |EXTRA
     |node_content:{@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}}
     |normalized:{AAA-AAA-BBB}
-     *@acronym C2 l151
+     *@acronym C2 l145
       *brace_arg C1
        {AAA}
       *brace_arg C2
        {spaces_before_argument: }
        {fff}
      { }
-     *@acronym C1 l151
+     *@acronym C1 l145
       *brace_arg C1
        {AAA}
      { }
-     *@acronym C1 l151
+     *@acronym C1 l145
       *brace_arg C1
        {BBB}
    {\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >expanded_conditional_command<start;4><p:1>
-   >*@ifnottex C1 l153
+   >*@ifnottex C1 l147
     >*arguments_line C1
      >*block_line_arg C1
       >{spaces_before_argument:\\n}
   *paragraph C2
-   *@ref C1 l154
+   *@ref C1 l148
     *brace_arg C5
     |EXTRA
     |node_content:{@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}}
     |normalized:{CCC-CCC-DDD}
-     *@abbr C2 l154
+     *@abbr C2 l148
       *brace_arg C1
        {CCC}
       *brace_arg C2
        {spaces_before_argument: }
        {rrr}
      { }
-     *@abbr C1 l154
+     *@abbr C1 l148
       *brace_arg C1
        {CCC}
      { }
-     *@abbr C1 l154
+     *@abbr C1 l148
       *brace_arg C1
        {DDD}
    {\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;4><p:1>
-    >*@end C1 l155
+    >*@end C1 l149
     >|EXTRA
     >|text_arg:{ifnottex}
      >*line_arg C3
@@ -2691,12 +2488,12 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       >{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l157
+   *@ref C1 l151
     *brace_arg C3
     |EXTRA
     |node_content:{@email{someone@@somewher, the someone} @email{no_explain@@there}}
     |normalized:{someone_0040somewher-no_005fexplain_0040there}
-     *@email C2 l157
+     *@email C2 l151
       *brace_arg C3
        {someone}
        *@@
@@ -2705,7 +2502,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
        {spaces_before_argument: }
        {the someone}
      { }
-     *@email C1 l157
+     *@email C1 l151
       *brace_arg C3
        {no_explain}
        *@@
@@ -2714,23 +2511,23 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
   {empty_line:\\n}
   >SOURCEMARKS
   >expanded_conditional_command<start;5><p:1>
-   >*@ifnottex C1 l159
+   >*@ifnottex C1 l153
     >*arguments_line C1
      >*block_line_arg C1
       >{spaces_before_argument:\\n}
   *paragraph C2
-   *@ref C1 l160
+   *@ref C1 l154
     *brace_arg C3
     |EXTRA
     |node_content:{@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}}
     |normalized:{f_002d_002dile1-f_002d_002dile}
-     *@image C1 l160
+     *@image C1 l154
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C1
        {f--ile1}
      {  }
-     *@image C5 l160
+     *@image C5 l154
      |EXTRA
      |input_encoding_name:{utf-8}
       *brace_arg C1
@@ -2746,12 +2543,12 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l162
+   *@ref C1 l156
     *brace_arg C1
     |EXTRA
     |node_content:{@verb{. @ {} . .}}
     |normalized:{-_0040-_007b_007d-_002e-}
-     *@verb C1 l162
+     *@verb C1 l156
      |INFO
      |delimiter:{.}
       *brace_container C1
@@ -2759,7 +2556,7 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
    {\\n}
    >SOURCEMARKS
    >expanded_conditional_command<end;5><p:1>
-    >*@end C1 l163
+    >*@end C1 l157
     >|EXTRA
     >|text_arg:{ifnottex}
      >*line_arg C3
@@ -2768,165 +2565,165 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       >{spaces_after_argument:\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l165
+   *@ref C1 l159
     *brace_arg C17
     |EXTRA
     |node_content:{@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}}
     |normalized:{cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i}
-     *@cite C1 l165
+     *@cite C1 l159
       *brace_container C2
        {cite }
-       *@asis C1 l165
+       *@asis C1 l159
         *brace_container C1
          {asis}
      { }
-     *@w C1 l165
+     *@w C1 l159
       *brace_container C4
        {in }
        *@@
        {w }
-       *@b C1 l165
+       *@b C1 l159
         *brace_container C1
          {b}
      { }
-     *@r C1 l165
+     *@r C1 l159
       *brace_container C1
        {in r}
      { }
-     *@sc C1 l165
+     *@sc C1 l159
       *brace_container C1
        {sc}
      { }
-     *@strong C1 l165
+     *@strong C1 l159
       *brace_container C1
        {str}
      { }
-     *@t C1 l165
+     *@t C1 l159
       *brace_container C1
        {t}
      { }
-     *@var C1 l165
+     *@var C1 l159
       *brace_container C1
        {var}
      { }
-     *@dfn C1 l165
+     *@dfn C1 l159
       *brace_container C1
        {dfn}
      { }
-     *@i C1 l165
+     *@i C1 l159
       *brace_container C1
        {i}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l167
+   *@ref C1 l161
     *brace_arg C13
     |EXTRA
     |node_content:{@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}}
     |normalized:{env-code-option-samp-command-file-C_002dx-ESC}
-     *@env C1 l167
+     *@env C1 l161
       *brace_container C1
        {env}
      { }
-     *@code C1 l167
+     *@code C1 l161
       *brace_container C1
        {code}
      { }
-     *@option C1 l167
+     *@option C1 l161
       *brace_container C1
        {option}
      { }
-     *@samp C1 l167
+     *@samp C1 l161
       *brace_container C1
        {samp}
      { }
-     *@command C1 l167
+     *@command C1 l161
       *brace_container C1
        {command}
      { }
-     *@file C1 l167
+     *@file C1 l161
       *brace_container C1
        {file}
      { }
-     *@kbd C1 l167
+     *@kbd C1 l161
       *brace_container C2
        {C-x }
-       *@key C1 l167
+       *@key C1 l161
         *brace_container C1
          {ESC}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l169
+   *@ref C1 l163
     *brace_arg C2
     |EXTRA
     |node_content:{8.27@dmn{in}}
     |normalized:{8_002e27in}
      {8.27}
-     *@dmn C1 l169
+     *@dmn C1 l163
       *brace_container C1
        {in}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l171
+   *@ref C1 l165
     *brace_arg C3
     |EXTRA
     |node_content:{@sansserif{sansserif} @slanted{slanted}}
     |normalized:{sansserif-slanted}
-     *@sansserif C1 l171
+     *@sansserif C1 l165
       *brace_container C1
        {sansserif}
      { }
-     *@slanted C1 l171
+     *@slanted C1 l165
       *brace_container C1
        {slanted}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l173
+   *@ref C1 l167
     *brace_arg C1
     |EXTRA
     |node_content:{@indicateurl{indicateurl}}
     |normalized:{indicateurl}
-     *@indicateurl C1 l173
+     *@indicateurl C1 l167
       *brace_container C1
        {indicateurl}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l175
+   *@ref C1 l169
     *brace_arg C3
     |EXTRA
     |node_content:{@sub{g}H 3@sup{rd}}
     |normalized:{gH-3rd}
-     *@sub C1 l175
+     *@sub C1 l169
       *brace_container C1
        {g}
      {H 3}
-     *@sup C1 l175
+     *@sup C1 l169
       *brace_container C1
        {rd}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@ref C1 l177
+   *@ref C1 l171
     *brace_arg C5
     |EXTRA
     |node_content:{@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}}
     |normalized:{http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls}
-     *@url C1 l177
+     *@url C1 l171
       *brace_arg C1
        {http://somewhere_aaa}
      { }
-     *@url C2 l177
+     *@url C2 l171
       *brace_arg C1
        {url}
       *brace_arg C2
        {spaces_before_argument: }
        {text}
      { }
-     *@uref C3 l177
+     *@uref C3 l171
       *brace_arg C1
        {/man.cgi/1/ls}
       *brace_arg
@@ -2934,9 +2731,331 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
        {ls}
    {\\n}
   {empty_line:\\n}
- *@bye C1
-  *line_arg C1
-   {spaces_before_argument:\\n}
+  *paragraph C2
+   *@ref C1 l173
+    *brace_arg C5
+    |EXTRA
+    |node_content:{@bullet{} @copyright{} @equiv{}}
+    |normalized:{_2022-_00a9-_2261}
+     *@bullet C1 l173
+      *brace_container
+     { }
+     *@copyright C1 l173
+      *brace_container
+     { }
+     *@equiv C1 l173
+      *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *@ref C1 l175
+    *brace_arg C9
+    |EXTRA
+    |node_content:{@geq{} @leq{} @arrow{} @expansion{} @minus{}}
+    |normalized:{_2265-_2264-_2192-_21a6-_2212}
+     *@geq C1 l175
+      *brace_container
+     { }
+     *@leq C1 l175
+      *brace_container
+     { }
+     *@arrow C1 l175
+      *brace_container
+     { }
+     *@expansion C1 l175
+      *brace_container
+     { }
+     *@minus C1 l175
+      *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *@ref C1 l177
+    *brace_arg C9
+    |EXTRA
+    |node_content:{@point{} @pounds{} @print{} @registeredsymbol{} @result{}}
+    |normalized:{_22c6-_00a3-_22a3-_00ae-_21d2}
+     *@point C1 l177
+      *brace_container
+     { }
+     *@pounds C1 l177
+      *brace_container
+     { }
+     *@print C1 l177
+      *brace_container
+     { }
+     *@registeredsymbol C1 l177
+      *brace_container
+     { }
+     *@result C1 l177
+      *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *@ref C1 l179
+    *brace_arg C3
+    |EXTRA
+    |node_content:{@textdegree{} @TH{}}
+    |normalized:{_00b0-_00de}
+     *@textdegree C1 l179
+      *brace_container
+     { }
+     *@TH C1 l179
+      *brace_container
+   {\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  *@menu C6 l182
+   *arguments_line C1
+    *block_line_arg C1
+     {spaces_before_argument:\\n}
+   *menu_entry C4 l183
+    {menu_entry_leading_text:* }
+    *menu_entry_node C5
+    |EXTRA
+    |node_content:{@bullet{} @copyright{} @equiv{}}
+    |normalized:{_2022-_00a9-_2261}
+     *@bullet C1 l183
+      *brace_container
+     { }
+     *@copyright C1 l183
+      *brace_container
+     { }
+     *@equiv C1 l183
+      *brace_container
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l184
+    {menu_entry_leading_text:* }
+    *menu_entry_node C9
+    |EXTRA
+    |node_content:{@geq{} @leq{} @arrow{} @expansion{} @minus{}}
+    |normalized:{_2265-_2264-_2192-_21a6-_2212}
+     *@geq C1 l184
+      *brace_container
+     { }
+     *@leq C1 l184
+      *brace_container
+     { }
+     *@arrow C1 l184
+      *brace_container
+     { }
+     *@expansion C1 l184
+      *brace_container
+     { }
+     *@minus C1 l184
+      *brace_container
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l185
+    {menu_entry_leading_text:* }
+    *menu_entry_node C9
+    |EXTRA
+    |node_content:{@point{} @pounds{} @print{} @registeredsymbol{} @result{}}
+    |normalized:{_22c6-_00a3-_22a3-_00ae-_21d2}
+     *@point C1 l185
+      *brace_container
+     { }
+     *@pounds C1 l185
+      *brace_container
+     { }
+     *@print C1 l185
+      *brace_container
+     { }
+     *@registeredsymbol C1 l185
+      *brace_container
+     { }
+     *@result C1 l185
+      *brace_container
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l186
+    {menu_entry_leading_text:* }
+    *menu_entry_node C3
+    |EXTRA
+    |node_content:{@textdegree{} @TH{}}
+    |normalized:{_00b0-_00de}
+     *@textdegree C1 l186
+      *brace_container
+     { }
+     *@TH C1 l186
+      *brace_container
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 l187
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C3
+     {spaces_before_argument: }
+     {menu}
+     {spaces_after_argument:\\n}
+  {empty_line:\\n}
+ *@node C1 l189 {@bullet{} @copyright{} @equiv{}}
+ |EXTRA
+ |identifier:{_2022-_00a9-_2261}
+ |is_target:{1}
+ |node_number:{28}
+  *arguments_line C1
+   *line_arg C7
+    {spaces_before_argument: }
+    *@bullet C1 l189
+     *brace_container
+    { }
+    *@copyright C1 l189
+     *brace_container
+    { }
+    *@equiv C1 l189
+     *brace_container
+    {spaces_after_argument:\\n}
+ *@section C2 l190 {@bullet{} @copyright{} @equiv{}}
+ |EXTRA
+ |section_heading_number:{26.1}
+ |section_level:{2}
+ |section_number:{28}
+  *arguments_line C1
+   *line_arg C7
+    {spaces_before_argument: }
+    *@bullet C1 l190
+     *brace_container
+    { }
+    *@copyright C1 l190
+     *brace_container
+    { }
+    *@equiv C1 l190
+     *brace_container
+    {spaces_after_argument:\\n}
+  {empty_line:\\n}
+ *@node C1 l192 {@geq{} @leq{} @arrow{} @expansion{} @minus{}}
+ |EXTRA
+ |identifier:{_2265-_2264-_2192-_21a6-_2212}
+ |is_target:{1}
+ |node_number:{29}
+  *arguments_line C1
+   *line_arg C11
+    {spaces_before_argument: }
+    *@geq C1 l192
+     *brace_container
+    { }
+    *@leq C1 l192
+     *brace_container
+    { }
+    *@arrow C1 l192
+     *brace_container
+    { }
+    *@expansion C1 l192
+     *brace_container
+    { }
+    *@minus C1 l192
+     *brace_container
+    {spaces_after_argument:\\n}
+ *@section C2 l193 {@geq{} @leq{} @arrow{} @expansion{} @minus{}}
+ |EXTRA
+ |section_heading_number:{26.2}
+ |section_level:{2}
+ |section_number:{29}
+  *arguments_line C1
+   *line_arg C11
+    {spaces_before_argument: }
+    *@geq C1 l193
+     *brace_container
+    { }
+    *@leq C1 l193
+     *brace_container
+    { }
+    *@arrow C1 l193
+     *brace_container
+    { }
+    *@expansion C1 l193
+     *brace_container
+    { }
+    *@minus C1 l193
+     *brace_container
+    {spaces_after_argument:\\n}
+  {empty_line:\\n}
+ *@node C1 l195 {@point{} @pounds{} @print{} @registeredsymbol{} @result{}}
+ |EXTRA
+ |identifier:{_22c6-_00a3-_22a3-_00ae-_21d2}
+ |is_target:{1}
+ |node_number:{30}
+  *arguments_line C1
+   *line_arg C11
+    {spaces_before_argument: }
+    *@point C1 l195
+     *brace_container
+    { }
+    *@pounds C1 l195
+     *brace_container
+    { }
+    *@print C1 l195
+     *brace_container
+    { }
+    *@registeredsymbol C1 l195
+     *brace_container
+    { }
+    *@result C1 l195
+     *brace_container
+    {spaces_after_argument:\\n}
+ *@section C2 l196 {@point{} @pounds{} @print{} @registeredsymbol{} @result{}}
+ |EXTRA
+ |section_heading_number:{26.3}
+ |section_level:{2}
+ |section_number:{30}
+  *arguments_line C1
+   *line_arg C11
+    {spaces_before_argument: }
+    *@point C1 l196
+     *brace_container
+    { }
+    *@pounds C1 l196
+     *brace_container
+    { }
+    *@print C1 l196
+     *brace_container
+    { }
+    *@registeredsymbol C1 l196
+     *brace_container
+    { }
+    *@result C1 l196
+     *brace_container
+    {spaces_after_argument:\\n}
+  {empty_line:\\n}
+ *@node C1 l198 {@textdegree{} @TH{}}
+ |EXTRA
+ |identifier:{_00b0-_00de}
+ |is_target:{1}
+ |node_number:{31}
+  *arguments_line C1
+   *line_arg C5
+    {spaces_before_argument: }
+    *@textdegree C1 l198
+     *brace_container
+    { }
+    *@TH C1 l198
+     *brace_container
+    {spaces_after_argument:\\n}
+ *@section C2 l199 {@textdegree{} @TH{}}
+ |EXTRA
+ |section_heading_number:{26.4}
+ |section_level:{2}
+ |section_number:{31}
+  *arguments_line C1
+   *line_arg C5
+    {spaces_before_argument: }
+    *@textdegree C1 l199
+     *brace_container
+    { }
+    *@TH C1 l199
+     *brace_container
+    {spaces_after_argument:\\n}
+  {empty_line:\\n}
 ';
 
 
@@ -2947,12 +3066,11 @@ $result_texis{'at_commands_in_refs'} = '@node Top
 * @- @{ @}::
 * @  @	 @! @* @. @: .@: @? @@::
 * @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}::
-* @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}::
-* @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}::
-* @geq{} @leq{} @arrow{}::
-* @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}::
-* @result{} @textdegree{} a@tie{}b @today{} @aa{}::
-* @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}::
+* @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}::
+* @error{} @euro{} @exclamdown{}::
+* @ordf{} @ordm{} @questiondown{} @registeredsymbol{}::
+* a@tie{}b @today{} @aa{}::
+* @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}::
 * @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}::
 * @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}::
 * @dotless{i} @`{@=E} @,{@\'C}::
@@ -2982,23 +3100,20 @@ $result_texis{'at_commands_in_refs'} = '@node Top
 @node @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
 @chapter @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
 
-@node @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
-@chapter @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+@node @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
+@chapter @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
 
-@node @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
-@chapter @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+@node @error{} @euro{} @exclamdown{}
+@chapter @error{} @euro{} @exclamdown{}
 
-@node @geq{} @leq{} @arrow{}
-@chapter @geq{} @leq{} @arrow{}
+@node @ordf{} @ordm{} @questiondown{}
+@chapter @ordf{} @ordm{} @questiondown{}
 
-@node @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
-@chapter @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
+@node a@tie{}b @today{} @aa{}
+@chapter a@tie{}b @today{} @aa{}
 
-@node @result{} @textdegree{} a@tie{}b @today{} @aa{}
-@chapter @result{} @textdegree{} a@tie{}b @today{} @aa{}
-
-@node @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{} 
-@chapter @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{} 
+@node @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
+@chapter @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
 
 @node @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
 @chapter  @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
@@ -3060,17 +3175,15 @@ $result_texis{'at_commands_in_refs'} = '@node Top
 
 @ref{@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}}
 
-@ref{@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}}
+@ref{@LaTeX{} @TeX{} @comma{} @dots{} @enddots{}}
 
-@ref{@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}}
+@ref{@error{} @euro{} @exclamdown{}}
 
-@ref{@geq{} @leq{} @arrow{}}
+@ref{@ordf{} @ordm{} @questiondown{} @registeredsymbol{}}
 
-@ref{@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}}
+@ref{a@tie{}b @today{} @aa{}}
 
-@ref{@result{} @textdegree{} a@tie{}b @today{} @aa{}}
-
-@ref{@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}}
+@ref{@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}}
 
 @ref{@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}}
 
@@ -3108,7 +3221,34 @@ $result_texis{'at_commands_in_refs'} = '@node Top
 
 @ref{@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}}
 
-@bye
+@ref{@bullet{} @copyright{} @equiv{}}
+
+@ref{@geq{} @leq{} @arrow{} @expansion{} @minus{}}
+
+@ref{@point{} @pounds{} @print{} @registeredsymbol{} @result{}}
+
+@ref{@textdegree{} @TH{}}
+
+
+@menu
+* @bullet{} @copyright{} @equiv{}::
+* @geq{} @leq{} @arrow{} @expansion{} @minus{}::
+* @point{} @pounds{} @print{} @registeredsymbol{} @result{}::
+* @textdegree{} @TH{}::
+@end menu
+
+@node @bullet{} @copyright{} @equiv{}
+@section @bullet{} @copyright{} @equiv{}
+
+@node @geq{} @leq{} @arrow{} @expansion{} @minus{}
+@section @geq{} @leq{} @arrow{} @expansion{} @minus{}
+
+@node @point{} @pounds{} @print{} @registeredsymbol{} @result{}
+@section @point{} @pounds{} @print{} @registeredsymbol{} @result{}
+
+@node @textdegree{} @TH{}
+@section @textdegree{} @TH{}
+
 ';
 
 
@@ -3119,12 +3259,11 @@ $result_texts{'at_commands_in_refs'} = 'Top
 *     ! 
  .  . ? @::
 * @ { } \\ #::
-* LaTeX TeX * , (C) ... ...::
-* == error-> Euro ! ==> -::
-* >= <= ->::
-* a o -!- # -| ? (R)::
-* => o a b a sunny day aa::
-* AA ae oe AE OE /o /O ss /l /L D d TH th::
+* LaTeX TeX , ... ...::
+* error-> Euro !::
+* a o ? (R)::
+* a b a sunny day aa::
+* AA ae oe AE OE /o /O ss /l /L D d th::
 * a" e~ i^ a^ a` e\' c, e= e* e\'\' e;::
 * e. e( e_ .e e< j ee[::
 * i E=` C\',::
@@ -3154,76 +3293,73 @@ $result_texts{'at_commands_in_refs'} = 'Top
 3 @ { } \\ #
 ***********
 
-4 LaTeX TeX * , (C) ... ...
-***************************
+4 LaTeX TeX , ... ...
+*********************
 
-5 == error-> Euro ! ==> -
-*************************
+5 error-> Euro !
+****************
 
-6 >= <= ->
-**********
+6 a o ?
+*******
 
-7 a o -!- # -| ? (R)
+7 a b a sunny day aa
 ********************
 
-8 => o a b a sunny day aa
-*************************
+8 AA ae oe AE OE /o /O ss /l /L D d th
+**************************************
 
-9 AA ae oe AE OE /o /O ss /l /L D d TH th
-*****************************************
+9 a" e~ i^ a^ a` e\' c, e= e* e\'\' e;
+***********************************
 
-10 a" e~ i^ a^ a` e\' c, e= e* e\'\' e;
-************************************
-
-11 e. e( e_ .e e< j ee[
+10 e. e( e_ .e e< j ee[
 ***********************
 
-12 i E=` C\',
+11 i E=` C\',
 ************
 
-13 " " ` \' ,, ,
+12 " " ` \' ,, ,
 ***************
 
-14 << >> << >> < >
+13 << >> << >> < >
 ******************
 
-15 " " -- - ` \'
+14 " " -- - ` \'
 ***************
 
-16 AAA (fff) AAA BBB
+15 AAA (fff) AAA BBB
 ********************
 
-17 CCC (rrr) CCC DDD
+16 CCC (rrr) CCC DDD
 ********************
 
-18 the someone no_explain@there
+17 the someone no_explain@there
 *******************************
 
-19 f--ile1  f--ile
+18 f--ile1  f--ile
 ******************
 
-20  @ {} . 
+19  @ {} . 
 ***********
 
-21 cite asis in @w b in r SC str t var dfn i
+20 cite asis in @w b in r SC str t var dfn i
 ********************************************
 
-22 env code option samp command file C-x ESC
+21 env code option samp command file C-x ESC
 ********************************************
 
-23 8.27in
+22 8.27in
 *********
 
-24 sansserif slanted
+23 sansserif slanted
 ********************
 
-25 indicateurl
+24 indicateurl
 **************
 
-26 gH 3rd
+25 gH 3rd
 *********
 
-27 http://somewhere_aaa url (text) ls
+26 http://somewhere_aaa url (text) ls
 *************************************
 
  { }
@@ -3233,17 +3369,15 @@ $result_texts{'at_commands_in_refs'} = 'Top
 
 @ { } \\ #
 
-LaTeX TeX * , (C) ... ...
+LaTeX TeX , ... ...
 
-== error-> Euro ! ==> -
+error-> Euro !
 
->= <= ->
+a o ? (R)
 
-a o -!- # -| ? (R)
+a b a sunny day aa
 
-=> o a b a sunny day aa
-
-AA ae oe AE OE /o /O ss /l /L D d TH th
+AA ae oe AE OE /o /O ss /l /L D d th
 
 a" e~ i^ a^ a` e\' c, e= e* e\'\' e;
 
@@ -3281,16 +3415,54 @@ gH 3rd
 
 http://somewhere_aaa url (text) ls
 
+* (C) ==
+
+>= <= -> ==> -
+
+-!- # -| (R) =>
+
+o TH
+
+
+* * (C) ==::
+* >= <= -> ==> -::
+* -!- # -| (R) =>::
+* o TH::
+
+26.1 * (C) ==
+=============
+
+26.2 >= <= -> ==> -
+===================
+
+26.3 -!- # -| (R) =>
+====================
+
+26.4 o TH
+=========
+
 ';
 
-$result_errors{'at_commands_in_refs'} = '* W l95|@verb should not appear on @node line
+$result_errors{'at_commands_in_refs'} = '* W l91|@verb should not appear on @node line
  warning: @verb should not appear on @node line
 
-* W l97|@verb should not appear on @chapter line
+* W l93|@verb should not appear on @chapter line
  warning: @verb should not appear on @chapter line
 
-* W l162|@verb should not appear anywhere inside @ref
+* W l156|@verb should not appear anywhere inside @ref
  warning: @verb should not appear anywhere inside @ref
+
+* E l127|@ref reference to nonexistent node `@ordf{} @ordm{} @questiondown{} @registeredsymbol{}\'
+ @ref reference to nonexistent node `@ordf{} @ordm{} @questiondown{} @registeredsymbol{}\'
+
+* W l11|node `a@tie{}b @today{} @aa{}\' in menu where `@ordf{} @ordm{} @questiondown{}\' expected
+ warning: node `a@tie{}b @today{} @aa{}\' in menu where `@ordf{} @ordm{} @questiondown{}\' expected
+
+* W l1|node `Top\' lacks menu item for `@ordf{} @ordm{} @questiondown{}\' but is above it in sectioning
+ warning: node `Top\' lacks menu item for `@ordf{} @ordm{} @questiondown{}\' but is above it in sectioning
+
+* E l10|@menu reference to nonexistent node `@ordf{} @ordm{} @questiondown{} @registeredsymbol{}\'
+ @menu reference to nonexistent node `@ordf{} @ordm{} @questiondown{} @registeredsymbol{}\'
 
 ';
 
@@ -3301,12 +3473,11 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
   @- @{ @}
   @  @	 @! @* @. @: .@: @? @@
   @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
-  @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
-  @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
-  @geq{} @leq{} @arrow{}
-  @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
-  @result{} @textdegree{} a@tie{}b @today{} @aa{}
-  @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
+  @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
+  @error{} @euro{} @exclamdown{}
+  @ordf{} @ordm{} @questiondown{} @registeredsymbol{}
+  a@tie{}b @today{} @aa{}
+  @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
   @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
   @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
   @dotless{i} @`{@=E} @,{@\'C}
@@ -3345,176 +3516,200 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
  associated_section: 3 @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
  associated_title_command: 3 @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
  node_directions:
-  next->@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+  next->@LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
   prev->@  @	 @! @* @. @: .@: @? @@
   up->Top
-5|@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
- associated_section: 4 @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
- associated_title_command: 4 @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+5|@LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
+ associated_section: 4 @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
+ associated_title_command: 4 @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
  node_directions:
-  next->@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+  next->@error{} @euro{} @exclamdown{}
   prev->@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
   up->Top
-6|@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
- associated_section: 5 @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
- associated_title_command: 5 @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+6|@error{} @euro{} @exclamdown{}
+ associated_section: 5 @error{} @euro{} @exclamdown{}
+ associated_title_command: 5 @error{} @euro{} @exclamdown{}
  node_directions:
-  next->@geq{} @leq{} @arrow{}
-  prev->@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+  next->@ordf{} @ordm{} @questiondown{}
+  prev->@LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
   up->Top
-7|@geq{} @leq{} @arrow{}
- associated_section: 6 @geq{} @leq{} @arrow{}
- associated_title_command: 6 @geq{} @leq{} @arrow{}
+7|@ordf{} @ordm{} @questiondown{}
+ associated_section: 6 @ordf{} @ordm{} @questiondown{}
+ associated_title_command: 6 @ordf{} @ordm{} @questiondown{}
  node_directions:
-  next->@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
-  prev->@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+  next->a@tie{}b @today{} @aa{}
+  prev->@error{} @euro{} @exclamdown{}
   up->Top
-8|@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
- associated_section: 7 @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
- associated_title_command: 7 @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
+8|a@tie{}b @today{} @aa{}
+ associated_section: 7 a@tie{}b @today{} @aa{}
+ associated_title_command: 7 a@tie{}b @today{} @aa{}
  node_directions:
-  next->@result{} @textdegree{} a@tie{}b @today{} @aa{}
-  prev->@geq{} @leq{} @arrow{}
+  next->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
+  prev->@ordf{} @ordm{} @questiondown{}
   up->Top
-9|@result{} @textdegree{} a@tie{}b @today{} @aa{}
- associated_section: 8 @result{} @textdegree{} a@tie{}b @today{} @aa{}
- associated_title_command: 8 @result{} @textdegree{} a@tie{}b @today{} @aa{}
- node_directions:
-  next->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
-  prev->@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
-  up->Top
-10|@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
- associated_section: 9 @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
- associated_title_command: 9 @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
+9|@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
+ associated_section: 8 @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
+ associated_title_command: 8 @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
  node_directions:
   next->@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
-  prev->@result{} @textdegree{} a@tie{}b @today{} @aa{}
+  prev->a@tie{}b @today{} @aa{}
   up->Top
-11|@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
- associated_section: 10 @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
- associated_title_command: 10 @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
+10|@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
+ associated_section: 9 @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
+ associated_title_command: 9 @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
  node_directions:
   next->@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
-  prev->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
+  prev->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
   up->Top
-12|@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
- associated_section: 11 @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
- associated_title_command: 11 @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
+11|@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
+ associated_section: 10 @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
+ associated_title_command: 10 @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
  node_directions:
   next->@dotless{i} @`{@=E} @,{@\'C}
   prev->@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
   up->Top
-13|@dotless{i} @`{@=E} @,{@\'C}
- associated_section: 12 @dotless{i} @`{@=E} @,{@\'C}
- associated_title_command: 12 @dotless{i} @`{@=E} @,{@\'C}
+12|@dotless{i} @`{@=E} @,{@\'C}
+ associated_section: 11 @dotless{i} @`{@=E} @,{@\'C}
+ associated_title_command: 11 @dotless{i} @`{@=E} @,{@\'C}
  node_directions:
   next->@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
   prev->@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
   up->Top
-14|@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
- associated_section: 13 @quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
- associated_title_command: 13 @quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
+13|@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
+ associated_section: 12 @quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
+ associated_title_command: 12 @quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
  node_directions:
   next->@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
   prev->@dotless{i} @`{@=E} @,{@\'C}
   up->Top
-15|@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
- associated_section: 14 @guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
- associated_title_command: 14 @guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
+14|@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
+ associated_section: 13 @guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
+ associated_title_command: 13 @guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
  node_directions:
   next->`` \'\' --- -- ` \'
   prev->@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
   up->Top
-16|`` \'\' --- -- ` \'
- associated_section: 15 `` \'\' --- -- ` \'
- associated_title_command: 15 `` \'\' --- -- ` \'
+15|`` \'\' --- -- ` \'
+ associated_section: 14 `` \'\' --- -- ` \'
+ associated_title_command: 14 `` \'\' --- -- ` \'
  node_directions:
   next->@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
   prev->@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
   up->Top
-17|@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
- associated_section: 16 @acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
- associated_title_command: 16 @acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
+16|@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
+ associated_section: 15 @acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
+ associated_title_command: 15 @acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
  node_directions:
   next->@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
   prev->`` \'\' --- -- ` \'
   up->Top
-18|@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
- associated_section: 17 @abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
- associated_title_command: 17 @abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
+17|@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
+ associated_section: 16 @abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
+ associated_title_command: 16 @abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
  node_directions:
   next->@email{someone@@somewher, the someone} @email{no_explain@@there}
   prev->@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
   up->Top
-19|@email{someone@@somewher, the someone} @email{no_explain@@there}
- associated_section: 18 @email{someone@@somewher, the someone} @email{no_explain@@there}
- associated_title_command: 18 @email{someone@@somewher, the someone} @email{no_explain@@there}
+18|@email{someone@@somewher, the someone} @email{no_explain@@there}
+ associated_section: 17 @email{someone@@somewher, the someone} @email{no_explain@@there}
+ associated_title_command: 17 @email{someone@@somewher, the someone} @email{no_explain@@there}
  node_directions:
   next->@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
   prev->@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
   up->Top
-20|@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
- associated_section: 19 @image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
- associated_title_command: 19 @image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
+19|@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
+ associated_section: 18 @image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
+ associated_title_command: 18 @image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
  node_directions:
   next->@verb{. @ {} . .}
   prev->@email{someone@@somewher, the someone} @email{no_explain@@there}
   up->Top
-21|@verb{. @ {} . .}
- associated_section: 20 @verb{. @ {} . .}
- associated_title_command: 20 @verb{. @ {} . .}
+20|@verb{. @ {} . .}
+ associated_section: 19 @verb{. @ {} . .}
+ associated_title_command: 19 @verb{. @ {} . .}
  node_directions:
   next->@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
   prev->@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
   up->Top
-22|@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
- associated_section: 21 @cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
- associated_title_command: 21 @cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
+21|@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
+ associated_section: 20 @cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
+ associated_title_command: 20 @cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
  node_directions:
   next->@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
   prev->@verb{. @ {} . .}
   up->Top
-23|@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
- associated_section: 22 @env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
- associated_title_command: 22 @env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
+22|@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
+ associated_section: 21 @env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
+ associated_title_command: 21 @env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
  node_directions:
   next->8.27@dmn{in}
   prev->@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
   up->Top
-24|8.27@dmn{in}
- associated_section: 23 8.27@dmn{in}
- associated_title_command: 23 8.27@dmn{in}
+23|8.27@dmn{in}
+ associated_section: 22 8.27@dmn{in}
+ associated_title_command: 22 8.27@dmn{in}
  node_directions:
   next->@sansserif{sansserif} @slanted{slanted}
   prev->@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
   up->Top
-25|@sansserif{sansserif} @slanted{slanted}
- associated_section: 24 @sansserif{sansserif} @slanted{slanted}
- associated_title_command: 24 @sansserif{sansserif} @slanted{slanted}
+24|@sansserif{sansserif} @slanted{slanted}
+ associated_section: 23 @sansserif{sansserif} @slanted{slanted}
+ associated_title_command: 23 @sansserif{sansserif} @slanted{slanted}
  node_directions:
   next->@indicateurl{indicateurl}
   prev->8.27@dmn{in}
   up->Top
-26|@indicateurl{indicateurl}
- associated_section: 25 @indicateurl{indicateurl}
- associated_title_command: 25 @indicateurl{indicateurl}
+25|@indicateurl{indicateurl}
+ associated_section: 24 @indicateurl{indicateurl}
+ associated_title_command: 24 @indicateurl{indicateurl}
  node_directions:
   next->@sub{g}H 3@sup{rd}
   prev->@sansserif{sansserif} @slanted{slanted}
   up->Top
-27|@sub{g}H 3@sup{rd}
- associated_section: 26 @sub{g}H 3@sup{rd}
- associated_title_command: 26 @sub{g}H 3@sup{rd}
+26|@sub{g}H 3@sup{rd}
+ associated_section: 25 @sub{g}H 3@sup{rd}
+ associated_title_command: 25 @sub{g}H 3@sup{rd}
  node_directions:
   next->@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
   prev->@indicateurl{indicateurl}
   up->Top
-28|@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
- associated_section: 27 @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
- associated_title_command: 27 @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+27|@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+ associated_section: 26 @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+ associated_title_command: 26 @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+ menus:
+  @bullet{} @copyright{} @equiv{}
+  @geq{} @leq{} @arrow{} @expansion{} @minus{}
+  @point{} @pounds{} @print{} @registeredsymbol{} @result{}
+  @textdegree{} @TH{}
  node_directions:
   prev->@sub{g}H 3@sup{rd}
   up->Top
+28|@bullet{} @copyright{} @equiv{}
+ associated_section: 26.1 @bullet{} @copyright{} @equiv{}
+ associated_title_command: 26.1 @bullet{} @copyright{} @equiv{}
+ node_directions:
+  next->@geq{} @leq{} @arrow{} @expansion{} @minus{}
+  up->@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+29|@geq{} @leq{} @arrow{} @expansion{} @minus{}
+ associated_section: 26.2 @geq{} @leq{} @arrow{} @expansion{} @minus{}
+ associated_title_command: 26.2 @geq{} @leq{} @arrow{} @expansion{} @minus{}
+ node_directions:
+  next->@point{} @pounds{} @print{} @registeredsymbol{} @result{}
+  prev->@bullet{} @copyright{} @equiv{}
+  up->@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+30|@point{} @pounds{} @print{} @registeredsymbol{} @result{}
+ associated_section: 26.3 @point{} @pounds{} @print{} @registeredsymbol{} @result{}
+ associated_title_command: 26.3 @point{} @pounds{} @print{} @registeredsymbol{} @result{}
+ node_directions:
+  next->@textdegree{} @TH{}
+  prev->@geq{} @leq{} @arrow{} @expansion{} @minus{}
+  up->@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+31|@textdegree{} @TH{}
+ associated_section: 26.4 @textdegree{} @TH{}
+ associated_title_command: 26.4 @textdegree{} @TH{}
+ node_directions:
+  prev->@point{} @pounds{} @print{} @registeredsymbol{} @result{}
+  up->@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
 ';
 
 $result_sections_list{'at_commands_in_refs'} = '1|Top
@@ -3526,30 +3721,29 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   1|@- @{ @}
   2|@  @	 @! @* @. @: .@: @? @@
   3|@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
-  4|@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
-  5|@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
-  6|@geq{} @leq{} @arrow{}
-  7|@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
-  8|@result{} @textdegree{} a@tie{}b @today{} @aa{}
-  9|@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
-  10|@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
-  11|@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
-  12|@dotless{i} @`{@=E} @,{@\'C}
-  13|@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
-  14|@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
-  15|`` \'\' --- -- ` \'
-  16|@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
-  17|@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
-  18|@email{someone@@somewher, the someone} @email{no_explain@@there}
-  19|@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
-  20|@verb{. @ {} . .}
-  21|@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
-  22|@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
-  23|8.27@dmn{in}
-  24|@sansserif{sansserif} @slanted{slanted}
-  25|@indicateurl{indicateurl}
-  26|@sub{g}H 3@sup{rd}
-  27|@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+  4|@LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
+  5|@error{} @euro{} @exclamdown{}
+  6|@ordf{} @ordm{} @questiondown{}
+  7|a@tie{}b @today{} @aa{}
+  8|@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
+  9|@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
+  10|@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
+  11|@dotless{i} @`{@=E} @,{@\'C}
+  12|@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
+  13|@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
+  14|`` \'\' --- -- ` \'
+  15|@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
+  16|@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
+  17|@email{someone@@somewher, the someone} @email{no_explain@@there}
+  18|@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
+  19|@verb{. @ {} . .}
+  20|@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
+  21|@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
+  22|8.27@dmn{in}
+  23|@sansserif{sansserif} @slanted{slanted}
+  24|@indicateurl{indicateurl}
+  25|@sub{g}H 3@sup{rd}
+  26|@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
 2|@- @{ @}
  associated_anchor_command: @- @{ @}
  associated_node: @- @{ @}
@@ -3575,91 +3769,80 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
  associated_anchor_command: @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
  associated_node: @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
  section_directions:
-  next->@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+  next->@LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
   prev->@  @	 @! @* @. @: .@: @? @@
   up->Top
  toplevel_directions:
-  next->@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+  next->@LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
   prev->@  @	 @! @* @. @: .@: @? @@
   up->Top
-5|@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
- associated_anchor_command: @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
- associated_node: @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+5|@LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
+ associated_anchor_command: @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
+ associated_node: @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
  section_directions:
-  next->@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+  next->@error{} @euro{} @exclamdown{}
   prev->@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
   up->Top
  toplevel_directions:
-  next->@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+  next->@error{} @euro{} @exclamdown{}
   prev->@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
   up->Top
-6|@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
- associated_anchor_command: @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
- associated_node: @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+6|@error{} @euro{} @exclamdown{}
+ associated_anchor_command: @error{} @euro{} @exclamdown{}
+ associated_node: @error{} @euro{} @exclamdown{}
  section_directions:
-  next->@geq{} @leq{} @arrow{}
-  prev->@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+  next->@ordf{} @ordm{} @questiondown{}
+  prev->@LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
   up->Top
  toplevel_directions:
-  next->@geq{} @leq{} @arrow{}
-  prev->@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+  next->@ordf{} @ordm{} @questiondown{}
+  prev->@LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
   up->Top
-7|@geq{} @leq{} @arrow{}
- associated_anchor_command: @geq{} @leq{} @arrow{}
- associated_node: @geq{} @leq{} @arrow{}
+7|@ordf{} @ordm{} @questiondown{}
+ associated_anchor_command: @ordf{} @ordm{} @questiondown{}
+ associated_node: @ordf{} @ordm{} @questiondown{}
  section_directions:
-  next->@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
-  prev->@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+  next->a@tie{}b @today{} @aa{}
+  prev->@error{} @euro{} @exclamdown{}
   up->Top
  toplevel_directions:
-  next->@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
-  prev->@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+  next->a@tie{}b @today{} @aa{}
+  prev->@error{} @euro{} @exclamdown{}
   up->Top
-8|@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
- associated_anchor_command: @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
- associated_node: @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
+8|a@tie{}b @today{} @aa{}
+ associated_anchor_command: a@tie{}b @today{} @aa{}
+ associated_node: a@tie{}b @today{} @aa{}
  section_directions:
-  next->@result{} @textdegree{} a@tie{}b @today{} @aa{}
-  prev->@geq{} @leq{} @arrow{}
+  next->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
+  prev->@ordf{} @ordm{} @questiondown{}
   up->Top
  toplevel_directions:
-  next->@result{} @textdegree{} a@tie{}b @today{} @aa{}
-  prev->@geq{} @leq{} @arrow{}
+  next->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
+  prev->@ordf{} @ordm{} @questiondown{}
   up->Top
-9|@result{} @textdegree{} a@tie{}b @today{} @aa{}
- associated_anchor_command: @result{} @textdegree{} a@tie{}b @today{} @aa{}
- associated_node: @result{} @textdegree{} a@tie{}b @today{} @aa{}
- section_directions:
-  next->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
-  prev->@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
-  up->Top
- toplevel_directions:
-  next->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
-  prev->@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
-  up->Top
-10|@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
- associated_anchor_command: @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
- associated_node: @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
+9|@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
+ associated_anchor_command: @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
+ associated_node: @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
  section_directions:
   next->@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
-  prev->@result{} @textdegree{} a@tie{}b @today{} @aa{}
+  prev->a@tie{}b @today{} @aa{}
   up->Top
  toplevel_directions:
   next->@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
-  prev->@result{} @textdegree{} a@tie{}b @today{} @aa{}
+  prev->a@tie{}b @today{} @aa{}
   up->Top
-11|@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
+10|@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
  associated_anchor_command: @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
  associated_node: @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
  section_directions:
   next->@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
-  prev->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
+  prev->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
   up->Top
  toplevel_directions:
   next->@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
-  prev->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}
+  prev->@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
   up->Top
-12|@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
+11|@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
  associated_anchor_command: @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
  associated_node: @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
  section_directions:
@@ -3670,7 +3853,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->@dotless{i} @`{@=E} @,{@\'C}
   prev->@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
   up->Top
-13|@dotless{i} @`{@=E} @,{@\'C}
+12|@dotless{i} @`{@=E} @,{@\'C}
  associated_anchor_command: @dotless{i} @`{@=E} @,{@\'C}
  associated_node: @dotless{i} @`{@=E} @,{@\'C}
  section_directions:
@@ -3681,7 +3864,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
   prev->@dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}
   up->Top
-14|@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
+13|@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
  associated_anchor_command: @quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
  associated_node: @quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
  section_directions:
@@ -3692,7 +3875,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
   prev->@dotless{i} @`{@=E} @,{@\'C}
   up->Top
-15|@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
+14|@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
  associated_anchor_command: @guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
  associated_node: @guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
  section_directions:
@@ -3703,7 +3886,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->`` \'\' --- -- ` \'
   prev->@quotedblleft{} @quotedblright{} @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{}
   up->Top
-16|`` \'\' --- -- ` \'
+15|`` \'\' --- -- ` \'
  associated_anchor_command: `` \'\' --- -- ` \'
  associated_node: `` \'\' --- -- ` \'
  section_directions:
@@ -3714,7 +3897,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
   prev->@guillemetleft{} @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{} @guilsinglright{}
   up->Top
-17|@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
+16|@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
  associated_anchor_command: @acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
  associated_node: @acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
  section_directions:
@@ -3725,7 +3908,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
   prev->`` \'\' --- -- ` \'
   up->Top
-18|@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
+17|@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
  associated_anchor_command: @abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
  associated_node: @abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
  section_directions:
@@ -3736,7 +3919,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->@email{someone@@somewher, the someone} @email{no_explain@@there}
   prev->@acronym{AAA, fff} @acronym{AAA} @acronym{BBB}
   up->Top
-19|@email{someone@@somewher, the someone} @email{no_explain@@there}
+18|@email{someone@@somewher, the someone} @email{no_explain@@there}
  associated_anchor_command: @email{someone@@somewher, the someone} @email{no_explain@@there}
  associated_node: @email{someone@@somewher, the someone} @email{no_explain@@there}
  section_directions:
@@ -3747,7 +3930,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
   prev->@abbr{CCC, rrr} @abbr{CCC} @abbr{DDD}
   up->Top
-20|@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
+19|@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
  associated_anchor_command: @image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
  associated_node: @image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
  section_directions:
@@ -3758,7 +3941,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->@verb{. @ {} . .}
   prev->@email{someone@@somewher, the someone} @email{no_explain@@there}
   up->Top
-21|@verb{. @ {} . .}
+20|@verb{. @ {} . .}
  associated_anchor_command: @verb{. @ {} . .}
  associated_node: @verb{. @ {} . .}
  section_directions:
@@ -3769,7 +3952,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
   prev->@image{f--ile1}  @image{f--ile,aze,az,alt,e--xt}
   up->Top
-22|@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
+21|@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
  associated_anchor_command: @cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
  associated_node: @cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
  section_directions:
@@ -3780,7 +3963,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
   prev->@verb{. @ {} . .}
   up->Top
-23|@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
+22|@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
  associated_anchor_command: @env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
  associated_node: @env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
  section_directions:
@@ -3791,7 +3974,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->8.27@dmn{in}
   prev->@cite{cite @asis{asis}} @w{in @@w @b{b}} @r{in r} @sc{sc} @strong{str} @t{t} @var{var} @dfn{dfn} @i{i}
   up->Top
-24|8.27@dmn{in}
+23|8.27@dmn{in}
  associated_anchor_command: 8.27@dmn{in}
  associated_node: 8.27@dmn{in}
  section_directions:
@@ -3802,7 +3985,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->@sansserif{sansserif} @slanted{slanted}
   prev->@env{env} @code{code} @option{option} @samp{samp} @command{command} @file{file} @kbd{C-x @key{ESC}}
   up->Top
-25|@sansserif{sansserif} @slanted{slanted}
+24|@sansserif{sansserif} @slanted{slanted}
  associated_anchor_command: @sansserif{sansserif} @slanted{slanted}
  associated_node: @sansserif{sansserif} @slanted{slanted}
  section_directions:
@@ -3813,7 +3996,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->@indicateurl{indicateurl}
   prev->8.27@dmn{in}
   up->Top
-26|@indicateurl{indicateurl}
+25|@indicateurl{indicateurl}
  associated_anchor_command: @indicateurl{indicateurl}
  associated_node: @indicateurl{indicateurl}
  section_directions:
@@ -3824,7 +4007,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->@sub{g}H 3@sup{rd}
   prev->@sansserif{sansserif} @slanted{slanted}
   up->Top
-27|@sub{g}H 3@sup{rd}
+26|@sub{g}H 3@sup{rd}
  associated_anchor_command: @sub{g}H 3@sup{rd}
  associated_node: @sub{g}H 3@sup{rd}
  section_directions:
@@ -3835,7 +4018,7 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
   next->@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
   prev->@indicateurl{indicateurl}
   up->Top
-28|@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+27|@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
  associated_anchor_command: @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
  associated_node: @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
  section_directions:
@@ -3844,6 +4027,37 @@ $result_sections_list{'at_commands_in_refs'} = '1|Top
  toplevel_directions:
   prev->@sub{g}H 3@sup{rd}
   up->Top
+ section_children:
+  1|@bullet{} @copyright{} @equiv{}
+  2|@geq{} @leq{} @arrow{} @expansion{} @minus{}
+  3|@point{} @pounds{} @print{} @registeredsymbol{} @result{}
+  4|@textdegree{} @TH{}
+28|@bullet{} @copyright{} @equiv{}
+ associated_anchor_command: @bullet{} @copyright{} @equiv{}
+ associated_node: @bullet{} @copyright{} @equiv{}
+ section_directions:
+  next->@geq{} @leq{} @arrow{} @expansion{} @minus{}
+  up->@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+29|@geq{} @leq{} @arrow{} @expansion{} @minus{}
+ associated_anchor_command: @geq{} @leq{} @arrow{} @expansion{} @minus{}
+ associated_node: @geq{} @leq{} @arrow{} @expansion{} @minus{}
+ section_directions:
+  next->@point{} @pounds{} @print{} @registeredsymbol{} @result{}
+  prev->@bullet{} @copyright{} @equiv{}
+  up->@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+30|@point{} @pounds{} @print{} @registeredsymbol{} @result{}
+ associated_anchor_command: @point{} @pounds{} @print{} @registeredsymbol{} @result{}
+ associated_node: @point{} @pounds{} @print{} @registeredsymbol{} @result{}
+ section_directions:
+  next->@textdegree{} @TH{}
+  prev->@geq{} @leq{} @arrow{} @expansion{} @minus{}
+  up->@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
+31|@textdegree{} @TH{}
+ associated_anchor_command: @textdegree{} @TH{}
+ associated_node: @textdegree{} @TH{}
+ section_directions:
+  prev->@point{} @pounds{} @print{} @registeredsymbol{} @result{}
+  up->@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
 ';
 
 $result_sectioning_root{'at_commands_in_refs'} = 'level: -1
@@ -3867,76 +4081,73 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 3 @ { } \\ #
 ***********
 
-4 LaTeX TeX • , © ... ...
-*************************
+4 LaTeX TeX , ... ...
+*********************
 
-5 ≡ error→ € ¡ ↦ −
-******************
+5 error→ € ¡
+************
 
-6 ≥ ≤ →
+6 ª º ¿
 *******
 
-7 ª º ⋆ £ ⊣ ¿ ®
-***************
+7 a b a sunny day å
+*******************
 
-8 ⇒ ° a b a sunny day å
+8 Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ
+***************************
+
+9 ä ẽ î â à é ç ē e̊ e̋ ę
 ***********************
 
-9 Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ
-*****************************
-
-10 ä ẽ î â à é ç ē e̊ e̋ ę
-************************
-
-11 ė ĕ e̲ ẹ ě ȷ e͡e
+10 ė ĕ e̲ ẹ ě ȷ e͡e
 *****************
 
-12 ı Ḕ Ḉ
+11 ı Ḕ Ḉ
 ********
 
-13 “ ” ‘ ’ „ ‚
+12 “ ” ‘ ’ „ ‚
 **************
 
-14 « » « » ‹ ›
+13 « » « » ‹ ›
 **************
 
-15 " " -- - \' \'
+14 " " -- - \' \'
 ***************
 
-16 AAA (fff) AAA BBB
+15 AAA (fff) AAA BBB
 ********************
 
-17 CCC (rrr) CCC DDD
+16 CCC (rrr) CCC DDD
 ********************
 
-18 the someone <someone@somewher> <no_explain@there>
+17 the someone <someone@somewher> <no_explain@there>
 ****************************************************
 
-19 [f--ile1] Image description""\\.
+18 [f--ile1] Image description""\\.
 **********************************
 
-20  @ {} . 
+19  @ {} . 
 ***********
 
-21 ‘cite asis’ in @w b in r SC *str* t VAR “dfn” i
+20 ‘cite asis’ in @w b in r SC *str* t VAR “dfn” i
 **************************************************
 
-22 ‘env’ ‘code’ ‘option’ ‘samp’ ‘command’ ‘file’ ‘C-x <ESC>’
+21 ‘env’ ‘code’ ‘option’ ‘samp’ ‘command’ ‘file’ ‘C-x <ESC>’
 ************************************************************
 
-23 8.27in
+22 8.27in
 *********
 
-24 sansserif slanted
+23 sansserif slanted
 ********************
 
-25 ‘indicateurl’
+24 ‘indicateurl’
 ****************
 
-26 _{g}H 3^{rd}
+25 _{g}H 3^{rd}
 ***************
 
-27 <http://somewhere_aaa> text (url) ls
+26 <http://somewhere_aaa> text (url) ls
 ***************************************
 
 { }
@@ -3946,17 +4157,15 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 
    @ { } \\ #
 
-   LaTeX TeX • , © ... ...
+   LaTeX TeX , ... ...
 
-   ≡ error→ € ¡ ↦ −
+   error→ € ¡
 
-   ≥ ≤ →
+   ª º ¿ ®
 
-   ª º ⋆ £ ⊣ ¿ ®
+   a b a sunny day å
 
-   ⇒ ° a b a sunny day å
-
-   Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ
+   Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ
 
    ä ẽ î â à é ç ē e̊ e̋ ę
 
@@ -3994,12 +4203,32 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 
    <http://somewhere_aaa> text (url) ls
 
+   • © ≡
+
+   ≥ ≤ → ↦ −
+
+   ⋆ £ ⊣ ® ⇒
+
+   ° Þ
+
+26.1 • © ≡
+==========
+
+26.2 ≥ ≤ → ↦ −
+==============
+
+26.3 ⋆ £ ⊣ ® ⇒
+==============
+
+26.4 ° Þ
+========
+
 ';
 
-$result_converted_errors{'plaintext'}->{'at_commands_in_refs'} = '* W l92|could not find @image file `f--ile1.txt\' nor alternate text
+$result_converted_errors{'plaintext'}->{'at_commands_in_refs'} = '* W l88|could not find @image file `f--ile1.txt\' nor alternate text
  warning: could not find @image file `f--ile1.txt\' nor alternate text
 
-* W l90|could not find @image file `f--ile1.txt\' nor alternate text
+* W l86|could not find @image file `f--ile1.txt\' nor alternate text
  warning: could not find @image file `f--ile1.txt\' nor alternate text
 
 ';
@@ -4042,13 +4271,12 @@ span:hover a.copiable-link {visibility: visible}
 <li><a href="#-_007b-_007d" accesskey="1"> { }</a></li>
 <li><a href="#-_0021-_002e-_002e-_003f-_0040" accesskey="2">&nbsp; &nbsp; ! <br> .  . ? @</a></li>
 <li><a href="#g_t_0040-_007b-_007d-_005c-_0023" accesskey="3">@ { } \\ #</a></li>
-<li><a href="#LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e" accesskey="4">LaTeX TeX &bull; , &copy; &hellip; <small class="enddots">...</small></a></li>
-<li><a href="#g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212" accesskey="5">&equiv; error&rarr; &euro; &iexcl; &rarr; &minus;</a></li>
-<li><a href="#g_t_2265-_2264-_2192" accesskey="6">&ge; &le; &rarr;</a></li>
-<li><a href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae" accesskey="7">&ordf; &ordm; &lowast; &pound; &#8867; &iquest; &reg;</a></li>
-<li><a href="#g_t_21d2-_00b0-a-b-_00e5" accesskey="8">&rArr; &deg; a&nbsp;b a sunny day &aring;</a></li>
-<li><a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="9">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a></li>
-<li><a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a></li>
+<li><a href="#LaTeX-TeX-_002c-_2026-_002e_002e_002e" accesskey="4">LaTeX TeX , &hellip; <small class="enddots">...</small></a></li>
+<li><a href="#error_002d_002d_003e-_20ac-_00a1" accesskey="5">error&rarr; &euro; &iexcl;</a></li>
+<li><a href="#g_t_00aa-_00ba-_00bf" accesskey="6">&ordf; &ordm; &iquest;</a></li>
+<li><a href="#a-b-_00e5" accesskey="7">a&nbsp;b a sunny day &aring;</a></li>
+<li><a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe" accesskey="8">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &thorn;</a></li>
+<li><a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119" accesskey="9">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a></li>
 <li><a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e">&#279; &#277; e&#818; &#7865; &#283; &#567; e&#865;e</a></li>
 <li><a href="#g_t_0131-_1e14-_1e08">&inodot; &#274;&#768; &#262;&#807;</a></li>
 <li><a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a></li>
@@ -4084,176 +4312,169 @@ span:hover a.copiable-link {visibility: visible}
 </div>
 <div class="chapter-level-extent" id="g_t_0040-_007b-_007d-_005c-_0023">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e" accesskey="n" rel="next">LaTeX TeX &bull; , &copy; &hellip; <small class="enddots">...</small></a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#-_0021-_002e-_002e-_003f-_0040" accesskey="p" rel="prev">&nbsp; &nbsp; ! <br> .  . ? @</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#LaTeX-TeX-_002c-_2026-_002e_002e_002e" accesskey="n" rel="next">LaTeX TeX , &hellip; <small class="enddots">...</small></a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#-_0021-_002e-_002e-_003f-_0040" accesskey="p" rel="prev">&nbsp; &nbsp; ! <br> .  . ? @</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="g_t_0040-_007b-_007d-_005c-_0023-1"><span>3 @ { } \\ #<a class="copiable-link" href="#g_t_0040-_007b-_007d-_005c-_0023-1"> &para;</a></span></h2>
 
 <hr>
 </div>
-<div class="chapter-level-extent" id="LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e">
+<div class="chapter-level-extent" id="LaTeX-TeX-_002c-_2026-_002e_002e_002e">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212" accesskey="n" rel="next">&equiv; error&rarr; &euro; &iexcl; &rarr; &minus;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_0040-_007b-_007d-_005c-_0023" accesskey="p" rel="prev">@ { } \\ #</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e-1"><span>4 LaTeX TeX &bull; , &copy; &hellip; <small class="enddots">...</small><a class="copiable-link" href="#LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e-1"> &para;</a></span></h2>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#error_002d_002d_003e-_20ac-_00a1" accesskey="n" rel="next">error&rarr; &euro; &iexcl;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_0040-_007b-_007d-_005c-_0023" accesskey="p" rel="prev">@ { } \\ #</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h2 class="chapter" id="LaTeX-TeX-_002c-_2026-_002e_002e_002e-1"><span>4 LaTeX TeX , &hellip; <small class="enddots">...</small><a class="copiable-link" href="#LaTeX-TeX-_002c-_2026-_002e_002e_002e-1"> &para;</a></span></h2>
 
 <hr>
 </div>
-<div class="chapter-level-extent" id="g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212">
+<div class="chapter-level-extent" id="error_002d_002d_003e-_20ac-_00a1">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_2265-_2264-_2192" accesskey="n" rel="next">&ge; &le; &rarr;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e" accesskey="p" rel="prev">LaTeX TeX &bull; , &copy; &hellip; <small class="enddots">...</small></a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212-1"><span>5 &equiv; error&rarr; &euro; &iexcl; &rarr; &minus;<a class="copiable-link" href="#g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212-1"> &para;</a></span></h2>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00aa-_00ba-_00bf" accesskey="n" rel="next">&ordf; &ordm; &iquest;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#LaTeX-TeX-_002c-_2026-_002e_002e_002e" accesskey="p" rel="prev">LaTeX TeX , &hellip; <small class="enddots">...</small></a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h2 class="chapter" id="error_002d_002d_003e-_20ac-_00a1-1"><span>5 error&rarr; &euro; &iexcl;<a class="copiable-link" href="#error_002d_002d_003e-_20ac-_00a1-1"> &para;</a></span></h2>
 
 <hr>
 </div>
-<div class="chapter-level-extent" id="g_t_2265-_2264-_2192">
+<div class="chapter-level-extent" id="g_t_00aa-_00ba-_00bf">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae" accesskey="n" rel="next">&ordf; &ordm; &lowast; &pound; &#8867; &iquest; &reg;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212" accesskey="p" rel="prev">&equiv; error&rarr; &euro; &iexcl; &rarr; &minus;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="g_t_2265-_2264-_2192-1"><span>6 &ge; &le; &rarr;<a class="copiable-link" href="#g_t_2265-_2264-_2192-1"> &para;</a></span></h2>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#a-b-_00e5" accesskey="n" rel="next">a&nbsp;b a sunny day &aring;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#error_002d_002d_003e-_20ac-_00a1" accesskey="p" rel="prev">error&rarr; &euro; &iexcl;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h2 class="chapter" id="g_t_00aa-_00ba-_00bf-1"><span>6 &ordf; &ordm; &iquest;<a class="copiable-link" href="#g_t_00aa-_00ba-_00bf-1"> &para;</a></span></h2>
 
 <hr>
 </div>
-<div class="chapter-level-extent" id="g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae">
+<div class="chapter-level-extent" id="a-b-_00e5">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_21d2-_00b0-a-b-_00e5" accesskey="n" rel="next">&rArr; &deg; a&nbsp;b a sunny day &aring;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_2265-_2264-_2192" accesskey="p" rel="prev">&ge; &le; &rarr;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae-1"><span>7 &ordf; &ordm; &lowast; &pound; &#8867; &iquest; &reg;<a class="copiable-link" href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae-1"> &para;</a></span></h2>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe" accesskey="n" rel="next">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &thorn;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_00aa-_00ba-_00bf" accesskey="p" rel="prev">&ordf; &ordm; &iquest;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h2 class="chapter" id="a-b-_00e5-1"><span>7 a&nbsp;b a sunny day &aring;<a class="copiable-link" href="#a-b-_00e5-1"> &para;</a></span></h2>
 
 <hr>
 </div>
-<div class="chapter-level-extent" id="g_t_21d2-_00b0-a-b-_00e5">
+<div class="chapter-level-extent" id="g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="n" rel="next">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae" accesskey="p" rel="prev">&ordf; &ordm; &lowast; &pound; &#8867; &iquest; &reg;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="g_t_21d2-_00b0-a-b-_00e5-1"><span>8 &rArr; &deg; a&nbsp;b a sunny day &aring;<a class="copiable-link" href="#g_t_21d2-_00b0-a-b-_00e5-1"> &para;</a></span></h2>
-
-<hr>
-</div>
-<div class="chapter-level-extent" id="g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe">
-<p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119" accesskey="n" rel="next">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_21d2-_00b0-a-b-_00e5" accesskey="p" rel="prev">&rArr; &deg; a&nbsp;b a sunny day &aring;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe-1"><span>9 &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;<a class="copiable-link" href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe-1"> &para;</a></span></h2>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119" accesskey="n" rel="next">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#a-b-_00e5" accesskey="p" rel="prev">a&nbsp;b a sunny day &aring;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h2 class="chapter" id="g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe-1"><span>8 &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &thorn;<a class="copiable-link" href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e" accesskey="n" rel="next">&#279; &#277; e&#818; &#7865; &#283; &#567; e&#865;e</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="p" rel="prev">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119-1"><span>10 &auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;<a class="copiable-link" href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119-1"> &para;</a></span></h2>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e" accesskey="n" rel="next">&#279; &#277; e&#818; &#7865; &#283; &#567; e&#865;e</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe" accesskey="p" rel="prev">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &thorn;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h2 class="chapter" id="g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119-1"><span>9 &auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;<a class="copiable-link" href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_0131-_1e14-_1e08" accesskey="n" rel="next">&inodot; &#274;&#768; &#262;&#807;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119" accesskey="p" rel="prev">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="g_t_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e-1"><span>11 &#279; &#277; e&#818; &#7865; &#283; &#567; e&#865;e<a class="copiable-link" href="#g_t_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e-1"> &para;</a></span></h2>
+<h2 class="chapter" id="g_t_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e-1"><span>10 &#279; &#277; e&#818; &#7865; &#283; &#567; e&#865;e<a class="copiable-link" href="#g_t_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t_0131-_1e14-_1e08">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a" accesskey="n" rel="next">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e" accesskey="p" rel="prev">&#279; &#277; e&#818; &#7865; &#283; &#567; e&#865;e</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="g_t_0131-_1e14-_1e08-1"><span>12 &inodot; &#274;&#768; &#262;&#807;<a class="copiable-link" href="#g_t_0131-_1e14-_1e08-1"> &para;</a></span></h2>
+<h2 class="chapter" id="g_t_0131-_1e14-_1e08-1"><span>11 &inodot; &#274;&#768; &#262;&#807;<a class="copiable-link" href="#g_t_0131-_1e14-_1e08-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t_201c-_201d-_2018-_2019-_201e-_201a">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a" accesskey="n" rel="next">&laquo; &raquo; &laquo; &raquo; &lsaquo; &rsaquo;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_0131-_1e14-_1e08" accesskey="p" rel="prev">&inodot; &#274;&#768; &#262;&#807;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="g_t_201c-_201d-_2018-_2019-_201e-_201a-1"><span>13 &ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;<a class="copiable-link" href="#g_t_201c-_201d-_2018-_2019-_201e-_201a-1"> &para;</a></span></h2>
+<h2 class="chapter" id="g_t_201c-_201d-_2018-_2019-_201e-_201a-1"><span>12 &ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;<a class="copiable-link" href="#g_t_201c-_201d-_2018-_2019-_201e-_201a-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027" accesskey="n" rel="next">&ldquo; &rdquo; &mdash; &ndash; &lsquo; &rsquo;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a" accesskey="p" rel="prev">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a-1"><span>14 &laquo; &raquo; &laquo; &raquo; &lsaquo; &rsaquo;<a class="copiable-link" href="#g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a-1"> &para;</a></span></h2>
+<h2 class="chapter" id="g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a-1"><span>13 &laquo; &raquo; &laquo; &raquo; &lsaquo; &rsaquo;<a class="copiable-link" href="#g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#AAA-AAA-BBB" accesskey="n" rel="next"><abbr class="acronym" title="fff">AAA</abbr> (fff) <abbr class="acronym" title="fff">AAA</abbr> <abbr class="acronym">BBB</abbr></a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a" accesskey="p" rel="prev">&laquo; &raquo; &laquo; &raquo; &lsaquo; &rsaquo;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="g_t_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027-1"><span>15 &ldquo; &rdquo; &mdash; &ndash; &lsquo; &rsquo;<a class="copiable-link" href="#g_t_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027-1"> &para;</a></span></h2>
+<h2 class="chapter" id="g_t_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027-1"><span>14 &ldquo; &rdquo; &mdash; &ndash; &lsquo; &rsquo;<a class="copiable-link" href="#g_t_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="AAA-AAA-BBB">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#CCC-CCC-DDD" accesskey="n" rel="next"><abbr class="abbr" title="rrr">CCC</abbr> (rrr) <abbr class="abbr" title="rrr">CCC</abbr> <abbr class="abbr">DDD</abbr></a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027" accesskey="p" rel="prev">&ldquo; &rdquo; &mdash; &ndash; &lsquo; &rsquo;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="AAA-AAA-BBB-1"><span>16 <abbr class="acronym" title="fff">AAA</abbr> (fff) <abbr class="acronym" title="fff">AAA</abbr> <abbr class="acronym">BBB</abbr><a class="copiable-link" href="#AAA-AAA-BBB-1"> &para;</a></span></h2>
+<h2 class="chapter" id="AAA-AAA-BBB-1"><span>15 <abbr class="acronym" title="fff">AAA</abbr> (fff) <abbr class="acronym" title="fff">AAA</abbr> <abbr class="acronym">BBB</abbr><a class="copiable-link" href="#AAA-AAA-BBB-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="CCC-CCC-DDD">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#someone_0040somewher-no_005fexplain_0040there" accesskey="n" rel="next"><a class="email" href="mailto:someone@somewher">the someone</a> <a class="email" href="mailto:no_explain@there">no_explain@there</a></a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#AAA-AAA-BBB" accesskey="p" rel="prev"><abbr class="acronym" title="fff">AAA</abbr> (fff) <abbr class="acronym" title="fff">AAA</abbr> <abbr class="acronym">BBB</abbr></a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="CCC-CCC-DDD-1"><span>17 <abbr class="abbr" title="rrr">CCC</abbr> (rrr) <abbr class="abbr" title="rrr">CCC</abbr> <abbr class="abbr">DDD</abbr><a class="copiable-link" href="#CCC-CCC-DDD-1"> &para;</a></span></h2>
+<h2 class="chapter" id="CCC-CCC-DDD-1"><span>16 <abbr class="abbr" title="rrr">CCC</abbr> (rrr) <abbr class="abbr" title="rrr">CCC</abbr> <abbr class="abbr">DDD</abbr><a class="copiable-link" href="#CCC-CCC-DDD-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="someone_0040somewher-no_005fexplain_0040there">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#f_002d_002dile1-f_002d_002dile" accesskey="n" rel="next"><img class="image" src="f--ile1.jpg" alt="f--ile1">  <img class="image" src="f--ile.png" alt="alt"></a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#CCC-CCC-DDD" accesskey="p" rel="prev"><abbr class="abbr" title="rrr">CCC</abbr> (rrr) <abbr class="abbr" title="rrr">CCC</abbr> <abbr class="abbr">DDD</abbr></a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="someone_0040somewher-no_005fexplain_0040there-1"><span>18 <a class="email" href="mailto:someone@somewher">the someone</a> <a class="email" href="mailto:no_explain@there">no_explain@there</a><a class="copiable-link" href="#someone_0040somewher-no_005fexplain_0040there-1"> &para;</a></span></h2>
+<h2 class="chapter" id="someone_0040somewher-no_005fexplain_0040there-1"><span>17 <a class="email" href="mailto:someone@somewher">the someone</a> <a class="email" href="mailto:no_explain@there">no_explain@there</a><a class="copiable-link" href="#someone_0040somewher-no_005fexplain_0040there-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="f_002d_002dile1-f_002d_002dile">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#-_0040-_007b_007d-_002e-" accesskey="n" rel="next"><code class="verb">&nbsp;@&nbsp;{}&nbsp;.&nbsp;</code></a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#someone_0040somewher-no_005fexplain_0040there" accesskey="p" rel="prev"><a class="email" href="mailto:someone@somewher">the someone</a> <a class="email" href="mailto:no_explain@there">no_explain@there</a></a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="f_002d_002dile1-f_002d_002dile-1"><span>19 <img class="image" src="f--ile1.jpg" alt="f--ile1">  <img class="image" src="f--ile.png" alt="alt"><a class="copiable-link" href="#f_002d_002dile1-f_002d_002dile-1"> &para;</a></span></h2>
+<h2 class="chapter" id="f_002d_002dile1-f_002d_002dile-1"><span>18 <img class="image" src="f--ile1.jpg" alt="f--ile1">  <img class="image" src="f--ile.png" alt="alt"><a class="copiable-link" href="#f_002d_002dile1-f_002d_002dile-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="-_0040-_007b_007d-_002e-">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i" accesskey="n" rel="next"><cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i></a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#f_002d_002dile1-f_002d_002dile" accesskey="p" rel="prev"><img class="image" src="f--ile1.jpg" alt="f--ile1">  <img class="image" src="f--ile.png" alt="alt"></a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="-_0040-_007b_007d-_002e--1"><span>20 <code class="verb">&nbsp;@&nbsp;{}&nbsp;.&nbsp;</code><a class="copiable-link" href="#-_0040-_007b_007d-_002e--1"> &para;</a></span></h2>
+<h2 class="chapter" id="-_0040-_007b_007d-_002e--1"><span>19 <code class="verb">&nbsp;@&nbsp;{}&nbsp;.&nbsp;</code><a class="copiable-link" href="#-_0040-_007b_007d-_002e--1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#env-code-option-samp-command-file-C_002dx-ESC" accesskey="n" rel="next"><code class="env">env</code> <code class="code">code</code> <samp class="option">option</samp> &lsquo;<samp class="samp">samp</samp>&rsquo; <code class="command">command</code> <samp class="file">file</samp> <kbd class="kbd">C-x <kbd class="key">ESC</kbd></kbd></a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#-_0040-_007b_007d-_002e-" accesskey="p" rel="prev"><code class="verb">&nbsp;@&nbsp;{}&nbsp;.&nbsp;</code></a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i-1"><span>21 <cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i><a class="copiable-link" href="#cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i-1"> &para;</a></span></h2>
+<h2 class="chapter" id="cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i-1"><span>20 <cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i><a class="copiable-link" href="#cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="env-code-option-samp-command-file-C_002dx-ESC">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t8_002e27in" accesskey="n" rel="next">8.27<span class="dmn">in</span></a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i" accesskey="p" rel="prev"><cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i></a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="env-code-option-samp-command-file-C_002dx-ESC-1"><span>22 <code class="env">env</code> <code class="code">code</code> <samp class="option">option</samp> &lsquo;<samp class="samp">samp</samp>&rsquo; <code class="command">command</code> <samp class="file">file</samp> <kbd class="kbd">C-x <kbd class="key">ESC</kbd></kbd><a class="copiable-link" href="#env-code-option-samp-command-file-C_002dx-ESC-1"> &para;</a></span></h2>
+<h2 class="chapter" id="env-code-option-samp-command-file-C_002dx-ESC-1"><span>21 <code class="env">env</code> <code class="code">code</code> <samp class="option">option</samp> &lsquo;<samp class="samp">samp</samp>&rsquo; <code class="command">command</code> <samp class="file">file</samp> <kbd class="kbd">C-x <kbd class="key">ESC</kbd></kbd><a class="copiable-link" href="#env-code-option-samp-command-file-C_002dx-ESC-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t8_002e27in">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#sansserif-slanted" accesskey="n" rel="next"><span class="sansserif">sansserif</span> <i class="slanted">slanted</i></a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#env-code-option-samp-command-file-C_002dx-ESC" accesskey="p" rel="prev"><code class="env">env</code> <code class="code">code</code> <samp class="option">option</samp> &lsquo;<samp class="samp">samp</samp>&rsquo; <code class="command">command</code> <samp class="file">file</samp> <kbd class="kbd">C-x <kbd class="key">ESC</kbd></kbd></a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="g_t8_002e27in-1"><span>23 8.27<span class="dmn">in</span><a class="copiable-link" href="#g_t8_002e27in-1"> &para;</a></span></h2>
+<h2 class="chapter" id="g_t8_002e27in-1"><span>22 8.27<span class="dmn">in</span><a class="copiable-link" href="#g_t8_002e27in-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="sansserif-slanted">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#indicateurl" accesskey="n" rel="next">&lsquo;<code class="indicateurl">indicateurl</code>&rsquo;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t8_002e27in" accesskey="p" rel="prev">8.27<span class="dmn">in</span></a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="sansserif-slanted-1"><span>24 <span class="sansserif">sansserif</span> <i class="slanted">slanted</i><a class="copiable-link" href="#sansserif-slanted-1"> &para;</a></span></h2>
+<h2 class="chapter" id="sansserif-slanted-1"><span>23 <span class="sansserif">sansserif</span> <i class="slanted">slanted</i><a class="copiable-link" href="#sansserif-slanted-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="indicateurl">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#gH-3rd" accesskey="n" rel="next"><sub class="sub">g</sub>H 3<sup class="sup">rd</sup></a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#sansserif-slanted" accesskey="p" rel="prev"><span class="sansserif">sansserif</span> <i class="slanted">slanted</i></a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="indicateurl-1"><span>25 &lsquo;<code class="indicateurl">indicateurl</code>&rsquo;<a class="copiable-link" href="#indicateurl-1"> &para;</a></span></h2>
+<h2 class="chapter" id="indicateurl-1"><span>24 &lsquo;<code class="indicateurl">indicateurl</code>&rsquo;<a class="copiable-link" href="#indicateurl-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="gH-3rd">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" accesskey="n" rel="next"><a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a></a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#indicateurl" accesskey="p" rel="prev">&lsquo;<code class="indicateurl">indicateurl</code>&rsquo;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="gH-3rd-1"><span>26 <sub class="sub">g</sub>H 3<sup class="sup">rd</sup><a class="copiable-link" href="#gH-3rd-1"> &para;</a></span></h2>
+<h2 class="chapter" id="gH-3rd-1"><span>25 <sub class="sub">g</sub>H 3<sup class="sup">rd</sup><a class="copiable-link" href="#gH-3rd-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#gH-3rd" accesskey="p" rel="prev"><sub class="sub">g</sub>H 3<sup class="sup">rd</sup></a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls-1"><span>27 <a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a><a class="copiable-link" href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls-1"> &para;</a></span></h2>
+<h2 class="chapter" id="http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls-1"><span>26 <a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a><a class="copiable-link" href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls-1"> &para;</a></span></h2>
 
 <p><a class="ref" href="#-_007b-_007d"> { }</a>
 </p>
@@ -4261,17 +4482,15 @@ span:hover a.copiable-link {visibility: visible}
 </p>
 <p><a class="ref" href="#g_t_0040-_007b-_007d-_005c-_0023">@ { } \\ #</a>
 </p>
-<p><a class="ref" href="#LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e">LaTeX TeX &bull; , &copy; &hellip; <small class="enddots">...</small></a>
+<p><a class="ref" href="#LaTeX-TeX-_002c-_2026-_002e_002e_002e">LaTeX TeX , &hellip; <small class="enddots">...</small></a>
 </p>
-<p><a class="ref" href="#g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212">&equiv; error&rarr; &euro; &iexcl; &rarr; &minus;</a>
+<p><a class="ref" href="#error_002d_002d_003e-_20ac-_00a1">error&rarr; &euro; &iexcl;</a>
 </p>
-<p><a class="ref" href="#g_t_2265-_2264-_2192">&ge; &le; &rarr;</a>
+<p>&lsquo;&ordf; &ordm; &iquest; &reg;&rsquo;
 </p>
-<p><a class="ref" href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae">&ordf; &ordm; &lowast; &pound; &#8867; &iquest; &reg;</a>
+<p><a class="ref" href="#a-b-_00e5">a&nbsp;b a sunny day &aring;</a>
 </p>
-<p><a class="ref" href="#g_t_21d2-_00b0-a-b-_00e5">&rArr; &deg; a&nbsp;b a sunny day &aring;</a>
-</p>
-<p><a class="ref" href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a>
+<p><a class="ref" href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &thorn;</a>
 </p>
 <p><a class="ref" href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a>
 </p>
@@ -4309,6 +4528,50 @@ span:hover a.copiable-link {visibility: visible}
 </p>
 <p><a class="ref" href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls"><a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a></a>
 </p>
+<p><a class="ref" href="#g_t_2022-_00a9-_2261">&bull; &copy; &equiv;</a>
+</p>
+<p><a class="ref" href="#g_t_2265-_2264-_2192-_21a6-_2212">&ge; &le; &rarr; &rarr; &minus;</a>
+</p>
+<p><a class="ref" href="#g_t_22c6-_00a3-_22a3-_00ae-_21d2">&lowast; &pound; &#8867; &reg; &rArr;</a>
+</p>
+<p><a class="ref" href="#g_t_00b0-_00de">&deg; &THORN;</a>
+</p>
+
+
+<ul class="mini-toc">
+<li><a href="#g_t_2022-_00a9-_2261" accesskey="1">&bull; &copy; &equiv;</a></li>
+<li><a href="#g_t_2265-_2264-_2192-_21a6-_2212" accesskey="2">&ge; &le; &rarr; &rarr; &minus;</a></li>
+<li><a href="#g_t_22c6-_00a3-_22a3-_00ae-_21d2" accesskey="3">&lowast; &pound; &#8867; &reg; &rArr;</a></li>
+<li><a href="#g_t_00b0-_00de" accesskey="4">&deg; &THORN;</a></li>
+</ul>
+<hr>
+<div class="section-level-extent" id="g_t_2022-_00a9-_2261">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_2265-_2264-_2192-_21a6-_2212" accesskey="n" rel="next">&ge; &le; &rarr; &rarr; &minus;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" accesskey="u" rel="up"><a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a></a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h3 class="section" id="g_t_2022-_00a9-_2261-1"><span>26.1 &bull; &copy; &equiv;<a class="copiable-link" href="#g_t_2022-_00a9-_2261-1"> &para;</a></span></h3>
+
+<hr>
+</div>
+<div class="section-level-extent" id="g_t_2265-_2264-_2192-_21a6-_2212">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_22c6-_00a3-_22a3-_00ae-_21d2" accesskey="n" rel="next">&lowast; &pound; &#8867; &reg; &rArr;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_2022-_00a9-_2261" accesskey="p" rel="prev">&bull; &copy; &equiv;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" accesskey="u" rel="up"><a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a></a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h3 class="section" id="g_t_2265-_2264-_2192-_21a6-_2212-1"><span>26.2 &ge; &le; &rarr; &rarr; &minus;<a class="copiable-link" href="#g_t_2265-_2264-_2192-_21a6-_2212-1"> &para;</a></span></h3>
+
+<hr>
+</div>
+<div class="section-level-extent" id="g_t_22c6-_00a3-_22a3-_00ae-_21d2">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00b0-_00de" accesskey="n" rel="next">&deg; &THORN;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_2265-_2264-_2192-_21a6-_2212" accesskey="p" rel="prev">&ge; &le; &rarr; &rarr; &minus;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" accesskey="u" rel="up"><a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a></a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h3 class="section" id="g_t_22c6-_00a3-_22a3-_00ae-_21d2-1"><span>26.3 &lowast; &pound; &#8867; &reg; &rArr;<a class="copiable-link" href="#g_t_22c6-_00a3-_22a3-_00ae-_21d2-1"> &para;</a></span></h3>
+
+<hr>
+</div>
+<div class="section-level-extent" id="g_t_00b0-_00de">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_22c6-_00a3-_22a3-_00ae-_21d2" accesskey="p" rel="prev">&lowast; &pound; &#8867; &reg; &rArr;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" accesskey="u" rel="up"><a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a></a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h3 class="section" id="g_t_00b0-_00de-1"><span>26.4 &deg; &THORN;<a class="copiable-link" href="#g_t_00b0-_00de-1"> &para;</a></span></h3>
+
+</div>
 </div>
 </div>
 
@@ -4318,19 +4581,19 @@ span:hover a.copiable-link {visibility: visible}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'at_commands_in_refs'} = '* W l92|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+$result_converted_errors{'html'}->{'at_commands_in_refs'} = '* W l88|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
  warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 
-* W l90|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+* W l86|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
  warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 
-* W l90|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+* W l86|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
  warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 
-* W l92|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+* W l88|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
  warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 
-* W l160|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+* W l154|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
  warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 
 ';
@@ -4343,12 +4606,11 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node identifier="Top"><nod
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>&hyphenbreak; &lbrace; &rbrace;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><spacecmd type="spc"/> <spacecmd type="tab"/> &eosexcl; &linebreak; &eosperiod; &noeos; .&noeos; &eosquest; &arobase;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&latex; &tex; &bullet; &comma; &copyright; &dots; &enddots;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&equiv; &errorglyph; &euro; &iexcl; &expansion; &minus;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&ge; &le; &rarr;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&result; &deg; a&nbsp;b <today/> &aring;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &THORN; &thorn;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&latex; &tex; &comma; &dots; &enddots;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&errorglyph; &euro; &iexcl;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&ordf; &ordm; &iquest; &registered;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>a&nbsp;b <today/> &aring;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &thorn;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><accent type="dot">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><dotless>i</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -4378,35 +4640,31 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node identifier="Top"><nod
 <chapter><sectiontitle> <spacecmd type="spc"/> <spacecmd type="tab"/> &eosexcl; &linebreak; &eosperiod; &noeos; .&noeos; &eosquest; &arobase;</sectiontitle>
 
 </chapter>
-<node identifier="_0040-_007b-_007d-_005c-_0023"><nodename> &atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</nodename><nodenext automatic="on"> &latex; &tex; &bullet; &comma; &copyright; &dots; &enddots;</nodenext><nodeprev automatic="on"> <spacecmd type="spc"/> <spacecmd type="tab"/> &eosexcl; &linebreak; &eosperiod; &noeos; .&noeos; &eosquest; &arobase;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<node identifier="_0040-_007b-_007d-_005c-_0023"><nodename> &atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</nodename><nodenext automatic="on"> &latex; &tex; &comma; &dots; &enddots;</nodenext><nodeprev automatic="on"> <spacecmd type="spc"/> <spacecmd type="tab"/> &eosexcl; &linebreak; &eosperiod; &noeos; .&noeos; &eosquest; &arobase;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
 <chapter><sectiontitle> &atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</sectiontitle>
 
 </chapter>
-<node identifier="LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e"><nodename> &latex; &tex; &bullet; &comma; &copyright; &dots; &enddots;</nodename><nodenext automatic="on"> &equiv; &errorglyph; &euro; &iexcl; &expansion; &minus;</nodenext><nodeprev automatic="on"> &atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
-<chapter><sectiontitle> &latex; &tex; &bullet; &comma; &copyright; &dots; &enddots;</sectiontitle>
+<node identifier="LaTeX-TeX-_002c-_2026-_002e_002e_002e"><nodename> &latex; &tex; &comma; &dots; &enddots;</nodename><nodenext automatic="on"> &errorglyph; &euro; &iexcl;</nodenext><nodeprev automatic="on"> &atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> &latex; &tex; &comma; &dots; &enddots;</sectiontitle>
 
 </chapter>
-<node identifier="_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212"><nodename> &equiv; &errorglyph; &euro; &iexcl; &expansion; &minus;</nodename><nodenext automatic="on"> &ge; &le; &rarr;</nodenext><nodeprev automatic="on"> &latex; &tex; &bullet; &comma; &copyright; &dots; &enddots;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
-<chapter><sectiontitle> &equiv; &errorglyph; &euro; &iexcl; &expansion; &minus;</sectiontitle>
+<node identifier="error_002d_002d_003e-_20ac-_00a1"><nodename> &errorglyph; &euro; &iexcl;</nodename><nodenext automatic="on"> &ordf; &ordm; &iquest;</nodenext><nodeprev automatic="on"> &latex; &tex; &comma; &dots; &enddots;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> &errorglyph; &euro; &iexcl;</sectiontitle>
 
 </chapter>
-<node identifier="_2265-_2264-_2192"><nodename> &ge; &le; &rarr;</nodename><nodenext automatic="on"> &ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</nodenext><nodeprev automatic="on"> &equiv; &errorglyph; &euro; &iexcl; &expansion; &minus;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
-<chapter><sectiontitle> &ge; &le; &rarr;</sectiontitle>
+<node identifier="_00aa-_00ba-_00bf"><nodename> &ordf; &ordm; &iquest;</nodename><nodenext automatic="on"> a&nbsp;b <today/> &aring;</nodenext><nodeprev automatic="on"> &errorglyph; &euro; &iexcl;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> &ordf; &ordm; &iquest;</sectiontitle>
 
 </chapter>
-<node identifier="_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae"><nodename> &ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</nodename><nodenext automatic="on"> &result; &deg; a&nbsp;b <today/> &aring;</nodenext><nodeprev automatic="on"> &ge; &le; &rarr;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
-<chapter><sectiontitle> &ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</sectiontitle>
+<node identifier="a-b-_00e5"><nodename> a&nbsp;b <today/> &aring;</nodename><nodenext automatic="on"> &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &thorn;</nodenext><nodeprev automatic="on"> &ordf; &ordm; &iquest;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> a&nbsp;b <today/> &aring;</sectiontitle>
 
 </chapter>
-<node identifier="_21d2-_00b0-a-b-_00e5"><nodename> &result; &deg; a&nbsp;b <today/> &aring;</nodename><nodenext automatic="on"> &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &THORN; &thorn;</nodenext><nodeprev automatic="on"> &ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
-<chapter><sectiontitle> &result; &deg; a&nbsp;b <today/> &aring;</sectiontitle>
+<node identifier="_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe"><nodename> &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &thorn;</nodename><nodenext automatic="on"> <accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></nodenext><nodeprev automatic="on"> a&nbsp;b <today/> &aring;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<chapter><sectiontitle> &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &thorn;</sectiontitle>
 
 </chapter>
-<node identifier="_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe"><nodename> &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &THORN; &thorn;</nodename><nodenext automatic="on"> <accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></nodenext><nodeprev automatic="on"> &result; &deg; a&nbsp;b <today/> &aring;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
-<chapter><sectiontitle> &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &THORN; &thorn; </sectiontitle>
-
-</chapter>
-<node identifier="_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119"><nodename> <accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></nodename><nodenext automatic="on"> <accent type="dot">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></nodenext><nodeprev automatic="on"> &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &THORN; &thorn;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
+<node identifier="_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119"><nodename> <accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></nodename><nodenext automatic="on"> <accent type="dot">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></nodenext><nodeprev automatic="on"> &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &thorn;</nodeprev><nodeup automatic="on"> Top</nodeup></node>
 <chapter><sectiontitle>  <accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></sectiontitle>
 
 </chapter>
@@ -4483,17 +4741,15 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node identifier="Top"><nod
 </para>
 <para><ref label="_0040-_007b-_007d-_005c-_0023"><xrefnodename>&atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</xrefnodename></ref>
 </para>
-<para><ref label="LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e"><xrefnodename>&latex; &tex; &bullet; &comma; &copyright; &dots; &enddots;</xrefnodename></ref>
+<para><ref label="LaTeX-TeX-_002c-_2026-_002e_002e_002e"><xrefnodename>&latex; &tex; &comma; &dots; &enddots;</xrefnodename></ref>
 </para>
-<para><ref label="_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212"><xrefnodename>&equiv; &errorglyph; &euro; &iexcl; &expansion; &minus;</xrefnodename></ref>
+<para><ref label="error_002d_002d_003e-_20ac-_00a1"><xrefnodename>&errorglyph; &euro; &iexcl;</xrefnodename></ref>
 </para>
-<para><ref label="_2265-_2264-_2192"><xrefnodename>&ge; &le; &rarr;</xrefnodename></ref>
+<para><ref label="_00aa-_00ba-_00bf-_00ae"><xrefnodename>&ordf; &ordm; &iquest; &registered;</xrefnodename></ref>
 </para>
-<para><ref label="_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae"><xrefnodename>&ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</xrefnodename></ref>
+<para><ref label="a-b-_00e5"><xrefnodename>a&nbsp;b <today/> &aring;</xrefnodename></ref>
 </para>
-<para><ref label="_21d2-_00b0-a-b-_00e5"><xrefnodename>&result; &deg; a&nbsp;b <today/> &aring;</xrefnodename></ref>
-</para>
-<para><ref label="_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe"><xrefnodename>&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &THORN; &thorn;</xrefnodename></ref>
+<para><ref label="_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe"><xrefnodename>&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &thorn;</xrefnodename></ref>
 </para>
 <para><ref label="_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119"><xrefnodename><accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></xrefnodename></ref>
 </para>
@@ -4531,8 +4787,39 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node identifier="Top"><nod
 </para>
 <para><ref label="http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls"><xrefnodename><url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></xrefnodename></ref>
 </para>
+<para><ref label="_2022-_00a9-_2261"><xrefnodename>&bullet; &copyright; &equiv;</xrefnodename></ref>
+</para>
+<para><ref label="_2265-_2264-_2192-_21a6-_2212"><xrefnodename>&ge; &le; &rarr; &expansion; &minus;</xrefnodename></ref>
+</para>
+<para><ref label="_22c6-_00a3-_22a3-_00ae-_21d2"><xrefnodename>&point; &pound; &printglyph; &registered; &result;</xrefnodename></ref>
+</para>
+<para><ref label="_00b0-_00de"><xrefnodename>&deg; &THORN;</xrefnodename></ref>
+</para>
+
+<menu endspaces=" ">
+<menuentry><menuleadingtext>* </menuleadingtext><menunode>&bullet; &copyright; &equiv;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&ge; &le; &rarr; &expansion; &minus;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&point; &pound; &printglyph; &registered; &result;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&deg; &THORN;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry></menu>
+
+<node identifier="_2022-_00a9-_2261"><nodename> &bullet; &copyright; &equiv;</nodename><nodenext automatic="on"> &ge; &le; &rarr; &expansion; &minus;</nodenext><nodeup automatic="on"> <url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></nodeup></node>
+<section><sectiontitle> &bullet; &copyright; &equiv;</sectiontitle>
+
+</section>
+<node identifier="_2265-_2264-_2192-_21a6-_2212"><nodename> &ge; &le; &rarr; &expansion; &minus;</nodename><nodenext automatic="on"> &point; &pound; &printglyph; &registered; &result;</nodenext><nodeprev automatic="on"> &bullet; &copyright; &equiv;</nodeprev><nodeup automatic="on"> <url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></nodeup></node>
+<section><sectiontitle> &ge; &le; &rarr; &expansion; &minus;</sectiontitle>
+
+</section>
+<node identifier="_22c6-_00a3-_22a3-_00ae-_21d2"><nodename> &point; &pound; &printglyph; &registered; &result;</nodename><nodenext automatic="on"> &deg; &THORN;</nodenext><nodeprev automatic="on"> &ge; &le; &rarr; &expansion; &minus;</nodeprev><nodeup automatic="on"> <url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></nodeup></node>
+<section><sectiontitle> &point; &pound; &printglyph; &registered; &result;</sectiontitle>
+
+</section>
+<node identifier="_00b0-_00de"><nodename> &deg; &THORN;</nodename><nodeprev automatic="on"> &point; &pound; &printglyph; &registered; &result;</nodeprev><nodeup automatic="on"> <url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></nodeup></node>
+<section><sectiontitle> &deg; &THORN;</sectiontitle>
+
+</section>
 </chapter>
-<bye></bye>
 ';
 
 
@@ -4549,99 +4836,95 @@ $result_converted{'docbook'}->{'at_commands_in_refs'} = '<chapter label="1" id="
 <title>&#64; &#123; &#125; &#92; &#35;</title>
 
 </chapter>
-<chapter label="4" id="LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e">
-<title>&latex; &tex; &#8226; &#44; &#169; &#8230; ...</title>
+<chapter label="4" id="LaTeX-TeX-_002c-_2026-_002e_002e_002e">
+<title>&latex; &tex; &#44; &#8230; ...</title>
 
 </chapter>
-<chapter label="5" id="_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212">
-<title>&#8801; error&#8594; &#8364; &#161; &#8614; &#8722;</title>
+<chapter label="5" id="error_002d_002d_003e-_20ac-_00a1">
+<title>error&#8594; &#8364; &#161;</title>
 
 </chapter>
-<chapter label="6" id="_2265-_2264-_2192">
-<title>&#8805; &#8804; &#8594;</title>
+<chapter label="6" id="_00aa-_00ba-_00bf">
+<title>&#170; &#186; &#191;</title>
 
 </chapter>
-<chapter label="7" id="_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae">
-<title>&#170; &#186; &#8902; &#163; &#8867; &#191; &#174;</title>
+<chapter label="7" id="a-b-_00e5">
+<title>a&#160;b a sunny day &#229;</title>
 
 </chapter>
-<chapter label="8" id="_21d2-_00b0-a-b-_00e5">
-<title>&#8658; &#176; a&#160;b a sunny day &#229;</title>
+<chapter label="8" id="_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe">
+<title>&#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208; &#240; &#254;</title>
 
 </chapter>
-<chapter label="9" id="_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe">
-<title>&#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208; &#240; &#222; &#254;</title>
-
-</chapter>
-<chapter label="10" id="_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">
+<chapter label="9" id="_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">
 <title>&#228; &#7869; &#238; &#226; &#224; &#233; &#231; &#275; e&#778; e&#779; &#281;</title>
 
 </chapter>
-<chapter label="11" id="_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e">
+<chapter label="10" id="_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e">
 <title>&#279; &#277; e&#818; &#7865; &#283; &#567; e&#865;e</title>
 
 </chapter>
-<chapter label="12" id="_0131-_1e14-_1e08">
+<chapter label="11" id="_0131-_1e14-_1e08">
 <title>&#305; &#274;&#768; &#262;&#807;</title>
 
 </chapter>
-<chapter label="13" id="_201c-_201d-_2018-_2019-_201e-_201a">
+<chapter label="12" id="_201c-_201d-_2018-_2019-_201e-_201a">
 <title>&#8220; &#8221; &#8216; &#8217; &#8222; &#8218;</title>
 
 </chapter>
-<chapter label="14" id="_00ab-_00bb-_00ab-_00bb-_2039-_203a">
+<chapter label="13" id="_00ab-_00bb-_00ab-_00bb-_2039-_203a">
 <title>&#171; &#187; &#171; &#187; &#8249; &#8250;</title>
 
 </chapter>
-<chapter label="15" id="_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027">
+<chapter label="14" id="_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027">
 <title>&#8220; &#8221; &#8212; &#8211; &#8216; &#8217;</title>
 
 </chapter>
-<chapter label="16" id="AAA-AAA-BBB">
+<chapter label="15" id="AAA-AAA-BBB">
 <title><acronym>AAA</acronym> (fff) <acronym>AAA</acronym> <acronym>BBB</acronym></title>
 
 </chapter>
-<chapter label="17" id="CCC-CCC-DDD">
+<chapter label="16" id="CCC-CCC-DDD">
 <title><abbrev>CCC</abbrev> (rrr) <abbrev>CCC</abbrev> <abbrev>DDD</abbrev></title>
 
 </chapter>
-<chapter label="18" id="someone_0040somewher-no_005fexplain_0040there">
+<chapter label="17" id="someone_0040somewher-no_005fexplain_0040there">
 <title><ulink url="mailto:someone@somewher">the someone</ulink> <email>no_explain@there</email></title>
 
 </chapter>
-<chapter label="19" id="f_002d_002dile1-f_002d_002dile">
+<chapter label="18" id="f_002d_002dile1-f_002d_002dile">
 <title><inlinemediaobject><imageobject><imagedata fileref="f--ile1.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>  <inlinemediaobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>Image description&quot;&quot;\\.</literallayout></textobject></inlinemediaobject></title>
 
 </chapter>
-<chapter label="20" id="-_0040-_007b_007d-_002e-">
+<chapter label="19" id="-_0040-_007b_007d-_002e-">
 <title><literal> @ {} . </literal></title>
 
 </chapter>
-<chapter label="21" id="cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i">
+<chapter label="20" id="cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i">
 <title><citetitle>cite asis</citetitle> in&amp;#160;@w&amp;#160;<emphasis role="bold">b</emphasis><!-- /@w --> in r SC <emphasis role="bold">str</emphasis> <literal>t</literal> <replaceable>var</replaceable> <firstterm>dfn</firstterm> <emphasis>i</emphasis></title>
 
 </chapter>
-<chapter label="22" id="env-code-option-samp-command-file-C_002dx-ESC">
+<chapter label="21" id="env-code-option-samp-command-file-C_002dx-ESC">
 <title><envar>env</envar> <literal>code</literal> <option>option</option> &#8216;<literal>samp</literal>&#8217; <command>command</command> <filename>file</filename> <userinput>C-x <keycap>ESC</keycap></userinput></title>
 
 </chapter>
-<chapter label="23" id="8_002e27in">
+<chapter label="22" id="8_002e27in">
 <title>8.27in</title>
 
 </chapter>
-<chapter label="24" id="sansserif-slanted">
+<chapter label="23" id="sansserif-slanted">
 <title>sansserif slanted</title>
 
 </chapter>
-<chapter label="25" id="indicateurl">
+<chapter label="24" id="indicateurl">
 <title><literal>indicateurl</literal></title>
 
 </chapter>
-<chapter label="26" id="gH-3rd">
+<chapter label="25" id="gH-3rd">
 <title><subscript>g</subscript>H 3<superscript>rd</superscript></title>
 
 </chapter>
-<chapter label="27" id="http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls">
+<chapter label="26" id="http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls">
 <title><ulink url="http://somewhere_aaa">http://somewhere_aaa</ulink> <ulink url="url">text</ulink> <ulink url="/man.cgi/1/ls">ls</ulink></title>
 
 <para><link linkend="-_007b-_007d"> { }</link>
@@ -4651,17 +4934,15 @@ $result_converted{'docbook'}->{'at_commands_in_refs'} = '<chapter label="1" id="
 </para>
 <para><link linkend="_0040-_007b-_007d-_005c-_0023">&#64; &#123; &#125; &#92; &#35;</link>
 </para>
-<para><link linkend="LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e">&latex; &tex; &#8226; &#44; &#169; &#8230; ...</link>
+<para><link linkend="LaTeX-TeX-_002c-_2026-_002e_002e_002e">&latex; &tex; &#44; &#8230; ...</link>
 </para>
-<para><link linkend="_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212">&#8801; error&#8594; &#8364; &#161; &#8614; &#8722;</link>
+<para><link linkend="error_002d_002d_003e-_20ac-_00a1">error&#8594; &#8364; &#161;</link>
 </para>
-<para><link linkend="_2265-_2264-_2192">&#8805; &#8804; &#8594;</link>
+<para><link linkend="_00aa-_00ba-_00bf-_00ae">&#170; &#186; &#191; &#174;</link>
 </para>
-<para><link linkend="_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae">&#170; &#186; &#8902; &#163; &#8867; &#191; &#174;</link>
+<para><link linkend="a-b-_00e5">a&#160;b a sunny day &#229;</link>
 </para>
-<para><link linkend="_21d2-_00b0-a-b-_00e5">&#8658; &#176; a&#160;b a sunny day &#229;</link>
-</para>
-<para><link linkend="_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe">&#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208; &#240; &#222; &#254;</link>
+<para><link linkend="_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe">&#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208; &#240; &#254;</link>
 </para>
 <para><link linkend="_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">&#228; &#7869; &#238; &#226; &#224; &#233; &#231; &#275; e&#778; e&#779; &#281;</link>
 </para>
@@ -4699,13 +4980,39 @@ $result_converted{'docbook'}->{'at_commands_in_refs'} = '<chapter label="1" id="
 </para>
 <para><link linkend="http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls"><ulink url="http://somewhere_aaa">http://somewhere_aaa</ulink> <ulink url="url">text</ulink> <ulink url="/man.cgi/1/ls">ls</ulink></link>
 </para>
+<para><link linkend="_2022-_00a9-_2261">&#8226; &#169; &#8801;</link>
+</para>
+<para><link linkend="_2265-_2264-_2192-_21a6-_2212">&#8805; &#8804; &#8594; &#8614; &#8722;</link>
+</para>
+<para><link linkend="_22c6-_00a3-_22a3-_00ae-_21d2">&#8902; &#163; &#8867; &#174; &#8658;</link>
+</para>
+<para><link linkend="_00b0-_00de">&#176; &#222;</link>
+</para>
+
+
+<sect1 label="26.1" id="_2022-_00a9-_2261">
+<title>&#8226; &#169; &#8801;</title>
+
+</sect1>
+<sect1 label="26.2" id="_2265-_2264-_2192-_21a6-_2212">
+<title>&#8805; &#8804; &#8594; &#8614; &#8722;</title>
+
+</sect1>
+<sect1 label="26.3" id="_22c6-_00a3-_22a3-_00ae-_21d2">
+<title>&#8902; &#163; &#8867; &#174; &#8658;</title>
+
+</sect1>
+<sect1 label="26.4" id="_00b0-_00de">
+<title>&#176; &#222;</title>
+
+</sect1>
 </chapter>
 ';
 
-$result_converted_errors{'docbook'}->{'at_commands_in_refs'} = '* W l92|@image file `f--ile1\' not found, using `f--ile1.jpg\'
+$result_converted_errors{'docbook'}->{'at_commands_in_refs'} = '* W l88|@image file `f--ile1\' not found, using `f--ile1.jpg\'
  warning: @image file `f--ile1\' not found, using `f--ile1.jpg\'
 
-* W l160|@image file `f--ile1\' not found, using `f--ile1.jpg\'
+* W l154|@image file `f--ile1\' not found, using `f--ile1.jpg\'
  warning: @image file `f--ile1\' not found, using `f--ile1.jpg\'
 
 ';
@@ -4722,23 +5029,20 @@ $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 \\Texinfochapter{{@ \\{ \\} \\textbackslash{} \\#}}
 \\label{anchor:_0040-_007b-_007d-_005c-_0023}%
 
-\\Texinfochapter{{\\LaTeX{} \\TeX{} \\textbullet{} , \\copyright{} \\dots{}\\@ \\dots{}}}
-\\label{anchor:LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e}%
+\\Texinfochapter{{\\LaTeX{} \\TeX{} , \\dots{}\\@ \\dots{}}}
+\\label{anchor:LaTeX-TeX-_002c-_2026-_002e_002e_002e}%
 
-\\Texinfochapter{{$\\equiv{}$ \\texorpdfstring{\\fbox{error}}{error} \\euro{} \\textexclamdown{} $\\mapsto{}$ -}}
-\\label{anchor:_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212}%
+\\Texinfochapter{{\\texorpdfstring{\\fbox{error}}{error} \\euro{} \\textexclamdown{}}}
+\\label{anchor:error_002d_002d_003e-_20ac-_00a1}%
 
-\\Texinfochapter{{$\\geq{}$ $\\leq{}$ $\\rightarrow{}$}}
-\\label{anchor:_2265-_2264-_2192}%
+\\Texinfochapter{{\\textordfeminine{} \\textordmasculine{} \\textquestiondown{}}}
+\\label{anchor:_00aa-_00ba-_00bf}%
 
-\\Texinfochapter{{\\textordfeminine{} \\textordmasculine{} $\\star{}$ \\textsterling{} $\\dashv{}$ \\textquestiondown{} \\circledR{}}}
-\\label{anchor:_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae}%
+\\Texinfochapter{{a~b \\today{} \\aa{}}}
+\\label{anchor:a-b-_00e5}%
 
-\\Texinfochapter{{$\\Rightarrow{}$ \\textdegree{} a~b \\today{} \\aa{}}}
-\\label{anchor:_21d2-_00b0-a-b-_00e5}%
-
-\\Texinfochapter{{\\AA{} \\ae{} \\oe{} \\AE{} \\OE{} \\o{} \\O{} \\ss{} \\l{} \\L{} \\DH{} \\dh{} \\TH{} \\th{}}}
-\\label{anchor:_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe}%
+\\Texinfochapter{{\\AA{} \\ae{} \\oe{} \\AE{} \\OE{} \\o{} \\O{} \\ss{} \\l{} \\L{} \\DH{} \\dh{} \\th{}}}
+\\label{anchor:_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe}%
 
 \\Texinfochapter{{\\"{a} \\~{e} \\^{\\i{}} \\^{a} \\`{a} \\\'{e} \\c{c} \\={e} \\r{e} \\H{e} \\k{e}}}
 \\label{anchor:_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119}%
@@ -4800,17 +5104,15 @@ $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 
 \\hyperref[anchor:_0040-_007b-_007d-_005c-_0023]{\\chaptername~\\ref*{anchor:_0040-_007b-_007d-_005c-_0023} [@ \\{ \\} \\textbackslash{} \\#], page~\\pageref*{anchor:_0040-_007b-_007d-_005c-_0023}}
 
-\\hyperref[anchor:LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e]{\\chaptername~\\ref*{anchor:LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e} [\\LaTeX{} \\TeX{} \\textbullet{} , \\copyright{} \\dots{}\\@ \\dots{}], page~\\pageref*{anchor:LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e}}
+\\hyperref[anchor:LaTeX-TeX-_002c-_2026-_002e_002e_002e]{\\chaptername~\\ref*{anchor:LaTeX-TeX-_002c-_2026-_002e_002e_002e} [\\LaTeX{} \\TeX{} , \\dots{}\\@ \\dots{}], page~\\pageref*{anchor:LaTeX-TeX-_002c-_2026-_002e_002e_002e}}
 
-\\hyperref[anchor:_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212]{\\chaptername~\\ref*{anchor:_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212} [$\\equiv{}$ \\fbox{error} \\euro{} \\textexclamdown{} $\\mapsto{}$ -], page~\\pageref*{anchor:_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212}}
+\\hyperref[anchor:error_002d_002d_003e-_20ac-_00a1]{\\chaptername~\\ref*{anchor:error_002d_002d_003e-_20ac-_00a1} [\\fbox{error} \\euro{} \\textexclamdown{}], page~\\pageref*{anchor:error_002d_002d_003e-_20ac-_00a1}}
 
-\\hyperref[anchor:_2265-_2264-_2192]{\\chaptername~\\ref*{anchor:_2265-_2264-_2192} [$\\geq{}$ $\\leq{}$ $\\rightarrow{}$], page~\\pageref*{anchor:_2265-_2264-_2192}}
+\\textordfeminine{} \\textordmasculine{} \\textquestiondown{} \\circledR{}
 
-\\hyperref[anchor:_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae]{\\chaptername~\\ref*{anchor:_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae} [\\textordfeminine{} \\textordmasculine{} $\\star{}$ \\textsterling{} $\\dashv{}$ \\textquestiondown{} \\circledR{}], page~\\pageref*{anchor:_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae}}
+\\hyperref[anchor:a-b-_00e5]{\\chaptername~\\ref*{anchor:a-b-_00e5} [a~b \\today{} \\aa{}], page~\\pageref*{anchor:a-b-_00e5}}
 
-\\hyperref[anchor:_21d2-_00b0-a-b-_00e5]{\\chaptername~\\ref*{anchor:_21d2-_00b0-a-b-_00e5} [$\\Rightarrow{}$ \\textdegree{} a~b \\today{} \\aa{}], page~\\pageref*{anchor:_21d2-_00b0-a-b-_00e5}}
-
-\\hyperref[anchor:_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe]{\\chaptername~\\ref*{anchor:_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe} [\\AA{} \\ae{} \\oe{} \\AE{} \\OE{} \\o{} \\O{} \\ss{} \\l{} \\L{} \\DH{} \\dh{} \\TH{} \\th{}], page~\\pageref*{anchor:_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe}}
+\\hyperref[anchor:_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe]{\\chaptername~\\ref*{anchor:_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe} [\\AA{} \\ae{} \\oe{} \\AE{} \\OE{} \\o{} \\O{} \\ss{} \\l{} \\L{} \\DH{} \\dh{} \\th{}], page~\\pageref*{anchor:_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00fe}}
 
 \\hyperref[anchor:_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119]{\\chaptername~\\ref*{anchor:_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119} [\\"{a} \\~{e} \\^{\\i{}} \\^{a} \\`{a} \\\'{e} \\c{c} \\={e} \\r{e} \\H{e} \\k{e}], page~\\pageref*{anchor:_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119}}
 
@@ -4848,12 +5150,34 @@ $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 
 \\hyperref[anchor:http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls]{\\chaptername~\\ref*{anchor:http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls} [\\url{http://somewhere_aaa} \\href{url}{text (\\nolinkurl{url})} ls], page~\\pageref*{anchor:http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls}}
 
+\\hyperref[anchor:_2022-_00a9-_2261]{Section~\\ref*{anchor:_2022-_00a9-_2261} [\\textbullet{} \\copyright{} $\\equiv{}$], page~\\pageref*{anchor:_2022-_00a9-_2261}}
+
+\\hyperref[anchor:_2265-_2264-_2192-_21a6-_2212]{Section~\\ref*{anchor:_2265-_2264-_2192-_21a6-_2212} [$\\geq{}$ $\\leq{}$ $\\rightarrow{}$ $\\mapsto{}$ -], page~\\pageref*{anchor:_2265-_2264-_2192-_21a6-_2212}}
+
+\\hyperref[anchor:_22c6-_00a3-_22a3-_00ae-_21d2]{Section~\\ref*{anchor:_22c6-_00a3-_22a3-_00ae-_21d2} [$\\star{}$ \\textsterling{} $\\dashv{}$ \\circledR{} $\\Rightarrow{}$], page~\\pageref*{anchor:_22c6-_00a3-_22a3-_00ae-_21d2}}
+
+\\hyperref[anchor:_00b0-_00de]{Section~\\ref*{anchor:_00b0-_00de} [\\textdegree{} \\TH{}], page~\\pageref*{anchor:_00b0-_00de}}
+
+
+
+\\section{{\\textbullet{} \\copyright{} $\\equiv{}$}}
+\\label{anchor:_2022-_00a9-_2261}%
+
+\\section{{$\\geq{}$ $\\leq{}$ $\\rightarrow{}$ $\\mapsto{}$ -}}
+\\label{anchor:_2265-_2264-_2192-_21a6-_2212}%
+
+\\section{{$\\star{}$ \\textsterling{} $\\dashv{}$ \\circledR{} $\\Rightarrow{}$}}
+\\label{anchor:_22c6-_00a3-_22a3-_00ae-_21d2}%
+
+\\section{{\\textdegree{} \\TH{}}}
+\\label{anchor:_00b0-_00de}%
+
 ';
 
-$result_converted_errors{'latex_text'}->{'at_commands_in_refs'} = '* W l92|@image file `f--ile1\' (for LaTeX) not found
+$result_converted_errors{'latex_text'}->{'at_commands_in_refs'} = '* W l88|@image file `f--ile1\' (for LaTeX) not found
  warning: @image file `f--ile1\' (for LaTeX) not found
 
-* W l90|@image file `f--ile1\' (for LaTeX) not found
+* W l86|@image file `f--ile1\' (for LaTeX) not found
  warning: @image file `f--ile1\' (for LaTeX) not found
 
 ';
@@ -4872,12 +5196,11 @@ Top
 *  { }::
 *     !   .  . ? @::
 * @ { } \\ #::
-* LaTeX TeX • , © ... ...::
-* ≡ error→ € ¡ ↦ −::
-* ≥ ≤ →::
-* ª º ⋆ £ ⊣ ¿ ®::
-* ⇒ ° a b a sunny day å::
-* Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ::
+* LaTeX TeX , ... ...::
+* error→ € ¡::
+* ª º ¿ ®::
+* a b a sunny day å::
+* Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ::
 * ä ẽ î â à é ç ē e̊ e̋ ę::
 * ė ĕ e̲ ẹ ě ȷ e͡e::
 * ı Ḕ Ḉ::
@@ -4911,153 +5234,147 @@ File: ,  Node:     ! . . ? @,  Next: @ { } \\ #,  Prev: { },  Up: Top
 **************
 
 
-File: ,  Node: @ { } \\ #,  Next: LaTeX TeX • , © ... ...,  Prev:     ! . . ? @,  Up: Top
+File: ,  Node: @ { } \\ #,  Next: LaTeX TeX , ... ...,  Prev:     ! . . ? @,  Up: Top
 
 3 @ { } \\ #
 ***********
 
 
-File: ,  Node: LaTeX TeX • , © ... ...,  Next: ≡ error→ € ¡ ↦ −,  Prev: @ { } \\ #,  Up: Top
+File: ,  Node: LaTeX TeX , ... ...,  Next: error→ € ¡,  Prev: @ { } \\ #,  Up: Top
 
-4 LaTeX TeX • , © ... ...
-*************************
-
-
-File: ,  Node: ≡ error→ € ¡ ↦ −,  Next: ≥ ≤ →,  Prev: LaTeX TeX • , © ... ...,  Up: Top
-
-5 ≡ error→ € ¡ ↦ −
-******************
+4 LaTeX TeX , ... ...
+*********************
 
 
-File: ,  Node: ≥ ≤ →,  Next: ª º ⋆ £ ⊣ ¿ ®,  Prev: ≡ error→ € ¡ ↦ −,  Up: Top
+File: ,  Node: error→ € ¡,  Next: ª º ¿,  Prev: LaTeX TeX , ... ...,  Up: Top
 
-6 ≥ ≤ →
+5 error→ € ¡
+************
+
+
+File: ,  Node: ª º ¿,  Next: a b a sunny day å,  Prev: error→ € ¡,  Up: Top
+
+6 ª º ¿
 *******
 
 
-File: ,  Node: ª º ⋆ £ ⊣ ¿ ®,  Next: ⇒ ° a b a sunny day å,  Prev: ≥ ≤ →,  Up: Top
+File: ,  Node: a b a sunny day å,  Next: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ,  Prev: ª º ¿,  Up: Top
 
-7 ª º ⋆ £ ⊣ ¿ ®
-***************
+7 a b a sunny day å
+*******************
 
 
-File: ,  Node: ⇒ ° a b a sunny day å,  Next: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ,  Prev: ª º ⋆ £ ⊣ ¿ ®,  Up: Top
+File: ,  Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ,  Next: ä ẽ î â à é ç ē e̊ e̋ ę,  Prev: a b a sunny day å,  Up: Top
 
-8 ⇒ ° a b a sunny day å
+8 Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ
+***************************
+
+
+File: ,  Node: ä ẽ î â à é ç ē e̊ e̋ ę,  Next: ė ĕ e̲ ẹ ě ȷ e͡e,  Prev: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ,  Up: Top
+
+9 ä ẽ î â à é ç ē e̊ e̋ ę
 ***********************
-
-
-File: ,  Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ,  Next: ä ẽ î â à é ç ē e̊ e̋ ę,  Prev: ⇒ ° a b a sunny day å,  Up: Top
-
-9 Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ
-*****************************
-
-
-File: ,  Node: ä ẽ î â à é ç ē e̊ e̋ ę,  Next: ė ĕ e̲ ẹ ě ȷ e͡e,  Prev: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ,  Up: Top
-
-10 ä ẽ î â à é ç ē e̊ e̋ ę
-************************
 
 
 File: ,  Node: ė ĕ e̲ ẹ ě ȷ e͡e,  Next: ı Ḕ Ḉ,  Prev: ä ẽ î â à é ç ē e̊ e̋ ę,  Up: Top
 
-11 ė ĕ e̲ ẹ ě ȷ e͡e
+10 ė ĕ e̲ ẹ ě ȷ e͡e
 *****************
 
 
 File: ,  Node: ı Ḕ Ḉ,  Next: “ ” ‘ ’ „ ‚,  Prev: ė ĕ e̲ ẹ ě ȷ e͡e,  Up: Top
 
-12 ı Ḕ Ḉ
+11 ı Ḕ Ḉ
 ********
 
 
 File: ,  Node: “ ” ‘ ’ „ ‚,  Next: « » « » ‹ ›,  Prev: ı Ḕ Ḉ,  Up: Top
 
-13 “ ” ‘ ’ „ ‚
+12 “ ” ‘ ’ „ ‚
 **************
 
 
 File: ,  Node: « » « » ‹ ›,  Next: `` \'\' --- -- ` \',  Prev: “ ” ‘ ’ „ ‚,  Up: Top
 
-14 « » « » ‹ ›
+13 « » « » ‹ ›
 **************
 
 
 File: ,  Node: `` \'\' --- -- ` \',  Next: AAA (fff) AAA BBB,  Prev: « » « » ‹ ›,  Up: Top
 
-15 " " -- - \' \'
+14 " " -- - \' \'
 ***************
 
 
 File: ,  Node: AAA (fff) AAA BBB,  Next: CCC (rrr) CCC DDD,  Prev: `` \'\' --- -- ` \',  Up: Top
 
-16 AAA (fff) AAA BBB
+15 AAA (fff) AAA BBB
 ********************
 
 
 File: ,  Node: CCC (rrr) CCC DDD,  Next: the someone <someone@somewher> <no_explain@there>,  Prev: AAA (fff) AAA BBB,  Up: Top
 
-17 CCC (rrr) CCC DDD
+16 CCC (rrr) CCC DDD
 ********************
 
 
 File: ,  Node: the someone <someone@somewher> <no_explain@there>,  Next: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ],  Prev: CCC (rrr) CCC DDD,  Up: Top
 
-18 the someone <someone@somewher> <no_explain@there>
+17 the someone <someone@somewher> <no_explain@there>
 ****************************************************
 
 
 File: ,  Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ],  Next:  @ {} . ,  Prev: the someone <someone@somewher> <no_explain@there>,  Up: Top
 
-19 [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]
+18 [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]
 *******************************************************************************
 
 
 File: ,  Node:  @ {} . ,  Next: cite asis in @w b in r SC *str* t VAR dfn i,  Prev: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ],  Up: Top
 
-20  @ {} . 
+19  @ {} . 
 ***********
 
 
 File: ,  Node: cite asis in @w b in r SC *str* t VAR dfn i,  Next: env code option samp command file C-x <ESC>,  Prev:  @ {} . ,  Up: Top
 
-21 ‘cite asis’ in @w b in r SC *str* t VAR “dfn” i
+20 ‘cite asis’ in @w b in r SC *str* t VAR “dfn” i
 **************************************************
 
 
 File: ,  Node: env code option samp command file C-x <ESC>,  Next: 8.27in,  Prev: cite asis in @w b in r SC *str* t VAR dfn i,  Up: Top
 
-22 ‘env’ ‘code’ ‘option’ ‘samp’ ‘command’ ‘file’ ‘C-x <ESC>’
+21 ‘env’ ‘code’ ‘option’ ‘samp’ ‘command’ ‘file’ ‘C-x <ESC>’
 ************************************************************
 
 
 File: ,  Node: 8.27in,  Next: sansserif slanted,  Prev: env code option samp command file C-x <ESC>,  Up: Top
 
-23 8.27in
+22 8.27in
 *********
 
 
 File: ,  Node: sansserif slanted,  Next: indicateurl,  Prev: 8.27in,  Up: Top
 
-24 sansserif slanted
+23 sansserif slanted
 ********************
 
 
 File: ,  Node: indicateurl,  Next: _{g}H 3^{rd},  Prev: sansserif slanted,  Up: Top
 
-25 ‘indicateurl’
+24 ‘indicateurl’
 ****************
 
 
 File: ,  Node: _{g}H 3^{rd},  Next: <http://somewhere_aaa> text (url) ls,  Prev: indicateurl,  Up: Top
 
-26 _{g}H 3^{rd}
+25 _{g}H 3^{rd}
 ***************
 
 
 File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: Top
 
-27 <http://somewhere_aaa> text (url) ls
+26 <http://somewhere_aaa> text (url) ls
 ***************************************
 
 *note { }::
@@ -5067,17 +5384,15 @@ File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: T
 
    *note @ { } \\ #::
 
-   *note LaTeX TeX • , © ... ...::
+   *note LaTeX TeX , ... ...::
 
-   *note ≡ error→ € ¡ ↦ −::
+   *note error→ € ¡::
 
-   *note ≥ ≤ →::
+   *note ª º ¿ ®::
 
-   *note ª º ⋆ £ ⊣ ¿ ®::
+   *note a b a sunny day å::
 
-   *note ⇒ ° a b a sunny day å::
-
-   *note Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ::
+   *note Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ::
 
    *note ä ẽ î â à é ç ē e̊ e̋ ę::
 
@@ -5115,36 +5430,78 @@ File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: T
 
    *note <http://somewhere_aaa> text (url) ls::
 
+   *note • © ≡::
+
+   *note ≥ ≤ → ↦ −::
+
+   *note ⋆ £ ⊣ ® ⇒::
+
+   *note ° Þ::
+
+* Menu:
+
+* • © ≡::
+* ≥ ≤ → ↦ −::
+* ⋆ £ ⊣ ® ⇒::
+* ° Þ::
+
+
+File: ,  Node: • © ≡,  Next: ≥ ≤ → ↦ −,  Up: <http://somewhere_aaa> text (url) ls
+
+26.1 • © ≡
+==========
+
+
+File: ,  Node: ≥ ≤ → ↦ −,  Next: ⋆ £ ⊣ ® ⇒,  Prev: • © ≡,  Up: <http://somewhere_aaa> text (url) ls
+
+26.2 ≥ ≤ → ↦ −
+==============
+
+
+File: ,  Node: ⋆ £ ⊣ ® ⇒,  Next: ° Þ,  Prev: ≥ ≤ → ↦ −,  Up: <http://somewhere_aaa> text (url) ls
+
+26.3 ⋆ £ ⊣ ® ⇒
+==============
+
+
+File: ,  Node: ° Þ,  Prev: ⋆ £ ⊣ ® ⇒,  Up: <http://somewhere_aaa> text (url) ls
+
+26.4 ° Þ
+========
+
 
 Tag Table:
 Node: Top27
-Node: { }785
-Node:     ! . . ? @864
-Node: @ { } \\ #968
-Node: LaTeX TeX • , © ... ...1087
-Node: ≡ error→ € ¡ ↦ −1237
-Node: ≥ ≤ →1369
-Node: ª º ⋆ £ ⊣ ¿ ®1467
-Node: ⇒ ° a b a sunny day å1586
-Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1743
-Node: ä ẽ î â à é ç ē e̊ e̋ ę1922
-Node: ė ĕ e̲ ẹ ě ȷ e͡e2088
-Node: ı Ḕ Ḉ2218
-Node: “ ” ‘ ’ „ ‚2316
-Node: « » « » ‹ ›2421
-Node: `` \'\' --- -- ` \'2537
-Node: AAA (fff) AAA BBB2661
-Node: CCC (rrr) CCC DDD2801
-Node: the someone <someone@somewher> <no_explain@there>2974
-Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3274
-Node:  @ {} . 3623
-Node: cite asis in @w b in r SC *str* t VAR dfn i3826
-Node: env code option samp command file C-x <ESC>4070
-Node: 8.27in4332
-Node: sansserif slanted4466
-Node: indicateurl4590
-Node: _{g}H 3^{rd}4712
-Node: <http://somewhere_aaa> text (url) ls4851
+Node: { }753
+Node:     ! . . ? @832
+Node: @ { } \\ #936
+Node: LaTeX TeX , ... ...1051
+Node: error→ € ¡1183
+Node: ª º ¿1293
+Node: a b a sunny day å1389
+Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ1524
+Node: ä ẽ î â à é ç ē e̊ e̋ ę1693
+Node: ė ĕ e̲ ẹ ě ȷ e͡e1855
+Node: ı Ḕ Ḉ1985
+Node: “ ” ‘ ’ „ ‚2083
+Node: « » « » ‹ ›2188
+Node: `` \'\' --- -- ` \'2304
+Node: AAA (fff) AAA BBB2428
+Node: CCC (rrr) CCC DDD2568
+Node: the someone <someone@somewher> <no_explain@there>2741
+Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3041
+Node:  @ {} . 3390
+Node: cite asis in @w b in r SC *str* t VAR dfn i3593
+Node: env code option samp command file C-x <ESC>3837
+Node: 8.27in4099
+Node: sansserif slanted4233
+Node: indicateurl4357
+Node: _{g}H 3^{rd}4479
+Node: <http://somewhere_aaa> text (url) ls4618
+Node: • © ≡5780
+Node: ≥ ≤ → ↦ −5888
+Node: ⋆ £ ⊣ ® ⇒6022
+Node: ° Þ6154
 
 End Tag Table
 
@@ -5154,25 +5511,25 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'at_commands_in_refs'} = '* W l90|could not find @image file `f--ile1.txt\' nor alternate text
+$result_converted_errors{'info'}->{'at_commands_in_refs'} = '* W l86|could not find @image file `f--ile1.txt\' nor alternate text
  warning: could not find @image file `f--ile1.txt\' nor alternate text
 
-* W l23|could not find @image file `f--ile1.txt\' nor alternate text
+* W l22|could not find @image file `f--ile1.txt\' nor alternate text
  warning: could not find @image file `f--ile1.txt\' nor alternate text
 
-* W l31|menu entry node name should not contain `:\'
+* W l30|menu entry node name should not contain `:\'
  warning: menu entry node name should not contain `:\'
 
-* W l43|@node name should not contain `,\': LaTeX TeX • , © ... ...
- warning: @node name should not contain `,\': LaTeX TeX • , © ... ...
+* W l42|@node name should not contain `,\': LaTeX TeX , ... ...
+ warning: @node name should not contain `,\': LaTeX TeX , ... ...
 
-* W l92|could not find @image file `f--ile1.txt\' nor alternate text
+* W l88|could not find @image file `f--ile1.txt\' nor alternate text
  warning: could not find @image file `f--ile1.txt\' nor alternate text
 
-* W l90|could not find @image file `f--ile1.txt\' nor alternate text
+* W l86|could not find @image file `f--ile1.txt\' nor alternate text
  warning: could not find @image file `f--ile1.txt\' nor alternate text
 
-* W l177|@ref node name should not contain `:\'
+* W l171|@ref node name should not contain `:\'
  warning: @ref node name should not contain `:\'
 
 ';

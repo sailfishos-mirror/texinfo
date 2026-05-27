@@ -118,12 +118,11 @@ my $at_commands_in_refs_text = '@node Top
 * @- @{ @}::
 * @  @	 @! @* @. @: .@: @? @@::
 * @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}::
-* @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}::
-* @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}::
-* @geq{} @leq{} @arrow{}::
-* @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}::
-* @result{} @textdegree{} a@tie{}b @today{} @aa{}::
-* @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}::
+* @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}::
+* @error{} @euro{} @exclamdown{}::
+* @ordf{} @ordm{} @questiondown{} @registeredsymbol{}::
+* a@tie{}b @today{} @aa{}::
+* @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}::
 * @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}::
 * @dotaccent{e} @u{e} @ubaraccent{e} @udotaccent{e} @v{e} @dotless{j} @tieaccent{ee}::
 * @dotless{i} @`{@=E} @,{@\'C}::
@@ -153,23 +152,20 @@ my $at_commands_in_refs_text = '@node Top
 @node @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
 @chapter @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
 
-@node @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
-@chapter @LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}
+@node @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
+@chapter @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
 
-@node @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
-@chapter @equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}
+@node @error{} @euro{} @exclamdown{}
+@chapter @error{} @euro{} @exclamdown{}
 
-@node @geq{} @leq{} @arrow{}
-@chapter @geq{} @leq{} @arrow{}
+@node @ordf{} @ordm{} @questiondown{}
+@chapter @ordf{} @ordm{} @questiondown{}
 
-@node @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
-@chapter @ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}
+@node a@tie{}b @today{} @aa{}
+@chapter a@tie{}b @today{} @aa{}
 
-@node @result{} @textdegree{} a@tie{}b @today{} @aa{}
-@chapter @result{} @textdegree{} a@tie{}b @today{} @aa{}
-
-@node @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{} 
-@chapter @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{} 
+@node @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
+@chapter @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
 
 @node @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
 @chapter  @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
@@ -237,17 +233,15 @@ my $at_commands_in_refs_text = '@node Top
 
 @ref{@atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}}
 
-@ref{@LaTeX{} @TeX{} @bullet{} @comma{} @copyright{} @dots{} @enddots{}}
+@ref{@LaTeX{} @TeX{} @comma{} @dots{} @enddots{}}
 
-@ref{@equiv{} @error{} @euro{} @exclamdown{} @expansion{} @minus{}}
+@ref{@error{} @euro{} @exclamdown{}}
 
-@ref{@geq{} @leq{} @arrow{}}
+@ref{@ordf{} @ordm{} @questiondown{} @registeredsymbol{}}
 
-@ref{@ordf{} @ordm{} @point{} @pounds{} @print{} @questiondown{} @registeredsymbol{}}
+@ref{a@tie{}b @today{} @aa{}}
 
-@ref{@result{} @textdegree{} a@tie{}b @today{} @aa{}}
-
-@ref{@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @TH{} @th{}}
+@ref{@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}}
 
 @ref{@"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}}
 
@@ -289,7 +283,38 @@ my $at_commands_in_refs_text = '@node Top
 
 @ref{@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}}
 
-@bye
+';
+
+# with @-commands with different transliteration in C and Perl
+my $at_commands_in_refs_text_no_translit = $at_commands_in_refs_text .
+'@ref{@bullet{} @copyright{} @equiv{}}
+
+@ref{@geq{} @leq{} @arrow{} @expansion{} @minus{}}
+
+@ref{@point{} @pounds{} @print{} @registeredsymbol{} @result{}}
+
+@ref{@textdegree{} @TH{}}
+
+
+@menu
+* @bullet{} @copyright{} @equiv{}::
+* @geq{} @leq{} @arrow{} @expansion{} @minus{}::
+* @point{} @pounds{} @print{} @registeredsymbol{} @result{}::
+* @textdegree{} @TH{}::
+@end menu
+
+@node @bullet{} @copyright{} @equiv{}
+@section @bullet{} @copyright{} @equiv{}
+
+@node @geq{} @leq{} @arrow{} @expansion{} @minus{}
+@section @geq{} @leq{} @arrow{} @expansion{} @minus{}
+
+@node @point{} @pounds{} @print{} @registeredsymbol{} @result{}
+@section @point{} @pounds{} @print{} @registeredsymbol{} @result{}
+
+@node @textdegree{} @TH{}
+@section @textdegree{} @TH{}
+
 ';
 
 my @test_cases = (
@@ -356,7 +381,7 @@ $accents_text, {}, {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}
 "],
 # numerous LaTeX formatting errors
 ['at_commands_in_refs',
-$at_commands_in_refs_text,
+$at_commands_in_refs_text_no_translit,
  {},
  {'TEST' => 1}], # TEST => 1 triggers @today constant expansion for diffs
 );
@@ -406,15 +431,18 @@ undef, {'test_file' => 'char_latin2_latin2_in_refs.texi'},
 # test fails on solaris11 with recent Perl, with encoding errors.  Could
 # be because of solaris iconv.  Use conversion from EUC-CN as an evidence
 # for problematic iconv even though it is not the actual issue.
+# No test of transliteration, even though it could have been nice
+# because of differences between C and Perl transliterations.
 undef, {'test_file' => 'japanese_shift_jis.texi',
         'skip' => $Texinfo::ModulePath::conversion_from_euc_cn ne 'yes'
          ? 'No conversion from EUC-CN assuming errors with shift_jis' : undef,},
-{'TRANSLITERATE_FILE_NAMES' => 1},
+#{'TRANSLITERATE_FILE_NAMES' => 1},
 ],
+# No test of transliteration, even though it could have been nice
+# because of differences between C and Perl transliterations.
 ['sample_utf8',
 undef, {'test_file' => 'sample_utf8.texi'},
-# to test transliteration too
-{'TRANSLITERATE_FILE_NAMES' => 1},
+#{'TRANSLITERATE_FILE_NAMES' => 1},
 ],
 ['manual_simple_utf8_with_error',
 undef, {'test_file' => 'manual_simple_utf8_with_error.texi'}

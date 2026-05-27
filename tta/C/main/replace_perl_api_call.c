@@ -76,12 +76,6 @@ get_sv_hv (const void *sv)
 /* call_perl_function.h */
 /* it is up to the caller to do something useful if NULL is returned */
 char *
-call_nodenamenormalization_unicode_to_transliterate (const char *text)
-{
-  return 0;
-}
-
-char *
 call_translations_translate_string (const char *string,
                                     const char *language_env,
                                     const char *translation_context)

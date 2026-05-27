@@ -1,5 +1,35 @@
 2026-05-28 Patrice Dumas  <pertusus@free.fr>
 
+	do not use Perl transliterations in tests of C code
+
+	* tta/C/main/node_name_normalization.c (unicode_to_transliterate),
+	tta/C/main/call_perl_function.c: do not call
+	call_nodenamenormalization_unicode_to_transliterate, remove external
+	argument.  Remove call_nodenamenormalization_unicode_to_transliterate.
+	Update callers.
+
+	* tta/C/texi2any.c (main): no more use of embedded Perl for
+	transliteration.  Load embedded Perl for SORT_ELEMENT_COUNT.
+
+	* tta/perl/t/formats_encodings.t ($at_commands_in_refs_text)
+	($at_commands_in_refs_text_no_translit, at_commands_in_refs): separate
+	@-commands with different transliteration in C and Perl from
+	$at_commands_in_refs_text, they are now in
+	$at_commands_in_refs_text_no_translit and use
+	$at_commands_in_refs_text_no_translit only without transliteration.
+
+	* tta/perl/t/formats_encodings.t (japanese_shift_jis, sample_utf8):
+	remove transliteration.
+
+	* tta/perl/t/input_files/char_latin2_latin2_in_refs.texi: remove
+	standalone ogonek that is not transliterated the same in C and Perl.
+
+	* tta/perl/t/input_files/in_menu_only_special_spaces_node.texi,
+	tta/perl/t/input_files/only_special_spaces_node.texi: comment out
+	characters that are not transliterated the same in chapters.
+
+2026-05-28 Patrice Dumas  <pertusus@free.fr>
+
 	only use unidecode for transliteration
 
 	* tta/C/main/call_perl_function.c

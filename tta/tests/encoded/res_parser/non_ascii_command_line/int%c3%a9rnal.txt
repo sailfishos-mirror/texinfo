@@ -1,6 +1,6 @@
 index.html	unit	Top
-Chapteur.html	unit	Chaptêur
+Chapt_00eaur.html	unit	Chaptêur
 index.html	section	top Tôp
-Chapteur.html	section	chapter 1 Chapteùr
+Chapt_00eaur.html	section	chapter 1 Chapteùr
 index.html	node	Top
-Chapteur.html	node	Chaptêur
+Chapt_00eaur.html	node	Chaptêur

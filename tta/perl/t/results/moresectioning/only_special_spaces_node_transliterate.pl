@@ -91,7 +91,7 @@ $result_tree_text{'only_special_spaces_node_transliterate'} = '*document_root C1
     {spaces_before_argument: }
     {  }
     {spaces_after_argument:\\n}
- *@chapter C2 only_special_spaces_node.texi:l15 {NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
+ *@chapter C4 only_special_spaces_node.texi:l15 {NO-BREAK SPACE| |}
  |EXTRA
  |section_heading_number:{4}
  |section_level:{1}
@@ -99,10 +99,20 @@ $result_tree_text{'only_special_spaces_node_transliterate'} = '*document_root C1
   *arguments_line C1
    *line_arg C3
     {spaces_before_argument: }
-    {NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
+    {NO-BREAK SPACE| |}
+    {spaces_after_argument:\\n}
+  *@c C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {rawline_text:different transliteration in Perl and C}
+    {spaces_after_argument:\\n}
+  *@c C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {rawline_text:NEXT LINE (NEL)|| OGHAM SPACE MARK| |}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 only_special_spaces_node.texi:l17 {᠎ }
+ *@node C1 only_special_spaces_node.texi:l19 {᠎ }
  |EXTRA
  |identifier:{_180e_2003}
  |is_target:{1}
@@ -112,7 +122,7 @@ $result_tree_text{'only_special_spaces_node_transliterate'} = '*document_root C1
     {spaces_before_argument: }
     {᠎ }
     {spaces_after_argument:\\n}
- *@chapter C2 only_special_spaces_node.texi:l18 {MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |}
+ *@chapter C4 only_special_spaces_node.texi:l20 {EM SPACE| |}
  |EXTRA
  |section_heading_number:{5}
  |section_level:{1}
@@ -120,10 +130,20 @@ $result_tree_text{'only_special_spaces_node_transliterate'} = '*document_root C1
   *arguments_line C1
    *line_arg C3
     {spaces_before_argument: }
-    {MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |}
+    {EM SPACE| |}
+    {spaces_after_argument:\\n}
+  *@c C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {rawline_text:different transliteration in Perl and C}
+    {spaces_after_argument:\\n}
+  *@c C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {rawline_text:MONGOLIAN VOWEL SEPARATOR|᠎| }
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 only_special_spaces_node.texi:l20 {         　}
+ *@node C1 only_special_spaces_node.texi:l24 {         　}
  |EXTRA
  |identifier:{_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000}
  |is_target:{1}
@@ -133,7 +153,7 @@ $result_tree_text{'only_special_spaces_node_transliterate'} = '*document_root C1
     {spaces_before_argument: }
     {         　}
     {spaces_after_argument:\\n}
- *@chapter C6 only_special_spaces_node.texi:l21 {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|}
+ *@chapter C8 only_special_spaces_node.texi:l25 {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|}
  |EXTRA
  |section_heading_number:{6}
  |section_level:{1}
@@ -141,7 +161,17 @@ $result_tree_text{'only_special_spaces_node_transliterate'} = '*document_root C1
   *arguments_line C1
    *line_arg C3
     {spaces_before_argument: }
-    {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|}
+    {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|}
+    {spaces_after_argument:\\n}
+  *@c C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {rawline_text:different transliteration in Perl and C}
+    {spaces_after_argument:\\n}
+  *@c C1
+   *line_arg C3
+    {spaces_before_argument: }
+    {rawline_text:FIGURE SPACE| | MEDIUM MATHEMATICAL SPACE| |}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *@c C1
@@ -180,13 +210,19 @@ $result_texis{'only_special_spaces_node_transliterate'} = '
 @chapter CARRIAGE RETURN|'."\r".'|
 
 @node   
-@chapter NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+@chapter NO-BREAK SPACE| |
+@c different transliteration in Perl and C
+@c NEXT LINE (NEL)|| OGHAM SPACE MARK| |
 
 @node ᠎ 
-@chapter MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+@chapter EM SPACE| |
+@c different transliteration in Perl and C
+@c MONGOLIAN VOWEL SEPARATOR|᠎| 
 
 @node          　
-@chapter THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
+@chapter THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|
+@c different transliteration in Perl and C
+@c FIGURE SPACE| | MEDIUM MATHEMATICAL SPACE| |
 
 @c Perl and XS code give different width.
 @c @node   
@@ -208,14 +244,14 @@ $result_texts{'only_special_spaces_node_transliterate'} = 'top
 3 CARRIAGE RETURN|'."\r".'|
 *******************
 
-4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
-*********************************************************
+4 NO-BREAK SPACE| |
+*******************
 
-5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
-*****************************************
+5 EM SPACE| |
+*************
 
-6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
-*************************************************************************************************************************************************************************************************************
+6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|
+****************************************************************************************************************************************************************
 
 
 ';
@@ -240,21 +276,21 @@ $result_nodes_list{'only_special_spaces_node_transliterate'} = '1|Top
   prev->Top
   up->Top
 3|  
- associated_section: 4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
- associated_title_command: 4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+ associated_section: 4 NO-BREAK SPACE| |
+ associated_title_command: 4 NO-BREAK SPACE| |
  node_directions:
   next->᠎ 
   up->Top
 4|᠎ 
- associated_section: 5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
- associated_title_command: 5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+ associated_section: 5 EM SPACE| |
+ associated_title_command: 5 EM SPACE| |
  node_directions:
   next->         　
   prev->  
   up->Top
 5|         　
- associated_section: 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
- associated_title_command: 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
+ associated_section: 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|
+ associated_title_command: 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|
  node_directions:
   prev->᠎ 
   up->Top
@@ -269,9 +305,9 @@ $result_sections_list{'only_special_spaces_node_transliterate'} = '1|top
   1|EN QUAD| | EM QUAD| | EN SPACE| |
   2|CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
   3|CARRIAGE RETURN|'."\r".'|
-  4|NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
-  5|MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
-  6|THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
+  4|NO-BREAK SPACE| |
+  5|EM SPACE| |
+  6|THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|
 2|EN QUAD| | EM QUAD| | EN SPACE| |
  associated_anchor_command:    
  associated_node:    
@@ -293,43 +329,43 @@ $result_sections_list{'only_special_spaces_node_transliterate'} = '1|top
   up->top
 4|CARRIAGE RETURN|'."\r".'|
  section_directions:
-  next->NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+  next->NO-BREAK SPACE| |
   prev->CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
   up->top
  toplevel_directions:
-  next->NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+  next->NO-BREAK SPACE| |
   prev->CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
   up->top
-5|NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+5|NO-BREAK SPACE| |
  associated_anchor_command:   
  associated_node:   
  section_directions:
-  next->MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+  next->EM SPACE| |
   prev->CARRIAGE RETURN|'."\r".'|
   up->top
  toplevel_directions:
-  next->MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+  next->EM SPACE| |
   prev->CARRIAGE RETURN|'."\r".'|
   up->top
-6|MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+6|EM SPACE| |
  associated_anchor_command: ᠎ 
  associated_node: ᠎ 
  section_directions:
-  next->THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
-  prev->NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+  next->THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|
+  prev->NO-BREAK SPACE| |
   up->top
  toplevel_directions:
-  next->THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
-  prev->NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
+  next->THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|
+  prev->NO-BREAK SPACE| |
   up->top
-7|THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
+7|THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|
  associated_anchor_command:          　
  associated_node:          　
  section_directions:
-  prev->MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+  prev->EM SPACE| |
   up->top
  toplevel_directions:
-  prev->MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
+  prev->EM SPACE| |
   up->top
 ';
 
@@ -371,28 +407,28 @@ File: ,  Node:    ,  Prev: Top,  Up: Top
 
 File: ,  Node:   ,  Next: ᠎ ,  Up: Top
 
-4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
-*********************************************************
+4 NO-BREAK SPACE| |
+*******************
 
 
 File: ,  Node: ᠎ ,  Next:          　,  Prev:   ,  Up: Top
 
-5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
-*****************************************
+5 EM SPACE| |
+*************
 
 
 File: ,  Node:          　,  Prev: ᠎ ,  Up: Top
 
-6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
-*************************************************************************************************************************************************************************************************************
+6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|
+****************************************************************************************************************************************************************
 
 
 Tag Table:
 Node: Top56
 Node:    159
 Node:   436
-Node: ᠎ 597
-Node:          　745
+Node: ᠎ 520
+Node:          　611
 
 End Tag Table
 
@@ -435,9 +471,9 @@ span:hover a.copiable-link {visibility: visible}
 <li><a href="#g_t_2002_2003_2002" accesskey="1">EN QUAD| | EM QUAD| | EN SPACE| |</a></li>
 <li><a href="#CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c" accesskey="2">CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||</a></li>
 <li><a href="#CARRIAGE-RETURN_007c-_007c" accesskey="3">CARRIAGE RETURN|'."\r".'|</a></li>
-<li><a href="#g_t_0085_00a0_1680" accesskey="4">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a></li>
-<li><a href="#g_t_180e_2003" accesskey="5">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a></li>
-<li><a href="#g_t_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000" accesskey="6">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</a></li>
+<li><a href="#g_t_0085_00a0_1680" accesskey="4">NO-BREAK SPACE| |</a></li>
+<li><a href="#g_t_180e_2003" accesskey="5">EM SPACE| |</a></li>
+<li><a href="#g_t_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000" accesskey="6">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="g_t_2002_2003_2002">
@@ -457,22 +493,22 @@ span:hover a.copiable-link {visibility: visible}
 </div>
 <div class="chapter-level-extent" id="g_t_0085_00a0_1680">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_180e_2003" accesskey="n" rel="next">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="NEXT-LINE-_0028NEL_0029_007c_002e_002e_002e_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c"><span>4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |<a class="copiable-link" href="#NEXT-LINE-_0028NEL_0029_007c_002e_002e_002e_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c"> &para;</a></span></h2>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_180e_2003" accesskey="n" rel="next">EM SPACE| |</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h2 class="chapter" id="NO_002dBREAK-SPACE_007c-_007c"><span>4 NO-BREAK SPACE| |<a class="copiable-link" href="#NO_002dBREAK-SPACE_007c-_007c"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t_180e_2003">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000" accesskey="n" rel="next">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_0085_00a0_1680" accesskey="p" rel="prev">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="MONGOLIAN-VOWEL-SEPARATOR_007c_007c-EM-SPACE_007c-_007c"><span>5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |<a class="copiable-link" href="#MONGOLIAN-VOWEL-SEPARATOR_007c_007c-EM-SPACE_007c-_007c"> &para;</a></span></h2>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000" accesskey="n" rel="next">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_0085_00a0_1680" accesskey="p" rel="prev">NO-BREAK SPACE| |</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h2 class="chapter" id="EM-SPACE_007c-_007c"><span>5 EM SPACE| |<a class="copiable-link" href="#EM-SPACE_007c-_007c"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_180e_2003" accesskey="p" rel="prev">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c-FIGURE-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c-HAIR-SPACE_007c-_007c-NARROW-NO_002dBREAK-SPACE_007c-_007c-MEDIUM-MATHEMATICAL-SPACE_007c_005b_003f_005d_007c-IDEOGRAPHIC-SPACE_007c-_007c"><span>6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|<a class="copiable-link" href="#THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c-FIGURE-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c-HAIR-SPACE_007c-_007c-NARROW-NO_002dBREAK-SPACE_007c-_007c-MEDIUM-MATHEMATICAL-SPACE_007c_005b_003f_005d_007c-IDEOGRAPHIC-SPACE_007c-_007c"> &para;</a></span></h2>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_180e_2003" accesskey="p" rel="prev">EM SPACE| |</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<h2 class="chapter" id="THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c-HAIR-SPACE_007c-_007c-NARROW-NO_002dBREAK-SPACE_007c-_007c-IDEOGRAPHIC-SPACE_007c-_007c"><span>6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | IDEOGRAPHIC SPACE|　|<a class="copiable-link" href="#THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c-HAIR-SPACE_007c-_007c-NARROW-NO_002dBREAK-SPACE_007c-_007c-IDEOGRAPHIC-SPACE_007c-_007c"> &para;</a></span></h2>
 
 
 </div>

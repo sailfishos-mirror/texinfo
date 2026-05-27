@@ -2268,32 +2268,13 @@ main (int argc, char *argv[], char *env[])
   /* Setup output string translations (including Locales path). */
   txi_general_output_strings_setup ();
 
-  /* reproducible transliteration uses Perl.  It is used for diverse
-     identifiers, not only if TRANSLITERATE_FILE_NAMES is set */
-  /* TODO this looks wrong, it should be set only if TRANSLITERATE_FILE_NAMES
-     is set */
-  if ((test_mode_set
-       && embedded_interpreter == txi_interpreter_want_embedded)
  #ifdef USE_LIBINTL_PERL_IN_XS
-      || 1
- #endif
-     )
     {
-      /*
-      OPTION *transliterate_file_names_option
-        = GNUT_get_conf (
-                    program_options.options->TRANSLITERATE_FILE_NAMES.number);
-      if (transliterate_file_names_option
-          && transliterate_file_names_option->o.integer > 0)
-        {
-       */
-          int status = txi_load_interpreter (&loading_info);
-          if (!status)
-            embedded_interpreter = txi_interpreter_use_embedded;
-       /*
-        }
-        */
+      int status = txi_load_interpreter (&loading_info);
+      if (!status)
+        embedded_interpreter = txi_interpreter_use_embedded;
     }
+ #endif
 
   /* determine the format_specification now that the output format is known */
   for (i = 0; formats_table[i].name; i++)
@@ -3312,12 +3293,21 @@ main (int argc, char *argv[], char *env[])
 
           /* The main work is done by txi_sort_element_counts, which in
              turn calls Perl code */
-          if (sort_element_count_file_name
-              && embedded_interpreter != txi_interpreter_use_embedded)
+          if (sort_element_count_file_name)
             {
-              fprintf (stderr,
-                       "ERROR: no interpreter for SORT_ELEMENT_COUNT\n");
-              exit (EXIT_FAILURE);
+              if (embedded_interpreter == txi_interpreter_want_embedded)
+                {
+                  int status = txi_load_interpreter (&loading_info);
+                  if (!status)
+                    embedded_interpreter = txi_interpreter_use_embedded;
+                }
+
+              if (embedded_interpreter != txi_interpreter_use_embedded)
+                {
+                  fprintf (stderr,
+                           "ERROR: no interpreter for SORT_ELEMENT_COUNT\n");
+                  exit (EXIT_FAILURE);
+                }
             }
 
           if (sort_element_count_file_name)

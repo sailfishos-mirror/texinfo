@@ -5,18 +5,18 @@
 @node Top
 @top char latin2 latin2 in refs
 
-@ref{¡ ± ² Ê ê}.
+@ref{¡ ± Ê ê}.
 
 @printindex cp
 
-@c Aogonek(0xa1=0241) aogonek(0xb1=0261) standalone ogonek(0xca=0312) Eogonek(0xea=0352) eogonek
+@c Aogonek(0xa1=0241) aogonek(0xb1=0261) Eogonek(0xea=0352) eogonek
 @menu
-* ¡ ± ² Ê ê::
+* ¡ ± Ê ê::
 @end menu
 
-@node ¡ ± ² Ê ê
-@chapter ¡ ± ² Ê ê
+@node ¡ ± Ê ê
+@chapter ¡ ± Ê ê
 
-@cindex ¡ ± ² Ê ê
+@cindex ¡ ± Ê ê
 
 @bye

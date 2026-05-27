@@ -46,9 +46,9 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
    *@ref C1 char_latin2_latin2_in_refs.texi:l8
     *brace_arg C1
     |EXTRA
-    |node_content:{Ą ą ˛ Ę ę}
-    |normalized:{_0104-_0105-_02db-_0118-_0119}
-     {Ą ą ˛ Ę ę}
+    |node_content:{Ą ą Ę ę}
+    |normalized:{_0104-_0105-_0118-_0119}
+     {Ą ą Ę ę}
    {.\\n}
   {empty_line:\\n}
   *@printindex C1 char_latin2_latin2_in_refs.texi:l10
@@ -63,7 +63,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
   *@c C1
    *line_arg C3
     {spaces_before_argument: }
-    {rawline_text:Aogonek(0xa1=0241) aogonek(0xb1=0261) standalone ogonek(0xca=0312) Eogonek(0xea=0352) eogonek}
+    {rawline_text:Aogonek(0xa1=0241) aogonek(0xb1=0261) Eogonek(0xea=0352) eogonek}
     {spaces_after_argument:\\n}
   *@menu C3 char_latin2_latin2_in_refs.texi:l13
    *arguments_line C1
@@ -73,9 +73,9 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
     {menu_entry_leading_text:* }
     *menu_entry_node C1
     |EXTRA
-    |node_content:{Ą ą ˛ Ę ę}
-    |normalized:{_0104-_0105-_02db-_0118-_0119}
-     {Ą ą ˛ Ę ę}
+    |node_content:{Ą ą Ę ę}
+    |normalized:{_0104-_0105-_0118-_0119}
+     {Ą ą Ę ę}
     {menu_entry_separator:::}
     *menu_entry_description C1
      *preformatted C1
@@ -88,17 +88,17 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
      {menu}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 char_latin2_latin2_in_refs.texi:l17 {Ą ą ˛ Ę ę}
+ *@node C1 char_latin2_latin2_in_refs.texi:l17 {Ą ą Ę ę}
  |EXTRA
- |identifier:{_0104-_0105-_02db-_0118-_0119}
+ |identifier:{_0104-_0105-_0118-_0119}
  |is_target:{1}
  |node_number:{2}
   *arguments_line C1
    *line_arg C3
     {spaces_before_argument: }
-    {Ą ą ˛ Ę ę}
+    {Ą ą Ę ę}
     {spaces_after_argument:\\n}
- *@chapter C4 char_latin2_latin2_in_refs.texi:l18 {Ą ą ˛ Ę ę}
+ *@chapter C4 char_latin2_latin2_in_refs.texi:l18 {Ą ą Ę ę}
  |EXTRA
  |section_heading_number:{1}
  |section_level:{1}
@@ -106,16 +106,16 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
   *arguments_line C1
    *line_arg C3
     {spaces_before_argument: }
-    {Ą ą ˛ Ę ę}
+    {Ą ą Ę ę}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
   *index_entry_command@cindex C1 char_latin2_latin2_in_refs.texi:l20
   |EXTRA
-  |element_node:{_0104-_0105-_02db-_0118-_0119}
+  |element_node:{_0104-_0105-_0118-_0119}
   |index_entry:I{cp,1}
    *line_arg C3
     {spaces_before_argument: }
-    {Ą ą ˛ Ę ę}
+    {Ą ą Ę ę}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
  *@bye C1
@@ -131,19 +131,19 @@ $result_texis{'char_latin2_latin2_in_refs'} = '\\input texinfo
 @node Top
 @top char latin2 latin2 in refs
 
-@ref{Ą ą ˛ Ę ę}.
+@ref{Ą ą Ę ę}.
 
 @printindex cp
 
-@c Aogonek(0xa1=0241) aogonek(0xb1=0261) standalone ogonek(0xca=0312) Eogonek(0xea=0352) eogonek
+@c Aogonek(0xa1=0241) aogonek(0xb1=0261) Eogonek(0xea=0352) eogonek
 @menu
-* Ą ą ˛ Ę ę::
+* Ą ą Ę ę::
 @end menu
 
-@node Ą ą ˛ Ę ę
-@chapter Ą ą ˛ Ę ę
+@node Ą ą Ę ę
+@chapter Ą ą Ę ę
 
-@cindex Ą ą ˛ Ę ę
+@cindex Ą ą Ę ę
 
 @bye
 ';
@@ -153,13 +153,13 @@ $result_texts{'char_latin2_latin2_in_refs'} = '
 char latin2 latin2 in refs
 **************************
 
-Ą ą ˛ Ę ę.
+Ą ą Ę ę.
 
 
-* Ą ą ˛ Ę ę::
+* Ą ą Ę ę::
 
-1 Ą ą ˛ Ę ę
-***********
+1 Ą ą Ę ę
+*********
 
 
 ';
@@ -170,12 +170,12 @@ $result_nodes_list{'char_latin2_latin2_in_refs'} = '1|Top
  associated_section: char latin2 latin2 in refs
  associated_title_command: char latin2 latin2 in refs
  menus:
-  Ą ą ˛ Ę ę
+  Ą ą Ę ę
  node_directions:
-  next->Ą ą ˛ Ę ę
-2|Ą ą ˛ Ę ę
- associated_section: 1 Ą ą ˛ Ę ę
- associated_title_command: 1 Ą ą ˛ Ę ę
+  next->Ą ą Ę ę
+2|Ą ą Ę ę
+ associated_section: 1 Ą ą Ę ę
+ associated_title_command: 1 Ą ą Ę ę
  node_directions:
   prev->Top
   up->Top
@@ -185,12 +185,12 @@ $result_sections_list{'char_latin2_latin2_in_refs'} = '1|char latin2 latin2 in r
  associated_anchor_command: Top
  associated_node: Top
  toplevel_directions:
-  next->Ą ą ˛ Ę ę
+  next->Ą ą Ę ę
  section_children:
-  1|Ą ą ˛ Ę ę
-2|Ą ą ˛ Ę ę
- associated_anchor_command: Ą ą ˛ Ę ę
- associated_node: Ą ą ˛ Ę ę
+  1|Ą ą Ę ę
+2|Ą ą Ę ę
+ associated_anchor_command: Ą ą Ę ę
+ associated_node: Ą ą Ę ę
  section_directions:
   up->char latin2 latin2 in refs
  toplevel_directions:
@@ -206,7 +206,7 @@ list:
 $result_headings_list{'char_latin2_latin2_in_refs'} = '';
 
 $result_indices_sort_strings{'char_latin2_latin2_in_refs'} = 'cp:
- Ą ą ˛ Ę ę
+ Ą ą Ę ę
 ';
 
 1;

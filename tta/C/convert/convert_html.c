@@ -3227,11 +3227,9 @@ html_node_redirections (CONVERTER *self,
           if (add_translit_redirection && strcmp (normalized, "Top"))
             {
               /* based on converter.c node_information_filename */
-              int in_test = (self->conf->TEST.o.integer > 0);
               char *translit_filename;
               char *translit_basename
-               = normalize_transliterate_texinfo_contents (label_element,
-                                                           in_test);
+               = normalize_transliterate_texinfo_contents (label_element);
 
               id_to_filename (self, &translit_basename);
 

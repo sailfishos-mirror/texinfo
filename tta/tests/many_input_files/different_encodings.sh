@@ -68,7 +68,9 @@ raw_outdir=$raw_output_dir/$basename
 mkdir $basename
 : > $basename/$stdout_file
 
-cmd="$prepended_command $command_run --html --no-split --set-customization-variable TEST=$test_level --enable-encoding --transliterate-file-name -c OUTPUT_CHARACTERS=1 --out $basename/ $srcdir/../../perl/t/input_files/char_latin1_latin1_in_refs.texi $srcdir/../../perl/t/input_files/char_utf8_latin1_in_refs.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
+# no transliteration, as Perl and C transliterate differently
+# --transliterate-file-name
+cmd="$prepended_command $command_run --html --no-split --set-customization-variable TEST=$test_level --enable-encoding -c OUTPUT_CHARACTERS=1 --out $basename/ $srcdir/../../perl/t/input_files/char_latin1_latin1_in_refs.texi $srcdir/../../perl/t/input_files/char_utf8_latin1_in_refs.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 

@@ -5,8 +5,6 @@
 /* for BYTES_STRING */
 #include "document_types.h"
 
-char *call_nodenamenormalization_unicode_to_transliterate (const char *text);
-
 char *call_translations_translate_string (const char *string,
                                           const char *language_env,
                                           const char *translation_context);
