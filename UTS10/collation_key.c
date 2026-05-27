@@ -100,10 +100,12 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
       if (entry_array[i].data.array)
         {
           size_t num_entry_elements = entry_array[i].data.num_elements;
-          read_collation_data (entry_array[i].data, &elements[elements_count]);
+          memcpy (&elements[elements_count],
+                  entry_array[i].data.array,
+                  num_entry_elements * sizeof (struct collation_data));
           if (debug)
             print_collation (stderr, &elements[elements_count], num_entry_elements);
-          elements_count += entry_array[i].data.num_elements;
+          elements_count += num_entry_elements;
         }
       else
         {
