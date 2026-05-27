@@ -10,18 +10,6 @@
 
 #include "collation-table.c"
 
-/* Read collation data at offset */
-/* TODO: simplify or inline function?? */
-static int
-read_collation_data (COLLATION_DATA data,
-                     struct collation_data *elements)
-{
-  memcpy (elements, data.array,
-          data.num_elements * sizeof (struct collation_data));
-
-  return 1;
-}
-
 int
 collation_element_is_variable (struct collation_data *element)
 {
@@ -232,7 +220,10 @@ lookup_codepoint (char32_t codepoint,
       if (data.num_elements > elements_size)
         return -1;
       (*num_elements) = data.num_elements;
-      return read_collation_data (data, elements);
+
+      memcpy (elements, data.array,
+              data.num_elements * sizeof (struct collation_data));
+      return 1;
     }
   return 0;
 }
@@ -376,7 +367,10 @@ lookup_sequence (const uint32_t *codepoints, size_t len,
                         return -1;
 
                       *num_elements = data.num_elements;
-                      return read_collation_data (data, elements);
+
+                      memcpy (elements, data.array,
+                              data.num_elements * sizeof (struct collation_data));
+                      return 1;
                     }
                 }
               break;
