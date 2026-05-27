@@ -160,7 +160,7 @@ ok($normalized_manual =~ /^[\w\-]+$/, 'normalized tree is a valid id');
 
 SKIP: {
 
-  skip 'Perl too old: /a regex flag needed', 3 if ($] < 5.014);
+  skip 'Perl too old: /a regex flag needed', 2 if ($] < 5.014);
 
   # \x{2000}: EN QUAD space
   # \x{a0}: NO-BREAK SPACE

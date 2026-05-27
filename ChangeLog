@@ -1,5 +1,10 @@
 2026-05-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/z_misc/nodenormalization.t (SKIP): fix the number of
+	tests skipped.
+
+2026-05-28 Patrice Dumas  <pertusus@free.fr>
+
 	do not use Perl transliterations in tests of C code
 
 	* tta/C/main/node_name_normalization.c (unicode_to_transliterate),
