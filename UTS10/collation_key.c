@@ -264,6 +264,7 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
       last_was_variable = 0;
       for (size_t i = 0; i < elements_count; i++)
         {
+          int variable_element = collation_element_is_variable (&elements[i]);
           if (!elements[i].primary && !elements[i].secondary
               && !elements[i].tertiary)
             {
@@ -277,7 +278,7 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
               /* E.g. combining grave following a space.  Ignore. */
               continue;
             }
-          else if (collation_element_is_variable (&elements[i]))
+          else if (variable_element)
             {
               uint16_t weight = elements[i].primary;
               if (weight > 0xFE00)
@@ -296,15 +297,13 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
               *psort_key++ = 0xFF;
               *psort_key++ = 0xFF;
             }
-          else if (elements[i].primary
-                   && !collation_element_is_variable (&elements[i]))
+          else if (elements[i].primary && !variable_element)
             {
               /* This needs to be greater than any shifted weights. */
               *psort_key++ = 0xFF;
               *psort_key++ = 0xFF;
             }
-          /* TODO: only call this function once in each iteration? */
-          last_was_variable = collation_element_is_variable (&elements[i]);
+          last_was_variable = variable_element;
         }
     }
 
