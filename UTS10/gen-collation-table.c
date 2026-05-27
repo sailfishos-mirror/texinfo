@@ -172,6 +172,7 @@ parse_implicitweight (const char *line, Allkeys_Info *info)
   char32_t low, high;
   uint32_t primary;
   if (sscanf (line, "@implicitweights %x..%x; %x", &low, &high, &primary) == 3)
+    
     {
       if (info->num_implicit_blocks == MAX_IMPLICIT_BLOCKS)
         {
@@ -781,7 +782,7 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   fprintf (fp, "    int pages[0x%x];\n", n_used_planes * 0x100);
   fprintf (fp, "    struct block256_data pages_data[0x%x];\n", n_used_pages);
   fprintf (fp, "    struct trie_node trie_array[NUM_TRIE_NODES];\n");
-  fprintf (fp, "    struct collation_data collation_data[NUM_COLLATION_UNITS];\n");
+  fprintf (fp, "    struct collation_unit collation_data[NUM_COLLATION_UNITS];\n");
   fprintf (fp, "    struct implicit_block implicit_blocks[NUM_IMPLICIT_BLOCKS];\n");
   fprintf (fp, "  }\n");
   fprintf (fp, "collation_data = {\n");

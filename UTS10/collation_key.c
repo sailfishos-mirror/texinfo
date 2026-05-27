@@ -89,7 +89,7 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
         num_elements += 3;      /* implicitly determined weights? */
     }
 
-  struct collation_data *elements = calloc (num_elements, sizeof (*elements));
+  struct collation_unit *elements = calloc (num_elements, sizeof (*elements));
   size_t elements_count = 0;
   for (size_t i = 0; i < n_entries; i++)
     {
@@ -102,7 +102,7 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
           size_t num_entry_elements = entry_array[i].data.num_elements;
           memcpy (&elements[elements_count],
                   entry_array[i].data.array,
-                  num_entry_elements * sizeof (struct collation_data));
+                  num_entry_elements * sizeof (struct collation_unit));
           if (debug)
             print_collation (stderr, &elements[elements_count], num_entry_elements);
           elements_count += num_entry_elements;

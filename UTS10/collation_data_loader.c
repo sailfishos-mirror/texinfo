@@ -11,7 +11,7 @@
 #include "collation-table.c"
 
 int
-collation_element_is_variable (struct collation_data *element)
+collation_element_is_variable (struct collation_unit *element)
 {
   return (element->primary
             && element->primary <= collation_data.max_variable_weight);
@@ -210,7 +210,7 @@ lookup_collation_data_at_char (char32_t *const string,
 /* Not currently used. */
 int
 lookup_codepoint (char32_t codepoint,
-                  struct collation_data *elements,
+                  struct collation_unit *elements,
                   size_t elements_size,
                   size_t *num_elements)
 {
@@ -222,7 +222,7 @@ lookup_codepoint (char32_t codepoint,
       (*num_elements) = data.num_elements;
 
       memcpy (elements, data.array,
-              data.num_elements * sizeof (struct collation_data));
+              data.num_elements * sizeof (struct collation_unit));
       return 1;
     }
   return 0;
@@ -231,7 +231,7 @@ lookup_codepoint (char32_t codepoint,
 /* Return implicitly determined weights. */
 void
 get_implicit_weight (char32_t codepoint,
-                     struct collation_data *elements, size_t *n_elements)
+                     struct collation_unit *elements, size_t *n_elements)
 {
   if (codepoint == 0x0000)
     {
@@ -285,7 +285,7 @@ get_implicit_weight (char32_t codepoint,
 
   if (AAAA && BBBB)
     {
-      struct collation_data e1 = { AAAA, 0x0020, 0x0002 };
+      struct collation_unit e1 = { AAAA, 0x0020, 0x0002 };
       /* same in gen-collation-table.c:expand_collation_sequence to
          fit secondary weight in a single byte. */
       e1.secondary -= 0x1f;
@@ -295,8 +295,8 @@ get_implicit_weight (char32_t codepoint,
          gen-collation_table.c:write_collation_data */
       if (BBBB >= 0xFE00)
         {
-          struct collation_data e2 = { 0xFE00, 0x0000, 0x0000 };
-          struct collation_data e3 = { BBBB - 0xFE00 + 0x8000 + 1, 0x0000, 0x0000 };
+          struct collation_unit e2 = { 0xFE00, 0x0000, 0x0000 };
+          struct collation_unit e3 = { BBBB - 0xFE00 + 0x8000 + 1, 0x0000, 0x0000 };
 
           elements[0] = e1;
           elements[1] = e2;
@@ -305,7 +305,7 @@ get_implicit_weight (char32_t codepoint,
         }
       else
         {
-          struct collation_data e2 = { BBBB, 0x0000, 0x0000 };
+          struct collation_unit e2 = { BBBB, 0x0000, 0x0000 };
           elements[0] = e1;
           elements[1] = e2;
           (*n_elements) = 2;
@@ -323,7 +323,7 @@ get_implicit_weight (char32_t codepoint,
 /* Not currently used. */
 int
 lookup_sequence (const uint32_t *codepoints, size_t len,
-                 struct collation_data *elements, size_t elements_size,
+                 struct collation_unit *elements, size_t elements_size,
                  size_t *num_elements)
 {
   if (len == 0)
@@ -369,7 +369,7 @@ lookup_sequence (const uint32_t *codepoints, size_t len,
                       *num_elements = data.num_elements;
 
                       memcpy (elements, data.array,
-                              data.num_elements * sizeof (struct collation_data));
+                              data.num_elements * sizeof (struct collation_unit));
                       return 1;
                     }
                 }
@@ -387,7 +387,7 @@ lookup_sequence (const uint32_t *codepoints, size_t len,
 /* Print collation elements */
 void
 print_collation (FILE *stream,
-                 const struct collation_data *elements, size_t num_elements)
+                 const struct collation_unit *elements, size_t num_elements)
 {
   for (size_t i = 0; i < num_elements; i++)
     {

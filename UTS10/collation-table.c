@@ -41,7 +41,7 @@ struct
     int pages[0x400];
     struct block256_data pages_data[0xc0];
     struct trie_node trie_array[NUM_TRIE_NODES];
-    struct collation_data collation_data[NUM_COLLATION_UNITS];
+    struct collation_unit collation_data[NUM_COLLATION_UNITS];
     struct implicit_block implicit_blocks[NUM_IMPLICIT_BLOCKS];
   }
 collation_data = {
