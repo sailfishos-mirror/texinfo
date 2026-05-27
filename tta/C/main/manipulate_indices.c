@@ -626,45 +626,56 @@ setup_collator (int use_unicode_collation, const char *collation_language,
     {
       result->type = ctn_no_unicode;
     }
-  else if (collation_language)
-    {
-      result->type = ctn_language_collation;
-      result->coll.sv = call_setup_collator (1, collation_language);
-    }
   else
     {
-      #ifdef HAVE_STRXFRM_L
-      #ifdef HAVE_NEWLOCALE
-      if (collation_locale)
+      if (collation_language)
         {
-          result->coll.locale
-            = newlocale (LC_COLLATE_MASK, collation_locale, 0);
-          if (result->coll.locale)
-            {
-              result->type = ctn_locale_collation;
-              return result;
-            }
+          result->coll.sv = call_setup_collator (1, collation_language);
+          if (result->coll.sv)
+            result->type = ctn_language_collation;
           else
-            {
-              message_list_document_warn (error_messages, options, 0,
-                         "collation locale not found: %s", collation_locale);
-            }
+          /* no Perl collator if there is no Perl interpreter.  Calling code
+             is supposed to avoid that situation */
+            message_list_document_warn (error_messages, options, 0,
+                    "no collator (no Perl?) for language: %s",
+                    collation_language);
         }
-      #endif
-      #endif
 
-      #ifdef NATIVE_UTS10_COLLATION
-      result->type = ctn_unicode;
-      #else
-      result->coll.sv = call_setup_collator (1, 0);
-      if (result->coll.sv == 0)
-        /* if not linked against Perl or there is no strxfrm_l, this is
-           a likely outcome.  This also happens if called as ctexi2any
-           without embedded Perl and XS_STRXFRM_COLLATION_LOCALE=undef */
-        result->type = ctn_no_unicode;
-      else
-        result->type = ctn_unicode;
-      #endif
+      if (!result->type)
+        {
+          #ifdef HAVE_STRXFRM_L
+          #ifdef HAVE_NEWLOCALE
+          if (collation_locale)
+            {
+              result->coll.locale
+                = newlocale (LC_COLLATE_MASK, collation_locale, 0);
+              if (result->coll.locale)
+                {
+                  result->type = ctn_locale_collation;
+                  return result;
+                }
+              else
+                {
+                  message_list_document_warn (error_messages, options, 0,
+                             "collation locale not found: %s", collation_locale);
+                }
+            }
+          #endif
+          #endif
+
+          #ifdef NATIVE_UTS10_COLLATION
+          result->type = ctn_unicode;
+          #else
+          result->coll.sv = call_setup_collator (1, 0);
+          if (result->coll.sv == 0)
+            /* if not linked against Perl or there is no strxfrm_l, this is
+               a likely outcome.  This also happens if called as ctexi2any
+               without embedded Perl */
+            result->type = ctn_no_unicode;
+          else
+            result->type = ctn_unicode;
+          #endif
+        }
     }
   return result;
 }

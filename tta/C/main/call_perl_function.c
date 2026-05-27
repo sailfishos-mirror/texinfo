@@ -173,8 +173,6 @@ call_setup_collator (int use_unicode_collation, const char *locale_lang)
 
   dTHX;
 
-  /* this happens if XS_STRXFRM_COLLATION_LOCALE=undef while there is
-     no embedded Perl */
   if (!has_perl_interpreter ())
     return 0;
 
