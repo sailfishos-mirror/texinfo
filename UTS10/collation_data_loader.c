@@ -16,20 +16,8 @@ static int
 read_collation_data (COLLATION_DATA data,
                      struct collation_data *elements)
 {
-  for (int i = 0; i < data.num_elements; i++)
-    {
-      elements[i].primary = data.array[i].primary;
-      elements[i].secondary = data.array[i].secondary;
-      elements[i].tertiary = data.array[i].tertiary;;
-
-      if (elements[i].secondary != 0x00)
-        {
-          /* this would match
-             gen-collation-table.c:expand_collation_sequence: */
-          /* elements[i].secondary += 0x1F; */
-          /* but keep it in a single byte to reduce sort key length. */
-        }
-    }
+  memcpy (elements, data.array,
+          data.num_elements * sizeof (struct collation_data));
 
   return 1;
 }
