@@ -72,6 +72,8 @@ xs_init (pTHX)
    LOAD_TXI_MODULES_PATH script run when starting the embedded interpreter,
    to allow for a version check of VERSION_CHECKED against a version coming
    from a Perl module.
+
+   Return status of 0 means success.
  */
 int
 call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref,

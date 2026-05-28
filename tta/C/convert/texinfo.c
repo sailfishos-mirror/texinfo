@@ -95,6 +95,8 @@ txi_find_tree_transformation (const char *transformation_name)
   Start an embedded Perl interpreter and initialize by passing the
   load_txi_modules_basename script to be called from the embedded
   interpreter.
+
+  Return 0 in case of success.
  */
 int
 txi_load_interpreter (const INTERPRETER_LOADING_INFO *loading_info)
@@ -115,7 +117,7 @@ txi_load_interpreter (const INTERPRETER_LOADING_INFO *loading_info)
                            loading_info->env_ref, load_modules_path,
                            loading_info->version_checked);
 
-  /* status < 0 means no functioning call_init_perl */
+  /* status < 0 means replacement call_init_perl that does nothing */
   if (status > 0)
     {
       char *message;
@@ -290,8 +292,8 @@ txi_load_init_file (const char *file,
   int status = 0;
   if (*embedded_interpreter == txi_interpreter_want_embedded)
     {
-      status = txi_load_interpreter (loading_info);
-      if (!status)
+      int interpreter_status = txi_load_interpreter (loading_info);
+      if (!interpreter_status)
         *embedded_interpreter = txi_interpreter_use_embedded;
     }
 
