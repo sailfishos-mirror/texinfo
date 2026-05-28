@@ -199,31 +199,6 @@ lookup_collation_data_at_char (char32_t *const string,
   return data;
 }
 
-/* Lookup CODEPOINT and place collation element(s) in
-   ELEMENTS array.
-   Return 1 if element found, 0 if not found, and -1 if found
-   but output array too small. */
-/* Not currently used. */
-int
-lookup_codepoint (char32_t codepoint,
-                  struct collation_unit *elements,
-                  size_t elements_size,
-                  size_t *num_elements)
-{
-  COLLATION_DATA data = lookup_codepoint_data (codepoint);
-  if (data.array)
-    {
-      if (data.num_elements > elements_size)
-        return -1;
-      (*num_elements) = data.num_elements;
-
-      memcpy (elements, data.array,
-              data.num_elements * sizeof (struct collation_unit));
-      return 1;
-    }
-  return 0;
-}
-
 /* Return implicitly determined weights. */
 void
 get_implicit_weight (char32_t codepoint,
@@ -311,73 +286,6 @@ get_implicit_weight (char32_t codepoint,
     {
       (*n_elements) = 0;
     }
-}
-
-/* Lookup sequence.
-   Return 1 if element found, 0 if not found, and -1 if found
-   but output array too small. */
-/* Not currently used. */
-int
-lookup_sequence (const uint32_t *codepoints, size_t len,
-                 struct collation_unit *elements, size_t elements_size,
-                 size_t *num_elements)
-{
-  if (len == 0)
-    return 0;
-
-  uint32_t node_offset = 0;
-  const struct trie_node *node = &collation_data.trie_array[0];
-
-  for (size_t i = 0; i < len; i++)
-    {
-      // Read node
-      uint32_t node_codepoint = node->codepoint;
-      uint32_t node_data_index = node->data_index;
-      uint8_t node_num_elements = node->num_elements;
-      uint16_t num_children = node->num_children;
-      uint32_t first_child = node->first_child;
-
-      // Search for matching child
-      int found = 0;
-      for (uint16_t j = 0; j < num_children; j++)
-        {
-          const struct trie_node *child
-            = &collation_data.trie_array[first_child + j];
-          char32_t child_codepoint = child->codepoint;
-
-          if (child_codepoint == codepoints[i])
-            {
-              node = child;
-              found = 1;
-
-              // If this is the last codepoint, check for collation_data
-              if (i == len - 1)
-                {
-                  COLLATION_DATA data;
-                  size_t data_index = node->data_index;
-                  data.num_elements = node->num_elements;
-                  if (data_index != 0)
-                    {
-                      data.array = &collation_data.collation_data[data_index];
-                      if (data.num_elements > elements_size)
-                        return -1;
-
-                      *num_elements = data.num_elements;
-
-                      memcpy (elements, data.array,
-                              data.num_elements * sizeof (struct collation_unit));
-                      return 1;
-                    }
-                }
-              break;
-            }
-        }
-
-      if (!found)
-        return 0;
-    }
-
-  return 0; /* sequence not found */
 }
 
 /* Print collation elements */
