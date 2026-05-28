@@ -770,7 +770,6 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   fprintf (fp, "#define MAX_COLLATION_ELEMENTS %d\n\n", info->max_collation_elements);
 
   fprintf (fp, "static const\nstruct\n  {\n");
-  fprintf (fp, "    uint32_t version;\n");
   fprintf (fp, "    uint16_t max_variable_weight;\n");
   fprintf (fp, "    uint32_t num_singles;\n");
   fprintf (fp, "    uint32_t num_sequences;\n");
@@ -783,12 +782,11 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   fprintf (fp, "  }\n");
   fprintf (fp, "collation_data = {\n");
 
-  fprintf (fp, "  %ld,\n", info->version);
   fprintf (fp, "  0x%04X,\n", info->max_variable_weight);
   fprintf (fp, "  %d,\n", info->num_singles);
   fprintf (fp, "  %d,\n", info->num_sequences);
 
-  fprintf (fp, "  { /* .planes */\n");
+  fprintf (fp, "  { /* .level1 */\n");
 
   int page_idx = 0;
   for (i = 0; i < 17; i++)

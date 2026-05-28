@@ -33,7 +33,6 @@ struct implicit_block {
 static const
 struct
   {
-    uint32_t version;
     uint16_t max_variable_weight;
     uint32_t num_singles;
     uint32_t num_sequences;
@@ -45,11 +44,10 @@ struct
     struct implicit_block implicit_blocks[NUM_IMPLICIT_BLOCKS];
   }
 collation_data = {
-  170000,
   0x2190,
   37709,
   964,
-  { /* .planes */
+  { /* .level1 */
     0,
     1,
     2,
