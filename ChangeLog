@@ -1,5 +1,12 @@
 2026-05-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/40moresectioning.t
+	(only_special_spaces_node_transliterate): skip tests with
+	transliteration if XS_convert_enabled as in C/XS the transliteration
+	result depends on the iconv implementation and is not reproducible.
+
+2026-05-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/30sectioning.t
 	(in_menu_only_special_spaces_node_menu_transliterate)
 	(reference_to_only_special_spaces_node_transliterate)
