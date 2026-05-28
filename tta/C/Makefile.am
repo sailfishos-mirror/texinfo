@@ -659,6 +659,7 @@ ctexi2any_SOURCES = \
 # by libtool.
 ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(perl_conf_LIBS) $(EUIDACCESS_LIBGEN) $(HARD_LOCALE_LIB) $(LIBPTHREAD) $(LIBTHREAD) $(LTLIBC32CONV) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(MBRTOWC_LIB) $(PTHREAD_ONCE_LIB) $(SETLOCALE_NULL_LIB)
 
+# Perl LDFLAGS are brought in by AM_LDFLAGS
 # NOTE it is important to use perl_conf_CFLAGS here to match
 # with perl_conf_LDFLAGS used for linking, or in some platforms where
 # the compiling and linking flags must match there will be a failure to
@@ -707,8 +708,9 @@ teximakehtml_SOURCES = \
 # Perl flags are not useful, but we use the same flags as for
 # configure checks, such that they are consistent for detected
 # libraries flags such as LTLIBINTL.
+# Perl LDFLAGS are brought in by AM_LDFLAGS
 teximakehtml_CFLAGS = $(perl_conf_CFLAGS)
-teximakehtml_LDADD = $(perl_conf_LIBS) $(top_builddir)/gnulib/lib/libgnu.la $(EUIDACCESS_LIBGEN) $(HARD_LOCALE_LIB) $(LIBPTHREAD) $(LIBTHREAD) $(LTLIBC32CONV) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(MBRTOWC_LIB) $(PTHREAD_ONCE_LIB) $(SETLOCALE_NULL_LIB)
+teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la $(EUIDACCESS_LIBGEN) $(HARD_LOCALE_LIB) $(LIBPTHREAD) $(LIBTHREAD) $(LTLIBC32CONV) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(MBRTOWC_LIB) $(PTHREAD_ONCE_LIB) $(SETLOCALE_NULL_LIB)
 
 teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 
