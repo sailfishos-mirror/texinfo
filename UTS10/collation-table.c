@@ -34,8 +34,6 @@ static const
 struct
   {
     uint16_t max_variable_weight;
-    uint32_t num_singles;
-    uint32_t num_sequences;
     int level1[NUM_PLANES];
     int level2[4 << 8];
     struct block256_data level3[192];
@@ -45,8 +43,6 @@ struct
   }
 collation_data = {
   0x2190,
-  37709,
-  964,
   { /* .level1 */
     0,
     1,

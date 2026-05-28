@@ -71,8 +71,7 @@ typedef struct
   Page *pages[NUM_PAGES];
   TrieNode *trie_root;
   uint16_t max_variable_weight;
-  uint32_t num_singles;
-  uint32_t num_sequences;
+  size_t num_records;
   long version;
   int max_collation_elements;
   int max_sequence_length;
@@ -338,7 +337,7 @@ build_allkeys_info (const char *filename)
           page->entries[page->count].point = point;
           page->entries[page->count].data = data;
           page->count++;
-          info->num_singles++;
+          info->num_records++;
         }
       else
         {
@@ -367,7 +366,7 @@ build_allkeys_info (const char *filename)
               node = child;
             }
           node->data = data;
-          info->num_sequences++;
+          info->num_records++;
         }
 
       if (line_num % 5000 == 0)
@@ -378,8 +377,6 @@ build_allkeys_info (const char *filename)
     }
 
   fclose (fp);
-  printf ("\nParsing complete: %u singles, %u sequences\n",
-          info->num_singles, info->num_sequences);
 
   return info;
 }
@@ -771,8 +768,6 @@ write_c_source (const char *output_file, Allkeys_Info *info)
 
   fprintf (fp, "static const\nstruct\n  {\n");
   fprintf (fp, "    uint16_t max_variable_weight;\n");
-  fprintf (fp, "    uint32_t num_singles;\n");
-  fprintf (fp, "    uint32_t num_sequences;\n");
   fprintf (fp, "    int level1[NUM_PLANES];\n");
   fprintf (fp, "    int level2[%d << 8];\n", n_used_planes);
   fprintf (fp, "    struct block256_data level3[%d];\n", n_used_pages);
@@ -783,8 +778,6 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   fprintf (fp, "collation_data = {\n");
 
   fprintf (fp, "  0x%04X,\n", info->max_variable_weight);
-  fprintf (fp, "  %d,\n", info->num_singles);
-  fprintf (fp, "  %d,\n", info->num_sequences);
 
   fprintf (fp, "  { /* .level1 */\n");
 
@@ -928,7 +921,7 @@ main (int argc, char *argv[])
   /* keep running count of collation units which will be written to
      the collation units array so we can output indices into that array. */
   collation_units_written = 0;
-  collation_records = malloc ((info->num_singles + info->num_sequences + 1)
+  collation_records = malloc ((info->num_records + 1)
                     * sizeof (PendingCollationData));
   collation_records_count = 0;
 
