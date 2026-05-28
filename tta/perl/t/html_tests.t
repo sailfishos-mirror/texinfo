@@ -1744,7 +1744,7 @@ $css_init_file_texinfo, {'init_files' => ['test_css_info_functions.pm']}],
 undef, {'test_file' => 'simple_only_special_spaces_node.texi',
         'init_files' => ['no_navigation.pm'],
          'skip' => ($] < 5.014 or $XS_convert) ?
-         'Perl /a flag needed or non reproducible transliteration' : undef,
+           '/a flag needed or non reproducible transliteration' : undef,
        },
        # split at node is needed to test for the bug, not sure about
        # TRANSLITERATE_FILE_NAMES, but it is interesting anyway to have

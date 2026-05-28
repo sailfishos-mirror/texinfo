@@ -192,7 +192,7 @@ undef, {'test_file' => 'only_special_spaces_node.texi',
 ['only_special_spaces_node_transliterate',
 undef, {'test_file' => 'only_special_spaces_node.texi',
  'skip' => ($] < 5.018 or $XS_convert) ?
- 'Perl LINE TABULATION in /a needed or non reproducible transliteration' : undef, },
+ 'LINE TABULATION in /a needed or non reproducible transliteration' : undef, },
   {'TRANSLITERATE_FILE_NAMES' => 1}],
 ['equivalent_nodes_defined_linked',
 '@node Top, @asis{chap}
