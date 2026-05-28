@@ -1,5 +1,23 @@
 2026-05-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/30sectioning.t
+	(in_menu_only_special_spaces_node_menu_transliterate)
+	(reference_to_only_special_spaces_node_transliterate)
+	(transliterated_split_equivalent_nodes), tta/perl/t/converters_tests.t
+	(some_at_commands_in_ref_nodes_transliterate),
+	tta/perl/t/formats_encodings.t (char_utf8_latin1_in_refs)
+	(char_latin1_latin1_in_refs)
+	(char_latin1_latin1_in_refs_output_encoding_latin1)
+	(char_us_ascii_latin1_in_refs, at_commands_in_refs_utf8)
+	(at_commands_in_refs_latin1), tta/perl/t/html_tests.t
+	(redirection_same_labels, transliterated_names_conflicts)
+	(node_footnote_use_node, node_footnote_use_node_separate)
+	(simple_only_special_spaces_node): skip tests with transliteration if
+	XS_convert_enabled as in C/XS the transliteration result depends on
+	the iconv implementation and is not reproducible.
+
+2026-05-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (teximakehtml_LDADD): revert adding
 	$(perl_conf_LIBS), we do not want to link against Perl lib.
 	AM_LDFLAGS is already used to have linking flags consistent with

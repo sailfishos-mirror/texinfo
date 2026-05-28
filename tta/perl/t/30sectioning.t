@@ -5,6 +5,8 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
+my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
+
 my $unnumbered_top_without_node_text =
 '@node a node,,,(dir)
 @unnumbered unnumbered
@@ -411,7 +413,8 @@ undef, {'test_file' => 'in_menu_only_special_spaces_node.texi',
        {'FORMAT_MENU' => 'menu', 'TRANSLITERATE_FILE_NAMES' => 0}],
 ['in_menu_only_special_spaces_node_menu_transliterate',
 undef, {'test_file' => 'in_menu_only_special_spaces_node.texi',
-        'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, },
+        'skip' => ($] < 5.014 or $XS_convert) ?
+           'Perl /a flag needed or non reproducible transliteration' : undef, },
        {'FORMAT_MENU' => 'menu', 'TRANSLITERATE_FILE_NAMES' => 1}],
 ['reference_to_only_special_spaces_node',
 undef, {'test_file' => 'reference_to_only_special_spaces_node.texi',
@@ -420,7 +423,8 @@ undef, {'test_file' => 'reference_to_only_special_spaces_node.texi',
 ],
 ['reference_to_only_special_spaces_node_transliterate',
 undef, {'test_file' => 'reference_to_only_special_spaces_node.texi',
-        'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, },
+        'skip' => ($] < 5.014 or $XS_convert) ?
+           'Perl /a flag needed or non reproducible transliteration' : undef, },
 {'TRANSLITERATE_FILE_NAMES' => 1},
 ],
 ['double_node_anchor_float',
@@ -1410,7 +1414,8 @@ my @test_out_files = (
 @node n
 
 @node @^a
-', {'test_split' => 'node'},
+', {'test_split' => 'node',
+    'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
 {'TRANSLITERATE_FILE_NAMES' => 1}],
 # test the texi2html style to test the style for tests
 # interesting to test diverse tree splitting options, and already

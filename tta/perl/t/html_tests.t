@@ -1256,12 +1256,14 @@ my @file_tests = (
 @end menu
 
 @node @^i
-', {'test_split' => 'section'}, {'SPLIT' => 'chapter',
-                                 'TRANSLITERATE_FILE_NAMES' => 1}],
+', {'test_split' => 'section',
+    'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
+ {'SPLIT' => 'chapter', 'TRANSLITERATE_FILE_NAMES' => 1}],
 ['transliterated_names_conflicts',
   undef,
   {'test_file' => 'transliterated_names_conflicts.texi',
-   'test_split' => 'node'},
+   'test_split' => 'node',
+   'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
   {'SPLIT' => 'node', 'TRANSLITERATE_FILE_NAMES' => 1},
 ],
 ['file_name_conflict_with_section',
@@ -1480,7 +1482,8 @@ $check_htmlxref_text
   undef,
   # also tests for node without section command nor directions after
   # a section, and Top without @top and chapter in menu
-  {'test_file' => 'node_footnote.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 0,},
+  {'test_file' => 'node_footnote.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 0,
+   'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
   {'FORMAT_MENU' => 'menu', 'TRANSLITERATE_FILE_NAMES' => 1}
 ],
 ['node_footnote_end',
@@ -1499,7 +1502,8 @@ $check_htmlxref_text
 ],
 ['node_footnote_use_node_separate',
   undef,
-  {'test_file' => 'node_footnote.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 0},
+  {'test_file' => 'node_footnote.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 0,
+   'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
   {'footnotestyle' => 'separate', 'FORMAT_MENU' => 'menu',
    # needed to have the three nodes with footnotes end up in the same node
    'TRANSLITERATE_FILE_NAMES' => 1}
@@ -1739,7 +1743,8 @@ $css_init_file_texinfo, {'init_files' => ['test_css_info_functions.pm']}],
 ['simple_only_special_spaces_node',
 undef, {'test_file' => 'simple_only_special_spaces_node.texi',
         'init_files' => ['no_navigation.pm'],
-        'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef,
+         'skip' => ($] < 5.014 or $XS_convert) ?
+         'Perl /a flag needed or non reproducible transliteration' : undef,
        },
        # split at node is needed to test for the bug, not sure about
        # TRANSLITERATE_FILE_NAMES, but it is interesting anyway to have

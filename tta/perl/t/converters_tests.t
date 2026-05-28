@@ -5,6 +5,8 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
+my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
+
 my $inline_text = '
 @inlinefmt{html, <blink>html</blink> ``}, 
 @inlinefmt{plaintext, plaintext ``}, 
@@ -234,7 +236,9 @@ Document.
 ['some_at_commands_in_ref_nodes',
 $some_at_commands_in_ref_nodes_text, {}, {'TRANSLITERATE_FILE_NAMES' => 0}],
 ['some_at_commands_in_ref_nodes_transliterate',
-$some_at_commands_in_ref_nodes_text, {}, {'TRANSLITERATE_FILE_NAMES' => 1}],
+$some_at_commands_in_ref_nodes_text,
+  {'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
+  {'TRANSLITERATE_FILE_NAMES' => 1}],
 ['refs_formatting',
 '@node chapter
 @chapter chapter

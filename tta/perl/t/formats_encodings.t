@@ -7,6 +7,8 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
+my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
+
 # do not use @node Top as it is ignored in LaTeX output
 my $accents_text = '@node first
 @top top
@@ -394,12 +396,14 @@ $latin1_accents_text, {}, {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}
 
 my @file_tests = (
 ['char_utf8_latin1_in_refs',
-undef, {'test_file' => 'char_utf8_latin1_in_refs.texi'},
+undef, {'test_file' => 'char_utf8_latin1_in_refs.texi',
+  'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
 # to test transliteration too
 {'TRANSLITERATE_FILE_NAMES' => 1},
 ],
 ['char_latin1_latin1_in_refs',
-undef, {'test_file' => 'char_latin1_latin1_in_refs.texi'},
+undef, {'test_file' => 'char_latin1_latin1_in_refs.texi',
+  'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
 # to test transliteration too
 {'TRANSLITERATE_FILE_NAMES' => 1},
 ],
@@ -407,13 +411,15 @@ undef, {'test_file' => 'char_latin1_latin1_in_refs.texi'},
 # to have a test with latin1 for formats that specify an output
 # encoding, such as LaTeX
 ['char_latin1_latin1_in_refs_output_encoding_latin1',
-undef, {'test_file' => 'char_latin1_latin1_in_refs.texi'},
+undef, {'test_file' => 'char_latin1_latin1_in_refs.texi',
+  'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
 # to test transliteration too
 {'TRANSLITERATE_FILE_NAMES' => 1,
  'OUTPUT_ENCODING_NAME' => 'ISO-8859-1'},
 ],
 ['char_us_ascii_latin1_in_refs',
-undef, {'test_file' => 'char_us_ascii_latin1_in_refs.texi'},
+undef, {'test_file' => 'char_us_ascii_latin1_in_refs.texi',
+  'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
 # to test transliteration too
 {'TRANSLITERATE_FILE_NAMES' => 1},
 ],
@@ -461,7 +467,8 @@ undef, {'test_file' => 'multiple_include_encodings.texi',
 
 '.
 $at_commands_in_refs_text,
-{'full_document' => 1},
+{'full_document' => 1,
+ 'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
  # TEST => 1 triggers @today constant expansion for diffs
 {'TEST' => 1,
  # interesting to test transliteration too
@@ -472,7 +479,8 @@ $at_commands_in_refs_text,
 
 '.
 $at_commands_in_refs_text,
-{'full_document' => 1},
+{'full_document' => 1,
+ 'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
  # TEST => 1 triggers @today constant expansion for diffs
 {'TEST' => 1,
  # interesting to test transliteration too
