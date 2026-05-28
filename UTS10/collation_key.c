@@ -7,7 +7,7 @@
 #include "unistr.h"
 #include "uninorm.h"
 
-#include "collation_data_loader.h"
+#include "collation_data_lookup.h"
 #include "collation_key.h"
 
 char *

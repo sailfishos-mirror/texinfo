@@ -20,7 +20,7 @@ collation-table.c: gen-collation-table allkeys.txt
 bin_PROGRAMS += collation_test
 
 collation_test_SOURCES = collation_test.c \
-                         collation_data_loader.c collation_data_loader.h \
+                         collation_data_lookup.c collation_data_lookup.h \
                          collation_key.c collation_key.h
 
 
