@@ -34,5 +34,5 @@ int lookup_sequence (const char32_t *codepoints, size_t len,
 void get_implicit_weight (uint32_t codepoint, struct collation_unit *elements,
                           size_t *n_elements);
 
-void print_collation (FILE *stream, const struct collation_unit *elements,
-                      size_t num_elements);
+void print_collation_unit (FILE *stream, const struct collation_unit *elements,
+                           size_t num_elements);

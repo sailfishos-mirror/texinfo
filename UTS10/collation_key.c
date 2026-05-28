@@ -104,7 +104,9 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
                   entry_array[i].data.array,
                   num_entry_elements * sizeof (struct collation_unit));
           if (debug)
-            print_collation (stderr, &elements[elements_count], num_entry_elements);
+            print_collation_unit (stderr,
+                                  &elements[elements_count],
+                                  num_entry_elements);
           elements_count += num_entry_elements;
         }
       else
@@ -116,7 +118,9 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
             (codepoints[entry_array[i].string_index],
              &elements[elements_count], &num_entry_elements);
           if (debug)
-            print_collation (stderr, &elements[elements_count], num_entry_elements);
+            print_collation_unit (stderr,
+                                  &elements[elements_count],
+                                  num_entry_elements);
           elements_count += num_entry_elements;
 
         }

@@ -288,10 +288,9 @@ get_implicit_weight (char32_t codepoint,
     }
 }
 
-/* Print collation elements */
 void
-print_collation (FILE *stream,
-                 const struct collation_unit *elements, size_t num_elements)
+print_collation_unit (FILE *stream,
+                      const struct collation_unit *elements, size_t num_elements)
 {
   for (size_t i = 0; i < num_elements; i++)
     {
