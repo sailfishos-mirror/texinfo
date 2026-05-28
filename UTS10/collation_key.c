@@ -16,14 +16,17 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
                             char *resultbuf, size_t *lengthp)
 {
   if (variable != UNICOLL_VARIABLE_NONIGNORABLE
-      && variable != UNICOLL_VARIABLE_SHIFTED)
+      && variable != UNICOLL_VARIABLE_SHIFTED
+      && variable != UNICOLL_VARIABLE_BLANKED)
     {
-      fprintf (stderr, "only Non-ignorable or Shifted settings for variable "
-                       "collation elements is implemented\n");
+      fprintf (stderr, "unknown setting for variable "
+                       "collation elements\n");
       exit (1);
     }
 
   int variable_shifted = (variable == UNICOLL_VARIABLE_SHIFTED);
+  int variable_shifted_or_blanked = (variable == UNICOLL_VARIABLE_SHIFTED
+                                  || variable == UNICOLL_VARIABLE_BLANKED);
 
   char32_t *codepoints;
   size_t length;
@@ -160,7 +163,8 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
     {
       uint16_t weight = elements[i].primary;
 
-      if (variable_shifted && collation_element_is_variable (&elements[i]))
+      if (variable_shifted_or_blanked
+          && collation_element_is_variable (&elements[i]))
         {
           /* Skip at primary level. */
           continue;
@@ -185,7 +189,8 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   int last_was_variable = 0;
   for (size_t i = 0; i < elements_count; i++)
     {
-      if (variable_shifted && collation_element_is_variable (&elements[i]))
+      if (variable_shifted_or_blanked
+          && collation_element_is_variable (&elements[i]))
         {
           /* Skip at secondary level. */
           last_was_variable = 1;
@@ -225,7 +230,8 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   last_was_variable = 0;
   for (size_t i = 0; i < elements_count; i++)
     {
-      if (variable_shifted && collation_element_is_variable (&elements[i]))
+      if (variable_shifted_or_blanked
+          && collation_element_is_variable (&elements[i]))
         {
           /* Skip at tertiary level. */
           last_was_variable = 1;
