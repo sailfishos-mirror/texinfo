@@ -142,10 +142,10 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C63
       {\\n}
    *menu_entry C4 l10
     {menu_entry_leading_text:* }
-    *menu_entry_node C7
+    *menu_entry_node C5
     |EXTRA
-    |node_content:{@ordf{} @ordm{} @questiondown{} @registeredsymbol{}}
-    |normalized:{_00aa-_00ba-_00bf-_00ae}
+    |node_content:{@ordf{} @ordm{} @questiondown{}}
+    |normalized:{_00aa-_00ba-_00bf}
      *@ordf C1 l10
       *brace_container
      { }
@@ -153,9 +153,6 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C63
       *brace_container
      { }
      *@questiondown C1 l10
-      *brace_container
-     { }
-     *@registeredsymbol C1 l10
       *brace_container
     {menu_entry_separator:::}
     *menu_entry_description C1
@@ -2178,10 +2175,10 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C63
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l127
-    *brace_arg C7
+    *brace_arg C5
     |EXTRA
-    |node_content:{@ordf{} @ordm{} @questiondown{} @registeredsymbol{}}
-    |normalized:{_00aa-_00ba-_00bf-_00ae}
+    |node_content:{@ordf{} @ordm{} @questiondown{}}
+    |normalized:{_00aa-_00ba-_00bf}
      *@ordf C1 l127
       *brace_container
      { }
@@ -2189,9 +2186,6 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C63
       *brace_container
      { }
      *@questiondown C1 l127
-      *brace_container
-     { }
-     *@registeredsymbol C1 l127
       *brace_container
    {\\n}
   {empty_line:\\n}
@@ -3068,7 +3062,7 @@ $result_texis{'at_commands_in_refs'} = '@node Top
 * @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}::
 * @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}::
 * @error{} @euro{} @exclamdown{}::
-* @ordf{} @ordm{} @questiondown{} @registeredsymbol{}::
+* @ordf{} @ordm{} @questiondown{}::
 * a@tie{}b @today{} @aa{}::
 * @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}::
 * @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}::
@@ -3179,7 +3173,7 @@ $result_texis{'at_commands_in_refs'} = '@node Top
 
 @ref{@error{} @euro{} @exclamdown{}}
 
-@ref{@ordf{} @ordm{} @questiondown{} @registeredsymbol{}}
+@ref{@ordf{} @ordm{} @questiondown{}}
 
 @ref{a@tie{}b @today{} @aa{}}
 
@@ -3261,7 +3255,7 @@ $result_texts{'at_commands_in_refs'} = 'Top
 * @ { } \\ #::
 * LaTeX TeX , ... ...::
 * error-> Euro !::
-* a o ? (R)::
+* a o ?::
 * a b a sunny day aa::
 * AA ae oe AE OE /o /O ss /l /L D d th::
 * a" e~ i^ a^ a` e\' c, e= e* e\'\' e;::
@@ -3373,7 +3367,7 @@ LaTeX TeX , ... ...
 
 error-> Euro !
 
-a o ? (R)
+a o ?
 
 a b a sunny day aa
 
@@ -3452,18 +3446,6 @@ $result_errors{'at_commands_in_refs'} = '* W l91|@verb should not appear on @nod
 * W l156|@verb should not appear anywhere inside @ref
  warning: @verb should not appear anywhere inside @ref
 
-* E l127|@ref reference to nonexistent node `@ordf{} @ordm{} @questiondown{} @registeredsymbol{}\'
- @ref reference to nonexistent node `@ordf{} @ordm{} @questiondown{} @registeredsymbol{}\'
-
-* W l11|node `a@tie{}b @today{} @aa{}\' in menu where `@ordf{} @ordm{} @questiondown{}\' expected
- warning: node `a@tie{}b @today{} @aa{}\' in menu where `@ordf{} @ordm{} @questiondown{}\' expected
-
-* W l1|node `Top\' lacks menu item for `@ordf{} @ordm{} @questiondown{}\' but is above it in sectioning
- warning: node `Top\' lacks menu item for `@ordf{} @ordm{} @questiondown{}\' but is above it in sectioning
-
-* E l10|@menu reference to nonexistent node `@ordf{} @ordm{} @questiondown{} @registeredsymbol{}\'
- @menu reference to nonexistent node `@ordf{} @ordm{} @questiondown{} @registeredsymbol{}\'
-
 ';
 
 $result_nodes_list{'at_commands_in_refs'} = '1|Top
@@ -3475,7 +3457,7 @@ $result_nodes_list{'at_commands_in_refs'} = '1|Top
   @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
   @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
   @error{} @euro{} @exclamdown{}
-  @ordf{} @ordm{} @questiondown{} @registeredsymbol{}
+  @ordf{} @ordm{} @questiondown{}
   a@tie{}b @today{} @aa{}
   @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
   @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
@@ -4161,7 +4143,7 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 
    error→ € ¡
 
-   ª º ¿ ®
+   ª º ¿
 
    a b a sunny day å
 
@@ -4486,7 +4468,7 @@ span:hover a.copiable-link {visibility: visible}
 </p>
 <p><a class="ref" href="#error_002d_002d_003e-_20ac-_00a1">error&rarr; &euro; &iexcl;</a>
 </p>
-<p>&lsquo;&ordf; &ordm; &iquest; &reg;&rsquo;
+<p><a class="ref" href="#g_t_00aa-_00ba-_00bf">&ordf; &ordm; &iquest;</a>
 </p>
 <p><a class="ref" href="#a-b-_00e5">a&nbsp;b a sunny day &aring;</a>
 </p>
@@ -4608,7 +4590,7 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node identifier="Top"><nod
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&atchar; &lbracechar; &rbracechar; &backslashchar; &hashchar;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&latex; &tex; &comma; &dots; &enddots;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&errorglyph; &euro; &iexcl;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&ordf; &ordm; &iquest; &registered;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&ordf; &ordm; &iquest;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>a&nbsp;b <today/> &aring;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH; &eth; &thorn;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="dblac">e</accent> <accent type="ogon">e</accent></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -4745,7 +4727,7 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node identifier="Top"><nod
 </para>
 <para><ref label="error_002d_002d_003e-_20ac-_00a1"><xrefnodename>&errorglyph; &euro; &iexcl;</xrefnodename></ref>
 </para>
-<para><ref label="_00aa-_00ba-_00bf-_00ae"><xrefnodename>&ordf; &ordm; &iquest; &registered;</xrefnodename></ref>
+<para><ref label="_00aa-_00ba-_00bf"><xrefnodename>&ordf; &ordm; &iquest;</xrefnodename></ref>
 </para>
 <para><ref label="a-b-_00e5"><xrefnodename>a&nbsp;b <today/> &aring;</xrefnodename></ref>
 </para>
@@ -4938,7 +4920,7 @@ $result_converted{'docbook'}->{'at_commands_in_refs'} = '<chapter label="1" id="
 </para>
 <para><link linkend="error_002d_002d_003e-_20ac-_00a1">error&#8594; &#8364; &#161;</link>
 </para>
-<para><link linkend="_00aa-_00ba-_00bf-_00ae">&#170; &#186; &#191; &#174;</link>
+<para><link linkend="_00aa-_00ba-_00bf">&#170; &#186; &#191;</link>
 </para>
 <para><link linkend="a-b-_00e5">a&#160;b a sunny day &#229;</link>
 </para>
@@ -5108,7 +5090,7 @@ $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 
 \\hyperref[anchor:error_002d_002d_003e-_20ac-_00a1]{\\chaptername~\\ref*{anchor:error_002d_002d_003e-_20ac-_00a1} [\\fbox{error} \\euro{} \\textexclamdown{}], page~\\pageref*{anchor:error_002d_002d_003e-_20ac-_00a1}}
 
-\\textordfeminine{} \\textordmasculine{} \\textquestiondown{} \\circledR{}
+\\hyperref[anchor:_00aa-_00ba-_00bf]{\\chaptername~\\ref*{anchor:_00aa-_00ba-_00bf} [\\textordfeminine{} \\textordmasculine{} \\textquestiondown{}], page~\\pageref*{anchor:_00aa-_00ba-_00bf}}
 
 \\hyperref[anchor:a-b-_00e5]{\\chaptername~\\ref*{anchor:a-b-_00e5} [a~b \\today{} \\aa{}], page~\\pageref*{anchor:a-b-_00e5}}
 
@@ -5198,7 +5180,7 @@ Top
 * @ { } \\ #::
 * LaTeX TeX , ... ...::
 * error→ € ¡::
-* ª º ¿ ®::
+* ª º ¿::
 * a b a sunny day å::
 * Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ::
 * ä ẽ î â à é ç ē e̊ e̋ ę::
@@ -5388,7 +5370,7 @@ File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: T
 
    *note error→ € ¡::
 
-   *note ª º ¿ ®::
+   *note ª º ¿::
 
    *note a b a sunny day å::
 
@@ -5472,36 +5454,36 @@ File: ,  Node: ° Þ,  Prev: ⋆ £ ⊣ ® ⇒,  Up: <http://somewhere_aaa> text
 
 Tag Table:
 Node: Top27
-Node: { }753
-Node:     ! . . ? @832
-Node: @ { } \\ #936
-Node: LaTeX TeX , ... ...1051
-Node: error→ € ¡1183
-Node: ª º ¿1293
-Node: a b a sunny day å1389
-Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ1524
-Node: ä ẽ î â à é ç ē e̊ e̋ ę1693
-Node: ė ĕ e̲ ẹ ě ȷ e͡e1855
-Node: ı Ḕ Ḉ1985
-Node: “ ” ‘ ’ „ ‚2083
-Node: « » « » ‹ ›2188
-Node: `` \'\' --- -- ` \'2304
-Node: AAA (fff) AAA BBB2428
-Node: CCC (rrr) CCC DDD2568
-Node: the someone <someone@somewher> <no_explain@there>2741
-Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3041
-Node:  @ {} . 3390
-Node: cite asis in @w b in r SC *str* t VAR dfn i3593
-Node: env code option samp command file C-x <ESC>3837
-Node: 8.27in4099
-Node: sansserif slanted4233
-Node: indicateurl4357
-Node: _{g}H 3^{rd}4479
-Node: <http://somewhere_aaa> text (url) ls4618
-Node: • © ≡5780
-Node: ≥ ≤ → ↦ −5888
-Node: ⋆ £ ⊣ ® ⇒6022
-Node: ° Þ6154
+Node: { }751
+Node:     ! . . ? @830
+Node: @ { } \\ #934
+Node: LaTeX TeX , ... ...1049
+Node: error→ € ¡1181
+Node: ª º ¿1291
+Node: a b a sunny day å1387
+Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð þ1522
+Node: ä ẽ î â à é ç ē e̊ e̋ ę1691
+Node: ė ĕ e̲ ẹ ě ȷ e͡e1853
+Node: ı Ḕ Ḉ1983
+Node: “ ” ‘ ’ „ ‚2081
+Node: « » « » ‹ ›2186
+Node: `` \'\' --- -- ` \'2302
+Node: AAA (fff) AAA BBB2426
+Node: CCC (rrr) CCC DDD2566
+Node: the someone <someone@somewher> <no_explain@there>2739
+Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3039
+Node:  @ {} . 3388
+Node: cite asis in @w b in r SC *str* t VAR dfn i3591
+Node: env code option samp command file C-x <ESC>3835
+Node: 8.27in4097
+Node: sansserif slanted4231
+Node: indicateurl4355
+Node: _{g}H 3^{rd}4477
+Node: <http://somewhere_aaa> text (url) ls4616
+Node: • © ≡5776
+Node: ≥ ≤ → ↦ −5884
+Node: ⋆ £ ⊣ ® ⇒6018
+Node: ° Þ6150
 
 End Tag Table
 

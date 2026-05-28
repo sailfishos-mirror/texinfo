@@ -120,7 +120,7 @@ my $at_commands_in_refs_text = '@node Top
 * @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}::
 * @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}::
 * @error{} @euro{} @exclamdown{}::
-* @ordf{} @ordm{} @questiondown{} @registeredsymbol{}::
+* @ordf{} @ordm{} @questiondown{}::
 * a@tie{}b @today{} @aa{}::
 * @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}::
 * @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}::
@@ -237,7 +237,7 @@ my $at_commands_in_refs_text = '@node Top
 
 @ref{@error{} @euro{} @exclamdown{}}
 
-@ref{@ordf{} @ordm{} @questiondown{} @registeredsymbol{}}
+@ref{@ordf{} @ordm{} @questiondown{}}
 
 @ref{a@tie{}b @today{} @aa{}}
 

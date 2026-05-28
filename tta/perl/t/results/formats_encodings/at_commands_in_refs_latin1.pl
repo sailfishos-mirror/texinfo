@@ -159,10 +159,10 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C55
       {\\n}
    *menu_entry C4 l13
     {menu_entry_leading_text:* }
-    *menu_entry_node C7
+    *menu_entry_node C5
     |EXTRA
-    |node_content:{@ordf{} @ordm{} @questiondown{} @registeredsymbol{}}
-    |normalized:{_00aa-_00ba-_00bf-_00ae}
+    |node_content:{@ordf{} @ordm{} @questiondown{}}
+    |normalized:{_00aa-_00ba-_00bf}
      *@ordf C1 l13
       *brace_container
      { }
@@ -170,9 +170,6 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C55
       *brace_container
      { }
      *@questiondown C1 l13
-      *brace_container
-     { }
-     *@registeredsymbol C1 l13
       *brace_container
     {menu_entry_separator:::}
     *menu_entry_description C1
@@ -2195,10 +2192,10 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C55
   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l130
-    *brace_arg C7
+    *brace_arg C5
     |EXTRA
-    |node_content:{@ordf{} @ordm{} @questiondown{} @registeredsymbol{}}
-    |normalized:{_00aa-_00ba-_00bf-_00ae}
+    |node_content:{@ordf{} @ordm{} @questiondown{}}
+    |normalized:{_00aa-_00ba-_00bf}
      *@ordf C1 l130
       *brace_container
      { }
@@ -2206,9 +2203,6 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C55
       *brace_container
      { }
      *@questiondown C1 l130
-      *brace_container
-     { }
-     *@registeredsymbol C1 l130
       *brace_container
    {\\n}
   {empty_line:\\n}
@@ -2763,7 +2757,7 @@ $result_texis{'at_commands_in_refs_latin1'} = '@setfilename at_commands_in_refs_
 * @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}::
 * @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}::
 * @error{} @euro{} @exclamdown{}::
-* @ordf{} @ordm{} @questiondown{} @registeredsymbol{}::
+* @ordf{} @ordm{} @questiondown{}::
 * a@tie{}b @today{} @aa{}::
 * @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}::
 * @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}::
@@ -2874,7 +2868,7 @@ $result_texis{'at_commands_in_refs_latin1'} = '@setfilename at_commands_in_refs_
 
 @ref{@error{} @euro{} @exclamdown{}}
 
-@ref{@ordf{} @ordm{} @questiondown{} @registeredsymbol{}}
+@ref{@ordf{} @ordm{} @questiondown{}}
 
 @ref{a@tie{}b @today{} @aa{}}
 
@@ -2929,7 +2923,7 @@ Top
 * @ { } \\ #::
 * LaTeX TeX , ... ...::
 * error-> Euro !::
-* a o ? (R)::
+* a o ?::
 * a b a sunny day aa::
 * AA ae oe AE OE /o /O ss /l /L D d th::
 * a" e~ i^ a^ a` e\' c, e= e* e\'\' e;::
@@ -3041,7 +3035,7 @@ LaTeX TeX , ... ...
 
 error-> Euro !
 
-a o ? (R)
+a o ?
 
 a b a sunny day aa
 
@@ -3094,18 +3088,6 @@ $result_errors{'at_commands_in_refs_latin1'} = '* W l94|@verb should not appear 
 * W l159|@verb should not appear anywhere inside @ref
  warning: @verb should not appear anywhere inside @ref
 
-* E l130|@ref reference to nonexistent node `@ordf{} @ordm{} @questiondown{} @registeredsymbol{}\'
- @ref reference to nonexistent node `@ordf{} @ordm{} @questiondown{} @registeredsymbol{}\'
-
-* W l14|node `a@tie{}b @today{} @aa{}\' in menu where `@ordf{} @ordm{} @questiondown{}\' expected
- warning: node `a@tie{}b @today{} @aa{}\' in menu where `@ordf{} @ordm{} @questiondown{}\' expected
-
-* W l4|node `Top\' lacks menu item for `@ordf{} @ordm{} @questiondown{}\' but is above it in sectioning
- warning: node `Top\' lacks menu item for `@ordf{} @ordm{} @questiondown{}\' but is above it in sectioning
-
-* E l13|@menu reference to nonexistent node `@ordf{} @ordm{} @questiondown{} @registeredsymbol{}\'
- @menu reference to nonexistent node `@ordf{} @ordm{} @questiondown{} @registeredsymbol{}\'
-
 ';
 
 $result_nodes_list{'at_commands_in_refs_latin1'} = '1|Top
@@ -3117,7 +3099,7 @@ $result_nodes_list{'at_commands_in_refs_latin1'} = '1|Top
   @atchar{} @lbracechar{} @rbracechar{} @backslashchar{} @hashchar{}
   @LaTeX{} @TeX{} @comma{} @dots{} @enddots{}
   @error{} @euro{} @exclamdown{}
-  @ordf{} @ordm{} @questiondown{} @registeredsymbol{}
+  @ordf{} @ordm{} @questiondown{}
   a@tie{}b @today{} @aa{}
   @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{} @dh{} @th{}
   @"{a} @~{e} @^{@dotless{i}} @^{a} @`{a} @\'e @,{c} @={e} @ringaccent{e} @H{e} @ogonek{e}
