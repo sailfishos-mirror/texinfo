@@ -25,28 +25,24 @@ lookup_codepoint_data (char32_t codepoint)
   if (codepoint >= 0x110000)
     return (COLLATION_DATA) {0};
 
-  int plane = codepoint >> 16;
-  if (collation_data.planes[plane] < 0)
+  int index1 = codepoint >> 16; /* Unicode plane */
+  if (collation_data.level1[index1] < 0)
     return (COLLATION_DATA) {0};
 
-  uint32_t page = codepoint >> 8;
+  uint32_t index2 = (collation_data.level1[index1] << 8)
+                     + ((codepoint >> 8) & 0xff);
 
-  uint32_t page_num
-    = collation_data.planes[plane] * 0x100 /* 256 pages per plane */
-      + (page & 0xff);
+  int index3 = collation_data.level2[index2];
+  if (index3 < 0)
+    return (COLLATION_DATA) {0};
 
-  uint8_t point_index = codepoint & 0xFF;
+  const struct block256_data *page_data = &collation_data.level3[index3];
 
-  // Read page table entry
-  int page_index = collation_data.pages[page_num];
-  if (page_index < 0)
-    return (COLLATION_DATA) {0}; /* no data for page */
-
-  const struct block256_data *page_data = &collation_data.pages_data[page_index];
+  uint8_t index4 = codepoint & 0xFF;
 
   COLLATION_DATA data;
-  data.num_elements = page_data->num_elements[point_index];
-  size_t data_index = page_data->data_index[point_index];
+  data.num_elements = page_data->num_elements[index4];
+  size_t data_index = page_data->data_index[index4];
   if (data_index)
     data.array = &collation_data.collation_data[data_index];
   else

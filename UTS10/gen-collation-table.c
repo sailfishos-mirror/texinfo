@@ -631,7 +631,6 @@ process_page_table (Allkeys_Info *info)
     {
       if (info->pages[i])
         {
-          fprintf (stderr, "used plane %x\n", i >> 8);
           used_planes[i >> 8] = 1;
           i = ((i >> 8) + 1) << 8; /* move onto next plane */
           i--;
@@ -644,14 +643,11 @@ process_page_table (Allkeys_Info *info)
       if (!info->pages[i])
         {
           page_offset_positions[i] = -1;
-          //fprintf (stderr, "EMPTY PAGE (%3x..)\n", i);
           continue;
         }
       Page *page = info->pages[i];
       page_offset_positions[i] = n_used_pages;
       n_used_pages++;
-
-      //fprintf (stderr, "%3d PAGE COUNT (%3x..)\n", page->count, i);
 
       uint16_t k = 0;
       for (uint16_t k = 0; k < page->count; k++)
@@ -765,7 +761,7 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   fprintf (fp, "  char32_t low_base;\n");
   fprintf (fp, "};\n");
 
-  fprintf (fp, "#define NUM_PLANES 0x%x\n", 17);
+  fprintf (fp, "#define NUM_PLANES %d\n", 17);
   fprintf (fp, "#define NUM_TRIE_NODES %d\n", (int) trie_node_index);
   fprintf (fp, "#define NUM_COLLATION_UNITS %ld\n\n", n_collation_units);
   fprintf (fp, "#define NUM_IMPLICIT_BLOCKS %d\n\n", info->num_implicit_blocks);
@@ -778,9 +774,9 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   fprintf (fp, "    uint16_t max_variable_weight;\n");
   fprintf (fp, "    uint32_t num_singles;\n");
   fprintf (fp, "    uint32_t num_sequences;\n");
-  fprintf (fp, "    int planes[NUM_PLANES];\n");
-  fprintf (fp, "    int pages[0x%x];\n", n_used_planes * 0x100);
-  fprintf (fp, "    struct block256_data pages_data[0x%x];\n", n_used_pages);
+  fprintf (fp, "    int level1[NUM_PLANES];\n");
+  fprintf (fp, "    int level2[%d << 8];\n", n_used_planes);
+  fprintf (fp, "    struct block256_data level3[%d];\n", n_used_pages);
   fprintf (fp, "    struct trie_node trie_array[NUM_TRIE_NODES];\n");
   fprintf (fp, "    struct collation_unit collation_data[NUM_COLLATION_UNITS];\n");
   fprintf (fp, "    struct implicit_block implicit_blocks[NUM_IMPLICIT_BLOCKS];\n");
@@ -799,9 +795,9 @@ write_c_source (const char *output_file, Allkeys_Info *info)
     fprintf (fp, "    %d,\n", used_planes[i] ? page_idx++ : -1);
 
   fprintf (fp, "  },\n");
-  fprintf (fp, "  { /* .pages */ \n");
+  fprintf (fp, "  { /* .level2 */\n");
 
-  /* collation_data.pages */
+  /* collation_data.level2 */
   for (i = 0; i < 17; i++)
     {
       if (used_planes[i])
@@ -818,9 +814,9 @@ write_c_source (const char *output_file, Allkeys_Info *info)
         }
     }
   fprintf (fp, "  },\n");
-  fprintf (fp, "  { /* .pages_data */\n");
+  fprintf (fp, "  { /* .level3 */\n");
 
-  /* collation_data.pages_data */
+  /* collation_data.level3 */
   for (i = 0; i < NUM_PAGES; i++)
     {
       if (!info->pages[i])

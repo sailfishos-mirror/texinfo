@@ -21,7 +21,7 @@ struct implicit_block {
   uint32_t primary;
   char32_t low_base;
 };
-#define NUM_PLANES 0x11
+#define NUM_PLANES 17
 #define NUM_TRIE_NODES 1044
 #define NUM_COLLATION_UNITS 44840
 
@@ -37,9 +37,9 @@ struct
     uint16_t max_variable_weight;
     uint32_t num_singles;
     uint32_t num_sequences;
-    int planes[NUM_PLANES];
-    int pages[0x400];
-    struct block256_data pages_data[0xc0];
+    int level1[NUM_PLANES];
+    int level2[4 << 8];
+    struct block256_data level3[192];
     struct trie_node trie_array[NUM_TRIE_NODES];
     struct collation_unit collation_data[NUM_COLLATION_UNITS];
     struct implicit_block implicit_blocks[NUM_IMPLICIT_BLOCKS];
@@ -68,7 +68,7 @@ collation_data = {
     -1,
     -1,
   },
-  { /* .pages */ 
+  { /* .level2 */
   0x0000,  0x0001,  0x0002,  0x0003,
   0x0004,  0x0005,  0x0006,  0x0007,
   0x0008,  0x0009,  0x000A,  0x000B,
@@ -326,7 +326,7 @@ collation_data = {
       -1,      -1,      -1,      -1,
       -1,      -1,      -1,      -1,
   },
-  { /* .pages_data */
+  { /* .level3 */
   {
     {
     1,    1,    1,    1,    1,    1,    1,    1,
