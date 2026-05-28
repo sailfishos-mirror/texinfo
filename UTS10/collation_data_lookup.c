@@ -36,13 +36,13 @@ lookup_codepoint_data (char32_t codepoint)
   if (index3 < 0)
     return (COLLATION_DATA) {0};
 
-  const struct block256_data *page_data = &collation_data.level3[index3];
+  const struct block256_data *block256 = &collation_data.level3[index3];
 
   uint8_t index4 = codepoint & 0xFF;
 
   COLLATION_DATA data;
-  data.num_elements = page_data->num_elements[index4];
-  size_t data_index = page_data->data_index[index4];
+  data.num_elements = block256->num_elements[index4];
+  size_t data_index = block256->data_index[index4];
   if (data_index)
     data.array = &collation_data.collation_data[data_index];
   else
