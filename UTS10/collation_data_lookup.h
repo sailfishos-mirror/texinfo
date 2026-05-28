@@ -19,17 +19,9 @@ struct collation_data_ref {
 };
 typedef struct collation_data_ref COLLATION_DATA;
 
-int lookup_codepoint (char32_t codepoint,
-                      struct collation_unit *elements, size_t elements_size,
-                      size_t *num_elements);
-
 COLLATION_DATA lookup_collation_data_at_char (char32_t *const string,
                                               size_t length,
                                               size_t *n_codepoints_out);
-
-int lookup_sequence (const char32_t *codepoints, size_t len,
-                     struct collation_unit *elements, size_t elements_size,
-                     size_t *num_elements);
 
 void get_implicit_weight (uint32_t codepoint, struct collation_unit *elements,
                           size_t *n_elements);
