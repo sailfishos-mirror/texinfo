@@ -1,5 +1,9 @@
 2026-05-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/CheckXS/TestXS.xs (xstest_init): fix prototype.
+
+2026-05-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (teximakehtml_LDADD): add $(perl_conf_LIBS)
 	to be consistent with teximakehtml_CFLAGS.
 
