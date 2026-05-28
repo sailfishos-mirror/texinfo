@@ -10,6 +10,13 @@
 
 #include "collation-table.c"
 
+struct collation_data_ref {
+  const struct collation_unit *array;
+  uint8_t num_elements;
+};
+typedef struct collation_data_ref COLLATION_DATA;
+
+
 int
 collation_element_is_variable (struct collation_unit *element)
 {
@@ -56,10 +63,12 @@ lookup_codepoint_data (char32_t codepoint)
 /* STRING points into a char32_t array.  First check for sequence entry
    at STRING, then for individual codepoint entry.  This function can
    reorder STRING. */
-COLLATION_DATA
+void
 lookup_collation_data_at_char (char32_t *const string,
                                size_t length,
-                               size_t *n_codepoints_out)
+                               size_t *n_codepoints_out,
+                               const struct collation_unit **collation_units,
+                               size_t *n_collation_units)
 {
   const struct trie_node *node = &collation_data.trie_array[0];
 
@@ -181,7 +190,10 @@ lookup_collation_data_at_char (char32_t *const string,
         {
           data.array = &collation_data.collation_data[data_index];
           (*n_codepoints_out) = n_codepoints;
-          return data;
+
+          *collation_units = data.array;
+          *n_collation_units = data.num_elements;
+          return;
         }
     }
 
@@ -196,7 +208,9 @@ lookup_collation_data_at_char (char32_t *const string,
     {
       (*n_codepoints_out) = 0;
     }
-  return data;
+  *collation_units = data.array;
+  *n_collation_units = data.num_elements;
+  return;
 }
 
 /* Return implicitly determined weights. */

@@ -53,7 +53,8 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   struct collation_info
   {
     size_t string_index;
-    COLLATION_DATA data;
+    const struct collation_unit *array;
+    size_t num_elements;
   };
 
   /* Maximum one collation_info per character.  Less if there are
@@ -66,18 +67,24 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   for (size_t i = 0; i < length;)
     {
       size_t n_consumed;
-      COLLATION_DATA data
-        = lookup_collation_data_at_char (&codepoints[i], length - i,
-                                         &n_consumed);
+      const struct collation_unit *data_array;
+      size_t data_num_elements;
+
+      lookup_collation_data_at_char (&codepoints[i], length - i,
+                                     &n_consumed,
+                                     &data_array,
+                                     &data_num_elements);
       if (n_consumed > 0)
         {
-          entry_array[n_entries].data = data;
+          entry_array[n_entries].array = data_array;
+          entry_array[n_entries].num_elements = data_num_elements;
           entry_array[n_entries++].string_index = i;
           i += n_consumed;
         }
       else
         {
-          entry_array[n_entries].data = (COLLATION_DATA) {0};
+          entry_array[n_entries].array = 0;
+          entry_array[n_entries].num_elements = 0;
           entry_array[n_entries++].string_index = i;
           i++;
         }
@@ -86,8 +93,8 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   int num_elements = 0;
   for (size_t i = 0; i < n_entries; i++)
     {
-      if (entry_array[i].data.array)
-        num_elements += entry_array[i].data.num_elements;
+      if (entry_array[i].array)
+        num_elements += entry_array[i].num_elements;
       else
         num_elements += 3;      /* implicitly determined weights? */
     }
@@ -100,11 +107,11 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
         fprintf (stderr, "Collation info for U+%04X: ",
           codepoints[entry_array[i].string_index]);
 
-      if (entry_array[i].data.array)
+      if (entry_array[i].array)
         {
-          size_t num_entry_elements = entry_array[i].data.num_elements;
+          size_t num_entry_elements = entry_array[i].num_elements;
           memcpy (&elements[elements_count],
-                  entry_array[i].data.array,
+                  entry_array[i].array,
                   num_entry_elements * sizeof (struct collation_unit));
           if (debug)
             print_collation_unit (stderr,
