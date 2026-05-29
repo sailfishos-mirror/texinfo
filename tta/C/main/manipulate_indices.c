@@ -512,6 +512,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
               for (l = 0; l < subentries_list.number; l++)
                 {
                   const ELEMENT *subentry = subentries_list.list[l];
+                  INDEX_SUBENTRY_SORT_STRING *subentry_sort_string;
 
                   entry_sort_string.subentries_number++;
 
@@ -569,23 +570,16 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
 
                   for (k = 0; k < entry_sort_string.subentries_number; k++)
                     {
-                      uint8_t *encoded_u8;
                       ucs4_t next_char;
-                      int new_len;
-
-                      subentry_sort_string
+                      INDEX_SUBENTRY_SORT_STRING *subentry_sort_string
                         = &entry_sort_string.sort_string_subentries[k];
-             /* TODO somewhat inefficient, only need the first character */
-                      encoded_u8
-                       = utf8_from_string (subentry_sort_string->sort_string);
-                      new_len = u8_strmbtouc (&next_char, encoded_u8);
+                      int new_len = u8_strmbtouc (&next_char,
+                               (uint8_t *) subentry_sort_string->sort_string);
                       if (new_len > 0
                           && uc_is_property (next_char, UC_PROPERTY_ALPHABETIC))
                         subentry_sort_string->alpha = 1;
                       else
                         subentry_sort_string->alpha = 0;
-
-                      free (encoded_u8);
                     }
 
                   memcpy (&index_sort_strings->sort_string_entries[nr-1],
