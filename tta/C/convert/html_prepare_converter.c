@@ -316,7 +316,7 @@ set_css_selector_style_list_size (CSS_SELECTOR_STYLE_LIST *selector_styles,
    modules, the Convert::Converter module should be loaded before
    the Convert::HTML module. */
 void
-html_format_setup (void)
+html_format_setup (enum converter_format format)
 {
   int i;
   int no_arg_formatted_cmd_nr = 0;

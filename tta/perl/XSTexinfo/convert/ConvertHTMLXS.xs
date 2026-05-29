@@ -89,7 +89,7 @@ int
 init (SV *, SV *, SV *, SV *, SV *mandatory_xs_sv)
       CODE:
         if (!SvOK (mandatory_xs_sv) || !SvIV (mandatory_xs_sv))
-          html_format_setup ();
+          html_format_setup (COF_html);
         RETVAL = 1;
     OUTPUT:
         RETVAL

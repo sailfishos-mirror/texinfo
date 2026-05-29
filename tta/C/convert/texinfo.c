@@ -845,7 +845,7 @@ txi_output_converter_error_messages (CONVERTER *converter,
 char *
 txi_builtin_default_css_text (void)
 {
-  html_format_setup ();
+  setup_converter_format (COF_html);
 
   return html_builtin_default_css_text ();
 }

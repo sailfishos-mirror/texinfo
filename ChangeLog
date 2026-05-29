@@ -1,5 +1,18 @@
 2026-05-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (converter_format_data)
+	(setup_converter_format), tta/C/convert/converter.h
+	(CONVERTER_FORMAT_DATA), tta/C/convert/html_prepare_converter.c
+	(html_format_setup): add format_setup function reference in
+	CONVERTER_FORMAT_DATA and add setup_converter_format that calls
+	setup_converter_generic and the format specific format_setup to
+	initialize the converter format data.  Add converter_format argument
+	to html_format_setup.  Update callers.
+
+	* tta/C/texi2any.c (main): call setup_converter_format.
+
+2026-05-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/texi2any.c (main): verify if documentlanguage_collation_option
 	and collation_language_option are NULL before accessing the value.
 

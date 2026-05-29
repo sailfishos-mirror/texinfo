@@ -78,6 +78,9 @@ typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
 typedef struct CONVERTER_FORMAT_DATA {
     const char *default_format;
     const char *perl_converter_class;
+    /* initialization of the converter library data independent of
+       customization */
+    void (* format_setup) (enum converter_format format);
     /* replaces the default converter initialization sequence
        (in Perl corresponds to a converter redefining the converter method) */
     void (* converter_converter) (CONVERTER *self,
@@ -118,6 +121,7 @@ enum converter_format find_perl_converter_class_converter_format (
                                                  const char *class_name);
 
 CONVERTER *retrieve_converter (size_t converter_descriptor);
+void setup_converter_format (enum converter_format converter_format);
 size_t new_converter (enum converter_format format);
 
 void set_converter_init_information (CONVERTER *converter,

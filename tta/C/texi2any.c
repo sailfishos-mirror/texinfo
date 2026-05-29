@@ -2448,13 +2448,7 @@ main (int argc, char *argv[], char *env[])
   converter_format = find_format_name_converter_format (converted_format);
 
   /* corresponds to eval "require $module"; in texi2any.pl */
-  /* initialization of the library for the generic converter */
-  setup_converter_generic ();
-
-  /* initialization of the library for a specific output format */
-  /* TODO use the table of format functions? */
-  if (converter_format == COF_html)
-    html_format_setup ();
+  setup_converter_format (converter_format);
 
   if (converted_format_specification->module)
     {

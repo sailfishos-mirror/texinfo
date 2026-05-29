@@ -24,7 +24,7 @@
 #include "option_types.h"
 
 /* in html_prepare_converter.c */
-void html_format_setup (void);
+void html_format_setup (enum converter_format format);
 char *html_builtin_default_css_text (void);
 
 /* in html_converter_init_options.c */

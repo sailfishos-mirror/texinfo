@@ -76,13 +76,14 @@
 /* Should be kept in sync with enum converter_format
    and TXI_CONVERSION_FORMAT_NR */
 CONVERTER_FORMAT_DATA converter_format_data[] = {
-  {"html", "Texinfo::Convert::HTML", 0, &html_converter_defaults,
+  {"html", "Texinfo::Convert::HTML", &html_format_setup, 0,
+   &html_converter_defaults,
    &html_converter_initialize, &html_output, &html_convert,
    &html_convert_tree, 0, &html_free_converter},
-  {"rawtext", "Texinfo::Convert::Text", &rawtext_converter,
+  {"rawtext", "Texinfo::Convert::Text", 0, &rawtext_converter,
    0, 0, &rawtext_output,
    &rawtext_convert, &rawtext_convert_tree, 0, 0},
-  {"plaintexinfo", "Texinfo::Convert::PlainTexinfo", 0,
+  {"plaintexinfo", "Texinfo::Convert::PlainTexinfo", 0, 0,
    &plaintexinfo_converter_defaults, 0, &plaintexinfo_output,
    &plaintexinfo_convert, &plaintexinfo_convert_tree, 0, 0},
 };
@@ -187,6 +188,28 @@ find_perl_converter_class_converter_format (const char *class_name)
 
   return COF_none;
 }
+
+/* Initialize converter data (independent of customization) */
+/* Corresponds to code run directly in the module namespace when doing
+   use/require $module in Perl */
+void
+setup_converter_format (enum converter_format converter_format)
+{
+  /* initialization of the library for the generic converter */
+  setup_converter_generic ();
+
+  if (converter_format != COF_none)
+    {
+      /* initialization of the library for a specific output format */
+      if (converter_format_data[converter_format].format_setup)
+        {
+          void (* init_format_setup) (enum converter_format format)
+            = converter_format_data[converter_format].format_setup;
+          return init_format_setup (converter_format);
+        }
+    }
+}
+
 
 CONVERTER *
 retrieve_converter (size_t converter_descriptor)
