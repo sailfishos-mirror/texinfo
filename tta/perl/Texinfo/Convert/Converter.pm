@@ -44,6 +44,12 @@ my $devel_findref_loading_error = $@;
 
 eval { require Devel::Cycle; Devel::Cycle->import(); };
 
+# NOTE even if it makes no difference in Perl, for XS modules it is important
+# that this module is loaded before other converters modules subclassing it
+# such that the generic converter library initialization function is called
+# before other converters library initialization functions.
+# Therefore never depend on those converters here.
+
 use Texinfo::XSLoader;
 
 use Texinfo::Options;

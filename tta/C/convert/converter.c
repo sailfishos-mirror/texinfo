@@ -131,20 +131,13 @@ static size_t converter_space;
 
 const char *xml_text_entity_no_arg_commands_formatting[BUILTIN_CMD_NUMBER];
 
-/* Needs to be called before initialization of HTML converter.  Therefore
-   the HTML converter initialization function also calls,
-   setup_converter_generic */
-
-static int setup_converter_generic_done;
+/* Needs to be called before initialization of HTML converter. */
 
 void
 setup_converter_generic (void)
 {
   int i;
   /* conversion specific information */
-
-  if (setup_converter_generic_done)
-    return;
 
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
     {
@@ -158,9 +151,7 @@ setup_converter_generic (void)
           = text_brace_no_arg_commands[i];
     }
 
-  setup_converter_generic_done = 1;
-
-  /* For translation of in document string. */
+  /* For translation in document string. */
   if (0)
     {
       /* TRANSLATORS: expansion of @error{} as Texinfo code */

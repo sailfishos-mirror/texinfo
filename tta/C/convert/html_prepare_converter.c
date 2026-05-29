@@ -311,6 +311,10 @@ set_css_selector_style_list_size (CSS_SELECTOR_STYLE_LIST *selector_styles,
 }
 
 /* set information that is independent of customization, only called once */
+/* depends on xml formatting data setup in setup_converter_generic.
+   When the libraries initialization functions are called when loading XS
+   modules, the Convert::Converter module should be loaded before
+   the Convert::HTML module. */
 void
 html_format_setup (void)
 {
@@ -329,9 +333,6 @@ html_format_setup (void)
   const enum command_id indented_format[] = {
     CM_example, CM_display, CM_lisp, 0
   };
-
-  /* depends on xml formatting data setup in this function */
-  setup_converter_generic ();
 
   html_default_options_setup ();
 

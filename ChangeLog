@@ -1,5 +1,16 @@
 2026-05-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_prepare_converter.c (html_format_setup),
+	tta/perl/Texinfo/Convert/Converter.pm: do not call
+	setup_converter_generic, instead add a comment in Converter.pm
+	to explain that it should be loaded first.
+
+	* tta/C/convert/converter.c (setup_converter_generic): consider
+	that the function is called only once, now that it is not called
+	from html_format_setup anymore.
+
+2026-05-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/manipulate_indices.c (setup_index_entries_sort_strings):
 	use a cast to convert char *to uint8_t * and avoid a useless copy
 	of the string.
