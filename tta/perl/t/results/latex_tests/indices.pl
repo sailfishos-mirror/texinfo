@@ -374,8 +374,8 @@ $result_indices_sort_strings{'indices'} = 'cp:
  \\some\\command for file
  ä ö
  a!"@b "!@ ä ö, a!"@b
- AA
  aa
+ AA
  cmd
  i
  î

@@ -699,10 +699,10 @@ $result_indices_sort_strings{'encoding_index_utf8_enable_encoding'} = 'cp:
  g
  h
  i
- ı ı (dotless)
  î î (dotless)
  ï ïïï
  î îîîî
+ ı ı (dotless)
  j
  k
  l

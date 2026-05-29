@@ -732,7 +732,6 @@ setup_sortable_index_entries (const INDEX_COLLATOR *collator,
 
               for (k = 0; k < index_entry_sort_string->subentries_number; k++)
                 {
-                  char *uc_sort_string;
                   SORTABLE_INDEX_SUBENTRY *sortable_subentry
                     = &sortable_entry->sortable_subentries[k];
                   INDEX_SUBENTRY_SORT_STRING *subenty_sort_string
@@ -741,11 +740,8 @@ setup_sortable_index_entries (const INDEX_COLLATOR *collator,
                   sortable_subentry->sort_string
                     = strdup (subenty_sort_string->sort_string);
                   sortable_subentry->alpha = subenty_sort_string->alpha;
-                  uc_sort_string = to_upper_or_lower_multibyte
-                                         (subenty_sort_string->sort_string, 1);
-                  sortable_subentry->sort_key = get_sort_key (collator,
-                                                            uc_sort_string);
-                  free (uc_sort_string);
+                  sortable_subentry->sort_key
+                    = get_sort_key (collator, subenty_sort_string->sort_string);
                 }
             }
         }

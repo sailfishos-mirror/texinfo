@@ -685,10 +685,10 @@ $result_indices_sort_strings{'encoding_index_utf8_no_use_unicode'} = 'cp:
  “
  €
  ≥
- a
  A
- b
  B
+ a
+ b
  c
  d
  e
@@ -696,7 +696,6 @@ $result_indices_sort_strings{'encoding_index_utf8_no_use_unicode'} = 'cp:
  g
  h
  i
- ı ı (dotless)
  j
  k
  l
@@ -707,7 +706,6 @@ $result_indices_sort_strings{'encoding_index_utf8_no_use_unicode'} = 'cp:
  q
  r
  s
- ß
  t
  u
  v
@@ -716,14 +714,16 @@ $result_indices_sort_strings{'encoding_index_utf8_no_use_unicode'} = 'cp:
  y
  z
  Æ
+ Ð
+ Þ
+ ß
  é é
  î î (dotless)
  î îîîî
  ï ïïï
- Ð
- Þ
- ł
+ ı ı (dotless)
  Ł
+ ł
 ';
 
 1;

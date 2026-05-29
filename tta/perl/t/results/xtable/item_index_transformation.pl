@@ -374,14 +374,14 @@ list:
 $result_headings_list{'item_index_transformation'} = '';
 
 $result_indices_sort_strings{'item_index_transformation'} = 'cp:
- After1
  after1
- After2
+ After1
  after2
+ After2
  after6
  after7
- Before1
  before1
+ Before1
  before2
 ';
 

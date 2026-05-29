@@ -379,7 +379,7 @@ sub _setup_sortable_index_entries($$) {
         # "perlunicode" man page.
         utf8::upgrade($sort_string);
         # $sort_key is a byte string
-        my $sort_key = $collator->getSortKey(uc($sort_string));
+        my $sort_key = $collator->getSortKey($sort_string);
         push @keys_and_alpha, [$sort_key,
                                $entry_subentries_sort_string_alpha->{'alpha'}];
       }
