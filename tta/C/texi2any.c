@@ -1008,17 +1008,19 @@ main (int argc, char *argv[], char *env[])
   char *t2a_srcdir = 0;
   char *t2a_builddir = 0;
   char *datadir = 0;
-  OPTION *html_math_option;
-  OPTION *highlight_syntax_option;
-  OPTION *test_option;
-  OPTION *no_warn_option;
-  OPTION *format_menu_option;
-  OPTION *debug_option;
-  OPTION *message_encoding_option;
-  OPTION *sort_element_count_option;
-  OPTION *tree_transformations_option;
-  OPTION *split_option;
-  OPTION *show_builtin_css_rules_option;
+  const OPTION *html_math_option;
+  const OPTION *highlight_syntax_option;
+  const OPTION *test_option;
+  const OPTION *no_warn_option;
+  const OPTION *format_menu_option;
+  const OPTION *debug_option;
+  const OPTION *message_encoding_option;
+  const OPTION *sort_element_count_option;
+  const OPTION *tree_transformations_option;
+  const OPTION *split_option;
+  const OPTION *show_builtin_css_rules_option;
+  const OPTION *documentlanguage_collation_option;
+  const OPTION *collation_language_option;
   int no_warn = 0;
   int test_mode_set = 0;
   int debug = 0;
@@ -1035,7 +1037,7 @@ main (int argc, char *argv[], char *env[])
   STRING_LIST texi2dvi_args;
   char *extensions_dir;
   char *texinfo_output_format_env;
-  OPTION *output_format_option;
+  const OPTION *output_format_option;
   OPTION *expanded_formats_option;
   const char *output_format;
   const char *converted_format;
@@ -1581,7 +1583,7 @@ main (int argc, char *argv[], char *env[])
           {
             size_t option_nr
               = program_options.options->TEXINFO_OUTPUT_FORMAT.number;
-            OPTION *output_format_option = GNUT_get_conf (option_nr);
+            const OPTION *output_format_option = GNUT_get_conf (option_nr);
             if (output_format_option && output_format_option->o.string
                 && !strcmp (output_format_option->o.string, "info"))
               GNUT_set_customization_default (option_nr, "plaintext");
@@ -2268,13 +2270,23 @@ main (int argc, char *argv[], char *env[])
   /* Setup output string translations (including Locales path). */
   txi_general_output_strings_setup ();
 
+  /* load a Perl interpreter for the options or configurations triggering
+     calling Perl functions from C */
+  documentlanguage_collation_option
+  = GNUT_get_conf (program_options.options->DOCUMENTLANGUAGE_COLLATION.number);
+  collation_language_option
+   = GNUT_get_conf (program_options.options->COLLATION_LANGUAGE.number);
+  if (documentlanguage_collation_option->o.integer > 0
+      || collation_language_option->o.string
  #ifdef USE_LIBINTL_PERL_IN_XS
+      || 1
+ #endif
+     )
     {
       int status = txi_load_interpreter (&loading_info);
       if (!status)
         embedded_interpreter = txi_interpreter_use_embedded;
     }
- #endif
 
   /* determine the format_specification now that the output format is known */
   for (i = 0; formats_table[i].name; i++)
@@ -3362,6 +3374,9 @@ main (int argc, char *argv[], char *env[])
               copy_strings (converter_include_dirs, &prepended_include_directories);
               copy_strings (converter_include_dirs, cmdline_include_dirs);
 
+              /* sort_element_count_info cannot be NULL, as the functions aborts
+                 instead of returning NULL.  However, we code here as if it could
+                 be NULL because of some error */
               sort_element_count_info
                = txi_sort_element_counts (elt_count_external_module,
                      &convert_options, document,
@@ -3369,7 +3384,8 @@ main (int argc, char *argv[], char *env[])
                          && sort_element_count_words_option->o.integer > 0));
 
               /* output resulting text in the sort_element_count_file_name */
-              sort_element_count_text = sort_element_count_info->text;
+              if (sort_element_count_info)
+                sort_element_count_text = sort_element_count_info->text;
 
               if (!sort_element_count_text)
                 sort_element_count_text = strdup ("");
@@ -3429,13 +3445,16 @@ main (int argc, char *argv[], char *env[])
               free (encoded_sort_element_count_file_name);
               free (sort_element_count_text);
 
-              txi_converter_remove_output_units (
+              if (sort_element_count_info)
+                {
+                  txi_converter_remove_output_units (
                                    sort_element_count_info->converter,
                                    elt_count_external_module);
-              /* destroy converter and sort_element_count_info */
-              txi_destroy_converter (sort_element_count_info->converter,
-                                     elt_count_external_module);
-              free (sort_element_count_info);
+                  /* destroy converter and sort_element_count_info */
+                  txi_destroy_converter (sort_element_count_info->converter,
+                                         elt_count_external_module);
+                  free (sort_element_count_info);
+                }
 
               error_element_count_file
                 = merge_opened_files (&opened_files,

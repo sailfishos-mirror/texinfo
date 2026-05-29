@@ -710,7 +710,7 @@ txi_sort_element_counts (const char *external_module,
       result->converter
          = call_module_converter (external_module, converter_init_info);
       if (!result->converter)
-        {
+        { /* the caller should make sure an interpreter is loaded */
           char *message;
           xasprintf (&message,
             "no interpreter or NULL return for sort element count module: %s",
@@ -726,8 +726,13 @@ txi_sort_element_counts (const char *external_module,
       destroy_converter_initialization_info (converter_init_info);
       return result;
     }
-  /* a pure C implementation would be called here */
-  return 0;
+  /* cannot happen right now since the argument is set in the only
+     caller */
+  else
+    {
+      fatal ("no external module for sort element count");
+      return 0;
+    }
 }
 
 /* similar to Texinfo::Convert::XXX->convert */
@@ -799,6 +804,9 @@ txi_close_file_stream (const char *program_file, const FILE_STREAM *file_stream)
           error_nrs++;
         }
     }
+  /* having io field set can not happen when C output_files_open_out
+     is called, only when getting conversion results from Perl.
+   */
   if (file_stream->io)
     {
       char *errno_message = call_close_perl_io (file_stream->io);

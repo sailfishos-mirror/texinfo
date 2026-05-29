@@ -1,5 +1,17 @@
 2026-05-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/texi2any.c (main): oad a Perl interpreter for the options
+	triggering calling Perl functions from C, DOCUMENTLANGUAGE_COLLATION
+	and COLLATION_LANGUAGE.  Handle txi_sort_element_counts return value
+	being NULL, even though it cannot happen right now because
+	txi_sort_element_counts aborts rather than returning NULL.
+	Add some const.
+
+	* tta/C/convert/texinfo.c (txi_sort_element_counts): abort if the
+	external_module argument is NULL.
+
+2026-05-29 Patrice Dumas  <pertusus@free.fr>
+
 	do not uppercase sort strings
 
 	* tta/C/main/manipulate_indices.c (setup_sortable_index_entries),
