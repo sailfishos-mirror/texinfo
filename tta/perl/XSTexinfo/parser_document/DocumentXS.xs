@@ -59,11 +59,8 @@ init (SV *texinfo_uninstalled_sv, SV *datadir_sv, SV *t2a_builddir_sv, SV *t2a_s
         const char *t2a_srcdir = 0;
         const char *datadir = 0;
         int texinfo_uninstalled = 0;
-        int mandatory_xs = 0;
       CODE:
-        if (SvOK (mandatory_xs_sv))
-          mandatory_xs = SvIV (mandatory_xs_sv);
-        if (!mandatory_xs)
+        if (!SvOK (mandatory_xs_sv) || !SvIV (mandatory_xs_sv))
           {
             if (SvOK (texinfo_uninstalled_sv))
               texinfo_uninstalled = SvIV (texinfo_uninstalled_sv);

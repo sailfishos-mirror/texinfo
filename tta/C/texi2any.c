@@ -1071,6 +1071,7 @@ main (int argc, char *argv[], char *env[])
   size_t file_index;
   int remove_references = 0;
   INTERPRETER_LOADING_INFO loading_info;
+  enum converter_format converter_format;
 
   memset (&main_program_unclosed_stdout, 0, sizeof (FILE_STREAM));
 
@@ -2276,8 +2277,9 @@ main (int argc, char *argv[], char *env[])
   = GNUT_get_conf (program_options.options->DOCUMENTLANGUAGE_COLLATION.number);
   collation_language_option
    = GNUT_get_conf (program_options.options->COLLATION_LANGUAGE.number);
-  if (documentlanguage_collation_option->o.integer > 0
-      || collation_language_option->o.string
+  if ((documentlanguage_collation_option
+       &&documentlanguage_collation_option->o.integer > 0)
+      || (collation_language_option && collation_language_option->o.string)
  #ifdef USE_LIBINTL_PERL_IN_XS
       || 1
  #endif
@@ -2443,6 +2445,17 @@ main (int argc, char *argv[], char *env[])
     GNUT_set_from_cmdline (&cmdline_options,
         program_options.options->XS_EXTERNAL_FORMATTING.number, "1");
 
+  converter_format = find_format_name_converter_format (converted_format);
+
+  /* corresponds to eval "require $module"; in texi2any.pl */
+  /* initialization of the library for the generic converter */
+  setup_converter_generic ();
+
+  /* initialization of the library for a specific output format */
+  /* TODO use the table of format functions? */
+  if (converter_format == COF_html)
+    html_format_setup ();
+
   if (converted_format_specification->module)
     {
       if (!strcmp (converted_format, "html"))
@@ -2503,7 +2516,7 @@ main (int argc, char *argv[], char *env[])
         }
     }
 
-  /* corresponds to eval "require $module"; in texi2any.pl */
+  /* load external module if external_module is set */
   txi_converter_output_format_setup (converted_format, external_module);
 
   /*

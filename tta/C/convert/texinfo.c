@@ -310,26 +310,14 @@ txi_stop_interpreter (enum interpreter_use embedded_interpreter)
     call_finish_perl ();
 }
 
-/* initialization of the library for a specific output format, to be
-   called once */
+/* hide call_eval_use_module from the main program */
 void
 txi_converter_output_format_setup (const char *converted_format,
                                    const char *external_module)
 {
-  enum converter_format converter_format
-    = find_format_name_converter_format (converted_format);
-
   if (external_module)
     /* in that case the functions below are called from Perl */
     call_eval_use_module (external_module);
-  else
-    {
-      setup_converter_generic ();
-
-      /* TODO use the table of format functions? */
-      if (converter_format == COF_html)
-        html_format_setup ();
-    }
 }
 
 /* ALTIMP Texinfo::Convert::XXXX */

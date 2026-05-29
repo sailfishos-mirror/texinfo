@@ -71,10 +71,12 @@ PROTOTYPES: ENABLE
 # File paths are byte strings and can be in any encoding.
 # The paths are not of interest here, but we know that init is called
 # early, which is what we want.
+# Let C code initialize the library if called from C (mandatory_xs_sv set).
 int
-init (SV *, SV *, SV *, SV *, SV *)
+init (SV *, SV *, SV *, SV *, SV *mandatory_xs_sv)
       CODE:
-        setup_converter_generic ();
+        if (!SvOK (mandatory_xs_sv) || !SvIV (mandatory_xs_sv))
+          setup_converter_generic ();
         RETVAL = 1;
     OUTPUT:
         RETVAL

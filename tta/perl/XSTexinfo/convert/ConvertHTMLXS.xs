@@ -84,10 +84,12 @@ PROTOTYPES: ENABLE
 
 # HTML C data initialization independent of customization and of Perl
 # default variables.
+# Let C code initialize the library if called from C (mandatory_xs_sv set).
 int
-init (SV *, SV *, SV *, SV *, SV *)
+init (SV *, SV *, SV *, SV *, SV *mandatory_xs_sv)
       CODE:
-        html_format_setup ();
+        if (!SvOK (mandatory_xs_sv) || !SvIV (mandatory_xs_sv))
+          html_format_setup ();
         RETVAL = 1;
     OUTPUT:
         RETVAL
