@@ -85,12 +85,6 @@ struct Allkeys_Info info;
 /* Reading allkeys.txt */
 /***********************/
 
-typedef struct
-{
-  struct collation_element element;
-  bool variable_weight;
-} CollationElementParsed;
-
 static int
 parse_hex (const char *str, uint32_t *value)
 {
@@ -103,7 +97,9 @@ parse_hex (const char *str, uint32_t *value)
 }
 
 static int
-parse_collation_element (const char **str, CollationElementParsed *elem)
+parse_collation_element (const char **str,
+                         struct collation_element *elem,
+                         int *variable_weight)
 {
   const char *s = *str;
   while (*s && isspace (*s))
@@ -114,12 +110,12 @@ parse_collation_element (const char **str, CollationElementParsed *elem)
 
   if (*s == '*')
     {
-      elem->variable_weight = 1;
+      *variable_weight = 1;
       s++;
     }
   else if (*s == '.')
     {
-      elem->variable_weight = 0;
+      *variable_weight = 0;
       s++;
     }
   else
@@ -130,7 +126,7 @@ parse_collation_element (const char **str, CollationElementParsed *elem)
   char hex[5] = { 0 };
   for (int i = 0; i < 4 && isxdigit (*s); i++, s++)
     hex[i] = *s;
-  elem->element.primary = (uint16_t) strtoul (hex, NULL, 16);
+  elem->primary = (uint16_t) strtoul (hex, NULL, 16);
   if (*s != '.')
     return 0;
   s++;
@@ -138,7 +134,7 @@ parse_collation_element (const char **str, CollationElementParsed *elem)
   memset (hex, 0, sizeof (hex));
   for (int i = 0; i < 4 && isxdigit (*s); i++, s++)
     hex[i] = *s;
-  elem->element.secondary = (uint16_t) strtoul (hex, NULL, 16);
+  elem->secondary = (uint16_t) strtoul (hex, NULL, 16);
   if (*s != '.')
     return 0;
   s++;
@@ -146,7 +142,7 @@ parse_collation_element (const char **str, CollationElementParsed *elem)
   memset (hex, 0, sizeof (hex));
   for (int i = 0; i < 4 && isxdigit (*s); i++, s++)
     hex[i] = *s;
-  elem->element.tertiary = (uint8_t) strtoul (hex, NULL, 16);
+  elem->tertiary = (uint8_t) strtoul (hex, NULL, 16);
   if (*s != ']')
     return 0;
   s++;
@@ -288,22 +284,23 @@ build_allkeys_info (const char *filename)
         {
           if (*p == '[')
             {
-              CollationElementParsed elem;
-              if (parse_collation_element (&p, &elem))
+              struct collation_element elem;
+              int variable_weight;
+              if (parse_collation_element (&p, &elem, &variable_weight))
                 {
                   if (data->num_elements < MAX_COLLATION_ELEMENTS)
                     {
-                      data->elements[data->num_elements++] = elem.element;
+                      data->elements[data->num_elements++] = elem;
                     }
                   else
                     {
                       printf
                         ("parse error: maximum collation element sequence length exceeded\n");
                     }
-                  if (elem.variable_weight)
+                  if (variable_weight)
                     {
-                      if (elem.element.primary > info.max_variable_weight)
-                        info.max_variable_weight = elem.element.primary;
+                      if (elem.primary > info.max_variable_weight)
+                        info.max_variable_weight = elem.primary;
                     }
                 }
             }
