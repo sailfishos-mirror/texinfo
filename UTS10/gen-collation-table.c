@@ -22,23 +22,23 @@
 
 
 /* Collation element - represents [.XXXX.XXXX.XXXX] or [*XXXX.XXXX.XXXX]. */
-typedef struct
+struct collation_element
 {
   uint16_t primary;
   uint16_t secondary;
   uint8_t tertiary;
-} CollationElement;
+};
 
-typedef struct
+struct collation_data
 {
   uint8_t num_elements;
-  CollationElement elements[MAX_COLLATION_ELEMENTS];
-} CollationData;
+  struct collation_element elements[MAX_COLLATION_ELEMENTS];
+};
 
 typedef struct
 {
   uint8_t point;
-  CollationData *data;
+  struct collation_data *data;
 } PageEntry;
 
 typedef struct
@@ -50,19 +50,19 @@ typedef struct
 typedef struct TrieNode
 {
   char32_t codepoint;
-  CollationData *data;
+  struct collation_data *data;
   struct TrieNode **children;
   uint16_t num_children;
   size_t trie_index; /* used for serialization */
 } TrieNode;
 
-typedef struct ImplicitBlock
+struct implicit_block
 {
   char32_t low;
   char32_t high;
   uint32_t primary;
   char32_t low_base;
-} ImplicitBlock;
+};
 
 #define MAX_IMPLICIT_BLOCKS 16
 
@@ -75,7 +75,7 @@ typedef struct
   long version;
   int max_collation_elements;
   int max_sequence_length;
-  struct ImplicitBlock implicit_blocks[MAX_IMPLICIT_BLOCKS];
+  struct implicit_block implicit_blocks[MAX_IMPLICIT_BLOCKS];
   int num_implicit_blocks;
 } Allkeys_Info;
 
@@ -86,7 +86,7 @@ typedef struct
 
 typedef struct
 {
-  CollationElement element;
+  struct collation_element element;
   bool variable_weight;
 } CollationElementParsed;
 
@@ -179,7 +179,7 @@ parse_implicitweight (const char *line, Allkeys_Info *info)
           exit (1);
         }
       info->implicit_blocks[info->num_implicit_blocks++]
-        = (ImplicitBlock) {low, high, primary};
+        = (struct implicit_block) {low, high, primary};
     }
 }
 
@@ -282,7 +282,7 @@ build_allkeys_info (const char *filename)
       p++;
 
       /* Parse collation elements */
-      CollationData *data = calloc (1, sizeof (CollationData));
+      struct collation_data *data = calloc (1, sizeof (struct collation_data));
       while (*p && *p != '#')
         {
           if (*p == '[')
@@ -391,11 +391,11 @@ build_allkeys_info (const char *filename)
 
 /* Convert collation units into to the form they will be written as. */
 static void
-expand_collation_sequence (CollationData *data)
+expand_collation_sequence (struct collation_data *data)
 {
   if (!data)
     return;
-  CollationData new;
+  struct collation_data new;
   new.num_elements = 0;
 
   uint16_t primary_extension = 0;
@@ -448,7 +448,7 @@ expand_collation_sequence (CollationData *data)
       uint8_t tertiary_write = data->elements[i].tertiary;
 
       new.elements[new.num_elements++]
-        = (CollationElement) { primary_write, secondary_write, tertiary_write };
+        = (struct collation_element) { primary_write, secondary_write, tertiary_write };
 
       if (new.num_elements == MAX_COLLATION_ELEMENTS)
         {
@@ -460,7 +460,7 @@ expand_collation_sequence (CollationData *data)
       if (primary_extension || secondary_extension)
         {
           new.elements[new.num_elements++]
-            = (CollationElement) { primary_extension, secondary_extension, 0 };
+            = (struct collation_element) { primary_extension, secondary_extension, 0 };
 
           if (new.num_elements == MAX_COLLATION_ELEMENTS)
             {
@@ -479,7 +479,7 @@ expand_collation_sequence (CollationData *data)
 
 typedef struct
 {
-  CollationData *data;           /* The data to write later. */
+  struct collation_data *data;           /* The data to write later. */
 } PendingCollationData;
 
 static PendingCollationData *collation_records;
@@ -695,11 +695,11 @@ process_implicit_blocks (Allkeys_Info *info)
 
 /* Write collation data as part of C initialiser. */
 static void
-write_collation_data (FILE *fp, CollationData *data)
+write_collation_data (FILE *fp, struct collation_data *data)
 {
   for (int i = 0; i < data->num_elements; i++)
     {
-      CollationElement unit = data->elements[i];
+      struct collation_element unit = data->elements[i];
       fprintf (fp, "{ 0x%04x, 0x%02x, 0x%02x },\n",
                unit.primary, unit.secondary, unit.tertiary);
     }
@@ -886,7 +886,7 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   fprintf (fp, "\n  { /* .implicitweights */\n");
   for (int i = 0; i < info->num_implicit_blocks; i++)
     {
-      ImplicitBlock *block = &info->implicit_blocks[i];
+      struct implicit_block *block = &info->implicit_blocks[i];
       fprintf (fp, "{ 0x%04x, 0x%04x, 0x%04x, 0x%04x },\n",
                block->low, block->high, block->primary,
                block->low_base);
@@ -926,9 +926,9 @@ main (int argc, char *argv[])
   collation_records_count = 0;
 
   /* Output dummy entry at index 0. */
-  collation_records[0].data = malloc (sizeof (CollationData));
+  collation_records[0].data = malloc (sizeof (struct collation_data));
   collation_records[0].data->num_elements = 1;
-  collation_records[0].data->elements[0] = (CollationElement) {0, 0, 0};
+  collation_records[0].data->elements[0] = (struct collation_element) {0, 0, 0};
   collation_records_count++;
   collation_units_written++;
 
