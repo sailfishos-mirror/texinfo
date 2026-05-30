@@ -1,8 +1,0 @@
-=head1 empty head2
-
-=head2
-
-=head2     
-
-=head2 B<Z<>>
-

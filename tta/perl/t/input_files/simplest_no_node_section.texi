@@ -1,7 +1,0 @@
-\input texinfo @c -*-texinfo-*-
-
-@setfilename simplest_no_node_section.info
-
-This is a very simple texi manual @  <>.
-
-@bye

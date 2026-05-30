@@ -1,12 +1,0 @@
-@node Top
-@top top
-
-@node   
-@chapter EN QUAD| |
-
-@node 
-@chapter CARRIAGE RETURN||
-
-@node   
-@chapter THREE-PER-EM SPACE
-

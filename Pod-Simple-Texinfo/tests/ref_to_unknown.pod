@@ -1,3 +1,0 @@
-=head1 Test ref
-
-L</unknown>

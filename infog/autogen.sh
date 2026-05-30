@@ -1,2 +1,0 @@
-libtoolize
-autoreconf -i

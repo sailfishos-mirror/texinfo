@@ -1,3 +1,0 @@
-\input texinfo.tex
-
-@bye

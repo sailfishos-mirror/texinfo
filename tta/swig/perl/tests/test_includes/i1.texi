@@ -1,4 +1,0 @@
-
-In I1
-
-@include i2.texi
