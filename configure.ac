@@ -52,25 +52,14 @@ AC_ARG_VAR([PERL_EXT_LDFLAGS], [Linker flags for a Perl extension])
 AC_ARG_VAR([PERL_EXT_CC], [Compiler for a Perl extension])
 
 AC_MSG_CHECKING([Perl version and modules])
-if $PERL -e "use 5.008_001; use Encode; use Data::Dumper; use Getopt::Long qw(GetOptions); use Storable; use File::Spec; use File::Basename; use Scalar::Util; use Unicode::Normalize" >/dev/null 2>&AS_MESSAGE_LOG_FD; then
+if $PERL -e "use 5.008_001; use Encode; use Data::Dumper; use Getopt::Long qw(GetOptions); use Storable; use File::Spec; use File::Basename; use Scalar::Util; use Unicode::Normalize; use Unicode::Collate;" >/dev/null 2>&AS_MESSAGE_LOG_FD; then
   perl_version_requirement='yes'
 else
   perl_version_requirement='no'
 fi
 AC_MSG_RESULT($perl_version_requirement)
 if test z"$perl_version_requirement" = 'zno' ; then
-  AC_MSG_ERROR([perl >= 5.8.1 with Encode, Unicode::Normalize and other core modules required by Texinfo.])
-fi
-
-AC_MSG_CHECKING([Unicode::Collate])
-if $PERL -e "use 5.008_001; use Unicode::Collate;" >/dev/null 2>&1; then
-  unicode_collate='yes'
-else
-  unicode_collate='no'
-fi
-AC_MSG_RESULT($unicode_collate)
-if test z"$unicode_collate" = 'zno' ; then
-  AC_MSG_WARN([Unicode::Collate not present; indices may be sorted incorrectly])
+  AC_MSG_ERROR([perl >= 5.8.1 with Unicode::Normalize, Unicode::Collate and other core modules required by Texinfo.])
 fi
 
 AC_REQUIRE_AUX_FILE([tap-driver.sh])
@@ -420,7 +409,3 @@ if test $have_termlib = no; then
   AC_MSG_WARN([The programs from `info' directory will not be built.])
 fi
 
-if test $unicode_collate = no; then
-  AC_MSG_WARN([Perl module Unicode::Collate was not found.])
-  AC_MSG_WARN([texi2any may sort document indices incorrectly.])
-fi

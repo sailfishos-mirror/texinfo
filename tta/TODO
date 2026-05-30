@@ -163,9 +163,10 @@ letters.  Right now, the XS code calls Perl to get the sorting
 collation strings with Non-Ignorable Variable Weighting.  The
 undocumented XS_STRXFRM_COLLATION_LOCALE customization variable can be used
 to specify a locale and use it with strxfrm_l to sort, but it is only
-for testing and should not be kept in the long term, the plan is to replace by
-C code that sets Variable Weighting to Non-ignorable and before that keep
-calling Perl.
+for testing and should not be kept in the long term, now that we have the
+C/main/unicode-collation code that sets Variable Weighting to Non-ignorable.
+strxfrm_l is still relevant for locale-dependent sorting, which otherwise
+calls Perl language dependent sorting.
 Related glibc enhancement request:
  request for Non-Ignorable Variable Weighting Unicode collation
  https://sourceware.org/bugzilla/show_bug.cgi?id=31658

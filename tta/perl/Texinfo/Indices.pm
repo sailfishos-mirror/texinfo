@@ -45,6 +45,7 @@ use warnings;
 use Carp qw(cluck confess);
 
 use Unicode::Normalize;
+use Unicode::Collate;
 
 use Texinfo::XSLoader;
 
@@ -123,10 +124,8 @@ sub _sort_index_entries($$) {
   return $res;
 }
 
-# This is a stub for the Unicode::Collate module.  Although this module is
-# a core Perl module, some distributions may install a stripped-down Perl
-# that doesn't include it, so providing this fall-back allows texi2any
-# to run in such cases.  Using this fall-back will change index sorting,
+# This is a stub for the Unicode::Collate module.  It is used if
+# USE_UNICODE_COLLATION=0.  Using this fall-back will change index sorting,
 # especially of punctuation characters and in non-English manuals.
 #
 # This fall-back also allows checking the performance impact of
@@ -145,11 +144,10 @@ sub new($%) {
 }
 
 # Simply return a copy of the string, in UTF-8.
-# Note: this should return an encoded string, because if this is called
-# from C code it may not handle any "wide characters" in the sort key.
-# This happens if USE_UNICODE_COLLATION=1 but Unicode::Collate cannot
-# be loaded.  That is because the C code expects a byte string as return
-# string because Unicode::Collate getSortKey returns a byte string.
+# Note: this should return an encoded string, because Unicode::Collate
+# getSortKey returns a byte string and if the getSortKey function
+# is called from C code it may not handle any "wide characters" in
+# the sort key.
 # The ordering will be the Unicode code point order because the UTF-8
 # sequences sort in code point order.
 sub getSortKey($$) {
@@ -210,14 +208,10 @@ sub _setup_collator($$) {
     }
 
     if (!defined($collator)) {
-      eval { require Unicode::Collate; Unicode::Collate->import; };
-      my $unicode_collate_loading_error = $@;
-      if ($unicode_collate_loading_error eq '') {
-        $collator = Unicode::Collate->new(%collate_options);
-      }
+      $collator = Unicode::Collate->new(%collate_options);
     }
   }
-  # Fall back to stub if Unicode::Collate not wanted or not available.
+  # Fall back to stub if Unicode::Collate not wanted.
   $collator = Texinfo::CollateStub->new() if (!defined($collator));
 
   return $collator;

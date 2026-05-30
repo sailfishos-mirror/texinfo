@@ -1,3 +1,12 @@
+2026-05-30 Patrice Dumas  <pertusus@free.fr>
+
+	* configure.ac: mandate Unicode::Collate.  In particular to provide
+	with the same features as C, which always include unicode collation
+	now.
+
+	* tta/perl/Texinfo/Indices.pm (_setup_collator): use Unicode::Collate
+	and consider that it is always present.
+
 2026-05-29 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/converter.c (converter_format_data)

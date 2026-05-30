@@ -109,6 +109,8 @@ if test "z$refcount_checks" = 'zyes' ; then
 fi
 AC_SUBST([DEFAULT_TEST_LEVEL])
 
+dnl NOTE we mandate Unicode::Collate now in toplevel configure.ac,
+dnl so this should always be yes.
 AC_MSG_CHECKING([Perl version for tests requiring unicode collation])
 if $PERL -e "use 5.018_001; use Unicode::Collate" >/dev/null 2>&1; then
   perl_unicode_collation_requirement='yes'
