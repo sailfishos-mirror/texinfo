@@ -217,8 +217,6 @@ build_allkeys_info (const char *filename)
   char line[4096];
   size_t line_num = 0;
 
-  printf ("Parsing %s...\n", filename);
-
   while (fgets (line, sizeof (line), fp))
     {
       line_num++;
@@ -273,8 +271,7 @@ build_allkeys_info (const char *filename)
           if (uc_is_property_unified_ideograph (codepoints[0]))
             continue;
         }
-      // if (num_codepoints > 1)
-      //   fprintf (stderr, "sequence of len %zu", num_codepoints);
+
       if (num_codepoints > info->max_sequence_length)
         info->max_sequence_length = num_codepoints;
 
@@ -370,12 +367,6 @@ build_allkeys_info (const char *filename)
             }
           node->data = data;
           info->num_records++;
-        }
-
-      if (line_num % 5000 == 0)
-        {
-          printf ("  Processed %zu lines...\r", line_num);
-          fflush (stdout);
         }
     }
 
@@ -734,8 +725,6 @@ write_c_source (const char *output_file, Allkeys_Info *info)
     }
   /* Trie data is not in collation_records yet. */
   n_collation_units += count_trie_node_collation_units (info->trie_root);
-
-  printf ("Writing C source file: %s\n", output_file);
 
   fprintf (fp, "/* DO NOT EDIT:\n");
   fprintf (fp, " * Automatically generated from allkeys.txt\n");
