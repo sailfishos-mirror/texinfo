@@ -66,7 +66,7 @@ struct implicit_block
 
 #define MAX_IMPLICIT_BLOCKS 16
 
-typedef struct
+struct Allkeys_Info
 {
   Page *pages[NUM_PAGES];
   TrieNode *trie_root;
@@ -76,7 +76,9 @@ typedef struct
   int max_sequence_length;
   struct implicit_block implicit_blocks[MAX_IMPLICIT_BLOCKS];
   int num_implicit_blocks;
-} Allkeys_Info;
+};
+
+struct Allkeys_Info info;
 
 
 /***********************/
@@ -168,19 +170,19 @@ parse_version (const char *line)
 #endif
 
 static void
-parse_implicitweight (const char *line, Allkeys_Info *info)
+parse_implicitweight (const char *line)
 {
   char32_t low, high;
   uint32_t primary;
   if (sscanf (line, "@implicitweights %x..%x; %x", &low, &high, &primary) == 3)
     
     {
-      if (info->num_implicit_blocks == MAX_IMPLICIT_BLOCKS)
+      if (info.num_implicit_blocks == MAX_IMPLICIT_BLOCKS)
         {
           fprintf (stderr, "too many implicit blocks\n");
           exit (1);
         }
-      info->implicit_blocks[info->num_implicit_blocks++]
+      info.implicit_blocks[info.num_implicit_blocks++]
         = (struct implicit_block) {low, high, primary};
     }
 }
@@ -200,19 +202,18 @@ check_codepoint_nondecomposable (char32_t codepoint)
   return 1;
 }
 
-/* Read allkeys.txt */
-static Allkeys_Info *
+/* Read allkeys.txt.  Return 0 on failure. */
+static int
 build_allkeys_info (const char *filename)
 {
   FILE *fp = fopen (filename, "r");
   if (!fp)
     {
       perror ("Failed to open input file");
-      return NULL;
+      return 0;
     }
 
-  Allkeys_Info *info = calloc (1, sizeof (Allkeys_Info));
-  info->trie_root = calloc (1, sizeof (TrieNode));
+  info.trie_root = calloc (1, sizeof (TrieNode));
 
   char line[4096];
   size_t line_num = 0;
@@ -237,7 +238,7 @@ build_allkeys_info (const char *filename)
           else if (strncmp (line, "@implicitweights",
                             strlen ("@implicitweights")) == 0)
             {
-              parse_implicitweight (line, info);
+              parse_implicitweight (line);
             }
           continue;
         }
@@ -272,8 +273,8 @@ build_allkeys_info (const char *filename)
             continue;
         }
 
-      if (num_codepoints > info->max_sequence_length)
-        info->max_sequence_length = num_codepoints;
+      if (num_codepoints > info.max_sequence_length)
+        info.max_sequence_length = num_codepoints;
 
       while (*p && *p != ';')
         p++;
@@ -301,8 +302,8 @@ build_allkeys_info (const char *filename)
                     }
                   if (elem.variable_weight)
                     {
-                      if (elem.element.primary > info->max_variable_weight)
-                        info->max_variable_weight = elem.element.primary;
+                      if (elem.element.primary > info.max_variable_weight)
+                        info.max_variable_weight = elem.element.primary;
                     }
                 }
             }
@@ -312,8 +313,8 @@ build_allkeys_info (const char *filename)
             }
         }
 
-      if (info->max_collation_elements < data->num_elements)
-        info->max_collation_elements = data->num_elements;
+      if (info.max_collation_elements < data->num_elements)
+        info.max_collation_elements = data->num_elements;
 
       if (data->num_elements == 0)
         {
@@ -326,23 +327,23 @@ build_allkeys_info (const char *filename)
           uint32_t page_num = codepoints[0] >> 8;
           uint8_t point = codepoints[0] & 0xFF;
 
-          if (!info->pages[page_num])
+          if (!info.pages[page_num])
             {
-              info->pages[page_num] = calloc (1, sizeof (Page));
+              info.pages[page_num] = calloc (1, sizeof (Page));
             }
 
-          Page *page = info->pages[page_num];
+          Page *page = info.pages[page_num];
           page->entries =
             realloc (page->entries, (page->count + 1) * sizeof (PageEntry));
           page->entries[page->count].point = point;
           page->entries[page->count].data = data;
           page->count++;
-          info->num_records++;
+          info.num_records++;
         }
       else
         {
           /* Insert into trie. */
-          TrieNode *node = info->trie_root;
+          TrieNode *node = info.trie_root;
           for (size_t i = 0; i < num_codepoints; i++)
             {
               TrieNode *child = NULL;
@@ -366,13 +367,13 @@ build_allkeys_info (const char *filename)
               node = child;
             }
           node->data = data;
-          info->num_records++;
+          info.num_records++;
         }
     }
 
   fclose (fp);
 
-  return info;
+  return 1;
 }
 
 /***********************/
@@ -606,21 +607,21 @@ static int page_offset_positions[NUM_PAGES];
    each page that was used, and preprocess collation unit data for
    writing. */
 static void
-process_page_table (Allkeys_Info *info)
+process_page_table (void)
 {
   /* Sort all pages by offset. */
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
-      if (info->pages[i] && info->pages[i]->count > 0)
+      if (info.pages[i] && info.pages[i]->count > 0)
         {
-          qsort (info->pages[i]->entries, info->pages[i]->count,
+          qsort (info.pages[i]->entries, info.pages[i]->count,
                  sizeof (PageEntry), compare_page_entries);
         }
     }
 
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
-      if (info->pages[i])
+      if (info.pages[i])
         {
           used_planes[i >> 8] = 1;
           i = ((i >> 8) + 1) << 8; /* move onto next plane */
@@ -631,12 +632,12 @@ process_page_table (Allkeys_Info *info)
   n_used_pages = 0;
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
-      if (!info->pages[i])
+      if (!info.pages[i])
         {
           page_offset_positions[i] = -1;
           continue;
         }
-      Page *page = info->pages[i];
+      Page *page = info.pages[i];
       page_offset_positions[i] = n_used_pages;
       n_used_pages++;
 
@@ -658,23 +659,23 @@ process_page_table (Allkeys_Info *info)
 /* Set 'low_base' to least value of 'low' for all blocks that
    share the same value of 'primary'. */
 static void
-process_implicit_blocks (Allkeys_Info *info)
+process_implicit_blocks (void)
 {
   int i;
-  for (i = 0; i < info->num_implicit_blocks; i++)
+  for (i = 0; i < info.num_implicit_blocks; i++)
     {
-      info->implicit_blocks[i].low_base = info->implicit_blocks[i].low;
+      info.implicit_blocks[i].low_base = info.implicit_blocks[i].low;
       int j;
-      for (j = 0; j < info->num_implicit_blocks; j++)
+      for (j = 0; j < info.num_implicit_blocks; j++)
         {
-           if (info->implicit_blocks[j].primary
-                 == info->implicit_blocks[i].primary)
+           if (info.implicit_blocks[j].primary
+                 == info.implicit_blocks[i].primary)
              {
-               if (info->implicit_blocks[j].low
-                     < info->implicit_blocks[i].low_base)
+               if (info.implicit_blocks[j].low
+                     < info.implicit_blocks[i].low_base)
                  {
-                   info->implicit_blocks[i].low_base
-                     = info->implicit_blocks[j].low;
+                   info.implicit_blocks[i].low_base
+                     = info.implicit_blocks[j].low;
                  }
              }
         }
@@ -701,7 +702,7 @@ write_collation_data (FILE *fp, struct collation_data *data)
 
 /* Write as C source file */
 static void
-write_c_source (const char *output_file, Allkeys_Info *info)
+write_c_source (const char *output_file)
 {
   FILE *fp = fopen (output_file, "w");
   if (!fp)
@@ -724,7 +725,7 @@ write_c_source (const char *output_file, Allkeys_Info *info)
       n_collation_units += collation_records[i].data->num_elements;
     }
   /* Trie data is not in collation_records yet. */
-  n_collation_units += count_trie_node_collation_units (info->trie_root);
+  n_collation_units += count_trie_node_collation_units (info.trie_root);
 
   fprintf (fp, "/* DO NOT EDIT:\n");
   fprintf (fp, " * Automatically generated from allkeys.txt\n");
@@ -753,10 +754,10 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   fprintf (fp, "#define NUM_PLANES %d\n", 17);
   fprintf (fp, "#define NUM_TRIE_NODES %d\n", (int) trie_node_index);
   fprintf (fp, "#define NUM_COLLATION_UNITS %ld\n\n", n_collation_units);
-  fprintf (fp, "#define NUM_IMPLICIT_BLOCKS %d\n\n", info->num_implicit_blocks);
+  fprintf (fp, "#define NUM_IMPLICIT_BLOCKS %d\n\n", info.num_implicit_blocks);
 
-  fprintf (fp, "#define MAX_SEQUENCE_LENGTH %d\n", info->max_sequence_length);
-  fprintf (fp, "#define MAX_COLLATION_ELEMENTS %d\n\n", info->max_collation_elements);
+  fprintf (fp, "#define MAX_SEQUENCE_LENGTH %d\n", info.max_sequence_length);
+  fprintf (fp, "#define MAX_COLLATION_ELEMENTS %d\n\n", info.max_collation_elements);
 
   fprintf (fp, "static const\nstruct\n  {\n");
   fprintf (fp, "    uint16_t max_variable_weight;\n");
@@ -769,7 +770,7 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   fprintf (fp, "  }\n");
   fprintf (fp, "collation_data = {\n");
 
-  fprintf (fp, "  0x%04X,\n", info->max_variable_weight);
+  fprintf (fp, "  0x%04X,\n", info.max_variable_weight);
 
   fprintf (fp, "  { /* .level1 */\n");
 
@@ -802,12 +803,12 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   /* collation_data.level3 */
   for (i = 0; i < NUM_PAGES; i++)
     {
-      if (!info->pages[i])
+      if (!info.pages[i])
         continue;
 
       fprintf (fp, "  {\n");
 
-      Page *page = info->pages[i];
+      Page *page = info.pages[i];
       /* Output struct block256_data.  */
       fprintf (fp, "    {\n");
 
@@ -864,8 +865,8 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   fprintf (fp, "  },\n");
   fprintf (fp, "  { /* .trie_array */\n");
 
-  write_trie_node_only (fp, info->trie_root);
-  write_trie_node_children (fp, info->trie_root);
+  write_trie_node_only (fp, info.trie_root);
+  write_trie_node_children (fp, info.trie_root);
 
   fprintf (fp, "\n  },\n");
   fprintf (fp, "\n  { /* .collation_data */\n");
@@ -876,9 +877,9 @@ write_c_source (const char *output_file, Allkeys_Info *info)
   free (collation_records);
   fprintf (fp, "  },\n");
   fprintf (fp, "\n  { /* .implicitweights */\n");
-  for (int i = 0; i < info->num_implicit_blocks; i++)
+  for (int i = 0; i < info.num_implicit_blocks; i++)
     {
-      struct implicit_block *block = &info->implicit_blocks[i];
+      struct implicit_block *block = &info.implicit_blocks[i];
       fprintf (fp, "{ 0x%04x, 0x%04x, 0x%04x, 0x%04x },\n",
                block->low, block->high, block->primary,
                block->low_base);
@@ -906,14 +907,13 @@ main (int argc, char *argv[])
   const char *input_file = argv[1];
   const char *c_file = argv[2];
 
-  Allkeys_Info *info = build_allkeys_info (input_file);
-  if (!info)
+  if (!build_allkeys_info (input_file))
     return 1;
 
   /* keep running count of collation units which will be written to
      the collation units array so we can output indices into that array. */
   collation_units_written = 0;
-  collation_records = malloc ((info->num_records + 1)
+  collation_records = malloc ((info.num_records + 1)
                     * sizeof (PendingCollationData));
   collation_records_count = 0;
 
@@ -924,15 +924,15 @@ main (int argc, char *argv[])
   collation_records_count++;
   collation_units_written++;
 
-  process_page_table (info);
+  process_page_table ();
 
   trie_node_index = 0;
-  info->trie_root->trie_index = trie_node_index++;
-  assign_trie_node_indices (info->trie_root);
+  info.trie_root->trie_index = trie_node_index++;
+  assign_trie_node_indices (info.trie_root);
 
-  process_implicit_blocks (info);
+  process_implicit_blocks ();
 
-  write_c_source (c_file, info);
+  write_c_source (c_file);
 
   return 0;
 }
