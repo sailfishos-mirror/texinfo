@@ -72,7 +72,6 @@ typedef struct
   TrieNode *trie_root;
   uint16_t max_variable_weight;
   size_t num_records;
-  long version;
   int max_collation_elements;
   int max_sequence_length;
   struct implicit_block implicit_blocks[MAX_IMPLICIT_BLOCKS];
@@ -154,16 +153,19 @@ parse_collation_element (const char **str, CollationElementParsed *elem)
   return 1;
 }
 
+#if 0
 static long
 parse_version (const char *line)
 {
   unsigned int major = 0, minor = 0, patch = 0;
   if (sscanf (line, "@version %u.%u.%u", &major, &minor, &patch) == 3)
     {
-      return major * 10000 + minor * 100 + patch;
+      /* result not used */
+      return 1;
     }
   return 0;
 }
+#endif
 
 static void
 parse_implicitweight (const char *line, Allkeys_Info *info)
@@ -231,7 +233,8 @@ build_allkeys_info (const char *filename)
         {
           if (strncmp (line, "@version", strlen ("@version")) == 0)
             {
-              info->version = parse_version (line);
+              /* not used */
+              /* parse_version (line); */
             }
           else if (strncmp (line, "@implicitweights",
                             strlen ("@implicitweights")) == 0)
