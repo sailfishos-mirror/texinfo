@@ -111,12 +111,12 @@ lookup_collation_data_at_char (char32_t *const string,
           max_combining_class = combining_class;
         }
 
-      uint16_t num_children = node->num_children;
+      int num_children = node->num_children;
       uint32_t first_child = node->first_child;
 
-      // Search for matching child
+      /* Search for matching child. */
       int found = 0;
-      for (uint16_t j = 0; j < num_children; j++)
+      for (int j = 0; j < num_children; j++)
         {
           const struct trie_node *child
             = &collation_data.trie_array[first_child + j];

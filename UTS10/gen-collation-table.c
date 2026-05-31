@@ -51,7 +51,7 @@ struct trie_node
   char32_t codepoint;
   struct collation_data data;
   struct trie_node **children;
-  uint16_t num_children;
+  int num_children;
   size_t trie_index; /* used for serialization */
 };
 
@@ -545,10 +545,10 @@ write_trie_node_only (FILE *fp, struct trie_node *node)
       collation_records_count++;
     }
 
-  fprintf (fp, "{ 0x%X, 0x%08X, %d, %d, %zu },\n",
+  fprintf (fp, "{ 0x%X, %d, 0x%08X, %d, %zu },\n",
            node->codepoint,
-           data_index,
            (int) node->data.num_elements,
+           data_index,
            (int) node->num_children,
            node->num_children > 0
              ? node->children[0]->trie_index
@@ -731,10 +731,10 @@ write_c_source (const char *output_file)
   fprintf (fp, "  uint32_t data_index[256];\n");
   fprintf (fp, "};\n");
   fprintf (fp, "struct trie_node {\n");
-  fprintf (fp, "  uint32_t codepoint;\n");
-  fprintf (fp, "  uint32_t data_index;\n");
+  fprintf (fp, "  char32_t codepoint;\n");
   fprintf (fp, "  uint8_t num_elements;\n");
-  fprintf (fp, "  uint16_t num_children;\n");
+  fprintf (fp, "  uint32_t data_index;\n");
+  fprintf (fp, "  int num_children;\n");
   fprintf (fp, "  uint32_t first_child;\n");
   fprintf (fp, "};\n");
   fprintf (fp, "struct implicit_block {\n");
