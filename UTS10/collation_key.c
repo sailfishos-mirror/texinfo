@@ -137,8 +137,8 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
     }
   free (entry_array);
 
-  unsigned char *sort_key;
-  unsigned char *psort_key;
+  char *sort_key;
+  char *psort_key;
   size_t sort_key_alloc;
 
   /* Three levels (primary/secondary/tertiary).  Two bytes per

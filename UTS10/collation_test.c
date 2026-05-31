@@ -11,7 +11,8 @@
 static void
 print_collation_key (const char *key, size_t length)
 {
-  for (unsigned const char *p = key;
+  unsigned const char *p;
+  for (p = (unsigned const char *) key;
        p < (unsigned const char *) key + length;
        p += 2)
     {

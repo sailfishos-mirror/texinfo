@@ -450,7 +450,6 @@ expand_collation_sequence (struct collation_data *data)
           exit (1);
         }
 
-
       if (primary_extension || secondary_extension)
         {
           new.elements[new.num_elements++]
@@ -768,7 +767,6 @@ write_c_source (const char *output_file)
 
   fprintf (fp, "  { /* .level1 */\n");
 
-  int page_idx = 0;
   for (i = 0; i < NUM_PLANES; i++)
     fprintf (fp, "    %d,\n", level1[i]);
 
@@ -818,8 +816,8 @@ write_c_source (const char *output_file)
               if (j == (next_data & 0xff) && next_data != -1)
                 {
                   fprintf (fp, "    %d,%s",
-                               info.singles.entries[point_count].data.num_elements,
-                               (j % 8) == 7 ? "\n" : "");
+                           info.singles.entries[point_count].data.num_elements,
+                           (j % 8) == 7 ? "\n" : "");
                   if (++point_count == info.singles.count)
                     next_data = -1;
                   else
@@ -848,7 +846,8 @@ write_c_source (const char *output_file)
                 {
                   fprintf (fp, "    0x%08lx,%s", collation_units_written,
                            (j % 4) == 3 ? "\n" : "");
-                  collation_units_written += info.singles.entries[point_count].data.num_elements;
+                  collation_units_written
+                    += info.singles.entries[point_count].data.num_elements;
 
                   if (++point_count == info.singles.count)
                     next_data = -1;

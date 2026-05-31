@@ -111,12 +111,8 @@ lookup_collation_data_at_char (char32_t *const string,
           max_combining_class = combining_class;
         }
 
-      uint32_t node_codepoint = node->codepoint;
-      uint32_t node_data_index = node->data_index;
-      uint8_t num_elements = node->num_elements;
       uint16_t num_children = node->num_children;
       uint32_t first_child = node->first_child;
-
 
       // Search for matching child
       int found = 0;
@@ -249,8 +245,8 @@ get_implicit_weight (char32_t codepoint,
     {
       /* Check if in blocks "CJK Unified Ideographs" or "CJK Compatibility
          Ideographs" */
-      if (codepoint >= 0x4E00 && codepoint <= 0x9FFF
-          || codepoint >= 0xF900 && codepoint <= 0xFAFF)
+      if ((codepoint >= 0x4E00 && codepoint <= 0x9FFF)
+          || (codepoint >= 0xF900 && codepoint <= 0xFAFF))
         {
           AAAA = 0xFB40 + (codepoint >> 15);
         }
