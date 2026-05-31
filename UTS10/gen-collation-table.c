@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <inttypes.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdbool.h>
@@ -101,53 +102,24 @@ parse_collation_element (const char **str,
                          struct collation_element *elem,
                          int *variable_weight)
 {
+  char variable_weight_indicator;
+  int result;
+  int read;
+
   const char *s = *str;
-  while (*s && isspace (*s))
-    s++;
-  if (*s != '[')
+  result = sscanf (s, " [ %c"
+                      "%" SCNx16
+                      ".%" SCNx16
+                      ".%" SCNx8 " ] %n",
+                   &variable_weight_indicator,
+                   &elem->primary,
+                   &elem->secondary,
+                   &elem->tertiary,
+                   &read);
+  if (result != 4)
     return 0;
-  s++;
-
-  if (*s == '*')
-    {
-      *variable_weight = 1;
-      s++;
-    }
-  else if (*s == '.')
-    {
-      *variable_weight = 0;
-      s++;
-    }
-  else
-    {
-      return 0;
-    }
-
-  char hex[5] = { 0 };
-  for (int i = 0; i < 4 && isxdigit (*s); i++, s++)
-    hex[i] = *s;
-  elem->primary = (uint16_t) strtoul (hex, NULL, 16);
-  if (*s != '.')
-    return 0;
-  s++;
-
-  memset (hex, 0, sizeof (hex));
-  for (int i = 0; i < 4 && isxdigit (*s); i++, s++)
-    hex[i] = *s;
-  elem->secondary = (uint16_t) strtoul (hex, NULL, 16);
-  if (*s != '.')
-    return 0;
-  s++;
-
-  memset (hex, 0, sizeof (hex));
-  for (int i = 0; i < 4 && isxdigit (*s); i++, s++)
-    hex[i] = *s;
-  elem->tertiary = (uint8_t) strtoul (hex, NULL, 16);
-  if (*s != ']')
-    return 0;
-  s++;
-
-  *str = s;
+  *variable_weight = (variable_weight_indicator == '*') ? 1 : 0;
+  *str = s + read;
   return 1;
 }
 
@@ -294,20 +266,21 @@ build_allkeys_info (const char *filename)
               if (parse_collation_element (&p, &elem, &variable_weight))
                 {
                   if (data.num_elements < MAX_COLLATION_ELEMENTS)
-                    {
-                      data.elements[data.num_elements++] = elem;
-                    }
+                    data.elements[data.num_elements++] = elem;
                   else
-                    {
-                      printf
-                        ("parse error: maximum collation element sequence length exceeded\n");
-                    }
+                    fprintf (stderr,
+                      "maximum collation element sequence length exceeded\n");
                   if (variable_weight)
                     {
                       if (elem.primary > info.max_variable_weight)
                         info.max_variable_weight = elem.primary;
                     }
                 }
+                else
+                  {
+                    fprintf (stderr, "parse_collation_element error\n");
+                    exit (1);
+                  }
             }
           else
             {
