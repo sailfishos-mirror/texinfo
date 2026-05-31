@@ -205,11 +205,10 @@ setup_converter_format (enum converter_format converter_format)
         {
           void (* init_format_setup) (enum converter_format format)
             = converter_format_data[converter_format].format_setup;
-          return init_format_setup (converter_format);
+          init_format_setup (converter_format);
         }
     }
 }
-
 
 CONVERTER *
 retrieve_converter (size_t converter_descriptor)
