@@ -1,7 +1,8 @@
 #! /usr/bin/env perl
 
-# regenerate_documentlanguages-iana.pl: download the iana files language
-# and regenerate Texinfo/Documentlanguages.pm list of languages and regions
+# regenerate_documentlanguages-iana.pl: download the iana language file
+# and regenerate Texinfo/Documentlanguages.pm language related hashes
+# and gperf generated C code files.
 #
 # Copyright 2010-2026 Free Software Foundation, Inc.
 # 

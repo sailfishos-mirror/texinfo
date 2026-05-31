@@ -38,10 +38,7 @@ Module requirements
 These modules and libraries are required (all have been standard
 parts of Perl for years, at least since 5.7.3):
   Carp, Config, Data::Dumper, Encode, File::Basename, File::Spec
-  Getopt::Long, Unicode::Normalize, Storable
-
-Unicode::Collate (also a standard module since 5.7.3) is required for
-correct index sorting.
+  Getopt::Long, Unicode::Collate, Unicode::Normalize, Scalar::Util, Storable.
 
 texi2any also uses the less widely-available modules:
   Locale::Messages, Unicode::EastAsianWidth, Text::Unidecode
@@ -126,7 +123,7 @@ The conversion of Texinfo to output formats is done in three steps:
    backend.  Using Texinfo::Converter::**** Perl modules or C code in
    C/convert.
 
-The C converage of steps 1) and 2) is complete.  Many converter backends
+The C coverage of steps 1) and 2) is complete.  Many converter backends
 are only available in Perl.
 
 Much of the code is available in two versions, both Perl and C.  Please

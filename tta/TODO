@@ -35,8 +35,8 @@ In that case, the missing compilation flag may be
 -fPIC
 or in the perl CFLAGS.
 
-Missing documentation
-=====================
+Documentation
+=============
 
 Tree documentation
 ------------------
@@ -153,21 +153,21 @@ when the oldest supported Perl version is 5.12.0 (released in 2010).
 
 Sorting indices in C with strxfrm_l using an utf-8 locale with
 LC_COLLATE_MASK on Debian GNU/Linux with glibc is quite consistent with Perl
-for number and letters, but leads to a different output than with Perl for non
-alphanumeric characters.  It is because in Perl we set
-'variable' => 'Non-Ignorable' to set Variable Weighting to Non-ignorable (see
+for number and letters, but leads to a different output than collation
+used in texi2any for non alphanumeric characters.  It is because in
+texi2any we collate using Variable Weighting set to Non-ignorable (see
 http://www.unicode.org/reports/tr10/#Variable_Weighting).
 For spaces, the output with Non-Ignorable Variable Weighting looks better for
 index sorting, as it allows to have spaces and punctuation marks sort before
-letters.  Right now, the XS code calls Perl to get the sorting
-collation strings with Non-Ignorable Variable Weighting.  The
-undocumented XS_STRXFRM_COLLATION_LOCALE customization variable can be used
-to specify a locale and use it with strxfrm_l to sort, but it is only
-for testing and should not be kept in the long term, now that we have the
-C/main/unicode-collation code that sets Variable Weighting to Non-ignorable.
-strxfrm_l is still relevant for locale-dependent sorting, which otherwise
-calls Perl language dependent sorting.
-Related glibc enhancement request:
+letters.
+The undocumented XS_STRXFRM_COLLATION_LOCALE customization variable can be
+used to specify a locale and use it with strxfrm_l to sort, but it is only
+for testing and should not be kept in the long term because of the lack
+of Non-ignorableVariable Weighting.  It is still relevant for
+locale-dependent sorting, which otherwise calls Perl language
+dependent sorting.
+Related glibc enhancement request (probably obsoleted by
+main/unicode-collation/ code):
  request for Non-Ignorable Variable Weighting Unicode collation
  https://sourceware.org/bugzilla/show_bug.cgi?id=31658
 
