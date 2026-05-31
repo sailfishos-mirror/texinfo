@@ -16,9 +16,7 @@
 
 /* Used as maximum number of collation elements in a sequence (observed max is 
    about 18). */
-#define MAX_COLLATION_ELEMENTS 32
-
-#define NUM_PAGES 0x1100
+#define MAX_COLLATION_ELEMENTS 20
 
 
 /* Collation element - represents [.XXXX.XXXX.XXXX] or [*XXXX.XXXX.XXXX]. */
@@ -35,26 +33,27 @@ struct collation_data
   struct collation_element elements[MAX_COLLATION_ELEMENTS];
 };
 
-typedef struct
+struct single_codepoint_data
 {
-  uint8_t point;
-  struct collation_data *data;
-} PageEntry;
+  uint32_t codepoint;
+  struct collation_data data;
+};
 
-typedef struct
+struct collation_entry_list
 {
-  uint16_t count;
-  PageEntry *entries;
-} Page;
+  struct single_codepoint_data *entries;
+  size_t count;
+  size_t alloc;
+};
 
-typedef struct TrieNode
+struct trie_node
 {
   char32_t codepoint;
-  struct collation_data *data;
-  struct TrieNode **children;
+  struct collation_data data;
+  struct trie_node **children;
   uint16_t num_children;
   size_t trie_index; /* used for serialization */
-} TrieNode;
+};
 
 struct implicit_block
 {
@@ -66,10 +65,11 @@ struct implicit_block
 
 #define MAX_IMPLICIT_BLOCKS 16
 
-struct Allkeys_Info
+/* Data read from allkeys.txt */
+struct allkeys_info
 {
-  Page *pages[NUM_PAGES];
-  TrieNode *trie_root;
+  struct collation_entry_list singles;
+  struct trie_node *trie_root;
   uint16_t max_variable_weight;
   size_t num_records;
   int max_collation_elements;
@@ -78,7 +78,7 @@ struct Allkeys_Info
   int num_implicit_blocks;
 };
 
-struct Allkeys_Info info;
+static struct allkeys_info info;
 
 
 /***********************/
@@ -209,7 +209,12 @@ build_allkeys_info (const char *filename)
       return 0;
     }
 
-  info.trie_root = calloc (1, sizeof (TrieNode));
+  info.singles.alloc = 1000;
+  info.singles.count = 0;
+  info.singles.entries
+    = malloc (info.singles.alloc * sizeof (struct single_codepoint_data));
+
+  info.trie_root = calloc (1, sizeof (struct trie_node));
 
   char line[4096];
   size_t line_num = 0;
@@ -279,7 +284,7 @@ build_allkeys_info (const char *filename)
       p++;
 
       /* Parse collation elements */
-      struct collation_data *data = calloc (1, sizeof (struct collation_data));
+      struct collation_data data = { 0 };
       while (*p && *p != '#')
         {
           if (*p == '[')
@@ -288,9 +293,9 @@ build_allkeys_info (const char *filename)
               int variable_weight;
               if (parse_collation_element (&p, &elem, &variable_weight))
                 {
-                  if (data->num_elements < MAX_COLLATION_ELEMENTS)
+                  if (data.num_elements < MAX_COLLATION_ELEMENTS)
                     {
-                      data->elements[data->num_elements++] = elem;
+                      data.elements[data.num_elements++] = elem;
                     }
                   else
                     {
@@ -310,40 +315,36 @@ build_allkeys_info (const char *filename)
             }
         }
 
-      if (info.max_collation_elements < data->num_elements)
-        info.max_collation_elements = data->num_elements;
+      if (info.max_collation_elements < data.num_elements)
+        info.max_collation_elements = data.num_elements;
 
-      if (data->num_elements == 0)
-        {
-          free (data);
-          continue;
-        }
+      if (data.num_elements == 0)
+        continue;
 
       if (num_codepoints == 1)
         {
-          uint32_t page_num = codepoints[0] >> 8;
-          uint8_t point = codepoints[0] & 0xFF;
-
-          if (!info.pages[page_num])
+          if (info.singles.count == info.singles.alloc)
             {
-              info.pages[page_num] = calloc (1, sizeof (Page));
+              /* Increase allocation by roughly 50%. */
+              info.singles.alloc += (info.singles.alloc >> 1) + 1,
+              info.singles.entries =
+                realloc (info.singles.entries,
+                         info.singles.alloc
+                           * sizeof (struct single_codepoint_data));
             }
 
-          Page *page = info.pages[page_num];
-          page->entries =
-            realloc (page->entries, (page->count + 1) * sizeof (PageEntry));
-          page->entries[page->count].point = point;
-          page->entries[page->count].data = data;
-          page->count++;
+          info.singles.entries[info.singles.count].codepoint = codepoints[0];
+          info.singles.entries[info.singles.count].data = data;
+          info.singles.count++;
           info.num_records++;
         }
       else
         {
           /* Insert into trie. */
-          TrieNode *node = info.trie_root;
+          struct trie_node *node = info.trie_root;
           for (size_t i = 0; i < num_codepoints; i++)
             {
-              TrieNode *child = NULL;
+              struct trie_node *child = NULL;
               for (uint16_t j = 0; j < node->num_children; j++)
                 {
                   if (node->children[j]->codepoint == codepoints[i])
@@ -354,11 +355,12 @@ build_allkeys_info (const char *filename)
                 }
               if (!child)
                 {
-                  child = calloc (1, sizeof (TrieNode));
+                  child = calloc (1, sizeof (struct trie_node));
                   child->codepoint = codepoints[i];
                   node->children =
                     realloc (node->children,
-                             (node->num_children + 1) * sizeof (TrieNode *));
+                             (node->num_children + 1)
+                               * sizeof (struct trie_node *));
                   node->children[node->num_children++] = child;
                 }
               node = child;
@@ -469,11 +471,9 @@ expand_collation_sequence (struct collation_data *data)
   *data = new;
 }
 
-typedef struct
-{
-  struct collation_data *data;           /* The data to write later. */
-} PendingCollationData;
+typedef struct collation_data * PendingCollationData;
 
+/* The data to write later. */
 static PendingCollationData *collation_records;
 static uint32_t collation_records_count;
 
@@ -491,8 +491,8 @@ static long collation_units_written;
 static int
 compare_trie_node_children (const void *a, const void *b)
 {
-  TrieNode *node1 = *(TrieNode **) a;
-  TrieNode *node2 = *(TrieNode **) b;
+  struct trie_node *node1 = *(struct trie_node **) a;
+  struct trie_node *node2 = *(struct trie_node **) b;
 
   return (node1->codepoint > node2->codepoint)
        - (node1->codepoint < node2->codepoint);
@@ -520,7 +520,7 @@ static size_t trie_node_index;
    the index of the first child and number of children for each node.
 */
 static void
-assign_trie_node_indices (TrieNode *node)
+assign_trie_node_indices (struct trie_node *node)
 {
   qsort (node->children, node->num_children, sizeof(node->children[0]),
          compare_trie_node_children);
@@ -533,23 +533,23 @@ assign_trie_node_indices (TrieNode *node)
 }
 
 /* Write contents of a trie node, but not any of its children */
-static uint32_t
-write_trie_node_only (FILE *fp, TrieNode *node)
+static void
+write_trie_node_only (FILE *fp, struct trie_node *node)
 {
   uint32_t data_index = 0;
-  if (node->data)
+  if (node->data.num_elements > 0)
     {
       data_index = collation_units_written;
-      expand_collation_sequence (node->data);
-      collation_units_written += node->data->num_elements;
-      collation_records[collation_records_count].data = node->data;
+      expand_collation_sequence (&node->data);
+      collation_units_written += node->data.num_elements;
+      collation_records[collation_records_count] = &node->data;
       collation_records_count++;
     }
 
   fprintf (fp, "{ 0x%X, 0x%08X, %d, %d, %zu },\n",
            node->codepoint,
            data_index,
-           (int) (node->data ? node->data->num_elements : 0),
+           (int) node->data.num_elements,
            (int) node->num_children,
            node->num_children > 0
              ? node->children[0]->trie_index
@@ -558,7 +558,7 @@ write_trie_node_only (FILE *fp, TrieNode *node)
 
 /* Write trie recursively. */
 static void
-write_trie_node_children (FILE *fp, TrieNode *node)
+write_trie_node_children (FILE *fp, struct trie_node *node)
 {
   for (uint16_t i = 0; i < node->num_children; i++)
     write_trie_node_only (fp, node->children[i]);
@@ -568,12 +568,12 @@ write_trie_node_children (FILE *fp, TrieNode *node)
 }
 
 static int
-count_trie_node_collation_units (TrieNode *node)
+count_trie_node_collation_units (struct trie_node *node)
 {
   int count = 0;
 
-  if (node->data)
-    count += node->data->num_elements;
+  if (node->data.num_elements > 0)
+    count += node->data.num_elements;
 
   count += node->num_children;
   for (int i = 0; i < node->num_children; i++)
@@ -587,65 +587,68 @@ count_trie_node_collation_units (TrieNode *node)
 
 /* Compare function for sorting page entries by offset */
 static int
-compare_page_entries (const void *a, const void *b)
+compare_codepoint_entries (const void *a, const void *b)
 {
-  const PageEntry *ea = (const PageEntry *) a;
-  const PageEntry *eb = (const PageEntry *) b;
-  return (int) ea->point - (int) eb->point;
+  const struct single_codepoint_data *ea, *eb;
+
+  ea = (const struct single_codepoint_data *) a;
+  eb = (const struct single_codepoint_data *) b;
+  return (int64_t) ea->codepoint - (int64_t) eb->codepoint;
 }
 
-static int used_planes[17];
-static int n_used_pages;
+#define NUM_PLANES 17
 
-/* Location in dump of each page data */
-static int page_offset_positions[NUM_PAGES];
+/* level1 stores is indexed by Unicode plane (each plane containing 2**16
+   possible codepoint positions). */
+static int level1[NUM_PLANES];
+static int n_used_planes = 0;
+static int n_used_level2 = 0;
 
-/* Check which planes (U+XX....) were used, record the indices of
-   each page that was used, and preprocess collation unit data for
-   writing. */
+/* Each entry in level2 array represents 256 codepoints (U+XXXX??).
+   Maximum Unicode codepoint is U+10FFFF. */
+#define MAX_LEVEL2_SIZE 0x1100
+
+/* Index in level3 of data about a block of 256 codepoints. */
+static int level2[MAX_LEVEL2_SIZE];
+
+/* Preprocess collation unit data for writing and
+   build the LEVEL1 and LEVEL2 arrays. */
 static void
-process_page_table (void)
+process_singles (void)
 {
-  /* Sort all pages by offset. */
-  for (uint32_t i = 0; i < NUM_PAGES; i++)
+  /* Sort single codepoint data.  Probably unnecessary but do it
+     just in case. */
+  qsort (info.singles.entries, info.singles.count,
+         sizeof (struct single_codepoint_data), compare_codepoint_entries);
+
+  size_t i;
+
+  for (i = 0; i < info.singles.count; i++)
     {
-      if (info.pages[i] && info.pages[i]->count > 0)
-        {
-          qsort (info.pages[i]->entries, info.pages[i]->count,
-                 sizeof (PageEntry), compare_page_entries);
-        }
+      expand_collation_sequence (&info.singles.entries[i].data);
+      collation_records[collation_records_count++]
+        = &info.singles.entries[i].data;
     }
 
-  for (uint32_t i = 0; i < NUM_PAGES; i++)
-    {
-      if (info.pages[i])
-        {
-          used_planes[i >> 8] = 1;
-          i = ((i >> 8) + 1) << 8; /* move onto next plane */
-          i--;
-        }
-    }
+  for (i = 0; i < NUM_PLANES; i++)
+    level1[i] = -1;
 
-  n_used_pages = 0;
-  for (uint32_t i = 0; i < NUM_PAGES; i++)
-    {
-      if (!info.pages[i])
-        {
-          page_offset_positions[i] = -1;
-          continue;
-        }
-      Page *page = info.pages[i];
-      page_offset_positions[i] = n_used_pages;
-      n_used_pages++;
+  for (i = 0; i < MAX_LEVEL2_SIZE; i++)
+    level2[i] = -1;
 
-      uint16_t k = 0;
-      for (uint16_t k = 0; k < page->count; k++)
-        {
-          expand_collation_sequence (page->entries[k].data);
-          collation_records[collation_records_count].data
-            = page->entries[k].data;
-          collation_records_count++;
-        }
+  for (i = 0; i < info.singles.count; i++)
+    {
+      uint32_t codepoint = info.singles.entries[i].codepoint;
+      int index1 = info.singles.entries[i].codepoint >> 16;
+
+      if (level1[index1] == -1)
+        level1[index1] = n_used_planes++;
+
+      uint32_t index2 = (level1[index1] << 8)
+                         + ((codepoint >> 8) & 0xff);
+
+      if (level2[index2] == -1)
+        level2[index2] = n_used_level2++;
     }
 }
 
@@ -708,18 +711,12 @@ write_c_source (const char *output_file)
       return;
     }
 
-  int n_used_planes = 0;
   long i;
-  for (i = 0; i < 17; i++)
-    {
-      if (used_planes[i])
-        n_used_planes++;
-    }
 
   long n_collation_units = 0;
   for (i = 0; i < collation_records_count; i++)
     {
-      n_collation_units += collation_records[i].data->num_elements;
+      n_collation_units += collation_records[i]->num_elements;
     }
   /* Trie data is not in collation_records yet. */
   n_collation_units += count_trie_node_collation_units (info.trie_root);
@@ -748,7 +745,7 @@ write_c_source (const char *output_file)
   fprintf (fp, "  char32_t low_base;\n");
   fprintf (fp, "};\n");
 
-  fprintf (fp, "#define NUM_PLANES %d\n", 17);
+  fprintf (fp, "#define NUM_PLANES %d\n", NUM_PLANES);
   fprintf (fp, "#define NUM_TRIE_NODES %d\n", (int) trie_node_index);
   fprintf (fp, "#define NUM_COLLATION_UNITS %ld\n\n", n_collation_units);
   fprintf (fp, "#define NUM_IMPLICIT_BLOCKS %d\n\n", info.num_implicit_blocks);
@@ -760,7 +757,7 @@ write_c_source (const char *output_file)
   fprintf (fp, "    uint16_t max_variable_weight;\n");
   fprintf (fp, "    int level1[NUM_PLANES];\n");
   fprintf (fp, "    int level2[%d << 8];\n", n_used_planes);
-  fprintf (fp, "    struct block256_data level3[%d];\n", n_used_pages);
+  fprintf (fp, "    struct block256_data level3[%d];\n", n_used_level2);
   fprintf (fp, "    struct trie_node trie_array[NUM_TRIE_NODES];\n");
   fprintf (fp, "    struct collation_unit collation_data[NUM_COLLATION_UNITS];\n");
   fprintf (fp, "    struct implicit_block implicit_blocks[NUM_IMPLICIT_BLOCKS];\n");
@@ -772,93 +769,112 @@ write_c_source (const char *output_file)
   fprintf (fp, "  { /* .level1 */\n");
 
   int page_idx = 0;
-  for (i = 0; i < 17; i++)
-    fprintf (fp, "    %d,\n", used_planes[i] ? page_idx++ : -1);
+  for (i = 0; i < NUM_PLANES; i++)
+    fprintf (fp, "    %d,\n", level1[i]);
 
   fprintf (fp, "  },\n");
   fprintf (fp, "  { /* .level2 */\n");
 
   /* collation_data.level2 */
-  for (i = 0; i < 17; i++)
+  for (int j = 0; j < (n_used_planes << 8); j++)
     {
-      if (used_planes[i])
-        {
-          int j;
-          for (j = (i << 8); j < (i+1) << 8; j++)
-            {
-              if (page_offset_positions[j] >= 0)
-                fprintf (fp, "  0x%04X,%s", page_offset_positions[j],
-                         (j % 4) == 3 ? "\n" : "");
-              else
-                fprintf (fp, "      -1,%s", (j % 4) == 3 ? "\n" : "");
-            }
-        }
+      if (level2[j] >= 0)
+        fprintf (fp, "  0x%04X,%s", level2[j],
+                 (j % 4) == 3 ? "\n" : "");
+      else
+        fprintf (fp, "      -1,%s", (j % 4) == 3 ? "\n" : "");
     }
   fprintf (fp, "  },\n");
   fprintf (fp, "  { /* .level3 */\n");
 
   /* collation_data.level3 */
-  for (i = 0; i < NUM_PAGES; i++)
+  int first_point = 0;
+
+  for (int i = 0; i < NUM_PLANES; i++)
     {
-      if (!info.pages[i])
+      if (level1[i] == -1)
         continue;
 
-      fprintf (fp, "  {\n");
-
-      Page *page = info.pages[i];
-      /* Output struct block256_data.  */
-      fprintf (fp, "    {\n");
-
-      /* Output num_elements[256] */
-      int point_count = 0;
-      int next_data = page->entries[point_count].point;
       for (int j = 0; j < 256; j++)
         {
-          if (j == next_data)
+          uint32_t index2 = (level1[i] << 8) + j;
+          if (level2[index2] == -1)
+            continue;
+
+          /* Data exists for a codepoint somewhere in this block of 256.
+             Output struct block256_data.  */
+
+          int cur_page = (i << 8) + j;
+
+          fprintf (fp, "  {\n");
+
+          fprintf (fp, "    {\n");
+
+          /* Output num_elements[256] */
+          uint32_t point_count = first_point;
+          uint32_t next_data = info.singles.entries[point_count].codepoint;
+          for (int j = 0; j < 256; j++)
             {
-              fprintf (fp, "    %d,%s",
-                           page->entries[point_count].data->num_elements,
-                           (j % 8) == 7 ? "\n" : "");
-              if (++point_count == page->count)
-                next_data = -1;
+              if (j == (next_data & 0xff) && next_data != -1)
+                {
+                  fprintf (fp, "    %d,%s",
+                               info.singles.entries[point_count].data.num_elements,
+                               (j % 8) == 7 ? "\n" : "");
+                  if (++point_count == info.singles.count)
+                    next_data = -1;
+                  else
+                    {
+                      next_data = info.singles.entries[point_count].codepoint;
+                      if ((next_data >> 8) > cur_page)
+                        next_data = -1;
+                    }
+                }
               else
-                next_data = page->entries[point_count].point;
+                {
+                  fprintf (fp, "    0,%s", (j % 8) == 7 ? "\n" : "");
+                }
             }
-          else
+
+          fprintf (fp, "    },\n");
+          fprintf (fp, "    {\n");
+
+          /* Output data_index[256] */
+          point_count = first_point;
+          next_data = info.singles.entries[point_count].codepoint;
+
+          for (int j = 0; j < 256; j++)
             {
-              fprintf (fp, "    0,%s", (j % 8) == 7 ? "\n" : "");
-            }
-        }
+              if (j == (next_data & 0xff) && next_data != -1)
+                {
+                  fprintf (fp, "    0x%08lx,%s", collation_units_written,
+                           (j % 4) == 3 ? "\n" : "");
+                  collation_units_written += info.singles.entries[point_count].data.num_elements;
 
-      fprintf (fp, "    },\n");
-      fprintf (fp, "    {\n");
-
-      /* Output data_index[256] */
-      point_count = 0;
-      next_data = page->entries[point_count].point;
-
-      for (int j = 0; j < 256; j++)
-        {
-          if (j == next_data)
-            {
-              fprintf (fp, "    0x%08lx,%s", collation_units_written,
-                       (j % 4) == 3 ? "\n" : "");
-              collation_units_written += page->entries[point_count].data->num_elements;
-
-              if (++point_count == page->count)
-                next_data = -1;
+                  if (++point_count == info.singles.count)
+                    next_data = -1;
+                  else
+                    {
+                      next_data = info.singles.entries[point_count].codepoint;
+                      if ((next_data >> 8) > cur_page)
+                        next_data = -1;
+                    }
+                }
               else
-                next_data = page->entries[point_count].point;
+                {
+                  fprintf (fp, "    0x00000000,%s",
+                           (j % 4) == 3 ? "\n" : "");
+                }
             }
-          else
-            {
-              fprintf (fp, "    0x00000000,%s",
-                       (j % 4) == 3 ? "\n" : "");
-            }
+          fprintf (fp, "    }\n");
+          fprintf (fp, "  },\n");
+
+          first_point = point_count;
+          if (point_count == info.singles.count)
+            break;
+
         }
-      fprintf (fp, "    }\n");
-      fprintf (fp, "  },\n");
     }
+
   fprintf (fp, "  },\n");
   fprintf (fp, "  { /* .trie_array */\n");
 
@@ -869,7 +885,7 @@ write_c_source (const char *output_file)
   fprintf (fp, "\n  { /* .collation_data */\n");
 
   for (uint32_t i = 0; i < collation_records_count; i++)
-    write_collation_data (fp, collation_records[i].data);
+    write_collation_data (fp, collation_records[i]);
 
   free (collation_records);
   fprintf (fp, "  },\n");
@@ -915,13 +931,13 @@ main (int argc, char *argv[])
   collation_records_count = 0;
 
   /* Output dummy entry at index 0. */
-  collation_records[0].data = malloc (sizeof (struct collation_data));
-  collation_records[0].data->num_elements = 1;
-  collation_records[0].data->elements[0] = (struct collation_element) {0, 0, 0};
+  collation_records[0] = malloc (sizeof (struct collation_data));
+  collation_records[0]->num_elements = 1;
+  collation_records[0]->elements[0] = (struct collation_element) {0, 0, 0};
   collation_records_count++;
   collation_units_written++;
 
-  process_page_table ();
+  process_singles ();
 
   trie_node_index = 0;
   info.trie_root->trie_index = trie_node_index++;
