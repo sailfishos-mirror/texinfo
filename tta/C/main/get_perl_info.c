@@ -1427,15 +1427,20 @@ get_language_document_hv_sorted_indices (HV *document_hv, const char *key,
 
 
 
-/* Note that it is not really possible to get FILE from a filehandle associated
-   to a file to be closed in unclosed_files.  If the file was opened in C,
-   it is not possible to directly associate the unclosed stream to a SV
-   to transit through Perl, see comment in build_output_files_unclosed_files.
+/* Note that it is not really possible to get a FILE stream from a Perl
+   filehandle associated to a file to be closed (stored in unclosed_files).
+   If the file was opened in C, it is not possible to directly associate
+   the unclosed stream to a SV to transit through Perl, see comment in
+   build_output_files_unclosed_files.  It should be possible to find the
+   FILE stream opened is C and stored in
+   converter->self->output_files_information->unclosed_files based on the
+   file name.
    If the file was opened in Perl, it is possible to get a PerlIO, as done
-   below in code, but not a FILE to be closed.  A file obtained with
+   in the code below, but not a FILE to be closed.  A file obtained with
    PerlIO_exportFILE is a new FILE and should be released before closed and
-   do not close the PerlIO.  The PerlIO can be closed, though, or be carried
-   around to be closed later on.
+   closing this FILE does not close the PerlIO.  The PerlIO can be closed,
+   though, or be carried around to be closed later on, which is what is done
+   in the code below.
  */
  /*
    NOTE clears Perl output files information, as if
@@ -1475,14 +1480,6 @@ get_output_files_information (SV *output_files_sv)
           SV *file_name_sv = hv_iterkeysv (next);
           const char *file_name = SvPVutf8_nolen (file_name_sv);
           add_string (file_name, &output_files_information->opened_files);
-          /* no real need for the value, still check that it is 1 */
-          SV *value_sv = HeVAL(next);
-          if (!SvOK (value_sv) || !looks_like_number (value_sv)
-              || SvIV (value_sv) != 1)
-            {
-              fprintf (stderr, "BUG? Unexpected opened_files value for `%s'\n",
-                                file_name);
-            }
         }
 
       hv_clear (opened_files_hv);
@@ -1497,6 +1494,8 @@ get_output_files_information (SV *output_files_sv)
       I32 hv_number;
       I32 i;
 
+      /* Should actually be 0, as the files are all closed (maybe except
+         STDOUT) */
       hv_number = hv_iterinit (unclosed_files_hv);
 
       for (i = 0; i < hv_number; i++)
@@ -1515,12 +1514,15 @@ get_output_files_information (SV *output_files_sv)
            */
           if (!SvOK (value_sv))
             {
-          /* TODO It could be possible to find the FILE, by adding
+          /* NOTE It could be possible to find the FILE, by adding
              a converter argument to the function, and using code similar
-             to get_unclosed_stream.
-             However, since the files are all closed (maybe except STDOUT)
-             this situation probably never happens, so it is not important
-             to fix this issue.
+             to get_unclosed_stream. However, this code should never be
+             called, because:
+             * if there is a C implementation of the converter all the files
+               are opened and closed in C and get_output_files_information
+               is not called.
+             * if there is only a Perl converter implementation, all the
+               files are opened in Perl and value_sv is defined.
            */
               fprintf (stderr, "REMARK: unclosed C stream for `%s'\n",
                        file_name);

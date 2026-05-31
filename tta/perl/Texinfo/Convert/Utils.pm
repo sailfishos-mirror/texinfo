@@ -166,15 +166,6 @@ sub output_files_register_closed($$) {
   }
 }
 
-#sub output_files_register_opened($$) {
-#  my ($self, $file_path) = @_;
-#
-#  # return something if already opened?
-#  #if (exists($self->{'opened_files'}->{$file_path})) {
-#  #}
-#  $self->{'opened_files'}->{$file_path} = 1;
-#}
-
 # NOTE nothing is done with 'unclosed_files', assuming that the renamed
 # file was already closed (as is the case for the caller of this function).
 # Also the call to rename could be done in this function if there are more
