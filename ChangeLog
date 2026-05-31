@@ -1,5 +1,12 @@
 2026-05-31 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/tests/other/list-of-tests (index_collation_test_html)
+	(index_collation_test_collation_language_html)
+	(index_collation_test_documentlanguage_collation_html): add tests of
+	language tailored collation for HTML output.
+
+2026-05-31 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/call_perl_function.c (call_setup_lang_collator),
 	tta/perl/Texinfo/Indices.pm (_setup_lang_collator, _setup_collator):
 	split _setup_lang_collator out of _setup_collator for a
