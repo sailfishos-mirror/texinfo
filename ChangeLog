@@ -1,5 +1,20 @@
 2026-05-31 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/call_perl_function.c (call_setup_lang_collator),
+	tta/perl/Texinfo/Indices.pm (_setup_lang_collator, _setup_collator):
+	split _setup_lang_collator out of _setup_collator for a
+	language tailored collation locale and add call_setup_lang_collator
+	to call from C.
+
+	* tta/C/main/manipulate_indices.c (setup_collator): call
+	call_setup_lang_collator if the collation language is set.
+
+	* tta/perl/Texinfo/Indices.pm (_setup_collator): minor change in code
+	to make clearer that Texinfo::CollateStub is only used with
+	$use_unicode_collation set.
+
+2026-05-31 Patrice Dumas  <pertusus@free.fr>
+
 	* README-hacking, tta/README: update for changes related to collation
 	and languages.
 

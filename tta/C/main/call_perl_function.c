@@ -114,6 +114,53 @@ call_translations_translate_string (const char *string,
 }
 
 void *
+call_setup_lang_collator (const char *locale_lang)
+{
+  int count;
+  void *result = 0;
+  SV *collator_sv = 0;
+
+  dTHX;
+
+  if (!has_perl_interpreter ())
+    return 0;
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 1);
+
+  PUSHs(sv_2mortal (newSVpv (locale_lang, 0)));
+
+  PUTBACK;
+
+  count = call_pv ("Texinfo::Indices::_setup_lang_collator",
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak ("_setup_lang_collator should return 1 item\n");
+
+  collator_sv = POPs;
+  if (SvOK (collator_sv))
+    {
+      SvREFCNT_inc (collator_sv);
+      result = (void *) collator_sv;
+    }
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
+void *
 call_setup_collator (int use_unicode_collation, const char *locale_lang)
 {
   int count;

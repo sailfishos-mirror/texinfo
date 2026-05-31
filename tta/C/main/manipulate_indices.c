@@ -624,15 +624,9 @@ setup_collator (int use_unicode_collation, const char *collation_language,
     {
       if (collation_language)
         {
-          result->coll.sv = call_setup_collator (1, collation_language);
+          result->coll.sv = call_setup_lang_collator (collation_language);
           if (result->coll.sv)
             result->type = ctn_language_collation;
-          else
-          /* no Perl collator if there is no Perl interpreter.  Calling code
-             is supposed to avoid that situation */
-            message_list_document_warn (error_messages, options, 0,
-                    "no collator (no Perl?) for language: %s",
-                    collation_language);
         }
 
       if (!result->type)

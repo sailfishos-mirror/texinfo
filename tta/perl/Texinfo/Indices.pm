@@ -159,19 +159,38 @@ sub getSortKey($$) {
 
 package Texinfo::Indices;
 
+# 'Non-Ignorable' for 'variable' collation characters means that they are
+# treated as normal characters.   This allows to have spaces and punctuation
+# marks sort before letters.
+# http://www.unicode.org/reports/tr10/#Variable_Weighting
+my %collate_options = ( 'variable' => 'Non-Ignorable' );
+
 # called from C/main/call_perl_function.c
+sub _setup_lang_collator($;$) {
+  my ($lang_sorting_locale, $collate_options_ref) = @_;
+
+  $collate_options_ref = \%collate_options if (!defined($collate_options_ref));
+
+  my $collator;
+  # Unicode::Collate::Locale is present in perl core since perl major
+  # version 5.14 released in 2011.
+  eval { require Unicode::Collate::Locale;
+         Unicode::Collate::Locale->import; };
+  my $unicode_collate_locale_loading_error = $@;
+  if ($unicode_collate_locale_loading_error eq '') {
+    $collator = Unicode::Collate::Locale->new(
+                                 'locale' => $lang_sorting_locale,
+                                              %collate_options);
+  }
+  return $collator;
+}
+
 sub _setup_collator($$) {
   my ($use_unicode_collation, $lang_sorting_locale) = @_;
 
   my $collator;
 
-  # The 'Non-Ignorable' for variable collation elements means that they are
-  # treated as normal characters.   This allows to have spaces and punctuation
-  # marks sort before letters.
-  # http://www.unicode.org/reports/tr10/#Variable_Weighting
-  my %collate_options = ( 'variable' => 'Non-Ignorable' );
-
-  # The Unicode::Collate sorting changes often, based on the UCA version.
+  # The Unicode::Collate sorting changes based on the UCA version.
   # To test the result with a specific version, the UCA_Version should be set,
   # and, more importantly the table should correspond to that version.
   # To test a specific table, in the tta directory, do
@@ -194,25 +213,18 @@ sub _setup_collator($$) {
   #                   'table' => 'allkeys-3.1.1.txt');
 
   if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
-    # Unicode::Collate::Locale is present in perl core since perl major
-    # version 5.14 released in 2011.
     if (defined($lang_sorting_locale)) {
-      eval { require Unicode::Collate::Locale;
-             Unicode::Collate::Locale->import; };
-      my $unicode_collate_locale_loading_error = $@;
-      if ($unicode_collate_locale_loading_error eq '') {
-        $collator = Unicode::Collate::Locale->new(
-                                     'locale' => $lang_sorting_locale,
-                                                  %collate_options);
-      }
+      $collator = _setup_lang_collator($lang_sorting_locale,
+                                       \%collate_options);
     }
 
     if (!defined($collator)) {
       $collator = Unicode::Collate->new(%collate_options);
     }
+  } else {
+    # stub if Unicode::Collate not wanted.
+    $collator = Texinfo::CollateStub->new() if (!defined($collator));
   }
-  # Fall back to stub if Unicode::Collate not wanted.
-  $collator = Texinfo::CollateStub->new() if (!defined($collator));
 
   return $collator;
 }

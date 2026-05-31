@@ -83,8 +83,12 @@ call_translations_translate_string (const char *string,
   return 0;
 }
 
-/* happens if not linked against Perl and a collation locale was specified
-   but not found */
+void *
+call_setup_lang_collator (const char *locale_lang)
+{
+  return 0;
+}
+
 void *
 call_setup_collator (int use_unicode_collation, const char *locale_lang)
 {
