@@ -81,6 +81,20 @@ static struct allkeys_info info;
 
 
 /***********************/
+/* Error reporting     */
+/***********************/
+
+static const char *program_name = "gen-collation-table";
+
+void
+fatal (char *message)
+{
+  fprintf (stderr, "%s: %s\n", program_name, message);
+  exit (1);
+}
+
+
+/***********************/
 /* Reading allkeys.txt */
 /***********************/
 
@@ -133,10 +147,8 @@ parse_implicitweight (const char *line)
     
     {
       if (info.num_implicit_blocks == MAX_IMPLICIT_BLOCKS)
-        {
-          fprintf (stderr, "too many implicit blocks\n");
-          exit (1);
-        }
+        fatal ("too many implicit blocks");
+
       info.implicit_blocks[info.num_implicit_blocks++]
         = (struct implicit_block) {low, high, primary};
     }
@@ -163,10 +175,7 @@ build_allkeys_info (const char *filename)
 {
   FILE *fp = fopen (filename, "r");
   if (!fp)
-    {
-      perror ("Failed to open input file");
-      return 0;
-    }
+    fatal ("failed to open input file");
 
   info.singles.alloc = 1000;
   info.singles.count = 0;
@@ -215,10 +224,7 @@ build_allkeys_info (const char *filename)
             break;
           p += read;
           if (codepoints[num_codepoints] > 0x10FFFF)
-            {
-              fprintf (stderr, "codepoint too high\n");
-              exit (1);
-            }
+            fatal ("codepoint too high");
           num_codepoints++;
           if (num_codepoints >= MAX_SEQUENCE_LENGTH)
             break;
@@ -257,8 +263,8 @@ build_allkeys_info (const char *filename)
                   if (data.num_elements < MAX_COLLATION_ELEMENTS)
                     data.elements[data.num_elements++] = elem;
                   else
-                    fprintf (stderr,
-                      "maximum collation element sequence length exceeded\n");
+                    fatal
+                      ("maximum collation element sequence length exceeded");
                   if (variable_weight)
                     {
                       if (elem.primary > info.max_variable_weight)
@@ -266,10 +272,7 @@ build_allkeys_info (const char *filename)
                     }
                 }
               else
-                {
-                  fprintf (stderr, "parse_collation_element error\n");
-                  exit (1);
-                }
+                fatal ("parse_collation_element error");
             }
           else
             {
@@ -407,10 +410,7 @@ expand_collation_sequence (struct collation_data *data)
         = (struct collation_element) { primary_write, secondary_write, tertiary_write };
 
       if (new.num_elements == MAX_COLLATION_ELEMENTS)
-        {
-          fprintf (stderr, "too many collation units in record\n");
-          exit (1);
-        }
+        fatal ("too many collation units in record");
 
       if (primary_extension || secondary_extension)
         {
@@ -418,10 +418,7 @@ expand_collation_sequence (struct collation_data *data)
             = (struct collation_element) { primary_extension, secondary_extension, 0 };
 
           if (new.num_elements == MAX_COLLATION_ELEMENTS)
-            {
-              fprintf (stderr, "too many collation units in record\n");
-              exit (1);
-            }
+            fatal ("too many collation units in record");
 
           primary_extension = 0;
           secondary_extension = 0;
@@ -667,10 +664,7 @@ write_c_source (const char *output_file)
 {
   FILE *fp = fopen (output_file, "w");
   if (!fp)
-    {
-      perror ("Failed to open output file");
-      return;
-    }
+    fatal ("failed to open output file");
 
   long i;
 
