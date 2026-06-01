@@ -5,7 +5,6 @@
 #include <stdint.h>
 #include <inttypes.h>
 #include <string.h>
-#include <ctype.h>
 #include <uchar.h>
 
 #include "uninorm.h"
@@ -184,8 +183,7 @@ build_allkeys_info (const char *filename)
       line_num++;
       const char *p = line;
 
-      while (*p && isspace (*p))
-        p++;
+      p += strspn (p, " \t");
       if (*p == '#' || *p == '\0')
         continue;
 
