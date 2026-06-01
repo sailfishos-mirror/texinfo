@@ -6,7 +6,6 @@
 #include <inttypes.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdbool.h>
 #include <uchar.h>
 
 #include "uninorm.h"
