@@ -46,12 +46,7 @@
 #include "call_perl_function.h"
 #include "api_to_perl.h"
 #include "manipulate_indices.h"
-
-#define NATIVE_UTS10_COLLATION
-
-#ifdef NATIVE_UTS10_COLLATION
 #include "unicode-collation/collation_key.h"
-#endif
 
 /* corresponding perl code in Texinfo::Indices */
 
@@ -345,18 +340,13 @@ get_sort_key (const INDEX_COLLATOR *collator, const char *sort_string)
         break;
       #endif
       case ctn_unicode:
-      #ifdef NATIVE_UTS10_COLLATION
-          sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
+        sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
+        sort_key->bytes = u8_make_collation_key
+          (sort_string, strlen (sort_string),
+           UNICOLL_VARIABLE_NONIGNORABLE,
+           NULL, &sort_key->len);
 
-          sort_key->bytes = u8_make_collation_key
-            (sort_string, strlen (sort_string),
-             UNICOLL_VARIABLE_NONIGNORABLE,
-             NULL, &sort_key->len);
-
-          break;
-      #else
-        /* fall through */
-      #endif
+        break;
       case ctn_language_collation:
       default: /* !HAVE_STRXFRM_L && ctn_locale_collation */
         sort_key = call_collator_getSortKey (collator->coll.sv,
@@ -651,18 +641,7 @@ setup_collator (int use_unicode_collation, const char *collation_language,
           #endif
           #endif
 
-          #ifdef NATIVE_UTS10_COLLATION
           result->type = ctn_unicode;
-          #else
-          result->coll.sv = call_setup_collator (1, 0);
-          if (result->coll.sv == 0)
-            /* if not linked against Perl or there is no strxfrm_l, this is
-               a likely outcome.  This also happens if called as ctexi2any
-               without embedded Perl */
-            result->type = ctn_no_unicode;
-          else
-            result->type = ctn_unicode;
-          #endif
         }
     }
   return result;
