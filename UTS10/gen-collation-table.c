@@ -87,17 +87,6 @@ static struct allkeys_info info;
 /***********************/
 
 static int
-parse_hex (const char *str, uint32_t *value)
-{
-  char *endptr;
-  unsigned long val = strtoul (str, &endptr, 16);
-  if (endptr == str || val > 0x10FFFF)
-    return 0;
-  *value = (uint32_t) val;
-  return 1;
-}
-
-static int
 parse_collation_element (const char **str,
                          struct collation_element *elem,
                          int *variable_weight)
@@ -220,19 +209,22 @@ build_allkeys_info (const char *filename)
       char32_t codepoints[MAX_SEQUENCE_LENGTH];
       size_t num_codepoints = 0;
 
-      while (*p && isxdigit (*p))
+      while (1)
         {
-          char hex[7] = { 0 };
-          int i = 0;
-          while (isxdigit (*p) && i < 6)
-            hex[i++] = *p++;
-          if (!parse_hex (hex, &codepoints[num_codepoints]))
+          int read = 0;
+          if (sscanf (p, " %" SCNx32 "%n",
+                     &codepoints[num_codepoints],
+                     &read) != 1 || read == 0)
             break;
+          p += read;
+          if (codepoints[num_codepoints] > 0x10FFFF)
+            {
+              fprintf (stderr, "codepoint too high\n");
+              exit (1);
+            }
           num_codepoints++;
           if (num_codepoints >= MAX_SEQUENCE_LENGTH)
             break;
-          while (*p && isspace (*p) && *p != ';')
-            p++;
         }
 
       if (num_codepoints == 0)
@@ -276,11 +268,11 @@ build_allkeys_info (const char *filename)
                         info.max_variable_weight = elem.primary;
                     }
                 }
-                else
-                  {
-                    fprintf (stderr, "parse_collation_element error\n");
-                    exit (1);
-                  }
+              else
+                {
+                  fprintf (stderr, "parse_collation_element error\n");
+                  exit (1);
+                }
             }
           else
             {
