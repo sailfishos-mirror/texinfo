@@ -89,13 +89,7 @@ call_setup_lang_collator (const char *locale_lang)
   return 0;
 }
 
-void *
-call_setup_collator (int use_unicode_collation, const char *locale_lang)
-{
-  return 0;
-}
-
-/* since call_setup_collator returns 0, the following function will never
+/* since call_setup_lang_collator returns 0, the following function will never
    be called */
 BYTES_STRING *
 call_collator_getSortKey (const void *collator_sv, const char *string)

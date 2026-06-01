@@ -10,8 +10,6 @@ char *call_translations_translate_string (const char *string,
                                           const char *translation_context);
 
 void *call_setup_lang_collator (const char *locale_lang);
-void *call_setup_collator (int use_unicode_collation,
-                                 const char *locale_lang);
 
 BYTES_STRING *call_collator_getSortKey (const void *collator_sv,
                                         const char *string);

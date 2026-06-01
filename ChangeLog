@@ -1,5 +1,11 @@
 2026-06-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/main/call_perl_function.c (call_setup_collator),
+	* tta/C/main/replace_perl_api_call.c (call_setup_collator):
+	Remove unused function.
+
+2026-06-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/main/manipulate_indices.c (setup_collator, get_sort_key):
 	Remove #define NATIVE_UTS10_COLLATION and use
 	NATIVE_UTS10_COLLATION code unconditionally.
