@@ -1,5 +1,14 @@
 2026-06-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Avoid outputting extra spaces with index entry commands
+
+	* doc/texinfo.tex (\checksortas, \checkseealso, \checkseeentry):
+	Add missing % after {.
+	
+	Report from Arnold Robbins.
+
+2026-06-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/main/call_perl_function.c (call_setup_collator),
 	* tta/C/main/replace_perl_api_call.c (call_setup_collator):
 	Remove unused function.
