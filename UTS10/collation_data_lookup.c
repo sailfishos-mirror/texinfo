@@ -76,8 +76,6 @@ lookup_collation_data_at_char (char32_t *const string,
   char32_t *pre_non_starter = 0;
   int max_combining_class = 0;
 
-  /* similar to lookup_sequence but number of codepoints consumed
-     is not known in advance */
   size_t n_codepoints;
 
 #if check_sequences
