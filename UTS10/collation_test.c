@@ -151,10 +151,10 @@ main (int argc, char *argv[])
           exit (1);
         }
 
-      sort_key2 = u32_make_collation_key_ext (codepoints, length,
+      sort_key2 = u32_make_collation_key (codepoints, length,
                     variable_shifted ? UNICOLL_VARIABLE_SHIFTED
                                      : UNICOLL_VARIABLE_NONIGNORABLE,
-                    trace, NULL, &sort_key2_len);
+                    NULL, &sort_key2_len);
 
       /* We expect that sort_key1 <= sort_key1. */
       if (sort_key1 && sort_key2 && strcmp (sort_key1, sort_key2) > 0)

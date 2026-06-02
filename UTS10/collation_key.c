@@ -12,9 +12,8 @@
 #include "collation_key.h"
 
 char *
-u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
-                            int variable, int debug,
-                            char *resultbuf, size_t *lengthp)
+u32_make_collation_key (const char32_t *codepoints_in, size_t length_in,
+                        int variable, char *resultbuf, size_t *lengthp)
 {
   if (variable != UNICOLL_VARIABLE_NONIGNORABLE
       && variable != UNICOLL_VARIABLE_SHIFTED
@@ -34,21 +33,6 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   codepoints =
     u32_normalize (UNINORM_NFD, codepoints_in, length_in, NULL, &length);
 
-  if (debug)
-    {
-      printf ("Normalised string:\n");
-      for (size_t i = 0; i < length; i++)
-        {
-          printf ("  [%zu] %u (U+%04X)", i, codepoints[i],
-                  codepoints[i]);
-
-          if (codepoints[i] >= 32 && codepoints[i] < 128)
-            printf (" '%c'",  (char) codepoints[i]);
-          printf ("\n");
-
-        }
-    }
- 
   /* get array of collation entries */
   struct collation_info
   {
@@ -108,34 +92,20 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   size_t elements_count = 0;
   for (size_t i = 0; i < n_entries; i++)
     {
-      if (debug)
-        fprintf (stderr, "Collation info for U+%04X: ",
-          codepoints[entry_array[i].string_index]);
-
       if (entry_array[i].array)
         {
           size_t num_entry_elements = entry_array[i].num_elements;
           memcpy (&elements[elements_count],
                   entry_array[i].array,
                   num_entry_elements * sizeof (struct collation_unit));
-          if (debug)
-            print_collation_unit (stderr,
-                                  &elements[elements_count],
-                                  num_entry_elements);
           elements_count += num_entry_elements;
         }
       else
         {
           size_t num_entry_elements;
-          if (debug)
-            fprintf (stderr, "unknown/implicit: ");
           get_implicit_weight
             (codepoints[entry_array[i].string_index],
              &elements[elements_count], &num_entry_elements);
-          if (debug)
-            print_collation_unit (stderr,
-                                  &elements[elements_count],
-                                  num_entry_elements);
           elements_count += num_entry_elements;
 
         }
@@ -350,16 +320,8 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
 }
 
 char *
-u32_make_collation_key (const char32_t *codepoints_in, size_t length_in,
-                        int variable, char *resultbuf, size_t *lengthp)
-{
-  return u32_make_collation_key_ext (codepoints_in, length_in, 0, variable,
-                                     resultbuf, lengthp);
-}
-
-char *
-u8_make_collation_key_ext (const uint8_t *u8_str, size_t length_in,
-                   int variable, int debug, char *resultbuf, size_t *lengthp)
+u8_make_collation_key (const uint8_t *u8_str, size_t length_in,
+                   int variable, char *resultbuf, size_t *lengthp)
 {
   static char32_t *u32_str;
   static size_t u32_len;
@@ -373,15 +335,7 @@ u8_make_collation_key_ext (const uint8_t *u8_str, size_t length_in,
       u32_str = ret;
     }
 
-  char *key = u32_make_collation_key_ext (u32_str, u32_len, variable,
-                                          debug, resultbuf, lengthp);
+  char *key = u32_make_collation_key (u32_str, u32_len, variable,
+                                          resultbuf, lengthp);
   return key;
-}
-
-char *
-u8_make_collation_key (const uint8_t *u8_str, size_t length_in,
-                       int variable, char *resultbuf, size_t *lengthp)
-{
-  return u8_make_collation_key_ext (u8_str, length_in, variable,
-                                  0, resultbuf, lengthp);
 }

@@ -297,28 +297,3 @@ get_implicit_weight (char32_t codepoint,
       (*n_elements) = 0;
     }
 }
-
-void
-print_collation_unit (FILE *stream,
-                      const struct collation_unit *elements, size_t num_elements)
-{
-  for (size_t i = 0; i < num_elements; i++)
-    {
-      if (elements[i].primary != 0x0000
-          && elements[i].primary <= collation_data.max_variable_weight)
-        {
-          fprintf (stream,
-                   "[*%04X.%04X.%04X]",
-                   elements[i].primary,
-                   elements[i].secondary, elements[i].tertiary);
-        }
-      else
-        {
-          fprintf (stream,
-                   "[.%04X.%04X.%04X]",
-                   elements[i].primary,
-                   elements[i].secondary, elements[i].tertiary);
-        }
-    }
-  fprintf (stderr, "\n");
-}
