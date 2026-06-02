@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include <errno.h>
 
 #include "unistr.h"
 #include "uninorm.h"
@@ -19,9 +20,8 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
       && variable != UNICOLL_VARIABLE_SHIFTED
       && variable != UNICOLL_VARIABLE_BLANKED)
     {
-      fprintf (stderr, "unknown setting for variable "
-                       "collation elements\n");
-      exit (1);
+      errno = EINVAL;
+      return 0;
     }
 
   int variable_shifted = (variable == UNICOLL_VARIABLE_SHIFTED);
@@ -61,6 +61,11 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
      multi-character sequences.  */
   struct collation_info *entry_array
     = malloc (sizeof (*entry_array) * length);
+  if (!entry_array)
+    {
+      errno = ENOMEM;
+      return 0;
+    }
 
   size_t n_entries = 0;
 
@@ -158,7 +163,14 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
   if (resultbuf && sort_key_alloc < *lengthp)
     sort_key = resultbuf;
   else
-    sort_key = malloc (sort_key_alloc);
+    {
+      sort_key = malloc (sort_key_alloc);
+      if (!sort_key)
+        {
+          errno = ENOMEM;
+          return 0;
+        }
+    }
 
   psort_key = sort_key;
 
@@ -181,8 +193,9 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
         {
           if (weight > 0xFE00)
             {
-              fprintf (stderr, "primary weight too high\n");
-              exit (1);
+              /* bug: primary weight too high */
+              errno = EINVAL;
+              return 0;
             }
           *psort_key++ = (weight / 0xFF) + 1;
           *psort_key++ = (weight % 0xFF) + 1;
@@ -221,8 +234,9 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
         {
           if (weight == 0xFF)
             {
-              fprintf (stderr, "secondary weight too high\n");
-              exit (1);
+              /* bug: secondary weight too high */
+              errno = EINVAL;
+              return 0;
             }
           *psort_key++ = weight + 1;
         }
@@ -262,8 +276,9 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
         {
           if (weight == 0xFF)
             {
-              fprintf (stderr, "tertiary weight too high\n");
-              exit (1);
+              /* bug: tertiary weight too high */
+              errno = EINVAL;
+              return 0;
             }
           *psort_key++ = weight + 1;
         }
@@ -300,8 +315,9 @@ u32_make_collation_key_ext (const char32_t *codepoints_in, size_t length_in,
               uint16_t weight = elements[i].primary;
               if (weight > 0xFE00)
                 {
-                  fprintf (stderr, "shifted primary weight too high\n");
-                  exit (1);
+                  /* bug: shifted primary weight too high */
+                  errno = EINVAL;
+                  return 0;
                 }
               *psort_key++ = (weight / 0xFF) + 1;
               *psort_key++ = (weight % 0xFF) + 1;

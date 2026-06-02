@@ -1,7 +1,3 @@
-* out of date file names in interfile cross-references
-
-* better tests
-
 * revise data structures for lookup
 See "5.1.2 Multi-stage tables" in Unicode standard for some hints
 https://www.unicode.org/versions/Unicode17.0.0/core-spec/chapter-5/
