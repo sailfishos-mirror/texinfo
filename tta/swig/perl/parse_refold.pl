@@ -103,9 +103,9 @@ my $result_options = Getopt::Long::GetOptions (
 # do not use a Perl interpreter, as it is not needed anywhere in the called
 # functions.  If used, the updirs argument should also be given as it is
 # 2 and not the default.
-Texinfo::setup(1, $Texinfo::txi_interpreter_use_no_interpreter);
+Texinfo::setup(1, 0);
 # With an interpreter
-#Texinfo::setup(1, $Texinfo::txi_interpreter_use_interpreter, 2);
+#Texinfo::setup(1, 1, 2);
 
 my $curdir = File::Spec->curdir();
 

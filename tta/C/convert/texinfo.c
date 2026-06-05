@@ -142,17 +142,40 @@ txi_load_interpreter (const INTERPRETER_LOADING_INFO *loading_info)
   return status;
 }
 
+/* assume that there is already a Perl interpreter loaded, but the
+   texi2any Perl modules are not loaded and load some modules.
+   Used from the Perl SWIG interface */
+void
+txi_use_interpreter_load_modules (int texinfo_uninstalled, const char *datadir,
+                              const char *converter_datadir,
+                              const char *converter_libdir,
+                              const char *t2a_builddir,
+                              const char *t2a_srcdir, int updirs)
+{
+  int loaded
+     = call_eval_load_texinfo_modules (texinfo_uninstalled, t2a_builddir,
+                                      updirs, converter_datadir,
+                                      converter_libdir, datadir);
+
+  /* In general, loaded <= 0 cannot happen, because failure to call Perl
+     if embedded or to load modules should lead to dying/croaking
+     earlier, notably in XSLoader */
+
+  if (loaded < 0)
+    /* Unexpected failure loading Perl modules, consider that there is no
+       Perl interpreter
+     */
+    set_use_perl_interpreter (0);
+  else
+    set_use_perl_interpreter (txi_interpreter_use_interpreter);
+}
+
 /* Start an embedded interpreter or initialize an existing interpreter.
    To be called before loading init files.
  */
+/* TODO remove the use_interpreter unused possibilities */
 void
-txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
-                      int texinfo_uninstalled,
-                      const char *datadir,
-                      const char *converter_datadir,
-                      const char *converter_libdir,
-                      const char *t2a_builddir,
-                      const char *t2a_srcdir, int updirs,
+txi_setup_load_interpreter (enum interpreter_use use_interpreter,
                       int *argc_ref, char ***argv_ref, char ***env_ref,
                       const char *version_checked,
                       INTERPRETER_LOADING_INFO *loading_info)
@@ -166,27 +189,6 @@ txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
       loading_info->version_checked = version_checked;
       if (use_interpreter == txi_interpreter_use_embedded)
         txi_load_interpreter (loading_info);
-    }
-  else if (use_interpreter == txi_interpreter_use_interpreter)
-    {/* assume that there is already a Perl interpreter loaded, but the
-        texi2any Perl modules are not loaded and load some modules.
-        Used from the Perl SWIG interface */
-      int loaded
-         = call_eval_load_texinfo_modules (texinfo_uninstalled, t2a_builddir,
-                                      updirs, converter_datadir,
-                                      converter_libdir, datadir);
-
-      /* In general, loaded <= 0 cannot happen, because failure to call Perl
-         if embedded or to load modules should lead to dying/croaking
-         earlier, notably in XSLoader */
-
-      if (loaded < 0)
-        /* Unexpected failure loading Perl modules, consider that there is no
-           Perl interpreter
-         */
-        set_use_perl_interpreter (0);
-      else
-        set_use_perl_interpreter (use_interpreter);
     }
   else
     {

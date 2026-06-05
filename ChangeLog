@@ -1,5 +1,21 @@
 2026-06-05 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/texinfo.c (txi_use_interpreter_load_modules)
+	(txi_setup_load_interpreter), tta/C/texi2any.c (main),
+	tta/swig/texinfo.i (txi_ext_inline_setup): split code loading modules
+	but not embedding a Perl interpreter out of
+	txi_setup_main_load_interpreter, since there is nothing in common with
+	the case of embedding a Perl interpreter.  Rename
+	txi_setup_main_load_interpreter as txi_setup_load_interpreter.
+	Update functions previously calling txi_setup_main_load_interpreter.
+
+	* tta/swig/perl/parse_refold.pl, tta/swig/python/test_Texinfo.py,
+	tta/swig/texinfo.i (txi_ext_inline_setup): change txi_ext_inline_setup
+	argument to be a simple 1 or 0 to determine if using an interpreter
+	instead of an enum interpreter_use.
+
+2026-06-05 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/t/20index_sort.t: add entries with sorting order
 	changing with language.  Add a test with sv language used for sorting.
 

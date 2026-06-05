@@ -1199,12 +1199,8 @@ main (int argc, char *argv[], char *env[])
   else
     version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
 
-  /* load interpreter or setup loading_info if needed */
-  /* no converter_libdir argument because it is only needed when
-     (re)using a Perl interpreter, which is never the case here */
-  txi_setup_main_load_interpreter (embedded_interpreter,
-                        texinfo_uninstalled, datadir,
-                        converter_datadir, 0, t2a_builddir, t2a_srcdir, 0,
+  /* setup loading_info used for Perl interpreter embedding if needed */
+  txi_setup_load_interpreter (embedded_interpreter,
                         &argc, &argv, &env,
                         version_for_embedded_interpreter_check,
                         &loading_info);
