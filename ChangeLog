@@ -1,3 +1,8 @@
+2026-06-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* texindex/ti.twjr (Input form): Update for switch from
+	\ to @ in index files.
+
 2026-06-05 Patrice Dumas  <pertusus@free.fr>
 
 	Load an embedded Perl interpreter in SWIG only when needed

@@ -259,13 +259,8 @@ key by escaping them with the @dfn{command character}.
 In the example above, the command character is @samp{@@} (as in Texinfo
 itself).  Historically, however, the command character was backslash
 (@samp{\}), and @file{texindex.awk} can handle either one.
-
-Because older versions of @command{texi2dvi} only understand backslash as
-the command character, it remains set to backslash, so that newer versions
-of @file{texinfo.tex} will work with older versions of @command{texi2dvi}.
-Once the newer version of @command{texi2dvi} that also understands
-@samp{@@} has had a chance to spread, (we can hope that) the command
-character will change to @samp{@@}.
+@file{texinfo.tex} switched to @samp{@@} as its command character in
+index files in Texinfo 7.2, released in 2023.
 
 The command character is determined at run time by looking at the first
 character on the first line of each input file.
