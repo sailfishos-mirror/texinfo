@@ -1,5 +1,22 @@
 2026-06-05 Patrice Dumas  <pertusus@free.fr>
 
+	Load an embedded Perl interpreter in SWIG only when needed
+
+	* tta/C/convert/texinfo.c (txi_use_interpreter_load_modules): return a
+	status.
+
+	* tta/swig/texinfo.i (use_interpreter_state, txi_ext_inline_setup)
+	(txi_ext_inline_get_index_sorted_by_index): setup loaded interpreter
+	using txi_interpreter_want_embedded.  Add
+	txi_ext_inline_get_index_sorted_by_index wrapper around
+	txi_ext_get_index_sorted_by_index that loads a Perl embedded
+	interpreter if needed and calls txi_ext_get_index_sorted_by_index.
+	Set use_interpreter_state to txi_interpreter_want_embedded in
+	txi_ext_inline_setup if using an existing Perl interpreter and the
+	call of txi_use_interpreter_load_modules succeeded.
+
+2026-06-05 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/texinfo.c (txi_use_interpreter_load_modules)
 	(txi_setup_load_interpreter), tta/C/texi2any.c (main),
 	tta/swig/texinfo.i (txi_ext_inline_setup): split code loading modules

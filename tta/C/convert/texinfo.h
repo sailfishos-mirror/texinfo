@@ -71,7 +71,7 @@ void txi_general_output_strings_setup (void);
 
 int txi_load_interpreter (const INTERPRETER_LOADING_INFO *loading_info);
 
-void txi_use_interpreter_load_modules (int texinfo_uninstalled,
+int txi_use_interpreter_load_modules (int texinfo_uninstalled,
                                 const char *datadir,
                                 const char *converter_datadir,
                                 const char *converter_libdir,

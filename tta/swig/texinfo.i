@@ -88,7 +88,7 @@ txi_ext_inline_setup (int texinfo_uninstalled=0,
 
 %{
 static INTERPRETER_LOADING_INFO loading_info;
-static enum interpreter_use embedded_interpreter
+static enum interpreter_use use_interpreter_state
    = txi_interpreter_use_no_interpreter;
 
 void
@@ -158,15 +158,17 @@ txi_ext_inline_setup (int texinfo_uninstalled,
       else
         version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
 
-      txi_setup_load_interpreter (txi_interpreter_use_embedded,
+      txi_setup_load_interpreter (txi_interpreter_want_embedded,
                                   0, 0, 0,
                                   version_for_embedded_interpreter_check,
                                   &loading_info);
+      use_interpreter_state = txi_interpreter_want_embedded;
 #endif
 #ifdef USE_PERL_INTERPRETER
   /* case of the Perl interface, reuse the the existing Perl interpreter.
      Only need to load texi2any modules */
       const char *converterlibdir = 0;
+      int status;
       if (!texinfo_uninstalled)
         {
           if (converterlibdir_in)
@@ -174,9 +176,11 @@ txi_ext_inline_setup (int texinfo_uninstalled,
           else
             converterlibdir = LIBDIR "/" CONVERTER_CONFIG;
         }
-      txi_use_interpreter_load_modules (texinfo_uninstalled,
+      status = txi_use_interpreter_load_modules (texinfo_uninstalled,
                                    datadir, converterdatadir, converterlibdir,
                                    t2a_builddir, t2a_srcdir, updirs);
+      if (!status)
+        use_interpreter_state = txi_interpreter_use_interpreter;
 #endif
     }
 
@@ -444,13 +448,37 @@ INDEX_ENTRY *txi_ext_sorted_index_entries_by_index (
 int txi_ext_sorted_index_entries_number (
                      const INDEX_SORTED_BY_INDEX *index_sorted);
 
-%rename(get_index_sorted_by_index) txi_ext_get_index_sorted_by_index;
-const INDEX_SORTED_BY_INDEX *txi_ext_get_index_sorted_by_index (
+%rename(get_index_sorted_by_index) txi_ext_inline_get_index_sorted_by_index;
+const INDEX_SORTED_BY_INDEX *txi_ext_inline_get_index_sorted_by_index (
                            DOCUMENT *document,
                            const char *index_name,
                            int use_unicode_collation=1,
                            const char *collation_language=0,
                            const char *collation_locale=0);
+%{
+/* Wrapper loading an embedded Perl inpterpreter if needed */
+const INDEX_SORTED_BY_INDEX *txi_ext_inline_get_index_sorted_by_index (
+                           DOCUMENT *document,
+                           const char *index_name,
+                           int use_unicode_collation,
+                           const char *collation_language,
+                           const char *collation_locale)
+{
+  if (collation_language
+      && use_interpreter_state == txi_interpreter_want_embedded)
+    {
+      int status = txi_load_interpreter (&loading_info);
+      if (!status)
+        use_interpreter_state = txi_interpreter_use_embedded;
+      else
+        use_interpreter_state = txi_interpreter_use_no_interpreter;
+    }
+
+  return txi_ext_get_index_sorted_by_index (document, index_name,
+                              use_unicode_collation, collation_language,
+                              collation_locale);
+}
+%}
 
 // listoffloats
 // tree_types.h

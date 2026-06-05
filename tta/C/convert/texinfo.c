@@ -145,7 +145,7 @@ txi_load_interpreter (const INTERPRETER_LOADING_INFO *loading_info)
 /* assume that there is already a Perl interpreter loaded, but the
    texi2any Perl modules are not loaded and load some modules.
    Used from the Perl SWIG interface */
-void
+int
 txi_use_interpreter_load_modules (int texinfo_uninstalled, const char *datadir,
                               const char *converter_datadir,
                               const char *converter_libdir,
@@ -162,12 +162,18 @@ txi_use_interpreter_load_modules (int texinfo_uninstalled, const char *datadir,
      earlier, notably in XSLoader */
 
   if (loaded < 0)
+    {
     /* Unexpected failure loading Perl modules, consider that there is no
        Perl interpreter
      */
-    set_use_perl_interpreter (0);
+      set_use_perl_interpreter (0);
+      return 1;
+    }
   else
-    set_use_perl_interpreter (txi_interpreter_use_interpreter);
+    {
+      set_use_perl_interpreter (txi_interpreter_use_interpreter);
+      return 0;
+    }
 }
 
 /* Start an embedded interpreter or initialize an existing interpreter.
