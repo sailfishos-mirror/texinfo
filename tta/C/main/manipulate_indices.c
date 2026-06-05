@@ -261,7 +261,7 @@ index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
 
   if (!index_entry_element)
     {
-      fatal ("index_entry_element_sort_string: NUL element");
+      fatal ("index_entry_element_sort_string: NULL element");
     }
 
   char *sortas = lookup_extra_string (index_entry_element, AI_key_sortas);
@@ -306,6 +306,7 @@ static BYTES_STRING *
 get_sort_key (const INDEX_COLLATOR *collator, const char *sort_string)
 {
   BYTES_STRING *sort_key;
+
   switch (collator->type)
     {
       case ctn_no_unicode:

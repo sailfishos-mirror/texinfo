@@ -318,9 +318,10 @@ call_eval_load_texinfo_modules (int texinfo_uninstalled,
         "use Texinfo::Indices;\n";
   eval_pv (str, TRUE);
 
-  /* TODO add more from load_txi_modules.pl when there is code to test?
+  /* Could add more from load_txi_modules.pl when some Perl code becomes
+     needed.
      For example loading messages for error messages translation and
-     loading translated strings from LocaleData?
+     loading translated strings from LocaleData.
    */
 
   return 1;

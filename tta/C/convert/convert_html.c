@@ -1853,13 +1853,17 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
 
       if (self->current_types_conversion_function[type].type_conversion)
         {
-          /* TODO Normally there should not be c_only types here, since
+          /* Normally there should not be c_only types here, since
              they should be associated with commands and we are in code
-             called only if there is no command.  However, if such a type
-             appears here, probably if there is a bug somewhere, should
-             it be checked especially? */
+             called only if there is no command. */
           if (!self->current_types_conversion_function[type].type_conversion)
-            fatal ("conversion for a type is NULL");
+            {
+              char *message;
+              xasprintf (&message, "conversion for type %s is NULL",
+                         type_data[type].name);
+              fatal (message);
+              free (message);
+            }
           (*self->current_types_conversion_function[type].type_conversion)
                (self, type, element, content_formatted.text, &type_result);
         }
