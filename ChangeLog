@@ -1,5 +1,9 @@
 2026-06-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr (Top): remove @menu and @detailmenu.
+
+2026-06-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr: Use @nodedescription instead of explicit
 	@menu throughout.
 

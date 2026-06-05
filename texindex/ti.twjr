@@ -75,66 +75,8 @@ files produced by the @file{texinfo.tex} file.
 
 @end ifnottex
 
-@menu
-* Preface::                     Introductory remarks.
-* Requirements::                How the program needs to work.
-* High-level organization::     The overall outline.
-* Processing records::          Processing each record.
-* Necessary stuff::             Copyright, helper functions, i18n.
-* Index::                       Combined index.
-
-@detailmenu
-* Intended audience::              Who should read this document.
-* History::                        @file{texindex.awk} development history.
-* Desired printed output::         What a printed index should look like.
-* Texinfo indexing commands::      How to write indexing commands.
-* Input form::                     The input to @file{texindex.awk}.
-* Output form::                    The output from @file{texindex.awk}.
-* Processing::                     Processing the data.
-* Assumptions::                    Additional assumptions.
-* Portability::                    Using portable @command{awk}.
-* First line::                     The first line in the file.
-* Initial setup::                  Set up variables and constants used
-                                   throughout.
-* Argument processing::            Processing command line arguments.
-* Setup for each input file::      What happens at the start of each file.
-* Processing each record::         Pulling apart the fields and storing data.
-* Remove duplicates::              Removing duplicating entries.
-* Remove leading @code{\entry}::   Remove the leading @code{\entry} command.
-* Get the initial::                Get the initial for this entry.
-* Set up and name fields::         Pull apart the line.
-* Store the data for this line::   Store the data for later access.
-* Check for more than one initial:: See if there are multiple initials.
-* Splitting the record::           Split the record apart.
-* End-of-file sorting and printing:: Sorting the entries for each index.
-* Quicksort::                      Sorting our input.
-* Multilevel comparisons::         Handling multilevel entries.
-* Comparing index entries::        The heart of the sorting algorithm.
-* Printing the data::              Printing the final results.
-* printing top level::             Top level logic.
-* printing a single entry::        Handling a single entry.
-* Copyright statement::            Copyright info.
-* Library functions::              From the @code{gawk} library:
-                                   @file{ftrans.awk}, @code{join()}.
-* Helper functions::               @code{del_array()},
-                                   @code{check_split_null()}, @code{fatal()},
-                                   @dots{}
-* del_array::                      Clearing out an array.
-* check_split_null::               Checking if @command{awk} splits on the
-                                   null string.
-* char_split::                     Splitting a line into individual
-                                   characters.
-* fatal::                          Printing fatal errors.
-* is@dots{} functions::            Checking character types.
-* make_regexp::                    Make a regexp to match @TeX{} control
-                                   sequences.
-* escape::                         Escaping backslashes for strings.
-* min::                            Get the minimum of two numbers.
-* I18N::                           Internationalization.
-@end detailmenu
-@end menu
-
 @node Preface
+@nodedescription Introductory remarks.
 @unnumbered Preface
 
 This file defines @file{texindex.awk}, a reimplementation of the C
@@ -185,6 +127,7 @@ multi-level indexing and ``see'' and ``see also'' entries motivated
 reworking the program.
 
 @node Requirements
+@nodedescription How the program needs to work.
 @chapter Requirements
 
 The input to this program is the list of unsorted index entries produced
@@ -494,6 +437,7 @@ and Busybox @command{awk}) on a large index and got byte-identical
 results from all five.
 
 @node High-level organization
+@nodedescription The overall outline.
 @chapter High-level Organization
 
 The general outline is as follows:
@@ -623,6 +567,7 @@ for (i = 1; i < ARGC; i++) {
 @
 
 @node Processing records
+@nodedescription Processing each record.
 @chapter Processing Records
 
 Processing records includes setting things up for each input file,
@@ -1206,13 +1151,8 @@ function print_initial(initial)
 }
 @
 
-@menu
-* Quicksort::                   Sorting our input.
-* Multilevel comparisons::      Handling multilevel entries.
-* Comparing index entries::     The heart of the sorting algorithm.
-@end menu
-
 @node Quicksort
+@nodedescription Sorting our input.
 @subsection Quicksort
 
 @cindex quicksort algorithm
@@ -1281,6 +1221,7 @@ lt = (use_index \
 @
 
 @node Multilevel comparisons
+@nodedescription Handling multilevel entries.
 @subsection Handling Multilevel Entries
 
 The @code{less_than()} function has to take into account
@@ -1347,6 +1288,7 @@ function less_than(data, l, r,		left, right, nfields, cmp1, cmp2)
 @
 
 @node Comparing index entries
+@nodedescription The heart of the sorting algorithm.
 @subsection Comparing Index Entries
 
 The sort key comparison function is the heart of the sorting algorithm.  The
@@ -1833,6 +1775,7 @@ Finally, we add the above code into the set of work functions:
 @
 
 @node Necessary stuff
+@nodedescription Copyright, helper functions, i18n.
 @chapter Necessary Stuff That Isn't Thrilling
 
 This chapter provides some necessary but unexciting elements.
@@ -2189,6 +2132,7 @@ function version()
 @use_example
 
 @node Index
+@nodedescription Combined index.
 @unnumbered Index
 
 @printindex cp
