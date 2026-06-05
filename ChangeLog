@@ -1,3 +1,8 @@
+2026-06-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* texindex/ti.twjr: Use @nodedescription instead of explicit
+	@menu throughout.
+
 2026-06-01  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Avoid outputting extra spaces with index entry commands

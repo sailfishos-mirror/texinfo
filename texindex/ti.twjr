@@ -154,12 +154,8 @@ literate programming system}.  The underlying documentation system is
 documentation formatting language.  A single source file produces the
 runnable program, a printable document, and an online document.
 
-@menu
-* Intended audience::           Who should read this document.
-* History::                     @file{texindex.awk} development history.
-@end menu
-
 @node Intended audience
+@nodedescription Who should read this document.
 @section Intended Audience
 
 You should read this if you want to understand how @file{texindex.awk}
@@ -177,6 +173,7 @@ the wrong place.  @xref{knuth}.
 @end float
 
 @node History
+@nodedescription @file{texindex.awk} development history.
 @section Development History
 
 This program was originally written in 2014 in order to enable
@@ -197,17 +194,8 @@ commands that produce that input, and the expected output from
 this program.  It also presents some additional notes concerning
 the requirements.
 
-@menu
-* Desired printed output::      What a printed index should look like.
-* Texinfo indexing commands::   How to write indexing commands.
-* Input form::                  The input to @file{texindex.awk}.
-* Output form::                 The output from @file{texindex.awk}.
-* Processing::                  Processing the data.
-* Assumptions::                 Additional assumptions.
-* Portability::                 Using portable @command{awk}.
-@end menu
-
 @node Desired printed output
+@nodedescription What a printed index should look like.
 @section Where We're Going
 
 Let's first look at the kind of output desired.
@@ -267,6 +255,7 @@ toasters, . . . . . . . . 42, @ii{See also} coffee makers
 @end example
 
 @node Texinfo indexing commands
+@nodedescription How to write indexing commands.
 @section Texinfo Indexing Commands
 
 Texinfo provides a number of different commands for putting entries
@@ -303,6 +292,7 @@ or @code{@@seealso}: @file{texindex.awk} supplies a comma in the final
 printed entry.
 
 @node Input form
+@nodedescription The input to @file{texindex.awk}.
 @section Input To The Program
 
 The output from @file{texinfo.tex} contains the data for the
@@ -370,6 +360,7 @@ Our mission (which we choose to accept) is to read the above input,
 sort it appropriately, and produce the correct output.
 
 @node Output form
+@nodedescription The output from @file{texindex.awk}.
 @section What The Output Should Look Like
 
 Output consists four different commands, derived from the indexing input.
@@ -419,6 +410,7 @@ a ``see'' entry.
 
 
 @node Processing
+@nodedescription Processing the data.
 @section Processing Index Entries
 
 The job is to sort the entries, and merge those which are identical
@@ -434,6 +426,7 @@ Input lines might be duplicated (same entry, same page, more than once),
 so we will have to deal with that.
 
 @node Assumptions
+@nodedescription Additional assumptions.
 @section Assumptions About Our Data
 
 In the rest of the program we make two fundamental assumptions:
@@ -480,6 +473,7 @@ that are roman numerals (which can occur).
 @end enumerate
 
 @node Portability
+@nodedescription Using portable @command{awk}.
 @section Using Portable @command{awk}
 
 An additional requirement, for ease of deployment, is that the program
@@ -521,14 +515,8 @@ BEGIN {
 @<Work functions@>
 @
 
-@menu
-* First line::                  The first line in the file.
-* Initial setup::               Set up variables and constants used
-                                throughout.
-* Argument processing::         Processing command line arguments.
-@end menu
-
 @node First line
+@nodedescription The first line in the file.
 @section The Program's First Line
 
 @cindex first line
@@ -548,6 +536,7 @@ about the location of the @code{awk} program.
 @
 
 @node Initial setup
+@nodedescription Set up variables and constants used throughout.
 @section Initial Setup
 
 @cindex initial setup
@@ -590,6 +579,7 @@ Can_split_null = check_split_null()
 @
 
 @node Argument processing
+@nodedescription Processing command line arguments.
 @section Command-line Argument Processing
 
 @cindex argument processing
@@ -639,15 +629,8 @@ Processing records includes setting things up for each input file,
 pulling apart each record, sorting the data at the end, and writing out
 the data properly.
 
-@menu
-* Setup for each input file::        What happens at the start of each file.
-* Processing each record::           Pulling apart the fields and storing
-                                     data.
-* End-of-file sorting and printing:: Sorting the entries for each index.
-* Printing the data::                Printing the final results.
-@end menu
-
 @node Setup for each input file
+@nodedescription What happens at the start of each file.
 @section Setup For Each Input File
 
 At the beginning of each input file, the @code{beginfile()} function
@@ -700,6 +683,7 @@ function beginfile(filename)
 @
 
 @node Processing each record
+@nodedescription Pulling apart the fields and storing data.
 @section Processing Each Record
 
 Record processing consists of building the data structures for use in
@@ -717,17 +701,8 @@ sorting and printing once the whole file has been processed.
 }
 @
 
-@menu
-* Remove duplicates::               Removing duplicating entries.
-* Remove leading @code{\entry}::    Remove the leading @code{\entry} command.
-* Get the initial::                 Get the initial for this entry.
-* Set up and name fields::          Pull apart the line.
-* Store the data for this line::    Store the data for later access.
-* Check for more than one initial:: See if there are multiple initials.
-* Splitting the record::            Split the record apart.
-@end menu
-
 @node Remove duplicates
+@nodedescription Removing duplicating entries.
 @subsection Removing Duplicate Lines
 
 @cindex removing duplicates
@@ -757,6 +732,7 @@ del_array(Seen)
 @
 
 @node Remove leading @code{\entry}
+@nodedescription Remove the leading @code{\entry} command.
 @subsection Remove The Leading @code{\entry} Or @code{@@entry}
 
 We use @code{substr()} here to avoid possible hassles with leading
@@ -767,6 +743,7 @@ $0 = substr($0, 7)  # remove leading \entry or @entry
 @
 
 @node Get the initial
+@nodedescription Get the initial for this entry.
 @subsection Get The Initial
 
 @cindex @code{extract_initial()} function
@@ -831,6 +808,7 @@ function extract_initial(key,  initial, nextchar, i, l, kchars)
 @
 
 @node Set up and name fields
+@nodedescription Pull apart the line.
 @subsection Set Up And Name The Fields
 
 The next step is to pull out the data of interest from the multiple sets of
@@ -858,6 +836,7 @@ tertiary_text = (numfields > 4 ? fields[5] : "")
 @
 
 @node Store the data for this line
+@nodedescription Store the data for later access.
 @subsection Store The Data For This Line
 
 @cindex storing data
@@ -1052,6 +1031,7 @@ del_array(Pagedata)
 @
 
 @node Check for more than one initial
+@nodedescription See if there are multiple initials.
 @subsection Check For More Than One Initial
 
 @cindex initial, checking for more than one
@@ -1073,6 +1053,7 @@ if (! Do_initials) {
 @
 
 @node Splitting the record
+@nodedescription Split the record apart.
 @subsection Splitting The Record: @code{field_split()}
 
 Let's take a look at the function that breaks apart the record.  Upon
@@ -1168,6 +1149,7 @@ delim_count = 1
 
 
 @node End-of-file sorting and printing
+@nodedescription Sorting the entries for each index.
 @section End-of-file Sorting And Printing
 
 Upon end of input, the processing is straightforward: sort the entries
@@ -1541,18 +1523,15 @@ function key_compare(left, right,	len_l, len_r, len, chars_l, chars_r)
 @
 
 @node Printing the data
+@nodedescription Printing the final results.
 @section Printing The Final Results
 
 Printing an index entry is where all the data we collected
 gets used.  Much of the complexity is here, since we have to
 output up to three lines per entry.
 
-@menu
-* printing top level::          Top level logic.
-* printing a single entry::     Handling a single entry.
-@end menu
-
 @node printing top level
+@nodedescription Top level logic.
 @subsection Top Level Logic For Printing An Entry
 
 So, let's start. The logic is going to be a little complicated:
@@ -1609,6 +1588,7 @@ print_entry(key, "tertiary", Tertiary)
 @
 
 @node printing a single entry
+@nodedescription Handling a single entry.
 @subsection Printing A Single Entry
 
 Printing a single entry is quite involved:
@@ -1857,16 +1837,8 @@ Finally, we add the above code into the set of work functions:
 
 This chapter provides some necessary but unexciting elements.
 
-@menu
-* Copyright statement::         Copyright info.
-* Library functions::           From the @code{gawk} library:
-                                @file{ftrans.awk}, @code{join()}.
-* Helper functions::            @code{del_array()}, @code{check_split_null()},
-                                @code{fatal()}, @dots{}
-* I18N::                        Internationalization.
-@end menu
-
 @node Copyright statement
+@nodedescription Copyright info.
 @section Copyright Statement
 
 @cindex copyright statement
@@ -1896,6 +1868,9 @@ Every program needs a copyright statement.
 @
 
 @node Library functions
+@nodedescriptionblock
+From the @code{gawk} library: @file{ftrans.awk}, @code{join()}.
+@end nodedescriptionblock
 @section Library Functions: @file{ftrans.awk} and @code{join()}
 
 The program uses several library routines discussed in detail
@@ -1951,22 +1926,15 @@ function join(array, start, end, sep,    result, i)
 @
 
 @node Helper functions
+@nodedescriptionblock
+@code{del_array()}, @code{check_split_null()}, @code{fatal()}, @dots{}
+@end nodedescriptionblock
 @section Helper Functions
 
 These helper functions make the main code easier to follow.
 
-@menu
-* del_array::            Clearing out an array.
-* check_split_null::     Checking if @command{awk} splits on the null string.
-* char_split::           Splitting a line into individual characters.
-* fatal::                Printing fatal errors.
-* is@dots{} functions::  Checking character types.
-* make_regexp::          Make a regexp to match @TeX{} control sequences.
-* escape::               Escaping backslashes for strings.
-* min::                  Get the minimum of two numbers.
-@end menu
-
 @node del_array
+@nodedescription Clearing out an array.
 @subsection @code{del_array()}: Deleting An Array
 
 @code{del_array()} clears out an array.
@@ -1983,6 +1951,7 @@ function del_array(a)
 @
 
 @node check_split_null
+@nodedescription Checking if @command{awk} splits on the null string.
 @subsection @code{check_split_null()}: Checking If @command{awk} Splits On The Null String
 
 @code{check_split_null()} determines whether the @command{awk} running
@@ -2001,6 +1970,7 @@ function check_split_null(    n, a)
 @
 
 @node char_split
+@nodedescription Splitting a line into individual characters.
 @subsection @code{char_split()}: Splitting A String Into Characters
 
 @code{char_split()} splits a string into separate characters, letting
@@ -2027,6 +1997,7 @@ function char_split(string, array,    n, i)
 @
 
 @node fatal
+@nodedescription Printing fatal errors.
 @subsection @code{fatal()}: Printing Fatal Error Messages
 
 @cindex @command{cat} command
@@ -2054,6 +2025,7 @@ function fatal(format, arg1, arg2, arg3, arg4, arg5,
 @
 
 @node is@dots{} functions
+@nodedescription Checking character types.
 @subsection @code{is@dots{}} Functions: Checking Character Types
 
 @cindex @code{isupper()} function
@@ -2091,6 +2063,7 @@ function isdigit(c)
 @
 
 @node make_regexp
+@nodedescription Make a regexp to match @TeX{} control sequences.
 @subsection @code{make_regexp()}: Matching @TeX{} Control Sequences
 
 @file{texindex.awk} has to handle input where the command
@@ -2116,6 +2089,7 @@ function make_regexp(regexp,	a, sep, n)
 @
 
 @node escape
+@nodedescription Escaping backslashes for strings.
 @subsection @code{escape()}: Escaping Backslashes for Strings
 
 If the command character is a backslash, occurrences of backslash need to be
@@ -2139,6 +2113,7 @@ function escape(regexp,		a, n)
 @
 
 @node min
+@nodedescription Get the minimum of two numbers.
 @subsection @code{min()}: Getting The Minimum of Two Numbers
 
 It'd be nice if @command{awk} had this built-in@enddots{}
@@ -2151,6 +2126,7 @@ function min(a, b)
 @
 
 @node I18N
+@nodedescription Internationalization.
 @section Internationalization
 
 For @command{gawk}, we can arrange for the various messages, e.g., in
