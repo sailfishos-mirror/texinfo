@@ -89,6 +89,11 @@ u32_make_collation_key (const char32_t *codepoints_in, size_t length_in,
     }
 
   struct collation_unit *elements = calloc (num_elements, sizeof (*elements));
+  if (!elements)
+    {
+      errno = ENOMEM;
+      return 0;
+    }
   size_t elements_count = 0;
   for (size_t i = 0; i < n_entries; i++)
     {
