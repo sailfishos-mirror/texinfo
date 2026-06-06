@@ -638,8 +638,18 @@ sorting and printing once the whole file has been processed.
 	@<Remove duplicates@>
 	@<Remove leading @code{\entry} or @code{@@entry}@>
 	@<Get the initial@>
-	@<Set up @code{fields} array with the data@>
-	@<Name the fields@>
+
+	# Pull out the data of interest from the multiple sets of braces.
+	numfields = field_split($0, fields, "{", "}", Command_char)
+	if (numfields < 3 || numfields > 5)
+		fatal(_"%s:%d: Bad entry; expected 3 to 5 fields, not %d\n",
+			FILENAME, FNR, numfields)
+	key = fields[1]
+	pagenum = fields[2]
+	primary_text = fields[3]
+	secondary_text = (numfields > 3 ? fields[4] : "")
+	tertiary_text = (numfields > 4 ? fields[5] : "")
+
 	@<Store the data for this line in the various arrays@>
 	@<Check for more than one initial@>
 }
@@ -749,34 +759,6 @@ function extract_initial(key,  initial, nextchar, i, l, kchars)
 
 	return initial
 }
-@
-
-@node Set up and name fields
-@nodedescription Pull apart the line.
-@subsection Set Up And Name The Fields
-
-The next step is to pull out the data of interest from the multiple sets of
-braces.  This is delegated to a function named @code{field_split()}.
-There must be at least three fields, and there can be up to five.
-
-@cindex @code{fatal()} function
-@cindex @code{field_split()} function
-@cindex @code{fields} array, setting up
-@<Set up @code{fields} array with the data@>=
-numfields = field_split($0, fields, "{", "}", Command_char)
-if (numfields < 3 || numfields > 5)
-	fatal(_"%s:%d: Bad entry; expected 3 to 5 fields, not %d\n",
-		FILENAME, FNR, numfields)
-@
-
-We give the fields names for later use.
-
-@<Name the fields@>=
-key = fields[1]
-pagenum = fields[2]
-primary_text = fields[3]
-secondary_text = (numfields > 3 ? fields[4] : "")
-tertiary_text = (numfields > 4 ? fields[5] : "")
 @
 
 @node Store the data for this line
