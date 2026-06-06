@@ -396,6 +396,14 @@ accumulating the page numbers:
 @@entry@{@@file @{field_split()@} function@}@{2, 7@}
 @end example
 
+However, this poses a problem for the use of accented characters.
+@file{texinfo.tex} should only output characters in the ASCII range
+(0-127) in sort keys in its index files, as it is not possible to reliably
+process these with an awk program in a portable and locale-independent
+way.  This means that when words differ only by accents (as with the German
+words ``Bogen'' and ``Bögen''), they may in fact have the same sort key,
+but should not be merged.
+
 @item
 @cindex roman numerals
 For the same sort key and text, page numbers will be monotonically

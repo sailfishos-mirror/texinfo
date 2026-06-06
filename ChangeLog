@@ -1,5 +1,11 @@
 2026-06-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr (Assumptions):
+	Add note about when it may not make sense to merge
+	index entries with the same sort key.
+
+2026-06-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr (Output form): Elaborate on what
 	a "secondary index entry" is.
 
