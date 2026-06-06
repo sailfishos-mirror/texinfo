@@ -1551,8 +1551,8 @@ Texinfo provides at least three different ways to provide this metadata
 and to generate the title and copyright pages, which are described in
 the following subsections.
 
-In HTML, the best way to get a title page
-similar to printed manuals is to set the @code{NO_TOP_NODE_OUTPUT}
+In HTML, no titlepage is output, in the default case.  The best way to get a
+title page similar to printed manuals is to set the @code{NO_TOP_NODE_OUTPUT}
 customization variable (@pxref{@code{NO_TOP_NODE_OUTPUT}}).
 
 @findex shorttitlepage
@@ -1595,6 +1595,41 @@ block is kept when the Texinfo file is processed.  Likewise, you can
 use @code{@@author} more than once.  (However, the order of @code{@@title},
 @code{@@subtitle}, and @code{@@author} commands relative to each other is
 not significant.)
+
+Other Texinfo code found in @code{@@documentinfo} is output in metadata
+sections of output formats.  Texinfo processors do not interpret this
+additional code especially, therefore you often need to use
+raw formatter commands such that output format metadata specific
+formatting is produced (@pxref{Raw Formatter Commands}).  An example
+with HTML, EPUB and Docbook metadata:
+@c similar to a t/*.t test code, but simplified to be shorter
+
+@example
+@@documentinfo
+@@title The Title
+@@ifepub
+@@html
+<dc:creator id="creator">Some Body</dc:creator>
+<meta refines="#creator" property="role" scheme="marc:relators">
+    aut
+</meta>
+@@end html
+@@end ifepub
+@@ifnotepub
+@@html
+<meta name="creator" content="Some Body" />
+@@end html
+@@end ifnotepub
+@@docbook
+<author>
+  <firstname>Some</firstname><surname>Body</surname>
+  <affiliation><jobtitle>Director</jobtitle>
+    <orgname>The School of Somewhere</orgname>
+  </affiliation>
+</author>
+@@end docbook
+@@end documentinfo
+@end example
 
 The information for the copyright page appears within the @code{@@copying}
 and @code{@@publication} commands.  @xref{Document Permissions} for more
@@ -1971,7 +2006,8 @@ table of contents in addition to the full table of contents.
 
 Both contents commands should be written on a line by themselves, and
 placed near the beginning of the file, after the @code{@@end
-titlepage} (@pxref{@code{@@titlepage}}), before any sectioning
+titlepage} (@pxref{@code{@@titlepage}}) or the @code{@@end
+documentinfo} (@pxref{Document Metadata}), before any sectioning
 command.  The contents commands automatically generate a chapter-like
 heading at the top of the first table of contents page, so don't
 include any sectioning command such as @code{@@unnumbered} before
