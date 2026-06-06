@@ -1380,7 +1380,7 @@ this text once, and another command (@code{@@insertcopying}) to
 insert the text at appropriate points.
 
 For plain text output, you must insert the copyright information
-explicitly if you want it to appear, as it it not otherwise output.
+explicitly if you want it to appear, as it is not otherwise output.
 For instance, you could have the following near the start of the Texinfo
 file:
 
@@ -7145,14 +7145,14 @@ number.  You can use this to continue a list that you interrupted with
 other text.
 
 @item
-@code{@@enumerate @var{upper-case-letter}}
+@code{@@enumerate @var{uppercase-letter}}
 
 With an uppercase letter as argument, start a list
 in which each item is marked
 by a letter, beginning with that uppercase letter.
 
 @item
-@code{@@enumerate @var{lower-case-letter}}
+@code{@@enumerate @var{lowercase-letter}}
 
 With a lowercase letter as argument, start a list
 in which each item is marked by
@@ -8878,7 +8878,7 @@ simply typed in your input where you need it.  The result is to
 typeset the hash character from the current font.
 
 @cindex Number sign, inserting
-@cindex Octotherp, inserting
+@cindex Octothorp, inserting
 @cindex Sharp sign (not), inserting
 This character has many other names, varying by locale, such as
 ``number sign'', ``pound'', and ``octothorp''.  It is also sometimes
@@ -9125,7 +9125,7 @@ If you look carefully, you will see a bit of extraneous space after the
 @end iftex
 
 It may help you to remember what @code{@@:} does by imagining that it 
-stands for an invisible lower-case character that stops a word ending in 
+stands for an invisible lowercase character that stops a word ending in 
 a period.
 
 A few Texinfo commands force normal interword spacing, so that you
@@ -9196,7 +9196,7 @@ The meanings of @code{@@:} and @code{@@.}, etc.@: in Texinfo are
 designed to work well with the Emacs sentence motion commands
 (@pxref{Sentences,,, emacs, The GNU Emacs Manual}).  It may help to 
 imagine that the @samp{@@} in @samp{@@.}, etc., is an invisible 
-lower-case letter `a' which makes an upper-case letter before it 
+lowercase letter `a' which makes an uppercase letter before it 
 immaterial for the purposes of deciding whether the period ends the 
 sentence.
 
@@ -15495,7 +15495,7 @@ creation.  The file names and identifiers obtained that way are platform and
 processor dependent.  @xref{HTML Xref 8-bit Character Expansion}.
 
 Redirection files for anchors and nodes are not affected, therefore if
-@option{--node-files} is enabled, files with non-translitered names are
+@option{--node-files} is enabled, files with non-transliterated names are
 created too.  It is recommended to have non-translitered file names
 created for nodes such that cross-references to the generated manual
 succeed.  @xref{@option{--node-files}}. @xref{HTML Xref Configuration}.
@@ -18741,7 +18741,7 @@ in a specific subdirectory.
 @anchor{HTML Xref Configuration Customization}
 Cross-references between HTML manuals are specified precisely
 (@pxref{HTML Xref}).  Customization of manual locations is provided
-through the @file{htmlxref.cnf} and and @file{htmlxref.d/*.cnf} files
+through the @file{htmlxref.cnf} and @file{htmlxref.d/*.cnf} files
 (@pxref{HTML Xref Configuration}).
 
 @vindex CHECK_HTMLXREF
@@ -19808,7 +19808,7 @@ the document; they do not take arguments.  Some examples:
 
 @item 5. Non-alphabetic commands
 The names of commands in all of the above categories consist of
-alphabetic characters, almost entirely in lower-case.  Unlike those, the
+alphabetic characters, almost entirely in lowercase.  Unlike those, the
 non-alphabetic commands consist of an @@ followed by a
 punctuation mark or other character that is not part of the Latin
 alphabet.  Non-alphabetic commands are almost always part of text
