@@ -636,7 +636,12 @@ sorting and printing once the whole file has been processed.
 @<Process a record@>=
 {
 	@<Remove duplicates@>
-	@<Remove leading @code{\entry} or @code{@@entry}@>
+
+	# Remove leading \entry or @entry
+	# We use substr here to avoid possible hassles with leading
+	# backslashes in sub().
+	$0 = substr($0, 7)
+
 	@<Get the initial@>
 
 	# Pull out the data of interest from the multiple sets of braces.
@@ -683,17 +688,6 @@ We have to clear out the @code{Seen} array at the start of each input file.
 @<Clear out all data arrays@>=
 # Reinitialize these for each input file
 del_array(Seen)
-@
-
-@node Remove leading @code{\entry}
-@nodedescription Remove the leading @code{\entry} command.
-@subsection Remove The Leading @code{\entry} Or @code{@@entry}
-
-We use @code{substr()} here to avoid possible hassles with leading
-backslashes in @code{sub()}.
-
-@<Remove leading @code{\entry} or @code{@@entry}@>=
-$0 = substr($0, 7)  # remove leading \entry or @entry
 @
 
 @node Get the initial
