@@ -1,5 +1,14 @@
 2026-06-06 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Raw Formatter Commands): explain differently the
+	relation between raw @html and EPUB, since raw EPUB can only happen in
+	@documentinfo.  Expand the example to include @ifnotepub @html.
+
+	* doc/texinfo.texi (Document Metadata): use the exact same code as in
+	"Raw Formatter Commands" node.
+
+2026-06-06 Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Titlepage & Copyright Page): explain that in the
 	default case, there is no title page output in HTML.
 

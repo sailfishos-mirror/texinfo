@@ -1610,9 +1610,8 @@ with HTML, EPUB and Docbook metadata:
 @@ifepub
 @@html
 <dc:creator id="creator">Some Body</dc:creator>
-<meta refines="#creator" property="role" scheme="marc:relators">
-    aut
-</meta>
+<meta refines="#creator" property="role" scheme="marc:relators"
+    id="role">aut</meta>
 @@end html
 @@end ifepub
 @@ifnotepub
@@ -12544,18 +12543,33 @@ unpredictable and generally undesirable behavior.  For example, using
 the @code{@@kbdinputstyle} command inside a raw region is undefined.
 The remedy is simple: don't do that.
 
-There is no similar command for raw EPUB, @code{@@html} should be used
-for EPUB too.  To specify raw EPUB not output in HTML, you can use
-@code{@@ifepub}:
+Most of the output generated for EPUB is actually HTML, therefore there is no
+similar command for raw EPUB.  In @code{@@documentinfo}, you can provide EPUB
+metadata for the whole EPUB document.  When outputting EPUB, @code{@@html} in
+@code{@@documentinfo} is not output as HTML metadata in HTML files output as
+part of conversion to EPUB, but as EPUB specific metadata.
+
+In the following example, the EPUB markup in the first @code{@@html} block is
+output as EPUB specific metadata when outputting EPUB.  In that situation, it
+is not possible to add metadata to HTML output as part of the conversion to
+EPUB.  When outputting HTML, the second @code{@@html} block is added to the
+HTML header instead:
 
 @example
+@@documentinfo
 @@ifepub
 @@html
-<dc:creator id="creator">Haruki Murakami</dc:creator>
+<dc:creator id="creator">Some Body</dc:creator>
 <meta refines="#creator" property="role" scheme="marc:relators"
-      id="role">aut</meta>
+    id="role">aut</meta>
 @@end html
 @@end ifepub
+@@ifnotepub
+@@html
+<meta name="creator" content="Some Body" />
+@@end html
+@@end ifnotepub
+@@end documentinfo
 @end example
 
 @findex xml
