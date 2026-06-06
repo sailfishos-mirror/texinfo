@@ -1,5 +1,15 @@
 2026-06-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr (Preface): Inline sub-nodes into this
+	node with @subheading's.
+
+2026-06-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* texindex/ti.twjr (less_than, index_compare):
+	Rename to index_compare.
+
+2026-06-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr (key_compare, string_compare):
 	Rename to string_compare.  Move text describing the function
 	to a comment before the function.

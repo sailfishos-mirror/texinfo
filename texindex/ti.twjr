@@ -96,9 +96,7 @@ literate programming system}.  The underlying documentation system is
 documentation formatting language.  A single source file produces the
 runnable program, a printable document, and an online document.
 
-@node Intended audience
-@nodedescription Who should read this document.
-@section Intended Audience
+@subheading Intended Audience
 
 You should read this if you want to understand how @file{texindex.awk}
 works.  You should be familiar with the @command{awk} programming
@@ -114,9 +112,7 @@ the wrong place.  @xref{knuth}.
 @center @image{dek_idx, 5in, , Indexing}
 @end float
 
-@node History
-@nodedescription @file{texindex.awk} development history.
-@section Development History
+@subheading Development History
 
 This program was originally written in 2014 in order to enable
 using left and right braces in index entries, and to provide a program
@@ -1158,9 +1154,9 @@ sort both multilevel index entries, and regular text. To that end
 the @code{compare} variable indicates which way to do the ``less
 than'' comparison.
 
-@cindex @code{less_than()} function
+@cindex @code{index_compare()} function
 @cindex @code{string_compare()} function
-The @code{less_than()} function supplies the comparison for index entries
+The @code{index_compare()} function supplies the comparison for index entries
 (@pxref{Multilevel comparisons}, and @pxref{Comparing index entries}).
 The @code{string_compare()} function is used for string comparisons.
 
@@ -1194,7 +1190,7 @@ function quicksort(data, left, right, compare,	# parameters
 	last = left
 	for (i = left + 1; i <= right; i++) {
 		lt = (use_index \
-				? less_than(data, i, left) \
+				? index_compare(data, i, left) \
 				: string_compare(data[i], data[left]) < 0)
 		if (lt)
 			quicksort_swap(data, ++last, i)
@@ -1218,7 +1214,7 @@ function quicksort_swap(data, i, j, temp)
 @nodedescription Handling multilevel entries.
 @subsection Handling Multilevel Entries
 
-The @code{less_than()} function has to take into account
+The @code{index_compare()} function has to take into account
 that we are comparing multilevel index entries. We can't just
 compare the full sort key, since the @samp{@@subentry} throws off
 the comparison; we want to compare based only on the key texts
@@ -1236,12 +1232,12 @@ an entry with two, and one with two comes before one with three.
 We make an effort here to call the comparison function only as
 much as necessary, since it's a relatively expensive operation.
 
-@cindex @code{less_than()} function
+@cindex @code{index_compare()} function
 @cindex @code{string_compare()} function
 @cindex @code{Numfields} array
 @cindex @code{Subkeys} array
 @<Work functions@>=
-function less_than(data, l, r,		left, right, nfields, cmp1, cmp2)
+function index_compare(data, l, r,		left, right, nfields, cmp1, cmp2)
 {
 	left = data[l]
 	right = data[r]
