@@ -1,5 +1,11 @@
 2026-06-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr (key_compare, string_compare):
+	Rename to string_compare.  Move text describing the function
+	to a comment before the function.
+
+2026-06-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr (quicksort): Add comment explaining
 	how to call the function and what the parameters mean.
 	Inline @<Set compare mechanism@> and 

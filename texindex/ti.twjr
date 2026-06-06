@@ -1159,10 +1159,10 @@ the @code{compare} variable indicates which way to do the ``less
 than'' comparison.
 
 @cindex @code{less_than()} function
-@cindex @code{key_compare()} function
+@cindex @code{string_compare()} function
 The @code{less_than()} function supplies the comparison for index entries
 (@pxref{Multilevel comparisons}, and @pxref{Comparing index entries}).
-The @code{key_compare()} function is used for string comparisons.
+The @code{string_compare()} function is used for string comparisons.
 
 
 @cindex @code{quicksort()} function
@@ -1195,7 +1195,7 @@ function quicksort(data, left, right, compare,	# parameters
 	for (i = left + 1; i <= right; i++) {
 		lt = (use_index \
 				? less_than(data, i, left) \
-				: key_compare(data[i], data[left]) < 0)
+				: string_compare(data[i], data[left]) < 0)
 		if (lt)
 			quicksort_swap(data, ++last, i)
 	}
@@ -1233,17 +1233,11 @@ on the third one.
 By definition, an index entry with only one subkey sorts to be before
 an entry with two, and one with two comes before one with three.
 
-The underlying @code{key_compare()} function, which does the hard
-work of comparison, returns a three-way value a la the C @code{strcmp()}
-function: less than zero if the first string is less than the second,
-zero if they're equal, or greater than zero if the first string is
-greater than the second one.
-
 We make an effort here to call the comparison function only as
 much as necessary, since it's a relatively expensive operation.
 
 @cindex @code{less_than()} function
-@cindex @code{key_compare()} function
+@cindex @code{string_compare()} function
 @cindex @code{Numfields} array
 @cindex @code{Subkeys} array
 @<Work functions@>=
@@ -1258,7 +1252,7 @@ function less_than(data, l, r,		left, right, nfields, cmp1, cmp2)
 	nfields = min(left_fields, right_fields)
 
 	# At least one field, always check the first subkey
-	cmp1 = key_compare(Subkeys[left, 1], Subkeys[right, 1])
+	cmp1 = string_compare(Subkeys[left, 1], Subkeys[right, 1])
 	if (cmp1 != 0)
 		return cmp1 < 0
 
@@ -1267,7 +1261,7 @@ function less_than(data, l, r,		left, right, nfields, cmp1, cmp2)
 		return left_fields < right_fields
 
 	# At least two fields, check second subkey
-	cmp2 = key_compare(Subkeys[left, 2], Subkeys[right, 2])
+	cmp2 = string_compare(Subkeys[left, 2], Subkeys[right, 2])
 	if (cmp2 != 0)
 		return cmp2 < 0
 
@@ -1277,7 +1271,7 @@ function less_than(data, l, r,		left, right, nfields, cmp1, cmp2)
 		return left_fields < right_fields
 
 	# Three fields
-	return key_compare(Subkeys[left, 3], Subkeys[right, 3]) < 0
+	return string_compare(Subkeys[left, 3], Subkeys[right, 3]) < 0
 }
 @
 
@@ -1350,7 +1344,7 @@ BEGIN {
 }
 @
 
-Here is the @code{key_compare()} function.  It returns less than zero if the
+Here is the @code{string_compare()} function.  It returns less than zero if the
 @code{left} string is ``less than'' the @code{right} string, zero if they are
 equal, and greater than zero if the @code{left} string is ``greater than'' the
 @code{right} string.
@@ -1398,10 +1392,14 @@ opposite order.
 
 @cindex @code{Ordval} array
 @cindex @code{char_split()} function
-@cindex @code{key_compare()} function
+@cindex @code{string_compare()} function
 @cindex @code{isalpha()} function
 @<Work functions@>=
-function key_compare(left, right,	len_l, len_r, len, chars_l, chars_r)
+# string_compare - Returns a three-way value a la the C @code{strcmp()}
+# function: less than zero if the first string is less than the second,
+# zero if they're equal, or greater than zero if the first string is
+# greater than the second one.
+function string_compare(left, right,	len_l, len_r, len, chars_l, chars_r)
 {
 	len_l = length(left)
 	len_r = length(right)
