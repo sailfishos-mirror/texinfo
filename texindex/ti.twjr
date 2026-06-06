@@ -331,9 +331,10 @@ the output from @file{texindex.awk} should be a combination of
 the original input fields three and two.
 
 @item @@secondary
-This is for a secondary index entry in a multi-level
-index entry.  When the secondary appears only with a tertiary entry,
-there won't be a page number.
+This is for a secondary index entry in a multi-level index entry (i.e.
+a subentry).  In the printed index output, these appear after a primary
+index entry, and are indented.  When the secondary appears only with a
+tertiary entry, there won't be a page number.
 
 @item @@tertiary
 This is for a tertiary index entry in a multi-level
