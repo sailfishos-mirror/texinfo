@@ -1,3 +1,10 @@
+2026-06-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* texindex/ti.twjr (quicksort): Add comment explaining
+	how to call the function and what the parameters mean.
+	Inline @<Set compare mechanism@> and 
+	@<Do ``less than'' comparison@> chunks.
+
 2026-06-06 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (Raw Formatter Commands): explain differently the

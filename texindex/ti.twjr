@@ -1158,12 +1158,26 @@ sort both multilevel index entries, and regular text. To that end
 the @code{compare} variable indicates which way to do the ``less
 than'' comparison.
 
+@cindex @code{less_than()} function
+@cindex @code{key_compare()} function
+The @code{less_than()} function supplies the comparison for index entries
+(@pxref{Multilevel comparisons}, and @pxref{Comparing index entries}).
+The @code{key_compare()} function is used for string comparisons.
+
+
 @cindex @code{quicksort()} function
 @cindex @code{quicksort_swap()} function
 @<Helper functions@>=
 # quicksort --- C.A.R. Hoare's quick sort algorithm.  See Wikipedia
 #               or almost any algorithms or computer science text
 # Adapted from K&R-II, page 110
+
+# Called as: quicksort(DATA, 1, COUNT, "string")
+
+# The first argument is the list to be sorted.
+# The fourth argument is the type of comparison to be used:
+#   * "string" - if data is an array of strings
+#   * "index" - if data is an array of index entries
 #
 function quicksort(data, left, right, compare,	# parameters
 					i, last, use_index, lt)		# locals
@@ -1171,12 +1185,17 @@ function quicksort(data, left, right, compare,	# parameters
 	if (left >= right)  # do nothing if array contains fewer
 		return          # than two elements
 
-	@<Set compare mechanism@>
+	# We set a Boolean (numeric) variable to indicate what kind of
+	# comparison to do, avoiding repeating the string
+	# comparison whose result won't change upon each iteration.
+	use_index = (compare == "index")
 
 	quicksort_swap(data, left, int((left + right) / 2))
 	last = left
 	for (i = left + 1; i <= right; i++) {
-		@<Do ``less than'' comparison@>
+		lt = (use_index \
+				? less_than(data, i, left) \
+				: key_compare(data[i], data[left]) < 0)
 		if (lt)
 			quicksort_swap(data, ++last, i)
 	}
@@ -1193,26 +1212,6 @@ function quicksort_swap(data, i, j, temp)
 	data[i] = data[j]
 	data[j] = temp
 }
-@
-
-We set a Boolean (numeric) variable to indicate what kind of
-comparison to do, avoiding repeating the string
-comparison whose result won't change upon each iteration.
-
-@<Set compare mechanism@>=
-use_index = (compare == "index")
-@
-
-The @code{less_than()} function supplies the comparison for index entries
-(@pxref{Multilevel comparisons}, and @pxref{Comparing index entries}).
-The @code{key_compare()} function is used for string comparisons.
-
-@cindex @code{less_than()} function
-@cindex @code{key_compare()} function
-@<Do ``less than'' comparison@>=
-lt = (use_index \
-		? less_than(data, i, left) \
-		: key_compare(data[i], data[left]) < 0)
 @
 
 @node Multilevel comparisons
