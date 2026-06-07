@@ -1,5 +1,10 @@
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr (Store the data for this line):
+	Inline "Split out and store the subparts of the sort key" chunk.
+
+2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr (Get the initial, Processing each record):
 	Move line calling extract_initial to "Processing each record",
 	leaving the definition of extract_inital in "Get the initial".

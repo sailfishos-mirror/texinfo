@@ -804,7 +804,12 @@ if (! (key in Allkeys)) {
 		Secondary[key] = secondary_text
 	if (tertiary_text)
 		Tertiary[key] = tertiary_text
-	@<Split out and store the subparts of the sort key@>
+
+	# Split out and store the subparts of the sort key, using
+	# "@subentry" as a separator.
+	n = split(key, subparts, Subentry_re)
+	for (i = 1; i <= n; i++)
+		Subkeys[key, i] = subparts[i]
 
 	if (pagenum ~ Seeentry_re) {
 		See_count[key]++
@@ -835,15 +840,6 @@ if (! (key in Allkeys)) {
 		Pagedata[key] = Pagedata[key] ", " pagenum
 	}
 }
-@
-
-We split the key into subparts, using the @samp{@@subentry} as
-the separator. The subparts are stored in the @code{Subkeys} array.
-
-@<Split out and store the subparts of the sort key@>=
-n = split(key, subparts, Subentry_re)
-for (i = 1; i <= n; i++)
-	Subkeys[key, i] = subparts[i]
 @
 
 The @code{make_regexp()} function is described in @ref{make_regexp}.
