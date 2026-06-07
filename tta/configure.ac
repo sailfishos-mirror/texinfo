@@ -383,7 +383,7 @@ AC_SUBST([use_libintl_perl_in_xs])
 # Check if it is possible to embed a Perl interpreter.  Set PERL_EMBEDDED
 # conditional, used in C/Makefile.am and swig/python/Makefile.am.  This
 # is only used for the ctexi2any implementation of texi2any and for the SWIG
-# interface, neither of which is used by default.
+# interface.
 
 # This check is necessary because having XS enabled, the Perl headers
 # corresponding to libperl and ExtUtils::Embed installed does not ensure
@@ -433,9 +433,9 @@ AC_DEFINE_UNQUOTED([CONVERTER_CONFIG], ["$CONVERTER"],
 # SWIG interfaces
 
 AC_ARG_WITH([swig],
-   AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: no)]),
-   [],
-   [ with_swig='no' ])
+   AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: detected)]),
+   [with_swig=$withval],
+   [with_swig=detected])
 
 if test $with_swig != 'no' ; then
   # Find swig executable
@@ -443,11 +443,13 @@ if test $with_swig != 'no' ; then
   AX_PKG_SWIG([], [ with_swig='yes' ],
   [if test $with_swig = 'yes' ; then
      AC_MSG_ERROR([SWIG not found'])
-     # should never go there, but in case, set
      with_swig=no
    fi
   ])
 fi
+
+AC_MSG_CHECKING([SWIG interfaces])
+AC_MSG_RESULT([$with_swig])
 
 AM_CONDITIONAL([SWIG_INTERFACES], [test "x$with_swig" = "xyes"])
 

@@ -376,7 +376,7 @@ AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
 
 # For SWIG
 AC_ARG_WITH([swig],
-   AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: no)]))
+   AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: detected)]))
 
 # The config files to generate.
 AC_CONFIG_FILES([\

@@ -1,5 +1,11 @@
 2026-06-07 Patrice Dumas  <pertusus@free.fr>
 
+	Enable SWIG interfaces building if detected
+
+	* tta/configure.ac (swig): enable SWIG interfaces if swig is found.
+
+2026-06-07 Patrice Dumas  <pertusus@free.fr>
+
 	Link statically SWIG interface with libtexinfo code
 
 	* tta/C/Makefile.am (noinst_LTLIBRARIES, C_libtexinfo_LIBS)
