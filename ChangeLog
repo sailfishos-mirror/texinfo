@@ -1,5 +1,10 @@
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr (Library functions, Helper functions):
+	Move node text and add comments at start of utility functions.
+
+2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr (Comparing index entries):
 	Move node text into comment in 'string_compare'.
 

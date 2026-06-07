@@ -1546,16 +1546,13 @@ From the @code{gawk} library: @file{ftrans.awk}, @code{join()}.
 @end nodedescriptionblock
 @section Library Functions: @file{ftrans.awk} and @code{join()}
 
-The program uses several library routines discussed in detail
-in the @command{gawk} documentation.  The first sets up the
-infrastructure for the @code{beginfile()} and @code{endfile()} functions.
-@xref{Filetrans Function,,, gawk, GNU Awk User's Guide},
-for an explanation of how this function works.
-
 @<Library functions@>=
-# ftrans.awk --- handle data file transitions
+# Handle data file transitions
 #
-# user supplies beginfile() and endfile() functions
+# This leads beginfile to be called at the beginning of every file
+# and endfile at the end of every file.
+# See Info node "(gawk)Join Function" for an explanation of how this function
+# works.
 #
 # Arnold Robbins, arnold@skeeve.com, Public Domain
 # November 1992
@@ -1570,16 +1567,14 @@ FNR == 1 {
 END { endfile(_filename_) }
 @
 
-The next function is @code{join()}, which joins an array of characters
-back into a string.  @xref{Join Function,,, gawk, GNU Awk User's Guide},
-for an explanation of how this function works.
-
 @<Library functions@>=
-# join.awk --- join an array into a string
+# Join an array of characters back into a string
+# See Info node "(gawk)Join Function" for an explanation of how this function
+# works.
 #
 # Arnold Robbins, arnold@skeeve.com, Public Domain
 # May 1993
-
+#
 function join(array, start, end, sep,    result, i)
 {
 	if (sep == "")
@@ -1605,9 +1600,9 @@ These helper functions make the main code easier to follow.
 @nodedescription Clearing out an array.
 @subsection @code{del_array()}: Deleting An Array
 
-@code{del_array()} clears out an array.
 
 @<Helper functions@>=
+# Clears out an array.
 function del_array(a)
 {
 	# Portable and faster than
@@ -1621,13 +1616,14 @@ function del_array(a)
 @nodedescription Checking if @command{awk} splits on the null string.
 @subsection @code{check_split_null()}: Checking If @command{awk} Splits On The Null String
 
-@code{check_split_null()} determines whether the @command{awk} running
-this program supports using the null string for the separator, splitting
-each character off into a separate element.  If so, the return value from @code{split()}
-will be the number of elements in the array, and it will be more than
-one.  It is called at program startup.
 
 @<Helper functions@>=
+# check_split_null - This function determines whether the awk running
+# this program supports using the null string for the separator, splitting
+# each character off into a separate element.  If so, the return value
+# from split() will be the number of elements in the array, and it will
+# be more than one.  It is called at program startup.
+#
 function check_split_null(    n, a)
 {
 	n = split("abcde", a, "")
@@ -1639,11 +1635,11 @@ function check_split_null(    n, a)
 @nodedescription Splitting a line into individual characters.
 @subsection @code{char_split()}: Splitting A String Into Characters
 
-@code{char_split()} splits a string into separate characters, letting
-@command{awk} do the work if possible.  If not, each character is
-extracted manually using a loop and @code{substr()}.
-
 @<Helper functions@>=
+# char_split - splits a string into separate characters, letting awk do
+# the work if possible.  If not, each character is extracted manually
+# using a loop and substr().
+# 
 function char_split(string, array,    n, i)
 {
 	if (Can_split_null)
@@ -1663,14 +1659,14 @@ function char_split(string, array,    n, i)
 @nodedescription Printing fatal errors.
 @subsection @code{fatal()}: Printing Fatal Error Messages
 
-The @code{fatal()} function prints a @code{printf}-formatted message to
-standard error and then exits badly.
-For maximal portability, it opens a pipeline to @command{cat},
-redirected to standard error; not all systems have a @file{/dev/stderr}
-file, and not all versions of @command{awk} recognize that name
-internally. (Thus, we can't use @samp{print @dots{} > "/dev/stderr"}.)
-
 @<Helper functions@>=
+# The fatal() function prints a printf-formatted message to
+# standard error and then exits badly.
+# For maximal portability, it opens a pipeline to cat,
+# redirected to standard error; not all systems have a /dev/stderr
+# file, and not all versions of awk recognize that name
+# internally. (Thus, we can't use 'print @dots{} > "/dev/stderr"'.)
+#
 function fatal(format, arg1, arg2, arg3, arg4, arg5,
 				arg6, arg7, arg8, arg9, arg10, cat)
 {
@@ -1687,15 +1683,15 @@ function fatal(format, arg1, arg2, arg3, arg4, arg5,
 @nodedescription Checking character types.
 @subsection @code{is@dots{}} Functions: Checking Character Types
 
-The following functions help identify what a character is; they are
-similar in nature to the various macros in the C @code{<ctype.h>} header
-file.  Since most of them return a count, the return value could be used to
-compute which character from the set was seen; this turned out not to be
-necessary in this program but might be useful in some other context.
-By using @code{index()} with lists of letters, these functions will
-also work on EBCDIC systems, should that ever be necessary.
 
 @<Helper functions@>=
+# The following functions help identify what a character is; they are
+# similar in nature to the various macros in the C <ctype.h> header
+# file.  Since most of them return a count, the return value could be used to
+# compute which character from the set was seen; this turned out not to be
+# necessary in this program but might be useful in some other context.
+# By using index() with lists of letters, these functions will also work
+# on EBCDIC systems, should that ever be necessary.
 function isupper(c)
 {
 	return index("ABCDEFGHIJKLMNOPQRSTUVWXYZ", c)
