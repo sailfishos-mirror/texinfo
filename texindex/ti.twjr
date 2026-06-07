@@ -855,23 +855,21 @@ del_array(Pagedata)
 @nodedescription Split the record apart.
 @subsection Splitting The Record: @code{field_split()}
 
-Let's take a look at the function that breaks apart the record.  Upon
-entry to the function, the value of @code{record} looks something like:
-
-@example
-@{POSIX awk@}@{5@}@{POSIX @@command @{awk@}@}
-@end example
-
-The first field may have instances of @samp{@@@{} and/or @samp{@@@}} (or
-@samp{\@{} and/or @samp{\@}}), so the braces aren't necessarily exactly
-balanced.
-
-The @code{field_split()} function uses fairly straightforward ``count
-the delimiters'' code.  The loop starts at two, since we know the first
-character is an open brace.  The main things to handle are the command
-character and the final closing brace.
+Let's take a look at the function that breaks apart the record.
 
 @<Work functions@>=
+# field_split - break apart the record.
+#
+# RECORD looks something like: {POSIX awk}{5}{POSIX @command {awk}}.
+#
+# The first field may have instances of @{ and/or @} (or \{ and/or \})
+# so the braces aren't necessarily exactly balanced.
+#
+# The field_split() function uses fairly straightforward ``count
+# the delimiters'' code.  The loop starts at two, since we know the first
+# character is an open brace.  The main things to handle are the command
+# character and the final closing brace.
+#
 function field_split( \
 	record, fields, start, end, com_ch,         # parameters
 	chars, numchars, out, delim_count, i, j, k) # locals
