@@ -1,5 +1,12 @@
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr (Remove duplicates):
+	Remove node and inline chunks where they are used.
+	(Store the data for this line):
+	Inline "Set up control sequence regexps" chunk where it is used.
+
+2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr (printing top level, printing a single entry):
 	Inline chunks "Print primary entry if necessary" and
 	"Print secondary entry if necessary".

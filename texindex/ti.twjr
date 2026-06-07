@@ -572,6 +572,8 @@ function beginfile(filename)
 	# Standard convention for name of output file.
 	Output_file = filename "s"
 
+	# Reinitialize these for each input file
+	del_array(Seen)
 	@<Clear out all data arrays@>
 	Entries = 0
 	Do_initials = FALSE
@@ -589,9 +591,18 @@ function beginfile(filename)
 	# inside the first key. This includes the command character itself.
 	Special_chars = "{}" Command_char
 
-	@<Set up control sequence regexps@>
+	# These variables are regular expressions that match the
+	# corresponding TeX control sequences.  They're initialized
+	# once for each input file, since the command character
+	# might be different between files.
+	Seeentry_re = make_regexp("%seeentry")
+	Seealso_re = make_regexp("%seealso")
+	Subentry_re = make_regexp(" *%subentry +")
 }
 @
+
+The @code{make_regexp()} function is described in @ref{make_regexp}.
+
 
 @node Processing each record
 @nodedescription Pulling apart the fields and storing data.
@@ -601,7 +612,10 @@ function beginfile(filename)
 # This block is run on every line of the input file.  Build the data
 # structures that will be used in sorting and printing.
 {
-	@<Remove duplicates@>
+	# Remove duplicates, which can happen
+	if ($0 in Seen)
+		next
+	Seen[$0] = TRUE
 
 	# Remove leading \entry or @entry
 	# We use substr here to avoid possible hassles with leading
@@ -633,30 +647,6 @@ function beginfile(filename)
 			Do_initials = TRUE
 	}
 }
-@
-
-@node Remove duplicates
-@nodedescription Removing duplicating entries.
-@subsection Removing Duplicate Lines
-
-
-Duplicates are going to be exact.  Removing them is thus easy; store
-each incoming line as the index of an array named @code{Seen}.  If a
-line is not there, it has not been seen.  Otherwise it has, and we move
-on to the next record.
-
-@<Remove duplicates@>=
-# Remove duplicates, which can happen
-if ($0 in Seen)
-	next
-Seen[$0] = TRUE
-@
-
-We have to clear out the @code{Seen} array at the start of each input file.
-
-@<Clear out all data arrays@>=
-# Reinitialize these for each input file
-del_array(Seen)
 @
 
 @node Get the initial
@@ -840,18 +830,6 @@ if (! (key in Allkeys)) {
 		Pagedata[key] = Pagedata[key] ", " pagenum
 	}
 }
-@
-
-The @code{make_regexp()} function is described in @ref{make_regexp}.
-
-@<Set up control sequence regexps@>=
-# These variables are regular expressions that match the
-# corresponding TeX control sequences.  They're initialized
-# once for each input file, since the command character
-# might be different between files.
-Seeentry_re = make_regexp("%seeentry")
-Seealso_re = make_regexp("%seealso")
-Subentry_re = make_regexp(" *%subentry +")
 @
 
 Here too, we have to clear out the arrays we've used at the start of
