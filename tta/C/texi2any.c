@@ -3327,7 +3327,7 @@ main (int argc, char *argv[], char *env[])
 
           if (sort_element_count_file_name)
             {
-              char *sort_element_count_text;
+              char *sort_element_count_text = 0;
               CONVERTER_TEXT_INFO *sort_element_count_info;
               OPTION *use_nodes_option
                = GNUT_get_conf (program_options.options->USE_NODES.number);
@@ -3377,9 +3377,9 @@ main (int argc, char *argv[], char *env[])
               copy_strings (converter_include_dirs, &prepended_include_directories);
               copy_strings (converter_include_dirs, cmdline_include_dirs);
 
-              /* sort_element_count_info cannot be NULL, as the functions aborts
-                 instead of returning NULL.  However, we code here as if it could
-                 be NULL because of some error */
+            /* sort_element_count_info cannot be NULL, as the functions aborts
+               instead of returning NULL.  However, we code here as if it could
+               be NULL because of some error */
               sort_element_count_info
                = txi_sort_element_counts (elt_count_external_module,
                      &convert_options, document,
