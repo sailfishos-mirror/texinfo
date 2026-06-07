@@ -620,8 +620,8 @@ function beginfile(filename)
 @nodedescription Pulling apart the fields and storing data.
 @section Processing Each Record
 
-Record processing consists of building the data structures for use in
-sorting and printing once the whole file has been processed.
+Record processing consists of building the data structures that will
+be used in sorting and printing.
 
 @<Process a record@>=
 {

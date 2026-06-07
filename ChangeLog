@@ -1,5 +1,10 @@
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr (Processing each record):
+	Reword a sentence slightly.
+
+2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr (Setup for each input file)
 	(Store the data for this line):
 	Move some text from node into code comments.
