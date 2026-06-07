@@ -966,11 +966,9 @@ delim_count = 1
 @nodedescription Sorting the entries for each index.
 @section End-of-file Sorting And Printing
 
-Upon end of input, the processing is straightforward: sort the entries
-and write them out.  Additionally, if we are printing the initial,
-handle that.  (That printing task is delegated to a small function.)
-
 @<@code{endfile()} work function@>=
+# Sort the entries and write them out.  Additionally, if we are printing
+# the initial, handle that.
 function endfile(filename,		i, prev_initial, initial)
 {
 	# sort the entries
@@ -991,10 +989,9 @@ function endfile(filename,		i, prev_initial, initial)
 }
 @
 
-Printing an initial is not complicated.  The main thing is to precede
-special characters with the command character.
-
 @<Work functions@>=
+# Print an initial.  Precede special characters with the command
+# character.
 function print_initial(initial)
 {
 	if (! Do_initials)

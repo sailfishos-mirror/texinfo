@@ -1,5 +1,10 @@
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr (End-of-file sorting and printing):
+	Move node text into comments.
+
+2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr (Store the data for this line):
 	Inline "Split out and store the subparts of the sort key" chunk.
 
