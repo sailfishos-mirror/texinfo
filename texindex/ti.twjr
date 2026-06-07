@@ -577,25 +577,7 @@ the data properly.
 @nodedescription What happens at the start of each file.
 @section Setup For Each Input File
 
-At the beginning of each input file, the @code{beginfile()} function
-clears our variables from any previous processing and sets up the
-output file name.  We always append an @samp{s} to the name of the input
-file. This is the standard convention.
-
-When @code{beginfile()} is called, the first record has already been
-read, so it's possible to perform the checks for a Texinfo index file:
-The first character must be either @samp{\} or @samp{@@}
-(@pxref{Requirements}), and the next five characters must be the word
-@samp{entry}.
-
 @cindex @code{Special_chars} variable
-@code{Special_chars} are the characters that must be preceded by
-the command character inside the first key. This includes the command
-character itself.
-
-Finally, several variables are set to regular expressions that
-match control sequences of interest.
-
 @cindex @code{fatal()} function
 @cindex @code{FALSE} constant
 @cindex @code{beginfile()} function
@@ -605,9 +587,12 @@ match control sequences of interest.
 @cindex @code{Command_char} variable
 @cindex @code{Special_chars} variable
 @cindex @code{Entries} variable
+
 @<@code{beginfile()} work function@>=
+# What happens at the start of each file
 function beginfile(filename)
 {
+	# Standard convention for name of output file.
 	Output_file = filename "s"
 
 	@<Clear out all data arrays@>
@@ -615,11 +600,16 @@ function beginfile(filename)
 	Do_initials = FALSE
 	Prev_initial = ""
 
+	# When 'beginfile' is called, the first record has already
+	# been read, so it's possible to perform the checks for a Texinfo
+	# index file.
 	Command_char = substr($0, 1, 1)
 	if ((Command_char != "\\" && Command_char != "@") \
 		|| substr($0, 2, 5) != "entry")
 		fatal(_"%s is not a Texinfo index file\n", filename)
 
+	# The characters that must be preceded by the command character
+	# inside the first key. This includes the command character itself.
 	Special_chars = "{}" Command_char
 
 	@<Set up control sequence regexps@>
@@ -901,10 +891,6 @@ for (i = 1; i <= n; i++)
 	Subkeys[key, i] = subparts[i]
 @
 
-The @code{Seeentry_re}, @code{Seealso_re} and @code{Subentry_re}
-variables are regular expressions that match the corresponding @TeX{}
-control sequences.  They're initialized once for each input file, since
-the command character might be different between files.
 The @code{make_regexp()} function is described in @ref{make_regexp}.
 
 @cindex @code{Seeentry_re} variable
@@ -912,6 +898,10 @@ The @code{make_regexp()} function is described in @ref{make_regexp}.
 @cindex @code{Subentry_re} variable
 @cindex @code{make_regexp()} function
 @<Set up control sequence regexps@>=
+# These variables are regular expressions that match the
+# corresponding TeX control sequences.  They're initialized
+# once for each input file, since the command character
+# might be different between files.
 Seeentry_re = make_regexp("%seeentry")
 Seealso_re = make_regexp("%seealso")
 Subentry_re = make_regexp(" *%subentry +")
