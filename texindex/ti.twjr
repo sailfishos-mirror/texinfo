@@ -656,25 +656,24 @@ The @code{make_regexp()} function is described in @ref{make_regexp}.
 The sort key is the first part of the line after @samp{@@entry}, 
 starting with an open brace, and continuing to a matching close brace.
 
-The very first character of the sort key can be an open brace.
-If so, we extract the component of the sort key surrounded by balanced 
-braces.  We don't account for @samp{\@{} or @samp{\@}} inside this component, as 
-@file{texinfo.tex} isn't expected to produce such output.
-
-An example can be seen in what older versions of @file{texinfo.tex}
-generated if you needed to index a real backslash, namely an input line
-something like the following:
-
-@example
-\entry@{@{\tt \indexbackslash @} (backslash)@}@{14@}@{\code @{@{\tt @dots{}@}@}
-@end example
-
-Earlier versions of @command{texindex} took the first non-brace 
-character as the initial, in this example @samp{\}, and output it as 
-@samp{\\}; this was not, however, a control sequence recognized by the 
-older versions of @file{texinfo.tex}.
-
 @<Work functions@>=
+# extract_initial - extract initial character from key.
+#
+# The very first character of the sort key can be an open brace.
+# If so, we extract the component of the sort key surrounded by balanced
+# braces.  We don't account for \{ or \} inside this component, as
+# texinfo.tex isn't expected to produce such output.
+#
+# An example can be seen in what older versions of texinfo.tex generated
+# if you needed to index a real backslash, namely an input line something
+# like the following:
+#
+#   \entry{{\tt \indexbackslash } (backslash)}{14}{\code {{\tt dots{}}}
+#
+# Earlier versions of texindex took the first non-brace character as the
+# initial, in this example \, and output it as \\; this was not, however,
+# a control sequence recognized by the older versions of texinfo.tex.
+
 function extract_initial(key,                             # parameters
                          initial, nextchar, i, l, kchars) # locals
 {
