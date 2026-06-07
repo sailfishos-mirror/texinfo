@@ -1,5 +1,11 @@
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr (Multilevel comparisons)
+	(Comparing index entries):
+	Move node text into comments.
+
+2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr (Splitting the record):
 	Inline chunks into function 'field_split', and move node text
 	into comments.

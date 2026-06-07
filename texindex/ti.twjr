@@ -1046,25 +1046,27 @@ function quicksort_swap(data, i, j, temp)
 @nodedescription Handling multilevel entries.
 @subsection Handling Multilevel Entries
 
-The @code{index_compare()} function has to take into account
-that we are comparing multilevel index entries. We can't just
-compare the full sort key, since the @samp{@@subentry} throws off
-the comparison; we want to compare based only on the key texts
-themselves.
-
-To that end, the comparison happens on two levels. At the higher
-level, we compare the subkeys; if the first subkeys are equal
-then we differentiate between them based on the second subkey.
-If, in turn, the second ones are equal, we differentiate based
-on the third one.
-
-By definition, an index entry with only one subkey sorts to be before
-an entry with two, and one with two comes before one with three.
-
-We make an effort here to call the comparison function only as
-much as necessary, since it's a relatively expensive operation.
-
 @<Work functions@>=
+# The index_compare() function supplies the comparison for index entries.
+#
+# The index_compare() function has to take into account
+# that we are comparing multilevel index entries. We can't just
+# compare the full sort key, since the @subentry throws off
+# the comparison; we want to compare based only on the key texts
+# themselves.
+#
+# To that end, the comparison happens on two levels. At the higher
+# level, we compare the subkeys; if the first subkeys are equal
+# then we differentiate between them based on the second subkey.
+# If, in turn, the second ones are equal, we differentiate based
+# on the third one.
+#
+# By definition, an index entry with only one subkey sorts to be before
+# an entry with two, and one with two comes before one with three.
+#
+# We make an effort here to call the comparison function only as
+# much as necessary, since it's a relatively expensive operation.
+#
 function index_compare(data, l, r,                       # parameters
                        left, right, nfields, cmp1, cmp2) # locals
 {
@@ -1104,44 +1106,25 @@ function index_compare(data, l, r,                       # parameters
 @nodedescription The heart of the sorting algorithm.
 @subsection Comparing Index Entries
 
-The sort key comparison function is the heart of the sorting algorithm.  The
-comparison is based on the indexing rules, which are:
-
-@itemize @bullet
-@item
-All symbols first.
-
-@item
-Followed by digits.
-
-@item
-Followed by letters.  Lowercase precedes uppercase and both ``a'' and
-``A'' precede anything starting with ``b'' or ``B'' (etc.).
-@end itemize
-
-Implementing these rules is a little complicated.  The first thing we
-need is a table that maps characters to comparison values.  The
-following code is based on the original C @command{texindex}, although
-the actual comparison algorithm is more sophisticated.
-
-We set up an @code{Ordval} array to map characters to numeric values.
-Most characters map to their ASCII code.  We add 512 to the value of each
-of the digits; this causes them to come after all symbols.
-
-The letters are handled a little differently. We set things up so that
-lowercase letters come before uppercase ones, but both ``a'' and
-``A'' come before ``b'', and so on.  This then lets us use
-a simple subtraction in the comparison to determine if two letters are
-less than, equal to, or greater than each other. In any case, the mapping
-also ensures that letters come after digits.
-(This code should also work for EBCDIC systems, although @TeX{} does
-everything in ASCII, so it's not likely to make a difference.)
-
-The table must be built completely before changing the mapping of the
-letters, because all of the uppercase and lowercase letters must be in
-the table before we can change their values.
-
 @<Work functions@>=
+# Initialize Ordval array for use by string_compare.
+# This array maps characters to numeric values for comparison, according
+# to the following rules:
+#   * All symbols first.
+#   * Followed by digits.
+#   * Followed by letters.  Lowercase precedes uppercase and both ``a'' and
+#     ``A'' precede anything starting with ``b'' or ``B'' (etc.).
+#
+# Most characters map to their ASCII code.  We add 512 to the value of each
+# of the digits; this causes them to come after all symbols.
+# The letters are handled a little differently. We set things up so that
+# lowercase letters come before uppercase ones, but both ``a'' and
+# ``A'' come before ``b'', and so on.  This then lets us use
+# a simple subtraction in the comparison to determine if two letters are
+# less than, equal to, or greater than each other. In any case, the mapping
+# also ensures that letters come after digits.
+# (This code should also work for EBCDIC systems, although TeX does
+# everything in ASCII, so it's not likely to make a difference.)
 BEGIN {
 	for (i = 0; i < 256; i++) {
 		c = sprintf("%c", i)
@@ -1213,10 +1196,12 @@ before @samp{BEGINFILE}, whereas with the C version they came out in the
 opposite order.
 
 @<Work functions@>=
-# string_compare - Returns a three-way value a la the C @code{strcmp()}
-# function: less than zero if the first string is less than the second,
-# zero if they're equal, or greater than zero if the first string is
-# greater than the second one.
+# string_compare -  the heart of the sorting algorithm.
+#
+# Returns a three-way value a la the C strcmp() function: less than zero
+# if the first string is less than the second, zero if they're equal,
+# or greater than zero if the first string is greater than the second one.
+#
 function string_compare(left, right,                         # parameters
                         len_l, len_r, len, chars_l, chars_r) # locals
 {
@@ -1290,6 +1275,7 @@ output up to three lines per entry.
 So, let's start. The logic is going to be a little complicated:
 
 @<Print index entry@>=
+# Print index entry with sort key CURRENT.
 function write_index_entry(current, # parameters
                            key)     # locals
 {
