@@ -487,25 +487,15 @@ The initial setup sets up some constants, including the version of the
 program.  In the program itself, we follow a convenient convention:
 global variable and array names start with a capital letter.
 
-@cindex @code{Invocation_name} variable
 Per GNU standards, we sometimes hardwire the string @samp{texindex} as
 the name of the program, and sometimes use the name by which the program
 was invoked.  We'll call the latter @code{Invocation_name}; it's
 supposed to be passed in from the shell wrapper.
 
-@cindex @code{Can_split_null} variable
 The last line below sets up @code{Can_split_null}, which tells us if the
 built-in @code{split()} function will split apart a string into its
 individual characters or if we have to do it manually.
 
-@cindex @code{TRUE} constant
-@cindex @code{FALSE} constant
-@cindex @code{EXIT_SUCCESS} constant
-@cindex @code{EXIT_FAILURE} constant
-@cindex @code{Texindex_version} variable
-@cindex @code{check_split_null()} function
-@cindex @code{Can_split_null} variable
-@cindex @code{Invocation_name} variable
 @<Initial setup@>=
 TRUE = 1
 FALSE = 0
@@ -539,9 +529,6 @@ help information automatically exit, so there's no need to mess with
 @cindex @code{-k} (@code{--keep}), no-op option
 @cindex @code{--} option
 @cindex @code{--version} option
-@cindex @code{EXIT_SUCCESS} constant
-@cindex @code{EXIT_FAILURE} constant
-@cindex @code{fatal()} function
 @<Argument processing@>=
 for (i = 1; i < ARGC; i++) {
 	if (ARGV[i] == "-h" || ARGV[i] == "--help") {
@@ -577,16 +564,6 @@ the data properly.
 @nodedescription What happens at the start of each file.
 @section Setup For Each Input File
 
-@cindex @code{Special_chars} variable
-@cindex @code{fatal()} function
-@cindex @code{FALSE} constant
-@cindex @code{beginfile()} function
-@cindex @code{Output_file} variable
-@cindex @code{Do_initials} variable
-@cindex @code{Prev_initial} variable
-@cindex @code{Command_char} variable
-@cindex @code{Special_chars} variable
-@cindex @code{Entries} variable
 
 @<@code{beginfile()} work function@>=
 # What happens at the start of each file
@@ -620,9 +597,6 @@ function beginfile(filename)
 @nodedescription Pulling apart the fields and storing data.
 @section Processing Each Record
 
-@cindex @code{TRUE} constant
-@cindex @code{Do_initials} variable
-@cindex @code{Prev_initial} variable
 @<Process a record@>=
 # This block is run on every line of the input file.  Build the data
 # structures that will be used in sorting and printing.
@@ -665,17 +639,12 @@ function beginfile(filename)
 @nodedescription Removing duplicating entries.
 @subsection Removing Duplicate Lines
 
-@cindex removing duplicates
-@cindex duplicates, removing
 
-@cindex @code{Seen} array
 Duplicates are going to be exact.  Removing them is thus easy; store
 each incoming line as the index of an array named @code{Seen}.  If a
 line is not there, it has not been seen.  Otherwise it has, and we move
 on to the next record.
 
-@cindex @code{TRUE} constant
-@cindex @code{Seen} array
 @<Remove duplicates@>=
 # Remove duplicates, which can happen
 if ($0 in Seen)
@@ -685,7 +654,6 @@ Seen[$0] = TRUE
 
 We have to clear out the @code{Seen} array at the start of each input file.
 
-@cindex @code{del_array()} function
 @<Clear out all data arrays@>=
 # Reinitialize these for each input file
 del_array(Seen)
@@ -695,7 +663,6 @@ del_array(Seen)
 @nodedescription Get the initial for this entry.
 @subsection Get The Initial
 
-@cindex @code{extract_initial()} function
 @<Get the initial@>=
 initial = extract_initial($0)
 @
@@ -721,9 +688,6 @@ character as the initial, in this example @samp{\}, and output it as
 @samp{\\}; this was not, however, a control sequence recognized by the 
 older versions of @file{texinfo.tex}.
 
-@cindex @code{extract_initial()} function
-@cindex @code{char_split()} function
-@cindex @code{fatal()} function
 @<Work functions@>=
 function extract_initial(key,  initial, nextchar, i, l, kchars)
 {
@@ -832,21 +796,6 @@ later on.  Its indices are just incremented integers, stored in the
 global @code{Entries} variable.  The @code{Allkeys} associative array
 lets us easily track if we have seen a key before.
 
-@cindex @code{Keys} array
-@cindex @code{Allkeys} array
-@cindex @code{Entries} variable
-@cindex @code{Seeentry_re} variable
-@cindex @code{Seealso_re} variable
-@cindex @code{Primary} array
-@cindex @code{Secondary} array
-@cindex @code{Tertiary} array
-@cindex @code{Numfields} array
-@cindex @code{See} array
-@cindex @code{See_count} array
-@cindex @code{Seealso} array
-@cindex @code{Seealso_count} array
-@cindex @code{Pagedata} array
-@cindex @code{escape()} function
 @<Store the data for this line in the various arrays@>=
 if (! (key in Allkeys)) {
 	# first time we've seen this full line
@@ -895,7 +844,6 @@ if (! (key in Allkeys)) {
 We split the key into subparts, using the @samp{@@subentry} as
 the separator. The subparts are stored in the @code{Subkeys} array.
 
-@cindex @code{Subkeys} array
 @<Split out and store the subparts of the sort key@>=
 n = split(key, subparts, Subentry_re)
 for (i = 1; i <= n; i++)
@@ -904,10 +852,6 @@ for (i = 1; i <= n; i++)
 
 The @code{make_regexp()} function is described in @ref{make_regexp}.
 
-@cindex @code{Seeentry_re} variable
-@cindex @code{Seealso_re} variable
-@cindex @code{Subentry_re} variable
-@cindex @code{make_regexp()} function
 @<Set up control sequence regexps@>=
 # These variables are regular expressions that match the
 # corresponding TeX control sequences.  They're initialized
@@ -921,20 +865,6 @@ Subentry_re = make_regexp(" *%subentry +")
 Here too, we have to clear out the arrays we've used at the start of
 each input file.
 
-@cindex @code{Keys} array
-@cindex @code{Subkeys} array
-@cindex @code{Allkeys} array
-@cindex @code{Initials} array
-@cindex @code{Numfields} array
-@cindex @code{Primary} array
-@cindex @code{Secondary} array
-@cindex @code{Tertiary} array
-@cindex @code{See} array
-@cindex @code{See_count} array
-@cindex @code{Seealso} array
-@cindex @code{Seealso_count} array
-@cindex @code{Pagedata} array
-@cindex @code{del_array()} function
 @<Clear out all data arrays@>=
 del_array(Keys)
 del_array(Allkeys)
@@ -971,8 +901,6 @@ the delimiters'' code.  The loop starts at two, since we know the first
 character is an open brace.  The main things to handle are the command
 character and the final closing brace.
 
-@cindex @code{field_split()} function
-@cindex @code{char_split()} function
 @<Work functions@>=
 function field_split( \
 	record, fields, start, end, com_ch,      # parameters
@@ -1011,8 +939,6 @@ If the character following the command character is an open brace or close
 brace, we pull it in.  Otherwise, the
 command character is left alone as part of the field.
 
-@cindex @code{Command_char} variable
-@cindex @code{Special_chars} variable
 @<Handle the character after the command character@>=
 if (chars[i+1] == Command_char) {	# input was @@
 	out[k++] = chars[i+1]
@@ -1031,9 +957,6 @@ together into a string using @code{join()}.  We then reset the
 an open brace, then the line is bad and we print a fatal error.
 Otherwise, we reset @code{delim_count} to one.
 
-@cindex @code{join()} function
-@cindex @code{del_array()} function
-@cindex @code{fatal()} function
 @<Finish off the field, set up for next field@>=
 fields[j++] = join(out, 1, k-1, SUBSEP)
 del_array(out)  # reset for next time through
@@ -1055,14 +978,6 @@ Upon end of input, the processing is straightforward: sort the entries
 and write them out.  Additionally, if we are printing the initial,
 handle that.  (That printing task is delegated to a small function.)
 
-@cindex @code{endfile()} function
-@cindex @code{quicksort()} function
-@cindex @code{write_index_entry()} function
-@cindex @code{Entries} variable
-@cindex @code{Keys} array
-@cindex @code{Initials} array
-@cindex @code{print_initial()} function
-@cindex @code{Output_file} variable
 @<@code{endfile()} work function@>=
 function endfile(filename,		i, prev_initial, initial)
 {
@@ -1087,11 +1002,6 @@ function endfile(filename,		i, prev_initial, initial)
 Printing an initial is not complicated.  The main thing is to precede
 special characters with the command character.
 
-@cindex @code{Command_char} variable
-@cindex @code{Special_chars} variable
-@cindex @code{Do_initials} variable
-@cindex @code{print_initial()} function
-@cindex @code{Output_file} variable
 @<Work functions@>=
 function print_initial(initial)
 {
@@ -1117,15 +1027,11 @@ sort both multilevel index entries, and regular text. To that end
 the @code{compare} variable indicates which way to do the ``less
 than'' comparison.
 
-@cindex @code{index_compare()} function
-@cindex @code{string_compare()} function
 The @code{index_compare()} function supplies the comparison for index entries
 (@pxref{Multilevel comparisons}, and @pxref{Comparing index entries}).
 The @code{string_compare()} function is used for string comparisons.
 
 
-@cindex @code{quicksort()} function
-@cindex @code{quicksort_swap()} function
 @<Helper functions@>=
 # quicksort --- C.A.R. Hoare's quick sort algorithm.  See Wikipedia
 #               or almost any algorithms or computer science text
@@ -1195,10 +1101,6 @@ an entry with two, and one with two comes before one with three.
 We make an effort here to call the comparison function only as
 much as necessary, since it's a relatively expensive operation.
 
-@cindex @code{index_compare()} function
-@cindex @code{string_compare()} function
-@cindex @code{Numfields} array
-@cindex @code{Subkeys} array
 @<Work functions@>=
 function index_compare(data, l, r,		left, right, nfields, cmp1, cmp2)
 {
@@ -1275,9 +1177,6 @@ The table must be built completely before changing the mapping of the
 letters, because all of the uppercase and lowercase letters must be in
 the table before we can change their values.
 
-@cindex @code{Ordval} array
-@cindex @code{isdigit()} function
-@cindex @code{isupper()} function
 @<Work functions@>=
 BEGIN {
 	for (i = 0; i < 256; i++) {
@@ -1349,10 +1248,6 @@ The rules just described produce @emph{better} results than did the C
 before @samp{BEGINFILE}, whereas with the C version they came out in the
 opposite order.
 
-@cindex @code{Ordval} array
-@cindex @code{char_split()} function
-@cindex @code{string_compare()} function
-@cindex @code{isalpha()} function
 @<Work functions@>=
 # string_compare - Returns a three-way value a la the C @code{strcmp()}
 # function: less than zero if the first string is less than the second,
@@ -1429,9 +1324,6 @@ output up to three lines per entry.
 
 So, let's start. The logic is going to be a little complicated:
 
-@cindex @code{write_index_entry()} function
-@cindex @code{Keys} array
-@cindex @code{Numfields} array
 @<Print index entry@>=
 function write_index_entry(current,		key)
 {
@@ -1465,17 +1357,14 @@ Printing the entries is similar no matter what kind of entry; there's
 a lot of work to be done so it's isolated in the @code{print_entry()}
 function described in the next section.
 
-@cindex @code{print_entry()} function
 @<Print primary entry@>=
 print_entry(key, "entry", Primary)
 @
 
-@cindex @code{print_entry()} function
 @<Print secondary entry@>=
 print_entry(key, "secondary", Secondary)
 @
 
-@cindex @code{print_entry()} function
 @<Print tertiary entry@>=
 print_entry(key, "tertiary", Tertiary)
 @
@@ -1486,15 +1375,6 @@ print_entry(key, "tertiary", Tertiary)
 
 Printing a single entry is quite involved:
 
-@cindex @code{print_entry()} function
-@cindex @code{print_see_entry()} function
-@cindex @code{See} array
-@cindex @code{See_count} array
-@cindex @code{Seealso} array
-@cindex @code{Seealso_count} array
-@cindex @code{Pagedata} array
-@cindex @code{Printed} array
-@cindex @code{Output_file} variable
 @<Print an entry@>=
 function print_entry(key, entry_command, entry_text,
 					@<Local variables for ``see also'' printing@>)
@@ -1573,8 +1453,6 @@ quicksort(see_entries, 1, count, "string")
 
 Be sure to empty out @code{Printed} at the start of each file.
 
-@cindex @code{Printed} array
-@cindex @code{del_array()} function
 @<Clear out all data arrays@>=
 del_array(Printed)
 @
@@ -1589,9 +1467,6 @@ Printing ``see'' entries is potentially messy if there
 are more than one. (A good index won't have more than one, but nothing
 prevents there being multiple such entries, so we have to handle them.)
 
-@cindex @code{print_see_entry()} function
-@cindex @code{quicksort()} function
-@cindex @code{Output_file} variable
 @<Print a ``see'' entry@>=
 function print_see_entry(key, entry_command, entry_text,	# parameters
 						count_array, see_text_array,		# parameters
@@ -1641,9 +1516,6 @@ each will have an index in @code{Printed} if
 we already printed such an entry.
 The subparts are already available in the @code{Subkeys} array.
 
-@cindex @code{Subkeys} array
-@cindex @code{Printed} array
-@cindex @code{Output_file} variable
 @<Print primary entry if necessary@>=
 if (! (Subkeys[key, 1] in Printed)) {
 	printf("%centry{%s,}{}\n",
@@ -1656,9 +1528,6 @@ Printing the secondary entry is a little subtle; we have to check
 that the combination of primary and secondary subkeys have been
 printed and use that combination as the index into @code{Printed}.
 
-@cindex @code{Subkeys} array
-@cindex @code{Printed} array
-@cindex @code{Output_file} variable
 @<Print secondary entry if necessary@>=
 subkey = (Subkeys[key, 1] Command_char "subentry " Subkeys[key, 2])
 if (! (subkey in Printed)) {
@@ -1773,9 +1642,6 @@ infrastructure for the @code{beginfile()} and @code{endfile()} functions.
 @xref{Filetrans Function,,, gawk, GNU Awk User's Guide},
 for an explanation of how this function works.
 
-@cindex @file{ftrans.awk} library file
-@cindex @code{beginfile()} function
-@cindex @code{endfile()} function
 @<Library functions@>=
 # ftrans.awk --- handle data file transitions
 #
@@ -1798,8 +1664,6 @@ The next function is @code{join()}, which joins an array of characters
 back into a string.  @xref{Join Function,,, gawk, GNU Awk User's Guide},
 for an explanation of how this function works.
 
-@cindex @file{join.awk} library file
-@cindex @code{join()} function
 @<Library functions@>=
 # join.awk --- join an array into a string
 #
@@ -1833,7 +1697,6 @@ These helper functions make the main code easier to follow.
 
 @code{del_array()} clears out an array.
 
-@cindex @code{del_array()} function
 @<Helper functions@>=
 function del_array(a)
 {
@@ -1854,7 +1717,6 @@ each character off into a separate element.  If so, the return value from @code{
 will be the number of elements in the array, and it will be more than
 one.  It is called at program startup.
 
-@cindex @code{check_split_null()} function
 @<Helper functions@>=
 function check_split_null(    n, a)
 {
@@ -1871,9 +1733,6 @@ function check_split_null(    n, a)
 @command{awk} do the work if possible.  If not, each character is
 extracted manually using a loop and @code{substr()}.
 
-@cindex @code{char_split()} function
-@cindex @code{Can_split_null} variable
-@cindex @code{del_array()} function
 @<Helper functions@>=
 function char_split(string, array,    n, i)
 {
@@ -1894,8 +1753,6 @@ function char_split(string, array,    n, i)
 @nodedescription Printing fatal errors.
 @subsection @code{fatal()}: Printing Fatal Error Messages
 
-@cindex @command{cat} command
-@cindex stderr
 The @code{fatal()} function prints a @code{printf}-formatted message to
 standard error and then exits badly.
 For maximal portability, it opens a pipeline to @command{cat},
@@ -1903,8 +1760,6 @@ redirected to standard error; not all systems have a @file{/dev/stderr}
 file, and not all versions of @command{awk} recognize that name
 internally. (Thus, we can't use @samp{print @dots{} > "/dev/stderr"}.)
 
-@cindex @code{EXIT_FAILURE} constant
-@cindex @code{fatal()} function
 @<Helper functions@>=
 function fatal(format, arg1, arg2, arg3, arg4, arg5,
 				arg6, arg7, arg8, arg9, arg10, cat)
@@ -1922,10 +1777,6 @@ function fatal(format, arg1, arg2, arg3, arg4, arg5,
 @nodedescription Checking character types.
 @subsection @code{is@dots{}} Functions: Checking Character Types
 
-@cindex @code{isupper()} function
-@cindex @code{islower()} function
-@cindex @code{isalpha()} function
-@cindex @code{isdigit()} function
 The following functions help identify what a character is; they are
 similar in nature to the various macros in the C @code{<ctype.h>} header
 file.  Since most of them return a count, the return value could be used to
@@ -1968,7 +1819,6 @@ literally.  The @code{make_regexp()} function handles this
 for us; a @samp{%} in the text of the regexp stands for
 the command character and is replaced appropriately.
 
-@cindex @code{make_regexp()} function
 @<Helper functions@>=
 function make_regexp(regexp,	a, sep, n)
 {
@@ -1991,7 +1841,6 @@ doubled before the containing string can be used as a regexp. This
 function does that job; it's very similar to @code{make_regexp()}
 (@pxref{make_regexp}).
 
-@cindex @code{escape()} function
 @<Helper functions@>=
 function escape(regexp,		a, n)
 {
@@ -2029,7 +1878,6 @@ do this by setting the text domain at startup.  For more information on
 internationalization in @command{gawk},
 @pxref{Internationalization,,, gawk, GNU Awk User's Guide}.
 
-@cindex @code{TEXTDOMAIN} variable
 @<Initial setup@>=
 TEXTDOMAIN = "texinfo"
 @
@@ -2044,10 +1892,6 @@ The @code{usage()} and @code{version()} functions print the necessary
 information and then exit.  The strings that can and should be
 translated are prefixed with an underscore.
 
-@cindex @code{Texindex_version} variable
-@cindex @code{usage()} function
-@cindex @code{version()} function
-@cindex @code{EXIT_SUCCESS} constant
 @use_smallexample
 @<Helper functions@>=
 function usage(exit_val)

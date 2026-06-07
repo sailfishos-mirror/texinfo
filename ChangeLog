@@ -1,5 +1,10 @@
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr: Remove all index entries
+	stating where functions or variables are used.
+
+2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr (Check for more initial):
 	Remove node and inline chunk.
 
