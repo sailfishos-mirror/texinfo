@@ -1,5 +1,10 @@
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr (Check for more initial):
+	Remove node and inline chunk.
+
+2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr (Processing each record):
 	Move text to a comment before the block.  This makes
 	it easier to spot where the main, unlabelled block

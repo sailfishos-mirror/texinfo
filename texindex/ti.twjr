@@ -620,6 +620,9 @@ function beginfile(filename)
 @nodedescription Pulling apart the fields and storing data.
 @section Processing Each Record
 
+@cindex @code{TRUE} constant
+@cindex @code{Do_initials} variable
+@cindex @code{Prev_initial} variable
 @<Process a record@>=
 # This block is run on every line of the input file.  Build the data
 # structures that will be used in sorting and printing.
@@ -645,7 +648,16 @@ function beginfile(filename)
 	tertiary_text = (numfields > 4 ? fields[5] : "")
 
 	@<Store the data for this line in the various arrays@>
-	@<Check for more than one initial@>
+
+	# Determine if more than one initial occurs in the input.
+	# As soon as it's true, we don't need to do further
+	# checking on subsequent lines.
+	if (! Do_initials) {
+		if (Prev_initial == "")
+			Prev_initial = initial
+		else if (initial != Prev_initial)
+			Do_initials = TRUE
+	}
 }
 @
 
@@ -937,28 +949,6 @@ del_array(See_count)
 del_array(Seealso)
 del_array(Seealso_count)
 del_array(Pagedata)
-@
-
-@node Check for more than one initial
-@nodedescription See if there are multiple initials.
-@subsection Check For More Than One Initial
-
-@cindex initial, checking for more than one
-
-Finally, we need to determine if more than one initial occurs in the
-input.  If so, we set @code{Do_initials} to true.  As soon as it's true,
-we don't need to do further checking on subsequent lines.
-
-@cindex @code{TRUE} constant
-@cindex @code{Do_initials} variable
-@cindex @code{Prev_initial} variable
-@<Check for more than one initial@>=
-if (! Do_initials) {
-	if (Prev_initial == "")
-		Prev_initial = initial
-	else if (initial != Prev_initial)
-		Do_initials = TRUE
-}
 @
 
 @node Splitting the record
