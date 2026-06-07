@@ -1,5 +1,11 @@
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr (Get the initial, Processing each record):
+	Move line calling extract_initial to "Processing each record",
+	leaving the definition of extract_inital in "Get the initial".
+
+2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr: Remove all index entries
 	stating where functions or variables are used.
 

@@ -608,7 +608,7 @@ function beginfile(filename)
 	# backslashes in sub().
 	$0 = substr($0, 7)
 
-	@<Get the initial@>
+	initial = extract_initial($0)
 
 	# Pull out the data of interest from the multiple sets of braces.
 	numfields = field_split($0, fields, "{", "}", Command_char)
@@ -662,10 +662,6 @@ del_array(Seen)
 @node Get the initial
 @nodedescription Get the initial for this entry.
 @subsection Get The Initial
-
-@<Get the initial@>=
-initial = extract_initial($0)
-@
 
 The sort key is the first part of the line after @samp{@@entry}, 
 starting with an open brace, and continuing to a matching close brace.
