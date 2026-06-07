@@ -1,6 +1,13 @@
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* texindex/ti.twjr (Processing each record):
+	Move text to a comment before the block.  This makes
+	it easier to spot where the main, unlabelled block
+	starts in the resulting awk program.
+
+2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* texindex/ti.twjr (Processing each record):
 	Reword a sentence slightly.
 
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
