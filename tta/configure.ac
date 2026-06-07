@@ -443,8 +443,8 @@ if test $with_swig != 'no' ; then
   AX_PKG_SWIG([], [ with_swig='yes' ],
   [if test $with_swig = 'yes' ; then
      AC_MSG_ERROR([SWIG not found'])
-     with_swig=no
    fi
+   with_swig=no
   ])
 fi
 

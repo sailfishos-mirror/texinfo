@@ -1,5 +1,9 @@
 2026-06-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/configure.ac: set with_swig to no if not detected.
+
+2026-06-07 Patrice Dumas  <pertusus@free.fr>
+
 	Enable SWIG interfaces building if detected
 
 	* tta/configure.ac (swig): enable SWIG interfaces if swig is found.
