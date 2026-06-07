@@ -98,6 +98,9 @@ txi_find_tree_transformation (const char *transformation_name)
 
   Return 0 in case of success.
  */
+/* TODO warn/exit if loaded twice?  The problem with being loaded
+   twice is that the init files code may have modified previous
+   interpreter data */
 int
 txi_load_interpreter (const INTERPRETER_LOADING_INFO *loading_info)
 {

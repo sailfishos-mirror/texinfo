@@ -2281,9 +2281,12 @@ main (int argc, char *argv[], char *env[])
  #endif
      )
     {
-      int status = txi_load_interpreter (&loading_info);
-      if (!status)
-        embedded_interpreter = txi_interpreter_use_embedded;
+      if (embedded_interpreter == txi_interpreter_want_embedded)
+        {
+          int status = txi_load_interpreter (&loading_info);
+          if (!status)
+            embedded_interpreter = txi_interpreter_use_embedded;
+        }
     }
 
   /* determine the format_specification now that the output format is known */

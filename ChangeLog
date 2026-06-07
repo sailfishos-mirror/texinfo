@@ -1,5 +1,11 @@
 2026-06-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/texi2any.c (main): call txi_load_interpreter only if
+	embedded_interpreter is txi_interpreter_want_embedded, such that the
+	interpreter is not loaded twice.
+
+2026-06-07 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/texi2any.c (main): initialize sort_element_count_text.  Even
 	though it is not possible to have it unnitialized, it is consistent
 	with the code that is written as if sort_element_count_info could be
