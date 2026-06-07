@@ -884,7 +884,23 @@ function field_split( \
 	delim_count = 1
 	for (i = 2; i <= numchars; i++) {
 		if (chars[i] == com_ch) {
-			@<Handle the character after the command character@>
+			# If the command character is doubled, we pass
+			# that on through, so that TeX will process
+			# it correctly.
+			#
+			# If the character following the command
+			# character is an open brace or close brace, we
+			# pull it in.  Otherwise, the command character
+			# is left alone as part of the field.
+			if (chars[i+1] == Command_char) {	# input was @@
+				out[k++] = chars[i+1]
+				out[k++] = chars[i+1]
+				i++
+			} else if (index(Special_chars, chars[i+1]) != 0) {
+				out[k++] = chars[i+1]
+				i++
+			} else
+				out[k++] = chars[i]
 		} else if (chars[i] == start) {
 			delim_count++
 			out[k++] = chars[i]
@@ -892,7 +908,23 @@ function field_split( \
 			delim_count--
 
 			if (delim_count == 0) {
-				@<Finish off the field, set up for next field@>
+				# Upon seeing the final closing brace, we
+				# put all the characters back together into
+				# a string using 'join()'.  We then reset
+				# the 'out' array for the next time through.
+				# If the next character isn't an open brace,
+				# then the line is bad and we print a fatal
+				# error.  Otherwise, we reset 'delim_count'
+				# to one.
+				fields[j++] = join(out, 1, k-1, SUBSEP)
+				del_array(out)  # reset for next time through
+				k = 1
+				
+				i++
+				if (i <= numchars && chars[i] != start)
+					fatal(_"%s:%d: Bad entry; expected %s at column %d\n",
+						FILENAME, FNR, start, i)
+				delim_count = 1
 			} else
 				out[k++] = chars[i]
 		} else
@@ -902,43 +934,6 @@ function field_split( \
 	return j - 1  # num fields
 }
 @
-
-If the command character is doubled, we pass that on through, so that
-@TeX{} will process it correctly.
-If the character following the command character is an open brace or close
-brace, we pull it in.  Otherwise, the
-command character is left alone as part of the field.
-
-@<Handle the character after the command character@>=
-if (chars[i+1] == Command_char) {	# input was @@
-	out[k++] = chars[i+1]
-	out[k++] = chars[i+1]
-	i++
-} else if (index(Special_chars, chars[i+1]) != 0) {
-	out[k++] = chars[i+1]
-	i++
-} else
-	out[k++] = chars[i]
-@
-
-Upon seeing the final closing brace, we put all the characters back
-together into a string using @code{join()}.  We then reset the
-@code{out} array for the next time through.  If the next character isn't
-an open brace, then the line is bad and we print a fatal error.
-Otherwise, we reset @code{delim_count} to one.
-
-@<Finish off the field, set up for next field@>=
-fields[j++] = join(out, 1, k-1, SUBSEP)
-del_array(out)  # reset for next time through
-k = 1
-
-i++
-if (i <= numchars && chars[i] != start)
-	fatal(_"%s:%d: Bad entry; expected %s at column %d\n",
-		FILENAME, FNR, start, i)
-delim_count = 1
-@
-
 
 @node End-of-file sorting and printing
 @nodedescription Sorting the entries for each index.
