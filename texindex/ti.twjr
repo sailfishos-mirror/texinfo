@@ -675,7 +675,8 @@ character as the initial, in this example @samp{\}, and output it as
 older versions of @file{texinfo.tex}.
 
 @<Work functions@>=
-function extract_initial(key,  initial, nextchar, i, l, kchars)
+function extract_initial(key,                             # parameters
+                         initial, nextchar, i, l, kchars) # locals
 {
 	l = char_split(key, kchars)
 	if (l >= 3 && kchars[2] == "{") {
@@ -873,7 +874,7 @@ character and the final closing brace.
 
 @<Work functions@>=
 function field_split( \
-	record, fields, start, end, com_ch,      # parameters
+	record, fields, start, end, com_ch,         # parameters
 	chars, numchars, out, delim_count, i, j, k) # locals
 {
 	del_array(fields)
@@ -947,7 +948,8 @@ delim_count = 1
 @<@code{endfile()} work function@>=
 # Sort the entries and write them out.  Additionally, if we are printing
 # the initial, handle that.
-function endfile(filename,		i, prev_initial, initial)
+function endfile(filename,                 # parameters
+                 i, prev_initial, initial) # locals
 {
 	# sort the entries
 	quicksort(Keys, 1, Entries, "index")
@@ -1011,8 +1013,8 @@ The @code{string_compare()} function is used for string comparisons.
 #   * "string" - if data is an array of strings
 #   * "index" - if data is an array of index entries
 #
-function quicksort(data, left, right, compare,	# parameters
-					i, last, use_index, lt)		# locals
+function quicksort(data, left, right, compare, # parameters
+                   i, last, use_index, lt)     # locals
 {
 	if (left >= right)  # do nothing if array contains fewer
 		return          # than two elements
@@ -1069,7 +1071,8 @@ We make an effort here to call the comparison function only as
 much as necessary, since it's a relatively expensive operation.
 
 @<Work functions@>=
-function index_compare(data, l, r,		left, right, nfields, cmp1, cmp2)
+function index_compare(data, l, r,                       # parameters
+                       left, right, nfields, cmp1, cmp2) # locals
 {
 	left = data[l]
 	right = data[r]
@@ -1220,7 +1223,8 @@ opposite order.
 # function: less than zero if the first string is less than the second,
 # zero if they're equal, or greater than zero if the first string is
 # greater than the second one.
-function string_compare(left, right,	len_l, len_r, len, chars_l, chars_r)
+function string_compare(left, right,                         # parameters
+                        len_l, len_r, len, chars_l, chars_r) # locals
 {
 	len_l = length(left)
 	len_r = length(right)
@@ -1292,7 +1296,8 @@ output up to three lines per entry.
 So, let's start. The logic is going to be a little complicated:
 
 @<Print index entry@>=
-function write_index_entry(current,		key)
+function write_index_entry(current, # parameters
+                           key)     # locals
 {
 	key = Keys[current]		# current sort key
 	if (Numfields[key] == 1) {
@@ -1354,8 +1359,8 @@ function described in the next section.
 Printing a single entry is quite involved:
 
 @<Print an entry@>=
-function print_entry(key, entry_command, entry_text,
-					@<Local variables for ``see also'' printing@>)
+function print_entry(key, entry_command, entry_text, # parameters
+                     count, see_entries, i)          # locals
 {
 	if ((key, 1) in See)		# at least one ``see''
 		print_see_entry(key, entry_command, entry_text,
@@ -1410,10 +1415,6 @@ if ((key, 1) in Seealso) {
 }
 @
 
-@<Local variables for ``see also'' printing@>=
-count, see_entries, i
-@
-
 Although it's bad practice, there could be multiple
 ``see also'' entries for a given key. In that case, we
 must sort them before using them.
@@ -1446,9 +1447,9 @@ are more than one. (A good index won't have more than one, but nothing
 prevents there being multiple such entries, so we have to handle them.)
 
 @<Work functions@>=
-function print_see_entry(key, entry_command, entry_text,	# parameters
-						count_array, see_text_array,		# parameters
-						i, count, see_entries)				# locals
+function print_see_entry(key, entry_command, entry_text, # parameters
+                         count_array, see_text_array,    # parameters
+                         i, count, see_entries)          # locals
 {
 	count = count_array[key]
 	if (count == 1) {	# the easy case
