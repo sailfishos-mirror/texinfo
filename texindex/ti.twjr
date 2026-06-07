@@ -1359,6 +1359,7 @@ function described in the next section.
 Printing a single entry is quite involved:
 
 @<Print an entry@>=
+# Print a single entry
 function print_entry(key, entry_command, entry_text, # parameters
                      count, see_entries, i)          # locals
 {
@@ -1367,16 +1368,49 @@ function print_entry(key, entry_command, entry_text, # parameters
 						See_count, See)
 
 	if (key in Pagedata) {		# at least one page number
-		@<Check for ``see also'', add to @code{Pagedata}@>
+		# When there exist both regular index entries for a topic and
+		# also a ``see also'' entry, we place the ``see also'' text
+		# after all the page numbers, so that there is only one printed
+		# index entry for the topic.
+		# This ends up being involved, since potentially there could be
+		# multiple ``see also'' entries (even though this is bad form).
+		if ((key, 1) in Seealso) {
+			# Although it's bad practice, there could be multiple
+			# ``see also'' entries for a given key. In that case,
+			# we must sort them before using them.
+			count = Seealso_count[key]
+			
+			# Copy the entries to a separate array
+			for (i = 1; i <= count; i++)
+				see_entries[i] = Seealso[key, i]
+			
+			# sort them
+			quicksort(see_entries, 1, count, "string")
+
+			# now add them to the page data
+			for (i = 1; i <= count; i++)
+				Pagedata[key] = Pagedata[key] ", " see_entries[i]
+		}
 
 		printf("%c%s{%s}{%s}\n",
 			Command_char, entry_command,
 			entry_text[key], Pagedata[key]) > Output_file
 
+		# Note that we only take note of having printed the
+		# key for lines with page numbers. Otherwise, a ``see''
+		# entry followed by a regular multilevel entry is not
+		# handled correctly.
 		Printed[key] = True		# mark this key as printed
 	} else if ((key, 1) in Seealso) {	# at least one ``see also''
 		# Only ``see also'' entry, print it
-		@<Prepare and sort ``see also'' entries into @code{see_entries}@>
+		count = Seealso_count[key]
+		
+		# Copy the entries to a separate array
+		for (i = 1; i <= count; i++)
+			see_entries[i] = Seealso[key, i]
+		
+		# sort them
+		quicksort(see_entries, 1, count, "string")
 
 		printf("%c%s{%s}{",
 			Command_char, entry_command,
@@ -1391,43 +1425,6 @@ function print_entry(key, entry_command, entry_text, # parameters
 		printf("}\n") > Output_file
 	}
 }
-@
-
-Note that we only take note of having printed the key
-for lines with page numbers. Otherwise, a ``see'' entry followed
-by a regular multilevel entry is not handled correctly.
-
-When there exist both regular index entries for a topic and
-also a ``see also'' entry, we place the ``see also'' text
-after all the page numbers, so that there is only one printed
-index entry for the topic.
-
-This ends up being involved, since potentially there could be
-multiple ``see also'' entries (even though this is bad form).
-
-@<Check for ``see also'', add to @code{Pagedata}@>=
-if ((key, 1) in Seealso) {
-	@<Prepare and sort ``see also'' entries into @code{see_entries}@>
-
-	# now add them to the page data
-	for (i = 1; i <= count; i++)
-		Pagedata[key] = Pagedata[key] ", " see_entries[i]
-}
-@
-
-Although it's bad practice, there could be multiple
-``see also'' entries for a given key. In that case, we
-must sort them before using them.
-
-@<Prepare and sort ``see also'' entries into @code{see_entries}@>=
-count = Seealso_count[key]
-
-# Copy the entries to a separate array
-for (i = 1; i <= count; i++)
-	see_entries[i] = Seealso[key, i]
-
-# sort them
-quicksort(see_entries, 1, count, "string")
 @
 
 Be sure to empty out @code{Printed} at the start of each file.
