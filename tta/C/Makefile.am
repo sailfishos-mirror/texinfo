@@ -76,6 +76,10 @@ libperlcall_utils_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 ########################## shared common, parser and structure library
 
 library_LTLIBRARIES += libtexinfo.la
+if SWIG_INTERFACES
+# do a static library for the SWIG interface without embedded Perl.
+noinst_LTLIBRARIES += libtexinfo-static.la
+endif
 
 # The files in the main directory correspond to code used both
 # by the parser, by converters and by C code used for interfacing with
@@ -262,9 +266,18 @@ libtexinfo_la_LIBADD = libcallperl_libtexinfo.la $(platform_PERL_LIBADD)
 # and could be replaced by uchar-h in other code.  If Unicode collation code
 # is moved to another library it could be possible to use uchar-h although
 # it is probably better for future uses to have uchar-h-c23.
-libtexinfo_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(HARD_LOCALE_LIB) $(LIBPTHREAD) $(LIBTHREAD) $(LTLIBC32CONV) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(MBRTOWC_LIB) $(PTHREAD_ONCE_LIB) $(SETLOCALE_NULL_LIB)
+C_libtexinfo_LIBS = $(HARD_LOCALE_LIB) $(LIBPTHREAD) $(LIBTHREAD) $(LTLIBC32CONV) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(MBRTOWC_LIB) $(PTHREAD_ONCE_LIB) $(SETLOCALE_NULL_LIB)
+libtexinfo_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(C_libtexinfo_LIBS)
 
 #libtexinfo_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(perl_conf_LIBS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+
+# static internal library without Perl at all
+libtexinfo_static_la_SOURCES = $(libtexinfo_la_SOURCES)
+libtexinfo_static_la_SOURCES += main/replace_set_perl_interpreter.c \
+		      main/replace_perl_api_call.c
+libtexinfo_static_la_CPPFLAGS = $(libtexinfo_la_CPPFLAGS)
+libtexinfo_static_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
+libtexinfo_static_la_LDFLAGS = $(C_libtexinfo_LIBS)
 
 BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
                 convert/cmd_converter.c \
@@ -458,6 +471,10 @@ libtexinfoxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS)
 # share converter data among the XS objects used for conversion.
 
 library_LTLIBRARIES += libtexinfo-convert.la
+if SWIG_INTERFACES
+# do a static library for the SWIG interface without embedded Perl.
+noinst_LTLIBRARIES += libtexinfo-convert-static.la
+endif
 
 C_libtexinfo_convert_sources = \
                        convert/converter.c \
@@ -523,6 +540,15 @@ libtexinfo_convert_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(E
 # example to trigger errors associated with no undefined
 #libtexinfo_convert_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(perl_conf_LIBS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
+# static internal library
+libtexinfo_convert_static_la_SOURCES = $(libtexinfo_convert_la_SOURCES)
+libtexinfo_convert_static_la_SOURCES +=  \
+                       convert/replace_perl_call_html_function.c \
+                       convert/replace_call_conversion_perl.c
+libtexinfo_convert_static_la_CPPFLAGS = $(libtexinfo_convert_la_CPPFLAGS)
+libtexinfo_convert_static_la_LIBADD = libtexinfo-static.la
+libtexinfo_convert_static_la_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+
 ################################# common Perl C code shared library used
 # to call libtexinfo-convert from Perl XS *.xs interfaces
 
@@ -564,6 +590,10 @@ libtexinfo_convertxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS)
 # ctexi2any cannot be built in that situation.
 
 library_LTLIBRARIES += libtexinfo-main.la
+if SWIG_INTERFACES
+# do a static library for the SWIG interface without embedded Perl.
+noinst_LTLIBRARIES += libtexinfo-main-static.la
+endif
 
 # convenience library for embedded Perl called from libtexinfo-main C code,
 # to be able to use specific flags for compilation and linking different from
@@ -628,6 +658,13 @@ libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LIB_LDFLAGS) $(LTLI
 # example to trigger errors associated with no undefined
 #libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(LTLIBINTL) $(perl_conf_LIBS)
 
+# convenience static library
+libtexinfo_main_static_la_SOURCES = $(libtexinfo_main_la_SOURCES)
+libtexinfo_main_static_la_SOURCES += convert/replace_call_embed_perl.c
+libtexinfo_main_static_la_CPPFLAGS = $(libtexinfo_main_la_CPPFLAGS)
+# libtexinfo is already in libtexinfo-convert-static
+libtexinfo_main_static_la_LIBADD = libtexinfo-convert-static.la
+libtexinfo_main_static_la_LDFLAGS = $(LTLIBINTL)
 
 ############################################### main program in C
 

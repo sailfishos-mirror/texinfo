@@ -18,11 +18,8 @@ AM_CPPFLAGS = -DDATADIR=\"$(datadir)\" -DLIBDIR=\"$(libdir)\" \
 
 txi_libs_srcdir = $(srcdir)/../../C
 
-$(top_builddir)/../tta/C/libtexinfo.la:
-	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo.la
-
 $(top_builddir)/../tta/C/libtexinfo-main.la:
-	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo-main.la
+	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo-main-static.la
 
 if SWIG_INTERFACES
 
@@ -48,7 +45,7 @@ pyexec_LTLIBRARIES = _Texinfo.la
 nodist__Texinfo_la_SOURCES = python_texinfo_wrap.c
 
 _Texinfo_la_LDFLAGS = -module ${PYTHON_LDFLAGS}
-_Texinfo_la_LIBADD = $(top_builddir)/C/libtexinfo.la $(top_builddir)/C/libtexinfo-main.la
+_Texinfo_la_LIBADD = $(top_builddir)/C/libtexinfo-main-static.la
 
 # Same as ctexi2any, not sure whether it is needed or not
 _Texinfo_la_LIBADD += $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)

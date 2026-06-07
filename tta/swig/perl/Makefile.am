@@ -18,11 +18,8 @@ AM_CPPFLAGS = -DDATADIR=\"$(datadir)\" -DLIBDIR=\"$(libdir)\" \
 
 txi_libs_srcdir = $(srcdir)/../../C
 
-$(top_builddir)/../tta/C/libtexinfo.la:
-	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo.la
-
-$(top_builddir)/../tta/C/libtexinfo-main.la:
-	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo-main.la
+$(top_builddir)/../tta/C/libtexinfo-main-static.la:
+	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo-main-static.la
 
 if SWIG_INTERFACES
 SWIG_include_directories = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/api_for_swig
@@ -84,7 +81,7 @@ Texinfo_la_CPPFLAGS = $(AM_CPPFLAGS) -DVERSION=\"$(VERSION)\" -DXS_VERSION=\"$(X
 Texinfo_la_CFLAGS = $(perl_conf_LIB_CFLAGS)
 # Flags specially recognized by libtool.  For dlopened modules, here XS.
 Texinfo_la_LDFLAGS = -avoid-version -module $(perl_conf_LIB_LDFLAGS)
-Texinfo_la_LIBADD = $(top_builddir)/C/libtexinfo.la $(top_builddir)/C/libtexinfo-main.la $(platform_PERL_LIBADD)
+Texinfo_la_LIBADD = $(top_builddir)/C/libtexinfo-main-static.la $(platform_PERL_LIBADD)
 # Same as ctexi2any, not sure whether it is needed or not
 Texinfo_la_LIBADD += $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 

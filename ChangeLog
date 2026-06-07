@@ -1,5 +1,18 @@
 2026-06-07 Patrice Dumas  <pertusus@free.fr>
 
+	Link statically SWIG interface with libtexinfo code
+
+	* tta/C/Makefile.am (noinst_LTLIBRARIES, C_libtexinfo_LIBS)
+	(libtexinfo_static_la_*, libtexinfo_convert_static_la_*)
+	(libtexinfo_main_static_la_*): add internal static libraries without
+	Perl calling code.
+
+	* tta/swig/perl/Makefile.am (Texinfo_la_LIBADD),
+	tta/swig/python/Makefile.am (_Texinfo_la_LIBADD): link against
+	internal static library.
+
+2026-06-07 Patrice Dumas  <pertusus@free.fr>
+
 	Never use a Perl interpreter in the SWIG interface
 
 	* tta/swig/texinfo.i (txi_ext_inline_setup): remove loading of
