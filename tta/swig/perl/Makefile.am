@@ -16,15 +16,6 @@ AM_CPPFLAGS = -DDATADIR=\"$(datadir)\" -DLIBDIR=\"$(libdir)\" \
        -DCONVERTER_CONFIG=\"$(CONVERTER)\" \
        -DPACKAGE_VERSION_CONFIG=\"$(PACKAGE_VERSION)\"
 
-# Never embed a perl interpreter as there is already one running (tested to
-# mess up the Perl stack).  According to perlembed documentation, it could be
-# possible to have two perl interpreters running, but the example only shows
-# interpreters that the C code embedding Perl has control over.
-#
-# Instead, use the existing Perl interpreter.
-
-AM_CPPFLAGS += -DUSE_PERL_INTERPRETER
-
 txi_libs_srcdir = $(srcdir)/../../C
 
 $(top_builddir)/../tta/C/libtexinfo.la:
@@ -39,7 +30,6 @@ SWIG_include_directories = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/api_fo
 BUILT_SOURCES = perl_texinfo_wrap.c Texinfo.pm
 
 SWIG_header_dependencies = \
-                 $(txi_libs_srcdir)/main/interpreter_use_types.h \
                  $(txi_libs_srcdir)/main/source_mark_types.h \
                  $(txi_libs_srcdir)/api_for_swig/swig_element_types.h \
                  $(txi_libs_srcdir)/api_for_swig/swig_element_data.h \

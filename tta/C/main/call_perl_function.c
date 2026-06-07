@@ -270,6 +270,7 @@ call_modulepath_init (int updirs, const char *perl_modules_dir,
    return 0 in case of regular errors.
    return 1 for success.
  */
+/* Currently unused */
 int
 call_eval_load_texinfo_modules (int texinfo_uninstalled,
           const char *t2a_builddir, int updirs, const char *modules_dir,

@@ -35,7 +35,6 @@
 /* not necessarily used, but could be for debugging */
 #include <stdio.h>
 
-#include "interpreter_use_types.h"
 #include "source_mark_types.h"
 #include "element_types.h"
 #include "types_data.h"
@@ -74,31 +73,19 @@ txi_general_output_strings_setup ();
 reset_parser (0);
 %}
 
-%include "interpreter_use_types.h"
-
 %rename(setup) txi_ext_inline_setup;
 void
-txi_ext_inline_setup (int texinfo_uninstalled=0,
-       int use_interpreter=1,
-       int updirs=3, const char *datadir_in=0,
-       const char *converterdatadir_in=0,
-       const char *converterlibdir_in=0,
-       const char *t2a_builddir_in=0,
-       const char *t2a_srcdir_in=0);
+txi_ext_inline_setup (int texinfo_uninstalled=0, const char *datadir_in=0,
+                      const char *converterdatadir_in=0,
+                      const char *t2a_builddir_in=0,
+                      const char *t2a_srcdir_in=0);
 
 %{
-static INTERPRETER_LOADING_INFO loading_info;
-static enum interpreter_use use_interpreter_state
-   = txi_interpreter_use_no_interpreter;
-
 void
-txi_ext_inline_setup (int texinfo_uninstalled,
-       int use_interpreter,
-       int updirs, const char *datadir_in,
-       const char *converterdatadir_in,
-       const char *converterlibdir_in,
-       const char *t2a_builddir_in,
-       const char *t2a_srcdir_in)
+txi_ext_inline_setup (int texinfo_uninstalled, const char *datadir_in,
+                      const char *converterdatadir_in,
+                      const char *t2a_builddir_in,
+                      const char *t2a_srcdir_in)
 {
   char *t2a_srcdir = 0;
   char *t2a_builddir = 0;
@@ -147,42 +134,6 @@ txi_ext_inline_setup (int texinfo_uninstalled,
   messages_and_encodings_setup (datadir);
   setup_texinfo_main (texinfo_uninstalled, datadir,
                       t2a_builddir, t2a_srcdir);
-
-  if (use_interpreter)
-    {
-#ifdef EMBED_PERL
-  /* load a Perl interpreter and texi2any modules */
-      const char *version_for_embedded_interpreter_check;
-      if (texinfo_uninstalled)
-        version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+nc";
-      else
-        version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
-
-      txi_setup_load_interpreter (txi_interpreter_want_embedded,
-                                  0, 0, 0,
-                                  version_for_embedded_interpreter_check,
-                                  &loading_info);
-      use_interpreter_state = txi_interpreter_want_embedded;
-#endif
-#ifdef USE_PERL_INTERPRETER
-  /* case of the Perl interface, reuse the the existing Perl interpreter.
-     Only need to load texi2any modules */
-      const char *converterlibdir = 0;
-      int status;
-      if (!texinfo_uninstalled)
-        {
-          if (converterlibdir_in)
-            converterlibdir = converterlibdir_in;
-          else
-            converterlibdir = LIBDIR "/" CONVERTER_CONFIG;
-        }
-      status = txi_use_interpreter_load_modules (texinfo_uninstalled,
-                                   datadir, converterdatadir, converterlibdir,
-                                   t2a_builddir, t2a_srcdir, updirs);
-      if (!status)
-        use_interpreter_state = txi_interpreter_use_interpreter;
-#endif
-    }
 
   free (t2a_builddir);
   free (t2a_srcdir);
@@ -452,31 +403,15 @@ int txi_ext_sorted_index_entries_number (
 const INDEX_SORTED_BY_INDEX *txi_ext_inline_get_index_sorted_by_index (
                            DOCUMENT *document,
                            const char *index_name,
-                           int use_unicode_collation=1,
-                           const char *collation_language=0,
-                           const char *collation_locale=0);
+                           int use_unicode_collation=1);
 %{
-/* Wrapper loading an embedded Perl inpterpreter if needed */
 const INDEX_SORTED_BY_INDEX *txi_ext_inline_get_index_sorted_by_index (
                            DOCUMENT *document,
                            const char *index_name,
-                           int use_unicode_collation,
-                           const char *collation_language,
-                           const char *collation_locale)
+                           int use_unicode_collation)
 {
-  if (collation_language
-      && use_interpreter_state == txi_interpreter_want_embedded)
-    {
-      int status = txi_load_interpreter (&loading_info);
-      if (!status)
-        use_interpreter_state = txi_interpreter_use_embedded;
-      else
-        use_interpreter_state = txi_interpreter_use_no_interpreter;
-    }
-
   return txi_ext_get_index_sorted_by_index (document, index_name,
-                              use_unicode_collation, collation_language,
-                              collation_locale);
+                              use_unicode_collation, 0, 0);
 }
 %}
 

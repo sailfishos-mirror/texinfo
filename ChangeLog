@@ -1,3 +1,28 @@
+2026-06-07 Patrice Dumas  <pertusus@free.fr>
+
+	Never use a Perl interpreter in the SWIG interface
+
+	* tta/swig/texinfo.i (txi_ext_inline_setup): remove loading of
+	an interpreter or texi2any modules from txi_ext_inline_setup.
+	Remove collation_language and collation_locale arguments of
+	txi_ext_inline_get_index_sorted_by_index.  Remove
+	interpreter_use_types.h include.
+
+	* tta/swig/perl/Makefile.PL, tta/swig/perl/Makefile.am (AM_CPPFLAGS),
+	tta/swig/python/Makefile.am (AM_CPPFLAGS): remove USE_PERL_INTERPRETER
+	and EMBED_PERL flags settings.  Remove dependency on
+	interpreter_use_types.h.
+
+	* tta/swig/perl/t/20index_sort.t: remove language argument from
+	Texinfo::get_index_sorted_by_index call and skip test of language
+	tailored sorting as it is not possible anymore.
+
+	* tta/swig/perl/parse_refold.pl, tta/swig/python/test_Texinfo.py:
+	update call of Texinfo setup.
+
+	* tta/swig/python/Makefile.am (AM_CPPFLAGS): remove linking against
+	perl libraries.
+
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* texindex/ti.twjr (printing top level, printing a single entry):

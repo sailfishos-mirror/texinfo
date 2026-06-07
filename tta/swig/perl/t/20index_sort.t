@@ -25,7 +25,7 @@ use Test::Deep;
 use Data::Compare ();
 use Test::More;
 
-plan tests => 4;
+plan tests => 2;
 
 # to find Texinfo_SWIG_Interface_Tests in source
 use lib '.';
@@ -44,7 +44,7 @@ use Texinfo;
 
 # Need to do that before loading texi2any Perl modules, to make sure
 # that set_XS_mandatory is called before loading any module that would
-# read TEXINFO_XS_* environmnent variables
+# read TEXINFO_XS_* environment variables
 BEGIN {
 Texinfo::setup(1);
 }
@@ -112,6 +112,8 @@ my $doc = $parser->parse_texi_text($texi);
 foreach my $lang (undef, 'sv') {
   my $label;
   if (defined($lang)) {
+    # no language tailoring of sorting in the SWIG interface.
+    next;
     $label = $lang;
   } else {
     $label = 'no language';
@@ -158,7 +160,7 @@ foreach my $lang (undef, 'sv') {
 
 
   my $sorted_index
-     = Texinfo::get_index_sorted_by_index($document, $index_name, 1, $lang);
+     = Texinfo::get_index_sorted_by_index($document, $index_name, 1);
 
   #my $result = "SORTED ${index_name}:\n";
 

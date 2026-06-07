@@ -144,7 +144,7 @@ txi_load_interpreter (const INTERPRETER_LOADING_INFO *loading_info)
 
 /* assume that there is already a Perl interpreter loaded, but the
    texi2any Perl modules are not loaded and load some modules.
-   Used from the Perl SWIG interface */
+   Currently unused */
 int
 txi_use_interpreter_load_modules (int texinfo_uninstalled, const char *datadir,
                               const char *converter_datadir,
