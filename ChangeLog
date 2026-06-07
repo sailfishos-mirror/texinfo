@@ -1,3 +1,9 @@
+2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* texindex/ti.twjr (printing top level, printing a single entry):
+	Inline chunks "Print primary entry if necessary" and
+	"Print secondary entry if necessary".
+
 2026-06-07 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/configure.ac: set with_swig to no if not detected.

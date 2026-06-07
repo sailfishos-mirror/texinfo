@@ -1320,15 +1320,38 @@ function write_index_entry(current,		key)
 	if (Numfields[key] == 1) {
 		print_entry(key, "entry", Primary)
 	} else if (Numfields[key] == 2) {
-		@<Print primary entry if necessary@>
+		# Print primary entry if necessary
+		# The subparts represent the key for those entries;
+		# each will have an index in Printed if
+		# we already printed such an entry.
+		if (! (Subkeys[key, 1] in Printed)) {
+			printf("%centry{%s,}{}\n",
+				Command_char, Primary[key]) > Output_file
+			Printed[Subkeys[key, 1]] = True
+		}
 		print_entry(key, "secondary", Secondary)
 	} else if (Numfields[key] == 3) {
-		@<Print primary entry if necessary@>
-		@<Print secondary entry if necessary@>
+		# Same as 2-part case
+		if (! (Subkeys[key, 1] in Printed)) {
+			printf("%centry{%s,}{}\n",
+				Command_char, Primary[key]) > Output_file
+			Printed[Subkeys[key, 1]] = True
+		}
+		# Print secondary entry if necessary.
+		# We have to check that the combination of primary
+		# and secondary subkeys have been printed and
+		# use that combination as the index into Printed.
+		subkey = (Subkeys[key, 1] Command_char "subentry " Subkeys[key, 2])
+		if (! (subkey in Printed)) {
+			printf("%csecondary{%s,}{}\n",
+				Command_char, Secondary[key]) > Output_file
+			Printed[subkey] = True
+		}
 		print_entry(key, "tertiary", Tertiary)
 	}
 }
 @
+
 
 Consider the three-level case, for an entry like:
 
@@ -1480,34 +1503,6 @@ function print_see_entry(key, entry_command, entry_text,	# parameters
 @cindex coffee @seealso{coca-cola}
 @cindex whisky @seealso{soda}
 @cindex whisky @seealso{scotch}
-
-When checking if we need to print the primary and secondary entry,
-we need to use the subparts of the key.
-The subparts represent the key for those entries;
-each will have an index in @code{Printed} if
-we already printed such an entry.
-The subparts are already available in the @code{Subkeys} array.
-
-@<Print primary entry if necessary@>=
-if (! (Subkeys[key, 1] in Printed)) {
-	printf("%centry{%s,}{}\n",
-		Command_char, Primary[key]) > Output_file
-	Printed[Subkeys[key, 1]] = True
-}
-@
-
-Printing the secondary entry is a little subtle; we have to check
-that the combination of primary and secondary subkeys have been
-printed and use that combination as the index into @code{Printed}.
-
-@<Print secondary entry if necessary@>=
-subkey = (Subkeys[key, 1] Command_char "subentry " Subkeys[key, 2])
-if (! (subkey in Printed)) {
-	printf("%csecondary{%s,}{}\n",
-		Command_char, Secondary[key]) > Output_file
-	Printed[subkey] = True
-}
-@
 
 
 Here are some test cases:
