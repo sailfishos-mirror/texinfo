@@ -1,5 +1,10 @@
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr (Comparing index entries):
+	Move node text into comment in 'string_compare'.
+
+2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr (Splitting the record):
 	Move node text into comments.
 

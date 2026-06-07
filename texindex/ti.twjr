@@ -1147,51 +1147,6 @@ BEGIN {
 }
 @
 
-Here is the @code{string_compare()} function.  It returns less than zero if the
-@code{left} string is ``less than'' the @code{right} string, zero if they are
-equal, and greater than zero if the @code{left} string is ``greater than'' the
-@code{right} string.
-
-The comparison algorithm is not too complicated, once we define how
-things should work.  We loop over each pair of characters in the
-@code{left} and @code{right} strings, comparing them one at a time.
-When comparing two characters, there are three cases, one of which has
-three subcases, as follows:
-
-@table @i
-@item Two letters
-
-@c nested table
-@table @i
-@item Same letter, but different case
-This is the slightly complicated case.
-When two characters are equal, we have to look ahead at the next
-characters to decide whether to continue the loop or quit.  As long as
-we are not at the end of the string, and at least one of the following
-characters in either string is a letter, we continue the loop.
-Otherwise we do the character comparison and return.
-
-@item Two different letters, but same case
-@itemx Two different letters, different case
-Use the comparison of the respective @code{Ordval} values.
-@end table
-@c end nested table
-
-@item A letter and something else
-@itemx Two nonletters
-Use the comparison of the respective @code{Ordval} values.
-
-@end table
-
-@noindent
-When the values are equal, continue around the loop.  And, as
-usual, if one string is an initial substring of the other, that one is
-considered to be ``less than'' the other one.
-
-The rules just described produce @emph{better} results than did the C
-@command{texindex}.  For example, @samp{beginfile()} sorts
-before @samp{BEGINFILE}, whereas with the C version they came out in the
-opposite order.
 
 @<Work functions@>=
 # string_compare -  the heart of the sorting algorithm.
@@ -1199,6 +1154,41 @@ opposite order.
 # Returns a three-way value a la the C strcmp() function: less than zero
 # if the first string is less than the second, zero if they're equal,
 # or greater than zero if the first string is greater than the second one.
+#
+# The comparison algorithm is not too complicated, once we define how
+# things should work.  We loop over each pair of characters in the 'left'
+# and 'right' strings, comparing them one at a time.  When comparing two
+# characters, there are three cases, one of which has three subcases,
+# as follows:
+#
+# * Two letters
+#
+#   * Same letter, but different case
+#
+#     This is the slightly complicated case.
+#     When two characters are equal, we have to look ahead at the next
+#     characters to decide whether to continue the loop or quit.  As long as
+#     we are not at the end of the string, and at least one of the following
+#     characters in either string is a letter, we continue the loop.
+#     Otherwise we do the character comparison and return.
+#
+#   * Two different letters, but same case
+#   * Two different letters, different case
+#
+#   Use the comparison of the respective Ordval values.
+#
+# * A letter and something else
+# * Two nonletters
+#
+#   Use the comparison of the respective Ordval values.
+#
+# When the values are equal, continue around the loop.  And, as usual,
+# if one string is an initial substring of the other, that one is considered
+# to be ``less than'' the other one.
+#
+# The rules just described produce *better* results than did the C texindex.
+# For example, `beginfile()' sorts before `BEGINFILE', whereas with the
+# C version they came out in the opposite order.
 #
 function string_compare(left, right,                         # parameters
                         len_l, len_r, len, chars_l, chars_r) # locals
