@@ -1,6 +1,11 @@
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* texindex/ti.twjr (printing a single entry):
+	move node text into a comment.
+
+2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* texindex/ti.twjr (printing a single entry):
 	inline chunks.
 
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
