@@ -1318,14 +1318,14 @@ function write_index_entry(current,		key)
 {
 	key = Keys[current]		# current sort key
 	if (Numfields[key] == 1) {
-		@<Print primary entry@>
+		print_entry(key, "entry", Primary)
 	} else if (Numfields[key] == 2) {
 		@<Print primary entry if necessary@>
-		@<Print secondary entry@>
+		print_entry(key, "secondary", Secondary)
 	} else if (Numfields[key] == 3) {
 		@<Print primary entry if necessary@>
 		@<Print secondary entry if necessary@>
-		@<Print tertiary entry@>
+		print_entry(key, "tertiary", Tertiary)
 	}
 }
 @
@@ -1345,18 +1345,6 @@ lines before generating the final @code{@@tertiary} line.
 Printing the entries is similar no matter what kind of entry; there's
 a lot of work to be done so it's isolated in the @code{print_entry()}
 function described in the next section.
-
-@<Print primary entry@>=
-print_entry(key, "entry", Primary)
-@
-
-@<Print secondary entry@>=
-print_entry(key, "secondary", Secondary)
-@
-
-@<Print tertiary entry@>=
-print_entry(key, "tertiary", Tertiary)
-@
 
 @node printing a single entry
 @nodedescription Handling a single entry.
@@ -1456,7 +1444,7 @@ Printing ``see'' entries is potentially messy if there
 are more than one. (A good index won't have more than one, but nothing
 prevents there being multiple such entries, so we have to handle them.)
 
-@<Print a ``see'' entry@>=
+@<Work functions@>=
 function print_see_entry(key, entry_command, entry_text,	# parameters
 						count_array, see_text_array,		# parameters
 						i, count, see_entries)				# locals
@@ -1492,11 +1480,6 @@ function print_see_entry(key, entry_command, entry_text,	# parameters
 @cindex coffee @seealso{coca-cola}
 @cindex whisky @seealso{soda}
 @cindex whisky @seealso{scotch}
-
-
-@<Work functions@>=
-@<Print a ``see'' entry@>
-@
 
 When checking if we need to print the primary and secondary entry,
 we need to use the subparts of the key.

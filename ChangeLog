@@ -1,5 +1,10 @@
 2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr (printing top level, printing a single entry):
+	Inline chunks and eliminate indirection.
+
+2026-06-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr (End-of-file sorting and printing):
 	Move node text into comments.
 
