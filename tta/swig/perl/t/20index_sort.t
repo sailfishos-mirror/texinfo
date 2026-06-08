@@ -184,8 +184,15 @@ foreach my $lang (undef, 'sv') {
 
   #print STDERR @interface_index_entries_texi;
 
-  cmp_deeply(\@interface_index_entries_texi,
-             \@reference_index_entries_texi, 'sorted '.$label);
+  SKIP: {
+   # We compare SWIG/non-SWIG, but also Perl Unicode collation through
+   # texi2any and C collation through SWIG.
+   # Therefore, we need to skip if they are known to be different.
+     skip 'Perl too old incompatible Unicode collation', 1 if ($] < 5.018);
+
+     cmp_deeply(\@interface_index_entries_texi,
+                \@reference_index_entries_texi, 'sorted '.$label);
+  }
 }
 
 1;
