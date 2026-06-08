@@ -1,5 +1,10 @@
 2026-06-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr, texindex/ti.texi: Rename to ti.texi
+	in preparation for removal of most of file.
+
+2026-06-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/texindex.awk: add small number of heading comments
 	to organise the file.
 
