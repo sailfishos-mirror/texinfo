@@ -1,5 +1,10 @@
 2026-06-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/texindex.awk: initial tidy up.  remove declarations
+	of public domain copyright status.  blank lines between functions.
+
+2026-06-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/texindex.awk: track file
 
 2026-06-08  Gavin Smith <gavinsmith0123@gmail.com>
