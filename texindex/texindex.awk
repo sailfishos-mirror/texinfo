@@ -100,15 +100,15 @@ function del_array(a)
 	split("", a)
 }
 
-# check_split_null - This function determines whether the awk running
-# this program supports using the null string for the separator, splitting
-# each character off into a separate element.  If so, the return value
-# from split() will be the number of elements in the array, and it will
-# be more than one.  It is called at program startup.
+# check_split_null - This function determines if (in the awk running
+# this program) the built-in 'split()' function will split apart a string
+# into its individual characters, or if we have to do it manually.
 #
 function check_split_null(    n, a)
 {
 	n = split("abcde", a, "")
+	# If this successed, the return value from split() will be the
+	# number of elements in the array, and it will be more than one.
 	return (n == 5)
 }
 
@@ -175,7 +175,15 @@ function isdigit(c)
 	return index("0123456789", c)
 }
 
-function make_regexp(regexp,	a, sep, n)
+# texindex.awk has to handle input where the command character may be an
+# @ or a \.  When matching command strings in regular expressions, if
+# the command character is a backslash, it must be doubled in order to be
+# treated literally.  The make_regexp() function handles this for us; a
+# % in the text of the regexp stands for the command character and is
+# replaced appropriately.
+#
+function make_regexp(regexp,    # parameters
+                     a, sep, n) # locals
 {
 	n = split(regexp, a, "%")
 	if (Command_char == "\\")
@@ -186,7 +194,13 @@ function make_regexp(regexp,	a, sep, n)
 	return join(a, 1, n, sep)
 }
 
-function escape(regexp,		a, n)
+
+# If the command character is a backslash, occurrences of backslash need
+# to be doubled before the containing string can be used as a regexp.
+# This function does that job
+#
+function escape(regexp,  # parameters
+                a, n)    # locals
 {
 	if (Command_char != "\\")
 		return regexp
@@ -233,20 +247,86 @@ function version()
 	exit EXIT_SUCCESS
 }
 
+# We use the convention that global variable and array names start with a
+# capital letter.
+
+# We use multiple arrays to store different parts of the data.  The sort
+# key from the input is invariant across entries, so we use that as the
+# index in the various arrays.  We need the following arrays:
+#
+# Numfields
+#      How many fields (entries) in this line: one, two, or three.
+#
+# Initials
+#      The initial for this line.
+#
+# Primary
+#      The primary index text.  This is the real text, not the stripped
+#      value appearing in the sort key.
+#
+# Secondary
+#      The secondary index text, if present.
+#
+# Tertiary
+#      The tertiary index text, if present.
+#
+# Pagedata
+#      The page numbers on which identical entries occur.
+#
+# See_count
+#      The number of "see" entries for a given index line.  Nothing
+#      prevents there being multiple such:
+#
+#      @cindex toast @seeentry{toaster}
+#      @cindex toast @seeentry{jam}
+#
+#      So we have to be prepared to handle such input.  The See_count
+#     array counts the number of such texts as there may be.
+#
+# See
+#      The actual texts of the @seeentry value for the line's sort key.
+#      Each entry goes into See[key, 1], See[key, 2], etc., up to
+#      See_count[key].
+#
+# Seealso_count
+# Seealso
+#      These serve the same purpose as See_count and See, but for
+#           @seealso entries.
+
 BEGIN {
 	TRUE = 1
 	FALSE = 0
 	EXIT_SUCCESS = 0
 	EXIT_FAILURE = 1
-	
+
 	Texindex_version = "@VERSION@"
+
+	# Per GNU standards, we sometimes hardwire the string 'texindex'
+	# as the name of the program, and sometimes use the name
+	# by which the program was invoked.  We'll call the latter
+	# 'Invocation_name'; it's supposed to be passed in from the
+	# shell wrapper.
 	if (! Invocation_name) {
 		# provide fallback in case it's not passed in.
 		Invocation_name = "texindex"
 	}
 	
 	Can_split_null = check_split_null()
+
+	# For gawk, we can arrange for various messages (e.g. in usage()
+	# and version()) to be translated.  We do this by setting the text
+	# domain at startup.  See Info node "(gawk)Internationalization"
+	# for more information.
+	#
+	# On non-GNU versions of awk, this is a harmless assignment, and
+	# the _"..." construct is a harmless concatenation of an unassigned
+	# variable _, i.e., the empty string, with the following string
+	# constant.
+	#
 	TEXTDOMAIN = "texinfo"
+
+	# Argument processing.	Remove options and their arguments from
+	# 'ARGV' so that they're not treated as filenames.
 	for (i = 1; i < ARGC; i++) {
 		if (ARGV[i] == "-h" || ARGV[i] == "--help") {
 			usage(EXIT_SUCCESS)
@@ -280,6 +360,7 @@ function beginfile(filename)
 	del_array(Keys)
 	del_array(Allkeys)
 	del_array(Subkeys)
+
 	del_array(Initials)
 	del_array(Numfields)
 	del_array(Primary)
@@ -290,7 +371,9 @@ function beginfile(filename)
 	del_array(Seealso)
 	del_array(Seealso_count)
 	del_array(Pagedata)
+
 	del_array(Printed)
+
 	Entries = 0
 	Do_initials = FALSE
 	Prev_initial = ""
@@ -366,8 +449,16 @@ function endfile(filename,                 # parameters
 
 	if (! (key in Allkeys)) {
 		# first time we've seen this full line
+
+		# Store the key in the Keys array the first time it
+		# is seen; this array is sorted later on.  Its indices
+		# are just incremented integers, stored in the global
+		# Entries variable.  The Allkeys associative array lets
+		# us easily track if we have seen a key before.
 		Keys[++Entries] = key
 		Allkeys[key] = key
+
+		# Store data for this line in our global arrays
 		Initials[key] = initial
 		Numfields[key] = numfields - 2	# don't count sortkey, page number
 		Primary[key] = primary_text
@@ -397,6 +488,15 @@ function endfile(filename,                 # parameters
 		# page number before.  (Shouldn't happen based on the
 		# earlier removal of exact duplicates, but we could have
 		# an identical key with different formatting of actual text.
+
+		# For page numbers, we merely append the page number field
+		# from the input, preceded by a comma and space, unless
+		# that page number was already the last that's been stored.
+		# (We're assuming the page numbers don't jump around,
+		# which, in fact, they don't, so we don't need a more
+		# complex approach.)  This also handles any page numbers
+		# that appear as roman numerals (from the so-called front
+		# matter), should there be such.
 	
 		if (pagenum ~ Seeentry_re) {
 			See_count[key]++
@@ -410,6 +510,9 @@ function endfile(filename,                 # parameters
 					&& Pagedata[key] !~  escape(", " pagenum "$")) {
 			Pagedata[key] = Pagedata[key] ", " pagenum
 		}
+		# In the event that a particular key has more than one associated
+		# output text, we'll keep the first and ignore the remainder (this is
+		# the same behavior as the C implementation).
 	}
 
 	# Determine if more than one initial occurs in the input.
@@ -850,6 +953,17 @@ function print_see_entry(key, entry_command, entry_text, # parameters
 }
 
 # Print index entry with sort key CURRENT.
+#
+# In some cases, print primary and/or secondary entries first.
+# Consider the three-level case, for an entry like:
+#
+#     @cindex coffee makers @subentry electric @subentry blue
+#
+# There may not have been separate preceding entries like ‘@cindex coffee
+# makers’ or ‘@cindex coffee makers @subentry electric’.  Thus, we have to
+# generate the preceding ‘@entry’ and ‘@secondary’ lines before generating
+# the final ‘@tertiary’ line.
+#
 function write_index_entry(current, # parameters
                            key)     # locals
 {
