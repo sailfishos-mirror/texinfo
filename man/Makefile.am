@@ -93,7 +93,7 @@ $(srcdir)/makeinfo.1: $(t2a_srcdir)/perl/texi2any.pl $(common_mandeps)
 	sed '/^\.IP$$/N;/\nAlso/s/I//;/\nThe/s/I//' $@.tmp >$@
 	rm $@.tmp
 
-$(srcdir)/texindex.1: $(top_srcdir)/texindex/ti.twjr $(common_mandeps)
+$(srcdir)/texindex.1: $(top_srcdir)/texindex/texindex.awk $(common_mandeps)
 	@name="sort Texinfo index files" \
 	  && TEXINDEX_SCRIPT=$(top_srcdir)/texindex/texindex.awk \
 	  && export TEXINDEX_SCRIPT \

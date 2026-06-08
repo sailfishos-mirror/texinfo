@@ -1,5 +1,12 @@
 2026-06-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove Texiweb Jr. infrastructure
+
+	* texindex/jrweave, texindex/jrtangle: deleted
+	* texindex/Makefile.am, man/Makefile.am: updated.
+
+2026-06-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.texi: delete most of file, keeping introductory
 	sections and test cases.
 
