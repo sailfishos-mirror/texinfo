@@ -406,7 +406,8 @@ sub _setup_sort_sortable_strings_collator($$$$) {
   my ($document, $converter, $use_unicode_collation, $lang_sorting_locale) = @_;
 
   # call a simple wrapper around setup_index_entries_sort_strings that
-  # caches the result
+  # caches the result.  With XS, it is also an interface to native Document
+  # data through sort strings.
   my $indices_sort_strings
     = Texinfo::Document::indices_sort_strings($document, $converter);
 

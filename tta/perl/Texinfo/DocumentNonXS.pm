@@ -179,6 +179,8 @@ sub errors($) {
 # In general, it is not needed to call that function directly,
 # as it is called by Texinfo::Indices::sort_indices_by_*.  It could
 # be called in advance if errors need to be collected early.
+# This function does not return anything, therefore the XS override
+# does not build the data to Perl.
 sub setup_indices_sort_strings($$) {
   my ($document, $converter) = @_;
 
@@ -193,8 +195,9 @@ sub setup_indices_sort_strings($$) {
 
 # index_entries_sort_strings accessor.  A different function from
 # setup_indices_sort_strings such that there is no necessity to build C data
-# to Perl when setup_indices_sort_strings is called.  It is thus possible
-# to delay building Perl data until indices_sort_strings function is called.
+# to Perl when only setup_indices_sort_strings is called.  It is thus possible
+# to call setup_indices_sort_strings but delay building Perl data until
+# the indices_sort_strings function is called.
 sub indices_sort_strings($$) {
   my ($document, $converter) = @_;
 

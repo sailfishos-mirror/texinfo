@@ -44,7 +44,8 @@ use Texinfo;
 
 # Need to do that before loading texi2any Perl modules, to make sure
 # that set_XS_mandatory is called before loading any module that would
-# read TEXINFO_XS_* environment variables
+# read TEXINFO_XS_* environment variables.  This is important only
+# if the SWIG interface loads texi2any Perl modules.
 BEGIN {
 Texinfo::setup(1);
 }
@@ -59,7 +60,9 @@ use Texinfo::Convert::Texinfo;
 use Texinfo::Common;
 
 
-# first two blocks based on t/z_misc/test_sort.t
+# first two blocks based on t/z_misc/test_sort.t + z and ö for lang specific
+# sorting.
+# third block is in t/*indices.t sorting_of_symbols.
 my $index_entries = '
 
 @cindex !
@@ -104,7 +107,9 @@ my $index_name = 'cp';
 
 
 # First determine the reference index entries sorting order by using
-# texi2any Perl code
+# texi2any Perl code.  If XS is used, the parsing and sort strings are
+# done in C, but the collation is always done in Perl since there is
+# no XS override for Texinfo::Document::sorted_indices_by_index.
 my $parser = Texinfo::Parser::parser();
 
 my $doc = $parser->parse_texi_text($texi);

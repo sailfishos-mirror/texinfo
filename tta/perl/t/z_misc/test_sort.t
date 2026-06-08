@@ -75,7 +75,7 @@ foreach my $entry (@{$sorted_index_entries->{'cp'}}) {
 
 use utf8;
 
-# e is before E because they are equal and e appears before E in the document
+# When e and E are equal, e is before E as it appears before in the document
 my @entries_ref = ('!', '"', 'aaaaaaaaaaaa', 'e', 'E', 'ẽ', 'ł');
 
 cmp_deeply (\@entries, \@entries_ref, 'sorted index entries');

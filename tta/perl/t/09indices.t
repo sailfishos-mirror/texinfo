@@ -627,6 +627,23 @@ This variable represents MMM Mode.
 
 @printindex fn
 '],
+# next test also a reference for the SWIG interface sorting test
+['sorting_of_symbols',
+'@node Top
+@top sort with symbols
+
+@node chap
+@chapter Chap
+
+@cindex a-b
+@cindex a b
+@cindex a,b
+@cindex a^b
+@cindex ab
+
+@printindex cp
+
+'],
 ['explicit_sort_key',
 '@node Top
 @top

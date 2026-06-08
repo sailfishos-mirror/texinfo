@@ -1057,6 +1057,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/indices/seealso_duplicate.pl \
   t/results/indices/seeentry.pl \
   t/results/indices/sorted_subentries.pl \
+  t/results/indices/sorting_of_symbols.pl \
   t/results/indices/split_chapter_index.pl \
   t/results/indices/split_chapter_index/res_html \
   t/results/indices/subentries.pl \
