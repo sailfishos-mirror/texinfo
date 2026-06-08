@@ -17,6 +17,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, see <https://www.gnu.org/licenses/>.
 
+
+########################################################################
+#
+#  Library and helper functions
+#
+########################################################################
+
 # Handle data file transitions
 # This leads beginfile to be called at the beginning of every file
 # and endfile at the end of every file.
@@ -217,6 +224,13 @@ function min(a, b)
 	return (a < b ? a : b)
 }
 
+
+########################################################################
+#
+#  Main entry point, option processing and setup
+#
+########################################################################
+
 function usage(exit_val)
 {
 	printf(_"Usage: %s [OPTION]... FILE...\n", Invocation_name)
@@ -349,7 +363,8 @@ BEGIN {
 	}
 }
 
-# What happens at the start of each file
+
+# Called at the start of each file.  See "FNR == 1" block.
 function beginfile(filename)
 {
 	# Standard convention for name of output file.
@@ -399,6 +414,7 @@ function beginfile(filename)
 	Subentry_re = make_regexp(" *%subentry +")
 }
 
+# Called at the start of end of each file.  (See "FNR == 1" block.)
 # Sort the entries and write them out.  Additionally, if we are printing
 # the initial, handle that.
 function endfile(filename,                 # parameters
@@ -420,6 +436,13 @@ function endfile(filename,                 # parameters
 	}
 	close(Output_file)
 }
+
+
+########################################################################
+#
+#  Record processing
+#
+########################################################################
 
 # This block is run on every line of the input file.  Build the data
 # structures that will be used in sorting and printing.
