@@ -399,8 +399,6 @@ tta/C/api_for_swig/*.lo
 tta/C/tree_elements/.libs
 tta/C/tree_elements/*.lo
 
-texindex/texindex.awk
-texindex/texindex.awk.in
 texindex/ti.aux
 texindex/ti.??
 texindex/ti.??s
