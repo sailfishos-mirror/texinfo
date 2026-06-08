@@ -1,5 +1,10 @@
 2026-06-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/ti.texi: delete most of file, keeping introductory
+	sections and test cases.
+
+2026-06-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/ti.twjr, texindex/ti.texi: Rename to ti.texi
 	in preparation for removal of most of file.
 
