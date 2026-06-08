@@ -643,7 +643,9 @@ This variable represents MMM Mode.
 
 @printindex cp
 
-'],
+',
+{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,}
+],
 ['explicit_sort_key',
 '@node Top
 @top
