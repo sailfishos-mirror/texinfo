@@ -13,7 +13,7 @@
 
 # basic plan: what users invoke will be texindex, a shell script wrapper
 # created from texindex.in by configure.
-# texindex.awk does the real work; it is created from ti.twjr 
+# ti.awk does the real work; it is created from ti.twjr 
 # using rules here invoking the texiwebjr utilities.
 
 bin_SCRIPTS = texindex
@@ -25,10 +25,10 @@ CLEANFILES = texindex
 EXTRA_DIST = texindex.in ti.twjr
 
 # let's install the awk script in $(sharedir)/texinfo.
-dist_pkgdata_SCRIPTS = texindex.awk
+dist_pkgdata_SCRIPTS = ti.awk
 
 # since we generate it, have to clean it (at maintainer-clean) explicitly.
-MAINTAINERCLEANFILES = texindex.awk
+MAINTAINERCLEANFILES = ti.awk
 
 # mention the texiwebjr utilities. they are maintained in another
 # repository (see their sources), and can be updated here manually
@@ -48,14 +48,14 @@ texindex: texindex.in Makefile
 	$(do_subst) <$(srcdir)/texindex.in >texindex
 	chmod +x texindex
 
-# build texindex.awk from ti.twjr using jrtangle; that creates
-# texindex.awk (hardwired).  Then we substitute configure-time variables
+# build ti.awk from ti.twjr using jrtangle; that creates
+# ti.awk (hardwired).  Then we substitute configure-time variables
 # to avoid manual updates of the version number.
-texindex.awk: ti.twjr
-	$(GAWK) -f $(srcdir)/jrtangle $(srcdir)/ti.twjr || rm -f texindex.awk
-	$(do_subst) <texindex.awk >texindex.awk-tmp
-	rm -f texindex.awk
-	mv texindex.awk-tmp $(srcdir)/texindex.awk
+ti.awk: ti.twjr
+	$(GAWK) -f $(srcdir)/jrtangle $(srcdir)/ti.twjr || rm -f ti.awk
+	$(do_subst) <ti.awk >ti.awk-tmp
+	rm -f ti.awk
+	mv ti.awk-tmp $(srcdir)/ti.awk
 
 # how to build the pdf of the program-as-document.
 ti.pdf: ti.texi

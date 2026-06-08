@@ -1,7 +1,7 @@
 \input texinfo   @c -*-texinfo-*-
 @c vim: filetype=texinfo tabstop=4 shiftwidth=4
 @c %**start of header (This is for running Texinfo on a region.)
-@setfilename texindex.info
+@setfilename ti.info
 @settitle Texindex @VERSION@: A program for sorting indices
 @c %**end of header (This is for running Texinfo on a region.)
 
@@ -441,7 +441,7 @@ results from all five.
 
 The general outline is as follows:
 
-@(texindex.awk@) =
+@(ti.awk@) =
 @<First line@>
 @<GPL v3 copyright statement@>
 @<Library functions@>
