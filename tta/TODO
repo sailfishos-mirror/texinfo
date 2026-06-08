@@ -163,7 +163,7 @@ letters.
 The undocumented XS_STRXFRM_COLLATION_LOCALE customization variable can be
 used to specify a locale and use it with strxfrm_l to sort, but it is only
 for testing and should not be kept in the long term because of the lack
-of Non-ignorableVariable Weighting.  It is still relevant for
+of Non-ignorable Variable Weighting.  It is still somewhat relevant for
 locale-dependent sorting, which otherwise calls Perl language
 dependent sorting.
 Related glibc enhancement request (probably obsoleted by
@@ -443,8 +443,8 @@ char_latin1_latin1_in_refs_tree.txt content encoded in latin1
 Texinfo manuals translations
 ============================
 
-An possible system, for translation only, no special handling of
-cross-references is ti use po4a, possibly with Texinfo SWIG interface
+A possible system, for translation only, no special handling of
+cross-references is to use po4a, possibly with Texinfo SWIG interface
 based new texinfoparser format.
 
 Discussions

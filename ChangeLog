@@ -1,3 +1,7 @@
+2026-06-08 Patrice Dumas  <pertusus@free.fr>
+
+	* NEWS: add @documentscript and @documentlanguagevariant.
+
 2026-06-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	texindex: rename array
@@ -1869,7 +1873,7 @@
 
 2026-04-27 Patrice Dumas  <pertusus@free.fr>
 
-	* tta/C/main/build_perl_info.c (pass_global_info): remove unsed
+	* tta/C/main/build_perl_info.c (pass_global_info): remove unused
 	variables.
 
 2026-04-27 Patrice Dumas  <pertusus@free.fr>

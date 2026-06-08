@@ -14,6 +14,8 @@ X.Y ()
   . new commands @ifepub, @ifnotepub for EPUB.
   . the @clickstyle command has been removed.
   . @xml, @ifxml and @ifnotxml are deprecated.
+  . new commands @documentscript and @documentlanguagevariant for the
+    rare cases where @documentlanguage is not enough.
 
 * texi2any
   . Texinfo XML deprecated as an output format.  Remove options --xml,
