@@ -1,5 +1,18 @@
 2026-06-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Change texindex sort order to two level case insensitive/sensitive
+
+	* texindex/texindex.awk (string_compare)
+	(string_compare_ignorecase, string_compare_noignorecase)
+	(string_compare_internal):
+	Add functions beyond string_compare.  Replace character-by-character
+	logic with two-pass comparison.  The first is case insensitive, the
+	second is case sensitive.
+
+	* texindex/ti.texi: add test cases and try to explain the change.
+
+2026-06-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Details of texindex):
 	Remove old information about TexiWeb Jr.
 

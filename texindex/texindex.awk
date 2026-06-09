@@ -29,6 +29,7 @@
 # and endfile at the end of every file.
 # See Info node "(gawk)Join Function" for an explanation of how this function
 # works.
+
 FNR == 1 {
 	if (_filename_ != "")
 		endfile(_filename_)
@@ -779,49 +780,13 @@ BEGIN {
 	}
 }
 
-# string_compare -  the heart of the sorting algorithm.
-#
 # Returns a three-way value a la the C strcmp() function: less than zero
 # if the first string is less than the second, zero if they're equal,
 # or greater than zero if the first string is greater than the second one.
 #
-# The comparison algorithm is not too complicated, once we define how
-# things should work.  We loop over each pair of characters in the 'left'
-# and 'right' strings, comparing them one at a time.  When comparing two
-# characters, there are three cases, one of which has three subcases,
-# as follows:
-#
-# * Two letters
-#
-#   * Same letter, but different case
-#
-#     This is the slightly complicated case.
-#     When two characters are equal, we have to look ahead at the next
-#     characters to decide whether to continue the loop or quit.  As long as
-#     we are not at the end of the string, and at least one of the following
-#     characters in either string is a letter, we continue the loop.
-#     Otherwise we do the character comparison and return.
-#
-#   * Two different letters, but same case
-#   * Two different letters, different case
-#
-#   Use the comparison of the respective Ordval values.
-#
-# * A letter and something else
-# * Two nonletters
-#
-#   Use the comparison of the respective Ordval values.
-#
-# When the values are equal, continue around the loop.  And, as usual,
-# if one string is an initial substring of the other, that one is considered
-# to be ``less than'' the other one.
-#
-# The rules just described produce *better* results than did the C texindex.
-# For example, `beginfile()' sorts before `BEGINFILE', whereas with the
-# C version they came out in the opposite order.
-#
-function string_compare(left, right,                         # parameters
-                        len_l, len_r, len, chars_l, chars_r) # locals
+function string_compare_internal(left, right, ignorecase,         # parameters
+                                 c1, c2,                              # locals
+                                 len_l, len_r, len, chars_l, chars_r) # locals
 {
 	len_l = length(left)
 	len_r = length(right)
@@ -831,37 +796,21 @@ function string_compare(left, right,                         # parameters
 	char_split(right, chars_r)
 
 	for (i = 1; i <= len; i++) {
-		if (isalpha(chars_l[i]) && isalpha(chars_r[i])) {
-			# same char different case
-			# upper case comes out last
-			if (chars_l[i] != chars_r[i] &&
-				tolower(chars_l[i]) == tolower(chars_r[i])) {
-				if (i != len \
-					&& (isalpha(chars_l[i+1]) || isalpha(chars_r[i+1])))
-					continue
+		c1 = chars_l[i]
+		c2 = chars_r[i]
 
-				# negative, zero, or positive
-				return Ordval[chars_l[i]] - Ordval[chars_r[i]]
+		if (ignorecase) {
+			if (isalpha(c1)) {
+				c1 = tolower(c1)
 			}
-			# same case, different char,
-			# or different case, different char:
-			# letter order wins
-			if (Ordval[chars_l[i]] < Ordval[chars_r[i]])
-				return -1
-
-			if (Ordval[chars_l[i]] > Ordval[chars_r[i]])
-				return 1
-
-			# equal, keep going
-			continue
+			if (isalpha(c2)) {
+				c2 = tolower(c2)
+			}
 		}
-
-		# letter and something else, or two non-letters
-		# letter order wins
-		if (Ordval[chars_l[i]] < Ordval[chars_r[i]])
+		if (Ordval[c1] < Ordval[c2])
 			return -1
 
-		if (Ordval[chars_l[i]] > Ordval[chars_r[i]])
+		if (Ordval[c1] > Ordval[c2])
 			return 1
 
 		# equal, keep going
@@ -875,6 +824,25 @@ function string_compare(left, right,                         # parameters
 		return 1
 
 	return 0
+}
+
+function string_compare_ignorecase(left, right)
+{
+	return string_compare_internal(left, right, 1)
+}
+
+function string_compare_noignorecase(left, right)
+{
+	return string_compare_internal(left, right, 0)
+}
+
+function string_compare(left, right,  # parameters
+                        result)       # locals
+{
+	result = string_compare_ignorecase(left, right)
+	if (result == 0)
+		result = string_compare_noignorecase(left, right)
+	return result
 }
 
 # Print a single entry

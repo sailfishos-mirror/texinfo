@@ -496,6 +496,63 @@ Here are some test cases:
 @@cindex whisky @@seealso@{scotch@}
 @end example
 
+@c test relative ordering of lower- and upper-case letters in entries
+@cindex aaa
+@cindex AAA
+@cindex AAAxf
+@cindex aaaxg
+@cindex aaazz
+@cindex AAAzz
+@cindex bbb
+@cindex BBB
+
+The order of @samp{beginfile()} and @samp{BEGINFILE} was noted
+to be of interest in the source code for texindex (versions 6.0--7.3).
+
+These versions used a sort order that could compare two strings based
+on the case of the last letter before a non-letter character or the
+end of the string, leading @samp{beginfile()} to sort first (based
+on @samp{e} being lowercase and sorting before @samp{E}):
+
+@example
+@@cindex beginfile()
+@@cindex BEGINFILE
+@end example
+
+@cindex beginfile()
+@cindex BEGINFILE
+
+The same logic would sort @samp{BEGINfile} before @samp{beginFILE},
+again based on the final letter:
+
+@example
+@@cindex BEGINfile
+@@cindex beginFILE
+@end example
+
+@cindex BEGINfile
+@cindex beginFILE
+
+This does not seem to be desirable result if lowercase should come
+before uppercase, in the absence of other considerations.
+
+Moreover, the same logic would sort @samp{Foo-Car} before @samp{FOO-Bar},
+based on the case of the @samp{o} before the hyphen, which is not justified.
+
+@example
+@@cindex FOO-Bar
+@@cindex Foo-Car
+@end example
+
+@cindex FOO-Bar
+@cindex Foo-Car
+
+More recent versions of @command{texindex} sort case-insensitively
+first, and only consider case if strings are identicial except for
+case.  This was also the behaviour of the C implementation of
+@command{texindex} (prior to Texinfo 6.0).
+
+
 @noindent
 @xref{Index}, to see if the above test cases are handled properly.
 
