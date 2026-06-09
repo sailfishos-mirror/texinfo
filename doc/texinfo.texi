@@ -14650,24 +14650,6 @@ initial'' shown in the index:
 @@printindex cp
 @end example
 
-@cindex Literate programming, with Texinfo and @command{awk}
-@cindex Texinfo, and literate programming
-@cindex Robbins, Arnold
-@pindex texiwebjr
-@pindex ti.twjr
-Although not a matter of functionality, readers may be interested to
-know that the new @command{texindex} is a literate program
-(@url{https://en.wikipedia.org/wiki/Literate_programming}) using
-Texinfo for documentation and (portable) @command{awk} for code.  A
-single source file, @file{texindex/ti.twjr} in this case, produces the
-runnable program, a printable document, and an online document.
-
-The system is called TexiWeb Jr.@: and was created by Arnold
-Robbins, who also wrote the new @command{texindex}.  Not
-coincidentally, he is also the long-time maintainer of @command{gawk}
-(GNU Awk, @pxref{Top,,, gawk, The GNU Awk User's Guide}).  The file
-@file{texindex/Makefile.am} shows example usage of the system.
-
 
 @node Preparing for @TeX{}
 @nodedescription What to do before you use @TeX{}.

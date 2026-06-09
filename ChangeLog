@@ -1,3 +1,8 @@
+2026-06-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Details of texindex):
+	Remove old information about TexiWeb Jr.
+
 2026-06-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Remove Texiweb Jr. infrastructure
