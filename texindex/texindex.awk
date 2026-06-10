@@ -308,6 +308,18 @@ function version()
 #      These serve the same purpose as See_count and See, but for
 #           @seealso entries.
 
+
+# We additionally set the following:
+#
+# Keys - array of index sort keys, indexed by integers starting at 1.
+#
+# Entries - number of entries in the Keys array
+#
+# Allkeys - array indexed by index sort key - same information as Keys
+# array, but unordered
+#
+# Subkeys - array containing parts of a sort key, indexed as Subkeys[KEY, I]
+
 BEGIN {
 	TRUE = 1
 	FALSE = 0
@@ -480,7 +492,7 @@ function endfile(filename,                 # parameters
 		# Entries variable.  The Allkeys associative array lets
 		# us easily track if we have seen a key before.
 		Keys[++Entries] = key
-		Allkeys[key] = key
+		Allkeys[key] = 1
 
 		# Store data for this line in our global arrays
 		Initials[key] = initial
