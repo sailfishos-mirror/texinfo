@@ -1135,8 +1135,8 @@ defvr (defvar, defopt), deftypevr (deftypevar)
 deftp
 
 
-Solaris 11
-==========
+Solaris
+=======
 
 # recent Test::Deep requires perl 5.12
 cpan> o conf urllist push http://backpan.perl.org/
@@ -1146,10 +1146,18 @@ Also possible to install Texinfo dependencies with openCSW, like
 pkgutil -y -i CSWhelp2man CSWpm-data-compare CSWpm-test-deep
 
 The system perl may not be suitable to build XS modules, and the
-system gawk may be too old, openCSW may be needed.  For example:
+system gawk may be too old, openCSW may be needed.  For example,
+on Solaris 11:
 ./configure PERL=/opt/csw/bin/perl GAWK=/opt/csw/bin/gawk CFLAGS='-g' LDFLAGS=-L/opt/csw/lib/ CPPFLAGS='-I/opt/csw/include/' PERL_EXT_CFLAGS='-g' PERL_EXT_CPPFLAGS='-I/opt/csw/include/' PERL_EXT_LDFLAGS=-L/opt/csw/lib/
 
 On Solaris 10, gnulib requires C99, may need to add -D_STDC_C99 to CFLAGS.
+
+On Solaris 10, there may be an error like
+ld: fatal: file /usr/local/lib/libiconv.so: wrong ELF class: ELFCLASS64
+with Perl CFLAGS, because Perl cflags select 32 bits, but the library
+being linked in /usr/local/lib/ is 64 bits.  In that case, the library
+should be found in /opt/csw/lib/.
+
 
 Misc notes
 ==========

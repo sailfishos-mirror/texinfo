@@ -63,7 +63,8 @@
 #include "swig_parser_api.h"
 %}
 
-#define interface_version 0
+// incremented for incompatible changes after 7.3
+#define interface_version 1
 
 // Initialization
 

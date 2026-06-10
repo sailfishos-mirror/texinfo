@@ -1,3 +1,10 @@
+2026-06-10 Patrice Dumas  <pertusus@free.fr>
+
+	* NEWS: add Perl and Python SWIG modules.
+
+	* tta/swig/texinfo.i (interface_version): increase (for incompatible
+	change in setup function).
+
 2026-06-08 Patrice Dumas  <pertusus@free.fr>
 
 	* NEWS: add @documentscript and @documentlanguagevariant.

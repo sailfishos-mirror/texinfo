@@ -22,6 +22,8 @@ X.Y ()
      --ifxml and --no-ifxml.
     Can still be selected by setting TEXINFO_OUTPUT_FORMAT=texinfoxml
     until fully removed.
+  . Build and install Python and Perl modules with Texinfo Parser, Reader,
+    and Document information by default, if SWIG is found.
   . USE_UNIDECODE removed.  former effect is now always on.
 
 * Distribution
