@@ -265,9 +265,9 @@ function version()
 # We use the convention that global variable and array names start with a
 # capital letter.
 
-# We use multiple arrays to store different parts of the data.  The sort
-# key from the input is invariant across entries, so we use that as the
-# index in the various arrays.  We need the following arrays:
+# We use multiple arrays to store different parts of the data.  These are
+# indexed by a string constructed from the data in the index entry.
+# We need the following arrays:
 #
 # Numfields
 #      How many fields (entries) in this line: one, two, or three.
@@ -309,14 +309,13 @@ function version()
 #           @seealso entries.
 
 
-# We additionally set the following:
+# We additionally set the following for each file:
 #
-# Keys - array of index sort keys, indexed by integers starting at 1.
+# Index - array of index entry lookup keys, indexed by integers starting at 1.
 #
-# Entries - number of entries in the Keys array
+# Entries - number of entries in the Index array
 #
-# Allkeys - array indexed by index sort key - same information as Keys
-# array, but unordered
+# Allkeys - array indexed by index lookup key.  Used to quickly detect duplicates.
 #
 # Subkeys - array containing parts of a sort key, indexed as Subkeys[KEY, I]
 
@@ -385,7 +384,7 @@ function beginfile(filename)
 
 	# Reinitialize these for each input file
 	del_array(Seen)
-	del_array(Keys)
+	del_array(Index)
 	del_array(Allkeys)
 	del_array(Subkeys)
 
@@ -434,12 +433,12 @@ function endfile(filename,                 # parameters
                  i, prev_initial, initial) # locals
 {
 	# sort the entries
-	quicksort(Keys, 1, Entries, "index")
+	quicksort(Index, 1, Entries, "index")
 
 	prev_initial = ""
 	for (i = 1; i <= Entries; i++) {
 		# deal with initial
-		initial = Initials[Keys[i]]
+		initial = Initials[Index[i]]
 		if (initial != prev_initial) {
 			prev_initial = initial
 			print_initial(initial)
@@ -477,21 +476,26 @@ function endfile(filename,                 # parameters
 	if (numfields < 3 || numfields > 5)
 		fatal(_"%s:%d: Bad entry; expected 3 to 5 fields, not %d\n",
 			FILENAME, FNR, numfields)
-	key = fields[1]
+	sortkey = fields[1]
 	pagenum = fields[2]
 	primary_text = fields[3]
 	secondary_text = (numfields > 3 ? fields[4] : "")
 	tertiary_text = (numfields > 4 ? fields[5] : "")
 
+	key = sortkey
+
+	# The Allkeys associative array lets us easily detect repeated
+	# index entries which should be combined.  Note that it is more
+	# efficient to eliminate duplicates before sorting the array of
+	# index entries, as this makes the array smaller.
 	if (! (key in Allkeys)) {
 		# first time we've seen this full line
 
-		# Store the key in the Keys array the first time it
+		# Store the key in the Index array the first time it
 		# is seen; this array is sorted later on.  Its indices
 		# are just incremented integers, stored in the global
-		# Entries variable.  The Allkeys associative array lets
-		# us easily track if we have seen a key before.
-		Keys[++Entries] = key
+		# Entries variable.
+		Index[++Entries] = key
 		Allkeys[key] = 1
 
 		# Store data for this line in our global arrays
@@ -505,7 +509,7 @@ function endfile(filename,                 # parameters
 	
 		# Split out and store the subparts of the sort key, using
 		# "@subentry" as a separator.
-		n = split(key, subparts, Subentry_re)
+		n = split(sortkey, subparts, Subentry_re)
 		for (i = 1; i <= n; i++)
 			Subkeys[key, i] = subparts[i]
 	
@@ -955,7 +959,7 @@ function print_see_entry(key, entry_command, entry_text, # parameters
 			entry_text[key], see_entries[i]) > Output_file
 }
 
-# Print index entry with sort key CURRENT.
+# Print index entry at index CURRENT.
 #
 # In some cases, print primary and/or secondary entries first.
 # Consider the three-level case, for an entry like:
@@ -970,7 +974,7 @@ function print_see_entry(key, entry_command, entry_text, # parameters
 function write_index_entry(current, # parameters
                            key)     # locals
 {
-	key = Keys[current]		# current sort key
+	key = Index[current]		# current key
 	if (Numfields[key] == 1) {
 		print_entry(key, "entry", Primary)
 	} else if (Numfields[key] == 2) {

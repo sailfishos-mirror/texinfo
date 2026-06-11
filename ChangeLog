@@ -1,3 +1,14 @@
+2026-06-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	texindex: rename array
+
+	* texindex/texindex.awk (Keys): Rename array to "Index".  The
+	contents do not need to be sort keys as far as they are used,
+	just unique strings for identifying index entries.
+	(main block): separate use of sort key as identifier for an
+	index entry from use as a sort key.  Add comment why it is better
+	to eliminate duplicates at this stage.
+
 2026-06-10  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* texindex/texindex.awk: Add comments with the meanings
