@@ -117,7 +117,7 @@ function check_split_null(    n, a)
 	n = split("abcde", a, "")
 	# If this successed, the return value from split() will be the
 	# number of elements in the array, and it will be more than one.
-	return (n == 5)
+	Can_split_null = (n == 5)
 }
 
 # char_split - splits a string into separate characters, letting awk do
@@ -337,7 +337,7 @@ BEGIN {
 		Invocation_name = "texindex"
 	}
 	
-	Can_split_null = check_split_null()
+	check_split_null()
 
 	# For gawk, we can arrange for various messages (e.g. in usage()
 	# and version()) to be translated.  We do this by setting the text
@@ -444,7 +444,7 @@ function endfile(filename,                 # parameters
 			print_initial(initial)
 		}
 
-		write_index_entry(i)
+		write_index_entry(Index[i])
 	}
 	close(Output_file)
 }
@@ -947,7 +947,7 @@ function print_see_entry(key, entry_command, entry_text, # parameters
 			entry_text[key], see_entries[i]) > Output_file
 }
 
-# Print index entry at index CURRENT.
+# Print index entry with key KEY
 #
 # In some cases, print primary and/or secondary entries first.
 # Consider the three-level case, for an entry like:
@@ -959,10 +959,8 @@ function print_see_entry(key, entry_command, entry_text, # parameters
 # generate the preceding ‘@entry’ and ‘@secondary’ lines before generating
 # the final ‘@tertiary’ line.
 #
-function write_index_entry(current, # parameters
-                           key)     # locals
+function write_index_entry(key)
 {
-	key = Index[current]		# current key
 	if (Numfields[key] == 1) {
 		print_entry(key, "entry", Primary)
 	} else if (Numfields[key] == 2) {
