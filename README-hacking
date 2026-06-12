@@ -19,9 +19,8 @@ Gettext are listed in NEWS; usually the latest official releases.  If
 you are getting the sources from the development repository (or change
 configure.ac), you'll need to have these tools installed to (re)build.
 You'll also need help2man (for building man pages) and gperf (for building
-"unicase/*" and "uninorm/*" modules from gnulib).  If you modify
-texindex/ti.twjr, you'll need gawk >= 4.0.  All of these programs are
-available from https://ftp.gnu.org/gnu.  You'll also need pod2man
+"unicase/*" and "uninorm/*" modules from gnulib).  All of these programs
+are available from https://ftp.gnu.org/gnu.  You'll also need pod2man
 for building a man page, which should be part of the Perl core
 distribution.  To regenerate the languages codes you'll need gperf,
 wget and access to the internet.
@@ -253,12 +252,6 @@ Another book on plain TeX, also available under the GFDL, is a GNU package:
 Occasionally you may need to know about the details of the PDF format.
 A reference for this is the PDF reference, Sixth Edition, version 1.7,  
 downloadable at http://www.adobe.com/devnet/pdf/pdf_reference_archive.html
-
-The texindex program is implemented using the TexiWebJR literate
-programming system, combining Texinfo and Awk
-(https://github.com/arnoldrobbins/texiwebjr).  Running "make ti.pdf"
-in the texindex/ subdirectory creates the printable form of the
-program.  All the usual Texinfo output formats are possible.
 
 
 

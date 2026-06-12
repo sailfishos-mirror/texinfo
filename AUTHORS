@@ -17,7 +17,7 @@ Noah Friedman		original texi2dvi.
 Oleg Katsitadze		doc/*
 Matthieu Lirzin		js/*
 Sergey Poznyakoff	all files.
-Arnold Robbins		literate (texi+awk) texindex.
+Arnold Robbins		(awk) texindex.
 Andreas Schwab		texinfo.tex, configure.ac
 Gavin Smith		all files.
 Richard Stallman	original texinfo.tex, install-info.c,

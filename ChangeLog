@@ -1,5 +1,10 @@
 2026-06-12  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking, AUTHORS: update for no longer using TexiWeb Jr.
+	* configure.ac: do not set GAWK variable.
+
+2026-06-12  Gavin Smith <gavinsmith0123@gmail.com>
+
 	texindex: separate ordering array for case-insensitive comparison
 
 	* texindex/texindex.awk (BEGIN, Ordval, Ordval_ignorecase):
