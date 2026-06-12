@@ -1,3 +1,18 @@
+2026-06-12  Gavin Smith <gavinsmith0123@gmail.com>
+
+	texindex: separate ordering array for case-insensitive comparison
+
+	* texindex/texindex.awk (BEGIN, Ordval, Ordval_ignorecase):
+	Use separate array for case-insensitive ordering of bytes.
+	(string_compare_internal): Add array argument for ordering.
+	(string_compare): Call string_compare_internal.
+	(string_compare_ignorecase, string_compare_noignorecase):
+	Remove functions.
+
+	This results in around a 40% reduction in runtime, as it avoids
+	calling isalpha and tolower on every byte in the strings being
+	sorted.
+
 2026-06-13 Patrice Dumas  <pertusus@free.fr>
 
 	Add def_class_variable and def_class_method flags

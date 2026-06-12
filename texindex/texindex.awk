@@ -771,6 +771,8 @@ function index_compare(data, l, r,                       # parameters
 # a simple subtraction in the comparison to determine if two letters are
 # less than, equal to, or greater than each other. In any case, the mapping
 # also ensures that letters come after digits.
+# Ordval_ignorecase has the same ordering, except that lowercase and uppercase
+# are not distinguished.
 # (This code should also work for EBCDIC systems, although TeX does
 # everything in ASCII, so it's not likely to make a difference.)
 BEGIN {
@@ -794,13 +796,23 @@ BEGIN {
 			Ordval[toupper(c)] = newval++
 		}
 	}
+
+	# Set up case-insensitive sorting order
+	for (i = 0; i < 256; i++) {
+		c = sprintf("%c", i)
+		if (islower(c)) {
+			Ordval_ignorecase[c] = Ordval[toupper(c)]
+		} else {
+			Ordval_ignorecase[c] = Ordval[c]
+		}
+	}
 }
 
 # Returns a three-way value a la the C strcmp() function: less than zero
 # if the first string is less than the second, zero if they're equal,
 # or greater than zero if the first string is greater than the second one.
 #
-function string_compare_internal(left, right, ignorecase,         # parameters
+function string_compare_internal(left, right, order,              # parameters
                                  c1, c2,                              # locals
                                  len_l, len_r, len, chars_l, chars_r) # locals
 {
@@ -815,18 +827,10 @@ function string_compare_internal(left, right, ignorecase,         # parameters
 		c1 = chars_l[i]
 		c2 = chars_r[i]
 
-		if (ignorecase) {
-			if (isalpha(c1)) {
-				c1 = tolower(c1)
-			}
-			if (isalpha(c2)) {
-				c2 = tolower(c2)
-			}
-		}
-		if (Ordval[c1] < Ordval[c2])
+		if (order[c1] < order[c2])
 			return -1
 
-		if (Ordval[c1] > Ordval[c2])
+		if (order[c1] > order[c2])
 			return 1
 
 		# equal, keep going
@@ -842,22 +846,12 @@ function string_compare_internal(left, right, ignorecase,         # parameters
 	return 0
 }
 
-function string_compare_ignorecase(left, right)
-{
-	return string_compare_internal(left, right, 1)
-}
-
-function string_compare_noignorecase(left, right)
-{
-	return string_compare_internal(left, right, 0)
-}
-
 function string_compare(left, right,  # parameters
                         result)       # locals
 {
-	result = string_compare_ignorecase(left, right)
+	result = string_compare_internal(left, right, Ordval_ignorecase)
 	if (result == 0)
-		result = string_compare_noignorecase(left, right)
+		result = string_compare_internal(left, right, Ordval)
 	return result
 }
 
