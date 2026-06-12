@@ -1,5 +1,12 @@
 2026-06-12  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/texindex.awk (string_compare_internal):
+	Compare values with a subtraction, as stated in comment about
+	Ordval initialization.  This is more concise and also is slightly
+	faster. 
+
+2026-06-12  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking, AUTHORS: update for no longer using TexiWeb Jr.
 	* configure.ac: do not set GAWK variable.
 

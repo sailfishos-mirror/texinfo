@@ -813,7 +813,6 @@ BEGIN {
 # or greater than zero if the first string is greater than the second one.
 #
 function string_compare_internal(left, right, order,              # parameters
-                                 c1, c2,                              # locals
                                  len_l, len_r, len, chars_l, chars_r) # locals
 {
 	len_l = length(left)
@@ -824,14 +823,9 @@ function string_compare_internal(left, right, order,              # parameters
 	char_split(right, chars_r)
 
 	for (i = 1; i <= len; i++) {
-		c1 = chars_l[i]
-		c2 = chars_r[i]
-
-		if (order[c1] < order[c2])
-			return -1
-
-		if (order[c1] > order[c2])
-			return 1
+		cmp = order[chars_l[i]] - order[chars_r[i]]
+		if (cmp != 0)
+			return cmp
 
 		# equal, keep going
 	}
