@@ -1088,7 +1088,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       int in_code = 0;
       int in_raw = 0;
       if ((data_cmd
-           && (builtin_command_data[data_cmd].flags & CF_preformatted_code
+           && (builtin_command_data[data_cmd].other_flags & CF_preformatted_code
                || builtin_command_data[data_cmd].flags & CF_math
                || (builtin_command_data[data_cmd].flags & CF_block
                    && builtin_command_data[data_cmd].data == BLOCK_raw)))

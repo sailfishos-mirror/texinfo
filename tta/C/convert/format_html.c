@@ -9600,7 +9600,7 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
                   if (cmd_or_type->variety == CTV_type_command)
                     {
                       enum command_id pre_class_cmd = cmd_or_type->ct.cmd;
-                      if (builtin_command_data[pre_class_cmd].flags
+                      if (builtin_command_data[pre_class_cmd].other_flags
                                                 & CF_preformatted_code)
                         {
                            char *attribute_class
@@ -11585,10 +11585,10 @@ preformatted_class (const CONVERTER *self)
       const COMMAND_OR_TYPE *cmd_or_type = &pre_classes->stack[i];
       if (!(cur_pre_class
             && (cur_pre_class->variety == CTV_type_command
-                && builtin_command_data[cur_pre_class->ct.cmd].flags
+                && builtin_command_data[cur_pre_class->ct.cmd].other_flags
                                    & CF_preformatted_code)
             && (!((cmd_or_type->variety == CTV_type_command
-                   && builtin_command_data[cmd_or_type->ct.cmd].flags
+                   && builtin_command_data[cmd_or_type->ct.cmd].other_flags
                                      & CF_preformatted_code)
                   || cmd_or_type->ct.cmd == CM_menu))))
          cur_pre_class = cmd_or_type;

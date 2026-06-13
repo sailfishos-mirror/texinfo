@@ -219,7 +219,7 @@ html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
     }
 
   if (builtin_command_data[data_cmd].other_flags & CF_brace_code
-      || builtin_command_data[data_cmd].flags & CF_preformatted_code)
+      || builtin_command_data[data_cmd].other_flags & CF_preformatted_code)
     {
       push_integer_stack_integer (&top_document_ctx->monospace, 1);
     }
@@ -282,7 +282,7 @@ html_convert_command_update_context (CONVERTER *self, enum command_id data_cmd)
       top_formating_ctx->no_break--;
     }
 
-  if (builtin_command_data[data_cmd].flags & CF_preformatted_code
+  if (builtin_command_data[data_cmd].other_flags & CF_preformatted_code
       || (builtin_command_data[data_cmd].flags & CF_brace
           && builtin_command_data[data_cmd].data == BRACE_style_no_code)
       || builtin_command_data[data_cmd].other_flags & CF_brace_code)

@@ -1,5 +1,11 @@
 2026-06-13 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/builtin_commands.h, tta/C/main/command_data.awk (END):
+	move preformatted_code to other flags.  Update code checking that
+	flag.
+
+2026-06-13 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/python/Makefile.am (SWIG_header_dependencies): add missing
 	dependencies.
 

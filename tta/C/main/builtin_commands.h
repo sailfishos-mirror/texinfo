@@ -86,7 +86,7 @@ enum command_id element_builtin_data_cmd (const ELEMENT *e);
    text without @ref, @footnote, @titlefont, @anchor nor @verb. */
 #define CF_contain_basic_inline        	0x00200000
 #define CF_preformatted	        	0x00400000
-#define CF_preformatted_code		0x00800000
+/* #define CF_		0x00800000 */
 #define CF_no_paragraph			0x01000000
 /* a user-defined command that is referenced to by another command,
    which should keep its place in the user_defined_command_data table */
@@ -121,6 +121,7 @@ enum command_id element_builtin_data_cmd (const ELEMENT *e);
 /* @-commands with document metadata information.  They are supposed to be
    handled explicitly in output formats conversion */
 #define CF_metadata		0x4000
+#define CF_preformatted_code		0x8000
 /*
 #define CF_		0x00800000
 */
