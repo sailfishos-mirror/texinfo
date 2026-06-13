@@ -1,5 +1,14 @@
 2026-06-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	TexiWeb Jr. removal updates
+
+	* grand-replace.sh,
+	* README-hacking,
+	* TODO,
+	* texindex/README: update for twjr removal.
+
+2026-06-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	texindex: by default, do not merge entries if text differs
 
 	* texindex/texindex.awk

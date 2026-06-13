@@ -186,7 +186,7 @@ named_pattern='.*\.(i|t|py)'
 change_files
 
 find_dir=texindex
-ext_pattern=".*\.(twjr|awk|in)"
+ext_pattern=".*\.(awk|in)"
 named_pattern='texindex'
 
 change_files

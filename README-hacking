@@ -274,7 +274,7 @@ years that should be updated yet.
 Update copyright years in usage notices (can also be done at release
 time but may as well do at New Year's as well):
 * util/texi2dvi, util/texi2pdf, tta/perl/texi2any.pl, tta/C/texi2any.c,
-  info/info.c, install-info/install-info.c, texindex/ti.twjr,
+  info/info.c, install-info/install-info.c, texindex/texindex.awk,
   Pod-Simple-Texinfo/pod2texi.pl
 
 

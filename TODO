@@ -83,8 +83,7 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
     of @).
 
 * texindex:
-  - check if messages are translated via po/POTFILES.in.  check if twjr
-    format can be supported in po/Makevars and "make po-check" target.
+  - check if messages are translated via po/POTFILES.in.
 
 * Doc:
   - Verify/proofread Documentation of the HTML customization.
