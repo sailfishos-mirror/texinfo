@@ -99,7 +99,7 @@ use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::NodeNameNormalization;
 
 # to complete indices translations.
-use Texinfo::Translations;
+use Texinfo::Indices;
 
 require Exporter;
 
@@ -8214,7 +8214,7 @@ sub _parse_texi($$) {
   # Setup identifier target elements based on 'labels_list'
   Texinfo::Document::set_labels_identifiers_target($document,
            $document->{'parser_error_messages'}, $self->{'conf'}->{'DEBUG'});
-  Texinfo::Translations::complete_indices($document->{'indices'},
+  Texinfo::Indices::complete_indices($document->{'indices'},
                                    $self->{'conf'}->{'COMMAND_LINE_ENCODING'},
                                           $self->{'conf'}->{'DEBUG'});
 

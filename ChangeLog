@@ -1,5 +1,11 @@
 2026-06-13 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Indices.pm (complete_indices),
+	tta/perl/Texinfo/Translations.pm: move complete_indices to Indices.pm.
+	Update caller.
+
+2026-06-13 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/Indices.pm
 	(index_content_element): move index_content_element to Indices.pm.
 	Update callers.
