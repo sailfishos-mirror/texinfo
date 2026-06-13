@@ -41,12 +41,6 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
    *@defline C1 l6:@mymacro
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C2
-      |{rest}
-      |*bracketed_arg C1
-       |{in paren}
    |original_def_cmdname:{defline}
     *line_arg C5
      {spaces_before_argument: }

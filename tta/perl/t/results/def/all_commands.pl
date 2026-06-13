@@ -11,10 +11,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l1
    |EXTRA
    |def_command:{defvr}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--efvr_name}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defvr}
     *block_line_arg C5
@@ -42,10 +38,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l5
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{n--ame}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
     *block_line_arg C7
@@ -77,10 +69,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l9
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{n--ame}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffn}
     *block_line_arg C5
@@ -108,10 +96,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l13
    |EXTRA
    |def_command:{deftypefn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--eftypefn_name}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deftypefn}
     *block_line_arg C9
@@ -147,10 +131,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l17
    |EXTRA
    |def_command:{deftypefn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--eftypefn_name}
    |index_entry:I{fn,4}
    |original_def_cmdname:{deftypefn}
     *block_line_arg C7
@@ -182,24 +162,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l21
    |EXTRA
    |def_command:{deftypeop}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--eftypeop_name}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--eftypeop_name}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
    |index_entry:I{fn,5}
    |original_def_cmdname:{deftypeop}
     *block_line_arg C11
@@ -239,24 +201,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l25
    |EXTRA
    |def_command:{deftypeop}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--eftypeop_name}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--eftypeop_name}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
    |index_entry:I{fn,6}
    |original_def_cmdname:{deftypeop}
     *block_line_arg C9
@@ -292,10 +236,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l29
    |EXTRA
    |def_command:{deftypevr}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--eftypevr_name}
    |index_entry:I{vr,2}
    |original_def_cmdname:{deftypevr}
     *block_line_arg C7
@@ -327,24 +267,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l33
    |EXTRA
    |def_command:{defcv}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--efcv_name}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--efcv_name}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
    |index_entry:I{vr,3}
    |original_def_cmdname:{defcv}
     *block_line_arg C7
@@ -376,24 +298,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l37
    |EXTRA
    |def_command:{defcv}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--efcv_name}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--efcv_name}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
    |index_entry:I{vr,4}
    |original_def_cmdname:{defcv}
     *block_line_arg C9
@@ -429,24 +333,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l41
    |EXTRA
    |def_command:{deftypecv}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--eftypecv_name}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--eftypecv_name}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
    |index_entry:I{vr,5}
    |original_def_cmdname:{deftypecv}
     *block_line_arg C9
@@ -482,24 +368,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l45
    |EXTRA
    |def_command:{deftypecv}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--eftypecv_name}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--eftypecv_name}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
    |index_entry:I{vr,6}
    |original_def_cmdname:{deftypecv}
     *block_line_arg C11
@@ -539,24 +407,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l49
    |EXTRA
    |def_command:{defop}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--efop_name}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--efop_name}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
    |index_entry:I{fn,7}
    |original_def_cmdname:{defop}
     *block_line_arg C9
@@ -592,24 +442,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l53
    |EXTRA
    |def_command:{defop}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--efop_name}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--efop_name}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
    |index_entry:I{fn,8}
    |original_def_cmdname:{defop}
     *block_line_arg C7
@@ -641,10 +473,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l57
    |EXTRA
    |def_command:{deftp}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--eftp_name}
    |index_entry:I{tp,1}
    |original_def_cmdname:{deftp}
     *block_line_arg C7
@@ -676,10 +504,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l61
    |EXTRA
    |def_command:{defun}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--efun_name}
    |index_entry:I{fn,9}
    |original_def_cmdname:{defun}
     *block_line_arg C7
@@ -713,10 +537,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l65
    |EXTRA
    |def_command:{defmac}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--efmac_name}
    |index_entry:I{fn,10}
    |original_def_cmdname:{defmac}
     *block_line_arg C7
@@ -750,10 +570,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l69
    |EXTRA
    |def_command:{defspec}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--efspec_name}
    |index_entry:I{fn,11}
    |original_def_cmdname:{defspec}
     *block_line_arg C7
@@ -787,10 +603,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l73
    |EXTRA
    |def_command:{defvar}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--efvar_name}
    |index_entry:I{vr,7}
    |original_def_cmdname:{defvar}
     *block_line_arg C5
@@ -820,10 +632,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l77
    |EXTRA
    |def_command:{defvar}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--efvar_name}
    |index_entry:I{vr,8}
    |original_def_cmdname:{defvar}
     *block_line_arg C9
@@ -861,10 +669,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l81
    |EXTRA
    |def_command:{defopt}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--efopt_name}
    |index_entry:I{vr,9}
    |original_def_cmdname:{defopt}
     *block_line_arg C5
@@ -894,10 +698,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l85
    |EXTRA
    |def_command:{deftypefun}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--eftypefun_name}
    |index_entry:I{fn,12}
    |original_def_cmdname:{deftypefun}
     *block_line_arg C9
@@ -935,10 +735,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l89
    |EXTRA
    |def_command:{deftypevar}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--eftypevar_name}
    |index_entry:I{vr,10}
    |original_def_cmdname:{deftypevar}
     *block_line_arg C7
@@ -972,24 +768,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l93
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--efivar_name}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--efivar_name}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
    |index_entry:I{vr,11}
    |original_def_cmdname:{defivar}
     *block_line_arg C7
@@ -1023,24 +801,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l97
    |EXTRA
    |def_command:{deftypeivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--eftypeivar_name}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--eftypeivar_name}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
    |index_entry:I{vr,12}
    |original_def_cmdname:{deftypeivar}
     *block_line_arg C9
@@ -1078,24 +838,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l101
    |EXTRA
    |def_command:{defmethod}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--efmethod_name}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--efmethod_name}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
    |index_entry:I{fn,13}
    |original_def_cmdname:{defmethod}
     *block_line_arg C9
@@ -1133,24 +875,6 @@ $result_tree_text{'all_commands'} = '*document_root C1
    *def_line C1 l105
    |EXTRA
    |def_command:{deftypemethod}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--eftypemethod_name}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{d--eftypemethod_name}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{c--lass}
    |index_entry:I{fn,14}
    |original_def_cmdname:{deftypemethod}
     *block_line_arg C11

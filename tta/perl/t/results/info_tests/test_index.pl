@@ -76,12 +76,6 @@ $result_tree_text{'test_index'} = '*document_root C13
    *def_line C1 l12
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |*@var C1
-       |*brace_container C1
-        |{i}
    |element_node:{Top}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
@@ -108,10 +102,6 @@ $result_tree_text{'test_index'} = '*document_root C13
    *@deffnx C1 l13
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{machin}
    |element_node:{Top}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffnx}

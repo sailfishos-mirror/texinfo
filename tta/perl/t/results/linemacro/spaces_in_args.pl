@@ -43,10 +43,6 @@ $result_tree_text{'spaces_in_args'} = '*document_root C1
    *@defline C1 l7:@mylinecommand
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{a}
    |original_def_cmdname:{defline}
     *line_arg C13
      {spaces_before_argument: }

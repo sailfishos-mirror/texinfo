@@ -11,24 +11,6 @@ $result_tree_text{'ampchar'} = '*document_root C1
    *def_line C1 l1
    |EXTRA
    |def_command:{defop}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{b}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{a}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{b}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{a}
    |index_entry:I{fn,1}
    |original_def_cmdname:{defop}
     *block_line_arg C11

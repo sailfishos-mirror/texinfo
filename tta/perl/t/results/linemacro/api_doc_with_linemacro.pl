@@ -72,10 +72,6 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
    *@defline C1 l15
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{fft.fft}
    |omit_def_name_space:{1}
    |original_def_cmdname:{defline}
     *line_arg C21
@@ -144,12 +140,6 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
      *@defline C1 l19:@param
      |EXTRA
      |def_command:{defline}
-     |def_index_element:
-      |* C1
-       |*def_line_arg C1
-        |*@var C1
-         |*brace_container C1
-          |{a}
      |omit_def_name_space:{1}
      |original_def_cmdname:{defline}
       *line_arg C7
@@ -188,12 +178,6 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
      *@defline C1 l22:@param
      |EXTRA
      |def_command:{defline}
-     |def_index_element:
-      |* C1
-       |*def_line_arg C1
-        |*@var C1
-         |*brace_container C1
-          |{n}
      |omit_def_name_space:{1}
      |original_def_cmdname:{defline}
       *line_arg C7
@@ -237,12 +221,6 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
      *@defline C1 l26:@param
      |EXTRA
      |def_command:{defline}
-     |def_index_element:
-      |* C1
-       |*def_line_arg C1
-        |*@var C1
-         |*brace_container C1
-          |{axis}
      |omit_def_name_space:{1}
      |original_def_cmdname:{defline}
       *line_arg C7
@@ -281,12 +259,6 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
      *@defline C1 l29:@returns
      |EXTRA
      |def_command:{defline}
-     |def_index_element:
-      |* C1
-       |*def_line_arg C1
-        |*@var C1
-         |*brace_container C1
-          |{out}
      |omit_def_name_space:{1}
      |original_def_cmdname:{defline}
       *line_arg C7
@@ -322,10 +294,6 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
      *@defline C1 l32:@raises
      |EXTRA
      |def_command:{defline}
-     |def_index_element:
-      |* C1
-       |*def_line_arg C1
-        |{IndexError}
      |omit_def_name_space:{1}
      |original_def_cmdname:{defline}
       *line_arg C5

@@ -54,10 +54,6 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
    *@defline C1 l8:@defbuiltin
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{foo}
    |original_def_cmdname:{defline}
     *line_arg C5
      {spaces_before_argument: }
@@ -89,10 +85,6 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
    *@defline C1 l10:@defbuiltin
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{foo}
    |original_def_cmdname:{defline}
     *line_arg C5
      {spaces_before_argument: }
@@ -127,10 +119,6 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
    *@defline C1 l12:@defbuiltin
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{foo}
    |original_def_cmdname:{defline}
     *line_arg C7
      {spaces_before_argument: }

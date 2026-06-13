@@ -666,10 +666,12 @@ in <b>html</b> in copying ``
 @xref{cnl}
 
 '],
-# the output has nested <a> in @printindex formatting for @item
+# the output had nested <a> in @printindex formatting for @item
 # with @anchor on the line, which is invalid HTML.  However, it
-# is probably better not to consider this output to be a bug as
+# was not considered that this output was a bug as
 # it corresponds to the Texinfo code intention.
+# Now a copy is done, and there is no inside <a> in printindex
+# anymore, presumably because of that.
 ['anchor_on_vtable_item',
 '@node Top
 @top top

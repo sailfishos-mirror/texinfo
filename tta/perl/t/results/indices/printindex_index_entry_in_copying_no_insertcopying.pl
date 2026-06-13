@@ -26,10 +26,6 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
      *def_line C1 l5
      |EXTRA
      |def_command:{defun}
-     |def_index_element:
-      |* C1
-       |*def_line_arg C1
-        |{fun}
      |element_region:{copying}
      |index_entry:I{fn,2}
      |original_def_cmdname:{defun}
@@ -52,10 +48,6 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
      *@defunx C1 l6
      |EXTRA
      |def_command:{defun}
-     |def_index_element:
-      |* C1
-       |*def_line_arg C1
-        |{xf}
      |element_region:{copying}
      |index_entry:I{fn,3}
      |original_def_cmdname:{defunx}

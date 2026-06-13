@@ -11,14 +11,6 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C3
-      |{b}
-      |*@code C1
-       |*brace_container C1
-        |{aa}
-      |{c}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
     *block_line_arg C5
@@ -69,13 +61,6 @@ $result_tree_text{'def_groupings_args'} = '*document_root C1
    *def_line C1 l7
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*brace_arg C2
-      |{br }
-      |*@samp C1
-       |*brace_container C1
-        |{s}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffn}
     *block_line_arg C9

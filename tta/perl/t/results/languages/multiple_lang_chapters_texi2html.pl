@@ -182,24 +182,6 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
    *def_line C1 l28
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{BBB}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{AAA}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{BBB}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{AAA}
    |documentlanguage:{ja}
    |element_node:{chapter-ja}
    |index_entry:I{vr,1}
@@ -277,24 +259,6 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
    *def_line C1 l36
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{BBB}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{AAA}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{BBB}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{AAA}
    |documentlanguage:{en}
    |element_node:{chapter-en}
    |index_entry:I{vr,2}
@@ -363,24 +327,6 @@ $result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
    *def_line C1 l43
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{BBB}
-     |{ de }
-     |* C1
-      |*def_line_arg C1
-       |{AAA}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{BBB}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{AAA}
    |documentlanguage:{fr_FR}
    |element_node:{chapter-fr_005fFR}
    |index_entry:I{vr,3}

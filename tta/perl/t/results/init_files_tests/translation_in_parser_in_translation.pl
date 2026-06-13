@@ -62,24 +62,6 @@ $result_tree_text{'translation_in_parser_in_translation'} = '*document_root C5
    *def_line C1 l9
    |EXTRA
    |def_command:{deftypeop}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{dd}
-     |{ de }
-     |* C1
-      |*def_line_arg C1
-       |{db}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{dd}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{db}
    |documentlanguage:{fr}
    |element_node:{chap}
    |index_entry:I{fn,1}

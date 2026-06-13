@@ -166,24 +166,6 @@ $result_tree_text{'documentlanguage'} = '*document_root C6
    *def_line C1 documentlanguage.texi:l32
    |EXTRA
    |def_command:{deftypemethod}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{name}
-     |{ na }
-     |* C1
-      |*def_line_arg C1
-       |{class}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{name}
-     |{ on }
-     |* C1
-      |*def_line_arg C1
-       |{class}
    |documentlanguage:{pt}
    |element_node:{chapter}
    |index_entry:I{fn,1}

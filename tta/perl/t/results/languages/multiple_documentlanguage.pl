@@ -25,24 +25,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
      *def_line C1 l4
      |EXTRA
      |def_command:{defivar}
-     |def_index_element:
-      |* C3
-       |* C1
-        |*def_line_arg C1
-         |{a}
-       |{ de }
-       |* C1
-        |*def_line_arg C1
-         |{copying}
-     |def_index_ref_element:
-      |* C3
-       |* C1
-        |*def_line_arg C1
-         |{a}
-       |{ of }
-       |* C1
-        |*def_line_arg C1
-         |{copying}
      |documentlanguage:{fr}
      |element_region:{copying}
      |index_entry:I{vr,1}
@@ -136,24 +118,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
    *def_line C1 l15
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{BBB}
-     |{ de }
-     |* C1
-      |*def_line_arg C1
-       |{fr}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{BBB}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{fr}
    |documentlanguage:{fr}
    |element_node:{chap}
    |index_entry:I{vr,2}
@@ -222,24 +186,6 @@ $result_tree_text{'multiple_documentlanguage'} = '*document_root C5
    *def_line C1 l25
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{BBB}
-     |{ od }
-     |* C1
-      |*def_line_arg C1
-       |{hr}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{BBB}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{hr}
    |documentlanguage:{hr}
    |element_node:{chap}
    |index_entry:I{vr,3}

@@ -43,24 +43,6 @@ $result_tree_text{'documentlanguage_selection_accented_region'} = '*document_roo
    *def_line C1 l7
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{Language}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{Which}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{Language}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{Which}
    |element_node:{Top}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defivar}

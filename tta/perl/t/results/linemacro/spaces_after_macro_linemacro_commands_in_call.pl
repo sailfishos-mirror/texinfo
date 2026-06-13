@@ -73,14 +73,6 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
    *@defline C1 l15:@mylinecommand
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*brace_arg C3
-      |{spaces_before_argument:}
-      |*@samp C1
-       |*brace_container C1
-        |{arg1}
-      |{spaces_after_argument:\\n}
    |original_def_cmdname:{defline}
     *line_arg C4
      {spaces_before_argument: }

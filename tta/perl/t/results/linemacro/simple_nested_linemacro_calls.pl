@@ -68,10 +68,6 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
    *@defline C1 l13:@outside
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*brace_arg C1
-      |{a function}
    |original_def_cmdname:{defline}
     *line_arg C20
      {spaces_before_argument: }

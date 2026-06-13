@@ -18,24 +18,6 @@ $result_tree_text{'documentscript_conversion'} = '*document_root C5
      *def_line C1 l3
      |EXTRA
      |def_command:{defivar}
-     |def_index_element:
-      |* C3
-       |* C1
-        |*def_line_arg C1
-         |{BBB}
-       |{ of }
-       |* C1
-        |*def_line_arg C1
-         |{SSS}
-     |def_index_ref_element:
-      |* C3
-       |* C1
-        |*def_line_arg C1
-         |{BBB}
-       |{ of }
-       |* C1
-        |*def_line_arg C1
-         |{SSS}
      |element_region:{copying}
      |index_entry:I{vr,1}
      |original_def_cmdname:{defivar}
@@ -155,24 +137,6 @@ $result_tree_text{'documentscript_conversion'} = '*document_root C5
    *def_line C1 l19
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{other}
-     |{ s-o-s }
-     |* C1
-      |*def_line_arg C1
-       |{some}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{other}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{some}
    |documentlanguage:{qaa}
    |documentscript:{Latn}
    |element_node:{chap}
@@ -221,24 +185,6 @@ $result_tree_text{'documentscript_conversion'} = '*document_root C5
    *def_line C1 l24
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{reset}
-     |{ l-o-l }
-     |* C1
-      |*def_line_arg C1
-       |{after}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{reset}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{after}
    |documentlanguage:{qaa}
    |element_node:{chap}
    |index_entry:I{vr,3}
@@ -334,24 +280,6 @@ $result_tree_text{'documentscript_conversion'} = '*document_root C5
    *def_line C1 l37
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{before}
-     |{ l-o-l }
-     |* C1
-      |*def_line_arg C1
-       |{script}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{before}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{script}
    |documentlanguage:{qaa}
    |element_node:{chap}
    |index_entry:I{vr,4}

@@ -123,10 +123,6 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
    *def_line C1 l19
    |EXTRA
    |def_command:{deftypefn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{name}
    |element_node:{sec}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deftypefn}

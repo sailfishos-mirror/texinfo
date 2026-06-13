@@ -11,10 +11,6 @@ $result_tree_text{'code_in_def'} = '*document_root C1
    *def_line C1 l1
    |EXTRA
    |def_command:{deftypefn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{foo}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deftypefn}
     *block_line_arg C13

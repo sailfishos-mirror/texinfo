@@ -52,10 +52,6 @@ $result_tree_text{'deftypefnnewline_on_in_middle'} = '*document_root C5
    *def_line C1 l7
    |EXTRA
    |def_command:{deftypefun}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{something}
    |element_node:{chap}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deftypefun}
@@ -103,10 +99,6 @@ $result_tree_text{'deftypefnnewline_on_in_middle'} = '*document_root C5
    *def_line C1 l13
    |EXTRA
    |def_command:{deftypefun}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{NAME}
    |element_node:{chap}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deftypefun}

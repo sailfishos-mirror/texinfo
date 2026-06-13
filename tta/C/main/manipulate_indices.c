@@ -202,8 +202,23 @@ remove_def_types (ELEMENT *element)
 }
 
 static void
-set_def_command_index_entry(ELEMENT *main_entry_element, DOCUMENT *document,
-                            int debug_level)
+unexpected_def_name_class_message (enum command_id def_command)
+{
+  char *msg;
+        /* set index_entry to a value to avoid a compiler warning
+           on uninitialized value.  Incorrect for the code below, but
+            we do not care as fatal is called. */
+  xasprintf (&msg, "BUG: unexpected def command with name "
+                   "and class: %s",
+             builtin_command_name (def_command));
+  fatal (msg);
+  free (msg);
+}
+
+static ELEMENT *
+def_command_index_entry (ELEMENT *main_entry_element,
+                         int prefer_reference_element, DOCUMENT *document,
+                         int debug_level)
 {
   ELEMENT *name = 0;
   ELEMENT *class = 0;
@@ -228,88 +243,90 @@ set_def_command_index_entry(ELEMENT *main_entry_element, DOCUMENT *document,
         }
     }
 
-  if (name && class)
+  if (name)
     {
-      const LANG_TRANSLATION *element_lang_translations;
-      ELEMENT *index_entry;
-  /* container without type in extra "def_index_ref_element" */
-      ELEMENT *index_entry_normalized = new_element (ET_NONE);
-      ELEMENT *text_element = new_text_element (ET_normal_text);
       enum command_id def_command
         = lookup_builtin_command (def_cmdname);
-      NAMED_STRING_ELEMENT_LIST *substrings
-                       = new_named_string_element_list ();
       ELEMENT *name_copy = copy_element_tree (name, 0);
       remove_def_types (name_copy);
-      ELEMENT *class_copy = copy_element_tree (class, 0);
-      remove_def_types (class_copy);
-      ELEMENT *ref_name_copy = copy_element_tree (name, 0);
-      remove_def_types (ref_name_copy);
-      ELEMENT *ref_class_copy = copy_element_tree (class, 0);
-      remove_def_types (ref_class_copy);
+      if (!(builtin_command_data[def_command].flags & CF_def_class_method)
+          && !(builtin_command_data[def_command].flags
+                                       & CF_def_class_variable)) {
+          return name_copy;
+      } else {
+          ELEMENT *class_copy = copy_element_tree (class, 0);
+          remove_def_types (class_copy);
 
-      element_lang_translations
-        = new_element_language_translation (
-           &parser_translation_cache, main_entry_element,
-           TXI_PARSER_STRINGS_NR);
+          if (prefer_reference_element)
+            {
+              ELEMENT *text_element = new_text_element (ET_normal_text);
+              /* container without type */
+              ELEMENT *index_entry_normalized = new_element (ET_NONE);
 
-      add_element_to_named_string_element_list (substrings,
-                                           "name", name_copy);
-      add_element_to_named_string_element_list (substrings,
-                                           "class", class_copy);
-      if (builtin_command_data[def_command].flags & CF_def_class_method)
-        {
-          index_entry = gdt_tree ("{name} on {class}",
-                          document, element_lang_translations,
-                          substrings, debug_level, 0);
-
-          text_append (text_element->e.text, " on ");
-        }
-      else if (builtin_command_data[def_command].flags & CF_def_class_variable)
-        {
-          index_entry = gdt_tree ("{name} of {class}",
-                          document, element_lang_translations,
-                          substrings, debug_level, 0);
-
-          text_append (text_element->e.text, " of ");
-        }
+              if (builtin_command_data[def_command].flags
+                                             & CF_def_class_method)
+                text_append (text_element->e.text, " on ");
+              else if (builtin_command_data[def_command].flags
+                                            & CF_def_class_variable)
+                text_append (text_element->e.text, " of ");
            /* should not be possible, still considered for more robust code */
-      else
-        {
-          char *msg;
-                 /* set index_entry to a value to avoid a compiler warning
-                    on uninitialized value.  Incorrect for the code below, but
-                    we do not care as fatal is called. */
-          index_entry = 0;
-          xasprintf (&msg,
-                     "BUG: unexpected def command with name "
-                     "and class: %s",
-                     builtin_command_name (def_command));
-          fatal (msg);
-          free (msg);
-        }
-      destroy_named_string_element_list (substrings);
+              else
+                unexpected_def_name_class_message (def_command);
 
-      add_to_element_contents
-                   (index_entry_normalized, ref_name_copy);
-      add_to_contents_as_array
+              add_to_contents_as_array
+                   (index_entry_normalized, name_copy);
+              add_to_contents_as_array
                    (index_entry_normalized, text_element);
-      add_to_element_contents
-                   (index_entry_normalized, ref_class_copy);
+              add_to_contents_as_array
+                   (index_entry_normalized, class_copy);
+              return index_entry_normalized;
+            }
+          else
+            {
+              const LANG_TRANSLATION *element_lang_translations;
+              ELEMENT *index_entry;
+              NAMED_STRING_ELEMENT_LIST *substrings
+                       = new_named_string_element_list ();
+
+              element_lang_translations
+                = new_element_language_translation (
+                   &parser_translation_cache, main_entry_element,
+                   TXI_PARSER_STRINGS_NR);
+
+              add_element_to_named_string_element_list (substrings,
+                                             "name", name_copy);
+              add_element_to_named_string_element_list (substrings,
+                                             "class", class_copy);
+              if (builtin_command_data[def_command].flags
+                                                 & CF_def_class_method)
+                {
+                  index_entry = gdt_tree ("{name} on {class}",
+                            document, element_lang_translations,
+                            substrings, debug_level, 0);
+                }
+
+              else if (builtin_command_data[def_command].flags
+                                              & CF_def_class_variable)
+                {
+                  index_entry = gdt_tree ("{name} of {class}",
+                            document, element_lang_translations,
+                            substrings, debug_level, 0);
+
+                }
+           /* should not be possible, still considered for more robust code */
+              else
+                unexpected_def_name_class_message (def_command);
+              destroy_named_string_element_list (substrings);
+
                       /*
          prefer a type-less container rather than 'root_line' returned by gdt
                        */
-      index_entry->type = ET_NONE;
-
-                      /* the order is significant for tree printing.  It should
-                         match the lexicographic order used in Perl */
-      add_extra_element_oot (main_entry_element,
-                             AI_key_def_index_element,
-                             index_entry);
-      add_extra_element_oot (main_entry_element,
-                             AI_key_def_index_ref_element,
-                             index_entry_normalized);
+              index_entry->type = ET_NONE;
+              return index_entry;
+            }
+        }
     }
+  return 0;
 }
 
 /* It would have been better to return a const element, as the calling codes
@@ -321,31 +338,21 @@ index_content_element (const ELEMENT *element, int prefer_reference_element,
                        DOCUMENT *document, int debug_level)
 {
   const char *def_command = lookup_extra_string (element, AI_key_def_command);
+
   if (def_command)
-   {
-     ELEMENT *def_index_element
-       = lookup_extra_element_oot (element, AI_key_def_index_element);
-     if (!def_index_element)
-       {
-         /* cast the const away, as the element is modified */
-         set_def_command_index_entry ((ELEMENT *) element,
-                                      document, debug_level);
-         def_index_element
-           = lookup_extra_element_oot (element, AI_key_def_index_element);
-       }
-     if (prefer_reference_element)
-       {
-         ELEMENT *def_index_ref_element
-           = lookup_extra_element_oot (element, AI_key_def_index_ref_element);
-         if (def_index_ref_element)
-           return def_index_ref_element;
-       }
-     return def_index_element;
-   }
+    {
+      ELEMENT *def_index_element
+        = def_command_index_entry ((ELEMENT *) element,
+                           prefer_reference_element, document, debug_level);
+
+      return def_index_element;
+    }
   else
-   {
-     return element->e.c->contents.list[0];
-   }
+    {
+      ELEMENT *element_copy
+        = copy_element_tree (element->e.c->contents.list[0], 0);
+      return element_copy;
+    }
 }
 
 static char *
@@ -407,6 +414,9 @@ index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
   if (in_code)
     options->code_state++;
   sort_string = convert_to_text (entry_tree_element, options);
+
+  destroy_element_and_children (entry_tree_element);
+
   if (in_code)
     options->code_state--;
 
@@ -1459,7 +1469,8 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
               if (ignore_chars && data_cmd == CM_AT_SIGN
                   && strchr (ignore_chars, '@'))
                 continue;
-              return new_index_entry_text_or_command (0, content);
+              ELEMENT *copy = copy_element_tree (content, 0);
+              return new_index_entry_text_or_command (0, copy);
             }
           else
             {
@@ -1479,7 +1490,8 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
                            || brace_command_type == BRACE_noarg
                            || data_cmd == CM_U)
                     {
-                      return new_index_entry_text_or_command (0, content);
+                      ELEMENT *copy = copy_element_tree (content, 0);
+                      return new_index_entry_text_or_command (0, copy);
                     }
                   else if (brace_command_type != BRACE_inline)
                     {
@@ -1553,6 +1565,7 @@ index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry,
         parsed_element = entry_tree_element;
 
       result = idx_leading_text_or_command (parsed_element, index_ignore_chars);
+
       if (parsed_element != entry_tree_element)
         destroy_element (parsed_element);
 

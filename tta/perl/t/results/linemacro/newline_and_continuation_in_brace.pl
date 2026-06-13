@@ -42,14 +42,6 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
    *@defline C1 l9:@mylinecommand
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C3
-      |{a}
-      |*@code C1
-       |*brace_container C1
-        |{b c}
-      |{d}
    |original_def_cmdname:{defline}
     *line_arg C15
      {spaces_before_argument: }

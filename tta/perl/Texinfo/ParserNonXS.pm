@@ -4462,16 +4462,6 @@ sub _end_line_def_line($$$) {
                  = $self->{$translation_cmdname};
           }
         }
-      } else {
-        my $element_copy
-          = Texinfo::ManipulateTree::copy_element_tree($index_entry);
-        delete $element_copy->{'type'};
-        if (exists($element_copy->{'contents'})
-            and exists($element_copy->{'contents'}->[0]->{'type'})
-            and $element_copy->{'contents'}->[0]->{'type'} eq 'bracketed_arg') {
-          $element_copy->{'contents'}->[0]->{'type'} = 'brace_arg';
-        }
-        $current->{'extra'}->{'def_index_element'} = $element_copy;
       }
 
       _enter_index_entry($self,

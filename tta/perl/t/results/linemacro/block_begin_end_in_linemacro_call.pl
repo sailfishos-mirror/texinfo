@@ -177,10 +177,6 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
    *@defline C1 l38:@mymac
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*brace_arg C1
-      |{arg1}
    |original_def_cmdname:{defline}
     *line_arg C9
      {spaces_before_argument: }

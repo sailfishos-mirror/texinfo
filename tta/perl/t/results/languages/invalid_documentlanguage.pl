@@ -212,24 +212,6 @@ $result_tree_text{'invalid_documentlanguage'} = '*document_root C3
    *def_line C1 l28
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{Language}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{Which}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{Language}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{Which}
    |documentlanguage:{az}
    |element_node:{Top}
    |index_entry:I{vr,1}

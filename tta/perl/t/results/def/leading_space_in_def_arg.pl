@@ -11,11 +11,6 @@ $result_tree_text{'leading_space_in_def_arg'} = '*document_root C1
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*brace_arg C2
-      |{spaces_before_argument: }
-      |{name}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
     *block_line_arg C7

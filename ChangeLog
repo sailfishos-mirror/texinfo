@@ -1,3 +1,24 @@
+2026-06-13 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/format_html.c (html_convert_printindex_command): build
+	tree for level 0 index entry container.
+
+	* tta/perl/Texinfo/Indices.pm (_remove_def_types): add.
+
+	* tta/C/main/manipulate_indices.c (def_command_index_entry)
+	(index_content_element), tta/C/parsetexi/end_line.c
+	(end_line_def_line), tta/perl/Texinfo/Indices.pm
+	(_def_command_index_entry, index_content_element),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_def_line): rename
+	set_def_command_index_entry as def_command_index_entry.  Do not set
+	def_index_element nor def_index_ref_element in def_command_index_entry
+	or in end_line_def_line, instead return the new element from
+	def_command_index_entry, including if there was no need for
+	translation.  Also make a copy of the returned element in
+	index_content_element if the index entry is not a def command index
+	entry.  Update C callers of index_content_element to destroy the
+	returned element.
+
 2026-06-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	TexiWeb Jr. removal updates

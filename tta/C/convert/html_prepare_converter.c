@@ -5111,6 +5111,8 @@ prepare_index_entries_targets (CONVERTER *self)
               if (subentries_tree)
                 free_comma_index_subentries_tree (subentries_tree);
 
+              destroy_element_and_children (entry_reference_content_element);
+
               text_init (&target_base);
               text_append (&target_base, "index-");
               if (region)

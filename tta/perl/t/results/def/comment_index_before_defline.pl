@@ -34,10 +34,6 @@ $result_tree_text{'comment_index_before_defline'} = '*document_root C1
    *@defline C1 l6
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{b}
    |original_def_cmdname:{defline}
     *line_arg C9
      {spaces_before_argument: }

@@ -42,24 +42,6 @@ $result_tree_text{'unknown_region'} = '*document_root C3
    *def_line C1 l6
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{BBB}
-     |{ de }
-     |* C1
-      |*def_line_arg C1
-       |{AAA}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{BBB}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{AAA}
    |documentlanguage:{fr_NOWHERE}
    |element_node:{chap}
    |index_entry:I{vr,1}

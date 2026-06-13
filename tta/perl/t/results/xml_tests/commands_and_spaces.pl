@@ -327,12 +327,6 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    *def_line C1 l62
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*brace_arg C3
-      |{spaces_before_argument: }
-      |{machin}
-      |{spaces_after_argument: }
    |element_node:{a}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}

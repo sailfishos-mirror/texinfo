@@ -39,10 +39,6 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
    *@defline C1 l7:@defbuiltin
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{foo}
    |original_def_cmdname:{defline}
     *line_arg C9
      {spaces_before_argument: }
@@ -65,10 +61,6 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
    *@defline C1 l7:@defbuiltin
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{Builtin}
    |original_def_cmdname:{defline}
     *line_arg C16
      {spaces_before_argument: }
@@ -118,10 +110,6 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
    *@defline C1 l9:@defbuiltin
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{foo}
    |original_def_cmdname:{defline}
     *line_arg C9
      {spaces_before_argument: }
@@ -144,10 +132,6 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
    *@defline C1 l9:@defbuiltin
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{Builtin}
    |original_def_cmdname:{defline}
     *line_arg C11
      {spaces_before_argument: }
@@ -185,10 +169,6 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
    *@defline C1 l11:@defbuiltin
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{foo}
    |original_def_cmdname:{defline}
     *line_arg C9
      {spaces_before_argument: }
@@ -211,10 +191,6 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
    *@defline C1 l11:@defbuiltin
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{Builtin}
    |original_def_cmdname:{defline}
     *line_arg C15
      {spaces_before_argument: }

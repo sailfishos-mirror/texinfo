@@ -15,12 +15,6 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
     *def_line C1 l2
     |EXTRA
     |def_command:{deffn}
-    |def_index_element:
-     |* C1
-      |*def_line_arg C1
-       |*@var C1
-        |*brace_container C1
-         |{i}
     |index_entry:I{fn,1}
     |original_def_cmdname:{deffn}
      *block_line_arg C9
@@ -54,11 +48,6 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
     *@deffnx C1 l5
     |EXTRA
     |def_command:{deffn}
-    |def_index_element:
-     |* C1
-      |*brace_arg C2
-       |{spaces_before_argument: }
-       |{log trap1}
     |index_entry:I{fn,2}
     |original_def_cmdname:{deffnx}
      *line_arg C7
@@ -87,16 +76,6 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
     *@deffnx C1 l7
     |EXTRA
     |def_command:{deffn}
-    |def_index_element:
-     |* C1
-      |*def_line_arg C1
-       |*@b C1
-        |*brace_container C3
-         |{id }
-         |*@samp C1
-          |*brace_container C1
-           |{i}
-         |{ ule}
     |index_entry:I{fn,3}
     |original_def_cmdname:{deffnx}
      *line_arg C7

@@ -18,24 +18,6 @@ $result_tree_text{'documentscript_selection'} = '*document_root C5
      *def_line C1 l3
      |EXTRA
      |def_command:{defivar}
-     |def_index_element:
-      |* C3
-       |* C1
-        |*def_line_arg C1
-         |{BBB}
-       |{ of }
-       |* C1
-        |*def_line_arg C1
-         |{SSS}
-     |def_index_ref_element:
-      |* C3
-       |* C1
-        |*def_line_arg C1
-         |{BBB}
-       |{ of }
-       |* C1
-        |*def_line_arg C1
-         |{SSS}
      |element_region:{copying}
      |index_entry:I{vr,1}
      |original_def_cmdname:{defivar}
@@ -136,24 +118,6 @@ $result_tree_text{'documentscript_selection'} = '*document_root C5
    *def_line C1 l16
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{other}
-     |{ од }
-     |* C1
-      |*def_line_arg C1
-       |{some}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{other}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{some}
    |documentlanguage:{sr}
    |documentscript:{Latn}
    |element_node:{chap}
@@ -202,24 +166,6 @@ $result_tree_text{'documentscript_selection'} = '*document_root C5
    *def_line C1 l21
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{reset}
-     |{ од }
-     |* C1
-      |*def_line_arg C1
-       |{after}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{reset}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{after}
    |documentlanguage:{sr}
    |element_node:{chap}
    |index_entry:I{vr,3}
@@ -276,24 +222,6 @@ $result_tree_text{'documentscript_selection'} = '*document_root C5
    *def_line C1 l27
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{before}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{script}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{before}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{script}
    |documentlanguage:{az}
    |element_node:{chap}
    |index_entry:I{vr,4}

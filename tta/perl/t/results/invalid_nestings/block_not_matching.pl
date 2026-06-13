@@ -18,10 +18,6 @@ $result_tree_text{'block_not_matching'} = '*document_root C1
    *def_line C1 l5
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{print_navigation}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
     *block_line_arg C7

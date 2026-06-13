@@ -25,24 +25,6 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
      *def_line C1 l4
      |EXTRA
      |def_command:{defivar}
-     |def_index_element:
-      |* C3
-       |* C1
-        |*def_line_arg C1
-         |{a}
-       |{ de }
-       |* C1
-        |*def_line_arg C1
-         |{copying}
-     |def_index_ref_element:
-      |* C3
-       |* C1
-        |*def_line_arg C1
-         |{a}
-       |{ of }
-       |* C1
-        |*def_line_arg C1
-         |{copying}
      |documentlanguage:{fr}
      |element_region:{copying}
      |index_entry:I{vr,1}
@@ -144,24 +126,6 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
    *def_line C1 l17
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{BBB}
-     |{ od }
-     |* C1
-      |*def_line_arg C1
-       |{hr}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{BBB}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{hr}
    |documentlanguage:{hr}
    |element_node:{chapter}
    |index_entry:I{vr,2}
@@ -215,24 +179,6 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
    *def_line C1 l23
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{FFF}
-     |{ von }
-     |* C1
-      |*def_line_arg C1
-       |{de}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{FFF}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{de}
    |documentlanguage:{de}
    |element_node:{chapter}
    |index_entry:I{vr,3}

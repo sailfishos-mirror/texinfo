@@ -15,10 +15,6 @@ $result_tree_text{'multiple_defline'} = '*document_root C1
    *@defline C1 l2
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{foo}
    |original_def_cmdname:{defline}
     *line_arg C9
      {spaces_before_argument: }
@@ -43,10 +39,6 @@ $result_tree_text{'multiple_defline'} = '*document_root C1
    *@defline C1 l5
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{foo2}
    |original_def_cmdname:{defline}
     *line_arg C12
      {spaces_before_argument: }

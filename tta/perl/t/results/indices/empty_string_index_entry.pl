@@ -69,11 +69,6 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
    *def_line C1 l10
    |EXTRA
    |def_command:{defun}
-   |def_index_element:
-    |* C1
-     |*brace_arg C1
-      |*@w C1
-       |*brace_container
    |element_node:{chap}
    |index_entry:I{fn,3}
    |original_def_cmdname:{defun}
@@ -99,11 +94,6 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
    *@defunx C1 l11
    |EXTRA
    |def_command:{defun}
-   |def_index_element:
-    |* C1
-     |*brace_arg C1
-      |*@w C1
-       |*brace_container
    |element_node:{chap}
    |index_entry:I{fn,4}
    |original_def_cmdname:{defunx}

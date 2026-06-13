@@ -144,12 +144,6 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    *def_line C1 l31
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*brace_arg C3
-      |{spaces_before_argument: }
-      |{machin}
-      |{spaces_after_argument: }
    |element_node:{chap-node}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
@@ -188,12 +182,6 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    *@deffnx C1 l32
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*brace_arg C3
-      |{spaces_before_argument: }
-      |{xmachin}
-      |{spaces_after_argument: }
    |element_node:{chap-node}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffnx}

@@ -64,12 +64,6 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
    *def_line C1 l15
    |EXTRA
    |def_command:{defun}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C3
-      |{A}
-      |*@{
-      |{A}
    |index_entry:I{fn,1}
    |original_def_cmdname:{defun}
     *block_line_arg C9

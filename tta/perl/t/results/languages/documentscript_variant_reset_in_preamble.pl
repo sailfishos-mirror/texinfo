@@ -86,24 +86,6 @@ $result_tree_text{'documentscript_variant_reset_in_preamble'} = '*document_root 
    *def_line C1 l13
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{by}
-     |{ од }
-     |* C1
-      |*def_line_arg C1
-       |{used}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{by}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{used}
    |documentlanguage:{sr}
    |element_node:{chap}
    |index_entry:I{vr,1}

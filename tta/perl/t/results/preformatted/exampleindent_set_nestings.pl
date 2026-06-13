@@ -123,10 +123,6 @@ $result_tree_text{'exampleindent_set_nestings'} = '*document_root C1
     *def_line C1 l27
     |EXTRA
     |def_command:{deffn}
-    |def_index_element:
-     |* C1
-      |*def_line_arg C1
-       |{arg}
     |index_entry:I{fn,1}
     |original_def_cmdname:{deffn}
      *block_line_arg C5

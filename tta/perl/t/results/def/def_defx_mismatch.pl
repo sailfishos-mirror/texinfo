@@ -11,10 +11,6 @@ $result_tree_text{'def_defx_mismatch'} = '*document_root C1
    *def_line C1 l1
    |EXTRA
    |def_command:{defun}
-   |def_index_element:
-    |* C1
-     |*brace_arg C1
-      |{my def}
    |index_entry:I{fn,1}
    |original_def_cmdname:{defun}
     *block_line_arg C11
@@ -47,10 +43,6 @@ $result_tree_text{'def_defx_mismatch'} = '*document_root C1
    *@deffnx C1 l2
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*brace_arg C1
-      |{name}
    |index_entry:I{fn,2}
    |not_after_command:{1}
    |original_def_cmdname:{deffnx}

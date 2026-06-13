@@ -64,10 +64,6 @@ $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
    *@defline C1 l9:@mycommand
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{other}
    |original_def_cmdname:{defline}
     *line_arg C7
      {spaces_before_argument: }

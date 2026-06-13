@@ -51,10 +51,6 @@ $result_tree_text{'no_category_or_no_name'} = '*document_root C1
    *def_line C1 l9
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{b}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
     *block_line_arg C9

@@ -15,10 +15,6 @@ $result_tree_text{'def_in_example'} = '*document_root C1
     *def_line C1 l2
     |EXTRA
     |def_command:{defun}
-    |def_index_element:
-     |* C1
-      |*def_line_arg C1
-       |{name}
     |index_entry:I{fn,1}
     |original_def_cmdname:{defun}
      *block_line_arg C7

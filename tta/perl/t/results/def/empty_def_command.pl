@@ -11,10 +11,6 @@ $result_tree_text{'empty_def_command'} = '*document_root C1
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{deffn}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
     *block_line_arg C5
@@ -39,10 +35,6 @@ $result_tree_text{'empty_def_command'} = '*document_root C1
    *def_line C1 l4
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{deffn}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffn}
     *block_line_arg C9
@@ -66,10 +58,6 @@ $result_tree_text{'empty_def_command'} = '*document_root C1
    *@deffnx C1 l5
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{deffnx}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deffnx}
     *line_arg C5

@@ -22,10 +22,6 @@ $result_tree_text{'menu_in_deffn'} = '*document_root C2
    *def_line C1 l3
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{b}
    |element_node:{first}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}

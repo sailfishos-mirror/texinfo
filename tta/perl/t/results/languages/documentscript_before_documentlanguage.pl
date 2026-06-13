@@ -73,24 +73,6 @@ $result_tree_text{'documentscript_before_documentlanguage'} = '*document_root C5
    *def_line C1 l12
    |EXTRA
    |def_command:{defivar}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{other}
-     |{ од }
-     |* C1
-      |*def_line_arg C1
-       |{some}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*def_line_arg C1
-       |{other}
-     |{ of }
-     |* C1
-      |*def_line_arg C1
-       |{some}
    |documentlanguage:{sr}
    |element_node:{chap}
    |index_entry:I{vr,1}

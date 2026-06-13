@@ -15,10 +15,6 @@ $result_tree_text{'deftypeline'} = '*document_root C1
    *@deftypeline C1 l2
    |EXTRA
    |def_command:{deftypeline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{foo}
    |original_def_cmdname:{deftypeline}
     *line_arg C18
      {spaces_before_argument: }

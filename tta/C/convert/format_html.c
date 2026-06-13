@@ -10362,8 +10362,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                   xasprintf (&convert_info,
                              "index %s l %s index entry %zu subentry %d",
                              index_name, letter, entry_nr -1, level);
-                  if (level > 0)
-                    add_tree_to_build (self, entry_trees[level]);
+                  add_tree_to_build (self, entry_trees[level]);
                   if (*formatted_index_entry_nr > 1)
                     {
                       /* call with multiple_pass argument */
@@ -10381,9 +10380,9 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                       if (in_code)
                         html_pop_code_context (self);
                     }
+                  remove_tree_to_build (self, entry_trees[level]);
                   if (level > 0)
                     {
-                      remove_tree_to_build (self, entry_trees[level]);
                       destroy_element (entry_trees[level]);
                     }
                   free (convert_info);
@@ -10608,8 +10607,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                   xasprintf (&convert_info, "index %s l %s index entry %zu",
                              index_name, letter, entry_nr -1);
 
-                  if (last_entry_level > 0)
-                    add_tree_to_build (self, entry_tree);
+                  add_tree_to_build (self, entry_tree);
                   if (*formatted_index_entry_nr > 1)
                     {
                       /* call with multiple_pass argument */
@@ -10627,8 +10625,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                       if (in_code)
                         html_pop_code_context (self);
                     }
-                  if (last_entry_level > 0)
-                    remove_tree_to_build (self, entry_tree);
+                  remove_tree_to_build (self, entry_tree);
                   free (convert_info);
                 }
 
@@ -10817,6 +10814,8 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
           destroy_element (entry_ref_tree);
 
+          destroy_element_and_children (entry_content_element);
+
           if (*formatted_index_entry_nr > 1)
             free (multiple_pass_str);
         }
@@ -10889,6 +10888,9 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
               format_protect_text (self, letter, &text_letter);
               formatted_letter = text_letter.text;
             }
+
+          if (letter_command)
+            destroy_element_and_children (letter_command);
 
           formatted_letters[i] = formatted_letter;
 
@@ -13543,6 +13545,8 @@ html_output_internal_links (CONVERTER *self)
                     free_comma_index_subentries_tree (subentries_tree);
 
                   destroy_element (entry_ref_tree);
+
+                  destroy_element_and_children (entry_content_element);
 
                   if (index_term
                  && index_term[strspn (index_term, whitespace_chars)] != '\0')

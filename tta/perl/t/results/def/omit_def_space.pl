@@ -41,10 +41,6 @@ $result_tree_text{'omit_def_space'} = '*document_root C3
    *def_line C1 l7
    |EXTRA
    |def_command:{defun}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{function}
    |element_node:{chap}
    |index_entry:I{fn,1}
    |omit_def_name_space:{1}
@@ -75,10 +71,6 @@ $result_tree_text{'omit_def_space'} = '*document_root C3
    *@defunx C1 l8
    |EXTRA
    |def_command:{defun}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{another}
    |element_node:{chap}
    |index_entry:I{fn,2}
    |omit_def_name_space:{1}

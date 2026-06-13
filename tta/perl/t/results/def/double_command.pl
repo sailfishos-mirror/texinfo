@@ -11,10 +11,6 @@ $result_tree_text{'double_command'} = '*document_root C1
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{plot}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffn}
     *block_line_arg C19
@@ -53,10 +49,6 @@ $result_tree_text{'double_command'} = '*document_root C1
        *@deffnx C1 l1
        |EXTRA
        |def_command:{deffn}
-       |def_index_element:
-        |* C1
-         |*def_line_arg C1
-          |{plot2}
        |index_entry:I{fn,1}
        |not_after_command:{1}
        |original_def_cmdname:{deffnx}
@@ -111,10 +103,6 @@ $result_tree_text{'double_command'} = '*document_root C1
    *def_line C1 l5
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{aaaa}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deffn}
     *block_line_arg C8
@@ -137,10 +125,6 @@ $result_tree_text{'double_command'} = '*document_root C1
         *def_line C1 l5
         |EXTRA
         |def_command:{defvr}
-        |def_index_element:
-         |* C1
-          |*def_line_arg C1
-           |{d--efvr_name}
         |index_entry:I{vr,1}
         |original_def_cmdname:{defvr}
          *block_line_arg C5

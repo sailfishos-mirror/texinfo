@@ -11,10 +11,6 @@ $result_tree_text{'not_closed'} = '*document_root C1
    *def_line C1 l1
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{bidule}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
     *block_line_arg C7
@@ -34,10 +30,6 @@ $result_tree_text{'not_closed'} = '*document_root C1
    *@deffnx C1 l2
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{chose}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffnx}
     *line_arg C7
@@ -59,10 +51,6 @@ $result_tree_text{'not_closed'} = '*document_root C1
      *def_line C1 l3
      |EXTRA
      |def_command:{defvar}
-     |def_index_element:
-      |* C1
-       |*def_line_arg C1
-        |{type1}
      |index_entry:I{vr,1}
      |original_def_cmdname:{defvar}
       *block_line_arg C9

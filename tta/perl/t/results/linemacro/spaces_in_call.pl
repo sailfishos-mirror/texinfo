@@ -36,15 +36,6 @@ $result_tree_text{'spaces_in_call'} = '*document_root C1
    *@defline C1 l7:@mylinecommand
    |EXTRA
    |def_command:{defline}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C3
-      |*bracketed_arg C1
-       |{a b}
-      |*bracketed_arg C1
-       |{c d}
-      |*bracketed_arg C1
-       |{rest}
    |original_def_cmdname:{defline}
     *line_arg C9
      {spaces_before_argument: }

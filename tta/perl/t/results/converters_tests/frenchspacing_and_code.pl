@@ -85,24 +85,6 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    *def_line C1 l18
    |EXTRA
    |def_command:{deftypeop}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*brace_arg C1
-       |{name? n. d}
-     |{ on }
-     |* C1
-      |*brace_arg C1
-       |{class: MyC. b}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*brace_arg C1
-       |{name? n. d}
-     |{ on }
-     |* C1
-      |*brace_arg C1
-       |{class: MyC. b}
    |element_node:{chapter-frenchspacing}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deftypeop}
@@ -163,24 +145,6 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    *def_line C1 l22
    |EXTRA
    |def_command:{defop}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*brace_arg C1
-       |{vname? n; d}
-     |{ on }
-     |* C1
-      |*brace_arg C1
-       |{vclass: MyC. u}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*brace_arg C1
-       |{vname? n; d}
-     |{ on }
-     |* C1
-      |*brace_arg C1
-       |{vclass: MyC. u}
    |element_node:{chapter-frenchspacing}
    |index_entry:I{fn,2}
    |original_def_cmdname:{defop}
@@ -289,24 +253,6 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    *def_line C1 l38
    |EXTRA
    |def_command:{deftypeop}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*brace_arg C1
-       |{name? n. d}
-     |{ on }
-     |* C1
-      |*brace_arg C1
-       |{class: MyC. b}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*brace_arg C1
-       |{name? n. d}
-     |{ on }
-     |* C1
-      |*brace_arg C1
-       |{class: MyC. b}
    |element_node:{chap-no}
    |index_entry:I{fn,3}
    |original_def_cmdname:{deftypeop}
@@ -367,24 +313,6 @@ $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
    *def_line C1 l42
    |EXTRA
    |def_command:{defop}
-   |def_index_element:
-    |* C3
-     |* C1
-      |*brace_arg C1
-       |{vname? n; d}
-     |{ on }
-     |* C1
-      |*brace_arg C1
-       |{nvclass: MyC. u}
-   |def_index_ref_element:
-    |* C3
-     |* C1
-      |*brace_arg C1
-       |{vname? n; d}
-     |{ on }
-     |* C1
-      |*brace_arg C1
-       |{nvclass: MyC. u}
    |element_node:{chap-no}
    |index_entry:I{fn,4}
    |original_def_cmdname:{defop}

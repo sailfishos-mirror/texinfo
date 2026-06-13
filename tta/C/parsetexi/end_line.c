@@ -785,19 +785,6 @@ end_line_def_line (ELEMENT *current)
                                          documentlanguagevariant);
                 }
             }
-          else
-            {
-              ELEMENT *element_copy = copy_element_tree (index_entry, 0);
-
-              element_copy->type = ET_NONE;
-              if (element_copy->e.c->contents.number
-                  && element_copy->e.c->contents.list[0]->type
-                    == ET_bracketed_arg)
-                element_copy->e.c->contents.list[0]->type = ET_brace_arg;
-
-              add_extra_element_oot (current, AI_key_def_index_element,
-                                     element_copy);
-            }
 
           if (def_command != CM_defline && def_command != CM_deftypeline)
             enter_index_entry (def_command, current);

@@ -14,10 +14,6 @@ $result_tree_text{'end_of_lines_protected_non_ascii'} = '*document_root C1
    *def_line C1 end_of_lines_protected_non_ascii.texi:l2
    |EXTRA
    |def_command:{deffn}
-   |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{deffn_nùme}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
     *block_line_arg C21
