@@ -814,6 +814,20 @@ our %def_alias_commands = (
   "defvarx"                 => 1,
 );
 
+our %def_class_method_commands = (
+  "defmethod"               => 1,
+  "defop"                   => 1,
+  "deftypemethod"           => 1,
+  "deftypeop"               => 1,
+);
+
+our %def_class_variable_commands = (
+  "defcv"                   => 1,
+  "defivar"                 => 1,
+  "deftypecv"               => 1,
+  "deftypeivar"             => 1,
+);
+
 our %deprecated_commands = (
   "centerchap"              => 1,
   "definfoenclose"          => 1,

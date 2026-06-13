@@ -1,5 +1,18 @@
 2026-06-13 Patrice Dumas  <pertusus@free.fr>
 
+	Add def_class_variable and def_class_method flags
+
+	* tta/C/main/builtin_commands.h, tta/data/command_data.txt: add
+	def_class_variable and def_class_method flags.
+
+	* tta/C/parsetexi/end_line.c (end_line_def_line),
+	tta/C/main/manipulate_indices.c (set_def_command_index_entry),
+	tta/perl/Texinfo/Indices.pm (_set_def_command_index_entry),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_def_line): use the new
+	flags.
+
+2026-06-13 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/builtin_commands.h, tta/C/main/command_data.awk (END):
 	move preformatted_code to other flags.  Update code checking that
 	flag.

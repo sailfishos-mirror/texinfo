@@ -215,10 +215,8 @@ sub _set_def_command_index_entry($;$) {
                           \%parser_translation_cache,
                           $main_entry_element);
 
-    if ($def_command eq 'defop'
-        or $def_command eq 'deftypeop'
-        or $def_command eq 'defmethod'
-        or $def_command eq 'deftypemethod') {
+    if (exists($Texinfo::Commands::def_class_method_commands{
+                                                   $def_command})) {
   # TRANSLATORS: association of a method or operation name with a class
   # in descriptions of object-oriented programming methods or operations.
       $index_entry
@@ -227,10 +225,8 @@ sub _set_def_command_index_entry($;$) {
                          {'name' => $name_copy, 'class' => $class_copy},
                          $debug_level);
       $text_element = Texinfo::TreeElement::new({'text' => ' on '});
-    } elsif ($def_command eq 'defcv'
-             or $def_command eq 'defivar'
-             or $def_command eq 'deftypeivar'
-             or $def_command eq 'deftypecv') {
+    } elsif (exists($Texinfo::Commands::def_class_variable_commands{
+                                                           $def_command})) {
   # TRANSLATORS: association of a variable or instance variable with
   # a class in descriptions of object-oriented programming variables or
   # instance variable.

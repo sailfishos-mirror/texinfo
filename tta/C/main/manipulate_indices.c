@@ -257,10 +257,7 @@ set_def_command_index_entry(ELEMENT *main_entry_element, DOCUMENT *document,
                                            "name", name_copy);
       add_element_to_named_string_element_list (substrings,
                                            "class", class_copy);
-      if (def_command == CM_defop
-          || def_command == CM_deftypeop
-          || def_command == CM_defmethod
-          || def_command == CM_deftypemethod)
+      if (builtin_command_data[def_command].flags & CF_def_class_method)
         {
           index_entry = gdt_tree ("{name} on {class}",
                           document, element_lang_translations,
@@ -268,10 +265,7 @@ set_def_command_index_entry(ELEMENT *main_entry_element, DOCUMENT *document,
 
           text_append (text_element->e.text, " on ");
         }
-      else if (def_command == CM_defcv
-               || def_command == CM_defivar
-               || def_command == CM_deftypeivar
-               || def_command == CM_deftypecv)
+      else if (builtin_command_data[def_command].flags & CF_def_class_variable)
         {
           index_entry = gdt_tree ("{name} of {class}",
                           document, element_lang_translations,
@@ -288,7 +282,7 @@ set_def_command_index_entry(ELEMENT *main_entry_element, DOCUMENT *document,
                     we do not care as fatal is called. */
           index_entry = 0;
           xasprintf (&msg,
-                     "BUG: unexpected def command with name"
+                     "BUG: unexpected def command with name "
                      "and class: %s",
                      builtin_command_name (def_command));
           fatal (msg);

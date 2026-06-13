@@ -4451,15 +4451,11 @@ sub _end_line_def_line($$$) {
       # in order to avoid calling gdt.
       # We need to store the language as well in case there are multiple
       # languages in the document.
-      if ($class_element
-          and ($def_command eq 'defop'
-               or $def_command eq 'deftypeop'
-               or $def_command eq 'defmethod'
-               or $def_command eq 'deftypemethod'
-               or $def_command eq 'defcv',
-               or $def_command eq 'defivar'
-               or $def_command eq 'deftypeivar'
-               or $def_command eq 'deftypecv')) {
+      if (defined($class_element)
+          and (exists($Texinfo::Commands::def_class_variable_commands{
+                                                      $def_command})
+               or exists($Texinfo::Commands::def_class_method_commands{
+                                                      $def_command}))) {
         foreach my $translation_cmdname (@translation_commands) {
           if (exists($self->{$translation_cmdname})) {
             $current->{'extra'}->{$translation_cmdname}

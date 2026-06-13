@@ -58,7 +58,7 @@ enum command_id element_builtin_data_cmd (const ELEMENT *e);
 #define CF_sectioning_heading	        0x0008
 #define CF_brace		        0x0010
 #define CF_preamble		        0x0020
-/* #define CF_		        0x0040 */
+#define CF_def_class_method		0x0040
 /* CF_math is not used in C parser */
 #define CF_math			        0x0080
 /* commands with an unlimited number of arguments */
@@ -86,7 +86,7 @@ enum command_id element_builtin_data_cmd (const ELEMENT *e);
    text without @ref, @footnote, @titlefont, @anchor nor @verb. */
 #define CF_contain_basic_inline        	0x00200000
 #define CF_preformatted	        	0x00400000
-/* #define CF_		0x00800000 */
+#define CF_def_class_variable		0x00800000
 #define CF_no_paragraph			0x01000000
 /* a user-defined command that is referenced to by another command,
    which should keep its place in the user_defined_command_data table */

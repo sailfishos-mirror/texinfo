@@ -760,14 +760,9 @@ end_line_def_line (ELEMENT *current)
       if (index_entry)
         {
           if (def_info_class &&
-              (def_command == CM_defop
-                  || def_command == CM_deftypeop
-                  || def_command == CM_defmethod
-                  || def_command == CM_deftypemethod
-                  || def_command == CM_defcv
-                  || def_command == CM_defivar
-                  || def_command == CM_deftypeivar
-                  || def_command == CM_deftypecv))
+              (builtin_command_data[def_command].flags & CF_def_class_method
+               || builtin_command_data[def_command].flags
+                                               & CF_def_class_variable))
             {
               STRING_LIST *global_documentlanguagevariant
                 = &parsed_document->global_info.documentlanguagevariant;

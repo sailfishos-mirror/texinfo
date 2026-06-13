@@ -496,11 +496,11 @@ titlefont               brace,close_paragraph,global,metadata,contain_basic_inli
 deffn                   block,def,contain_basic_inline,close_paragraph       def
 defvr                   block,def,contain_basic_inline,close_paragraph       def
 deftypefn               block,def,contain_basic_inline,close_paragraph       def
-deftypeop               block,def,contain_basic_inline,close_paragraph       def
+deftypeop               block,def,def_class_method,contain_basic_inline,close_paragraph       def
 deftypevr               block,def,contain_basic_inline,close_paragraph       def
-defcv                   block,def,contain_basic_inline,close_paragraph       def
-deftypecv               block,def,contain_basic_inline,close_paragraph       def
-defop                   block,def,contain_basic_inline,close_paragraph       def
+defcv                   block,def,def_class_variable,contain_basic_inline,close_paragraph       def
+deftypecv               block,def,def_class_variable,contain_basic_inline,close_paragraph       def
+defop                   block,def,def_class_method,contain_basic_inline,close_paragraph       def
 deftp                   block,def,contain_basic_inline,close_paragraph       def
 #   shortcuts
 defun                   block,def,contain_basic_inline,def_alias,close_paragraph    def
@@ -510,10 +510,10 @@ defvar                  block,def,contain_basic_inline,def_alias,close_paragraph
 defopt                  block,def,contain_basic_inline,def_alias,close_paragraph    def
 deftypefun              block,def,contain_basic_inline,def_alias,close_paragraph    def
 deftypevar              block,def,contain_basic_inline,def_alias,close_paragraph    def
-defivar                 block,def,contain_basic_inline,def_alias,close_paragraph    def
-deftypeivar             block,def,contain_basic_inline,def_alias,close_paragraph    def
-defmethod               block,def,contain_basic_inline,def_alias,close_paragraph    def
-deftypemethod           block,def,contain_basic_inline,def_alias,close_paragraph    def
+defivar                 block,def,def_class_variable,contain_basic_inline,def_alias,close_paragraph    def
+deftypeivar             block,def,def_class_variable,contain_basic_inline,def_alias,close_paragraph    def
+defmethod               block,def,def_class_method,contain_basic_inline,def_alias,close_paragraph    def
+deftypemethod           block,def,def_class_method,contain_basic_inline,def_alias,close_paragraph    def
 
 # generic, no automatic index
 defblock                block,close_paragraph           def
