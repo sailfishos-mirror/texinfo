@@ -328,9 +328,23 @@ $result_tree_text{'all_commands'} = '*document_root C1
    |EXTRA
    |def_command:{defcv}
    |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--efcv_name}
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{d--efcv_name}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{c--lass}
+   |def_index_ref_element:
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{d--efcv_name}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{c--lass}
    |index_entry:I{vr,3}
    |original_def_cmdname:{defcv}
     *block_line_arg C7
@@ -363,9 +377,23 @@ $result_tree_text{'all_commands'} = '*document_root C1
    |EXTRA
    |def_command:{defcv}
    |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--efcv_name}
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{d--efcv_name}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{c--lass}
+   |def_index_ref_element:
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{d--efcv_name}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{c--lass}
    |index_entry:I{vr,4}
    |original_def_cmdname:{defcv}
     *block_line_arg C9
@@ -1463,8 +1491,8 @@ $result_indices_sort_strings{'all_commands'} = 'fn:
 tp:
  d--eftp_name
 vr:
- d--efcv_name
- d--efcv_name
+ d--efcv_name of c--lass
+ d--efcv_name of c--lass
  d--efivar_name of c--lass
  d--efopt_name
  d--eftypecv_name of c--lass

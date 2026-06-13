@@ -688,9 +688,23 @@ $result_tree_text{'all_commands_delimiters'} = '*document_root C1
    |EXTRA
    |def_command:{defcv}
    |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{border-pattern}
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{border-pattern}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{Window}
+   |def_index_ref_element:
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{border-pattern}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{Window}
    |index_entry:I{vr,3}
    |original_def_cmdname:{defcv}
     *block_line_arg C34
@@ -2469,11 +2483,31 @@ $result_tree_text{'all_commands_delimiters'} = '*document_root C1
    |EXTRA
    |def_command:{defcv}
    |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |*@var C1
-       |*brace_container C1
-        |{A3}
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |*@var C1
+        |*brace_container C1
+         |{A3}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |*@var C1
+        |*brace_container C1
+         |{A2}
+   |def_index_ref_element:
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |*@var C1
+        |*brace_container C1
+         |{A3}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |*@var C1
+        |*brace_container C1
+         |{A2}
    |index_entry:I{vr,9}
    |original_def_cmdname:{defcv}
     *block_line_arg C11
@@ -3572,10 +3606,10 @@ vr:
  A2
  A3
  A3
- A3
+ A3 of A2
  A4 of A2
  A4 of A2
- border-pattern
+ border-pattern of Window
  border-pattern of Window
  enable
  fill-column

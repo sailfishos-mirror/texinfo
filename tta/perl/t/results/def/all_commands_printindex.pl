@@ -366,9 +366,23 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{defcv}
    |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--efcv_name}
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{d--efcv_name}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{c--lass}
+   |def_index_ref_element:
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{d--efcv_name}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{c--lass}
    |element_node:{chap}
    |index_entry:I{vr,3}
    |original_def_cmdname:{defcv}
@@ -402,9 +416,23 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{defcv}
    |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{d--efcv_name}
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{d--efcv_name}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{c--lass}
+   |def_index_ref_element:
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{d--efcv_name}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{c--lass}
    |element_node:{chap}
    |index_entry:I{vr,4}
    |original_def_cmdname:{defcv}
@@ -1528,8 +1556,8 @@ $result_indices_sort_strings{'all_commands_printindex'} = 'fn:
 tp:
  d--eftp_name
 vr:
- d--efcv_name
- d--efcv_name
+ d--efcv_name of c--lass
+ d--efcv_name of c--lass
  d--efivar_name of c--lass
  d--efopt_name
  d--eftypecv_name of c--lass
@@ -1667,8 +1695,8 @@ Variables
  [index ]
 * Menu:
 
-* d--efcv_name:                          chap.                 (line 27)
-* d--efcv_name <1>:                      chap.                 (line 30)
+* d--efcv_name of c--lass:               chap.                 (line 27)
+* d--efcv_name of c--lass <1>:           chap.                 (line 30)
 * d--efivar_name of c--lass:             chap.                 (line 72)
 * d--efopt_name:                         chap.                 (line 63)
 * d--eftypecv_name of c--lass:           chap.                 (line 33)
@@ -1772,12 +1800,12 @@ th.index-letter-header-printindex {text-align: left}
 </p></dd></dl>
 
 <dl class="first-defcv def-block">
-<dt class="defcv def-line" id="index-d_002d_002defcv_005fname"><span class="category-def">c&ndash;ategory of <code class="code">c--lass</code>: </span><span><strong class="def-name">d--efcv_name</strong><a class="copiable-link" href="#index-d_002d_002defcv_005fname"> &para;</a></span></dt>
+<dt class="defcv def-line" id="index-d_002d_002defcv_005fname-of-c_002d_002dlass"><span class="category-def">c&ndash;ategory of <code class="code">c--lass</code>: </span><span><strong class="def-name">d--efcv_name</strong><a class="copiable-link" href="#index-d_002d_002defcv_005fname-of-c_002d_002dlass"> &para;</a></span></dt>
 <dd><p>d&ndash;efcv
 </p></dd></dl>
 
 <dl class="first-defcv def-block">
-<dt class="defcv def-line" id="index-d_002d_002defcv_005fname-1"><span class="category-def">c&ndash;ategory of <code class="code">c--lass</code>: </span><span><strong class="def-name">d--efcv_name</strong> <var class="def-var-arguments">a&ndash;rguments...</var><a class="copiable-link" href="#index-d_002d_002defcv_005fname-1"> &para;</a></span></dt>
+<dt class="defcv def-line" id="index-d_002d_002defcv_005fname-of-c_002d_002dlass-1"><span class="category-def">c&ndash;ategory of <code class="code">c--lass</code>: </span><span><strong class="def-name">d--efcv_name</strong> <var class="def-var-arguments">a&ndash;rguments...</var><a class="copiable-link" href="#index-d_002d_002defcv_005fname-of-c_002d_002dlass-1"> &para;</a></span></dt>
 <dd><p>d&ndash;efcv with arguments
 </p></dd></dl>
 
@@ -1916,8 +1944,8 @@ th.index-letter-header-printindex {text-align: left}
 <table class="index-entries-printindex vr-entries-printindex">
 <tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="chap_vr_letter-D">D</th></tr>
-<tr><td class="printindex-index-entry"><a href="#index-d_002d_002defcv_005fname"><code>d--efcv_name</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td class="printindex-index-entry"><a href="#index-d_002d_002defcv_005fname-1"><code>d--efcv_name</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-d_002d_002defcv_005fname-of-c_002d_002dlass"><code>d--efcv_name of c--lass</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-d_002d_002defcv_005fname-of-c_002d_002dlass-1"><code>d--efcv_name of c--lass</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-d_002d_002defivar_005fname-of-c_002d_002dlass"><code>d--efivar_name of c--lass</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-d_002d_002defopt_005fname"><code>d--efopt_name</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><code>d--eftypecv_name of c--lass</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>

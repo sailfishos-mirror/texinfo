@@ -2331,9 +2331,23 @@ $result_tree_text{'definition_commands'} = '*document_root C5
    |EXTRA
    |def_command:{defcv}
    |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{border-pattern}
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{border-pattern}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{Window}
+   |def_index_ref_element:
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{border-pattern}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{Window}
    |element_node:{chapter}
    |index_entry:I{vr,1}
    |original_def_cmdname:{defcv}
@@ -4909,7 +4923,7 @@ $result_indices_sort_strings{'definition_commands'} = 'fn:
  foobar
  name
 vr:
- border-pattern
+ border-pattern of Window
  border-pattern of Window
 ';
 
@@ -5133,12 +5147,12 @@ to <var class="var">font</var> (one-character name&nbsp;<var class="var">f</var>
 
 <p>produces:
 </p><dl class="first-defcv def-block">
-<dt class="defcv def-line" id="index-border_002dpattern"><span class="category-def">Class Option of <code class="code">Window</code>: </span><span><strong class="def-name">border-pattern</strong><a class="copiable-link" href="#index-border_002dpattern"> &para;</a></span></dt>
+<dt class="defcv def-line" id="index-border_002dpattern-of-Window"><span class="category-def">Class Option of <code class="code">Window</code>: </span><span><strong class="def-name">border-pattern</strong><a class="copiable-link" href="#index-border_002dpattern-of-Window"> &para;</a></span></dt>
 <dd><p>&hellip;
 </p></dd></dl>
 
 <dl class="first-deftypecv def-block">
-<dt class="deftypecv def-line" id="index-border_002dpattern-of-Window"><span class="category-def">Class Option of <code class="code">Window</code>: </span><span><code class="def-type"><code class="code">int</code></code> <strong class="def-name">border-pattern</strong><a class="copiable-link" href="#index-border_002dpattern-of-Window"> &para;</a></span></dt>
+<dt class="deftypecv def-line" id="index-border_002dpattern-of-Window-1"><span class="category-def">Class Option of <code class="code">Window</code>: </span><span><code class="def-type"><code class="code">int</code></code> <strong class="def-name">border-pattern</strong><a class="copiable-link" href="#index-border_002dpattern-of-Window-1"> &para;</a></span></dt>
 <dd><p>&hellip;
 </p></dd></dl>
 
@@ -5286,7 +5300,7 @@ to <var>font</var> (one-character name&nbsp;<var>f</var>, two-character name
 </para></definitionitem></deftypefn>
 
 <noindent></noindent> <para>produces:
-</para><defcv endspaces=" "><definitionterm><indexterm index="vr" number="1">border-pattern</indexterm> <defcategory bracketed="on">Class Option</defcategory> <defclass>Window</defclass> <defclassvar>border-pattern</defclassvar></definitionterm>
+</para><defcv endspaces=" "><definitionterm><indexterm index="vr" number="1">border-pattern of Window</indexterm> <defcategory bracketed="on">Class Option</defcategory> <defclass>Window</defclass> <defclassvar>border-pattern</defclassvar></definitionterm>
 <definitionitem><para>&dots;
 </para></definitionitem></defcv>
 
@@ -5418,7 +5432,7 @@ to <replaceable>font</replaceable> (one-character name&#160;<replaceable>f</repl
 <blockquote><para>&#8230; with r slanted for <replaceable>f&#8212;oo</replaceable> and <replaceable>b&#8211;ar</replaceable>
 </para></blockquote>
 <para>produces:
-</para><synopsis><indexterm role="vr"><primary>border-pattern</primary></indexterm><phrase role="category"><emphasis role="bold">Class Option</emphasis>:</phrase> <ooclass><classname>Window</classname></ooclass> <property>border-pattern</property></synopsis>
+</para><synopsis><indexterm role="vr"><primary>border-pattern of Window</primary></indexterm><phrase role="category"><emphasis role="bold">Class Option</emphasis>:</phrase> <ooclass><classname>Window</classname></ooclass> <property>border-pattern</property></synopsis>
 <blockquote><para>&#8230;
 </para></blockquote>
 <synopsis><indexterm role="vr"><primary>border-pattern of Window</primary></indexterm><phrase role="category"><emphasis role="bold">Class Option</emphasis>:</phrase> <ooclass><classname>Window</classname></ooclass> <returnvalue>int</returnvalue> <property>border-pattern</property></synopsis>

@@ -1906,11 +1906,11 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <definitionitem><para>d&textndash;eftypevr
 </para></definitionitem></deftypevr>
 
-<defcv endspaces=" "><definitionterm><indexterm index="vr" number="11" mergedindex="cp">d--efcv_name</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
+<defcv endspaces=" "><definitionterm><indexterm index="vr" number="11" mergedindex="cp">d--efcv_name of c--lass</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;efcv
 </para></definitionitem></defcv>
 
-<defcv endspaces=" "><definitionterm><indexterm index="vr" number="12" mergedindex="cp">d--efcv_name</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
+<defcv endspaces=" "><definitionterm><indexterm index="vr" number="12" mergedindex="cp">d--efcv_name of c--lass</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
 <definitionitem><para>d&textndash;efcv with arguments
 </para></definitionitem></defcv>
 
@@ -3085,11 +3085,11 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <definitionitem><para>d&textndash;eftypevr
 </para></definitionitem></deftypevr>
 
-<defcv endspaces=" "><definitionterm><indexterm index="vr" number="35" mergedindex="cp">d--efcv_name</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
+<defcv endspaces=" "><definitionterm><indexterm index="vr" number="35" mergedindex="cp">d--efcv_name of c--lass</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;efcv
 </para></definitionitem></defcv>
 
-<defcv endspaces=" "><definitionterm><indexterm index="vr" number="36" mergedindex="cp">d--efcv_name</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
+<defcv endspaces=" "><definitionterm><indexterm index="vr" number="36" mergedindex="cp">d--efcv_name of c--lass</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
 <definitionitem><para>d&textndash;efcv with arguments
 </para></definitionitem></defcv>
 
@@ -4307,11 +4307,11 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <definitionitem><para>d&textndash;eftypevr
 </para></definitionitem></deftypevr>
 
-<defcv endspaces=" "><definitionterm><indexterm index="vr" number="59" mergedindex="cp">d--efcv_name</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
+<defcv endspaces=" "><definitionterm><indexterm index="vr" number="59" mergedindex="cp">d--efcv_name of c--lass</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;efcv
 </para></definitionitem></defcv>
 
-<defcv endspaces=" "><definitionterm><indexterm index="vr" number="60" mergedindex="cp">d--efcv_name</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
+<defcv endspaces=" "><definitionterm><indexterm index="vr" number="60" mergedindex="cp">d--efcv_name of c--lass</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
 <definitionitem><para>d&textndash;efcv with arguments
 </para></definitionitem></defcv>
 
@@ -5480,11 +5480,11 @@ text in def item for second def item
 <definitionitem><pre xml:space="preserve">d--eftypevr
 </pre></definitionitem></deftypevr>
 <pre xml:space="preserve">
-</pre><defcv endspaces=" "><definitionterm><indexterm index="vr" number="83" mergedindex="cp">d--efcv_name</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
+</pre><defcv endspaces=" "><definitionterm><indexterm index="vr" number="83" mergedindex="cp">d--efcv_name of c--lass</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
 <definitionitem><pre xml:space="preserve">d--efcv
 </pre></definitionitem></defcv>
 <pre xml:space="preserve">
-</pre><defcv endspaces=" "><definitionterm><indexterm index="vr" number="84" mergedindex="cp">d--efcv_name</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
+</pre><defcv endspaces=" "><definitionterm><indexterm index="vr" number="84" mergedindex="cp">d--efcv_name of c--lass</indexterm> <defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
 <definitionitem><pre xml:space="preserve">d--efcv with arguments
 </pre></definitionitem></defcv>
 <pre xml:space="preserve">

@@ -523,10 +523,10 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <synopsis><indexterm role="vr"><primary>d--eftypevr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <varname>d--eftypevr_name</varname></synopsis>
 <blockquote><para>d&#8211;eftypevr
 </para></blockquote>
-<synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property></synopsis>
+<synopsis><indexterm role="vr"><primary>d--efcv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property></synopsis>
 <blockquote><para>d&#8211;efcv
 </para></blockquote>
-<synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property> <emphasis role="arg">a--rguments...</emphasis></synopsis>
+<synopsis><indexterm role="vr"><primary>d--efcv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property> <emphasis role="arg">a--rguments...</emphasis></synopsis>
 <blockquote><para>d&#8211;efcv with arguments
 </para></blockquote>
 <synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property></synopsis>
@@ -1467,10 +1467,10 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <synopsis><indexterm role="vr"><primary>d--eftypevr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <varname>d--eftypevr_name</varname></synopsis>
 <blockquote><para>d&#8211;eftypevr
 </para></blockquote>
-<synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property></synopsis>
+<synopsis><indexterm role="vr"><primary>d--efcv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property></synopsis>
 <blockquote><para>d&#8211;efcv
 </para></blockquote>
-<synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property> <emphasis role="arg">a--rguments...</emphasis></synopsis>
+<synopsis><indexterm role="vr"><primary>d--efcv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property> <emphasis role="arg">a--rguments...</emphasis></synopsis>
 <blockquote><para>d&#8211;efcv with arguments
 </para></blockquote>
 <synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property></synopsis>
@@ -2398,10 +2398,10 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <synopsis><indexterm role="vr"><primary>d--eftypevr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <varname>d--eftypevr_name</varname></synopsis>
 <blockquote><para>d&#8211;eftypevr
 </para></blockquote>
-<synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property></synopsis>
+<synopsis><indexterm role="vr"><primary>d--efcv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property></synopsis>
 <blockquote><para>d&#8211;efcv
 </para></blockquote>
-<synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property> <emphasis role="arg">a--rguments...</emphasis></synopsis>
+<synopsis><indexterm role="vr"><primary>d--efcv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property> <emphasis role="arg">a--rguments...</emphasis></synopsis>
 <blockquote><para>d&#8211;efcv with arguments
 </para></blockquote>
 <synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property></synopsis>
@@ -3322,10 +3322,10 @@ text in def item for second def item
 </screen><synopsis><indexterm role="vr"><primary>d--eftypevr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <varname>d--eftypevr_name</varname></synopsis>
 <blockquote><screen>d--eftypevr
 </screen></blockquote><screen>
-</screen><synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property></synopsis>
+</screen><synopsis><indexterm role="vr"><primary>d--efcv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property></synopsis>
 <blockquote><screen>d--efcv
 </screen></blockquote><screen>
-</screen><synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property> <emphasis role="arg">a--rguments...</emphasis></synopsis>
+</screen><synopsis><indexterm role="vr"><primary>d--efcv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property> <emphasis role="arg">a--rguments...</emphasis></synopsis>
 <blockquote><screen>d--efcv with arguments
 </screen></blockquote><screen>
 </screen><synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property></synopsis>

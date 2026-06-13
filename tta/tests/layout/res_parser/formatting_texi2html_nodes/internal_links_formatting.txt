@@ -49,14 +49,14 @@ chapter.html#index-b-5	cp	b
 chapter.html#index-b_002d_002d_002db-c_002d_002d_002dc	cp	b--b, c--c
 formatting_fot.html#index-counting-entry	cp	counting entry
 chapter.html#index-d_002d_002d_002ddd-e_002d_002d_002dee-f_002d_002d_002dff	cp	d--dd, e--ee, f--ff
-index.html#index-copying-d_002d_002defcv_005fname	cp	d--efcv_name
-index.html#index-copying-d_002d_002defcv_005fname-1	cp	d--efcv_name
-index.html#index-titlepage-d_002d_002defcv_005fname	cp	d--efcv_name
-index.html#index-titlepage-d_002d_002defcv_005fname-1	cp	d--efcv_name
-chapter.html#index-d_002d_002defcv_005fname	cp	d--efcv_name
-chapter.html#index-d_002d_002defcv_005fname-1	cp	d--efcv_name
-chapter.html#index-d_002d_002defcv_005fname-2	cp	d--efcv_name
-chapter.html#index-d_002d_002defcv_005fname-3	cp	d--efcv_name
+index.html#index-copying-d_002d_002defcv_005fname-of-c_002d_002dlass	cp	d--efcv_name of c--lass
+index.html#index-copying-d_002d_002defcv_005fname-of-c_002d_002dlass-1	cp	d--efcv_name of c--lass
+index.html#index-titlepage-d_002d_002defcv_005fname-of-c_002d_002dlass	cp	d--efcv_name of c--lass
+index.html#index-titlepage-d_002d_002defcv_005fname-of-c_002d_002dlass-1	cp	d--efcv_name of c--lass
+chapter.html#index-d_002d_002defcv_005fname-of-c_002d_002dlass	cp	d--efcv_name of c--lass
+chapter.html#index-d_002d_002defcv_005fname-of-c_002d_002dlass-1	cp	d--efcv_name of c--lass
+chapter.html#index-d_002d_002defcv_005fname-of-c_002d_002dlass-2	cp	d--efcv_name of c--lass
+chapter.html#index-d_002d_002defcv_005fname-of-c_002d_002dlass-3	cp	d--efcv_name of c--lass
 index.html#index-copying-d_002d_002defivar_005fname-of-c_002d_002dlass	cp	d--efivar_name of c--lass
 index.html#index-titlepage-d_002d_002defivar_005fname-of-c_002d_002dlass	cp	d--efivar_name of c--lass
 chapter.html#index-d_002d_002defivar_005fname-of-c_002d_002dlass	cp	d--efivar_name of c--lass

@@ -4455,6 +4455,7 @@ sub _end_line_def_line($$$) {
                or $def_command eq 'deftypeop'
                or $def_command eq 'defmethod'
                or $def_command eq 'deftypemethod'
+               or $def_command eq 'defcv',
                or $def_command eq 'defivar'
                or $def_command eq 'deftypeivar'
                or $def_command eq 'deftypecv')) {

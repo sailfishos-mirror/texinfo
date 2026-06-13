@@ -764,6 +764,7 @@ end_line_def_line (ELEMENT *current)
                   || def_command == CM_deftypeop
                   || def_command == CM_defmethod
                   || def_command == CM_deftypemethod
+                  || def_command == CM_defcv
                   || def_command == CM_defivar
                   || def_command == CM_deftypeivar
                   || def_command == CM_deftypecv))

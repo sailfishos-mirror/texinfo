@@ -49,14 +49,14 @@ formatting.html#index-b-5	cp	b
 formatting.html#index-b_002d_002d_002db-c_002d_002d_002dc	cp	b--b, c--c
 formatting.html#index-counting-entry	cp	counting entry
 formatting.html#index-d_002d_002d_002ddd-e_002d_002d_002dee-f_002d_002d_002dff	cp	d--dd, e--ee, f--ff
-formatting.html#index-copying-d_002d_002defcv_005fname	cp	d--efcv_name
-formatting.html#index-copying-d_002d_002defcv_005fname-1	cp	d--efcv_name
-formatting.html#index-titlepage-d_002d_002defcv_005fname	cp	d--efcv_name
-formatting.html#index-titlepage-d_002d_002defcv_005fname-1	cp	d--efcv_name
-formatting.html#index-d_002d_002defcv_005fname	cp	d--efcv_name
-formatting.html#index-d_002d_002defcv_005fname-1	cp	d--efcv_name
-formatting.html#index-d_002d_002defcv_005fname-2	cp	d--efcv_name
-formatting.html#index-d_002d_002defcv_005fname-3	cp	d--efcv_name
+formatting.html#index-copying-d_002d_002defcv_005fname-of-c_002d_002dlass	cp	d--efcv_name of c--lass
+formatting.html#index-copying-d_002d_002defcv_005fname-of-c_002d_002dlass-1	cp	d--efcv_name of c--lass
+formatting.html#index-titlepage-d_002d_002defcv_005fname-of-c_002d_002dlass	cp	d--efcv_name of c--lass
+formatting.html#index-titlepage-d_002d_002defcv_005fname-of-c_002d_002dlass-1	cp	d--efcv_name of c--lass
+formatting.html#index-d_002d_002defcv_005fname-of-c_002d_002dlass	cp	d--efcv_name of c--lass
+formatting.html#index-d_002d_002defcv_005fname-of-c_002d_002dlass-1	cp	d--efcv_name of c--lass
+formatting.html#index-d_002d_002defcv_005fname-of-c_002d_002dlass-2	cp	d--efcv_name of c--lass
+formatting.html#index-d_002d_002defcv_005fname-of-c_002d_002dlass-3	cp	d--efcv_name of c--lass
 formatting.html#index-copying-d_002d_002defivar_005fname-of-c_002d_002dlass	cp	d--efivar_name of c--lass
 formatting.html#index-titlepage-d_002d_002defivar_005fname-of-c_002d_002dlass	cp	d--efivar_name of c--lass
 formatting.html#index-d_002d_002defivar_005fname-of-c_002d_002dlass	cp	d--efivar_name of c--lass

@@ -726,9 +726,23 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{defcv}
    |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |{border-pattern}
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{border-pattern}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{Window}
+   |def_index_ref_element:
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |{border-pattern}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |{Window}
    |element_node:{chap}
    |index_entry:I{vr,3}
    |original_def_cmdname:{defcv}
@@ -2536,11 +2550,31 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
    |EXTRA
    |def_command:{defcv}
    |def_index_element:
-    |* C1
-     |*def_line_arg C1
-      |*@var C1
-       |*brace_container C1
-        |{A3}
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |*@var C1
+        |*brace_container C1
+         |{A3}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |*@var C1
+        |*brace_container C1
+         |{A2}
+   |def_index_ref_element:
+    |* C3
+     |* C1
+      |*def_line_arg C1
+       |*@var C1
+        |*brace_container C1
+         |{A3}
+     |{ of }
+     |* C1
+      |*def_line_arg C1
+       |*@var C1
+        |*brace_container C1
+         |{A2}
    |element_node:{chap}
    |index_entry:I{vr,9}
    |original_def_cmdname:{defcv}
@@ -3597,10 +3631,10 @@ vr:
  A2
  A3
  A3
- A3
+ A3 of A2
  A4 of A2
  A4 of A2
- border-pattern
+ border-pattern of Window
  border-pattern of Window
  enable
  fill-column
@@ -3781,11 +3815,11 @@ Variables
 * A2 <1>:                                chap.                 (line 75)
 * A3:                                    chap.                 (line 81)
 * A3 <1>:                                chap.                 (line 83)
-* A3 <2>:                                chap.                 (line 89)
+* A3 of A2:                              chap.                 (line 89)
 * A4 of A2:                              chap.                 (line 93)
 * A4 of A2 <1>:                          chap.                 (line 95)
-* border-pattern:                        chap.                 (line 27)
-* border-pattern of Window:              chap.                 (line 30)
+* border-pattern of Window:              chap.                 (line 27)
+* border-pattern of Window <1>:          chap.                 (line 30)
 * enable:                                chap.                 (line 21)
 * fill-column:                           chap.                 (line  6)
 
@@ -3873,11 +3907,11 @@ th.index-letter-header-printindex {text-align: left}
 </dl>
 
 <dl class="first-defcv def-block">
-<dt class="defcv def-line" id="index-border_002dpattern"><span class="category-def">Class Option of <code class="code">Window</code>: </span><span><strong class="def-name">border-pattern</strong> <var class="def-var-arguments">(arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</var><a class="copiable-link" href="#index-border_002dpattern"> &para;</a></span></dt>
+<dt class="defcv def-line" id="index-border_002dpattern-of-Window"><span class="category-def">Class Option of <code class="code">Window</code>: </span><span><strong class="def-name">border-pattern</strong> <var class="def-var-arguments">(arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</var><a class="copiable-link" href="#index-border_002dpattern-of-Window"> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypecv def-block">
-<dt class="deftypecv def-line" id="index-border_002dpattern-of-Window"><span class="category-def">Class Option2 of <code class="code">Window</code>: </span><span><code class="def-type"><code class="code">int</code></code> <strong class="def-name">border-pattern</strong> <code class="def-code-arguments">(arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</code><a class="copiable-link" href="#index-border_002dpattern-of-Window"> &para;</a></span></dt>
+<dt class="deftypecv def-line" id="index-border_002dpattern-of-Window-1"><span class="category-def">Class Option2 of <code class="code">Window</code>: </span><span><code class="def-type"><code class="code">int</code></code> <strong class="def-name">border-pattern</strong> <code class="def-code-arguments">(arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</code><a class="copiable-link" href="#index-border_002dpattern-of-Window-1"> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defop def-block">
@@ -3989,7 +4023,7 @@ th.index-letter-header-printindex {text-align: left}
 </dl>
 
 <dl class="first-defcv def-block">
-<dt class="defcv def-line" id="index-A3-4"><span class="category-def"><var class="var">A1</var> of <code class="code"><var class="var">A2</var></code>: </span><span><strong class="def-name"><var class="var">A3</var></strong> <var class="def-var-arguments"><var class="var">A4</var> <var class="var">A5</var></var><a class="copiable-link" href="#index-A3-4"> &para;</a></span></dt>
+<dt class="defcv def-line" id="index-A3-of-A2"><span class="category-def"><var class="var">A1</var> of <code class="code"><var class="var">A2</var></code>: </span><span><strong class="def-name"><var class="var">A3</var></strong> <var class="def-var-arguments"><var class="var">A4</var> <var class="var">A5</var></var><a class="copiable-link" href="#index-A3-of-A2"> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftp def-block">
@@ -4162,13 +4196,13 @@ th.index-letter-header-printindex {text-align: left}
 <tr><td class="printindex-index-entry"><a href="#index-A2-6"><code><code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-A3-2"><code><var class="var">A3</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-A3-3"><code><code class="code">A3</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td class="printindex-index-entry"><a href="#index-A3-4"><code><var class="var">A3</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A3-of-A2"><code><var class="var">A3</var> of <var class="var">A2</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-A4-of-A2"><code><var class="var">A4</var> of <var class="var">A2</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-A4-of-A2-1"><code><code class="code">A4</code> of <code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="chap_vr_letter-B">B</th></tr>
-<tr><td class="printindex-index-entry"><a href="#index-border_002dpattern"><code>border-pattern</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-border_002dpattern-of-Window"><code>border-pattern of Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-border_002dpattern-of-Window-1"><code>border-pattern of Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="chap_vr_letter-E">E</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-enable"><code>enable</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
