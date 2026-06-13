@@ -263,7 +263,6 @@ sub import {
 my %nobrace_commands = %Texinfo::Commands::nobrace_commands;
 my %line_commands = %Texinfo::Commands::line_commands;
 my %nobrace_symbol_text = %Texinfo::CommandsValues::nobrace_symbol_text;
-my %accent_commands = %Texinfo::Commands::accent_commands;
 my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
 my %def_commands = %Texinfo::Commands::def_commands;
 my %ref_commands = %Texinfo::Commands::ref_commands;
@@ -1605,8 +1604,13 @@ foreach my $explained_command (keys(%explained_commands)) {
      = [['normal'], ['normal', 'string']];
 }
 
-foreach my $accent_command (keys(%accent_commands)) {
-  $html_default_commands_args{$accent_command} = [[]];
+my %accent_commands;
+
+foreach my $accent_command (keys(%brace_commands)) {
+  if ($brace_commands{$accent_command} eq 'accent') {
+    $accent_commands{$accent_command} = 1;
+    $html_default_commands_args{$accent_command} = [[]];
+  }
 }
 
 my %kept_line_commands;
@@ -5161,7 +5165,8 @@ sub _convert_printindex_command($$$$) {
       }
 
       if (defined($letter_command)
-          and !exists($accent_commands{$letter_command->{'cmdname'}})
+          and !(exists($brace_commands{$letter_command->{'cmdname'}})
+                and $brace_commands{$letter_command->{'cmdname'}} eq 'accent')
           and $letter_command->{'cmdname'} ne 'U'
           # special case, the uppercasing of that command is not done
           # if as a command, while it is done correctly in $letter

@@ -8,7 +8,6 @@
   cm_flag(root) \
   cm_flag(sectioning_heading) \
   cm_flag(brace) \
-  cm_flag(accent) \
   cm_flag(math) \
   cm_flag(variadic) \
   cm_flag(ref) \

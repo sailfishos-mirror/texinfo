@@ -1000,8 +1000,7 @@ new_element_from_names (const char *type_name, const char *command_name,
             e_type = ET_line_command;
           else if (builtin_command_data[cmd].flags & CF_block)
             e_type = ET_block_command;
-          else if (builtin_command_data[cmd].flags &
-                                            (CF_brace | CF_accent))
+          else if (builtin_command_data[cmd].flags & CF_brace)
             {
               if (builtin_command_data[cmd].data == BRACE_context)
                 e_type = ET_context_brace_command;
@@ -2267,7 +2266,7 @@ block_line_argument_command (const ELEMENT *block_line_arg)
         {
           enum command_id cmd = element_builtin_cmd (arg);
           if (builtin_command_data[cmd].flags & CF_brace
-              && !(builtin_command_data[cmd].flags & CF_accent))
+              && builtin_command_data[cmd].data != BRACE_accent)
             {
               return arg;
             }
@@ -2805,16 +2804,16 @@ find_innermost_accent_contents (const ELEMENT *element)
       const ELEMENT *arg;
       size_t i;
       enum command_id data_cmd;
-      unsigned long flags;
 
       if (type_data[current->type].flags & TF_text)
         return accent_stack;
 
       data_cmd = element_builtin_data_cmd (current);
-      flags = builtin_command_data[data_cmd].flags;
 
       /* the following can happen if called with a bad tree */
-      if (!data_cmd || !(flags & CF_accent))
+      if (!data_cmd
+          || !(builtin_command_data[data_cmd].flags & CF_brace
+               && builtin_command_data[data_cmd].data == BRACE_accent))
         return accent_stack;
 
       push_stack_element (&accent_stack->stack, current);
@@ -2834,9 +2833,8 @@ find_innermost_accent_contents (const ELEMENT *element)
                 = element_builtin_data_cmd (content);
               if (content_data_cmd)
                 {
-                  unsigned long content_flags
-                     = builtin_command_data[content_data_cmd].flags;
-                  if (content_flags & CF_accent)
+                  if (builtin_command_data[content_data_cmd].flags & CF_brace
+               && builtin_command_data[content_data_cmd].data == BRACE_accent)
                     {
          /* if accent is tieaccent, keep everything and do not try to
             nest more */

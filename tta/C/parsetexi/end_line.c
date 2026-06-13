@@ -1012,7 +1012,8 @@ end_line_starting_block (ELEMENT *current)
               && arg->e.c->contents.list[0]->e.c->contents.number == 0)))
                     {
                       enum command_id cmd = element_builtin_cmd (arg);
-                      if (builtin_command_data[cmd].flags & CF_accent)
+                      if (builtin_command_data[cmd].flags & CF_brace
+                          && builtin_command_data[cmd].data == BRACE_accent)
                         {
                           command_warn (current, "accent command `@%s' "
                             "not allowed as @%s argument",

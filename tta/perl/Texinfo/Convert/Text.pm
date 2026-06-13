@@ -108,7 +108,6 @@ foreach my $ignored_command ('html', 'tex', 'xml', 'docbook', 'latex') {
   $ignored_format_raw_commands{$ignored_command} = 1;
 }
 
-my %accent_commands = %Texinfo::Commands::accent_commands;
 my %nobrace_symbol_text = %Texinfo::CommandsValues::nobrace_symbol_text;
 my %formatted_line_commands = %Texinfo::Commands::formatted_line_commands;
 my %def_commands = %Texinfo::Commands::def_commands;
@@ -619,7 +618,8 @@ sub _convert($$) {
                 $options->{'enabled_encoding'}, $options->{'ASCII_GLYPH'},
                 $options->{'sort_string'}, $options->{'set_case'});
     # commands with braces
-    } elsif (exists($accent_commands{$cmdname})) {
+    } elsif (exists($Texinfo::Commands::brace_commands{$cmdname})
+             and $Texinfo::Commands::brace_commands{$cmdname} eq 'accent') {
       my $result = text_accents($element, $options->{'enabled_encoding'},
                                 $options->{'set_case'});
       return $result;

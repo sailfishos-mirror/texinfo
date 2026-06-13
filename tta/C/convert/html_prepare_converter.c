@@ -423,7 +423,8 @@ html_format_setup (enum converter_format format)
           style_formatted_cmd_nr++;
         }
 
-      if (builtin_command_data[i].flags & CF_accent)
+      if (builtin_command_data[i].flags & CF_brace
+          && builtin_command_data[i].data == BRACE_accent)
         {
           accent_cmd_nr++;
           html_command_args_flags[i].status = 1;
@@ -496,7 +497,8 @@ html_format_setup (enum converter_format format)
   no_arg_formatted_cmd_idx = 0;
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
     {
-      if (builtin_command_data[i].flags & CF_accent)
+      if (builtin_command_data[i].flags & CF_brace
+          && builtin_command_data[i].data == BRACE_accent)
         {
           accent_cmd.list[accent_cmd.number] = i;
           accent_cmd.number++;

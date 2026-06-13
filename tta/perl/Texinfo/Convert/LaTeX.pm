@@ -233,7 +233,6 @@ foreach my $command (keys (%Texinfo::Commands::brace_commands)) {
   $brace_no_arg_commands{$command} = 1
     if ($Texinfo::Commands::brace_commands{$command} eq 'noarg');
 }
-my %accent_commands = %Texinfo::Commands::accent_commands;
 my %line_commands = %Texinfo::Commands::line_commands;
 my %nobrace_commands = %Texinfo::Commands::nobrace_commands;
 my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
@@ -3259,7 +3258,8 @@ sub _convert($$) {
       }
       return $result;
     # commands with braces
-    } elsif (exists($accent_commands{$cmdname})) {
+    } elsif (exists($Texinfo::Commands::brace_commands{$cmdname})
+             and $Texinfo::Commands::brace_commands{$cmdname} eq 'accent') {
       if ($self->{'output_characters'}) {
         my $encoding = $self->{'output_encoding_name'};
         my $sc;

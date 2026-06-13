@@ -77,8 +77,6 @@ my %normalize_node_nobrace_symbol_text
 $normalize_node_nobrace_symbol_text{'*'} = ' ';
 $normalize_node_nobrace_symbol_text{'today'} = '';
 
-my %accent_commands = %Texinfo::Commands::accent_commands;
-
 my %ignored_brace_commands;
 foreach my $ignored_brace_command ('anchor', 'namedanchor', 'footnote',
        'shortcaption', 'caption', 'hyphenation', 'sortas',
@@ -262,7 +260,8 @@ sub _convert($) {
       my $result = $normalize_node_brace_no_arg_commands{$cmdname};
       return $result;
     # commands with braces
-    } elsif (exists($accent_commands{$cmdname})) {
+    } elsif (exists($Texinfo::Commands::brace_commands{$cmdname})
+             and $Texinfo::Commands::brace_commands{$cmdname} eq 'accent') {
       my ($contents_element, $stack)
         = Texinfo::Common::find_innermost_accent_contents($element);
       return '' if (!defined($contents_element));

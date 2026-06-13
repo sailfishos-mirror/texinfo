@@ -1383,7 +1383,8 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
     ok = 1;
   else if (outer_flags & CF_contain_plain_text)
     {
-      if ((cmd_flags & CF_accent)
+      if ((cmd_flags & CF_brace
+           && command_data(cmd).data == BRACE_accent)
           || (cmd_flags & CF_nobrace
               && command_data(cmd).data == NOBRACE_symbol
               && (!(cmd_flags & CF_in_heading_spec))))
@@ -1500,7 +1501,7 @@ check_valid_nesting_context (enum command_id cmd)
       int data = command_data(cmd).data;
 
       if (!(                                             /* inclusions */
-                (flags & (CF_accent | CF_brace | CF_in_heading_spec))
+                (flags & (CF_brace | CF_in_heading_spec))
              || ((flags & CF_nobrace) && data == NOBRACE_symbol)
              || cmd == CM_c
              || cmd == CM_comment
@@ -2237,7 +2238,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       debug_print_protected_string (line); debug ("");
 
       if (strchr (whitespace_chars, *line)
-               && ((command_flags(current) & CF_accent)
+               && ((command_data(current->e.c->cmd).data == BRACE_accent)
             || global_parser_conf->ignore_space_after_braced_command_name))
         {
            int whitespaces_len;
@@ -2316,7 +2317,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         }
     /* special case for accent commands, use following character except @
        as argument */
-      else if ((command_flags(current) & CF_accent)
+      else if ((command_flags(current) & CF_brace
+                && command_data(current->e.c->cmd).data == BRACE_accent)
                && *line != '@')
         {
           ELEMENT *e, *e2;
@@ -2604,7 +2606,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
             current = handle_block_command (current, &line, cmd,
                                             &command_element);
         }
-      else if (command_data(data_cmd).flags & (CF_brace | CF_accent))
+      else if (command_data(data_cmd).flags & CF_brace)
         {
           current = handle_brace_command (current, &line, cmd, &command_element);
         }

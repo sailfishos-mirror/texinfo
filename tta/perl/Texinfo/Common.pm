@@ -1057,7 +1057,8 @@ sub find_innermost_accent_contents($) {
     my $current_cmdname = $current->{'cmdname'};
     # the following can happen if called with a bad tree
     if (!defined($current_cmdname)
-        or !exists($Texinfo::Commands::accent_commands{$current_cmdname})) {
+        or !(exists($Texinfo::Commands::brace_commands{$current_cmdname})
+      and $Texinfo::Commands::brace_commands{$current_cmdname} eq 'accent')) {
       #print STDERR "BUG: Not an accent command in accent\n";
       cluck "BUG: Not an accent command in accent\n";
       #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($current)."\n";
@@ -1078,7 +1079,8 @@ sub find_innermost_accent_contents($) {
     foreach my $content (@{$arg->{'contents'}}) {
       if (exists($content->{'cmdname'})) {
         my $cmdname = $content->{'cmdname'};
-        if (exists($Texinfo::Commands::accent_commands{$cmdname})) {
+        if (exists($Texinfo::Commands::brace_commands{$cmdname})
+            and $Texinfo::Commands::brace_commands{$cmdname} eq 'accent') {
         # if outer accent is tieaccent, keep accent inside and do not try to
         # nest more
           if ($current_cmdname ne 'tieaccent') {
@@ -1137,7 +1139,7 @@ sub block_line_argument_command($) {
                  and !exists($arg->{'contents'}->[0]->{'contents'})))) {
       my $cmdname = $arg->{'cmdname'};
       if ((exists($Texinfo::Commands::brace_commands{$cmdname})
-           and !exists($Texinfo::Commands::accent_commands{$cmdname}))
+           and $Texinfo::Commands::brace_commands{$cmdname} ne 'accent')
           or (exists($arg->{'type'})
               and $arg->{'type'} eq 'definfoenclose_command')) {
         return $arg;

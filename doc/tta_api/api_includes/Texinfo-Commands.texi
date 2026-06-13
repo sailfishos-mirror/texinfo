@@ -11,7 +11,8 @@ Texinfo::Commands - Classification of commands
 
 @verbatim
   use Texinfo::Commands;
-  if ($Texinfo::Commands::accent_commands{$a_command}) {
+  if (exists($Texinfo::Commands::brace_commands{$a_command})
+      and $Texinfo::Commands::brace_commands{$a_command} eq 'accent') {
     print STDERR "$a_command is an accent command\n";
   }
 @end verbatim
@@ -54,13 +55,6 @@ The key of the hashes are @@-command names without the @@.  The
 following hashes are available:
 
 @table @asis
-@item %accent_commands
-@anchor{Texinfo@asis{::}Commands %accent_commands}
-@cindex @code{%accent_commands}
-
-Accent @@-commands taking an argument, like @code{@@'} or @code{@@ringaccent},
-including @code{@@dotless} and @code{@@tieaccent}.
-
 @item %block_commands
 @anchor{Texinfo@asis{::}Commands %block_commands}
 @cindex @code{%block_commands}
@@ -164,7 +158,7 @@ Brace commands that have their argument in code style, like
 
 The commands that take braces. Value is @emph{noarg} for brace commands without
 argument such as @code{@@AA}, @code{@@TeX}, or @code{@@equiv}.  Other values include
-@emph{accent}, @emph{arguments}, @emph{context} and other values.
+@emph{accent}, @emph{arguments}, @emph{context} and other.
 
 @item %close_paragraph_commands
 @anchor{Texinfo@asis{::}Commands %close_paragraph_commands}

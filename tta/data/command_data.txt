@@ -367,23 +367,23 @@ guilsinglleft           brace                           noarg
 guilsinglright          brace                           noarg
 
 # accent commands - can be called with or without braces
-\"                      brace,accent,contain_plain_text   accent
-~                       brace,accent,contain_plain_text   accent
-^                       brace,accent,contain_plain_text   accent
-`                       brace,accent,contain_plain_text   accent
-'                       brace,accent,contain_plain_text   accent
-,                       brace,accent,contain_plain_text   accent
-=                       brace,accent,contain_plain_text   accent
-ringaccent              brace,accent,contain_plain_text   accent
-H                       brace,accent,contain_plain_text   accent
-dotaccent               brace,accent,contain_plain_text   accent
-u                       brace,accent,contain_plain_text   accent
-ubaraccent              brace,accent,contain_plain_text   accent
-udotaccent              brace,accent,contain_plain_text   accent
-v                       brace,accent,contain_plain_text   accent
-ogonek                  brace,accent,contain_plain_text   accent
-tieaccent               brace,accent,contain_plain_text   accent
-dotless                 brace,accent,contain_plain_text   accent
+\"                      brace,contain_plain_text   accent
+~                       brace,contain_plain_text   accent
+^                       brace,contain_plain_text   accent
+`                       brace,contain_plain_text   accent
+'                       brace,contain_plain_text   accent
+,                       brace,contain_plain_text   accent
+=                       brace,contain_plain_text   accent
+ringaccent              brace,contain_plain_text   accent
+H                       brace,contain_plain_text   accent
+dotaccent               brace,contain_plain_text   accent
+u                       brace,contain_plain_text   accent
+ubaraccent              brace,contain_plain_text   accent
+udotaccent              brace,contain_plain_text   accent
+v                       brace,contain_plain_text   accent
+ogonek                  brace,contain_plain_text   accent
+tieaccent               brace,contain_plain_text   accent
+dotless                 brace,contain_plain_text   accent
 
 # Style commands
 # Leading and trailing spaces kept in main text.

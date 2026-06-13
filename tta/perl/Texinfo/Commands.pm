@@ -413,26 +413,6 @@ our %nobrace_commands = (
 
 
 # flag hashes
-our %accent_commands = (
-  "'"                       => 1,
-  ","                       => 1,
-  "="                       => 1,
-  "H"                       => 1,
-  "\""                      => 1,
-  "^"                       => 1,
-  "`"                       => 1,
-  "dotaccent"               => 1,
-  "dotless"                 => 1,
-  "ogonek"                  => 1,
-  "ringaccent"              => 1,
-  "tieaccent"               => 1,
-  "u"                       => 1,
-  "ubaraccent"              => 1,
-  "udotaccent"              => 1,
-  "v"                       => 1,
-  "~"                       => 1,
-);
-
 our %appendix_commands = (
   "appendix"                => 1,
   "appendixsec"             => 1,

@@ -305,7 +305,6 @@ my %nobrace_commands          = %Texinfo::Commands::nobrace_commands;
 my %line_commands             = %Texinfo::Commands::line_commands;
 my %brace_commands            = %Texinfo::Commands::brace_commands;
 my %commands_args_number      = %Texinfo::Commands::commands_args_number;
-my %accent_commands           = %Texinfo::Commands::accent_commands;
 my %contain_plain_text_commands = %Texinfo::Commands::contain_plain_text_commands;
 my %contain_basic_inline_commands = %Texinfo::Commands::contain_basic_inline_commands;
 my %block_commands            = %Texinfo::Commands::block_commands;
@@ -435,15 +434,16 @@ foreach my $no_close_preformatted(keys(%close_paragraph_not_preformatted)) {
   delete $close_preformatted_commands{$no_close_preformatted};
 }
 
-foreach my $block_command (keys(%block_commands)) {
+foreach my $block_command(keys(%block_commands)) {
   $begin_line_commands{$block_command} = 1;
 }
 
 # commands that may appear in commands containing plain text only
-my %in_plain_text_commands = %accent_commands;
+my %in_plain_text_commands;
 foreach my $brace_command(keys(%brace_commands)) {
   $in_plain_text_commands{$brace_command} = 1
-     if ($brace_commands{$brace_command} eq 'noarg');
+     if ($brace_commands{$brace_command} eq 'noarg'
+         or $brace_commands{$brace_command} eq 'accent');
 }
 my %symbol_nobrace_commands;
 foreach my $no_brace_command (keys(%nobrace_commands)) {
@@ -2952,7 +2952,8 @@ sub _expand_linemacro_arguments($$$$$) {
           substr($line, 0, length($cmdname)) = '';
           if ((defined($self->{'brace_commands'}->{$cmdname})
                and $self->{'conf'}->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'})
-              or $accent_commands{$cmdname}) {
+              or (exists($brace_commands{$cmdname})
+                  and $brace_commands{$cmdname} eq 'accent')) {
             $line =~ s/^(\s*)//;
             $argument_content->{'text'} .= $1;
           }
@@ -4636,7 +4637,8 @@ sub _end_line_starting_block($$$) {
                  or (scalar(@{$arg->{'contents'}}) == 1
                      and !exists($arg->{'contents'}->[0]->{'contents'})))) {
             my $cmdname = $arg->{'cmdname'};
-            if ($accent_commands{$cmdname}) {
+            if (exists($brace_commands{$cmdname})
+                and $brace_commands{$cmdname} eq 'accent') {
               _command_warn($self, $current,
                   __("accent command `\@%s' not allowed as \@%s argument"),
                   $cmdname, $command);
@@ -7634,7 +7636,7 @@ sub _process_remaining_on_line($$$$) {
   # otherwise the current element is in the 'contents' and not right in the
   # command container.
   if (exists($current->{'cmdname'})
-      and defined($self->{'brace_commands'}->{$current->{'cmdname'}})
+      and exists($self->{'brace_commands'}->{$current->{'cmdname'}})
       and !$open_brace) {
 
     print STDERR "BRACE CMD: no brace after \@$current->{'cmdname'}"
@@ -7643,7 +7645,7 @@ sub _process_remaining_on_line($$$$) {
 
     # Note that non ascii spaces do not count as spaces
     if ($line =~ /^(\s+)/
-        and ($accent_commands{$current->{'cmdname'}}
+        and ($brace_commands{$current->{'cmdname'}} eq 'accent'
              or $self->{'conf'}->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'})) {
       my $added_space = $1;
       my $additional_newline;
@@ -7705,7 +7707,7 @@ sub _process_remaining_on_line($$$$) {
     # as argument.  Note that since we checked before that there isn't
     # an @-command opening, there should not be an @ anyway.  The line
     # may possibly be empty in some specific case, without end of line.
-    } elsif ($accent_commands{$current->{'cmdname'}}
+    } elsif ($brace_commands{$current->{'cmdname'}} eq 'accent'
              and $line =~ s/^([^@])//) {
       my $arg_char = $1;
       print STDERR "ACCENT \@$current->{'cmdname'} following_arg: $arg_char\n"

@@ -107,7 +107,6 @@ foreach my $command (keys(%brace_commands)) {
   $brace_no_arg_commands{$command} = 1
     if ($brace_commands{$command} eq 'noarg');
 }
-my %accent_commands = %Texinfo::Commands::accent_commands;
 my %line_commands = %Texinfo::Commands::line_commands;
 my %nobrace_commands = %Texinfo::Commands::nobrace_commands;
 my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
@@ -3033,7 +3032,8 @@ sub _convert($$) {
   my $preformatted;
   if (defined($cmdname)) {
     my $unknown_command;
-    if (exists($accent_commands{$cmdname})) {
+    if (exists($brace_commands{$cmdname})
+        and $brace_commands{$cmdname} eq 'accent') {
       my $encoding = $self->{'enabled_encoding'};
       my $sc;
       if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {

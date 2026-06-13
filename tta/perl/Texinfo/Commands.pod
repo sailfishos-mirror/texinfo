@@ -5,7 +5,8 @@ Texinfo::Commands - Classification of commands
 =head1 SYNOPSIS
 
   use Texinfo::Commands;
-  if ($Texinfo::Commands::accent_commands{$a_command}) {
+  if (exists($Texinfo::Commands::brace_commands{$a_command})
+      and $Texinfo::Commands::brace_commands{$a_command} eq 'accent') {
     print STDERR "$a_command is an accent command\n";
   }
 
@@ -43,12 +44,6 @@ The key of the hashes are @-command names without the @.  The
 following hashes are available:
 
 =over
-
-=item %accent_commands
-X<C<%accent_commands>>
-
-Accent @-commands taking an argument, like C<@'> or C<@ringaccent>,
-including C<@dotless> and C<@tieaccent>.
 
 =item %block_commands
 X<C<%block_commands>>
@@ -136,7 +131,7 @@ X<C<%brace_commands>>
 
 The commands that take braces. Value is I<noarg> for brace commands without
 argument such as C<@AA>, C<@TeX>, or C<@equiv>.  Other values include
-I<accent>, I<arguments>, I<context> and other values.
+I<accent>, I<arguments>, I<context> and other.
 
 =item %close_paragraph_commands
 X<C<%close_paragraph_commands>>

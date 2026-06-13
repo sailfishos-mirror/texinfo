@@ -1,5 +1,15 @@
 2026-06-13 Patrice Dumas  <pertusus@free.fr>
 
+	Remove accent flag, accent brace command data can be used instead
+
+	* tta/C/api_for_swig/swig_element_types.h, tta/data/command_data.txt,
+	tta/perl/Texinfo/Convert/HTML.pm (%accent_commands),
+	tta/C/main/builtin_commands.h, tta/perl/Texinfo/Commands.pod: remove
+	accent flag, use brace flag and brace command data equal to accent
+	instead.  Update code using accent flags.
+
+2026-06-13 Patrice Dumas  <pertusus@free.fr>
+
 	Format @defcv like other variable definitions with class and category
 
 	* tta/C/parsetexi/end_line.c (end_line_def_line),

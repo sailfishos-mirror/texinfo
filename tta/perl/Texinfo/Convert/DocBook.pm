@@ -960,7 +960,8 @@ sub _convert($$;$) {
       }
     } elsif ($cmdname eq 'today') {
       return _convert($self, $self->expand_today());
-    } elsif (exists($Texinfo::Commands::accent_commands{$cmdname})) {
+    } elsif (exists($brace_commands{$cmdname})
+             and $brace_commands{$cmdname} eq 'accent') {
       return $self->xml_accents($element,
                $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
     } elsif ($cmdname eq 'item' or $cmdname eq 'itemx'

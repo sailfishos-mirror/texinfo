@@ -953,7 +953,8 @@ sub _convert($$)
           }
         } elsif ($cmdname eq 'today') {
           $result_text = $self->convert_tree($self->expand_today());
-        } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
+        } elsif ($Texinfo::Commands::brace_commands{$cmdname}
+               and $Texinfo::Commands::brace_commands{$cmdname} eq 'accent') {
           $result_text = $self->xml_accents($element,
                  $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
         }
@@ -2264,7 +2265,8 @@ sub _convert($$)
         } elsif ($cmdname eq 'w') {
         # special case to ensure that @w leads to something even if empty
           $$output_ref .= $w_command_mark;
-        } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
+        } elsif (exists($Texinfo::Commands::brace_commands{$cmdname})
+               and $Texinfo::Commands::brace_commands{$cmdname} eq 'accent') {
           $result .= $self->xml_accents($element,
                  $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
         } elsif (!exists($docbook_no_warn_empty_commands{$cmdname})

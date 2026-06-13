@@ -565,7 +565,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
               text_append (arg, command);
               if (cmd && (command_data(cmd).flags & CF_brace)
                   && strchr (whitespace_chars, *pline)
-                  && ((command_flags(current) & CF_accent)
+                  && (command_data(cmd).data == BRACE_accent
                 || global_parser_conf->ignore_space_after_braced_command_name))
                 {
                   int whitespaces_len = strspn (pline, whitespace_chars);

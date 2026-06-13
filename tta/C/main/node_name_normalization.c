@@ -123,7 +123,8 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
     {
       if (command_normalization_text[cmd])
         ADD(command_normalization_text[cmd]);
-      else if (builtin_command_data[cmd].flags & CF_accent)
+      if (builtin_command_data[cmd].flags & CF_brace
+          && builtin_command_data[cmd].data == BRACE_accent)
         {
           if (e->e.c->contents.number > 0)
             {

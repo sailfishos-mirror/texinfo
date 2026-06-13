@@ -6893,7 +6893,8 @@ html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
         {
           enum command_id p_cmd
             = element_builtin_cmd (element->e.c->parent->e.c->parent);
-          if (builtin_command_data[p_cmd].flags & CF_accent
+          if ((builtin_command_data[p_cmd].flags & CF_brace
+               && builtin_command_data[p_cmd].data == BRACE_accent)
               && p_cmd != CM_tieaccent)
             {
               return text_set;
@@ -10848,7 +10849,8 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
             }
 
           if (letter_command
-              && (!(builtin_command_data[letter_cmd].flags & CF_accent))
+              && (!(builtin_command_data[letter_cmd].flags & CF_brace
+                    && builtin_command_data[letter_cmd].data == BRACE_accent))
               && letter_cmd != CM_U
             /* special case, the uppercasing of that command is not done
                if as a command, while it is done correctly in letter */
