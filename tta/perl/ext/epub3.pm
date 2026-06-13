@@ -24,8 +24,7 @@
 #
 # Discuss unique identifier on the mailing list
 #
-# Implement publication date and last change date customization
-# (see main TODO file).
+# Add Texinfo manual change date (see main TODO file)?
 #
 # Currently the titlepage is used if available, while the Top node
 # is not shown.  There is a possibility to use an image as cover in
@@ -942,7 +941,9 @@ EOT
   # CCYY-MM-DDThh:mm:ssZ
   #
   # The last modification date MUST be expressed in Coordinated Universal Time (UTC) and MUST be terminated by the "Z" (Zulu) time zone indicator.
-  # FIXME add a way for the user to set $dcterms_modified_str
+  # There is no way to override last modified dcterms:modified
+  # metadata, as Texinfo is not intended to provide ways to customize
+  # all the feature of all the output formats.
   my $dcterms_modified_str;
   if (not $self->get_conf('TEST')) {
     # dcterms:modified is a last modified date of the whole publication.
@@ -956,9 +957,6 @@ EOT
 
   # to discuss
   # <dc:rights>
-
-  # Cf TODO, publication date
-  # <dc:date>
 
   my $opf_file_path_name = join('/', ($epub_destination_directory,
                                      $epub_document_dir_name, $opf_filename));

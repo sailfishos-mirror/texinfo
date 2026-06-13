@@ -1,3 +1,7 @@
+2026-06-13 Patrice Dumas  <pertusus@free.fr>
+
+	* TODO, tta/TODO, tta/perl/ext/epub3.pm: update TODOs.
+
 2026-06-10 Patrice Dumas  <pertusus@free.fr>
 
 	* NEWS: add Perl and Python SWIG modules.

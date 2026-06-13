@@ -25,20 +25,14 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
     https://lists.gnu.org/archive/html/bug-texinfo/2003-11/msg00092.html
     An issue with the proposal is that glossary definitions could be quite
     long and not suitable for an optional argument.
-  - related to the @documentinfo command, add more metadata, in particular
-    for books but not only:
-     * make it easier to gather author metadata
-     * short information on licence
-
-    It could be relevant to have up to three dates:
-     * Last modified date.  In EPUB the dcterms:modified property.  Defaults
-       to the generation date;
+  - related to the @documentinfo command, add more metadata:
+     * short information on licence (shorter than @copying), stating the
+       licence only, with an @-command?
      * a date corresponding to the modification of the Texinfo manual (what is
        currectly set with automake and accessible as @value{UPDATED}),
        with default set with the modification timestamp of the main texinfo
        file (or the newest for the main and all @include'd files);
-     * a publication date.  In EPUB the dc:date optional element, to be set
-       manually by the user.
+       could be the "created" term in Dublin Core.
 
   - unique identifiers/way to disambiguate manuals with the same name?
   - reflection on guide/topic document structure and pluggable content

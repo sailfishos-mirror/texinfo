@@ -1152,11 +1152,23 @@ on Solaris 11:
 
 On Solaris 10, gnulib requires C99, may need to add -D_STDC_C99 to CFLAGS.
 
-On Solaris 10, there may be an error like
+On Solaris 10, there may be an error with Perl compilation flags like:
 ld: fatal: file /usr/local/lib/libiconv.so: wrong ELF class: ELFCLASS64
-with Perl CFLAGS, because Perl cflags select 32 bits, but the library
-being linked in /usr/local/lib/ is 64 bits.  In that case, the library
-should be found in /opt/csw/lib/.
+because Perl cflags select 32 bits, but the library being linked in
+/usr/local/lib/ is 64 bits.  In that case, the library should be found
+in /opt/csw/lib/.
+To mitigate this issue, --without-libiconv-prefix can be used.
+
+With --without-libiconv-prefix, if gcc is used as compiler (without
+the Perl compilation flags), there can be a runtime linking error,
+because /opt/csw/lib is not included in the program runpath as there
+is no -R/opt/csw/lib issued.  To use gcc, one possibility could be to do
+ export LD_OPTIONS=/opt/csw/lib
+Beware that it insert the runpath before any other path set during build.
+
+Alternatively, to use cc, which is more interesting for Texinfo to test Solaris
+10 specificities and reproduce the OpenCSW environment:
+./configure --without-libiconv-prefix PERL=/opt/csw/bin/perl GAWK=/opt/csw/bin/gawk CC=cc CFLAGS='-g -D_STDC_C99=' LDFLAGS=-L/opt/csw/lib/ CPPFLAGS='-I/opt/csw/include/' PERL_EXT_CFLAGS='-g -D_STDC_C99=' PERL_EXT_CPPFLAGS='-I/opt/csw/include/' PERL_EXT_LDFLAGS=-L/opt/csw/lib/
 
 
 Misc notes
