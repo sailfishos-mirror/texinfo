@@ -96,7 +96,9 @@ enum string_info_type {
 };
 
 /* sync string_list with Texinfo/ManipulateTree.pm
-   _print_element_associated_info list for ARRAY ref */
+   _print_element_associated_info list for ARRAY ref
+   and element_oot with @extra_out_of_tree (currently none)
+*/
 /* corresponds to name, extra type and associated data.  The associated data
    is only used for interfacing with Perl */
 #define AI_KEYS_LIST \
@@ -134,9 +136,6 @@ enum string_info_type {
   ai_key(sortas, string, 0) \
   ai_key(text_arg, string, 0) \
   ai_key(translation_context, string, 0) \
-  \
-  ai_key(def_index_element, element_oot, 0) \
-  ai_key(def_index_ref_element, element_oot, 0) \
   \
   ai_key(manual_content, container, 0) \
   ai_key(node_content, container, 0) \

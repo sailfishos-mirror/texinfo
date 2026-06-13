@@ -1085,13 +1085,13 @@ If the element is a definition line command and is an x form of a block
 definition command, it has I<not_after_command> set if not appearing
 after the block definition command without x.
 
-The I<def_index_element> is a Texinfo tree element corresponding to
-the index entry associated to the definition line, based on the
-name and class.  If needed this element is based on translated strings.
-In that case, if C<@documentlanguage> is defined where the element
-is located, I<documentlanguage> holds the documentlanguage value.
-I<def_index_ref_element> is similar, but not translated, and only set if
-there could have been a translation.
+If the definition command is object-oriented, the language
+information is in general needed for the formatting of the
+index entry corresponding to the definition command.  If C<@documentlanguage>
+and and other language related @-commands (C<@documentscript>, C<@documentvariant>)
+are defined where the element is located, I<documentlanguage> holds the
+documentlanguage value, with similar extra information
+for other language related @-commands.
 
 The I<omit_def_name_space> key value is set and true if the Texinfo variable
 C<txidefnamenospace> was set, signaling that the space between function

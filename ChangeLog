@@ -1,5 +1,13 @@
 2026-06-13 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ManipulateTree.pm (_copy_tree, tree_remove_parents)
+	(_element_remove_references, @extra_out_of_tree),
+	tta/C/main/tree_types.h (AI_KEYS_LIST): remove def_index_element and
+	def_index_ref_element related definitions and code, as they are not in
+	the tree anymore.
+
+2026-06-13 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (html_convert_printindex_command): build
 	tree for level 0 index entry container.
 

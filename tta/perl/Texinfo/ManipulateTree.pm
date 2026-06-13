@@ -247,8 +247,9 @@ sub _copy_tree($;$) {
                  and $key ne 'node_content'
                  and $key ne 'node_manual'
                  # point to element only in extra, not in the document tree
-                 and $key ne 'def_index_element'
-                 and $key ne 'def_index_ref_element')) {
+                 #and $key ne 'def_index_element'
+                 #and $key ne 'def_index_ref_element'
+           )) {
           next;
         }
         if ($extra_directions{$key}) {
@@ -487,20 +488,20 @@ sub tree_remove_parents($) {
     foreach my $content (@{$element->{'contents'}}) {
       tree_remove_parents($content);
     }
-    if (exists($element->{'extra'})) {
-      if (exists($element->{'extra'}->{'def_index_element'})) {
-        tree_remove_parents($element->{'extra'}->{'def_index_element'});
-        if (exists($element->{'extra'}->{'def_index_ref_element'})) {
-          tree_remove_parents($element->{'extra'}->{'def_index_ref_element'});
-        }
-      }
+    #if (exists($element->{'extra'})) {
+      #if (exists($element->{'extra'}->{'def_index_element'})) {
+      #  tree_remove_parents($element->{'extra'}->{'def_index_element'});
+      #  if (exists($element->{'extra'}->{'def_index_ref_element'})) {
+      #    tree_remove_parents($element->{'extra'}->{'def_index_ref_element'});
+      #  }
+      #}
       # elements also in $element->{'contents'} (without parent when added).
       #foreach my $key ('node_content', 'manual_content') {
       #  if (exists($element->{'extra'}->{$key})) {
       #    tree_remove_parents($element->{'extra'}->{$key});
       #  }
       #}
-    }
+    #}
   }
 }
 
@@ -540,19 +541,21 @@ sub _element_remove_references($;$$) {
 
     if (exists($element->{'contents'})) {
       if (exists($element->{'extra'})) {
-        if (exists($element->{'extra'}->{'def_index_element'})) {
-          _element_remove_references($element->{'extra'}->{'def_index_element'},
-                                 #$check_refcount, $silent_refcount);
-                                   undef, $silent_refcount);
-          delete $element->{'extra'}->{'def_index_element'};
-          if (exists($element->{'extra'}->{'def_index_ref_element'})) {
-            _element_remove_references(
-              $element->{'extra'}->{'def_index_ref_element'},
-                                   #$check_refcount, $silent_refcount);
-                                   undef, $silent_refcount);
-            delete $element->{'extra'}->{'def_index_ref_element'};
-          }
-        }
+        #if (exists($element->{'extra'}->{'def_index_element'})) {
+        #  _element_remove_references($element->{'extra'}->{'def_index_element'},
+        #                         # C tree not always build
+        #                         #$check_refcount, $silent_refcount);
+        #                           undef, $silent_refcount);
+        #  delete $element->{'extra'}->{'def_index_element'};
+        #  if (exists($element->{'extra'}->{'def_index_ref_element'})) {
+        #    _element_remove_references(
+        #      $element->{'extra'}->{'def_index_ref_element'},
+        #                           # C tree not always build
+        #                           #$check_refcount, $silent_refcount);
+        #                           undef, $silent_refcount);
+        #    delete $element->{'extra'}->{'def_index_ref_element'};
+        #  }
+        #}
         # hold duplicates of the element label contents
         foreach my $key ('node_content', 'manual_content') {
           if (exists($element->{'extra'}->{$key})) {
@@ -748,7 +751,8 @@ sub _print_element_add_prepend_info($$$$;$$) {
 }
 
 # extra elements out of tree.  Corresponds to C AI_KEYS_LIST element_oot
-my @extra_out_of_tree = ('def_index_element', 'def_index_ref_element');
+#my @extra_out_of_tree = ('def_index_element', 'def_index_ref_element');
+my @extra_out_of_tree = ();
 
 # keep in sync with elt_info_names in C/main/tree.c
 my @elt_info_names = ('spaces_after_cmd_before_arg');

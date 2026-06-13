@@ -767,7 +767,6 @@ end_line_def_line (ELEMENT *current)
               STRING_LIST *global_documentlanguagevariant
                 = &parsed_document->global_info.documentlanguagevariant;
 
-              /* def_index_element will be set in complete_indices */
               if (global_documentlanguage)
                 add_extra_string_dup (current, AI_key_documentlanguage,
                                       global_documentlanguage);
