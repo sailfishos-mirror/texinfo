@@ -1,3 +1,24 @@
+2026-06-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	texindex: by default, do not merge entries if text differs
+
+	* texindex/texindex.awk
+	(usage, BEGIN): Add --combine-equal-keys option.  Set CombineEqualKeys
+	variable if given.
+	
+	(main block) [!CombineEqualKeys]: Only eliminate duplicate
+	entries if index entry text is equal as well as the sort key being
+	equal.
+	
+	(index_compare) [!CombineEqualKeys]: Compare the index text if the
+	sort keys are identical.
+
+	(write_index_entry)
+	(maybe_print_primary_entry, maybe_print_secondary_entry):
+	Split out maybe_print_primary_entry, maybe_print_seconary_entry.
+	Construct key to represent primary or secondary entry depending
+	on the --combine-equal-keys setting.
+
 2026-06-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* texindex/texindex.awk (write_index_entry):

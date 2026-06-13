@@ -239,9 +239,10 @@ function usage(exit_val)
 	print _"Usually FILE... is specified as `foo.??' for a document `foo.texi'."
 	print ""
 	print _"Options:"
-	print _" -h, --help   display this help and exit"
-	print _" --version    display version information and exit"
-	print _" --           end option processing"
+	print _" -h, --help             display this help and exit"
+	print _" --version              display version information and exit"
+	print _" --combine-equal-keys   combine entries based on sort key only"
+	print _" --                     end option processing"
 	print ""
 	print _"Email bug reports to bug-texinfo@gnu.org,"
 	print _"general questions and discussion to help-texinfo@gnu.org."
@@ -327,6 +328,9 @@ BEGIN {
 
 	Texindex_version = "@VERSION@"
 
+	# --combine-equal-keys setting
+	CombineEqualKeys = FALSE
+
 	# Per GNU standards, we sometimes hardwire the string 'texindex'
 	# as the name of the program, and sometimes use the name
 	# by which the program was invoked.  We'll call the latter
@@ -361,6 +365,10 @@ BEGIN {
 		} else if (ARGV[i] == "-k" || ARGV[i] == "--keep") {
 			# do nothing, backwards compatibility
 			delete ARGV[i]
+		} else if (ARGV[i] == "--combine-equal-keys") {
+			CombineEqualKeys = TRUE
+			delete ARGV[i]
+			break
 		} else if (ARGV[i] == "--") {
 			delete ARGV[i]
 			break
@@ -482,7 +490,16 @@ function endfile(filename,                 # parameters
 	secondary_text = (numfields > 3 ? fields[4] : "")
 	tertiary_text = (numfields > 4 ? fields[5] : "")
 
-	key = sortkey
+	if (! CombineEqualKeys) {
+		# Combine entries if they have the same sort key
+		# and the same entry text.
+		Sep = "\001"
+		key = sortkey Sep primary_text Sep secondary_text \
+		              Sep tertiary_text
+	} else {
+		# Combine entries if they have the same sort key
+		key = sortkey
+	}
 
 	# The Allkeys associative array lets us easily detect repeated
 	# index entries which should be combined.  Note that it is more
@@ -550,9 +567,6 @@ function endfile(filename,                 # parameters
 					&& Pagedata[key] !~  escape(", " pagenum "$")) {
 			Pagedata[key] = Pagedata[key] ", " pagenum
 		}
-		# In the event that a particular key has more than one associated
-		# output text, we'll keep the first and ignore the remainder (this is
-		# the same behavior as the C implementation).
 	}
 
 	# Determine if more than one initial occurs in the input.
@@ -722,7 +736,7 @@ function print_initial(initial)
 # much as necessary, since it's a relatively expensive operation.
 #
 function index_compare(data, l, r,                       # parameters
-                       left, right, nfields, cmp1, cmp2) # locals
+                       left, right, nfields, cmp)        # locals
 {
 	left = data[l]
 	right = data[r]
@@ -733,26 +747,46 @@ function index_compare(data, l, r,                       # parameters
 	nfields = min(left_fields, right_fields)
 
 	# At least one field, always check the first subkey
-	cmp1 = string_compare(Subkeys[left, 1], Subkeys[right, 1])
-	if (cmp1 != 0)
-		return cmp1 < 0
+	cmp = string_compare(Subkeys[left, 1], Subkeys[right, 1])
+	if (cmp != 0)
+		return cmp < 0
 
-	# cmp1 == 0: one side has 1 field, other side has 1 to 3 fields
+	# Compare the index text if the sort keys are identical
+	if (!CombineEqualKeys) {
+		cmp = string_compare(Primary[left], Primary[right])
+		if (cmp != 0)
+			return cmp < 0
+	}
+
+	# cmp == 0: one side has 1 field, other side has 1 to 3 fields
 	if (nfields == 1)
 		return left_fields < right_fields
 
 	# At least two fields, check second subkey
-	cmp2 = string_compare(Subkeys[left, 2], Subkeys[right, 2])
-	if (cmp2 != 0)
-		return cmp2 < 0
+	cmp = string_compare(Subkeys[left, 2], Subkeys[right, 2])
+	if (cmp != 0)
+		return cmp < 0
 
-	# cmp1 == 0, cmp2 == 0, one side has 2 fields,
-	# other has 2 to 3 fields
+	if (!CombineEqualKeys) {
+		cmp = string_compare(Secondary[left], Secondary[right])
+		if (cmp != 0)
+			return cmp < 0
+	}
+
+	# One side has 2 fields, the other has 2 to 3 fields
 	if (nfields == 2)
 		return left_fields < right_fields
 
 	# Three fields
-	return string_compare(Subkeys[left, 3], Subkeys[right, 3]) < 0
+	cmp = string_compare(Subkeys[left, 3], Subkeys[right, 3])
+	if (cmp != 0)
+		return cmp < 0
+
+	if (!CombineEqualKeys) {
+		cmp = string_compare(Tertiary[left], Tertiary[right])
+		if (cmp != 0)
+			return cmp < 0
+	}
 }
 
 # Initialize Ordval array for use by string_compare.
@@ -947,6 +981,41 @@ function print_see_entry(key, entry_command, entry_text, # parameters
 			entry_text[key], see_entries[i]) > Output_file
 }
 
+function maybe_print_primary_entry(key,		subkey)
+{
+	# Print primary entry if necessary
+	# The subparts represent the key for those entries;
+	# each will have an index in Printed if
+	# we already printed such an entry.
+	if (CombineEqualKeys)
+		subkey = Subkeys[key, 1]
+	else
+		subkey = Subkeys[key, 1] Sep Primary[key] Sep Sep
+
+	if (! (subkey in Printed)) {
+		printf("%centry{%s,}{}\n",
+			Command_char, Primary[key]) > Output_file
+		Printed[subkey] = True
+	}
+}
+
+# Print secondary entry if necessary
+function maybe_print_secondary_entry(key,		subkey)
+{
+	# We have to check that the combination of primary
+	# and secondary subkeys have been printed and
+	# use that combination as the index into Printed.
+	subkey = (Subkeys[key, 1] Command_char "subentry " Subkeys[key, 2])
+	if (!CombineEqualKeys)
+		subkey = subkey Sep Primary[key] Sep Secondary[key] Sep
+
+	if (! (subkey in Printed)) {
+		printf("%csecondary{%s,}{}\n",
+			Command_char, Secondary[key]) > Output_file
+		Printed[subkey] = True
+	}
+}
+
 # Print index entry with key KEY
 #
 # In some cases, print primary and/or secondary entries first.
@@ -964,33 +1033,11 @@ function write_index_entry(key)
 	if (Numfields[key] == 1) {
 		print_entry(key, "entry", Primary)
 	} else if (Numfields[key] == 2) {
-		# Print primary entry if necessary
-		# The subparts represent the key for those entries;
-		# each will have an index in Printed if
-		# we already printed such an entry.
-		if (! (Subkeys[key, 1] in Printed)) {
-			printf("%centry{%s,}{}\n",
-				Command_char, Primary[key]) > Output_file
-			Printed[Subkeys[key, 1]] = True
-		}
+		maybe_print_primary_entry(key)
 		print_entry(key, "secondary", Secondary)
 	} else if (Numfields[key] == 3) {
-		# Same as 2-part case
-		if (! (Subkeys[key, 1] in Printed)) {
-			printf("%centry{%s,}{}\n",
-				Command_char, Primary[key]) > Output_file
-			Printed[Subkeys[key, 1]] = True
-		}
-		# Print secondary entry if necessary.
-		# We have to check that the combination of primary
-		# and secondary subkeys have been printed and
-		# use that combination as the index into Printed.
-		subkey = (Subkeys[key, 1] Command_char "subentry " Subkeys[key, 2])
-		if (! (subkey in Printed)) {
-			printf("%csecondary{%s,}{}\n",
-				Command_char, Secondary[key]) > Output_file
-			Printed[subkey] = True
-		}
+		maybe_print_primary_entry(key)
+		maybe_print_secondary_entry(key)
 		print_entry(key, "tertiary", Tertiary)
 	}
 }
