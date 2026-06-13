@@ -10229,7 +10229,9 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           memset (new_normalized_entry_levels, 0,
                   sizeof (char *) * (SUBENTRIES_MAX_LEVEL +1));
 
-          entry_content_element = index_content_element (main_entry_element, 0);
+          entry_content_element = index_content_element (main_entry_element, 0,
+                                            self->document,
+                              (self->conf && self->conf->DEBUG.o.integer > 0));
           entry_index_nr
              = index_number_index_by_name (&self->sorted_index_names,
                                            index_entry_ref->index_name);
@@ -10829,7 +10831,9 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           if (first_entry)
             {
               INDEX_ENTRY_TEXT_OR_COMMAND *entry_text_or_command
-                = index_entry_first_letter_text_or_command (first_entry);
+                = index_entry_first_letter_text_or_command (first_entry,
+                                            self->document,
+                              (self->conf && self->conf->DEBUG.o.integer > 0));
 
               if (entry_text_or_command)
                 {
@@ -13501,7 +13505,9 @@ html_output_internal_links (CONVERTER *self)
 
                   /* Obtain term by converting to text */
                   entry_content_element
-                    = index_content_element (main_entry_element, 0);
+                    = index_content_element (main_entry_element, 0,
+                                            self->document,
+                              (self->conf && self->conf->DEBUG.o.integer > 0));
 
                   entry_index_nr
                     = index_number_index_by_name (&self->sorted_index_names,

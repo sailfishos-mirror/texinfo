@@ -754,8 +754,35 @@ ELEMENT *get_label_element (const ELEMENT *e);
 // or let it be re-implemented in the diverse languages?
 
 // manipulate_indices.h
-ELEMENT *index_content_element (const ELEMENT *element,
-                                int prefer_reference_element=0);
+// used in a test
+%rename(index_content_element) txi_ext_inline_index_content_element;
+ELEMENT *txi_ext_inline_index_content_element (const ELEMENT *element,
+                                DOCUMENT *document,
+                                int prefer_reference_element=0,
+                                int debug_level=0);
+
+%inline %{
+ELEMENT * txi_ext_inline_index_content_element (const ELEMENT *element,
+                                DOCUMENT *document,
+                                int prefer_reference_element,
+                                int debug_level);
+%}
+
+%{
+ELEMENT *
+txi_ext_inline_index_content_element (const ELEMENT *element,
+                                DOCUMENT *document,
+                                int prefer_reference_element,
+                                int debug_level)
+{
+  return index_content_element (element, prefer_reference_element,
+                                document, debug_level);
+}
+%}
+
+
+
+
 // TODO add a wrapper around new_complete_menu_master_menu?
 
 // utils.h

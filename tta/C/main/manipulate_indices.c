@@ -37,6 +37,8 @@
 /* whitespace_chars ultimate_index indices_info_index_by_name
    to_upper_or_lower_multibyte */
 #include "utils.h"
+#include "translations.h"
+#include "manipulate_tree.h"
 #include "errors.h"
 #include "debug.h"
 #include "unicode.h"
@@ -187,19 +189,156 @@ destroy_indices_sorted_by_letter (
   free (indices_entries_by_letter);
 }
 
-/* corresponding perl code in Texinfo::Common */
+static LANG_TRANSLATION **parser_translation_cache;
+
+static void
+remove_def_types (ELEMENT *element)
+{
+  element->type = ET_NONE;
+
+  if (element->e.c->contents.number
+      && element->e.c->contents.list[0]->type == ET_bracketed_arg)
+    element->e.c->contents.list[0]->type = ET_brace_arg;
+}
+
+static void
+set_def_command_index_entry(ELEMENT *main_entry_element, DOCUMENT *document,
+                            int debug_level)
+{
+  ELEMENT *name = 0;
+  ELEMENT *class = 0;
+  ELEMENT *def_l_e = main_entry_element->e.c->contents.list[0];
+  const char *def_cmdname
+    = lookup_extra_string (main_entry_element, AI_key_def_command);
+
+  if (def_l_e->e.c->contents.number > 0)
+    {
+      size_t ic;
+      for (ic = 0; ic < def_l_e->e.c->contents.number; ic++)
+        {
+          ELEMENT *arg = def_l_e->e.c->contents.list[ic];
+          if (arg->type == ET_def_name)
+            name = arg;
+          else if (arg->type == ET_def_class)
+            class = arg;
+          else if (arg->type == ET_def_arg
+                   || arg->type == ET_def_typearg
+                   || arg->type == ET_delimiter)
+            break;
+        }
+    }
+
+  if (name && class)
+    {
+      const LANG_TRANSLATION *element_lang_translations;
+      ELEMENT *index_entry;
+  /* container without type in extra "def_index_ref_element" */
+      ELEMENT *index_entry_normalized = new_element (ET_NONE);
+      ELEMENT *text_element = new_text_element (ET_normal_text);
+      enum command_id def_command
+        = lookup_builtin_command (def_cmdname);
+      NAMED_STRING_ELEMENT_LIST *substrings
+                       = new_named_string_element_list ();
+      ELEMENT *name_copy = copy_element_tree (name, 0);
+      remove_def_types (name_copy);
+      ELEMENT *class_copy = copy_element_tree (class, 0);
+      remove_def_types (class_copy);
+      ELEMENT *ref_name_copy = copy_element_tree (name, 0);
+      remove_def_types (ref_name_copy);
+      ELEMENT *ref_class_copy = copy_element_tree (class, 0);
+      remove_def_types (ref_class_copy);
+
+      element_lang_translations
+        = new_element_language_translation (
+           &parser_translation_cache, main_entry_element,
+           TXI_PARSER_STRINGS_NR);
+
+      add_element_to_named_string_element_list (substrings,
+                                           "name", name_copy);
+      add_element_to_named_string_element_list (substrings,
+                                           "class", class_copy);
+      if (def_command == CM_defop
+          || def_command == CM_deftypeop
+          || def_command == CM_defmethod
+          || def_command == CM_deftypemethod)
+        {
+          index_entry = gdt_tree ("{name} on {class}",
+                          document, element_lang_translations,
+                          substrings, debug_level, 0);
+
+          text_append (text_element->e.text, " on ");
+        }
+      else if (def_command == CM_defcv
+               || def_command == CM_defivar
+               || def_command == CM_deftypeivar
+               || def_command == CM_deftypecv)
+        {
+          index_entry = gdt_tree ("{name} of {class}",
+                          document, element_lang_translations,
+                          substrings, debug_level, 0);
+
+          text_append (text_element->e.text, " of ");
+        }
+           /* should not be possible, still considered for more robust code */
+      else
+        {
+          char *msg;
+                 /* set index_entry to a value to avoid a compiler warning
+                    on uninitialized value.  Incorrect for the code below, but
+                    we do not care as fatal is called. */
+          index_entry = 0;
+          xasprintf (&msg,
+                     "BUG: unexpected def command with name"
+                     "and class: %s",
+                     builtin_command_name (def_command));
+          fatal (msg);
+          free (msg);
+        }
+      destroy_named_string_element_list (substrings);
+
+      add_to_element_contents
+                   (index_entry_normalized, ref_name_copy);
+      add_to_contents_as_array
+                   (index_entry_normalized, text_element);
+      add_to_element_contents
+                   (index_entry_normalized, ref_class_copy);
+                      /*
+         prefer a type-less container rather than 'root_line' returned by gdt
+                       */
+      index_entry->type = ET_NONE;
+
+                      /* the order is significant for tree printing.  It should
+                         match the lexicographic order used in Perl */
+      add_extra_element_oot (main_entry_element,
+                             AI_key_def_index_element,
+                             index_entry);
+      add_extra_element_oot (main_entry_element,
+                             AI_key_def_index_ref_element,
+                             index_entry_normalized);
+    }
+}
 
 /* It would have been better to return a const element, as the calling codes
    are not supposed to modify the tree, however in the calling code the
    elements are put in arrays of non-const elements, even though they are not
    modified */
 ELEMENT *
-index_content_element (const ELEMENT *element, int prefer_reference_element)
+index_content_element (const ELEMENT *element, int prefer_reference_element,
+                       DOCUMENT *document, int debug_level)
 {
   const char *def_command = lookup_extra_string (element, AI_key_def_command);
   if (def_command)
    {
-     ELEMENT *def_index_element;
+     ELEMENT *def_index_element
+       = lookup_extra_element_oot (element, AI_key_def_index_element);
+     if (!def_index_element)
+       {
+         /* cast the const away, as the element is modified */
+         set_def_command_index_entry ((ELEMENT *) element,
+                                      document, debug_level);
+         def_index_element
+           = lookup_extra_element_oot (element, AI_key_def_index_element);
+       }
      if (prefer_reference_element)
        {
          ELEMENT *def_index_ref_element
@@ -207,8 +346,6 @@ index_content_element (const ELEMENT *element, int prefer_reference_element)
          if (def_index_ref_element)
            return def_index_ref_element;
        }
-     def_index_element
-       = lookup_extra_element_oot (element, AI_key_def_index_element);
      return def_index_element;
    }
   else
@@ -269,7 +406,9 @@ index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
     return strdup (sortas);
 
   entry_tree_element = index_content_element (index_entry_element,
-                                          prefer_reference_element);
+                                          prefer_reference_element,
+                                          options->document,
+                                          options->DEBUG);
 
   if (in_code)
     options->code_state++;
@@ -1390,7 +1529,8 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
    To be freed by caller.
 */
 INDEX_ENTRY_TEXT_OR_COMMAND *
-index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry)
+index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry,
+                                DOCUMENT *document, int debug_level)
 {
   ELEMENT *index_entry_element = index_entry->entry_element;
   char *sortas = lookup_extra_string (index_entry_element, AI_key_sortas);
@@ -1404,7 +1544,8 @@ index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry)
   else
     {
       ELEMENT *entry_tree_element
-         = index_content_element (index_entry_element, 0);
+         = index_content_element (index_entry_element, 0,
+                                  document, debug_level);
       char *index_ignore_chars = lookup_extra_string (index_entry_element,
                                                   AI_key_index_ignore_chars);
       ELEMENT *parsed_element;

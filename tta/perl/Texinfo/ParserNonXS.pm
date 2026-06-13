@@ -98,9 +98,6 @@ use Texinfo::Convert::Texinfo;
 # to normalize names
 use Texinfo::Convert::NodeNameNormalization;
 
-# to complete indices translations.
-use Texinfo::Indices;
-
 require Exporter;
 
 # Some extra initialization for functions override for the first time
@@ -4448,7 +4445,8 @@ sub _end_line_def_line($$$) {
                         and $arg->{'contents'}->[0]->{'text'} !~ /\S/)));
     }
     if (defined($index_entry)) {
-      # Delay getting the text until Texinfo::Indices
+      # Delay getting the text until converters call
+      # Texinfo::Indices::index_content_element
       # in order to avoid calling gdt.
       # We need to store the language as well in case there are multiple
       # languages in the document.
@@ -8214,9 +8212,6 @@ sub _parse_texi($$) {
   # Setup identifier target elements based on 'labels_list'
   Texinfo::Document::set_labels_identifiers_target($document,
            $document->{'parser_error_messages'}, $self->{'conf'}->{'DEBUG'});
-  Texinfo::Indices::complete_indices($document->{'indices'},
-                                   $self->{'conf'}->{'COMMAND_LINE_ENCODING'},
-                                          $self->{'conf'}->{'DEBUG'});
 
   $document->register_tree($current);
 

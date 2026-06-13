@@ -177,7 +177,7 @@ foreach my $lang (undef, 'sv') {
     my $index_entry = Texinfo::sorted_index_entries_by_index($sorted_index, $i);
     my $main_entry_element = $index_entry->swig_entry_element_get();
     my $entry_content_element
-       = Texinfo::index_content_element($main_entry_element);
+       = Texinfo::index_content_element($main_entry_element, $document);
     push @interface_index_entries_texi,
            Encode::decode('UTF-8',
                            Texinfo::convert_to_texinfo($entry_content_element));

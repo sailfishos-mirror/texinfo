@@ -161,14 +161,111 @@ sub getSortKey($$) {
 
 package Texinfo::Indices;
 
+my %parser_translation_cache;
+
+# the index entry associated to a definition command that requires a
+# translation is setup when accessed.
+sub _set_def_command_index_entry($;$) {
+  my ($main_entry_element, $debug_level) = @_;
+
+  my ($name, $class);
+  if (exists($main_entry_element->{'contents'}->[0]->{'contents'})) {
+    foreach my $arg (@{$main_entry_element->{'contents'}->[0]->{'contents'}}) {
+      my $type = $arg->{'type'};
+      if ($type eq 'def_name') {
+        $name = $arg;
+      } elsif ($type eq 'def_class') {
+        $class = $arg;
+      } elsif ($type eq 'def_arg' or $type eq 'def_typearg'
+               or $type eq 'delimiter') {
+        last;
+      }
+    }
+  }
+
+  if (defined($name) and defined($class)) {
+    my ($index_entry, $text_element);
+    my $index_entry_normalized = Texinfo::TreeElement::new({});
+
+    my $def_command = $main_entry_element->{'extra'}->{'def_command'};
+
+    my $class_copy = Texinfo::ManipulateTree::copy_element_tree($class);
+    my $name_copy = Texinfo::ManipulateTree::copy_element_tree($name);
+    my $ref_class_copy
+          = Texinfo::ManipulateTree::copy_element_tree($class);
+    my $ref_name_copy
+          = Texinfo::ManipulateTree::copy_element_tree($name);
+    foreach my $element_copy ($class_copy, $name_copy, $ref_class_copy,
+                              $ref_name_copy) {
+      delete $element_copy->{'type'};
+      if (exists($element_copy->{'contents'})
+          and exists($element_copy->{'contents'}->[0]->{'type'})
+      # use brace_arg instead of bracketed_arg to avoid specific def
+      # type for the conversion of the index entry, but still have
+      # a type that have the same memory layout as bracketed_arg for C
+      and $element_copy->{'contents'}->[0]->{'type'} eq 'bracketed_arg') {
+        $element_copy->{'contents'}->[0]->{'type'} = 'brace_arg';
+      }
+    }
+
+    # Use the language information that was current when the command was
+    # used for getting the translation.
+    my $element_lang_translations
+      = Texinfo::Translations::new_element_language_translation(
+                          \%parser_translation_cache,
+                          $main_entry_element);
+
+    if ($def_command eq 'defop'
+        or $def_command eq 'deftypeop'
+        or $def_command eq 'defmethod'
+        or $def_command eq 'deftypemethod') {
+  # TRANSLATORS: association of a method or operation name with a class
+  # in descriptions of object-oriented programming methods or operations.
+      $index_entry
+         = Texinfo::Translations::gdt('{name} on {class}',
+                         $element_lang_translations,
+                         {'name' => $name_copy, 'class' => $class_copy},
+                         $debug_level);
+      $text_element = Texinfo::TreeElement::new({'text' => ' on '});
+    } elsif ($def_command eq 'defcv'
+             or $def_command eq 'defivar'
+             or $def_command eq 'deftypeivar'
+             or $def_command eq 'deftypecv') {
+  # TRANSLATORS: association of a variable or instance variable with
+  # a class in descriptions of object-oriented programming variables or
+  # instance variable.
+      $index_entry = Texinfo::Translations::gdt('{name} of {class}',
+                         $element_lang_translations,
+                         {'name' => $name_copy, 'class' => $class_copy},
+                         $debug_level);
+      $text_element = Texinfo::TreeElement::new({'text' => ' of '});
+    }
+    $ref_name_copy->{'parent'} = $index_entry_normalized;
+    $ref_class_copy->{'parent'} = $index_entry_normalized;
+    $index_entry_normalized->{'contents'}
+        = [$ref_name_copy, $text_element, $ref_class_copy];
+
+    # prefer a type-less container rather than 'root_line' returned by gdt
+    delete $index_entry->{'type'};
+
+    $main_entry_element->{'extra'}->{'def_index_element'} = $index_entry;
+    $main_entry_element->{'extra'}->{'def_index_ref_element'}
+                                            = $index_entry_normalized;
+  }
+}
+
 # ALTIMP C/main/manipulate_indices.c
 # if $PREFER_REFERENCE_ELEMENT is set, prefer an untranslated element.
 # Seems to be used in converter only
-sub index_content_element($;$) {
-  my ($element, $prefer_reference_element) = @_;
+# TODO pass converter? Or check callers to pass $debug_level
+sub index_content_element($;$$) {
+  my ($element, $prefer_reference_element, $debug_level) = @_;
 
   if (exists($element->{'extra'})
       and exists($element->{'extra'}->{'def_command'})) {
+    if (!exists($element->{'extra'}->{'def_index_element'})) {
+      _set_def_command_index_entry($element, $debug_level);
+    }
     if ($prefer_reference_element
         and exists($element->{'extra'}->{'def_index_ref_element'})) {
       return $element->{'extra'}->{'def_index_ref_element'};
@@ -657,111 +754,6 @@ sub merge_indices($) {
     }
   }
   return $merged_index_entries;
-}
-
-my %parser_translation_cache;
-
-# For some @def* commands, we delay storing the contents of the
-# index entry until now to avoid needing Texinfo::Translations::gdt
-# in the main code of ParserNonXS.pm.
-sub complete_indices($;$$) {
-  my ($index_names, $command_line_encoding, $debug_level) = @_;
-
-  foreach my $index_name (sort(keys(%{$index_names}))) {
-    next if (not exists($index_names->{$index_name}->{'index_entries'}));
-    foreach my $entry (@{$index_names->{$index_name}->{'index_entries'}}) {
-      my $main_entry_element = $entry->{'entry_element'};
-      if (exists($main_entry_element->{'extra'})
-          and exists($main_entry_element->{'extra'}->{'def_command'})
-          and
-           not exists($main_entry_element->{'extra'}->{'def_index_element'})) {
-        my ($name, $class);
-        if (exists($main_entry_element->{'contents'}->[0]->{'contents'})) {
-          foreach my $arg (@{$main_entry_element->{'contents'}->[0]->{'contents'}}) {
-            my $type = $arg->{'type'};
-            if ($type eq 'def_name') {
-              $name = $arg;
-            } elsif ($type eq 'def_class') {
-              $class = $arg;
-            } elsif ($type eq 'def_arg' or $type eq 'def_typearg'
-                     or $type eq 'delimiter') {
-              last;
-            }
-          }
-        }
-
-        if (defined($name) and defined($class)) {
-          my ($index_entry, $text_element);
-          my $index_entry_normalized = Texinfo::TreeElement::new({});
-
-          my $def_command = $main_entry_element->{'extra'}->{'def_command'};
-
-          my $class_copy = Texinfo::ManipulateTree::copy_element_tree($class);
-          my $name_copy = Texinfo::ManipulateTree::copy_element_tree($name);
-          my $ref_class_copy
-                = Texinfo::ManipulateTree::copy_element_tree($class);
-          my $ref_name_copy
-                = Texinfo::ManipulateTree::copy_element_tree($name);
-          foreach my $element_copy ($class_copy, $name_copy, $ref_class_copy,
-                                    $ref_name_copy) {
-            delete $element_copy->{'type'};
-            if (exists($element_copy->{'contents'})
-                and exists($element_copy->{'contents'}->[0]->{'type'})
-            # use brace_arg instead of bracketed_arg to avoid specific def
-            # type for the conversion of the index entry, but still have
-            # a type that have the same memory layout as bracketed_arg for C
-            and $element_copy->{'contents'}->[0]->{'type'} eq 'bracketed_arg') {
-              $element_copy->{'contents'}->[0]->{'type'} = 'brace_arg';
-            }
-          }
-
-          # Use the language information that was current when the command was
-          # used for getting the translation.
-          my $element_lang_translations
-            = Texinfo::Translations::new_element_language_translation(
-                                \%parser_translation_cache,
-                                $main_entry_element);
-
-          if ($def_command eq 'defop'
-              or $def_command eq 'deftypeop'
-              or $def_command eq 'defmethod'
-              or $def_command eq 'deftypemethod') {
-  # TRANSLATORS: association of a method or operation name with a class
-  # in descriptions of object-oriented programming methods or operations.
-            $index_entry
-               = Texinfo::Translations::gdt('{name} on {class}',
-                               $element_lang_translations,
-                               {'name' => $name_copy, 'class' => $class_copy},
-                               $debug_level);
-            $text_element = Texinfo::TreeElement::new({'text' => ' on '});
-          } elsif ($def_command eq 'defcv'
-                   or $def_command eq 'defivar'
-                   or $def_command eq 'deftypeivar'
-                   or $def_command eq 'deftypecv') {
-  # TRANSLATORS: association of a variable or instance variable with
-  # a class in descriptions of object-oriented programming variables or
-  # instance variable.
-            $index_entry = Texinfo::Translations::gdt('{name} of {class}',
-                               $element_lang_translations,
-                               {'name' => $name_copy, 'class' => $class_copy},
-                               $debug_level);
-            $text_element = Texinfo::TreeElement::new({'text' => ' of '});
-          }
-          $ref_name_copy->{'parent'} = $index_entry_normalized;
-          $ref_class_copy->{'parent'} = $index_entry_normalized;
-          $index_entry_normalized->{'contents'}
-              = [$ref_name_copy, $text_element, $ref_class_copy];
-
-          # prefer a type-less container rather than 'root_line' returned by gdt
-          delete $index_entry->{'type'};
-
-          $main_entry_element->{'extra'}->{'def_index_element'} = $index_entry;
-          $main_entry_element->{'extra'}->{'def_index_ref_element'}
-                                                  = $index_entry_normalized;
-        }
-      }
-    }
-  }
 }
 
 # textual representation on indices themselves (not on the index entries)

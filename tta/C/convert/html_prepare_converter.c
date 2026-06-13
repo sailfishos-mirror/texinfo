@@ -5084,7 +5084,9 @@ prepare_index_entries_targets (CONVERTER *self)
               region = lookup_extra_string (main_entry_element,
                                             AI_key_element_region);
               entry_reference_content_element
-               = index_content_element (main_entry_element, 1);
+               = index_content_element (main_entry_element, 1,
+                                            self->document,
+                              (self->conf && self->conf->DEBUG.o.integer > 0));
         /* construct element to convert to a normalized identifier to use as
            hrefs target */
               normalize_index_element = new_element (ET_NONE);

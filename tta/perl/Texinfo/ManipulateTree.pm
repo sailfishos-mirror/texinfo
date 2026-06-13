@@ -542,12 +542,14 @@ sub _element_remove_references($;$$) {
       if (exists($element->{'extra'})) {
         if (exists($element->{'extra'}->{'def_index_element'})) {
           _element_remove_references($element->{'extra'}->{'def_index_element'},
-                                 $check_refcount, $silent_refcount);
+                                 #$check_refcount, $silent_refcount);
+                                   undef, $silent_refcount);
           delete $element->{'extra'}->{'def_index_element'};
           if (exists($element->{'extra'}->{'def_index_ref_element'})) {
             _element_remove_references(
               $element->{'extra'}->{'def_index_ref_element'},
-                                   $check_refcount, $silent_refcount);
+                                   #$check_refcount, $silent_refcount);
+                                   undef, $silent_refcount);
             delete $element->{'extra'}->{'def_index_ref_element'};
           }
         }

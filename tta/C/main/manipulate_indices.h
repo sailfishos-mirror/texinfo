@@ -52,7 +52,8 @@ void destroy_indices_sorted_by_letter (
          INDEX_SORTED_BY_LETTER *indices_entries_by_letter);
 
 ELEMENT *index_content_element (const ELEMENT *element,
-                                int prefer_reference_element);
+                                int prefer_reference_element,
+                                DOCUMENT *document, int debug_level);
 
 char *index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,
@@ -79,7 +80,8 @@ INDEX_SORTED_BY_LETTER *sort_indices_by_letter (
                         const char *collation_locale);
 
 INDEX_ENTRY_TEXT_OR_COMMAND *index_entry_first_letter_text_or_command
-                                                (const INDEX_ENTRY *index_entry);
+                               (const INDEX_ENTRY *index_entry,
+                                DOCUMENT *document, int debug_level);
 
 const INDEX **sort_index_names (INDEX_LIST *indices_info);
 char *print_indices_information (INDEX_LIST *indices_info);

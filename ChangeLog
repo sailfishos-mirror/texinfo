@@ -1,5 +1,25 @@
 2026-06-13 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_indices.c (set_def_command_index_entry)
+	(index_content_element), tta/C/parsetexi/indices.c,
+	tta/C/parsetexi/parser.c (parse_texi), tta/perl/Texinfo/Indices.pm
+	(_set_def_command_index_entry, index_content_element),
+	tta/perl/Texinfo/ParserNonXS.pm (_parse_texi): add
+	set_def_command_index_entry based on complete_indices code for one def
+	command element.  Call set_def_command_index_entry in
+	index_content_element to generate the tree corresponding to the index
+	entry when needed.  Remove complete_indices.  Update
+	index_content_element callers.
+
+	* tta/swig/texinfo.i (txi_ext_inline_index_content_element): add
+	for change in index_content_element.
+
+	* tta/perl/Texinfo/ManipulateTree.pm (_element_remove_references): do
+	not check refcount for def_index_element and def_index_ref_element as
+	they may not have been created in C.
+
+2026-06-13 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Indices.pm (complete_indices),
 	tta/perl/Texinfo/Translations.pm: move complete_indices to Indices.pm.
 	Update caller.

@@ -56,7 +56,7 @@
 #include "labels.h"
 /* MACRO lookup_macro new_macro handle_macro fetch_value */
 #include "macro.h"
-/* for complete_indices */
+/* for resolve_indices_merged_in */
 #include "indices.h"
 /* handle_other_command handle_line_command
    handle_block_command handle_brace_command */
@@ -2772,7 +2772,6 @@ void
 parse_texi (ELEMENT *current_elt)
 {
   ELEMENT *current = current_elt;
-  DOCUMENT *document;
   static char *allocated_line;
   const char *line;
   int status = STILL_MORE_TO_PROCESS;
@@ -2922,12 +2921,5 @@ parse_texi (ELEMENT *current_elt)
   float_list_to_listoffloats_list (&parser_float_records,
                                    &parsed_document->listoffloats);
 
-  document = parsed_document;
-
-  /* set to 0 before calling complete_indices to make clear that
-     parsed_document is not the just parsed document anymore since parsing
-     is called by complete_indices through gdt */
   parsed_document = 0;
-
-  complete_indices (document, global_parser_conf->debug);
 }
