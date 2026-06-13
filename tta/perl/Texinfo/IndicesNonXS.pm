@@ -82,8 +82,7 @@ sub index_entry_element_sort_string($$$$;$) {
     $sort_string = $index_entry_element->{'extra'}->{'sortas'};
   } else {
     my $entry_tree_element
-      = Texinfo::Common::index_content_element($index_entry_element,
-                                               $prefer_reference_element);
+      = index_content_element($index_entry_element, $prefer_reference_element);
     $sort_string = Texinfo::Convert::Text::convert_to_text(
                               $entry_tree_element, $options);
     # Not done for @sortas, in particular to be able to still sort using

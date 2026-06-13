@@ -269,16 +269,6 @@ Find the parent root command (sectioning command or node) of a tree element.
 The @emph{$object} argument is optional, its @code{global_commands} field is used
 to continue through @code{@@insertcopying} if in a @code{@@copying}.
 
-@item $entry_content_element = index_content_element($element, $prefer_reference_element)
-@anchor{Texinfo@asis{::}Common $entry_content_element = index_content_element($element@comma{} $prefer_reference_element)}
-
-Return a Texinfo tree element corresponding to the content of the index
-entry associated to @emph{$element}.  If @emph{$prefer_reference_element} is set,
-prefer an untranslated element.  If the element is an index command like
-@code{@@cindex} or an @code{@@ftable} @code{@@item}, the content element is the argument
-of the command.  If the element is a definition line, the index entry
-element is based on the name and class.
-
 @item $encoding = input_file_name_encoding($name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $document, $input_file_encoding)
 @anchor{Texinfo@asis{::}Common $encoding = input_file_name_encoding($name_encoding@comma{} $doc_encoding_for_input_file_name@comma{} $locale_encoding@comma{} $document@comma{} $input_file_encoding)}
 @cindex @code{input_file_encoding}

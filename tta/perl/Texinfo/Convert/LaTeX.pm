@@ -2650,7 +2650,7 @@ sub _index_entry($$) {
     my @result;
     foreach my $subindex_command (@subindex_commands) {
       my $content
-         = Texinfo::Common::index_content_element($subindex_command, 1);
+         = Texinfo::Indices::index_content_element($subindex_command, 1);
       if ($in_code) {
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
       }

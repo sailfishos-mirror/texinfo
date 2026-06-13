@@ -54,10 +54,11 @@ Texinfo::setup(1);
 # to find Texinfo::ModulePath in build directory
 use lib '../../perl/';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 3);
+use Texinfo::Common;
+use Texinfo::Indices;
 use Texinfo::Parser;
 use Texinfo::Document;
 use Texinfo::Convert::Texinfo;
-use Texinfo::Common;
 
 
 # first two blocks based on t/z_misc/test_sort.t + z and ö for lang specific
@@ -131,7 +132,7 @@ foreach my $lang (undef, 'sv') {
     #print STDERR join('|', sort(keys(%{$index_entry})))."\n";
     my $main_entry_element = $index_entry->{'entry_element'};
     my $entry_content_element
-       = Texinfo::Common::index_content_element($main_entry_element);
+       = Texinfo::Indices::index_content_element($main_entry_element);
     push @reference_index_entries_texi,
       Texinfo::Convert::Texinfo::convert_to_texinfo($entry_content_element);
   }

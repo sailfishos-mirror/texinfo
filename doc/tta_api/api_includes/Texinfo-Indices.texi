@@ -171,6 +171,16 @@ in index entry whose output may depend on a language are rare.)
 Other functions.
 
 @table @asis
+@item $entry_content_element = index_content_element($element, $prefer_reference_element)
+@anchor{Texinfo@asis{::}Indices $entry_content_element = index_content_element($element@comma{} $prefer_reference_element)}
+
+Return a Texinfo tree element corresponding to the content of the index
+entry associated to @emph{$element}.  If @emph{$prefer_reference_element} is set,
+prefer an untranslated element.  If the element is an index command like
+@code{@@cindex} or an @code{@@ftable} @code{@@item}, the content element is the argument
+of the command.  If the element is a definition line, the index entry
+element is based on the name and class.
+
 @item ($text, $command) = index_entry_first_letter_text_or_command($index_entry)
 @anchor{Texinfo@asis{::}Indices ($text@comma{} $command) = index_entry_first_letter_text_or_command($index_entry)}
 

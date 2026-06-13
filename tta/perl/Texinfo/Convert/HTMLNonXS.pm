@@ -64,6 +64,7 @@ use Texinfo::HTMLData;
 use Texinfo::TreeElement;
 
 use Texinfo::Common;
+use Texinfo::Indices;
 
 use Texinfo::Convert::Unicode;
 use Texinfo::Convert::Texinfo;
@@ -3735,7 +3736,7 @@ sub _prepare_index_entries_targets($) {
         $region = "$main_entry_element->{'extra'}->{'element_region'}-"
           if (defined($main_entry_element->{'extra'}->{'element_region'}));
         my $entry_reference_content_element
-          = Texinfo::Common::index_content_element($main_entry_element, 1);
+          = Texinfo::Indices::index_content_element($main_entry_element, 1);
         # construct element to convert to a normalized identifier to use as
         # hrefs target
         my $normalize_index_element = Texinfo::TreeElement::new(
@@ -5578,7 +5579,7 @@ sub output_internal_links($) {
                                           $self->{'convert_text_options'});
           }
           my $entry_reference_content_element
-            = Texinfo::Common::index_content_element($main_entry_element);
+            = Texinfo::Indices::index_content_element($main_entry_element);
           my @contents = ($entry_reference_content_element);
           my $subentries_tree
             = Texinfo::Convert::Utils::comma_index_subentries_tree(

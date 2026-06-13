@@ -1933,25 +1933,6 @@ sub count_bytes($;$) {
   }
 }
 
-# ALTIMP C/main/manipulate_indices.c
-# if $PREFER_REFERENCE_ELEMENT is set, prefer an untranslated element.
-# Seems to be used in converter only
-sub index_content_element($;$) {
-  my ($element, $prefer_reference_element) = @_;
-
-  if (exists($element->{'extra'})
-      and exists($element->{'extra'}->{'def_command'})) {
-    if ($prefer_reference_element
-        and exists($element->{'extra'}->{'def_index_ref_element'})) {
-      return $element->{'extra'}->{'def_index_ref_element'};
-    } else {
-      return $element->{'extra'}->{'def_index_element'};
-    }
-  } else {
-    return $element->{'contents'}->[0];
-  }
-}
-
 # custom heading command line is split at @|
 sub split_custom_heading_command_contents($) {
   my $element = shift;
@@ -2535,15 +2516,6 @@ X<C<find_parent_root_command>>
 Find the parent root command (sectioning command or node) of a tree element.
 The I<$object> argument is optional, its C<global_commands> field is used
 to continue through C<@insertcopying> if in a C<@copying>.
-
-=item $entry_content_element = index_content_element($element, $prefer_reference_element)
-
-Return a Texinfo tree element corresponding to the content of the index
-entry associated to I<$element>.  If I<$prefer_reference_element> is set,
-prefer an untranslated element.  If the element is an index command like
-C<@cindex> or an C<@ftable> C<@item>, the content element is the argument
-of the command.  If the element is a definition line, the index entry
-element is based on the name and class.
 
 =item $encoding = input_file_name_encoding($name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $document, $input_file_encoding)
 X<C<input_file_encoding>>

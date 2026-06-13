@@ -72,6 +72,7 @@ use Texinfo::HTMLDataCSS;
 use Texinfo::TreeElement;
 
 use Texinfo::Common;
+use Texinfo::Indices;
 
 use Texinfo::Config;
 use Texinfo::Convert::Unicode;
@@ -4784,7 +4785,7 @@ sub _convert_printindex_command($$$$) {
                                 $index_entry_ref, $formatted_index_entry_nr);
 
       my $entry_content_element
-          = Texinfo::Common::index_content_element($main_entry_element);
+        = Texinfo::Indices::index_content_element($main_entry_element);
 
       my $in_code = 0;
       $in_code = 1

@@ -37,6 +37,7 @@ use File::Spec;
 
 # Also for __(
 use Texinfo::Common;
+use Texinfo::Indices;
 
 # load modules to make sure that they are loaded before use
 use Texinfo::Convert::Unicode;
@@ -270,7 +271,7 @@ sub chm_init($)
 
         my $origin_href = $self->command_href($main_entry_element, '');
         my $entry_content_element
-              = Texinfo::Common::index_content_element($main_entry_element);
+              = Texinfo::Indices::index_content_element($main_entry_element);
         my $in_code = 0;
         $in_code = 1
           if ($indices_information->{$index_entry_ref->{'index_name'}}->{'in_code'});

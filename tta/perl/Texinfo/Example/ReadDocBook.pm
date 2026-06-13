@@ -49,6 +49,7 @@ use Texinfo::TreeElement;
 use Texinfo::Reader;
 
 use Texinfo::Common;
+use Texinfo::Indices;
 
 # for debugging
 use Texinfo::Convert::Texinfo;
@@ -822,7 +823,7 @@ sub _begin_def_line($$)
   if ($index_entry) {
     $result .= $index_entry_text;
     $result .= $self->convert_tree(
-      Texinfo::Common::index_content_element($element));
+      Texinfo::Indices::index_content_element($element));
     $result .= _end_index_entry($self, $element);
   }
   _new_document_context($self);
@@ -1001,7 +1002,7 @@ sub _convert($$)
             if ($index_entry) {
               $result_text .= $index_entry_text;
               $result_text .= $self->convert_tree(
-                    Texinfo::Common::index_content_element($element));
+                    Texinfo::Indices::index_content_element($element));
               $result_text .= _end_index_entry($self, $element);
             }
             if (exists($element->{'contents'}->[0]->{'contents'})) {

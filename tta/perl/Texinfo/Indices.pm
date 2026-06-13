@@ -159,6 +159,25 @@ sub getSortKey($$) {
 
 package Texinfo::Indices;
 
+# ALTIMP C/main/manipulate_indices.c
+# if $PREFER_REFERENCE_ELEMENT is set, prefer an untranslated element.
+# Seems to be used in converter only
+sub index_content_element($;$) {
+  my ($element, $prefer_reference_element) = @_;
+
+  if (exists($element->{'extra'})
+      and exists($element->{'extra'}->{'def_command'})) {
+    if ($prefer_reference_element
+        and exists($element->{'extra'}->{'def_index_ref_element'})) {
+      return $element->{'extra'}->{'def_index_ref_element'};
+    } else {
+      return $element->{'extra'}->{'def_index_element'};
+    }
+  } else {
+    return $element->{'contents'}->[0];
+  }
+}
+
 # 'Non-Ignorable' for 'variable' collation characters means that they are
 # treated as normal characters.   This allows to have spaces and punctuation
 # marks sort before letters.
@@ -527,8 +546,7 @@ sub index_entry_first_letter_text_or_command($;$) {
       and defined($index_entry_element->{'extra'}->{'sortas'})) {
     return ($index_entry_element->{'extra'}->{'sortas'}, undef);
   } else {
-    my $entry_tree_element = Texinfo::Common::index_content_element(
-                                                 $index_entry_element, 0);
+    my $entry_tree_element = index_content_element($index_entry_element, 0);
     my $ignore_chars;
     if (exists($index_entry_element->{'extra'})
         and defined($index_entry_element->{'extra'}
@@ -831,6 +849,15 @@ in index entry whose output may depend on a language are rare.)
 Other functions.
 
 =over
+
+=item $entry_content_element = index_content_element($element, $prefer_reference_element)
+
+Return a Texinfo tree element corresponding to the content of the index
+entry associated to I<$element>.  If I<$prefer_reference_element> is set,
+prefer an untranslated element.  If the element is an index command like
+C<@cindex> or an C<@ftable> C<@item>, the content element is the argument
+of the command.  If the element is a definition line, the index entry
+element is based on the name and class.
 
 =item ($text, $command) = index_entry_first_letter_text_or_command($index_entry)
 

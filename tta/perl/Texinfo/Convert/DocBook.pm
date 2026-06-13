@@ -34,6 +34,7 @@ use Texinfo::Commands;
 use Texinfo::TreeElement;
 
 use Texinfo::Common;
+use Texinfo::Indices;
 
 # for debugging
 use Texinfo::Convert::Texinfo;
@@ -697,7 +698,7 @@ sub _index_entry($$) {
       if ($index_info->{'in_code'});
     $result .= "<primary>";
     my $index_element = Texinfo::Common::non_leading_trailing_tree(
-                         Texinfo::Common::index_content_element($element));
+                         Texinfo::Indices::index_content_element($element));
     $result .= $self->_convert($index_element);
     $result .= "</primary>";
 
