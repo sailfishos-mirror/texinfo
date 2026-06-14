@@ -1,5 +1,10 @@
 2026-06-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\initial): Reduce optional space at the end
+	of a column (in the index two-column layout) from 5 lines to 4 lines.
+
+2026-06-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/txi-nb.tex: Define sort strings for Æ, Ø and Å.
 	* doc/texinfo.tex (\idxsort): Provide definition of sequence used
 	in translation files to improve reliability.
