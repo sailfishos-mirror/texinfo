@@ -92,7 +92,7 @@ setup_index_entry_keys_formatting (SV *customization_info_sv)
 
 # should only return undef if no document is found
 SV *
-index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, SV *element_sv, SV *options_sv, SV *prefer_reference_element_sv=0)
+index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, SV *element_sv, SV *options_sv, SV *prefer_reference_element_sv=0, SV *debug_level_sv=0)
     PREINIT:
         CONVERTER *self;
         DOCUMENT *document;
@@ -120,6 +120,7 @@ index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, S
             int prefer_reference_element = 0;
             int in_code;
             int allocated_text_options = 0;
+            int debug_level = -1;
             const ELEMENT *element = find_element_from_sv (0, document,
                                                            element_sv, 0);
             INDEX_ENTRY *main_entry = find_index_entry_sv (main_entry_sv,
@@ -138,9 +139,12 @@ index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, S
             if (prefer_reference_element_sv && SvOK (prefer_reference_element_sv))
               prefer_reference_element = SvIV (prefer_reference_element_sv);
 
+            if (debug_level_sv && SvOK (debug_level_sv))
+              debug_level = SvIV (debug_level_sv);
+
             sort_string = index_entry_element_sort_string (main_entry,
                           element, convert_index_text_options, in_code,
-                          prefer_reference_element);
+                          prefer_reference_element, debug_level);
             if (allocated_text_options)
               destroy_text_options (convert_index_text_options);
           }

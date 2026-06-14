@@ -218,7 +218,13 @@ unexpected_def_name_class_message (enum command_id def_command)
 static ELEMENT *
 def_command_index_entry (ELEMENT *main_entry_element,
                          int prefer_reference_element, DOCUMENT *document,
-                         int debug_level)
+                         int debug_level,
+                         CONVERTER *converter,
+   ELEMENT * (*cdt_element_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                      )
 {
   ELEMENT *name = 0;
   ELEMENT *class = 0;
@@ -273,12 +279,9 @@ def_command_index_entry (ELEMENT *main_entry_element,
               else
                 unexpected_def_name_class_message (def_command);
 
-              add_to_contents_as_array
-                   (index_entry_normalized, name_copy);
-              add_to_contents_as_array
-                   (index_entry_normalized, text_element);
-              add_to_contents_as_array
-                   (index_entry_normalized, class_copy);
+              add_to_contents_as_array (index_entry_normalized, name_copy);
+              add_to_contents_as_array (index_entry_normalized, text_element);
+              add_to_contents_as_array (index_entry_normalized, class_copy);
               return index_entry_normalized;
             }
           else
@@ -288,34 +291,58 @@ def_command_index_entry (ELEMENT *main_entry_element,
               NAMED_STRING_ELEMENT_LIST *substrings
                        = new_named_string_element_list ();
 
-              element_lang_translations
-                = new_element_language_translation (
-                   &parser_translation_cache, main_entry_element,
-                   TXI_PARSER_STRINGS_NR);
-
               add_element_to_named_string_element_list (substrings,
                                              "name", name_copy);
               add_element_to_named_string_element_list (substrings,
                                              "class", class_copy);
-              if (builtin_command_data[def_command].flags
+
+              if (converter && cdt_element_tree_fn)
+                {
+                  if (builtin_command_data[def_command].flags
                                                  & CF_def_class_method)
-                {
-                  index_entry = gdt_tree ("{name} on {class}",
-                            document, element_lang_translations,
-                            substrings, debug_level, 0);
-                }
-
-              else if (builtin_command_data[def_command].flags
+                    {
+                      index_entry = cdt_element_tree_fn ("{name} on {class}",
+                                      main_entry_element, converter,
+                                      substrings, 0);
+                    }
+                  else if (builtin_command_data[def_command].flags
                                               & CF_def_class_variable)
-                {
-                  index_entry = gdt_tree ("{name} of {class}",
-                            document, element_lang_translations,
-                            substrings, debug_level, 0);
-
-                }
+                    {
+                      index_entry = cdt_element_tree_fn ("{name} of {class}",
+                                      main_entry_element, converter,
+                                      substrings, 0);
+                    }
            /* should not be possible, still considered for more robust code */
+                  else
+                    unexpected_def_name_class_message (def_command);
+                }
               else
-                unexpected_def_name_class_message (def_command);
+                {
+                  element_lang_translations
+                    = new_element_language_translation (
+                       &parser_translation_cache, main_entry_element,
+                       TXI_PARSER_STRINGS_NR);
+
+                  if (builtin_command_data[def_command].flags
+                                                 & CF_def_class_method)
+                    {
+                      index_entry = gdt_tree ("{name} on {class}",
+                                document, element_lang_translations,
+                                substrings, debug_level, 0);
+                    }
+                  else if (builtin_command_data[def_command].flags
+                                              & CF_def_class_variable)
+                    {
+                      index_entry = gdt_tree ("{name} of {class}",
+                                document, element_lang_translations,
+                                substrings, debug_level, 0);
+
+                    }
+           /* should not be possible, still considered for more robust code */
+                  else
+                    unexpected_def_name_class_message (def_command);
+                }
+
               destroy_named_string_element_list (substrings);
 
                       /*
@@ -335,7 +362,13 @@ def_command_index_entry (ELEMENT *main_entry_element,
    modified */
 ELEMENT *
 index_content_element (const ELEMENT *element, int prefer_reference_element,
-                       DOCUMENT *document, int debug_level)
+                       DOCUMENT *document, int debug_level,
+                       CONVERTER *converter,
+   ELEMENT * (*cdt_element_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                      )
 {
   const char *def_command = lookup_extra_string (element, AI_key_def_command);
 
@@ -343,7 +376,9 @@ index_content_element (const ELEMENT *element, int prefer_reference_element,
     {
       ELEMENT *def_index_element
         = def_command_index_entry ((ELEMENT *) element,
-                           prefer_reference_element, document, debug_level);
+                                   prefer_reference_element, document,
+                                   debug_level, converter,
+                                   cdt_element_tree_fn);
 
       return def_index_element;
     }
@@ -391,11 +426,13 @@ char *
 index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,
                                  TEXT_OPTIONS *options, int in_code,
-                                 int prefer_reference_element)
+                                 int prefer_reference_element,
+                                 int debug_level)
 {
   char *sort_string;
   char *index_ignore_chars;
   ELEMENT *entry_tree_element;
+  int used_debug_level;
 
   if (!index_entry_element)
     {
@@ -406,10 +443,15 @@ index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
   if (sortas)
     return strdup (sortas);
 
+  if (debug_level < 0)
+    used_debug_level = options->DEBUG;
+  else
+    used_debug_level = debug_level;
+
   entry_tree_element = index_content_element (index_entry_element,
                                           prefer_reference_element,
                                           options->document,
-                                          options->DEBUG);
+                                          used_debug_level, 0, 0);
 
   if (in_code)
     options->code_state++;
@@ -605,7 +647,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                = index_entry_element_sort_string (index_entry,
                                      main_entry_element, convert_text_options,
                                      entry_index->in_code,
-                                     prefer_reference_element);
+                                     prefer_reference_element, -1);
 
               entry_sort_string.entry = index_entry;
               entry_sort_string.subentries_number = 1;
@@ -665,7 +707,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                   sort_string
                     = index_entry_element_sort_string (index_entry,
                                      subentry, convert_text_options,
-                                     entry_index->in_code, 0);
+                                     entry_index->in_code, 0, -1);
 
                   if (sort_string[strspn
                      (sort_string, whitespace_chars)] == '\0')
@@ -1536,7 +1578,13 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
 */
 INDEX_ENTRY_TEXT_OR_COMMAND *
 index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry,
-                                DOCUMENT *document, int debug_level)
+                                          DOCUMENT *document, int debug_level,
+                                          CONVERTER *converter,
+   ELEMENT * (*cdt_element_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                                         )
 {
   ELEMENT *index_entry_element = index_entry->entry_element;
   char *sortas = lookup_extra_string (index_entry_element, AI_key_sortas);
@@ -1550,8 +1598,8 @@ index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry,
   else
     {
       ELEMENT *entry_tree_element
-         = index_content_element (index_entry_element, 0,
-                                  document, debug_level);
+         = index_content_element (index_entry_element, 0, document,
+                                  debug_level, converter, cdt_element_tree_fn);
       char *index_ignore_chars = lookup_extra_string (index_entry_element,
                                                   AI_key_index_ignore_chars);
       ELEMENT *parsed_element;

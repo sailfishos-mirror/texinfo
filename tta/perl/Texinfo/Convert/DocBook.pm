@@ -698,7 +698,8 @@ sub _index_entry($$) {
       if ($index_info->{'in_code'});
     $result .= "<primary>";
     my $index_element = Texinfo::Common::non_leading_trailing_tree(
-                         Texinfo::Indices::index_content_element($element));
+                         Texinfo::Indices::index_content_element($element,
+                                                                 0, $self));
     $result .= $self->_convert($index_element);
     $result .= "</primary>";
 

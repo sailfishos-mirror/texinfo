@@ -319,6 +319,20 @@ html_pcdt_tree (const char *translation_context, const char *string,
                         translation_context);
 }
 
+ELEMENT *
+html_element_cdt_tree (const char *string, const ELEMENT *element,
+                       CONVERTER *self,
+                       NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                       const char *translation_context)
+{
+  const LANG_TRANSLATION *lang_translation
+    = new_element_language_translation (&converters_translation_cache,
+                                        element, TXI_CONVERT_STRINGS_NR);
+
+  return html_gdt_tree (string, self, lang_translation,
+                        replaced_substrings, translation_context);
+}
+
 void
 add_tree_to_build (CONVERTER *self, ELEMENT *e)
 {

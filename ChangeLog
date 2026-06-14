@@ -1,3 +1,27 @@
+2026-06-14 Patrice Dumas  <pertusus@free.fr>
+
+	Customization of HTML translation for object oriented definitions index
+
+	* tta/perl/Texinfo/Convert/Converter.pm (element_cdt),
+	tta/perl/Texinfo/Convert/HTML.pm (element_cdt),
+	tta/C/convert/convert_html.c (html_element_cdt_tree): add wrappers for
+	converters for translation based on element language information.
+
+	* tta/C/main/manipulate_indices.c (def_command_index_entry)
+	(index_content_element, index_entry_element_sort_string)
+	(index_entry_first_letter_text_or_command),
+	tta/perl/Texinfo/Indices.pm (_def_command_index_entry)
+	(index_content_element, index_entry_first_letter_text_or_command),
+	tta/perl/Texinfo/IndicesNonXS.pm (index_entry_element_sort_string):
+	pass converter in Perl down to def_command_index_entry and use
+	element_cdt if the converter is passed, and pass converter and a
+	function reference in C. Update callers.
+
+	* tta/C/main/manipulate_indices.c (index_entry_element_sort_string),
+	tta/perl/XSTexinfo/parser_document/IndicesXS.xs
+	(index_entry_element_sort_string): add debug level argument to
+	index_entry_element_sort_string.
+
 2026-06-14  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\initial): Reduce optional space at the end

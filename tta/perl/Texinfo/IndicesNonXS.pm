@@ -83,7 +83,7 @@ sub index_entry_element_sort_string($$$$;$$) {
   } else {
     my $entry_tree_element
       = index_content_element($index_entry_element, $prefer_reference_element,
-                              $debug_level);
+                              undef, $debug_level);
     $sort_string = Texinfo::Convert::Text::convert_to_text(
                               $entry_tree_element, $options);
     # Not done for @sortas, in particular to be able to still sort using

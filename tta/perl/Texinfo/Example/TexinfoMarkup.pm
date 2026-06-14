@@ -376,7 +376,7 @@ sub _index_entry($$) {
     $self->{'document_context'}->[-1]->{'monospace'}->[-1] = 1
       if ($in_code);
     my $index_element = Texinfo::Common::non_leading_trailing_tree(
-                         Texinfo::Indices::index_content_element($element));
+                   Texinfo::Indices::index_content_element($element));
     $result .= $self->_convert($index_element);
     pop @{$self->{'document_context'}};
     $result .= $self->txi_markup_close_element('indexterm');

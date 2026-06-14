@@ -1539,6 +1539,21 @@ sub cdt_string($$;$$) {
                                     \&_html_cache_translate_string);
 }
 
+sub element_cdt($$$;$$) {
+  my ($self, $string, $element, $replaced_substrings,
+      $translation_context) = @_;
+
+  my $element_lang_translations
+          = Texinfo::Translations::new_element_language_translation(
+                       $Texinfo::Translations::converters_translation_cache,
+                            $element);
+  return Texinfo::Translations::gdt($string, $element_lang_translations,
+                                    $replaced_substrings,
+                                    $self->get_conf('DEBUG'),
+                                    $translation_context, $self,
+                                    \&_html_cache_translate_string);
+}
+
 
 
 # setup conversion information and conversion and formatting functions.
@@ -4754,8 +4769,6 @@ sub _convert_printindex_command($$$$) {
   my $rule = $self->get_conf('DEFAULT_RULE');
   $rule = '' if (!defined($rule));
 
-  my $debug = $self->get_conf('DEBUG');
-
   my %formatted_letters;
   # Next do the entries to determine the letters that are not empty
   my @letter_entries;
@@ -4792,11 +4805,12 @@ sub _convert_printindex_command($$$$) {
 
       my $entry_content_element
         = Texinfo::Indices::index_content_element($main_entry_element, 0,
-                                                  $debug);
+                                                  $self);
 
+      my $entry_index_name = $index_entry_ref->{'index_name'};
       my $in_code = 0;
       $in_code = 1
-       if ($indices_information->{$index_entry_ref->{'index_name'}}->{'in_code'});
+       if ($indices_information->{$entry_index_name}->{'in_code'});
       my $entry_ref_tree
         = Texinfo::TreeElement::new({'contents' => [$entry_content_element]});
 
@@ -5164,7 +5178,7 @@ sub _convert_printindex_command($$$$) {
         my $letter_text;
         ($letter_text, $letter_command)
           = Texinfo::Indices::index_entry_first_letter_text_or_command(
-                                                     $first_entry, $debug);
+                                                     $first_entry, $self);
       }
 
       if (defined($letter_command)

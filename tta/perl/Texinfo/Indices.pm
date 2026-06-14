@@ -178,9 +178,11 @@ sub _remove_def_types($) {
 }
 
 # generate a Texinfo tree corresponding to a def command index entry.
-# If $PREFER_REFRENCE_ELEMENT is set do not translate the names.
-sub _def_command_index_entry($;$$) {
-  my ($main_entry_element, $prefer_reference_element, $debug_level) = @_;
+# If $PREFER_REFRENCE_ELEMENT is set do not translate.  If there is
+# no translation, $CONVERTER and $DEBUG_LEVEL are not actually used.
+sub _def_command_index_entry($;$$$) {
+  my ($main_entry_element, $prefer_reference_element, $converter,
+      $debug_level) = @_;
 
   my ($name, $class);
   if (exists($main_entry_element->{'contents'}->[0]->{'contents'})) {
@@ -236,29 +238,46 @@ sub _def_command_index_entry($;$$) {
 
         # Use the language information that was current when the command was
         # used for getting the translation.
-        my $element_lang_translations
-          = Texinfo::Translations::new_element_language_translation(
-                            \%parser_translation_cache,
-                            $main_entry_element);
+        my $substrings = {'name' => $name_copy, 'class' => $class_copy};
 
-        if (exists($Texinfo::Commands::def_class_method_commands{
+        if (defined($converter)) {
+          if (exists($Texinfo::Commands::def_class_method_commands{
                                                    $def_command})) {
   # TRANSLATORS: association of a method or operation name with a class
   # in descriptions of object-oriented programming methods or operations.
-          $index_entry
-             = Texinfo::Translations::gdt('{name} on {class}',
-                           $element_lang_translations,
-                           {'name' => $name_copy, 'class' => $class_copy},
-                           $debug_level);
-        } elsif (exists($Texinfo::Commands::def_class_variable_commands{
+            $index_entry = $converter->element_cdt('{name} on {class}',
+                                    $main_entry_element, $substrings);
+          } elsif (exists($Texinfo::Commands::def_class_variable_commands{
                                                            $def_command})) {
   # TRANSLATORS: association of a variable or instance variable with
   # a class in descriptions of object-oriented programming variables or
   # instance variable.
-          $index_entry = Texinfo::Translations::gdt('{name} of {class}',
-                           $element_lang_translations,
-                           {'name' => $name_copy, 'class' => $class_copy},
+            $index_entry = $converter->element_cdt('{name} of {class}',
+                                    $main_entry_element, $substrings);
+          }
+        } else {
+          my $element_lang_translations
+            = Texinfo::Translations::new_element_language_translation(
+                            \%parser_translation_cache,
+                            $main_entry_element);
+
+          if (exists($Texinfo::Commands::def_class_method_commands{
+                                                   $def_command})) {
+  # TRANSLATORS: association of a method or operation name with a class
+  # in descriptions of object-oriented programming methods or operations.
+            $index_entry
+              = Texinfo::Translations::gdt('{name} on {class}',
+                           $element_lang_translations, $substrings,
                            $debug_level);
+          } elsif (exists($Texinfo::Commands::def_class_variable_commands{
+                                                            $def_command})) {
+  # TRANSLATORS: association of a variable or instance variable with
+  # a class in descriptions of object-oriented programming variables or
+  # instance variable.
+            $index_entry = Texinfo::Translations::gdt('{name} of {class}',
+                           $element_lang_translations, $substrings,
+                           $debug_level);
+          }
         }
 
         # prefer a type-less container rather than 'root_line' returned by gdt
@@ -273,14 +292,13 @@ sub _def_command_index_entry($;$$) {
 
 # ALTIMP C/main/manipulate_indices.c
 # if $PREFER_REFERENCE_ELEMENT is set, prefer an untranslated element.
-# Seems to be used in converter only
-sub index_content_element($;$$) {
-  my ($element, $prefer_reference_element, $debug_level) = @_;
+sub index_content_element($;$$$) {
+  my ($element, $prefer_reference_element, $converter, $debug_level) = @_;
 
   if (exists($element->{'extra'})
       and exists($element->{'extra'}->{'def_command'})) {
     return _def_command_index_entry($element, $prefer_reference_element,
-                                    $debug_level);
+                                    $converter, $debug_level);
   } else {
     # the copy is not strictly needed, but we want to obtain the same
     # result as with C and the result is different with anchors
@@ -652,8 +670,8 @@ sub _idx_leading_text_or_command($$) {
 
 # Return the leading text or textual command that could be used
 # for sorting.
-sub index_entry_first_letter_text_or_command($;$) {
-  my ($index_entry, $debug_level) = @_;
+sub index_entry_first_letter_text_or_command($;$$) {
+  my ($index_entry, $converter, $debug_level) = @_;
 
   if (!defined($index_entry)) {
     confess('index_entry_first_letter_text_or_command: undef index_entry');
@@ -665,7 +683,7 @@ sub index_entry_first_letter_text_or_command($;$) {
     return ($index_entry_element->{'extra'}->{'sortas'}, undef);
   } else {
     my $entry_tree_element = index_content_element($index_entry_element, 0,
-                                                   $debug_level);
+                                                   $converter, $debug_level);
     my $ignore_chars;
     if (exists($index_entry_element->{'extra'})
         and defined($index_entry_element->{'extra'}
@@ -959,16 +977,17 @@ Other functions.
 
 =over
 
-=item $entry_content_element = index_content_element($element, $prefer_reference_element, $debug_level)
+=item $entry_content_element = index_content_element($element, $prefer_reference_element, $converter, $debug_level)
 
 Return a Texinfo tree element corresponding to the content of the index
 entry associated to I<$element>.  If I<$prefer_reference_element> is set,
 prefer an untranslated element.  If the element is an index command like
 C<@cindex> or an C<@ftable> C<@item>, the content element is the argument
 of the command.  If the element is a definition line, the index entry
-element is based on the name and class.
+element is based on the name and class.  If the I<$converter> optional
+argument is set, use a converter method for the translation.
 
-=item ($text, $command) = index_entry_first_letter_text_or_command($index_entry)
+=item ($text, $command) = index_entry_first_letter_text_or_command($index_entry, $converter, $debug_level)
 
 Return the I<$index_entry> leading text I<$text> or textual command Texinfo
 tree hash reference I<$command>.  Here textual commands means accent

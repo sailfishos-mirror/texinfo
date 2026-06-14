@@ -271,10 +271,12 @@ sub chm_init($)
 
         my $origin_href = $self->command_href($main_entry_element, '');
         my $entry_content_element
-              = Texinfo::Indices::index_content_element($main_entry_element);
+          = Texinfo::Indices::index_content_element($main_entry_element,
+                                                    0, $self);
+        my $index_name = $index_entry_ref->{'index_name'};
         my $in_code = 0;
         $in_code = 1
-          if ($indices_information->{$index_entry_ref->{'index_name'}}->{'in_code'});
+          if ($indices_information->{$index_name}->{'in_code'});
         if ($in_code) {
           Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});

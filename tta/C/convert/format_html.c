@@ -10232,7 +10232,8 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
           entry_content_element = index_content_element (main_entry_element, 0,
                                             self->document,
-                              (self->conf && self->conf->DEBUG.o.integer > 0));
+                              (self->conf && self->conf->DEBUG.o.integer > 0),
+                               self, &html_element_cdt_tree);
           entry_index_nr
              = index_number_index_by_name (&self->sorted_index_names,
                                            index_entry_ref->index_name);
@@ -10825,7 +10826,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
         {
           char *formatted_letter;
           char *index_name_letter_header_class;
-          const ELEMENT *letter_command = 0;
+          ELEMENT *letter_command = 0;
           enum command_id letter_cmd = 0;
 
           if (first_entry)
@@ -10833,7 +10834,8 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
               INDEX_ENTRY_TEXT_OR_COMMAND *entry_text_or_command
                 = index_entry_first_letter_text_or_command (first_entry,
                                             self->document,
-                              (self->conf && self->conf->DEBUG.o.integer > 0));
+                              (self->conf && self->conf->DEBUG.o.integer > 0),
+                                            self, &html_element_cdt_tree);
 
               if (entry_text_or_command)
                 {
@@ -13511,7 +13513,8 @@ html_output_internal_links (CONVERTER *self)
                   entry_content_element
                     = index_content_element (main_entry_element, 0,
                                             self->document,
-                              (self->conf && self->conf->DEBUG.o.integer > 0));
+                              (self->conf && self->conf->DEBUG.o.integer > 0),
+                               self, &html_element_cdt_tree);
 
                   entry_index_nr
                     = index_number_index_by_name (&self->sorted_index_names,

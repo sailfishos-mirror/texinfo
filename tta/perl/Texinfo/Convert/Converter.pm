@@ -460,6 +460,22 @@ sub pcdt($$;$$) {
   return $self->cdt($string, $replaced_substrings, $translation_context);
 }
 
+# use the language information of an element instead of the current
+# language information for translation
+sub element_cdt($$$;$$) {
+  my ($self, $string, $element, $replaced_substrings,
+      $translation_context) = @_;
+
+  my $element_lang_translations
+          = Texinfo::Translations::new_element_language_translation(
+                       $Texinfo::Translations::converters_translation_cache,
+                            $element);
+  return Texinfo::Translations::gdt($string, $element_lang_translations,
+                                    $replaced_substrings,
+                                    $self->get_conf('DEBUG'),
+                                    $translation_context);
+}
+
 # language
 
 # TODO document

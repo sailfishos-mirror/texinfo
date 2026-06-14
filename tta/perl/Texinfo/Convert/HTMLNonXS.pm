@@ -3722,7 +3722,6 @@ sub _prepare_index_entries_targets($) {
   }
 
   if (defined($indices_information)) {
-    my $debug = $self->get_conf('DEBUG');
     foreach my $index_name (sort(keys(%$indices_information))) {
       foreach my $index_entry (@{$indices_information->{$index_name}
                                                     ->{'index_entries'}}) {
@@ -3742,7 +3741,7 @@ sub _prepare_index_entries_targets($) {
           if (defined($main_entry_element->{'extra'}->{'element_region'}));
         my $entry_reference_content_element
           = Texinfo::Indices::index_content_element($main_entry_element, 1,
-                                                    $debug);
+                                                    $self);
         # construct element to convert to a normalized identifier to use as
         # hrefs target
         my $normalize_index_element = Texinfo::TreeElement::new(
@@ -5562,7 +5561,6 @@ sub output_internal_links($) {
     if (exists($self->{'document'})) {
       $indices_information = $self->{'document'}->indices_information();
     }
-    my $debug = $self->get_conf('DEBUG');
 
     foreach my $index_name (sort(keys(%{$index_entries_by_letter}))) {
       foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
@@ -5589,7 +5587,7 @@ sub output_internal_links($) {
           }
           my $entry_reference_content_element
             = Texinfo::Indices::index_content_element($main_entry_element,
-                                                      0, $debug);
+                                                      0, $self);
           my @contents = ($entry_reference_content_element);
           my $subentries_tree
             = Texinfo::Convert::Utils::comma_index_subentries_tree(

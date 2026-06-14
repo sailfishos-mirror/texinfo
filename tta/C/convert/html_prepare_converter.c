@@ -5088,7 +5088,8 @@ prepare_index_entries_targets (CONVERTER *self)
               entry_reference_content_element
                = index_content_element (main_entry_element, 1,
                                             self->document,
-                              (self->conf && self->conf->DEBUG.o.integer > 0));
+                              (self->conf && self->conf->DEBUG.o.integer > 0),
+                                        0, 0);
         /* construct element to convert to a normalized identifier to use as
            hrefs target */
               normalize_index_element = new_element (ET_NONE);

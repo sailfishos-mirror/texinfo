@@ -34,6 +34,10 @@ char *html_cdt_string (const char *string, CONVERTER *self,
 ELEMENT *html_pcdt_tree (const char *translation_context, const char *string,
                 CONVERTER *self,
                 NAMED_STRING_ELEMENT_LIST *replaced_substrings);
+ELEMENT *html_element_cdt_tree (const char *string, const ELEMENT *element,
+                       CONVERTER *self,
+                       NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                       const char *translation_context);
 
 void add_tree_to_build (CONVERTER *self, ELEMENT *e);
 void remove_tree_to_build (CONVERTER *self, ELEMENT *e);

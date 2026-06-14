@@ -171,18 +171,19 @@ in index entry whose output may depend on a language are rare.)
 Other functions.
 
 @table @asis
-@item $entry_content_element = index_content_element($element, $prefer_reference_element, $debug_level)
-@anchor{Texinfo@asis{::}Indices $entry_content_element = index_content_element($element@comma{} $prefer_reference_element@comma{} $debug_level)}
+@item $entry_content_element = index_content_element($element, $prefer_reference_element, $converter, $debug_level)
+@anchor{Texinfo@asis{::}Indices $entry_content_element = index_content_element($element@comma{} $prefer_reference_element@comma{} $converter@comma{} $debug_level)}
 
 Return a Texinfo tree element corresponding to the content of the index
 entry associated to @emph{$element}.  If @emph{$prefer_reference_element} is set,
 prefer an untranslated element.  If the element is an index command like
 @code{@@cindex} or an @code{@@ftable} @code{@@item}, the content element is the argument
 of the command.  If the element is a definition line, the index entry
-element is based on the name and class.
+element is based on the name and class.  If the @emph{$converter} optional
+argument is set, use a converter method for the translation.
 
-@item ($text, $command) = index_entry_first_letter_text_or_command($index_entry)
-@anchor{Texinfo@asis{::}Indices ($text@comma{} $command) = index_entry_first_letter_text_or_command($index_entry)}
+@item ($text, $command) = index_entry_first_letter_text_or_command($index_entry, $converter, $debug_level)
+@anchor{Texinfo@asis{::}Indices ($text@comma{} $command) = index_entry_first_letter_text_or_command($index_entry@comma{} $converter@comma{} $debug_level)}
 
 Return the @emph{$index_entry} leading text @emph{$text} or textual command Texinfo
 tree hash reference @emph{$command}.  Here textual commands means accent
