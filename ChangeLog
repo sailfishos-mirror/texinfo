@@ -1,5 +1,24 @@
 2026-06-13 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm (_convert_printindex_command),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm (_prepare_index_entries_targets)
+	(output_internal_links), tta/perl/Texinfo/Convert/LaTeX.pm
+	(_index_entry), tta/perl/Texinfo/Convert/Plaintext.pm
+	(process_printindex), tta/perl/Texinfo/Indices.pm
+	(index_entry_first_letter_text_or_command)
+	(setup_index_entries_sort_strings), tta/perl/Texinfo/IndicesNonXS.pm
+	(index_entry_element_sort_string): set debug argument of
+	index_content_element, add debug argument and set argument of
+	index_entry_first_letter_text_or_command and
+	index_entry_element_sort_string.
+
+	* tta/perl/Texinfo/Convert/HTML.pm,
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm,
+	tta/perl/Texinfo/Convert/Plaintext.pm: use intermediary variable for
+	DEBUG to avoid calling get_conf too often.
+
+2026-06-13 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/convert_utils.c (definition_category_tree),
 	tta/perl/Texinfo/Convert/Utils.pm (definition_category_tree): use
 	def_class_method and def_class_variable commands flags.

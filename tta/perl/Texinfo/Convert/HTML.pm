@@ -4754,6 +4754,8 @@ sub _convert_printindex_command($$$$) {
   my $rule = $self->get_conf('DEFAULT_RULE');
   $rule = '' if (!defined($rule));
 
+  my $debug = $self->get_conf('DEBUG');
+
   my %formatted_letters;
   # Next do the entries to determine the letters that are not empty
   my @letter_entries;
@@ -4789,7 +4791,8 @@ sub _convert_printindex_command($$$$) {
                                 $index_entry_ref, $formatted_index_entry_nr);
 
       my $entry_content_element
-        = Texinfo::Indices::index_content_element($main_entry_element);
+        = Texinfo::Indices::index_content_element($main_entry_element, 0,
+                                                  $debug);
 
       my $in_code = 0;
       $in_code = 1
@@ -5161,7 +5164,7 @@ sub _convert_printindex_command($$$$) {
         my $letter_text;
         ($letter_text, $letter_command)
           = Texinfo::Indices::index_entry_first_letter_text_or_command(
-                                                             $first_entry);
+                                                     $first_entry, $debug);
       }
 
       if (defined($letter_command)
@@ -7867,10 +7870,6 @@ foreach my $customized_reference ('external_target_split_name',
 
 # converter API implementation for function without XS overrides.
 
-# this allows to get some debugging output for the file without setting
-# the customization variable.
-my $debug;  # whether to print debugging output
-
 sub converter_initialize($) {
   my $self = shift;
 
@@ -8483,7 +8482,7 @@ sub _convert($$;$) {
   }
 
   # cache return value of get_conf for speed
-  $debug = $self->get_conf('DEBUG') if !defined($debug);
+  my $debug = $self->get_conf('DEBUG');
 
   if ($debug) {
     #cluck() if (!defined($explanation));

@@ -777,7 +777,7 @@ sub output($$) {
         $outfile_name = $output_file;
       }
       print STDERR "DO No pages, output in $outfile_name\n"
-        if ($self->get_conf('DEBUG'));
+        if ($self->{'debug'});
       my $path_encoding;
       ($encoded_outfile_name, $path_encoding)
         = $self->encoded_output_file_name($outfile_name);
@@ -797,7 +797,7 @@ sub output($$) {
       }
     } else {
       print STDERR "DO No pages, string output\n"
-        if ($self->get_conf('DEBUG'));
+        if ($self->{'debug'});
     }
 
     foreach my $output_unit (@$output_units) {
@@ -829,7 +829,7 @@ sub output($$) {
   } else {
     # output with pages
     print STDERR "DO Elements with filenames\n"
-      if ($self->get_conf('DEBUG'));
+      if ($self->{'debug'});
     my %files_filehandle;
 
     foreach my $output_unit (@$output_units) {
@@ -1945,7 +1945,8 @@ sub process_printindex($$;$) {
     my $main_entry_element = $entry->{'entry_element'};
     my $entry_index_name = $entry->{'index_name'};
     my $entry_content_element
-      = Texinfo::Indices::index_content_element($main_entry_element);
+      = Texinfo::Indices::index_content_element($main_entry_element, 0,
+                                                $self->{'debug'});
     my $entry_tree
      = Texinfo::TreeElement::new({'contents' => [$entry_content_element]});
     my $subentries_tree
@@ -3505,7 +3506,7 @@ sub _convert($$) {
             if ($self->{'to_utf8'}) {
               my $possible_conversion
                 = Texinfo::Convert::Unicode::check_unicode_point_conversion(
-                                                  $arg_text, $self->{'DEBUG'});
+                                                  $arg_text, $self->{'debug'});
               if ($possible_conversion) {
                 $res = chr(hex($arg_text)); # ok to call chr
              } else {

@@ -274,7 +274,6 @@ sub _def_command_index_entry($;$$) {
 # ALTIMP C/main/manipulate_indices.c
 # if $PREFER_REFERENCE_ELEMENT is set, prefer an untranslated element.
 # Seems to be used in converter only
-# TODO pass converter? Or check callers to pass $debug_level
 sub index_content_element($;$$) {
   my ($element, $prefer_reference_element, $debug_level) = @_;
 
@@ -380,6 +379,11 @@ sub setup_index_entries_sort_strings($$$$;$) {
     $document_info = $document;
   }
 
+  my $debug;
+  if (defined($document_info)) {
+    $debug = $document_info->get_conf('DEBUG');
+  }
+
   # convert index entries to sort string using unicode when possible
   # independently of input and output encodings
   my $convert_text_options = {};
@@ -406,7 +410,8 @@ sub setup_index_entries_sort_strings($$$$;$) {
       my $entry_sort_string
         = index_entry_element_sort_string($document_info,
                                $index_entry, $main_entry_element,
-                           $convert_text_options, $prefer_reference_element);
+                           $convert_text_options, $prefer_reference_element,
+                           $debug);
       if ($entry_sort_string !~ /\S/) {
         my $entry_cmdname = $main_entry_element->{'cmdname'};
         $entry_cmdname
@@ -430,7 +435,8 @@ sub setup_index_entries_sort_strings($$$$;$) {
         $subentry_nr++;
         my $subentry_sort_string
               = index_entry_element_sort_string($document_info,
-                             $index_entry, $subentry, $convert_text_options);
+                             $index_entry, $subentry, $convert_text_options,
+                             undef, $debug);
         if ($subentry_sort_string !~ /\S/) {
           my $entry_cmdname = $main_entry_element->{'cmdname'};
           $entry_cmdname
@@ -647,9 +653,7 @@ sub _idx_leading_text_or_command($$) {
 # Return the leading text or textual command that could be used
 # for sorting.
 sub index_entry_first_letter_text_or_command($;$) {
-  my $index_entry = shift;
-  # only used for debugging
-  #my $entry_key = shift;
+  my ($index_entry, $debug_level) = @_;
 
   if (!defined($index_entry)) {
     confess('index_entry_first_letter_text_or_command: undef index_entry');
@@ -660,7 +664,8 @@ sub index_entry_first_letter_text_or_command($;$) {
       and defined($index_entry_element->{'extra'}->{'sortas'})) {
     return ($index_entry_element->{'extra'}->{'sortas'}, undef);
   } else {
-    my $entry_tree_element = index_content_element($index_entry_element, 0);
+    my $entry_tree_element = index_content_element($index_entry_element, 0,
+                                                   $debug_level);
     my $ignore_chars;
     if (exists($index_entry_element->{'extra'})
         and defined($index_entry_element->{'extra'}
@@ -678,16 +683,6 @@ sub index_entry_first_letter_text_or_command($;$) {
 
     my ($text, $command) = _idx_leading_text_or_command($parsed_element,
                                                         $ignore_chars);
-    #if ($command) {
-    #  print STDERR "CCC '$entry_key' "
-    #      .Texinfo::Common::debug_print_element($command)."\n";
-    #} elsif (defined($text)) {
-    #  if (substr($entry_key, 0, 1) ne substr($text, 0, 1)) {
-    #    print STDERR "TTT '$entry_key' '$text'\n";
-    #  }
-    #} else {
-    #  print STDERR "III '$entry_key'\n";
-    #}
     return ($text, $command);
   }
 }
@@ -926,7 +921,7 @@ strings are independent from the sorting keys used internally to sort indices.
 
 =over
 
-=item $sort_string = index_entry_element_sort_string($document_info, $main_entry, $index_entry_element, $options, $prefer_reference_element)
+=item $sort_string = index_entry_element_sort_string($document_info, $main_entry, $index_entry_element, $options, $prefer_reference_element, $debug_level)
 X<C<index_entry_element_sort_string>>
 
 Return a string suitable as a sorting string for index entries, possibly
@@ -964,7 +959,7 @@ Other functions.
 
 =over
 
-=item $entry_content_element = index_content_element($element, $prefer_reference_element)
+=item $entry_content_element = index_content_element($element, $prefer_reference_element, $debug_level)
 
 Return a Texinfo tree element corresponding to the content of the index
 entry associated to I<$element>.  If I<$prefer_reference_element> is set,

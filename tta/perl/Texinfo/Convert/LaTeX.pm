@@ -2649,7 +2649,8 @@ sub _index_entry($$) {
     my @result;
     foreach my $subindex_command (@subindex_commands) {
       my $content
-         = Texinfo::Indices::index_content_element($subindex_command, 1);
+         = Texinfo::Indices::index_content_element($subindex_command, 1,
+                                                   $self->{'debug'});
       if ($in_code) {
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
       }
@@ -2667,9 +2668,9 @@ sub _index_entry($$) {
       # text options data setup by setup_index_entry_keys_formatting.
       my $sort_string
            = Texinfo::Indices::index_entry_element_sort_string(
-                                          $self, $entry,
-                                          $subindex_command,
-                            $self->{'index_formatting_text_options'}, 1);
+                                  $self, $entry, $subindex_command,
+                                  $self->{'index_formatting_text_options'}, 1,
+                                  $self->{'debug'});
       my $result = '';
       if (defined($sort_string)) {
         # | in sort key breaks with hyperref
@@ -2777,7 +2778,7 @@ sub _convert_def_line($$) {
     my $category
       = Texinfo::Convert::Utils::definition_category_tree($element,
                                      $self->{'current_lang_translations'},
-                                             $self->get_conf('DEBUG'));
+                                             $self->{'debug'});
     if (defined($category)) {
       # category is converted in normal text context
       my $converted = _convert($self, $category);

@@ -1805,7 +1805,9 @@ my @sorted_no_arg_commands;
 sub _translate_names($) {
   my $self = shift;
 
-  if ($self->get_conf('DEBUG')) {
+  my $debug = $self->get_conf('DEBUG');
+
+  if ($debug) {
     my $output_encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
     $output_encoding_name = 'UNDEF' if (!defined($output_encoding_name));
     my $bcp47_locale = $self->current_bcp47_locale();
@@ -1874,7 +1876,7 @@ sub _translate_names($) {
     _complete_no_arg_commands_formatting($self, $cmdname, 1);
   }
 
-  print STDERR "END TRANSLATE_NAMES\n\n" if ($self->get_conf('DEBUG'));
+  print STDERR "END TRANSLATE_NAMES\n\n" if ($debug);
 }
 
 my %preformatted_commands_context = %preformatted_commands;
@@ -2190,10 +2192,6 @@ sub _debug_print_html_contexts($) {
 
 
 
-# this allows to get some debugging output for the file without setting
-# the customization variable.
-my $debug;  # whether to print debugging output
-
 # converter API: converter_defaults, code called from converter_initialize,
 # convert and output
 
@@ -2255,6 +2253,8 @@ sub _parse_htmlxref_files($$) {
 
   my $htmlxref = {};
 
+  my $debug = $self->get_conf('DEBUG');
+
   foreach my $file (@$files) {
     my $fname = $file;
     if ($self->get_conf('TEST')) {
@@ -2262,7 +2262,7 @@ sub _parse_htmlxref_files($$) {
       # strip directories for out-of-source builds reproducible file names
       ($volume, $directories, $fname) = File::Spec->splitpath($file);
     }
-    print STDERR "html refs config file: $file\n" if ($self->get_conf('DEBUG'));
+    print STDERR "html refs config file: $file\n" if ($debug);
     unless (open(HTMLXREF, $file)) {
       my $htmlxref_file_name = $file;
       my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
@@ -3137,8 +3137,9 @@ sub _html_convert_convert($$$$) {
   my $unit_nr = 0;
   # NOTE there is no rule before the footnotes special element in
   # case of separate footnotes in this setting.
+  my $debug = $self->get_conf('DEBUG');
   foreach my $output_unit (@$output_units, @$special_units) {
-    print STDERR "\nUNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
+    print STDERR "\nUNIT $unit_nr\n" if ($debug);
     my $output_unit_text = $self->convert_output_unit($output_unit,
                                                "convert unit $unit_nr");
     $result .= $output_unit_text;
@@ -3516,6 +3517,7 @@ sub _set_special_units_targets_files($$$) {
   $extension = $self->get_conf('EXTENSION')
     if (defined($self->get_conf('EXTENSION')));
 
+  my $debug = $self->get_conf('DEBUG');
   foreach my $special_unit (@$special_units) {
 
     my $special_unit_variety = $special_unit->{'special_unit_variety'};
@@ -3548,7 +3550,7 @@ sub _set_special_units_targets_files($$$) {
     }
     $filename = $default_filename if (!defined($filename));
 
-    if ($self->get_conf('DEBUG')) {
+    if ($debug) {
       my $fileout = $filename;
       $fileout = 'UNDEF' if (!defined($fileout));
       print STDERR 'Add special'
@@ -3571,6 +3573,7 @@ sub _prepare_associated_special_units_targets($$) {
 
   return unless (defined($associated_output_units));
 
+  my $debug = $self->get_conf('DEBUG');
   foreach my $special_unit (@$associated_output_units) {
     my $special_unit_variety = $special_unit->{'special_unit_variety'};
 
@@ -3590,7 +3593,7 @@ sub _prepare_associated_special_units_targets($$) {
                                                       $default_filename);
     }
     $filename = $default_filename if (!defined($filename));
-    if ($self->get_conf('DEBUG')) {
+    if ($debug) {
       my $str_filename = $filename;
       $str_filename = 'UNDEF (default)' if (not defined($str_filename));
       my $str_target = $target;
@@ -3638,6 +3641,7 @@ sub _set_root_commands_targets_node_files($) {
   }
 
   if (defined($labels_list)) {
+    my $debug = $self->get_conf('DEBUG');
     my $extension = '';
     $extension = '.'.$self->get_conf('EXTENSION')
                 if (defined($self->get_conf('EXTENSION'))
@@ -3665,11 +3669,11 @@ sub _set_root_commands_targets_node_files($) {
           $self->converter_document_warn(sprintf(__(
               "user-defined node file name not set for `%s'"),
               $node_filename));
-        } elsif ($self->get_conf('DEBUG')) {
+        } elsif ($debug) {
           warn "user-defined node file name undef for `$node_filename'\n";
         }
       }
-      if ($self->get_conf('DEBUG')) {
+      if ($debug) {
         print STDERR 'Label'
          # uncomment to get the perl object names
          #."($target_element)"
@@ -3718,6 +3722,7 @@ sub _prepare_index_entries_targets($) {
   }
 
   if (defined($indices_information)) {
+    my $debug = $self->get_conf('DEBUG');
     foreach my $index_name (sort(keys(%$indices_information))) {
       foreach my $index_entry (@{$indices_information->{$index_name}
                                                     ->{'index_entries'}}) {
@@ -3736,7 +3741,8 @@ sub _prepare_index_entries_targets($) {
         $region = "$main_entry_element->{'extra'}->{'element_region'}-"
           if (defined($main_entry_element->{'extra'}->{'element_region'}));
         my $entry_reference_content_element
-          = Texinfo::Indices::index_content_element($main_entry_element, 1);
+          = Texinfo::Indices::index_content_element($main_entry_element, 1,
+                                                    $debug);
         # construct element to convert to a normalized identifier to use as
         # hrefs target
         my $normalize_index_element = Texinfo::TreeElement::new(
@@ -3778,6 +3784,7 @@ sub _prepare_footnotes_targets($) {
   }
 
   if (defined($global_commands) and exists($global_commands->{'footnote'})) {
+    my $debug = $self->get_conf('DEBUG');
     my $footnote_nr = 0;
     foreach my $footnote (@{$global_commands->{'footnote'}}) {
       $footnote_nr++;
@@ -3804,7 +3811,7 @@ sub _prepare_footnotes_targets($) {
         #." $footnote"
         .": target $footid, nr $footnote_nr\n"
        .Texinfo::Convert::Texinfo::convert_to_texinfo($footnote)."\n"
-        if ($self->get_conf('DEBUG'));
+          if ($debug);
     }
   }
 }
@@ -4198,6 +4205,7 @@ sub _html_set_pages_files($$$$$$$$) {
     }
   }
 
+  my $debug = $self->get_conf('DEBUG');
   foreach my $output_unit (@$output_units) {
     my $filename = $unit_file_name_paths{$output_unit};
     my $file_source_info = $files_source_info{$filename};
@@ -4252,7 +4260,7 @@ sub _html_set_pages_files($$$$$$$$) {
       #."$output_unit "
       .Texinfo::OutputUnits::output_unit_texi($output_unit)
       .": $output_unit_filename($self->{'file_counters'}->{$output_unit_filename})\n"
-             if ($self->get_conf('DEBUG'));
+             if ($debug);
   }
 
   if (defined($special_units)) {
@@ -4277,7 +4285,7 @@ sub _html_set_pages_files($$$$$$$$) {
            # uncomment for perl object name
            #." $special_unit"
            .": $filename($self->{'file_counters'}->{$filename})\n"
-                 if ($self->get_conf('DEBUG'));
+                 if ($debug);
         my $file_source_info = {'file_info_element' => $unit_command,
                                 'file_info_type' => 'special_unit',
                                 'file_info_path' => undef};
@@ -4412,7 +4420,7 @@ sub convert_output_unit($$;$) {
   # only used for debug
       $explanation) = @_;
 
-  $debug = $self->get_conf('DEBUG') if !defined($debug);
+  my $debug = $self->get_conf('DEBUG');
 
   my $unit_type_name = $output_unit->{'unit_type'};
 
@@ -4712,6 +4720,7 @@ sub _html_convert_output($$$$$$$$) {
     return undef;
   }
 
+  my $debug = $self->get_conf('DEBUG');
   my $text_output = '';
   if ($output_file eq '') {
     $self->{'current_filename'} = $output_filename;
@@ -4720,7 +4729,7 @@ sub _html_convert_output($$$$$$$$) {
     # NOTE there is no rule before the footnotes special element in
     # case of separate footnotes in this setting.
     foreach my $output_unit (@$output_units, @$special_units) {
-      print STDERR "\nUNIT NO-PAGE $unit_nr\n" if ($self->get_conf('DEBUG'));
+      print STDERR "\nUNIT NO-PAGE $unit_nr\n" if ($debug);
       my $output_unit_text
         = $self->convert_output_unit($output_unit,
                                      "no-page output unit $unit_nr");
@@ -4739,8 +4748,7 @@ sub _html_convert_output($$$$$$$$) {
     $text_output .= $file_end;
   } else {
     # output with pages
-    print STDERR "DO Units with filenames\n"
-      if ($self->get_conf('DEBUG'));
+    print STDERR "DO Units with filenames\n" if ($debug);
     my %files;
 
     my $unit_nr = -1;
@@ -4759,14 +4767,14 @@ sub _html_convert_output($$$$$$$$) {
       if ($output_unit->{'unit_type'} eq 'special_unit') {
         print STDERR "\nUNIT SPECIAL "
            ."$output_unit->{'special_unit_variety'} $unit_nr\n"
-          if ($self->get_conf('DEBUG'));
+             if ($debug);
         $body = $self->convert_output_unit($output_unit,
                                            "output s-unit $unit_nr");
         if ($body eq '') {
           $body = undef;
         }
       } else {
-        print STDERR "\nUNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
+        print STDERR "\nUNIT $unit_nr\n" if ($debug);
         $body = $self->convert_output_unit($output_unit,
                                            "output unit $unit_nr");
       }
@@ -5554,6 +5562,7 @@ sub output_internal_links($) {
     if (exists($self->{'document'})) {
       $indices_information = $self->{'document'}->indices_information();
     }
+    my $debug = $self->get_conf('DEBUG');
 
     foreach my $index_name (sort(keys(%{$index_entries_by_letter}))) {
       foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
@@ -5579,7 +5588,8 @@ sub output_internal_links($) {
                                           $self->{'convert_text_options'});
           }
           my $entry_reference_content_element
-            = Texinfo::Indices::index_content_element($main_entry_element);
+            = Texinfo::Indices::index_content_element($main_entry_element,
+                                                      0, $debug);
           my @contents = ($entry_reference_content_element);
           my $subentries_tree
             = Texinfo::Convert::Utils::comma_index_subentries_tree(
