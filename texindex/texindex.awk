@@ -591,7 +591,7 @@ function endfile(filename,                 # parameters
 # if you needed to index a real backslash, namely an input line something
 # like the following:
 #
-#   \entry{{\tt \indexbackslash } (backslash)}{14}{\code {{\tt dots{}}}
+#   \entry{{\tt \indexbackslash } (backslash)}{14}{\code {{\tt dots{}}}}
 #
 # Earlier versions of texindex took the first non-brace character as the
 # initial, in this example \, and output it as \\; this was not, however,
@@ -831,14 +831,18 @@ BEGIN {
 		}
 	}
 
-	# Set up case-insensitive sorting order
+	# Set up case-insensitive sorting order.
+	# In this order, multibyte UTF-8 sequences like é sort after
+	# ASCII letters.
 	for (i = 0; i < 256; i++) {
 		c = sprintf("%c", i)
-		if (islower(c)) {
-			Ordval_ignorecase[c] = Ordval[toupper(c)]
-		} else {
-			Ordval_ignorecase[c] = Ordval[c]
-		}
+		Ordval_ignorecase[c] = i  # map character to value
+		# Upper case comes before lower case in the ASCII order
+		# so value for upper case is already set.
+		if (islower(c))
+			Ordval_ignorecase[c] = Ordval_ignorecase[toupper(c)]
+		else if (isdigit(c))
+			Ordval_ignorecase[c] += 512
 	}
 }
 
