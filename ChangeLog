@@ -1,5 +1,10 @@
 2026-06-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* texindex/texindex.awk (string_compare_internal):
+	If characters not in order array, use < to compare them.
+
+2026-06-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* texindex/texindex.awk (BEGIN): Fix case-insensitive ordering
 	to keep non-ASCII values after ASCII characters.
 	(extract_initial): fix comment.

@@ -851,7 +851,8 @@ BEGIN {
 # or greater than zero if the first string is greater than the second one.
 #
 function string_compare_internal(left, right, order,              # parameters
-                                 len_l, len_r, len, chars_l, chars_r) # locals
+                                 len_l, len_r, len, chars_l, chars_r, # locals
+                                 order_l, order_r)
 {
 	len_l = length(left)
 	len_r = length(right)
@@ -861,7 +862,24 @@ function string_compare_internal(left, right, order,              # parameters
 	char_split(right, chars_r)
 
 	for (i = 1; i <= len; i++) {
-		cmp = order[chars_l[i]] - order[chars_r[i]]
+		order_l =  order[chars_l[i]];
+		order_r =  order[chars_r[i]];
+
+		if (order_l != 0 && order_r != 0) {
+			cmp = order_l - order_r
+		} else {
+			# note that there is an incompatibility here between
+			# gawk and other implementations of awk (e.g. mawk).
+			# gawk may produce characters outside of the ASCII
+			# range which are not defined in the order array.  in
+			# that case just compare the characters as strings.
+			if (chars_l[i] < chars_r[i])
+				cmp = -1
+			else if (chars_l[i] > chars_r[i])
+				cmp = 1
+			else
+				cmp = 0
+		}
 		if (cmp != 0)
 			return cmp
 
