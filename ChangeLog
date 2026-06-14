@@ -1,5 +1,20 @@
 2026-06-14 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/texi2any.c (main): set element_cdt_tree_fn to
+	html_element_cdt_tree if outputting HTML.
+
+	* tta/perl/Makefile.am (test_files),
+	tta/perl/t/input_files/customize_definition_index_translations.texi,
+	tta/perl/t/init_files_tests.t
+	(customize_definition_index_translations), tta/tests/Makefile.onetst,
+	tta/tests/customization/list-of-tests
+	(translated_strings_customization): move
+	customize_definition_index_translations Texinfo to the
+	customize_definition_index_translations.texi and use it for a test of
+	the command in tests/customization/list-of-tests.
+
+2026-06-14 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/manipulate_indices.c: rename cdt_element_tree_fn as
 	element_cdt_tree_fn.
 

@@ -269,6 +269,7 @@ test_files = \
  t/input_files/cpp_line_before_first_node.texi \
  t/input_files/cpp_lines.texi \
  t/input_files/cpp_line_latin1.texi \
+ t/input_files/customize_definition_index_translations.texi \
  t/input_files/delcomment.texi \
  t/input_files/delcomment_followed_by_cpp_line.texi \
  t/input_files/delcomment_on_comment.texi \

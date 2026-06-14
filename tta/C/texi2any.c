@@ -3066,6 +3066,9 @@ main (int argc, char *argv[], char *env[])
           converter = txi_converter_setup (external_module,
                                            converted_format,
                                            converter_init_info);
+
+          if (converter->format == COF_html)
+            element_cdt_tree_fn = &html_element_cdt_tree;
         }
 
       /* do_menu corresponds to FORMAT_MENU undef or set to menu */

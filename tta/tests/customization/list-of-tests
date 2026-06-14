@@ -9,6 +9,10 @@ sectioning_directions sectioning.texi --html --no-split -c 'HEADER_IN_TABLE=1' -
 sectioning_directions_split_chapter sectioning.texi --html --split=chapter -c 'HEADER_IN_TABLE=1' -c 'USE_NODES=0' -c 'FORMAT_MENU=menu' -c 'NODE_NAME_IN_MENU=0' -c 'DO_ABOUT=undef' -c 'CONTENTS_OUTPUT_LOCATION=separate_element' --init test_directions.init
 sectioning_without_anchors sectioning.texi --html --no-split -c 'COPIABLE_LINKS=0'
 
+# test customization of translations relevant for index entry sort strings
+# to verify that translated strings are used for sorting strings.
+translated_strings_customization ../../perl/t/input_files/customize_definition_index_translations.texi --html --init translated_strings_customization.pm
+
 # many other tests using double_contents.texi are in t/*.t, but customization
 # variables set in init files are not used in the t/*.t test suite, so there cannot
 # be proper testing with book.pm
