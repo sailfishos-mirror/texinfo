@@ -2,7 +2,7 @@
 % Based on txi-en.tex (version 1.5, 2007/07/01) and icelandic.dtx (1.1g,
 % 2005/03/30).
 %
-% Copyright (C) 2009 Arni Magnusson
+% Copyright (C) 2009, 2026 Arni Magnusson
 %
 % This program is free software; you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -67,3 +67,17 @@
   \or\putwordMSep\or\putwordMOct\or\putwordMNov\or\putwordMDec
   \fi
   \space\number\year}
+
+
+\def\idxsort#1#2{#2}
+
+% Make Þ Æ Ö output in that order.  The characters are sorted by
+% texindex according to the first argument to \idxsort but
+% printed according to the second.
+
+\DefineSortKey{00FE}{{\string\idxsort{1}{\string\TH{}}}} % Þ
+\DefineSortKey{00DE}{{\string\idxsort{1}{\string\TH{}}}} % Þ
+\DefineSortKey{00C6}{{\string\idxsort{2}{\string\AE{}}}} % Æ
+\DefineSortKey{00E6}{{\string\idxsort{2}{\string\AE{}}}} % æ
+\DefineSortKey{00D6}{{\string\idxsort{3}{\string\"O}}} % Ö
+\DefineSortKey{00F6}{{\string\idxsort{3}{\string\"O}}} % ö
