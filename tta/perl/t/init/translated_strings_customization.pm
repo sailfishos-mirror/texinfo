@@ -27,6 +27,8 @@ my %translations = (
            'Table of contents' => {'Contents direction description'
                                 => 'La @emph{Table des mati@`eres}',},
            '{number} {section_title}' => {'' => '{number}@ : {section_title}'},
+           '{name} of {class}' => {'' => 'La variable {name} de {class}'},
+           '{name} on {class}' => {'' => 'La m@\'ethode {name} pour la {class}'},
           },
   'de' => {
            ' &gt; ' => {'' => 'Nach vorne &gt;',},
@@ -37,9 +39,12 @@ my %translations = (
            'Table of contents' => {'Contents direction description'
                                      => 'Das @emph{Inhaltsverzeichnis}',},
            '{number} {section_title}' => {'' => '{number}: {section_title}'},
+           '{name} of {class}' => {'' => 'Variable {name} der {class}'},
+           '{name} on {class}' => {'' => 'Name {name} der {class}'},
           },
   'de-AT' => {
                'error--&gt;' => {'' => 'Fehler(AT)--&gt;',},
+               '{name} of {class}' => {'' => 'Variable(AT) {name} der {class}'},
              }
 );
 

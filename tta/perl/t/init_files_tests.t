@@ -192,6 +192,61 @@ my @file_tests = (
 
 ', {'init_files' => ['translated_strings_customization.pm']},
    {'SPLIT' => 'chapter'}],
+['customize_definition_index_translations',
+'
+@syncodeindex vr fn
+
+@node Top
+@top top
+
+@node Chapter
+@chapter chap
+
+@defcv cvdefault {cv class default} {default}
+@end defcv
+
+@defop opdefault {op class default} {default}
+@end defop
+
+@documentlanguage fr
+@node Chapter fr
+@chapter chap fr
+
+@defcv cvfr {cv class fr} {fr}
+@end defcv
+
+@defop opfr {op class fr} {fr}
+@end defop
+
+@node section fr
+@section sec fr
+
+@documentlanguage de
+@node Chapter de
+@chapter chap de
+
+@defcv cvde {cv class de} {de}
+@end defcv
+
+@defop opde {op class de} {de}
+@end defop
+
+@documentlanguage de_AT
+@node Chapter de_AT
+@chapter chap de_AT
+
+@defcv cvdeAT {cv class deAT} {deAT}
+@end defcv
+
+@defop opdeAT {op class deAT} {deAT}
+@end defop
+
+@node Last chapter
+@chapter Last Chapter
+
+@printindex fn
+', {'init_files' => ['translated_strings_customization.pm']},
+   {'SPLIT' => 'chapter'}],
 ['undefined_node_filename',
 '@node Top
 

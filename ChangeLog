@@ -1,5 +1,12 @@
 2026-06-14 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/init/translated_strings_customization.pm (%translations),
+	tta/perl/t/init_files_tests.t
+	(customize_definition_index_translations), tta/perl/Makefile.tres: add
+	test of definition index strings translations.
+
+2026-06-14 Patrice Dumas  <pertusus@free.fr>
+
 	Customization of HTML translation for object oriented definitions index
 
 	* tta/perl/Texinfo/Convert/Converter.pm (element_cdt),
