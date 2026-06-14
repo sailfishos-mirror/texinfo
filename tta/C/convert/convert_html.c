@@ -119,7 +119,7 @@ html_custom_translate_string (CONVERTER *self, const char *string,
                               const char *translation_context)
 {
   const FORMATTING_REFERENCE *formatting_reference
-    = &self->formatting_references[FR_format_translate_message];
+    = &self->current_formatting_references[FR_format_translate_message];
 
   /* there is no place where FRS_status_ignored could be set, but
      it does not hurt to consider it possible */
