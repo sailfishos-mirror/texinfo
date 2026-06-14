@@ -1,5 +1,9 @@
 2026-06-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/txi-is.tex: fix comment
+
+2026-06-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/txi-is.tex: Define sort strings for Þ, Æ, and Ö.
 
 2026-06-14  Gavin Smith <gavinsmith0123@gmail.com>
