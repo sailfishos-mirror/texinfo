@@ -1,5 +1,11 @@
 2026-06-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/txi-nb.tex: Define sort strings for Æ, Ø and Å.
+	* doc/texinfo.tex (\idxsort): Provide definition of sequence used
+	in translation files to improve reliability.
+
+2026-06-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/txi-is.tex: fix comment
 
 2026-06-14  Gavin Smith <gavinsmith0123@gmail.com>

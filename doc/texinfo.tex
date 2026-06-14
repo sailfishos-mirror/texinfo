@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2026-06-01.16}
+\def\texinfoversion{2026-06-14.20}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -11009,6 +11009,12 @@ directory should work if nowhere else does.}
   \egroup
   \expandafter\gdef\UTFviiiTmp{#2}%
 }
+
+% Used in translation files, e.g. in txi-is.tex:
+%   \DefineSortKey{00DE}{{\string\idxsort{1}{\string\TH{}}}} % Þ
+% We provide a definition here in case the sequence shows up in sorted
+% index files.
+\def\idxsort#1#2{#2}
 
 % this could be used as follows
 %\DefineSortKey{00F1}{nzzz} % n tilde - sort between n and o

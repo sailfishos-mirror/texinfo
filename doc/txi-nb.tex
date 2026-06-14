@@ -1,7 +1,7 @@
-% txi-it.tex -- Norwegian translations for texinfo.tex (1999-10-29, GNU
+% txi-nb.tex -- Norwegian translations for texinfo.tex (1999-10-29, GNU
 % Texinfo 4.0).
 %
-% Copyright (C) 1999, 2007, 2008 Trond Endrest=F8l <endrestol@hotmail.com>
+% Copyright (C) 1999, 2007, 2008, 2026 Trond Endrestøl <endrestol@hotmail.com>
 %
 % This program is free software; you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -69,3 +69,16 @@
   \or\putwordMSep\or\putwordMOct\or\putwordMNov\or\putwordMDec
   \fi
   \space\number\year}
+
+\def\idxsort#1#2{#2}
+
+% Make Æ Ø Å output in that order.  The characters are sorted by
+% texindex according to the first argument to \idxsort but
+% printed according to the second.
+
+\DefineSortKey{00C6}{{\string\idxsort{1}{\string\AE{}}}} % Æ
+\DefineSortKey{00E6}{{\string\idxsort{1}{\string\AE{}}}} % æ
+\DefineSortKey{00D8}{{\string\idxsort{2}{\string\O{}}}} % Ø
+\DefineSortKey{00F8}{{\string\idxsort{2}{\string\O{}}}} % ø
+\DefineSortKey{00C5}{{\string\idxsort{3}{\string\AA{}}}} % Å
+\DefineSortKey{00E5}{{\string\idxsort{3}{\string\AA{}}}} % å
