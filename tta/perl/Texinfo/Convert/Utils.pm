@@ -377,10 +377,7 @@ sub definition_category_tree($;$$$) {
     if (!defined($arg_class));
 
   my $def_command = $current->{'extra'}->{'def_command'};
-  if ($def_command eq 'defop'
-      or $def_command eq 'deftypeop'
-      or $def_command eq 'defmethod'
-      or $def_command eq 'deftypemethod') {
+  if (exists($Texinfo::Commands::def_class_method_commands{$def_command})) {
     my $substrings = {'category' => $arg_category, 'class' => $arg_class};
     if (defined($converter)) {
       return $converter->cdt('{category} on @code{{class}}', $substrings);
@@ -399,10 +396,8 @@ sub definition_category_tree($;$$$) {
                                  $new_lang_translations, $substrings);
       return $tree;
     }
-  } elsif ($def_command eq 'defivar'
-           or $def_command eq 'deftypeivar'
-           or $def_command eq 'defcv'
-           or $def_command eq 'deftypecv') {
+  } elsif (exists($Texinfo::Commands::def_class_variable_commands{
+                                                         $def_command})) {
     my $substrings = {'category' => $arg_category, 'class' => $arg_class};
     if (defined($converter)) {
       return $converter->cdt('{category} of @code{{class}}', $substrings);

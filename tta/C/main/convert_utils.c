@@ -821,7 +821,8 @@ definition_category_tree (const ELEMENT *current,
   ELEMENT *arg_category = 0;
   ELEMENT *arg_class = 0;
   ELEMENT *class_copy;
-  char *def_command;
+  const char *def_cmdname;
+  enum command_id def_command;
 
   if (current->e.c->contents.number > 0)
     {
@@ -855,13 +856,10 @@ definition_category_tree (const ELEMENT *current,
 
   class_copy = copy_element_tree (arg_class, 0);
 
-  def_command = lookup_extra_string (current, AI_key_def_command);
+  def_cmdname = lookup_extra_string (current, AI_key_def_command);
+  def_command = lookup_builtin_command (def_cmdname);
 
-  /* do something more efficient */
-  if (!strcmp (def_command, "defop")
-      || !strcmp (def_command, "deftypeop")
-      || !strcmp (def_command, "defmethod")
-      || !strcmp (def_command, "deftypemethod"))
+  if (builtin_command_data[def_command].flags & CF_def_class_method)
     {
       ELEMENT *category_copy = copy_element_tree (arg_category, 0);
       NAMED_STRING_ELEMENT_LIST *substrings
@@ -893,10 +891,8 @@ definition_category_tree (const ELEMENT *current,
                              lang_translation, substrings, 0, 0);
         }
       destroy_named_string_element_list (substrings);
-    } else if (!strcmp (def_command, "defivar")
-      || !strcmp (def_command, "deftypeivar")
-      || !strcmp (def_command, "defcv")
-      || !strcmp (def_command, "deftypecv"))
+    }
+  else if (builtin_command_data[def_command].flags & CF_def_class_variable)
     {
       ELEMENT *category_copy = copy_element_tree (arg_category, 0);
       NAMED_STRING_ELEMENT_LIST *substrings
