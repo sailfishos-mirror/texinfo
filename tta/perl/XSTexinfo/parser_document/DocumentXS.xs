@@ -39,8 +39,12 @@
 #include "errors.h"
 #include "document.h"
 #include "get_perl_info.h"
+/* for get_sv_converter */
+#include "get_converter_perl_info.h"
 #include "build_perl_info.h"
 #include "call_document_perl_functions.h"
+/* for html_element_cdt_tree */
+#include "html_converter_api.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
@@ -378,23 +382,38 @@ labels_list (SV *document_in)
   OUTPUT:
       RETVAL
 
-# optional argument is converter
 void
-setup_indices_sort_strings (SV *document_in, ...)
-    PROTOTYPE: $$
+setup_indices_sort_strings (SV *document_in, SV *converter_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
         document = get_sv_document_document (document_in,
                                              "setup_indices_sort_strings");
         if (document)
-          document_indices_sort_strings (document, &document->error_messages,
-                                         document->options);
+          {
+            CONVERTER *self = 0;
+            if (converter_in && SvOK (converter_in))
+              self = get_sv_converter (converter_in, 0);
+            CONVERTER *converter_for_translations = 0;
+            ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                            CONVERTER *self,
+                            NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                            const char *translation_context) = 0;
 
-# optional argument is converter
+            if (self && self->format == COF_html)
+              {
+                converter_for_translations = self;
+                element_cdt_tree_fn = &html_element_cdt_tree;
+              }
+            document_indices_sort_strings (document,
+                                           &document->error_messages,
+                                           document->options,
+                                           converter_for_translations,
+                                           element_cdt_tree_fn);
+          }
+
 SV *
-indices_sort_strings (SV *document_in, ...)
-    PROTOTYPE: $$
+indices_sort_strings (SV *document_in, SV *converter_in)
     PREINIT:
         DOCUMENT *document = 0;
         const INDICES_SORT_STRINGS *indices_sort_strings = 0;
@@ -404,10 +423,28 @@ indices_sort_strings (SV *document_in, ...)
         document = get_sv_document_document (document_in,
                                              "indices_sort_strings");
         if (document)
-          indices_sort_strings
-           = document_indices_sort_strings (document,
-                                            &document->error_messages,
-                                            document->options);
+          {
+            CONVERTER *self = 0;
+            if (converter_in && SvOK (converter_in))
+              self = get_sv_converter (converter_in, 0);
+            CONVERTER *converter_for_translations = 0;
+            ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                            CONVERTER *self,
+                            NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                            const char *translation_context) = 0;
+
+            if (self && self->format == COF_html)
+              {
+                converter_for_translations = self;
+                element_cdt_tree_fn = &html_element_cdt_tree;
+              }
+            indices_sort_strings
+             = document_indices_sort_strings (document,
+                                              &document->error_messages,
+                                              document->options,
+                                              converter_for_translations,
+                                              element_cdt_tree_fn);
+          }
 
         if (indices_sort_strings)
           {
@@ -475,7 +512,7 @@ print_document_indices_information (SV *document_in)
         RETVAL
 
 SV *
-print_document_indices_sort_strings (SV *document_in)
+print_document_indices_sort_strings (SV *document_in, SV *converter_in=0)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
@@ -483,8 +520,24 @@ print_document_indices_sort_strings (SV *document_in)
                                        "print_document_indices_sort_strings");
         if (document)
           {
-            char *indices_sort_strings_str
-              = print_document_indices_sort_strings (document);
+            CONVERTER *self = 0;
+            if (converter_in && SvOK (converter_in))
+              self = get_sv_converter (converter_in, 0);
+            char *indices_sort_strings_str;
+            CONVERTER *converter_for_translations = 0;
+            ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                            CONVERTER *self,
+                            NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                            const char *translation_context) = 0;
+
+            if (self && self->format == COF_html)
+              {
+                converter_for_translations = self;
+                element_cdt_tree_fn = &html_element_cdt_tree;
+              }
+            indices_sort_strings_str
+              = print_document_indices_sort_strings (document,
+                          converter_for_translations, element_cdt_tree_fn);
             if (indices_sort_strings_str)
               {
                 RETVAL = newSVpv_utf8 (indices_sort_strings_str, 0);

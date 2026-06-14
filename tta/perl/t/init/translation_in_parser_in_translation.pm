@@ -33,8 +33,6 @@ BB
 @printindex fn
 @printindex xx
 '},
-            # this is not used, as it is translated in the parser.
-            # To be used, should be in po/gmo file
             '{name} on {class}' => {''
                => '@deftypeop m n o p q r
 CC

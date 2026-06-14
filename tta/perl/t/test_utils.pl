@@ -822,6 +822,7 @@ sub test($$)
     };
 
   my $doing_epub = 0;
+  my $loaded_init_files = 0;
 
   # get symbols in Texinfo::Config namespace before calling the init files
   # such that the added symbols can be removed after running the tests to have
@@ -877,6 +878,8 @@ sub test($$)
           # converter_options and init_files_options is not well defined.
             $init_files_options->{'EPUB_CREATE_CONTAINER_FILE'} = 0;
           }
+        } else {
+          $loaded_init_files++;
         }
       } else {
         warn (sprintf("could not read init file %s", $filename));
@@ -1083,8 +1086,24 @@ sub test($$)
   $indices = $indices_info_text
     unless($indices_info_text eq $initial_index_names);
 
-  my $indices_sorted_sort_strings
-    = $document->print_document_indices_sort_strings();
+  my $indices_sorted_sort_strings;
+  # We want to see the effect of init files registering a different
+  # function for translations, as it impacts the sort strings for
+  # object oriented definition commands.  Therefore, if init files
+  # were read, we sort index strings using HTML converter functions.
+  if ($loaded_init_files and !$doing_epub) {
+    my $format_converter_options = {%$converter_options,
+                                    %$init_files_options};
+    my $converter_options
+      = set_converter_option_defaults($format_converter_options, 'html',
+                                      $self->{'DEBUG'});
+    my $converter = Texinfo::Convert::HTML->converter($converter_options);
+    $indices_sorted_sort_strings
+      = $document->print_document_indices_sort_strings($converter);
+  } else {
+    $indices_sorted_sort_strings
+      = $document->print_document_indices_sort_strings();
+  }
 
   $tree = $document->tree($XS_conversion);
 

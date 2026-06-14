@@ -72,9 +72,11 @@ sub setup_index_entry_keys_formatting($) {
 # that could also be output, independently of index sorting functions.
 # $DOCUMENT_INFO is only used in XS to retrieve the document and can either be
 # a Document or a Converter.
-sub index_entry_element_sort_string($$$$;$$) {
+# The converter argument is ignored in XS, therefore calls with this argument set
+# should only happen when called from functions that are themselves overriden.
+sub index_entry_element_sort_string($$$$;$$$) {
   my ($document_info, $main_entry, $index_entry_element, $options,
-      $prefer_reference_element, $debug_level) = @_;
+      $prefer_reference_element, $converter, $debug_level) = @_;
 
   my $sort_string;
   if (exists($index_entry_element->{'extra'})
@@ -83,7 +85,7 @@ sub index_entry_element_sort_string($$$$;$$) {
   } else {
     my $entry_tree_element
       = index_content_element($index_entry_element, $prefer_reference_element,
-                              undef, $debug_level);
+                              $converter, $debug_level);
     $sort_string = Texinfo::Convert::Text::convert_to_text(
                               $entry_tree_element, $options);
     # Not done for @sortas, in particular to be able to still sort using

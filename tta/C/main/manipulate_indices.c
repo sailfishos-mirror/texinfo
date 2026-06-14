@@ -220,7 +220,7 @@ def_command_index_entry (ELEMENT *main_entry_element,
                          int prefer_reference_element, DOCUMENT *document,
                          int debug_level,
                          CONVERTER *converter,
-   ELEMENT * (*cdt_element_tree_fn) (const char *string, const ELEMENT *element,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
                              CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                              const char *translation_context)
@@ -296,19 +296,19 @@ def_command_index_entry (ELEMENT *main_entry_element,
               add_element_to_named_string_element_list (substrings,
                                              "class", class_copy);
 
-              if (converter && cdt_element_tree_fn)
+              if (converter && element_cdt_tree_fn)
                 {
                   if (builtin_command_data[def_command].flags
                                                  & CF_def_class_method)
                     {
-                      index_entry = cdt_element_tree_fn ("{name} on {class}",
+                      index_entry = element_cdt_tree_fn ("{name} on {class}",
                                       main_entry_element, converter,
                                       substrings, 0);
                     }
                   else if (builtin_command_data[def_command].flags
                                               & CF_def_class_variable)
                     {
-                      index_entry = cdt_element_tree_fn ("{name} of {class}",
+                      index_entry = element_cdt_tree_fn ("{name} of {class}",
                                       main_entry_element, converter,
                                       substrings, 0);
                     }
@@ -364,7 +364,7 @@ ELEMENT *
 index_content_element (const ELEMENT *element, int prefer_reference_element,
                        DOCUMENT *document, int debug_level,
                        CONVERTER *converter,
-   ELEMENT * (*cdt_element_tree_fn) (const char *string, const ELEMENT *element,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
                              CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                              const char *translation_context)
@@ -378,7 +378,7 @@ index_content_element (const ELEMENT *element, int prefer_reference_element,
         = def_command_index_entry ((ELEMENT *) element,
                                    prefer_reference_element, document,
                                    debug_level, converter,
-                                   cdt_element_tree_fn);
+                                   element_cdt_tree_fn);
 
       return def_index_element;
     }
@@ -427,7 +427,13 @@ index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,
                                  TEXT_OPTIONS *options, int in_code,
                                  int prefer_reference_element,
-                                 int debug_level)
+                                 int debug_level,
+                                 CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                                 )
 {
   char *sort_string;
   char *index_ignore_chars;
@@ -451,7 +457,8 @@ index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
   entry_tree_element = index_content_element (index_entry_element,
                                           prefer_reference_element,
                                           options->document,
-                                          used_debug_level, 0, 0);
+                                          used_debug_level, converter,
+                                          element_cdt_tree_fn);
 
   if (in_code)
     options->code_state++;
@@ -582,7 +589,14 @@ destroy_index_entries_sort_strings (INDICES_SORT_STRINGS *indices_sort_strings)
 INDICES_SORT_STRINGS *
 setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                     OPTIONS *options, const MERGED_INDICES *merged_indices,
-                    INDEX_LIST *indices_information, int prefer_reference_element)
+                    INDEX_LIST *indices_information,
+                    int prefer_reference_element,
+                    CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                                 )
 {
   size_t i;
   TEXT_OPTIONS *convert_text_options;
@@ -647,7 +661,8 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                = index_entry_element_sort_string (index_entry,
                                      main_entry_element, convert_text_options,
                                      entry_index->in_code,
-                                     prefer_reference_element, -1);
+                                     prefer_reference_element, -1,
+                                     converter, element_cdt_tree_fn);
 
               entry_sort_string.entry = index_entry;
               entry_sort_string.subentries_number = 1;
@@ -707,7 +722,8 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                   sort_string
                     = index_entry_element_sort_string (index_entry,
                                      subentry, convert_text_options,
-                                     entry_index->in_code, 0, -1);
+                                     entry_index->in_code, 0, -1,
+                                     converter, element_cdt_tree_fn);
 
                   if (sort_string[strspn
                      (sort_string, whitespace_chars)] == '\0')
@@ -906,7 +922,13 @@ setup_sortable_index_entries (const INDEX_COLLATOR *collator,
 static INDICES_SORTABLE_ENTRIES *
 setup_sort_sortable_strings_collator (DOCUMENT *document,
                       ERROR_MESSAGE_LIST *error_messages,
-                      OPTIONS *options, int use_unicode_collation,
+                      OPTIONS *options,
+                      CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context),
+                      int use_unicode_collation,
                       const char *collation_language,
                       const char *collation_locale,
                       INDEX_COLLATOR **collator)
@@ -915,7 +937,8 @@ setup_sort_sortable_strings_collator (DOCUMENT *document,
   INDICES_SORTABLE_ENTRIES *index_sortable_index_entries;
 
   indices_sort_strings = document_indices_sort_strings (document,
-                                                error_messages, options);
+                                              error_messages, options,
+                                              converter, element_cdt_tree_fn);
 
   *collator = setup_collator (use_unicode_collation, collation_language,
                               collation_locale, error_messages, options);
@@ -1114,7 +1137,13 @@ destroy_collator (INDEX_COLLATOR *collator)
 
 INDEX_SORTED_BY_INDEX *
 sort_indices_by_index (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
-                       OPTIONS *options, int use_unicode_collation,
+                       OPTIONS *options,
+                       CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context),
+                       int use_unicode_collation,
                        const char *collation_language,
                        const char *collation_locale)
 {
@@ -1124,6 +1153,7 @@ sort_indices_by_index (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
 
   INDICES_SORTABLE_ENTRIES *indices_sortable_entries
     = setup_sort_sortable_strings_collator (document, error_messages, options,
+                                    converter, element_cdt_tree_fn,
                                     use_unicode_collation, collation_language,
                                     collation_locale, &collator);
 
@@ -1187,7 +1217,13 @@ sort_indices_by_index (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
 
 INDEX_SORTED_BY_LETTER *
 sort_indices_by_letter (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
-                        OPTIONS *options, int use_unicode_collation,
+                        OPTIONS *options,
+                        CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context),
+                        int use_unicode_collation,
                         const char *collation_language,
                         const char *collation_locale)
 {
@@ -1198,6 +1234,7 @@ sort_indices_by_letter (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
 
   INDICES_SORTABLE_ENTRIES *indices_sortable_entries
     = setup_sort_sortable_strings_collator (document, error_messages, options,
+                                    converter, element_cdt_tree_fn,
                                     use_unicode_collation, collation_language,
                                     collation_locale, &collator);
 
@@ -1580,7 +1617,7 @@ INDEX_ENTRY_TEXT_OR_COMMAND *
 index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry,
                                           DOCUMENT *document, int debug_level,
                                           CONVERTER *converter,
-   ELEMENT * (*cdt_element_tree_fn) (const char *string, const ELEMENT *element,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
                              CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                              const char *translation_context)
@@ -1599,7 +1636,7 @@ index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry,
     {
       ELEMENT *entry_tree_element
          = index_content_element (index_entry_element, 0, document,
-                                  debug_level, converter, cdt_element_tree_fn);
+                                  debug_level, converter, element_cdt_tree_fn);
       char *index_ignore_chars = lookup_extra_string (index_entry_element,
                                                   AI_key_index_ignore_chars);
       ELEMENT *parsed_element;

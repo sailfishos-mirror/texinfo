@@ -226,8 +226,8 @@ sub print_document_indices_information($) {
 }
 
 # for tests, to be used for overriding
-sub print_document_indices_sort_strings($) {
-  my $document = shift;
+sub print_document_indices_sort_strings($;$) {
+  my ($document, $converter) = @_;
 
   # read from C data if needed
   $document->indices_information();
@@ -245,7 +245,7 @@ sub print_document_indices_sort_strings($) {
     my $lang_sorting_locale = $document->get_conf('COLLATION_LANGUAGE');
   }
 
-  my $indices_sort_strings = indices_sort_strings($document, undef);
+  my $indices_sort_strings = indices_sort_strings($document, $converter);
 
   my $index_entries_sort_strings
    = Texinfo::Indices::format_index_entries_sort_strings(

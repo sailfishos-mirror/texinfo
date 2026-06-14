@@ -98,6 +98,11 @@ typedef struct CONVERTER_FORMAT_DATA {
                                        const ELEMENT *tree);
     void (* converter_release_output_units) (CONVERTER *self);
     void (* converter_free) (CONVERTER *self);
+    /* overriding of element_cdt_tree in HTML */
+    ELEMENT * (*element_cdt_tree) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context);
 } CONVERTER_FORMAT_DATA;
 
 extern enum command_id no_brace_command_accent_upper_case[][2];

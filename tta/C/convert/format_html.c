@@ -71,6 +71,8 @@
 #include "api_to_perl.h"
 #include "html_conversion_state.h"
 #include "convert_html.h"
+/* for html_element_cdt_tree */
+#include "html_converter_api.h"
 #include "format_html.h"
 
 const char *direction_string_type_names[] =

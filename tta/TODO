@@ -10,6 +10,9 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+perl -w t/init_files_tests.t customize_definition_index_translations -c
+./texi2any.pl --html --init t/init/translated_strings_customization.pm t_texis/init_files_tests/customize_definition_index_translations.texi
+
 Bugs
 ====
 

@@ -429,7 +429,7 @@ sub setup_index_entries_sort_strings($$$$;$) {
         = index_entry_element_sort_string($document_info,
                                $index_entry, $main_entry_element,
                            $convert_text_options, $prefer_reference_element,
-                           $debug);
+                           $converter, $debug);
       if ($entry_sort_string !~ /\S/) {
         my $entry_cmdname = $main_entry_element->{'cmdname'};
         $entry_cmdname
@@ -454,7 +454,7 @@ sub setup_index_entries_sort_strings($$$$;$) {
         my $subentry_sort_string
               = index_entry_element_sort_string($document_info,
                              $index_entry, $subentry, $convert_text_options,
-                             undef, $debug);
+                             undef, $converter, $debug);
         if ($subentry_sort_string !~ /\S/) {
           my $entry_cmdname = $main_entry_element->{'cmdname'};
           $entry_cmdname
@@ -939,7 +939,7 @@ strings are independent from the sorting keys used internally to sort indices.
 
 =over
 
-=item $sort_string = index_entry_element_sort_string($document_info, $main_entry, $index_entry_element, $options, $prefer_reference_element, $debug_level)
+=item $sort_string = index_entry_element_sort_string($document_info, $main_entry, $index_entry_element, $options, $prefer_reference_element, $converter, $debug_level)
 X<C<index_entry_element_sort_string>>
 
 Return a string suitable as a sorting string for index entries, possibly
@@ -960,6 +960,11 @@ early on, and reused in every call.
 
 If I<$prefer_reference_element> is set, prefer an untranslated
 element for the formatting as sorting string.
+
+If I<$converter> is set use the converter function for translation.
+This argument is ignored in XS, so should only be set when called
+from a function with an XS override, such that the argument
+is set only from functions used if XS is not being used at all.
 
 =item $option = setup_index_entry_keys_formatting($customization_information)
 X<C<setup_index_entry_keys_formatting>>

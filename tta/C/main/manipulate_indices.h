@@ -55,7 +55,7 @@ ELEMENT *index_content_element (const ELEMENT *element,
                        int prefer_reference_element,
                        DOCUMENT *document, int debug_level,
                        CONVERTER *converter,
-   ELEMENT * (*cdt_element_tree_fn) (const char *string, const ELEMENT *element,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
                              CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                              const char *translation_context)
@@ -65,24 +65,49 @@ char *index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,
                                  struct TEXT_OPTIONS *options, int in_code,
                                  int prefer_reference_element,
-                                 int debug_level);
+                                 int debug_level,
+                                 CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                                 );
+
 void destroy_index_entries_sort_strings (
                           INDICES_SORT_STRINGS *indices_sort_strings);
 INDICES_SORT_STRINGS *setup_index_entries_sort_strings (
                     ERROR_MESSAGE_LIST *error_messages,
                     OPTIONS *options, const MERGED_INDICES *merged_indices,
                     INDEX_LIST *indices_information,
-                    int prefer_reference_element);
+                    int prefer_reference_element,
+                    CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                                 );
 
 INDEX_SORTED_BY_INDEX *sort_indices_by_index (
                        DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
-                       OPTIONS *options, int use_unicode_collation,
+                       OPTIONS *options,
+                       CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context),
+                       int use_unicode_collation,
                        const char *collation_language,
                        const char *collation_locale);
 
 INDEX_SORTED_BY_LETTER *sort_indices_by_letter (
                         DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
-                        OPTIONS *options, int use_unicode_collation,
+                        OPTIONS *options,
+                        CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context),
+                        int use_unicode_collation,
                         const char *collation_language,
                         const char *collation_locale);
 
@@ -90,7 +115,7 @@ INDEX_ENTRY_TEXT_OR_COMMAND *index_entry_first_letter_text_or_command (
                                           const INDEX_ENTRY *index_entry,
                                           DOCUMENT *document, int debug_level,
                                           CONVERTER *converter,
-   ELEMENT * (*cdt_element_tree_fn) (const char *string, const ELEMENT *element,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
                              CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                              const char *translation_context)

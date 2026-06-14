@@ -7,6 +7,9 @@
 #include "tree_types.h"
 #include "option_types.h"
 #include "options_data.h"
+/* FIXME needed for index sorting, same as in Perl.  In other file?
+   Use struct CONVERTER instead?*/
+#include "converter_types.h"
 #include "document_types.h"
 
 /* avoid an interdependency with convert_to_text.h */
@@ -51,18 +54,36 @@ const MERGED_INDICES *document_merged_indices (DOCUMENT *document);
 const INDICES_SORT_STRINGS *document_indices_sort_strings (
                                DOCUMENT *document,
                                ERROR_MESSAGE_LIST *error_messages,
-                               OPTIONS *options);
+                               OPTIONS *options,
+                               CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                                 );
 
 COLLATION_INDICES_SORTED_BY_INDEX *sorted_indices_by_index (
                          DOCUMENT *document,
                          ERROR_MESSAGE_LIST *error_messages,
-                         OPTIONS *options, int use_unicode_collation,
+                         OPTIONS *options,
+                         CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context),
+                         int use_unicode_collation,
                          const char *input_lang_sorting_locale,
                          const char *collation_locale);
 COLLATION_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter (
                           DOCUMENT *document,
                           ERROR_MESSAGE_LIST *error_messages,
-                          OPTIONS *options, int use_unicode_collation,
+                          OPTIONS *options,
+                          CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context),
+                          int use_unicode_collation,
                           const char *input_lang_sorting_locale,
                           const char *collation_locale);
 
@@ -80,6 +101,11 @@ void wipe_document_parser_errors (DOCUMENT *document);
 
 char *print_document_listoffloats (DOCUMENT *document);
 char *print_document_indices_information (DOCUMENT *document);
-char *print_document_indices_sort_strings (DOCUMENT *document);
+char *print_document_indices_sort_strings (DOCUMENT *document, CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                                 );
 
 #endif

@@ -91,8 +91,12 @@ setup_index_entry_keys_formatting (SV *customization_info_sv)
          RETVAL
 
 # should only return undef if no document is found
+# the ignored argument is a converter that can be used to customize the translation function.
+# It is ignored as currently it is not called with this argument set and if it was, it
+# may be better to override callers and get the customization information
+# otherwise, as done in HTML.
 SV *
-index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, SV *element_sv, SV *options_sv, SV *prefer_reference_element_sv=0, SV *debug_level_sv=0)
+index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, SV *element_sv, SV *options_sv, SV *prefer_reference_element_sv=0, SV *, SV *debug_level_sv=0)
     PREINIT:
         CONVERTER *self;
         DOCUMENT *document;
@@ -144,7 +148,7 @@ index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, S
 
             sort_string = index_entry_element_sort_string (main_entry,
                           element, convert_index_text_options, in_code,
-                          prefer_reference_element, debug_level);
+                          prefer_reference_element, debug_level, 0, 0);
             if (allocated_text_options)
               destroy_text_options (convert_index_text_options);
           }

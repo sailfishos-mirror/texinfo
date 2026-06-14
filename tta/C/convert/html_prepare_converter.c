@@ -3403,6 +3403,18 @@ html_converter_customize (CONVERTER *self)
            external_type_open_function,
            external_formatting_function);
     */
+
+  /* modified when formatting a Texinfo as a CSS string, but always
+     reset to these values afterwards */
+  /* set it now and not right before starting to output, as the
+     current_* may be used in code called before starting the
+     conversion, mainly for index strings sorting to use a customized
+     function for translation */
+  self->current_formatting_references = &self->formatting_references[0];
+  self->current_commands_conversion_function
+     = &self->command_conversion_function[0];
+  self->current_types_conversion_function = &self->type_conversion_function[0];
+  self->current_format_protect_text = &html_default_format_protect_text;
 }
 
 
@@ -4018,15 +4030,6 @@ html_conversion_initialization (CONVERTER *self, const char *context,
       && !strcmp (self->conf->SPLIT.o.string, "node")
       && self->conf->USE_ACCESSKEY.o.integer < 0)
     option_set_conf (&self->conf->USE_ACCESSKEY, 1, 0);
-
-
-  /* modified when formatting a Texinfo as a CSS string, but always
-     reset to these values afterwards */
-  self->current_formatting_references = &self->formatting_references[0];
-  self->current_commands_conversion_function
-     = &self->command_conversion_function[0];
-  self->current_types_conversion_function = &self->type_conversion_function[0];
-  self->current_format_protect_text = &html_default_format_protect_text;
 
   html_new_document_context (self, context, 0, 0, 0);
   self->document_global_context_counter = 0;

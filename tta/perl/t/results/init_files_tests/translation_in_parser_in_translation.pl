@@ -169,7 +169,17 @@ list:
 $result_headings_list{'translation_in_parser_in_translation'} = '';
 
 $result_indices_sort_strings{'translation_in_parser_in_translation'} = 'fn:
- dd de db
+ m on n: o p q r
+CC
+
+
+Méthode de s: t u v w x
+DD
+
+ entry
+
+
+
 ';
 
 1;

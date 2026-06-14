@@ -533,7 +533,12 @@ txi_parser (const char *file_path, const VALUE_LIST *values,
 */
 void
 txi_complete_document (DOCUMENT *document, unsigned long flags,
-                       int format_menu)
+                       int format_menu, CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                                 )
 {
   int use_sections = (flags & STTF_complete_menus_use_sections);
 
@@ -582,7 +587,8 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
 
   if (flags & STTF_setup_index_entries_sort_strings)
     document_indices_sort_strings (document, &document->error_messages,
-                                         document->options);
+                                   document->options, converter,
+                                   element_cdt_tree_fn);
 }
 
 /* In texi2any.pl, not in a separate function */

@@ -79,13 +79,13 @@ CONVERTER_FORMAT_DATA converter_format_data[] = {
   {"html", "Texinfo::Convert::HTML", &html_format_setup, 0,
    &html_converter_defaults,
    &html_converter_initialize, &html_output, &html_convert,
-   &html_convert_tree, 0, &html_free_converter},
+   &html_convert_tree, 0, &html_free_converter, &html_element_cdt_tree},
   {"rawtext", "Texinfo::Convert::Text", 0, &rawtext_converter,
    0, 0, &rawtext_output,
-   &rawtext_convert, &rawtext_convert_tree, 0, 0},
+   &rawtext_convert, &rawtext_convert_tree, 0, 0, 0},
   {"plaintexinfo", "Texinfo::Convert::PlainTexinfo", 0, 0,
    &plaintexinfo_converter_defaults, 0, &plaintexinfo_output,
-   &plaintexinfo_convert, &plaintexinfo_convert_tree, 0, 0},
+   &plaintexinfo_convert, &plaintexinfo_convert_tree, 0, 0, 0},
 };
 
 /* associate lower case no brace accent command to the upper case
@@ -1549,6 +1549,12 @@ get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
     {
       COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices;
       char *lang_sorting_locale = 0;
+      ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context) = 0;
+      CONVERTER *converter_for_translations = 0;
+
       if (self->conf->USE_UNICODE_COLLATION.o.integer >= 0)
         {
           if (self->conf->COLLATION_LANGUAGE.o.string)
@@ -1560,9 +1566,19 @@ get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
                               (self->current_lang_translations->info);
         }
 
+      if (self->format != COF_none
+          && converter_format_data[self->format].element_cdt_tree)
+        {
+          converter_for_translations = self;
+          element_cdt_tree_fn
+            = converter_format_data[self->format].element_cdt_tree;
+        }
+
       collation_sorted_indices
         = sorted_indices_by_index (self->document,
                                    &self->error_messages, self->conf,
+                                   converter_for_translations,
+                                   element_cdt_tree_fn,
                                    self->conf->USE_UNICODE_COLLATION.o.integer,
                                    lang_sorting_locale,
                            self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);
@@ -1585,6 +1601,12 @@ get_converter_indices_sorted_by_letter (CONVERTER *self, char **language)
     {
       COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices;
       char *lang_sorting_locale = 0;
+      ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context) = 0;
+      CONVERTER *converter_for_translations = 0;
+
       if (self->conf->USE_UNICODE_COLLATION.o.integer >= 0)
         {
           if (self->conf->COLLATION_LANGUAGE.o.string)
@@ -1596,9 +1618,19 @@ get_converter_indices_sorted_by_letter (CONVERTER *self, char **language)
                               (self->current_lang_translations->info);
         }
 
+      if (self->format != COF_none
+          && converter_format_data[self->format].element_cdt_tree)
+        {
+          converter_for_translations = self;
+          element_cdt_tree_fn
+            = converter_format_data[self->format].element_cdt_tree;
+        }
+
       collation_sorted_indices
         = sorted_indices_by_letter (self->document,
                                     &self->error_messages, self->conf,
+                                    converter_for_translations,
+                                    element_cdt_tree_fn,
                                     self->conf->USE_UNICODE_COLLATION.o.integer,
                                     lang_sorting_locale,
                             self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);

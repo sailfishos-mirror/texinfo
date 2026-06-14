@@ -1,5 +1,51 @@
 2026-06-14 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_indices.c: rename cdt_element_tree_fn as
+	element_cdt_tree_fn.
+
+	* tta/C/convert/converter.c (converter_format_data)
+	(get_converter_indices_sorted_by_index)
+	(get_converter_indices_sorted_by_letter), tta/C/convert/converter.h
+	(CONVERTER_FORMAT_DATA): add element_cdt_tree field in
+	CONVERTER_FORMAT_DATA, set it for HTML and get it in
+	get_converter_indices_sorted_by_*.
+
+	* tta/C/convert/texinfo.c (txi_complete_document),
+	tta/C/main/document.c (document_indices_sort_strings)
+	(sorted_indices_by_index, sorted_indices_by_letter)
+	(print_document_indices_sort_strings),
+	tta/C/main/manipulate_indices.c (index_entry_element_sort_string)
+	(setup_index_entries_sort_strings)
+	(setup_sort_sortable_strings_collator, sort_indices_by_index)
+	(sort_indices_by_letter), tta/perl/Texinfo/DocumentNonXS.pm
+	(print_document_indices_sort_strings),
+	tta/perl/Texinfo/IndicesNonXS.pm (index_entry_element_sort_string),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs
+	(setup_indices_sort_strings, indices_sort_strings)
+	(print_document_indices_sort_strings), tta/swig/texinfo.i:
+	pass converter in Perl and converter and HTML specific function from
+	index sorting and print_document_indices_sort_strings down to
+	indices_sort_strings or index_content_element.  Update callers.
+
+	* tta/C/convert/html_prepare_converter.c (html_converter_customize)
+	(html_conversion_initialization): set self->current_* in
+	html_converter_customize and not right before starting to output, as
+	the current_* struct fields may be used in code called before starting
+	the conversion, mainly for index strings sorting to use a customized
+	function for translation.
+
+	* tta/C/texi2any.c (main), tta/perl/t/test_utils.pl (test),
+	tta/perl/texi2any.pl: setup converter earlier to have it for the call
+	to setup_indices_sort_strings or txi_complete_document.
+
+	* tta/perl/Texinfo/Document.pm (BEGIN), tta/perl/XSTexinfo/Makefile.am
+	(DocumentXS_la_CPPFLAGS, DocumentXS_la_LIBADD): link DocumentXS
+	against conversion library now that a converter and associated
+	functions may be needed for index strings sorting translation
+	customization.
+
+2026-06-14 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c (html_custom_translate_string): use
 	current_formatting_references.
 

@@ -330,7 +330,13 @@ register_document_convert_index_text_options (DOCUMENT *document,
 const INDICES_SORT_STRINGS *
 document_indices_sort_strings (DOCUMENT *document,
                                ERROR_MESSAGE_LIST *error_messages,
-                               OPTIONS *options)
+                               OPTIONS *options,
+                               CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                                 )
 {
   if (!document->indices_sort_strings)
     {
@@ -339,7 +345,8 @@ document_indices_sort_strings (DOCUMENT *document,
 
       document->indices_sort_strings
        = setup_index_entries_sort_strings (error_messages, options,
-                        merged_indices, &document->indices_info, 0);
+                        merged_indices, &document->indices_info, 0,
+                        converter, element_cdt_tree_fn);
 
       document->modified_information |= F_DOCM_indices_sort_strings;
     }
@@ -395,7 +402,13 @@ find_collation_sorted_indices_by_index (
 COLLATION_INDICES_SORTED_BY_INDEX *
 sorted_indices_by_index (DOCUMENT *document,
                          ERROR_MESSAGE_LIST *error_messages,
-                         OPTIONS *options, int use_unicode_collation,
+                         OPTIONS *options,
+                         CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context),
+                         int use_unicode_collation,
                          const char *input_lang_sorting_locale,
                          const char *collation_locale)
 {
@@ -454,6 +467,7 @@ sorted_indices_by_index (DOCUMENT *document,
       document_merged_indices (document);
       collation_sorted_indices->sorted_indices
         = sort_indices_by_index (document, error_messages, options,
+                                 converter, element_cdt_tree_fn,
                                  use_unicode_collation, lang_sorting_locale,
                                  collation_locale);
     }
@@ -509,7 +523,13 @@ find_collation_sorted_indices_by_letter (
 COLLATION_INDICES_SORTED_BY_LETTER *
 sorted_indices_by_letter (DOCUMENT *document,
                           ERROR_MESSAGE_LIST *error_messages,
-                          OPTIONS *options, int use_unicode_collation,
+                          OPTIONS *options,
+                          CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context),
+                          int use_unicode_collation,
                           const char *input_lang_sorting_locale,
                           const char *collation_locale)
 {
@@ -568,6 +588,7 @@ sorted_indices_by_letter (DOCUMENT *document,
       document_merged_indices (document);
       collation_sorted_indices->sorted_indices
         = sort_indices_by_letter (document, error_messages, options,
+                                  converter, element_cdt_tree_fn,
                                   use_unicode_collation, lang_sorting_locale,
                                   collation_locale);
     }
@@ -894,7 +915,12 @@ setup_indices_entries_sort_strings (const INDEX_LIST *indices_info,
 }
 
 char *
-print_document_indices_sort_strings (DOCUMENT *document)
+print_document_indices_sort_strings (DOCUMENT *document, CONVERTER *converter,
+   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                                 )
 {
   size_t i;
   const MERGED_INDICES *merged_indices;
@@ -925,11 +951,14 @@ print_document_indices_sort_strings (DOCUMENT *document)
     }
 
   indices_sort_strings = document_indices_sort_strings (document,
-                            &document->error_messages, document->options);
+                            &document->error_messages, document->options,
+                            converter, element_cdt_tree_fn);
 
   collation_sorted_index_entries
    = sorted_indices_by_index (document, &document->error_messages,
-                              document->options, use_unicode_collation,
+                              document->options,
+                              converter, element_cdt_tree_fn,
+                              use_unicode_collation,
                               lang_sorting_locale, 0);
 
   memset (&indices_sort_strings_n_nr, 0, sizeof (NAME_NUMBER_LIST));
