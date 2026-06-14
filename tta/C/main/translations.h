@@ -19,14 +19,16 @@
    translated strings.
  */
 /* there are two translated strings in parser related to definition
-   name and category, that are not shared with the remaining of the
+   name and category, that are not always shared with the remaining of the
    codes
  */
 #define TXI_PARSER_STRINGS_NR 2
 
-/* number of document strings except for parser strings */
+/* number of document strings for converters.  Not directly using
+   TXI_DOCUMENT_TRANSLATED_STRINGS_NR because previously the parser
+   strings were excluded */
 #define TXI_CONVERT_STRINGS_NR \
-  (TXI_DOCUMENT_TRANSLATED_STRINGS_NR - TXI_PARSER_STRINGS_NR)
+  TXI_DOCUMENT_TRANSLATED_STRINGS_NR
 
 extern LANG_TRANSLATION **converters_translation_cache;
 
