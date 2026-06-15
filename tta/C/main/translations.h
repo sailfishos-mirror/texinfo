@@ -9,7 +9,7 @@
 #include "document_types.h"
 
 // msgfmt --statistics po_document/*.pot
-#define TXI_DOCUMENT_TRANSLATED_STRINGS_NR 243
+#define TXI_DOCUMENT_TRANSLATED_STRINGS_NR 244
 
 /* TXI_CONVERT_STRINGS_NR and TXI_PARSER_STRINGS_NR are used to
    dimension hashes, such that it is not a big deal if their values
@@ -18,11 +18,11 @@
    for instance it is likely that a document never needs all the
    translated strings.
  */
-/* there are two translated strings in parser related to definition
-   name and category, that are not always shared with the remaining of the
+/* there were two translated strings in parser related to definition
+   name and category, that were not always shared with the remaining of the
    codes
- */
 #define TXI_PARSER_STRINGS_NR 2
+ */
 
 /* number of document strings for converters.  Not directly using
    TXI_DOCUMENT_TRANSLATED_STRINGS_NR because previously the parser

@@ -189,8 +189,6 @@ destroy_indices_sorted_by_letter (
   free (indices_entries_by_letter);
 }
 
-static LANG_TRANSLATION **parser_translation_cache;
-
 static void
 remove_def_types (ELEMENT *element)
 {
@@ -320,8 +318,8 @@ def_command_index_entry (ELEMENT *main_entry_element,
                 {
                   element_lang_translations
                     = new_element_language_translation (
-                       &parser_translation_cache, main_entry_element,
-                       TXI_PARSER_STRINGS_NR);
+                       &converters_translation_cache, main_entry_element,
+                       TXI_CONVERT_STRINGS_NR);
 
                   if (builtin_command_data[def_command].flags
                                                  & CF_def_class_method)

@@ -1190,6 +1190,11 @@ gdt_tree (const char *string, DOCUMENT *document,
         = unregister_document_merge_with_document (translation_document,
                                                    document);
 
+      /* The following line could be removed, but it could be more efficient
+         if the tree is copied many time to avoid setting parents. Parent
+         information is not relevant for the @-commands appearing in all
+         the existing translated strings.
+       */
       tree_remove_parents (translated_string_tree->tree);
     }
 

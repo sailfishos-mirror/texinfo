@@ -1,5 +1,14 @@
 2026-06-15 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_indices.c (def_command_index_entry),
+	tta/C/main/translations.h, tta/perl/Texinfo/Indices.pm
+	(_def_command_index_entry): do not use a different cache for
+	translation without a converter, use the same cache as converters.
+	Remove the unused cache variables and comment out
+	TXI_PARSER_STRINGS_NR.
+
+2026-06-15 Patrice Dumas  <pertusus@free.fr>
+
 	update po
 
 2026-06-15 Patrice Dumas  <pertusus@free.fr>

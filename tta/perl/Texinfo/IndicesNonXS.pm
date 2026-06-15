@@ -72,8 +72,11 @@ sub setup_index_entry_keys_formatting($) {
 # that could also be output, independently of index sorting functions.
 # $DOCUMENT_INFO is only used in XS to retrieve the document and can either be
 # a Document or a Converter.
-# The converter argument is ignored in XS, therefore calls with this argument set
-# should only happen when called from functions that are themselves overriden.
+# $DEBUG_LEVEL and $CONVERTER are not used if there is no translation,
+# if $PREFER_REFERENCE_ELEMENT is set.
+# The $CONVERTER argument is ignored in XS, therefore calls with this argument
+# set should only happen when called from functions that are themselves
+# overriden.
 sub index_entry_element_sort_string($$$$;$$$) {
   my ($document_info, $main_entry, $index_entry_element, $options,
       $prefer_reference_element, $converter, $debug_level) = @_;

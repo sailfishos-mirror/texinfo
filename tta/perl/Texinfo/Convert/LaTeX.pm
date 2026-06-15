@@ -2669,8 +2669,7 @@ sub _index_entry($$) {
       my $sort_string
            = Texinfo::Indices::index_entry_element_sort_string(
                                   $self, $entry, $subindex_command,
-                                  $self->{'index_formatting_text_options'}, 1,
-                                  undef, $self->{'debug'});
+                                  $self->{'index_formatting_text_options'}, 1);
       my $result = '';
       if (defined($sort_string)) {
         # | in sort key breaks with hyperref

@@ -161,8 +161,6 @@ sub getSortKey($$) {
 
 package Texinfo::Indices;
 
-my %parser_translation_cache;
-
 sub _remove_def_types($) {
   my $element = shift;
 
@@ -217,6 +215,7 @@ sub _def_command_index_entry($;$$$) {
       foreach my $element_copy ($class_copy, $name_copy) {
         _remove_def_types($element_copy);
       }
+
       if ($prefer_reference_element) {
         my $text_element;
         my $index_entry_normalized = Texinfo::TreeElement::new({});
@@ -258,7 +257,7 @@ sub _def_command_index_entry($;$$$) {
         } else {
           my $element_lang_translations
             = Texinfo::Translations::new_element_language_translation(
-                            \%parser_translation_cache,
+                    $Texinfo::Translations::converters_translation_cache,
                             $main_entry_element);
 
           if (exists($Texinfo::Commands::def_class_method_commands{

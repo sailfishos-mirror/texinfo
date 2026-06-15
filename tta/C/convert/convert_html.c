@@ -220,7 +220,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
 }
 
 /* same as gdt_tree with html_cache_translate_string called instead of
-   cache_translate_string */
+   cache_translate_string and converter in argument, not document. */
 ELEMENT *
 html_gdt_tree (const char *string, CONVERTER *self,
                const LANG_TRANSLATION *lang_translation,
@@ -254,6 +254,12 @@ html_gdt_tree (const char *string, CONVERTER *self,
       translated_string_tree->tree
         = unregister_document_merge_with_document (translation_document,
                                                    document);
+
+      /* in gdt_tree parent information is removed from the
+         translated_string_tree->tree.  We do not do it here, as we have
+         no control over the @-commands appearing in user-defined
+         translated strings.  There is a test for such a situation
+         in the t/ *.t tests with @def* commands in translation. */
     }
 
   result_tree = copy_element_tree (translated_string_tree->tree, 0);
