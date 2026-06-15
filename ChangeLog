@@ -1,5 +1,11 @@
 2026-06-14 Patrice Dumas  <pertusus@free.fr>
 
+	* po_document/Makevars (XGETTEXT_OPTIONS): add element_cdt*.
+
+	* Makefile.am (po_document-check), po_document/POTFILES.in: update.
+
+2026-06-14 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/texi2any.c (main): set element_cdt_tree_fn to
 	html_element_cdt_tree if outputting HTML.
 

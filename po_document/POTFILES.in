@@ -11,6 +11,7 @@ tta/perl/ext/epub3.pm
 tta/perl/init/html32.pm
 tta/perl/Texinfo/Common.pm
 tta/perl/Texinfo/HTMLData.pm
+tta/perl/Texinfo/Indices.pm
 tta/perl/Texinfo/Structuring.pm
 tta/perl/Texinfo/Translations.pm
 tta/perl/Texinfo/Convert/Converter.pm
@@ -24,10 +25,10 @@ tta/C/convert/converter.c
 tta/C/convert/convert_html.c
 tta/C/convert/format_html.c
 tta/C/main/html_conversion_data.c
+tta/C/main/manipulate_indices.c
 tta/C/main/convert_to_text.c
 tta/C/main/convert_utils.c
 tta/C/main/parser_conf.c
 tta/C/main/translations.c
 tta/C/main/utils.c
-tta/C/parsetexi/indices.c
 tta/C/structuring_transfo/structuring.c
