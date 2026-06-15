@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.2.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-04-01 22:39+0200\n"
+"POT-Creation-Date: 2026-06-15 00:30+0200\n"
 "PO-Revision-Date: 2026-02-07 20:28+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: info/dir.c:63
+#: info/dir.c:67
 msgid ""
 "Dir files used for this node\n"
 "\n"
@@ -30,11 +30,11 @@ msgstr ""
 "Файли каталогу, які використано для цього вузла\n"
 "\n"
 
-#: info/echo-area.c:290 info/session-cmd.c:424
+#: info/echo-area.c:290 info/session-cmd.c:430
 msgid "Move forward a character"
 msgstr "Перейти на символ вперед"
 
-#: info/echo-area.c:309 info/session-cmd.c:437
+#: info/echo-area.c:309 info/session-cmd.c:443
 msgid "Move backward a character"
 msgstr "Перейти на символ назад"
 
@@ -46,11 +46,11 @@ msgstr "Перейти на початок цього рядка"
 msgid "Move to the end of this line"
 msgstr "Перейти в кінець цього рядка"
 
-#: info/echo-area.c:348 info/session-cmd.c:452
+#: info/echo-area.c:348 info/session-cmd.c:458
 msgid "Move forward a word"
 msgstr "Перейти вперед на одне слово"
 
-#: info/echo-area.c:388 info/session-cmd.c:466
+#: info/echo-area.c:388 info/session-cmd.c:472
 msgid "Move backward a word"
 msgstr "Перейти назад на одне слово"
 
@@ -280,7 +280,7 @@ msgstr "Немає пунктів покажчика, які б містили �
 msgid "No available info files have '%s' in their indices"
 msgstr "Жоден доступний файл info не містить «%s» у покажчику"
 
-#: info/info.c:320 info/session-cmd.c:1968
+#: info/info.c:320 info/session-cmd.c:1998
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr "Меню вузла «%2$s» не містить пункту «%1$s»"
@@ -320,7 +320,7 @@ msgstr "значення %s є некоректним для змінної %s"
 msgid "Try --help for more information.\n"
 msgstr "Спробуйте --help, щоб отримати більше інформації.\n"
 
-#: info/info.c:949 install-info/install-info.c:2281
+#: info/info.c:949 install-info/install-info.c:2301
 #, c-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -993,66 +993,74 @@ msgstr "Показати усі відповідні файли"
 msgid "No file index"
 msgstr "Немає покажчика файлів"
 
-#: info/session-cmd.c:303
+#: info/session-cmd.c:126 info/session-cmd.c:542
+msgid "You are already at the last page of this node"
+msgstr "Ви вже на останній сторінці цього вузла"
+
+#: info/session-cmd.c:157 info/session-cmd.c:578
+msgid "You are already at the first page of this node"
+msgstr "Ви вже на першій сторінці цього вузла"
+
+#: info/session-cmd.c:309
 msgid "Move down to the next line"
 msgstr "Перейти вниз на наступний рядок"
 
-#: info/session-cmd.c:321
+#: info/session-cmd.c:327
 msgid "Move up to the previous line"
 msgstr "Перейти вверх на попередній рядок"
 
-#: info/session-cmd.c:340
+#: info/session-cmd.c:346
 msgid "Move the cursor to a specific line of the window"
 msgstr "Пересунути курсор до вказаного рядка вікна"
 
-#: info/session-cmd.c:372
+#: info/session-cmd.c:378
 msgid "Move to the end of the line"
 msgstr "Перейти в кінець рядка"
 
-#: info/session-cmd.c:397
+#: info/session-cmd.c:403
 msgid "Move to the start of the line"
 msgstr "Перейти на початок рядка"
 
-#: info/session-cmd.c:481
+#: info/session-cmd.c:487
 msgid "Move to the start of this node"
 msgstr "Перейти до початку вузла"
 
-#: info/session-cmd.c:488
+#: info/session-cmd.c:494
 msgid "Move to the end of this node"
 msgstr "Перейти до кінця вузла"
 
-#: info/session-cmd.c:579
+#: info/session-cmd.c:597
 msgid "Scroll forward in this window"
 msgstr "Гортати вперед це вікно"
 
-#: info/session-cmd.c:593
+#: info/session-cmd.c:611
 msgid "Scroll backward in this window"
 msgstr "Гортати назад це вікно"
 
-#: info/session-cmd.c:601
+#: info/session-cmd.c:619
 msgid "Scroll forward in this window and set default window size"
 msgstr "Гортати вперед це вікно й встановити стандартний розмір вікна"
 
-#: info/session-cmd.c:616
+#: info/session-cmd.c:634
 msgid "Scroll backward in this window and set default window size"
 msgstr "Гортати назад це вікно й встановити стандартний розмір вікна"
 
-#: info/session-cmd.c:622
+#: info/session-cmd.c:640
 msgid "Scroll forward in this window staying within node"
 msgstr "Гортати вперед це вікно, не перетинаючи меж вузла"
 
-#: info/session-cmd.c:637
+#: info/session-cmd.c:655
 msgid "Scroll backward in this window staying within node"
 msgstr "Гортати назад це вікно, не перетинаючи меж вузла"
 
-#: info/session-cmd.c:645
+#: info/session-cmd.c:663
 msgid ""
 "Scroll forward in this window staying within node and set default window size"
 msgstr ""
 "Гортати вперед це вікно, не перетинаючи меж вузла й встановити стандартний "
 "розмір вікна"
 
-#: info/session-cmd.c:672
+#: info/session-cmd.c:690
 msgid ""
 "Scroll backward in this window staying within node and set default window "
 "size"
@@ -1060,75 +1068,75 @@ msgstr ""
 "Гортати назад це вікно, не перетинаючи меж вузла й встановити стандартний "
 "розмір вікна"
 
-#: info/session-cmd.c:678
+#: info/session-cmd.c:696
 msgid "Scroll down by lines"
 msgstr "Прокручувати вниз по рядку"
 
-#: info/session-cmd.c:684
+#: info/session-cmd.c:702
 msgid "Scroll up by lines"
 msgstr "Прокручувати вверх по рядку"
 
-#: info/session-cmd.c:696
+#: info/session-cmd.c:714
 msgid "Scroll down by half screen size"
 msgstr "Прокручувати вниз на половину екрану"
 
-#: info/session-cmd.c:723
+#: info/session-cmd.c:741
 msgid "Scroll up by half screen size"
 msgstr "Прокручувати вверх на половину екрану"
 
-#: info/session-cmd.c:729
+#: info/session-cmd.c:747
 msgid "Scroll the other window"
 msgstr "Гортати інше вікно"
 
-#: info/session-cmd.c:750
+#: info/session-cmd.c:768
 msgid "Scroll the other window backward"
 msgstr "Гортати інше вікно назад"
 
-#: info/session-cmd.c:860
+#: info/session-cmd.c:878
 msgid "Select the next window"
 msgstr "Обрати наступне вікно"
 
-#: info/session-cmd.c:897
+#: info/session-cmd.c:915
 msgid "Select the previous window"
 msgstr "Обрати попереднє вікно"
 
-#: info/session-cmd.c:941
+#: info/session-cmd.c:959
 msgid "Split the current window"
 msgstr "Розділити поточне вікно"
 
-#: info/session-cmd.c:989
+#: info/session-cmd.c:1007
 msgid "Delete the current window"
 msgstr "Прибрати поточне вікно"
 
-#: info/session-cmd.c:992
+#: info/session-cmd.c:1010
 msgid "Cannot delete the last window"
 msgstr "Неможливо вилучити єдине вікно"
 
-#: info/session-cmd.c:994
+#: info/session-cmd.c:1012
 msgid "Cannot delete a permanent window"
 msgstr "Не вдається прибрати постійне вікно"
 
-#: info/session-cmd.c:1025
+#: info/session-cmd.c:1043
 msgid "Delete all other windows"
 msgstr "Прибрати усі інші вікна"
 
-#: info/session-cmd.c:1071
+#: info/session-cmd.c:1089
 msgid "Grow (or shrink) this window"
 msgstr "Збільшити (або скоротити) це вікно"
 
-#: info/session-cmd.c:1082
+#: info/session-cmd.c:1100
 msgid "Divide the available screen space among the visible windows"
 msgstr "Розділити доступний простір екрану між видимими вікнами"
 
-#: info/session-cmd.c:1089
+#: info/session-cmd.c:1107
 msgid "Toggle the state of line wrapping in the current window"
 msgstr "Перемикнути стан вертання рядків у поточному вікні"
 
-#: info/session-cmd.c:1356
+#: info/session-cmd.c:1374
 msgid "Select this menu item"
 msgstr "Обрати цей пункт меню"
 
-#: info/session-cmd.c:1386
+#: info/session-cmd.c:1404
 #, c-format
 msgid "There isn't %d item in this menu"
 msgid_plural "There aren't %d items in this menu"
@@ -1136,458 +1144,462 @@ msgstr[0] "У цьому меню немає пункту %d"
 msgstr[1] "У цьому меню нема %d-го пункту"
 msgstr[2] "У цьому меню нема %d-го пункту"
 
-#: info/session-cmd.c:1395
+#: info/session-cmd.c:1413
 msgid "Select the last item in this node's menu"
 msgstr "Обрати останній пункт меню цього вузла"
 
-#: info/session-cmd.c:1499
+#: info/session-cmd.c:1517
 #, c-format
 msgid "Menu item (%s): "
 msgstr "Пункт меню (%s): "
 
-#: info/session-cmd.c:1501
+#: info/session-cmd.c:1519
 msgid "Menu item: "
 msgstr "Пункт меню: "
 
-#: info/session-cmd.c:1506
+#: info/session-cmd.c:1524
 #, c-format
 msgid "Follow xref (%s): "
 msgstr "Перейти за xref (%s): "
 
-#: info/session-cmd.c:1508
+#: info/session-cmd.c:1526
 msgid "Follow xref: "
 msgstr "Перейти за посиланням: "
 
-#: info/session-cmd.c:1585
+#: info/session-cmd.c:1603
 #, c-format
 msgid "The reference disappeared! (%s)"
 msgstr "Посилання зникло! (%s)"
 
-#: info/session-cmd.c:1597
+#: info/session-cmd.c:1615
 msgid "Read a menu item and select its node"
 msgstr "Прочитати пункт меню й обрати його вузол"
 
-#: info/session-cmd.c:1622
+#: info/session-cmd.c:1640
 msgid "Read a footnote or cross reference and select its node"
 msgstr "Прочитати виноску чи перехресне посилання й обрати її вузол"
 
-#: info/session-cmd.c:1645
+#: info/session-cmd.c:1663
 msgid "Move to the start of this node's menu"
 msgstr "Перейти до початку меню цього вузла"
 
-#: info/session-cmd.c:1683
+#: info/session-cmd.c:1701
 msgid "Visit as many menu items at once as possible"
 msgstr "Відкрити одночасно стільки пунктів меню, скільки вдасться"
 
-#: info/session-cmd.c:1786
+#: info/session-cmd.c:1804
 msgid "Move to the previous cross reference"
 msgstr "Перейти до попереднього перехресного посилання"
 
-#: info/session-cmd.c:1849
+#: info/session-cmd.c:1848
+#, fuzzy, c-format
+#| msgid "No cross references in this node"
+msgid "No earlier cross-reference in node"
+msgstr "Цей вузол не містить перехресних посилань"
+
+#: info/session-cmd.c:1873
 msgid "Move to the next cross reference"
 msgstr "Перейти до наступного перехресного посилання"
 
-#: info/session-cmd.c:1910
+#: info/session-cmd.c:1914
+#, fuzzy, c-format
+#| msgid "No cross references in this node"
+msgid "No later cross-reference in node"
+msgstr "Цей вузол не містить перехресних посилань"
+
+#: info/session-cmd.c:1940
 msgid "Select reference or menu item appearing on this line"
 msgstr "Обрати посилання чи пункт меню з цього рядка"
 
-#: info/session-cmd.c:1946
+#: info/session-cmd.c:1976
 #, c-format
 msgid "No menu in node '%s'"
 msgstr "Вузол «%s» не містить меню"
 
-#: info/session-cmd.c:1993
+#: info/session-cmd.c:2023
 #, c-format
 msgid "Unable to find node referenced by '%s' in '%s'"
 msgstr "Не вдається знайти вузол, на який посилається «%s» у «%s»"
 
-#: info/session-cmd.c:2049
+#: info/session-cmd.c:2079
 msgid "Read a list of menus starting from dir and follow them"
 msgstr "Прочитати список пунктів меню, починаючи від dir та перейти за ними"
 
-#: info/session-cmd.c:2051
+#: info/session-cmd.c:2081
 msgid "Follow menus: "
 msgstr "Йти за меню: "
 
-#: info/session-cmd.c:2117
+#: info/session-cmd.c:2147
 #, c-format
 msgid "No '%s' pointer for this node"
 msgstr "Немає вказівника «%s» для цього вузла"
 
-#: info/session-cmd.c:2156
+#: info/session-cmd.c:2188
 msgid "Select the Next node"
 msgstr "Обрати наступний вузол"
 
-#: info/session-cmd.c:2163
+#: info/session-cmd.c:2195
 msgid "Select the Prev node"
 msgstr "Обрати попередній вузол"
 
-#: info/session-cmd.c:2170
+#: info/session-cmd.c:2202
 msgid "Select the Up node"
 msgstr "Обрати горішній вузол"
 
-#: info/session-cmd.c:2176
+#: info/session-cmd.c:2208
 msgid "Select the last node in this file"
 msgstr "Обрати останній вузол цього файлу"
 
-#: info/session-cmd.c:2203 info/session-cmd.c:2236
+#: info/session-cmd.c:2235 info/session-cmd.c:2268
 msgid "This window has no additional nodes"
 msgstr "Це вікно не має додаткових вузлів"
 
-#: info/session-cmd.c:2209
+#: info/session-cmd.c:2241
 msgid "Select the first node in this file"
 msgstr "Обрати перший вузол цього файлу"
 
-#: info/session-cmd.c:2257
-msgid "You are already at the last page of this node"
-msgstr "Ви вже на останній сторінці цього вузла"
-
-#: info/session-cmd.c:2343
+#: info/session-cmd.c:2386
 msgid "No more nodes within this document"
 msgstr "Це останній вузол цього документа"
 
-#: info/session-cmd.c:2373
-msgid "You are already at the first page of this node"
-msgstr "Ви вже на першій сторінці цього вузла"
-
-#: info/session-cmd.c:2387 info/session-cmd.c:2434
+#: info/session-cmd.c:2427 info/session-cmd.c:2474
 msgid "No 'Prev' or 'Up' for this node within this document"
 msgstr ""
 "У цього вузла немає «Попереднього» чи «Горішнього» вузла у цьому документі"
 
-#: info/session-cmd.c:2447
+#: info/session-cmd.c:2487
 msgid "Move forwards or down through node structure"
 msgstr "Перейти вперед чи вниз по структурі вузлів"
 
-#: info/session-cmd.c:2464
+#: info/session-cmd.c:2504
 msgid "Move backwards or up through node structure"
 msgstr "Перейти назад чи вверх по структурі вузлів"
 
-#: info/session-cmd.c:2487
+#: info/session-cmd.c:2527
 msgid "Read a node name and select it"
 msgstr "Прочитати назву вузла й обрати його"
 
-#: info/session-cmd.c:2541 info/session-cmd.c:2545
+#: info/session-cmd.c:2581 info/session-cmd.c:2585
 msgid "Goto node: "
 msgstr "Перейти до вузла: "
 
-#: info/session-cmd.c:2715
+#: info/session-cmd.c:2755
 msgid "Find the node describing program invocation"
 msgstr "Знайти вузол, що описує запуск програми"
 
-#: info/session-cmd.c:2717
+#: info/session-cmd.c:2757
 #, c-format
 msgid "Find Invocation node of [%s]: "
 msgstr "Знайти вузол запуску програми [%s]: "
 
-#: info/session-cmd.c:2758
+#: info/session-cmd.c:2798
 msgid "Read a manpage reference and select it"
 msgstr "Прочитати посилання на сторінку man та обрати її"
 
-#: info/session-cmd.c:2762
+#: info/session-cmd.c:2802
 msgid "Get Manpage: "
 msgstr "Отримати man-сторінку: "
 
-#: info/session-cmd.c:2783
+#: info/session-cmd.c:2823
 msgid "Select the node 'Top' in this file"
 msgstr "Обрати «Верхній» вузол цього файлу"
 
-#: info/session-cmd.c:2789
+#: info/session-cmd.c:2829
 msgid "Select the node '(dir)'"
 msgstr "Обрати вузол «(dir)»"
 
-#: info/session-cmd.c:2795
+#: info/session-cmd.c:2835
 msgid "Show full file name of node being displayed"
 msgstr "Показувати повну назву файла для показаного вузла"
 
-#: info/session-cmd.c:2812
+#: info/session-cmd.c:2852
 msgid "Select the most recently selected node"
 msgstr "Позначити останній з позначених вузлів"
 
-#: info/session-cmd.c:2817
+#: info/session-cmd.c:2857
 #, c-format
 msgid "No earlier node in history"
 msgstr "У журналі немає попереднього вузла"
 
-#: info/session-cmd.c:2821
+#: info/session-cmd.c:2861
 msgid "Read the name of a file and select it"
 msgstr "Прочитати назву файлу й обрати його"
 
-#: info/session-cmd.c:2825
+#: info/session-cmd.c:2865
 msgid "Find file: "
 msgstr "Знайти файл: "
 
-#: info/session-cmd.c:2842
+#: info/session-cmd.c:2882
 #, c-format
 msgid "Cannot find '%s'"
 msgstr "Не вдалося знайти «%s»"
 
-#: info/session-cmd.c:2862
+#: info/session-cmd.c:2902
 msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
 msgstr "Передати вміст цього вузла через канал до INFO_PRINT_COMMAND"
 
-#: info/session-cmd.c:2890
+#: info/session-cmd.c:2930
 #, c-format
 msgid "Cannot open pipe to '%s'"
 msgstr "Не вдається створити канал до «%s»"
 
-#: info/session-cmd.c:2895
+#: info/session-cmd.c:2935
 #, c-format
 msgid "printing node %s..."
 msgstr "друкуємо вузол %s…"
 
-#: info/session-cmd.c:2903
+#: info/session-cmd.c:2943
 #, c-format
 msgid "finished printing node %s"
 msgstr "завершено друк вузла %s"
 
-#: info/session-cmd.c:2930
+#: info/session-cmd.c:2970
 msgid "Toggle the usage of regular expressions in searches"
 msgstr "Перемикнути використання формальних виразів під час пошуку"
 
-#: info/session-cmd.c:2934
+#: info/session-cmd.c:2974
 #, c-format
 msgid "Using regular expressions for searches"
 msgstr "Під час пошуку використовуватимуться формальні вирази"
 
-#: info/session-cmd.c:2935
+#: info/session-cmd.c:2975
 #, c-format
 msgid "Using literal strings for searches"
 msgstr "Під час пошуку використовуватимуться звичайні рядки"
 
-#: info/session-cmd.c:3138
+#: info/session-cmd.c:3179
 msgid "Search continued from the end of the document"
 msgstr "Пошук продовжено з кінця документа"
 
-#: info/session-cmd.c:3143
+#: info/session-cmd.c:3184
 msgid "Search continued from the beginning of the document"
 msgstr "Пошук продовжено з початку документа"
 
-#: info/session-cmd.c:3160
+#: info/session-cmd.c:3201
 #, c-format
 msgid "Searching subfile %s ..."
 msgstr "Пошук підфайлу %s ..."
 
-#: info/session-cmd.c:3200 info/session-cmd.c:3469 info/session-cmd.c:3582
+#: info/session-cmd.c:3241 info/session-cmd.c:3510 info/session-cmd.c:3623
 #, c-format
 msgid "Search failed"
 msgstr "Помилка пошуку"
 
-#: info/session-cmd.c:3220
+#: info/session-cmd.c:3261
 #, c-format
 msgid "%s%s%s [%s]: "
 msgstr "%s%s%s [%s]: "
 
-#: info/session-cmd.c:3221 info/session-cmd.c:3227
+#: info/session-cmd.c:3262 info/session-cmd.c:3268
 msgid "Regexp search"
 msgstr "Пошук за формальним виразом"
 
-#: info/session-cmd.c:3221 info/session-cmd.c:3227
+#: info/session-cmd.c:3262 info/session-cmd.c:3268
 msgid "Search"
 msgstr "Пошук"
 
-#: info/session-cmd.c:3222 info/session-cmd.c:3228
+#: info/session-cmd.c:3263 info/session-cmd.c:3269
 msgid " case-sensitively"
 msgstr " з врахуванням регістру"
 
-#: info/session-cmd.c:3223 info/session-cmd.c:3229
+#: info/session-cmd.c:3264 info/session-cmd.c:3270
 msgid " backward"
 msgstr " назад"
 
-#: info/session-cmd.c:3226
+#: info/session-cmd.c:3267
 #, c-format
 msgid "%s%s%s: "
 msgstr "%s%s%s: "
 
-#: info/session-cmd.c:3246
+#: info/session-cmd.c:3287
 msgid "Search string too short"
 msgstr "Рядок пошуку є надто коротким"
 
-#: info/session-cmd.c:3440
+#: info/session-cmd.c:3481
 #, c-format
 msgid "Going back to last match from %s"
 msgstr "Повертаємося до останнього відповідника від %s"
 
-#: info/session-cmd.c:3469 info/session-cmd.c:3582
+#: info/session-cmd.c:3510 info/session-cmd.c:3623
 #, c-format
 msgid "No more matches"
 msgstr "Це був останній результат"
 
-#: info/session-cmd.c:3609
+#: info/session-cmd.c:3650
 msgid "Search this node and subnodes for a string"
 msgstr "Шукати рядок у цьому вузлі і усіх підлеглих вузлах"
 
 #. TRANSLATORS: %s is the title of a node.
-#: info/session-cmd.c:3616
+#: info/session-cmd.c:3657
 #, c-format
 msgid "Search under %s: "
 msgstr "Пошук у %s: "
 
-#: info/session-cmd.c:3631
+#: info/session-cmd.c:3672
 msgid "Go to next match in Info sub-tree"
 msgstr "Перейти до наступного відповідника у піддереві Info"
 
-#: info/session-cmd.c:3635 info/session-cmd.c:3647
+#: info/session-cmd.c:3676 info/session-cmd.c:3688
 #, c-format
 msgid "No active search"
 msgstr "Немає активного пошуку"
 
-#: info/session-cmd.c:3643
+#: info/session-cmd.c:3684
 msgid "Go to previous match in Info sub-tree"
 msgstr "Перейти до попереднього відповідника у піддереві Info"
 
-#: info/session-cmd.c:3656
+#: info/session-cmd.c:3697
 msgid "Read a string and search for it case-sensitively"
 msgstr "Прочитати рядок та знайти його, враховуючи регістр"
 
-#: info/session-cmd.c:3661
+#: info/session-cmd.c:3702
 msgid "Read a string and search for it"
 msgstr "Прочитати рядок та знайти його"
 
-#: info/session-cmd.c:3667
+#: info/session-cmd.c:3708
 msgid "Read a string and search backward for it"
 msgstr "Прочитати рядок та знайти його у попередньому тексті"
 
-#: info/session-cmd.c:3675
+#: info/session-cmd.c:3716
 msgid "Repeat last search in the same direction"
 msgstr "Повторити попередній пошук у тому ж напрямі"
 
-#: info/session-cmd.c:3689 info/session-cmd.c:3740
+#: info/session-cmd.c:3730 info/session-cmd.c:3781
 msgid "No previous search string"
 msgstr "Нема попереднього рядку пошуку"
 
-#: info/session-cmd.c:3726
+#: info/session-cmd.c:3767
 msgid "Repeat last search in the reverse direction"
 msgstr "Повторити пошук у зворотньому напрямі"
 
-#: info/session-cmd.c:3779
+#: info/session-cmd.c:3820
 msgid "Clear displayed search matches"
 msgstr "Явно показані результати пошуку"
 
-#: info/session-cmd.c:3795 info/session-cmd.c:3801
+#: info/session-cmd.c:3836 info/session-cmd.c:3842
 msgid "Search interactively for a string as you type it"
 msgstr "Шукати рядок інтерактивно, поки ви його набираєте"
 
-#: info/session-cmd.c:3921
+#: info/session-cmd.c:3962
 msgid "Regexp I-search backward: "
 msgstr "I-пошук назад за формальним виразом: "
 
-#: info/session-cmd.c:3922
+#: info/session-cmd.c:3963
 msgid "I-search backward: "
 msgstr "I-пошук назад: "
 
-#: info/session-cmd.c:3924
+#: info/session-cmd.c:3965
 msgid "Regexp I-search: "
 msgstr "I-пошук за формальним виразом: "
 
-#: info/session-cmd.c:3925
+#: info/session-cmd.c:3966
 msgid "I-search: "
 msgstr "I-пошук: "
 
-#: info/session-cmd.c:3950 info/session-cmd.c:3953
+#: info/session-cmd.c:3991 info/session-cmd.c:3994
 msgid "Failing "
 msgstr "Невдалий "
 
-#: info/session-cmd.c:4320
+#: info/session-cmd.c:4361
 msgid "Cancel current operation"
 msgstr "Скасувати поточну операцію"
 
-#: info/session-cmd.c:4326
+#: info/session-cmd.c:4367
 msgid "Display version of Info being run"
 msgstr "Показати версію запущеного екземпляра Info"
 
-#: info/session-cmd.c:4328
+#: info/session-cmd.c:4369
 #, c-format
 msgid "GNU Info version %s"
 msgstr "GNU Info версії %s"
 
-#: info/session-cmd.c:4333
+#: info/session-cmd.c:4374
 msgid "Redraw the display"
 msgstr "Оновити зображення"
 
-#: info/session-cmd.c:4370
+#: info/session-cmd.c:4411
 msgid "Quit using Info"
 msgstr "Вийти з Info"
 
-#: info/session-cmd.c:4386
+#: info/session-cmd.c:4427
 msgid "Run command bound to this key's lowercase variant"
 msgstr "Запустити команду, призначену цій клавіші у нижньому регістрі"
 
-#: info/session-cmd.c:4391
+#: info/session-cmd.c:4432
 msgid "Add this digit to the current numeric argument"
 msgstr "Додати цю цифру до поточного числового аргументу"
 
-#: info/session-cmd.c:4398
+#: info/session-cmd.c:4439
 msgid "Start (or multiply by 4) the current numeric argument"
 msgstr "Ініціювати (чи помножити на 4) поточний числовий аргумент"
 
-#: info/variables.c:70
+#: info/variables.c:74
 msgid "When \"On\", footnotes appear and disappear automatically"
 msgstr "Коли \"On\", виноски з’являються й зникають автоматично"
 
-#: info/variables.c:74
+#: info/variables.c:78
 msgid "When \"On\", creating or deleting a window resizes other windows"
 msgstr "Коли \"On\", створення чи вилучення вікна змінює розмір інших вікон"
 
-#: info/variables.c:78
+#: info/variables.c:82
 msgid "When \"On\", flash the screen instead of ringing the bell"
 msgstr "Коли \"On\", замість дзвінка буде спалах екрану"
 
-#: info/variables.c:82
+#: info/variables.c:86
 msgid "When \"On\", errors cause the bell to ring"
 msgstr "Коли \"On\", при помилці дзвенітиме дзвінок"
 
-#: info/variables.c:86
+#: info/variables.c:90
 msgid "When \"On\", Info garbage collects files which had to be uncompressed"
 msgstr "Коли \"On\", Info прибирає файли, які створюються при розтисканні"
 
-#: info/variables.c:90
+#: info/variables.c:94
 msgid "When \"On\", the portion of the matched search string is highlighted"
 msgstr "Коли \"On\", при пошуку, частина рядку, що збігається, буде підсвічена"
 
-#: info/variables.c:94
+#: info/variables.c:98
 msgid "Controls what happens when scrolling is requested at the end of a node"
 msgstr "Визначає, що відбуватиметься при прокручуванні коло кінця вузла"
 
-#: info/variables.c:99
+#: info/variables.c:103
 msgid "Same as scroll-behaviour"
 msgstr "Те ж саме, що й scroll-behaviour"
 
-#: info/variables.c:103
+#: info/variables.c:107
 msgid "The number lines to scroll when the cursor moves out of the window"
 msgstr ""
 "Кількість рядків, що треба прокручувати, коли курсор досягає границі вікна"
 
-#: info/variables.c:107
+#: info/variables.c:111
 msgid "Controls whether scroll-behavior affects cursor movement commands"
 msgstr "Визначає, чи поведінка прокрутки впливає на рух курсора"
 
-#: info/variables.c:111
+#: info/variables.c:115
 msgid "When \"On\", Info accepts and displays ISO Latin characters"
 msgstr "Коли \"On\", Info приймає й показує символи ISO Latin"
 
-#: info/variables.c:115
+#: info/variables.c:119
 msgid ""
 "What to do when a scrolling command is issued at the end of the last node"
 msgstr "Що робити при прокручуванні за кінець останнього вузла"
 
-#: info/variables.c:120
+#: info/variables.c:124
 msgid "Minimal length of a search string"
 msgstr "Мінімальна довжина рядка пошуку"
 
-#: info/variables.c:124
+#: info/variables.c:128
 msgid "Skip current window when searching"
 msgstr "Пропустити поточне вікно під час пошуку"
 
-#: info/variables.c:128
+#: info/variables.c:132
 msgid "Exclude default directories from file search path"
 msgstr "Виключити типові каталоги зі шляху пошуку файлів"
 
-#: info/variables.c:132
+#: info/variables.c:136
 msgid "Hide some Info file syntax in the text of nodes"
 msgstr "Приховати деякі синтаксичні конструкції файлів Info у тексті вузлів"
 
-#: info/variables.c:136
+#: info/variables.c:140
 msgid ""
 "Length of time in milliseconds to wait for the next byte in a sequence "
 "indicating that a key has been pressed"
@@ -1595,60 +1607,60 @@ msgstr ""
 "Тривалість очікування у мілісекундах на відзначення у наступному байті "
 "послідовності натискання клавіші"
 
-#: info/variables.c:140
+#: info/variables.c:144
 msgid "Method to use to track mouse events"
 msgstr "Спосіб відстеження подій, пов’язаних із мишею"
 
-#: info/variables.c:144
+#: info/variables.c:148
 msgid "How to follow a cross-reference"
 msgstr "Спосіб переходу за перехресним посиланням"
 
-#: info/variables.c:148
+#: info/variables.c:152
 msgid "Highlight search matches"
 msgstr "Позначити результати пошуку"
 
-#: info/variables.c:152
+#: info/variables.c:156
 msgid "Styles for links"
 msgstr "Стилі для посилань"
 
-#: info/variables.c:156
+#: info/variables.c:160
 msgid "Styles for active links"
 msgstr "Стилі для активних посилань"
 
-#: info/variables.c:160
+#: info/variables.c:164
 msgid "Styles for search matches"
 msgstr "Стилі для результатів пошуку"
 
-#: info/variables.c:164
+#: info/variables.c:168
 msgid "How to print the information line at the start of a node"
 msgstr "Спосіб виведення рядка інформації на початку вузла"
 
-#: info/variables.c:168
+#: info/variables.c:172
 msgid "Always pass through non-ASCII UTF-8 bytes in files to terminal"
 msgstr "Завжди передавати байти UTF-8 поза ASCII у файлах до термінала"
 
-#: info/variables.c:282
+#: info/variables.c:290
 msgid "Explain the use of a variable"
 msgstr "Описати використання змінної"
 
-#: info/variables.c:288
+#: info/variables.c:296
 msgid "Describe variable: "
 msgstr "Описати змінну: "
 
-#: info/variables.c:297
+#: info/variables.c:305
 msgid "Set the value of an Info variable"
 msgstr "Встановити значення змінної"
 
-#: info/variables.c:304
+#: info/variables.c:312
 msgid "Set variable: "
 msgstr "Встановити змінну: "
 
-#: info/variables.c:320
+#: info/variables.c:328
 #, c-format
 msgid "Set %s to value (%d): "
 msgstr "Встановити для %s значення (%d): "
 
-#: info/variables.c:361
+#: info/variables.c:369
 #, c-format
 msgid "Set %s to value (%s): "
 msgstr "Встановити для %s значення (%s): "
@@ -1835,7 +1847,7 @@ msgstr ""
 " --version           показати інформацію про версію й вийти."
 
 #: install-info/install-info.c:589 Pod-Simple-Texinfo/pod2texi.pl:193
-#: tta/perl/texi2any.pl:1150 tta/C/texi2any.c:2116
+#: tta/perl/texi2any.pl:1165 tta/C/texi2any.c:2173
 msgid ""
 "Email bug reports to bug-texinfo@gnu.org,\n"
 "general questions and discussion to help-texinfo@gnu.org.\n"
@@ -1897,54 +1909,54 @@ msgstr "START-INFO-DIR-ENTRY без відповідного END-INFO-DIR-ENTRY"
 msgid "END-INFO-DIR-ENTRY without matching START-INFO-DIR-ENTRY"
 msgstr "END-INFO-DIR-ENTRY без відповідного START-INFO-DIR-ENTRY"
 
-#: install-info/install-info.c:2106 install-info/install-info.c:2116
+#: install-info/install-info.c:2126 install-info/install-info.c:2136
 #, c-format
 msgid "%s: already have dir file: %s\n"
 msgstr "%s: вже має файл каталогу: %s\n"
 
-#: install-info/install-info.c:2212
+#: install-info/install-info.c:2232
 #, c-format
 msgid "%s: Specify the Info file only once.\n"
 msgstr "%s: Вкажіть файл Info лише один раз.\n"
 
-#: install-info/install-info.c:2245
+#: install-info/install-info.c:2265
 #, c-format
 msgid "Extra regular expression specified, ignoring `%s'"
 msgstr "Пропущено зайвий формальний вираз `%s'"
 
-#: install-info/install-info.c:2257
+#: install-info/install-info.c:2277
 #, c-format
 msgid "Error in regular expression `%s': %s"
 msgstr "Помилка у формальному виразі `%s': %s"
 
-#: install-info/install-info.c:2319
+#: install-info/install-info.c:2339
 #, c-format
 msgid "excess command line argument `%s'"
 msgstr "зайвий аргумент `%s'"
 
-#: install-info/install-info.c:2323
+#: install-info/install-info.c:2343
 #, c-format
 msgid "No input file specified; try --help for more information."
 msgstr ""
 "Не вказано вхідних файлів; спробуйте --help, щоб отримати більше інформації."
 
-#: install-info/install-info.c:2325
+#: install-info/install-info.c:2345
 #, c-format
 msgid "No dir file specified; try --help for more information."
 msgstr ""
 "Не вказано файл каталогу; спробуйте --help, щоб отримати більше інформації."
 
-#: install-info/install-info.c:2346
+#: install-info/install-info.c:2366
 #, c-format
 msgid "Could not read %s."
 msgstr "Не вдалося прочитати %s."
 
-#: install-info/install-info.c:2493
+#: install-info/install-info.c:2513
 #, c-format
 msgid "no info dir entry in `%s'"
 msgstr "немає запису info dir у `%s'"
 
-#: install-info/install-info.c:2741
+#: install-info/install-info.c:2761
 #, c-format
 msgid "no entries found for `%s'; nothing deleted"
 msgstr "у `%s' записів не знайдено; нічого не вилучено"
@@ -1954,12 +1966,21 @@ msgid "Usage: pod2texi [OPTION]... POD..."
 msgstr "Користування: pod2texi [ПАРАМЕТР]... POD..."
 
 #: Pod-Simple-Texinfo/pod2texi.pl:161
+#, fuzzy
+#| msgid ""
+#| "Translate Perl Pod documentation file(s) to Texinfo.  There are two\n"
+#| "basic modes of operation.  First, by default, each Pod is translated to\n"
+#| "a standalone Texinfo manual.\n"
+#| "\n"
+#| "Second, if --base-level is set higher than 0, each Pod is translated\n"
+#| "to a file suitable for @include, and one more file with a main menu\n"
+#| "and all the @include is generated."
 msgid ""
-"Translate Perl Pod documentation file(s) to Texinfo.  There are two\n"
-"basic modes of operation.  First, by default, each Pod is translated to\n"
-"a standalone Texinfo manual.\n"
+"Convert Perl Pod documentation file(s) to Texinfo.  There are two\n"
+"basic modes of operation.  First, by default, each Pod is converted to\n"
+"a standalone Texinfo document.\n"
 "\n"
-"Second, if --base-level is set higher than 0, each Pod is translated\n"
+"Second, if --base-level is set higher than 0, each Pod is converted\n"
 "to a file suitable for @include, and one more file with a main menu\n"
 "and all the @include is generated."
 msgstr ""
@@ -1988,9 +2009,13 @@ msgid "    --debug=NUM             set debugging level"
 msgstr "    --debug=ЧИСЛО           встановити рівень діагностики"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:173
+#, fuzzy
+#| msgid ""
+#| "    --generate-setfilename  generate @setfilename for standalone\n"
+#| "                              manuals"
 msgid ""
 "    --generate-setfilename  generate @setfilename for standalone\n"
-"                              manuals"
+"                              Texinfo documents"
 msgstr ""
 "    --generate-setfilename  створити @setfilename для окремих\n"
 "                            підручників"
@@ -2026,8 +2051,12 @@ msgstr ""
 "                                                    Типове значення --subdir"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:182
+#, fuzzy
+#| msgid ""
+#| "    --output=NAME           output to NAME for the first or main manual\n"
+#| "                              instead of standard output"
 msgid ""
-"    --output=NAME           output to NAME for the first or main manual\n"
+"    --output=NAME           output to NAME for the first or main document\n"
 "                              instead of standard output"
 msgstr ""
 "    --output=НАЗВА          вивести дані до файла НАЗВА для першого або "
@@ -2045,17 +2074,25 @@ msgstr ""
 "документа Texinfo"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:186
-msgid "    --setfilename           @setfilename for the main manual"
+#, fuzzy
+#| msgid "    --setfilename           @setfilename for the main manual"
+msgid "    --setfilename           @setfilename for the main document"
 msgstr "    --setfilename           @setfilename для основного підручника"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:187
-msgid "    --subdir=NAME           include files from NAME in the main manual"
+#, fuzzy
+#| msgid ""
+#| "    --subdir=NAME           include files from NAME in the main manual"
+msgid ""
+"    --subdir=NAME           include files from NAME in the main document"
 msgstr ""
 "    --subdir=НАЗВА          включити файли з каталогу НАЗВА до основного "
 "підручника"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:188
-msgid "    --top                   top for the main manual"
+#, fuzzy
+#| msgid "    --top                   top for the main manual"
+msgid "    --top                   top for the main document"
 msgstr "    --top                   верхній рівень основного підручника"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:189
@@ -2066,8 +2103,8 @@ msgstr "    --unnumbered-sections   не нумерувати розділи"
 msgid "    --version               display version information and exit"
 msgstr "    --version               вивести дані щодо версії і вийти"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:219 tta/perl/texi2any.pl:1164
-#: tta/C/texi2any.c:1675
+#: Pod-Simple-Texinfo/pod2texi.pl:220 tta/perl/texi2any.pl:1179
+#: tta/C/texi2any.c:1728
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -2083,149 +2120,173 @@ msgstr ""
 "його.\n"
 "Не надається НІЯКИХ ГАРАНТІЙ у рамках, передбачених законом."
 
-#: Pod-Simple-Texinfo/pod2texi.pl:230
+#: Pod-Simple-Texinfo/pod2texi.pl:234
 #, perl-format
 msgid "%s: wrong argument for --base-level"
 msgstr "%s: помилковий аргумент --base-level"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:259
+#: Pod-Simple-Texinfo/pod2texi.pl:263
 #, perl-format
 msgid "%s: could not create directory %s: %s"
 msgstr "%s: не вдалося створити каталог %s: %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:273
+#: Pod-Simple-Texinfo/pod2texi.pl:277
 #, perl-format
 msgid "%s: missing file argument"
 msgstr "%s: не вказано аргумент назви файла"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:274 tta/perl/texi2any.pl:1696
-#: tta/C/texi2any.c:2530
+#: Pod-Simple-Texinfo/pod2texi.pl:278 tta/perl/texi2any.pl:1716
+#: tta/C/texi2any.c:2625
 #, c-format, perl-format
 msgid "Try `%s --help' for more information."
 msgstr "Віддайте команду «%s --help», щоб дізнатися більше."
 
-#: Pod-Simple-Texinfo/pod2texi.pl:300
+#: Pod-Simple-Texinfo/pod2texi.pl:305
 #, perl-format
 msgid "%s: warning: %s without content"
 msgstr "%s: попередження: %s не містить даних"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:315
+#: Pod-Simple-Texinfo/pod2texi.pl:321
 #, perl-format
 msgid "%s: same manual name `%s' for different files: %s and %s"
 msgstr "%s: та сама назва підручника «%s» для різних файлів: %s і %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:536 Pod-Simple-Texinfo/pod2texi.pl:644
-#: tta/perl/texi2any.pl:2208 tta/perl/texi2any.pl:2327
+#: Pod-Simple-Texinfo/pod2texi.pl:527 Pod-Simple-Texinfo/pod2texi.pl:635
+#: tta/perl/texi2any.pl:2231 tta/perl/texi2any.pl:2350
 #, perl-format
 msgid "%s: could not open %s for writing: %s"
 msgstr "%s: не вдалося відкрити %s для запису даних: %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:582
+#: Pod-Simple-Texinfo/pod2texi.pl:573
 #, perl-format
 msgid "%s: could not open %s: %s"
 msgstr "%s: не вдалося відкрити %s: %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:595 Pod-Simple-Texinfo/pod2texi.pl:693
-#: tta/perl/texi2any.pl:2161 tta/perl/texi2any.pl:2381
-#: tta/C/convert/texinfo.c:783
+#: Pod-Simple-Texinfo/pod2texi.pl:586 Pod-Simple-Texinfo/pod2texi.pl:684
+#: tta/perl/texi2any.pl:2184 tta/perl/texi2any.pl:2404
+#: tta/C/convert/texinfo.c:805
 #, c-format, perl-format
 msgid "%s: error on closing %s: %s"
 msgstr "%s: помилка під час спроби закрити %s: %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:601
+#: Pod-Simple-Texinfo/pod2texi.pl:592
 #, perl-format
 msgid "%s: removing %s as input file %s has no content"
 msgstr ""
 "%s: вилучаємо %s, оскільки файл вхідних даних %s не містить придатних даних"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:630
+#: Pod-Simple-Texinfo/pod2texi.pl:621
 #, perl-format
 msgid "%s: rename %s failed: %s"
 msgstr "%s: не вдалося перейменувати %s: %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:699
+#: Pod-Simple-Texinfo/pod2texi.pl:690
 #, perl-format
 msgid "%s: error on closing stdout: %s"
 msgstr "%s: помилка під час спроби закрити stdout: %s"
 
-#: tta/perl/Texinfo/Common.pm:475 tta/C/parsetexi/end_line.c:1518
+#: tta/perl/Texinfo/Common.pm:469 tta/C/parsetexi/end_line.c:1524
+#, fuzzy, c-format, perl-format
+#| msgid "%s is not a valid language code"
+msgid "%s is not a valid language argument"
+msgstr "%s не є коректним кодом мови"
+
+#: tta/perl/Texinfo/Common.pm:473 tta/C/parsetexi/end_line.c:1531
 #, c-format, perl-format
 msgid "%s is not a valid language code"
 msgstr "%s не є коректним кодом мови"
 
-#: tta/perl/Texinfo/Common.pm:480 tta/C/parsetexi/end_line.c:1524
+#: tta/perl/Texinfo/Common.pm:479 tta/C/parsetexi/end_line.c:1537
 #, c-format, perl-format
 msgid "%s is not a valid region code"
 msgstr "%s не є коректним кодом регіону"
 
-#: tta/perl/Texinfo/Config.pm:196 tta/perl/texi2any.pl:614
+#: tta/perl/Texinfo/Common.pm:556
+#, fuzzy, perl-format
+#| msgid "superfluous argument to @%s"
+msgid "superfluous content in number %d argument to @%s"
+msgstr "зайвий аргумент @%s"
+
+#: tta/perl/Texinfo/Common.pm:565 tta/C/parsetexi/end_line.c:1740
+#, fuzzy, c-format, perl-format
+#| msgid "unknown action `%s'"
+msgid "unknown language variant: `%s'"
+msgstr "невідома дія `%s'"
+
+#: tta/perl/Texinfo/Common.pm:570
+#, fuzzy, perl-format
+#| msgid "bad argument to @%s"
+msgid "bad number %d argument to @%s"
+msgstr "помилковий аргумент до @%s"
+
+#: tta/perl/Texinfo/Config.pm:202 tta/perl/texi2any.pl:614
 #, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s"
 msgstr "%s: попередження: %s"
 
-#: tta/perl/Texinfo/Config.pm:204
+#: tta/perl/Texinfo/Config.pm:210
 #, perl-format
 msgctxt "program name: error_message"
 msgid "%s: %s"
 msgstr "%s: %s"
 
-#: tta/perl/Texinfo/Config.pm:226
+#: tta/perl/Texinfo/Config.pm:232
 #, perl-format
 msgid "error parsing %s: %s"
 msgstr "помилка при обробці %s: %s"
 
-#: tta/perl/Texinfo/Config.pm:230 tta/C/convert/convert_html.c:2730
+#: tta/perl/Texinfo/Config.pm:236 tta/C/convert/convert_html.c:2810
 #, c-format, perl-format
 msgid "error reading %s: %s"
 msgstr "помилка при спробі читанні %s: %s"
 
-#: tta/perl/Texinfo/Config.pm:251
+#: tta/perl/Texinfo/Config.pm:257
 #, perl-format
 msgctxt "init file: error_message"
 msgid "%s: %s"
 msgstr "%s: %s"
 
-#: tta/perl/Texinfo/Config.pm:257
+#: tta/perl/Texinfo/Config.pm:263
 #, perl-format
 msgctxt "init file: warning: warning_message"
 msgid "%s: warning: %s"
 msgstr "%s: попередження: %s"
 
-#: tta/perl/Texinfo/Config.pm:295
+#: tta/perl/Texinfo/Config.pm:301
 #, perl-format
 msgid "obsolete option: %s"
 msgstr "застарілий параметр: %s"
 
-#: tta/perl/Texinfo/Config.pm:319
+#: tta/perl/Texinfo/Config.pm:325
 #, perl-format
 msgid "%s: unknown variable %s"
 msgstr "%s: невідома змінна %s"
 
-#: tta/perl/Texinfo/Config.pm:342
+#: tta/perl/Texinfo/Config.pm:348
 #, perl-format
 msgid "unknown variable from command line: %s"
 msgstr "невідома змінна з командного рядка: %s"
 
-#: tta/perl/Texinfo/Config.pm:665 tta/perl/Texinfo/Config.pm:706
-#: tta/perl/Texinfo/Config.pm:724 tta/perl/Texinfo/Config.pm:750
-#: tta/perl/Texinfo/Config.pm:775
+#: tta/perl/Texinfo/Config.pm:671 tta/perl/Texinfo/Config.pm:712
+#: tta/perl/Texinfo/Config.pm:730 tta/perl/Texinfo/Config.pm:756
+#: tta/perl/Texinfo/Config.pm:781
 #, perl-format
 msgid "%s: unknown formatting context %s"
 msgstr "%s: невідомий контекст форматування %s"
 
-#: tta/perl/Texinfo/Config.pm:895
+#: tta/perl/Texinfo/Config.pm:901
 #, perl-format
 msgid "%s: unknown special element information type %s"
 msgstr "%s: невідомий тип відомостей щодо спеціального елемента %s"
 
-#: tta/perl/Texinfo/Document.pm:398 tta/C/main/targets.c:135
+#: tta/perl/Texinfo/Document.pm:400 tta/C/main/targets.c:135
 #: tta/C/parsetexi/labels.c:122
 #, c-format, perl-format
 msgid "@%s `%s' previously defined"
 msgstr "@%s «%s» визначено раніше"
 
-#: tta/perl/Texinfo/Document.pm:404 tta/C/main/targets.c:141
+#: tta/perl/Texinfo/Document.pm:406 tta/C/main/targets.c:141
 #: tta/C/parsetexi/labels.c:128
 #, c-format, perl-format
 msgid "here is the previous definition as @%s"
@@ -2234,264 +2295,264 @@ msgstr "попереднє визначення як @%s"
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:288
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:304
 #: tta/perl/Texinfo/Convert/ConverterNonXS.pm:325
-#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:179
-#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:214
-#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:249
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:184
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:219
+#: tta/perl/XSTexinfo/convert/ConvertConverterXS.xs:254
 #, c-format, perl-format
 msgid "unknown customization variable: %s"
 msgstr "невідома змінна налаштовування: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:245
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4768
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5033
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5265
-#: tta/perl/Texinfo/Convert/Info.pm:428 tta/perl/Texinfo/Convert/LaTeX.pm:1176
-#: tta/perl/Texinfo/Convert/Plaintext.pm:791
-#: tta/perl/Texinfo/Convert/Plaintext.pm:846
-#: tta/perl/Texinfo/Convert/Text.pm:1074 tta/perl/Texinfo/Example/IXIN.pm:358
-#: tta/perl/texi2any.pl:1854 tta/perl/texi2any.pl:1937
-#: tta/perl/texi2any.pl:2074 tta/C/convert/converter.c:739
-#: tta/C/convert/convert_html.c:2082 tta/C/convert/convert_html.c:2523
+#: tta/perl/Texinfo/Convert/Converter.pm:252
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4811
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5069
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5312
+#: tta/perl/Texinfo/Convert/Info.pm:428 tta/perl/Texinfo/Convert/LaTeX.pm:1170
+#: tta/perl/Texinfo/Convert/Plaintext.pm:793
+#: tta/perl/Texinfo/Convert/Plaintext.pm:848
+#: tta/perl/Texinfo/Convert/Text.pm:1125 tta/perl/Texinfo/Example/IXIN.pm:359
+#: tta/perl/texi2any.pl:1869 tta/perl/texi2any.pl:1952
+#: tta/perl/texi2any.pl:2134 tta/C/convert/converter.c:763
+#: tta/C/convert/convert_html.c:2171 tta/C/convert/convert_html.c:2603
 #: tta/C/convert/rawtext_converter_api.c:232
 #, c-format, perl-format
 msgid "could not open %s for writing: %s"
 msgstr "не вдалося відкрити %s для запису: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:271
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4791
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5260
+#: tta/perl/Texinfo/Convert/Converter.pm:278
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4834
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5307
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:267
 #: tta/perl/Texinfo/Convert/Info.pm:322 tta/perl/Texinfo/Convert/Info.pm:399
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1262
-#: tta/perl/Texinfo/Convert/Plaintext.pm:819
-#: tta/perl/Texinfo/Convert/Plaintext.pm:867
-#: tta/perl/Texinfo/Convert/Text.pm:1099 tta/perl/Texinfo/Example/IXIN.pm:1040
-#: tta/perl/Texinfo/ParserNonXS.pm:2709 tta/C/convert/converter.c:809
-#: tta/C/convert/convert_html.c:2147 tta/C/convert/convert_html.c:2562
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1256
+#: tta/perl/Texinfo/Convert/Plaintext.pm:821
+#: tta/perl/Texinfo/Convert/Plaintext.pm:869
+#: tta/perl/Texinfo/Convert/Text.pm:1150 tta/perl/Texinfo/Example/IXIN.pm:1041
+#: tta/perl/Texinfo/ParserNonXS.pm:2748 tta/C/convert/converter.c:833
+#: tta/C/convert/convert_html.c:2236 tta/C/convert/convert_html.c:2642
 #: tta/C/convert/rawtext_converter_api.c:269 tta/C/parsetexi/input.c:353
 #, c-format, perl-format
 msgid "error on closing %s: %s"
 msgstr "помилка під час спроби закрити %s: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:828
-#: tta/perl/Texinfo/Convert/Text.pm:1028 tta/perl/Texinfo/Convert/Text.pm:1050
-#: tta/C/convert/converter.c:1061
+#: tta/perl/Texinfo/Convert/Converter.pm:938
+#: tta/perl/Texinfo/Convert/Text.pm:1079 tta/perl/Texinfo/Convert/Text.pm:1101
+#: tta/C/convert/converter.c:1085
 #, c-format, perl-format
 msgid "could not create directory `%s': %s"
 msgstr "не вдалося створити каталог «%s»: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1261
+#: tta/perl/Texinfo/Convert/Converter.pm:1371
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "помилка під час спроби закрити файл тексту зображення %s: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1270
+#: tta/perl/Texinfo/Convert/Converter.pm:1380
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "Неможливо прочитати файл @image `%s': %s"
 
-#: tta/perl/Texinfo/Convert/DocBook.pm:1550
-#: tta/perl/Texinfo/Example/ReadDocBook.pm:1606
+#: tta/perl/Texinfo/Convert/DocBook.pm:1589
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1603
 #, perl-format
 msgid "@image file `%s' not found, using `%s'"
 msgstr "не знайдено файл @image «%s», використовуємо «%s»"
 
 #: tta/perl/Texinfo/Convert/HTMLNonXS.pm:131
-#: tta/C/convert/html_prepare_converter.c:745
+#: tta/C/convert/html_prepare_converter.c:747
 #, c-format, perl-format
 msgid "not setting an unknown direction: %s"
 msgstr "не встановлюємо невідомий напрямок: %s"
 
 #: tta/perl/Texinfo/Convert/HTMLNonXS.pm:139
-#: tta/perl/Texinfo/Convert/HTML.pm:8197
-#: tta/C/convert/html_prepare_converter.c:791
-#: tta/C/convert/html_prepare_converter.c:2624
+#: tta/perl/Texinfo/Convert/HTML.pm:8247
+#: tta/C/convert/html_prepare_converter.c:793
+#: tta/C/convert/html_prepare_converter.c:2629
 #, c-format, perl-format
 msgid "keep direction %s, do not set to `%s'"
 msgstr ""
 
 #: tta/perl/Texinfo/Convert/HTMLNonXS.pm:143
-#: tta/C/convert/html_prepare_converter.c:796
+#: tta/C/convert/html_prepare_converter.c:798
 #, c-format, perl-format
 msgid "keep direction %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2274
-#: tta/C/convert/html_prepare_converter.c:1031
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2273
+#: tta/C/convert/html_prepare_converter.c:1033
 #, c-format, perl-format
 msgid "could not open html refs config file %s: %s"
 msgstr "не вдалося відкрити файл налаштувань посилань html %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2303
-#: tta/C/convert/html_prepare_converter.c:1141
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2302
+#: tta/C/convert/html_prepare_converter.c:1143
 #, c-format, perl-format
 msgid "missing type"
 msgstr "пропущено тип"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2307
-#: tta/C/convert/html_prepare_converter.c:1152
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2306
+#: tta/C/convert/html_prepare_converter.c:1154
 #, c-format, perl-format
 msgid "unrecognized type: %s"
 msgstr "нерозпізнаний тип: %s"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2345
-#: tta/C/convert/html_prepare_converter.c:1251
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2344
+#: tta/C/convert/html_prepare_converter.c:1253
 #, c-format, perl-format
 msgid "error on closing html refs config file %s: %s"
 msgstr "помилка під час закриття файла налаштувань посилань html %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2371
-#: tta/C/convert/html_prepare_converter.c:1292
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2370
+#: tta/C/convert/html_prepare_converter.c:1294
 #, c-format, perl-format
 msgid "could not find html refs config file %s"
 msgstr "не вдалося знайти файла налаштувань посилань html %s"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2490 tta/perl/texi2any.pl:636
-#: tta/C/convert/html_prepare_converter.c:1529
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2489 tta/perl/texi2any.pl:636
+#: tta/C/convert/html_prepare_converter.c:1531
 #, c-format, perl-format
 msgid "%s directory is deprecated. Use %s instead"
 msgstr "Каталог %s є застарілим. Замість нього скористайтеся %s"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2596
-#: tta/C/convert/html_prepare_converter.c:1817
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2595
+#: tta/C/convert/html_prepare_converter.c:1819
 #, c-format, perl-format
 msgid "string not closed in css file"
 msgstr "незавершений рядок у файлі css"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2598
-#: tta/C/convert/html_prepare_converter.c:1825
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2597
+#: tta/C/convert/html_prepare_converter.c:1827
 #, c-format, perl-format
 msgid "--css-include ended in comment"
 msgstr "--css-include завершується коментарем"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2600
-#: tta/C/convert/html_prepare_converter.c:1833
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2599
+#: tta/C/convert/html_prepare_converter.c:1835
 #, c-format, perl-format
 msgid "@import not finished in css file"
 msgstr "незавершений запис @import у файлі css"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2636
-#: tta/C/convert/html_prepare_converter.c:1885
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2635
+#: tta/C/convert/html_prepare_converter.c:1887
 #, c-format, perl-format
 msgid "CSS file %s not found"
 msgstr "Файл CSS %s не знайдено"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2648
-#: tta/C/convert/html_prepare_converter.c:1907
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2647
+#: tta/C/convert/html_prepare_converter.c:1909
 #, c-format, perl-format
 msgid "could not open --include-file %s: %s"
 msgstr "не вдалося відкрити --include-файл %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2666
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:2665
 #, perl-format
 msgid "error on closing CSS file %s: %s"
 msgstr "помилка під час спроби закрити файл CSS %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:3660
-#: tta/C/convert/html_prepare_converter.c:4977
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:3670
+#: tta/C/convert/html_prepare_converter.c:5002
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr "не встановлено визначеного користувачем файла вузла для «%s»»"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:3975
-#: tta/C/convert/html_prepare_converter.c:5625
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:3981
+#: tta/C/convert/html_prepare_converter.c:5650
 #, c-format, perl-format
 msgid "could not find %s node `%s'"
 msgstr "не вдалося знайти вузол %s «%s»"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4225
-#: tta/C/convert/html_prepare_converter.c:6246
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4232
+#: tta/C/convert/html_prepare_converter.c:6271
 #, c-format, perl-format
 msgid "resetting %s file path %s to %s"
 msgstr "скидаємо шлях до файла %s %s до %s"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4229
-#: tta/C/convert/html_prepare_converter.c:6256
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4236
+#: tta/C/convert/html_prepare_converter.c:6281
 #, c-format, perl-format
 msgid "resetting %s file path from a relative path to %s"
 msgstr "скидаємо шлях до файлів %s з відносного шляху до %s"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4233
-#: tta/C/convert/html_prepare_converter.c:6265
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4240
+#: tta/C/convert/html_prepare_converter.c:6290
 #, c-format, perl-format
 msgid "resetting %s file path from %s to a relative path"
 msgstr "скидаємо шлях до файлів %s з %s до відносного шляху"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4475 tta/C/convert/convert_html.c:819
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4482 tta/C/convert/convert_html.c:842
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s: non-numeric status"
 msgstr "обробник %d на етапі %s, пріоритетність %s: нечисловий стан"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4482 tta/C/convert/convert_html.c:831
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4489 tta/C/convert/convert_html.c:854
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr "помилка обробника %d на етапі %s, пріоритетність %s"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4595
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4599 tta/C/convert/convert_html.c:1106
-#: tta/C/convert/convert_html.c:1111
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4600
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4604 tta/C/convert/convert_html.c:1124
+#: tta/C/convert/convert_html.c:1129
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr "слід вказати заголовок за допомогою команди title або @top"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4878 tta/C/convert/convert_html.c:3064
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4921 tta/C/convert/convert_html.c:3144
 #, c-format, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr "@%s існує файл «%s» %s для переспрямовування"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4895 tta/C/convert/convert_html.c:3079
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4938 tta/C/convert/convert_html.c:3159
 #, c-format, perl-format
 msgid "conflict with whole document file"
 msgstr "конфлікт із усім файлом документа"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4898 tta/C/convert/convert_html.c:3082
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4941 tta/C/convert/convert_html.c:3162
 #, c-format, perl-format
 msgid "conflict with Top file"
 msgstr "конфлікт із файлом Top"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4901 tta/C/convert/convert_html.c:3085
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4944 tta/C/convert/convert_html.c:3165
 #, c-format, perl-format
 msgid "conflict with user-defined file"
 msgstr "конфлікт із визначеним користувачем файлом"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4904 tta/C/convert/convert_html.c:3088
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4947 tta/C/convert/convert_html.c:3168
 #, c-format, perl-format
 msgid "conflict with unknown node file"
 msgstr "конфлікт із невідомим файлом вузла"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4907 tta/C/convert/convert_html.c:3092
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4950 tta/C/convert/convert_html.c:3172
 #, c-format, perl-format
 msgid "conflict with file without known source"
 msgstr "конфлікт із файлом без відомого джерела"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4915 tta/C/convert/convert_html.c:3106
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4958 tta/C/convert/convert_html.c:3186
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr "конфлікт із файлом @%s «%s»"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4926 tta/C/convert/convert_html.c:3122
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4969 tta/C/convert/convert_html.c:3202
 #, c-format, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr "конфлікт із файлом переспрямовування @%s «%s»"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4939 tta/C/convert/convert_html.c:3142
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4982 tta/C/convert/convert_html.c:3222
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr "конфлікт із файлом @%s «%s»"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4951 tta/C/convert/convert_html.c:3155
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:4994 tta/C/convert/convert_html.c:3235
 #, c-format, perl-format
 msgid "conflict with %s special element"
 msgstr "конфлікт зі спеціальним елементом %s"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5041
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5077
 #, perl-format
 msgid "error on closing redirection node file %s: %s"
 msgstr "помилка під час спроби закрити файл переспрямовування вузла %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5204 tta/C/convert/convert_html.c:2607
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5251 tta/C/convert/convert_html.c:2687
 #, c-format, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
@@ -2500,69 +2561,69 @@ msgstr ""
 "не вдалося скористатися абсолютним шляхом або адресою «%s» для "
 "JS_WEBLABELS_FILE під час створення файла вебміток"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5251 tta/C/convert/convert_html.c:2631
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5298 tta/C/convert/convert_html.c:2711
 #, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
 msgstr "перезапис файла-результату з ліцензіями js: %s"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5301
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5348
 #, perl-format
 msgid "error on copying %s into %s"
 msgstr "помилка під час спроби копіювання %s до %s"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5310 tta/C/convert/convert_html.c:2852
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5357 tta/C/convert/convert_html.c:2932
 #, c-format, perl-format
 msgid "error on creating empty %s: %s"
 msgstr "помилка при створенні порожнього %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5315 tta/C/convert/convert_html.c:2864
+#: tta/perl/Texinfo/Convert/HTMLNonXS.pm:5362 tta/C/convert/convert_html.c:2944
 #, c-format, perl-format
 msgid "error on closing empty %s: %s"
 msgstr "помилка при спробі закрити порожній %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:645 tta/C/convert/format_html.c:838
+#: tta/perl/Texinfo/Convert/HTML.pm:647 tta/C/convert/format_html.c:843
 #, c-format, perl-format
 msgid "do not set %s suffix in reference for manual `%s'"
 msgstr "не встановлювати суфікс %s у посиланнях для підручника «%s»"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:682 tta/perl/Texinfo/Convert/HTML.pm:688
-#: tta/C/convert/format_html.c:887 tta/C/convert/format_html.c:898
+#: tta/perl/Texinfo/Convert/HTML.pm:684 tta/perl/Texinfo/Convert/HTML.pm:690
+#: tta/C/convert/format_html.c:892 tta/C/convert/format_html.c:903
 #, c-format, perl-format
 msgid "no HTML cross-references entry found for `%s'"
 msgstr "не вдалося знайти запис перехресних посилань HTML для «%s»"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:2265 tta/perl/ext/epub3.pm:287
-#: tta/C/convert/format_html.c:6759
+#: tta/perl/Texinfo/Convert/HTML.pm:2334 tta/perl/ext/epub3.pm:287
+#: tta/C/convert/format_html.c:6771
 #, c-format, perl-format
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "не знайдено файл @image «%s» (для HTML), використовуємо «%s»"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:3374 tta/C/convert/format_html.c:8321
+#: tta/perl/Texinfo/Convert/HTML.pm:3441 tta/C/convert/format_html.c:8334
 #, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr "формат необроблених даних %s не перетворено"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5060 tta/C/convert/format_html.c:10730
+#: tta/perl/Texinfo/Convert/HTML.pm:5112 tta/C/convert/format_html.c:10723
 #, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr "пункт покажчика «%s» для @printindex %s поза будь-яким вузлом"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5091 tta/C/convert/format_html.c:10770
+#: tta/perl/Texinfo/Convert/HTML.pm:5143 tta/C/convert/format_html.c:10763
 #, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr "пункт покажчика «%s» для @printindex %s поза будь-яким розділом"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:7278 tta/C/convert/format_html.c:4070
+#: tta/perl/Texinfo/Convert/HTML.pm:7329 tta/C/convert/format_html.c:4075
 #, c-format, perl-format
 msgid "%s not meaningful for non-split output"
 msgstr "%s не є змістовним для неподіленого виведення"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8068
+#: tta/perl/Texinfo/Convert/HTML.pm:8118
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr "Невідома функція встановлення файла та ідентифікатора: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8086
+#: tta/perl/Texinfo/Convert/HTML.pm:8136
 #, perl-format
 msgid "Unknown formatting function: %s"
 msgstr "Невідома функція форматування: %s"
@@ -2587,118 +2648,118 @@ msgstr "спроба перейменування %s зазнала невдач
 msgid "@%s output more than once: %s"
 msgstr "виведення @%s декілька разів: %s"
 
-#: tta/perl/Texinfo/Convert/Info.pm:537
+#: tta/perl/Texinfo/Convert/Info.pm:533
 #, perl-format
 msgid "@%s outside of any node"
 msgstr "@%s поза межами будь-якого вузла"
 
-#: tta/perl/Texinfo/Convert/Info.pm:666
+#: tta/perl/Texinfo/Convert/Info.pm:662
 #, perl-format
 msgid "@%s cross-reference name should not contain `:'"
 msgstr "у назві перехресного посилання @%s не повинно міститися «:»"
 
-#: tta/perl/Texinfo/Convert/Info.pm:737
+#: tta/perl/Texinfo/Convert/Info.pm:733
 #, perl-format
 msgid "@%s node name should not contain `%s'"
 msgstr "У назві вузла @%s не повинно міститися «%s»"
 
-#: tta/perl/Texinfo/Convert/Info.pm:807
+#: tta/perl/Texinfo/Convert/Info.pm:803
 #, perl-format
 msgid "`.' or `,' must follow @xref, not %s"
 msgstr "після @xref має бути «.» або «,», але не %s"
 
-#: tta/perl/Texinfo/Convert/Info.pm:811
+#: tta/perl/Texinfo/Convert/Info.pm:807
 msgid "`.' or `,' must follow @xref"
 msgstr "після @xref має бути «.» або «,»"
 
-#: tta/perl/Texinfo/Convert/Info.pm:863
+#: tta/perl/Texinfo/Convert/Info.pm:859
 #, perl-format
 msgid "@node name should not contain `,': %s"
 msgstr "назва @node не повинна містити «,»: %s"
 
-#: tta/perl/Texinfo/Convert/Info.pm:905
+#: tta/perl/Texinfo/Convert/Info.pm:901
 #, perl-format
 msgid "@node %s name should not contain `,': %s"
 msgstr "назва @node %s не повинна містити «,»: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3421
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3420
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr "роздільник \\verb «%s» (для LaTeX) використано у тексті «%s»"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3462
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3461
 #, perl-format
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "файл @image «%s» (для LaTeX) не знайдено"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4989
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4995
 #, perl-format
 msgid "math to images: could not open %s: %s"
 msgstr "формули у зображення: не вдалося відкрити %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5084
 #, perl-format
 msgid "math to images: chdir %s failed: %s"
 msgstr "формули у зображення: помилка під час спроби змінити каталог на %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5086
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5092
 #, perl-format
 msgid "math to images: output file missing: %s"
 msgstr "формули у зображення: не вказано файла для виведення даних: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5112
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5118
 #, perl-format
 msgid "math to images: command failed: %s"
 msgstr "формули у зображення: помилка команди: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5117
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5123
 #, perl-format
 msgid "math to images: closing communication failed: %s: %s"
 msgstr "формули у зображення: не вдалося завершити обмін даними: %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5133
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5139
 #, perl-format
 msgid "math to images: dvi file missing: %s"
 msgstr "формули у зображення: не вказано файла для виведення даних: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5148
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5154
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr "формули у зображення: системна помилка «%s»: %d\n"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5155
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5161
 #, perl-format
 msgid "math to images: unable to return to initial directory: %s"
 msgstr ""
 "формули у зображення: не вдалося повернутися до початкового каталогу: %s"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:714
+#: tta/perl/Texinfo/Convert/Plaintext.pm:716
 #, perl-format
 msgid "%s: output incompatible with split"
 msgstr "%s: виведені дані несумісні із поділом"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2046
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2050
 #, perl-format
 msgid "Index entry in @%s with : produces invalid Info: %s"
 msgstr "Запис покажчика у @%s з : призводить до некоректного Info: %s"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2088
-#: tta/perl/Texinfo/ParserNonXS.pm:3703 tta/C/parsetexi/indices.c:319
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2092
+#: tta/perl/Texinfo/ParserNonXS.pm:3748 tta/C/parsetexi/indices.c:317
 #, c-format, perl-format
 msgid "entry for index `%s' outside of any node"
 msgstr "пункт покажчика «%s» ззовні будь-якого вузла"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2104
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2108
 #, perl-format
 msgid "node name with index entries should not contain `%s'"
 msgstr "назва вузла із записами покажчика не повинна містити «%s»"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2405
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2409
 #, perl-format
 msgid "could not find @image file `%s.txt' nor alternate text"
 msgstr "не вдалося знайти файл @image «%s.txt» або текст-замінник"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:3137
+#: tta/perl/Texinfo/Convert/Plaintext.pm:3142
 msgid ""
 "@strong{Note...} produces a spurious cross-reference in Info; reword to "
 "avoid that"
@@ -2706,350 +2767,362 @@ msgstr ""
 "@strong{Note...} створює хибні перехресні посилання у Info; переформулюйте, "
 "уникаючи цього"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:4147
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4160
 #, perl-format
 msgid "menu entry node name should not contain `%s'"
 msgstr "у назві вузла пункту меню не повинно бути «%s»"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:4158
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4171
 msgid "menu entry node name should not contain `:'"
 msgstr "у назві вузла пункту меню не повинно бути «:»"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:4193
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4206
 msgid "menu entry name should not contain `:'"
 msgstr "у назві пункту меню не повинно бути «:»"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:560 tta/C/main/convert_utils.c:658
+#: tta/perl/Texinfo/Convert/Utils.pm:512 tta/C/main/convert_utils.c:658
 #, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "не вдалося прочитати %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:582 tta/C/main/convert_utils.c:703
+#: tta/perl/Texinfo/Convert/Utils.pm:534 tta/C/main/convert_utils.c:703
 #, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "помилка під час закриття файла @verbatiminclude %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:589 tta/perl/Texinfo/ParserNonXS.pm:3950
+#: tta/perl/Texinfo/Convert/Utils.pm:541 tta/perl/Texinfo/ParserNonXS.pm:4002
 #: tta/C/main/convert_utils.c:715
 #, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: не вдалося знайти %s"
 
-#: tta/perl/Texinfo/Indices.pm:275 tta/C/main/manipulate_indices.c:485
+#: tta/perl/Texinfo/Indices.pm:440 tta/C/main/manipulate_indices.c:694
 #, c-format, perl-format
 msgid "empty index key in @%s"
 msgstr "порожній ключ індексу у @%s"
 
-#: tta/perl/Texinfo/Indices.pm:299
+#: tta/perl/Texinfo/Indices.pm:465
 #, perl-format
 msgid "empty index sub entry %d key in @%s"
 msgstr "порожній ключ підлеглого запису %d покажчика у @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:978 tta/C/parsetexi/api.c:166
+#: tta/perl/Texinfo/ParserNonXS.pm:1010 tta/C/parsetexi/api.c:175
 #, c-format, perl-format
 msgid "could not open %s: %s"
 msgstr "не вдалося відкрити %s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:1264 tta/C/parsetexi/parser.c:427
+#: tta/perl/Texinfo/ParserNonXS.pm:1296 tta/C/parsetexi/parser.c:429
 #, c-format, perl-format
 msgid "multiple %s (@%s)"
 msgstr "декілька %s (@%s)"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:1267
-#: tta/perl/Texinfo/StructuringNonXS.pm:512 tta/C/parsetexi/parser.c:430
+#: tta/perl/Texinfo/ParserNonXS.pm:1299
+#: tta/perl/Texinfo/StructuringNonXS.pm:512 tta/C/parsetexi/parser.c:432
 #: tta/C/structuring_transfo/structuring.c:956
 #, c-format, perl-format
 msgid "multiple @%s"
 msgstr "декілька @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:1407 tta/perl/Texinfo/ParserNonXS.pm:4608
+#: tta/perl/Texinfo/ParserNonXS.pm:1446 tta/perl/Texinfo/ParserNonXS.pm:4699
 #: tta/C/parsetexi/end_line.c:1089 tta/C/parsetexi/end_line.c:1098
 #: tta/C/parsetexi/macro.c:159
 #, c-format, perl-format
 msgid "@%s requires a name"
 msgstr "@%s вимагає вказати назву"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:1414 tta/perl/Texinfo/ParserNonXS.pm:4646
-#: tta/perl/Texinfo/ParserNonXS.pm:8142 tta/perl/Texinfo/ParserNonXS.pm:8155
-#: tta/perl/Texinfo/ParserNonXS.pm:8169 tta/C/parsetexi/end_line.c:1133
+#: tta/perl/Texinfo/ParserNonXS.pm:1453 tta/perl/Texinfo/ParserNonXS.pm:4737
+#: tta/perl/Texinfo/ParserNonXS.pm:8235 tta/perl/Texinfo/ParserNonXS.pm:8248
+#: tta/perl/Texinfo/ParserNonXS.pm:8262 tta/C/parsetexi/end_line.c:1133
 #: tta/C/parsetexi/macro.c:167
 #, c-format, perl-format
 msgid "bad name for @%s"
 msgstr "помилкова назва @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:1435 tta/C/parsetexi/macro.c:240
+#: tta/perl/Texinfo/ParserNonXS.pm:1474 tta/C/parsetexi/macro.c:240
 #, c-format, perl-format
 msgid "bad or empty @%s formal argument: %s"
 msgstr "помилковий або порожній формальний аргумент @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:1445 tta/C/parsetexi/macro.c:267
+#: tta/perl/Texinfo/ParserNonXS.pm:1484 tta/C/parsetexi/macro.c:267
 #, c-format, perl-format
 msgid "bad syntax for @%s argument: %s"
 msgstr "помилковий синтаксис аргументу @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:1587 tta/C/parsetexi/close.c:90
+#: tta/perl/Texinfo/ParserNonXS.pm:1626 tta/C/parsetexi/close.c:90
 #, c-format, perl-format
 msgid "@end %s seen before @%s closing brace"
 msgstr "@end %s розташовано до кінцевої дужки @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:1591 tta/C/parsetexi/close.c:95
+#: tta/perl/Texinfo/ParserNonXS.pm:1630 tta/C/parsetexi/close.c:95
 #, c-format, perl-format
 msgid "@%s seen before @%s closing brace"
 msgstr "@%s розташовано до кінцевої дужки @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:1595 tta/perl/Texinfo/ParserNonXS.pm:2856
-#: tta/perl/Texinfo/ParserNonXS.pm:2964 tta/C/parsetexi/close.c:100
+#: tta/perl/Texinfo/ParserNonXS.pm:1634 tta/perl/Texinfo/ParserNonXS.pm:2895
+#: tta/perl/Texinfo/ParserNonXS.pm:3004 tta/C/parsetexi/close.c:100
 #: tta/C/parsetexi/macro.c:351 tta/C/parsetexi/macro.c:511
 #, c-format, perl-format
 msgid "@%s missing closing brace"
 msgstr "@%s не має завершальної фігурної дужки"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:1599 tta/C/parsetexi/close.c:106
+#: tta/perl/Texinfo/ParserNonXS.pm:1638 tta/C/parsetexi/close.c:106
 #, c-format, perl-format
 msgid "@%s missing closing delimiter sequence: %s}"
 msgstr "у @%s не вистачає кінцевої послідовності-роздільника: %s}"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:1887 tta/C/parsetexi/multitable.c:77
+#: tta/perl/Texinfo/ParserNonXS.pm:1926 tta/C/parsetexi/multitable.c:77
 #, c-format, perl-format
 msgid "@itemx should not begin @%s"
 msgstr "@itemx не може починатися з @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:2034 tta/C/parsetexi/multitable.c:214
+#: tta/perl/Texinfo/ParserNonXS.pm:2073 tta/C/parsetexi/multitable.c:214
 #, c-format
 msgid "@itemx must follow @item"
 msgstr "@itemx слід використовувати після @item"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:2196 tta/C/parsetexi/close.c:376
+#: tta/perl/Texinfo/ParserNonXS.pm:2235 tta/C/parsetexi/close.c:376
 #, c-format, perl-format
 msgid "@%s has text but no @item"
 msgstr "@%s містить текст без @item"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:2252 tta/C/parsetexi/close.c:440
+#: tta/perl/Texinfo/ParserNonXS.pm:2291 tta/C/parsetexi/close.c:440
 #, c-format, perl-format
 msgid "`@end' expected `%s', but saw `%s'"
 msgstr "`@end' очікує `%s', натомість отримано `%s'"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:2256 tta/C/parsetexi/close.c:446
+#: tta/perl/Texinfo/ParserNonXS.pm:2295 tta/C/parsetexi/close.c:446
 #, c-format, perl-format
 msgid "@%s seen before @end %s"
 msgstr "@%s розташовано до @end %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:2260 tta/C/parsetexi/close.c:453
+#: tta/perl/Texinfo/ParserNonXS.pm:2299 tta/C/parsetexi/close.c:453
 #, c-format, perl-format
 msgid "no matching `@end %s'"
 msgstr "не знайдено відповідного «@end %s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:2284 tta/perl/Texinfo/ParserNonXS.pm:2289
-#: tta/perl/Texinfo/ParserNonXS.pm:6674 tta/C/parsetexi/close.c:480
-#: tta/C/parsetexi/close.c:490 tta/C/parsetexi/separator.c:223
+#: tta/perl/Texinfo/ParserNonXS.pm:2323 tta/perl/Texinfo/ParserNonXS.pm:2328
+#: tta/perl/Texinfo/ParserNonXS.pm:6771 tta/C/parsetexi/close.c:480
+#: tta/C/parsetexi/close.c:490 tta/C/parsetexi/separator.c:222
 #, c-format, perl-format
 msgid "misplaced {"
 msgstr "неправильно розташована {"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:2324 tta/perl/Texinfo/ParserNonXS.pm:4553
-#: tta/perl/Texinfo/ParserNonXS.pm:4930 tta/perl/Texinfo/ParserNonXS.pm:7495
-#: tta/perl/Texinfo/ParserNonXS.pm:7584 tta/perl/Texinfo/ParserNonXS.pm:7621
+#: tta/perl/Texinfo/ParserNonXS.pm:2363 tta/perl/Texinfo/ParserNonXS.pm:4644
+#: tta/perl/Texinfo/ParserNonXS.pm:5021 tta/perl/Texinfo/ParserNonXS.pm:7592
+#: tta/perl/Texinfo/ParserNonXS.pm:7681 tta/perl/Texinfo/ParserNonXS.pm:7718
 #: tta/C/parsetexi/close.c:535 tta/C/parsetexi/end_line.c:1013
-#: tta/C/parsetexi/end_line.c:2000 tta/C/parsetexi/parser.c:2101
-#: tta/C/parsetexi/parser.c:2218 tta/C/parsetexi/parser.c:2268
+#: tta/C/parsetexi/end_line.c:2110 tta/C/parsetexi/parser.c:2184
+#: tta/C/parsetexi/parser.c:2301 tta/C/parsetexi/parser.c:2352
 #, c-format, perl-format
 msgid "@%s expected braces"
 msgstr "@%s потрібні дужки"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:2380
+#: tta/perl/Texinfo/ParserNonXS.pm:2419
 #, perl-format
 msgid "unmatched `%c%s'"
 msgstr "«%c%s» без відповідника"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:2800 tta/C/parsetexi/macro.c:379
+#: tta/perl/Texinfo/ParserNonXS.pm:2839 tta/C/parsetexi/macro.c:379
 #, c-format, perl-format
 msgid "use %s instead of %s in macro arg"
 msgstr "скористайтеся %s замість %s в аргументі макросу"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:2833 tta/C/parsetexi/macro.c:432
+#: tta/perl/Texinfo/ParserNonXS.pm:2872 tta/C/parsetexi/macro.c:432
 #, c-format, perl-format
 msgid "macro `%s' called with too many args"
 msgstr "макровизначення «%s» викликано з надмірною кількістю аргументів"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:2868 tta/C/parsetexi/macro.c:448
+#: tta/perl/Texinfo/ParserNonXS.pm:2907 tta/C/parsetexi/macro.c:448
 #, c-format, perl-format
 msgid "macro `%s' declared without argument called with an argument"
 msgstr ""
 "макровизначення «%s» оголошено без аргументу, з яким його слід викликати"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3070 tta/C/parsetexi/macro.c:721
+#: tta/perl/Texinfo/ParserNonXS.pm:3110 tta/C/parsetexi/macro.c:721
 #, c-format, perl-format
 msgid "\\ in @%s expansion followed `%s' instead of parameter name or \\"
 msgstr "за \\ у розгортанні @%s слідує «%s» замість назви параметра або \\"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3885 tta/perl/Texinfo/ParserNonXS.pm:4111
-#: tta/perl/Texinfo/ParserNonXS.pm:8206 tta/C/parsetexi/end_line.c:144
-#: tta/C/parsetexi/end_line.c:1287 tta/C/parsetexi/end_line.c:1641
+#: tta/perl/Texinfo/ParserNonXS.pm:3937 tta/perl/Texinfo/ParserNonXS.pm:4196
+#: tta/perl/Texinfo/ParserNonXS.pm:8299 tta/C/parsetexi/end_line.c:145
+#: tta/C/parsetexi/end_line.c:1292 tta/C/parsetexi/end_line.c:1702
 #, c-format, perl-format
 msgid "@%s missing argument"
 msgstr "не вистачає аргументу @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3899 tta/C/parsetexi/end_line.c:1305
+#: tta/perl/Texinfo/ParserNonXS.pm:3951 tta/C/parsetexi/end_line.c:1310
 #, c-format, perl-format
 msgid "unknown @end %s"
 msgstr "невідома команда @end %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3917 tta/perl/Texinfo/ParserNonXS.pm:4046
-#: tta/perl/Texinfo/ParserNonXS.pm:4565 tta/perl/Texinfo/ParserNonXS.pm:8349
-#: tta/perl/Texinfo/ParserNonXS.pm:8387 tta/perl/Texinfo/ParserNonXS.pm:8421
-#: tta/perl/Texinfo/ParserNonXS.pm:8530 tta/C/parsetexi/end_line.c:397
-#: tta/C/parsetexi/end_line.c:475 tta/C/parsetexi/end_line.c:1031
-#: tta/C/parsetexi/end_line.c:1555
+#: tta/perl/Texinfo/ParserNonXS.pm:3969 tta/perl/Texinfo/ParserNonXS.pm:4132
+#: tta/perl/Texinfo/ParserNonXS.pm:4656 tta/perl/Texinfo/ParserNonXS.pm:8442
+#: tta/perl/Texinfo/ParserNonXS.pm:8480 tta/perl/Texinfo/ParserNonXS.pm:8514
+#: tta/perl/Texinfo/ParserNonXS.pm:8623 tta/C/parsetexi/end_line.c:398
+#: tta/C/parsetexi/end_line.c:476 tta/C/parsetexi/end_line.c:1031
+#: tta/C/parsetexi/end_line.c:1614
 #, c-format, perl-format
 msgid "bad argument to @%s: %s"
 msgstr "помилковий аргумент @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3945
+#: tta/perl/Texinfo/ParserNonXS.pm:3997
 #, perl-format
 msgid "@%s: could not open %s: %s"
 msgstr "@%s: не вдалося відкрити %s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3976 tta/C/parsetexi/end_line.c:1400
+#: tta/perl/Texinfo/ParserNonXS.pm:4028 tta/C/parsetexi/end_line.c:1405
 #, c-format, perl-format
 msgid "bad encoding name `%s'"
 msgstr "помилкова назва кодування «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3982 tta/C/parsetexi/end_line.c:1435
+#: tta/perl/Texinfo/ParserNonXS.pm:4034 tta/C/parsetexi/end_line.c:1440
 #, c-format, perl-format
 msgid "encoding `%s' is not a canonical texinfo encoding"
 msgstr "кодування «%s» не є канонічним кодуванням texinfo"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4013 tta/C/parsetexi/end_line.c:1502
+#: tta/perl/Texinfo/ParserNonXS.pm:4065 tta/C/parsetexi/end_line.c:1507
 #, c-format, perl-format
 msgid "unhandled encoding name `%s'"
 msgstr "непридатна до обробки назва кодування «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4075 tta/perl/Texinfo/ParserNonXS.pm:6730
-#: tta/C/parsetexi/end_line.c:1599 tta/C/parsetexi/separator.c:298
+#: tta/perl/Texinfo/ParserNonXS.pm:4106 tta/C/parsetexi/end_line.c:1571
+#, fuzzy, c-format, perl-format
+#| msgid "bad syntax for @%s argument: %s"
+msgid "bad language script argument `%s'"
+msgstr "помилковий синтаксис аргументу @%s: %s"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4110 tta/C/parsetexi/end_line.c:1577
+#, fuzzy, c-format, perl-format
+#| msgid "unknown action `%s'"
+msgid "unknown language script name `%s'"
+msgstr "невідома дія `%s'"
+
+#: tta/perl/Texinfo/ParserNonXS.pm:4161 tta/perl/Texinfo/ParserNonXS.pm:6827
+#: tta/C/parsetexi/end_line.c:1658 tta/C/parsetexi/separator.c:297
 #, c-format, perl-format
 msgid "empty argument in @%s"
 msgstr "порожній аргумент у @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4178 tta/perl/Texinfo/ParserNonXS.pm:4185
-#: tta/C/parsetexi/end_line.c:1732 tta/C/parsetexi/end_line.c:1741
+#: tta/perl/Texinfo/ParserNonXS.pm:4279 tta/perl/Texinfo/ParserNonXS.pm:4286
+#: tta/C/parsetexi/end_line.c:1844 tta/C/parsetexi/end_line.c:1853
 #, c-format, perl-format
 msgid "ignoring multiple @%s"
 msgstr "ігноруємо зайві @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4239
+#: tta/perl/Texinfo/ParserNonXS.pm:4340
 #, perl-format
 msgid "@%s after the first element"
 msgstr "@%s після першого елемента"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4248
+#: tta/perl/Texinfo/ParserNonXS.pm:4349
 #, perl-format
 msgid "@%s only meaningful on a @multitable line"
 msgstr "@%s має сенс лише у рядку @multitable"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4290
+#: tta/perl/Texinfo/ParserNonXS.pm:4390
 #, perl-format
 msgid "@node precedes @%s, but parts may not be associated with nodes"
 msgstr "@node передує @%s, але частини не можна пов’язувати з вузлами"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4328 tta/C/parsetexi/end_line.c:802
+#: tta/perl/Texinfo/ParserNonXS.pm:4428 tta/C/parsetexi/end_line.c:801
 #, c-format, perl-format
 msgid "missing category for @%s"
 msgstr "не вистачає категорії для @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4384 tta/C/parsetexi/end_line.c:796
+#: tta/perl/Texinfo/ParserNonXS.pm:4474 tta/C/parsetexi/end_line.c:795
 #, c-format, perl-format
 msgid "missing name for @%s"
 msgstr "не вистачає назви @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4465 tta/perl/Texinfo/ParserNonXS.pm:4595
-#: tta/C/parsetexi/end_line.c:904 tta/C/parsetexi/end_line.c:1070
+#: tta/perl/Texinfo/ParserNonXS.pm:4555 tta/perl/Texinfo/ParserNonXS.pm:4686
+#: tta/C/parsetexi/end_line.c:903 tta/C/parsetexi/end_line.c:1070
 #, c-format, perl-format
 msgid "unexpected argument on @%s line: %s"
 msgstr "неочікуваний аргумент у рядку @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4474 tta/C/parsetexi/end_line.c:913
+#: tta/perl/Texinfo/ParserNonXS.pm:4564 tta/C/parsetexi/end_line.c:912
 #, c-format
 msgid "empty multitable"
 msgstr "порожнє середовище multitable"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4514 tta/perl/Texinfo/ParserNonXS.pm:6862
-#: tta/perl/Texinfo/ParserNonXS.pm:8210 tta/C/parsetexi/end_line.c:147
-#: tta/C/parsetexi/end_line.c:958 tta/C/parsetexi/separator.c:487
+#: tta/perl/Texinfo/ParserNonXS.pm:4604 tta/perl/Texinfo/ParserNonXS.pm:6959
+#: tta/perl/Texinfo/ParserNonXS.pm:8303 tta/C/parsetexi/end_line.c:148
+#: tta/C/parsetexi/end_line.c:957 tta/C/parsetexi/separator.c:486
 #, c-format, perl-format
 msgid "superfluous argument to @%s"
 msgstr "зайвий аргумент @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4518 tta/perl/Texinfo/ParserNonXS.pm:4522
-#: tta/perl/Texinfo/ParserNonXS.pm:8201 tta/perl/Texinfo/ParserNonXS.pm:8245
-#: tta/C/parsetexi/end_line.c:140 tta/C/parsetexi/end_line.c:968
-#: tta/C/parsetexi/end_line.c:972
+#: tta/perl/Texinfo/ParserNonXS.pm:4608 tta/perl/Texinfo/ParserNonXS.pm:4612
+#: tta/perl/Texinfo/ParserNonXS.pm:8294 tta/perl/Texinfo/ParserNonXS.pm:8338
+#: tta/C/parsetexi/end_line.c:141 tta/C/parsetexi/end_line.c:967
+#: tta/C/parsetexi/end_line.c:971
 #, c-format, perl-format
 msgid "bad argument to @%s"
 msgstr "помилковий аргумент до @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4538 tta/C/parsetexi/end_line.c:999
+#: tta/perl/Texinfo/ParserNonXS.pm:4629 tta/C/parsetexi/end_line.c:999
 #, c-format, perl-format
 msgid "accent command `@%s' not allowed as @%s argument"
 msgstr "команду акцентування, «@%s», не можна використовувати у аргументі @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4569 tta/C/parsetexi/end_line.c:1037
+#: tta/perl/Texinfo/ParserNonXS.pm:4660 tta/C/parsetexi/end_line.c:1037
 #, c-format, perl-format
 msgid "missing @%s argument"
 msgstr "пропущено аргумент @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4577 tta/C/parsetexi/end_line.c:1046
+#: tta/perl/Texinfo/ParserNonXS.pm:4668 tta/C/parsetexi/end_line.c:1046
 #, c-format, perl-format
 msgid "command @%s not accepting argument in brace should not be on @%s line"
 msgstr ""
 "команда @%s, що не приймає аргументів у дужках, не повинна розташовуватися у "
 "рядку @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4980 tta/C/parsetexi/labels.c:62
+#: tta/perl/Texinfo/ParserNonXS.pm:5071 tta/C/parsetexi/labels.c:62
 #, c-format, perl-format
 msgid "syntax for an external node used for `%s'"
 msgstr "синтаксис для зовнішнього вузла використано для «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4989 tta/C/parsetexi/labels.c:72
+#: tta/perl/Texinfo/ParserNonXS.pm:5080 tta/C/parsetexi/labels.c:72
 #, c-format, perl-format
 msgid "empty node name after expansion `%s'"
 msgstr "порожня назва вузла після розгортання «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5029 tta/C/parsetexi/menus.c:59
+#: tta/perl/Texinfo/ParserNonXS.pm:5120 tta/C/parsetexi/menus.c:59
 #, c-format, perl-format
 msgid "empty menu entry name in `%s'"
 msgstr "порожня назва пункту меню у «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5038 tta/C/parsetexi/menus.c:74
+#: tta/perl/Texinfo/ParserNonXS.pm:5129 tta/C/parsetexi/menus.c:74
 #, c-format
 msgid "empty node name in menu entry"
 msgstr "порожня назва вузла у пункті меню"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5239 tta/C/parsetexi/parser.c:1390
+#: tta/perl/Texinfo/ParserNonXS.pm:5330 tta/C/parsetexi/parser.c:1472
 #, c-format, perl-format
 msgid "@%s should not appear in @%s"
 msgstr "@%s не повинно бути у @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5250 tta/C/parsetexi/parser.c:1404
+#: tta/perl/Texinfo/ParserNonXS.pm:5341 tta/C/parsetexi/parser.c:1486
 #, c-format, perl-format
 msgid "@%s should not appear anywhere inside caption"
 msgstr "@%s не повинно бути будь-де всередині підпису"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5267 tta/C/parsetexi/parser.c:1458
+#: tta/perl/Texinfo/ParserNonXS.pm:5358 tta/C/parsetexi/parser.c:1540
 #, c-format, perl-format
 msgid "@%s should not appear anywhere inside @%s"
 msgstr "@%s не повинно бути будь-де всередині @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5293 tta/C/parsetexi/parser.c:1473
+#: tta/perl/Texinfo/ParserNonXS.pm:5384 tta/C/parsetexi/parser.c:1555
 #, c-format, perl-format
 msgid "@%s should not appear on @%s line"
 msgstr "@%s не повинно бути у рядку @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5307 tta/C/parsetexi/parser.c:1487
+#: tta/perl/Texinfo/ParserNonXS.pm:5398 tta/C/parsetexi/parser.c:1569
 #, c-format, perl-format
 msgid "@%s should not appear in @%s block"
 msgstr "@%s не повинно бути у блоці @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5361 tta/C/parsetexi/macro.c:845
+#: tta/perl/Texinfo/ParserNonXS.pm:5452 tta/C/parsetexi/macro.c:846
 #, c-format, perl-format
 msgid ""
 "macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; "
@@ -3058,14 +3131,14 @@ msgstr ""
 "виклик макровизначення вкладено надто глибоко (встановіть більше значення "
 "MAX_MACRO_CALL_NESTING; поточне значення — %d)"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5372 tta/C/parsetexi/macro.c:835
+#: tta/perl/Texinfo/ParserNonXS.pm:5463 tta/C/parsetexi/macro.c:836
 #, c-format, perl-format
 msgid "recursive call of macro %s is not allowed; use @rmacro if needed"
 msgstr ""
 "не можна рекурсивно викликати макровизначення %s; якщо потрібно, "
 "скористайтеся @rmacro"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5414 tta/C/parsetexi/macro.c:883
+#: tta/perl/Texinfo/ParserNonXS.pm:5505 tta/C/parsetexi/macro.c:884
 #, c-format, perl-format
 msgid ""
 "@%s defined with zero or more than one argument should be invoked with {}"
@@ -3073,93 +3146,93 @@ msgstr ""
 "команду @%s, визначену без аргументів або з понад одним аргументом, слід "
 "викликати з дужками, {}"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5720 tta/C/parsetexi/handle_commands.c:363
+#: tta/perl/Texinfo/ParserNonXS.pm:5811 tta/C/parsetexi/handle_commands.c:363
 #, c-format, perl-format
 msgid "@%s should only appear in heading or footing"
 msgstr "@%s має бути розташовано лише у верхньому або нижньому колонтитулі"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5727
+#: tta/perl/Texinfo/ParserNonXS.pm:5818
 #, perl-format
 msgid "@%s should only appear in math context"
 msgstr "@%s має використовуватися лише у контексті формул"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5764 tta/perl/Texinfo/ParserNonXS.pm:5772
+#: tta/perl/Texinfo/ParserNonXS.pm:5855 tta/perl/Texinfo/ParserNonXS.pm:5863
 #: tta/C/parsetexi/handle_commands.c:418 tta/C/parsetexi/handle_commands.c:427
 #, c-format, perl-format
 msgid "@%s not meaningful inside `@%s' block"
 msgstr "@%s не має сенсу усередині блоку `%s'"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5779 tta/C/parsetexi/handle_commands.c:443
+#: tta/perl/Texinfo/ParserNonXS.pm:5870 tta/C/parsetexi/handle_commands.c:443
 #, c-format, perl-format
 msgid "@%s in empty multitable"
 msgstr "@%s у порожньому multitable"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5785 tta/C/parsetexi/handle_commands.c:451
+#: tta/perl/Texinfo/ParserNonXS.pm:5876 tta/C/parsetexi/handle_commands.c:451
 #, c-format
 msgid "@tab before @item"
 msgstr "@tab перед @item"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5788 tta/C/parsetexi/handle_commands.c:455
+#: tta/perl/Texinfo/ParserNonXS.pm:5879 tta/C/parsetexi/handle_commands.c:455
 #, c-format, perl-format
 msgid "too many columns in multitable item (max %d)"
 msgstr "занадто багато стовпчиків у об’єкті multitable (максимум %d)"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5825 tta/C/parsetexi/handle_commands.c:497
+#: tta/perl/Texinfo/ParserNonXS.pm:5916 tta/C/parsetexi/handle_commands.c:497
 #, c-format
 msgid "ignoring @tab outside of multitable"
 msgstr "пропускається @tab зовні multitable"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5829 tta/perl/Texinfo/ParserNonXS.pm:6159
+#: tta/perl/Texinfo/ParserNonXS.pm:5920 tta/perl/Texinfo/ParserNonXS.pm:6250
 #: tta/C/parsetexi/handle_commands.c:502 tta/C/parsetexi/handle_commands.c:933
 #, c-format, perl-format
 msgid "@%s outside of table or list"
 msgstr "@%s поза межами таблиці або списку"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5841 tta/C/parsetexi/handle_commands.c:517
+#: tta/perl/Texinfo/ParserNonXS.pm:5932 tta/C/parsetexi/handle_commands.c:517
 #, c-format, perl-format
 msgid "@%s is useless inside of a paragraph"
 msgstr "@%s не має сенсу всередині абзацу"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6014 tta/C/parsetexi/handle_commands.c:745
+#: tta/perl/Texinfo/ParserNonXS.pm:6105 tta/C/parsetexi/handle_commands.c:745
 #, c-format, perl-format
 msgid "@%s not allowed inside `@copying' block"
 msgstr "@%s не можна використовувати всередині блоку «@copying»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6093 tta/perl/Texinfo/ParserNonXS.pm:6104
+#: tta/perl/Texinfo/ParserNonXS.pm:6184 tta/perl/Texinfo/ParserNonXS.pm:6195
 #: tta/C/parsetexi/handle_commands.c:849 tta/C/parsetexi/handle_commands.c:862
 #, c-format, perl-format
 msgid "remaining argument on @%s line: %s"
 msgstr "залишковий аргумент у рядку @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6173 tta/C/parsetexi/handle_commands.c:959
+#: tta/perl/Texinfo/ParserNonXS.pm:6267 tta/C/parsetexi/handle_commands.c:959
 #, c-format
 msgid "multiple node @nodedescription"
 msgstr "декілька вузлів @nodedescription"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6179 tta/C/parsetexi/handle_commands.c:964
+#: tta/perl/Texinfo/ParserNonXS.pm:6273 tta/C/parsetexi/handle_commands.c:964
 #, c-format
 msgid "@nodedescription outside of any node"
 msgstr "@nodedescription поза будь-яким вузлом"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6186 tta/perl/Texinfo/ParserNonXS.pm:6505
-#: tta/C/parsetexi/handle_commands.c:1375
+#: tta/perl/Texinfo/ParserNonXS.pm:6280 tta/perl/Texinfo/ParserNonXS.pm:6604
+#: tta/C/parsetexi/handle_commands.c:1383
 #, c-format, perl-format
 msgid "@%s should only appear in an index entry"
 msgstr "@%s має використовуватися лише у записі покажчика"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6202 tta/C/parsetexi/handle_commands.c:991
+#: tta/perl/Texinfo/ParserNonXS.pm:6297 tta/C/parsetexi/handle_commands.c:992
 #, c-format
 msgid "no more than two levels of index subentry are allowed"
 msgstr ""
 "не можна використовувати більше ніж два рівні вкладеності для записів "
 "покажчика"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6245 tta/C/parsetexi/handle_commands.c:1075
+#: tta/perl/Texinfo/ParserNonXS.pm:6340 tta/C/parsetexi/handle_commands.c:1076
 #, c-format, perl-format
 msgid "must be after `@%s' to use `@%s'"
 msgstr "має бути розташовано після «@%s», щоб можна було користуватися «@%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6298 tta/C/parsetexi/handle_commands.c:1128
+#: tta/perl/Texinfo/ParserNonXS.pm:6397 tta/C/parsetexi/handle_commands.c:1136
 #, c-format
 msgid ""
 "@author not meaningful outside `@titlepage', `@documentinfo' and "
@@ -3168,146 +3241,146 @@ msgstr ""
 "@author не має сенсу поза середовищами «@titlepage», «@documentinfo» та "
 "«@quotation»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6302 tta/C/parsetexi/handle_commands.c:1132
+#: tta/perl/Texinfo/ParserNonXS.pm:6401 tta/C/parsetexi/handle_commands.c:1140
 #, c-format
 msgid "@dircategory after first node"
 msgstr "@dircategory після першого вузла"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6412 tta/C/parsetexi/handle_commands.c:1268
+#: tta/perl/Texinfo/ParserNonXS.pm:6511 tta/C/parsetexi/handle_commands.c:1276
 #, c-format
 msgid "@direntry after first node"
 msgstr "@direntry після першого вузла"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6423 tta/C/parsetexi/handle_commands.c:1273
+#: tta/perl/Texinfo/ParserNonXS.pm:6522 tta/C/parsetexi/handle_commands.c:1281
 #, c-format
 msgid "@menu in invalid context"
 msgstr "@menu у некоректному контексті"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6436 tta/C/parsetexi/handle_commands.c:1294
+#: tta/perl/Texinfo/ParserNonXS.pm:6535 tta/C/parsetexi/handle_commands.c:1302
 #, c-format
 msgid "multiple node @nodedescriptionblock"
 msgstr "декілька вузлів @nodedescriptionblock"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6442 tta/C/parsetexi/handle_commands.c:1299
+#: tta/perl/Texinfo/ParserNonXS.pm:6541 tta/C/parsetexi/handle_commands.c:1307
 #, c-format
 msgid "@nodedescriptionblock outside of any node"
 msgstr "@nodedescriptionblock поза будь-яким вузлом"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6560 tta/C/parsetexi/separator.c:89
+#: tta/perl/Texinfo/ParserNonXS.pm:6659 tta/C/parsetexi/separator.c:89
 #, c-format
 msgid "@verb without associated character"
 msgstr "@verb без пов’язаного символу"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6581 tta/C/parsetexi/separator.c:124
+#: tta/perl/Texinfo/ParserNonXS.pm:6680 tta/C/parsetexi/separator.c:124
 #, c-format, perl-format
 msgid "@%s is not meaningful outside `@float' environment"
 msgstr "@%s не має сенсу ззовні середовища «@float»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6585 tta/C/parsetexi/separator.c:129
+#: tta/perl/Texinfo/ParserNonXS.pm:6684 tta/C/parsetexi/separator.c:129
 #, c-format, perl-format
 msgid "@%s should be right below `@float'"
 msgstr "@%s має бути розташовано одразу під «@float»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6763 tta/C/parsetexi/separator.c:328
+#: tta/perl/Texinfo/ParserNonXS.pm:6860 tta/C/parsetexi/separator.c:327
 #, c-format, perl-format
 msgid "command @%s missing a node or external manual argument"
 msgstr "у команді @%s не вистачає аргументу вузла або зовнішнього підручника"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6788 tta/C/parsetexi/separator.c:382
+#: tta/perl/Texinfo/ParserNonXS.pm:6885 tta/C/parsetexi/separator.c:381
 #, c-format, perl-format
 msgid "in @%s empty cross reference name after expansion `%s'"
 msgstr ""
 "у @%s виявлено порожню назву перехресного посилання після розгортання «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6798 tta/C/parsetexi/separator.c:401
+#: tta/perl/Texinfo/ParserNonXS.pm:6895 tta/C/parsetexi/separator.c:400
 #, c-format, perl-format
 msgid "in @%s empty cross reference title after expansion `%s'"
 msgstr ""
 "у @%s виявлено порожній заголовок перехресного посилання після розгортання "
 "«%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6810 tta/C/parsetexi/separator.c:415
+#: tta/perl/Texinfo/ParserNonXS.pm:6907 tta/C/parsetexi/separator.c:414
 #, c-format
 msgid "@image missing filename argument"
 msgstr "не вказано аргумент назви файлу для @image"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6825 tta/perl/Texinfo/ParserNonXS.pm:7615
-#: tta/C/parsetexi/parser.c:2260 tta/C/parsetexi/separator.c:432
+#: tta/perl/Texinfo/ParserNonXS.pm:6922 tta/perl/Texinfo/ParserNonXS.pm:7712
+#: tta/C/parsetexi/parser.c:2344 tta/C/parsetexi/separator.c:431
 #, c-format, perl-format
 msgid "@dotless expects `i' or `j' as argument, not `%s'"
 msgstr "@dotless потрібен аргумент «i» або «j», але не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6836 tta/C/parsetexi/separator.c:444
+#: tta/perl/Texinfo/ParserNonXS.pm:6933 tta/C/parsetexi/separator.c:443
 #, c-format, perl-format
 msgid "@%s missing first argument"
 msgstr "у @%s не вистачає першого аргументу"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6849 tta/C/parsetexi/separator.c:464
+#: tta/perl/Texinfo/ParserNonXS.pm:6946 tta/C/parsetexi/separator.c:463
 #, c-format
 msgid "no argument specified for @U"
 msgstr "не вказано аргументу @U"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6852 tta/C/parsetexi/separator.c:473
+#: tta/perl/Texinfo/ParserNonXS.pm:6949 tta/C/parsetexi/separator.c:472
 #, c-format, perl-format
 msgid "non-hex digits in argument for @U: %s"
 msgstr "нешістнадцяткові цифри у аргументі @U: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6857 tta/C/parsetexi/separator.c:478
+#: tta/perl/Texinfo/ParserNonXS.pm:6954 tta/C/parsetexi/separator.c:477
 #, c-format, perl-format
 msgid "fewer than four hex digits in argument for @U: %s"
 msgstr "менше за 4 шістнадцяткові цифри у аргументі @U: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6878 tta/C/parsetexi/separator.c:499
+#: tta/perl/Texinfo/ParserNonXS.pm:6975 tta/C/parsetexi/separator.c:498
 #, c-format, perl-format
 msgid "argument for @U exceeds Unicode maximum 0x10FFFF: %s"
 msgstr ""
 "аргумент @U перевищує за розміром максимальний розмір для Unicode, 0x10FFFF: "
 "%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6889 tta/C/parsetexi/separator.c:514
+#: tta/perl/Texinfo/ParserNonXS.pm:6986 tta/C/parsetexi/separator.c:513
 #, c-format, perl-format
 msgid "command @%s does not accept arguments"
 msgstr "команді @%s не передаються аргументи"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6924 tta/C/parsetexi/separator.c:566
+#: tta/perl/Texinfo/ParserNonXS.pm:7021 tta/C/parsetexi/separator.c:565
 #, c-format, perl-format
 msgid "misplaced }"
 msgstr "неправильно розташована }"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7142 tta/perl/Texinfo/ParserNonXS.pm:7232
-#: tta/perl/Texinfo/ParserNonXS.pm:8033 tta/C/parsetexi/parser.c:1517
-#: tta/C/parsetexi/parser.c:1670 tta/C/parsetexi/parser.c:2769
+#: tta/perl/Texinfo/ParserNonXS.pm:7239 tta/perl/Texinfo/ParserNonXS.pm:7329
+#: tta/perl/Texinfo/ParserNonXS.pm:8130 tta/C/parsetexi/parser.c:1599
+#: tta/C/parsetexi/parser.c:1752 tta/C/parsetexi/parser.c:2851
 #, c-format, perl-format
 msgid "expected @end %s"
 msgstr "мало бути @end %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7162 tta/perl/Texinfo/ParserNonXS.pm:7250
-#: tta/C/parsetexi/parser.c:1575 tta/C/parsetexi/parser.c:1708
+#: tta/perl/Texinfo/ParserNonXS.pm:7259 tta/perl/Texinfo/ParserNonXS.pm:7347
+#: tta/C/parsetexi/parser.c:1657 tta/C/parsetexi/parser.c:1790
 #, c-format, perl-format
 msgid "@end %s should only appear at the beginning of a line"
 msgstr "@end %s не повинно бути на початку рядка"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7169 tta/C/parsetexi/parser.c:1591
+#: tta/perl/Texinfo/ParserNonXS.pm:7266 tta/C/parsetexi/parser.c:1673
 #, c-format, perl-format
 msgid "macro `%s' previously defined"
 msgstr "макровизначення `%s' вже було визначене"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7172 tta/C/parsetexi/parser.c:1594
+#: tta/perl/Texinfo/ParserNonXS.pm:7269 tta/C/parsetexi/parser.c:1676
 #, c-format, perl-format
 msgid "here is the previous definition of `%s'"
 msgstr "попереднє визначення `%s' тут"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7179 tta/C/parsetexi/parser.c:1601
+#: tta/perl/Texinfo/ParserNonXS.pm:7276 tta/C/parsetexi/parser.c:1683
 #, c-format, perl-format
 msgid "redefining Texinfo language command: @%s"
 msgstr "перевизначення команди мови Texinfo: @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7383 tta/C/parsetexi/parser.c:1943
+#: tta/perl/Texinfo/ParserNonXS.pm:7480 tta/C/parsetexi/parser.c:2026
 #, c-format
 msgid "unexpected @"
 msgstr "неочікуване @"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7437 tta/C/parsetexi/parser.c:2024
+#: tta/perl/Texinfo/ParserNonXS.pm:7534 tta/C/parsetexi/parser.c:2107
 #, c-format, perl-format
 msgid ""
 "value call nested too deeply (set MAX_MACRO_CALL_NESTING to override; "
@@ -3316,218 +3389,218 @@ msgstr ""
 "виклик значення вкладено надто глибоко (встановіть більше значення "
 "MAX_MACRO_CALL_NESTING; поточне значення — %d)"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7508 tta/C/parsetexi/parser.c:2136
+#: tta/perl/Texinfo/ParserNonXS.pm:7605 tta/C/parsetexi/parser.c:2219
 #, c-format, perl-format
 msgid "unknown command `%s'"
 msgstr "невідома команда «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7543 tta/C/parsetexi/parser.c:2169
+#: tta/perl/Texinfo/ParserNonXS.pm:7640 tta/C/parsetexi/parser.c:2252
 #, c-format, perl-format
 msgid "command `@%s' must not be followed by new line"
 msgstr "після команди «@%s» має бути символ розриву рядка"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7652 tta/C/parsetexi/parser.c:2339
+#: tta/perl/Texinfo/ParserNonXS.pm:7749 tta/C/parsetexi/parser.c:2423
 #, c-format, perl-format
 msgid "undefined flag: %s"
 msgstr "невідомий прапорець: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7671 tta/C/parsetexi/parser.c:2379
+#: tta/perl/Texinfo/ParserNonXS.pm:7768 tta/C/parsetexi/parser.c:2463
 #, c-format, perl-format
 msgid "bad syntax for @%s"
 msgstr "помилковий синтаксис для @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7679 tta/C/parsetexi/parser.c:2389
+#: tta/perl/Texinfo/ParserNonXS.pm:7776 tta/C/parsetexi/parser.c:2473
 #, c-format, perl-format
 msgid "@%s is obsolete"
 msgstr "@%s є застарілим"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7703 tta/C/parsetexi/parser.c:2417
+#: tta/perl/Texinfo/ParserNonXS.pm:7800 tta/C/parsetexi/parser.c:2501
 #, c-format, perl-format
 msgid "@%s should only appear at the beginning of a line"
 msgstr "@%s не повинно бути на початку рядка"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7853 tta/C/parsetexi/parser.c:2569
+#: tta/perl/Texinfo/ParserNonXS.pm:7951 tta/C/parsetexi/parser.c:2653
 #, c-format
 msgid "superfluous arguments for node"
 msgstr "зайві аргументи для вузла"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8139 tta/C/parsetexi/handle_commands.c:262
+#: tta/perl/Texinfo/ParserNonXS.pm:8232 tta/C/parsetexi/handle_commands.c:262
 #, c-format
 msgid "@set requires a name"
 msgstr "@set потребує визначення назви"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8152 tta/C/parsetexi/handle_commands.c:296
+#: tta/perl/Texinfo/ParserNonXS.pm:8245 tta/C/parsetexi/handle_commands.c:296
 #, c-format
 msgid "@clear requires a name"
 msgstr "@clear потребує визначення назви"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8166 tta/C/parsetexi/handle_commands.c:326
+#: tta/perl/Texinfo/ParserNonXS.pm:8259 tta/C/parsetexi/handle_commands.c:326
 #, c-format
 msgid "@unmacro requires a name"
 msgstr "@unmacro потребує визначення назви"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8226 tta/C/parsetexi/end_line.c:203
+#: tta/perl/Texinfo/ParserNonXS.pm:8319 tta/C/parsetexi/end_line.c:204
 #, c-format, perl-format
 msgid "environment command %s as argument to @alias"
 msgstr "команда середовища %s як аргумент @alias"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8235 tta/C/parsetexi/end_line.c:211
+#: tta/perl/Texinfo/ParserNonXS.pm:8328 tta/C/parsetexi/end_line.c:212
 #, c-format, perl-format
 msgid "recursive alias definition of %s through %s ignored"
 msgstr "рекурсивне визначення альтернативної назви %s через %s проігноровано"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8262 tta/C/parsetexi/end_line.c:282
+#: tta/perl/Texinfo/ParserNonXS.pm:8355 tta/C/parsetexi/end_line.c:283
 #, c-format, perl-format
 msgid "cannot redefine with @definfoenclose: %s"
 msgstr "не можна перевизначати за допомогою @definfoenclose: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8286 tta/C/parsetexi/end_line.c:305
+#: tta/perl/Texinfo/ParserNonXS.pm:8379 tta/C/parsetexi/end_line.c:306
 #, c-format, perl-format
 msgid "bad argument to @definfoenclose"
 msgstr "помилковий аргумент до @definfoenclose"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8292 tta/C/parsetexi/end_line.c:316
+#: tta/perl/Texinfo/ParserNonXS.pm:8385 tta/C/parsetexi/end_line.c:317
 #, c-format
 msgid "empty @columnfractions"
 msgstr "порожнє @columnfractions"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8300 tta/C/parsetexi/end_line.c:336
+#: tta/perl/Texinfo/ParserNonXS.pm:8393 tta/C/parsetexi/end_line.c:337
 #, c-format, perl-format
 msgid "column fraction not a number: %s"
 msgstr "частка стовпчика не є числом: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8309 tta/C/parsetexi/end_line.c:356
+#: tta/perl/Texinfo/ParserNonXS.pm:8402 tta/C/parsetexi/end_line.c:357
 #, c-format, perl-format
 msgid "@sp arg must be numeric, not `%s'"
 msgstr "аргументом @sp має бути число, а не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8321 tta/C/parsetexi/end_line.c:402
+#: tta/perl/Texinfo/ParserNonXS.pm:8414 tta/C/parsetexi/end_line.c:403
 #, c-format, perl-format
 msgid "reserved index name %s"
 msgstr "зарезервована назва індексу %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8362 tta/C/parsetexi/end_line.c:443
+#: tta/perl/Texinfo/ParserNonXS.pm:8455 tta/C/parsetexi/end_line.c:444
 #, c-format, perl-format
 msgid "unknown source index in @%s: %s"
 msgstr "невідомий індекс джерела у @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8365 tta/C/parsetexi/end_line.c:446
+#: tta/perl/Texinfo/ParserNonXS.pm:8458 tta/C/parsetexi/end_line.c:447
 #, c-format, perl-format
 msgid "unknown destination index in @%s: %s"
 msgstr "невідомий індекс призначення у @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8381 tta/C/parsetexi/end_line.c:466
+#: tta/perl/Texinfo/ParserNonXS.pm:8474 tta/C/parsetexi/end_line.c:467
 #, c-format, perl-format
 msgid "@%s leads to a merging of %s in itself, ignoring"
 msgstr "@%s призведе до об’єднання %s з самим собою, ігноруємо"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8398 tta/C/parsetexi/end_line.c:494
+#: tta/perl/Texinfo/ParserNonXS.pm:8491 tta/C/parsetexi/end_line.c:495
 #, c-format, perl-format
 msgid "unknown index `%s' in @printindex"
 msgstr "невідомий індекс «%s» у @printindex"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8406 tta/C/parsetexi/end_line.c:501
+#: tta/perl/Texinfo/ParserNonXS.pm:8499 tta/C/parsetexi/end_line.c:502
 #, c-format, perl-format
 msgid "printing an index `%s' merged in another one, `%s'"
 msgstr "друкуємо покажчик «%s» об’єднаний з іншим, «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8414 tta/C/parsetexi/end_line.c:507
+#: tta/perl/Texinfo/ParserNonXS.pm:8507 tta/C/parsetexi/end_line.c:508
 #, c-format, perl-format
 msgid "printindex before document beginning: @printindex %s"
 msgstr "printindex до початку документа: @printindex %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8428 tta/C/parsetexi/end_line.c:540
+#: tta/perl/Texinfo/ParserNonXS.pm:8521 tta/C/parsetexi/end_line.c:541
 #, c-format, perl-format
 msgid "Only @fonttextsize 10 or 11 is supported, not `%s'"
 msgstr "Передбачено підтримку лише @fonttextsize 10 чи 11, але не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8436 tta/C/parsetexi/end_line.c:551
+#: tta/perl/Texinfo/ParserNonXS.pm:8529 tta/C/parsetexi/end_line.c:552
 #, c-format, perl-format
 msgid "@footnotestyle arg must be `separate' or `end', not `%s'"
 msgstr ""
 "аргументом до @footnotestyle має бути «separate» чи «end», але не «%s»."
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8444 tta/C/parsetexi/end_line.c:563
+#: tta/perl/Texinfo/ParserNonXS.pm:8537 tta/C/parsetexi/end_line.c:564
 #, c-format, perl-format
 msgid "@setchapternewpage arg must be `on', `off' or `odd', not `%s'"
 msgstr ""
 "аргументом @setchapternewpage має бути «on», «off» або «odd», але не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8452 tta/C/parsetexi/end_line.c:574
+#: tta/perl/Texinfo/ParserNonXS.pm:8545 tta/C/parsetexi/end_line.c:575
 #, c-format, perl-format
 msgid "bad argument to @need: %s"
 msgstr "помилковий аргумент @need: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8462 tta/perl/Texinfo/ParserNonXS.pm:8467
-#: tta/C/parsetexi/end_line.c:584
+#: tta/perl/Texinfo/ParserNonXS.pm:8555 tta/perl/Texinfo/ParserNonXS.pm:8560
+#: tta/C/parsetexi/end_line.c:585
 #, c-format, perl-format
 msgid "@paragraphindent arg must be numeric/`none'/`asis', not `%s'"
 msgstr ""
 "аргументом @paragraphindent має бути число, «none» або «asis», але не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8475 tta/C/parsetexi/end_line.c:595
+#: tta/perl/Texinfo/ParserNonXS.pm:8568 tta/C/parsetexi/end_line.c:596
 #, c-format, perl-format
 msgid "@firstparagraphindent arg must be `none' or `insert', not `%s'"
 msgstr ""
 "аргументом @firstparagraphindent має бути «none» або «insert», але не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8485 tta/C/parsetexi/end_line.c:605
+#: tta/perl/Texinfo/ParserNonXS.pm:8578 tta/C/parsetexi/end_line.c:606
 #, c-format, perl-format
 msgid "@exampleindent arg must be numeric/`asis', not `%s'"
 msgstr "аргументом @exampleindent має бути число або «asis», але не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8497 tta/C/parsetexi/end_line.c:621
+#: tta/perl/Texinfo/ParserNonXS.pm:8590 tta/C/parsetexi/end_line.c:622
 #, c-format, perl-format
 msgid "expected @%s on or off, not `%s'"
 msgstr "@%s мало бути on або off, але не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8506 tta/C/parsetexi/end_line.c:641
+#: tta/perl/Texinfo/ParserNonXS.pm:8599 tta/C/parsetexi/end_line.c:642
 #, c-format, perl-format
 msgid "@kbdinputstyle arg must be `code'/`example'/`distinct', not `%s'"
 msgstr ""
 "аргументом @kbdinputstyle має бути «code»/«example»/«distinct», але не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8514 tta/C/parsetexi/end_line.c:653
+#: tta/perl/Texinfo/ParserNonXS.pm:8607 tta/C/parsetexi/end_line.c:654
 #, c-format, perl-format
 msgid "@allowcodebreaks arg must be `true' or `false', not `%s'"
 msgstr "аргументом @allowcodebreaks має бути «true» або «false», але не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8522 tta/C/parsetexi/end_line.c:665
+#: tta/perl/Texinfo/ParserNonXS.pm:8615 tta/C/parsetexi/end_line.c:666
 #, c-format, perl-format
 msgid "@urefbreakstyle arg must be `after'/`before'/`none', not `%s'"
 msgstr ""
 "аргументом @urefbreakstyle має бути «after»/«before»/«none», але не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8540 tta/C/parsetexi/end_line.c:528
+#: tta/perl/Texinfo/ParserNonXS.pm:8633 tta/C/parsetexi/end_line.c:529
 #, c-format, perl-format
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "аргументом @%s має бути «top» або «bottom», але не «%s»"
 
-#: tta/perl/Texinfo/Report.pm:80 tta/C/main/errors.c:104
+#: tta/perl/Texinfo/Report.pm:74 tta/C/main/errors.c:149
 #, c-format, perl-format
 msgctxt "Texinfo source file warning in macro"
 msgid "warning: %s (possibly involving @%s)"
 msgstr "попередження: %s (можливо, з включенням @%s)"
 
-#: tta/perl/Texinfo/Report.pm:84 tta/C/main/errors.c:111
+#: tta/perl/Texinfo/Report.pm:78 tta/C/main/errors.c:156
 #, c-format, perl-format
 msgctxt "Texinfo source file error in macro"
 msgid "%s (possibly involving @%s)"
 msgstr "%s (можливо, з включенням @%s)"
 
-#: tta/perl/Texinfo/Report.pm:90 tta/C/main/errors.c:131
+#: tta/perl/Texinfo/Report.pm:84 tta/C/main/errors.c:176
 #, c-format, perl-format
 msgctxt "Texinfo source file warning"
 msgid "warning: %s"
 msgstr "попередження: %s"
 
-#: tta/perl/Texinfo/Report.pm:144 tta/C/main/errors.c:205
+#: tta/perl/Texinfo/Report.pm:138 tta/C/main/errors.c:253
 #, c-format, perl-format
 msgctxt "whole document warning"
 msgid "%s: warning: %s"
 msgstr "%s: попередження: %s"
 
-#: tta/perl/Texinfo/Report.pm:152 tta/C/main/errors.c:225
+#: tta/perl/Texinfo/Report.pm:146 tta/C/main/errors.c:273
 #, c-format, perl-format
 msgctxt "whole document warning"
 msgid "warning: %s"
@@ -3563,7 +3636,7 @@ msgstr "з @%s не пов’язано жодної команди структ
 msgid "@%s not empty"
 msgstr "@%s не є порожнім"
 
-#: tta/perl/Texinfo/StructuringNonXS.pm:346 tta/perl/Texinfo/Structuring.pm:164
+#: tta/perl/Texinfo/StructuringNonXS.pm:346 tta/perl/Texinfo/Structuring.pm:165
 #: tta/C/structuring_transfo/structuring.c:461
 #: tta/C/structuring_transfo/structuring.c:2003
 #, c-format, perl-format
@@ -3642,119 +3715,119 @@ msgstr "вказівник %s, «%s», (для вузла «%s») відрізн
 msgid "%s reference to nonexistent `%s'"
 msgstr "%s посилається на відсутній «%s»"
 
-#: tta/perl/Texinfo/Structuring.pm:176
+#: tta/perl/Texinfo/Structuring.pm:177
 #: tta/C/structuring_transfo/structuring.c:2023
 #, c-format, perl-format
 msgid "@%s to `%s', different from %s name `%s'"
 msgstr "@%s до «%s», відрізняється від назви %s, «%s»"
 
-#: tta/perl/Texinfo/Structuring.pm:679
-#: tta/C/structuring_transfo/structuring.c:2576
+#: tta/perl/Texinfo/Structuring.pm:680
+#: tta/C/structuring_transfo/structuring.c:2575
 #, c-format, perl-format
 msgid "node `%s' appears in its own menus"
 msgstr "вузол «%s» з'являється у своїх власних меню"
 
-#: tta/perl/Texinfo/Transformations.pm:378
-#: tta/C/structuring_transfo/transformations.c:1570
+#: tta/perl/Texinfo/Transformations.pm:240
+#: tta/C/structuring_transfo/transformations.c:1572
 #, c-format, perl-format
 msgid "could not protect hash character in @%s"
 msgstr "не вдалося екранувати символ решітки у @%s"
 
-#: tta/perl/Texinfo/Translations.pm:156 tta/C/main/translations.c:205
+#: tta/perl/Texinfo/Translations.pm:157 tta/C/main/translations.c:216
 msgid "Cannot switch to a locale compatible with document strings translations"
 msgstr ""
 "Не вдалося перемкнутися на локаль, яка є сумісною з перекладами рядків "
 "документа"
 
-#: tta/perl/Texinfo/Translations.pm:162 tta/C/main/translations.c:215
+#: tta/perl/Texinfo/Translations.pm:163 tta/C/main/translations.c:226
 msgid "Cannot find a locale compatible with document strings translations"
 msgstr ""
 "Не вдалося знайти локаль, яка є сумісною з перекладами рядків документа"
 
-#: tta/perl/init/chm.pm:227 tta/perl/init/chm.pm:316 tta/perl/init/chm.pm:401
+#: tta/perl/init/chm.pm:228 tta/perl/init/chm.pm:319 tta/perl/init/chm.pm:404
 #, perl-format
 msgid "chm.pm: could not open %s for writing: %s\n"
 msgstr "chm.pm: не вдалося відкрити %s для запису: %s\n"
 
-#: tta/perl/init/chm.pm:300 tta/perl/init/chm.pm:385 tta/perl/init/chm.pm:457
+#: tta/perl/init/chm.pm:303 tta/perl/init/chm.pm:388 tta/perl/init/chm.pm:460
 #, perl-format
 msgid "chm.pm: error on closing %s: %s"
 msgstr "chm.pm: помилка під час спроби закрити %s: %s"
 
-#: tta/perl/ext/epub3.pm:319
+#: tta/perl/ext/epub3.pm:320
 #, perl-format
 msgid "@image file `%s' can not be copied"
 msgstr "файл @image «%s» неможливо скопіювати"
 
-#: tta/perl/ext/epub3.pm:331
+#: tta/perl/ext/epub3.pm:332
 #, perl-format
 msgid "could not create images directory `%s': %s"
 msgstr "не вдалося створити каталог зображень «%s»: %s"
 
-#: tta/perl/ext/epub3.pm:351
+#: tta/perl/ext/epub3.pm:352
 #, perl-format
 msgid "could not copy `%s' to `%s': %s"
 msgstr "не вдалося скопіювати «%s» до «%s»: %s"
 
-#: tta/perl/ext/epub3.pm:430
+#: tta/perl/ext/epub3.pm:431
 #, perl-format
 msgid "error removing directory: %s: %s"
 msgstr "помилка під час спроби вилучити каталог: %s: %s"
 
-#: tta/perl/ext/epub3.pm:435
+#: tta/perl/ext/epub3.pm:436
 #, perl-format
 msgid "error removing directory: %s: unlinking %s: %s"
 msgstr "помилка під час спроби вилучити каталог: %s: від'єднуємо %s: %s"
 
-#: tta/perl/ext/epub3.pm:479
+#: tta/perl/ext/epub3.pm:482
 #, perl-format
 msgid "Archive::Zip is required for EPUB file output"
 msgstr "Для виведення до файла EPUB потрібен модуль Archive::Zip"
 
-#: tta/perl/ext/epub3.pm:570
+#: tta/perl/ext/epub3.pm:573
 #, perl-format
 msgid "error creating directory: %s: %s"
 msgstr "сталася помилка при створенні каталогу «%s»: %s"
 
-#: tta/perl/ext/epub3.pm:575
+#: tta/perl/ext/epub3.pm:578
 #, perl-format
 msgid "error creating directory: %s: creating %s: %s"
 msgstr "помилка під час спроби створити каталог: %s: створення %s: %s"
 
-#: tta/perl/ext/epub3.pm:612
+#: tta/perl/ext/epub3.pm:733
 #, perl-format
 msgid "epub: no filename output"
 msgstr "epub: виведення до файла без назви"
 
-#: tta/perl/ext/epub3.pm:623
+#: tta/perl/ext/epub3.pm:744
 #, perl-format
 msgid "could not create meta informations directory `%s': %s"
 msgstr "не вдалося створити каталог метавідомостей «%s»: %s"
 
-#: tta/perl/ext/epub3.pm:637 tta/perl/ext/epub3.pm:678
-#: tta/perl/ext/epub3.pm:711 tta/perl/ext/epub3.pm:846
+#: tta/perl/ext/epub3.pm:758 tta/perl/ext/epub3.pm:799
+#: tta/perl/ext/epub3.pm:832 tta/perl/ext/epub3.pm:971
 #, perl-format
 msgid "epub3.pm: could not open %s for writing: %s\n"
 msgstr "epub3.pm: не вдалося відкрити %s для запису: %s\n"
 
-#: tta/perl/ext/epub3.pm:662 tta/perl/ext/epub3.pm:690
-#: tta/perl/ext/epub3.pm:802 tta/perl/ext/epub3.pm:1013
+#: tta/perl/ext/epub3.pm:783 tta/perl/ext/epub3.pm:811
+#: tta/perl/ext/epub3.pm:927 tta/perl/ext/epub3.pm:1149
 #, perl-format
 msgid "epub3.pm: error on closing %s: %s"
 msgstr "epub3.pm: помилка під час спроби закрити %s: %s"
 
-#: tta/perl/ext/epub3.pm:965
+#: tta/perl/ext/epub3.pm:1099
 #, perl-format
 msgid "epub3.pm: readdir %s error: %s"
 msgstr "epub3.pm: помилка readdir %s: %s"
 
-#: tta/perl/ext/epub3.pm:1033 tta/perl/ext/epub3.pm:1042
-#: tta/perl/ext/epub3.pm:1055
+#: tta/perl/ext/epub3.pm:1169 tta/perl/ext/epub3.pm:1178
+#: tta/perl/ext/epub3.pm:1192
 #, perl-format
 msgid "epub3.pm: error adding %s to archive"
 msgstr "epub3.pm: помилка під час спроби додати %s до архіву"
 
-#: tta/perl/ext/epub3.pm:1064
+#: tta/perl/ext/epub3.pm:1202
 #, perl-format
 msgid "epub3.pm: error writing archive %s"
 msgstr "epub3.pm: помилка під час спроби запису архіву %s"
@@ -4036,12 +4109,12 @@ msgstr "не вдалося прочитати файл розширень %s"
 msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'"
 msgstr "пропускаємо невідоме значення TEXINFO_OUTPUT_FORMAT «%s»"
 
-#: tta/perl/texi2any.pl:1014 tta/C/texi2any.c:1852
+#: tta/perl/texi2any.pl:1028 tta/C/texi2any.c:1906
 #, c-format, perl-format
 msgid "Usage: %s [OPTION]... TEXINFO-FILE..."
 msgstr "Usage: %s [ПАРАМЕТР]... ФАЙЛ-TEXINFO..."
 
-#: tta/perl/texi2any.pl:1017 tta/C/texi2any.c:1861
+#: tta/perl/texi2any.pl:1031 tta/C/texi2any.c:1915
 msgid ""
 "Translate Texinfo source documentation to various other formats, by default\n"
 "Info files suitable for reading online with Emacs or standalone GNU Info.\n"
@@ -4057,11 +4130,11 @@ msgstr ""
 "«texi2any»;\n"
 "поведінка цих компонентів є однаковою і не залежить від назви програми."
 
-#: tta/perl/texi2any.pl:1023 tta/C/texi2any.c:1867
+#: tta/perl/texi2any.pl:1037 tta/C/texi2any.c:1921
 msgid "General options:"
 msgstr "Загальні параметри:"
 
-#: tta/perl/texi2any.pl:1024 tta/C/texi2any.c:1870
+#: tta/perl/texi2any.pl:1038 tta/C/texi2any.c:1924
 msgid ""
 "      --document-language=STR locale to use in translating Texinfo keywords\n"
 "                                for the output document (default C)"
@@ -4070,43 +4143,43 @@ msgstr ""
 "                                ключових слів Texinfo у результаті (типова - "
 "C)"
 
-#: tta/perl/texi2any.pl:1026 tta/C/texi2any.c:1874
+#: tta/perl/texi2any.pl:1040 tta/C/texi2any.c:1928
 #, c-format, perl-format
 msgid "      --error-limit=NUM       quit after NUM errors (default %d)"
 msgstr ""
 "      --error-limit=ЧИСЛО     вийти, якщо станеться ЧИСЛО помилок (типово %d)"
 
-#: tta/perl/texi2any.pl:1028 tta/C/texi2any.c:1878
+#: tta/perl/texi2any.pl:1042 tta/C/texi2any.c:1932
 msgid "      --force                 preserve output even if errors"
 msgstr ""
 "      --force                 зберегти результат, навіть якщо є помилки"
 
-#: tta/perl/texi2any.pl:1029 tta/C/texi2any.c:1881
+#: tta/perl/texi2any.pl:1043 tta/C/texi2any.c:1935
 msgid "      --help                  display this help and exit"
 msgstr "    --help                  вивести цю довідку і вийти"
 
-#: tta/perl/texi2any.pl:1030 tta/C/texi2any.c:1884
+#: tta/perl/texi2any.pl:1044 tta/C/texi2any.c:1938
 msgid "      --no-validate           suppress node cross-reference validation"
 msgstr ""
 "      --no-validate           придушити перевірку перехресних посилань вузлів"
 
-#: tta/perl/texi2any.pl:1031 tta/C/texi2any.c:1887
+#: tta/perl/texi2any.pl:1045 tta/C/texi2any.c:1941
 msgid "      --no-warn               suppress warnings (but not errors)"
 msgstr "      --no-warn               придушити попередження (але не помилки)"
 
-#: tta/perl/texi2any.pl:1032 tta/C/texi2any.c:1890
+#: tta/perl/texi2any.pl:1046 tta/C/texi2any.c:1944
 msgid ""
 "      --conf-dir=DIR          search also for initialization files in DIR"
 msgstr ""
 "      --conf-dir=КАТ          шукати також файли ініціалізації у каталозі КАТ"
 
-#: tta/perl/texi2any.pl:1033 tta/C/texi2any.c:1893
+#: tta/perl/texi2any.pl:1047 tta/C/texi2any.c:1947
 msgid "      --init-file=FILE        load FILE to modify the default behavior"
 msgstr ""
 "      --init-file=ФАЙЛ        завантажити ФАЙЛ з метою змінити типової "
 "поведінки"
 
-#: tta/perl/texi2any.pl:1034 tta/C/texi2any.c:1896
+#: tta/perl/texi2any.pl:1048 tta/C/texi2any.c:1950
 msgid ""
 "  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n"
 "                                to value VAL"
@@ -4114,45 +4187,45 @@ msgstr ""
 "  -c, --set-customization-variable ЗМІ=ЗНА  встановити для змінної ЗМІ\n"
 "                                значення ЗНА"
 
-#: tta/perl/texi2any.pl:1036 tta/C/texi2any.c:1900
+#: tta/perl/texi2any.pl:1050 tta/C/texi2any.c:1954
 msgid "      --trace-includes        print names of included files"
 msgstr "      --trace-includes        виводити назви включених файлів"
 
-#: tta/perl/texi2any.pl:1037 tta/C/texi2any.c:1903
+#: tta/perl/texi2any.pl:1051 tta/C/texi2any.c:1957
 msgid "  -v, --verbose               explain what is being done"
 msgstr "  -v, --verbose              вивести дані щодо дій, які виконуються"
 
-#: tta/perl/texi2any.pl:1038 tta/C/texi2any.c:1906
+#: tta/perl/texi2any.pl:1052 tta/C/texi2any.c:1960
 msgid "      --version               display version information and exit"
 msgstr "    --version               вивести дані щодо версії і вийти"
 
-#: tta/perl/texi2any.pl:1040 tta/C/texi2any.c:1912
+#: tta/perl/texi2any.pl:1054 tta/C/texi2any.c:1966
 msgid "Output format selection (default is to produce Info):"
 msgstr "Вибір формату виведення даних (типовим є створення Info):"
 
-#: tta/perl/texi2any.pl:1041 tta/C/texi2any.c:1915
+#: tta/perl/texi2any.pl:1055 tta/C/texi2any.c:1969
 msgid "      --docbook               output Docbook XML"
 msgstr "      --docbook               вивести дані у форматі XML Docbook"
 
-#: tta/perl/texi2any.pl:1042 tta/C/texi2any.c:1918
+#: tta/perl/texi2any.pl:1056 tta/C/texi2any.c:1972
 msgid "      --html                  output HTML"
 msgstr "      --html                  вивести дані до HTML"
 
-#: tta/perl/texi2any.pl:1043 tta/C/texi2any.c:1921
+#: tta/perl/texi2any.pl:1057 tta/C/texi2any.c:1975
 msgid "      --epub3                 output EPUB 3"
 msgstr "      --epub3                 вивести дані у форматі EPUB 3"
 
-#: tta/perl/texi2any.pl:1044 tta/C/texi2any.c:1924
+#: tta/perl/texi2any.pl:1058 tta/C/texi2any.c:1978
 msgid "      --latex                 output LaTeX"
 msgstr "      --latex                 вивести дані у форматі LaTeX"
 
-#: tta/perl/texi2any.pl:1045 tta/C/texi2any.c:1927
+#: tta/perl/texi2any.pl:1059 tta/C/texi2any.c:1981
 msgid "      --plaintext             output plain text rather than Info"
 msgstr ""
 "      --plaintext             вивести дані у форматі звичайного тексту, а не "
 "Info"
 
-#: tta/perl/texi2any.pl:1046 tta/C/texi2any.c:1930
+#: tta/perl/texi2any.pl:1060 tta/C/texi2any.c:1984
 msgid ""
 "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
 "                                after checking validity of TEXINFO-FILE"
@@ -4162,11 +4235,11 @@ msgstr ""
 "                                після перевірки коректності файла ФАЙЛ-"
 "TEXINFO"
 
-#: tta/perl/texi2any.pl:1050 tta/C/texi2any.c:1934
+#: tta/perl/texi2any.pl:1064 tta/C/texi2any.c:1988
 msgid "General output options:"
 msgstr "Загальні параметри виведення:"
 
-#: tta/perl/texi2any.pl:1052 tta/C/texi2any.c:1937
+#: tta/perl/texi2any.pl:1066 tta/C/texi2any.c:1991
 msgid ""
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
 "                                ignoring any @setfilename"
@@ -4175,7 +4248,7 @@ msgstr ""
 "файла ФАЙЛ,\n"
 "                                ігнорувати усі @setfilename"
 
-#: tta/perl/texi2any.pl:1055 tta/C/texi2any.c:1941
+#: tta/perl/texi2any.pl:1069 tta/C/texi2any.c:1995
 msgid ""
 "      --no-headers            suppress node separators, Node: lines, and "
 "menus\n"
@@ -4195,7 +4268,7 @@ msgstr ""
 "записати\n"
 "                                типово дані до стандартного виведення."
 
-#: tta/perl/texi2any.pl:1061 tta/C/texi2any.c:1948
+#: tta/perl/texi2any.pl:1075 tta/C/texi2any.c:2002
 msgid ""
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file"
@@ -4203,7 +4276,7 @@ msgstr ""
 "      --no-split              придушити усілякий поділ виведених даних;\n"
 "                                вивести усі дані лише до одного файла"
 
-#: tta/perl/texi2any.pl:1064 tta/C/texi2any.c:1952
+#: tta/perl/texi2any.pl:1078 tta/C/texi2any.c:2006
 msgid ""
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
 "                                default is on"
@@ -4211,14 +4284,14 @@ msgstr ""
 "      --[no-]number-sections  виводити номери частин та розділів;\n"
 "                                типово увімкнено"
 
-#: tta/perl/texi2any.pl:1067 tta/C/texi2any.c:1956
+#: tta/perl/texi2any.pl:1081 tta/C/texi2any.c:2010
 msgid ""
 "      --[no-]number-footnotes  number footnotes sequentially; default is on"
 msgstr ""
 "      --[no-]number-footnotes  нумерувати підрядкові примітки послідовно; "
 "типово увімкнено"
 
-#: tta/perl/texi2any.pl:1069 tta/C/texi2any.c:1959
+#: tta/perl/texi2any.pl:1083 tta/C/texi2any.c:2013
 msgid ""
 "  -o, --output=DEST           output to DEST.\n"
 "                                With split output, create DEST as a "
@@ -4241,7 +4314,7 @@ msgstr ""
 "                                В інших випадках ПРИЗНАЧЕННЯ є файлом "
 "виведення."
 
-#: tta/perl/texi2any.pl:1077 tta/C/texi2any.c:1968
+#: tta/perl/texi2any.pl:1091 tta/C/texi2any.c:2022
 msgid ""
 "      --disable-encoding      do not output accented and special characters\n"
 "                                in Info and plain text output based on "
@@ -4254,18 +4327,18 @@ msgstr ""
 "на основі\n"
 "                                кодування документа"
 
-#: tta/perl/texi2any.pl:1081 tta/C/texi2any.c:1973
+#: tta/perl/texi2any.pl:1095 tta/C/texi2any.c:2027
 msgid "      --enable-encoding       override --disable-encoding (default)"
 msgstr ""
 "      --enable-encoding       перевизначити --disable-encoding (типовий "
 "варіант)"
 
-#: tta/perl/texi2any.pl:1083 tta/C/texi2any.c:1976
+#: tta/perl/texi2any.pl:1097 tta/C/texi2any.c:2030
 #, perl-format
 msgid "Options for Info and plain text:"
 msgstr "Параметри для файлів Info і звичайного тексту:"
 
-#: tta/perl/texi2any.pl:1085 tta/C/texi2any.c:1979
+#: tta/perl/texi2any.pl:1099 tta/C/texi2any.c:2033
 #, c-format, perl-format
 msgid ""
 "      --fill-column=NUM       break Info lines at NUM columns (default %d)"
@@ -4273,7 +4346,7 @@ msgstr ""
 "      --fill-column=ЧИСЛО     переносити рядки Info на позиції ЧИСЛО "
 "(типовим є %d)"
 
-#: tta/perl/texi2any.pl:1087 tta/C/texi2any.c:1983
+#: tta/perl/texi2any.pl:1101 tta/C/texi2any.c:2037
 #, perl-format
 msgid ""
 "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n"
@@ -4289,7 +4362,7 @@ msgstr ""
 "                                `end' --  розмістити їх наприкінці вузла, у\n"
 "                                якому їх визначено (типова поведінка)"
 
-#: tta/perl/texi2any.pl:1092 tta/C/texi2any.c:1993
+#: tta/perl/texi2any.pl:1106 tta/C/texi2any.c:2047
 #, c-format, perl-format
 msgid ""
 "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default "
@@ -4303,18 +4376,18 @@ msgstr ""
 "відступів; якщо\n"
 "                                вказано `asis', зберегти наявні відступи."
 
-#: tta/perl/texi2any.pl:1096 tta/C/texi2any.c:1999
+#: tta/perl/texi2any.pl:1110 tta/C/texi2any.c:2053
 #, c-format, perl-format
 msgid "      --split-size=NUM        split Info files at size NUM (default %d)"
 msgstr ""
 "      --split-size=ЧИСЛО      поділити файли Info на розмірі ЧИСЛО (типовим "
 "є %d)"
 
-#: tta/perl/texi2any.pl:1102 tta/C/texi2any.c:2003
+#: tta/perl/texi2any.pl:1116 tta/C/texi2any.c:2057
 msgid "Options for HTML:"
 msgstr "Параметри для HTML:"
 
-#: tta/perl/texi2any.pl:1103 tta/C/texi2any.c:2006
+#: tta/perl/texi2any.pl:1117 tta/C/texi2any.c:2060
 msgid ""
 "      --css-include=FILE      include FILE in HTML <style> output;\n"
 "                                read stdin if FILE is -"
@@ -4322,16 +4395,16 @@ msgstr ""
 "      --css-include=ФАЙЛ      включити ФАЙЛ до виведення <style> HTML;\n"
 "                                прочитати зі stdin, якщо ФАЙЛ вказано як -"
 
-#: tta/perl/texi2any.pl:1105 tta/C/texi2any.c:2010
+#: tta/perl/texi2any.pl:1119 tta/C/texi2any.c:2064
 msgid "      --css-ref=URL           generate CSS reference to URL"
 msgstr "      --css-ref=АДРЕСА        створити посилання у CSS на АДРЕСУ"
 
-#: tta/perl/texi2any.pl:1106 tta/C/texi2any.c:2013
+#: tta/perl/texi2any.pl:1120 tta/C/texi2any.c:2067
 msgid "      --internal-links=FILE   produce list of internal links in FILE"
 msgstr ""
 "      --internal-links=ФАЙЛ   створити список внутрішніх посилань у ФАЙЛі"
 
-#: tta/perl/texi2any.pl:1107 tta/C/texi2any.c:2016
+#: tta/perl/texi2any.pl:1121 tta/C/texi2any.c:2070
 msgid ""
 "      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',\n"
 "                                `section' or `node'"
@@ -4340,14 +4413,14 @@ msgstr ""
 "бути\n"
 "                                «chapter», «section» або «node»"
 
-#: tta/perl/texi2any.pl:1109 tta/C/texi2any.c:2020
+#: tta/perl/texi2any.pl:1123 tta/C/texi2any.c:2074
 msgid ""
 "      --transliterate-file-names  use file names in ASCII transliteration"
 msgstr ""
 "      --transliterate-file-names  використовувати назви файлів у "
 "транслітерації ASCII"
 
-#: tta/perl/texi2any.pl:1110 tta/C/texi2any.c:2023
+#: tta/perl/texi2any.pl:1124 tta/C/texi2any.c:2077
 msgid ""
 "      --node-files            produce redirection files for nodes and\n"
 "                                anchors; default is set only if split"
@@ -4356,76 +4429,82 @@ msgstr ""
 "                                прив'язок; типово встановлено, лише якщо "
 "поділ"
 
-#: tta/perl/texi2any.pl:1113 tta/C/texi2any.c:2027
+#: tta/perl/texi2any.pl:1127 tta/C/texi2any.c:2081
 msgid "Options for DVI/PS/PDF:"
 msgstr "Параметри для DVI/PS/PDF:"
 
-#: tta/perl/texi2any.pl:1114 tta/C/texi2any.c:2030
+#: tta/perl/texi2any.pl:1128 tta/C/texi2any.c:2084
 msgid "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated"
 msgstr ""
 "      --Xopt=ПАРАМЕТР         передати ПАРАМЕТР texi2dvi; можна "
 "використовувати декілька разів."
 
-#: tta/perl/texi2any.pl:1116 tta/C/texi2any.c:2033
+#: tta/perl/texi2any.pl:1130 tta/C/texi2any.c:2087
 msgid "Input file options:"
 msgstr "Параметри файла вхідних даних:"
 
-#: tta/perl/texi2any.pl:1117 tta/C/texi2any.c:2036
+#: tta/perl/texi2any.pl:1131 tta/C/texi2any.c:2090
 msgid " -D VAR                       define the variable VAR, as with @set"
 msgstr " -D ЗМІ                       визначити змінну ЗМІ, як із @set"
 
-#: tta/perl/texi2any.pl:1118 tta/C/texi2any.c:2039
+#: tta/perl/texi2any.pl:1132 tta/C/texi2any.c:2093
 msgid " -D 'VAR VAL'                 define VAR to VAL (one shell argument)"
 msgstr ""
 " -D 'ЗМІ ЗНА'                 визначити для змінної ЗМІ значення ЗНА (один "
 "аргумент оболонки)"
 
-#: tta/perl/texi2any.pl:1119 tta/C/texi2any.c:2042
+#: tta/perl/texi2any.pl:1133 tta/C/texi2any.c:2096
 msgid " -I DIR                       append DIR to the @include search path"
 msgstr ""
 " -I КАТ                       дописати каталог КАТ до шляху пошуку @include"
 
-#: tta/perl/texi2any.pl:1120 tta/C/texi2any.c:2045
+#: tta/perl/texi2any.pl:1134 tta/C/texi2any.c:2099
 msgid " -P DIR                       prepend DIR to the @include search path"
 msgstr ""
 " -P КАТ                       дописати каталог КАТ перед шляхом пошуку "
 "@include"
 
-#: tta/perl/texi2any.pl:1121 tta/C/texi2any.c:2048
+#: tta/perl/texi2any.pl:1135 tta/C/texi2any.c:2102
 msgid " -U VAR                       undefine the variable VAR, as with @clear"
 msgstr ""
 " -U ЗМІННА                    скасувати визначення змінної ЗМІННА, як із "
 "@clear"
 
-#: tta/perl/texi2any.pl:1123 tta/C/texi2any.c:2052
+#: tta/perl/texi2any.pl:1137 tta/C/texi2any.c:2106
 msgid "Conditional processing in input:"
 msgstr "Умовна обробка у вхідних даних:"
 
-#: tta/perl/texi2any.pl:1124 tta/C/texi2any.c:2055
+#: tta/perl/texi2any.pl:1138 tta/C/texi2any.c:2109
 msgid "      --ifdocbook       process @ifdocbook and @docbook"
 msgstr "      --ifdocbook       обробляти @ifdocbook і @docbook"
 
-#: tta/perl/texi2any.pl:1125 tta/C/texi2any.c:2058
+#: tta/perl/texi2any.pl:1139 tta/C/texi2any.c:2112
+#, fuzzy
+#| msgid "      --ifinfo          process @ifinfo"
+msgid "      --ifepub          process @ifepub"
+msgstr "      --ifinfo          обробляти @ifinfo"
+
+#: tta/perl/texi2any.pl:1140 tta/C/texi2any.c:2115
 msgid "      --ifhtml          process @ifhtml and @html"
 msgstr "      --ifhtml          обробляти @ifhtml і @html"
 
-#: tta/perl/texi2any.pl:1126 tta/C/texi2any.c:2061
+#: tta/perl/texi2any.pl:1141 tta/C/texi2any.c:2118
 msgid "      --ifinfo          process @ifinfo"
 msgstr "      --ifinfo          обробляти @ifinfo"
 
-#: tta/perl/texi2any.pl:1127 tta/C/texi2any.c:2064
+#: tta/perl/texi2any.pl:1142 tta/C/texi2any.c:2121
 msgid "      --iflatex         process @iflatex and @latex"
 msgstr "      --iflatex         обробляти @iflatex і @latex"
 
-#: tta/perl/texi2any.pl:1128 tta/C/texi2any.c:2067
+#: tta/perl/texi2any.pl:1143 tta/C/texi2any.c:2124
 msgid "      --ifplaintext     process @ifplaintext"
 msgstr "      --ifplaintext     обробляти @ifplaintext"
 
-#: tta/perl/texi2any.pl:1129 tta/C/texi2any.c:2070
+#: tta/perl/texi2any.pl:1144 tta/C/texi2any.c:2127
 msgid "      --iftex           process @iftex and @tex"
 msgstr "      --iftex           обробляти @iftex і @tex"
 
-#: tta/perl/texi2any.pl:1131 tta/C/texi2any.c:2076
+#: tta/perl/texi2any.pl:1146 tta/C/texi2any.c:2133
 msgid ""
 "  By default, an --ifFORMAT setting is on only when the output format\n"
 "  is FORMAT; for example, --ifhtml is on when outputting HTML.\n"
@@ -4435,7 +4514,7 @@ msgstr ""
 "  є ФОРМАТ; наприклад, --ifhtml увімкнено, якщо результатом є HTML.\n"
 "  Також, якщо увімкнено --ifФОРМАТ, текст @ifnotФОРМАТ оброблено не буде."
 
-#: tta/perl/texi2any.pl:1135 tta/C/texi2any.c:2083
+#: tta/perl/texi2any.pl:1150 tta/C/texi2any.c:2140
 msgid ""
 "  Each --ifFORMAT option may be prefixed with `--no-' to negate it;\n"
 "  for example, --no-ifhtml means not to process @ifhtml or @html text,\n"
@@ -4446,246 +4525,246 @@ msgstr ""
 "  наприклад, --no-ifhtml наказує не обробляти текст @ifhtml або @html,\n"
 "  і обробляти текст @ifnothtml."
 
-#: tta/perl/texi2any.pl:1139 tta/C/texi2any.c:2088
+#: tta/perl/texi2any.pl:1154 tta/C/texi2any.c:2145
 msgid "Examples:"
 msgstr "Приклади:"
 
-#: tta/perl/texi2any.pl:1140 tta/C/texi2any.c:2091
+#: tta/perl/texi2any.pl:1155 tta/C/texi2any.c:2148
 #, c-format, perl-format
 msgid "  %s foo.texi                      write Info"
 msgstr "  %s foo.texi                      записати Info"
 
-#: tta/perl/texi2any.pl:1141 tta/C/texi2any.c:2094
+#: tta/perl/texi2any.pl:1156 tta/C/texi2any.c:2151
 #, c-format, perl-format
 msgid "  %s --html foo.texi               write HTML"
 msgstr "  %s --html foo.texi               записати HTML"
 
-#: tta/perl/texi2any.pl:1142 tta/C/texi2any.c:2097
+#: tta/perl/texi2any.pl:1157 tta/C/texi2any.c:2154
 #, c-format, perl-format
 msgid "  %s --docbook foo.texi            write Docbook XML"
 msgstr "  %s --docbook foo.texi            записати XML Docbook"
 
-#: tta/perl/texi2any.pl:1143 tta/C/texi2any.c:2100
+#: tta/perl/texi2any.pl:1158 tta/C/texi2any.c:2157
 #, c-format, perl-format
 msgid "  %s --plaintext foo.texi          write plain text to standard output"
 msgstr ""
 "  %s --plaintext foo.texi          записати звичайний текст до стандартного "
 "виведення"
 
-#: tta/perl/texi2any.pl:1144 tta/C/texi2any.c:2103
+#: tta/perl/texi2any.pl:1159 tta/C/texi2any.c:2160
 #, c-format, perl-format
 msgid "  %s --pdf foo.texi                write PDF using texi2dvi"
 msgstr ""
 "  %s --pdf foo.texi                записати PDF з використанням texi2dvi"
 
-#: tta/perl/texi2any.pl:1146 tta/C/texi2any.c:2107
+#: tta/perl/texi2any.pl:1161 tta/C/texi2any.c:2164
 #, c-format, perl-format
 msgid "  %s --html --no-headers foo.texi  write html without node lines, menus"
 msgstr ""
 "  %s --html --no-headers foo.texi  записати html без рядків вузлів, меню"
 
-#: tta/perl/texi2any.pl:1147 tta/C/texi2any.c:2110
+#: tta/perl/texi2any.pl:1162 tta/C/texi2any.c:2167
 #, c-format, perl-format
 msgid "  %s --number-sections foo.texi    write Info with numbered sections"
 msgstr ""
 "  %s --number-sections foo.texi    записати Info з нумерованими розділами"
 
-#: tta/perl/texi2any.pl:1148 tta/C/texi2any.c:2113
+#: tta/perl/texi2any.pl:1163 tta/C/texi2any.c:2170
 #, c-format, perl-format
 msgid "  %s --no-split foo.texi           write one Info file however big"
 msgstr "  %s --no-split foo.texi           записати один файл Info, великий"
 
-#: tta/perl/texi2any.pl:1190 tta/C/texi2any.c:1704
+#: tta/perl/texi2any.pl:1206 tta/C/texi2any.c:1757
 #, c-format, perl-format
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'."
 msgstr ""
 "%s: аргумент до --footnote-style має бути `separate' чи `end', а не `%s'."
 
-#: tta/perl/texi2any.pl:1197
+#: tta/perl/texi2any.pl:1213
 #, perl-format
 msgid "%s is not a valid split possibility"
 msgstr "%s не є коректною можливістю поділу"
 
-#: tta/perl/texi2any.pl:1312
+#: tta/perl/texi2any.pl:1332
 #, perl-format
 msgid "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
 msgstr ""
 "%s: аргумент до --paragraph-indent має бути числом, `none' чи `asis', а не "
 "`%s'."
 
-#: tta/perl/texi2any.pl:1499
+#: tta/perl/texi2any.pl:1519
 #, perl-format
 msgid "overwriting file: %s"
 msgstr "перезапис файла: %s"
 
-#: tta/perl/texi2any.pl:1551
+#: tta/perl/texi2any.pl:1571
 #, perl-format
 msgid "unknown tree transformation %s"
 msgstr "невідоме перетворення ієрархії %s"
 
-#: tta/perl/texi2any.pl:1577
+#: tta/perl/texi2any.pl:1597
 #, perl-format
 msgid "ignoring splitting for converted format %s (for %s)"
 msgstr "ігноруємо поділ для перетвореного формату %s (для %s)"
 
-#: tta/perl/texi2any.pl:1581
+#: tta/perl/texi2any.pl:1601
 #, perl-format
 msgid "ignoring splitting for format %s"
 msgstr "ігноруємо поділ для формату %s"
 
-#: tta/perl/texi2any.pl:1597 tta/C/texi2any.c:2323
+#: tta/perl/texi2any.pl:1617 tta/C/texi2any.c:2406
 #, c-format, perl-format
 msgid "%s: when generating %s, only one input FILE may be specified with -o"
 msgstr ""
 "%s: створення %s, за допомогою -o можна вказувати лише один файл вхідних "
 "даних"
 
-#: tta/perl/texi2any.pl:1601
+#: tta/perl/texi2any.pl:1621
 msgid "--Xopt option without printed output"
 msgstr "використано параметр --Xopt без визначення друкованого виведення"
 
-#: tta/perl/texi2any.pl:1618
+#: tta/perl/texi2any.pl:1638
 #, perl-format
 msgid "error loading %s: %s"
 msgstr "помилка під час спроби завантаження %s: %s"
 
-#: tta/perl/texi2any.pl:1695 tta/C/texi2any.c:2522
+#: tta/perl/texi2any.pl:1715 tta/C/texi2any.c:2617
 #, c-format, perl-format
 msgid "%s: missing file argument."
 msgstr "%s: не вказано аргумент назви файла."
 
-#: tta/perl/texi2any.pl:1742
+#: tta/perl/texi2any.pl:1762
 #, perl-format
 msgid "input file %s; did you mean %s?"
 msgstr "файл вхідних даних %s; ви мали на увазі %s?"
 
-#: tta/perl/texi2any.pl:1859
+#: tta/perl/texi2any.pl:1874
 #, perl-format
 msgid "error on closing tree dump file %s: %s"
 msgstr "помилка під час спроби закрити файл дампу ієрархії %s: %s"
 
-#: tta/perl/texi2any.pl:1926
+#: tta/perl/texi2any.pl:1941
 #, perl-format
 msgid "error on closing macro expand file %s: %s"
 msgstr "помилка під час спроби закрити файл розгортання макровизначень %s: %s"
 
-#: tta/perl/texi2any.pl:2080
+#: tta/perl/texi2any.pl:2140
 #, perl-format
 msgid "error on closing structure dump file %s: %s"
 msgstr "помилка під час спроби закрити файл дампу структури %s: %s"
 
-#: tta/perl/texi2any.pl:2197
+#: tta/perl/texi2any.pl:2220
 #, perl-format
 msgid "%s: error on closing internal links file %s: %s"
 msgstr "%s: помилка під час спроби закрити файл внутрішніх посилань %s: %s"
 
-#: tta/perl/texi2any.pl:2315
+#: tta/perl/texi2any.pl:2338
 #, perl-format
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "%s: помилка під час спроби закрити файл розмірів елементів %s: %s"
 
-#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1428
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1436
 #, fuzzy, c-format
 #| msgid "%s: unknown special element information type %s"
 msgid "unknown special unit info: %s"
 msgstr "%s: невідомий тип відомостей щодо спеціального елемента %s"
 
-#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1474
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1482
 #, fuzzy, c-format
 #| msgid "%s: unknown special element information type %s"
 msgid "unknown special unit info tree: %s"
 msgstr "%s: невідомий тип відомостей щодо спеціального елемента %s"
 
-#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1542
+#: tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs:1550
 #, fuzzy, c-format
 #| msgid "unknown destination index in @%s: %s"
 msgid "unknown direction string type: %s"
 msgstr "невідомий індекс призначення у @%s: %s"
 
-#: tta/C/texi2any.c:917
+#: tta/C/texi2any.c:956
 #, c-format
 msgid "%s: value \"%s\" invalid for option %s (number expected)"
 msgstr ""
 "%s: значення «%s» є некоректним для параметра %s (мало бути вказано число)"
 
-#: tta/C/texi2any.c:921
+#: tta/C/texi2any.c:960
 #, c-format
 msgid "%s: value \"%s\" invalid for option %c (number expected)"
 msgstr "%s: значення «%s» для параметра %c (мало бути вказано число)"
 
-#: tta/C/texi2any.c:1732
+#: tta/C/texi2any.c:1785
 #, c-format
 msgid "%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
 msgstr ""
 "%s: аргумент до --paragraph-indent має бути числом, `none' чи `asis', а не "
 "`%s'."
 
-#: tta/C/convert/convert_html.c:2414
+#: tta/C/convert/convert_html.c:2494
 #, c-format
 msgid "%s: %zu registered opened sections not closed"
 msgstr "%s: %zu зареєстрованих відкритих розділи не закрито"
 
-#: tta/C/convert/convert_html.c:2424
+#: tta/C/convert/convert_html.c:2504
 #, c-format
 msgid "%zu registered inline contents: %s"
 msgstr "%zu зареєстрованих вбудованих даних: %s"
 
-#: tta/C/convert/convert_html.c:2441
+#: tta/C/convert/convert_html.c:2521
 #, c-format
 msgid "left inline content associated to %s: '%s'"
 msgstr "залишкові вбудовані дані, які пов'язано із %s: «%s»"
 
-#: tta/C/convert/convert_html.c:2448
+#: tta/C/convert/convert_html.c:2528
 #, c-format
 msgid "left inline content of %p: '%s'"
 msgstr "залишкові вбудовані дані %p: «%s»"
 
-#: tta/C/convert/convert_html.c:2453
+#: tta/C/convert/convert_html.c:2533
 #, c-format
 msgid "left inline content associated: '%s'"
 msgstr "залишкові пов'язані вбудовані дані: «%s»"
 
-#: tta/C/convert/convert_html.c:2462
+#: tta/C/convert/convert_html.c:2542
 #, c-format
 msgid "%zu pending footnotes"
 msgstr "%zu підрядкових приміток у черзі"
 
-#: tta/C/convert/convert_html.c:2688
+#: tta/C/convert/convert_html.c:2768
 #, c-format
 msgid "error while opening %s for reading: %s"
 msgstr "помилка при відкриванні «%s» для читання: %s"
 
-#: tta/C/convert/convert_html.c:2698
+#: tta/C/convert/convert_html.c:2778
 #, c-format
 msgid "cannot open %s for writing: %s"
 msgstr "не вдалося відкрити %s для запису: %s"
 
-#: tta/C/convert/convert_html.c:2716
+#: tta/C/convert/convert_html.c:2796
 #, c-format
 msgid "error writing %s: %s"
 msgstr "помилка запису %s: %s"
 
-#: tta/C/convert/convert_html.c:2742
+#: tta/C/convert/convert_html.c:2822
 #, c-format
 msgid "error closing %s: %s"
 msgstr "помилка під час спроби закрити %s: %s"
 
-#: tta/C/convert/html_prepare_converter.c:1934
+#: tta/C/convert/html_prepare_converter.c:1936
 #, c-format
 msgid "error on closing CSS file  %s: %s"
 msgstr "помилка під час спроби закрити файл CSS %s: %s"
 
-#: tta/C/convert/texinfo.c:795
+#: tta/C/convert/texinfo.c:820
 #, c-format
 msgid "%s: error on closing io %s: %s"
 msgstr "%s: помилка під час спроби закрити введення-виведення %s: %s"
 
-#: tta/C/main/manipulate_indices.c:536
+#: tta/C/main/manipulate_indices.c:747
 #, c-format
 msgid "empty index sub entry %zu key in @%s"
 msgstr "порожній ключ підлеглого запису %zu покажчика у @%s"
 
-#: tta/C/main/manipulate_indices.c:632
+#: tta/C/main/manipulate_indices.c:840
 #, c-format
 msgid "collation locale not found: %s"
 msgstr "не знайдено порівняльну локаль: %s"
@@ -4695,52 +4774,64 @@ msgstr "не знайдено порівняльну локаль: %s"
 msgid "unmatched `@end %s'"
 msgstr "«@end %s» без відповідника"
 
-#: tta/C/parsetexi/end_line.c:236
+#: tta/C/parsetexi/end_line.c:237
 #, c-format
 msgid "bad argument to @alias"
 msgstr "помилковий аргумент до @alias"
 
-#: tta/C/parsetexi/end_line.c:486
+#: tta/C/parsetexi/end_line.c:487
 #, c-format
 msgid "bad argument to @printindex: %s"
 msgstr "помилковий аргумент @printindex: %s"
 
-#: tta/C/parsetexi/end_line.c:678
+#: tta/C/parsetexi/end_line.c:679
 #, c-format
 msgid "bad argument to @headings: %s"
 msgstr "помилковий аргумент @headings: %s"
 
-#: tta/C/parsetexi/end_line.c:1325
+#: tta/C/parsetexi/end_line.c:1330
 #, c-format
 msgid "bad argument to @end: %s"
 msgstr "помилковий аргумент @end: %s"
 
-#: tta/C/parsetexi/end_line.c:1344
+#: tta/C/parsetexi/end_line.c:1349
 #, c-format
 msgid "@include: could not find %s"
 msgstr "@include: не вдалося знайти %s"
 
-#: tta/C/parsetexi/end_line.c:1354
+#: tta/C/parsetexi/end_line.c:1359
 #, c-format
 msgid "@include: could not open %s: %s"
 msgstr "@include: не вдалося відкрити %s: %s"
 
-#: tta/C/parsetexi/end_line.c:1807
+#: tta/C/parsetexi/end_line.c:1729
+#, fuzzy, c-format
+#| msgid "superfluous argument to @%s"
+msgid "superfluous content in number %zu argument to @%s"
+msgstr "зайвий аргумент @%s"
+
+#: tta/C/parsetexi/end_line.c:1748
+#, fuzzy, c-format
+#| msgid "bad argument to @%s"
+msgid "bad number %zu argument to @%s"
+msgstr "помилковий аргумент до @%s"
+
+#: tta/C/parsetexi/end_line.c:1919
 #, c-format
 msgid "@setfilename after the first element"
 msgstr "@setfilename після першого елемента"
 
-#: tta/C/parsetexi/end_line.c:1814
+#: tta/C/parsetexi/end_line.c:1926
 #, c-format
 msgid "@columnfractions only meaningful on a @multitable line"
 msgstr "@columnfractions має сенс лише у рядку @multitable"
 
-#: tta/C/parsetexi/end_line.c:1854
+#: tta/C/parsetexi/end_line.c:1964
 #, c-format
 msgid "@part should not be associated with @top"
 msgstr "@part не повинно бути пов’язано з @top"
 
-#: tta/C/parsetexi/end_line.c:1867
+#: tta/C/parsetexi/end_line.c:1977
 #, c-format
 msgid "@node precedes @part, but parts may not be associated with nodes"
 msgstr "@node передує @part, але частини не можна пов’язувати з вузлами"
