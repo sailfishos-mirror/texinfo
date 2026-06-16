@@ -584,14 +584,6 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
 
   if (flags & STTF_floats)
     number_floats (document);
-
-  /* FIXME remove that, now that index sorting is mainly done by converters
-     and call the function explicitely instead if needed (for tests
-     probably)
-  if (flags & STTF_setup_index_entries_sort_strings)
-    document_indices_sort_strings (document, &document->error_messages,
-                                   document->options, converter);
-   */
 }
 
 /* In texi2any.pl, not in a separate function */

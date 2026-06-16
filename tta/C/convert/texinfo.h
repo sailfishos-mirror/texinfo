@@ -39,7 +39,7 @@ typedef struct TRANSFORMATION_NAME_FLAG {
 #define STTF_floats                                 0x0080
 #define STTF_no_warn_non_empty_parts                0x0100
 #define STTF_nodes_tree                             0x0200
-#define STTF_setup_index_entries_sort_strings       0x0400
+/* #define STTF_        0x0400 */
 
 /* for complete_tree_nodes_menus, complete_tree_nodes_missing_menu
    and regenerate_master_menu */

@@ -2091,11 +2091,6 @@ while (@input_files) {
           ->{'converter'}}($converter_options);
   }
 
-  # do it now to get error messages here
-  #if (exists($formats_table{$converted_format}->{'setup_index_entries_sort_strings'})) {
-  #  Texinfo::Document::setup_indices_sort_strings($document, $converter);
-  #}
-
   #Texinfo::Document::rebuild_document($document);
 
   # parser errors

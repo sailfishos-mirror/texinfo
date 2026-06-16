@@ -569,6 +569,10 @@ destroy_index_entries_sort_strings (INDICES_SORT_STRINGS *indices_sort_strings)
   free (indices_sort_strings);
 }
 
+/* the index_entry_element_sort_string_fn function is passed to be
+   able to use another function when called from converters and at
+   the same time, do not depend on the libtexinfo-converter library.
+ */
 INDICES_SORT_STRINGS *
 setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                     OPTIONS *options, const MERGED_INDICES *merged_indices,

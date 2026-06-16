@@ -177,31 +177,17 @@ sub errors($) {
 # calls Texinfo::Indices::setup_index_entries_sort_strings and caches the
 # result.
 # In general, it is not needed to call that function directly,
-# as it is called by Texinfo::Indices::sort_indices_by_*.  It could
-# be called in advance if errors need to be collected early.
-# This function does not return anything, therefore the XS override
-# does not build the data to Perl.
-sub setup_indices_sort_strings($$) {
-  my ($document, $converter) = @_;
+# as it is called by Texinfo::Document::sorted_indices_by_*.
+sub document_indices_sort_strings($) {
+  my $document = shift;
 
   if (!exists($document->{'index_entries_sort_strings'})) {
     my $indices_sort_strings
       = Texinfo::Indices::setup_index_entries_sort_strings($document,
-              $converter, $document->merged_indices(),
+              undef, $document->merged_indices(),
               $document->indices_information(), 0);
     $document->{'index_entries_sort_strings'} = $indices_sort_strings;
   }
-}
-
-# index_entries_sort_strings accessor.  A different function from
-# setup_indices_sort_strings such that there is no necessity to build C data
-# to Perl when only setup_indices_sort_strings is called.  It is thus possible
-# to call setup_indices_sort_strings but delay building Perl data until
-# the indices_sort_strings function is called.
-sub document_indices_sort_strings($) {
-  my $document = shift;
-
-  setup_indices_sort_strings($document, undef);
   return $document->{'index_entries_sort_strings'};
 }
 
@@ -226,8 +212,8 @@ sub print_document_indices_information($) {
 }
 
 # for tests, to be used for overriding
-sub print_document_indices_sort_strings($;$) {
-  my ($document, $converter) = @_;
+sub print_document_indices_sort_strings($) {
+  my $document = shift;
 
   # read from C data if needed
   $document->indices_information();

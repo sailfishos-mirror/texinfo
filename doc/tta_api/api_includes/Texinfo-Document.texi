@@ -336,21 +336,16 @@ it is already called by index sorting functions.
 
 @end table
 
-In general, the sorting methods should not be called directly, instead
-@ref{Texinfo@asis{::}Convert@asis{::}Converter Index sorting} Converter methods should be
-used, which already call the following functions.
+In general, this module sorting methods should not be called except
+maybe in tests, @ref{Texinfo@asis{::}Convert@asis{::}Converter Index sorting} Converter methods
+should be used.
 
 @table @asis
-@item $sorted_indices = sorted_indices_by_index($document, $converter, $use_unicode_collation, $lang_sorting_locale)
-@anchor{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_index($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $lang_sorting_locale)}
-
-@item $sorted_indices = sorted_indices_by_letter($document, $converter, $use_unicode_collation, $lang_sorting_locale)
-@anchor{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_letter($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $lang_sorting_locale)}
+@item $sorted_indices = sorted_indices_by_index($document, $use_unicode_collation, $lang_sorting_locale)
+@anchor{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_index($document@comma{} $use_unicode_collation@comma{} $lang_sorting_locale)}
 @cindex @code{sorted_indices_by_index}
-@cindex @code{sorted_indices_by_letter}
 
-@code{sorted_indices_by_letter} returns the indices sorted by index and letter,
-while @code{sorted_indices_by_index} returns the indexes with all entries
+@code{sorted_indices_by_index} returns the indexes with all entries
 of an index together.
 
 By default, indexes are sorted according to the @emph{Unicode Collation Algorithm}
@@ -361,28 +356,10 @@ the @emph{Unicode Collation Algorithm} and simply sort according to the codepoin
 The optional @emph{$lang_sorting_locale} language is used for linguistic
 tailoring of the sorting, if possible.
 
-When sorting by letter, an array reference of letter hash references is
-associated with each index name.  Each letter hash reference has two
-keys, a @emph{letter} key with the letter, and an @emph{entries} key with an array
-reference of sorted index entries beginning with the letter.  The letter
-is a character string suitable for sorting letters, but is not necessarily
-the best to use for output.
+The array of the sorted index entries is associated with the index name.
 
-When simply sorting, the array of the sorted index entries is associated
-with the index name.
-
-The optional @emph{$converter} argument is used for error reporting, if not
-defined, the @emph{$document} is used.
-
-@ref{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_index($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $lang_sorting_locale),, @code{Texinfo::Indices::sort_indices_by_index}}
-and @ref{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_letter($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $lang_sorting_locale),, @code{Texinfo::Indices::sort_indices_by_letter}}
-are used to sort the indexes, if needed.
-
-In general, those methods should not be called directly, instead
-@ref{Texinfo@asis{::}Convert@asis{::}Converter $sorted_indices = $converter->get_converter_indices_sorted_by_index(),, @code{Texinfo::Convert::Converter::get_converter_indices_sorted_by_index}}
-and @ref{Texinfo@asis{::}Convert@asis{::}Converter $sorted_indices = $converter->get_converter_indices_sorted_by_letter(),, @code{Texinfo::Convert::Converter::get_converter_indices_sorted_by_letter}}
-should be used.  The @code{Texinfo::Convert::Converter} methods call
-@code{sorted_indices_by_index} and @code{sorted_indices_by_letter}.
+@ref{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_index($indices_sort_strings@comma{} $use_unicode_collation@comma{} $lang_sorting_locale),, @code{Texinfo::Indices::sort_indices_by_index}}
+is used to sort the indexes, if needed.
 
 @end table
 

@@ -382,25 +382,6 @@ labels_list (SV *document_in)
   OUTPUT:
       RETVAL
 
-void
-setup_indices_sort_strings (SV *document_in, SV *converter_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-     CODE:
-        document = get_sv_document_document (document_in,
-                                             "setup_indices_sort_strings");
-        if (document)
-          {
-            /* CONVERTER *self = 0;
-            if (converter_in && SvOK (converter_in))
-              self = get_sv_converter (converter_in, 0);
-             */
-
-            document_indices_sort_strings (document,
-                                           &document->error_messages,
-                                           document->options);
-          }
-
 SV *
 document_indices_sort_strings (SV *document_in)
     PREINIT:
@@ -413,11 +394,6 @@ document_indices_sort_strings (SV *document_in)
                                              "indices_sort_strings");
         if (document)
           {
-            /*
-            CONVERTER *self = 0;
-            if (converter_in && SvOK (converter_in))
-              self = get_sv_converter (converter_in, 0); */
-
             indices_sort_strings
              = document_indices_sort_strings (document,
                                               &document->error_messages,
@@ -490,7 +466,7 @@ print_document_indices_information (SV *document_in)
         RETVAL
 
 SV *
-print_document_indices_sort_strings (SV *document_in, SV *converter_in=0)
+print_document_indices_sort_strings (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
@@ -498,13 +474,10 @@ print_document_indices_sort_strings (SV *document_in, SV *converter_in=0)
                                        "print_document_indices_sort_strings");
         if (document)
           {
-            CONVERTER *self = 0;
-            if (converter_in && SvOK (converter_in))
-              self = get_sv_converter (converter_in, 0);
             char *indices_sort_strings_str;
 
             indices_sort_strings_str
-              = print_document_indices_sort_strings (document, self);
+              = print_document_indices_sort_strings (document);
             if (indices_sort_strings_str)
               {
                 RETVAL = newSVpv_utf8 (indices_sort_strings_str, 0);

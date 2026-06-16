@@ -18,7 +18,7 @@ Texinfo::Indices - merging and sorting indices from Texinfo
      = Texinfo::Indices::merge_indices($indices_information);
 
   my $indices_sort_strings
-    = Texinfo::Document::indices_sort_strings($document, undef);
+    $converter->_converter_indices_sort_strings();
 
   my $index_entries_sorted;
   if ($sort_by_letter) {
@@ -52,14 +52,12 @@ No method is exported.
 
 @code{merge_indices} may be used to merge indices.  Document indices may be sorted
 with @code{sort_indices_by_index} or @code{sort_indices_by_letter}.  The sorting may
-be influenced by the current language.  (In the current implementation,
-sorting keys formatted internally in a language-independent manner are used.)
+be influenced by the current language.
 
-Note that, in general, the functions used to merge or sort indices
-should not be called directly, corresponding functions
-in @ref{Texinfo@asis{::}Document NAME,, Texinfo::Document} already call the functions in this module, and,
-in addition, cache the result with the document.  Furthermore, it should
-be even better to call converter functions, which call document functions.
+Note that, in general, the functions used to merge or sort indices should not
+be called directly, corresponding functions in converters already call the
+functions in this module or in the Document module, and, in addition, cache the
+result.
 
 @table @asis
 @item $merged_indices = merge_indices($indices_information)
@@ -81,11 +79,11 @@ In general, this method should not be called directly, instead
 should be called on a document, which calls @code{merge_indices} if needed and
 associate the merged indices to the document.
 
-@item $index_entries_sorted = sort_indices_by_index($document, $converter, $use_unicode_collation, $lang_sorting_locale)
-@anchor{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_index($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $lang_sorting_locale)}
+@item $index_entries_sorted = sort_indices_by_index($indices_sort_strings, $use_unicode_collation, $lang_sorting_locale)
+@anchor{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_index($indices_sort_strings@comma{} $use_unicode_collation@comma{} $lang_sorting_locale)}
 
-@item $index_entries_sorted = sort_indices_by_letter($document, $converter, $use_unicode_collation, $lang_sorting_locale)
-@anchor{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_letter($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $lang_sorting_locale)}
+@item $index_entries_sorted = sort_indices_by_letter($indices_sort_strings, $use_unicode_collation, $lang_sorting_locale)
+@anchor{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_letter($indices_sort_strings@comma{} $use_unicode_collation@comma{} $lang_sorting_locale)}
 @cindex @code{sort_indices_by_index}
 @cindex @code{sort_indices_by_letter}
 
@@ -93,7 +91,10 @@ associate the merged indices to the document.
 @code{sort_indices_by_index} sort all entries of an index together.
 In both cases, a hash reference with index names as keys @emph{$index_entries_sorted}
 is returned.
-Indices are obtained from @emph{$document}, and should have been merged
+
+@emph{$indices_sort_strings} are strings used to sort the index entries,
+by index, obtained by converting the index entries to text.
+Indices are obtained from a Texinfo Document, and should have been merged
 previously, in general by using
 @ref{Texinfo@asis{::}Document $merged_indices = $document->merged_indices(),, @code{Texinfo::Document::merged_indices}}.
 
@@ -115,15 +116,10 @@ the best to use for output.
 When simply sorting, the array of the sorted index entries is associated
 with the index name.
 
-The optional argument @emph{$converter} is used for error reporting if present,
-otherwise the @emph{$document} is used.
-
 In general, those methods should not be called directly, instead
-@ref{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_index($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $lang_sorting_locale),, @code{Texinfo::Document::sorted_indices_by_index}}
-or @ref{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_letter($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $lang_sorting_locale),, @code{Texinfo::Document::sorted_indices_by_letter}}
-should be called on a document. The @code{Texinfo::Document} functions call
-@code{sort_indices_by_index} or @code{sort_indices_by_letter} if needed and associate
-the sorted indices to the document.
+@ref{Texinfo@asis{::}Convert@asis{::}Converter $sorted_indices = $converter->get_converter_indices_sorted_by_letter(),, @code{Texinfo::Convert::Converter::get_converter_indices_sorted_by_letter}}
+or @ref{Texinfo@asis{::}Convert@asis{::}Converter $sorted_indices = $converter->get_converter_indices_sorted_by_index(),, @code{Texinfo::Convert::Converter::get_converter_indices_sorted_by_index}}
+should be called.
 
 @end table
 
@@ -155,7 +151,7 @@ early on, and reused in every call.
 If @emph{$prefer_reference_element} is set, prefer an untranslated
 element for the formatting as sorting string.
 
-If @emph{$converter} is set use the converter function for translation.
+If @emph{$converter} is set, use the converter function for translation.
 This argument is ignored in XS, so should only be set when called
 from a function with an XS override, such that the argument
 is set only from functions used if XS is not being used at all.

@@ -1086,28 +1086,12 @@ sub test($$)
   $indices = $indices_info_text
     unless($indices_info_text eq $initial_index_names);
 
-  my $indices_sorted_sort_strings;
-  # We want to see the effect of init files registering a different
-  # function for translations, as it impacts the sort strings for
-  # object oriented definition commands.  Therefore, if init files
-  # were read, we sort index strings using HTML converter functions.
-  # FIXME now the converter is not really used in
-  # print_document_indices_sort_strings call, so there is no point
-  # using a converter.  It could be interesting to show the result
-  # of indices sort strings for each of the converter.
-  if ($loaded_init_files and !$doing_epub) {
-    my $format_converter_options = {%$converter_options,
-                                    %$init_files_options};
-    my $converter_options
-      = set_converter_option_defaults($format_converter_options, 'html',
-                                      $self->{'DEBUG'});
-    my $converter = Texinfo::Convert::HTML->converter($converter_options);
-    $indices_sorted_sort_strings
-      = $document->print_document_indices_sort_strings($converter);
-  } else {
-    $indices_sorted_sort_strings
-      = $document->print_document_indices_sort_strings();
-  }
+  # TODO It could be interesting to show the result
+  # of indices sort strings for each of the converter.  For
+  # that would need a function like print_document_indices_sort_strings
+  # but for converters.
+  my $indices_sorted_sort_strings
+    = $document->print_document_indices_sort_strings();
 
   $tree = $document->tree($XS_conversion);
 

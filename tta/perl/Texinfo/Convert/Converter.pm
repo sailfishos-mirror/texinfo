@@ -928,7 +928,7 @@ sub set_output_units_files($$$$$$) {
 # useful methods for Converters.
 # First methods are also used in this module.
 
-sub converter_indices_sort_strings($) {
+sub _converter_indices_sort_strings($) {
   my $converter = shift;
 
   if (!exists($converter->{'index_entries_sort_strings'})) {
@@ -943,9 +943,6 @@ sub converter_indices_sort_strings($) {
 }
 
 # calls Texinfo::Indices::sort_indices_by_letter and caches the result.
-# No XS override, as there is no reason to call this function directly
-# outside of tests, Texinfo::Convert::Converter
-# get_converter_indices_sorted_by_letter should be called directly.
 sub _converter_sorted_indices_by_letter($$$) {
   my ($converter, $use_unicode_collation, $lang_sorting_locale) = @_;
 
@@ -966,7 +963,7 @@ sub _converter_sorted_indices_by_letter($$$) {
   if (!exists($converter->{'sorted_indices_by_letter'}->{$lang_key})) {
     $converter->{'document'}->merged_indices();
 
-    my $indices_sort_strings = converter_indices_sort_strings($converter);
+    my $indices_sort_strings = _converter_indices_sort_strings($converter);
 
     $converter->{'sorted_indices_by_letter'}->{$lang_key}
       = Texinfo::Indices::sort_indices_by_letter(
@@ -977,11 +974,6 @@ sub _converter_sorted_indices_by_letter($$$) {
 }
 
 # calls Texinfo::Indices::sort_indices_by_index and caches the result.
-# No XS override, as there is no reason to call this function directly
-# outside of tests, Texinfo::Convert::Converter
-# get_converter_indices_sorted_by_index should be called directly.
-# In general a CONVERTER argument is given, but if not the DOCUMENT is
-# used instead to register error messages.
 sub _converter_sorted_indices_by_index($$$) {
   my ($converter, $use_unicode_collation, $lang_sorting_locale) = @_;
 
@@ -1002,7 +994,7 @@ sub _converter_sorted_indices_by_index($$$) {
   if (!exists($converter->{'sorted_indices_by_index'}->{$lang_key})) {
     $converter->{'document'}->merged_indices();
 
-    my $indices_sort_strings = converter_indices_sort_strings($converter);
+    my $indices_sort_strings = _converter_indices_sort_strings($converter);
 
     $converter->{'sorted_indices_by_index'}->{$lang_key}
       = Texinfo::Indices::sort_indices_by_index(
@@ -2497,8 +2489,9 @@ the best to use for output.
 When simply sorting, the array of the sorted index entries is associated
 with the index name.
 
-The functions call L<< C<Texinfo::Document::sorted_indices_by_letter>|Texinfo::Document/$sorted_indices = sorted_indices_by_letter($document, $converter, $use_unicode_collation, $lang_sorting_locale) >>
-or L<< C<Texinfo::Document::sorted_indices_by_index>|Texinfo::Document/$sorted_indices = sorted_indices_by_index($document, $converter, $use_unicode_collation, $lang_sorting_locale) >>
+The functions call L<< C<Texinfo::Indices::sort_indices_by_letter>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_letter($indices_sort_strings, $use_unicode_collation, $lang_sorting_locale) >>
+or
+ L<< C<Texinfo::Indices::sort_indices_by_index>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_index($indices_sort_strings, $use_unicode_collation, $lang_sorting_locale) >>
 with arguments based on C<USE_UNICODE_COLLATION>, C<COLLATION_LANGUAGE> and
 C<DOCUMENTLANGUAGE_COLLATION> customization options, and, if relevant, the
 current language.

@@ -352,7 +352,6 @@ COLLATION_INDICES_SORTED_BY_INDEX *
 document_sorted_indices_by_index (DOCUMENT *document,
                          ERROR_MESSAGE_LIST *error_messages,
                          OPTIONS *options,
-                         CONVERTER *converter,
                          int use_unicode_collation,
                          const char *input_lang_sorting_locale,
                          const char *collation_locale)
@@ -396,7 +395,6 @@ COLLATION_INDICES_SORTED_BY_LETTER *
 document_sorted_indices_by_letter (DOCUMENT *document,
                           ERROR_MESSAGE_LIST *error_messages,
                           OPTIONS *options,
-                          CONVERTER *converter,
                           int use_unicode_collation,
                           const char *input_lang_sorting_locale,
                           const char *collation_locale)
@@ -722,7 +720,7 @@ setup_indices_entries_sort_strings (const INDEX_LIST *indices_info,
 }
 
 char *
-print_document_indices_sort_strings (DOCUMENT *document, CONVERTER *converter)
+print_document_indices_sort_strings (DOCUMENT *document)
 {
   size_t i;
   const MERGED_INDICES *merged_indices;
@@ -758,7 +756,6 @@ print_document_indices_sort_strings (DOCUMENT *document, CONVERTER *converter)
   collation_sorted_index_entries
    = document_sorted_indices_by_index (document, &document->error_messages,
                                        document->options,
-                                       converter,
                                        use_unicode_collation,
                                        lang_sorting_locale, 0);
 

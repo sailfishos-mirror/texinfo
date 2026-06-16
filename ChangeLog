@@ -1,5 +1,33 @@
 2026-06-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/document.c (document_sorted_indices_by_index)
+	(document_sorted_indices_by_letter)
+	(print_document_indices_sort_strings),
+	tta/perl/Texinfo/DocumentNonXS.pm
+	(print_document_indices_sort_string),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs
+	(print_document_indices_sort_strings): remove unused converter
+	arguments.  Update callers.
+
+	* tta/perl/t/test_utils.pl (test): remove use of a converter for
+	a print_document_indices_sort_strings call with converter, as it is
+	not possible anymore.
+
+	* tta/perl/Texinfo/Convert/Converter.pm
+	(_converter_indices_sort_strings): rename
+	converter_indices_sort_strings as _converter_indices_sort_strings.
+
+	* tta/perl/Texinfo/DocumentNonXS.pm (document_indices_sort_strings),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs: put
+	setup_indices_sort_strings code in document_indices_sort_strings and
+	remove setup_indices_sort_strings, since it is not called anymore.
+
+	* tta/C/convert/texinfo.h, tta/swig/texinfo.i: remove
+	STTF_setup_index_entries_sort_strings now that it has no effect.
+	Update users.
+
+2026-06-16 Patrice Dumas  <pertusus@free.fr>
+
 	Add separate functions to sort index entries and cache in converters
 
 	* tta/C/Makefile.am (C_libtexinfo_convert_sources): add
