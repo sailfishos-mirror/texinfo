@@ -269,7 +269,7 @@ libtexinfo_la_LIBADD = libcallperl_libtexinfo.la $(platform_PERL_LIBADD)
 C_libtexinfo_LIBS = $(HARD_LOCALE_LIB) $(LIBPTHREAD) $(LIBTHREAD) $(LTLIBC32CONV) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(MBRTOWC_LIB) $(PTHREAD_ONCE_LIB) $(SETLOCALE_NULL_LIB)
 libtexinfo_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(C_libtexinfo_LIBS)
 
-#libtexinfo_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(perl_conf_LIBS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+#libtexinfo_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(perl_conf_LIBS) $(C_libtexinfo_LIBS)
 
 # static internal library without Perl at all
 libtexinfo_static_la_SOURCES = $(libtexinfo_la_SOURCES)
@@ -479,6 +479,8 @@ endif
 C_libtexinfo_convert_sources = \
                        convert/converter.c \
                        convert/converter.h \
+                       convert/convert_indices.c \
+                       convert/convert_indices.h \
                        convert/cmd_converter.c \
                        convert/converters_options.c \
                        convert/converters_options.h \

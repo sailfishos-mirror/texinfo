@@ -221,11 +221,39 @@ coding: utf-8
 End:
 ';
 
+$result_converted_errors{'info'}->{'empty_string_index_entry'} = '* W l4|empty index key in @findex
+ warning: empty index key in @findex
+
+* W l7|empty index key in @item
+ warning: empty index key in @item
+
+* W l10|empty index key in @defun
+ warning: empty index key in @defun
+
+* W l11|empty index key in @defunx
+ warning: empty index key in @defunx
+
+';
+
 
 $result_converted{'plaintext'}->{'empty_string_index_entry'} = '‘’
 
  -- Function: 
  -- Function: 
+
+';
+
+$result_converted_errors{'plaintext'}->{'empty_string_index_entry'} = '* W l4|empty index key in @findex
+ warning: empty index key in @findex
+
+* W l7|empty index key in @item
+ warning: empty index key in @item
+
+* W l10|empty index key in @defun
+ warning: empty index key in @defun
+
+* W l11|empty index key in @defunx
+ warning: empty index key in @defunx
 
 ';
 
@@ -248,6 +276,20 @@ $result_converted{'html_text'}->{'empty_string_index_entry'} = '<a class="node-i
 <dt class="deffn defun-alias-deffn def-line" id="index--2"><span class="category-def">Function: </span><span><strong class="def-name"><!-- /@w --></strong><a class="copiable-link" href="#index--2"> &para;</a></span></dt>
 <dt class="deffnx defunx-alias-deffnx def-cmd-deffn def-line" id="index--3"><span class="category-def">Function: </span><span><strong class="def-name"><!-- /@w --></strong><a class="copiable-link" href="#index--3"> &para;</a></span></dt>
 </dl>
+
+';
+
+$result_converted_errors{'html_text'}->{'empty_string_index_entry'} = '* W l4|empty index key in @findex
+ warning: empty index key in @findex
+
+* W l7|empty index key in @item
+ warning: empty index key in @item
+
+* W l10|empty index key in @defun
+ warning: empty index key in @defun
+
+* W l11|empty index key in @defunx
+ warning: empty index key in @defunx
 
 ';
 

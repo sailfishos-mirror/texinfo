@@ -150,9 +150,7 @@ sub converter_initialize($) {
 sub conversion_initialization($;$) {
   my ($converter, $document) = @_;
 
-  if (defined($document)) {
-    $converter->set_document($document);
-  }
+  $converter->set_document($document);
 }
 
 sub conversion_finalization($) {
@@ -417,6 +415,10 @@ sub converter_perl_release($) {
   if (exists($self->{'index_formatting_text_options'})) {
     delete $self->{'index_formatting_text_options'}->{'converter'};
   }
+
+  delete $self->{'sorted_indices_by_letter'};
+  delete $self->{'sorted_indices_by_index'};
+  delete $self->{'index_entries_sort_strings'};
 
   # common translations cache
   delete $self->{'current_lang_translations'};
@@ -925,6 +927,90 @@ sub set_output_units_files($$$$$$) {
 #############################################################
 # useful methods for Converters.
 # First methods are also used in this module.
+
+sub converter_indices_sort_strings($) {
+  my $converter = shift;
+
+  if (!exists($converter->{'index_entries_sort_strings'})) {
+    my $document = $converter->{'document'};
+    my $indices_sort_strings
+      = Texinfo::Indices::setup_index_entries_sort_strings(undef,
+              $converter, $document->merged_indices(),
+              $document->indices_information(), 0);
+    $converter->{'index_entries_sort_strings'} = $indices_sort_strings;
+  }
+  return $converter->{'index_entries_sort_strings'};
+}
+
+# calls Texinfo::Indices::sort_indices_by_letter and caches the result.
+# No XS override, as there is no reason to call this function directly
+# outside of tests, Texinfo::Convert::Converter
+# get_converter_indices_sorted_by_letter should be called directly.
+sub _converter_sorted_indices_by_letter($$$) {
+  my ($converter, $use_unicode_collation, $lang_sorting_locale) = @_;
+
+  my $lang_key;
+  if (!$use_unicode_collation) {
+    $lang_key = '';
+  } elsif (!defined($lang_sorting_locale)) {
+    # special name corresponding to Unicode Collation with 'Non-Ignorable'
+    # set for variable collation elements
+    $lang_key = '-';
+  } else {
+    $lang_key = $lang_sorting_locale;
+  }
+
+  $converter->{'sorted_indices_by_letter'} = {}
+    if (!exists($converter->{'sorted_indices_by_letter'}));
+
+  if (!exists($converter->{'sorted_indices_by_letter'}->{$lang_key})) {
+    $converter->{'document'}->merged_indices();
+
+    my $indices_sort_strings = converter_indices_sort_strings($converter);
+
+    $converter->{'sorted_indices_by_letter'}->{$lang_key}
+      = Texinfo::Indices::sort_indices_by_letter(
+                     $indices_sort_strings,
+                     $use_unicode_collation, $lang_sorting_locale);
+  }
+  return $converter->{'sorted_indices_by_letter'}->{$lang_key};
+}
+
+# calls Texinfo::Indices::sort_indices_by_index and caches the result.
+# No XS override, as there is no reason to call this function directly
+# outside of tests, Texinfo::Convert::Converter
+# get_converter_indices_sorted_by_index should be called directly.
+# In general a CONVERTER argument is given, but if not the DOCUMENT is
+# used instead to register error messages.
+sub _converter_sorted_indices_by_index($$$) {
+  my ($converter, $use_unicode_collation, $lang_sorting_locale) = @_;
+
+  my $lang_key;
+  if (!$use_unicode_collation) {
+    $lang_key = '';
+  } elsif (!defined($lang_sorting_locale)) {
+    # special name corresponding to Unicode Collation with 'Non-Ignorable'
+    # set for variable collation elements
+    $lang_key = '-';
+  } else {
+    $lang_key = $lang_sorting_locale;
+  }
+
+  $converter->{'sorted_indices_by_index'} = {}
+    if (!exists($converter->{'sorted_indices_by_index'}));
+
+  if (!exists($converter->{'sorted_indices_by_index'}->{$lang_key})) {
+    $converter->{'document'}->merged_indices();
+
+    my $indices_sort_strings = converter_indices_sort_strings($converter);
+
+    $converter->{'sorted_indices_by_index'}->{$lang_key}
+      = Texinfo::Indices::sort_indices_by_index(
+                       $indices_sort_strings,
+                       $use_unicode_collation, $lang_sorting_locale);
+  }
+  return $converter->{'sorted_indices_by_index'}->{$lang_key};
+}
 
 # Generic/overall document methods
 
@@ -1885,12 +1971,9 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
   }
 
   sub conversion_initialization($;$) {
-    my $self = shift;
-    my $document = shift;
+    my ($self, $document) = @_;
 
-    if ($document) {
-      $self->set_document($document);
-    }
+    $self->set_document($document);
 
     $self->set_global_document_commands('before', \@global_commands);
     ...
@@ -1908,8 +1991,7 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
   }
 
   sub convert($$) {
-    my $self = shift;
-    my $document = shift;
+    my ($self, $document) = @_;
 
     $self->conversion_initialization($document);
 
@@ -1918,8 +2000,7 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
   }
 
   sub output($$) {
-    my $self = shift;
-    my $document = shift;
+    my ($self, $document) = @_;
 
     $self->conversion_initialization($document);
 
@@ -2107,8 +2188,10 @@ X<C<set_document>>
 
 Associate I<$document> to I<$converter>.  Also set the encoding related customization
 options based on I<$converter> customization information and information on
-document encoding, and setup converter hash C<convert_text_options> value that
+document encoding, setup converter hash C<convert_text_options> value that
 can be used to call L<C<Texinfo::Convert::Text::convert_to_text>|Texinfo::Convert::Text/$result = convert_to_text($tree, $text_options)>.
+Also resets generic converter information that is invalidated by
+a new document.
 
 =back
 

@@ -24,12 +24,9 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
   }
 
   sub conversion_initialization($;$) {
-    my $self = shift;
-    my $document = shift;
+    my ($self, $document) = @_;
 
-    if ($document) {
-      $self->set_document($document);
-    }
+    $self->set_document($document);
 
     $self->set_global_document_commands('before', \@global_commands);
     ...
@@ -47,8 +44,7 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
   }
 
   sub convert($$) {
-    my $self = shift;
-    my $document = shift;
+    my ($self, $document) = @_;
 
     $self->conversion_initialization($document);
 
@@ -57,8 +53,7 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
   }
 
   sub output($$) {
-    my $self = shift;
-    my $document = shift;
+    my ($self, $document) = @_;
 
     $self->conversion_initialization($document);
 
@@ -259,8 +254,10 @@ implementations.
 
 Associate @emph{$document} to @emph{$converter}.  Also set the encoding related customization
 options based on @emph{$converter} customization information and information on
-document encoding, and setup converter hash @code{convert_text_options} value that
+document encoding, setup converter hash @code{convert_text_options} value that
 can be used to call @ref{Texinfo@asis{::}Convert@asis{::}Text $result = convert_to_text($tree@comma{} $text_options),, @code{Texinfo::Convert::Text::convert_to_text}}.
+Also resets generic converter information that is invalidated by
+a new document.
 
 @end table
 

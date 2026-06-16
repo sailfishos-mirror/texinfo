@@ -64,8 +64,9 @@
 /* for unregister_document_merge_with_document
 #include "document.h"
  */
-#include "converter.h"
 #include "manipulate_tree.h"
+#include "converter.h"
+#include "convert_indices.h"
 /* for new_complete_menu_master_menu */
 #include "structuring.h"
 #include "api_to_perl.h"
@@ -10232,10 +10233,9 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           memset (new_normalized_entry_levels, 0,
                   sizeof (char *) * (SUBENTRIES_MAX_LEVEL +1));
 
-          entry_content_element = index_content_element (main_entry_element, 0,
-                                            self->document,
-                              (self->conf && self->conf->DEBUG.o.integer > 0),
-                               self, &html_element_cdt_tree);
+          entry_content_element
+            = converter_index_content_element (main_entry_element, self, 0);
+
           entry_index_nr
              = index_number_index_by_name (&self->sorted_index_names,
                                            index_entry_ref->index_name);
@@ -10834,10 +10834,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           if (first_entry)
             {
               INDEX_ENTRY_TEXT_OR_COMMAND *entry_text_or_command
-                = index_entry_first_letter_text_or_command (first_entry,
-                                            self->document,
-                              (self->conf && self->conf->DEBUG.o.integer > 0),
-                                            self, &html_element_cdt_tree);
+                = index_entry_first_letter_text_or_command (first_entry, self);
 
               if (entry_text_or_command)
                 {
@@ -13513,10 +13510,8 @@ html_output_internal_links (CONVERTER *self)
 
                   /* Obtain term by converting to text */
                   entry_content_element
-                    = index_content_element (main_entry_element, 0,
-                                            self->document,
-                              (self->conf && self->conf->DEBUG.o.integer > 0),
-                               self, &html_element_cdt_tree);
+                    = converter_index_content_element (main_entry_element,
+                                                       self, 0);
 
                   entry_index_nr
                     = index_number_index_by_name (&self->sorted_index_names,

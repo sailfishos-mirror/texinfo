@@ -849,6 +849,10 @@ typedef struct CONVERTER {
   /* associates deprecated directories and reference directories */
     DEPRECATED_DIRS_LIST deprecated_config_directories;
 
+    INDICES_SORT_STRINGS *indices_sort_strings;
+    COLLATIONS_INDICES_SORTED_BY_INDEX *sorted_indices_by_index;
+    COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
+
   /* HTML specific */
     /* set for a converter */
     int external_references_number; /* total number of external references

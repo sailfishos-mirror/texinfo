@@ -324,9 +324,7 @@ sub converter_initialize($) {
 sub conversion_initialization($;$) {
   my ($self, $document) = @_;
 
-  if (defined($document)) {
-    $self->set_document($document);
-  }
+  $self->set_document($document);
 
   $self->{'document_context'} = [];
   _new_document_context($self);
@@ -698,8 +696,8 @@ sub _index_entry($$) {
       if ($index_info->{'in_code'});
     $result .= "<primary>";
     my $index_element = Texinfo::Common::non_leading_trailing_tree(
-                         Texinfo::Indices::index_content_element($element,
-                                                                 0, $self));
+           Texinfo::Indices::converter_index_content_element(
+                                            $element, $self, 0));
     $result .= $self->_convert($index_element);
     $result .= "</primary>";
 

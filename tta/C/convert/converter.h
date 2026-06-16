@@ -168,6 +168,11 @@ char *converter_convert (CONVERTER *self, DOCUMENT *document);
 void converter_remove_output_units (CONVERTER *converter);
 void destroy_converter (CONVERTER *converter);
 
+ELEMENT *element_cdt_tree (const char *string, const ELEMENT *element,
+                  CONVERTER *self,
+                  NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                  const char *translation_context);
+
 void determine_files_and_directory (CONVERTER *self, const char *output_format,
                                     char **result);
 int create_destination_directory (CONVERTER *self,

@@ -149,7 +149,7 @@ index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, S
 
             sort_string = index_entry_element_sort_string (main_entry,
                           element, convert_index_text_options, in_code,
-                          prefer_reference_element, debug_level, 0, 0);
+                          prefer_reference_element, debug_level, 0);
             if (allocated_text_options)
               destroy_text_options (convert_index_text_options);
           }

@@ -91,10 +91,16 @@ sub set_document($$) {
     $converter->{'document'} = $document;
 
     Texinfo::Common::set_output_encoding($converter, $document);
+  } else {
+    delete $converter->{'document'};
   }
 
   $converter->{'convert_text_options'}
      = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
+
+  delete $converter->{'sorted_indices_by_letter'};
+  delete $converter->{'sorted_indices_by_index'};
+  delete $converter->{'index_entries_sort_strings'};
 }
 
 # initialization either in generic XS converter or in Perl
@@ -451,8 +457,8 @@ sub get_converter_indices_sorted_by_letter($) {
         }
       }
 
-      return Texinfo::Document::sorted_indices_by_letter($self->{'document'},
-                        $self, $use_unicode_collation, $lang_sorting_locale);
+      return _converter_sorted_indices_by_letter($self,
+                               $use_unicode_collation, $lang_sorting_locale);
     }
   }
   return undef;
@@ -485,8 +491,8 @@ sub get_converter_indices_sorted_by_index($) {
         }
       }
 
-      return Texinfo::Document::sorted_indices_by_index($self->{'document'},
-                        $self, $use_unicode_collation, $lang_sorting_locale);
+      return _converter_sorted_indices_by_index($self,
+                                $use_unicode_collation, $lang_sorting_locale);
     }
   }
   return undef;

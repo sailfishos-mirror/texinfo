@@ -824,6 +824,7 @@ definition_category_tree (const ELEMENT *current,
   const char *def_cmdname;
   enum command_id def_command;
 
+  /* TODO is always true.  Remove condition, or add everywhere */
   if (current->e.c->contents.number > 0)
     {
       size_t i;

@@ -17,16 +17,16 @@ Texinfo::Indices - merging and sorting indices from Texinfo
   my $merged_index_entries
      = Texinfo::Indices::merge_indices($indices_information);
 
-  # $converter is a converter object
+  my $indices_sort_strings
+    = Texinfo::Document::indices_sort_strings($document, undef);
+
   my $index_entries_sorted;
   if ($sort_by_letter) {
     $index_entries_sorted
-      = Texinfo::Indices::sort_indices_by_letter($document,
-                                                 $converter);
+      = Texinfo::Indices::sort_indices_by_letter($indices_sort_strings);
   } else {
     $index_entries_sorted
-      = Texinfo::Indices::sort_indices_by_index($document,
-                                                $converter);
+      = Texinfo::Indices::sort_indices_by_index($indices_sort_strings);
   }
 @end verbatim
 
@@ -178,6 +178,8 @@ Other functions.
 @table @asis
 @item $entry_content_element = index_content_element($element, $prefer_reference_element, $converter, $debug_level)
 @anchor{Texinfo@asis{::}Indices $entry_content_element = index_content_element($element@comma{} $prefer_reference_element@comma{} $converter@comma{} $debug_level)}
+
+FIXME incorrect, does not exist anymore, converter and document variants.
 
 Return a Texinfo tree element corresponding to the content of the index
 entry associated to @emph{$element}.  If @emph{$prefer_reference_element} is set,

@@ -4804,8 +4804,8 @@ sub _convert_printindex_command($$$$) {
                                 $index_entry_ref, $formatted_index_entry_nr);
 
       my $entry_content_element
-        = Texinfo::Indices::index_content_element($main_entry_element, 0,
-                                                  $self);
+        = Texinfo::Indices::converter_index_content_element(
+                                         $main_entry_element, $self, 0);
 
       my $entry_index_name = $index_entry_ref->{'index_name'};
       my $in_code = 0;

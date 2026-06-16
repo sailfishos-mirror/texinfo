@@ -1091,6 +1091,10 @@ sub test($$)
   # function for translations, as it impacts the sort strings for
   # object oriented definition commands.  Therefore, if init files
   # were read, we sort index strings using HTML converter functions.
+  # FIXME now the converter is not really used in
+  # print_document_indices_sort_strings call, so there is no point
+  # using a converter.  It could be interesting to show the result
+  # of indices sort strings for each of the converter.
   if ($loaded_init_files and !$doing_epub) {
     my $format_converter_options = {%$converter_options,
                                     %$init_files_options};

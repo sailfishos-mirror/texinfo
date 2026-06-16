@@ -38,11 +38,6 @@ typedef struct INDICES_SORTABLE_ENTRIES {
     INDEX_SORTABLE_ENTRIES *indices;
 } INDICES_SORTABLE_ENTRIES;
 
-typedef struct INDEX_ENTRY_TEXT_OR_COMMAND {
-    char *text;
-    ELEMENT *command;
-} INDEX_ENTRY_TEXT_OR_COMMAND;
-
 MERGED_INDICES *merge_indices (INDEX_LIST *indices_information);
 void destroy_merged_indices (MERGED_INDICES *merged_indices);
 
@@ -51,27 +46,46 @@ void destroy_indices_sorted_by_index (
 void destroy_indices_sorted_by_letter (
          INDEX_SORTED_BY_LETTER *indices_entries_by_letter);
 
-ELEMENT *index_content_element (const ELEMENT *element,
-                       int prefer_reference_element,
-                       DOCUMENT *document, int debug_level,
-                       CONVERTER *converter,
-   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                      );
+ELEMENT *get_index_content_info_element (const ELEMENT *element,
+                                         int prefer_reference_element,
+                                         enum command_id *def_command_out,
+                                         ELEMENT **name_copy_out,
+                                         ELEMENT **class_copy_out);
+ELEMENT *document_index_content_element (const ELEMENT *element,
+                                int prefer_reference_element,
+                                DOCUMENT *document, int debug_level);
+
+char *strip_index_ignore_chars (const char *string,
+                                const char *index_ignore_chars);
 
 char *index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,
                                  struct TEXT_OPTIONS *options, int in_code,
                                  int prefer_reference_element,
-                                 int debug_level,
-                                 CONVERTER *converter,
-   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                                 );
+                                 int debug_level, CONVERTER *converter);
+char *entry_tree_element_sort_string (const INDEX_ENTRY *main_entry,
+                                      ELEMENT *entry_tree_element,
+                                      struct TEXT_OPTIONS *options,
+                                      int in_code);
+
+COLLATIONS_INDICES_SORTED_BY_INDEX *
+new_base_collations_sorted_indices_by_index (void);
+COLLATION_INDICES_SORTED_BY_INDEX *
+get_collation_sorted_indices_by_index (
+                             COLLATIONS_INDICES_SORTED_BY_INDEX *collations,
+                                       int use_unicode_collation,
+                                       const char *input_lang_sorting_locale,
+                                       const char *collation_locale,
+                                       const char **lang_sorting_locale_out);
+COLLATIONS_INDICES_SORTED_BY_LETTER *
+new_base_collations_sorted_indices_by_letter (void);
+COLLATION_INDICES_SORTED_BY_LETTER *
+get_collation_sorted_indices_by_letter (
+                          COLLATIONS_INDICES_SORTED_BY_LETTER *collations,
+                                       int use_unicode_collation,
+                                       const char *input_lang_sorting_locale,
+                                       const char *collation_locale,
+                                       const char **lang_sorting_locale_out);
 
 void destroy_index_entries_sort_strings (
                           INDICES_SORT_STRINGS *indices_sort_strings);
@@ -81,45 +95,33 @@ INDICES_SORT_STRINGS *setup_index_entries_sort_strings (
                     INDEX_LIST *indices_information,
                     int prefer_reference_element,
                     CONVERTER *converter,
-   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                                 );
+   char *(*index_entry_element_sort_string_fn) (const INDEX_ENTRY *main_entry,
+                                 const ELEMENT *index_entry_element,
+                                 struct TEXT_OPTIONS *options, int in_code,
+                                 int prefer_reference_element,
+                                 int debug_level, CONVERTER *converter)
+);
+
+void destroy_sorted_indices_by_index (
+                       COLLATIONS_INDICES_SORTED_BY_INDEX *collations);
+void destroy_sorted_indices_by_letter (
+                       COLLATIONS_INDICES_SORTED_BY_LETTER *collations);
 
 INDEX_SORTED_BY_INDEX *sort_indices_by_index (
-                       DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
+                       const INDICES_SORT_STRINGS *indices_sort_strings,
+                       ERROR_MESSAGE_LIST *error_messages,
                        OPTIONS *options,
-                       CONVERTER *converter,
-   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context),
                        int use_unicode_collation,
                        const char *collation_language,
                        const char *collation_locale);
 
 INDEX_SORTED_BY_LETTER *sort_indices_by_letter (
-                        DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
-                        OPTIONS *options,
-                        CONVERTER *converter,
-   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context),
-                        int use_unicode_collation,
-                        const char *collation_language,
-                        const char *collation_locale);
-
-INDEX_ENTRY_TEXT_OR_COMMAND *index_entry_first_letter_text_or_command (
-                                          const INDEX_ENTRY *index_entry,
-                                          DOCUMENT *document, int debug_level,
-                                          CONVERTER *converter,
-   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                                         );
+                       const INDICES_SORT_STRINGS *indices_sort_strings,
+                       ERROR_MESSAGE_LIST *error_messages,
+                       OPTIONS *options,
+                       int use_unicode_collation,
+                       const char *collation_language,
+                       const char *collation_locale);
 
 const INDEX **sort_index_names (INDEX_LIST *indices_info);
 char *print_indices_information (INDEX_LIST *indices_info);

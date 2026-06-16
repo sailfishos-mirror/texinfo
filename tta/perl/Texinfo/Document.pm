@@ -318,8 +318,8 @@ sub merged_indices($) {
 # get_converter_indices_sorted_by_letter should be called directly.
 # In general a CONVERTER argument is given, but if not the DOCUMENT is
 # used instead to register error messages.
-sub sorted_indices_by_letter($$$$) {
-  my ($document, $converter, $use_unicode_collation, $lang_sorting_locale) = @_;
+sub sorted_indices_by_letter($$$) {
+  my ($document, $use_unicode_collation, $lang_sorting_locale) = @_;
 
   my $lang_key;
   if (!$use_unicode_collation) {
@@ -337,9 +337,13 @@ sub sorted_indices_by_letter($$$$) {
 
   if (!exists($document->{'sorted_indices_by_letter'}->{$lang_key})) {
     $document->merged_indices();
+
+    my $indices_sort_strings
+      = document_indices_sort_strings($document);
+
     $document->{'sorted_indices_by_letter'}->{$lang_key}
-      = Texinfo::Indices::sort_indices_by_letter
-                    ($document, $converter,
+      = Texinfo::Indices::sort_indices_by_letter(
+                     $indices_sort_strings,
                      $use_unicode_collation, $lang_sorting_locale);
   }
   return $document->{'sorted_indices_by_letter'}->{$lang_key};
@@ -351,8 +355,8 @@ sub sorted_indices_by_letter($$$$) {
 # get_converter_indices_sorted_by_index should be called directly.
 # In general a CONVERTER argument is given, but if not the DOCUMENT is
 # used instead to register error messages.
-sub sorted_indices_by_index($$$$) {
-  my ($document, $converter, $use_unicode_collation, $lang_sorting_locale) = @_;
+sub sorted_indices_by_index($$$) {
+  my ($document, $use_unicode_collation, $lang_sorting_locale) = @_;
 
   my $lang_key;
   if (!$use_unicode_collation) {
@@ -370,9 +374,12 @@ sub sorted_indices_by_index($$$$) {
 
   if (!exists($document->{'sorted_indices_by_index'}->{$lang_key})) {
     $document->merged_indices();
+
+    my $indices_sort_strings
+      = document_indices_sort_strings($document);
+
     $document->{'sorted_indices_by_index'}->{$lang_key}
-      = Texinfo::Indices::sort_indices_by_index
-                      ($document, $converter,
+      = Texinfo::Indices::sort_indices_by_index($indices_sort_strings,
                        $use_unicode_collation, $lang_sorting_locale);
   }
   return $document->{'sorted_indices_by_index'}->{$lang_key};

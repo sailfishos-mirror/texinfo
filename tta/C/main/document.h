@@ -54,35 +54,21 @@ const MERGED_INDICES *document_merged_indices (DOCUMENT *document);
 const INDICES_SORT_STRINGS *document_indices_sort_strings (
                                DOCUMENT *document,
                                ERROR_MESSAGE_LIST *error_messages,
-                               OPTIONS *options,
-                               CONVERTER *converter,
-   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                                 );
+                               OPTIONS *options);
 
-COLLATION_INDICES_SORTED_BY_INDEX *sorted_indices_by_index (
+COLLATION_INDICES_SORTED_BY_INDEX *document_sorted_indices_by_index (
                          DOCUMENT *document,
                          ERROR_MESSAGE_LIST *error_messages,
                          OPTIONS *options,
                          CONVERTER *converter,
-   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context),
                          int use_unicode_collation,
                          const char *input_lang_sorting_locale,
                          const char *collation_locale);
-COLLATION_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter (
+COLLATION_INDICES_SORTED_BY_LETTER *document_sorted_indices_by_letter (
                           DOCUMENT *document,
                           ERROR_MESSAGE_LIST *error_messages,
                           OPTIONS *options,
                           CONVERTER *converter,
-   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context),
                           int use_unicode_collation,
                           const char *input_lang_sorting_locale,
                           const char *collation_locale);
@@ -101,11 +87,7 @@ void wipe_document_parser_errors (DOCUMENT *document);
 
 char *print_document_listoffloats (DOCUMENT *document);
 char *print_document_indices_information (DOCUMENT *document);
-char *print_document_indices_sort_strings (DOCUMENT *document, CONVERTER *converter,
-   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                                 );
+char *print_document_indices_sort_strings (DOCUMENT *document,
+                                           CONVERTER *converter);
 
 #endif

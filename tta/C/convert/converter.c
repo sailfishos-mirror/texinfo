@@ -69,6 +69,7 @@
 #include "html_converter_api.h"
 #include "plaintexinfo_converter_api.h"
 #include "rawtext_converter_api.h"
+#include "convert_indices.h"
 #include "converter.h"
 
 /* table used to dispatch format specific functions.
@@ -584,6 +585,28 @@ converter_convert (CONVERTER *self, DOCUMENT *document)
   return 0;
 }
 
+static void
+destroy_converter_index_sorting (CONVERTER *converter)
+{
+  if (converter->indices_sort_strings)
+    {
+      destroy_index_entries_sort_strings (converter->indices_sort_strings);
+      converter->indices_sort_strings = 0;
+    }
+
+  if (converter->sorted_indices_by_index)
+    {
+      destroy_sorted_indices_by_index (converter->sorted_indices_by_index);
+      converter->sorted_indices_by_index = 0;
+    }
+
+  if (converter->sorted_indices_by_letter)
+    {
+      destroy_sorted_indices_by_letter (converter->sorted_indices_by_letter);
+      converter->sorted_indices_by_letter = 0;
+    }
+}
+
 void
 converter_set_document (CONVERTER *converter, DOCUMENT *document)
 {
@@ -612,6 +635,8 @@ converter_set_document (CONVERTER *converter, DOCUMENT *document)
         converter->output_units_descriptors[i] = 0;
       converter->document = 0;
     }
+
+  destroy_converter_index_sorting (converter);
 
   if (document)
     {
@@ -856,6 +881,43 @@ converter_output_tree (CONVERTER *converter, DOCUMENT *document,
       return 0;
     }
 }
+
+
+
+ELEMENT *
+element_cdt_tree (const char *string, const ELEMENT *element,
+                  CONVERTER *self,
+                  NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                  const char *translation_context)
+{
+  const LANG_TRANSLATION *lang_translation;
+  const OPTIONS *options;
+  int debug_level = 0;
+
+  if (self->format != COF_none
+      && converter_format_data[self->format].element_cdt_tree)
+    {
+      ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
+                             CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+            = converter_format_data[self->format].element_cdt_tree;
+      return (*element_cdt_tree_fn) (string, element, self,
+                                     replaced_substrings,
+                                     translation_context);
+    }
+
+  lang_translation
+    = new_element_language_translation (&converters_translation_cache,
+                                        element, TXI_CONVERT_STRINGS_NR);
+  options = self->conf;
+  if (options && options->DEBUG.o.integer >= 0)
+    debug_level = options->DEBUG.o.integer;
+
+  return gdt_tree (string, self->document, lang_translation,
+                   replaced_substrings, debug_level, translation_context);
+}
+
 
 
 
@@ -1541,6 +1603,96 @@ lang_info_sorting_locale (const DOCUMENT_LANG_INFO *lang_info)
   return t_lang_sorting.text;
 }
 
+/* passed as a function reference */
+static char *
+converter_index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
+                                 const ELEMENT *index_entry_element,
+                                 TEXT_OPTIONS *options, int in_code,
+                                 int prefer_reference_element,
+                                 int debug_level, CONVERTER *converter)
+{
+  char *sort_string;
+  ELEMENT *entry_tree_element;
+
+  if (!index_entry_element)
+    {
+      fatal ("converter_index_entry_element_sort_string: NULL element");
+    }
+
+  char *sortas = lookup_extra_string (index_entry_element, AI_key_sortas);
+  if (sortas)
+    return strdup (sortas);
+
+  entry_tree_element = converter_index_content_element (index_entry_element,
+                                                        converter,
+                                                  prefer_reference_element);
+
+  sort_string = entry_tree_element_sort_string (main_entry,
+                                entry_tree_element, options, in_code);
+
+  return sort_string;
+}
+
+static const INDICES_SORT_STRINGS *
+converter_indices_sort_strings (CONVERTER *converter)
+{
+  if (!converter->indices_sort_strings)
+    {
+      const MERGED_INDICES *merged_indices
+         = document_merged_indices (converter->document);
+
+      converter->indices_sort_strings
+       = setup_index_entries_sort_strings (&converter->error_messages,
+                        converter->conf,
+                        merged_indices, &converter->document->indices_info,
+                        0, converter,
+                        &converter_index_entry_element_sort_string);
+
+      /* document->modified_information |= F_DOCM_indices_sort_strings; */
+    }
+  return converter->indices_sort_strings;
+}
+
+static COLLATION_INDICES_SORTED_BY_INDEX *
+converter_sorted_indices_by_index (CONVERTER *converter,
+                         int use_unicode_collation,
+                         const char *input_lang_sorting_locale,
+                         const char *collation_locale)
+{
+  const char *lang_sorting_locale = 0;
+  COLLATIONS_INDICES_SORTED_BY_INDEX *collations;
+  COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices = 0;
+
+  if (!converter->sorted_indices_by_index)
+    converter->sorted_indices_by_index
+      = new_base_collations_sorted_indices_by_index ();
+
+  collations = converter->sorted_indices_by_index;
+
+  collation_sorted_indices
+    = get_collation_sorted_indices_by_index (collations,
+                                             use_unicode_collation,
+                                             input_lang_sorting_locale,
+                                             collation_locale,
+                                             &lang_sorting_locale);
+
+  if (!collation_sorted_indices->sorted_indices)
+    {
+      document_merged_indices (converter->document);
+
+      const INDICES_SORT_STRINGS *indices_sort_strings
+             = converter_indices_sort_strings (converter);
+
+      collation_sorted_indices->sorted_indices
+        = sort_indices_by_index (indices_sort_strings,
+                                 &converter->error_messages,
+                                 converter->conf,
+                                 use_unicode_collation, lang_sorting_locale,
+                                 collation_locale);
+    }
+  return collation_sorted_indices;
+}
+
 INDEX_SORTED_BY_INDEX *
 get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
 {
@@ -1549,11 +1701,6 @@ get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
     {
       COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices;
       char *lang_sorting_locale = 0;
-      ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context) = 0;
-      CONVERTER *converter_for_translations = 0;
 
       if (self->conf->USE_UNICODE_COLLATION.o.integer >= 0)
         {
@@ -1566,19 +1713,8 @@ get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
                               (self->current_lang_translations->info);
         }
 
-      if (self->format != COF_none
-          && converter_format_data[self->format].element_cdt_tree)
-        {
-          converter_for_translations = self;
-          element_cdt_tree_fn
-            = converter_format_data[self->format].element_cdt_tree;
-        }
-
       collation_sorted_indices
-        = sorted_indices_by_index (self->document,
-                                   &self->error_messages, self->conf,
-                                   converter_for_translations,
-                                   element_cdt_tree_fn,
+        = converter_sorted_indices_by_index (self,
                                    self->conf->USE_UNICODE_COLLATION.o.integer,
                                    lang_sorting_locale,
                            self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);
@@ -1588,9 +1724,51 @@ get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
 
       if (collation_sorted_indices->type != ctn_locale_collation)
         *language = collation_sorted_indices->language;
+
       return collation_sorted_indices->sorted_indices;
     }
   return 0;
+}
+
+static COLLATION_INDICES_SORTED_BY_LETTER *
+converter_sorted_indices_by_letter (CONVERTER *converter,
+                          int use_unicode_collation,
+                          const char *input_lang_sorting_locale,
+                          const char *collation_locale)
+{
+  const char *lang_sorting_locale = 0;
+  COLLATIONS_INDICES_SORTED_BY_LETTER *collations;
+  COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices = 0;
+
+  if (!converter->sorted_indices_by_letter)
+    {
+      converter->sorted_indices_by_letter
+        = new_base_collations_sorted_indices_by_letter ();
+    }
+
+  collations = converter->sorted_indices_by_letter;
+
+  collation_sorted_indices
+   = get_collation_sorted_indices_by_letter (collations,
+                                             use_unicode_collation,
+                                             input_lang_sorting_locale,
+                                             collation_locale,
+                                             &lang_sorting_locale);
+
+  if (!collation_sorted_indices->sorted_indices)
+    {
+      document_merged_indices (converter->document);
+
+      const INDICES_SORT_STRINGS *indices_sort_strings
+             = converter_indices_sort_strings (converter);
+
+      collation_sorted_indices->sorted_indices
+        = sort_indices_by_letter (indices_sort_strings,
+                                  &converter->error_messages, converter->conf,
+                                  use_unicode_collation, lang_sorting_locale,
+                                  collation_locale);
+    }
+  return collation_sorted_indices;
 }
 
 INDEX_SORTED_BY_LETTER *
@@ -1601,11 +1779,6 @@ get_converter_indices_sorted_by_letter (CONVERTER *self, char **language)
     {
       COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices;
       char *lang_sorting_locale = 0;
-      ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context) = 0;
-      CONVERTER *converter_for_translations = 0;
 
       if (self->conf->USE_UNICODE_COLLATION.o.integer >= 0)
         {
@@ -1618,19 +1791,8 @@ get_converter_indices_sorted_by_letter (CONVERTER *self, char **language)
                               (self->current_lang_translations->info);
         }
 
-      if (self->format != COF_none
-          && converter_format_data[self->format].element_cdt_tree)
-        {
-          converter_for_translations = self;
-          element_cdt_tree_fn
-            = converter_format_data[self->format].element_cdt_tree;
-        }
-
       collation_sorted_indices
-        = sorted_indices_by_letter (self->document,
-                                    &self->error_messages, self->conf,
-                                    converter_for_translations,
-                                    element_cdt_tree_fn,
+        = converter_sorted_indices_by_letter (self,
                                     self->conf->USE_UNICODE_COLLATION.o.integer,
                                     lang_sorting_locale,
                             self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);
@@ -1999,6 +2161,8 @@ free_generic_converter (CONVERTER *self)
       free (self->sorted_options);
       free (self->conf);
     }
+
+  destroy_converter_index_sorting (self);
 
   if (self->convert_index_text_options)
     destroy_text_options (self->convert_index_text_options);

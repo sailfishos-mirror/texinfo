@@ -175,6 +175,77 @@ sub _remove_def_types($) {
   }
 }
 
+sub get_index_content_info_element($;$) {
+  my ($element, $prefer_reference_element) = @_;
+
+  if (!exists($element->{'extra'})
+      or !exists($element->{'extra'}->{'def_command'})) {
+    # the copy is not strictly needed, but we want to obtain the same
+    # result as with C and the result is different with anchors
+    # in index entries.
+    my $copy = Texinfo::ManipulateTree::copy_element_tree(
+                                           $element->{'contents'}->[0]);
+    return $copy, undef, undef;
+  }
+
+  my ($name, $class);
+  if (exists($element->{'contents'}->[0]->{'contents'})) {
+    foreach my $arg (@{$element->{'contents'}->[0]->{'contents'}}) {
+      my $type = $arg->{'type'};
+      if ($type eq 'def_name') {
+        $name = $arg;
+      } elsif ($type eq 'def_class') {
+        $class = $arg;
+      } elsif ($type eq 'def_arg' or $type eq 'def_typearg'
+               or $type eq 'delimiter') {
+        last;
+      }
+    }
+  }
+
+  if (defined($name)) {
+    my $def_command = $element->{'extra'}->{'def_command'};
+    my $name_copy = Texinfo::ManipulateTree::copy_element_tree($name);
+
+    if (!exists($Texinfo::Commands::def_class_variable_commands{
+                                                         $def_command})
+        and !exists($Texinfo::Commands::def_class_method_commands{
+                                           $def_command})) {
+      _remove_def_types($name_copy);
+      return $name_copy, undef, undef;
+    }
+
+    if (defined($class)) {
+      my $class_copy = Texinfo::ManipulateTree::copy_element_tree($class);
+
+      foreach my $element_copy ($class_copy, $name_copy) {
+        _remove_def_types($element_copy);
+      }
+
+      if ($prefer_reference_element) {
+        my $text_element;
+        my $index_entry_normalized = Texinfo::TreeElement::new({});
+
+        if (exists($Texinfo::Commands::def_class_method_commands{
+                                                   $def_command})) {
+          $text_element = Texinfo::TreeElement::new({'text' => ' on '});
+        } elsif (exists($Texinfo::Commands::def_class_variable_commands{
+                                                       $def_command})) {
+          $text_element = Texinfo::TreeElement::new({'text' => ' of '});
+        }
+
+        $index_entry_normalized->{'contents'}
+          = [$name_copy, $text_element, $class_copy];
+
+        return $index_entry_normalized, undef, undef;
+      } else {
+        return undef, $name_copy, $class_copy;
+      }
+    }
+  }
+  return undef, undef, undef;
+}
+
 # generate a Texinfo tree corresponding to a def command index entry.
 # If $PREFER_REFRENCE_ELEMENT is set do not translate.  If there is
 # no translation, $CONVERTER and $DEBUG_LEVEL are not actually used.
@@ -291,21 +362,82 @@ sub _def_command_index_entry($;$$$) {
 
 # ALTIMP C/main/manipulate_indices.c
 # if $PREFER_REFERENCE_ELEMENT is set, prefer an untranslated element.
-sub index_content_element($;$$$) {
-  my ($element, $prefer_reference_element, $converter, $debug_level) = @_;
+sub document_index_content_element($;$$) {
+  my ($element, $prefer_reference_element, $debug_level) = @_;
 
-  if (exists($element->{'extra'})
-      and exists($element->{'extra'}->{'def_command'})) {
-    return _def_command_index_entry($element, $prefer_reference_element,
-                                    $converter, $debug_level);
-  } else {
-    # the copy is not strictly needed, but we want to obtain the same
-    # result as with C and the result is different with anchors
-    # in index entries.
-    my $copy = Texinfo::ManipulateTree::copy_element_tree(
-                                           $element->{'contents'}->[0]);
-    return $copy;
+  my ($index_element, $name_copy, $class_copy)
+   = get_index_content_info_element($element, $prefer_reference_element);
+
+  if (defined($index_element) or !defined($class_copy)) {
+    return $index_element;
   }
+
+  # Use the language information that was current when the command was
+  # used for getting the translation.
+  my $substrings = {'name' => $name_copy, 'class' => $class_copy};
+  my $def_command = $element->{'extra'}->{'def_command'};
+
+  my $element_lang_translations
+    = Texinfo::Translations::new_element_language_translation(
+            $Texinfo::Translations::converters_translation_cache,
+                    $element);
+
+  if (exists($Texinfo::Commands::def_class_method_commands{
+                                                   $def_command})) {
+  # TRANSLATORS: association of a method or operation name with a class
+  # in descriptions of object-oriented programming methods or operations.
+    $index_element
+      = Texinfo::Translations::gdt('{name} on {class}',
+                   $element_lang_translations, $substrings,
+                   $debug_level);
+  } elsif (exists($Texinfo::Commands::def_class_variable_commands{
+                                                            $def_command})) {
+  # TRANSLATORS: association of a variable or instance variable with
+  # a class in descriptions of object-oriented programming variables or
+  # instance variable.
+    $index_element = Texinfo::Translations::gdt('{name} of {class}',
+                   $element_lang_translations, $substrings,
+                   $debug_level);
+  }
+
+  # prefer a type-less container rather than 'root_line' returned by gdt
+  delete $index_element->{'type'};
+
+  return $index_element;
+}
+
+sub converter_index_content_element($$;$) {
+  my ($element, $converter, $prefer_reference_element) = @_;
+
+  my ($index_element, $name_copy, $class_copy)
+   = get_index_content_info_element($element, $prefer_reference_element);
+
+  if (defined($index_element) or !defined($class_copy)) {
+    return $index_element;
+  }
+
+  my $substrings = {'name' => $name_copy, 'class' => $class_copy};
+  my $def_command = $element->{'extra'}->{'def_command'};
+
+  if (exists($Texinfo::Commands::def_class_method_commands{
+                                                   $def_command})) {
+  # TRANSLATORS: association of a method or operation name with a class
+  # in descriptions of object-oriented programming methods or operations.
+    $index_element = $converter->element_cdt('{name} on {class}',
+                                    $element, $substrings);
+  } elsif (exists($Texinfo::Commands::def_class_variable_commands{
+                                                           $def_command})) {
+  # TRANSLATORS: association of a variable or instance variable with
+  # a class in descriptions of object-oriented programming variables or
+  # instance variable.
+    $index_element = $converter->element_cdt('{name} of {class}',
+                                  $element, $substrings);
+  }
+
+  # prefer a type-less container rather than 'root_line' returned by gdt
+  delete $index_element->{'type'};
+
+  return $index_element;
 }
 
 # 'Non-Ignorable' for 'variable' collation characters means that they are
@@ -558,14 +690,9 @@ sub _setup_sortable_index_entries($$) {
   return $index_sortable_index_entries;
 }
 
-sub _setup_sort_sortable_strings_collator($$$$) {
-  my ($document, $converter, $use_unicode_collation, $lang_sorting_locale) = @_;
-
-  # call a simple wrapper around setup_index_entries_sort_strings that
-  # caches the result.  With XS, it is also an interface to native Document
-  # data through sort strings.
-  my $indices_sort_strings
-    = Texinfo::Document::indices_sort_strings($document, $converter);
+sub _setup_sort_sortable_strings_collator($$$) {
+  my ($indices_sort_strings, $use_unicode_collation,
+      $lang_sorting_locale) = @_;
 
   my $collator = _setup_collator($use_unicode_collation, $lang_sorting_locale);
 
@@ -576,13 +703,13 @@ sub _setup_sort_sortable_strings_collator($$$$) {
 }
 
 # Normally called through Texinfo::Document::sorted_indices_by_index only
-sub sort_indices_by_index($$;$$) {
-  my ($document, $converter, $use_unicode_collation, $lang_sorting_locale) = @_;
+sub sort_indices_by_index($;$$) {
+  my ($indices_sort_strings, $use_unicode_collation, $lang_sorting_locale) = @_;
 
   my ($index_sortable_index_entries, $collator)
-     = _setup_sort_sortable_strings_collator($document,
-                       $converter, $use_unicode_collation,
-                       $lang_sorting_locale);
+     = _setup_sort_sortable_strings_collator($indices_sort_strings,
+                                             $use_unicode_collation,
+                                             $lang_sorting_locale);
 
   if (!defined($index_sortable_index_entries)) {
     return undef;
@@ -681,8 +808,9 @@ sub index_entry_first_letter_text_or_command($;$$) {
       and defined($index_entry_element->{'extra'}->{'sortas'})) {
     return ($index_entry_element->{'extra'}->{'sortas'}, undef);
   } else {
-    my $entry_tree_element = index_content_element($index_entry_element, 0,
-                                                   $converter, $debug_level);
+    my $entry_tree_element
+         = converter_index_content_element($index_entry_element, 0,
+                                           $converter);
     my $ignore_chars;
     if (exists($index_entry_element->{'extra'})
         and defined($index_entry_element->{'extra'}
@@ -705,13 +833,13 @@ sub index_entry_first_letter_text_or_command($;$$) {
 }
 
 # Normally called through Texinfo::Document::sorted_indices_by_letter only
-sub sort_indices_by_letter($$;$$) {
-  my ($document, $converter, $use_unicode_collation, $lang_sorting_locale) = @_;
+sub sort_indices_by_letter($;$$) {
+  my ($indices_sort_strings, $use_unicode_collation, $lang_sorting_locale) = @_;
 
   my ($index_sortable_index_entries, $collator)
-     = _setup_sort_sortable_strings_collator($document,
-                       $converter, $use_unicode_collation,
-                       $lang_sorting_locale);
+     = _setup_sort_sortable_strings_collator($indices_sort_strings,
+                                             $use_unicode_collation,
+                                             $lang_sorting_locale);
 
   if (!defined($index_sortable_index_entries)) {
     return undef;
@@ -828,16 +956,16 @@ Texinfo::Indices - merging and sorting indices from Texinfo
   my $merged_index_entries
      = Texinfo::Indices::merge_indices($indices_information);
 
-  # $converter is a converter object
+  my $indices_sort_strings
+    = Texinfo::Document::indices_sort_strings($document, undef);
+
   my $index_entries_sorted;
   if ($sort_by_letter) {
     $index_entries_sorted
-      = Texinfo::Indices::sort_indices_by_letter($document,
-                                                 $converter);
+      = Texinfo::Indices::sort_indices_by_letter($indices_sort_strings);
   } else {
     $index_entries_sorted
-      = Texinfo::Indices::sort_indices_by_index($document,
-                                                $converter);
+      = Texinfo::Indices::sort_indices_by_index($indices_sort_strings);
   }
 
 
@@ -982,6 +1110,8 @@ Other functions.
 =over
 
 =item $entry_content_element = index_content_element($element, $prefer_reference_element, $converter, $debug_level)
+
+FIXME incorrect, does not exist anymore, converter and document variants.
 
 Return a Texinfo tree element corresponding to the content of the index
 entry associated to I<$element>.  If I<$prefer_reference_element> is set,

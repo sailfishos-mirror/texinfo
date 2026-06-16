@@ -891,9 +891,7 @@ sub converter_destroy($) {
 sub conversion_initialization($;$) {
   my ($self, $document) = @_;
 
-  if (defined($document)) {
-    $self->set_document($document);
-  }
+  $self->set_document($document);
 
   # note that we use Texinfo::Common::document_settable_at_commands and not
   # informative_commands as in informative_commands set and clear have
@@ -2649,8 +2647,8 @@ sub _index_entry($$) {
     my @result;
     foreach my $subindex_command (@subindex_commands) {
       my $content
-         = Texinfo::Indices::index_content_element($subindex_command, 1,
-                                                   $self);
+        = Texinfo::Indices::converter_index_content_element(
+                                      $subindex_command, $self, 1);
       if ($in_code) {
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
       }

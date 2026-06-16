@@ -1,3 +1,152 @@
+2026-06-16 Patrice Dumas  <pertusus@free.fr>
+
+	Add separate functions to sort index entries and cache in converters
+
+	* tta/C/Makefile.am (C_libtexinfo_convert_sources): add
+	tta/C/convert/convert_indices.c.
+
+	* tta/C/convert/convert_indices.c (new_index_entry_text_or_command)
+	(idx_leading_text_or_command)
+	(index_entry_first_letter_text_or_command): move to convert_indices.c,
+	since index_entry_first_letter_text_or_command should only be called
+	from converters.
+
+	* tta/C/main/document.c (document_sorted_indices_by_index)
+	(document_sorted_indices_by_letter): rename sorted_indices_by_index as
+	document_sorted_indices_by_index and sorted_indices_by_letter as
+	document_sorted_indices_by_letter.
+
+	* tta/C/main/manipulate_indices.c (document_index_content_element),
+	tta/perl/Texinfo/Indices.pm (document_index_content_element):
+	rename index_content_element as document_index_content_element.
+
+	* tta/perl/Texinfo/DocumentNonXS.pm (document_indices_sort_strings):
+	remove indices_sort_strings as document_indices_sort_strings.  Update
+	callers.
+
+	* tta/C/main/manipulate_indices.c (get_index_content_info_element)
+	(document_index_content_element), tta/perl/Texinfo/Indices.pm
+	(get_index_content_info_element, document_index_content_element):
+	add get_index_content_info_element that gets index content element for
+	the cases where translation is not needed, and also gets information
+	on object-oriented definitions that can be used by the caller to
+	prepare an index content element.  Remove def_command_index_entry.
+
+	* tta/C/main/manipulate_indices.c (entry_tree_element_sort_string)
+	(index_entry_element_sort_string): add entry_tree_element_sort_string
+	based on index_entry_element_sort_string code.
+
+	* tta/C/main/manipulate_indices.c (setup_index_entries_sort_strings):
+	add index_entry_element_sort_string_fn argument to be able
+	to use a different function than the index_entry_element_sort_string
+	default, when called from converters.  A function argument instead of
+	a call to a function if converter argument is set is used to avoid
+	depending on the libtexinfo-converter library.
+
+	* tta/C/main/document.c (document_sorted_indices_by_index)
+	(document_sorted_indices_by_letter),
+	tta/C/main/manipulate_indices.c (new_collation_sorted_indices_by_index)
+	(new_base_collations_sorted_indices_by_index)
+	(get_collation_sorted_indices_by_index)
+	(new_base_collations_sorted_indices_by_letter)
+	(get_collation_sorted_indices_by_letter):
+	add new_base_collations_sorted_indices_by_index,
+	get_collation_sorted_indices_by_index,
+	new_base_collations_sorted_indices_by_letter and
+	get_collation_sorted_indices_by_letter based on
+	document_sorted_indices_by_* code and call these functions.
+	move new_collation_sorted_indices_by_index,
+	find_collation_sorted_indices_by_index,
+	new_collation_sorted_indices_by_letter and
+	find_collation_sorted_indices_by_letter to manipulate_indices.c.
+
+	* tta/C/main/document.c (document_sorted_indices_by_index)
+	(document_sorted_indices_by_letter), tta/C/main/manipulate_indices.c
+	(sort_indices_by_index) (sort_indices_by_letter,
+	setup_sort_sortable_strings_collator), tta/perl/Texinfo/Document.pm
+	(sorted_indices_by_letter) (sorted_indices_by_index),
+	tta/perl/Texinfo/Indices.pm (_setup_sort_sortable_strings_collator)
+	(sort_indices_by_index, sort_indices_by_letter):
+	use indices_sort_strings as argument to sort_indices_by_index,
+	sort_indices_by_letter and setup_sort_sortable_strings_collator, do
+	not call document_indices_sort_strings in those functions, but in
+	document_sorted_indices_by_index, document_sorted_indices_by_letter
+	before calling sort_indices_by_index or sort_indices_by_letter.
+
+	* tta/C/convert/converter.c
+	(converter_index_entry_element_sort_string)
+	(converter_indices_sort_strings, converter_sorted_indices_by_index)
+	(get_converter_indices_sorted_by_index)
+	(converter_sorted_indices_by_letter)
+	(get_converter_indices_sorted_by_letter),
+	tta/C/convert/convert_indices.c (converter_index_content_element)
+	(index_entry_first_letter_text_or_command),
+	tta/C/main/converter_types.h (CONVERTER),
+	tta/C/main/manipulate_indices.c (document_index_content_element),
+	tta/perl/Texinfo/Convert/Converter.pm (converter_indices_sort_strings)
+	(_converter_sorted_indices_by_letter)
+	(_converter_sorted_indices_by_index),
+	tta/perl/Texinfo/Convert/ConverterNonXS.pm
+	(get_converter_indices_sorted_by_letter)
+	(get_converter_indices_sorted_by_index),
+	tta/perl/Texinfo/Indices.pm (converter_index_content_element),
+	tta/perl/Texinfo/IndicesNonXS.pm (index_entry_element_sort_string): add
+	index sorting functions for converters that cache in the converter,
+	using the new fields indices_sort_strings, sorted_indices_by_index and
+	sorted_indices_by_letter, and use converter information.  Use those
+	functions in get_converter_indices_sorted_by_*, in
+	index_entry_first_letter_text_or_command and in converters.  
+	Remove document_index_content_element converter and consider only the
+	case of no converter in this function. Update
+	callers, replacing index_content_element by
+	converter_index_content_element in converters.  Remove
+	index_content_element.
+
+	* tta/C/main/document.c (document_indices_sort_strings),
+	tta/perl/Texinfo/Document.pm (sorted_indices_by_letter)
+	(sorted_indices_by_index), tta/perl/Texinfo/DocumentNonXS.pm
+	(document_indices_sort_strings), tta/perl/Texinfo/Indices.pm
+	(sort_indices_by_index, sort_indices_by_letter),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs
+	(document_indices_sort_strings): remove converter
+	argument.  Update callers.
+
+	* tta/perl/XSTexinfo/parser_document/DocumentXS.xs
+	(setup_indices_sort_strings): never use the converter argument.
+
+	* tta/C/convert/texinfo.c (txi_complete_document),
+	tta/perl/texi2any.pl: do not call document_indices_sort_strings or
+	Document::setup_indices_sort_strings in advance anymore, as the sorted
+	index entries used by converters are not in the document anymore.
+
+	* tta/C/main/manipulate_indices.c (destroy_sorted_indices_by_index)
+	(destroy_sorted_indices_by_letter), tta/C/main/document.c
+	(destroy_document_information_except_tree): add
+	destroy_sorted_indices_by_index and destroy_sorted_indices_by_letter
+	based on destroy_document_information_except_tree code.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (conversion_initialization),
+	tta/perl/Texinfo/Convert/DocBook.pm (converter_initialize),
+	tta/perl/Texinfo/Convert/LaTeX.pm (conversion_initialization),
+	tta/perl/Texinfo/Convert/Plaintext.pm (conversion_initialization):
+	call set_document even if document is undef, to get the other
+	initialization/destructions.
+
+	* tta/C/convert/converter.c (destroy_converter_index_sorting)
+	(converter_set_document, free_generic_converter),
+	tta/C/main/build_perl_info.c (pass_document_sv_to_converter_sv),
+	tta/perl/Texinfo/Convert/Converter.pm (converter_perl_release),
+	tta/perl/Texinfo/Convert/ConverterNonXS.pm (set_document):
+	destroy index sorting information set in converter.  Destroy document
+	in set_document if input document is undef.
+
+	* tta/C/convert/converter.c (element_cdt_tree): add and call
+	html_element_cdt_tree from this function only and call this function
+	directly in converter_index_content_element.  Remove all the now
+	unneeded element_cdt_tree_fn arguments.
+
+	* tta/perl/t/z_misc/test_sort.t: update.
+
 2026-06-15 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/manipulate_indices.c (def_command_index_entry),

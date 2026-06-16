@@ -86,9 +86,16 @@ sub index_entry_element_sort_string($$$$;$$$) {
       and exists($index_entry_element->{'extra'}->{'sortas'})) {
     $sort_string = $index_entry_element->{'extra'}->{'sortas'};
   } else {
-    my $entry_tree_element
-      = index_content_element($index_entry_element, $prefer_reference_element,
-                              $converter, $debug_level);
+    my $entry_tree_element;
+    if (defined($converter)) {
+      $entry_tree_element
+        = converter_index_content_element($index_entry_element, $converter,
+                                $prefer_reference_element);
+    } else {
+      $entry_tree_element
+        = document_index_content_element($index_entry_element,
+                                   $prefer_reference_element, $debug_level);
+    }
     $sort_string = Texinfo::Convert::Text::convert_to_text(
                               $entry_tree_element, $options);
     # Not done for @sortas, in particular to be able to still sort using

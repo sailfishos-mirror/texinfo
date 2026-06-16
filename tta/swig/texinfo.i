@@ -771,6 +771,7 @@ ELEMENT *get_label_element (const ELEMENT *e);
 
 // manipulate_indices.h
 // used in a test
+// FIXME remove to avoid needing translations in the interface?
 %rename(index_content_element) txi_ext_inline_index_content_element;
 ELEMENT *txi_ext_inline_index_content_element (const ELEMENT *element,
                                 DOCUMENT *document,
@@ -791,12 +792,10 @@ txi_ext_inline_index_content_element (const ELEMENT *element,
                                 int prefer_reference_element,
                                 int debug_level)
 {
-  return index_content_element (element, prefer_reference_element,
-                                document, debug_level, 0, 0);
+  return document_index_content_element (element, prefer_reference_element,
+                                         document, debug_level);
 }
 %}
-
-
 
 
 // TODO add a wrapper around new_complete_menu_master_menu?

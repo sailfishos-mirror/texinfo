@@ -198,10 +198,10 @@ sub setup_indices_sort_strings($$) {
 # to Perl when only setup_indices_sort_strings is called.  It is thus possible
 # to call setup_indices_sort_strings but delay building Perl data until
 # the indices_sort_strings function is called.
-sub indices_sort_strings($$) {
-  my ($document, $converter) = @_;
+sub document_indices_sort_strings($) {
+  my $document = shift;
 
-  setup_indices_sort_strings($document, $converter);
+  setup_indices_sort_strings($document, undef);
   return $document->{'index_entries_sort_strings'};
 }
 
@@ -245,14 +245,14 @@ sub print_document_indices_sort_strings($;$) {
     my $lang_sorting_locale = $document->get_conf('COLLATION_LANGUAGE');
   }
 
-  my $indices_sort_strings = indices_sort_strings($document, $converter);
+  my $indices_sort_strings = document_indices_sort_strings($document);
 
   my $index_entries_sort_strings
    = Texinfo::Indices::format_index_entries_sort_strings(
                                                      $indices_sort_strings);
 
   my $sorted_index_entries
-       = sorted_indices_by_index($document, undef,
+       = sorted_indices_by_index($document,
                             $use_unicode_collation, $lang_sorting_locale);
 
   my $idx_sort_strings_str = '';

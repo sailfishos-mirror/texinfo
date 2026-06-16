@@ -330,13 +330,7 @@ register_document_convert_index_text_options (DOCUMENT *document,
 const INDICES_SORT_STRINGS *
 document_indices_sort_strings (DOCUMENT *document,
                                ERROR_MESSAGE_LIST *error_messages,
-                               OPTIONS *options,
-                               CONVERTER *converter,
-   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                                 )
+                               OPTIONS *options)
 {
   if (!document->indices_sort_strings)
     {
@@ -346,68 +340,19 @@ document_indices_sort_strings (DOCUMENT *document,
       document->indices_sort_strings
        = setup_index_entries_sort_strings (error_messages, options,
                         merged_indices, &document->indices_info, 0,
-                        converter, element_cdt_tree_fn);
+                        0, 0);
 
       document->modified_information |= F_DOCM_indices_sort_strings;
     }
   return document->indices_sort_strings;
 }
 
-static COLLATION_INDICES_SORTED_BY_INDEX *
-new_collation_sorted_indices_by_index (
-            COLLATIONS_INDICES_SORTED_BY_INDEX *collations,
-            enum collation_type_name type,
-            const char *language)
-{
-  COLLATION_INDICES_SORTED_BY_INDEX *result = 0;
-  if (collations->number <= collations->space)
-    {
-      collations->collation_sorted_indices
-        = (COLLATION_INDICES_SORTED_BY_INDEX *) realloc
-           (collations->collation_sorted_indices,
-             (collations->space += 3)
-                * sizeof (COLLATION_INDICES_SORTED_BY_INDEX));
-      if (!collations->collation_sorted_indices)
-        fatal ("realloc failed");
-    }
-
-  result = &collations->collation_sorted_indices[collations->number];
-  memset (result, 0, sizeof (COLLATION_INDICES_SORTED_BY_INDEX));
-  result->type = type;
-  result->language = strdup (language);
-
-  collations->number++;
-
-  return result;
-}
-
+/* Used in tests and in SWIG interface */
 COLLATION_INDICES_SORTED_BY_INDEX *
-find_collation_sorted_indices_by_index (
-            COLLATIONS_INDICES_SORTED_BY_INDEX *collations,
-            enum collation_type_name type,
-            const char *language)
-{
-  size_t i;
-  for (i = 2; i < collations->number; i++)
-    {
-      COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices
-        = &collations->collation_sorted_indices[i];
-      if (collation_sorted_indices->type == type
-          && !strcmp (collation_sorted_indices->language, language))
-        return collation_sorted_indices;
-    }
-  return 0;
-}
-
-COLLATION_INDICES_SORTED_BY_INDEX *
-sorted_indices_by_index (DOCUMENT *document,
+document_sorted_indices_by_index (DOCUMENT *document,
                          ERROR_MESSAGE_LIST *error_messages,
                          OPTIONS *options,
                          CONVERTER *converter,
-   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context),
                          int use_unicode_collation,
                          const char *input_lang_sorting_locale,
                          const char *collation_locale)
@@ -415,120 +360,43 @@ sorted_indices_by_index (DOCUMENT *document,
   const char *lang_sorting_locale = 0;
   COLLATIONS_INDICES_SORTED_BY_INDEX *collations;
   COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices = 0;
+
   if (!document->sorted_indices_by_index)
-    {
-      collations
-       = (COLLATIONS_INDICES_SORTED_BY_INDEX *)
-           malloc (sizeof (COLLATIONS_INDICES_SORTED_BY_INDEX));
-      memset (collations, 0,
-              sizeof (COLLATIONS_INDICES_SORTED_BY_INDEX));
-
-      /* order is important, to match enum */
-      new_collation_sorted_indices_by_index (collations, ctn_unicode, "-");
-      new_collation_sorted_indices_by_index (collations, ctn_no_unicode, "");
-
-      document->sorted_indices_by_index = collations;
-    }
+    document->sorted_indices_by_index
+      = new_base_collations_sorted_indices_by_index ();
 
   collations = document->sorted_indices_by_index;
 
-  if (use_unicode_collation == 0)
-    collation_sorted_indices
-      = &collations->collation_sorted_indices[ctn_no_unicode];
-  else if (!input_lang_sorting_locale && !collation_locale)
-    collation_sorted_indices
-      = &collations->collation_sorted_indices[ctn_unicode];
-  else
-    {
-      enum collation_type_name type;
-
-      if (input_lang_sorting_locale)
-        {
-          type = ctn_language_collation;
-          lang_sorting_locale = input_lang_sorting_locale;
-        }
-      else
-        {
-          type = ctn_locale_collation;
-          lang_sorting_locale = collation_locale;
-        }
-
-      collation_sorted_indices
-        = find_collation_sorted_indices_by_index (collations, type,
-                                                 lang_sorting_locale);
-      if (!collation_sorted_indices)
-        collation_sorted_indices
-          = new_collation_sorted_indices_by_index (collations,
-                                                   type, lang_sorting_locale);
-    }
+  collation_sorted_indices
+    = get_collation_sorted_indices_by_index (collations,
+                                             use_unicode_collation,
+                                             input_lang_sorting_locale,
+                                             collation_locale,
+                                             &lang_sorting_locale);
 
   if (!collation_sorted_indices->sorted_indices)
     {
       document_merged_indices (document);
+
+      const INDICES_SORT_STRINGS *indices_sort_strings
+             = document_indices_sort_strings (document,
+                                              error_messages, options);
+
       collation_sorted_indices->sorted_indices
-        = sort_indices_by_index (document, error_messages, options,
-                                 converter, element_cdt_tree_fn,
+        = sort_indices_by_index (indices_sort_strings, error_messages,
+                                 options,
                                  use_unicode_collation, lang_sorting_locale,
                                  collation_locale);
     }
   return collation_sorted_indices;
 }
 
-static COLLATION_INDICES_SORTED_BY_LETTER *
-new_collation_sorted_indices_by_letter (
-            COLLATIONS_INDICES_SORTED_BY_LETTER *collations,
-            enum collation_type_name type,
-            const char *language)
-{
-  COLLATION_INDICES_SORTED_BY_LETTER *result = 0;
-  if (collations->number <= collations->space)
-    {
-      collations->collation_sorted_indices
-        = (COLLATION_INDICES_SORTED_BY_LETTER *) realloc
-           (collations->collation_sorted_indices,
-             (collations->space += 3)
-                * sizeof (COLLATION_INDICES_SORTED_BY_LETTER));
-      if (!collations->collation_sorted_indices)
-        fatal ("realloc failed");
-    }
-
-  result = &collations->collation_sorted_indices[collations->number];
-  memset (result, 0, sizeof (COLLATION_INDICES_SORTED_BY_LETTER));
-  result->type = type;
-  result->language = strdup (language);
-
-  collations->number++;
-
-  return result;
-}
-
+/* Unused */
 COLLATION_INDICES_SORTED_BY_LETTER *
-find_collation_sorted_indices_by_letter (
-            COLLATIONS_INDICES_SORTED_BY_LETTER *collations,
-            enum collation_type_name type,
-            const char *language)
-{
-  size_t i;
-  for (i = 2; i < collations->number; i++)
-    {
-      COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices
-        = &collations->collation_sorted_indices[i];
-      if (collation_sorted_indices->type == type
-          && !strcmp (collation_sorted_indices->language, language))
-        return collation_sorted_indices;
-    }
-  return 0;
-}
-
-COLLATION_INDICES_SORTED_BY_LETTER *
-sorted_indices_by_letter (DOCUMENT *document,
+document_sorted_indices_by_letter (DOCUMENT *document,
                           ERROR_MESSAGE_LIST *error_messages,
                           OPTIONS *options,
                           CONVERTER *converter,
-   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context),
                           int use_unicode_collation,
                           const char *input_lang_sorting_locale,
                           const char *collation_locale)
@@ -538,57 +406,30 @@ sorted_indices_by_letter (DOCUMENT *document,
   COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices = 0;
   if (!document->sorted_indices_by_letter)
     {
-      collations
-       = (COLLATIONS_INDICES_SORTED_BY_LETTER *)
-           malloc (sizeof (COLLATIONS_INDICES_SORTED_BY_LETTER));
-      memset (collations, 0,
-              sizeof (COLLATIONS_INDICES_SORTED_BY_LETTER));
-
-      /* order is important, to match enum */
-      new_collation_sorted_indices_by_letter (collations, ctn_unicode, "-");
-      new_collation_sorted_indices_by_letter (collations, ctn_no_unicode, "");
-
-      document->sorted_indices_by_letter = collations;
+      document->sorted_indices_by_letter
+        = new_base_collations_sorted_indices_by_letter ();
     }
 
   collations = document->sorted_indices_by_letter;
 
-  if (use_unicode_collation == 0)
-    collation_sorted_indices
-      = &collations->collation_sorted_indices[ctn_no_unicode];
-  else if (!input_lang_sorting_locale && !collation_locale)
-    collation_sorted_indices
-      = &collations->collation_sorted_indices[ctn_unicode];
-  else
-    {
-      enum collation_type_name type;
-
-      if (input_lang_sorting_locale)
-        {
-          type = ctn_language_collation;
-          lang_sorting_locale = input_lang_sorting_locale;
-        }
-      else
-        {
-          type = ctn_locale_collation;
-          lang_sorting_locale = collation_locale;
-        }
-
-      collation_sorted_indices
-        = find_collation_sorted_indices_by_letter (collations, type,
-                                                   lang_sorting_locale);
-      if (!collation_sorted_indices)
-        collation_sorted_indices
-          = new_collation_sorted_indices_by_letter (collations,
-                                                    type, lang_sorting_locale);
-    }
+  collation_sorted_indices
+   = get_collation_sorted_indices_by_letter (collations,
+                                             use_unicode_collation,
+                                             input_lang_sorting_locale,
+                                             collation_locale,
+                                             &lang_sorting_locale);
 
   if (!collation_sorted_indices->sorted_indices)
     {
       document_merged_indices (document);
+
+      const INDICES_SORT_STRINGS *indices_sort_strings
+             = document_indices_sort_strings (document,
+                                              error_messages, options);
+
       collation_sorted_indices->sorted_indices
-        = sort_indices_by_letter (document, error_messages, options,
-                                  converter, element_cdt_tree_fn,
+        = sort_indices_by_letter (indices_sort_strings, error_messages,
+                                  options,
                                   use_unicode_collation, lang_sorting_locale,
                                   collation_locale);
     }
@@ -633,42 +474,8 @@ destroy_document_information_except_tree (DOCUMENT *document)
     destroy_merged_indices (document->merged_indices);
   if (document->indices_sort_strings)
     destroy_index_entries_sort_strings (document->indices_sort_strings);
-  if (document->sorted_indices_by_index)
-    {
-      if (document->sorted_indices_by_index->number > 0)
-        {
-          size_t i;
-          for (i = 0; i < document->sorted_indices_by_index->number; i++)
-            {
-              COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices
-        = &document->sorted_indices_by_index->collation_sorted_indices[i];
-              free (collation_sorted_indices->language);
-              if (collation_sorted_indices->sorted_indices)
-                destroy_indices_sorted_by_index (
-                                collation_sorted_indices->sorted_indices);
-            }
-        }
-      free (document->sorted_indices_by_index->collation_sorted_indices);
-      free (document->sorted_indices_by_index);
-    }
-  if (document->sorted_indices_by_letter)
-    {
-      if (document->sorted_indices_by_letter->number > 0)
-        {
-          size_t i;
-          for (i = 0; i < document->sorted_indices_by_letter->number; i++)
-            {
-              COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices
-        = &document->sorted_indices_by_letter->collation_sorted_indices[i];
-              free (collation_sorted_indices->language);
-              if (collation_sorted_indices->sorted_indices)
-                destroy_indices_sorted_by_letter (
-                                collation_sorted_indices->sorted_indices);
-            }
-        }
-      free (document->sorted_indices_by_letter->collation_sorted_indices);
-      free (document->sorted_indices_by_letter);
-    }
+  destroy_sorted_indices_by_index (document->sorted_indices_by_index);
+  destroy_sorted_indices_by_letter (document->sorted_indices_by_letter);
 }
 
 void
@@ -915,12 +722,7 @@ setup_indices_entries_sort_strings (const INDEX_LIST *indices_info,
 }
 
 char *
-print_document_indices_sort_strings (DOCUMENT *document, CONVERTER *converter,
-   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                                 )
+print_document_indices_sort_strings (DOCUMENT *document, CONVERTER *converter)
 {
   size_t i;
   const MERGED_INDICES *merged_indices;
@@ -951,15 +753,14 @@ print_document_indices_sort_strings (DOCUMENT *document, CONVERTER *converter,
     }
 
   indices_sort_strings = document_indices_sort_strings (document,
-                            &document->error_messages, document->options,
-                            converter, element_cdt_tree_fn);
+                            &document->error_messages, document->options);
 
   collation_sorted_index_entries
-   = sorted_indices_by_index (document, &document->error_messages,
-                              document->options,
-                              converter, element_cdt_tree_fn,
-                              use_unicode_collation,
-                              lang_sorting_locale, 0);
+   = document_sorted_indices_by_index (document, &document->error_messages,
+                                       document->options,
+                                       converter,
+                                       use_unicode_collation,
+                                       lang_sorting_locale, 0);
 
   memset (&indices_sort_strings_n_nr, 0, sizeof (NAME_NUMBER_LIST));
 

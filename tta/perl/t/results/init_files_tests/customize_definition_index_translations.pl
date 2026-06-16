@@ -675,14 +675,14 @@ list:
 $result_headings_list{'customize_definition_index_translations'} = '';
 
 $result_indices_sort_strings{'customize_definition_index_translations'} = 'fn:
+ de in op class de
+ de von cv class de
  deAT in op class deAT
+ deAT von cv class deAT
  default of cv class default
  default on op class default
- La méthode fr pour la op class fr
- La variable fr de cv class fr
- Name de der op class de
- Variable de der cv class de
- Variable(AT) deAT der cv class deAT
+ fr de cv class fr
+ fr de op class fr
 ';
 
 1;

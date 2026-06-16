@@ -62,6 +62,7 @@
 /* no_brace_command_accent_upper_case
    xml_text_entity_no_arg_commands_formatting */
 #include "converter.h"
+#include "convert_indices.h"
 #include "call_html_perl_function.h"
 #include "hashmap.h"
 #include "format_html.h"
@@ -5089,10 +5090,7 @@ prepare_index_entries_targets (CONVERTER *self)
               region = lookup_extra_string (main_entry_element,
                                             AI_key_element_region);
               entry_reference_content_element
-               = index_content_element (main_entry_element, 1,
-                                            self->document,
-                              (self->conf && self->conf->DEBUG.o.integer > 0),
-                                        0, 0);
+               = converter_index_content_element (main_entry_element, self, 1);
         /* construct element to convert to a normalized identifier to use as
            hrefs target */
               normalize_index_element = new_element (ET_NONE);

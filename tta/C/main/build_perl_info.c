@@ -3285,6 +3285,13 @@ pass_document_sv_to_converter_sv (SV *converter_sv, SV *document_in)
       hv_store (converter_hv, "document", strlen ("document"),
                 newSVsv (document_in), 0);
     }
+
+  hv_delete (converter_hv, "sorted_indices_by_letter",
+             strlen ("sorted_indices_by_letter"), G_DISCARD);
+  hv_delete (converter_hv, "sorted_indices_by_index",
+             strlen ("sorted_indices_by_index"), G_DISCARD);
+  hv_delete (converter_hv, "index_entries_sort_strings",
+             strlen ("index_entries_sort_strings"), G_DISCARD);
 }
 
 void

@@ -51,7 +51,7 @@ my $main_configuration = Texinfo::MainConfig::new();
 Texinfo::Config::GNUT_initialize_customization(undef, {}, {});
 
 # To set $indices_sort_strings, calling
-# Texinfo::Document::indices_sort_strings is more natural, but we want
+# Texinfo::Document::document_indices_sort_strings is more natural, but we want
 # to test direct call of Texinfo::Indices::setup_index_entries_sort_strings.
 my $indices_information = $document->indices_information();
 my $index_entries = $document->merged_indices();
@@ -65,8 +65,11 @@ my $indices_sort_strings
 my $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
+#my $indices_sort_strings
+# = Texinfo::Document::document_indices_sort_strings($document);
+
 my $sorted_index_entries
-  = Texinfo::Indices::sort_indices_by_index($document, undef);
+  = Texinfo::Indices::sort_indices_by_index($indices_sort_strings);
 
 my @entries = ();
 foreach my $entry (@{$sorted_index_entries->{'cp'}}) {
@@ -81,7 +84,7 @@ my @entries_ref = ('!', '"', 'aaaaaaaaaaaa', 'e', 'E', 'ẽ', 'ł');
 cmp_deeply (\@entries, \@entries_ref, 'sorted index entries');
 
 my $sorted_index_entries_by_letter
- = Texinfo::Indices::sort_indices_by_letter($document, undef);
+ = Texinfo::Indices::sort_indices_by_letter($indices_sort_strings);
 
 my @letter_entries_ref = (
    {'!' => [ '!' ]},
@@ -136,12 +139,12 @@ $document = $parser->parse_texi_text('@node Top
 
 $document->register_document_options($document_options);
 $indices_sort_strings
-  = Texinfo::Document::indices_sort_strings($document, undef);
+  = Texinfo::Document::document_indices_sort_strings($document);
 $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
 $sorted_index_entries
-  = Texinfo::Indices::sort_indices_by_index($document, undef);
+  = Texinfo::Indices::sort_indices_by_index($indices_sort_strings);
 
 @entries = ();
 foreach my $entry (@{$sorted_index_entries->{'cp'}}) {

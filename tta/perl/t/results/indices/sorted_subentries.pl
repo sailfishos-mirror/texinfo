@@ -563,6 +563,14 @@ coding: utf-8
 End:
 ';
 
+$result_converted_errors{'info'}->{'sorted_subentries'} = '* W l16|empty index sub entry 1 key in @cindex
+ warning: empty index sub entry 1 key in @cindex
+
+* W l26|empty index key in @cindex
+ warning: empty index key in @cindex
+
+';
+
 
 $result_converted{'plaintext'}->{'sorted_subentries'} = '1 one
 *****
@@ -591,6 +599,14 @@ $result_converted{'plaintext'}->{'sorted_subentries'} = '1 one
 * hhh, k, nnn:                           chapter second.        (line 6)
 * hhh, l, third:                         chapter second.        (line 6)
 * hhh jjj:                               chapter one.           (line 2)
+
+';
+
+$result_converted_errors{'plaintext'}->{'sorted_subentries'} = '* W l16|empty index sub entry 1 key in @cindex
+ warning: empty index sub entry 1 key in @cindex
+
+* W l26|empty index key in @cindex
+ warning: empty index key in @cindex
 
 ';
 
@@ -696,6 +712,14 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 </div>
 </div>
 </div>
+';
+
+$result_converted_errors{'html_text'}->{'sorted_subentries'} = '* W l16|empty index sub entry 1 key in @cindex
+ warning: empty index sub entry 1 key in @cindex
+
+* W l26|empty index key in @cindex
+ warning: empty index key in @cindex
+
 ';
 
 

@@ -391,29 +391,18 @@ setup_indices_sort_strings (SV *document_in, SV *converter_in)
                                              "setup_indices_sort_strings");
         if (document)
           {
-            CONVERTER *self = 0;
+            /* CONVERTER *self = 0;
             if (converter_in && SvOK (converter_in))
               self = get_sv_converter (converter_in, 0);
-            CONVERTER *converter_for_translations = 0;
-            ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                            CONVERTER *self,
-                            NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                            const char *translation_context) = 0;
+             */
 
-            if (self && self->format == COF_html)
-              {
-                converter_for_translations = self;
-                element_cdt_tree_fn = &html_element_cdt_tree;
-              }
             document_indices_sort_strings (document,
                                            &document->error_messages,
-                                           document->options,
-                                           converter_for_translations,
-                                           element_cdt_tree_fn);
+                                           document->options);
           }
 
 SV *
-indices_sort_strings (SV *document_in, SV *converter_in)
+document_indices_sort_strings (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
         const INDICES_SORT_STRINGS *indices_sort_strings = 0;
@@ -424,26 +413,15 @@ indices_sort_strings (SV *document_in, SV *converter_in)
                                              "indices_sort_strings");
         if (document)
           {
+            /*
             CONVERTER *self = 0;
             if (converter_in && SvOK (converter_in))
-              self = get_sv_converter (converter_in, 0);
-            CONVERTER *converter_for_translations = 0;
-            ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                            CONVERTER *self,
-                            NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                            const char *translation_context) = 0;
+              self = get_sv_converter (converter_in, 0); */
 
-            if (self && self->format == COF_html)
-              {
-                converter_for_translations = self;
-                element_cdt_tree_fn = &html_element_cdt_tree;
-              }
             indices_sort_strings
              = document_indices_sort_strings (document,
                                               &document->error_messages,
-                                              document->options,
-                                              converter_for_translations,
-                                              element_cdt_tree_fn);
+                                              document->options);
           }
 
         if (indices_sort_strings)
@@ -524,20 +502,9 @@ print_document_indices_sort_strings (SV *document_in, SV *converter_in=0)
             if (converter_in && SvOK (converter_in))
               self = get_sv_converter (converter_in, 0);
             char *indices_sort_strings_str;
-            CONVERTER *converter_for_translations = 0;
-            ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                            CONVERTER *self,
-                            NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                            const char *translation_context) = 0;
 
-            if (self && self->format == COF_html)
-              {
-                converter_for_translations = self;
-                element_cdt_tree_fn = &html_element_cdt_tree;
-              }
             indices_sort_strings_str
-              = print_document_indices_sort_strings (document,
-                          converter_for_translations, element_cdt_tree_fn);
+              = print_document_indices_sort_strings (document, self);
             if (indices_sort_strings_str)
               {
                 RETVAL = newSVpv_utf8 (indices_sort_strings_str, 0);

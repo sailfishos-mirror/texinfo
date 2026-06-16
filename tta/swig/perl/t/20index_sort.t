@@ -125,14 +125,14 @@ foreach my $lang (undef, 'sv') {
     $label = 'no language';
   }
   my $sorted_indices
-     = Texinfo::Document::sorted_indices_by_index($doc, undef, 1, $lang);
+     = Texinfo::Document::sorted_indices_by_index($doc, 1, $lang);
   my $sorted_entries = $sorted_indices->{$index_name};
   my @reference_index_entries_texi;
   foreach my $index_entry (@$sorted_entries) {
     #print STDERR join('|', sort(keys(%{$index_entry})))."\n";
     my $main_entry_element = $index_entry->{'entry_element'};
     my $entry_content_element
-       = Texinfo::Indices::index_content_element($main_entry_element);
+       = Texinfo::Indices::document_index_content_element($main_entry_element);
     push @reference_index_entries_texi,
       Texinfo::Convert::Texinfo::convert_to_texinfo($entry_content_element);
   }
