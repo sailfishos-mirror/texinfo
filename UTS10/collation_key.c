@@ -39,6 +39,17 @@ Collation_choice unicoll_set_normalization (Collation_choice collation,
     return (collation | UNICOLL_NORMALIZATION_MASK);
 }
 
+/* If CONTRACTIONS_ON is 0, disable use of contractions, i.e. sequence
+   lookup. */
+Collation_choice unicoll_set_contractions (Collation_choice collation,
+                                            int contractions_on)
+{
+  if (contractions_on)
+    return (collation & ~UNICOLL_CONTRACTIONS_MASK);
+  else
+    return (collation | UNICOLL_CONTRACTIONS_MASK);
+}
+
 char *
 u32_make_collation_key (Collation_choice collation,
                         const char32_t *codepoints_in, size_t length_in,
@@ -57,6 +68,8 @@ u32_make_collation_key (Collation_choice collation,
   int variable_shifted = (variable == UNICOLL_VARIABLE_SHIFTED);
   int variable_shifted_or_blanked = (variable == UNICOLL_VARIABLE_SHIFTED
                                   || variable == UNICOLL_VARIABLE_BLANKED);
+
+  int disable_sequence_lookup = (collation & UNICOLL_CONTRACTIONS_MASK);
 
   char32_t *codepoints;
   size_t length;
@@ -101,7 +114,8 @@ u32_make_collation_key (Collation_choice collation,
       lookup_collation_data_at_char (&codepoints[i], length - i,
                                      &n_consumed,
                                      &data_array,
-                                     &data_num_elements);
+                                     &data_num_elements,
+                                     disable_sequence_lookup);
       if (n_consumed > 0)
         {
           entry_array[n_entries].array = data_array;

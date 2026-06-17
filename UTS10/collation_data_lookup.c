@@ -58,8 +58,6 @@ lookup_codepoint_data (char32_t codepoint)
   return data;
 }
 
-#define check_sequences 1
-
 /* STRING points into a char32_t array.  First check for sequence entry
    at STRING, then for individual codepoint entry.  This function can
    reorder STRING. */
@@ -68,7 +66,8 @@ lookup_collation_data_at_char (char32_t *const string,
                                size_t length,
                                size_t *n_codepoints_out,
                                const struct collation_unit **collation_units,
-                               size_t *n_collation_units)
+                               size_t *n_collation_units,
+                               int disable_sequences)
 {
   const struct trie_node *node = &collation_data.trie_array[0];
 
@@ -78,7 +77,7 @@ lookup_collation_data_at_char (char32_t *const string,
 
   size_t n_codepoints;
 
-#if check_sequences
+  if (!disable_sequences) {
 
   /* Starting at the beginning of the string, try to match the longest
      sequence possible. */
@@ -191,7 +190,7 @@ lookup_collation_data_at_char (char32_t *const string,
         }
     }
 
-#endif
+  } /* if (!disable_sequences) */
 
   COLLATION_DATA data = lookup_codepoint_data (string[0]);
   if (data.array)

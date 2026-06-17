@@ -104,7 +104,6 @@ main (int argc, char *argv[])
   collation = unicoll_set_variable (collation,
                     variable_shifted ? UNICOLL_VARIABLE_SHIFTED
                                      : UNICOLL_VARIABLE_NONIGNORABLE);
-
   while (1)
     {
     next_line:
