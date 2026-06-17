@@ -41,6 +41,7 @@
 #  unictype/property-unified-ideograph \
 #  uninorm/nfd \
 #  uninorm/u32-normalize \
+#  unistr/u32-strdup \
 #  unistr/u8-to-u32
 
 # Specification in the form of a few gnulib-tool.m4 macro invocations:
@@ -50,6 +51,7 @@ gl_MODULES([
   unictype/property-unified-ideograph
   uninorm/nfd
   uninorm/u32-normalize
+  unistr/u32-strdup
   unistr/u8-to-u32
 ])
 gl_AVOID([])

@@ -29,6 +29,16 @@ Collation_choice unicoll_set_variable (Collation_choice collation,
   return (Collation_choice) (collation & ~UNICOLL_VARIABLE_MASK) | variable;
 }
 
+Collation_choice unicoll_set_normalization (Collation_choice collation,
+                                            int normalization_on)
+{
+  /* Set bit to disable normalization. */
+  if (normalization_on)
+    return (collation & ~UNICOLL_NORMALIZATION_MASK);
+  else
+    return (collation | UNICOLL_NORMALIZATION_MASK);
+}
+
 char *
 u32_make_collation_key (Collation_choice collation,
                         const char32_t *codepoints_in, size_t length_in,
@@ -51,8 +61,16 @@ u32_make_collation_key (Collation_choice collation,
   char32_t *codepoints;
   size_t length;
 
-  codepoints =
-    u32_normalize (UNINORM_NFD, codepoints_in, length_in, NULL, &length);
+  if (!(collation & UNICOLL_NORMALIZATION_MASK))
+    {
+      codepoints =
+        u32_normalize (UNINORM_NFD, codepoints_in, length_in, NULL, &length);
+    }
+  else
+    {
+      codepoints = u32_strdup (codepoints_in);
+      length = length_in;
+    }
 
   /* get array of collation entries */
   struct collation_info

@@ -67,8 +67,6 @@ AC_DEFUN([gl_EARLY],
   # Code from module stddef-h:
   # Code from module stdint-h:
   # Code from module stdlib-h:
-  # Code from module string-h:
-  # Code from module stringeq:
   # Code from module sys_types-h:
   AC_REQUIRE([AC_USE_SYSTEM_EXTENSIONS])
   # Code from module uchar-h:
@@ -85,6 +83,8 @@ AC_DEFUN([gl_EARLY],
   # Code from module unistr/base:
   # Code from module unistr/u32-cpy:
   # Code from module unistr/u32-mbtouc-unsafe:
+  # Code from module unistr/u32-strdup:
+  # Code from module unistr/u32-strlen:
   # Code from module unistr/u32-uctomb:
   # Code from module unistr/u8-mbtoucr:
   # Code from module unistr/u8-to-u32:
@@ -141,12 +141,6 @@ AC_DEFUN([gl_INIT],
   gl_STDLIB_H
   gl_STDLIB_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
-  gl_STRING_H
-  gl_STRING_H_REQUIRE_DEFAULTS
-  AC_PROG_MKDIR_P
-  gl_FUNC_STREQ
-  gl_FUNC_MEMEQ
-  gl_STRING_MODULE_INDICATOR([stringeq])
   gl_SYS_TYPES_H
   gl_SYS_TYPES_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
@@ -179,6 +173,8 @@ AC_DEFUN([gl_INIT],
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-cpy])
   gl_MODULE_INDICATOR([unistr/u32-mbtouc-unsafe])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-mbtouc-unsafe])
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-strdup])
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-strlen])
   gl_MODULE_INDICATOR([unistr/u32-uctomb])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-uctomb])
   gl_MODULE_INDICATOR([unistr/u8-mbtoucr])
@@ -393,8 +389,6 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/stdint.in.h
   lib/stdlib.c
   lib/stdlib.in.h
-  lib/string.c
-  lib/string.in.h
   lib/sys_types.in.h
   lib/uchar.in.h
   lib/unictype.in.h
@@ -419,8 +413,12 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unistd.in.h
   lib/unistr.in.h
   lib/unistr/u-cpy.h
+  lib/unistr/u-strdup.h
+  lib/unistr/u-strlen.h
   lib/unistr/u32-cpy.c
   lib/unistr/u32-mbtouc-unsafe.c
+  lib/unistr/u32-strdup.c
+  lib/unistr/u32-strlen.c
   lib/unistr/u32-uctomb.c
   lib/unistr/u8-mbtoucr.c
   lib/unistr/u8-to-u32.c
@@ -455,8 +453,6 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/stddef_h.m4
   m4/stdint.m4
   m4/stdlib_h.m4
-  m4/string_h.m4
-  m4/stringeq.m4
   m4/sys_types_h.m4
   m4/uchar_h.m4
   m4/unictype_h.m4

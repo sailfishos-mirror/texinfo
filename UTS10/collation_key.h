@@ -9,12 +9,15 @@
 /* #undef  UNICOLL_VARIABLE_SHIFT_TRIMMED */
 
 #define UNICOLL_VARIABLE_MASK 0x11
+#define UNICOLL_NORMALIZATION_MASK 0x100
 
 typedef uint_fast32_t Collation_choice;
 
 Collation_choice unicoll_default (void);
 Collation_choice unicoll_set_variable (Collation_choice collation,
                                        int variable);
+Collation_choice unicoll_set_normalization (Collation_choice collation,
+                                            int normalization_on);
 
 
 char *u8_make_collation_key (Collation_choice collation,
