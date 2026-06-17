@@ -3539,8 +3539,7 @@ build_sv_option (const OPTION *option, CONVERTER *converter)
    This is only used when there is no converter, when a function is called with
    a class name only and returns an option hash */
 SV *
-build_sv_options_from_options_list (const OPTIONS_LIST *options_list,
-                                    CONVERTER *converter)
+build_sv_options_from_options_list (const OPTIONS_LIST *options_list)
 {
   size_t i;
   HV *options_hv;
@@ -3554,7 +3553,7 @@ build_sv_options_from_options_list (const OPTIONS_LIST *options_list,
       size_t index = options_list->list[i] -1;
       const OPTION *option = options_list->sorted_options[index];
       const char *key = option->name;
-      SV *option_sv = build_sv_option (option, converter);
+      SV *option_sv = build_sv_option (option, 0);
 
       /* we store all values as they appear, the later overriding earlier
          values, and do not treat undef nor C option configured field
@@ -3595,8 +3594,8 @@ build_deprecated_directories (
 
 /* Build a converter info hash reference based on CONF */
 SV *
-build_sv_converter_info_from_converter_initialization_info
-  (const CONVERTER_INITIALIZATION_INFO *conf, CONVERTER *converter)
+build_sv_converter_info_from_converter_initialization_info (
+                             const CONVERTER_INITIALIZATION_INFO *conf)
 {
   SV *result;
   HV *deprecated_directories_hv;
@@ -3605,7 +3604,7 @@ build_sv_converter_info_from_converter_initialization_info
 
   dTHX;
 
-  result = build_sv_options_from_options_list (&conf->conf, converter);
+  result = build_sv_options_from_options_list (&conf->conf);
 
   result_hv = (HV *) SvRV (result);
 #define STORE(key, sv) hv_store (result_hv, key, strlen (key), sv, 0);

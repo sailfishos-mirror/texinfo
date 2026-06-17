@@ -1,3 +1,21 @@
+2026-06-17 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/texinfo.c (txi_complete_document): remove unused
+	converter and element_cdt_tree_fn arguments.  Update caller.
+
+	* tta/C/main/build_perl_info.c (build_sv_options_from_options_list)
+	(build_sv_converter_info_from_converter_initialization_info): remove
+	converter argument as there should never be a converter already set in
+	situation where these functions are called.  Update callers.
+
+	* tta/C/texi2any.c (main), tta/perl/texi2any.pl: move converter
+	creation later now that there is no index sorting earlier needing a
+	converter anymore.
+
+	* tta/C/texi2any.c (main): error out if there is no converter
+	at all, a situation which should never happen if the formats table is
+	well done.
+
 2026-06-16 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/document.c (document_sorted_indices_by_index)

@@ -309,26 +309,9 @@ void set_document_options (DOCUMENT *document,
    and regenerate_master_menu */
 #define STTF_complete_menus_use_sections            0x0800
 
-%rename(complete_document) txi_ext_inline_complete_document;
-
-void txi_ext_inline_complete_document (DOCUMENT *document,
-                                       unsigned long flags,
-                                       int format_menu);
-
-%inline %{
-void txi_ext_inline_complete_document (DOCUMENT *document,
-                                       unsigned long flags,
-                                       int format_menu);
-%}
-
-%{
-void txi_ext_inline_complete_document (DOCUMENT *document,
-                                       unsigned long flags,
-                                       int format_menu)
-{
-  txi_complete_document (document, flags, format_menu, 0, 0);
-}
-%}
+%rename(complete_document) txi_complete_document;
+void txi_complete_document (DOCUMENT *document, unsigned long flags,
+                            int format_menu);
 
 // Only one of the next two function should be called as both clear the
 // document errors list.

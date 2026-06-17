@@ -116,7 +116,7 @@ call_module_converter_defaults (const char *module_name,
   dTHX;
 
   options_list_sv
-    = build_sv_options_from_options_list (customizations, 0);
+    = build_sv_options_from_options_list (customizations);
 
   dSP;
 
@@ -162,7 +162,7 @@ call_module_converter (const char *module_name,
   dTHX;
 
   converter_info_sv
-    = build_sv_converter_info_from_converter_initialization_info (conf, 0);
+    = build_sv_converter_info_from_converter_initialization_info (conf);
 
   dSP;
 

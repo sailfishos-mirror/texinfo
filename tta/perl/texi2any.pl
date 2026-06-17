@@ -2046,51 +2046,6 @@ while (@input_files) {
     Texinfo::Structuring::number_floats($document);
   }
 
-  # a shallow copy is not sufficient for arrays and hashes to make
-  # sure that the $cmdline_options are not modified if $file_cmdline_options
-  # are modified
-  my $file_cmdline_options = Storable::dclone($cmdline_options);
-  if ($file_index != 0) {
-    delete $file_cmdline_options->{'OUTFILE'};
-    delete $file_cmdline_options->{'PREFIX'};
-    delete $file_cmdline_options->{'SUBDIR'} if (get_conf('SPLIT'));
-  }
-
-  my $converter;
-  # setup the converter here in case translation are customized
-  # such that the converter can be in argument of
-  # Texinfo::Document::setup_indices_sort_strings
-  if (exists($formats_table{$converted_format}->{'converter'})) {
-    # the code in Texinfo::Config makes sure that the keys appear only
-    # once in these three hashes.
-    my $converter_options = { %$main_program_default_options,
-                              %$init_files_options,
-                              %$file_cmdline_options,
-                            };
-
-    # NOTE nothing set through $main_configuration in customization registered in
-    # document is passed directly, which is clean, the Converters already
-    # have that information in $converter_options, can determine it themselves
-    # or use their defaults.
-    # It could be possible to pass some information if it allows
-    # for instance to have some consistent information for Structuring
-    # and Converters.
-    $converter_options->{'deprecated_config_directories'}
-       = \%deprecated_directories;
-    unshift @{$converter_options->{'INCLUDE_DIRECTORIES'}},
-            @prepended_include_directories;
-
-    my @prepended_texinfo_language_directories = ($curdir);
-    push @prepended_texinfo_language_directories, $input_directory
-        if ($canon_input_dir ne $curdir);
-
-    unshift @{$converter_options->{'TEXINFO_LANGUAGE_DIRECTORIES'}},
-             @prepended_texinfo_language_directories;
-
-    $converter = &{$formats_table{$converted_format}
-          ->{'converter'}}($converter_options);
-  }
-
   #Texinfo::Document::rebuild_document($document);
 
   # parser errors
@@ -2141,6 +2096,50 @@ while (@input_files) {
 
   if ($output_format eq 'structure') {
     goto NEXT;
+  }
+
+  # a shallow copy is not sufficient for arrays and hashes to make
+  # sure that the $cmdline_options are not modified if $file_cmdline_options
+  # are modified
+  my $file_cmdline_options = Storable::dclone($cmdline_options);
+  if ($file_index != 0) {
+    delete $file_cmdline_options->{'OUTFILE'};
+    delete $file_cmdline_options->{'PREFIX'};
+    delete $file_cmdline_options->{'SUBDIR'} if (get_conf('SPLIT'));
+  }
+
+  my $converter;
+  if (exists($formats_table{$converted_format}->{'converter'})) {
+    # the code in Texinfo::Config makes sure that the keys appear only
+    # once in these three hashes.
+    my $converter_options = { %$main_program_default_options,
+                              %$init_files_options,
+                              %$file_cmdline_options,
+                            };
+
+    # NOTE nothing set through $main_configuration in customization registered in
+    # document is passed directly, which is clean, the Converters already
+    # have that information in $converter_options, can determine it themselves
+    # or use their defaults.
+    # It could be possible to pass some information if it allows
+    # for instance to have some consistent information for Structuring
+    # and Converters.
+    $converter_options->{'deprecated_config_directories'}
+       = \%deprecated_directories;
+    unshift @{$converter_options->{'INCLUDE_DIRECTORIES'}},
+            @prepended_include_directories;
+
+    my @prepended_texinfo_language_directories = ($curdir);
+    push @prepended_texinfo_language_directories, $input_directory
+        if ($canon_input_dir ne $curdir);
+
+    unshift @{$converter_options->{'TEXINFO_LANGUAGE_DIRECTORIES'}},
+             @prepended_texinfo_language_directories;
+
+    # reference to module->converter() constructor
+    my $converter_constructor
+      = $formats_table{$converted_format}->{'converter'};
+    $converter = &{$converter_constructor}($converter_options);
   }
 
   $converter->output($document);

@@ -162,7 +162,7 @@ converter_defaults (SV *converter_in, SV *conf_sv=0)
           CONVERTER_INITIALIZATION_INFO, as when called on a class, it
           is what is expected */
             RETVAL
-              = build_sv_options_from_options_list (&format_defaults->conf, 0);
+              = build_sv_options_from_options_list (&format_defaults->conf);
             destroy_converter_initialization_info (format_defaults);
           }
     OUTPUT:

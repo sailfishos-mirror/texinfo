@@ -106,11 +106,11 @@ SV *html_build_direction_icons (const DIRECTION_ICON_LIST *direction_icons);
 void html_build_buttons_specification (CONVERTER *converter,
                                        BUTTON_SPECIFICATION_LIST *buttons);
 SV *build_sv_option (const OPTION *option, CONVERTER *converter);
-SV *build_sv_options_from_options_list (const OPTIONS_LIST *options_list,
-                                        CONVERTER *converter);
+SV *build_sv_options_from_options_list (const OPTIONS_LIST *options_list);
 
-SV *build_sv_converter_info_from_converter_initialization_info
-       (const CONVERTER_INITIALIZATION_INFO *conf, CONVERTER *converter);
+SV *build_sv_converter_info_from_converter_initialization_info (
+                             const CONVERTER_INITIALIZATION_INFO *conf);
+
 void pass_generic_converter_to_converter_sv (SV *converter_sv,
                                              const CONVERTER *converter);
 

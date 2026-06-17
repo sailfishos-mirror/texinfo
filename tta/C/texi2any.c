@@ -2675,10 +2675,6 @@ main (int argc, char *argv[], char *env[])
     {
       DOCUMENT *document;
       CONVERTER *converter = 0;
-      ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context) = 0;
       char *result;
       char *input_file_name_and_directory[2];
       char *input_file_name;
@@ -2991,87 +2987,11 @@ main (int argc, char *argv[], char *env[])
           goto next_input_file;
         }
 
-      if (file_index != 0)
-        {
-          if (!non_first_file_cmdline_initialized)
-            {
-              initialize_options_list (&non_first_file_cmdline_options);
-              non_first_file_cmdline_initialized = 1;
-            }
-          copy_options_list (&non_first_file_cmdline_options,
-                             &cmdline_options);
-          options_list_remove_option_number (&non_first_file_cmdline_options,
-                                 program_options.options->OUTFILE.number);
-          options_list_remove_option_number (&non_first_file_cmdline_options,
-                                 program_options.options->PREFIX.number);
-          if (split_option && split_option->o.string
-              && strlen (split_option->o.string))
-            options_list_remove_option_number (
-                                 &non_first_file_cmdline_options,
-                                 program_options.options->SUBDIR.number);
-
-          file_cmdline_options = &non_first_file_cmdline_options;
-        }
-      else
-        file_cmdline_options = &cmdline_options;
-
       /* structure and transformations */
-
-      /* In texi2any.pl, equivalent is
-          exists($formats_table{$converted_format}->{'converter'})
-         to determine that the format is a format with a potential
-         output: either there is a table of C functions for conversion,
-         of there is a Perl converter module */
-      if (converter_format != COF_none || external_module)
-        {
-          /* conversion initialization */
-          copy_options_list (&convert_options, &program_options);
-          copy_options_list (&convert_options, init_files_options);
-          copy_options_list (&convert_options, file_cmdline_options);
-
-      /* prepend to INCLUDE_DIRECTORIES by resetting include directories to
-         merged prepended directories and command line include directories */
-          converter_include_dirs_option
-            = &convert_options.options->INCLUDE_DIRECTORIES;
-          converter_include_dirs = converter_include_dirs_option->o.strlist;
-          clear_strings_list (converter_include_dirs);
-          copy_strings (converter_include_dirs, &prepended_include_directories);
-          copy_strings (converter_include_dirs, cmdline_include_dirs);
-
-      /* set TEXINFO_LANGUAGE_DIRECTORIES by prepending current directory
-         and input directory to texinfo_language_config_dirs */
-          converter_texinfo_language_directories_option
-            = &convert_options.options->TEXINFO_LANGUAGE_DIRECTORIES;
-          converter_texinfo_language_config_dirs
-            = converter_texinfo_language_directories_option->o.strlist;
-          clear_strings_list (converter_texinfo_language_config_dirs);
-
-          add_string (curdir, converter_texinfo_language_config_dirs);
-          if (canon_input_dir && strcmp (curdir, canon_input_dir))
-            {
-              add_string (input_directory,
-                          converter_texinfo_language_config_dirs);
-            }
-
-          copy_strings (converter_texinfo_language_config_dirs,
-                        texinfo_language_config_dirs);
-
-          txi_converter_initialization_setup (converter_init_info,
-                                              &deprecated_directories,
-                                              &convert_options);
-
-          converter = txi_converter_setup (external_module,
-                                           converted_format,
-                                           converter_init_info);
-
-          if (converter->format == COF_html)
-            element_cdt_tree_fn = &html_element_cdt_tree;
-        }
 
       /* do_menu corresponds to FORMAT_MENU undef or set to menu */
       txi_complete_document (document, converted_format_specification->flags
-                                       | transformation_flags, do_menu,
-                             converter, element_cdt_tree_fn);
+                                       | transformation_flags, do_menu);
 
       merge_error_messages_lists (&document->parser_error_messages,
                                   &document->error_messages);
@@ -3149,6 +3069,87 @@ main (int argc, char *argv[], char *env[])
 
       if (!strcmp (output_format, "structure"))
         goto next_input_file;
+
+      if (file_index != 0)
+        {
+          if (!non_first_file_cmdline_initialized)
+            {
+              initialize_options_list (&non_first_file_cmdline_options);
+              non_first_file_cmdline_initialized = 1;
+            }
+          copy_options_list (&non_first_file_cmdline_options,
+                             &cmdline_options);
+          options_list_remove_option_number (&non_first_file_cmdline_options,
+                                 program_options.options->OUTFILE.number);
+          options_list_remove_option_number (&non_first_file_cmdline_options,
+                                 program_options.options->PREFIX.number);
+          if (split_option && split_option->o.string
+              && strlen (split_option->o.string))
+            options_list_remove_option_number (
+                                 &non_first_file_cmdline_options,
+                                 program_options.options->SUBDIR.number);
+
+          file_cmdline_options = &non_first_file_cmdline_options;
+        }
+      else
+        file_cmdline_options = &cmdline_options;
+
+      /* In texi2any.pl, equivalent is
+          exists($formats_table{$converted_format}->{'converter'})
+         to determine that the format is a format with a potential
+         output: either there is a table of C functions for conversion,
+         of there is a Perl converter module */
+      if (converter_format != COF_none || external_module)
+        {}
+      else
+       /* with COF_none and no external_module, default converter functions
+          that do nothing are used, it is better to have a clear error.
+          It cannot happen if the formats table is consistent with the formats
+          implemented in C and Perl */
+        {
+          fprintf (stderr, "BUG: no converter for %s\n", output_format);
+          exit (EXIT_FAILURE);
+        }
+
+          /* conversion initialization */
+      copy_options_list (&convert_options, &program_options);
+      copy_options_list (&convert_options, init_files_options);
+      copy_options_list (&convert_options, file_cmdline_options);
+
+      /* prepend to INCLUDE_DIRECTORIES by resetting include directories to
+         merged prepended directories and command line include directories */
+      converter_include_dirs_option
+        = &convert_options.options->INCLUDE_DIRECTORIES;
+      converter_include_dirs = converter_include_dirs_option->o.strlist;
+      clear_strings_list (converter_include_dirs);
+      copy_strings (converter_include_dirs, &prepended_include_directories);
+      copy_strings (converter_include_dirs, cmdline_include_dirs);
+
+      /* set TEXINFO_LANGUAGE_DIRECTORIES by prepending current directory
+         and input directory to texinfo_language_config_dirs */
+      converter_texinfo_language_directories_option
+        = &convert_options.options->TEXINFO_LANGUAGE_DIRECTORIES;
+      converter_texinfo_language_config_dirs
+        = converter_texinfo_language_directories_option->o.strlist;
+      clear_strings_list (converter_texinfo_language_config_dirs);
+
+      add_string (curdir, converter_texinfo_language_config_dirs);
+      if (canon_input_dir && strcmp (curdir, canon_input_dir))
+        {
+          add_string (input_directory,
+                      converter_texinfo_language_config_dirs);
+        }
+
+      copy_strings (converter_texinfo_language_config_dirs,
+                    texinfo_language_config_dirs);
+
+      txi_converter_initialization_setup (converter_init_info,
+                                          &deprecated_directories,
+                                          &convert_options);
+
+      converter = txi_converter_setup (external_module,
+                                       converted_format,
+                                       converter_init_info);
 
       /* conversion */
       /* If Perl output conversion is called, a minimal Perl document is

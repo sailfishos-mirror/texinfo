@@ -90,12 +90,7 @@ void txi_parser (const char *file_path, const VALUE_LIST *values,
 DOCUMENT *txi_parse_texi_file (const char *input_file_path, int *status);
 
 void txi_complete_document (DOCUMENT *document, unsigned long flags,
-                            int format_menu, CONVERTER *converter,
-   ELEMENT * (*element_cdt_tree_fn) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                                 );
+                            int format_menu);
 
 void txi_converter_initialization_setup (CONVERTER_INITIALIZATION_INFO *conf,
                                     const DEPRECATED_DIRS_LIST *deprecated_dirs,

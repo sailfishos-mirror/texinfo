@@ -177,7 +177,8 @@ sub errors($) {
 # calls Texinfo::Indices::setup_index_entries_sort_strings and caches the
 # result.
 # In general, it is not needed to call that function directly,
-# as it is called by Texinfo::Document::sorted_indices_by_*.
+# as it is called by Texinfo::Document::sorted_indices_by_*
+# and is only used in tests.
 sub document_indices_sort_strings($) {
   my $document = shift;
 
