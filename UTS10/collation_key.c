@@ -11,10 +11,31 @@
 #include "collation_data_lookup.h"
 #include "collation_key.h"
 
-char *
-u32_make_collation_key (const char32_t *codepoints_in, size_t length_in,
-                        int variable, char *resultbuf, size_t *lengthp)
+Collation_choice unicoll_default (void)
 {
+  return (Collation_choice) UNICOLL_VARIABLE_NONIGNORABLE;
+}
+
+Collation_choice unicoll_set_variable (Collation_choice collation,
+                                       int variable)
+{
+  if (variable != UNICOLL_VARIABLE_NONIGNORABLE
+      && variable != UNICOLL_VARIABLE_SHIFTED
+      && variable != UNICOLL_VARIABLE_BLANKED)
+    {
+      errno = EINVAL;
+      return 0;
+    }
+  return (Collation_choice) (collation & ~UNICOLL_VARIABLE_MASK) | variable;
+}
+
+char *
+u32_make_collation_key (Collation_choice collation,
+                        const char32_t *codepoints_in, size_t length_in,
+                        char *resultbuf, size_t *lengthp)
+{
+  int variable = (collation & UNICOLL_VARIABLE_MASK);
+
   if (variable != UNICOLL_VARIABLE_NONIGNORABLE
       && variable != UNICOLL_VARIABLE_SHIFTED
       && variable != UNICOLL_VARIABLE_BLANKED)
@@ -325,8 +346,9 @@ u32_make_collation_key (const char32_t *codepoints_in, size_t length_in,
 }
 
 char *
-u8_make_collation_key (const uint8_t *u8_str, size_t length_in,
-                   int variable, char *resultbuf, size_t *lengthp)
+u8_make_collation_key (Collation_choice collation,
+                   const uint8_t *u8_str, size_t length_in,
+                   char *resultbuf, size_t *lengthp)
 {
   static char32_t *u32_str;
   static size_t u32_len;
@@ -340,7 +362,7 @@ u8_make_collation_key (const uint8_t *u8_str, size_t length_in,
       u32_str = ret;
     }
 
-  char *key = u32_make_collation_key (u32_str, u32_len, variable,
+  char *key = u32_make_collation_key (collation, u32_str, u32_len,
                                           resultbuf, lengthp);
   return key;
 }
