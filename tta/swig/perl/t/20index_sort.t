@@ -132,7 +132,7 @@ foreach my $lang (undef, 'sv') {
     #print STDERR join('|', sort(keys(%{$index_entry})))."\n";
     my $main_entry_element = $index_entry->{'entry_element'};
     my $entry_content_element
-       = Texinfo::Indices::document_index_content_element($main_entry_element);
+       = Texinfo::Indices::element_index_content_element($main_entry_element);
     push @reference_index_entries_texi,
       Texinfo::Convert::Texinfo::convert_to_texinfo($entry_content_element);
   }

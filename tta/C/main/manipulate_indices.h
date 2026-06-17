@@ -4,6 +4,7 @@
 
 #include "tree_types.h"
 #include "document_types.h"
+#include "converter_types.h"
 #include "options_data.h"
 /* for TEXT_OPTIONS
 #include "convert_to_text.h"
@@ -51,7 +52,7 @@ ELEMENT *get_index_content_info_element (const ELEMENT *element,
                                          enum command_id *def_command_out,
                                          ELEMENT **name_copy_out,
                                          ELEMENT **class_copy_out);
-ELEMENT *document_index_content_element (const ELEMENT *element,
+ELEMENT *element_index_content_element (const ELEMENT *element,
                                 int prefer_reference_element,
                                 DOCUMENT *document, int debug_level);
 
@@ -62,6 +63,7 @@ char *index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,
                                  struct TEXT_OPTIONS *options, int in_code,
                                  int prefer_reference_element,
+                                 DOCUMENT *document,
                                  int debug_level, CONVERTER *converter);
 char *entry_tree_element_sort_string (const INDEX_ENTRY *main_entry,
                                       ELEMENT *entry_tree_element,
@@ -94,11 +96,12 @@ INDICES_SORT_STRINGS *setup_index_entries_sort_strings (
                     OPTIONS *options, const MERGED_INDICES *merged_indices,
                     INDEX_LIST *indices_information,
                     int prefer_reference_element,
-                    CONVERTER *converter,
+                    DOCUMENT *document, CONVERTER *converter,
    char *(*index_entry_element_sort_string_fn) (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,
                                  struct TEXT_OPTIONS *options, int in_code,
                                  int prefer_reference_element,
+                                 DOCUMENT *document,
                                  int debug_level, CONVERTER *converter)
 );
 

@@ -362,7 +362,7 @@ sub _def_command_index_entry($;$$$) {
 
 # ALTIMP C/main/manipulate_indices.c
 # if $PREFER_REFERENCE_ELEMENT is set, prefer an untranslated element.
-sub document_index_content_element($;$$) {
+sub element_index_content_element($;$$) {
   my ($element, $prefer_reference_element, $debug_level) = @_;
 
   my ($index_element, $name_copy, $class_copy)

@@ -775,8 +775,8 @@ txi_ext_inline_index_content_element (const ELEMENT *element,
                                 int prefer_reference_element,
                                 int debug_level)
 {
-  return document_index_content_element (element, prefer_reference_element,
-                                         document, debug_level);
+  return element_index_content_element (element, prefer_reference_element,
+                                        document, debug_level);
 }
 %}
 

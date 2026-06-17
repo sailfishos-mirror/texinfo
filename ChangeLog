@@ -1,5 +1,23 @@
 2026-06-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Indices.pm (element_index_content_element),
+	tta/C/main/manipulate_indices.c (element_index_content_element):
+	rename document_index_content_element as
+	element_index_content_element. Update callers.
+
+	* tta/C/main/manipulate_indices.c (index_entry_element_sort_string)
+	(setup_index_entries_sort_strings): add an explicit document argument.
+	Update callers.
+
+	* tta/C/main/manipulate_indices.c (index_entry_element_sort_string),
+	tta/perl/XSTexinfo/parser_document/IndicesXS.xs
+	(index_entry_element_sort_string): set debug_level to valid values,
+	based on options in setup_index_entries_sort_strings and
+	directly use debug_level in argument in
+	index_entry_element_sort_string.
+
+2026-06-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/texinfo.c (txi_complete_document): remove unused
 	converter and element_cdt_tree_fn arguments.  Update caller.
 

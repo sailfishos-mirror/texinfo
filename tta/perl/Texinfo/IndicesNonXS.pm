@@ -74,9 +74,10 @@ sub setup_index_entry_keys_formatting($) {
 # a Document or a Converter.
 # $DEBUG_LEVEL and $CONVERTER are not used if there is no translation,
 # if $PREFER_REFERENCE_ELEMENT is set.
-# The $CONVERTER argument is ignored in XS, therefore calls with this argument
-# set should only happen when called from functions that are themselves
-# overriden.
+# $CONVERTER is used for translations if set, it is only relevant if
+# there are modified translations as in HTML, otherwise the results
+# should be the same as with direct call to translation functions
+# as the translated strings are the same.
 sub index_entry_element_sort_string($$$$;$$$) {
   my ($document_info, $main_entry, $index_entry_element, $options,
       $prefer_reference_element, $converter, $debug_level) = @_;
@@ -93,7 +94,7 @@ sub index_entry_element_sort_string($$$$;$$$) {
                                 $prefer_reference_element);
     } else {
       $entry_tree_element
-        = document_index_content_element($index_entry_element,
+        = element_index_content_element($index_entry_element,
                                    $prefer_reference_element, $debug_level);
     }
     $sort_string = Texinfo::Convert::Text::convert_to_text(

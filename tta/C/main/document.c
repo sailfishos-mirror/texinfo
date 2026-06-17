@@ -340,7 +340,7 @@ document_indices_sort_strings (DOCUMENT *document,
       document->indices_sort_strings
        = setup_index_entries_sort_strings (error_messages, options,
                         merged_indices, &document->indices_info, 0,
-                        0, 0);
+                        document, 0, 0);
 
       document->modified_information |= F_DOCM_indices_sort_strings;
     }

@@ -307,14 +307,18 @@ get_index_content_info_element (const ELEMENT *element,
   return 0;
 }
 
-/* It would have been better to return a const element, as the calling codes
-   are not supposed to modify the tree, however in the calling code the
-   elements are put in arrays of non-const elements, even though they are not
-   modified */
+/* The DOCUMENT argument is only used for memory management, to gather
+   small strings from translated strings trees.  Also it should not be
+   useful, and could have been set to NULL, as this function is only called
+   with the default translations, which do not include any @-command
+   requiring small strings. It is better to keep it, though to avoid
+   surprises, for instance if the translations used through this function
+   could be customized.
+ */
 ELEMENT *
-document_index_content_element (const ELEMENT *element,
-                                int prefer_reference_element,
-                                DOCUMENT *document, int debug_level)
+element_index_content_element (const ELEMENT *element,
+                               int prefer_reference_element,
+                               DOCUMENT *document, int debug_level)
 {
   enum command_id def_command;
   ELEMENT *class_copy;
@@ -424,19 +428,17 @@ entry_tree_element_sort_string (const INDEX_ENTRY *main_entry,
   return sort_string;
 }
 
-/* FIXME taking the document from options is not intuitive.  Pass
-   and explicit document?  Similarly, make sure that a correctly 
-   set debug_level is set, instead of using options->DEBUG? */
+/* used as a function reference */
 char *
 index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,
                                  TEXT_OPTIONS *options, int in_code,
                                  int prefer_reference_element,
-                                 int debug_level, CONVERTER *converter)
+                                 DOCUMENT *document, int debug_level,
+                                 CONVERTER *converter)
 {
   char *sort_string;
   ELEMENT *entry_tree_element;
-  int used_debug_level;
 
   if (!index_entry_element)
     {
@@ -447,15 +449,9 @@ index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
   if (sortas)
     return strdup (sortas);
 
-  if (debug_level < 0)
-    used_debug_level = options->DEBUG;
-  else
-    used_debug_level = debug_level;
-
-  entry_tree_element = document_index_content_element (index_entry_element,
+  entry_tree_element = element_index_content_element (index_entry_element,
                                           prefer_reference_element,
-                                          options->document,
-                                          used_debug_level);
+                                          document, debug_level);
 
   sort_string = entry_tree_element_sort_string (main_entry,
                                 entry_tree_element, options, in_code);
@@ -572,29 +568,48 @@ destroy_index_entries_sort_strings (INDICES_SORT_STRINGS *indices_sort_strings)
 /* the index_entry_element_sort_string_fn function is passed to be
    able to use another function when called from converters and at
    the same time, do not depend on the libtexinfo-converter library.
+
+   There are two cases:
+    * called from converter, the common case, both CONVERTER and
+      INDEX_ENTRY_ELEMENT_SORT_STRING_FN are set, the function ignores
+      debug_level (set from OPTIONS) and DOCUMENT (which is NULL in that
+      case).  In that case (for HTML), the translations may be
+      user-defined.
+    * called otherwise, from tests or SWIG.  CONVERTER and
+      INDEX_ENTRY_ELEMENT_SORT_STRING_FN are not set, DOCUMENT is set,
+      index_entry_element_sort_string is used, which uses DOCUMENT,
+      although it is only to hold small strings from translations,
+      and there should be none, the translations cannot be user-defined,
+      DOCUMENT could also have been NULL.
  */
 INDICES_SORT_STRINGS *
 setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                     OPTIONS *options, const MERGED_INDICES *merged_indices,
                     INDEX_LIST *indices_information,
                     int prefer_reference_element,
+                    DOCUMENT *document,
                     CONVERTER *converter,
    char *(*index_entry_element_sort_string_fn) (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,
                                  TEXT_OPTIONS *options, int in_code,
                                  int prefer_reference_element,
-                                 int debug_level, CONVERTER *converter)
+                                 DOCUMENT *document, int debug_level,
+                                 CONVERTER *converter)
                     )
 {
   size_t i;
   TEXT_OPTIONS *convert_text_options;
   CONST_ELEMENT_LIST subentries_list;
+  int debug_level = 0;
 
   if (index_entry_element_sort_string_fn == 0)
     index_entry_element_sort_string_fn = &index_entry_element_sort_string;
 
   if (merged_indices->number <= 0)
     return 0;
+
+  if (options && options->DEBUG.o.integer > 0)
+    debug_level = options->DEBUG.o.integer;
 
   memset (&subentries_list, 0, sizeof (CONST_ELEMENT_LIST));
 
@@ -652,8 +667,8 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                = (*index_entry_element_sort_string_fn) (index_entry,
                                      main_entry_element, convert_text_options,
                                      entry_index->in_code,
-                                     prefer_reference_element, -1,
-                                     converter);
+                                     prefer_reference_element, document,
+                                     debug_level, converter);
 
               entry_sort_string.entry = index_entry;
               entry_sort_string.subentries_number = 1;
@@ -679,8 +694,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                                                   AI_key_original_def_cmdname);
                     }
 
-                  message_list_command_warn (error_messages,
-                                      (options && options->DEBUG.o.integer > 0),
+                  message_list_command_warn (error_messages, debug_level,
                                              main_entry_element, 0,
                                       "empty index key in @%s", entry_cmdname);
                 }
@@ -713,8 +727,8 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                   sort_string
                     = (*index_entry_element_sort_string_fn) (index_entry,
                                      subentry, convert_text_options,
-                                     entry_index->in_code, 0, -1,
-                                     converter);
+                                     entry_index->in_code, 0, document,
+                                     debug_level, converter);
 
                   if (sort_string[strspn
                      (sort_string, whitespace_chars)] == '\0')
@@ -732,8 +746,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                                                  AI_key_original_def_cmdname);
                         }
 
-                      message_list_command_warn (error_messages,
-                                      (options && options->DEBUG.o.integer > 0),
+                      message_list_command_warn (error_messages, debug_level,
                                              main_entry_element, 0,
                                "empty index sub entry %zu key in @%s",
                                entry_sort_string.subentries_number -1,

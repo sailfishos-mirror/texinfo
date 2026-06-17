@@ -91,7 +91,7 @@ setup_index_entry_keys_formatting (SV *customization_info_sv)
          RETVAL
 
 # should only return undef if no document is found.
-# the ignored argument is a converter that can be used to customize the
+# TODO the ignored argument is a converter that can be used to customize the
 # translation function.
 # It is ignored as currently the function is not called with this argument
 # set and if it was, it may be better to override callers and get the
@@ -125,7 +125,7 @@ index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, S
             int prefer_reference_element = 0;
             int in_code;
             int allocated_text_options = 0;
-            int debug_level = -1;
+            int debug_level = 0;
             const ELEMENT *element = find_element_from_sv (0, document,
                                                            element_sv, 0);
             INDEX_ENTRY *main_entry = find_index_entry_sv (main_entry_sv,
@@ -149,7 +149,7 @@ index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, S
 
             sort_string = index_entry_element_sort_string (main_entry,
                           element, convert_index_text_options, in_code,
-                          prefer_reference_element, debug_level, 0);
+                          prefer_reference_element, document, debug_level, 0);
             if (allocated_text_options)
               destroy_text_options (convert_index_text_options);
           }

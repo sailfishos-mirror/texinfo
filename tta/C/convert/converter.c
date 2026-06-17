@@ -1609,6 +1609,7 @@ converter_index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,
                                  TEXT_OPTIONS *options, int in_code,
                                  int prefer_reference_element,
+                                 DOCUMENT *document,
                                  int debug_level, CONVERTER *converter)
 {
   char *sort_string;
@@ -1645,7 +1646,7 @@ converter_indices_sort_strings (CONVERTER *converter)
        = setup_index_entries_sort_strings (&converter->error_messages,
                         converter->conf,
                         merged_indices, &converter->document->indices_info,
-                        0, converter,
+                        0, 0, converter,
                         &converter_index_entry_element_sort_string);
 
       /* document->modified_information |= F_DOCM_indices_sort_strings; */
