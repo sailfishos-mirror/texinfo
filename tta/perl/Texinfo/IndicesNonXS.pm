@@ -74,7 +74,7 @@ sub setup_index_entry_keys_formatting($) {
 # a Document or a Converter.
 # $DEBUG_LEVEL and $CONVERTER are not used if there is no translation,
 # if $PREFER_REFERENCE_ELEMENT is set.
-# $CONVERTER is used for translations if set, it is only relevant if
+# $CONVERTER is used for translations if set; it is really relevant if
 # there are modified translations as in HTML, otherwise the results
 # should be the same as with direct call to translation functions
 # as the translated strings are the same.

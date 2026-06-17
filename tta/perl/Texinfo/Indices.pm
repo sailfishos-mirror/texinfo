@@ -513,7 +513,7 @@ sub _setup_collator($$) {
 # Considered as kind of internal for index sorting functions, therefore
 # not documented, no XS since it should not be called directly, but
 # through Texinfo::Document::document_indices_sort_strings or
-# Texinfo::Convert::Converter::converter_indices_sort_strings that cache the
+# Texinfo::Convert::Converter::_converter_indices_sort_strings that cache the
 # result, themselves called possibly through sorting functions.
 sub setup_index_entries_sort_strings($$$$;$) {
   my ($document, $converter, $index_entries, $indices_information,
@@ -1086,10 +1086,8 @@ early on, and reused in every call.
 If I<$prefer_reference_element> is set, prefer an untranslated
 element for the formatting as sorting string.
 
-If I<$converter> is set, use the converter function for translation.
-This argument is ignored in XS, so should only be set when called
-from a function with an XS override, such that the argument
-is set only from functions used if XS is not being used at all.
+If I<$converter> is set, use the converter for index entries with
+index string based on a translation.
 
 =item $option = setup_index_entry_keys_formatting($customization_information)
 X<C<setup_index_entry_keys_formatting>>

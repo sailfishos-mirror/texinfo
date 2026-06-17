@@ -1604,7 +1604,7 @@ lang_info_sorting_locale (const DOCUMENT_LANG_INFO *lang_info)
 }
 
 /* passed as a function reference */
-static char *
+char *
 converter_index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,
                                  TEXT_OPTIONS *options, int in_code,

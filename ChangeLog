@@ -1,5 +1,11 @@
 2026-06-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/parser_document/IndicesXS.xs
+	(index_entry_element_sort_string): handle converter argument being
+	set (this case never happens in practice).
+
+2026-06-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Document.pm (BEGIN), tta/perl/XSTexinfo/Makefile.am
 	(DocumentXS_la_CPPFLAGS, DocumentXS_la_LIBADD),
 	tta/perl/XSTexinfo/parser_document/DocumentXS.xs: remove includes and
