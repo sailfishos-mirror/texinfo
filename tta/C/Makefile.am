@@ -172,8 +172,8 @@ C_libtexinfo_sources = \
 		      main/txi_documentlanguage_regions.c \
 		      main/txi_documentlanguage_scripts.c \
 		      main/txi_documentlanguage_variants.c \
-		      main/unicode-collation/collation_data_loader.c \
-		      main/unicode-collation/collation_data_loader.h \
+		      main/unicode-collation/collation_data_lookup.c \
+		      main/unicode-collation/collation_data_lookup.h \
 		      main/unicode-collation/collation_key.c \
 		      main/unicode-collation/collation_key.h \
 		      parsetexi/api.c \

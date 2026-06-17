@@ -1,3 +1,20 @@
+2026-06-17  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Sync from experimental/unicode-collation
+
+	* tta/C/main/unicode-collation/collation_data_loader.h,
+	* tta/C/main/unicode-collation/collation_data_lookup.h:
+	rename and update.
+	* tta/C/main/unicode-collation/collation_data_loader.c,
+	* tta/C/main/unicode-collation/collation_data_lookup.c:
+	rename and update.
+
+	* tta/C/main/unicode-collation/collation_key.c,
+	* tta/C/main/unicode-collation/collation-table.c,
+	* tta/C/main/unicode-collation/collation_key.h: update.
+
+	* tta/C/main/manipulate_indices.c (get_sort_key) update calling code.
+
 2026-06-17 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Indices.pm (element_index_content_element),

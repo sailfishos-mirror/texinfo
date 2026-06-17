@@ -6,69 +6,55 @@
 #include "unictype.h"
 #include "uninorm.h"
 
-#include "collation_data_loader.h"
+#include "collation_data_lookup.h"
 
 #include "collation-table.c"
 
-/* Read collation data at offset */
+struct collation_data_ref {
+  const struct collation_unit *array;
+  uint8_t num_elements;
+};
+typedef struct collation_data_ref COLLATION_DATA;
+
+
 int
-read_collation_data (COLLATION_DATA data,
-                     CollationElement *elements)
+collation_element_is_variable (struct collation_unit *element)
 {
-  uint32_t index = data.data_index;
-  for (int i = 0; i < data.num_elements; i++)
-    {
-      elements[i].primary = collation_data.collation_data[index + i].primary;
-      elements[i].secondary = collation_data.collation_data[index + i].secondary;
-      elements[i].tertiary = collation_data.collation_data[index + i].tertiary;;
-
-      if (elements[i].primary
-          && elements[i].primary <= collation_data.max_variable_weight)
-        elements[i].variable = 1;
-      else
-        elements[i].variable = 0;
-
-      if (elements[i].secondary != 0x00)
-        {
-          /* this would match
-             get-collation-table.c:expand_collation_sequence: */
-          /* elements[i].secondary += 0x1F; */
-          /* but keep it in a single byte to reduce sort key length. */
-        }
-    }
-
-  return 1;
+  return (element->primary
+            && element->primary <= collation_data.max_variable_weight);
 }
 
-/* Lookup single codepoint and return data offset */
-COLLATION_DATA
+
+/* Lookup collation information for a single codepoint. */
+static COLLATION_DATA
 lookup_codepoint_data (char32_t codepoint)
 {
   if (codepoint >= 0x110000)
     return (COLLATION_DATA) {0};
 
-  int plane = codepoint >> 16;
-  if (collation_data.planes[plane] < 0)
+  int index1 = codepoint >> 16; /* Unicode plane */
+  if (collation_data.level1[index1] < 0)
     return (COLLATION_DATA) {0};
 
-  uint32_t page = codepoint >> 8;
+  uint32_t index2 = (collation_data.level1[index1] << 8)
+                     + ((codepoint >> 8) & 0xff);
 
-  uint32_t page_num
-    = collation_data.planes[plane] * 0x100 /* 256 pages per plane */
-      + (page & 0xff);
+  int index3 = collation_data.level2[index2];
+  if (index3 < 0)
+    return (COLLATION_DATA) {0};
 
-  uint8_t point_index = codepoint & 0xFF;
+  const struct block256_data *block256 = &collation_data.level3[index3];
 
-  // Read page table entry
-  int page_index = collation_data.pages[page_num];
-  if (page_index < 0)
-    return (COLLATION_DATA) {0}; /* no data for page */
-
-  const struct block256_data *page_data = &collation_data.pages_data[page_index];
+  uint8_t index4 = codepoint & 0xFF;
 
   COLLATION_DATA data;
-  data.num_elements = page_data->num_elements[point_index];
-  data.data_index = page_data->data_index[point_index];
+  data.num_elements = block256->num_elements[index4];
+  size_t data_index = block256->data_index[index4];
+  if (data_index)
+    data.array = &collation_data.collation_data[data_index];
+  else
+    data.array = 0;
+
   return data;
 }
 
@@ -77,10 +63,12 @@ lookup_codepoint_data (char32_t codepoint)
 /* STRING points into a char32_t array.  First check for sequence entry
    at STRING, then for individual codepoint entry.  This function can
    reorder STRING. */
-COLLATION_DATA
+void
 lookup_collation_data_at_char (char32_t *const string,
                                size_t length,
-                               size_t *n_codepoints_out)
+                               size_t *n_codepoints_out,
+                               const struct collation_unit **collation_units,
+                               size_t *n_collation_units)
 {
   const struct trie_node *node = &collation_data.trie_array[0];
 
@@ -88,8 +76,6 @@ lookup_collation_data_at_char (char32_t *const string,
   char32_t *pre_non_starter = 0;
   int max_combining_class = 0;
 
-  /* similar to lookup_sequence but number of codepoints consumed
-     is not known in advance */
   size_t n_codepoints;
 
 #if check_sequences
@@ -123,16 +109,12 @@ lookup_collation_data_at_char (char32_t *const string,
           max_combining_class = combining_class;
         }
 
-      uint32_t node_codepoint = node->codepoint;
-      uint32_t node_data_index = node->data_index;
-      uint8_t num_elements = node->num_elements;
-      uint16_t num_children = node->num_children;
+      int num_children = node->num_children;
       uint32_t first_child = node->first_child;
 
-
-      // Search for matching child
+      /* Search for matching child. */
       int found = 0;
-      for (uint16_t j = 0; j < num_children; j++)
+      for (int j = 0; j < num_children; j++)
         {
           const struct trie_node *child
             = &collation_data.trie_array[first_child + j];
@@ -196,19 +178,23 @@ lookup_collation_data_at_char (char32_t *const string,
   if (n_codepoints >= 2)
     {
       COLLATION_DATA data;
-      data.data_index = node->data_index;
+      size_t data_index = node->data_index;
       data.num_elements = node->num_elements;
-      if (data.data_index != 0)
+      if (data_index != 0)
         {
+          data.array = &collation_data.collation_data[data_index];
           (*n_codepoints_out) = n_codepoints;
-          return data;
+
+          *collation_units = data.array;
+          *n_collation_units = data.num_elements;
+          return;
         }
     }
 
 #endif
 
   COLLATION_DATA data = lookup_codepoint_data (string[0]);
-  if (data.data_index)
+  if (data.array)
     {
       (*n_codepoints_out) = 1;
     }
@@ -216,26 +202,15 @@ lookup_collation_data_at_char (char32_t *const string,
     {
       (*n_codepoints_out) = 0;
     }
-  return data;
-}
-
-int
-lookup_codepoint (char32_t codepoint,
-                  CollationElement *elements, size_t *num_elements)
-{
-  COLLATION_DATA data = lookup_codepoint_data (codepoint);
-  if (data.data_index)
-    {
-      (*num_elements) = data.num_elements;
-      return read_collation_data (data, elements);
-    }
-  return 0;
+  *collation_units = data.array;
+  *n_collation_units = data.num_elements;
+  return;
 }
 
 /* Return implicitly determined weights. */
 void
 get_implicit_weight (char32_t codepoint,
-                     CollationElement *elements, size_t *n_elements)
+                     struct collation_unit *elements, size_t *n_elements)
 {
   if (codepoint == 0x0000)
     {
@@ -268,8 +243,8 @@ get_implicit_weight (char32_t codepoint,
     {
       /* Check if in blocks "CJK Unified Ideographs" or "CJK Compatibility
          Ideographs" */
-      if (codepoint >= 0x4E00 && codepoint <= 0x9FFF
-          || codepoint >= 0xF900 && codepoint <= 0xFAFF)
+      if ((codepoint >= 0x4E00 && codepoint <= 0x9FFF)
+          || (codepoint >= 0xF900 && codepoint <= 0xFAFF))
         {
           AAAA = 0xFB40 + (codepoint >> 15);
         }
@@ -289,8 +264,8 @@ get_implicit_weight (char32_t codepoint,
 
   if (AAAA && BBBB)
     {
-      CollationElement e1 = { AAAA, 0x0020, 0x0002, 0 };
-      /* same in allkeys_bin_dumper.c:expand_collation_sequence to
+      struct collation_unit e1 = { AAAA, 0x0020, 0x0002 };
+      /* same in gen-collation-table.c:expand_collation_sequence to
          fit secondary weight in a single byte. */
       e1.secondary -= 0x1f;
 
@@ -299,8 +274,8 @@ get_implicit_weight (char32_t codepoint,
          gen-collation_table.c:write_collation_data */
       if (BBBB >= 0xFE00)
         {
-          CollationElement e2 = { 0xFE00, 0x0000, 0x0000, 0 };
-          CollationElement e3 = { BBBB - 0xFE00 + 0x8000 + 1, 0x0000, 0x0000, 0 };
+          struct collation_unit e2 = { 0xFE00, 0x0000, 0x0000 };
+          struct collation_unit e3 = { BBBB - 0xFE00 + 0x8000 + 1, 0x0000, 0x0000 };
 
           elements[0] = e1;
           elements[1] = e2;
@@ -309,7 +284,7 @@ get_implicit_weight (char32_t codepoint,
         }
       else
         {
-          CollationElement e2 = { BBBB, 0x0000, 0x0000, 0 };
+          struct collation_unit e2 = { BBBB, 0x0000, 0x0000 };
           elements[0] = e1;
           elements[1] = e2;
           (*n_elements) = 2;
@@ -319,86 +294,4 @@ get_implicit_weight (char32_t codepoint,
     {
       (*n_elements) = 0;
     }
-}
-
-/* Lookup sequence */
-int
-lookup_sequence (const uint32_t *codepoints, size_t len,
-                 CollationElement *elements, size_t *num_elements)
-{
-  if (len == 0)
-    return 0;
-
-  uint32_t node_offset = 0;
-  const struct trie_node *node = &collation_data.trie_array[0];
-
-  for (size_t i = 0; i < len; i++)
-    {
-      // Read node
-      uint32_t node_codepoint = node->codepoint;
-      uint32_t node_data_index = node->data_index;
-      uint8_t node_num_elements = node->num_elements;
-      uint16_t num_children = node->num_children;
-      uint32_t first_child = node->first_child;
-
-      // Search for matching child
-      int found = 0;
-      for (uint16_t j = 0; j < num_children; j++)
-        {
-          const struct trie_node *child
-            = &collation_data.trie_array[first_child + j];
-          char32_t child_codepoint = child->codepoint;
-
-          if (child_codepoint == codepoints[i])
-            {
-              node = child;
-              found = 1;
-
-              // If this is the last codepoint, check for collation_data
-              if (i == len - 1)
-                {
-                  COLLATION_DATA data;
-                  data.data_index = node->data_index;
-                  data.num_elements = node->num_elements;
-                  if (data.data_index != 0)
-                    {
-                      *num_elements = data.num_elements;
-                      return read_collation_data (data, elements);
-                    }
-                }
-              break;
-            }
-        }
-
-      if (!found)
-        return 0;
-    }
-
-  return 0; /* sequence not found */
-}
-
-/* Print collation elements */
-void
-print_collation (FILE *stream,
-                 const CollationElement *elements, size_t num_elements)
-{
-  for (size_t i = 0; i < num_elements; i++)
-    {
-      if (elements[i].primary != 0x0000
-          && elements[i].primary <= collation_data.max_variable_weight)
-        {
-          fprintf (stream,
-                   "[*%04X.%04X.%04X]",
-                   elements[i].primary,
-                   elements[i].secondary, elements[i].tertiary);
-        }
-      else
-        {
-          fprintf (stream,
-                   "[.%04X.%04X.%04X]",
-                   elements[i].primary,
-                   elements[i].secondary, elements[i].tertiary);
-        }
-    }
-  fprintf (stderr, "\n");
 }

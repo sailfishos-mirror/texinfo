@@ -513,10 +513,18 @@ get_sort_key (const INDEX_COLLATOR *collator, const char *sort_string)
       #endif
       case ctn_unicode:
         sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
-        sort_key->bytes = u8_make_collation_key
-          (sort_string, strlen (sort_string),
-           UNICOLL_VARIABLE_NONIGNORABLE,
-           NULL, &sort_key->len);
+
+        static Collation_choice collation;
+        if (!collation)
+          {
+            collation = unicoll_default ();
+            collation = unicoll_set_variable (collation,
+                                              UNICOLL_VARIABLE_NONIGNORABLE);
+          }
+
+        sort_key->bytes = u8_make_collation_key (collation,
+          sort_string, strlen (sort_string),
+          NULL, &sort_key->len);
 
         break;
       case ctn_language_collation:
