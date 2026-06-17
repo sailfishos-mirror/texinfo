@@ -132,7 +132,6 @@ parse_texi_piece (SV *parser_sv, SV *string_sv, ...)
 
 # Two optional arguments, line number and NO_STORE.  If NO_STORE is set,
 # the C data is removed.
-# TODO add elements_handler_only option?
 SV *
 parse_texi_line (SV *parser_sv, SV *string_sv, ...)
     PREINIT:

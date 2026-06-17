@@ -6023,17 +6023,17 @@ The number of the index entry in the index.
 You can also use helper functions to collect or prepare index entries,
 @code{@@subentry}, @code{@@seeenentry} and @code{@@seealso}:
 
-@deftypefun {@var{$entry_content_element} =} Texinfo::Common::index_content_element @
-  (@var{$element}, @var{$prefer_reference_element})
+@deftypefun {@var{$entry_content_element} =} Texinfo::Indices::converter_index_content_element @
+  (@var{$element}, @var{$converter}, @var{$prefer_reference_element})
 Return a Texinfo tree element corresponding to the content of the index
 entry associated to @var{$element}.  If @var{$prefer_reference_element} is set,
 prefer an untranslated element.  If the element is an index command like
 @code{@@cindex} or an @code{@@ftable} @code{@@item}, the content element is the
-argument of the command.  If the element is a definition line, the index entry
-element content is based on the name and class.
+argument of the command.  If the element is an object-oriented definition, the
+index entry element is based on the name and class, with a translation.
 @end deftypefun
 
-@deftypefun {(@var{$text}, @var{$command}) =} Texinfo::Indices::index_entry_first_letter_text_or_command (@var{$index_entry})
+@deftypefun {(@var{$text}, @var{$command}) =} Texinfo::Indices::index_entry_first_letter_text_or_command (@var{$index_entry}, @var{$converter})
 Return the @var{$index_entry} leading text @var{$text} or textual command
 Texinfo tree hash reference @var{$command}.  Here textual commands means accent
 commands, brace commands without arguments used for character and glyph

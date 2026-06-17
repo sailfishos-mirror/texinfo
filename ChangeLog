@@ -1,5 +1,11 @@
 2026-06-17 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Specific Formatting for Indices): update.
+
+	Update Pod documentation.
+
+2026-06-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/parser_document/IndicesXS.xs
 	(index_entry_element_sort_string): handle converter argument being
 	set (this case never happens in practice).

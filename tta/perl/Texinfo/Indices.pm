@@ -1105,17 +1105,21 @@ Other functions.
 
 =over
 
-=item $entry_content_element = index_content_element($element, $prefer_reference_element, $converter, $debug_level)
+=item $entry_content_element = element_index_content_element($element, $prefer_reference_element, $debug_level)
 
-FIXME incorrect, does not exist anymore, converter and document variants.
+=item $entry_content_element = converter_index_content_element($element, $converter, $prefer_reference_element)
+X<C<element_index_content_element>> X<C<converter_index_content_element>>
 
 Return a Texinfo tree element corresponding to the content of the index
 entry associated to I<$element>.  If I<$prefer_reference_element> is set,
 prefer an untranslated element.  If the element is an index command like
 C<@cindex> or an C<@ftable> C<@item>, the content element is the argument
-of the command.  If the element is a definition line, the index entry
-element is based on the name and class.  If the I<$converter> optional
-argument is set, use a converter method for the translation.
+of the command.  If the element is an object-oriented definition, the index
+entry element is based on the name and class, with a translation.
+
+The two functions are similar.  C<converter_index_content_element> use the
+converter in argument for the translation for index entries with an index entry
+element based on a translation and should be called from converters.
 
 =item ($text, $command) = index_entry_first_letter_text_or_command($index_entry, $converter, $debug_level)
 

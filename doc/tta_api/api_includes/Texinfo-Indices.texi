@@ -151,10 +151,8 @@ early on, and reused in every call.
 If @emph{$prefer_reference_element} is set, prefer an untranslated
 element for the formatting as sorting string.
 
-If @emph{$converter} is set, use the converter function for translation.
-This argument is ignored in XS, so should only be set when called
-from a function with an XS override, such that the argument
-is set only from functions used if XS is not being used at all.
+If @emph{$converter} is set, use the converter for index entries with
+index string based on a translation.
 
 @item $option = setup_index_entry_keys_formatting($customization_information)
 @anchor{Texinfo@asis{::}Indices $option = setup_index_entry_keys_formatting($customization_information)}
@@ -172,18 +170,24 @@ in index entry whose output may depend on a language are rare.)
 Other functions.
 
 @table @asis
-@item $entry_content_element = index_content_element($element, $prefer_reference_element, $converter, $debug_level)
-@anchor{Texinfo@asis{::}Indices $entry_content_element = index_content_element($element@comma{} $prefer_reference_element@comma{} $converter@comma{} $debug_level)}
+@item $entry_content_element = element_index_content_element($element, $prefer_reference_element, $debug_level)
+@anchor{Texinfo@asis{::}Indices $entry_content_element = element_index_content_element($element@comma{} $prefer_reference_element@comma{} $debug_level)}
 
-FIXME incorrect, does not exist anymore, converter and document variants.
+@item $entry_content_element = converter_index_content_element($element, $converter, $prefer_reference_element)
+@anchor{Texinfo@asis{::}Indices $entry_content_element = converter_index_content_element($element@comma{} $converter@comma{} $prefer_reference_element)}
+@cindex @code{element_index_content_element}
+@cindex @code{converter_index_content_element}
 
 Return a Texinfo tree element corresponding to the content of the index
 entry associated to @emph{$element}.  If @emph{$prefer_reference_element} is set,
 prefer an untranslated element.  If the element is an index command like
 @code{@@cindex} or an @code{@@ftable} @code{@@item}, the content element is the argument
-of the command.  If the element is a definition line, the index entry
-element is based on the name and class.  If the @emph{$converter} optional
-argument is set, use a converter method for the translation.
+of the command.  If the element is an object-oriented definition, the index
+entry element is based on the name and class, with a translation.
+
+The two functions are similar.  @code{converter_index_content_element} use the
+converter in argument for the translation for index entries with an index entry
+element based on a translation and should be called from converters.
 
 @item ($text, $command) = index_entry_first_letter_text_or_command($index_entry, $converter, $debug_level)
 @anchor{Texinfo@asis{::}Indices ($text@comma{} $command) = index_entry_first_letter_text_or_command($index_entry@comma{} $converter@comma{} $debug_level)}
