@@ -428,7 +428,7 @@ entry_tree_element_sort_string (const INDEX_ENTRY *main_entry,
   return sort_string;
 }
 
-/* used as a function reference */
+/* also used as a function reference */
 char *
 index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,

@@ -1,3 +1,10 @@
+2026-06-17 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Document.pm (BEGIN), tta/perl/XSTexinfo/Makefile.am
+	(DocumentXS_la_CPPFLAGS, DocumentXS_la_LIBADD),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs: remove includes and
+	linking with converter headers and libraries.
+
 2026-06-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Sync from experimental/unicode-collation

@@ -39,12 +39,8 @@
 #include "errors.h"
 #include "document.h"
 #include "get_perl_info.h"
-/* for get_sv_converter */
-#include "get_converter_perl_info.h"
 #include "build_perl_info.h"
 #include "call_document_perl_functions.h"
-/* for html_element_cdt_tree */
-#include "html_converter_api.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */

@@ -7,9 +7,6 @@
 #include "tree_types.h"
 #include "option_types.h"
 #include "options_data.h"
-/* FIXME needed for index sorting, same as in Perl.  In other file?
-   Use struct CONVERTER instead?*/
-#include "converter_types.h"
 #include "document_types.h"
 
 /* avoid an interdependency with convert_to_text.h */

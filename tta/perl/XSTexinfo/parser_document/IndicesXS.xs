@@ -141,7 +141,8 @@ index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, S
                   = copy_sv_options_for_convert_text (options_sv);
               }
 
-            if (prefer_reference_element_sv && SvOK (prefer_reference_element_sv))
+            if (prefer_reference_element_sv
+                && SvOK (prefer_reference_element_sv))
               prefer_reference_element = SvIV (prefer_reference_element_sv);
 
             if (debug_level_sv && SvOK (debug_level_sv))
