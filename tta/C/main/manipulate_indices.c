@@ -152,7 +152,7 @@ destroy_merged_indices (MERGED_INDICES *merged_indices)
 
 
 
-/* indices entries sorting */
+/* getting index content element */
 
 static void
 remove_def_types (ELEMENT *element)
@@ -378,7 +378,7 @@ strip_index_ignore_chars (const char *string, const char *index_ignore_chars)
 }
 
 /* the index_content_element_fn function is passed to be
-   able to use another function when called from converters and at
+   able to use another function when called from converters and, at
    the same time, do not depend on the libtexinfo-converter library. */
 char *
 index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
@@ -436,82 +436,6 @@ index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
     }
 
   return sort_string;
-}
-
-typedef struct INDEX_COLLATOR {
-    enum collation_type_name type;
-    union {
-      /* perl element. This should be SV *sv,
-         but we don't want to include the Perl headers everywhere; */
-      /* not const because of refcount increase/decrease */
-      void *sv;
-  #ifdef HAVE_NEWLOCALE
-      locale_t locale;
-  #endif
-    } coll;
-} INDEX_COLLATOR;
-
-static BYTES_STRING *
-get_sort_key (const INDEX_COLLATOR *collator, const char *sort_string)
-{
-  BYTES_STRING *sort_key;
-
-  switch (collator->type)
-    {
-      case ctn_no_unicode:
-        sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
-        sort_key->len = strlen (sort_string);
-        sort_key->bytes = (unsigned char *)
-           malloc (sizeof (unsigned char) * sort_key->len);
-        memcpy (sort_key->bytes, (unsigned char *) sort_string,
-                sort_key->len);
-        break;
-      #ifdef HAVE_STRXFRM_L
-      case ctn_locale_collation:
-        {
-          size_t check_len;
-          char *char_sort_key;
-          sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
-          sort_key->len = strxfrm_l (0, sort_string, 0, collator->coll.locale);
-          char_sort_key = (char *) malloc (sizeof (char) * sort_key->len);
-          /* there is uninitialized memory without the next line.  Somewhat
-             unclear why it is needed, strxfrm_l could have done it. */
-          memset (char_sort_key, 0, sizeof (char) * sort_key->len);
-          check_len = strxfrm_l (char_sort_key, sort_string, sort_key->len,
-                                 collator->coll.locale);
-          if (check_len != sort_key->len)
-            fatal ("strxfrm_l returns a different length");
-          sort_key->bytes = (unsigned char *)
-                     malloc (sizeof (unsigned char) * sort_key->len);
-          memcpy (sort_key->bytes, (unsigned char *) char_sort_key,
-                  sort_key->len);
-          free (char_sort_key);
-        }
-        break;
-      #endif
-      case ctn_unicode:
-        sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
-
-        static Collation_choice collation;
-        if (!collation)
-          {
-            collation = unicoll_default ();
-            collation = unicoll_set_variable (collation,
-                                              UNICOLL_VARIABLE_NONIGNORABLE);
-          }
-
-        sort_key->bytes = u8_make_collation_key (collation,
-          sort_string, strlen (sort_string),
-          NULL, &sort_key->len);
-
-        break;
-      case ctn_language_collation:
-      default: /* !HAVE_STRXFRM_L && ctn_locale_collation */
-        sort_key = call_collator_getSortKey (collator->coll.sv,
-                                             sort_string);
-        break;
-    }
-  return sort_key;
 }
 
 void
@@ -786,6 +710,82 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
   free (subentries_list.list);
 
   return indices_sort_strings;
+}
+
+typedef struct INDEX_COLLATOR {
+    enum collation_type_name type;
+    union {
+      /* perl element. This should be SV *sv,
+         but we don't want to include the Perl headers everywhere; */
+      /* not const because of refcount increase/decrease */
+      void *sv;
+  #ifdef HAVE_NEWLOCALE
+      locale_t locale;
+  #endif
+    } coll;
+} INDEX_COLLATOR;
+
+static BYTES_STRING *
+get_sort_key (const INDEX_COLLATOR *collator, const char *sort_string)
+{
+  BYTES_STRING *sort_key;
+
+  switch (collator->type)
+    {
+      case ctn_no_unicode:
+        sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
+        sort_key->len = strlen (sort_string);
+        sort_key->bytes = (unsigned char *)
+           malloc (sizeof (unsigned char) * sort_key->len);
+        memcpy (sort_key->bytes, (unsigned char *) sort_string,
+                sort_key->len);
+        break;
+      #ifdef HAVE_STRXFRM_L
+      case ctn_locale_collation:
+        {
+          size_t check_len;
+          char *char_sort_key;
+          sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
+          sort_key->len = strxfrm_l (0, sort_string, 0, collator->coll.locale);
+          char_sort_key = (char *) malloc (sizeof (char) * sort_key->len);
+          /* there is uninitialized memory without the next line.  Somewhat
+             unclear why it is needed, strxfrm_l could have done it. */
+          memset (char_sort_key, 0, sizeof (char) * sort_key->len);
+          check_len = strxfrm_l (char_sort_key, sort_string, sort_key->len,
+                                 collator->coll.locale);
+          if (check_len != sort_key->len)
+            fatal ("strxfrm_l returns a different length");
+          sort_key->bytes = (unsigned char *)
+                     malloc (sizeof (unsigned char) * sort_key->len);
+          memcpy (sort_key->bytes, (unsigned char *) char_sort_key,
+                  sort_key->len);
+          free (char_sort_key);
+        }
+        break;
+      #endif
+      case ctn_unicode:
+        sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
+
+        static Collation_choice collation;
+        if (!collation)
+          {
+            collation = unicoll_default ();
+            collation = unicoll_set_variable (collation,
+                                              UNICOLL_VARIABLE_NONIGNORABLE);
+          }
+
+        sort_key->bytes = u8_make_collation_key (collation,
+          sort_string, strlen (sort_string),
+          NULL, &sort_key->len);
+
+        break;
+      case ctn_language_collation:
+      default: /* !HAVE_STRXFRM_L && ctn_locale_collation */
+        sort_key = call_collator_getSortKey (collator->coll.sv,
+                                             sort_string);
+        break;
+    }
+  return sort_key;
 }
 
 static INDEX_COLLATOR *
@@ -1182,7 +1182,6 @@ sort_indices_by_index (const INDICES_SORT_STRINGS *indices_sort_strings,
 
   return sorted_index_entries;
 }
-
 
 INDEX_SORTED_BY_LETTER *
 sort_indices_by_letter (const INDICES_SORT_STRINGS *indices_sort_strings,
@@ -1653,7 +1652,7 @@ get_collation_sorted_indices_by_letter (
   return collation_sorted_indices;
 }
 
-void
+static void
 destroy_indices_sorted_by_index (
          INDEX_SORTED_BY_INDEX *indices_entries_by_index)
 {
@@ -1690,7 +1689,7 @@ destroy_sorted_indices_by_index (COLLATIONS_INDICES_SORTED_BY_INDEX *collations)
     }
 }
 
-void
+static void
 destroy_indices_sorted_by_letter (
          INDEX_SORTED_BY_LETTER *indices_entries_by_letter)
 {

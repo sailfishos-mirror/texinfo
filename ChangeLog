@@ -1,5 +1,9 @@
 2026-06-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_indices.c: move code around.
+
+2026-06-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_indices.c
 	(wrap_converter_index_content_element), tta/C/convert/converter.c,
 	tta/C/main/manipulate_indices.c (wrap_element_index_content_element)

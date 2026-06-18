@@ -42,11 +42,6 @@ typedef struct INDICES_SORTABLE_ENTRIES {
 MERGED_INDICES *merge_indices (INDEX_LIST *indices_information);
 void destroy_merged_indices (MERGED_INDICES *merged_indices);
 
-void destroy_indices_sorted_by_index (
-         INDEX_SORTED_BY_INDEX *indices_entries_by_index);
-void destroy_indices_sorted_by_letter (
-         INDEX_SORTED_BY_LETTER *indices_entries_by_letter);
-
 ELEMENT *get_index_content_info_element (const ELEMENT *element,
                                          int prefer_reference_element,
                                          enum command_id *def_command_out,
@@ -58,6 +53,51 @@ ELEMENT *element_index_content_element (const ELEMENT *element,
 
 char *strip_index_ignore_chars (const char *string,
                                 const char *index_ignore_chars);
+
+char *
+index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
+                                 const ELEMENT *index_entry_element,
+                                 struct TEXT_OPTIONS *options, int in_code,
+                                 int prefer_reference_element,
+                                 DOCUMENT *document, int debug_level,
+                                 CONVERTER *converter,
+      ELEMENT * (* index_content_element_fn) (
+                                   const ELEMENT *index_entry_element,
+                                   int prefer_reference_element,
+                                   DOCUMENT *document, int debug_level,
+                                   CONVERTER *converter)
+                                );
+
+void destroy_index_entries_sort_strings (
+                          INDICES_SORT_STRINGS *indices_sort_strings);
+INDICES_SORT_STRINGS *setup_index_entries_sort_strings (
+                    ERROR_MESSAGE_LIST *error_messages,
+                    OPTIONS *options, const MERGED_INDICES *merged_indices,
+                    INDEX_LIST *indices_information,
+                    int prefer_reference_element,
+                    DOCUMENT *document, CONVERTER *converter,
+      ELEMENT * (* index_content_element_fn) (
+                                 const ELEMENT *index_entry_element,
+                                 int prefer_reference_element,
+                                 DOCUMENT *document, int debug_level,
+                                 CONVERTER *converter)
+);
+
+INDEX_SORTED_BY_INDEX *sort_indices_by_index (
+                       const INDICES_SORT_STRINGS *indices_sort_strings,
+                       ERROR_MESSAGE_LIST *error_messages,
+                       OPTIONS *options,
+                       int use_unicode_collation,
+                       const char *collation_language,
+                       const char *collation_locale);
+
+INDEX_SORTED_BY_LETTER *sort_indices_by_letter (
+                       const INDICES_SORT_STRINGS *indices_sort_strings,
+                       ERROR_MESSAGE_LIST *error_messages,
+                       OPTIONS *options,
+                       int use_unicode_collation,
+                       const char *collation_language,
+                       const char *collation_locale);
 
 COLLATIONS_INDICES_SORTED_BY_INDEX *
 new_base_collations_sorted_indices_by_index (void);
@@ -78,54 +118,10 @@ get_collation_sorted_indices_by_letter (
                                        const char *collation_locale,
                                        const char **lang_sorting_locale_out);
 
-char *
-index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
-                                 const ELEMENT *index_entry_element,
-                                 struct TEXT_OPTIONS *options, int in_code,
-                                 int prefer_reference_element,
-                                 DOCUMENT *document, int debug_level,
-                                 CONVERTER *converter,
-      ELEMENT * (* index_content_element_fn) (
-                                   const ELEMENT *index_entry_element,
-                                   int prefer_reference_element,
-                                   DOCUMENT *document, int debug_level,
-                                   CONVERTER *converter)
-                                );
-void destroy_index_entries_sort_strings (
-                          INDICES_SORT_STRINGS *indices_sort_strings);
-INDICES_SORT_STRINGS *setup_index_entries_sort_strings (
-                    ERROR_MESSAGE_LIST *error_messages,
-                    OPTIONS *options, const MERGED_INDICES *merged_indices,
-                    INDEX_LIST *indices_information,
-                    int prefer_reference_element,
-                    DOCUMENT *document, CONVERTER *converter,
-      ELEMENT * (* index_content_element_fn) (
-                                 const ELEMENT *index_entry_element,
-                                 int prefer_reference_element,
-                                 DOCUMENT *document, int debug_level,
-                                 CONVERTER *converter)
-);
-
 void destroy_sorted_indices_by_index (
                        COLLATIONS_INDICES_SORTED_BY_INDEX *collations);
 void destroy_sorted_indices_by_letter (
                        COLLATIONS_INDICES_SORTED_BY_LETTER *collations);
-
-INDEX_SORTED_BY_INDEX *sort_indices_by_index (
-                       const INDICES_SORT_STRINGS *indices_sort_strings,
-                       ERROR_MESSAGE_LIST *error_messages,
-                       OPTIONS *options,
-                       int use_unicode_collation,
-                       const char *collation_language,
-                       const char *collation_locale);
-
-INDEX_SORTED_BY_LETTER *sort_indices_by_letter (
-                       const INDICES_SORT_STRINGS *indices_sort_strings,
-                       ERROR_MESSAGE_LIST *error_messages,
-                       OPTIONS *options,
-                       int use_unicode_collation,
-                       const char *collation_language,
-                       const char *collation_locale);
 
 const INDEX **sort_index_names (INDEX_LIST *indices_info);
 char *print_indices_information (INDEX_LIST *indices_info);
