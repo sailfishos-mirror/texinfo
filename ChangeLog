@@ -1,3 +1,8 @@
+2026-06-18 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/swig/texinfo.i (txi_ext_inline_setup): remove the
+	converterdatadir argument and code, it is not used.
+
 2026-06-17 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Specific Formatting for Indices): update.

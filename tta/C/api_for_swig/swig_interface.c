@@ -842,6 +842,7 @@ txi_ext_sorted_index_entries_number (const INDEX_SORTED_BY_INDEX *index_sorted)
   return index_sorted->entries_number;
 }
 
+/* function selecting one index by name after sorting the indices */
 const INDEX_SORTED_BY_INDEX *
 txi_ext_get_index_sorted_by_index (DOCUMENT *document, const char *index_name,
                                    int use_unicode_collation,

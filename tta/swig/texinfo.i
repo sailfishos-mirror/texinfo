@@ -75,22 +75,22 @@ reset_parser (0);
 %}
 
 %rename(setup) txi_ext_inline_setup;
+// TODO consider removing the paths arguments, there is no clear use case
+// which would require setting a different path than the one
+// automatically determined.
 void
 txi_ext_inline_setup (int texinfo_uninstalled=0, const char *datadir_in=0,
-                      const char *converterdatadir_in=0,
                       const char *t2a_builddir_in=0,
                       const char *t2a_srcdir_in=0);
 
 %{
 void
 txi_ext_inline_setup (int texinfo_uninstalled, const char *datadir_in,
-                      const char *converterdatadir_in,
                       const char *t2a_builddir_in,
                       const char *t2a_srcdir_in)
 {
   char *t2a_srcdir = 0;
   char *t2a_builddir = 0;
-  char *converterdatadir = 0;
   const char *datadir;
 
   if (datadir_in)
@@ -123,13 +123,6 @@ txi_ext_inline_setup (int texinfo_uninstalled, const char *datadir_in,
             t2a_builddir = strdup (t2a_builddir);
         }
     }
-  else
-    {
-      if (converterdatadir_in)
-        converterdatadir = strdup (converterdatadir_in);
-      else
-        xasprintf (&converterdatadir, "%s/" CONVERTER_CONFIG, datadir);
-    }
 
   /* initialize the C library */
   messages_and_encodings_setup (datadir);
@@ -138,7 +131,6 @@ txi_ext_inline_setup (int texinfo_uninstalled, const char *datadir_in,
 
   free (t2a_builddir);
   free (t2a_srcdir);
-  free (converterdatadir);
 }
 %}
 
@@ -399,11 +391,15 @@ INDEX_ENTRY *txi_ext_sorted_index_entries_by_index (
 int txi_ext_sorted_index_entries_number (
                      const INDEX_SORTED_BY_INDEX *index_sorted);
 
+// FIXME remove to avoid needing translations in the interface?
+// no language tailoring available, since we use C code only and there
+// is no language tailoring for index sorting in C only.
 %rename(get_index_sorted_by_index) txi_ext_inline_get_index_sorted_by_index;
 const INDEX_SORTED_BY_INDEX *txi_ext_inline_get_index_sorted_by_index (
                            DOCUMENT *document,
                            const char *index_name,
                            int use_unicode_collation=1);
+/* wrapper without language tailoring */
 %{
 const INDEX_SORTED_BY_INDEX *txi_ext_inline_get_index_sorted_by_index (
                            DOCUMENT *document,
