@@ -825,8 +825,8 @@ of the float.
 returns the type and number of the float as a Texinfo tree with
 translations.
 
-@item ($text, $command) = $converter->index_entry_first_letter_text_or_command($index_entry, $debug_level)
-@anchor{Texinfo@asis{::}Convert@asis{::}Converter ($text@comma{} $command) = $converter->index_entry_first_letter_text_or_command($index_entry@comma{} $debug_level)}
+@item ($text, $command) = $converter->index_entry_first_letter_text_or_command($index_entry)
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter ($text@comma{} $command) = $converter->index_entry_first_letter_text_or_command($index_entry)}
 @cindex @code{index_entry_first_letter_text_or_command}
 
 Return the @emph{$index_entry} leading text @emph{$text} or textual command Texinfo

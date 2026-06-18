@@ -1057,8 +1057,8 @@ sub _idx_leading_text_or_command($$) {
 # ALTIMPL C/convert/convert_indices.c
 # Return the leading text or textual command that could be used
 # for sorting.
-sub index_entry_first_letter_text_or_command($$;$) {
-  my ($converter, $index_entry, $debug_level) = @_;
+sub index_entry_first_letter_text_or_command($$) {
+  my ($converter, $index_entry) = @_;
 
   if (!defined($index_entry)) {
     confess('index_entry_first_letter_text_or_command: undef index_entry');
@@ -2798,7 +2798,7 @@ I<$float> is a Texinfo tree C<@float> element.  This function
 returns the type and number of the float as a Texinfo tree with
 translations.
 
-=item ($text, $command) = $converter->index_entry_first_letter_text_or_command($index_entry, $debug_level)
+=item ($text, $command) = $converter->index_entry_first_letter_text_or_command($index_entry)
 X<C<index_entry_first_letter_text_or_command>>
 
 Return the I<$index_entry> leading text I<$text> or textual command Texinfo
