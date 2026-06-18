@@ -1,5 +1,18 @@
 2026-06-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_indices.c
+	(setup_sort_sortable_strings_collator), tta/perl/Texinfo/Indices.pm
+	(_setup_sort_sortable_strings_collator): inline
+	setup_sortable_index_entries in setup_sort_sortable_strings_collator
+	and remove the function.
+
+	* tta/C/main/manipulate_indices.c, tta/perl/Texinfo/Indices.pm: move
+	code around.
+
+	* tta/perl/Texinfo/Indices.pm: remove _def_command_index_entry.
+
+2026-06-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/texinfo.i (txi_ext_inline_setup): remove the
 	converterdatadir argument and code, it is not used.
 

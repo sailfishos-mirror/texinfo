@@ -87,45 +87,6 @@ BEGIN {
   );
 }
 
-sub _sort_key($$) {
-  my ($a, $b) = @_;
-
-  my ($a_value, $a_alpha) = @$a;
-  my ($b_value, $b_alpha) = @$b;
-  if ($a_alpha == $b_alpha) {
-    return ($a_value cmp $b_value);
-  }
-  return $a_alpha <=> $b_alpha;
-}
-
-sub _sort_index_entries($$) {
-  my ($key1, $key2) = @_;
-
-  my $key_index = 0;
-  # the keys array corresponds to the main entry and subentries
-  foreach my $key1_str (@{$key1->{'keys'}}) {
-    my $res = _sort_key($key1_str,
-                           $key2->{'keys'}->[$key_index]);
-    if ($res != 0) {
-      return $res;
-    }
-    $key_index++;
-    if (scalar(@{$key2->{'keys'}}) <= $key_index) {
-      last;
-    }
-  }
-  my $res = (scalar(@{$key1->{'keys'}}) <=> scalar(@{$key2->{'keys'}}));
-  if ($res == 0) {
-    $res = ($key1->{'number'} <=> $key2->{'number'});
-  }
-  # This may happen if 2 indices are merged as the number is per
-  # index name.
-  if ($res == 0) {
-    $res = ($key1->{'index_name'} cmp $key2->{'index_name'});
-  }
-  return $res;
-}
-
 # This is a stub for the Unicode::Collate module.  It is used if
 # USE_UNICODE_COLLATION=0.  Using this fall-back will change index sorting,
 # especially of punctuation characters and in non-English manuals.
@@ -160,6 +121,32 @@ sub getSortKey($$) {
 }
 
 package Texinfo::Indices;
+
+# Normally called through Texinfo::Document::merged_indices only
+sub merge_indices($) {
+  my $indices_information = shift;
+
+  my $merged_index_entries;
+  foreach my $index_name (keys(%$indices_information)) {
+    my $index_info = $indices_information->{$index_name};
+    if ($index_info->{'index_entries'}) {
+      $merged_index_entries = {} if (! $merged_index_entries);
+      my $in_idx_name = $index_name;
+      if ($index_info->{'merged_in'}) {
+        my $ultimate_idx = Texinfo::Common::ultimate_index($indices_information,
+                                                           $index_info);
+        $in_idx_name = $ultimate_idx->{'name'};
+      }
+      push @{$merged_index_entries->{$in_idx_name}},
+        @{$index_info->{'index_entries'}};
+    }
+  }
+  return $merged_index_entries;
+}
+
+
+
+# getting index content element
 
 sub _remove_def_types($) {
   my $element = shift;
@@ -246,125 +233,13 @@ sub get_index_content_info_element($;$) {
   return undef, undef, undef;
 }
 
-# generate a Texinfo tree corresponding to a def command index entry.
-# If $PREFER_REFRENCE_ELEMENT is set do not translate.  If there is
-# no translation, $CONVERTER and $DEBUG_LEVEL are not actually used.
-sub _def_command_index_entry($;$$$) {
-  my ($main_entry_element, $prefer_reference_element, $converter,
-      $debug_level) = @_;
-
-  my ($name, $class);
-  if (exists($main_entry_element->{'contents'}->[0]->{'contents'})) {
-    foreach my $arg (@{$main_entry_element->{'contents'}->[0]->{'contents'}}) {
-      my $type = $arg->{'type'};
-      if ($type eq 'def_name') {
-        $name = $arg;
-      } elsif ($type eq 'def_class') {
-        $class = $arg;
-      } elsif ($type eq 'def_arg' or $type eq 'def_typearg'
-               or $type eq 'delimiter') {
-        last;
-      }
-    }
-  }
-
-  if (defined($name)) {
-    my $def_command = $main_entry_element->{'extra'}->{'def_command'};
-    my $name_copy = Texinfo::ManipulateTree::copy_element_tree($name);
-
-    if (!exists($Texinfo::Commands::def_class_variable_commands{
-                                                         $def_command})
-        and !exists($Texinfo::Commands::def_class_method_commands{
-                                           $def_command})) {
-      _remove_def_types($name_copy);
-      return $name_copy;
-    }
-
-    if (defined($class)) {
-      my $class_copy = Texinfo::ManipulateTree::copy_element_tree($class);
-
-      foreach my $element_copy ($class_copy, $name_copy) {
-        _remove_def_types($element_copy);
-      }
-
-      if ($prefer_reference_element) {
-        my $text_element;
-        my $index_entry_normalized = Texinfo::TreeElement::new({});
-
-        if (exists($Texinfo::Commands::def_class_method_commands{
-                                                   $def_command})) {
-          $text_element = Texinfo::TreeElement::new({'text' => ' on '});
-        } elsif (exists($Texinfo::Commands::def_class_variable_commands{
-                                                       $def_command})) {
-          $text_element = Texinfo::TreeElement::new({'text' => ' of '});
-        }
-
-        $index_entry_normalized->{'contents'}
-          = [$name_copy, $text_element, $class_copy];
-
-        return $index_entry_normalized;
-      } else {
-        my $index_entry;
-
-        # Use the language information that was current when the command was
-        # used for getting the translation.
-        my $substrings = {'name' => $name_copy, 'class' => $class_copy};
-
-        if (defined($converter)) {
-          if (exists($Texinfo::Commands::def_class_method_commands{
-                                                   $def_command})) {
-  # TRANSLATORS: association of a method or operation name with a class
-  # in descriptions of object-oriented programming methods or operations.
-            $index_entry = $converter->element_cdt('{name} on {class}',
-                                    $main_entry_element, $substrings);
-          } elsif (exists($Texinfo::Commands::def_class_variable_commands{
-                                                           $def_command})) {
-  # TRANSLATORS: association of a variable or instance variable with
-  # a class in descriptions of object-oriented programming variables or
-  # instance variable.
-            $index_entry = $converter->element_cdt('{name} of {class}',
-                                    $main_entry_element, $substrings);
-          }
-        } else {
-          my $element_lang_translations
-            = Texinfo::Translations::new_element_language_translation(
-                    $Texinfo::Translations::converters_translation_cache,
-                            $main_entry_element);
-
-          if (exists($Texinfo::Commands::def_class_method_commands{
-                                                   $def_command})) {
-  # TRANSLATORS: association of a method or operation name with a class
-  # in descriptions of object-oriented programming methods or operations.
-            $index_entry
-              = Texinfo::Translations::gdt('{name} on {class}',
-                           $element_lang_translations, $substrings,
-                           $debug_level);
-          } elsif (exists($Texinfo::Commands::def_class_variable_commands{
-                                                            $def_command})) {
-  # TRANSLATORS: association of a variable or instance variable with
-  # a class in descriptions of object-oriented programming variables or
-  # instance variable.
-            $index_entry = Texinfo::Translations::gdt('{name} of {class}',
-                           $element_lang_translations, $substrings,
-                           $debug_level);
-          }
-        }
-
-        # prefer a type-less container rather than 'root_line' returned by gdt
-        delete $index_entry->{'type'};
-
-        return $index_entry;
-      }
-    }
-  }
-  return undef;
-}
-
-# ALTIMP C/main/manipulate_indices.c
 # if $PREFER_REFERENCE_ELEMENT is set, prefer an untranslated element.
 sub element_index_content_element($;$$) {
   my ($element, $prefer_reference_element, $debug_level) = @_;
 
+  # get index element for cases that use tree element elements
+  # and do not need translation, as well as and copied elements relevant
+  # for the case needing translation handled just below.
   my ($index_element, $name_copy, $class_copy)
    = get_index_content_info_element($element, $prefer_reference_element);
 
@@ -372,16 +247,18 @@ sub element_index_content_element($;$$) {
     return $index_element;
   }
 
+  # The remaining case is object-oriented definition command index entry
+  # based on a translation, handled next.
+
   # Use the language information that was current when the command was
   # used for getting the translation.
-  my $substrings = {'name' => $name_copy, 'class' => $class_copy};
-  my $def_command = $element->{'extra'}->{'def_command'};
-
   my $element_lang_translations
     = Texinfo::Translations::new_element_language_translation(
             $Texinfo::Translations::converters_translation_cache,
                     $element);
 
+  my $def_command = $element->{'extra'}->{'def_command'};
+  my $substrings = {'name' => $name_copy, 'class' => $class_copy};
   if (exists($Texinfo::Commands::def_class_method_commands{
                                                    $def_command})) {
   # TRANSLATORS: association of a method or operation name with a class
@@ -406,9 +283,14 @@ sub element_index_content_element($;$$) {
   return $index_element;
 }
 
+# ALTIMPL C/convert/convert_indices.c
+# if $PREFER_REFERENCE_ELEMENT is set, prefer an untranslated element.
 sub converter_index_content_element($$;$) {
   my ($element, $converter, $prefer_reference_element) = @_;
 
+  # get index element for cases that use tree element elements
+  # and do not need translation, as well as and copied elements relevant
+  # for the case needing translation handled just below.
   my ($index_element, $name_copy, $class_copy)
    = get_index_content_info_element($element, $prefer_reference_element);
 
@@ -416,11 +298,13 @@ sub converter_index_content_element($$;$) {
     return $index_element;
   }
 
+  # The remaining case is object-oriented definition command index entry
+  # based on a translation, handled next.
+
   my $substrings = {'name' => $name_copy, 'class' => $class_copy};
   my $def_command = $element->{'extra'}->{'def_command'};
 
-  if (exists($Texinfo::Commands::def_class_method_commands{
-                                                   $def_command})) {
+  if (exists($Texinfo::Commands::def_class_method_commands{$def_command})) {
   # TRANSLATORS: association of a method or operation name with a class
   # in descriptions of object-oriented programming methods or operations.
     $index_element = $converter->element_cdt('{name} on {class}',
@@ -440,76 +324,13 @@ sub converter_index_content_element($$;$) {
   return $index_element;
 }
 
-# 'Non-Ignorable' for 'variable' collation characters means that they are
-# treated as normal characters.   This allows to have spaces and punctuation
-# marks sort before letters.
-# http://www.unicode.org/reports/tr10/#Variable_Weighting
-my %collate_options = ( 'variable' => 'Non-Ignorable' );
+
 
-# called from C/main/call_perl_function.c
-sub _setup_lang_collator($;$) {
-  my ($lang_sorting_locale, $collate_options_ref) = @_;
+# indices entries sorting
 
-  $collate_options_ref = \%collate_options if (!defined($collate_options_ref));
-
-  my $collator;
-  # Unicode::Collate::Locale is present in perl core since perl major
-  # version 5.14 released in 2011.
-  eval { require Unicode::Collate::Locale;
-         Unicode::Collate::Locale->import; };
-  my $unicode_collate_locale_loading_error = $@;
-  if ($unicode_collate_locale_loading_error eq '') {
-    $collator = Unicode::Collate::Locale->new(
-                                 'locale' => $lang_sorting_locale,
-                                              %collate_options);
-  }
-  return $collator;
-}
-
-sub _setup_collator($$) {
-  my ($use_unicode_collation, $lang_sorting_locale) = @_;
-
-  my $collator;
-
-  # The Unicode::Collate sorting changes based on the UCA version.
-  # To test the result with a specific version, the UCA_Version should be set,
-  # and, more importantly the table should correspond to that version.
-  # To test a specific table, in the tta directory, do
-  # wget -N http://www.unicode.org/Public/UCA/6.2.0/allkeys.txt
-  # mkdir -p Unicode/Collate/
-  # mv allkeys.txt Unicode/Collate/allkeys-6.2.0.txt
-  # The table argument leads to a very important slowdown, so the argument
-  # should only be used for checks.
-  # The test results seem to be consistent with 6.2.0, corresponding
-  # to the perl 5.18.0 Unicode::Collate
-
-  # to test for 6.2.0
-  #%collate_options = (%collate_options,
-  #                    'UCA_Version' => 24,
-  #                    'table' => 'allkeys-6.2.0.txt');
-  # To test files affected for UCA corresponding to perl 5.8.1
-  # wget -N http://www.unicode.org/Public/UCA/3.1.1/allkeys-3.1.1.txt
-  #%collate_options = (%collate_options,
-  #                   'UCA_Version' => 9,
-  #                   'table' => 'allkeys-3.1.1.txt');
-
-  if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
-    if (defined($lang_sorting_locale)) {
-      $collator = _setup_lang_collator($lang_sorting_locale,
-                                       \%collate_options);
-    }
-
-    if (!defined($collator)) {
-      $collator = Unicode::Collate->new(%collate_options);
-    }
-  } else {
-    # stub if Unicode::Collate not wanted.
-    $collator = Texinfo::CollateStub->new() if (!defined($collator));
-  }
-
-  return $collator;
-}
-
+# For each index in the document, convert index entry and associated
+# subentries to text to be used as sort string.
+#
 # Considered as kind of internal for index sorting functions, therefore
 # not documented, no XS since it should not be called directly, but
 # through Texinfo::Document::document_indices_sort_strings or
@@ -631,8 +452,8 @@ sub setup_index_entries_sort_strings($$$$;$) {
   return $indices_sort_strings;
 }
 
-# Returns a hash reference associating the index entries with the strings
-# that were used to sort them.
+# Returns a hash reference associating the index entries with the text strings
+# that are used for sorting (also going through a collator).
 # Used in tests, but not documented, as it is unlikely for this function
 # to be of any other use.
 sub format_index_entries_sort_strings($) {
@@ -652,10 +473,86 @@ sub format_index_entries_sort_strings($) {
   return $index_entries_sort_strings;
 }
 
-sub _setup_sortable_index_entries($$) {
-  my ($collator, $indices_sort_strings) = @_;
+# 'Non-Ignorable' for 'variable' collation characters means that they are
+# treated as normal characters.   This allows to have spaces and punctuation
+# marks sort before letters.
+# http://www.unicode.org/reports/tr10/#Variable_Weighting
+my %collate_options = ( 'variable' => 'Non-Ignorable' );
+
+# called from C/main/call_perl_function.c
+sub _setup_lang_collator($;$) {
+  my ($lang_sorting_locale, $collate_options_ref) = @_;
+
+  $collate_options_ref = \%collate_options if (!defined($collate_options_ref));
+
+  my $collator;
+  # Unicode::Collate::Locale is present in perl core since perl major
+  # version 5.14 released in 2011.
+  eval { require Unicode::Collate::Locale;
+         Unicode::Collate::Locale->import; };
+  my $unicode_collate_locale_loading_error = $@;
+  if ($unicode_collate_locale_loading_error eq '') {
+    $collator = Unicode::Collate::Locale->new(
+                                 'locale' => $lang_sorting_locale,
+                                              %collate_options);
+  }
+  return $collator;
+}
+
+sub _setup_collator($$) {
+  my ($use_unicode_collation, $lang_sorting_locale) = @_;
+
+  my $collator;
+
+  # The Unicode::Collate sorting changes based on the UCA version.
+  # To test the result with a specific version, the UCA_Version should be set,
+  # and, more importantly the table should correspond to that version.
+  # To test a specific table, in the tta directory, do
+  # wget -N http://www.unicode.org/Public/UCA/6.2.0/allkeys.txt
+  # mkdir -p Unicode/Collate/
+  # mv allkeys.txt Unicode/Collate/allkeys-6.2.0.txt
+  # The table argument leads to a very important slowdown, so the argument
+  # should only be used for checks.
+  # The test results seem to be consistent with 6.2.0, corresponding
+  # to the perl 5.18.0 Unicode::Collate
+
+  # to test for 6.2.0
+  #%collate_options = (%collate_options,
+  #                    'UCA_Version' => 24,
+  #                    'table' => 'allkeys-6.2.0.txt');
+  # To test files affected for UCA corresponding to perl 5.8.1
+  # wget -N http://www.unicode.org/Public/UCA/3.1.1/allkeys-3.1.1.txt
+  #%collate_options = (%collate_options,
+  #                   'UCA_Version' => 9,
+  #                   'table' => 'allkeys-3.1.1.txt');
+
+  if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
+    if (defined($lang_sorting_locale)) {
+      $collator = _setup_lang_collator($lang_sorting_locale,
+                                       \%collate_options);
+    }
+
+    if (!defined($collator)) {
+      $collator = Unicode::Collate->new(%collate_options);
+    }
+  } else {
+    # stub if Unicode::Collate not wanted.
+    $collator = Texinfo::CollateStub->new() if (!defined($collator));
+  }
+
+  return $collator;
+}
+
+# Take textual index sort strings $INDICES_SORT_STRINGS (by index)
+# in input, setup and use a collator to produce sortable byte string
+# sort keys that can be compared directly based on their value.
+sub _setup_sort_sortable_strings_collator($$$) {
+  my ($indices_sort_strings, $use_unicode_collation,
+      $lang_sorting_locale) = @_;
 
   return undef unless (defined($indices_sort_strings));
+
+  my $collator = _setup_collator($use_unicode_collation, $lang_sorting_locale);
 
   my $index_sortable_index_entries = {};
   foreach my $index_name (keys(%$indices_sort_strings)) {
@@ -688,19 +585,46 @@ sub _setup_sortable_index_entries($$) {
     $index_sortable_index_entries->{$index_name} = $sortable_index_entries;
   }
 
-  return $index_sortable_index_entries;
+  return ($index_sortable_index_entries, $collator);
 }
 
-sub _setup_sort_sortable_strings_collator($$$) {
-  my ($indices_sort_strings, $use_unicode_collation,
-      $lang_sorting_locale) = @_;
+sub _sort_key($$) {
+  my ($a, $b) = @_;
 
-  my $collator = _setup_collator($use_unicode_collation, $lang_sorting_locale);
+  my ($a_value, $a_alpha) = @$a;
+  my ($b_value, $b_alpha) = @$b;
+  if ($a_alpha == $b_alpha) {
+    return ($a_value cmp $b_value);
+  }
+  return $a_alpha <=> $b_alpha;
+}
 
-  my $index_sortable_index_entries
-    = _setup_sortable_index_entries($collator, $indices_sort_strings);
+sub _sort_index_entries($$) {
+  my ($key1, $key2) = @_;
 
-  return ($index_sortable_index_entries, $collator);
+  my $key_index = 0;
+  # the keys array corresponds to the main entry and subentries
+  foreach my $key1_str (@{$key1->{'keys'}}) {
+    my $res = _sort_key($key1_str,
+                           $key2->{'keys'}->[$key_index]);
+    if ($res != 0) {
+      return $res;
+    }
+    $key_index++;
+    if (scalar(@{$key2->{'keys'}}) <= $key_index) {
+      last;
+    }
+  }
+  my $res = (scalar(@{$key1->{'keys'}}) <=> scalar(@{$key2->{'keys'}}));
+  if ($res == 0) {
+    $res = ($key1->{'number'} <=> $key2->{'number'});
+  }
+  # This may happen if 2 indices are merged as the number is per
+  # index name.
+  if ($res == 0) {
+    $res = ($key1->{'index_name'} cmp $key2->{'index_name'});
+  }
+  return $res;
 }
 
 # Normally only called through get_converter_indices_sorted_by_*
@@ -728,6 +652,64 @@ sub sort_indices_by_index($;$$) {
   return $sorted_index_entries;
 }
 
+# Normally only called through get_converter_indices_sorted_by_*
+sub sort_indices_by_letter($;$$) {
+  my ($indices_sort_strings, $use_unicode_collation, $lang_sorting_locale) = @_;
+
+  my ($index_sortable_index_entries, $collator)
+     = _setup_sort_sortable_strings_collator($indices_sort_strings,
+                                             $use_unicode_collation,
+                                             $lang_sorting_locale);
+
+  if (!defined($index_sortable_index_entries)) {
+    return undef;
+  }
+
+  my $sorted_index_entries = {};
+  foreach my $index_name (keys(%$index_sortable_index_entries)) {
+    my $sortable_index_entries = $index_sortable_index_entries->{$index_name};
+    my $index_letter_hash = {};
+    foreach my $sortable_entry (@{$sortable_index_entries}) {
+      my $main_entry_sort_string
+        = $sortable_entry->{'entry_strings_alpha'}->[0]->{'sort_string'};
+      # the following line leads to each accented letter being separate
+      # $letter = uc(substr($main_entry_sort_string, 0, 1));
+      my $letter_string = uc(substr($main_entry_sort_string, 0, 1));
+      # determine main letter by decomposing and removing diacritics
+      my $letter = Unicode::Normalize::NFKD($letter_string);
+      $letter =~ s/\p{NonspacingMark}//g;
+      # following code is less good, as the upper-casing may lead to
+      # two letters in case of the german Eszett that becomes SS.  So
+      # it is better to upper-case first and remove diacritics after.
+      #my $normalized_string
+      #  = Unicode::Normalize::NFKD(uc($main_entry_sort_string));
+      #$normalized_string =~ s/\p{NonspacingMark}//g;
+      #$letter = substr($normalized_string, 0, 1);
+
+      push @{$index_letter_hash->{$letter}}, $sortable_entry;
+    }
+
+    my @letter_keys;
+    foreach my $letter (keys %$index_letter_hash) {
+      my $sort_key = $collator->getSortKey($letter);
+      push @letter_keys, [$sort_key, $letter, $index_letter_hash->{$letter}];
+    }
+
+    my @sorted_letters = sort{$a->[0] cmp $b->[0]} @letter_keys;
+
+    foreach my $letter_and_entries (@sorted_letters) {
+      my $letter = $letter_and_entries->[1];
+      my @sorted_letter_entries
+         = map {$_->{'entry'}} sort {_sort_index_entries($a, $b)}
+                                            @{$letter_and_entries->[2]};
+      push @{$sorted_index_entries->{$index_name}},
+        { 'letter' => $letter, 'entries' => \@sorted_letter_entries };
+    }
+  }
+  return $sorted_index_entries;
+}
+
+# ALTIMPL C/convert/convert_indices.c
 # Return the first non empty text or textual @-command.
 # NOTE quotes and dash are not handled especially and it is not known
 # if the text was in code or not.
@@ -796,6 +778,7 @@ sub _idx_leading_text_or_command($$) {
   return (undef, undef);
 }
 
+# ALTIMPL C/convert/convert_indices.c
 # Return the leading text or textual command that could be used
 # for sorting.
 sub index_entry_first_letter_text_or_command($;$$) {
@@ -832,85 +815,6 @@ sub index_entry_first_letter_text_or_command($;$$) {
                                                         $ignore_chars);
     return ($text, $command);
   }
-}
-
-# Normally only called through get_converter_indices_sorted_by_*
-sub sort_indices_by_letter($;$$) {
-  my ($indices_sort_strings, $use_unicode_collation, $lang_sorting_locale) = @_;
-
-  my ($index_sortable_index_entries, $collator)
-     = _setup_sort_sortable_strings_collator($indices_sort_strings,
-                                             $use_unicode_collation,
-                                             $lang_sorting_locale);
-
-  if (!defined($index_sortable_index_entries)) {
-    return undef;
-  }
-
-  my $sorted_index_entries = {};
-  foreach my $index_name (keys(%$index_sortable_index_entries)) {
-    my $sortable_index_entries = $index_sortable_index_entries->{$index_name};
-    my $index_letter_hash = {};
-    foreach my $sortable_entry (@{$sortable_index_entries}) {
-      my $main_entry_sort_string
-        = $sortable_entry->{'entry_strings_alpha'}->[0]->{'sort_string'};
-      # the following line leads to each accented letter being separate
-      # $letter = uc(substr($main_entry_sort_string, 0, 1));
-      my $letter_string = uc(substr($main_entry_sort_string, 0, 1));
-      # determine main letter by decomposing and removing diacritics
-      my $letter = Unicode::Normalize::NFKD($letter_string);
-      $letter =~ s/\p{NonspacingMark}//g;
-      # following code is less good, as the upper-casing may lead to
-      # two letters in case of the german Eszett that becomes SS.  So
-      # it is better to upper-case first and remove diacritics after.
-      #my $normalized_string
-      #  = Unicode::Normalize::NFKD(uc($main_entry_sort_string));
-      #$normalized_string =~ s/\p{NonspacingMark}//g;
-      #$letter = substr($normalized_string, 0, 1);
-
-      push @{$index_letter_hash->{$letter}}, $sortable_entry;
-    }
-
-    my @letter_keys;
-    foreach my $letter (keys %$index_letter_hash) {
-      my $sort_key = $collator->getSortKey($letter);
-      push @letter_keys, [$sort_key, $letter, $index_letter_hash->{$letter}];
-    }
-
-    my @sorted_letters = sort{$a->[0] cmp $b->[0]} @letter_keys;
-
-    foreach my $letter_and_entries (@sorted_letters) {
-      my $letter = $letter_and_entries->[1];
-      my @sorted_letter_entries
-         = map {$_->{'entry'}} sort {_sort_index_entries($a, $b)}
-                                            @{$letter_and_entries->[2]};
-      push @{$sorted_index_entries->{$index_name}},
-        { 'letter' => $letter, 'entries' => \@sorted_letter_entries };
-    }
-  }
-  return $sorted_index_entries;
-}
-
-# Normally called through Texinfo::Document::merged_indices only
-sub merge_indices($) {
-  my $indices_information = shift;
-
-  my $merged_index_entries;
-  foreach my $index_name (keys(%$indices_information)) {
-    my $index_info = $indices_information->{$index_name};
-    if ($index_info->{'index_entries'}) {
-      $merged_index_entries = {} if (! $merged_index_entries);
-      my $in_idx_name = $index_name;
-      if ($index_info->{'merged_in'}) {
-        my $ultimate_idx = Texinfo::Common::ultimate_index($indices_information,
-                                                           $index_info);
-        $in_idx_name = $ultimate_idx->{'name'};
-      }
-      push @{$merged_index_entries->{$in_idx_name}},
-        @{$index_info->{'index_entries'}};
-    }
-  }
-  return $merged_index_entries;
 }
 
 # textual representation on indices themselves (not on the index entries)
