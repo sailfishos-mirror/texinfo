@@ -50,6 +50,13 @@ Collation_choice unicoll_set_contractions (Collation_choice collation,
     return (collation | UNICOLL_CONTRACTIONS_MASK);
 }
 
+/* forward declaration */
+static char *make_key_internal (char *psort_key,
+                   struct collation_unit *elements,
+                   size_t elements_count,
+                   int variable_shifted_or_blanked,
+                   int variable_shifted);
+
 char *
 u32_make_collation_key (Collation_choice collation,
                         const char32_t *codepoints_in, size_t length_in,
@@ -201,6 +208,26 @@ u32_make_collation_key (Collation_choice collation,
     }
 
   psort_key = sort_key;
+  psort_key = make_key_internal (psort_key, elements, elements_count,
+                                 variable_shifted_or_blanked,
+                                 variable_shifted);
+
+  *psort_key = '\0';
+  *lengthp = psort_key - sort_key;
+
+  free (elements);
+  free (codepoints);
+
+  return sort_key;
+}
+
+static char *
+make_key_internal (char *psort_key,
+                   struct collation_unit *elements,
+                   size_t elements_count,
+                   int variable_shifted_or_blanked,
+                   int variable_shifted)
+{
 
 #define cat(c) (*psort_key++ = (c))
 
@@ -369,14 +396,7 @@ u32_make_collation_key (Collation_choice collation,
           last_was_variable = variable_element;
         }
     }
-
-  *psort_key = '\0';
-  *lengthp = psort_key - sort_key;
-
-  free (elements);
-  free (codepoints);
-
-  return sort_key;
+  return psort_key;
 }
 
 char *
