@@ -861,9 +861,7 @@ Other functions.
 =over
 
 =item $entry_content_element = element_index_content_element($element, $prefer_reference_element, $debug_level)
-
-=item $entry_content_element = converter_index_content_element($element, $converter, $prefer_reference_element)
-X<C<element_index_content_element>> X<C<converter_index_content_element>>
+X<C<element_index_content_element>>
 
 Return a Texinfo tree element corresponding to the content of the index
 entry associated to I<$element>.  If I<$prefer_reference_element> is set,
@@ -871,21 +869,6 @@ prefer an untranslated element.  If the element is an index command like
 C<@cindex> or an C<@ftable> C<@item>, the content element is the argument
 of the command.  If the element is an object-oriented definition, the index
 entry element is based on the name and class, with a translation.
-
-The two functions are similar.  C<converter_index_content_element> use the
-converter in argument for the translation for index entries with an index entry
-element based on a translation and should be called from converters.
-
-=item ($text, $command) = index_entry_first_letter_text_or_command($index_entry, $converter, $debug_level)
-
-Return the I<$index_entry> leading text I<$text> or textual command Texinfo
-tree hash reference I<$command>.  Here textual commands means accent
-commands, brace commands without arguments used for character and glyph
-insertion and C<@U>.
-
-This method can in particular be used to format the leading letter
-of an index entry using I<$command> instead of using the sort string letters
-returned by C<sort_indices_by_letter>.
 
 =back
 

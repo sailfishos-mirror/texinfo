@@ -2718,6 +2718,16 @@ L<Texinfo::Convert::Utils>.
 
 =over
 
+=item $entry_content_element = $converter->converter_index_content_element($element, $prefer_reference_element)
+X<C<converter_index_content_element>>
+
+Return a Texinfo tree element corresponding to the content of the index
+entry associated to I<$element>.  If I<$prefer_reference_element> is set,
+prefer an untranslated element.  If the element is an index command like
+C<@cindex> or an C<@ftable> C<@item>, the content element is the argument
+of the command.  If the element is an object-oriented definition, the index
+entry element is based on the name and class, with a translation.
+
 =item $succeeded = $converter->create_destination_directory($destination_directory_path, $destination_directory_name)
 X<C<create_destination_directory>>
 
@@ -2787,6 +2797,18 @@ X<C<float_type_number>>
 I<$float> is a Texinfo tree C<@float> element.  This function
 returns the type and number of the float as a Texinfo tree with
 translations.
+
+=item ($text, $command) = $converter->index_entry_first_letter_text_or_command($index_entry, $debug_level)
+X<C<index_entry_first_letter_text_or_command>>
+
+Return the I<$index_entry> leading text I<$text> or textual command Texinfo
+tree hash reference I<$command>.  Here textual commands means accent
+commands, brace commands without arguments used for character and glyph
+insertion and C<@U>.
+
+This method can in particular be used to format the leading letter
+of an index entry using I<$command> instead of using the sort string letters
+returned by C<sort_indices_by_letter>.
 
 =item $filename = $converter->node_information_filename($normalized, $label_element)
 X<C<node_information_filename>>
