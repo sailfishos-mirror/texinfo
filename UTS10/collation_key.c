@@ -202,6 +202,8 @@ u32_make_collation_key (Collation_choice collation,
 
   psort_key = sort_key;
 
+#define cat(c) (*psort_key++ = (c))
+
   /* Output collation key without any null bytes.
      See UTS#10 s.9.4 "Avoiding Zero Bytes". */
 
@@ -225,13 +227,13 @@ u32_make_collation_key (Collation_choice collation,
               errno = EINVAL;
               return 0;
             }
-          *psort_key++ = (weight / 0xFF) + 1;
-          *psort_key++ = (weight % 0xFF) + 1;
+          cat ((weight / 0xFF) + 1);
+          cat ((weight % 0xFF) + 1);
         }
     }
 
-  *psort_key++ = '\x01';
-  *psort_key++ = '\x01';
+  cat ('\x01');
+  cat ('\x01');
 
   /* Secondary */
   int last_was_variable = 0;
@@ -266,14 +268,14 @@ u32_make_collation_key (Collation_choice collation,
               errno = EINVAL;
               return 0;
             }
-          *psort_key++ = weight + 1;
+          cat (weight + 1);
         }
       last_was_variable = 0;
     }
 
   /* As we only use a single byte per unit at secondary and tertiary levels,
      a single byte suffices as a level separator. */
-  *psort_key++ = '\x01';
+  cat ('\x01');
 
   /* Tertiary */
   last_was_variable = 0;
@@ -308,7 +310,7 @@ u32_make_collation_key (Collation_choice collation,
               errno = EINVAL;
               return 0;
             }
-          *psort_key++ = weight + 1;
+          cat (weight + 1);
         }
     }
 
@@ -319,7 +321,7 @@ u32_make_collation_key (Collation_choice collation,
       /* Quaternary level.  Only significant if sort keys are identical
          up to this point.  As we only use single bytes at tertiary level,
          a single byte separator should suffice. */
-      *psort_key++ = '\x01';
+      cat ('\x01');
 
       last_was_variable = 0;
       for (size_t i = 0; i < elements_count; i++)
@@ -347,22 +349,22 @@ u32_make_collation_key (Collation_choice collation,
                   errno = EINVAL;
                   return 0;
                 }
-              *psort_key++ = (weight / 0xFF) + 1;
-              *psort_key++ = (weight % 0xFF) + 1;
+              cat ((weight / 0xFF) + 1);
+              cat ((weight % 0xFF) + 1);
             }
           else if (!elements[i].primary
                    && (elements[i].secondary || elements[i].tertiary)
                    && !last_was_variable)
             {
               /* This needs to be greater than any shifted weights. */
-              *psort_key++ = 0xFF;
-              *psort_key++ = 0xFF;
+              cat (0xFF);
+              cat (0xFF);
             }
           else if (elements[i].primary && !variable_element)
             {
               /* This needs to be greater than any shifted weights. */
-              *psort_key++ = 0xFF;
-              *psort_key++ = 0xFF;
+              cat (0xFF);
+              cat (0xFF);
             }
           last_was_variable = variable_element;
         }
