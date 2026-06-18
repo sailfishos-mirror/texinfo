@@ -271,8 +271,8 @@ sub chm_init($)
 
         my $origin_href = $self->command_href($main_entry_element, '');
         my $entry_content_element
-          = Texinfo::Indices::converter_index_content_element(
-                                  $main_entry_element, $self, 0);
+          = $self->converter_index_content_element($main_entry_element);
+
         my $index_name = $index_entry_ref->{'index_name'};
         my $in_code = 0;
         $in_code = 1

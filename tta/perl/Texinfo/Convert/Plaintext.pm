@@ -1943,8 +1943,7 @@ sub process_printindex($$;$) {
     my $main_entry_element = $entry->{'entry_element'};
     my $entry_index_name = $entry->{'index_name'};
     my $entry_content_element
-      = Texinfo::Indices::converter_index_content_element(
-                                       $main_entry_element, $self, 0);
+      = $self->converter_index_content_element($main_entry_element);
     my $entry_tree
      = Texinfo::TreeElement::new({'contents' => [$entry_content_element]});
     my $subentries_tree

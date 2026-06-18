@@ -1,5 +1,14 @@
 2026-06-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm
+	(converter_index_content_element, _idx_leading_text_or_command)
+	(index_entry_first_letter_text_or_command),
+	tta/perl/Texinfo/Indices.pm: move
+	index_entry_first_letter_text_or_command and
+	converter_index_content_element to Converter.  Update callers.
+
+2026-06-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/ConverterNonXS.pm
 	(_get_collation_lang_info, get_converter_indices_sorted_by_index)
 	(get_converter_indices_sorted_by_letter): merge condition determining

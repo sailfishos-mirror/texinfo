@@ -35,12 +35,6 @@ use Texinfo::Common;
 
 use Texinfo::Convert::Text;
 
-# There is a full coverage by the C implementation.
-# Relevant XS interfaces are all implemented.
-# index_entry_first_letter_text_or_command has a C implementation, but no
-# XS override, because it is only a helper function, if needed the calling
-# functions should have XS interfaces.
-
 # Only called from converters.  Called directly, not through index sorting
 # functions.
 # The options setup are typically used in calls to
@@ -90,8 +84,8 @@ sub index_entry_element_sort_string($$$$;$$$) {
     my $entry_tree_element;
     if (defined($converter)) {
       $entry_tree_element
-        = converter_index_content_element($index_entry_element, $converter,
-                                $prefer_reference_element);
+        = $converter->converter_index_content_element($index_entry_element,
+                                                $prefer_reference_element);
     } else {
       $entry_tree_element
         = element_index_content_element($index_entry_element,

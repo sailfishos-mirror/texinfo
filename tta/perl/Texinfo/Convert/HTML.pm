@@ -83,8 +83,6 @@ use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
 use Texinfo::OutputUnits;
-# for index_entry_first_letter_text_or_command
-use Texinfo::Indices;
 
 use Texinfo::Convert::Converter;
 
@@ -4804,8 +4802,7 @@ sub _convert_printindex_command($$$$) {
                                 $index_entry_ref, $formatted_index_entry_nr);
 
       my $entry_content_element
-        = Texinfo::Indices::converter_index_content_element(
-                                         $main_entry_element, $self, 0);
+        = $self->converter_index_content_element($main_entry_element);
 
       my $entry_index_name = $index_entry_ref->{'index_name'};
       my $in_code = 0;
@@ -5177,8 +5174,7 @@ sub _convert_printindex_command($$$$) {
       if (defined($first_entry)) {
         my $letter_text;
         ($letter_text, $letter_command)
-          = Texinfo::Indices::index_entry_first_letter_text_or_command(
-                                                     $first_entry, $self);
+          = $self->index_entry_first_letter_text_or_command($first_entry);
       }
 
       if (defined($letter_command)
