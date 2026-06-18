@@ -1,5 +1,22 @@
 2026-06-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_indices.c
+	(wrap_converter_index_content_element), tta/C/convert/converter.c,
+	tta/C/main/manipulate_indices.c (wrap_element_index_content_element)
+	(index_entry_element_sort_string, setup_index_entries_sort_strings),
+	tta/perl/XSTexinfo/parser_document/IndicesXS.xs
+	(index_entry_element_sort_string): add and use a function reference in
+	argument of entry_tree_element_sort_string for the
+	index_content_element call.  Add wrap_element_index_content_element
+	and wrap_converter_index_content_element around
+	*_index_content_element implementations to have a common prototype and
+	be passed or used in entry_tree_element_sort_string.  Pass to
+	index_content_element wrapper to setup_index_entries_sort_strings.
+	Remove converter_index_entry_element_sort_string and
+	entry_tree_element_sort_string.
+
+2026-06-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/manipulate_indices.c
 	(setup_sort_sortable_strings_collator), tta/perl/Texinfo/Indices.pm
 	(_setup_sort_sortable_strings_collator): inline

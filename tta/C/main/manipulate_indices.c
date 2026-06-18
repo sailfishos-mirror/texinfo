@@ -332,6 +332,17 @@ element_index_content_element (const ELEMENT *element,
   return index_element;
 }
 
+/* wrapper called as function reference, to have a common prototype */
+static ELEMENT *
+wrap_element_index_content_element (const ELEMENT *element,
+                               int prefer_reference_element,
+                               DOCUMENT *document, int debug_level,
+                               CONVERTER *converter)
+{
+  return element_index_content_element (element, prefer_reference_element,
+                                        document, debug_level);
+}
+
 
 
 /* indices entries sorting */
@@ -366,13 +377,44 @@ strip_index_ignore_chars (const char *string, const char *index_ignore_chars)
   return result_text.text;
 }
 
+/* the index_content_element_fn function is passed to be
+   able to use another function when called from converters and at
+   the same time, do not depend on the libtexinfo-converter library. */
 char *
-entry_tree_element_sort_string (const INDEX_ENTRY *main_entry,
-                                ELEMENT *entry_tree_element,
-                                TEXT_OPTIONS *options, int in_code)
+index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
+                                 const ELEMENT *index_entry_element,
+                                 TEXT_OPTIONS *options, int in_code,
+                                 int prefer_reference_element,
+                                 DOCUMENT *document, int debug_level,
+                                 CONVERTER *converter,
+      ELEMENT * (* index_content_element_fn) (
+                                   const ELEMENT *index_entry_element,
+                                   int prefer_reference_element,
+                                   DOCUMENT *document, int debug_level,
+                                   CONVERTER *converter)
+                                )
 {
   char *sort_string;
   const char *index_ignore_chars;
+  ELEMENT *entry_tree_element;
+
+  if (!index_entry_element)
+    {
+      fatal ("index_entry_element_sort_string: NULL element");
+    }
+
+  if (index_content_element_fn == 0)
+    index_content_element_fn
+      = &wrap_element_index_content_element;
+
+  char *sortas = lookup_extra_string (index_entry_element, AI_key_sortas);
+  if (sortas)
+    return strdup (sortas);
+
+  entry_tree_element = (* index_content_element_fn) (index_entry_element,
+                                          prefer_reference_element,
+                                          document, debug_level,
+                                          converter);
 
   if (in_code)
     options->code_state++;
@@ -392,40 +434,9 @@ entry_tree_element_sort_string (const INDEX_ENTRY *main_entry,
       free (sort_string);
       sort_string = sort_string_text;
     }
-  return sort_string;
-}
-
-/* also used as a function reference */
-char *
-index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
-                                 const ELEMENT *index_entry_element,
-                                 TEXT_OPTIONS *options, int in_code,
-                                 int prefer_reference_element,
-                                 DOCUMENT *document, int debug_level,
-                                 CONVERTER *converter)
-{
-  char *sort_string;
-  ELEMENT *entry_tree_element;
-
-  if (!index_entry_element)
-    {
-      fatal ("index_entry_element_sort_string: NULL element");
-    }
-
-  char *sortas = lookup_extra_string (index_entry_element, AI_key_sortas);
-  if (sortas)
-    return strdup (sortas);
-
-  entry_tree_element = element_index_content_element (index_entry_element,
-                                          prefer_reference_element,
-                                          document, debug_level);
-
-  sort_string = entry_tree_element_sort_string (main_entry,
-                                entry_tree_element, options, in_code);
 
   return sort_string;
 }
-
 
 typedef struct INDEX_COLLATOR {
     enum collation_type_name type;
@@ -540,19 +551,19 @@ destroy_index_entries_sort_strings (INDICES_SORT_STRINGS *indices_sort_strings)
   free (indices_sort_strings);
 }
 
-/* the index_entry_element_sort_string_fn function is passed to be
+/* the index_content_element_fn function is passed to be
    able to use another function when called from converters and at
    the same time, do not depend on the libtexinfo-converter library.
 
    There are two cases:
     * called from converter, the common case, both CONVERTER and
-      INDEX_ENTRY_ELEMENT_SORT_STRING_FN are set, the function ignores
+      INDEX_CONTENT_ELEMENT_FN are set, the function ignores
       debug_level (set from OPTIONS) and DOCUMENT (which is NULL in that
       case).  In that case (for HTML), the translations may be
       user-defined.
     * called otherwise, from tests or SWIG.  CONVERTER and
       INDEX_ENTRY_ELEMENT_SORT_STRING_FN are not set, DOCUMENT is set,
-      index_entry_element_sort_string is used, which uses DOCUMENT,
+      element_index_content_element is used, which uses DOCUMENT,
       although it is only to hold small strings from translations,
       and there should be none, the translations cannot be user-defined,
       DOCUMENT could also have been NULL.
@@ -564,9 +575,8 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                     int prefer_reference_element,
                     DOCUMENT *document,
                     CONVERTER *converter,
-   char *(*index_entry_element_sort_string_fn) (const INDEX_ENTRY *main_entry,
+      ELEMENT * (* index_content_element_fn) (
                                  const ELEMENT *index_entry_element,
-                                 TEXT_OPTIONS *options, int in_code,
                                  int prefer_reference_element,
                                  DOCUMENT *document, int debug_level,
                                  CONVERTER *converter)
@@ -576,9 +586,6 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
   TEXT_OPTIONS *convert_text_options;
   CONST_ELEMENT_LIST subentries_list;
   int debug_level = 0;
-
-  if (index_entry_element_sort_string_fn == 0)
-    index_entry_element_sort_string_fn = &index_entry_element_sort_string;
 
   if (merged_indices->number <= 0)
     return 0;
@@ -639,11 +646,12 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                                               index_entry->index_name);
 
               sort_string
-               = (*index_entry_element_sort_string_fn) (index_entry,
+                = index_entry_element_sort_string (index_entry,
                                      main_entry_element, convert_text_options,
                                      entry_index->in_code,
                                      prefer_reference_element, document,
-                                     debug_level, converter);
+                                     debug_level, converter,
+                                     index_content_element_fn);
 
               entry_sort_string.entry = index_entry;
               entry_sort_string.subentries_number = 1;
@@ -700,10 +708,11 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                           entry_sort_string.subentries_number -1];
 
                   sort_string
-                    = (*index_entry_element_sort_string_fn) (index_entry,
+                    = index_entry_element_sort_string (index_entry,
                                      subentry, convert_text_options,
                                      entry_index->in_code, 0, document,
-                                     debug_level, converter);
+                                     debug_level, converter,
+                                     index_content_element_fn);
 
                   if (sort_string[strspn
                      (sort_string, whitespace_chars)] == '\0')

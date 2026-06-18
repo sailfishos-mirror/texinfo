@@ -77,6 +77,17 @@ converter_index_content_element (const ELEMENT *element,
   return index_element;
 }
 
+/* wrapper called as function reference, to have a common prototype */
+ELEMENT *
+wrap_converter_index_content_element (const ELEMENT *element,
+                               int prefer_reference_element,
+                               DOCUMENT *document, int debug_level,
+                               CONVERTER *converter)
+{
+  return converter_index_content_element (element, converter,
+                                          prefer_reference_element);
+}
+
 
 
 /* representation of index entries letter */

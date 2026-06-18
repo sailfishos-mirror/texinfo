@@ -220,13 +220,6 @@ char *convert_accents (CONVERTER *self, const ELEMENT *accent,
   int output_encoded_characters,
   int set_case);
 
-char *converter_index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
-                                 const ELEMENT *index_entry_element,
-                                 struct TEXT_OPTIONS *options, int in_code,
-                                 int prefer_reference_element,
-                                 DOCUMENT *document,
-                                 int debug_level, CONVERTER *converter);
-
 INDEX_SORTED_BY_INDEX *get_converter_indices_sorted_by_index (CONVERTER *self,
                                                              char **language);
 INDEX_SORTED_BY_LETTER *get_converter_indices_sorted_by_letter

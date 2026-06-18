@@ -36,8 +36,8 @@
 #include "get_perl_info.h"
 /* get_sv_converter copy_sv_options_for_convert_text */
 #include "get_converter_perl_info.h"
-/* for converter_index_entry_element_sort_string */
-#include "converter.h"
+/* for wrap_converter_index_content_element */
+#include "convert_indices.h"
 /* for newSVpv_utf8 */
 #include "build_perl_info.h"
 
@@ -149,18 +149,19 @@ index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, S
 
             if (converter_sv && SvOK (converter_sv) && self)
               {
-                sort_string = converter_index_entry_element_sort_string (
+                sort_string = index_entry_element_sort_string (
                   main_entry, element, convert_index_text_options, in_code,
-                  prefer_reference_element, 0, 0, self);
+                  prefer_reference_element, 0, 0, self,
+                  &wrap_converter_index_content_element);
               }
             else
               {
                 if (debug_level_sv && SvOK (debug_level_sv))
                   debug_level = SvIV (debug_level_sv);
 
-                sort_string = index_entry_element_sort_string (main_entry,
-                          element, convert_index_text_options, in_code,
-                          prefer_reference_element, document, debug_level, 0);
+                sort_string = index_entry_element_sort_string (
+                  main_entry, element, convert_index_text_options, in_code,
+                  prefer_reference_element, document, debug_level, 0, 0);
               }
             if (allocated_text_options)
               destroy_text_options (convert_index_text_options);

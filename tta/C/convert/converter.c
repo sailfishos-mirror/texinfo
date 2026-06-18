@@ -1603,37 +1603,6 @@ lang_info_sorting_locale (const DOCUMENT_LANG_INFO *lang_info)
   return t_lang_sorting.text;
 }
 
-/* passed as a function reference */
-char *
-converter_index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
-                                 const ELEMENT *index_entry_element,
-                                 TEXT_OPTIONS *options, int in_code,
-                                 int prefer_reference_element,
-                                 DOCUMENT *document,
-                                 int debug_level, CONVERTER *converter)
-{
-  char *sort_string;
-  ELEMENT *entry_tree_element;
-
-  if (!index_entry_element)
-    {
-      fatal ("converter_index_entry_element_sort_string: NULL element");
-    }
-
-  char *sortas = lookup_extra_string (index_entry_element, AI_key_sortas);
-  if (sortas)
-    return strdup (sortas);
-
-  entry_tree_element = converter_index_content_element (index_entry_element,
-                                                        converter,
-                                                  prefer_reference_element);
-
-  sort_string = entry_tree_element_sort_string (main_entry,
-                                entry_tree_element, options, in_code);
-
-  return sort_string;
-}
-
 static const INDICES_SORT_STRINGS *
 converter_indices_sort_strings (CONVERTER *converter)
 {
@@ -1647,7 +1616,7 @@ converter_indices_sort_strings (CONVERTER *converter)
                         converter->conf,
                         merged_indices, &converter->document->indices_info,
                         0, 0, converter,
-                        &converter_index_entry_element_sort_string);
+                        &wrap_converter_index_content_element);
 
       /* document->modified_information |= F_DOCM_indices_sort_strings; */
     }

@@ -59,17 +59,6 @@ ELEMENT *element_index_content_element (const ELEMENT *element,
 char *strip_index_ignore_chars (const char *string,
                                 const char *index_ignore_chars);
 
-char *index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
-                                 const ELEMENT *index_entry_element,
-                                 struct TEXT_OPTIONS *options, int in_code,
-                                 int prefer_reference_element,
-                                 DOCUMENT *document,
-                                 int debug_level, CONVERTER *converter);
-char *entry_tree_element_sort_string (const INDEX_ENTRY *main_entry,
-                                      ELEMENT *entry_tree_element,
-                                      struct TEXT_OPTIONS *options,
-                                      int in_code);
-
 COLLATIONS_INDICES_SORTED_BY_INDEX *
 new_base_collations_sorted_indices_by_index (void);
 COLLATION_INDICES_SORTED_BY_INDEX *
@@ -89,6 +78,19 @@ get_collation_sorted_indices_by_letter (
                                        const char *collation_locale,
                                        const char **lang_sorting_locale_out);
 
+char *
+index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
+                                 const ELEMENT *index_entry_element,
+                                 struct TEXT_OPTIONS *options, int in_code,
+                                 int prefer_reference_element,
+                                 DOCUMENT *document, int debug_level,
+                                 CONVERTER *converter,
+      ELEMENT * (* index_content_element_fn) (
+                                   const ELEMENT *index_entry_element,
+                                   int prefer_reference_element,
+                                   DOCUMENT *document, int debug_level,
+                                   CONVERTER *converter)
+                                );
 void destroy_index_entries_sort_strings (
                           INDICES_SORT_STRINGS *indices_sort_strings);
 INDICES_SORT_STRINGS *setup_index_entries_sort_strings (
@@ -97,12 +99,11 @@ INDICES_SORT_STRINGS *setup_index_entries_sort_strings (
                     INDEX_LIST *indices_information,
                     int prefer_reference_element,
                     DOCUMENT *document, CONVERTER *converter,
-   char *(*index_entry_element_sort_string_fn) (const INDEX_ENTRY *main_entry,
+      ELEMENT * (* index_content_element_fn) (
                                  const ELEMENT *index_entry_element,
-                                 struct TEXT_OPTIONS *options, int in_code,
                                  int prefer_reference_element,
-                                 DOCUMENT *document,
-                                 int debug_level, CONVERTER *converter)
+                                 DOCUMENT *document, int debug_level,
+                                 CONVERTER *converter)
 );
 
 void destroy_sorted_indices_by_index (
