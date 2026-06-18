@@ -50,12 +50,23 @@ Collation_choice unicoll_set_contractions (Collation_choice collation,
     return (collation | UNICOLL_CONTRACTIONS_MASK);
 }
 
+/* If PARTIAL_KEY_ENABLED is non-zero, u*_make_collation_key does not
+   re-allocate RESULTBUF and will return a partial key (null-terminated)
+   if the full result would be longer than *LENGTHP bytes. */
+Collation_choice unicoll_enable_partial (Collation_choice collation,
+                                         int partial_key_enabled)
+{
+  if (!partial_key_enabled)
+    return (collation & ~UNICOLL_PARTIAL_MASK);
+  else
+    return (collation | UNICOLL_PARTIAL_MASK);
+}
+
 /* forward declaration */
 static char *make_key_internal (char *psort_key,
-                   struct collation_unit *elements,
-                   size_t elements_count,
-                   int variable_shifted_or_blanked,
-                   int variable_shifted);
+                   struct collation_unit *elements, size_t elements_count,
+                   int variable_shifted_or_blanked, int variable_shifted,
+                   char *limit);
 
 char *
 u32_make_collation_key (Collation_choice collation,
@@ -77,6 +88,8 @@ u32_make_collation_key (Collation_choice collation,
                                   || variable == UNICOLL_VARIABLE_BLANKED);
 
   int disable_sequence_lookup = (collation & UNICOLL_CONTRACTIONS_MASK);
+
+  int fix_length = 0;
 
   char32_t *codepoints;
   size_t length;
@@ -199,21 +212,31 @@ u32_make_collation_key (Collation_choice collation,
     sort_key = resultbuf;
   else
     {
-      sort_key = malloc (sort_key_alloc);
-      if (!sort_key)
+      int partial_key_enabled = (collation & UNICOLL_PARTIAL_MASK);
+      if (!partial_key_enabled)
         {
-          errno = ENOMEM;
-          return 0;
+          sort_key = malloc (sort_key_alloc);
+          if (!sort_key)
+            {
+              errno = ENOMEM;
+              return 0;
+            }
+        }
+      else
+        {
+          sort_key = resultbuf;
+          fix_length = 1;
         }
     }
 
   psort_key = sort_key;
   psort_key = make_key_internal (psort_key, elements, elements_count,
                                  variable_shifted_or_blanked,
-                                 variable_shifted);
+                                 variable_shifted,
+                                 fix_length ? &sort_key[*lengthp] : NULL);
 
   *psort_key = '\0';
-  *lengthp = psort_key - sort_key;
+  *lengthp = psort_key - sort_key + 1;
 
   free (elements);
   free (codepoints);
@@ -225,11 +248,16 @@ static char *
 make_key_internal (char *psort_key,
                    struct collation_unit *elements,
                    size_t elements_count,
-                   int variable_shifted_or_blanked,
-                   int variable_shifted)
+                   int variable_shifted_or_blanked, int variable_shifted,
+                   char *limit)
 {
 
-#define cat(c) (*psort_key++ = (c))
+#define cat(c) { \
+  if (psort_key == limit) return psort_key; \
+  else *psort_key++ = (c); \
+}
+  /* Note that we do not call malloc in this function so no clean-up
+     is required at function exit. */
 
   /* Output collation key without any null bytes.
      See UTS#10 s.9.4 "Avoiding Zero Bytes". */
@@ -397,6 +425,7 @@ make_key_internal (char *psort_key,
         }
     }
   return psort_key;
+#undef cat
 }
 
 char *

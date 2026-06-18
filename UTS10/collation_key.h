@@ -11,6 +11,7 @@
 #define UNICOLL_VARIABLE_MASK 0x3
 #define UNICOLL_NORMALIZATION_MASK 0x4
 #define UNICOLL_CONTRACTIONS_MASK 0x8
+#define UNICOLL_PARTIAL_MASK 0x10
 
 typedef uint_fast32_t Collation_choice;
 
@@ -21,6 +22,8 @@ Collation_choice unicoll_set_normalization (Collation_choice collation,
                                             int normalization_on);
 Collation_choice unicoll_set_contractions (Collation_choice collation,
                                             int use_contractions);
+Collation_choice unicoll_enable_partial (Collation_choice collation,
+                                         int partial_key_enabled);
 
 
 char *u8_make_collation_key (Collation_choice collation,
