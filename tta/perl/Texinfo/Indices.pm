@@ -536,8 +536,8 @@ sub _setup_collator($$) {
       $collator = Unicode::Collate->new(%collate_options);
     }
   } else {
-    # stub if Unicode::Collate not wanted.
-    $collator = Texinfo::CollateStub->new() if (!defined($collator));
+    # stub if Unicode::Collate is not wanted.
+    $collator = Texinfo::CollateStub->new();
   }
 
   return $collator;

@@ -1,5 +1,21 @@
 2026-06-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (get_converter_indices_sorted_by_index)
+	(get_converter_indices_sorted_by_letter),
+	tta/perl/Texinfo/Convert/Converter.pm,
+	tta/perl/Texinfo/Convert/ConverterNonXS.pm
+	(get_converter_indices_sorted_by_letter)
+	(get_converter_indices_sorted_by_index): inline and remove
+	converter_sorted_indices_by_index in
+	get_converter_indices_sorted_by_index and
+	converter_sorted_indices_by_letter in
+	get_converter_indices_sorted_by_letter.
+
+	* tta/perl/Texinfo/Indices.pm (_setup_collator): remove useless
+	condition.
+
+2026-06-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/manipulate_indices.c: move code around.
 
 2026-06-18 Patrice Dumas  <pertusus@free.fr>

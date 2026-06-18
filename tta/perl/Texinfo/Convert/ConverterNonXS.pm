@@ -457,8 +457,31 @@ sub get_converter_indices_sorted_by_letter($) {
         }
       }
 
-      return _converter_sorted_indices_by_letter($self,
-                               $use_unicode_collation, $lang_sorting_locale);
+      my $lang_key;
+      if (!$use_unicode_collation) {
+        $lang_key = '';
+      } elsif (!defined($lang_sorting_locale)) {
+        # special name corresponding to Unicode Collation with 'Non-Ignorable'
+        # set for variable collation elements
+        $lang_key = '-';
+      } else {
+        $lang_key = $lang_sorting_locale;
+      }
+
+      $self->{'sorted_indices_by_letter'} = {}
+        if (!exists($self->{'sorted_indices_by_letter'}));
+
+      # calls Texinfo::Indices::sort_indices_by_letter and caches the result.
+      if (!exists($self->{'sorted_indices_by_letter'}->{$lang_key})) {
+        my $indices_sort_strings = _converter_indices_sort_strings($self);
+
+        $self->{'sorted_indices_by_letter'}->{$lang_key}
+          = Texinfo::Indices::sort_indices_by_letter(
+                     $indices_sort_strings,
+                     $use_unicode_collation, $lang_sorting_locale);
+      }
+
+      return $self->{'sorted_indices_by_letter'}->{$lang_key};
     }
   }
   return undef;
@@ -491,8 +514,30 @@ sub get_converter_indices_sorted_by_index($) {
         }
       }
 
-      return _converter_sorted_indices_by_index($self,
-                                $use_unicode_collation, $lang_sorting_locale);
+      my $lang_key;
+      if (!$use_unicode_collation) {
+        $lang_key = '';
+      } elsif (!defined($lang_sorting_locale)) {
+        # special name corresponding to Unicode Collation with 'Non-Ignorable'
+        # set for variable collation elements
+        $lang_key = '-';
+      } else {
+        $lang_key = $lang_sorting_locale;
+      }
+
+      $self->{'sorted_indices_by_index'} = {}
+        if (!exists($self->{'sorted_indices_by_index'}));
+
+      # calls Texinfo::Indices::sort_indices_by_index and caches the result.
+      if (!exists($self->{'sorted_indices_by_index'}->{$lang_key})) {
+        my $indices_sort_strings = _converter_indices_sort_strings($self);
+
+        $self->{'sorted_indices_by_index'}->{$lang_key}
+          = Texinfo::Indices::sort_indices_by_index(
+                       $indices_sort_strings,
+                       $use_unicode_collation, $lang_sorting_locale);
+      }
+      return $self->{'sorted_indices_by_index'}->{$lang_key};
     }
   }
   return undef;

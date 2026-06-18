@@ -1623,46 +1623,6 @@ converter_indices_sort_strings (CONVERTER *converter)
   return converter->indices_sort_strings;
 }
 
-static COLLATION_INDICES_SORTED_BY_INDEX *
-converter_sorted_indices_by_index (CONVERTER *converter,
-                         int use_unicode_collation,
-                         const char *input_lang_sorting_locale,
-                         const char *collation_locale)
-{
-  const char *lang_sorting_locale = 0;
-  COLLATIONS_INDICES_SORTED_BY_INDEX *collations;
-  COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices = 0;
-
-  if (!converter->sorted_indices_by_index)
-    converter->sorted_indices_by_index
-      = new_base_collations_sorted_indices_by_index ();
-
-  collations = converter->sorted_indices_by_index;
-
-  collation_sorted_indices
-    = get_collation_sorted_indices_by_index (collations,
-                                             use_unicode_collation,
-                                             input_lang_sorting_locale,
-                                             collation_locale,
-                                             &lang_sorting_locale);
-
-  if (!collation_sorted_indices->sorted_indices)
-    {
-      document_merged_indices (converter->document);
-
-      const INDICES_SORT_STRINGS *indices_sort_strings
-             = converter_indices_sort_strings (converter);
-
-      collation_sorted_indices->sorted_indices
-        = sort_indices_by_index (indices_sort_strings,
-                                 &converter->error_messages,
-                                 converter->conf,
-                                 use_unicode_collation, lang_sorting_locale,
-                                 collation_locale);
-    }
-  return collation_sorted_indices;
-}
-
 INDEX_SORTED_BY_INDEX *
 get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
 {
@@ -1670,27 +1630,47 @@ get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
   if (self->document)
     {
       COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices;
-      char *lang_sorting_locale = 0;
+      char *input_lang_sorting_locale = 0;
+      const char *lang_sorting_locale = 0;
+
+      if (!self->sorted_indices_by_index)
+        self->sorted_indices_by_index
+          = new_base_collations_sorted_indices_by_index ();
 
       if (self->conf->USE_UNICODE_COLLATION.o.integer >= 0)
         {
           if (self->conf->COLLATION_LANGUAGE.o.string)
-            lang_sorting_locale
+            input_lang_sorting_locale
               = strdup (self->conf->COLLATION_LANGUAGE.o.string);
           else if (self->conf->DOCUMENTLANGUAGE_COLLATION.o.integer > 0
                    && self->current_lang_translations)
-            lang_sorting_locale = lang_info_sorting_locale
+            input_lang_sorting_locale = lang_info_sorting_locale
                               (self->current_lang_translations->info);
         }
 
       collation_sorted_indices
-        = converter_sorted_indices_by_index (self,
-                                   self->conf->USE_UNICODE_COLLATION.o.integer,
-                                   lang_sorting_locale,
-                           self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);
+        = get_collation_sorted_indices_by_index (
+                           self->sorted_indices_by_index,
+                           self->conf->USE_UNICODE_COLLATION.o.integer,
+                           input_lang_sorting_locale,
+                           self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string,
+                           &lang_sorting_locale);
 
-      if (lang_sorting_locale)
-        free (lang_sorting_locale);
+      if (input_lang_sorting_locale)
+        free (input_lang_sorting_locale);
+
+      if (!collation_sorted_indices->sorted_indices)
+        {
+          const INDICES_SORT_STRINGS *indices_sort_strings
+                 = converter_indices_sort_strings (self);
+
+          collation_sorted_indices->sorted_indices
+            = sort_indices_by_index (indices_sort_strings,
+                           &self->error_messages, self->conf,
+                           self->conf->USE_UNICODE_COLLATION.o.integer,
+                           lang_sorting_locale,
+                           self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);
+        }
 
       if (collation_sorted_indices->type != ctn_locale_collation)
         *language = collation_sorted_indices->language;
@@ -1700,47 +1680,6 @@ get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
   return 0;
 }
 
-static COLLATION_INDICES_SORTED_BY_LETTER *
-converter_sorted_indices_by_letter (CONVERTER *converter,
-                          int use_unicode_collation,
-                          const char *input_lang_sorting_locale,
-                          const char *collation_locale)
-{
-  const char *lang_sorting_locale = 0;
-  COLLATIONS_INDICES_SORTED_BY_LETTER *collations;
-  COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices = 0;
-
-  if (!converter->sorted_indices_by_letter)
-    {
-      converter->sorted_indices_by_letter
-        = new_base_collations_sorted_indices_by_letter ();
-    }
-
-  collations = converter->sorted_indices_by_letter;
-
-  collation_sorted_indices
-   = get_collation_sorted_indices_by_letter (collations,
-                                             use_unicode_collation,
-                                             input_lang_sorting_locale,
-                                             collation_locale,
-                                             &lang_sorting_locale);
-
-  if (!collation_sorted_indices->sorted_indices)
-    {
-      document_merged_indices (converter->document);
-
-      const INDICES_SORT_STRINGS *indices_sort_strings
-             = converter_indices_sort_strings (converter);
-
-      collation_sorted_indices->sorted_indices
-        = sort_indices_by_letter (indices_sort_strings,
-                                  &converter->error_messages, converter->conf,
-                                  use_unicode_collation, lang_sorting_locale,
-                                  collation_locale);
-    }
-  return collation_sorted_indices;
-}
-
 INDEX_SORTED_BY_LETTER *
 get_converter_indices_sorted_by_letter (CONVERTER *self, char **language)
 {
@@ -1748,27 +1687,49 @@ get_converter_indices_sorted_by_letter (CONVERTER *self, char **language)
   if (self->document)
     {
       COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices;
-      char *lang_sorting_locale = 0;
+      char *input_lang_sorting_locale = 0;
+      const char *lang_sorting_locale;
+
+      if (!self->sorted_indices_by_letter)
+        {
+          self->sorted_indices_by_letter
+            = new_base_collations_sorted_indices_by_letter ();
+        }
 
       if (self->conf->USE_UNICODE_COLLATION.o.integer >= 0)
         {
           if (self->conf->COLLATION_LANGUAGE.o.string)
-            lang_sorting_locale
+            input_lang_sorting_locale
               = strdup (self->conf->COLLATION_LANGUAGE.o.string);
           else if (self->conf->DOCUMENTLANGUAGE_COLLATION.o.integer > 0
                    && self->current_lang_translations)
-            lang_sorting_locale = lang_info_sorting_locale
-                              (self->current_lang_translations->info);
+            input_lang_sorting_locale = lang_info_sorting_locale (
+                              self->current_lang_translations->info);
         }
 
       collation_sorted_indices
-        = converter_sorted_indices_by_letter (self,
-                                    self->conf->USE_UNICODE_COLLATION.o.integer,
-                                    lang_sorting_locale,
-                            self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);
+       = get_collation_sorted_indices_by_letter (
+                               self->sorted_indices_by_letter,
+                               self->conf->USE_UNICODE_COLLATION.o.integer,
+                               input_lang_sorting_locale,
+                               self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string,
+                               &lang_sorting_locale);
 
-      if (lang_sorting_locale)
-        free (lang_sorting_locale);
+      if (input_lang_sorting_locale)
+        free (input_lang_sorting_locale);
+
+      if (!collation_sorted_indices->sorted_indices)
+        {
+          const INDICES_SORT_STRINGS *indices_sort_strings
+             = converter_indices_sort_strings (self);
+
+          collation_sorted_indices->sorted_indices
+            = sort_indices_by_letter (indices_sort_strings,
+                            &self->error_messages, self->conf,
+                            self->conf->USE_UNICODE_COLLATION.o.integer,
+                            lang_sorting_locale,
+                            self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);
+        }
 
       if (collation_sorted_indices->type != ctn_locale_collation)
         *language = collation_sorted_indices->language;
