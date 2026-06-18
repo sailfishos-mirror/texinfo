@@ -1,5 +1,13 @@
 2026-06-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/ConverterNonXS.pm
+	(_get_collation_lang_info, get_converter_indices_sorted_by_index)
+	(get_converter_indices_sorted_by_letter): merge condition determining
+	language and lang_key.  Add _get_collation_lang_info for the common
+	code determining language and lang_key.
+
+2026-06-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (get_converter_indices_sorted_by_index)
 	(get_converter_indices_sorted_by_letter),
 	tta/perl/Texinfo/Convert/Converter.pm,
