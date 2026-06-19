@@ -29,6 +29,45 @@ Collation_choice unicoll_set_variable (Collation_choice collation,
   return (Collation_choice) (collation & ~UNICOLL_VARIABLE_MASK) | variable;
 }
 
+/* Set bit to disable output of a collation level. */
+Collation_choice unicoll_disable_level (Collation_choice collation, int level)
+{
+  switch (level)
+  {
+    case 1:
+      return (collation | UNICOLL_LEVEL1_BIT);
+    case 2:
+      return (collation | UNICOLL_LEVEL2_BIT);
+    case 3:
+      return (collation | UNICOLL_LEVEL3_BIT);
+    case 4:
+      return (collation | UNICOLL_LEVEL4_BIT);
+    default:
+      errno = EINVAL;
+      return collation;
+  }
+}
+
+/* Clear bit to enable output of a collation level. */
+Collation_choice unicoll_enable_level (Collation_choice collation, int level)
+{
+  switch (level)
+  {
+    case 1:
+      return (collation & ~UNICOLL_LEVEL1_BIT);
+    case 2:
+      return (collation & ~UNICOLL_LEVEL2_BIT);
+    case 3:
+      return (collation & ~UNICOLL_LEVEL3_BIT);
+    case 4:
+      return (collation & ~UNICOLL_LEVEL4_BIT);
+    default:
+      errno = EINVAL;
+      return collation;
+  }
+}
+
+
 Collation_choice unicoll_set_normalization (Collation_choice collation,
                                             int normalization_on)
 {
@@ -63,9 +102,11 @@ Collation_choice unicoll_enable_partial (Collation_choice collation,
 }
 
 /* forward declaration */
-static char *make_key_internal (char *psort_key,
+static char *
+make_key_internal (char *psort_key,
                    struct collation_unit *elements, size_t elements_count,
                    int variable_shifted_or_blanked, int variable_shifted,
+                   int primaryp, int secondaryp, int tertiaryp,
                    char *limit);
 
 char *
@@ -194,16 +235,42 @@ u32_make_collation_key (Collation_choice collation,
   char *psort_key;
   size_t sort_key_alloc;
 
-  /* Three levels (primary/secondary/tertiary).  Two bytes per
-     collation element at primary, one byte at secondary, one byte
-     at tertiary.  "\x01\x01" between primary and secondary level
-     and "\x01" between secondary and tertiary level.  Not all of
-     these bytes are used if there are null weights. */
-  sort_key_alloc = num_elements * 4 + 3;
+  int primaryp, secondaryp, tertiaryp, quaternaryp;
+  primaryp = !(collation & UNICOLL_LEVEL1_BIT);
+  secondaryp = !(collation & UNICOLL_LEVEL2_BIT);
+  tertiaryp = !(collation & UNICOLL_LEVEL3_BIT);
+  quaternaryp = !(collation & UNICOLL_LEVEL4_BIT);
 
-  /* Add space for quaternary level if necessary. */
+  if (!quaternaryp)
+    variable_shifted = 0;
+
+  sort_key_alloc = 0;
+  if (primaryp)
+    {
+      /* Two bytes per collation element plus "\x01\x01" separator. */
+      sort_key_alloc += num_elements * 2;
+      if (secondaryp || tertiaryp || variable_shifted)
+        sort_key_alloc += 2;
+    }
+  if (secondaryp)
+    {
+      /* One byte per collation element plus "\x01" separator. */
+      sort_key_alloc += num_elements * 1;
+      if (tertiaryp || variable_shifted)
+        sort_key_alloc += 1;
+    }
+  if (tertiaryp)
+    {
+      /* One byte per collation element plus "\x01" separator. */
+      sort_key_alloc += num_elements * 1;
+      if (variable_shifted)
+        sort_key_alloc += 1;
+    }
   if (variable_shifted)
-    sort_key_alloc += 1 + num_elements * 2;
+    {
+      /* Two bytes per collation element. */
+      sort_key_alloc += num_elements * 2;
+    }
 
   /* Terminating null. */
   sort_key_alloc++;
@@ -231,8 +298,8 @@ u32_make_collation_key (Collation_choice collation,
 
   psort_key = sort_key;
   psort_key = make_key_internal (psort_key, elements, elements_count,
-                                 variable_shifted_or_blanked,
-                                 variable_shifted,
+                                 variable_shifted_or_blanked, variable_shifted,
+                                 primaryp, secondaryp, tertiaryp,
                                  fix_length ? &sort_key[*lengthp] : NULL);
 
   *psort_key = '\0';
@@ -246,11 +313,12 @@ u32_make_collation_key (Collation_choice collation,
 
 static char *
 make_key_internal (char *psort_key,
-                   struct collation_unit *elements,
-                   size_t elements_count,
+                   struct collation_unit *elements, size_t elements_count,
                    int variable_shifted_or_blanked, int variable_shifted,
+                   int primaryp, int secondaryp, int tertiaryp,
                    char *limit)
 {
+  int last_was_variable;
 
 #define cat(c) { \
   if (psort_key == limit) return psort_key; \
@@ -262,121 +330,130 @@ make_key_internal (char *psort_key,
   /* Output collation key without any null bytes.
      See UTS#10 s.9.4 "Avoiding Zero Bytes". */
 
-  /* Primary */
-  for (size_t i = 0; i < elements_count; i++)
+  if (primaryp)
     {
-      uint16_t weight = elements[i].primary;
-
-      if (variable_shifted_or_blanked
-          && collation_element_is_variable (&elements[i]))
+      for (size_t i = 0; i < elements_count; i++)
         {
-          /* Skip at primary level. */
-          continue;
+          uint16_t weight = elements[i].primary;
+
+          if (variable_shifted_or_blanked
+              && collation_element_is_variable (&elements[i]))
+            {
+              /* Skip at primary level. */
+              continue;
+            }
+
+          if (weight)
+            {
+              if (weight > 0xFE00)
+                {
+                  /* bug: primary weight too high */
+                  errno = EINVAL;
+                  return 0;
+                }
+              cat ((weight / 0xFF) + 1);
+              cat ((weight % 0xFF) + 1);
+            }
         }
 
-      if (weight)
+      if (secondaryp || tertiaryp || variable_shifted)
         {
-          if (weight > 0xFE00)
-            {
-              /* bug: primary weight too high */
-              errno = EINVAL;
-              return 0;
-            }
-          cat ((weight / 0xFF) + 1);
-          cat ((weight % 0xFF) + 1);
+          cat ('\x01');
+          cat ('\x01');
         }
     }
 
-  cat ('\x01');
-  cat ('\x01');
-
-  /* Secondary */
-  int last_was_variable = 0;
-  for (size_t i = 0; i < elements_count; i++)
+  if (secondaryp)
     {
-      if (variable_shifted_or_blanked
-          && collation_element_is_variable (&elements[i]))
-        {
-          /* Skip at secondary level. */
-          last_was_variable = 1;
-          continue;
-        }
-
-      if (last_was_variable)
-        {
-          /* Ignore completely - e.g. combining grave following a space. */
-          if (!elements[i].primary && elements[i].tertiary)
-            continue;
-
-          /* This could be a continuation element for a high secondary
-             weight. */
-          if (!elements[i].primary && elements[i].secondary)
-            continue;
-        }
-      uint16_t weight = elements[i].secondary;
-
-      if (weight)
-        {
-          if (weight == 0xFF)
-            {
-              /* bug: secondary weight too high */
-              errno = EINVAL;
-              return 0;
-            }
-          cat (weight + 1);
-        }
       last_was_variable = 0;
+      for (size_t i = 0; i < elements_count; i++)
+        {
+          if (variable_shifted_or_blanked
+              && collation_element_is_variable (&elements[i]))
+            {
+              /* Skip at secondary level. */
+              last_was_variable = 1;
+              continue;
+            }
+
+          if (last_was_variable)
+            {
+              /* Ignore completely - e.g. combining grave following a space. */
+              if (!elements[i].primary && elements[i].tertiary)
+                continue;
+
+              /* This could be a continuation element for a high secondary
+                 weight. */
+              if (!elements[i].primary && elements[i].secondary)
+                continue;
+            }
+          uint16_t weight = elements[i].secondary;
+
+          if (weight)
+            {
+              if (weight == 0xFF)
+                {
+                  /* bug: secondary weight too high */
+                  errno = EINVAL;
+                  return 0;
+                }
+              cat (weight + 1);
+            }
+          last_was_variable = 0;
+        }
+
+      /* As we only use a single byte per unit at secondary level,
+         a single byte suffices as a level separator. */
+      if (tertiaryp || variable_shifted)
+        cat ('\x01');
     }
 
-  /* As we only use a single byte per unit at secondary and tertiary levels,
-     a single byte suffices as a level separator. */
-  cat ('\x01');
-
-  /* Tertiary */
-  last_was_variable = 0;
-  for (size_t i = 0; i < elements_count; i++)
+  if (tertiaryp)
     {
-      if (variable_shifted_or_blanked
-          && collation_element_is_variable (&elements[i]))
+      last_was_variable = 0;
+      for (size_t i = 0; i < elements_count; i++)
         {
-          /* Skip at tertiary level. */
-          last_was_variable = 1;
-          continue;
-        }
-
-      if (last_was_variable)
-        {
-          /* Ignore completely - e.g. combining grave following a space. */
-          if (!elements[i].primary && elements[i].tertiary)
-            continue;
-
-          /* This could be a continuation element for a high secondary
-             weight. */
-          if (!elements[i].primary && elements[i].secondary)
-            continue;
-        }
-
-      uint8_t weight = elements[i].tertiary;
-      if (weight)
-        {
-          if (weight == 0xFF)
+          if (variable_shifted_or_blanked
+              && collation_element_is_variable (&elements[i]))
             {
-              /* bug: tertiary weight too high */
-              errno = EINVAL;
-              return 0;
+              /* Skip at tertiary level. */
+              last_was_variable = 1;
+              continue;
             }
-          cat (weight + 1);
+
+          if (last_was_variable)
+            {
+              /* Ignore completely - e.g. combining grave following a space. */
+              if (!elements[i].primary && elements[i].tertiary)
+                continue;
+
+              /* This could be a continuation element for a high secondary
+                 weight. */
+              if (!elements[i].primary && elements[i].secondary)
+                continue;
+            }
+
+          uint8_t weight = elements[i].tertiary;
+          if (weight)
+            {
+              if (weight == 0xFF)
+                {
+                  /* bug: tertiary weight too high */
+                  errno = EINVAL;
+                  return 0;
+                }
+              cat (weight + 1);
+            }
         }
+      /* As we only use a single byte per unit at tertiary level,
+         a single byte suffices as a level separator. */
+      if (variable_shifted)
+        cat ('\x01');
     }
 
   if (variable_shifted)
     {
       /* See UTS #10 c.4 "Variable Weighting". */
-
-      /* Quaternary level.  Only significant if sort keys are identical
-         up to this point.  As we only use single bytes at tertiary level,
-         a single byte separator should suffice. */
-      cat ('\x01');
 
       last_was_variable = 0;
       for (size_t i = 0; i < elements_count; i++)

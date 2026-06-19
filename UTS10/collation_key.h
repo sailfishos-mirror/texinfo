@@ -13,11 +13,22 @@
 #define UNICOLL_CONTRACTIONS_MASK 0x8
 #define UNICOLL_PARTIAL_MASK 0x10
 
+#define UNICOLL_LEVEL1_BIT 0x20
+#define UNICOLL_LEVEL2_BIT 0x40
+#define UNICOLL_LEVEL3_BIT 0x80
+#define UNICOLL_LEVEL4_BIT 0x100
+
 typedef uint_fast32_t Collation_choice;
 
 Collation_choice unicoll_default (void);
 Collation_choice unicoll_set_variable (Collation_choice collation,
                                        int variable);
+
+Collation_choice unicoll_disable_level (Collation_choice collation,
+                                        int level);
+Collation_choice unicoll_enable_level  (Collation_choice collation,
+                                        int level);
+
 Collation_choice unicoll_set_normalization (Collation_choice collation,
                                             int normalization_on);
 Collation_choice unicoll_set_contractions (Collation_choice collation,
