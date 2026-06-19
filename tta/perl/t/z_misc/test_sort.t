@@ -55,16 +55,15 @@ my $index_entries = $document->merged_indices();
 my $document_options = $main_configuration->get_customization_options_hash();
 $document->register_document_options($document_options);
 
-# test direct call of Texinfo::Indices::setup_index_entries_sort_strings.
 my $indices_sort_strings
   = Texinfo::Indices::setup_index_entries_sort_strings($document, undef,
                                       $index_entries, $indices_information);
 
-my $index_entries_sort_strings
-  = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
-
 my $sorted_index_entries
   = Texinfo::Indices::sort_indices_by_index($indices_sort_strings);
+
+my $index_entries_sort_strings
+  = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
 my @entries = ();
 foreach my $entry (@{$sorted_index_entries->{'cp'}}) {
@@ -133,13 +132,16 @@ $document = $parser->parse_texi_text('@node Top
 ');
 
 $document->register_document_options($document_options);
+$indices_information = $document->indices_information();
+$index_entries = $document->merged_indices();
 $indices_sort_strings
-  = Texinfo::Document::document_indices_sort_strings($document);
-$index_entries_sort_strings
-  = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
-
+  = Texinfo::Indices::setup_index_entries_sort_strings($document, undef,
+                                      $index_entries, $indices_information);
 $sorted_index_entries
   = Texinfo::Indices::sort_indices_by_index($indices_sort_strings);
+
+$index_entries_sort_strings
+  = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
 @entries = ();
 foreach my $entry (@{$sorted_index_entries->{'cp'}}) {

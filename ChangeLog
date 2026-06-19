@@ -1,5 +1,13 @@
 2026-06-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/z_misc/test_sort.t: replace a call of
+	document_indices_sort_strings by a call of
+	Texinfo::Indices::setup_index_entries_sort_strings, such that
+	document_indices_sort_strings is only called from XS overriden
+	functions.
+
+2026-06-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (fill_document_hv): do not build the
 	'index_entries_sort_strings' hash of built Perl Document, it is built
 	on-demand.
