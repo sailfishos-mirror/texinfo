@@ -58,26 +58,19 @@ lookup_codepoint_data (char32_t codepoint)
   return data;
 }
 
-/* STRING points into a char32_t array.  First check for sequence entry
-   at STRING, then for individual codepoint entry.  This function can
-   reorder STRING. */
-void
-lookup_collation_data_at_char (char32_t *const string,
-                               size_t length,
-                               size_t *n_codepoints_out,
-                               const struct collation_unit **collation_units,
-                               size_t *n_collation_units,
-                               int disable_sequences)
+/* Check for sequence at STRING, rearranging for a non-contiguous
+   match if necessary. */
+static int
+check_sequence_rearranging (char32_t *const string,
+                            const size_t length,
+                            const struct trie_node **node_out)
 {
-  const struct trie_node *node = &collation_data.trie_array[0];
-
   char32_t *pchar;
   char32_t *pre_non_starter = 0;
   int max_combining_class = 0;
+  const struct trie_node *node = &collation_data.trie_array[0];
 
   size_t n_codepoints;
-
-  if (!disable_sequences) {
 
   /* Starting at the beginning of the string, try to match the longest
      sequence possible. */
@@ -173,34 +166,53 @@ lookup_collation_data_at_char (char32_t *const string,
             }
         }
     }
-
   if (n_codepoints >= 2)
     {
-      COLLATION_DATA data;
-      size_t data_index = node->data_index;
-      data.num_elements = node->num_elements;
-      if (data_index != 0)
-        {
-          data.array = &collation_data.collation_data[data_index];
-          (*n_codepoints_out) = n_codepoints;
+      *node_out = node;
+      return n_codepoints;
+    }
 
-          *collation_units = data.array;
-          *n_collation_units = data.num_elements;
-          return;
+  return 0;
+}
+
+/* STRING points into a char32_t array.  First check for sequence entry
+   at STRING, then for individual codepoint entry.  This function can
+   reorder STRING.
+   Output variables:
+     N_CODEPOINTS_OUT: number of codepoints consumed to find match
+     COLLATION_UNITS: pointer to data array
+     N_COLLATION_UNITS: length of data array
+     */
+void
+lookup_collation_data_at_char (char32_t *const string,
+                               const size_t length,
+                               size_t *n_codepoints_out,
+                               const struct collation_unit **collation_units,
+                               size_t *n_collation_units,
+                               int disable_sequences)
+{
+  if (!disable_sequences)
+    {
+      const struct trie_node *node = NULL;
+      size_t n_codepoints_matched
+        = check_sequence_rearranging (string, length, &node);
+
+      if (n_codepoints_matched > 0)
+        {
+          size_t data_index = node->data_index;
+          if (data_index != 0)
+            {
+              (*n_codepoints_out) = n_codepoints_matched;
+              *collation_units = &collation_data.collation_data[data_index];
+              *n_collation_units = node->num_elements;
+              return;
+            }
         }
     }
 
-  } /* if (!disable_sequences) */
-
   COLLATION_DATA data = lookup_codepoint_data (string[0]);
-  if (data.array)
-    {
-      (*n_codepoints_out) = 1;
-    }
-  else
-    {
-      (*n_codepoints_out) = 0;
-    }
+
+  (*n_codepoints_out) = data.array ? 1 : 0;
   *collation_units = data.array;
   *n_collation_units = data.num_elements;
   return;
