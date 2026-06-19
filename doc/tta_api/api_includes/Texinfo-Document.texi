@@ -351,7 +351,8 @@ of an index together.
 By default, indexes are sorted according to the @emph{Unicode Collation Algorithm}
 defined in the @url{http://www.unicode.org/reports/tr10/, Unicode Technical Standard
 #10}, without language-specific collation
-tailoring.  If @emph{$use_unicode_collation} is set to 0, the sorting will not use
+tailoring.  If the optional @emph{$use_unicode_collation} argument is set to 0,
+the sorting will not use
 the @emph{Unicode Collation Algorithm} and simply sort according to the codepoints.
 The optional @emph{$lang_sorting_locale} language is used for linguistic
 tailoring of the sorting, if possible.

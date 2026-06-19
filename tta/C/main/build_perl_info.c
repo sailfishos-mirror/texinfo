@@ -2888,6 +2888,7 @@ find_idx_name_entry_number_sv (HV *indices_information_hv,
   return index_entry_sv;
 }
 
+/* Currently unused */
 HV *
 build_indices_sort_strings (const INDICES_SORT_STRINGS *indices_sort_strings,
                             HV *indices_information_hv)

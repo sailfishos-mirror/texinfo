@@ -174,25 +174,6 @@ sub errors($) {
 
 # Indices
 
-# calls Texinfo::Indices::setup_index_entries_sort_strings and caches the
-# result.
-# Should only be used in tests.  Called by sorted_indices_by_index, in
-# that case the associated XS interface is used to get C Document data.
-sub _document_indices_sort_strings($) {
-  my $document = shift;
-
-  if (!exists($document->{'index_entries_sort_strings'})) {
-    my $indices_sort_strings
-      = Texinfo::Indices::setup_index_entries_sort_strings($document,
-              undef, $document->merged_indices(),
-              $document->indices_information(), 0);
-    $document->{'index_entries_sort_strings'} = $indices_sort_strings;
-  }
-  return $document->{'index_entries_sort_strings'};
-}
-
-
-
 # wrapper on print_indices_information that can be used for XS overriding.
 # Used in tests only.
 sub print_document_indices_information($) {

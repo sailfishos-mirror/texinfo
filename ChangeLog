@@ -1,5 +1,14 @@
 2026-06-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Document.pm (_document_indices_sort_strings),
+	tta/perl/Texinfo/DocumentNonXS.pm,
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs: move
+	_document_indices_sort_strings to Document.pm and call
+	indices_information() in the function to have indices built to Perl if
+	with XS.  Remove the XS override.
+
+2026-06-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/DocumentNonXS.pm (_document_indices_sort_strings):
 	rename document_indices_sort_strings as
 	_document_indices_sort_strings.

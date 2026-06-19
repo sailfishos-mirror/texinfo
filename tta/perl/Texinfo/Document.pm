@@ -292,14 +292,15 @@ sub remove_document_references($;$) {
 
 # Indices
 
-# No XS override.
-# This method is already called by other methods, in particular
-# sorted_indices_by_* when the indexes are sorted.  When the indexes
-# are merged but not sorted, it is sensible to call this function
-# directly.  Also called directly in tests.
-# XS override is not needed, if the converters calling this function
-# are implemented in C, even partly, they should call the C counterpart
-# rather than go through an XS interface.
+# When the indexes are merged but not sorted, it is sensible to call this
+# function directly, but in most cases, it is already called.  Also called
+# directly in a few tests.
+# An XS override is not needed:
+#  * For functions used in tests, it is possible/needed to call
+#    indices_information() before calling merged_indices to build the
+#    'indices' from C.
+#  * In converters, it is better if calling functions are implemented in C too,
+#    rather than going through an XS interface.
 sub merged_indices($) {
   my $self = shift;
 
@@ -310,6 +311,27 @@ sub merged_indices($) {
     }
   }
   return $self->{'merged_indices'};
+}
+
+# calls Texinfo::Indices::setup_index_entries_sort_strings and caches the
+# result.
+# Should only be used in tests.  Called by sorted_indices_by_index, in
+# that case also used to get C Document data.
+sub _document_indices_sort_strings($) {
+  my $document = shift;
+
+  if (!exists($document->{'index_entries_sort_strings'})) {
+    # return value not used but needed to build $document->{'indices'}
+    # with XS.
+    $document->indices_information();
+
+    my $indices_sort_strings
+      = Texinfo::Indices::setup_index_entries_sort_strings($document,
+              undef, $document->merged_indices(),
+              $document->indices_information(), 0);
+    $document->{'index_entries_sort_strings'} = $indices_sort_strings;
+  }
+  return $document->{'index_entries_sort_strings'};
 }
 
 # Unused

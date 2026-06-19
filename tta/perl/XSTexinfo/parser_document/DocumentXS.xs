@@ -379,64 +379,6 @@ labels_list (SV *document_in)
       RETVAL
 
 SV *
-_document_indices_sort_strings (SV *document_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-        const INDICES_SORT_STRINGS *indices_sort_strings = 0;
-        SV *result_sv = 0;
-        const char *key = "index_entries_sort_strings";
-     CODE:
-        document = get_sv_document_document (document_in,
-                                    "_document_indices_sort_strings");
-        if (document)
-          {
-            indices_sort_strings
-             = document_indices_sort_strings (document,
-                                              &document->error_messages,
-                                              document->options);
-          }
-
-        if (indices_sort_strings)
-          {
-            HV *document_hv = (HV *) SvRV (document_in);
-            /* build Perl data only if needed and cache the built Perl
-               data in the same hash as done in overriden Perl code */
-            if (document->modified_information & F_DOCM_indices_sort_strings)
-              {
-                SV *indices_information_sv
-                 = document_indices_information (document_in);
-                if (indices_information_sv)
-                  {
-                    HV *indices_information_hv
-                        = (HV *) SvRV (indices_information_sv);
-                    HV *indices_sort_strings_hv
-                     = build_indices_sort_strings (indices_sort_strings,
-                                                   indices_information_hv);
-                    hv_store (document_hv, key, strlen (key),
-                              newRV_noinc ((SV *) indices_sort_strings_hv), 0);
-                    result_sv = newRV_inc ((SV *) indices_sort_strings_hv);
-                    document->modified_information
-                                &= ~F_DOCM_indices_sort_strings;
-                  }
-                /* warn if not found? */
-              }
-            else
-              { /* retrieve previously stored result */
-                SV **sv_stored = hv_fetch (document_hv, key, strlen (key), 0);
-                if (sv_stored && SvOK (*sv_stored))
-                  result_sv = newSVsv (*sv_stored);
-                /* error out if not found?  Or rebuild? */
-              }
-          }
-
-        if (result_sv)
-          RETVAL = result_sv;
-        else
-          RETVAL = newSV (0);
-    OUTPUT:
-        RETVAL
-
-SV *
 print_document_indices_information (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;

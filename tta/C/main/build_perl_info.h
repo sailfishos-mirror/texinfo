@@ -79,9 +79,6 @@ SV *document_labels_list (SV *document_in);
 
 SV *document_global_information (SV *document_in);
 
-HV *build_indices_sort_strings (
-                  const INDICES_SORT_STRINGS *indices_sort_strings,
-                            HV *indices_information_hv);
 HV *build_sorted_indices_by_letter (
                       const INDEX_SORTED_BY_LETTER *index_entries_by_letter,
                       HV *indices_information_hv);
