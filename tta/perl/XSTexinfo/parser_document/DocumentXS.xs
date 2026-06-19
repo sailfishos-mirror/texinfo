@@ -379,7 +379,7 @@ labels_list (SV *document_in)
       RETVAL
 
 SV *
-document_indices_sort_strings (SV *document_in)
+_document_indices_sort_strings (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
         const INDICES_SORT_STRINGS *indices_sort_strings = 0;
@@ -387,7 +387,7 @@ document_indices_sort_strings (SV *document_in)
         const char *key = "index_entries_sort_strings";
      CODE:
         document = get_sv_document_document (document_in,
-                                             "indices_sort_strings");
+                                    "_document_indices_sort_strings");
         if (document)
           {
             indices_sort_strings

@@ -4,7 +4,7 @@ use lib '.';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 3);
 
 use Test::More;
-BEGIN { plan tests => 7; };
+BEGIN { plan tests => 8; };
 
 #use Data::Dumper;
 
@@ -132,6 +132,17 @@ $document = $parser->parse_texi_text('@node Top
 ');
 
 $document->register_document_options($document_options);
+
+# the entry @cindex @subentry aa does not appear, has a missing argument
+@entries_ref = (', aa', 'hhh', 'hhh', 'hhh, ', 'hhh, jjj', 'hhh, jjj',
+ 'hhh, jjj, A',
+ 'hhh, jjj, lll', 'hhh, jjj, lll', 'hhh, JJJ, mymail', 'hhh, k', 'hhh jjj');
+
+# use Document function to sort
+my $document_sorted_index_entries
+  = Texinfo::Document::sorted_indices_by_index($document);
+
+# Texinfo::Indices to sort (and set $index_entries_sort_strings).
 $indices_information = $document->indices_information();
 $index_entries = $document->merged_indices();
 $indices_sort_strings
@@ -144,15 +155,18 @@ $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
 @entries = ();
+foreach my $entry (@{$document_sorted_index_entries->{'cp'}}) {
+  push @entries, $index_entries_sort_strings->{$entry};
+}
+
+cmp_deeply(\@entries, \@entries_ref, 'subentry document sorted');
+
+@entries = ();
 foreach my $entry (@{$sorted_index_entries->{'cp'}}) {
   push @entries, $index_entries_sort_strings->{$entry};
 }
 
 #print STDERR join(', ', map {"'$_'"} @entries)."\n";
 
-# the entry @cindex @subentry aa does not appear, has a missing argument
-@entries_ref = (', aa', 'hhh', 'hhh', 'hhh, ', 'hhh, jjj', 'hhh, jjj',
- 'hhh, jjj, A',
- 'hhh, jjj, lll', 'hhh, jjj, lll', 'hhh, JJJ, mymail', 'hhh, k', 'hhh jjj');
-
 cmp_deeply(\@entries, \@entries_ref, 'subentry sorted');
+

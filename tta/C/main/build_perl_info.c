@@ -1992,7 +1992,6 @@ fill_document_hv (HV *hv, DOCUMENT *document)
   HV *hv_commands_info;
   HV *hv_index_names;
   HV *hv_listoffloats_list;
-  HV *hv_indices_sort_strings = 0;
   AV *av_internal_xref;
   HV *hv_identifiers_target;
   AV *av_labels_list;

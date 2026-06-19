@@ -176,10 +176,9 @@ sub errors($) {
 
 # calls Texinfo::Indices::setup_index_entries_sort_strings and caches the
 # result.
-# In general, it is not needed to call that function directly,
-# as it is called by Texinfo::Document::sorted_indices_by_*
-# and is only used in tests.
-sub document_indices_sort_strings($) {
+# Should only be used in tests.  Called by sorted_indices_by_index, in
+# that case the associated XS interface is used to get C Document data.
+sub _document_indices_sort_strings($) {
   my $document = shift;
 
   if (!exists($document->{'index_entries_sort_strings'})) {
@@ -212,7 +211,7 @@ sub print_document_indices_information($) {
   return $indices_info_text;
 }
 
-# for tests, to be used for overriding
+# for tests.  Used for overriding
 sub print_document_indices_sort_strings($) {
   my $document = shift;
 
@@ -229,10 +228,10 @@ sub print_document_indices_sort_strings($) {
     = $document->get_conf('USE_UNICODE_COLLATION');
   my $lang_sorting_locale;
   if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
-    my $lang_sorting_locale = $document->get_conf('COLLATION_LANGUAGE');
+    $lang_sorting_locale = $document->get_conf('COLLATION_LANGUAGE');
   }
 
-  my $indices_sort_strings = document_indices_sort_strings($document);
+  my $indices_sort_strings = _document_indices_sort_strings($document);
 
   my $index_entries_sort_strings
    = Texinfo::Indices::format_index_entries_sort_strings(

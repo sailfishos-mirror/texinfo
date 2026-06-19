@@ -314,11 +314,11 @@ sub merged_indices($) {
 
 # Unused
 # calls Texinfo::Indices::sort_indices_by_letter and caches the result.
-sub sorted_indices_by_letter($$$) {
+sub sorted_indices_by_letter($;$$) {
   my ($document, $use_unicode_collation, $lang_sorting_locale) = @_;
 
   my $lang_key;
-  if (!$use_unicode_collation) {
+  if (defined($use_unicode_collation) and !($use_unicode_collation)) {
     $lang_key = '';
   } elsif (!defined($lang_sorting_locale)) {
     # special name corresponding to Unicode Collation with 'Non-Ignorable'
@@ -332,9 +332,7 @@ sub sorted_indices_by_letter($$$) {
     if (!exists($document->{'sorted_indices_by_letter'}));
 
   if (!exists($document->{'sorted_indices_by_letter'}->{$lang_key})) {
-    $document->merged_indices();
-
-    my $indices_sort_strings = document_indices_sort_strings($document);
+    my $indices_sort_strings = _document_indices_sort_strings($document);
 
     $document->{'sorted_indices_by_letter'}->{$lang_key}
       = Texinfo::Indices::sort_indices_by_letter(
@@ -345,13 +343,15 @@ sub sorted_indices_by_letter($$$) {
 }
 
 # calls Texinfo::Indices::sort_indices_by_index and caches the result.
-# No XS override, as there is no reason to call this function
-# outside of tests.
-sub sorted_indices_by_index($$$) {
+# No XS override.
+# There is no reason to call this function outside of tests.
+# The interface to C Document index data is through the
+# _document_indices_sort_strings call.
+sub sorted_indices_by_index($;$$) {
   my ($document, $use_unicode_collation, $lang_sorting_locale) = @_;
 
   my $lang_key;
-  if (!$use_unicode_collation) {
+  if (defined($use_unicode_collation) and !$use_unicode_collation) {
     $lang_key = '';
   } elsif (!defined($lang_sorting_locale)) {
     # special name corresponding to Unicode Collation with 'Non-Ignorable'
@@ -365,9 +365,7 @@ sub sorted_indices_by_index($$$) {
     if (!exists($document->{'sorted_indices_by_index'}));
 
   if (!exists($document->{'sorted_indices_by_index'}->{$lang_key})) {
-    $document->merged_indices();
-
-    my $indices_sort_strings = document_indices_sort_strings($document);
+    my $indices_sort_strings = _document_indices_sort_strings($document);
 
     $document->{'sorted_indices_by_index'}->{$lang_key}
       = Texinfo::Indices::sort_indices_by_index($indices_sort_strings,
@@ -804,7 +802,8 @@ of an index together.
 By default, indexes are sorted according to the I<Unicode Collation Algorithm>
 defined in the L<Unicode Technical Standard
 #10|http://www.unicode.org/reports/tr10/>, without language-specific collation
-tailoring.  If I<$use_unicode_collation> is set to 0, the sorting will not use
+tailoring.  If the optional I<$use_unicode_collation> argument is set to 0,
+the sorting will not use
 the I<Unicode Collation Algorithm> and simply sort according to the codepoints.
 The optional I<$lang_sorting_locale> language is used for linguistic
 tailoring of the sorting, if possible.
