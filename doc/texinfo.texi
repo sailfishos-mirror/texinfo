@@ -21725,11 +21725,9 @@ Here is the sample document:
 
 @verbatim
 \input texinfo   @c -*-texinfo-*-
-@comment %**start of header
 @include version.texi
 @settitle GNU Sample @value{VERSION}
 @syncodeindex pg cp
-@comment %**end of header
 @copying
 This manual is for GNU Sample (version @value{VERSION}, @value{UPDATED}),
 which is an example in the Texinfo documentation.

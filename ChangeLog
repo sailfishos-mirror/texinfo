@@ -1,5 +1,10 @@
 2026-06-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (GNU Sample Texts):
+	Remove "start of header" and "end of header" lines.
+
+2026-06-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@anchor): State that @anchor giving an alias
 	for a @node should be placed immediately after the node line.
 	
