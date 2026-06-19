@@ -132,18 +132,22 @@ u32_make_collation_key (Collation_choice collation,
 
   int fix_length = 0;
 
-  char32_t *codepoints;
+  char32_t *codepoints = NULL;
+  const char32_t *codepoints_const = NULL;
+  const char32_t *pcodepoints;
   size_t length;
 
   if (!(collation & UNICOLL_NORMALIZATION_MASK))
     {
       codepoints =
         u32_normalize (UNINORM_NFD, codepoints_in, length_in, NULL, &length);
+      pcodepoints = codepoints;
     }
   else
     {
-      codepoints = u32_strdup (codepoints_in);
+      codepoints_const = codepoints_in;
       length = length_in;
+      pcodepoints = codepoints_const;
     }
 
   /* get array of collation entries */
@@ -172,11 +176,13 @@ u32_make_collation_key (Collation_choice collation,
       const struct collation_unit *data_array;
       size_t data_num_elements;
 
-      lookup_collation_data_at_char (&codepoints[i], length - i,
+      lookup_collation_data_at_char (codepoints ? &codepoints[i] : 0,
+                                     codepoints_const ? &codepoints_const[i] : 0,
+                                     length - i,
+                                     disable_sequence_lookup,
                                      &n_consumed,
                                      &data_array,
-                                     &data_num_elements,
-                                     disable_sequence_lookup);
+                                     &data_num_elements);
       if (n_consumed > 0)
         {
           entry_array[n_entries].array = data_array;
@@ -223,7 +229,7 @@ u32_make_collation_key (Collation_choice collation,
         {
           size_t num_entry_elements;
           get_implicit_weight
-            (codepoints[entry_array[i].string_index],
+            (pcodepoints[entry_array[i].string_index],
              &elements[elements_count], &num_entry_elements);
           elements_count += num_entry_elements;
 

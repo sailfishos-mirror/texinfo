@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include <errno.h>
 #include "unictype.h"
 #include "uninorm.h"
 
@@ -175,9 +176,66 @@ check_sequence_rearranging (char32_t *const string,
   return 0;
 }
 
-/* STRING points into a char32_t array.  First check for sequence entry
-   at STRING, then for individual codepoint entry.  This function can
-   reorder STRING.
+/* Much simplified version of 'check_sequence_rearranging'.
+   Takes a const STRING as an argument and does not attempt
+   to look for a non-contiguous match. */
+static int
+check_sequence_nonrearranging (const char32_t *const string,
+                            const size_t length,
+                            const struct trie_node **node_out)
+{
+  const char32_t *pchar;
+  const struct trie_node *node = &collation_data.trie_array[0];
+
+  size_t n_codepoints;
+
+  /* Starting at the beginning of the string, try to match the longest
+     sequence possible. */
+  for (pchar = string, n_codepoints = 0;
+       pchar < string + length && (*pchar) != 0;
+       pchar++)
+    {
+      int num_children = node->num_children;
+      uint32_t first_child = node->first_child;
+
+      /* Search for matching child. */
+      int found = 0;
+      for (int j = 0; j < num_children; j++)
+        {
+          const struct trie_node *child
+            = &collation_data.trie_array[first_child + j];
+
+          uint32_t child_codepoint = child->codepoint;
+
+          if (child_codepoint == *pchar)
+            {
+              node = child;
+              found = 1;
+              n_codepoints++;
+              break;
+            }
+          if (child_codepoint > *pchar)
+            break;
+        }
+
+      if (!found)
+        break;
+    }
+
+  if (n_codepoints >= 2)
+    {
+      *node_out = node;
+      return n_codepoints;
+    }
+
+  return 0;
+}
+
+/* STRING or STRING_CONST points into a char32_t array.
+   First check for sequence entry at STRING, then for individual codepoint entry.
+   This function can reorder STRING, but not STRING_CONST.  Exactly one must
+   be non-null.
+
    Output variables:
      N_CODEPOINTS_OUT: number of codepoints consumed to find match
      COLLATION_UNITS: pointer to data array
@@ -185,17 +243,31 @@ check_sequence_rearranging (char32_t *const string,
      */
 void
 lookup_collation_data_at_char (char32_t *const string,
+                               const char32_t *const string_const,
                                const size_t length,
+                               int disable_sequences,
                                size_t *n_codepoints_out,
                                const struct collation_unit **collation_units,
-                               size_t *n_collation_units,
-                               int disable_sequences)
+                               size_t *n_collation_units)
 {
+  if (string && string_const || !string && !string_const)
+    {
+      /* bug */
+      errno = EINVAL;
+      (*n_codepoints_out) = 0;
+      return;
+    }
   if (!disable_sequences)
     {
       const struct trie_node *node = NULL;
-      size_t n_codepoints_matched
-        = check_sequence_rearranging (string, length, &node);
+      size_t n_codepoints_matched;
+
+      if (string)
+        n_codepoints_matched
+          = check_sequence_rearranging (string, length, &node);
+      else /* string_const */
+        n_codepoints_matched
+          = check_sequence_nonrearranging (string_const, length, &node);
 
       if (n_codepoints_matched > 0)
         {
@@ -210,7 +282,8 @@ lookup_collation_data_at_char (char32_t *const string,
         }
     }
 
-  COLLATION_DATA data = lookup_codepoint_data (string[0]);
+  COLLATION_DATA data = lookup_codepoint_data
+                          (string ? string[0] : string_const[0]);
 
   (*n_codepoints_out) = data.array ? 1 : 0;
   *collation_units = data.array;
