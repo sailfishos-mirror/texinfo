@@ -2033,11 +2033,6 @@ fill_document_hv (HV *hv, DOCUMENT *document)
   if (document->sectioning_root)
     hv_sectioning_root = build_sectioning_root (document->sectioning_root);
 
-  if (document->indices_sort_strings)
-    hv_indices_sort_strings = build_indices_sort_strings (
-                                      document->indices_sort_strings,
-                                      hv_index_names);
-
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_noinc ((SV *) value), 0)
 
   /* must be kept in sync with Texinfo::Document register keys */
@@ -2073,12 +2068,6 @@ fill_document_hv (HV *hv, DOCUMENT *document)
 
   STORE("headings_list", av_headings_list);
   document->modified_information &= ~F_DOCM_headings_list;
-
-  if (hv_indices_sort_strings)
-    {
-      STORE("index_entries_sort_strings", hv_indices_sort_strings);
-      document->modified_information &= ~F_DOCM_indices_sort_strings;
-    }
 #undef STORE
 }
 
