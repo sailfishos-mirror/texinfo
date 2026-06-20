@@ -4547,7 +4547,8 @@ pointers (@pxref{Writing a Node}), although this is not recommended.
 When you delete or rename a node, it is usually a good idea to define an
 @code{@@anchor} with the old name.  That way, any links to the old node,
 whether from other Texinfo manuals or general web pages, keep working.
-Place any such anchors immediately after the @samp{@@node} line.
+Place any such anchors at the start of the node, after the @samp{@@node}
+line and any structuring or heading command line.
 
 By default, links to anchors are unaffected by the
 @code{xrefautomaticsectiontitle} setting (see @ref{Three Arguments,,
