@@ -67,7 +67,7 @@ check_sequence_rearranging (char32_t *const string,
                             const struct trie_node **node_out)
 {
   char32_t *pchar;
-  char32_t *pre_non_starter = 0;
+  char32_t *seq_end = 0;
   int max_combining_class = 0;
   const struct trie_node *node = &collation_data.trie_array[0];
 
@@ -80,7 +80,7 @@ check_sequence_rearranging (char32_t *const string,
        pchar++)
     {
       int combining_class;
-      if (pre_non_starter)
+      if (seq_end)
         {
           /* We are trying to find a non-continguous match. */
 
@@ -124,7 +124,7 @@ check_sequence_rearranging (char32_t *const string,
                  don't really understand it, e.g. why 0FB2 0F71 was missing.
                  See also documentation for Perl module Unicode::Collate.
                  */
-              if (!pre_non_starter || child->data_index)
+              if (!seq_end || child->data_index)
                 {
                   node = child;
                   found = 1;
@@ -136,28 +136,28 @@ check_sequence_rearranging (char32_t *const string,
             break;
         }
 
-      if (found && pre_non_starter)
+      if (found && seq_end)
         {
           /* This is part of a non-contiguous match.  Move matched
              character right after the contiguous part of the match. */
           char32_t tmp = *pchar;
-          memmove (&pre_non_starter[2], &pre_non_starter[1],
-                   (pchar - &pre_non_starter[1]) * sizeof (char32_t));
-          pre_non_starter[1] = tmp;
-          pre_non_starter++;
+          memmove (&seq_end[2], &seq_end[1],
+                   (pchar - &seq_end[1]) * sizeof (char32_t));
+          seq_end[1] = tmp;
+          seq_end++;
 
           break;
         }
       else if (!found)
         {
-          if (!pre_non_starter && pchar > string)
+          if (!seq_end && pchar > string)
             {
               /* Start looking for a non-contiguous match. */
               pchar--;
-              pre_non_starter = pchar;
+              seq_end = pchar;
               continue;
             }
-          else if (pre_non_starter)
+          else if (seq_end)
             {
               /* Continue looking for a non-contiguous match. */
               continue;
