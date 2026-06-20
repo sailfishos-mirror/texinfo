@@ -36,6 +36,7 @@ string_save (char **buf, size_t *buf_size, const char *string)
 
 static int trace;
 static int variable_shifted;
+static int quiet;
 
 static void
 print_usage (void)
@@ -50,6 +51,7 @@ main (int argc, char *argv[])
   struct option long_options[] = {
     {"trace", no_argument, 0, 't'},
     {"shifted", no_argument, 0, 's'},
+    {"quiet", no_argument, 0, 'q'},
     {"help", no_argument, 0, '?'},
     {0, 0, 0, 0}
   };
@@ -64,6 +66,9 @@ main (int argc, char *argv[])
           break;
         case 's':
           variable_shifted = 1;
+          break;
+        case 'q':
+          quiet = 1;
           break;
         case '?':
           print_usage ();
@@ -163,17 +168,19 @@ main (int argc, char *argv[])
       /* We expect that sort_key1 <= sort_key1. */
       if (sort_key1 && sort_key2 && strcmp (sort_key1, sort_key2) > 0)
         {
-          fprintf (stderr, "Test fail at line %ld\n", line_count);
-          fprintf (stderr, "line 1: %s\n", line1);
-          fprintf (stderr, "line 2: %s\n", line2);
+          if (!quiet)
+            {
+              fprintf (stderr, "Test fail at line %ld\n", line_count);
+              fprintf (stderr, "line 1: %s\n", line1);
+              fprintf (stderr, "line 2: %s\n", line2);
 
-          fprintf (stderr, "Sort key 1: ");
-          print_collation_key (sort_key1, sort_key1_len);
+              fprintf (stderr, "Sort key 1: ");
+              print_collation_key (sort_key1, sort_key1_len);
 
-          fprintf (stderr, "Sort key 2: ");
-          print_collation_key (sort_key2, sort_key2_len);
-          fprintf (stderr, "\n");
-
+              fprintf (stderr, "Sort key 2: ");
+              print_collation_key (sort_key2, sort_key2_len);
+              fprintf (stderr, "\n");
+            }
           fail_count++;
         }
 
