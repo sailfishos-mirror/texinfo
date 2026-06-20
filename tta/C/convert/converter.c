@@ -1659,9 +1659,6 @@ get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
                            self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string,
                            &lang_sorting_locale);
 
-      if (input_lang_sorting_locale)
-        free (input_lang_sorting_locale);
-
       if (!collation_sorted_indices->sorted_indices)
         {
           const INDICES_SORT_STRINGS *indices_sort_strings
@@ -1674,6 +1671,11 @@ get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
                            lang_sorting_locale,
                            self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);
         }
+
+      /* input_lang_sorting_locale can not be freed before, as
+         lang_sorting_locale may point to that memory location. */
+      if (input_lang_sorting_locale)
+        free (input_lang_sorting_locale);
 
       if (collation_sorted_indices->type != ctn_locale_collation)
         *language = collation_sorted_indices->language;
@@ -1718,9 +1720,6 @@ get_converter_indices_sorted_by_letter (CONVERTER *self, char **language)
                                self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string,
                                &lang_sorting_locale);
 
-      if (input_lang_sorting_locale)
-        free (input_lang_sorting_locale);
-
       if (!collation_sorted_indices->sorted_indices)
         {
           const INDICES_SORT_STRINGS *indices_sort_strings
@@ -1733,6 +1732,11 @@ get_converter_indices_sorted_by_letter (CONVERTER *self, char **language)
                             lang_sorting_locale,
                             self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);
         }
+
+      /* input_lang_sorting_locale can not be freed before, as
+         lang_sorting_locale may point to that memory location. */
+      if (input_lang_sorting_locale)
+        free (input_lang_sorting_locale);
 
       if (collation_sorted_indices->type != ctn_locale_collation)
         *language = collation_sorted_indices->language;
