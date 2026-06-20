@@ -210,6 +210,7 @@ prepended_command=
 
 main_command='perl/texi2any.pl'
 dir_suffix=$ref_dir_suffix
+language_type=perl
 #main_command='C/ctexi2any'
 
 test_level=1
@@ -228,6 +229,7 @@ while [ z"$1" = 'z-clean' -o z"$1" = 'z-copy' -o z"$1" = 'z-dir' -o z"$1" = 'z-n
   elif [ z"$1" = 'z-native' ]; then
     main_command='C/ctexi2any'
     dir_suffix='native'
+    language_type=${dir_suffix}
     shift
   elif [ z"$1" = 'z-dir' ]; then
     shift
@@ -318,7 +320,7 @@ if test -n "$1"; then
   the_test=$1
   test_name=$the_test
   test -d $one_test_logs_dir || mkdir $one_test_logs_dir
-  logfile=$one_test_logs_dir/$test_name.log
+  logfile=$one_test_logs_dir/${language_type}_$test_name.log
 fi
 
 base_results_dir=$testdir/

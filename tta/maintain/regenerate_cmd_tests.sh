@@ -130,9 +130,9 @@ fi
 name='$name'
 "'mkdir -p $dir
 
-"$srcdir"'"$relative_command_dir"'/run_parser_all.sh $language_option -dir $dir $name
+"$srcdir"'"$relative_command_dir"'/run_parser_all.sh '"$language_option"' -dir $dir $name
 exit_status=$?
-cat $dir/$one_test_logs_dir/$name.log
+cat $dir/$one_test_logs_dir/'"${language_type}"'_$name.log
 exit $exit_status
 ' >> $one_test_file
       chmod 0755 $one_test_file
