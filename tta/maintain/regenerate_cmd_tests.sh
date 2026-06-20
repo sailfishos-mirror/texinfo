@@ -52,25 +52,37 @@ cd "$dir/../tests/$destdir" || exit 1
 
 test_driving_files='# List of files that describe tests.  See tta/tests/README.
 test_driving_files_generated_list ='
+
 one_test_files='# List of test scripts that only run one test
 one_test_files_generated_list = '
+
+one_language_test_files='# List of test scripts that only run one test by language'
 
 type_test_files='# Lists of test scripts by test type'
 
 gather_tests() {
 test_type=$1
 shift
-type_test_list_variable_name="type_${test_type}_one_test_files_generated_list"
+language_type=$1
+shift
+
+type_test_list_variable_name="type_${test_type}_one_${language_type}_test_files_generated_list"
 type_test_files="$type_test_files
 
-# list of type $test_type test files
+# list of $language_type type $test_type test files
 $type_test_list_variable_name = "
-one_test_files="$one_test_files \$($type_test_list_variable_name)"
+one_language_test_files="$one_language_test_files \$($type_test_list_variable_name)"
+
 test_dirs=$1
 for test_dir in $test_dirs; do
   driving_file=$test_dir/list-of-tests
   if test -f $driving_file; then
-    test_driving_files="$test_driving_files $driving_file"
+    if test $language_type = 'perl'; then
+      test_driving_files="$test_driving_files $driving_file"
+      language_option=
+    else
+      language_option="-${language_type}"
+    fi
     while read line ; do
       if echo $line | grep '^ *#' >/dev/null; then continue; fi
       name=`echo $line | awk '{print $1}'`
@@ -84,7 +96,7 @@ for test_dir in $test_dirs; do
         name_prepended=${test_dir}_
         relative_command_dir=
       fi
-      one_test_file="$test_scripts_dir/${name_prepended}$name.sh"
+      one_test_file="$test_scripts_dir/${name_prepended}${language_type}_$name.sh"
       type_test_files="$type_test_files \\
     $one_test_file"
       echo '#! /bin/sh
@@ -118,7 +130,7 @@ fi
 name='$name'
 "'mkdir -p $dir
 
-"$srcdir"'"$relative_command_dir"'/run_parser_all.sh -dir $dir $name
+"$srcdir"'"$relative_command_dir"'/run_parser_all.sh $language_option -dir $dir $name
 exit_status=$?
 cat $dir/$one_test_logs_dir/$name.log
 exit $exit_status
@@ -148,14 +160,26 @@ cat >$outfile <<END_HEADER
 
 END_HEADER
 
-gather_tests base "$base_test_dirs"
-gather_tests tex_html "$tex_html_test_dirs"
-gather_tests other "$other_test_dirs"
+for test_language in perl ; do
+  one_language_test_files_variable_name="one_${test_language}_test_files_generated_list"
+  one_language_test_files="$one_language_test_files
+
+# list of language ${test_language} test files
+$one_language_test_files_variable_name = "
+  one_test_files="$one_test_files \$($one_language_test_files_variable_name)"
+
+  gather_tests base $test_language "$base_test_dirs"
+  gather_tests tex_html $test_language "$tex_html_test_dirs"
+  gather_tests other $test_language "$other_test_dirs"
+done
 
 echo "$test_driving_files
 " >> $outfile
 
 echo "$one_test_files
+" >>$outfile
+
+echo "$one_language_test_files
 " >>$outfile
 
 echo "$type_test_files
