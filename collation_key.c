@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <errno.h>
+#include <setjmp.h>
 
 #include "unistr.h"
 #include "uninorm.h"
@@ -24,7 +25,7 @@ Collation_choice unicoll_set_variable (Collation_choice collation,
       && variable != UNICOLL_VARIABLE_BLANKED)
     {
       errno = EINVAL;
-      return 0;
+      return collation;
     }
   return (Collation_choice) (collation & ~UNICOLL_VARIABLE_MASK) | variable;
 }
@@ -107,6 +108,7 @@ make_key_internal (char *psort_key,
                    struct collation_unit *elements, size_t elements_count,
                    int variable_shifted_or_blanked, int variable_shifted,
                    int primaryp, int secondaryp, int tertiaryp,
+                   jmp_buf bug_jmp,
                    char *limit);
 
 char *
@@ -114,6 +116,7 @@ u32_make_collation_key (Collation_choice collation,
                         const char32_t *codepoints_in, size_t length_in,
                         char *resultbuf, size_t *lengthp)
 {
+  char *sort_key;
   int variable = (collation & UNICOLL_VARIABLE_MASK);
 
   if (variable != UNICOLL_VARIABLE_NONIGNORABLE
@@ -165,7 +168,8 @@ u32_make_collation_key (Collation_choice collation,
   if (!entry_array)
     {
       errno = ENOMEM;
-      return 0;
+      sort_key = 0;
+      goto cleanup;
     }
 
   size_t n_entries = 0;
@@ -212,7 +216,8 @@ u32_make_collation_key (Collation_choice collation,
   if (!elements)
     {
       errno = ENOMEM;
-      return 0;
+      sort_key = 0;
+      goto cleanup;
     }
   size_t elements_count = 0;
   for (size_t i = 0; i < n_entries; i++)
@@ -237,7 +242,6 @@ u32_make_collation_key (Collation_choice collation,
     }
   free (entry_array);
 
-  char *sort_key;
   char *psort_key;
   size_t sort_key_alloc;
 
@@ -292,7 +296,7 @@ u32_make_collation_key (Collation_choice collation,
           if (!sort_key)
             {
               errno = ENOMEM;
-              return 0;
+              goto cleanup;
             }
         }
       else
@@ -303,14 +307,25 @@ u32_make_collation_key (Collation_choice collation,
     }
 
   psort_key = sort_key;
-  psort_key = make_key_internal (psort_key, elements, elements_count,
-                                 variable_shifted_or_blanked, variable_shifted,
-                                 primaryp, secondaryp, tertiaryp,
-                                 fix_length ? &sort_key[*lengthp] : NULL);
+  jmp_buf bug_jmp; 
+  if (!setjmp (bug_jmp))
+    {
+      psort_key = make_key_internal (psort_key, elements, elements_count,
+                                     variable_shifted_or_blanked, variable_shifted,
+                                     primaryp, secondaryp, tertiaryp,
+                                     bug_jmp,
+                                     fix_length ? &sort_key[*lengthp] : NULL);
 
-  *psort_key = '\0';
-  *lengthp = psort_key - sort_key + 1;
+      *psort_key = '\0';
+      *lengthp = psort_key - sort_key + 1;
+    }
+  else
+    {
+      /* a bug was detected in the library */
+      sort_key = 0;
+    }
 
+ cleanup:
   free (elements);
   free (codepoints);
 
@@ -322,6 +337,7 @@ make_key_internal (char *psort_key,
                    struct collation_unit *elements, size_t elements_count,
                    int variable_shifted_or_blanked, int variable_shifted,
                    int primaryp, int secondaryp, int tertiaryp,
+                   jmp_buf bug_jmp,
                    char *limit)
 {
   int last_was_variable;
@@ -355,7 +371,7 @@ make_key_internal (char *psort_key,
                 {
                   /* bug: primary weight too high */
                   errno = EINVAL;
-                  return 0;
+                  longjmp (bug_jmp, 1);
                 }
               cat ((weight / 0xFF) + 1);
               cat ((weight % 0xFF) + 1);
@@ -401,7 +417,7 @@ make_key_internal (char *psort_key,
                 {
                   /* bug: secondary weight too high */
                   errno = EINVAL;
-                  return 0;
+                  longjmp (bug_jmp, 1);
                 }
               cat (weight + 1);
             }
@@ -446,7 +462,7 @@ make_key_internal (char *psort_key,
                 {
                   /* bug: tertiary weight too high */
                   errno = EINVAL;
-                  return 0;
+                  longjmp (bug_jmp, 1);
                 }
               cat (weight + 1);
             }
@@ -485,7 +501,7 @@ make_key_internal (char *psort_key,
                 {
                   /* bug: shifted primary weight too high */
                   errno = EINVAL;
-                  return 0;
+                  longjmp (bug_jmp, 1);
                 }
               cat ((weight / 0xFF) + 1);
               cat ((weight % 0xFF) + 1);
