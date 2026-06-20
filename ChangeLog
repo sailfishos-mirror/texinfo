@@ -1,5 +1,10 @@
 2026-06-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/texi2any.pl (%formats_table): remove unused
+	'setup_index_entries_sort_strings' field.
+
+2026-06-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (converter_indices_sort_strings),
 	tta/C/main/document.c (document_indices_sort_strings),
 	tta/C/main/manipulate_indices.c (setup_index_entries_sort_strings),

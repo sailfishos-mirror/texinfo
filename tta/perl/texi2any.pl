@@ -827,14 +827,12 @@ my %formats_table = (
  'info' => {
              'nodes_tree' => 1,
              'floats' => 1,
-             'setup_index_entries_sort_strings' => 1,
              'module' => 'Texinfo::Convert::Info'
            },
   'plaintext' => {
              'nodes_tree' => 1,
              'floats' => 1,
              'split' => 1,
-             'setup_index_entries_sort_strings' => 1,
              'module' => 'Texinfo::Convert::Plaintext'
            },
   'html' => {
@@ -845,7 +843,6 @@ my %formats_table = (
              'move_index_entries_after_items' => 1,
              'relate_index_entries_to_table_items' => 1,
              'no_warn_non_empty_parts' => 1,
-             'setup_index_entries_sort_strings' => 1,
              'module' => 'Texinfo::Convert::HTML'
            },
   'latex' => {
@@ -869,7 +866,6 @@ my %formats_table = (
                   # is 'ixinsxml', as Texinfo tree conversion is done
                   # from within Texinfo::Example::IXINSXML
              'nodes_tree' => 1,
-             'setup_index_entries_sort_strings' => 1,
              'module' => 'Texinfo::Example::IXINSXML',
              'floats' => 1,
            },
