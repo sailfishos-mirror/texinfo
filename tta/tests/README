@@ -172,19 +172,8 @@ Tests specification
 Test runs are driven by the contents of the list-of-tests file in
 each subdirectory. This is a line-oriented file. A # starts a
 comment.
-The very first comment line of the file can be special, with
-# formats :_html
-which says which formats to generate.  If no format is specified, like
-# formats :
-no format is set on the command line.  Multiple formats can be
-specified, like
-# formats : :_info
-in which no format and info are both generated.  If no format is
-specified on the first line, the default formats specification which is
-# formats :
-is used.
 
-Otherwise, each non-empty non-comment line describes a test.  The first
+Each non-empty non-comment line describes a test.  The first
 word on the line is the test name which corresponds also with the
 resulting directory (what we called a_test above).  It is followed by
 the source manual name. The source manual name has to have the .texi
@@ -221,11 +210,7 @@ Init files are searched for in ../perl/t/init/, ../perl/init and ../perl/ext.
 
 Creating a new test
 ===================
-- choose the subdir here for the new test.  Each subdir only generates
-output in one or two formats (according to the `formats' line in
-its list-of-tests), so if you want to test a particular output
-format, use the right place.
-
+- choose the subdir here for the new test.
 - add the line to subdir/list-of-tests as described above.
 - most probably, create the needed subdir/*.texi file
 - ./run_parser_all.sh -dir subdir newtest
@@ -233,8 +218,6 @@ format, use the right place.
 This will create subdir/out_parser*/newtest/ with the test results
 (as explained above), as well as stdout in newtest.1 and stderr in newtest.2.
 Look carefully to be sure they are as they should be.
-
-For XML output, perhaps check validity using the commands in tta/TODO.
 
 When things look good, use the -copy option to create the
 subdir/res_parser*/newtest/ subdirs and copy the output files there.

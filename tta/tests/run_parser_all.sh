@@ -207,11 +207,6 @@ prepended_command=
 main_command='perl/texi2any.pl'
 #main_command='C/ctexi2any'
 
-# formats can be specified by first line of list-of-tests.
-#commands='perl/texi2any.pl:_html perl/texi2any.pl:_info'
-#commands=': perl/texi2any.pl:_info'
-commands=':'
-
 test_level=1
 
 clean=no
@@ -335,19 +330,9 @@ else
   exit 1
 fi
 
-first_line=`head -1 "$driving_file"`
-if echo $first_line |grep '^# formats' >/dev/null; then
-  formats=`echo $first_line |sed 's/^# formats //'`
-  commands="$formats"
-  echo "found special first line, commands now: $commands" >>$logfile
-fi
-
-for command_dir in $commands; do
-  dir_suffix=`echo $command_dir | cut -d':' -f2`
-  resdir=$srcdir/$testdir/${res_dir}${dir_suffix}/
-  test -d "$resdir" || mkdir "$resdir"
-  echo "made result dir: $resdir" >>$logfile
-done
+resdir=$srcdir/$testdir/${res_dir}/
+test -d "$resdir" || mkdir "$resdir"
+echo "made result dir: $resdir" >>$logfile
 
 if [ "z$clean" = 'zyes' -o "z$copy" = 'zyes' ]; then
   while read line
@@ -360,27 +345,21 @@ if [ "z$clean" = 'zyes' -o "z$copy" = 'zyes' ]; then
     remaining=`echo $line | sed 's/[a-zA-Z0-9_é./-]*  *[a-zA-Z0-9_é./-]* *//'`
     [ "z$dir" = 'z' -o "z$file" = 'z' ] && continue
     if [ "z$clean" = 'zyes' ]; then
-      for command_dir in $commands; do
-        dir_suffix=`echo $command_dir | cut -d':' -f2`
-        outdir="$testdir/${out_dir}${dir_suffix}/"
-        raw_outdir="$testdir/raw_out_parser${dir_suffix}/"
-        [ -d "${outdir}$dir" ] && rm -rf "${outdir}$dir"
-        [ -d "${raw_outdir}$dir" ] && rm -rf "${raw_outdir}$dir"
-      done
+      outdir="$testdir/${out_dir}/"
+      raw_outdir="$testdir/raw_out_parser"
+      [ -d "${outdir}$dir" ] && rm -rf "${outdir}$dir"
+      [ -d "${raw_outdir}$dir" ] && rm -rf "${raw_outdir}$dir"
     else
-      for command_dir in $commands; do
-        dir_suffix=`echo $command_dir | cut -d':' -f2`
-        outdir="$testdir/${out_dir}${dir_suffix}/"
-        resdir="$srcdir/$testdir/${res_dir}${dir_suffix}/"
-        if [ -d "${outdir}$dir" ]; then
-          mkdir -p "${resdir}$dir/"
-          rm -rf "${resdir}$dir/"*
-          cp -r "${outdir}$dir/"* "${resdir}$dir/"
-        else
-          echo "$0: No dir ${outdir}$dir" >&2
-          exit 1
-        fi
-      done
+      outdir="$testdir/${out_dir}/"
+      resdir="$srcdir/$testdir/${res_dir}/"
+      if [ -d "${outdir}$dir" ]; then
+        mkdir -p "${resdir}$dir/"
+        rm -rf "${resdir}$dir/"*
+        cp -r "${outdir}$dir/"* "${resdir}$dir/"
+      else
+        echo "$0: No dir ${outdir}$dir" >&2
+        exit 1
+      fi
     fi
   done < "$driving_file"
   exit 0
@@ -388,11 +367,8 @@ fi
 
 mkdir -p $testdir/$diffs_dir
 
-for command_dir in $commands; do
-  dir_suffix=`echo $command_dir | cut -d':' -f2`
-  outdir="$testdir/${out_dir}${dir_suffix}/"
-  mkdir -p "${outdir}"
-done
+outdir="$testdir/${out_dir}/"
+mkdir -p "${outdir}"
 
 return_code=0
 
@@ -421,105 +397,92 @@ while read line; do
       *)             src_file="$srcdir/$testdir/$file" ;;
   esac
 
-  for command_dir in $commands; do
-    format_option=
-    command=`echo $command_dir | cut -d':' -f1`
-    dir_suffix=`echo $command_dir | cut -d':' -f2`
-    format=`echo $dir_suffix |sed 's/^_//'`
-    #
-    if test -z "$command"; then
-      command=$TESTS_MAIN_COMMAND
-      if test -n "$format"; then
-        format_option="--$format"
-      fi
-    fi
-    command_run=
-    for command_location_dir in "$srcdir/../" "$srcdir/../../" $testdir/../../; do
-      if [ -f "$command_location_dir/$command" ]; then
-        command_run="$command_location_dir/$command"
-        break
-      fi
-    done
-    if test -n "$command_run"; then
-      # we're going to show the exact cmd below anyway, don't repeat here.
-      echo >>$logfile
-      echo "doing test $current, src_file $src_file" >>$logfile
-      echo "format_option: $format_option" >>$logfile
-    else
-      echo "$0: Command $command not found" >&2
-      exit 1
-    fi
-
-    outdir="$testdir/${out_dir}${dir_suffix}/"
-    results_dir="$srcdir/$testdir/${res_dir}${dir_suffix}"
-    one_test_done=yes
-
-    skipped_test=no
-    check_need_recoded_file_names || skipped_test=yes
-    check_need_non_ascii_file_names || skipped_test=yes
-    check_latex2html_and_tex4ht || skipped_test=yes
-    check_info_math2img || skipped_test=yes
-    check_unicode_collate_ok || skipped_test=yes
-    check_strxfrm_ok || skipped_test=yes
-    if [ "$skipped_test" = 'yes' ] ; then
-      if test $one_test = 'yes' ; then
-        return_code=77
-      fi
-      continue 2
-    fi
-
-    utf8_output_file=no
-    if echo "$remaining" | grep 'OUTPUT_FILE_NAME_ENCODING=UTF-8' >/dev/null; then
-      utf8_output_file=utf8_output_file
-    fi
-
-    dir=$current
-    test -d "${outdir}$dir" && rm -rf "${outdir}$dir"
-    mkdir "${outdir}$dir"
-    remaining_out_dir=`echo $remaining | sed 's,@OUT_DIR@,'"${outdir}$dir/"',g'`
-    echo "$command $dir -> ${outdir}$dir" >> $logfile
-    cmd="$prepended_command $command_run $format_option --force --conf-dir $srcdir/../perl/t/init/ --conf-dir $srcdir/../perl/init --conf-dir $srcdir/../perl/ext -I $srcdir/$testdir -I $testdir/ -I $srcdir/ -I . -I built_input -I built_input/non_ascii --error-limit=1000 -c TEST=$test_level $l2h_flags --output ${outdir}$dir/ $remaining_out_dir $src_file > ${outdir}$dir/$basename.1 2>${outdir}$dir/$basename.2"
-    echo "$cmd" >>$logfile
-    eval $cmd
-    ret=$?
-    #
-    # ran test, check results.
-    if test $ret = 0 ; then
-      diff_base="${dir}${dir_suffix}"
-      res_dir_used=
-      if [ -d "$results_dir/$dir" ]; then
-        res_dir_used="$results_dir/$dir"
-      fi
-      # store raw output
-      raw_outdir="$testdir/raw_out_parser${dir_suffix}/"
-      mkdir -p "${raw_outdir}"
-      rm -rf "${raw_outdir}$dir"
-
-      post_process_output
-      escape_file_names $utf8_output_file
-
-      if test "z$res_dir_used" != 'z' ; then
-        diff $DIFF_OPTIONS -r "$res_dir_used" "${outdir}$dir" 2>>$logfile > "$testdir/$diffs_dir/$diff_base.diff"
-        dif_ret=$?
-        if [ $dif_ret != 0 ]; then
-          echo "D: $testdir/$diffs_dir/$diff_base.diff (printed below)"
-          cat "$testdir/$diffs_dir/$diff_base.diff"
-          echo "D: $testdir/$diffs_dir/$diff_base.diff (printed above)"
-          return_code=1
-        else
-          rm "$testdir/$diffs_dir/$diff_base.diff"
-        fi
-      else
-        echo "no res($format): $dir"
-      fi
-    else
-      echo "failed with status $ret" >>$logfile
-      echo "F: ${outdir}$dir/$basename.2 (printed below)"
-      cat "${outdir}$dir/$basename.2"
-      echo "F: ${outdir}$dir/$basename.2 (printed above)"
-      return_code=1
+  command=$TESTS_MAIN_COMMAND
+  command_run=
+  for command_location_dir in "$srcdir/../" "$srcdir/../../" $testdir/../../; do
+    if [ -f "$command_location_dir/$command" ]; then
+      command_run="$command_location_dir/$command"
+      break
     fi
   done
+  if test -n "$command_run"; then
+    # we're going to show the exact cmd below anyway, don't repeat here.
+    echo >>$logfile
+    echo "doing test $current, src_file $src_file" >>$logfile
+  else
+    echo "$0: Command $command not found" >&2
+    exit 1
+  fi
+
+  outdir="$testdir/${out_dir}/"
+  results_dir="$srcdir/$testdir/${res_dir}"
+  one_test_done=yes
+
+  skipped_test=no
+  check_need_recoded_file_names || skipped_test=yes
+  check_need_non_ascii_file_names || skipped_test=yes
+  check_latex2html_and_tex4ht || skipped_test=yes
+  check_info_math2img || skipped_test=yes
+  check_unicode_collate_ok || skipped_test=yes
+  check_strxfrm_ok || skipped_test=yes
+  if [ "$skipped_test" = 'yes' ] ; then
+    if test $one_test = 'yes' ; then
+      return_code=77
+    fi
+    continue
+  fi
+
+  utf8_output_file=no
+  if echo "$remaining" | grep 'OUTPUT_FILE_NAME_ENCODING=UTF-8' >/dev/null; then
+    utf8_output_file=utf8_output_file
+  fi
+
+  dir=$current
+  test -d "${outdir}$dir" && rm -rf "${outdir}$dir"
+  mkdir "${outdir}$dir"
+  remaining_out_dir=`echo $remaining | sed 's,@OUT_DIR@,'"${outdir}$dir/"',g'`
+  echo "$command $dir -> ${outdir}$dir" >> $logfile
+  cmd="$prepended_command $command_run --force --conf-dir $srcdir/../perl/t/init/ --conf-dir $srcdir/../perl/init --conf-dir $srcdir/../perl/ext -I $srcdir/$testdir -I $testdir/ -I $srcdir/ -I . -I built_input -I built_input/non_ascii --error-limit=1000 -c TEST=$test_level $l2h_flags --output ${outdir}$dir/ $remaining_out_dir $src_file > ${outdir}$dir/$basename.1 2>${outdir}$dir/$basename.2"
+  echo "$cmd" >>$logfile
+  eval $cmd
+  ret=$?
+  #
+  # ran test, check results.
+  if test $ret = 0 ; then
+    diff_base="${dir}"
+    res_dir_used=
+    if [ -d "$results_dir/$dir" ]; then
+      res_dir_used="$results_dir/$dir"
+    fi
+    # store raw output
+    raw_outdir="$testdir/raw_out_parser/"
+    mkdir -p "${raw_outdir}"
+    rm -rf "${raw_outdir}$dir"
+
+    post_process_output
+    escape_file_names $utf8_output_file
+
+    if test "z$res_dir_used" != 'z' ; then
+      diff $DIFF_OPTIONS -r "$res_dir_used" "${outdir}$dir" 2>>$logfile > "$testdir/$diffs_dir/$diff_base.diff"
+      dif_ret=$?
+      if [ $dif_ret != 0 ]; then
+        echo "D: $testdir/$diffs_dir/$diff_base.diff (printed below)"
+        cat "$testdir/$diffs_dir/$diff_base.diff"
+        echo "D: $testdir/$diffs_dir/$diff_base.diff (printed above)"
+        return_code=1
+      else
+        rm "$testdir/$diffs_dir/$diff_base.diff"
+      fi
+    else
+      echo "no res: $dir"
+    fi
+  else
+    echo "failed with status $ret" >>$logfile
+    echo "F: ${outdir}$dir/$basename.2 (printed below)"
+    cat "${outdir}$dir/$basename.2"
+    echo "F: ${outdir}$dir/$basename.2 (printed above)"
+    return_code=1
+  fi
 done
 
 test -n "$tmp_dir" && rm -rf $tmp_dir
