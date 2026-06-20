@@ -1,5 +1,13 @@
 2026-06-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/tests/nested_formats/Makefile.am (EXTRA_DIST): no more
+	res_parser_html.
+
+	* tta/tests/*/Makefile.am (distclean-local): remove new output
+	directories.
+
+2026-06-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/tests/run_parser_all.sh (post_process_output): copy only the
 	stderr file that is modified afterwards to raw_outdir.
 
