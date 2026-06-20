@@ -116,8 +116,14 @@ check_sequence_rearranging (char32_t *const string,
 
           if (child_codepoint == *pchar)
             {
-              /* For non-contiguous matches, we should only absorb
-                 one extra character, so require node to be terminal. */
+              /* For non-contiguous matches, we require each extra
+                 character to lead to a sequence with collation data.
+                 Hence 0FB2 0334 0F71 0F80 will not match with 0FB2 0F71 0F80,
+                 unless there is data for 0FB2 0F71.
+                 The UCA#10 document discusses this sequence for Tibetan but I
+                 don't really understand it, e.g. why 0FB2 0F71 was missing.
+                 See also documentation for Perl module Unicode::Collate.
+                 */
               if (!pre_non_starter || child->data_index)
                 {
                   node = child;
@@ -138,13 +144,9 @@ check_sequence_rearranging (char32_t *const string,
           memmove (&pre_non_starter[2], &pre_non_starter[1],
                    (pchar - &pre_non_starter[1]) * sizeof (char32_t));
           pre_non_starter[1] = tmp;
+          pre_non_starter++;
 
           break;
-
-          /* Note: we can only absorb one extra character for non-contiguous
-             matches.  Hence 0FB2 0334 0F71 0F80 matches with
-             0FB2 0F80 TIBETAN VOWEL SIGN VOCALIC R, not with
-             0FB2 0F71 0F80 TIBETAN VOWEL SIGN VOCALIC RR */
         }
       else if (!found)
         {
