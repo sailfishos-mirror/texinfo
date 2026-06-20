@@ -102,14 +102,200 @@ Collation_choice unicoll_enable_partial (Collation_choice collation,
     return (collation | UNICOLL_PARTIAL_MASK);
 }
 
-/* forward declaration */
 static char *
 make_key_internal (char *psort_key,
                    struct collation_unit *elements, size_t elements_count,
                    int variable_shifted_or_blanked, int variable_shifted,
                    int primaryp, int secondaryp, int tertiaryp,
                    jmp_buf bug_jmp,
-                   char *limit);
+                   char *limit)
+{
+  int last_was_variable;
+
+#define cat(c) { \
+  if (psort_key == limit) return psort_key; \
+  else *psort_key++ = (c); \
+}
+  /* Note that we do not call malloc in this function so no clean-up
+     is required at function exit. */
+
+  /* Output collation key without any null bytes.
+     See UTS#10 s.9.4 "Avoiding Zero Bytes". */
+
+  if (primaryp)
+    {
+      for (size_t i = 0; i < elements_count; i++)
+        {
+          uint16_t weight = elements[i].primary;
+
+          if (variable_shifted_or_blanked
+              && collation_element_is_variable (&elements[i]))
+            {
+              /* Skip at primary level. */
+              continue;
+            }
+
+          if (weight)
+            {
+              if (weight > 0xFE00)
+                {
+                  /* bug: primary weight too high */
+                  errno = EINVAL;
+                  longjmp (bug_jmp, 1);
+                }
+              cat ((weight / 0xFF) + 1);
+              cat ((weight % 0xFF) + 1);
+            }
+        }
+
+      if (secondaryp || tertiaryp || variable_shifted)
+        {
+          cat ('\x01');
+          cat ('\x01');
+        }
+    }
+
+  if (secondaryp)
+    {
+      last_was_variable = 0;
+      for (size_t i = 0; i < elements_count; i++)
+        {
+          if (variable_shifted_or_blanked
+              && collation_element_is_variable (&elements[i]))
+            {
+              /* Skip at secondary level. */
+              last_was_variable = 1;
+              continue;
+            }
+
+          if (last_was_variable)
+            {
+              /* Ignore completely - e.g. combining grave following a space. */
+              if (!elements[i].primary && elements[i].tertiary)
+                continue;
+
+              /* This could be a continuation element for a high secondary
+                 weight. */
+              if (!elements[i].primary && elements[i].secondary)
+                continue;
+            }
+          uint16_t weight = elements[i].secondary;
+
+          if (weight)
+            {
+              if (weight == 0xFF)
+                {
+                  /* bug: secondary weight too high */
+                  errno = EINVAL;
+                  longjmp (bug_jmp, 1);
+                }
+              cat (weight + 1);
+            }
+          last_was_variable = 0;
+        }
+
+      /* As we only use a single byte per unit at secondary level,
+         a single byte suffices as a level separator. */
+      if (tertiaryp || variable_shifted)
+        cat ('\x01');
+    }
+
+  if (tertiaryp)
+    {
+      last_was_variable = 0;
+      for (size_t i = 0; i < elements_count; i++)
+        {
+          if (variable_shifted_or_blanked
+              && collation_element_is_variable (&elements[i]))
+            {
+              /* Skip at tertiary level. */
+              last_was_variable = 1;
+              continue;
+            }
+
+          if (last_was_variable)
+            {
+              /* Ignore completely - e.g. combining grave following a space. */
+              if (!elements[i].primary && elements[i].tertiary)
+                continue;
+
+              /* This could be a continuation element for a high secondary
+                 weight. */
+              if (!elements[i].primary && elements[i].secondary)
+                continue;
+            }
+
+          uint8_t weight = elements[i].tertiary;
+          if (weight)
+            {
+              if (weight == 0xFF)
+                {
+                  /* bug: tertiary weight too high */
+                  errno = EINVAL;
+                  longjmp (bug_jmp, 1);
+                }
+              cat (weight + 1);
+            }
+        }
+      /* As we only use a single byte per unit at tertiary level,
+         a single byte suffices as a level separator. */
+      if (variable_shifted)
+        cat ('\x01');
+    }
+
+  if (variable_shifted)
+    {
+      /* See UTS #10 c.4 "Variable Weighting". */
+
+      last_was_variable = 0;
+      for (size_t i = 0; i < elements_count; i++)
+        {
+          int variable_element = collation_element_is_variable (&elements[i]);
+          if (!elements[i].primary && !elements[i].secondary
+              && !elements[i].tertiary)
+            {
+              /* Completely ignorable element. */
+              continue;
+            }
+          else if (!elements[i].primary
+                   && (elements[i].secondary || elements[i].tertiary)
+                   && last_was_variable)
+            {
+              /* E.g. combining grave following a space.  Ignore. */
+              continue;
+            }
+          else if (variable_element)
+            {
+              uint16_t weight = elements[i].primary;
+              if (weight > 0xFE00)
+                {
+                  /* bug: shifted primary weight too high */
+                  errno = EINVAL;
+                  longjmp (bug_jmp, 1);
+                }
+              cat ((weight / 0xFF) + 1);
+              cat ((weight % 0xFF) + 1);
+            }
+          else if (!elements[i].primary
+                   && (elements[i].secondary || elements[i].tertiary)
+                   && !last_was_variable)
+            {
+              /* This needs to be greater than any shifted weights. */
+              cat (0xFF);
+              cat (0xFF);
+            }
+          else if (elements[i].primary && !variable_element)
+            {
+              /* This needs to be greater than any shifted weights. */
+              cat (0xFF);
+              cat (0xFF);
+            }
+          last_was_variable = variable_element;
+        }
+    }
+  return psort_key;
+#undef cat
+}
 
 char *
 u32_make_collation_key (Collation_choice collation,
@@ -330,201 +516,6 @@ u32_make_collation_key (Collation_choice collation,
   free (codepoints);
 
   return sort_key;
-}
-
-static char *
-make_key_internal (char *psort_key,
-                   struct collation_unit *elements, size_t elements_count,
-                   int variable_shifted_or_blanked, int variable_shifted,
-                   int primaryp, int secondaryp, int tertiaryp,
-                   jmp_buf bug_jmp,
-                   char *limit)
-{
-  int last_was_variable;
-
-#define cat(c) { \
-  if (psort_key == limit) return psort_key; \
-  else *psort_key++ = (c); \
-}
-  /* Note that we do not call malloc in this function so no clean-up
-     is required at function exit. */
-
-  /* Output collation key without any null bytes.
-     See UTS#10 s.9.4 "Avoiding Zero Bytes". */
-
-  if (primaryp)
-    {
-      for (size_t i = 0; i < elements_count; i++)
-        {
-          uint16_t weight = elements[i].primary;
-
-          if (variable_shifted_or_blanked
-              && collation_element_is_variable (&elements[i]))
-            {
-              /* Skip at primary level. */
-              continue;
-            }
-
-          if (weight)
-            {
-              if (weight > 0xFE00)
-                {
-                  /* bug: primary weight too high */
-                  errno = EINVAL;
-                  longjmp (bug_jmp, 1);
-                }
-              cat ((weight / 0xFF) + 1);
-              cat ((weight % 0xFF) + 1);
-            }
-        }
-
-      if (secondaryp || tertiaryp || variable_shifted)
-        {
-          cat ('\x01');
-          cat ('\x01');
-        }
-    }
-
-  if (secondaryp)
-    {
-      last_was_variable = 0;
-      for (size_t i = 0; i < elements_count; i++)
-        {
-          if (variable_shifted_or_blanked
-              && collation_element_is_variable (&elements[i]))
-            {
-              /* Skip at secondary level. */
-              last_was_variable = 1;
-              continue;
-            }
-
-          if (last_was_variable)
-            {
-              /* Ignore completely - e.g. combining grave following a space. */
-              if (!elements[i].primary && elements[i].tertiary)
-                continue;
-
-              /* This could be a continuation element for a high secondary
-                 weight. */
-              if (!elements[i].primary && elements[i].secondary)
-                continue;
-            }
-          uint16_t weight = elements[i].secondary;
-
-          if (weight)
-            {
-              if (weight == 0xFF)
-                {
-                  /* bug: secondary weight too high */
-                  errno = EINVAL;
-                  longjmp (bug_jmp, 1);
-                }
-              cat (weight + 1);
-            }
-          last_was_variable = 0;
-        }
-
-      /* As we only use a single byte per unit at secondary level,
-         a single byte suffices as a level separator. */
-      if (tertiaryp || variable_shifted)
-        cat ('\x01');
-    }
-
-  if (tertiaryp)
-    {
-      last_was_variable = 0;
-      for (size_t i = 0; i < elements_count; i++)
-        {
-          if (variable_shifted_or_blanked
-              && collation_element_is_variable (&elements[i]))
-            {
-              /* Skip at tertiary level. */
-              last_was_variable = 1;
-              continue;
-            }
-
-          if (last_was_variable)
-            {
-              /* Ignore completely - e.g. combining grave following a space. */
-              if (!elements[i].primary && elements[i].tertiary)
-                continue;
-
-              /* This could be a continuation element for a high secondary
-                 weight. */
-              if (!elements[i].primary && elements[i].secondary)
-                continue;
-            }
-
-          uint8_t weight = elements[i].tertiary;
-          if (weight)
-            {
-              if (weight == 0xFF)
-                {
-                  /* bug: tertiary weight too high */
-                  errno = EINVAL;
-                  longjmp (bug_jmp, 1);
-                }
-              cat (weight + 1);
-            }
-        }
-      /* As we only use a single byte per unit at tertiary level,
-         a single byte suffices as a level separator. */
-      if (variable_shifted)
-        cat ('\x01');
-    }
-
-  if (variable_shifted)
-    {
-      /* See UTS #10 c.4 "Variable Weighting". */
-
-      last_was_variable = 0;
-      for (size_t i = 0; i < elements_count; i++)
-        {
-          int variable_element = collation_element_is_variable (&elements[i]);
-          if (!elements[i].primary && !elements[i].secondary
-              && !elements[i].tertiary)
-            {
-              /* Completely ignorable element. */
-              continue;
-            }
-          else if (!elements[i].primary
-                   && (elements[i].secondary || elements[i].tertiary)
-                   && last_was_variable)
-            {
-              /* E.g. combining grave following a space.  Ignore. */
-              continue;
-            }
-          else if (variable_element)
-            {
-              uint16_t weight = elements[i].primary;
-              if (weight > 0xFE00)
-                {
-                  /* bug: shifted primary weight too high */
-                  errno = EINVAL;
-                  longjmp (bug_jmp, 1);
-                }
-              cat ((weight / 0xFF) + 1);
-              cat ((weight % 0xFF) + 1);
-            }
-          else if (!elements[i].primary
-                   && (elements[i].secondary || elements[i].tertiary)
-                   && !last_was_variable)
-            {
-              /* This needs to be greater than any shifted weights. */
-              cat (0xFF);
-              cat (0xFF);
-            }
-          else if (elements[i].primary && !variable_element)
-            {
-              /* This needs to be greater than any shifted weights. */
-              cat (0xFF);
-              cat (0xFF);
-            }
-          last_was_variable = variable_element;
-        }
-    }
-  return psort_key;
-#undef cat
 }
 
 char *
