@@ -1002,28 +1002,24 @@ sub _prepare_floats($) {
 sub _prepare_indices($) {
   my $self = shift;
 
-  my $indices_information;
-  if (exists($self->{'document'})) {
-    $indices_information = $self->{'document'}->indices_information();
-  }
+  return if (!exists($self->{'document'}));
 
-  if (defined($indices_information)) {
-    $self->{'index_formatting_text_options'}
-      = Texinfo::Indices::setup_index_entry_keys_formatting($self);
-    my $merged_index_entries
-        = $self->{'document'}->merged_indices();
-    # select non empty indices
-    if (defined($merged_index_entries)) {
-      $self->{'index_entries'} = {};
-      foreach my $index_name (keys(%{$merged_index_entries})) {
-        # print STDERR "PI $index_name\n";
-        # print STDERR "".$merged_index_entries->{$index_name}."\n";
-        #print STDERR " -> ".join("|", @{$merged_index_entries->{$index_name}})."\n";
-        if (scalar(@{$merged_index_entries->{$index_name}})) {
-          $self->{'index_entries'}->{$index_name}
-               = $merged_index_entries->{$index_name};
-        }
-      }
+  my $indices_information = $self->{'document'}->indices_information();
+  return if (!defined($indices_information));
+  my $merged_index_entries = $self->{'document'}->merged_indices();
+  return if (!defined($merged_index_entries));
+
+  $self->{'index_formatting_text_options'}
+    = Texinfo::Indices::setup_index_entry_keys_formatting($self);
+
+  $self->{'index_entries'} = {};
+  foreach my $index_name (keys(%{$merged_index_entries})) {
+    # print STDERR "PI $index_name\n";
+    # print STDERR "".$merged_index_entries->{$index_name}."\n";
+    #print STDERR " -> ".join("|", @{$merged_index_entries->{$index_name}})."\n";
+    if (scalar(@{$merged_index_entries->{$index_name}})) {
+     $self->{'index_entries'}->{$index_name}
+          = $merged_index_entries->{$index_name};
     }
   }
 }
