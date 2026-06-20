@@ -9,7 +9,7 @@ one_test_logs_dir=test_log
 
 
 dir=nested_formats
-name='nested_enumerate'
+name='nested_table_info'
 mkdir -p $dir
 
 "$srcdir"/run_parser_all.sh -dir $dir $name

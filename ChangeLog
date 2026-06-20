@@ -1,5 +1,11 @@
 2026-06-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/tests/Makefile.onetst, tta/tests/nested_formats/list-of-tests:
+	remove the # format "magic" specification of tested formats in
+	nested_formats/list-of-tests, set manually the list of all the tests.
+
+2026-06-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Converter.pm
 	(_converter_indices_sort_strings), tta/perl/Texinfo/Document.pm
 	(_document_indices_sort_strings): call indices_information() before

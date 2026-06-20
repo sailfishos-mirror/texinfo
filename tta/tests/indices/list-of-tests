@@ -1,5 +1,3 @@
-# formats :
-
 # Same input file also tested in t/converters_tests.t.  It is interesting to
 # have automatic tree transformations tested here too.
 indices_in_begin_tables_lists indices_in_begin_tables_lists.texi --html --no-split -c 'USE_NODES 0'
