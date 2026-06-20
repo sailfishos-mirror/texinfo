@@ -120,9 +120,13 @@ check_sequence_rearranging (char32_t *const string,
                  character to lead to a sequence with collation data.
                  Hence 0FB2 0334 0F71 0F80 will not match with 0FB2 0F71 0F80,
                  unless there is data for 0FB2 0F71.
-                 The UCA#10 document discusses this sequence for Tibetan but I
+                     The UCA#10 document discusses this sequence for Tibetan but I
                  don't really understand it, e.g. why 0FB2 0F71 was missing.
-                 See also documentation for Perl module Unicode::Collate.
+                     According to "UTC #187 properties feedback & recommendations",
+                 2026-04-16 [*], this was an anomaly that will be
+                 eliminated in the future.
+                     See also documentation for Perl module Unicode::Collate.
+                 [*] https://www.unicode.org/L2/L2026/26096-pag-report-utc187.pdf
                  */
               if (!seq_end || child->data_index)
                 {
