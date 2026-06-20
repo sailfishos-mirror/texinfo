@@ -127,13 +127,13 @@ ref_dir_suffix='parser'
 # process the output so we can get consistent output for the comparisons
 post_process_output ()
 {
-  cp -pr ${outdir}$dir/ "${raw_outdir}"
-
   # With latex2html or tex4ht output is stored in raw_outdir, and files
   # are removed or modified from the output directory used for comparisons
   # NB there is similar code in many_input_files/tex_{l2h,t4ht}.sh.
   if test "$use_latex2html" = 'yes' || test "$use_tex4ht" = 'yes' \
           || test "$use_info_math2img" = 'yes'; then
+
+    cp -pr ${outdir}$dir/ "${raw_outdir}"
 
     # remove files that are not reproducible
     rm -f "${outdir}$dir/$basename.1" ${outdir}$dir/*.png ${outdir}$dir/*.svg \
@@ -141,6 +141,9 @@ post_process_output ()
           ${outdir}$dir/*_tex4ht_*.idv ${outdir}$dir/*_tex4ht_*.dvi \
           ${outdir}$dir/*_l2h.html.*
           #${outdir}$dir/*_tex4ht_tex.html*
+  else
+    mkdir -p "${raw_outdir}$dir/"
+    cp -p "${outdir}$dir/$basename.2" "${raw_outdir}$dir/"
   fi
 
   if test "$use_tex4ht" = 'yes' ; then
