@@ -16,9 +16,6 @@ currently is, and make it only one unit by default.  overload the value
 an offset in another lookup table for the sequence of collation units.  this
 could cut the size of the data by a factor of two.
 
-* check in main collation data table first and add some special marker
-for checking in trie for sequence
-
 * optimise sequence lookup or lookup for ASCII chars
 * Unicode normalisation issues.  We could extend the data table
 to include more "canonically decomposable characters".  (See TR#10 s.9.5.)
@@ -27,6 +24,10 @@ to include more "canonically decomposable characters".  (See TR#10 s.9.5.)
 (UTS #10 9.3.2).
 
 notes:
+
+# print all contractions
+perl -wnle '/^[[:xdigit:]]{4,5} [[:xdigit:]]/ && print' <allkeys.txt 
+
 
 # list secondary weights
 

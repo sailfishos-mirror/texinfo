@@ -267,7 +267,11 @@ lookup_collation_data_at_char (char32_t *const string,
       (*n_codepoints_out) = 0;
       return;
     }
-  if (!disable_sequences)
+#define CHECK_SEQUENCE_BIT 0x80
+
+  COLLATION_DATA data = lookup_codepoint_data
+                          (string ? string[0] : string_const[0]);
+  if ((data.num_elements & CHECK_SEQUENCE_BIT) && !disable_sequences)
     {
       const struct trie_node *node = NULL;
       size_t n_codepoints_matched;
@@ -290,10 +294,8 @@ lookup_collation_data_at_char (char32_t *const string,
               return;
             }
         }
+      data.num_elements &= ~CHECK_SEQUENCE_BIT;
     }
-
-  COLLATION_DATA data = lookup_codepoint_data
-                          (string ? string[0] : string_const[0]);
 
   (*n_codepoints_out) = data.array ? 1 : 0;
   *collation_units = data.array;

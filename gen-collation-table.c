@@ -466,6 +466,30 @@ compare_trie_node_children (const void *a, const void *b)
 
 static size_t trie_node_index;
 
+static void
+sort_trie_node_children (struct trie_node *node)
+{
+  qsort (node->children, node->num_children, sizeof(node->children[0]),
+         compare_trie_node_children);
+}
+
+/* Used to check if there are sequences beginning with a given codepoint. */
+int
+codepoint_initial_in_trie (struct trie_node *root, char32_t codepoint)
+{
+  struct trie_node dummy, *pdummy;
+  memset (&dummy, 0, sizeof (dummy));
+  dummy.codepoint = codepoint;
+  pdummy = &dummy;
+
+  struct trie_node *found = bsearch (&pdummy,
+                                     root->children, root->num_children,
+                                     sizeof(root->children[0]),
+                                     compare_trie_node_children);
+  return found ? 1 : 0;
+}
+
+
 /* Traverse tree rooted at NODE, assigning 'index' on each node.  Assign
    contiguous indices to children of each node.  This is neither depth-
    or breadth-first traversal:
@@ -488,8 +512,7 @@ static size_t trie_node_index;
 static void
 assign_trie_node_indices (struct trie_node *node)
 {
-  qsort (node->children, node->num_children, sizeof(node->children[0]),
-         compare_trie_node_children);
+  sort_trie_node_children (node);
 
   for (uint16_t i = 0; i < node->num_children; i++)
     node->children[i]->trie_index = trie_node_index++;
@@ -674,6 +697,9 @@ write_c_source (const char *output_file)
   if (!fp)
     fatal ("failed to open output file");
 
+  /* prepare trie for use of codepoint_initial_in_trie */
+  sort_trie_node_children (info.trie_root);
+
   long i;
 
   long n_collation_units = 0;
@@ -779,9 +805,22 @@ write_c_source (const char *output_file)
             {
               if (j == (next_data & 0xff) && next_data != -1)
                 {
-                  fprintf (fp, "    %d,%s",
-                           info.singles.entries[point_count].data.num_elements,
+#define CHECK_SEQUENCE_BIT 0x80
+                  /* We encode whether there is a sequence beginning with this
+                     codepoint by setting a high bit in length data. That
+                     way we only need to try to lookup a sequence if this bit
+                     is set. */
+                  int sequence_exists
+                    = codepoint_initial_in_trie (info.trie_root, next_data);
+                  int num_elements_write
+                    = info.singles.entries[point_count].data.num_elements;
+                  if (sequence_exists)
+                     num_elements_write |= CHECK_SEQUENCE_BIT;
+
+                  fprintf (fp, "  %3d,%s",
+                           num_elements_write,
                            (j % 8) == 7 ? "\n" : "");
+
                   if (++point_count == info.singles.count)
                     next_data = -1;
                   else
