@@ -48,25 +48,12 @@ void set_document_options (DOCUMENT *document,
                       const OPTIONS_LIST *init_files_options);
 
 const MERGED_INDICES *document_merged_indices (DOCUMENT *document);
-const INDICES_SORT_STRINGS *document_indices_sort_strings (
-                               DOCUMENT *document,
-                               ERROR_MESSAGE_LIST *error_messages,
-                               OPTIONS *options);
 
 COLLATION_INDICES_SORTED_BY_INDEX *document_sorted_indices_by_index (
                          DOCUMENT *document,
-                         ERROR_MESSAGE_LIST *error_messages,
-                         OPTIONS *options,
                          int use_unicode_collation,
                          const char *input_lang_sorting_locale,
                          const char *collation_locale);
-COLLATION_INDICES_SORTED_BY_LETTER *document_sorted_indices_by_letter (
-                          DOCUMENT *document,
-                          ERROR_MESSAGE_LIST *error_messages,
-                          OPTIONS *options,
-                          int use_unicode_collation,
-                          const char *input_lang_sorting_locale,
-                          const char *collation_locale);
 
 void destroy_document (DOCUMENT *document);
 ELEMENT *unregister_document_merge_with_document (DOCUMENT *removed_document,

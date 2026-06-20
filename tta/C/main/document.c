@@ -327,22 +327,20 @@ register_document_convert_index_text_options (DOCUMENT *document,
   document->convert_index_text_options = text_options;
 }
 
-const INDICES_SORT_STRINGS *
-document_indices_sort_strings (DOCUMENT *document,
-                               ERROR_MESSAGE_LIST *error_messages,
-                               OPTIONS *options)
+static const INDICES_SORT_STRINGS *
+document_indices_sort_strings (DOCUMENT *document)
 {
   if (!document->indices_sort_strings)
     {
-      int debug_level = 0;
       const MERGED_INDICES *merged_indices
          = document_merged_indices (document);
+      int debug_level = 0;
 
-      if (options && options->DEBUG.o.integer > 0)
-        debug_level = options->DEBUG.o.integer;
+      if (document->options && document->options->DEBUG.o.integer > 0)
+        debug_level = document->options->DEBUG.o.integer;
 
       document->indices_sort_strings
-       = setup_index_entries_sort_strings (error_messages,
+       = setup_index_entries_sort_strings (&document->error_messages,
                         merged_indices, &document->indices_info, 0,
                         document, debug_level, 0, 0);
 
@@ -354,8 +352,6 @@ document_indices_sort_strings (DOCUMENT *document,
 /* Used in tests and in SWIG interface */
 COLLATION_INDICES_SORTED_BY_INDEX *
 document_sorted_indices_by_index (DOCUMENT *document,
-                         ERROR_MESSAGE_LIST *error_messages,
-                         OPTIONS *options,
                          int use_unicode_collation,
                          const char *input_lang_sorting_locale,
                          const char *collation_locale)
@@ -379,15 +375,13 @@ document_sorted_indices_by_index (DOCUMENT *document,
 
   if (!collation_sorted_indices->sorted_indices)
     {
-      document_merged_indices (document);
-
       const INDICES_SORT_STRINGS *indices_sort_strings
-             = document_indices_sort_strings (document,
-                                              error_messages, options);
+             = document_indices_sort_strings (document);
 
       collation_sorted_indices->sorted_indices
-        = sort_indices_by_index (indices_sort_strings, error_messages,
-                                 options,
+        = sort_indices_by_index (indices_sort_strings,
+                                 &document->error_messages,
+                                 document->options,
                                  use_unicode_collation, lang_sorting_locale,
                                  collation_locale);
     }
@@ -397,8 +391,6 @@ document_sorted_indices_by_index (DOCUMENT *document,
 /* Unused */
 COLLATION_INDICES_SORTED_BY_LETTER *
 document_sorted_indices_by_letter (DOCUMENT *document,
-                          ERROR_MESSAGE_LIST *error_messages,
-                          OPTIONS *options,
                           int use_unicode_collation,
                           const char *input_lang_sorting_locale,
                           const char *collation_locale)
@@ -423,15 +415,13 @@ document_sorted_indices_by_letter (DOCUMENT *document,
 
   if (!collation_sorted_indices->sorted_indices)
     {
-      document_merged_indices (document);
-
       const INDICES_SORT_STRINGS *indices_sort_strings
-             = document_indices_sort_strings (document,
-                                              error_messages, options);
+             = document_indices_sort_strings (document);
 
       collation_sorted_indices->sorted_indices
-        = sort_indices_by_letter (indices_sort_strings, error_messages,
-                                  options,
+        = sort_indices_by_letter (indices_sort_strings,
+                                  &document->error_messages,
+                                  document->options,
                                   use_unicode_collation, lang_sorting_locale,
                                   collation_locale);
     }
@@ -754,12 +744,10 @@ print_document_indices_sort_strings (DOCUMENT *document)
         lang_sorting_locale = document->options->COLLATION_LANGUAGE.o.string;
     }
 
-  indices_sort_strings = document_indices_sort_strings (document,
-                            &document->error_messages, document->options);
+  indices_sort_strings = document_indices_sort_strings (document);
 
   collation_sorted_index_entries
-   = document_sorted_indices_by_index (document, &document->error_messages,
-                                       document->options,
+   = document_sorted_indices_by_index (document,
                                        use_unicode_collation,
                                        lang_sorting_locale, 0);
 
