@@ -6,7 +6,7 @@ EXTRA_DIST = \
 DISTCLEANFILES = tests.log tests.out
 
 distclean-local:
-	rm -rf out_parser raw_out_parser out_native raw_out_native \
+	rm -rf out_perl raw_out_perl out_native raw_out_native \
            diffs test_log
 
 dist-hook:

@@ -32,21 +32,28 @@ tests in given as arguments, for example "./run_parser_all.sh -dir formatting".
 To run just one test, give the test name, e.g.
 "./run_parser_all.sh -dir formatting cond".
 
+In the default case, ./run_parser_all.sh tests the Perl command, to test
+the native command, call with -native option:
+
+"./run_parser_all.sh -native -dir formatting cond".
+
+The native command tests are enabled in the Makefile only if the native
+command is built.
+
 Checking test results
 ---------------------
-The test results are in the out_parser directories; the reference
-results are in res_parser directories.  There can be these pairs.
-- out_parser/ and res_parser/ for the default setting;
-- out_parser_html/ and res_parser_html/ for html output;
-- out_parser_info/ and res_parser_info/ for info results;
+The test results are in the out_perl and out_native directories; the
+reference results are in res_parser directories.  There can be these pairs.
+- out_perl/ and res_parser/ for the perl command test;
+- out_native/ and res_parser/ for the native command test;
 and diffs are put in the diffs/ subdir.
 
 For example, to investigate a failure in the 
 test_scripts/layout_formatting_docbook.sh test, compare the contents of the
-files in the layout_res_parser/formatting_docbook and 
-layout_out_parser/formatting_docbook directories, e.g.
+files in the layout/res_parser/formatting_docbook and
+layout/out_perl/formatting_docbook directories, e.g.
 
-diff {res,out}_parser/formatting_docbook/formatting.2
+diff {res_parser,out_perl}/formatting_docbook/formatting.2
 
 Also look in the layout/diffs directory.
 
@@ -72,8 +79,8 @@ by a fail if there was a failure.
 The test results are in a directory below the out directories. This 
 directory name can be considered as the test name. Let's call it a_test
 for the remainder of the explanation. The stderr output is in 
-out_parser/a_test/a_test.2, stdout output is in 
-out_parser/a_test/a_test.1.  All the commands called are output in 
+out_perl/a_test/a_test.2, stdout output is in
+out_perl/a_test/a_test.1.  All the commands called are output in
 tests.log.
 
 Note that "make all-checks" also runs the testsuite, but also runs
@@ -99,6 +106,9 @@ of tests via this method.
 Exception: in the many_input_files subdirectory, the *parser*.sh scripts
 can't be used for updating.  Instead, the Makefile's copy-tests and
 copy-tex-html targets do it directly.
+
+The Makefile copy targets use the Perl command results since they should
+always be generated.
 
 
 Testsuite and document strings translations
@@ -215,16 +225,17 @@ Creating a new test
 - most probably, create the needed subdir/*.texi file
 - ./run_parser_all.sh -dir subdir newtest
 
-This will create subdir/out_parser*/newtest/ with the test results
+This will create subdir/out_perl/newtest/ with the test results
 (as explained above), as well as stdout in newtest.1 and stderr in newtest.2.
 Look carefully to be sure they are as they should be.
 
 When things look good, use the -copy option to create the
-subdir/res_parser*/newtest/ subdirs and copy the output files there.
+subdir/res_parser/newtest/ subdirs and copy the output files there.
 
-The test run will be logged in subdir/test_log/newtest.log,
-including the exact invocation of texi2any, which can alter anything.
-For even more, use sh -vx to show exactly what run_parser_all is doing.
+The test run will be logged in subdir/test_log/perl_newtest.log,
+including the exact invocation of the tested command, which can alter
+anything.  For even more, use sh -vx to show exactly what run_parser_all
+ is doing.
 
 When satisfied, add the .texi in subdir/Makefile.am.
 
@@ -247,6 +258,6 @@ Then "git rm" the missing files.
 Delete directories containing reference test results, e.g.
 
 ls -d formatting/*/unknown_nodes_renamed
-rm -r formatting/out_parser/unknown_nodes_renamed
+rm -r formatting/out_*/unknown_nodes_renamed
 git rm formatting/res_parser/unknown_nodes_renamed
 

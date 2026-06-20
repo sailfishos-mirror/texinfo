@@ -244,8 +244,8 @@ tta/tests/*/tests.out
 tta/tests/*/diffs
 tta/tests/*/out_native
 tta/tests/*/raw_out_native
-tta/tests/*/out_parser
-tta/tests/*/raw_out_parser
+tta/tests/*/out_perl
+tta/tests/*/raw_out_perl
 tta/tests/*/test_log
 
 tta/tests/test-suite.log

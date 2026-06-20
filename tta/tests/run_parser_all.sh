@@ -212,8 +212,8 @@ prepended_command=
 #prepended_command='valgrind -q'
 
 main_command='perl/texi2any.pl'
-dir_suffix=$ref_dir_suffix
 language_type=perl
+dir_suffix=$language_type
 #main_command='C/ctexi2any'
 
 test_level=1
@@ -231,8 +231,8 @@ while [ z"$1" = 'z-clean' -o z"$1" = 'z-copy' -o z"$1" = 'z-dir' -o z"$1" = 'z-n
     shift
   elif [ z"$1" = 'z-native' ]; then
     main_command='C/ctexi2any'
-    dir_suffix='native'
-    language_type=${dir_suffix}
+    language_type='native'
+    dir_suffix=$language_type
     shift
   elif [ z"$1" = 'z-dir' ]; then
     shift
@@ -459,7 +459,7 @@ while read line; do
   #
   # ran test, check results.
   if test $ret = 0 ; then
-    diff_base="${dir}${dir_suffix}"
+    diff_base="${dir}_${dir_suffix}"
     results_dir_used=
     if [ -d "$results_dir/$dir" ]; then
       results_dir_used="$results_dir/$dir"

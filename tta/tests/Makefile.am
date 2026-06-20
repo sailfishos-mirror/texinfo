@@ -44,6 +44,7 @@ copy-other-tests:
 
 clean-tests:
 	$(parser_tests_environment) $(srcdir)/parser_tests.sh -clean $(base_tests_dirs) $(tex_html_tests_dirs) $(other_tests_dirs)
+	$(parser_tests_environment) $(srcdir)/parser_tests.sh -clean -native $(base_tests_dirs) $(tex_html_tests_dirs) $(other_tests_dirs)
 
 # *_one_*_test_files_generated_list are automatically defined in
 # Makefile.onetst
