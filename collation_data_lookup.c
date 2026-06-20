@@ -79,7 +79,7 @@ check_sequence_rearranging (char32_t *const string,
        pchar < string + length && (*pchar) != 0;
        pchar++)
     {
-      int combining_class;
+      int combining_class = 0;
       if (seq_end)
         {
           /* We are trying to find a non-continguous match. */
@@ -98,8 +98,6 @@ check_sequence_rearranging (char32_t *const string,
                  match by earlier non-starters. */
               continue;
             }
-
-          max_combining_class = combining_class;
         }
 
       int num_children = node->num_children;
@@ -140,19 +138,25 @@ check_sequence_rearranging (char32_t *const string,
             break;
         }
 
-      if (found && seq_end)
+      if (seq_end)
         {
-          /* This is part of a non-contiguous match.  Move matched
-             character right after the contiguous part of the match. */
-          char32_t tmp = *pchar;
-          memmove (&seq_end[2], &seq_end[1],
-                   (pchar - &seq_end[1]) * sizeof (char32_t));
-          seq_end[1] = tmp;
-          seq_end++;
+          if (found)
+            {
+              /* This is part of a non-contiguous match.  Move matched
+                 character right after the contiguous part of the match. */
+              char32_t tmp = *pchar;
+              memmove (&seq_end[2], &seq_end[1],
+                       (pchar - &seq_end[1]) * sizeof (char32_t));
+              seq_end[1] = tmp;
+              seq_end++;
 
-          break;
+              break;
+            }
+          else
+            max_combining_class = combining_class;
         }
-      else if (!found)
+
+      if (!found)
         {
           if (!seq_end && pchar > string)
             {
