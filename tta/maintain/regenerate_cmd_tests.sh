@@ -160,7 +160,7 @@ cat >$outfile <<END_HEADER
 
 END_HEADER
 
-for test_language in perl ; do
+for test_language in perl native ; do
   one_language_test_files_variable_name="one_${test_language}_test_files_generated_list"
   one_language_test_files="$one_language_test_files
 

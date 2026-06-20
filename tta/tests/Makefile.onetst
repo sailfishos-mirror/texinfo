@@ -14,12 +14,15 @@
 test_driving_files_generated_list = formatting/list-of-tests encoded/list-of-tests nested_formats/list-of-tests customization/list-of-tests coverage/list-of-tests layout/list-of-tests tex_html/list-of-tests other/list-of-tests info_tex/list-of-tests
 
 # List of test scripts that only run one test
-one_test_files_generated_list =  $(one_perl_test_files_generated_list)
+one_test_files_generated_list =  $(one_perl_test_files_generated_list) $(one_native_test_files_generated_list)
 
 # List of test scripts that only run one test by language
 
 # list of language perl test files
 one_perl_test_files_generated_list =  $(type_base_one_perl_test_files_generated_list) $(type_tex_html_one_perl_test_files_generated_list) $(type_other_one_perl_test_files_generated_list)
+
+# list of language native test files
+one_native_test_files_generated_list =  $(type_base_one_native_test_files_generated_list) $(type_tex_html_one_native_test_files_generated_list) $(type_other_one_native_test_files_generated_list)
 
 # Lists of test scripts by test type
 
@@ -173,4 +176,155 @@ type_other_one_perl_test_files_generated_list =  \
     test_scripts/other_perl_accented_lang_index_collation_documentlanguage_collation.sh \
     test_scripts/other_perl_index_collation_script_test_documentlanguage_collation.sh \
     test_scripts/info_tex_perl_tex_math_info_math_images.sh
+
+# list of native type base test files
+type_base_one_native_test_files_generated_list =  \
+    test_scripts/formatting_native_split_nocopying_split_dev_null.sh \
+    test_scripts/formatting_native_simplest_test_css.sh \
+    test_scripts/formatting_native_defcondx_Dbar.sh \
+    test_scripts/formatting_native_defcondx_Ubar.sh \
+    test_scripts/formatting_native_documentlanguage_cmdline.sh \
+    test_scripts/formatting_native_cpp_lines.sh \
+    test_scripts/formatting_native_no_content.sh \
+    test_scripts/formatting_native_no_content_separate.sh \
+    test_scripts/formatting_native_no_content_do_contents_separate.sh \
+    test_scripts/formatting_native_no_content_do_contents.sh \
+    test_scripts/formatting_native_no_content_inline.sh \
+    test_scripts/formatting_native_no_content_do_contents_inline.sh \
+    test_scripts/formatting_native_indices_in_begin_tables_lists.sh \
+    test_scripts/formatting_native_indices_in_begin_tables_lists_latex.sh \
+    test_scripts/formatting_native_formatting_customizations_input_raw_text.sh \
+    test_scripts/formatting_native_index_entries_relate_to_item.sh \
+    test_scripts/formatting_native_no_detailmenu_lang_at_begin_end.sh \
+    test_scripts/formatting_native_no_detailmenu_lang_at_begin_end_set_lang.sh \
+    test_scripts/formatting_native_info_extension_warning.sh \
+    test_scripts/formatting_native_js_license_reuse_output_file.sh \
+    test_scripts/formatting_native_reuse_macro_expand_file.sh \
+    test_scripts/encoded_native_non_ascii_command_line.sh \
+    test_scripts/encoded_native_non_ascii_test_epub.sh \
+    test_scripts/encoded_native_non_ascii_test_rawtext.sh \
+    test_scripts/encoded_native_non_ascii_no_setfilename_test_rawtext.sh \
+    test_scripts/encoded_native_non_ascii_test_info.sh \
+    test_scripts/encoded_native_non_ascii_test_latex.sh \
+    test_scripts/encoded_native_manual_include_accented_file_name_latin1.sh \
+    test_scripts/encoded_native_manual_include_accented_file_name_latin1_explicit_encoding.sh \
+    test_scripts/encoded_native_manual_include_accented_file_name_latin1_use_locale_encoding.sh \
+    test_scripts/encoded_native_verbatiminclude_names_latin1_html.sh \
+    test_scripts/encoded_native_verbatiminclude_names_latin1_html_explicit_encoding.sh \
+    test_scripts/encoded_native_verbatiminclude_names_latin1_rawtext.sh \
+    test_scripts/encoded_native_verbatiminclude_names_latin1_explicit_encoding_rawtext.sh \
+    test_scripts/nested_formats_native_texi_nested_formats.sh \
+    test_scripts/nested_formats_native_nested_group_html.sh \
+    test_scripts/nested_formats_native_nested_itemize_html.sh \
+    test_scripts/nested_formats_native_nested_menu_html.sh \
+    test_scripts/nested_formats_native_nested_table_html.sh \
+    test_scripts/nested_formats_native_nested_flushright_html.sh \
+    test_scripts/nested_formats_native_nested_multitable_html.sh \
+    test_scripts/nested_formats_native_nested_cartouche_html.sh \
+    test_scripts/nested_formats_native_nested_enumerate_html.sh \
+    test_scripts/nested_formats_native_nested_deffn_html.sh \
+    test_scripts/nested_formats_native_nested_example_html.sh \
+    test_scripts/nested_formats_native_nested_quotation_html.sh \
+    test_scripts/nested_formats_native_nested_group_info.sh \
+    test_scripts/nested_formats_native_nested_itemize_info.sh \
+    test_scripts/nested_formats_native_nested_menu_info.sh \
+    test_scripts/nested_formats_native_nested_table_info.sh \
+    test_scripts/nested_formats_native_nested_flushright_info.sh \
+    test_scripts/nested_formats_native_nested_multitable_info.sh \
+    test_scripts/nested_formats_native_nested_cartouche_info.sh \
+    test_scripts/nested_formats_native_nested_enumerate_info.sh \
+    test_scripts/nested_formats_native_nested_deffn_info.sh \
+    test_scripts/nested_formats_native_nested_example_info.sh \
+    test_scripts/nested_formats_native_nested_quotation_info.sh \
+    test_scripts/customization_native_texi_ignore_and_comments.sh \
+    test_scripts/customization_native_ignore_and_comments_output.sh \
+    test_scripts/customization_native_test_redefine_need.sh \
+    test_scripts/customization_native_sectioning_directions.sh \
+    test_scripts/customization_native_sectioning_directions_split_chapter.sh \
+    test_scripts/customization_native_sectioning_without_anchors.sh \
+    test_scripts/customization_native_translated_strings_customization.sh \
+    test_scripts/customization_native_double_contents_book.sh \
+    test_scripts/customization_native_double_contents_after_title_book.sh \
+    test_scripts/customization_native_double_contents_after_title_book_chapter.sh \
+    test_scripts/customization_native_simplest_stage_handler_bad_return.sh \
+    test_scripts/customization_native_simplest_stage_handler_undef_return.sh \
+    test_scripts/coverage_native_formatting_macro_expand.sh \
+    test_scripts/coverage_native_formatting_info.sh \
+    test_scripts/coverage_native_formatting_plaintext.sh \
+    test_scripts/coverage_native_formatting_docbook.sh \
+    test_scripts/coverage_native_formatting_xml.sh \
+    test_scripts/coverage_native_formatting_html_no_split.sh \
+    test_scripts/coverage_native_formatting_latex.sh \
+    test_scripts/coverage_native_formatting_epub.sh \
+    test_scripts/coverage_native_formatting_textcontent.sh \
+    test_scripts/coverage_native_formatting_rawtext.sh \
+    test_scripts/coverage_native_formatting_html32.sh \
+    test_scripts/coverage_native_formatting_xhtml.sh \
+    test_scripts/coverage_native_formatting_chm.sh \
+    test_scripts/coverage_native_formatting_regions.sh \
+    test_scripts/layout_native_formatting_texi2html.sh \
+    test_scripts/layout_native_formatting_texi2html_nodes.sh \
+    test_scripts/layout_native_formatting_info_ascii_punctuation.sh \
+    test_scripts/layout_native_formatting_info_disable_encoding.sh \
+    test_scripts/layout_native_formatting_plaintext_ascii_punctuation.sh \
+    test_scripts/layout_native_formatting_sort_element_counts.sh \
+    test_scripts/layout_native_formatting_mathjax.sh \
+    test_scripts/layout_native_formatting_weird_quotes.sh \
+    test_scripts/layout_native_formatting_numerical_entities.sh \
+    test_scripts/layout_native_formatting_enable_encoding.sh \
+    test_scripts/layout_native_formatting_exotic.sh \
+    test_scripts/layout_native_formatting_inline_css.sh \
+    test_scripts/layout_native_formatting_fr.sh \
+    test_scripts/layout_native_formatting_fr_info.sh \
+    test_scripts/layout_native_formatting_fr_icons.sh \
+    test_scripts/layout_native_formatting_epub_nodes.sh
+
+# list of native type tex_html test files
+type_tex_html_one_native_test_files_generated_list =  \
+    test_scripts/tex_html_native_block_EOL_tex.sh \
+    test_scripts/tex_html_native_simplest_httex.sh \
+    test_scripts/tex_html_native_tex_notex.sh \
+    test_scripts/tex_html_native_tex.sh \
+    test_scripts/tex_html_native_tex_l2h_latex.sh \
+    test_scripts/tex_html_native_tex_l2h_tex_latex.sh \
+    test_scripts/tex_html_native_tex_httex.sh \
+    test_scripts/tex_html_native_tex_httex_latex.sh \
+    test_scripts/tex_html_native_tex_httex_latex_math.sh \
+    test_scripts/tex_html_native_tex_httex_tex_latex.sh \
+    test_scripts/tex_html_native_tex_httex_tex_latex_math.sh \
+    test_scripts/tex_html_native_tex_accents_httex.sh \
+    test_scripts/tex_html_native_tex_accents_l2h.sh \
+    test_scripts/tex_html_native_tex_gdef_httex.sh \
+    test_scripts/tex_html_native_tex_gdef_l2h.sh \
+    test_scripts/tex_html_native_tex_mathjax.sh \
+    test_scripts/tex_html_native_tex_gdef_mathjax.sh \
+    test_scripts/tex_html_native_tex_complex_httex.sh \
+    test_scripts/tex_html_native_tex_complex_l2h.sh \
+    test_scripts/tex_html_native_tex_eqalign_httex.sh \
+    test_scripts/tex_html_native_tex_eqalign_l2h.sh \
+    test_scripts/tex_html_native_math_not_closed.sh \
+    test_scripts/tex_html_native_tex_not_closed.sh \
+    test_scripts/tex_html_native_tex_in_copying.sh \
+    test_scripts/tex_html_native_tex_encoded_utf8_l2h.sh \
+    test_scripts/tex_html_native_tex_encoded_utf8_httex.sh \
+    test_scripts/tex_html_native_tex_encoded_latin1_l2h.sh \
+    test_scripts/tex_html_native_tex_encoded_latin1_httex.sh \
+    test_scripts/tex_html_native_formatting_singular.sh
+
+# list of native type other test files
+type_other_one_native_test_files_generated_list =  \
+    test_scripts/other_native_highlight_syntax_example.sh \
+    test_scripts/other_native_highlight_syntax_example_pygments.sh \
+    test_scripts/other_native_highlight_syntax_example_highlight.sh \
+    test_scripts/other_native_highlight_syntax_example_default_language.sh \
+    test_scripts/other_native_highlight_syntax_example_latin9.sh \
+    test_scripts/other_native_index_collation_test_plaintext.sh \
+    test_scripts/other_native_index_collation_test_html.sh \
+    test_scripts/other_native_index_collation_test_collation_language.sh \
+    test_scripts/other_native_index_collation_test_collation_language_html.sh \
+    test_scripts/other_native_index_collation_test_documentlanguage_collation.sh \
+    test_scripts/other_native_index_collation_test_documentlanguage_collation_html.sh \
+    test_scripts/other_native_accented_lang_index_collation_documentlanguage_collation.sh \
+    test_scripts/other_native_index_collation_script_test_documentlanguage_collation.sh \
+    test_scripts/info_tex_native_tex_math_info_math_images.sh
 

@@ -52,9 +52,9 @@ tex_html_tests = $(type_tex_html_one_perl_test_files_generated_list)
 other_tests = $(type_other_one_perl_test_files_generated_list)
 if USE_SHARED_TXI_LIBRARIES
 if PERL_EMBEDDED
-#TESTS += $(one_native_test_files_generated_list)
-#tex_html_tests += $(type_tex_html_one_native_test_files_generated_list)
-#other_tests += $(type_other_one_native_test_files_generated_list)
+TESTS += $(one_native_test_files_generated_list)
+tex_html_tests += $(type_tex_html_one_native_test_files_generated_list)
+other_tests += $(type_other_one_native_test_files_generated_list)
 endif
 endif
 
