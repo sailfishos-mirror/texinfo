@@ -934,10 +934,14 @@ sub _converter_indices_sort_strings($) {
 
   if (!exists($converter->{'index_entries_sort_strings'})) {
     my $document = $converter->{'document'};
+    # call before calling merged_indices to make sure that indices
+    # are built from XS if needed.
+    my $indices_information = $document->indices_information();
+
     my $indices_sort_strings
       = Texinfo::Indices::setup_index_entries_sort_strings(undef,
               $converter, $document->merged_indices(),
-              $document->indices_information(), 0,
+              $indices_information, 0,
               $converter->get_conf('DEBUG'));
     $converter->{'index_entries_sort_strings'} = $indices_sort_strings;
   }

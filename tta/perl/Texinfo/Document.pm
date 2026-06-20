@@ -321,14 +321,14 @@ sub _document_indices_sort_strings($) {
   my $document = shift;
 
   if (!exists($document->{'index_entries_sort_strings'})) {
-    # return value not used but needed to build $document->{'indices'}
-    # with XS.
-    $document->indices_information();
+    # call before calling merged_indices to make sure that indices
+    # are built from XS if needed.
+    my $indices_information = $document->indices_information();
 
     my $indices_sort_strings
       = Texinfo::Indices::setup_index_entries_sort_strings($document,
               undef, $document->merged_indices(),
-              $document->indices_information(), 0,
+              $indices_information, 0,
               $document->get_conf('DEBUG'));
     $document->{'index_entries_sort_strings'} = $indices_sort_strings;
   }
