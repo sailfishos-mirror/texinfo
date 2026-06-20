@@ -122,17 +122,18 @@ check_info_math2img ()
   return 0
 }
 
+ref_dir_suffix='parser'
 
 # process the output so we can get consistent output for the comparisons
 post_process_output ()
 {
+  cp -pr ${outdir}$dir/ "${raw_outdir}"
+
   # With latex2html or tex4ht output is stored in raw_outdir, and files
   # are removed or modified from the output directory used for comparisons
   # NB there is similar code in many_input_files/tex_{l2h,t4ht}.sh.
   if test "$use_latex2html" = 'yes' || test "$use_tex4ht" = 'yes' \
           || test "$use_info_math2img" = 'yes'; then
-
-    cp -pr ${outdir}$dir/ "${raw_outdir}"
 
     # remove files that are not reproducible
     rm -f "${outdir}$dir/$basename.1" ${outdir}$dir/*.png ${outdir}$dir/*.svg \
@@ -151,6 +152,7 @@ post_process_output ()
     if test "$use_latex2html" = 'yes' ; then
       sed -e 's/^texexpand.*/texexpand /' \
           -e '/is no longer supported at.*line/d' \
+          -e "s/${dir_suffix}/${ref_dir_suffix}/" \
           $raw_outdir$dir/$basename.2 > $outdir$dir/$basename.2
       # "*"_images.pl" files are not guaranteed to be present
       for file in "${raw_outdir}$dir/"*"_labels.pl"; do
@@ -178,6 +180,8 @@ post_process_output ()
       rm -f ${outdir}$dir/*.aux ${outdir}$dir/*_images.out \
             ${outdir}$dir/*_l2h.css ${outdir}$dir/*_l2h_images.pl
     else
+      sed -e "s/${dir_suffix}/${ref_dir_suffix}/" \
+          $raw_outdir$dir/$basename.2 > $outdir$dir/$basename.2
       if test "$use_info_math2img" = 'yes' ; then
         rm -f ${outdir}$dir/*info_math2img.aux ${outdir}$dir/*info_math2img.log \
           ${outdir}$dir/*info_math2img.dvi
@@ -205,6 +209,7 @@ prepended_command=
 #prepended_command='valgrind -q'
 
 main_command='perl/texi2any.pl'
+dir_suffix=$ref_dir_suffix
 #main_command='C/ctexi2any'
 
 test_level=1
@@ -213,18 +218,18 @@ clean=no
 copy=no
 #mydir=
 
-while [ z"$1" = 'z-clean' -o z"$1" = 'z-copy'  -o z"$1" = 'z-dir' ]; do
+while [ z"$1" = 'z-clean' -o z"$1" = 'z-copy' -o z"$1" = 'z-dir' -o z"$1" = 'z-native' ]; do
   if [ z"$1" = 'z-clean' ]; then
     clean=yes
     shift
-  fi
-
-  if [ z"$1" = 'z-copy' ]; then
-    #[ -d "$res_dir" ] || mkdir "$res_dir"
+  elif [ z"$1" = 'z-copy' ]; then
     copy=yes
     shift
-  fi
-  if [ z"$1" = 'z-dir' ]; then
+  elif [ z"$1" = 'z-native' ]; then
+    main_command='C/ctexi2any'
+    dir_suffix='native'
+    shift
+  elif [ z"$1" = 'z-dir' ]; then
     shift
     testdir=`echo "$1" | sed 's:/*$::'`
     shift
@@ -256,9 +261,9 @@ fi
 one_test_logs_dir=$testdir/test_log
 logfile=$testdir/tests.log
 
-res_dir=res_parser
-out_dir=out_parser
-raw_out_dir=raw_out_parser
+res_dir=res_${ref_dir_suffix}
+out_dir=out_${dir_suffix}
+raw_out_dir=raw_out_${dir_suffix}
 diffs_dir=diffs
 
 no_latex2html=yes
@@ -346,7 +351,7 @@ if [ "z$clean" = 'zyes' -o "z$copy" = 'zyes' ]; then
     [ "z$dir" = 'z' -o "z$file" = 'z' ] && continue
     if [ "z$clean" = 'zyes' ]; then
       outdir="$testdir/${out_dir}/"
-      raw_outdir="$testdir/raw_out_parser"
+      raw_outdir="$testdir/${raw_out_dir}"
       [ -d "${outdir}$dir" ] && rm -rf "${outdir}$dir"
       [ -d "${raw_outdir}$dir" ] && rm -rf "${raw_outdir}$dir"
     else
@@ -449,21 +454,21 @@ while read line; do
   #
   # ran test, check results.
   if test $ret = 0 ; then
-    diff_base="${dir}"
-    res_dir_used=
+    diff_base="${dir}${dir_suffix}"
+    results_dir_used=
     if [ -d "$results_dir/$dir" ]; then
-      res_dir_used="$results_dir/$dir"
+      results_dir_used="$results_dir/$dir"
     fi
     # store raw output
-    raw_outdir="$testdir/raw_out_parser/"
+    raw_outdir="$testdir/${raw_out_dir}/"
     mkdir -p "${raw_outdir}"
     rm -rf "${raw_outdir}$dir"
 
     post_process_output
     escape_file_names $utf8_output_file
 
-    if test "z$res_dir_used" != 'z' ; then
-      diff $DIFF_OPTIONS -r "$res_dir_used" "${outdir}$dir" 2>>$logfile > "$testdir/$diffs_dir/$diff_base.diff"
+    if test "z$results_dir_used" != 'z' ; then
+      diff $DIFF_OPTIONS -r "$results_dir_used" "${outdir}$dir" 2>>$logfile > "$testdir/$diffs_dir/$diff_base.diff"
       dif_ret=$?
       if [ $dif_ret != 0 ]; then
         echo "D: $testdir/$diffs_dir/$diff_base.diff (printed below)"
