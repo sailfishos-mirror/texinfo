@@ -295,9 +295,9 @@ sub element_index_content_element($;$$) {
 # through Texinfo::Document::document_indices_sort_strings or
 # Texinfo::Convert::Converter::_converter_indices_sort_strings that cache the
 # result, themselves called possibly through sorting functions.
-sub setup_index_entries_sort_strings($$$$;$) {
+sub setup_index_entries_sort_strings($$$$;$$) {
   my ($document, $converter, $index_entries, $indices_information,
-      $prefer_reference_element) = @_;
+      $prefer_reference_element, $debug_level) = @_;
 
   return undef unless (defined($index_entries));
 
@@ -309,20 +309,10 @@ sub setup_index_entries_sort_strings($$$$;$) {
     $document_info = $document;
   }
 
-  my $debug;
-  if (defined($document_info)) {
-    $debug = $document_info->get_conf('DEBUG');
-  }
-
   # convert index entries to sort string using unicode when possible
   # independently of input and output encodings
   my $convert_text_options = {};
   $convert_text_options->{'enabled_encoding'} = 'utf-8';
-  # It could be possible to set INCLUDE_DIRECTORIES, but there is no
-  # point doing so, as it is only useful for @verbatiminclude, which
-  # cannot appear in index entries.
-  #$convert_text_options->{'INCLUDE_DIRECTORIES'}
-  #   = $converter->get_conf('INCLUDE_DIRECTORIES');
 
   my $indices_sort_strings = {};
   foreach my $index_name (keys(%$index_entries)) {
@@ -341,7 +331,7 @@ sub setup_index_entries_sort_strings($$$$;$) {
         = index_entry_element_sort_string($document_info,
                                $index_entry, $main_entry_element,
                            $convert_text_options, $prefer_reference_element,
-                           $converter, $debug);
+                           $converter, $debug_level);
       if ($entry_sort_string !~ /\S/) {
         my $entry_cmdname = $main_entry_element->{'cmdname'};
         $entry_cmdname
@@ -366,7 +356,7 @@ sub setup_index_entries_sort_strings($$$$;$) {
         my $subentry_sort_string
               = index_entry_element_sort_string($document_info,
                              $index_entry, $subentry, $convert_text_options,
-                             undef, $converter, $debug);
+                             undef, $converter, $debug_level);
         if ($subentry_sort_string !~ /\S/) {
           my $entry_cmdname = $main_entry_element->{'cmdname'};
           $entry_cmdname

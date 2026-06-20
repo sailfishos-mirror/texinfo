@@ -334,13 +334,17 @@ document_indices_sort_strings (DOCUMENT *document,
 {
   if (!document->indices_sort_strings)
     {
+      int debug_level = 0;
       const MERGED_INDICES *merged_indices
          = document_merged_indices (document);
 
+      if (options && options->DEBUG.o.integer > 0)
+        debug_level = options->DEBUG.o.integer;
+
       document->indices_sort_strings
-       = setup_index_entries_sort_strings (error_messages, options,
+       = setup_index_entries_sort_strings (error_messages,
                         merged_indices, &document->indices_info, 0,
-                        document, 0, 0);
+                        document, debug_level, 0, 0);
 
       document->modified_information |= F_DOCM_indices_sort_strings;
     }

@@ -482,7 +482,7 @@ destroy_index_entries_sort_strings (INDICES_SORT_STRINGS *indices_sort_strings)
    There are two cases:
     * called from converter, the common case, both CONVERTER and
       INDEX_CONTENT_ELEMENT_FN are set, the function ignores
-      debug_level (set from OPTIONS) and DOCUMENT (which is NULL in that
+      DEBUG_LEVEL and DOCUMENT (which is NULL in that
       case).  In that case (for HTML), the translations may be
       user-defined.
     * called otherwise, from tests or SWIG.  CONVERTER and
@@ -494,10 +494,10 @@ destroy_index_entries_sort_strings (INDICES_SORT_STRINGS *indices_sort_strings)
  */
 INDICES_SORT_STRINGS *
 setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
-                    OPTIONS *options, const MERGED_INDICES *merged_indices,
+                    const MERGED_INDICES *merged_indices,
                     INDEX_LIST *indices_information,
                     int prefer_reference_element,
-                    DOCUMENT *document,
+                    DOCUMENT *document, int debug_level,
                     CONVERTER *converter,
       ELEMENT * (* index_content_element_fn) (
                                  const ELEMENT *index_entry_element,
@@ -509,13 +509,9 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
   size_t i;
   TEXT_OPTIONS *convert_text_options;
   CONST_ELEMENT_LIST subentries_list;
-  int debug_level = 0;
 
   if (merged_indices->number <= 0)
     return 0;
-
-  if (options && options->DEBUG.o.integer > 0)
-    debug_level = options->DEBUG.o.integer;
 
   memset (&subentries_list, 0, sizeof (CONST_ELEMENT_LIST));
 
@@ -523,12 +519,6 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
      independently of input and output encodings */
   convert_text_options = new_text_options ();
   convert_text_options->encoding = strdup ("utf-8");
-  /*  It could be possible to set INCLUDE_DIRECTORIES, but there is no
-      point doing so, as it is only useful for @verbatiminclude, which
-      cannot appear in index entries.
-  copy_strings (&convert_text_options->include_directories,
-                options->INCLUDE_DIRECTORIES.strlist);
-   */
 
   INDICES_SORT_STRINGS *indices_sort_strings
     = (INDICES_SORT_STRINGS *) malloc (sizeof (INDICES_SORT_STRINGS));

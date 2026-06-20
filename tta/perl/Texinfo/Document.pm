@@ -328,7 +328,8 @@ sub _document_indices_sort_strings($) {
     my $indices_sort_strings
       = Texinfo::Indices::setup_index_entries_sort_strings($document,
               undef, $document->merged_indices(),
-              $document->indices_information(), 0);
+              $document->indices_information(), 0,
+              $document->get_conf('DEBUG'));
     $document->{'index_entries_sort_strings'} = $indices_sort_strings;
   }
   return $document->{'index_entries_sort_strings'};

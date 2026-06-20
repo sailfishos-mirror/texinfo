@@ -1608,14 +1608,17 @@ converter_indices_sort_strings (CONVERTER *converter)
 {
   if (!converter->indices_sort_strings)
     {
+      int debug_level = 0;
       const MERGED_INDICES *merged_indices
          = document_merged_indices (converter->document);
 
+      if (converter->conf && converter->conf->DEBUG.o.integer > 0)
+        debug_level = converter->conf->DEBUG.o.integer;
+
       converter->indices_sort_strings
        = setup_index_entries_sort_strings (&converter->error_messages,
-                        converter->conf,
                         merged_indices, &converter->document->indices_info,
-                        0, 0, converter,
+                        0, 0, debug_level, converter,
                         &wrap_converter_index_content_element);
 
       /* document->modified_information |= F_DOCM_indices_sort_strings; */

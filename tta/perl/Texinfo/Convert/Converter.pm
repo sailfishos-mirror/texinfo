@@ -937,7 +937,8 @@ sub _converter_indices_sort_strings($) {
     my $indices_sort_strings
       = Texinfo::Indices::setup_index_entries_sort_strings(undef,
               $converter, $document->merged_indices(),
-              $document->indices_information(), 0);
+              $document->indices_information(), 0,
+              $converter->get_conf('DEBUG'));
     $converter->{'index_entries_sort_strings'} = $indices_sort_strings;
   }
   return $converter->{'index_entries_sort_strings'};

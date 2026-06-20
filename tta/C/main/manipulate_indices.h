@@ -72,10 +72,11 @@ void destroy_index_entries_sort_strings (
                           INDICES_SORT_STRINGS *indices_sort_strings);
 INDICES_SORT_STRINGS *setup_index_entries_sort_strings (
                     ERROR_MESSAGE_LIST *error_messages,
-                    OPTIONS *options, const MERGED_INDICES *merged_indices,
+                    const MERGED_INDICES *merged_indices,
                     INDEX_LIST *indices_information,
                     int prefer_reference_element,
-                    DOCUMENT *document, CONVERTER *converter,
+                    DOCUMENT *document, int debug_level,
+                    CONVERTER *converter,
       ELEMENT * (* index_content_element_fn) (
                                  const ELEMENT *index_entry_element,
                                  int prefer_reference_element,
