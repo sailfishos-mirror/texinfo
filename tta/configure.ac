@@ -565,9 +565,6 @@ fi
 
 AM_CONDITIONAL([PREFER_C_TEXI2ANY], [test "z$prefer_c_t2a" = 'zyes'])
 
-if test z$prefer_c_t2a = 'zyes' ; then
-  TESTS_MAIN_COMMAND=C/ctexi2any
-fi
 AC_SUBST([TESTS_MAIN_COMMAND])
 
 build_C_code=no
