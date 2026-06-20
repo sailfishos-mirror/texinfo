@@ -294,12 +294,11 @@ lookup_collation_data_at_char (char32_t *const string,
               return;
             }
         }
-      data.num_elements &= ~CHECK_SEQUENCE_BIT;
     }
 
   (*n_codepoints_out) = data.array ? 1 : 0;
   *collation_units = data.array;
-  *n_collation_units = data.num_elements;
+  *n_collation_units = (data.num_elements & ~CHECK_SEQUENCE_BIT);
   return;
 }
 
