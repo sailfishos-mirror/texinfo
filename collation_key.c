@@ -172,6 +172,77 @@ u32_make_key_streaming (const uint32_t *string, size_t n,
   return resultbuf;
 }
 
+/* Same as u32_make_key_streaming, but handles UTF-8 string instead of UTF-32.
+   TODO: we should probably have some way of making a generic definition
+   rather than changing 32 to 8 everywhere. */
+static char *
+u8_make_key_streaming (const uint8_t *string, size_t n,
+                  char *resultbuf, size_t *lengthp)
+{
+  /* Three levels (primary/secondary/tertiary).  Two bytes per
+     collation element at primary, one byte at secondary, one byte
+     at tertiary.  "\x01\x01" between primary and secondary level
+     and "\x01" between secondary and tertiary level, and one terminating
+     null.
+     Not all of these bytes are used if there are null weights. */
+  /* TODO: check which levels are enabled */
+  size_t len = u8_mbsnlen (string, n);
+  size_t reqd_len = len * 4 + 4;
+  if (!resultbuf || reqd_len > *lengthp)
+    return NULL;
+
+  const uint8_t *pstring = string;
+  char32_t codepoint;
+  int nbytes;
+  int count = 0;
+
+  size_t len_remaining = len;
+  /* Iterate over string */
+  while (len_remaining > 0)
+    {
+      const struct collation_unit *data;
+      size_t n_units;
+      size_t n_consumed;
+
+      n_consumed = u8_mbtouc (&codepoint, pstring, len_remaining);
+      if (codepoint == 0xfffd)
+        return NULL;
+      len_remaining -= n_consumed;
+      pstring += n_consumed;
+      lookup_collation_data_at_char (NULL, &codepoint, 1,
+                                     1, /* disable_sequences */
+                                     &n_consumed,
+                                     &data, &n_units);
+      if (n_units != 1 || n_consumed != 1)
+        return NULL; /* abort */
+
+      uint16_t primary = data[0].primary;
+      uint8_t secondary = data[0].secondary;
+      uint8_t tertiary = data[0].tertiary;
+
+      resultbuf[count * 2] = (primary / 0xFF) + 1;
+      resultbuf[count * 2 + 1] = (primary % 0xFF) + 1;
+
+      resultbuf[len * 2 + 2 + count] = secondary;
+      resultbuf[len * 3 + 3 + count] = tertiary;
+
+      count++;
+    }
+  /* Primary level terminator. */
+  resultbuf[len * 2 + 0] = '\x01';
+  resultbuf[len * 2 + 1] = '\x01';
+
+  /* Secondary level terminator */
+  resultbuf[len * 3 + 2] = '\x01';
+
+  /* Tertiary level terminator and end of string */
+  resultbuf[len * 4 + 3] = '\x00';
+
+  *lengthp =  reqd_len;
+
+  return resultbuf;
+}
+
 static char *
 make_key_internal (char *psort_key,
                    struct collation_unit *elements, size_t elements_count,
@@ -367,6 +438,10 @@ make_key_internal (char *psort_key,
 #undef cat
 }
 
+static char *u32_make_collation_key_internal (Collation_choice collation,
+                        const char32_t *codepoints_in, size_t length_in,
+                        char *resultbuf, size_t *lengthp);
+
 char *
 u32_make_collation_key (Collation_choice collation,
                         const char32_t *codepoints_in, size_t length_in,
@@ -374,6 +449,16 @@ u32_make_collation_key (Collation_choice collation,
 {
   if (u32_make_key_streaming (codepoints_in, length_in, resultbuf, lengthp))
     return resultbuf;
+
+  return u32_make_collation_key_internal (collation,
+                        codepoints_in, length_in, resultbuf, lengthp);
+}
+
+static char *
+u32_make_collation_key_internal (Collation_choice collation,
+                        const char32_t *codepoints_in, size_t length_in,
+                        char *resultbuf, size_t *lengthp)
+{
 
   char *sort_key;
   int variable = (collation & UNICOLL_VARIABLE_MASK);
@@ -601,13 +686,11 @@ u8_make_collation_key (Collation_choice collation,
 
   static char32_t *ret;
 
-#if 0
   if (u8_make_key_streaming (u8_str, length_in, resultbuf, lengthp))
     {
       /* u8_make_key_streaming returns resultbuf or null. */
       return resultbuf;
     }
-#endif
 
   ret = u8_to_u32 (u8_str, length_in, u32_str, &u32_len);
   if (ret != u32_str)
@@ -616,7 +699,7 @@ u8_make_collation_key (Collation_choice collation,
       u32_str = ret;
     }
 
-  char *key = u32_make_collation_key (collation, u32_str, u32_len,
-                                          resultbuf, lengthp);
+  char *key = u32_make_collation_key_internal (collation, u32_str, u32_len,
+                                               resultbuf, lengthp);
   return key;
 }
