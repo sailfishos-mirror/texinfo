@@ -24,6 +24,8 @@ $chicken eval $cmd || exit 1
 cmd="(cd tta/tests && ../maintain/regenerate_cmd_tests.sh Makefile.onetst . -base 'formatting encoded nested_formats customization coverage layout' -tex_html 'tex_html' -other 'other info_tex')"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
+cat tta/tests/Makefile.onetst
+ls tta/tests/test_scripts
 
 # Same rule in tta/tests/Makefile.am
 cmd="tta/maintain/regenerate_non_ascii_tar_file.sh tta/tests/input"
