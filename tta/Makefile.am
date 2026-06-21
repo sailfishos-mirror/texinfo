@@ -68,6 +68,7 @@ maintenance_files = \
   maintain/generate_code_convert_data.pl \
   maintain/generate_code_commands_values.pl \
   maintain/generate_css_data.pl \
+  maintain/generate_many_input_files_native_tests.sh \
   maintain/regenerate_cmd_tests.sh \
   maintain/regenerate_converters_documentation.sh \
   maintain/regenerate_docstr.sh \

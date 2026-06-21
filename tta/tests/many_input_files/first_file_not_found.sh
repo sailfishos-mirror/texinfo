@@ -14,7 +14,6 @@ LC_ALL=C; export LC_ALL
 
 basename=first_file_not_found
 diffs_dir=diffs
-logfile=$basename.log
 stdout_file=stdout_$basename.out
 default_command='perl/texi2any.pl'
 tested_command=$default_command
@@ -69,7 +68,11 @@ staging_dir=$diffs_dir/staging
 [ -d $staging_dir ] || mkdir $staging_dir
 [ -d $raw_out_dir ] || mkdir $raw_out_dir
 
-echo "$basename" > $logfile
+logs_dir=test_log
+[ -d $logs_dir ] || mkdir $logs_dir
+
+logfile=${logs_dir}/${basename}_${dir_suffix}.log
+echo "${basename}_${dir_suffix}" > $logfile
 
 [ -d $outdir ] && rm -rf $outdir
 raw_outdir=$raw_out_dir/${basename}_${dir_suffix}
@@ -96,13 +99,13 @@ else
     rm -rf $staging_dir/${dir}_res
     cp -pr "$srcdir/${dir}_res" $staging_dir
     chmod -R u+w "$staging_dir/${dir}_res"
-    diff $DIFF_OPTIONS -r "$staging_dir/${dir}_res" "$outdir" 2>>$logfile > "$diffs_dir/$dir.diff"
+    diff $DIFF_OPTIONS -r "$staging_dir/${dir}_res" "$outdir" 2>>$logfile > "$diffs_dir/${dir}_${dir_suffix}.diff"
     dif_ret=$?
     if [ $dif_ret != 0 ]; then
-      echo "D: $diffs_dir/$dir.diff"
+      echo "D: $diffs_dir/${dir}_${dir_suffix}.diff"
       return_code=1
     else
-      rm "$diffs_dir/$dir.diff"
+      rm "$diffs_dir/${dir}_${dir_suffix}.diff"
     fi
   else
     echo "no res: ${dir}_res"

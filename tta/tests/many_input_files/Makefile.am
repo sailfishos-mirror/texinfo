@@ -9,7 +9,28 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-EXTRA_DIST = $(TESTS) \
+test_scripts = first_file_not_found.sh tex_l2h.sh tex_t4ht.sh \
+  different_encodings.sh different_languages_gen_master_menu.sh \
+  for_nbspaces_different_encodings.sh \
+  input_dir_non_ascii.sh output_dir_non_ascii.sh \
+  output_dir_file_non_ascii.sh tex_t4ht_output_dir_non_ascii.sh \
+  tex_l2h_output_dir_non_ascii.sh
+
+native_test_scripts = first_file_not_found_native.sh tex_l2h_native.sh tex_t4ht_native.sh \
+  different_encodings_native.sh different_languages_gen_master_menu_native.sh \
+  for_nbspaces_different_encodings_native.sh \
+  input_dir_non_ascii_native.sh output_dir_non_ascii_native.sh \
+  output_dir_file_non_ascii_native.sh tex_t4ht_output_dir_non_ascii_native.sh \
+  tex_l2h_output_dir_non_ascii_native.sh
+
+TESTS = $(test_scripts)
+if USE_SHARED_TXI_LIBRARIES
+if PERL_EMBEDDED
+TESTS += $(native_test_scripts)
+endif
+endif
+
+EXTRA_DIST = $(test_scripts) $(native_test_scripts) \
   first_file_not_found_res tex_l2h_res tex_t4ht_res \
   different_encodings_res different_languages_gen_master_menu_res \
   input_dir_non_ascii_res output_dir_non_ascii_res \
@@ -19,12 +40,11 @@ EXTRA_DIST = $(TESTS) \
   input_files/no_master_menu_no_documentlanguage.texi \
   input_files/simple_including_file.texi
 
-TESTS = first_file_not_found.sh tex_l2h.sh tex_t4ht.sh \
-  different_encodings.sh different_languages_gen_master_menu.sh \
-  for_nbspaces_different_encodings.sh \
-  input_dir_non_ascii.sh output_dir_non_ascii.sh \
-  output_dir_file_non_ascii.sh tex_t4ht_output_dir_non_ascii.sh \
-  tex_l2h_output_dir_non_ascii.sh
+# regenerate native_test_scripts scripts.
+# not automatic, should be called manually when a new test script is
+# added
+native_test_scripts_target:
+	$(srcdir)/../../maintain/generate_many_input_files_native_tests.sh $(test_scripts)
 
 AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; t2a_srcdir="$(top_srcdir)"; export t2a_srcdir; t2a_builddir="$(top_builddir)"; export t2a_builddir;
 
@@ -74,7 +94,7 @@ copy-tests:
 DISTCLEANFILES = *.log
 
 distclean-local:
-	rm -rf diffs raw_out_perl
+	rm -rf diffs raw_out_perl test_log
 	for dir in $(tex_html_dirs) $(tests_dirs) ; do rm -rf "$${dir}_perl" "$${dir}_native" ; done
 
 dist-hook:
