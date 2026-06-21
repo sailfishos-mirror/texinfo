@@ -94,14 +94,6 @@ check_latex2html_and_tex4ht ()
       use_tex4ht=yes
     fi
   fi
-  if test $use_tex4ht = 'yes' || test $use_latex2html = 'yes' ; then
-    if echo "$remaining" | grep '[-]init mediawiki.pm' >/dev/null; then
-     if test "$no_html2wiki" = 'yes' ; then
-       echo "S: (no html2wiki) $current"
-       return 1
-     fi
-    fi
-  fi
   return 0
 }
 
@@ -282,11 +274,6 @@ fi
 no_tex4ht=yes
 if which httexi > /dev/null 2>&1; then
   no_tex4ht=no
-fi
-
-no_html2wiki=yes
-if which html2wiki > /dev/null 2>&1; then
-  no_html2wiki=no
 fi
 
 no_dvipng=yes

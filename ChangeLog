@@ -1,5 +1,10 @@
 2026-06-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/tests/run_parser_all.sh: remove code related to html2wiki and
+	mediawiki.pm that were relevant in texi2html only.
+
+2026-06-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/call_conversion_perl.c
 	(call_config_GNUT_load_init_file): allow count to be 1 although it
 	should be 0, as on Solaris 11 with Perl 5.10.1 it is 1.
