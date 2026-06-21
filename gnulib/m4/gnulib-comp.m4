@@ -82,8 +82,12 @@ AC_DEFUN([gl_EARLY],
   # Code from module unistd-h:
   # Code from module unistr/base:
   # Code from module unistr/u32-cpy:
+  # Code from module unistr/u32-mbsnlen:
+  # Code from module unistr/u32-mbtouc:
   # Code from module unistr/u32-mbtouc-unsafe:
   # Code from module unistr/u32-uctomb:
+  # Code from module unistr/u8-mbsnlen:
+  # Code from module unistr/u8-mbtouc:
   # Code from module unistr/u8-mbtoucr:
   # Code from module unistr/u8-to-u32:
   # Code from module unitypes-h:
@@ -169,10 +173,16 @@ AC_DEFUN([gl_INIT],
   gl_LIBUNISTRING_LIBHEADER([1.2], [unistr.h])
   AC_PROG_MKDIR_P
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-cpy])
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-mbsnlen])
+  gl_MODULE_INDICATOR([unistr/u32-mbtouc])
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-mbtouc])
   gl_MODULE_INDICATOR([unistr/u32-mbtouc-unsafe])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-mbtouc-unsafe])
   gl_MODULE_INDICATOR([unistr/u32-uctomb])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-uctomb])
+  gl_LIBUNISTRING_MODULE([1.2], [unistr/u8-mbsnlen])
+  gl_MODULE_INDICATOR([unistr/u8-mbtouc])
+  gl_LIBUNISTRING_MODULE([1.2], [unistr/u8-mbtouc])
   gl_MODULE_INDICATOR([unistr/u8-mbtoucr])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-mbtoucr])
   gl_LIBUNISTRING_MODULE([0.9.3], [unistr/u8-to-u32])
@@ -410,8 +420,13 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unistr.in.h
   lib/unistr/u-cpy.h
   lib/unistr/u32-cpy.c
+  lib/unistr/u32-mbsnlen.c
   lib/unistr/u32-mbtouc-unsafe.c
+  lib/unistr/u32-mbtouc.c
   lib/unistr/u32-uctomb.c
+  lib/unistr/u8-mbsnlen.c
+  lib/unistr/u8-mbtouc-aux.c
+  lib/unistr/u8-mbtouc.c
   lib/unistr/u8-mbtoucr.c
   lib/unistr/u8-to-u32.c
   lib/unitypes.in.h

@@ -36,6 +36,10 @@
 #  unictype/property-unified-ideograph \
 #  uninorm/nfd \
 #  uninorm/u32-normalize \
+#  unistr/u32-mbsnlen \
+#  unistr/u32-mbtouc \
+#  unistr/u8-mbsnlen \
+#  unistr/u8-mbtouc \
 #  unistr/u8-to-u32
 
 AUTOMAKE_OPTIONS = 1.14 gnits subdir-objects
@@ -1134,6 +1138,22 @@ EXTRA_DIST += unistr/u-cpy.h
 
 ## end   gnulib module unistr/u32-cpy
 
+## begin gnulib module unistr/u32-mbsnlen
+
+if LIBUNISTRING_COMPILE_UNISTR_U32_MBSNLEN
+libgnu_a_SOURCES += unistr/u32-mbsnlen.c
+endif
+
+## end   gnulib module unistr/u32-mbsnlen
+
+## begin gnulib module unistr/u32-mbtouc
+
+if LIBUNISTRING_COMPILE_UNISTR_U32_MBTOUC
+libgnu_a_SOURCES += unistr/u32-mbtouc.c
+endif
+
+## end   gnulib module unistr/u32-mbtouc
+
 ## begin gnulib module unistr/u32-mbtouc-unsafe
 
 if LIBUNISTRING_COMPILE_UNISTR_U32_MBTOUC_UNSAFE
@@ -1149,6 +1169,22 @@ libgnu_a_SOURCES += unistr/u32-uctomb.c
 endif
 
 ## end   gnulib module unistr/u32-uctomb
+
+## begin gnulib module unistr/u8-mbsnlen
+
+if LIBUNISTRING_COMPILE_UNISTR_U8_MBSNLEN
+libgnu_a_SOURCES += unistr/u8-mbsnlen.c
+endif
+
+## end   gnulib module unistr/u8-mbsnlen
+
+## begin gnulib module unistr/u8-mbtouc
+
+if LIBUNISTRING_COMPILE_UNISTR_U8_MBTOUC
+libgnu_a_SOURCES += unistr/u8-mbtouc.c unistr/u8-mbtouc-aux.c
+endif
+
+## end   gnulib module unistr/u8-mbtouc
 
 ## begin gnulib module unistr/u8-mbtoucr
 

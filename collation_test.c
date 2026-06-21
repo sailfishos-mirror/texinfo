@@ -161,9 +161,12 @@ main (int argc, char *argv[])
           fprintf (stderr, "Max codepoint length exceeded!\n");
           exit (1);
         }
+#define BUF_LEN 1000
+      static char buffer[BUF_LEN];
+      sort_key2_len = BUF_LEN;
 
       sort_key2 = u32_make_collation_key (collation, codepoints, length,
-                    NULL, &sort_key2_len);
+                    buffer, &sort_key2_len);
 
       /* We expect that sort_key1 <= sort_key1. */
       if (sort_key1 && sort_key2 && strcmp (sort_key1, sort_key2) > 0)
@@ -184,7 +187,8 @@ main (int argc, char *argv[])
           fail_count++;
         }
 
-      free (sort_key1);
+      if (sort_key1 != buffer)
+        free (sort_key1);
 
       sort_key1 = sort_key2;
       sort_key1_len = sort_key2_len;
