@@ -1,5 +1,16 @@
 2026-06-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/tests/many_input_files/*.sh: distinguish outdir and basename.
+	rename raw_output_dir as raw_out_dir.  Add -native command-line
+	argument to select the command tested.  Prepend the language of the
+	tested command to the out directories.  Use tested_command instead of
+	TESTS_MAIN_COMMAND.
+
+	* tta/tests/many_input_files/Makefile.am (copy-tex-html, copy-tests):
+	update.
+
+2026-06-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/tests/run_parser_all.sh: change variables names, use
 	TESTS_MAIN_COMMAND on ly if set, set language based on input command
 	name.

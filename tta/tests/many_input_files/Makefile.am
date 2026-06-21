@@ -40,41 +40,42 @@ tex-html-checks: all
 
 copy-tex-html:
 	for dir in $(tex_html_dirs); do \
-		if [ -d "$$dir" ]; then \
+		if [ -d "$${dir}_perl" ]; then \
 			if [ -d "${srcdir}/$${dir}_res" ]; then \
 				rm -f "${srcdir}/$${dir}_res/"*.* ;\
 			else \
 				mkdir "${srcdir}/$${dir}_res/" ; \
 			fi ;\
-			cp -p "$$dir/"*.* "${srcdir}/$${dir}_res/"; \
+			cp -p "$${dir}_perl/"*.* "${srcdir}/$${dir}_res/"; \
 			rm -f "${srcdir}/$${dir}_res/"*.png "${srcdir}/$${dir}_res/"*_l2h.css; \
 		else \
-			echo "No dir $$dir/"; \
+			echo "No dir $${dir}_perl/"; \
 		fi; \
 	done
-	cp -fpR tex_t4ht_output_dir_non_ascii/encod%c3%a9/ "${srcdir}/tex_t4ht_output_dir_non_ascii_res/"
-	cp -fpR tex_l2h_output_dir_non_ascii/encod%c3%a9/ "${srcdir}/tex_l2h_output_dir_non_ascii_res/"
+	cp -fpR tex_t4ht_output_dir_non_ascii_perl/encod%c3%a9/ "${srcdir}/tex_t4ht_output_dir_non_ascii_res/"
+	cp -fpR tex_l2h_output_dir_non_ascii_perl/encod%c3%a9/ "${srcdir}/tex_l2h_output_dir_non_ascii_res/"
 
 copy-tests:
 	for dir in $(tests_dirs); do \
-		if [ -d "$$dir" ]; then \
+		if [ -d "$${dir}_perl" ]; then \
 			if [ -d "${srcdir}/$${dir}_res" ]; then \
 				rm -f "${srcdir}/$${dir}_res/"*.* ;\
 			else \
 				mkdir "${srcdir}/$${dir}_res/" ; \
 			fi ;\
-			cp -p "$$dir/"*.* "${srcdir}/$${dir}_res/"; \
+			cp -p "$${dir}_perl/"*.* "${srcdir}/$${dir}_res/"; \
 		else \
-			echo "No dir $$dir/"; \
+			echo "No dir $${dir}_perl/"; \
 		fi; \
 	done
-	cp -fpR output_dir_non_ascii/encod%c3%a9/ "${srcdir}/output_dir_non_ascii_res/"
-	cp -fpR output_dir_file_non_ascii/encod%c3%a9/ "${srcdir}/output_dir_file_non_ascii_res/"
+	cp -fpR output_dir_non_ascii_perl/encod%c3%a9/ "${srcdir}/output_dir_non_ascii_res/"
+	cp -fpR output_dir_file_non_ascii_perl/encod%c3%a9/ "${srcdir}/output_dir_file_non_ascii_res/"
 
 DISTCLEANFILES = *.log
 
 distclean-local:
-	rm -rf diffs $(tex_html_dirs) $(tests_dirs) raw_out
+	rm -rf diffs raw_out_perl
+	for dir in $(tex_html_dirs) $(tests_dirs) ; do rm -rf "$${dir}_perl" "$${dir}_native" ; done
 
 dist-hook:
 	for dir in $(tex_html_dirs) $(tests_dirs); do \

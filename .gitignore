@@ -256,18 +256,9 @@ tta/tests/input/non_ascii.tar
 tta/tests/non_ascii_extracted_stamp.txt
 tta/tests/built_input
 
-tta/tests/many_input_files/different_encodings
-tta/tests/many_input_files/different_languages_gen_master_menu
-tta/tests/many_input_files/first_file_not_found
-tta/tests/many_input_files/for_nbspaces_different_encodings
-tta/tests/many_input_files/input_dir_non_ascii
-tta/tests/many_input_files/output_dir_non_ascii
-tta/tests/many_input_files/output_dir_file_non_ascii
-tta/tests/many_input_files/tex_l2h
-tta/tests/many_input_files/tex_t4ht
-tta/tests/many_input_files/tex_l2h_output_dir_non_ascii
-tta/tests/many_input_files/tex_t4ht_output_dir_non_ascii
-tta/tests/many_input_files/raw_out
+tta/tests/many_input_files/*_perl
+tta/tests/many_input_files/*_native
+tta/tests/many_input_files/raw_out_perl
 tta/tests/many_input_files/*.log
 tta/tests/many_input_files/*.trs
 
