@@ -94,7 +94,7 @@ copy-tests:
 DISTCLEANFILES = *.log
 
 distclean-local:
-	rm -rf diffs raw_out_perl test_log
+	rm -rf diffs raw_out_perl raw_out_native test_log
 	for dir in $(tex_html_dirs) $(tests_dirs) ; do rm -rf "$${dir}_perl" "$${dir}_native" ; done
 
 dist-hook:
