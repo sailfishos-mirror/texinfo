@@ -211,10 +211,9 @@ prepended_command=
 # can also be put in ../defs to also affect tests in many_input_files
 #prepended_command='valgrind -q'
 
-main_command='perl/texi2any.pl'
-language_type=perl
-dir_suffix=$language_type
-#main_command='C/ctexi2any'
+default_command='perl/texi2any.pl'
+#default_command='C/ctexi2any'
+tested_command=$default_command
 
 test_level=1
 
@@ -230,9 +229,7 @@ while [ z"$1" = 'z-clean' -o z"$1" = 'z-copy' -o z"$1" = 'z-dir' -o z"$1" = 'z-n
     copy=yes
     shift
   elif [ z"$1" = 'z-native' ]; then
-    main_command='C/ctexi2any'
-    language_type='native'
-    dir_suffix=$language_type
+    tested_command='C/ctexi2any'
     shift
   elif [ z"$1" = 'z-dir' ]; then
     shift
@@ -251,13 +248,19 @@ fi
 
 . $testdir/../../defs || exit 1
 
-if test z"$TESTS_MAIN_COMMAND" = z ; then
-  TESTS_MAIN_COMMAND=$main_command
+if test z"$TESTS_MAIN_COMMAND" != z ; then
+  tested_command=$TESTS_MAIN_COMMAND
 fi
 
-if test $TESTS_MAIN_COMMAND = 'perl/texi2any.pl' ; then
+language_type=unknown
+if test $tested_command = 'perl/texi2any.pl' ; then
   prepended_command="$prepended_command $PERL -w"
+  language_type='perl'
+elif test $tested_command = 'C/ctexi2any' ; then
+  language_type='native'
 fi
+
+dir_suffix=$language_type
 
 if test z"$DEFAULT_TEST_LEVEL" = z1 -o z"$DEFAULT_TEST_LEVEL" = z2 ; then
   test_level=$DEFAULT_TEST_LEVEL
@@ -407,11 +410,10 @@ while read line; do
       *)             src_file="$srcdir/$testdir/$file" ;;
   esac
 
-  command=$TESTS_MAIN_COMMAND
   command_run=
   for command_location_dir in "$srcdir/../" "$srcdir/../../" $testdir/../../; do
-    if [ -f "$command_location_dir/$command" ]; then
-      command_run="$command_location_dir/$command"
+    if [ -f "$command_location_dir/$tested_command" ]; then
+      command_run="$command_location_dir/$tested_command"
       break
     fi
   done
@@ -420,7 +422,7 @@ while read line; do
     echo >>$logfile
     echo "doing test $current, src_file $src_file" >>$logfile
   else
-    echo "$0: Command $command not found" >&2
+    echo "$0: Command $tested_command not found" >&2
     exit 1
   fi
 
@@ -451,7 +453,7 @@ while read line; do
   test -d "${outdir}$dir" && rm -rf "${outdir}$dir"
   mkdir "${outdir}$dir"
   remaining_out_dir=`echo $remaining | sed 's,@OUT_DIR@,'"${outdir}$dir/"',g'`
-  echo "$command $dir -> ${outdir}$dir" >> $logfile
+  echo "$tested_command $dir -> ${outdir}$dir" >> $logfile
   cmd="$prepended_command $command_run --force --conf-dir $srcdir/../perl/t/init/ --conf-dir $srcdir/../perl/init --conf-dir $srcdir/../perl/ext -I $srcdir/$testdir -I $testdir/ -I $srcdir/ -I . -I built_input -I built_input/non_ascii --error-limit=1000 -c TEST=$test_level $l2h_flags --output ${outdir}$dir/ $remaining_out_dir $src_file > ${outdir}$dir/$basename.1 2>${outdir}$dir/$basename.2"
   echo "$cmd" >>$logfile
   eval $cmd
