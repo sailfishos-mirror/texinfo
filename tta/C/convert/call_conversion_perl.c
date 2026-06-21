@@ -62,7 +62,14 @@ call_config_GNUT_load_init_file (const char *file_path)
 
   SPAGAIN;
 
+  /* TODO On Solaris 11 with Perl 5.10.1, count can be 1.  The perlcall
+     documentation for that version also says about G_VOID:
+   The value returned by the call_* function indicates how many items
+   have been returned by the Perl subroutine - in this case it will be 0. */
+  /* the correct check:
   if (count != 0)
+   */
+  if (count > 1)
     croak ("Texinfo::Config::GNUT_load_init_file should not return anything\n");
 
   PUTBACK;

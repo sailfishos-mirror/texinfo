@@ -1,5 +1,11 @@
 2026-06-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/call_conversion_perl.c
+	(call_config_GNUT_load_init_file): allow count to be 1 although it
+	should be 0, as on Solaris 11 with Perl 5.10.1 it is 1.
+
+2026-06-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/tests/many_input_files/Makefile.am (distclean-local): remove
 	raw_out_native.
 
