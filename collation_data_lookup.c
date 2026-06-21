@@ -59,6 +59,16 @@ lookup_codepoint_data (char32_t codepoint)
   return data;
 }
 
+static int
+compare_trie_node_children (const void *a, const void *b)
+{
+  struct trie_node *node1 = (struct trie_node *) a;
+  struct trie_node *node2 = (struct trie_node *) b;
+
+  return (node1->codepoint > node2->codepoint)
+       - (node1->codepoint < node2->codepoint);
+}
+
 /* Check for sequence at STRING, rearranging for a non-contiguous
    match if necessary. */
 static int
@@ -104,38 +114,31 @@ check_sequence_rearranging (char32_t *const string,
       uint32_t first_child = node->first_child;
 
       /* Search for matching child. */
-      int found = 0;
-      for (int j = 0; j < num_children; j++)
+      struct trie_node dummy = { 0 };
+      dummy.codepoint = *pchar;
+
+      struct trie_node *found = bsearch (&dummy,
+          &collation_data.trie_array[first_child],
+          num_children,
+          sizeof(collation_data.trie_array[first_child]),
+          compare_trie_node_children);
+
+      /* For non-contiguous matches, we require each extra
+         character to lead to a sequence with collation data.
+         Hence 0FB2 0334 0F71 0F80 will not match with 0FB2 0F71 0F80,
+         unless there is data for 0FB2 0F71.
+             The UCA#10 document discusses this sequence for Tibetan but I
+         don't really understand it, e.g. why 0FB2 0F71 was missing.
+             According to "UTC #187 properties feedback & recommendations",
+         2026-04-16 [*], this was an anomaly that will be
+         eliminated in the future.
+             See also documentation for Perl module Unicode::Collate.
+         [*] https://www.unicode.org/L2/L2026/26096-pag-report-utc187.pdf
+         */
+      if (found && (!seq_end || found->data_index))
         {
-          const struct trie_node *child
-            = &collation_data.trie_array[first_child + j];
-
-          uint32_t child_codepoint = child->codepoint;
-
-          if (child_codepoint == *pchar)
-            {
-              /* For non-contiguous matches, we require each extra
-                 character to lead to a sequence with collation data.
-                 Hence 0FB2 0334 0F71 0F80 will not match with 0FB2 0F71 0F80,
-                 unless there is data for 0FB2 0F71.
-                     The UCA#10 document discusses this sequence for Tibetan but I
-                 don't really understand it, e.g. why 0FB2 0F71 was missing.
-                     According to "UTC #187 properties feedback & recommendations",
-                 2026-04-16 [*], this was an anomaly that will be
-                 eliminated in the future.
-                     See also documentation for Perl module Unicode::Collate.
-                 [*] https://www.unicode.org/L2/L2026/26096-pag-report-utc187.pdf
-                 */
-              if (!seq_end || child->data_index)
-                {
-                  node = child;
-                  found = 1;
-                  n_codepoints++;
-                }
-              break;
-            }
-          if (child_codepoint > *pchar)
-            break;
+          node = found;
+          n_codepoints++;
         }
 
       if (seq_end)
