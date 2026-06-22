@@ -1,5 +1,13 @@
 2026-06-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/maintain/regenerate_cmd_tests.sh (gather_tests): redirect stdin
+	by calling exec within the script instead of redirecting the while
+	loop input because in Solaris 10 /bin/sh a while loop with redirection
+	is in a subshell and the change to type_test_files remains local.
+	Solution by Gavin.
+
+2026-06-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c
 	(reset_unset_no_arg_commands_formatting_context): use else instead of
 	else if for a condition that is always true to help compiler

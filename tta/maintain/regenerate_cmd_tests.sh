@@ -76,6 +76,11 @@ for test_dir in $test_dirs; do
     else
       language_option="-${language_type}"
     fi
+    # redirect stdin instead of redirecting the while loop input with
+    #  done < $driving_file
+    # because in Solaris 10 /bin/sh a while loop with redirection is in a
+    # subshell and the change to type_test_files remains local.
+    exec < $driving_file
     while read line ; do
       if echo $line | grep '^ *#' >/dev/null; then continue; fi
       name=`echo $line | awk '{print $1}'`
@@ -129,7 +134,7 @@ cat $dir/$one_test_logs_dir/'"${language_type}"'_$name.log
 exit $exit_status
 ' >> $one_test_file
       chmod 0755 $one_test_file
-    done < $driving_file
+    done
   else
     echo "$0: Missing file $driving_file" 1>&2
     exit 1
