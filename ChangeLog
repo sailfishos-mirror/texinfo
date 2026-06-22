@@ -1,5 +1,18 @@
 2026-06-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c
+	(reset_unset_no_arg_commands_formatting_context): use else instead of
+	else if for a condition that is always true to help compiler
+	understand that a variable cannot be uninitialized.
+
+	* tta/C/convert/convert_html.c (html_prepare_converted_output_info):
+	fix nesting.
+
+	* tta/C/structuring_transfo/transformations.c
+	(protect_first_parenthesis): add parenthesis around flag matching.
+
+2026-06-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/Makefile.am (DocumentXS_la_LIBADD): libtexinfo.la
 	is needed, not libtexinfo-convert.la.
 

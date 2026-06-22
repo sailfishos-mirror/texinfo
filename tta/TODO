@@ -1172,6 +1172,17 @@ Alternatively, to use cc, which is more interesting for Texinfo to test Solaris
 ./configure --without-libiconv-prefix PERL=/opt/csw/bin/perl GAWK=/opt/csw/bin/gawk CC=cc CFLAGS='-g -D_STDC_C99=' LDFLAGS=-L/opt/csw/lib/ CPPFLAGS='-I/opt/csw/include/' PERL_EXT_CFLAGS='-g -D_STDC_C99=' PERL_EXT_CPPFLAGS='-I/opt/csw/include/' PERL_EXT_LDFLAGS=-L/opt/csw/lib/
 
 
+OpenBSD
+=======
+
+gettext_xs/Makefile.PL:         LIBS => ['-L/usr/local/lib' . ' -lintl -liconv'],
+
+Installing libintl-perl
+PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
+make install
+
+
 Misc notes
 ==========
 

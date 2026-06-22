@@ -629,6 +629,9 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   for (i = 0; i < current->e.c->contents.number; i++)
     {
       const ELEMENT *argument = current->e.c->contents.list[i];
+      /* compiler may warn that argument_content may be used uninitialized,
+         but we know that it is not possible, as there is textual
+         content in argument */
       ELEMENT *argument_content;
       size_t j;
       for (j = 0; j < argument->e.c->contents.number; j++)

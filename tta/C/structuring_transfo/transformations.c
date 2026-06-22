@@ -66,7 +66,7 @@ protect_first_parenthesis (ELEMENT *element)
     {
       ELEMENT *content = element->e.c->contents.list[i];
       const char *p;
-      if (!type_data[content->type].flags & TF_text)
+      if (!(type_data[content->type].flags & TF_text))
         return;
 
       if (content->type == ET_spaces_before_argument
