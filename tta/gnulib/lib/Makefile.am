@@ -62,6 +62,7 @@
 #  uninorm/u32-normalize \
 #  uninorm/u8-normalize \
 #  unistr/u32-next \
+#  unistr/u32-strdup \
 #  unistr/u8-mbsnlen \
 #  unistr/u8-mbtouc \
 #  unistr/u8-next \
@@ -3056,6 +3057,26 @@ libgnu_la_SOURCES += unistr/u32-next.c
 endif
 
 ## end   gnulib module unistr/u32-next
+
+## begin gnulib module unistr/u32-strdup
+
+if LIBUNISTRING_COMPILE_UNISTR_U32_STRDUP
+libgnu_la_SOURCES += unistr/u32-strdup.c
+endif
+
+EXTRA_DIST += unistr/u-strdup.h
+
+## end   gnulib module unistr/u32-strdup
+
+## begin gnulib module unistr/u32-strlen
+
+if LIBUNISTRING_COMPILE_UNISTR_U32_STRLEN
+libgnu_la_SOURCES += unistr/u32-strlen.c
+endif
+
+EXTRA_DIST += unistr/u-strlen.h
+
+## end   gnulib module unistr/u32-strlen
 
 ## begin gnulib module unistr/u32-strmbtouc
 

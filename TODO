@@ -171,7 +171,7 @@ After next release:
   tta/C/main/unicode-collation, and could be considered for removal
   if unicode-collation is not shipped in texinfo:
    unictype/property-unified-ideograph uninorm/nfd
-   uninorm/u32-normalize unistr/u8-to-u32
+   uninorm/u32-normalize unistr/u8-to-u32 unistr/u32-strdup
    and uchar-h-c23 instead of uchar-h (although it could be more robust)
 
 ***********************************************************************

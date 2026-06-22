@@ -224,6 +224,8 @@ AC_DEFUN([gl_EARLY],
   # Code from module unistr/u32-cpy:
   # Code from module unistr/u32-mbtouc-unsafe:
   # Code from module unistr/u32-next:
+  # Code from module unistr/u32-strdup:
+  # Code from module unistr/u32-strlen:
   # Code from module unistr/u32-strmbtouc:
   # Code from module unistr/u32-uctomb:
   # Code from module unistr/u8-cpy:
@@ -843,6 +845,8 @@ AC_DEFUN([gl_INIT],
   gl_MODULE_INDICATOR([unistr/u32-mbtouc-unsafe])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-mbtouc-unsafe])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-next])
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-strdup])
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-strlen])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-strmbtouc])
   gl_MODULE_INDICATOR([unistr/u32-uctomb])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-uctomb])
@@ -1339,9 +1343,13 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unistd.in.h
   lib/unistr.in.h
   lib/unistr/u-cpy.h
+  lib/unistr/u-strdup.h
+  lib/unistr/u-strlen.h
   lib/unistr/u32-cpy.c
   lib/unistr/u32-mbtouc-unsafe.c
   lib/unistr/u32-next.c
+  lib/unistr/u32-strdup.c
+  lib/unistr/u32-strlen.c
   lib/unistr/u32-strmbtouc.c
   lib/unistr/u32-uctomb.c
   lib/unistr/u8-cpy.c

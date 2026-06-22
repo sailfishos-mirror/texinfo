@@ -67,6 +67,7 @@
 #  uninorm/u32-normalize \
 #  uninorm/u8-normalize \
 #  unistr/u32-next \
+#  unistr/u32-strdup \
 #  unistr/u8-mbsnlen \
 #  unistr/u8-mbtouc \
 #  unistr/u8-next \
@@ -112,6 +113,7 @@ gl_MODULES([
   uninorm/u32-normalize
   uninorm/u8-normalize
   unistr/u32-next
+  unistr/u32-strdup
   unistr/u8-mbsnlen
   unistr/u8-mbtouc
   unistr/u8-next

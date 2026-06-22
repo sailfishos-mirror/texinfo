@@ -1,5 +1,10 @@
 2026-06-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta: run "gnulib-tool --add-import unistr/u32-strdup", needed
+	by unicode-collation/collation_key.c.
+
+2026-06-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/maintain/regenerate_cmd_tests.sh, autogen.sh,
 	tta/tests/Makefile.am: do not remove the previous one test script
 	files in regenerate_cmd_tests.sh but in calls in autogen.sh and
