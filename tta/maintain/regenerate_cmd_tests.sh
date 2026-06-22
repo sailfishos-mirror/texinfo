@@ -42,7 +42,6 @@ while test z"$1" = 'z-base' -o z"$1" = 'z-tex_html' -o z"$1" = 'z-other' ; do
 done
 
 test -d $test_scripts_dir || mkdir $test_scripts_dir
-rm -f $test_scripts_dir/*
 
 test_driving_files='# List of files that describe tests.  See tta/tests/README.
 test_driving_files_generated_list ='
