@@ -17,7 +17,7 @@ include $(srcdir)/Makefile.onetst
 $(srcdir)/Makefile.onetst: \
   ../maintain/regenerate_cmd_tests.sh $(test_driving_files_generated_list)
 	cd $(srcdir) \
-	&& $(SHELL) ../maintain/regenerate_cmd_tests.sh Makefile.onetst . \
+	&& $(SHELL) ../maintain/regenerate_cmd_tests.sh Makefile.onetst \
 	  -base '$(base_tests_dirs)' \
 	  -tex_html '$(tex_html_tests_dirs)' \
 	  -other '$(other_tests_dirs)'

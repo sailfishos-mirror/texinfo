@@ -14,6 +14,7 @@
 #
 # Originally written by Patrice Dumas.
 
+# Should be in tta/tests/ in source directory when run.
 # This script is run from "tta/tests/Makefile.am" to regenerate
 # "tta/tests/Makefile.onetst".
 
@@ -22,13 +23,7 @@
 test_file='list-of-tests'
 test_scripts_dir='test_scripts'
 
-test -d $test_scripts_dir || mkdir $test_scripts_dir
-rm -f $test_scripts_dir/*
-
-dir=`echo $0 | sed 's,/[^/]*$,,'`
 outfile=$1
-shift
-destdir=$1
 shift
 
 while test z"$1" = 'z-base' -o z"$1" = 'z-tex_html' -o z"$1" = 'z-other' ; do
@@ -46,9 +41,8 @@ while test z"$1" = 'z-base' -o z"$1" = 'z-tex_html' -o z"$1" = 'z-other' ; do
   shift
 done
 
-
-(
-cd "$dir/../tests/$destdir" || exit 1
+test -d $test_scripts_dir || mkdir $test_scripts_dir
+rm -f $test_scripts_dir/*
 
 test_driving_files='# List of files that describe tests.  See tta/tests/README.
 test_driving_files_generated_list ='
@@ -185,4 +179,3 @@ echo "$one_language_test_files
 echo "$type_test_files
 " >>$outfile
 
-)
