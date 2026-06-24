@@ -65,7 +65,7 @@ our $VERSION = '7.3dev';
 
 BEGIN {
   my $shared_library_name = "TranslationsXS";
-  if (!Texinfo::XSLoader::XS_parser_enabled()
+  if (!Texinfo::XSLoader::XS_modules_enabled()
       # We want the Perl setup_output_strings function implementation to be
       # called if use_libintl_perl_in_xs.  Also avoids the complication of going
       # through XS and then back to Perl through a call of Perl function

@@ -3,6 +3,15 @@
 	TEXINFO_XS_* variables no longer obeyed
 
 	* tta/perl/Texinfo/XSLoader.pm
+	(XS_module_enabled): New.
+	(XS_parser_enabled, XS_structuring_enabled, XS_convert_enabled):
+	Removed.  All callers updated.
+
+2026-06-24  Gavin Smith <gavinsmith0123@gmail.com>
+
+	TEXINFO_XS_* variables no longer obeyed
+
+	* tta/perl/Texinfo/XSLoader.pm
 	(XS_parser_enabled, XS_structuring_enabled, XS_convert_enabled):
 	Ignore environment variables TEXINFO_XS_PARSER,
 	TEXINFO_XS_STRUCTURE and TEXINFO_XS_CONVERT.  Only heed TEXINFO_XS.

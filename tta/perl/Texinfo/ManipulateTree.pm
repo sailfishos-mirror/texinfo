@@ -77,7 +77,7 @@ normalized_entry_associated_internal_node
 
 BEGIN {
   my $shared_library_name = "ManipulateTreeXS";
-  if (!Texinfo::XSLoader::XS_structuring_enabled()) {
+  if (!Texinfo::XSLoader::XS_modules_enabled()) {
     undef $shared_library_name;
   }
   Texinfo::XSLoader::init (
@@ -91,7 +91,7 @@ BEGIN {
 
 
 
-my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
+my $XS_structuring = Texinfo::XSLoader::XS_modules_enabled();
 
 # expected number of references to the object
 # The $element variable owns one count to reference and to object.
@@ -112,7 +112,7 @@ my $element_SV_target_count = 1;
 $destroyed_objects_refcount = 2;
 $destroyed_objects_refcount_text = $destroyed_objects_refcount;
 
-if (Texinfo::XSLoader::XS_parser_enabled()
+if (Texinfo::XSLoader::XS_modules_enabled()
     and $Texinfo::XSLoader::core_modules_built) {
   # a reference in C too
   $destroyed_objects_refcount++;

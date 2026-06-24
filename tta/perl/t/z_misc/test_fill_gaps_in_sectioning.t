@@ -57,7 +57,7 @@ sub test_correction($$$;$) {
 
 SKIP:
 {
-  skip 'test perl not XS', 2 if (Texinfo::XSLoader::XS_parser_enabled()
+  skip 'test perl not XS', 2 if (Texinfo::XSLoader::XS_modules_enabled()
                                  and $Texinfo::XSLoader::core_modules_built);
 
 test_correction('@raisesections

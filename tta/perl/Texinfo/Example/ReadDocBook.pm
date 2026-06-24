@@ -39,7 +39,7 @@ use Carp qw(cluck confess);
 #use Devel::Refcount qw(refcount);
 #use Devel::Peek qw(SvREFCNT);
 
-# for XS_structuring_enabled
+# for XS_modules_enabled
 use Texinfo::XSLoader;
 
 use Texinfo::Commands;

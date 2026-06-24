@@ -5,7 +5,7 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
-my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
+my $XS_convert = Texinfo::XSLoader::XS_modules_enabled();
 
 my $sections_no_top_text =
 '@chapter chapter

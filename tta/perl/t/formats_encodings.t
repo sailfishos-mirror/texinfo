@@ -7,7 +7,7 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
-my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
+my $XS_convert = Texinfo::XSLoader::XS_modules_enabled();
 
 # do not use @node Top as it is ignored in LaTeX output
 my $accents_text = '@node first

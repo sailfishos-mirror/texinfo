@@ -52,7 +52,7 @@ our $VERSION = '7.3dev';
 
 BEGIN {
   my $shared_library_name = "DocumentXS";
-  if (!Texinfo::XSLoader::XS_parser_enabled()) {
+  if (!Texinfo::XSLoader::XS_modules_enabled()) {
     undef $shared_library_name;
   }
 

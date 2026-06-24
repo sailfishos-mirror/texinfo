@@ -1713,7 +1713,7 @@ die _encode_message(
      unless ($input_files_nr >= 1);
 
 # XS parser and not explicitly unset
-my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
+my $XS_structuring = Texinfo::XSLoader::XS_modules_enabled();
 
 if (defined($ENV{TEXINFO_XS_EXTERNAL_CONVERSION})
     and $ENV{TEXINFO_XS_EXTERNAL_CONVERSION}) {
@@ -1913,7 +1913,7 @@ while (@input_files) {
     require Texinfo::Convert::Texinfo;
     Texinfo::Convert::Texinfo->import();
     # if convert_to_texinfo is not XS code get Perl tree.
-    if (not Texinfo::XSLoader::XS_convert_enabled()) {
+    if (not Texinfo::XSLoader::XS_modules_enabled()) {
       $tree = $document->tree();
     }
     my $texinfo_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);

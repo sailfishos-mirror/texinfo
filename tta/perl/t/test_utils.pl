@@ -146,8 +146,8 @@ if (defined($Texinfo::ModulePath::default_test_level)
   $default_test_level = $Texinfo::ModulePath::default_test_level;
 }
 
-my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
-my $XS_conversion = Texinfo::XSLoader::XS_convert_enabled();
+my $XS_structuring = Texinfo::XSLoader::XS_modules_enabled();
+my $XS_conversion = Texinfo::XSLoader::XS_modules_enabled();
 
 my $generated_texis_dir = 't_texis';
 

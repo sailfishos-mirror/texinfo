@@ -5,7 +5,7 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
-my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
+my $XS_convert = Texinfo::XSLoader::XS_modules_enabled();
 
 my $unnumbered_top_without_node_text =
 '@node a node,,,(dir)

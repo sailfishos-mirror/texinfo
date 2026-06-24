@@ -53,7 +53,7 @@ my $result_from_handle = $converter->convert_tree($tree_handle);
 my $reference_output = '<p>N <toto class="code">M</toto></p>';
 my $reference_from_handle;
 
-if (Texinfo::XSLoader::XS_parser_enabled()
+if (Texinfo::XSLoader::XS_modules_enabled()
     and $Texinfo::XSLoader::core_modules_built) {
   # there is no Perl tree, as there is only a handle, convert_tree
   # returns an empty string.

@@ -16,7 +16,7 @@ use Texinfo::Document;
 use Texinfo::Parser;
 use Texinfo::Transformations;
 
-my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
+my $XS_convert = Texinfo::XSLoader::XS_modules_enabled();
 
 # For consistent error message, use the C locale
 $ENV{LC_ALL} = 'C';

@@ -55,7 +55,7 @@ reference_to_arg_in_tree
 
 BEGIN {
   my $shared_library_name = "TransformationsXS";
-  if (!Texinfo::XSLoader::XS_structuring_enabled()) {
+  if (!Texinfo::XSLoader::XS_modules_enabled()) {
     undef $shared_library_name;
   }
   Texinfo::XSLoader::init (
