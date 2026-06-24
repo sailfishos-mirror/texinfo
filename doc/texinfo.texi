@@ -15565,37 +15565,9 @@ modules when calling interpreted Perl code and aborts if an extension
 cannot be loaded.  Setting @env{TEXINFO_XS} to @code{omit} with the C
 @command{texi2any} implementation is an error and is ignored.
 
-@c the environment variables that control XS extensions and C code
-@c are likely to be removed, so do not document them here.
+@c this environment variable is likely to be removed, so do not document
+@c it here.
 @ignore
-You can disable the use of the native code implementation in the Perl
-@command{texi2any} implementation for the main processing steps more finely.
-If native code modules are not used for a step, they cannot be used for the
-following steps.  Three steps are distinguished, each associated with an
-environment variable:
-
-@table @emph
-@item parsing
-@vindex TEXINFO_XS_PARSER
-Corresponds to the conversion of Texinfo input into an internal tree format
-used for further processing.  Set @env{TEXINFO_XS_PARSER} to @samp{0} to
-disable the use of the native code implementation of the parser module.
-@item structure
-@vindex TEXINFO_XS_STRUCTURE
-Corresponds to the determination of sectioning and node structures.
-Set @env{TEXINFO_XS_STRUCTURE} to @samp{0} to disable the use of the native code
-implementation of Perl modules in that step.
-@item conversion
-@vindex TEXINFO_XS_CONVERT
-Set @env{TEXINFO_XS_CONVERT} to @samp{0} to disable the use of the native code
-for conversion of the tree to output format.  Note that many output formats
-do not have a native code implementation for this step.
-@end table
-
-This may be useful for working around bugs or incompatibilities
-between the native code implementation and the implementation in pure Perl
-code.
-
 @vindex TEXINFO_C_EMBED_PERL
 @cindex Embedded Perl in C @command{texi2any}
 You can control the C @command{texi2any} implementation's use of embedded

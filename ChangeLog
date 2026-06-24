@@ -1,3 +1,20 @@
+2026-06-24  Gavin Smith <gavinsmith0123@gmail.com>
+
+	TEXINFO_XS_* variables no longer obeyed
+
+	* tta/perl/Texinfo/XSLoader.pm
+	(XS_parser_enabled, XS_structuring_enabled, XS_convert_enabled):
+	Ignore environment variables TEXINFO_XS_PARSER,
+	TEXINFO_XS_STRUCTURE and TEXINFO_XS_CONVERT.  Only heed TEXINFO_XS.
+
+	* tta/tests/run_parser_all.sh (check_strxfrm_ok):
+	Only check TEXINFO_XS.
+
+	* doc/texinfo.texi (texi2any Environment Variables):
+	Remove documentation of these variables.
+
+	* NEWS, README-hacking, INSTALL: updated.
+
 2026-06-22 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/maintain/regenerate_cmd_tests.sh (gather_tests): redirect stdin

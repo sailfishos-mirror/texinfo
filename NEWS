@@ -25,6 +25,8 @@ X.Y ()
   . Build and install Python and Perl modules with Texinfo Parser, Reader,
     and Document information by default, if SWIG is found.
   . USE_UNIDECODE removed.  former effect is now always on.
+  . Do not heed separate variables TEXINFO_XS_PARSER, TEXINFO_XS_STRUCTURE
+    or TEXINFO_XS_CONVERT when deciding whether to load XS modules.
 
 * Distribution
   . Remove --enable-refcounts-checks, --enable-perl-api-texi-build

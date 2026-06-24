@@ -83,26 +83,23 @@ sub set_XS_mandatory {
   }
 }
 
+# TODO: replace these three functions with a single function
 sub XS_parser_enabled {
   return ($mandatory_xs or
           ((not defined($ENV{TEXINFO_XS})
-                or $ENV{TEXINFO_XS} ne 'omit')
-           and (not defined($ENV{TEXINFO_XS_PARSER})
-                or $ENV{TEXINFO_XS_PARSER} ne '0')));
+                or $ENV{TEXINFO_XS} ne 'omit')));
 }
 
 sub XS_structuring_enabled {
   return ($mandatory_xs or
-          (XS_parser_enabled()
-           and (not defined($ENV{TEXINFO_XS_STRUCTURE})
-                or $ENV{TEXINFO_XS_STRUCTURE} ne '0')));
+          ((not defined($ENV{TEXINFO_XS})
+                or $ENV{TEXINFO_XS} ne 'omit')));
 }
 
 sub XS_convert_enabled {
   return ($mandatory_xs or
-          (XS_structuring_enabled()
-            and (not defined $ENV{TEXINFO_XS_CONVERT}
-                 or $ENV{TEXINFO_XS_CONVERT} ne '0')));
+          ((not defined($ENV{TEXINFO_XS})
+                or $ENV{TEXINFO_XS} ne 'omit')));
 }
 
 my $TEXINFO_XS;
