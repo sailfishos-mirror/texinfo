@@ -71,7 +71,7 @@ struct TEXT_OPTIONS;
             } \
           break;
 
-#define TXI_CONVERSION_FORMAT_NR (COF_plaintexinfo +1)
+#define TXI_CONVERSION_FORMAT_NR (COF_plaintext +1)
 
 typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
     const ELEMENT *caption;

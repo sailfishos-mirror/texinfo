@@ -46,6 +46,7 @@ enum converter_format {
    COF_html,
    COF_rawtext,
    COF_plaintexinfo,
+   COF_plaintext,
 };
 
 /* for string information passing to/from perl */

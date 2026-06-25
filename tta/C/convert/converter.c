@@ -68,6 +68,7 @@
 #include "api_to_perl.h"
 #include "html_converter_api.h"
 #include "plaintexinfo_converter_api.h"
+#include "plaintext_converter_api.h"
 #include "rawtext_converter_api.h"
 #include "convert_indices.h"
 #include "converter.h"
@@ -87,6 +88,9 @@ CONVERTER_FORMAT_DATA converter_format_data[] = {
   {"plaintexinfo", "Texinfo::Convert::PlainTexinfo", 0, 0,
    &plaintexinfo_converter_defaults, 0, &plaintexinfo_output,
    &plaintexinfo_convert, &plaintexinfo_convert_tree, 0, 0, 0},
+  {"plaintext", "Texinfo::Convert::Plaintext", 0, 0,
+   &plaintext_converter_defaults, 0, &plaintext_output,
+   &plaintext_convert, &plaintext_convert_tree, 0, 0, 0},
 };
 
 /* associate lower case no brace accent command to the upper case

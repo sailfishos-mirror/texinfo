@@ -1,3 +1,25 @@
+2026-06-25  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Stub plaintext converter for ctexi2any
+
+	* tta/C/convert/plaintext_converter_api.h,
+	* tta/C/convert/plaintext_converter_api.c,
+	* tta/C/convert/convert_to_plaintext.c,
+	* tta/C/convert/convert_to_plaintext.h: new stub implementations,
+	based on code for "plaintexinfo" output format.
+
+	* tta/C/convert/converter.c (converter_format_data): add entry
+	for "plaintext".
+
+	* tta/C/main/converter_types.h
+	(enum converter_format, TXI_CONVERSION_FORMAT_NR): update.
+
+	* tta/C/Makefile.am,
+	* tta/C/convert/converter.h,
+
+	* tta/C/texi2any.c (main): Disable use of Perl module for "plaintext"
+	output format if environment variable TEXINFO_XS_INCOMPLETE is set.
+
 2026-06-24  Gavin Smith <gavinsmith0123@gmail.com>
 
 	TEXINFO_XS_* variables no longer obeyed

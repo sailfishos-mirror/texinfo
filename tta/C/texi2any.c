@@ -2483,6 +2483,15 @@ main (int argc, char *argv[], char *env[])
                   && xs_external_conversion_option->o.integer > 0))
             external_module = converted_format_specification->module;
         }
+      else if (!strcmp (converted_format, "plaintext"))
+        {
+          const char *env_var = getenv ("TEXINFO_XS_INCOMPLETE");
+          if (env_var && strcmp (env_var, "0") != 0)
+            external_module = NULL;
+          else
+            external_module = converted_format_specification->module;
+
+        }
       else
         external_module = converted_format_specification->module;
 
