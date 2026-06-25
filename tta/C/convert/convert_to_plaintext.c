@@ -40,12 +40,107 @@ static void convert_to_plaintext_internal (const ELEMENT *e, TEXT *result);
 
 #define ADD(x) text_append (result, x)
 
+/* ALTIMP: _convert in Texinfo:Convert::Plaintext */
 static void
-convert_to_plaintext_internal (const ELEMENT *e, TEXT *result)
+convert_to_plaintext_internal (const ELEMENT *element, TEXT *result)
 {
-  ADD("test string");
+  enum element_type type = element->type;
+
+  /* TODO check right way to check text in union field */
+  if (type_data[type].flags & TF_text)
+    {
+      if (element->e.text->end > 0)
+        {
+           /* TODO */
+           text_append_n (result,
+                          element->e.text->text, element->e.text->end);
+           return;
+        }
+    }
+
+  /* %ignored_types in Plaintext.pm */
+  if (type == ET_postamble_after_end
+      || type == ET_preamble_before_beginning
+      || type == ET_preamble_before_setfilename
+      || type == ET_arguments_line)
+    return;
+
+  enum command_id cmd = element->e.c->cmd;
+  if (cmd != CM_NONE)
+    {
+    }
+
+  /* TODO: Index entry check */
+
+  if (type == ET_index_entry_command)
+    return;
+
+  int cell = 0, preformatted = 0;
+
+  if (cmd != CM_NONE)
+    {
+      /* TODO */
+    }
+
+  int paragraph = 0;
+
+  if (type != ET_NONE)
+    {
+      if (type == ET_paragraph)
+        {
+          /* TODO */
+        }
+      else if (type == ET_preformatted || type == ET_rawpreformatted)
+        {
+          /* TODO */
+        }
+      else if (type == ET_def_line)
+        {
+          /* TODO */
+        }
+      else if (type == ET_menu_entry)
+        {
+          /* TODO */
+        }
+      /* TODO: Fake internal types used in Plaintext.pm */
+      /* else if (type == ET_frenchspacing) */
+      /* else if (type == ET__code) */
+      /* else if (type == ET__stop_upper_case) */
+      /* else if (type == ET__suppress_styles) */
+      else if (type == ET_untranslated_def_line_arg)
+        {
+          /* TODO */
+        }
+    }
+
+  /* Convert any contents */
+  int i;
+  for (i = 0; i < element->e.c->contents.number; i++)
+    convert_to_plaintext_internal (element->e.c->contents.list[i], result);
+
+  /* Now closing.  First, close types. */
+  if (type != ET_NONE)
+    {
+    }
+
+  /* Close paragraphs and preformatted. */
+  if (paragraph)
+    {
+    }
+  if (preformatted)
+    {
+    }
+
+  /* Close commands */
+  if (cmd != CM_NONE)
+    {
+    }
+  return;
 }
+
+
 #undef ADD
+
 
 /* Return value to be freed by caller. */
 char *
