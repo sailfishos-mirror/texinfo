@@ -17,8 +17,79 @@ an offset in another lookup table for the sequence of collation units.  this
 could cut the size of the data by a factor of two.
 
 * optimise sequence lookup or lookup for ASCII chars
-* Unicode normalisation issues.  We could extend the data table
-to include more "canonically decomposable characters".  (See TR#10 s.9.5.)
+
+* Unicode normalisation issues.  The table by default contains entries
+for many "canonically decomposable characters".  This uses more storage
+space, but saves on time.
+
+libunistring has a "stream normalization" feature - see documentation
+of "struct uninorm_filter".  We could see how efficient this was.
+
+Consider combining the "normalization" step with searching for discontiguous
+matches.  The Unicode documentation often uses the example of å with a cedilla,
+in tailoring for Danish.
+
+If we normalise this to NFD, we get "a <cedilla> <ring>".  Then a discontiguous
+match has to be found for "a <ring>".  We have two rather slow processes
+(normalization, and discontiguous matching) that cancel each other out.  It
+might be possible to combine them to get a "collation-dependent normalization
+form" (no such form is defined to my knowledge).
+
+The Unicode Collation Algorithm describes "blocking context" for non-contiguous
+matches:
+
+  UTS10-D34. Blocking Context: The presence of a character B between two
+  characters C1 and C2, where ccc(B) = 0 or ccc(B) ≥ ccc(C2).
+
+  The notation ccc(B) is an abbreviation for "the Canonical_Combining_Class
+  value of B".
+
+https://www.unicode.org/reports/tr10/#UTS10-D34
+
+My understanding is, that due to the previous normalization step (to NFD),
+that the case ccc(B) > ccc(C2) should not occur.  For example, if "a <ring>"
+is a contraction, after normalization it is only characters with
+Canonical_Combining_Class equal to that of <ring> which could block the
+contraction before a following character with Canonical_Combining_Class zero,
+as NFD produces combining characters with non-decreasing
+Canonical_Combining_Class.  It's described in the Unicode standard proper:
+
+"3.11.5 Canonical Ordering Algorithm"
+https://www.unicode.org/versions/Unicode17.0.0/core-spec/chapter-3/#G49591
+
+
+
+"CLDR" adds the concept of "prefix mapping", which stops a time penalty
+whenever a letter L appears:
+
+  For example, the DUCET contains contractions for several variants of
+  L· (L followed by middle dot). Collating ASCII text is slowed down by
+  contraction matching starting with L/l. In the CLDR root collation,
+  these contractions are replaced by prefix mappings (L|·) which are
+  triggered only when the middle dot is encountered.
+
+  ...
+
+  The mapping is conditional on the prefix match but does not change the
+  mappings for the preceding text. As a result, a contraction mapping
+  for "px" can be replaced by a prefix rule "p|x" only if px maps to
+  the collation elements for p followed by the collation elements for
+  "x if after p". In the DUCET, L· maps to CE(L) followed by a special
+  secondary CE (which differs from CE(·) when · is not preceded by
+  L). In the CLDR root collation, L has no context-sensitive mappings,
+  but · maps to that special secondary CE if preceded by L.
+
+https://www.unicode.org/reports/tr35/tr35-collation.html#Context_Sensitive_Mappings
+
+However, it's rather vague how to implement this correctly:
+
+  Note: Matching of discontiguous contractions should be implemented without
+  rewriting the text (unlike in the [UCA] algorithm specification), so that
+  prefix matching is predictable. (It should also help with contraction
+  matching performance.) An implementation that does rewrite the text, as
+  in the UCA, will get different results for some (unusual) combinations
+  of contractions, prefix rules, and input text.
+
 
 * could use "compatibility decompositions" to save space
 (UTS #10 9.3.2).
