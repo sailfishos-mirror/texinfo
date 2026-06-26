@@ -807,21 +807,3 @@ txi_output_document_error_messages (DOCUMENT *document,
                                 no_warn, use_filename);
 
 }
-
-size_t
-txi_output_converter_error_messages (CONVERTER *converter,
-                                     const char *message_encoding,
-                                     int no_warn, int use_filename)
-{
-  return output_error_messages (&converter->error_messages, message_encoding,
-                                no_warn, use_filename);
-}
-
-/* used to show the built-in CSS rules */
-char *
-txi_builtin_default_css_text (void)
-{
-  setup_converter_format (COF_html);
-
-  return html_builtin_default_css_text ();
-}

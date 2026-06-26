@@ -115,9 +115,6 @@ size_t txi_output_parser_error_messages (DOCUMENT *document,
 size_t txi_output_document_error_messages (DOCUMENT *document,
                                            const char *message_encoding,
                                            int no_warn, int use_filename);
-size_t txi_output_converter_error_messages (CONVERTER *converter,
-                                            const char *message_encoding,
-                                            int no_warn, int use_filename);
 
 void txi_destroy_document (DOCUMENT *document, const char *external_module,
                            int remove_references);
@@ -129,5 +126,4 @@ void txi_destroy_converter (CONVERTER *converter, const char *external_module);
 int txi_close_file_stream (const char *program_file,
                            const FILE_STREAM *file_stream);
 
-char *txi_builtin_default_css_text (void);
 #endif

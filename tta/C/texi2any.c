@@ -82,6 +82,8 @@
 #include "texinfo.h"
 /* for call_module_converter */
 #include "call_conversion_perl.h"
+/* for html_builtin_default_css_text */
+#include "html_prepare_converter.h"
 
 #define _(String) gettext (String)
 
@@ -2421,8 +2423,10 @@ main (int argc, char *argv[], char *env[])
   if (show_builtin_css_rules_option
       && show_builtin_css_rules_option->o.integer > 0)
     {
+      /* used to show the built-in CSS rules */
       char *default_css_text;
-      default_css_text = txi_builtin_default_css_text ();
+      setup_converter_format (COF_html);
+      default_css_text = html_builtin_default_css_text ();
       printf ("%s", default_css_text);
       free (default_css_text);
       exit (EXIT_SUCCESS);
@@ -3195,9 +3199,8 @@ main (int argc, char *argv[], char *env[])
                               errors_count);
 
       errors_nr
-        = txi_output_converter_error_messages (converter,
-                                       set_message_encoding, no_warn,
-                                       test_mode_set);
+        = output_error_messages (&converter->error_messages,
+                                 set_message_encoding, no_warn, test_mode_set);
 
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
 

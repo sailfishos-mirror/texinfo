@@ -1,5 +1,11 @@
 2026-06-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/convert/texinfo.c
+	(txi_output_converter_error_messages, txi_builtin_default_css_text):
+	Inline into sole use sites and remove.
+
+2026-06-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/convert/texinfo.c (txi_converter_setup): Inline into
 	sole use site and remove.
 
