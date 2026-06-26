@@ -796,6 +796,11 @@ typedef struct CONVERTER_INITIALIZATION_INFO {
     STRING_LIST non_valid_customization;
 } CONVERTER_INITIALIZATION_INFO;
 
+typedef struct PLAINTEXT_CONVERSION_STATE {
+    /* TODO: replace with 'count_context' stack */
+    TEXT pending_text;
+} PLAINTEXT_CONVERSION_STATE;
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be SV *sv,
@@ -853,6 +858,9 @@ typedef struct CONVERTER {
     INDICES_SORT_STRINGS *indices_sort_strings;
     COLLATIONS_INDICES_SORTED_BY_INDEX *sorted_indices_by_index;
     COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
+
+  /* Info/plaintext specific */
+    PLAINTEXT_CONVERSION_STATE plaintext_converter;
 
   /* HTML specific */
     /* set for a converter */

@@ -3,7 +3,8 @@
 #define CONVERT_TO_TEXINFO_H
 
 #include "tree_types.h"
+#include "converter_types.h"
 
-char *convert_to_plaintext (const ELEMENT *e);
+char *convert_to_plaintext (CONVERTER *self, const ELEMENT *e);
 
 #endif

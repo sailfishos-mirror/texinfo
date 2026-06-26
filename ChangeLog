@@ -1,3 +1,21 @@
+2026-06-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Continue C plaintext converter
+
+	* tta/C/main/converter_types.h (PLAINTEXT_CONVERSION_STATE): New type.
+	(struct CONVERTER): Add PLAINTEXT_CONVERSION_STATE plaintext_converter
+	field.
+
+	* tta/C/convert/convert_to_plaintext.c: Take and pass around a CONVERTER
+	object.  Add stubs for stream_output_* functions using text object in
+	plaintext_converter field, and call stream_output instead of appending
+	to TEXT object.
+
+	Note: until convert_to_plaintext.c (and other new code) is complete,
+	ChangeLog entries may not be as detailed as usual.  Other changes
+	affecting established parts of the code should still be described
+	to the usual standard.
+
 2026-06-25  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/convert/convert_to_plaintext.c (convert_to_plaintext_internal):

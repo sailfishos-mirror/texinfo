@@ -46,7 +46,7 @@ plaintext_output (CONVERTER *converter, DOCUMENT *document)
 char *
 plaintext_convert (CONVERTER *converter, DOCUMENT *document)
 {
-  char *result = convert_to_plaintext (document->tree);
+  char *result = convert_to_plaintext (converter, document->tree);
   return result;
 }
 
@@ -54,7 +54,7 @@ char *
 plaintext_convert_tree (CONVERTER *converter,
                            const ELEMENT *tree)
 {
-  char *result = convert_to_plaintext (tree);
+  char *result = convert_to_plaintext (converter, tree);
   return result;
 }
 
