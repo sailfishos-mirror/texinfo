@@ -100,10 +100,6 @@ int txi_load_init_file (const char *file,
                         enum interpreter_use *embedded_interpreter);
 void txi_stop_interpreter (enum interpreter_use embedded_interpreter);
 
-CONVERTER *txi_converter_setup (const char *external_module,
-                     const char *converted_format,
-                     const CONVERTER_INITIALIZATION_INFO *converter_init_info);
-
 char *txi_converter_output (CONVERTER *converter, DOCUMENT *document,
                             const char *external_module);
 char *txi_converter_convert (CONVERTER *converter, DOCUMENT *document);

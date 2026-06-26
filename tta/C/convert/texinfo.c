@@ -596,37 +596,6 @@ txi_converter_initialization_setup (CONVERTER_INITIALIZATION_INFO *conf,
     copy_options_list (&conf->conf, customizations);
 }
 
-/* In texi2any.pl, not in a separate function */
-/* converter setup. Similar to a converter initialization in texi2any.pl */
-CONVERTER *
-txi_converter_setup (const char *external_module,
-                     const char *converted_format,
-                     const CONVERTER_INITIALIZATION_INFO *converter_init_info)
-{
-  enum converter_format converter_format;
-  CONVERTER *self;
-
-  if (external_module)
-    {
-      self = call_module_converter (external_module, converter_init_info);
-      if (!self)
-        {
-          char *message;
-          xasprintf (&message, "no interpreter or NULL return for module: %s",
-                     external_module);
-          fatal (message);
-          free (message);
-        }
-      else
-        return self;
-    }
-
-  converter_format = find_format_name_converter_format (converted_format);
-  self = converter_converter (converter_format, converter_init_info);
-
-  return self;
-}
-
 /* high level interface, possibly hiding some details of the data */
 
 DOCUMENT *

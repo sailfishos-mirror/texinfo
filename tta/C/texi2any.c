@@ -80,6 +80,8 @@
 /* for html_output_internal_links */
 #include "html_converter_api.h"
 #include "texinfo.h"
+/* for call_module_converter */
+#include "call_conversion_perl.h"
 
 #define _(String) gettext (String)
 
@@ -3156,9 +3158,26 @@ main (int argc, char *argv[], char *env[])
                                           &deprecated_directories,
                                           &convert_options);
 
-      converter = txi_converter_setup (external_module,
-                                       converted_format,
-                                       converter_init_info);
+      /* converter setup */
+      if (external_module)
+        {
+          converter = call_module_converter (external_module, converter_init_info);
+          if (!converter)
+            {
+              char *message;
+              xasprintf (&message, "no interpreter or NULL return for module: %s",
+                         external_module);
+              fatal (message);
+              free (message);
+            }
+        }
+
+      if (!converter)
+        {
+          enum converter_format converter_format;
+          converter_format = find_format_name_converter_format (converted_format);
+          converter = converter_converter (converter_format, converter_init_info);
+        }
 
       /* conversion */
       /* If Perl output conversion is called, a minimal Perl document is
