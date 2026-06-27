@@ -1,5 +1,10 @@
 2026-06-27 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/init/translation_in_parser_in_translation.pm: add more
+	code in translation Texinfo code and add another translation.
+
+2026-06-27 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/README, perl/Texinfo/Convert/Plaintext.pm (new_formatter):
 	comment out setting DEBUG for Texinfo::Convert::Paragraph as there is
 	no debugging output in C.

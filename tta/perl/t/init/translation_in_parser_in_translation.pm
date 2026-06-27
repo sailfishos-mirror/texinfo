@@ -10,6 +10,8 @@ use Texinfo::Convert::NodeNameNormalization;
 
 # a translation of the Next button with @-commands needing translation.
 # also test commands in 'parser restricted mode' with NO_INDEX and similar set.
+# Also the parsing of translation is done in line context, therefore there
+# are no paragraphs, such that the quotation title is never collected.
 my %translations = (
   'fr' => {
            'Next' => {'NodeNext direction string'
@@ -23,6 +25,13 @@ AA
 @deftypemethod g h i j k l
 BB
 @end deftypemethod
+
+@error{}
+
+@quotation qtitle
+a quotation
+@author someone
+@end quotation
 
 @defcodeindex xx
 @xxindex entry
@@ -40,7 +49,7 @@ BB
 CC
 @end deftypeop
 
-@documentlanguage fr
+@documentlanguage de
 
 @deftypemethod s t u v w x
 DD
@@ -54,6 +63,9 @@ DD
 @printindex fn
 @printindex xx
 '},
+            '@center --- @emph{{author}}' => {''
+               => '@center --- Toto et @code{{author}}'
+},
 });
 
 sub _texi2any_test_translation_in_parser_format_translate_message($$$;$) {
@@ -62,6 +74,7 @@ sub _texi2any_test_translation_in_parser_format_translate_message($$$;$) {
   my $lang = $lang_info->xpg_locale();
   return $string if (!defined($lang) or $lang eq '');
   $translation_context = '' if (!defined($translation_context));
+  #print STDERR "translatable ($lang): '$string'\n";
 
   if (exists($translations{$lang})
       and exists($translations{$lang}->{$string})
