@@ -19,6 +19,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "customization_options.h"
+#include "convert_to_texinfo.h"
+#include "converters_options.h"
+/* converter_output_tree */
+#include "converter.h"
+
+
 #include "text.h"
 #include "command_ids.h"
 #include "element_types.h"
@@ -29,7 +36,6 @@
 #include "builtin_commands.h"
 #include "debug.h"
 #include "convert_to_plaintext.h"
-#include "plaintext_converter_api.h"
 
 static void
 stream_output (CONVERTER *self, const char *text)
@@ -197,4 +203,37 @@ plaintext_free_converter (CONVERTER *self)
 void
 plaintext_converter_initialize (CONVERTER *self)
 {
+}
+
+CONVERTER_INITIALIZATION_INFO *
+plaintext_converter_defaults (enum converter_format format,
+                                 const CONVERTER_INITIALIZATION_INFO *conf)
+{
+  CONVERTER_INITIALIZATION_INFO *format_defaults
+    = new_converter_initialization_info ();
+
+  /* add_plaintext_converter_regular_options_defaults (&format_defaults->conf); */
+
+  return format_defaults;
+}
+
+char *
+plaintext_output (CONVERTER *converter, DOCUMENT *document)
+{
+  return converter_output_tree (converter, document, 0, 0, 0, 0);
+}
+
+char *
+plaintext_convert (CONVERTER *converter, DOCUMENT *document)
+{
+  char *result = convert_to_plaintext (converter, document->tree);
+  return result;
+}
+
+char *
+plaintext_convert_tree (CONVERTER *converter,
+                           const ELEMENT *tree)
+{
+  char *result = convert_to_plaintext (converter, tree);
+  return result;
 }

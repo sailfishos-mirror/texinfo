@@ -2,6 +2,15 @@
 
 	Continue C plaintext converter
 
+	* tta/C/convert/plaintext_converter_api.c,
+	* tta/C/convert/convert_to_plaintext.c:
+	Merge into convert_to_plaintext.c and remove
+	plaintext_converter_api.c.
+
+2026-06-27  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Continue C plaintext converter
+
 	* tta/C/convert/convert_to_plaintext.c
 	(plaintext_free_converter, plaintext_converter_initialize):
 	New stubs.)

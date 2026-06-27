@@ -68,7 +68,7 @@
 #include "api_to_perl.h"
 #include "html_converter_api.h"
 #include "plaintexinfo_converter_api.h"
-#include "plaintext_converter_api.h"
+#include "convert_to_plaintext.h"
 #include "rawtext_converter_api.h"
 #include "convert_indices.h"
 #include "converter.h"
