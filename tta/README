@@ -75,6 +75,11 @@ need to set the srcdir environment variable, and/or set the t2a_srcdir
 environment variables to the in-source tta/ directory.
 
 
+Debugging output of the Texinfo::Convert::Paragraph Perl module is commented
+out because there is no equivalent in C code.  To enable, uncomment code
+in tta/perl/Texinfo/Convert/Plaintext.pm new_formatter.
+
+
 Running tests:
 
 Tests in perl/t/ test the Perl modules used by the texi2any command.

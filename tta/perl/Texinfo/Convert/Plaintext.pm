@@ -944,10 +944,12 @@ sub new_formatter($$;$) {
   $container_conf->{'counter'}
     = $self->{'text_element_context'}->[-1]->{'counter'}
       if (defined($self->{'text_element_context'}->[-1]->{'counter'}));
-  # only if debug > 1 as there is no corresponding debugging output
-  # in the C code.
-  $container_conf->{'DEBUG'} = 1 if (defined($self->{'debug'})
-                                     and $self->{'debug'} > 1);
+  # There is no corresponding debugging output in the C code.
+  # need to be uncommented and only if debug > 1
+  #$container_conf->{'DEBUG'} = 1 if (defined($self->{'debug'})
+  #                                   and $self->{'debug'} > 1);
+  # need to be manually enabled by uncommenting.
+  #$container_conf->{'DEBUG'} = 1 if ($self->{'debug'});
 
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
