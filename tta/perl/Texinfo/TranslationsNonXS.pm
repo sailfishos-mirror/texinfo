@@ -59,12 +59,14 @@ sub setup_output_strings($;$) {
 # There is no such hash if the language information is passed from C.
 # If the language information is undef or the language is an empty string,
 # no translation is needed.
-sub cache_translate_string($$;$) {
-  my ($string, $lang_translations, $translation_context) = @_;
+sub cache_translate_string($$;$$) {
+  my ($string, $lang_translations, $translation_context, $debug_level) = @_;
 
   #if (!defined($string)) {
   #  confess("cache_translate_string: undef string\n");
   #}
+
+  $debug_level = 0 if (!defined($debug_level));
 
   my $translations;
 
@@ -88,6 +90,22 @@ sub cache_translate_string($$;$) {
   if (exists($translations->{$translation_context_str})) {
     if (exists($translations->{$translation_context_str}->{$string})) {
       # return cached translation and tree
+      if ($debug_level >= 2) {
+        my $translated_string
+          = $translations->{$translation_context_str}->{$string}->[0];
+        my $cached_lang = '';
+        if (defined($lang_translations)) {
+          $cached_lang = $lang_translations->[0]->{'bcp47_locale'};
+        }
+        if (defined($translated_string)) {
+          print STDERR "T hit cache ".
+             "'$string-$translation_context_str' '$translated_string'"
+             ." $cached_lang\n";
+        } else {
+          print STDERR "T hit cache no need ".
+            "'$string-$translation_context_str'"."\n";
+        }
+      }
       return $translations->{$translation_context_str}->{$string};
     }
   } else {
@@ -100,6 +118,10 @@ sub cache_translate_string($$;$) {
   # tree
   if (!defined($lang_translations)
       or $lang_translations->[0]->{'bcp47_locale'} eq '') {
+    if ($debug_level >= 2) {
+       print STDERR "T no need ".
+             "'$string-$translation_context_str'"."\n";
+    }
     my $result = [undef];
     $strings_cache->{$string} = $result;
     return $result;
@@ -108,6 +130,11 @@ sub cache_translate_string($$;$) {
   my $translated_string = translate_string($string, $lang_translations->[1],
                                            $translation_context);
 
+  if ($debug_level >= 2) {
+     print STDERR "T new translation ".
+             "'$string-$translation_context_str' '$translated_string'"
+             ." ".$lang_translations->[0]->{'bcp47_locale'}."\n";
+  }
   my $result = [$translated_string];
 
   $strings_cache->{$string} = $result;

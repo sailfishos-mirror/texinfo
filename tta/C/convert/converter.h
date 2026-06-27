@@ -84,19 +84,25 @@ typedef struct CONVERTER_FORMAT_DATA {
     /* initialization of the converter library data independent of
        customization */
     void (* format_setup) (enum converter_format format);
-    /* replaces the default converter initialization sequence
+    /* replaces the whole default converter initialization sequence
        (in Perl corresponds to a converter redefining the converter method) */
     void (* converter_converter) (CONVERTER *self,
                             const CONVERTER_INITIALIZATION_INFO *conf);
-    /* next two are used if converter_converter is NULL */
+    /* next two are called from the default converter_converter
+       implementation, if converter_converter is NULL */
+    /* usually setup default customization options for the converter */
     CONVERTER_INITIALIZATION_INFO *
        (* converter_defaults) (enum converter_format format,
                                const CONVERTER_INITIALIZATION_INFO *conf);
+    /* initialization of converter after getting customization options */
     void (* converter_initialize) (CONVERTER *self);
+    /* convert a full document tree to an output file */
     char * (* converter_output) (CONVERTER *converter, DOCUMENT *document);
+    /* convert a full document tree to a string without headers nor footers */
     char * (* converter_convert) (CONVERTER *converter, DOCUMENT *document);
     /* currently unused, could be modified when it become used, but it would
        probably be better to stick to that API to be consistent with Perl */
+    /* expected to be called for conversions of sub trees */
     char * (* converter_convert_tree) (CONVERTER *converter,
                                        const ELEMENT *tree);
     void (* converter_release_output_units) (CONVERTER *self);

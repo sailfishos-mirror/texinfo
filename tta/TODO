@@ -10,6 +10,13 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+It is difficult to make sure that caches for translations are actually
+filled and used, as this does not affect the result, but the speed.
+Also it is normal to have differences between Perl and C as there
+may be a need to use another cache in Perl with C, therefore debug
+messages related to translation caches are not enabled with DEBUG==1.
+With DEBUG >= 2 there are some messages that could be used to see if
+everything is ok, but it is verbose and could need more work.
 
 Bugs
 ====

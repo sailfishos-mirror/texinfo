@@ -391,7 +391,8 @@ static const char *underline_symbol[5] = {"*", "*", "=", "-", "."};
 /* return to be freed by caller */
 static char *
 text_heading (const ELEMENT *current, const char *text,
-              int numbered, const LANG_TRANSLATION *lang_translation)
+              int numbered, const LANG_TRANSLATION *lang_translation,
+              int debug_level)
 {
   int i;
   TEXT result;
@@ -411,7 +412,8 @@ text_heading (const ELEMENT *current, const char *text,
       heading[strlen (heading) - 1] = '\0';
 
   heading_with_number = add_heading_number (current, heading,
-                                            numbered, lang_translation);
+                                            numbered, lang_translation,
+                                            debug_level);
 
   free (heading);
 
@@ -944,7 +946,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           heading
              = text_heading (element, text.text,
                              text_options->NUMBER_SECTIONS,
-                             text_options->current_lang_translations);
+                             text_options->current_lang_translations,
+                             text_options->DEBUG);
           ADD(heading);
           free (heading);
           free (text.text);

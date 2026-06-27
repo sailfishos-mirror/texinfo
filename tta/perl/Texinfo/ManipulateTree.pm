@@ -190,7 +190,7 @@ sub _copy_tree($;$) {
     $command_or_type = $current->{'type'};
   }
 
-  #print STDERR "CTNEW $current ".debug_print_element($current)." $new\n";
+  #print STDERR "CTNEW $current ".Texinfo::Common::debug_print_element($current)." $new\n";
 
   if (exists($current->{'contents'})) {
     if (!defined($current->{'contents'})) {

@@ -38,19 +38,17 @@ implement the required interfaces and could also have a converter available in
 some cases, to call the functions with the converter argument set.
 
 @table @asis
-@item $result = add_heading_number($heading_element, $heading_text, $do_number, $lang_translations)
-@anchor{Texinfo@asis{::}Convert@asis{::}Utils $result = add_heading_number($heading_element@comma{} $heading_text@comma{} $do_number@comma{} $lang_translations)}
+@item $result = add_heading_number($heading_element, $heading_text, $do_number, $lang_translations, $debug_level)
+@anchor{Texinfo@asis{::}Convert@asis{::}Utils $result = add_heading_number($heading_element@comma{} $heading_text@comma{} $do_number@comma{} $lang_translations@comma{} $debug_level)}
 @cindex @code{add_heading_number}
 
 @emph{$heading_element} is a heading command tree element.  @emph{$heading_text} is the
 already formatted heading text.  if the @emph{$do_number} optional argument is
 defined and false, no number is used and the text is returned as is.  The
-@emph{$lang_translations} optional argument should be an array reference with one
-or two elements.  The first element of the array is the language the resulting
-string is translated to.  The second element, if set, should be an hash
-reference holding translations already done.  If a language is set in
-@emph{$lang_translations}, the string is translated and the optional @emph{$debug}
-argument is passed to the translation function.
+@emph{$lang_translations} optional argument is a reference holding information
+on the current language and the already translated strings.
+If a language is set in @emph{$lang_translations}, the string is translated and the
+optional @emph{$debug_level} argument is passed to the translation function.
 
 This function returns the heading with a number and the appendix part if
 needed.

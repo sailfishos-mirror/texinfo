@@ -906,7 +906,8 @@ add_translation_tree (LANG_TRANSLATION_TREE_LIST *translations,
 TRANSLATION_TREE *
 cache_translate_string (const char *string,
                         const LANG_TRANSLATION *lang_translation,
-                        const char *translation_context)
+                        const char *translation_context,
+                        int debug_level)
 {
   const char *translation_context_str;
   LANG_TRANSLATION_TREE_LIST *translations;
@@ -921,7 +922,15 @@ cache_translate_string (const char *string,
       string_nr = (uintptr_t) c_hashmap_value (unknown_lang_translations.hash,
                                                string, &found);
       if (found)
-        return unknown_lang_translations.list[string_nr -1];
+        {
+          if (debug_level >= 2)
+            fprintf (stderr, "C|T hit cache cache no need '%s-' '' \n",
+                     string);
+          return unknown_lang_translations.list[string_nr -1];
+        }
+
+      if (debug_level >= 2)
+        fprintf (stderr, "C|T no need '%s-' '' \n", string);
 
       return add_translation_tree (&unknown_lang_translations, string);
     }
@@ -941,6 +950,10 @@ cache_translate_string (const char *string,
   if (found)
     {
       result = translations->list[string_nr -1];
+      if (debug_level >= 2)
+        fprintf (stderr, "C|T hit cache '%s' '%s' %s\n",
+                 translated_context_string, result->translation,
+                 lang_translation->info->bcp47_locale);
       free (translated_context_string);
       return result;
     }
@@ -953,7 +966,16 @@ cache_translate_string (const char *string,
         = translate_string (string, lang_translation->language_env,
                             translation_context);
       result->translation = translated_string;
+      if (debug_level >= 2)
+        fprintf (stderr, "C|T new translation '%s' '%s' %s\n",
+                 translated_context_string, translated_string,
+                 lang_translation->info->bcp47_locale);
     }
+  else if (debug_level >= 2)
+    fprintf (stderr, "C|T new translation '%s' '' %s\n",
+                 translated_context_string,
+                 lang_translation->info->bcp47_locale);
+
 
   free (translated_context_string);
 
@@ -1109,7 +1131,7 @@ replace_convert_substrings (const char *translated_string,
     parser_debug_level = debug_level - 1;
 
   /* same as creating a new parser in Perl */
-  reset_parser_conf ();
+  reset_parser (parser_debug_level);
 
   parser_conf_set_DEBUG (parser_debug_level);
 
@@ -1173,7 +1195,8 @@ gdt_tree (const char *string, DOCUMENT *document,
   ELEMENT *result_tree;
 
   translated_string_tree
-    = cache_translate_string (string, lang_translation, translation_context);
+    = cache_translate_string (string, lang_translation,
+                              translation_context, debug_level);
 
   if (!translated_string_tree->tree)
     {
@@ -1222,14 +1245,15 @@ gdt_tree (const char *string, DOCUMENT *document,
 char *
 gdt_string (const char *string, const LANG_TRANSLATION *lang_translation,
             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-            const char *translation_context)
+            const char *translation_context, int debug_level)
 {
   TRANSLATION_TREE *translated_string_tree;
   const char *translated_string;
   char *result;
 
   translated_string_tree
-    = cache_translate_string (string, lang_translation, translation_context);
+    = cache_translate_string (string, lang_translation,
+                              translation_context, debug_level);
 
   translated_string = translated_string_tree->translation;
 

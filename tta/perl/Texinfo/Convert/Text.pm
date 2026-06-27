@@ -436,8 +436,8 @@ my %underline_symbol = (
 );
 
 # Return the text of an underlined heading
-sub _text_heading($$$;$) {
-  my ($current, $text, $numbered, $lang_translations) = @_;
+sub _text_heading($$$;$$) {
+  my ($current, $text, $numbered, $lang_translations, $debug_level) = @_;
 
   # end of lines spaces are ignored in conversion.  However in
   # rare cases, invalid nestings leave an end of line, so we chomp.
@@ -446,7 +446,8 @@ sub _text_heading($$$;$) {
   my $number;
 
   $text = Texinfo::Convert::Utils::add_heading_number($current,
-                           $text, $numbered, $lang_translations);
+                           $text, $numbered, $lang_translations,
+                           $debug_level);
   # What about non-ascii spaces?
   return '' if ($text !~ /\S/);
   my $result = $text ."\n";
@@ -747,7 +748,8 @@ sub _convert($$) {
       my $heading_text = _convert($options, $line_arg);
       $result = _text_heading($element, $heading_text,
                               $options->{'NUMBER_SECTIONS'},
-                              $options->{'current_lang_translations'});
+                              $options->{'current_lang_translations'},
+                              $options->{'DEBUG'});
       unless (exists($Texinfo::Commands::root_commands{$cmdname})) {
         return $result;
       }

@@ -33,6 +33,8 @@ BB
 @printindex fn
 @printindex xx
 '},
+# translations are parsed with NO_INDEX and similar set, therefore printindex
+# argument is not set in misc_args and therefore there is no conversion
             '{name} on {class}' => {''
                => '@deftypeop m n o p q r
 CC

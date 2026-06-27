@@ -455,6 +455,7 @@ sub cdt_string($$;$$) {
   return Texinfo::Translations::gdt_string($string,
                                     $self->{'current_lang_translations'},
                                     $replaced_substrings,
+                                    $self->get_conf('DEBUG'),
                                     $translation_context);
 }
 

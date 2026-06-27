@@ -1,3 +1,27 @@
+2026-06-27 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Translations.pm (_set_lang_info_translation):
+	add the new lang translations reference to the translations cache
+	hash.
+
+	* tta/C/main/translations.c (replace_convert_substrings): call
+	reset_parser and not reset_parser_conf to get the same result as doing
+	a new parser in Perl.
+
+	* tta/C/convert/convert_html.c (html_cache_translate_string),
+	tta/C/main/convert_to_text.c (text_heading, convert_to_text_internal),
+	tta/C/main/convert_utils.c (add_heading_number),
+	tta/C/main/translations.c (cache_translate_string, gdt_string),
+	tta/perl/Texinfo/Convert/HTML.pm (_html_cache_translate_string)
+	(cdt_string), tta/perl/Texinfo/Convert/Text.pm (_text_heading)
+	(_convert), tta/perl/Texinfo/Convert/Utils.pm (add_heading_number),
+	tta/perl/Texinfo/Translations.pm (gdt, gdt_string),
+	tta/perl/Texinfo/TranslationsNonXS.pm (cache_translate_string),
+	tta/perl/XSTexinfo/parser_document/TranslationsXS.xs
+	(cache_translate_string), tta/perl/ext/epub3.pm, tta/perl/init/chm.pm:
+	add debugging information on translations caching when debug is >= 2,
+	in *cache_translate_string.  Update callers.
+
 2026-06-26  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/convert/texinfo.c

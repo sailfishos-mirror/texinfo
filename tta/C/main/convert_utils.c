@@ -408,7 +408,8 @@ expand_today (int test, const LANG_TRANSLATION *lang_translation,
 
 char *
 add_heading_number (const ELEMENT *current, char *text,
-                    int numbered, const LANG_TRANSLATION *lang_translation)
+                    int numbered, const LANG_TRANSLATION *lang_translation,
+                    int debug_level)
 {
   TEXT result;
   char *number = 0;
@@ -438,13 +439,13 @@ add_heading_number (const ELEMENT *current, char *text,
                 {
                   numbered_heading
                    = gdt_string ("Appendix {number} {section_title}",
-                                 lang_translation, substrings, 0);
+                                 lang_translation, substrings, 0, debug_level);
                 }
             }
           if (!numbered_heading)
             numbered_heading
               = gdt_string ("{number} {section_title}",
-                            lang_translation, substrings, 0);
+                            lang_translation, substrings, 0, debug_level);
 
           destroy_named_string_element_list (substrings);
 

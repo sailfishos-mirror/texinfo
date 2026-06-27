@@ -149,8 +149,12 @@ html_cache_translate_string (CONVERTER *self, const char *string,
                              const LANG_TRANSLATION *lang_translation,
                              const char *translation_context)
 {
+  int debug_level = 0;
   char *translated_string;
   const DOCUMENT_LANG_INFO *lang_info;
+
+  if (self->conf && self->conf->DEBUG.o.integer >= 0)
+    debug_level = self->conf->DEBUG.o.integer;
 
   if (lang_translation)
     lang_info = lang_translation->info;
@@ -193,6 +197,12 @@ html_cache_translate_string (CONVERTER *self, const char *string,
           if (!strcmp (result->translation, translated_string))
             {
               free (translated_string);
+              if (debug_level >= 2)
+                {
+                  fprintf (stderr, "C|T user hit cache '%s-%s' '%s' %s\n",
+                           string, translation_context_str,
+                           result->translation, lang_info->bcp47_locale);
+                }
               return result;
             }
           /* the translated string has changed, invalidate the cached tree
@@ -201,10 +211,33 @@ html_cache_translate_string (CONVERTER *self, const char *string,
             {
               destroy_element_and_children (result->tree);
               result->tree = 0;
+              if (debug_level >= 2)
+                {
+                  fprintf (stderr,
+                "C|T user invalid cache tree '%s-%s' '%s' (old: %s) %s\n",
+                           string, translation_context_str,
+                           translated_string,
+                           result->translation, lang_info->bcp47_locale);
+                }
+            }
+          else if (debug_level >= 2)
+            {
+              fprintf (stderr,
+              "C|T user change translation '%s-%s' '%s' (old: %s) %s\n",
+                           string, translation_context_str,
+                           translated_string,
+                           result->translation, lang_info->bcp47_locale);
             }
           free (result->translation);
           result->translation = translated_string;
           return result;
+        }
+      else if (debug_level >= 2)
+        {
+          fprintf (stderr,
+           "C|T user new translation '%s-%s' '%s' %s\n",
+              string, translation_context_str, translated_string,
+              lang_info->bcp47_locale);
         }
 
       result = add_translation_tree (translations, translated_context_string);
@@ -216,7 +249,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
     }
 
   return cache_translate_string (string, lang_translation,
-                                         translation_context);
+                                 translation_context, debug_level);
 }
 
 /* same as gdt_tree with html_cache_translate_string called instead of

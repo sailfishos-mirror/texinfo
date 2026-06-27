@@ -54,7 +54,8 @@ ELEMENT *expand_today (int test, const LANG_TRANSLATION *lang_translation,
 
 char *add_heading_number (const ELEMENT *current, char *text,
                           int numbered,
-                          const LANG_TRANSLATION *lang_translation);
+                          const LANG_TRANSLATION *lang_translation,
+                          int debug_level);
 
 ELEMENT *expand_verbatiminclude (const ELEMENT *current,
                         const STRING_LIST *include_directories,

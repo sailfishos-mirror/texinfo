@@ -466,7 +466,7 @@ sub translated_command_tree($$$$;$) {
   if (defined($translated_commands)
       and defined($translated_commands->{$cmdname})) {
     my $to_translate = $translated_commands->{$cmdname};
-    if ($converter) {
+    if (defined($converter)) {
       return $converter->cdt($to_translate);
     } else {
       return Texinfo::Translations::gdt($to_translate,
@@ -545,8 +545,9 @@ sub expand_verbatiminclude($$$$$;$$) {
   return $verbatiminclude;
 }
 
-sub add_heading_number($$;$$) {
-  my ($current, $text, $numbered, $lang_translations) = @_;
+sub add_heading_number($$;$$$) {
+  my ($current, $text, $numbered, $lang_translations,
+      $debug_level) = @_;
 
   my $number;
   if (exists($current->{'extra'})
@@ -566,11 +567,13 @@ sub add_heading_number($$;$$) {
           and $current->{'extra'}->{'section_level'} == 1) {
         $result = Texinfo::Translations::gdt_string(
                     'Appendix {number} {section_title}', $lang_translations,
-                    {'number' => $number, 'section_title' => $text});
+                    {'number' => $number, 'section_title' => $text},
+                    $debug_level);
       } else {
         $result = Texinfo::Translations::gdt_string(
                        '{number} {section_title}', $lang_translations,
-                       {'number' => $number, 'section_title' => $text});
+                       {'number' => $number, 'section_title' => $text},
+                       $debug_level);
       }
     } else {
       $result = $text;
@@ -792,18 +795,16 @@ some cases, to call the functions with the converter argument set.
 
 =over
 
-=item $result = add_heading_number($heading_element, $heading_text, $do_number, $lang_translations)
+=item $result = add_heading_number($heading_element, $heading_text, $do_number, $lang_translations, $debug_level)
 X<C<add_heading_number>>
 
 I<$heading_element> is a heading command tree element.  I<$heading_text> is the
 already formatted heading text.  if the I<$do_number> optional argument is
 defined and false, no number is used and the text is returned as is.  The
-I<$lang_translations> optional argument should be an array reference with one
-or two elements.  The first element of the array is the language the resulting
-string is translated to.  The second element, if set, should be an hash
-reference holding translations already done.  If a language is set in
-I<$lang_translations>, the string is translated and the optional I<$debug>
-argument is passed to the translation function.
+I<$lang_translations> optional argument is a reference holding information
+on the current language and the already translated strings.
+If a language is set in I<$lang_translations>, the string is translated and the
+optional I<$debug_level> argument is passed to the translation function.
 
 This function returns the heading with a number and the appendix part if
 needed.

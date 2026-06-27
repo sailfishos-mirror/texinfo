@@ -99,8 +99,8 @@ but returns a simple string, for already converted strings.
 @item $tree = gdt($string, $lang_translations, $replaced_substrings, $translation_context, $debug_level, $object, $translate_string_method)
 @anchor{Texinfo@asis{::}Translations $tree = gdt($string@comma{} $lang_translations@comma{} $replaced_substrings@comma{} $translation_context@comma{} $debug_level@comma{} $object@comma{} $translate_string_method)}
 
-@item $string = gdt_string($string, $lang_translations, $replaced_substrings, $translation_context, $object, $translate_string_method)
-@anchor{Texinfo@asis{::}Translations $string = gdt_string($string@comma{} $lang_translations@comma{} $replaced_substrings@comma{} $translation_context@comma{} $object@comma{} $translate_string_method)}
+@item $string = gdt_string($string, $lang_translations, $replaced_substrings, $debug_level, $translation_context, $object, $translate_string_method)
+@anchor{Texinfo@asis{::}Translations $string = gdt_string($string@comma{} $lang_translations@comma{} $replaced_substrings@comma{} $debug_level@comma{} $translation_context@comma{} $object@comma{} $translate_string_method)}
 
 @cindex @code{gdt}
 @cindex @code{gdt_string}
@@ -124,7 +124,7 @@ For @code{gdt}, the value is a Texinfo tree element that is substituted in the
 resulting Texinfo tree. For @code{gdt_string}, the value is a string that
 is replaced in the resulting string.
 
-@emph{$debug_level} is an optional debugging level supplied to @code{gdt}, similar to
+@emph{$debug_level} is an optional debugging level similar to
 the @code{DEBUG} customization variable.  If set, the debug level minus one is
 passed to the Texinfo string parser called in @code{gdt}.
 
@@ -174,8 +174,8 @@ relevant to call @code{cache_translate_string} in a redefined function as a
 fallback.
 
 @table @asis
-@item $translated_string_tree = cache_translate_string($string, $lang_translations, $translation_context)
-@anchor{Texinfo@asis{::}Translations $translated_string_tree = cache_translate_string($string@comma{} $lang_translations@comma{} $translation_context)}
+@item $translated_string_tree = cache_translate_string($string, $lang_translations, $translation_context, $debug_level)
+@anchor{Texinfo@asis{::}Translations $translated_string_tree = cache_translate_string($string@comma{} $lang_translations@comma{} $translation_context@comma{} $debug_level)}
 @cindex @code{cache_translate_string}
 
 The @emph{$string} is a string to be translated.  The @emph{$lang_translations}
@@ -194,7 +194,8 @@ for @emph{$lang_translations}.
 If the language is not set, the input string does not
 need to be translated.  The @emph{$translation_context} is optional.  If not
 @code{undef} this is a translation context string for @emph{$string}.  It is the first
-argument of @code{pgettext} in the C API of Gettext.
+argument of @code{pgettext} in the C API of Gettext.  The @emph{$debug_level} debug level
+is optional.
 
 @code{cache_translate_string} returns an array reference with the translated string
 as first element, or undef if the input string should be used as translation.

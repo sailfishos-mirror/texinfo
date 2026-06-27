@@ -41,6 +41,9 @@ struct C_HASHMAP;
 #define CTXF_string     0x0001
 #define CTXF_code       0x0002
 
+/* except for COF_none, which means that the format has no C implementation,
+   the value of the enum should match the index in the converter_format_data
+   table that dispatches the functions used for conversion */
 enum converter_format {
    COF_none = -1,
    COF_html,

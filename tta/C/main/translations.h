@@ -83,7 +83,8 @@ char *translate_string (const char *string, const char *language_env,
                         const char *translation_context);
 TRANSLATION_TREE *cache_translate_string (const char *string,
                         const LANG_TRANSLATION *lang_translation,
-                        const char *translation_context);
+                        const char *translation_context,
+                        int debug_level);
 DOCUMENT *replace_convert_substrings (const char *translated_string,
                           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                           int debug_level);
@@ -100,7 +101,7 @@ ELEMENT *gdt_tree (const char *string, DOCUMENT *document,
 char *gdt_string (const char *string,
                   const LANG_TRANSLATION *lang_translation,
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                  const char *translation_context);
+                  const char *translation_context, int debug_level);
 
 ELEMENT *pgdt_tree (const char *translation_context, const char *string,
                     DOCUMENT *document,

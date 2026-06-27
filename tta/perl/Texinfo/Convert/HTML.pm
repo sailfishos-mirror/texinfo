@@ -1456,6 +1456,8 @@ my $unknown_lang_info
 sub _html_cache_translate_string($$$;$) {
   my ($self, $string, $lang_translations, $translation_context) = @_;
 
+  my $debug_level = $self->get_conf('DEBUG');
+  $debug_level = 0 if (!defined($debug_level));
   if (defined($self->{'formatting_function'}->{'format_translate_message'})) {
     my $lang_info;
     if (defined($lang_translations)) {
@@ -1492,14 +1494,36 @@ sub _html_cache_translate_string($$$;$) {
         my $translated_string_tree = $strings_cache->{$string};
         if (defined($translated_string_tree)) {
           if ($translated_string_tree->[0] eq $translated_string) {
+            if ($debug_level >= 2) {
+              print STDERR "T user hit cache ".
+                  "'$string-$translation_context_str' '$translated_string'"
+                  ." $cached_lang\n";
+            }
             return $translated_string_tree;
+          } elsif ($debug_level >= 2) {
+            # if the string has changed, the cache is invalidated by
+            # resetting the cached string array reference just below.
+            if (scalar(@$translated_string_tree) > 1) {
+              print STDERR "T user invalid cache tree ".
+                  "'$string-$translation_context_str' '$translated_string'"
+                  ." (old $translated_string_tree->[0])"
+                  ." $cached_lang\n";
+            } else {
+              print STDERR "T user change translation ".
+                  "'$string-$translation_context_str' '$translated_string'"
+                  ." (old $translated_string_tree->[0])"
+                  ." $cached_lang\n";
+            }
           }
-          # if the string has changed, the cache is invalidated by
-          # resetting the cached string array reference just below.
         }
       } else {
         $strings_cache = {};
         $translations->{$translation_context_str} = $strings_cache;
+        if ($debug_level >= 2) {
+          print STDERR "T user new translation ".
+                  "'$string-$translation_context_str' '$translated_string'"
+                  ." $cached_lang\n";
+        }
       }
 
       my $result = [$translated_string];
@@ -1511,7 +1535,8 @@ sub _html_cache_translate_string($$$;$) {
   }
 
   return Texinfo::Translations::cache_translate_string($string,
-                               $lang_translations, $translation_context);
+                            $lang_translations, $translation_context,
+                            $debug_level);
 }
 
 # redefine generic Converter functions to pass a customized
@@ -1533,6 +1558,7 @@ sub cdt_string($$;$$) {
   return Texinfo::Translations::gdt_string($string,
                                     $self->{'current_lang_translations'},
                                     $replaced_substrings,
+                                    $self->get_conf('DEBUG'),
                                     $translation_context, $self,
                                     \&_html_cache_translate_string);
 }
@@ -4699,6 +4725,7 @@ sub _convert_printindex_command($$$$) {
   } else {
     return '';
   }
+
   my $index_entries_by_letter
     = $self->get_converter_indices_sorted_by_letter();
   if (!defined($index_entries_by_letter)

@@ -294,6 +294,7 @@ sub _set_lang_info_translation($$) {
   $lang_info->{'bcp47_locale'} = $bcp47_locale;
 
   my $new_lang_translations = _init_lang_translation($lang_info);
+  $translations_cache->{$bcp47_locale} = $new_lang_translations;
 
   return $new_lang_translations;
 }
@@ -481,7 +482,7 @@ sub gdt($;$$$$$$) {
   } else {
     $translated_string_tree
      = cache_translate_string($string, $lang_translations,
-                              $translation_context);
+                              $translation_context, $debug_level);
   }
 
   if (scalar(@$translated_string_tree) == 1) {
@@ -520,8 +521,9 @@ sub gdt($;$$$$$$) {
 # Get document translation - handle translations of in-document strings.
 # In general for already converted strings that do not need to go through
 # a Texinfo tree.
-sub gdt_string($;$$$$$) {
-  my ($string, $lang_translations, $replaced_substrings, $translation_context,
+sub gdt_string($;$$$$$$) {
+  my ($string, $lang_translations, $replaced_substrings,
+      $debug_level, $translation_context,
       $customization_information, $translate_string_method) = @_;
 
   my $translated_string;
@@ -531,8 +533,9 @@ sub gdt_string($;$$$$$) {
                                        $string, $lang_translations,
                                        $translation_context);
   } else {
-    $translated_string = cache_translate_string($string, $lang_translations,
-                                                $translation_context);
+    $translated_string
+      = cache_translate_string($string, $lang_translations,
+                               $translation_context, $debug_level);
   }
 
   my $converted_string = $translated_string->[0];
@@ -770,7 +773,7 @@ but returns a simple string, for already converted strings.
 
 =item $tree = gdt($string, $lang_translations, $replaced_substrings, $translation_context, $debug_level, $object, $translate_string_method)
 
-=item $string = gdt_string($string, $lang_translations, $replaced_substrings, $translation_context, $object, $translate_string_method)
+=item $string = gdt_string($string, $lang_translations, $replaced_substrings, $debug_level, $translation_context, $object, $translate_string_method)
 
 X<C<gdt>> X<C<gdt_string>>
 
@@ -792,7 +795,7 @@ For C<gdt>, the value is a Texinfo tree element that is substituted in the
 resulting Texinfo tree. For C<gdt_string>, the value is a string that
 is replaced in the resulting string.
 
-I<$debug_level> is an optional debugging level supplied to C<gdt>, similar to
+I<$debug_level> is an optional debugging level similar to
 the C<DEBUG> customization variable.  If set, the debug level minus one is
 passed to the Texinfo string parser called in C<gdt>.
 
@@ -840,7 +843,7 @@ fallback.
 
 =over
 
-=item $translated_string_tree = cache_translate_string($string, $lang_translations, $translation_context)
+=item $translated_string_tree = cache_translate_string($string, $lang_translations, $translation_context, $debug_level)
 X<C<cache_translate_string>>
 
 The I<$string> is a string to be translated.  The I<$lang_translations>
@@ -859,7 +862,8 @@ for I<$lang_translations>.
 If the language is not set, the input string does not
 need to be translated.  The I<$translation_context> is optional.  If not
 C<undef> this is a translation context string for I<$string>.  It is the first
-argument of C<pgettext> in the C API of Gettext.
+argument of C<pgettext> in the C API of Gettext.  The I<$debug_level> debug level
+is optional.
 
 C<cache_translate_string> returns an array reference with the translated string
 as first element, or undef if the input string should be used as translation.
