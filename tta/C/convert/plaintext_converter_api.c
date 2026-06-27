@@ -57,5 +57,3 @@ plaintext_convert_tree (CONVERTER *converter,
   char *result = convert_to_plaintext (converter, tree);
   return result;
 }
-
-

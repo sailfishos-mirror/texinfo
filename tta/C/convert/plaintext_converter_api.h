@@ -32,4 +32,8 @@ char *plaintext_convert (CONVERTER *converter, DOCUMENT *document);
 
 char *plaintext_convert_tree (CONVERTER *converter,
                                  const ELEMENT *tree);
+
+void plaintext_free_converter (CONVERTER *converter);
+void plaintext_converter_initialize (CONVERTER *self);
+
 #endif

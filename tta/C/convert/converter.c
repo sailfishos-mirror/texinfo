@@ -89,8 +89,9 @@ CONVERTER_FORMAT_DATA converter_format_data[] = {
    &plaintexinfo_converter_defaults, 0, &plaintexinfo_output,
    &plaintexinfo_convert, &plaintexinfo_convert_tree, 0, 0, 0},
   {"plaintext", "Texinfo::Convert::Plaintext", 0, 0,
-   &plaintext_converter_defaults, 0, &plaintext_output,
-   &plaintext_convert, &plaintext_convert_tree, 0, 0, 0},
+   &plaintext_converter_defaults,
+   &plaintext_converter_initialize, &plaintext_output, &plaintext_convert,
+   &plaintext_convert_tree, 0, &plaintext_free_converter, 0},
 };
 
 /* associate lower case no brace accent command to the upper case

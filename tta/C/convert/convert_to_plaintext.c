@@ -29,6 +29,7 @@
 #include "builtin_commands.h"
 #include "debug.h"
 #include "convert_to_plaintext.h"
+#include "plaintext_converter_api.h"
 
 static void
 stream_output (CONVERTER *self, const char *text)
@@ -186,4 +187,14 @@ convert_to_plaintext (CONVERTER *self, const ELEMENT *e)
   text_init (&self->plaintext_converter.pending_text);
   convert_to_plaintext_internal (self, e);
   return self->plaintext_converter.pending_text.text;
+}
+
+void
+plaintext_free_converter (CONVERTER *self)
+{
+}
+
+void
+plaintext_converter_initialize (CONVERTER *self)
+{
 }
