@@ -1,3 +1,8 @@
+2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/C/main/converter_types.h, tta/C/main/html_converter.h:
+	Split out html_converter.h.
+
 2026-06-27  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Continue C plaintext converter
