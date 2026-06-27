@@ -12,11 +12,16 @@ Before next release
 
 It is difficult to make sure that caches for translations are actually
 filled and used, as this does not affect the result, but the speed.
-Also it is normal to have differences between Perl and C as there
+Also it may be normal to have differences between Perl and C as there
 may be a need to use another cache in Perl with C, therefore debug
 messages related to translation caches are not enabled with DEBUG==1.
 With DEBUG >= 2 there are some messages that could be used to see if
 everything is ok, but it is verbose and could need more work.
+
+rm -rf t/check_debug_differences; mkdir t/check_debug_differences/
+unset TEXINFO_XS; for file in t/*.t ; do bfile=`basename $file .t`; perl -w $file -d 3 2>t/check_debug_differences/XS_$bfile.err ; done
+export TEXINFO_XS=omit; for file in t/*.t ; do bfile=`basename $file .t`; perl -w $file -d 3 2>t/check_debug_differences/PL_$bfile.err ; done
+for file in t/*.t ; do bfile=`basename $file .t`; sed 's/^C|//' t/check_debug_differences/XS_$bfile.err | diff -u t/check_debug_differences/PL_$bfile.err - > t/check_debug_differences/debug_$bfile.diff; done
 
 Bugs
 ====

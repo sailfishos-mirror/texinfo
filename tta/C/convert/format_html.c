@@ -10139,19 +10139,22 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   char *alpha_text = 0;
   char *non_alpha_text = 0;
   char *language;
-  INDEX_SORTED_BY_LETTER *index_entries_by_letter
-    = get_converter_indices_sorted_by_letter (self, &language);
+  INDEX_SORTED_BY_LETTER *index_entries_by_letter;
 
-  if (!index_entries_by_letter)
+  /* misc_args is not set with NO_INDEX set */
+  misc_args = lookup_extra_string_list (element, AI_key_misc_args);
+  if (misc_args && misc_args->number > 0)
+    index_name = misc_args->list[0];
+  else
     return;
 
   if (html_in_string (self))
     return;
 
-  misc_args = lookup_extra_string_list (element, AI_key_misc_args);
-  if (misc_args && misc_args->number > 0)
-    index_name = misc_args->list[0];
-  else
+  index_entries_by_letter
+    = get_converter_indices_sorted_by_letter (self, &language);
+
+  if (!index_entries_by_letter)
     return;
 
   for (idx = index_entries_by_letter; idx->name; idx++)

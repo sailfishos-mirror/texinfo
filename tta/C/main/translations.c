@@ -924,13 +924,13 @@ cache_translate_string (const char *string,
       if (found)
         {
           if (debug_level >= 2)
-            fprintf (stderr, "C|T hit cache cache no need '%s-' '' \n",
+            fprintf (stderr, "C|T hit cache no need '%s-'\n",
                      string);
           return unknown_lang_translations.list[string_nr -1];
         }
 
       if (debug_level >= 2)
-        fprintf (stderr, "C|T no need '%s-' '' \n", string);
+        fprintf (stderr, "C|T no need '%s-'\n", string);
 
       return add_translation_tree (&unknown_lang_translations, string);
     }

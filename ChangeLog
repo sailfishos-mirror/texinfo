@@ -1,5 +1,17 @@
 2026-06-27 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (html_convert_printindex_command): call
+	get_converter_indices_sorted_by_letter only if there is an index name.
+
+	* tta/C/main/translations.c (cache_translate_string): fix debug
+	messages.
+
+	* tta/perl/XSTexinfo/parser_document/TranslationsXS.xs
+	(cache_translate_string): call cache_translate_string even if
+	lang_translation is undef, to get the debugging messages.
+
+2026-06-27 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/init/translation_in_parser_in_translation.pm: add more
 	code in translation Texinfo code and add another translation.
 

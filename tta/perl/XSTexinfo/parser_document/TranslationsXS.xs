@@ -52,9 +52,12 @@ SV *
 cache_translate_string (string, SV *lang_translations, SV *translation_context_sv=0, SV *debug_level_sv=0)
       const char *string = (char *)SvPVutf8_nolen($arg);
     PREINIT:
+        int debug_level = 0;
         const char *result = 0;
         AV *av;
      CODE:
+        if (debug_level_sv && SvOK (debug_level_sv))
+          debug_level = SvIV (debug_level_sv);
         if (SvOK (lang_translations))
           {
             const char *translated_context_string = 0;
@@ -63,21 +66,23 @@ cache_translate_string (string, SV *lang_translations, SV *translation_context_s
 
             if (lang_translation)
               {
-                int debug_level = 0;
                 const TRANSLATION_TREE *translation_cache_result;
 
                 if (translation_context_sv
                     && SvOK (translation_context_sv))
                   translated_context_string
                     = SvPVutf8_nolen (translation_context_sv);
-                if (debug_level_sv && SvOK (debug_level_sv))
-                  debug_level = SvIV (debug_level_sv);
                 translation_cache_result
                    = cache_translate_string (string, lang_translation,
                                              translated_context_string,
                                              debug_level);
                 result = translation_cache_result->translation;
               }
+          }
+        else
+          { /* not truly useful, but we want to call for similar debug
+               messages */
+            cache_translate_string (string, 0, 0, debug_level);
           }
         av = newAV ();
         if (result)

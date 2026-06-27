@@ -4044,6 +4044,12 @@ sub _convert_quotation_command($$$$$) {
   $content = '' if (!defined($content));
 
   $self->cancel_pending_formatted_inline_content($cmdname);
+  #my $cancelled = $self->cancel_pending_formatted_inline_content($cmdname);
+  #if ($self->get_conf('DEBUG') >= 2 and defined($cancelled)) {
+  #  print STDERR "CANCELLED _convert_quotation_command: $cancelled\n";
+  #  print STDERR "  tree: "
+  #    .Texinfo::ManipulateTree::tree_print_details($command)."\n";
+  #}
 
   my $result;
   if (!in_string($self)) {
