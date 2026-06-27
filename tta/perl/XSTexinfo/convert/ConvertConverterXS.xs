@@ -694,13 +694,14 @@ XS_get_output_units_lists (SV *converter_in)
                                  "get_output_units_lists");
 
         store_document_tree_output_units (self->document);
+        HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
         output_units_sv = build_output_units_list (self->document,
-                           self->output_units_descriptors[OUDT_units]);
+          self_html->output_units_descriptors[OUDT_units]);
         special_units_sv = build_output_units_list (self->document,
-                     self->output_units_descriptors[OUDT_special_units]);
+          self_html->output_units_descriptors[OUDT_special_units]);
         associated_special_units_sv = build_output_units_list (self->document,
-          self->output_units_descriptors[OUDT_associated_special_units]);
+          self_html->output_units_descriptors[OUDT_associated_special_units]);
 
         EXTEND(SP, 3);
         PUSHs(sv_2mortal(output_units_sv));

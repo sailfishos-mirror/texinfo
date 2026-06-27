@@ -66,11 +66,12 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
                                                 const char *default_filename)
 {
   SV *special_unit_target_file_name_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
   special_unit_target_file_name_sv
-  = (SV *) self->file_id_setting_refs[FIS_special_unit_target_file_name];
+  = (SV *) self_html->file_id_setting_refs[FIS_special_unit_target_file_name];
 
   if (special_unit_target_file_name_sv)
     {
@@ -131,13 +132,14 @@ call_file_id_setting_label_target_name (CONVERTER *self,
                 const char *target, int *called)
 {
   SV *label_target_name_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
   *called = 0;
 
   label_target_name_sv
-    = (SV *) self->file_id_setting_refs[FIS_label_target_name];
+    = (SV *) self_html->file_id_setting_refs[FIS_label_target_name];
 
   if (label_target_name_sv)
     {
@@ -197,13 +199,14 @@ call_file_id_setting_node_file_name (CONVERTER *self,
                    int *called)
 {
   SV *node_file_name_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
   *called = 0;
 
   node_file_name_sv
-    = (SV *) self->file_id_setting_refs[FIS_node_file_name];
+    = (SV *) self_html->file_id_setting_refs[FIS_node_file_name];
 
   if (node_file_name_sv)
     {
@@ -261,11 +264,12 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
                       const char *target_shortcontents, const char *filename)
 {
   SV *sectioning_command_target_name_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
   sectioning_command_target_name_sv
-    = (SV *) self->file_id_setting_refs[FIS_sectioning_command_target_name];
+    = (SV *) self_html->file_id_setting_refs[FIS_sectioning_command_target_name];
 
   if (sectioning_command_target_name_sv)
     {
@@ -335,11 +339,12 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
                                  const char *filename, const char *filepath)
 {
   SV *unit_file_name_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
   unit_file_name_sv
-    = (SV *) self->file_id_setting_refs[FIS_unit_file_name];
+    = (SV *) self_html->file_id_setting_refs[FIS_unit_file_name];
 
   if (unit_file_name_sv)
     {
@@ -402,11 +407,12 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
                      const char *file_name)
 {
   SV *external_target_split_name_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
   external_target_split_name_sv
-    = (SV *) self->file_id_setting_refs[FIS_external_target_split_name];
+    = (SV *) self_html->file_id_setting_refs[FIS_external_target_split_name];
 
   if (external_target_split_name_sv)
     {
@@ -485,11 +491,12 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
                      const char *target, const char *file)
 {
   SV *external_target_non_split_name_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
   external_target_non_split_name_sv
-    = (SV *) self->file_id_setting_refs[FIS_external_target_non_split_name];
+    = (SV *) self_html->file_id_setting_refs[FIS_external_target_non_split_name];
 
   if (external_target_non_split_name_sv)
     {
@@ -553,11 +560,12 @@ call_file_id_setting_redirection_file_names (CONVERTER *self,
                 STRING_LIST *reference_redirection_files)
 {
   SV *redirection_file_names_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
   redirection_file_names_sv
-    = (SV *) self->file_id_setting_refs[FIS_redirection_file_names];
+    = (SV *) self_html->file_id_setting_refs[FIS_redirection_file_names];
 
   if (redirection_file_names_sv)
     {
@@ -1284,13 +1292,15 @@ call_formatting_function_format_button_icon_img (CONVERTER *self,
   SV *result_sv;
   SV *formatting_reference_sv;
 
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+
   dTHX;
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
   build_html_formatting_state (self);
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   if (name)
     name_sv = newSVpv_utf8 (name, 0);
@@ -1342,6 +1352,7 @@ call_formatting_function_format_button (CONVERTER *self,
   SV *passive_sv;
   SV *active_sv;
   SV *formatting_reference_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
@@ -1349,7 +1360,7 @@ call_formatting_function_format_button (CONVERTER *self,
 
   build_html_formatting_state (self);
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   FORMATTED_BUTTON_INFO *result = new_formatted_button_info ();
 
@@ -1417,6 +1428,7 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
@@ -1424,7 +1436,7 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
 
   build_html_formatting_state (self);
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   if (!buttons->av)
     html_build_buttons_specification (self, buttons);
@@ -1478,6 +1490,7 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
@@ -1485,7 +1498,7 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
 
   build_html_formatting_state (self);
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   if (!buttons->av)
     html_build_buttons_specification (self, buttons);
@@ -1541,6 +1554,7 @@ call_formatting_function_format_heading_text (CONVERTER *self,
   SV *formatting_reference_sv;
   SV *classes_sv;
   SV *element_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
@@ -1548,7 +1562,7 @@ call_formatting_function_format_heading_text (CONVERTER *self,
 
   build_html_formatting_state (self);
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   if (classes && classes->number)
     {
@@ -1621,6 +1635,7 @@ call_formatting_function_format_contents (CONVERTER *self,
   SV *command_sv;
   SV *result_sv;
   SV *formatting_reference_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
@@ -1628,7 +1643,7 @@ call_formatting_function_format_contents (CONVERTER *self,
 
   build_html_formatting_state (self);
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   if (command)
     command_sv = newSVsv ((SV *) command->sv);
@@ -1680,6 +1695,7 @@ call_formatting_function_format_separate_anchor (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
@@ -1687,7 +1703,7 @@ call_formatting_function_format_separate_anchor (CONVERTER *self,
 
   build_html_formatting_state (self);
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   dSP;
 
@@ -1734,6 +1750,7 @@ call_formatting_function_format_element_header (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
@@ -1741,7 +1758,7 @@ call_formatting_function_format_element_header (CONVERTER *self,
 
   build_html_formatting_state (self);
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   dSP;
 
@@ -1790,6 +1807,7 @@ call_formatting_function_format_element_footer (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
@@ -1797,7 +1815,7 @@ call_formatting_function_format_element_footer (CONVERTER *self,
 
   build_html_formatting_state (self);
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   dSP;
 
@@ -1847,6 +1865,7 @@ call_formatting_function_format_node_redirection_page (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
@@ -1854,7 +1873,7 @@ call_formatting_function_format_node_redirection_page (CONVERTER *self,
 
   build_html_formatting_state (self);
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   dSP;
 
@@ -1902,10 +1921,11 @@ call_types_conversion (CONVERTER *self, const enum element_type type,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
@@ -1965,12 +1985,13 @@ call_types_open (CONVERTER *self, const enum element_type type,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
-  formatting_reference_sv = self->types_open[type].sv_reference;
+  formatting_reference_sv = self_html->types_open[type].sv_reference;
 
   build_html_formatting_state (self);
 
@@ -2071,10 +2092,11 @@ call_commands_conversion (CONVERTER *self, const enum command_id cmd,
   SV *formatting_reference_sv;
   SV *args_formatted_sv;
   const char *command_name;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   /* could also be builtin_command_data[cmd].cmdname as cmd
      can only be < BUILTIN_CMD_NUMBER for two reasons:
@@ -2137,12 +2159,13 @@ call_commands_open (CONVERTER *self, const enum command_id cmd,
   SV *result_sv;
   SV *formatting_reference_sv;
   const char *command_name;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
-  formatting_reference_sv = self->commands_open[cmd].sv_reference;
+  formatting_reference_sv = self_html->commands_open[cmd].sv_reference;
 
   /* could also be builtin_command_data[cmd].cmdname as cmd
      can only be < BUILTIN_CMD_NUMBER for two reasons:
@@ -2198,13 +2221,14 @@ call_output_units_conversion (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   formatting_reference_sv
-     = self->output_units_conversion[unit_type].sv_reference;
+     = self_html->output_units_conversion[unit_type].sv_reference;
 
   build_html_formatting_state (self);
 
@@ -2258,13 +2282,14 @@ call_special_unit_body_formatting (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   formatting_reference_sv
-     = self->special_unit_body[special_unit_number -1].sv_reference;
+     = self_html->special_unit_body[special_unit_number -1].sv_reference;
 
   build_html_formatting_state (self);
 
@@ -2313,10 +2338,11 @@ call_button_simple_function (CONVERTER *self,
   FORMATTED_BUTTON_INFO *result;
   SV *need_delimiter_sv;
   SV *active_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   build_html_formatting_state (self);
 
@@ -2372,10 +2398,11 @@ call_button_direction_function (CONVERTER *self,
   FORMATTED_BUTTON_INFO *result;
   SV *need_delimiter_sv;
   SV *active_sv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   build_html_formatting_state (self);
 
@@ -2390,7 +2417,7 @@ call_button_direction_function (CONVERTER *self,
   EXTEND(SP, 3);
 
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
-  PUSHs(sv_2mortal (newSVpv (self->main_units_direction_names[direction],
+  PUSHs(sv_2mortal (newSVpv (self_html->main_units_direction_names[direction],
                              0)));
   PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
 
@@ -2441,10 +2468,11 @@ call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
   SV **options_latex_math_sv;
   SV *options_latex_math;
   HV *converter_hv;
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
 
   dTHX;
 
-  build_tree_to_build (&self->tree_to_build);
+  build_tree_to_build (&self_html->tree_to_build);
 
   dSP;
 

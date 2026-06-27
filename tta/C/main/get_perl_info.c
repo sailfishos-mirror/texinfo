@@ -1029,6 +1029,7 @@ find_element_extra_index_entry_sv (const DOCUMENT *document,
                                    const CONVERTER *converter,
                                    const SV *extra_index_entry_sv)
 {
+  const HTML_CONVERTER_STATE *self_html = &converter->html_converter;
   const INDEX_ENTRY *index_entry;
   if (!converter || !converter->document)
     {
@@ -1041,7 +1042,7 @@ find_element_extra_index_entry_sv (const DOCUMENT *document,
     }
   else
    index_entry = find_sorted_index_names_index_entry_extra_index_entry_sv (
-                    &converter->sorted_index_names, extra_index_entry_sv);
+                    &self_html->sorted_index_names, extra_index_entry_sv);
 
   return index_entry;
 }
@@ -1638,15 +1639,16 @@ release_output_units_list_built (OUTPUT_UNIT_LIST *output_units)
 void
 converter_release_output_units_built (CONVERTER *converter)
 {
+  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
   int i;
 
   for (i = 0; i < OUDT_external_nodes_units+1; i++)
     {
-      if (converter->output_units_descriptors[i])
+      if (self_html->output_units_descriptors[i])
         {
           OUTPUT_UNIT_LIST *output_unit_list
             = retrieve_output_units (converter->document,
-                                     converter->output_units_descriptors[i]);
+                                     self_html->output_units_descriptors[i]);
           if (output_unit_list)
             release_output_units_list_built (output_unit_list);
         }

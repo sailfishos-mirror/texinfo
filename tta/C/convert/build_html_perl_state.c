@@ -66,6 +66,7 @@ static const char *lang_trans_key = "current_lang_translations";
 static void
 build_html_translated_names (HV *converter_hv, CONVERTER *converter)
 {
+  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
   SV **no_arg_commands_formatting_sv;
 
   dTHX;
@@ -115,21 +116,21 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
     }
 
   /* pass all the information for each context for translated commands */
-  if (converter->no_arg_formatted_cmd_translated.number)
+  if (self_html->no_arg_formatted_cmd_translated.number)
     {
       size_t j;
       HV *no_arg_commands_formatting_hv;
       FETCH(no_arg_commands_formatting);
       no_arg_commands_formatting_hv
         = (HV *) SvRV (*no_arg_commands_formatting_sv);
-      for (j = 0; j < converter->no_arg_formatted_cmd_translated.number; j++)
+      for (j = 0; j < self_html->no_arg_formatted_cmd_translated.number; j++)
         {
           int k;
           enum command_id cmd
-            = converter->no_arg_formatted_cmd_translated.list[j];
+            = self_html->no_arg_formatted_cmd_translated.list[j];
           const char *cmdname = builtin_command_data[cmd].cmdname;
           HTML_NO_ARG_COMMAND_FORMATTING *no_arg_cmd_formatting
-            = &converter->html_no_arg_command_conversion[cmd];
+            = &self_html->html_no_arg_command_conversion[cmd];
           SV **no_arg_command_sv
              = hv_fetch (no_arg_commands_formatting_hv,
                          cmdname, strlen (cmdname), 0);
@@ -178,10 +179,10 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
                        strlen ("translated_tree"), G_DISCARD);
         }
 
-      memset (converter->no_arg_formatted_cmd_translated.list, 0,
-              converter->no_arg_formatted_cmd_translated.number
+      memset (self_html->no_arg_formatted_cmd_translated.list, 0,
+              self_html->no_arg_formatted_cmd_translated.number
                    * sizeof (enum command_id));
-      converter->no_arg_formatted_cmd_translated.number = 0;
+      self_html->no_arg_formatted_cmd_translated.number = 0;
     }
 
 #undef FETCH
@@ -191,19 +192,20 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
 void
 build_html_formatting_state (CONVERTER *converter)
 {
+  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
   HV *converter_hv;
   unsigned long flags;
 
   dTHX;
 
-  flags = converter->modified_state;
+  flags = self_html->modified_state;
 
   if (!flags)
     return;
 
-  if (converter->external_references_number <= 0)
+  if (self_html->external_references_number <= 0)
     {
-      converter->modified_state = 0;
+      self_html->modified_state = 0;
       return;
     }
 
@@ -213,20 +215,20 @@ build_html_formatting_state (CONVERTER *converter)
 
   if (flags & HMSF_current_root)
     {
-      if (!converter->current_root_command)
+      if (!self_html->current_root_command)
         STORE("current_root_command", newSV (0));
       else
         STORE("current_root_command",
-          newSVsv ((SV *) converter->current_root_command->sv));
+          newSVsv ((SV *) self_html->current_root_command->sv));
     }
 
   if (flags & HMSF_current_node)
     {
-      if (!converter->current_node)
+      if (!self_html->current_node)
         STORE("current_node", newSV (0));
       else
         STORE("current_node",
-           newSVsv ((SV *) converter->current_node->sv));
+           newSVsv ((SV *) self_html->current_node->sv));
     }
 
 #undef STORE
@@ -234,6 +236,6 @@ build_html_formatting_state (CONVERTER *converter)
   if (flags & HMSF_translations)
     build_html_translated_names (converter_hv, converter);
 
-  converter->modified_state = 0;
+  self_html->modified_state = 0;
 }
 

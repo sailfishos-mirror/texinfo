@@ -636,7 +636,7 @@ converter_set_document (CONVERTER *converter, DOCUMENT *document)
     {
       int i;
       for (i = 0; i < OUDT_external_nodes_units+1; i++)
-        converter->output_units_descriptors[i] = 0;
+        converter->html_converter.output_units_descriptors[i] = 0;
       converter->document = 0;
     }
 
@@ -1988,14 +1988,14 @@ destroy_converter_output_units (CONVERTER *self)
     error_messages = set_check_element_interpreter_refcount ();
   for (i = 0; i < OUDT_external_nodes_units+1; i++)
     {
-      if (self->output_units_descriptors[i])
+      if (self->html_converter.output_units_descriptors[i])
         {
           OUTPUT_UNIT_LIST *output_unit_list
             = retrieve_output_units (self->document,
-                                     self->output_units_descriptors[i]);
+                                     self->html_converter.output_units_descriptors[i]);
           if (output_unit_list)
             free_output_unit_list (output_unit_list);
-          self->output_units_descriptors[i] = 0;
+          self->html_converter.output_units_descriptors[i] = 0;
         }
     }
   if (check_counts)
@@ -2009,16 +2009,16 @@ destroy_converter_output_units (CONVERTER *self)
 static void
 reset_tree_to_build (CONVERTER *self)
 {
-  if (self->tree_to_build.number > 0)
+  if (self->html_converter.tree_to_build.number > 0)
     {
       fprintf (stderr, "BUG: tree_to_build: %zu\n",
-                       self->tree_to_build.number);
+                       self->html_converter.tree_to_build.number);
       if (self->conf->DEBUG.o.integer > 0)
         {
           size_t i;
-          for (i = 0; i < self->tree_to_build.number; i++)
+          for (i = 0; i < self->html_converter.tree_to_build.number; i++)
             {
-              ELEMENT *element = self->tree_to_build.list[i];
+              ELEMENT *element = self->html_converter.tree_to_build.list[i];
           /* in most cases, the trees have been destroyed, so this
              will often segfault */
               fprintf (stderr, " %zu: '%s'\n", i,
@@ -2026,7 +2026,7 @@ reset_tree_to_build (CONVERTER *self)
             }
         }
     }
-  self->tree_to_build.number = 0;
+  self->html_converter.tree_to_build.number = 0;
 }
 
 void

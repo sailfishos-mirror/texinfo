@@ -160,7 +160,8 @@ html_converter_init_special_unit_sv (SV *converter_sv,
   converter = get_sv_converter (converter_sv,
                                 "html_converter_init_special_unit_sv");
 
-  special_unit_varieties = &converter->special_unit_varieties;
+  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+  special_unit_varieties = &self_html->special_unit_varieties;
 
   if (customized_special_unit_info && SvOK (customized_special_unit_info))
     {
@@ -168,7 +169,7 @@ html_converter_init_special_unit_sv (SV *converter_sv,
       HV *special_unit_info_hv;
 
       STRING_LIST *customized_special_unit_varieties
-        = &converter->customized_special_unit_varieties;
+        = &self_html->customized_special_unit_varieties;
       clear_strings_list (customized_special_unit_varieties);
 
       special_unit_info_hv = (HV *) SvRV(customized_special_unit_info);
@@ -217,7 +218,7 @@ html_converter_init_special_unit_sv (SV *converter_sv,
                         value = SvPVutf8_nolen (value_sv);
 
                       html_add_special_unit_info (
-                          &converter->customized_special_unit_info, j,
+                          &self_html->customized_special_unit_info, j,
                           variety_nr, value);
                     }
                 }
@@ -286,8 +287,9 @@ html_converter_get_customization_sv (SV *converter_sv,
 
   converter = get_sv_converter (converter_sv,
                                 "html_converter_get_customization_sv");
+  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
 
-  special_unit_varieties = &converter->special_unit_varieties;
+  special_unit_varieties = &self_html->special_unit_varieties;
 
   converter_hv = (HV *)SvRV (converter_sv);
 
@@ -297,7 +299,7 @@ html_converter_get_customization_sv (SV *converter_sv,
          function for default buttons is always selected, requiring
          Perl converter state initialization.
        */
-  converter->external_references_number++;
+  self_html->external_references_number++;
 #endif
 
   default_formatting_references_hv
@@ -315,10 +317,10 @@ html_converter_get_customization_sv (SV *converter_sv,
 
       hv_number = hv_iterinit (upper_case_commands_hv);
 
-      converter->html_customized_upper_case_commands
+      self_html->html_customized_upper_case_commands
         = (COMMAND_INTEGER_INFORMATION *) non_perl_malloc ((hv_number + 1)
                                   * sizeof (COMMAND_INTEGER_INFORMATION));
-      memset (converter->html_customized_upper_case_commands, 0,
+      memset (self_html->html_customized_upper_case_commands, 0,
               (hv_number + 1) * sizeof (COMMAND_INTEGER_INFORMATION));
 
       for (i = 0; i < hv_number; i++)
@@ -336,7 +338,7 @@ html_converter_get_customization_sv (SV *converter_sv,
               else
                 {
                   COMMAND_INTEGER_INFORMATION *customized_upper
-                    = &converter->html_customized_upper_case_commands[cmd_index];
+                    = &self_html->html_customized_upper_case_commands[cmd_index];
                   customized_upper->cmd = cmd;
                   customized_upper->integer = upper_case_value;
                   cmd_index++;
@@ -355,10 +357,10 @@ html_converter_get_customization_sv (SV *converter_sv,
 
       hv_number = hv_iterinit (customized_code_types_hv);
 
-      converter->html_customized_code_types
+      self_html->html_customized_code_types
         = (TYPE_INTEGER_INFORMATION *) non_perl_malloc ((hv_number + 1)
                                   * sizeof (TYPE_INTEGER_INFORMATION));
-      memset (converter->html_customized_code_types, 0,
+      memset (self_html->html_customized_code_types, 0,
               (hv_number + 1) * sizeof (TYPE_INTEGER_INFORMATION));
 
       for (i = 0; i < hv_number; i++)
@@ -380,7 +382,7 @@ html_converter_get_customization_sv (SV *converter_sv,
               else
                 {
                   TYPE_INTEGER_INFORMATION *customized_code
-                    = &converter->html_customized_code_types[code_type_idx];
+                    = &self_html->html_customized_code_types[code_type_idx];
                   int code_value = 0;
                   code_value = SvIV (code_sv);
 
@@ -402,10 +404,10 @@ html_converter_get_customization_sv (SV *converter_sv,
 
       hv_number = hv_iterinit (customized_pre_class_types_hv);
 
-      converter->html_customized_pre_class_types
+      self_html->html_customized_pre_class_types
         = (PRE_CLASS_TYPE_INFO *) non_perl_malloc ((hv_number + 1)
                                   * sizeof (PRE_CLASS_TYPE_INFO));
-      memset (converter->html_customized_pre_class_types, 0,
+      memset (self_html->html_customized_pre_class_types, 0,
               (hv_number + 1) * sizeof (PRE_CLASS_TYPE_INFO));
 
       for (i = 0; i < hv_number; i++)
@@ -427,7 +429,7 @@ html_converter_get_customization_sv (SV *converter_sv,
               else
                 {
                   PRE_CLASS_TYPE_INFO *customized_pre_class
-                    = &converter->html_customized_pre_class_types
+                    = &self_html->html_customized_pre_class_types
                                                        [pre_class_idx];
                   const char *pre_class_string
                     = SvPV_nolen (pre_class_sv);
@@ -452,10 +454,10 @@ html_converter_get_customization_sv (SV *converter_sv,
 
       hv_number = hv_iterinit (accent_entities_hv);
 
-      converter->html_customized_accent_entity_info
+      self_html->html_customized_accent_entity_info
         = (COMMAND_ACCENT_ENTITY_INFO *) non_perl_malloc ((hv_number + 1)
                                   * sizeof (COMMAND_ACCENT_ENTITY_INFO));
-      memset (converter->html_customized_accent_entity_info, 0,
+      memset (self_html->html_customized_accent_entity_info, 0,
               (hv_number + 1) * sizeof (COMMAND_ACCENT_ENTITY_INFO));
 
       for (i = 0; i < hv_number; i++)
@@ -472,7 +474,7 @@ html_converter_get_customization_sv (SV *converter_sv,
               else
                 {
                   COMMAND_ACCENT_ENTITY_INFO *cmd_accent_info
-                    = &converter->html_customized_accent_entity_info[cmd_idx];
+                    = &self_html->html_customized_accent_entity_info[cmd_idx];
                   ACCENT_ENTITY_INFO *accent_info
                     = &cmd_accent_info->accent_entity_info;
 
@@ -511,11 +513,11 @@ html_converter_get_customization_sv (SV *converter_sv,
 
       hv_number = hv_iterinit (style_commands_formatting_hv);
 
-      converter->html_customized_style_commands
+      self_html->html_customized_style_commands
         = (COMMAND_HTML_STYLE_COMMAND_CONVERSION *)
               non_perl_malloc ((hv_number + 1)
                         * sizeof (COMMAND_HTML_STYLE_COMMAND_CONVERSION));
-      memset (converter->html_customized_style_commands, 0,
+      memset (self_html->html_customized_style_commands, 0,
          (hv_number + 1) * sizeof (COMMAND_HTML_STYLE_COMMAND_CONVERSION));
 
       for (i = 0; i < hv_number; i++)
@@ -536,7 +538,7 @@ html_converter_get_customization_sv (SV *converter_sv,
                   I32 j;
 
                   COMMAND_HTML_STYLE_COMMAND_CONVERSION *custom_style_command
-                    = &converter->html_customized_style_commands[cmd_idx];
+                    = &self_html->html_customized_style_commands[cmd_idx];
                   custom_style_command->cmd = cmd;
 
                   context_nr = hv_iterinit (context_hv);
@@ -664,7 +666,7 @@ html_converter_get_customization_sv (SV *converter_sv,
                                 {
                                   const char *tmp_spec
                                     = SvPVutf8_nolen (format_spec_sv);
-                                  converter->customized_no_arg_commands_formatting[cmd]
+                                  self_html->customized_no_arg_commands_formatting[cmd]
                                    .translated_to_convert
                                     = non_perl_strdup (tmp_spec);
                                 }
@@ -688,7 +690,7 @@ html_converter_get_customization_sv (SV *converter_sv,
                               sizeof (HTML_NO_ARG_COMMAND_CONVERSION));
                           memset (format_spec, 0,
                                   sizeof (HTML_NO_ARG_COMMAND_CONVERSION));
-                          converter->customized_no_arg_commands_formatting[cmd]
+                          self_html->customized_no_arg_commands_formatting[cmd]
                                 .context_formatting[context_idx] = format_spec;
 
                           spec_number = hv_iterinit (format_spec_hv);
@@ -748,7 +750,7 @@ html_converter_get_customization_sv (SV *converter_sv,
           const char *direction = SvPVutf8_nolen (direction_sv);
 
           add_string (direction,
-                      &converter->customized_global_text_directions);
+                      &self_html->customized_global_text_directions);
         }
     }
 
@@ -765,10 +767,10 @@ html_converter_get_customization_sv (SV *converter_sv,
 
       if (hv_number > 0)
         {
-          converter->customized_global_units_directions.list
+          self_html->customized_global_units_directions.list
            = (DIRECTION_NODE_NAME *)
             non_perl_malloc (hv_number * sizeof (DIRECTION_NODE_NAME));
-          converter->customized_global_units_directions.number
+          self_html->customized_global_units_directions.number
             = hv_number;
 
           for (i = 0; i < hv_number; i++)
@@ -778,7 +780,7 @@ html_converter_get_customization_sv (SV *converter_sv,
               const char *direction = SvPVutf8_nolen (direction_sv);
               SV *node_texi_sv = HeVAL(next);
               DIRECTION_NODE_NAME *direction_node_name
-               = &converter->customized_global_units_directions.list[i];
+               = &self_html->customized_global_units_directions.list[i];
 
               direction_node_name->direction_nr = 0;
               direction_node_name->direction = non_perl_strdup (direction);
@@ -822,11 +824,11 @@ html_converter_get_customization_sv (SV *converter_sv,
           if (DS_type < TDS_TRANSLATED_MAX_NR)
             {
               translated = 1;
-              converter->customized_translated_direction_strings[DS_type]
+              self_html->customized_translated_direction_strings[DS_type]
                 = (HTML_DIRECTION_STRING_TRANSLATED **) non_perl_malloc
                    (nr_string_directions
                      * sizeof (HTML_DIRECTION_STRING_TRANSLATED *));
-              memset (converter
+              memset (self_html
                        ->customized_translated_direction_strings[DS_type], 0,
                       nr_string_directions
                      * sizeof (HTML_DIRECTION_STRING_TRANSLATED *));
@@ -837,10 +839,10 @@ html_converter_get_customization_sv (SV *converter_sv,
 
           /* do not use new_directions_strings_type as a 0 for a direction array
              is allowed here, it means that there is a customized value undef */
-              converter->customized_directions_strings[customized_type]
+              self_html->customized_directions_strings[customized_type]
                 = (char ***) non_perl_malloc (nr_string_directions
                                                 * sizeof (char **));
-              memset (converter->customized_directions_strings[customized_type],
+              memset (self_html->customized_directions_strings[customized_type],
                       0, nr_string_directions * sizeof (char **));
             }
 
@@ -858,7 +860,7 @@ html_converter_get_customization_sv (SV *converter_sv,
   /* The corresponding direction without FirstInFile are used instead
      of FirstInFile*, so the directions_strings are not set,
      hence the - FIRSTINFILE_MIN_IDX */
-                     = converter->main_units_direction_names[
+                     = self_html->main_units_direction_names[
                         i - FIRSTINFILE_MIN_IDX + NON_SPECIAL_DIRECTIONS_NR];
 
                   spec_sv = hv_fetch (direction_hv, direction_name,
@@ -879,7 +881,7 @@ html_converter_get_customization_sv (SV *converter_sv,
                                  (sizeof (HTML_DIRECTION_STRING_TRANSLATED));
                           memset (dir_string_translated, 0,
                                   sizeof (HTML_DIRECTION_STRING_TRANSLATED));
-                          converter
+                          self_html
                            ->customized_translated_direction_strings[DS_type][i]
                             = dir_string_translated;
 
@@ -895,12 +897,12 @@ html_converter_get_customization_sv (SV *converter_sv,
                         }
                       else
                        {
-                          converter->
+                          self_html->
                            customized_directions_strings[customized_type][i]
                             = (char **)
                            non_perl_malloc (nr_dir_str_contexts
                                                           * sizeof (char *));
-                          memset (converter->
+                          memset (self_html->
                              customized_directions_strings[customized_type][i],
                              0, nr_dir_str_contexts * sizeof (char *));
                        }
@@ -928,7 +930,7 @@ html_converter_get_customization_sv (SV *converter_sv,
                                      dir_string_translated->converted[j]
                                          = non_perl_strdup (value);
                                    else
-                            converter->customized_directions_strings
+                            self_html->customized_directions_strings
                                                      [customized_type][i][j]
                                          = non_perl_strdup (value);
                                 }
@@ -971,17 +973,17 @@ html_converter_get_customization_sv (SV *converter_sv,
 
       hv_number = hv_iterinit (htmlxref_hv);
 
-      converter->htmlxref.number = hv_number;
+      self_html->htmlxref.number = hv_number;
 
       if (hv_number > 0)
         {
-          converter->htmlxref.space = hv_number;
-          converter->htmlxref.list = new_htmlxref_manual_list (hv_number);
+          self_html->htmlxref.space = hv_number;
+          self_html->htmlxref.list = new_htmlxref_manual_list (hv_number);
 
           for (i = 0; i < hv_number; i++)
             {
               int j;
-              HTMLXREF_MANUAL *htmlxref_manual = &converter->htmlxref.list[i];
+              HTMLXREF_MANUAL *htmlxref_manual = &self_html->htmlxref.list[i];
               HE *next = hv_iternext (htmlxref_hv);
               SV *selector_sv = hv_iterkeysv (next);
               const char *selector = SvPVutf8_nolen (selector_sv);
@@ -1015,7 +1017,7 @@ html_converter_get_customization_sv (SV *converter_sv,
     {
       const char *ref_name = html_formatting_reference_names[i];
       FORMATTING_REFERENCE *formatting_reference
-        = &converter->formatting_references[i];
+        = &self_html->formatting_references[i];
       SV **default_formatting_reference_sv
         = hv_fetch (default_formatting_references_hv, ref_name,
                     strlen (ref_name), 0);
@@ -1045,8 +1047,8 @@ html_converter_get_customization_sv (SV *converter_sv,
 
   /* copy the normal formatting references and replace the css strings
      specific references */
-  memcpy (&converter->css_string_formatting_references,
-          &converter->formatting_references,
+  memcpy (&self_html->css_string_formatting_references,
+          &self_html->formatting_references,
       (FR_format_translate_message+1) * sizeof (FORMATTING_REFERENCE));
 
   for (i = 0; i < FR_format_translate_message+1; i++)
@@ -1061,7 +1063,7 @@ html_converter_get_customization_sv (SV *converter_sv,
           && SvOK (*default_formatting_reference_sv))
         {
           FORMATTING_REFERENCE *formatting_reference
-            = &converter->css_string_formatting_references[i];
+            = &self_html->css_string_formatting_references[i];
           formatting_reference->sv_default = *default_formatting_reference_sv;
           formatting_reference->sv_reference = *default_formatting_reference_sv;
           formatting_reference->status = FRS_status_default_set;
@@ -1084,9 +1086,9 @@ html_converter_get_customization_sv (SV *converter_sv,
       else
         ref_name = builtin_command_data[i].cmdname;
       FORMATTING_REFERENCE *open_formatting_reference
-       = &converter->commands_open[i];
+       = &self_html->commands_open[i];
       FORMATTING_REFERENCE *conversion_formatting_reference
-       = &converter->commands_conversion[i];
+       = &self_html->commands_conversion[i];
 
       register_formatting_reference_with_default ("command_open",
         open_formatting_reference, ref_name, default_commands_open_hv,
@@ -1101,8 +1103,8 @@ html_converter_get_customization_sv (SV *converter_sv,
     = (HV *)SvRV (default_css_string_commands_conversion);
   /* copy the normal formatting references and replace the css strings
      specific references */
-  memcpy (&converter->css_string_commands_conversion,
-          &converter->commands_conversion,
+  memcpy (&self_html->css_string_commands_conversion,
+          &self_html->commands_conversion,
       (BUILTIN_CMD_NUMBER) * sizeof (FORMATTING_REFERENCE));
 
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
@@ -1114,7 +1116,7 @@ html_converter_get_customization_sv (SV *converter_sv,
         ref_name = builtin_command_data[i].cmdname;
 
      FORMATTING_REFERENCE *conversion_formatting_reference
-       = &converter->css_string_commands_conversion[i];
+       = &self_html->css_string_commands_conversion[i];
 
      register_formatting_reference_default ("css_command_conversion",
         conversion_formatting_reference, ref_name,
@@ -1138,9 +1140,9 @@ html_converter_get_customization_sv (SV *converter_sv,
       else
         ref_name = type_data[i].name;
       FORMATTING_REFERENCE *open_formatting_reference
-       = &converter->types_open[i];
+       = &self_html->types_open[i];
       FORMATTING_REFERENCE *conversion_formatting_reference
-       = &converter->types_conversion[i];
+       = &self_html->types_conversion[i];
 
       register_formatting_reference_with_default ("type_open",
         open_formatting_reference, ref_name, default_types_open_hv,
@@ -1155,8 +1157,8 @@ html_converter_get_customization_sv (SV *converter_sv,
      = (HV *)SvRV (default_css_string_types_conversion);
   /* copy the normal formatting references and replace the css strings
      specific references */
-  memcpy (&converter->css_string_types_conversion,
-          &converter->types_conversion,
+  memcpy (&self_html->css_string_types_conversion,
+          &self_html->types_conversion,
       (TXI_TREE_TYPES_NUMBER) * sizeof (FORMATTING_REFERENCE));
 
   for (i = 0; i < TXI_TREE_TYPES_NUMBER; i++)
@@ -1167,7 +1169,7 @@ html_converter_get_customization_sv (SV *converter_sv,
       else
         ref_name = type_data[i].name;
       FORMATTING_REFERENCE *conversion_formatting_reference
-       = &converter->css_string_types_conversion[i];
+       = &self_html->css_string_types_conversion[i];
 
       register_formatting_reference_default ("css_type_conversion",
         conversion_formatting_reference, ref_name,
@@ -1184,7 +1186,7 @@ html_converter_get_customization_sv (SV *converter_sv,
     {
       const char *ref_name = output_unit_type_names[i];
       FORMATTING_REFERENCE *conversion_formatting_reference
-       = &converter->output_units_conversion[i];
+       = &self_html->output_units_conversion[i];
 
       register_formatting_reference_with_default ("output_unit_conversion",
         conversion_formatting_reference, ref_name,
@@ -1197,7 +1199,7 @@ html_converter_get_customization_sv (SV *converter_sv,
       HV *special_unit_body_hv = 0;
       HV *default_special_unit_body_hv;
 
-      converter->special_unit_body
+      self_html->special_unit_body
         = new_special_unit_formatting_references
                          (special_unit_varieties->number);
 
@@ -1210,7 +1212,7 @@ html_converter_get_customization_sv (SV *converter_sv,
         {
           char *variety_name = special_unit_varieties->list[i];
           FORMATTING_REFERENCE *special_unit_body_formatting_reference
-            = &converter->special_unit_body[i];
+            = &self_html->special_unit_body[i];
           register_formatting_reference_with_default ("special_unit_body",
             special_unit_body_formatting_reference, variety_name,
             default_special_unit_body_hv,
@@ -1229,9 +1231,9 @@ html_converter_get_customization_sv (SV *converter_sv,
                                    strlen (#name), 0);\
         if (name##_sv)\
           {\
-            converter->file_id_setting_refs[FIS_##name]\
+            self_html->file_id_setting_refs[FIS_##name]\
               = (const void *) (* name##_sv);\
-            converter->file_id_setting_ref_number++; \
+            self_html->file_id_setting_ref_number++; \
           }\
       }
        HTML_FILE_ID_SETTING_NAMES_LIST
@@ -1278,7 +1280,7 @@ html_converter_get_customization_sv (SV *converter_sv,
               SSize_t k;
               AV *stage_av = (AV *)SvRV (stage_sv);
               HTML_STAGE_HANDLER_INFO_LIST *stage_handler_list
-                = &converter->html_stage_handlers[stage];
+                = &self_html->html_stage_handlers[stage];
               SSize_t stage_handlers_info_nr = AvFILL (stage_av) +1;
 
               if (stage_handlers_info_nr == 0)
@@ -1328,7 +1330,7 @@ html_converter_get_customization_sv (SV *converter_sv,
                         */
      /* through a handler Perl may be accessed directly, especially in finish
         but also buttons may be set that access to Perl relatively late */
-                      converter->external_references_number++;
+                      self_html->external_references_number++;
                     }
                 }
             }
@@ -1348,6 +1350,7 @@ html_find_element_from_sv (CONVERTER *converter, const SV *element_sv,
   HV *element_hv;
   SV **type_sv;
   const ELEMENT *element;
+  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
 
   dTHX;
 
@@ -1381,7 +1384,7 @@ html_find_element_from_sv (CONVERTER *converter, const SV *element_sv,
                     = html_special_unit_variety_direction_index (converter,
                                                 special_unit_variety);
                   const OUTPUT_UNIT *special_unit
-            = converter->global_units_directions[special_unit_direction_index];
+            = self_html->global_units_directions[special_unit_direction_index];
                   if (special_unit)
                     return special_unit->uc.special_unit_command;
                 }
@@ -1468,9 +1471,8 @@ find_index_entry_numbers_index_entry_sv (CONVERTER *converter,
         {
           int entry_number = SvIV (*number_sv);
 
-          *index_nr
-            = index_number_index_by_name (&converter->sorted_index_names,
-                                          index_name);
+          *index_nr = index_number_index_by_name
+            (&converter->html_converter.sorted_index_names, index_name);
           return entry_number;
         }
     }
@@ -1510,10 +1512,11 @@ get_authors_list (CONVERTER *converter, SV *quotation_titlepage_nr_sv,
 {
   size_t quotation_titlepage_nr;
   ELEMENT_REFERENCE_STACK_STACK *elements_authors;
+  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
 
   dTHX;
 
-  elements_authors = &converter->shared_conversion_state.elements_authors;
+  elements_authors = &self_html->shared_conversion_state.elements_authors;
   quotation_titlepage_nr = (size_t) SvIV (quotation_titlepage_nr_sv);
   if (quotation_titlepage_nr != elements_authors->top)
     {
@@ -1542,6 +1545,7 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
                                const int args_nr, SV **args_sv)
 {
   dTHX;
+  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
 
   if (!strcmp (state_name, "formatted_index_entries"))
     {
@@ -1554,19 +1558,19 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
 
       /* We could error out or notify a bug if the index entry is not found */
       if (entry_number != 0)
-        converter->shared_conversion_state
+        self_html->shared_conversion_state
          .formatted_index_entries[index_nr-1][entry_number-1] = formatted_nr;
     }
   else if (!strcmp (state_name, "html_menu_entry_index"))
     {
       int html_menu_entry_index = SvIV (args_sv[0]);
-      converter->shared_conversion_state.html_menu_entry_index
+      self_html->shared_conversion_state.html_menu_entry_index
         = html_menu_entry_index;
     }
   else if (!strcmp (state_name, "footnote_number"))
     {
       int footnote_number = SvIV (args_sv[0]);
-      converter->shared_conversion_state.footnote_number
+      self_html->shared_conversion_state.footnote_number
         = footnote_number;
     }
   else if (!strcmp (state_name, "footnote_id_numbers"))
@@ -1583,7 +1587,7 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
   else if (!strcmp (state_name, "explained_commands"))
     {
       EXPLAINED_COMMAND_TYPE_LIST *type_explanations
-       = &converter->shared_conversion_state.explained_commands;
+       = &self_html->shared_conversion_state.explained_commands;
       enum command_id cmd = lookup_builtin_command (cmdname);
       /* avoid registering CM_NONE, as it is not not correct and not useful,
          it would never be found back anyway.
@@ -1626,7 +1630,7 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
                     {
                       int number = SvIV (args_sv[1]);
                       int *formatted_listoffloats_nr
-                        = &converter->shared_conversion_state
+                        = &self_html->shared_conversion_state
                             .formatted_listoffloats_nr[i];
                       *formatted_listoffloats_nr = number;
                     }
@@ -1642,7 +1646,7 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
         {
           size_t quotation_titlepage_nr = quotation_titlepage_int;
           ELEMENT_REFERENCE_STACK_STACK *elements_authors
-            = &converter->shared_conversion_state.elements_authors;
+            = &self_html->shared_conversion_state.elements_authors;
 
           /* difference should only be 1 with default Perl code as
              a quotation or title page is added on top of the stack
@@ -1692,7 +1696,7 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
               else
                 {
                   ELEMENT_REFERENCE_STACK_STACK *elements_authors
-                    = &converter->shared_conversion_state.elements_authors;
+                    = &self_html->shared_conversion_state.elements_authors;
                   elements_authors->stack[elements_authors->top -1]
                     = new_element_reference_stack ();
                 }
@@ -1752,7 +1756,7 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
   else if (!strcmp (state_name, "in_skipped_node_top"))
     {
       int in_skipped_node_top = SvIV (args_sv[0]);
-      converter->shared_conversion_state.in_skipped_node_top
+      self_html->shared_conversion_state.in_skipped_node_top
         = in_skipped_node_top;
     }
 }
@@ -1766,6 +1770,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
                                const int args_nr, SV **args_sv)
 {
   dTHX;
+  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
 
   if (!strcmp (state_name, "formatted_index_entries"))
     {
@@ -1777,13 +1782,13 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
       if (entry_number <= 0 || index_nr == 0)
         fatal ("index entry not found");
 
-      return newSViv (converter->shared_conversion_state
+      return newSViv (self_html->shared_conversion_state
          .formatted_index_entries[index_nr-1][entry_number-1]);
     }
   else if (!strcmp (state_name, "html_menu_entry_index"))
-    return newSViv (converter->shared_conversion_state.html_menu_entry_index);
+    return newSViv (self_html->shared_conversion_state.html_menu_entry_index);
   else if (!strcmp (state_name, "footnote_number"))
-    return newSViv (converter->shared_conversion_state.footnote_number);
+    return newSViv (self_html->shared_conversion_state.footnote_number);
   else if (!strcmp (state_name, "footnote_id_numbers"))
     {
       const char *footnote_id = SvPVutf8_nolen (args_sv[0]);
@@ -1800,7 +1805,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
       if (cmd != CM_NONE)
         {
           EXPLAINED_COMMAND_TYPE_LIST *type_explanations
-            = &converter->shared_conversion_state.explained_commands;
+            = &self_html->shared_conversion_state.explained_commands;
           EXPLAINED_COMMAND_TYPE *type_explanation
             = find_explained_command_string (type_explanations, cmd, type);
           if (type_explanation)
@@ -1833,7 +1838,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
                 {
                   if (float_types->float_list.number > 0)
                     {
-                      return newSViv (converter->shared_conversion_state
+                      return newSViv (self_html->shared_conversion_state
                                        .formatted_listoffloats_nr[i]);
                     }
                   else
@@ -1843,7 +1848,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
         }
     }
   else if (!strcmp (state_name, "quotation_titlepage_stack"))
-    return newSViv (converter->shared_conversion_state.elements_authors.top);
+    return newSViv (self_html->shared_conversion_state.elements_authors.top);
   else if (!strcmp (state_name, "element_authors_number"))
     {
       ELEMENT_REFERENCE_STACK *authors = get_authors_list (converter,
@@ -1871,6 +1876,6 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
         }
     }
   else if (!strcmp (state_name, "in_skipped_node_top"))
-    return newSViv (converter->shared_conversion_state.in_skipped_node_top);
+    return newSViv (self_html->shared_conversion_state.in_skipped_node_top);
   return newSV (0);
 }

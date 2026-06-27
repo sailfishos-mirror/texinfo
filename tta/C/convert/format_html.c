@@ -140,6 +140,7 @@ static const char *html_default_entity_nbsp = "&nbsp;";
 char *
 html_substitute_non_breaking_space (CONVERTER *self, const char *text)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   TEXT result;
   text_init (&result);
   text_append (&result, "");
@@ -156,8 +157,8 @@ html_substitute_non_breaking_space (CONVERTER *self, const char *text)
               text_append_n (&result, p, q - p);
             }
           text_append_n (&result,
-                self->special_character[SC_non_breaking_space].string,
-                self->special_character[SC_non_breaking_space].len);
+                self_html->special_character[SC_non_breaking_space].string,
+                self_html->special_character[SC_non_breaking_space].len);
           p = q + 6; /* 6: length of html_default_entity_nbsp */
         }
       else
@@ -264,21 +265,21 @@ html_substitute_non_breaking_space (CONVERTER *self, const char *text)
         case ' ': \
         case '\n': \
           text_append_n (result, \
-               self->special_character[SC_non_breaking_space].string, \
-               self->special_character[SC_non_breaking_space].len); \
+               self_html->special_character[SC_non_breaking_space].string, \
+               self_html->special_character[SC_non_breaking_space].len); \
           var += strspn (var, "\n "); \
           break;
 
 #define OTXI_SPACE_PROTECTION_CASES(var) \
         case ' ': \
           text_append_n (result, \
-               self->special_character[SC_non_breaking_space].string, \
-               self->special_character[SC_non_breaking_space].len); \
+               self_html->special_character[SC_non_breaking_space].string, \
+               self_html->special_character[SC_non_breaking_space].len); \
           var++; \
           break; \
         case '\n': \
-          text_append_n (result, self->line_break_element.string, \
-                         self->line_break_element.len); \
+          text_append_n (result, self_html->line_break_element.string, \
+                         self_html->line_break_element.len); \
           var++; \
           break;
 
@@ -312,7 +313,7 @@ html_substitute_non_breaking_space (CONVERTER *self, const char *text)
       if (html_in_code (self) || html_in_math (self)) \
         OTXI_CONVERT_TEXT(additional_delim,  \
           other_cases) \
-      else if (self->use_unicode_text) \
+      else if (self_html->use_unicode_text) \
         OTXI_CONVERT_TEXT("-`'" additional_delim, \
           OTXI_UNICODE_TEXT_CASES(p) \
           other_cases) \
@@ -340,12 +341,13 @@ html_default_format_protect_text (const char *text, TEXT *result)
 void
 format_protect_text (CONVERTER *self, const char *text, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_protect_text];
+   = &self_html->current_formatting_references[FR_format_protect_text];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
-      (*self->current_format_protect_text) (text, result);
+      (*self_html->current_format_protect_text) (text, result);
     }
   else
     {
@@ -561,8 +563,9 @@ find_element_target_search (const HTML_TARGET_LIST *targets,
 HTML_TARGET *
 html_get_target (const CONVERTER *self, const ELEMENT *element)
 {
+  const HTML_CONVERTER_STATE *self_html = &self->html_converter;
   enum command_id cmd = element_builtin_cmd (element);
-  return find_element_target_search (&self->html_targets[cmd], element);
+  return find_element_target_search (&self_html->html_targets[cmd], element);
 }
 
 /* the target may not be known already, so the caller may fill the
@@ -748,6 +751,7 @@ char *
 external_node_href (CONVERTER *self, const ELEMENT *external_node,
                     const ELEMENT *source_command) /* for messages only */
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   TEXT result;
   char *target;
   char *target_filebase;
@@ -849,12 +853,12 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
       if (!self->conf->HTMLXREF_MODE.o.string
           || strcmp (self->conf->HTMLXREF_MODE.o.string, "none"))
         {
-          htmlxref_manual = find_htmlxref_manual (&self->htmlxref, manual_base);
+          htmlxref_manual = find_htmlxref_manual (&self_html->htmlxref, manual_base);
 
           if (htmlxref_manual)
             {
               const enum htmlxref_split_type *ordered_split_types
-                 = htmlxref_entries[self->document_htmlxref_split_type];
+                 = htmlxref_entries[self_html->document_htmlxref_split_type];
               int i;
               for (i = 0; i < htmlxref_split_type_chapter +1; i++)
                 {
@@ -1068,8 +1072,9 @@ int
 html_special_unit_variety_direction_index (const CONVERTER *self,
                                       const char *special_unit_variety)
 {
+  const HTML_CONVERTER_STATE *self_html = &self->html_converter;
   /* number is index +1 */
-  size_t number = find_string (&self->special_unit_varieties,
+  size_t number = find_string (&self_html->special_unit_varieties,
                                special_unit_variety);
   int i = number -1;
   if (i >= 0)
@@ -1089,6 +1094,7 @@ ROOT_AND_UNIT *
 html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
                             int find_container)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const ELEMENT *current = command;
   const OUTPUT_UNIT *output_unit = 0;
   const ELEMENT *root_command = 0;
@@ -1111,9 +1117,8 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
       else if (data_cmd && (flags & CF_block)
                && builtin_command_data[data_cmd].data == BLOCK_region)
         {
-          const OUTPUT_UNIT_LIST *output_units
-         = retrieve_output_units (self->document,
-                                  self->output_units_descriptors[OUDT_units]);
+          const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
+            (self->document, self_html->output_units_descriptors[OUDT_units]);
           if (data_cmd == CM_copying
               && self->document->global_commands.insertcopying.number > 0)
             {
@@ -1150,20 +1155,20 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
                && html_commands_data[data_cmd].flags & HF_special_variety)
         {
           int j;
-          for (j = 0; self->command_special_variety_name_index[j].cmd; j++)
+          for (j = 0; self_html->command_special_variety_name_index[j].cmd; j++)
             {
      /* @footnote and possibly @*contents when a separate element is set */
               COMMAND_ID_INDEX cmd_variety_index
-                = self->command_special_variety_name_index[j];
+                = self_html->command_special_variety_name_index[j];
               if (cmd_variety_index.cmd == data_cmd)
                 {
                   char *special_unit_variety
-                = self->special_unit_varieties.list[cmd_variety_index.index];
+                = self_html->special_unit_varieties.list[cmd_variety_index.index];
                   int special_unit_direction_index
                     = html_special_unit_variety_direction_index (self,
                                                 special_unit_variety);
-                  const OUTPUT_UNIT *special_unit
-                = self->global_units_directions[special_unit_direction_index];
+                  const OUTPUT_UNIT *special_unit = self_html
+                    ->global_units_directions[special_unit_direction_index];
                   if (special_unit)
                     {
                       ROOT_AND_UNIT *result = malloc (sizeof (ROOT_AND_UNIT));
@@ -1200,6 +1205,7 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
 const FILE_NUMBER_NAME *
 html_command_filename (CONVERTER *self, const ELEMENT *command)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   HTML_TARGET *target_info;
 
   target_info = html_get_target (self, command);
@@ -1226,7 +1232,7 @@ html_command_filename (CONVERTER *self, const ELEMENT *command)
           if (root_unit->output_unit->unit_type == OU_unit)
             {
               size_t file_index
-               = self->output_unit_file_indices[root_unit->output_unit->index];
+               = self_html->output_unit_file_indices[root_unit->output_unit->index];
               target_info->file_number_name.file_number = file_index +1;
             }
         }
@@ -1331,6 +1337,7 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
                             const char *source_filename,
                             const char *specified_target)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const HTML_TARGET *target_info;
   TEXT href;
   const char *filename_from;
@@ -1341,7 +1348,7 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
   if (source_filename)
     filename_from = source_filename;
   else
-    filename_from = self->current_filename.filename;
+    filename_from = self_html->current_filename.filename;
 
 
   if (specified_target)
@@ -1416,14 +1423,14 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
       titlepage is not output. */
       const OUTPUT_UNIT_LIST *output_units
          = retrieve_output_units (self->document,
-                            self->output_units_descriptors[OUDT_units]);
+                            self_html->output_units_descriptors[OUDT_units]);
       if (output_units->list[0]->unit_filename)
         { /* In that case use the first page. */
           set_target_filename = (FILE_NUMBER_NAME *)
             malloc (sizeof (FILE_NUMBER_NAME));
           set_target_filename->filename = output_units->list[0]->unit_filename;
           set_target_filename->file_number
-              = self->output_unit_file_indices[0] +1;
+              = self_html->output_unit_file_indices[0] +1;
         }
       target_filename = set_target_filename;
     }
@@ -1688,9 +1695,10 @@ html_command_contents_target (CONVERTER *self, const ELEMENT *command,
 static HTML_TARGET *
 get_footnote_location_target (const CONVERTER *self, const ELEMENT *command)
 {
+  const HTML_CONVERTER_STATE *self_html = &self->html_converter;
   HTML_TARGET *result
    = find_element_special_target
-                         (&self->html_special_targets[ST_footnote_location],
+                         (&self_html->html_special_targets[ST_footnote_location],
                           command);
   return result;
 }
@@ -1712,6 +1720,7 @@ html_command_contents_href (CONVERTER *self, const ELEMENT *command,
                             enum command_id contents_or_shortcontents,
                             const char *source_filename)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   int j;
   const char *filename_from;
   const char *target = html_command_contents_target (self, command,
@@ -1720,23 +1729,23 @@ html_command_contents_href (CONVERTER *self, const ELEMENT *command,
   if (source_filename)
     filename_from = source_filename;
   else
-    filename_from = self->current_filename.filename;
+    filename_from = self_html->current_filename.filename;
 
-  for (j = 0; self->command_special_variety_name_index[j].cmd; j++)
+  for (j = 0; self_html->command_special_variety_name_index[j].cmd; j++)
     {
       const COMMAND_ID_INDEX cmd_variety_index
-            = self->command_special_variety_name_index[j];
+            = self_html->command_special_variety_name_index[j];
       if (cmd_variety_index.cmd == contents_or_shortcontents)
         {
           TEXT href;
           const FILE_NUMBER_NAME *target_filename = 0;
           const char *special_unit_variety
-            = self->special_unit_varieties.list[cmd_variety_index.index];
+            = self_html->special_unit_varieties.list[cmd_variety_index.index];
           int special_unit_direction_index
                 = html_special_unit_variety_direction_index (self,
                                            special_unit_variety);
           const OUTPUT_UNIT *special_unit
-            = self->global_units_directions[special_unit_direction_index];
+            = self_html->global_units_directions[special_unit_direction_index];
           if (special_unit)
             {
               target_filename = html_command_filename (self,
@@ -1778,6 +1787,7 @@ html_footnote_location_href (CONVERTER *self, const ELEMENT *command,
                              const char *specified_target,
                              const char *target_filename_in)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   TEXT href;
   const char *filename_from;
   HTML_TARGET *footnote_location_target_info;
@@ -1787,7 +1797,7 @@ html_footnote_location_href (CONVERTER *self, const ELEMENT *command,
   if (source_filename)
     filename_from = source_filename;
   else
-    filename_from = self->current_filename.filename;
+    filename_from = self_html->current_filename.filename;
 
   footnote_location_target_info = get_footnote_location_target (self, command);
 
@@ -1823,7 +1833,7 @@ html_footnote_location_href (CONVERTER *self, const ELEMENT *command,
               && root_unit->output_unit->unit_filename)
             {
               size_t file_index
-            = self->output_unit_file_indices[root_unit->output_unit->index];
+            = self_html->output_unit_file_indices[root_unit->output_unit->index];
               footnote_location_target_info->file_number_name.file_number
                 = file_index +1;
               footnote_location_target_info->file_number_name.filename
@@ -1857,18 +1867,19 @@ special_unit_info_tree (CONVERTER *self,
                         const enum special_unit_info_tree type,
                         const char *special_unit_variety)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   /* number is index +1 */
-  size_t number = find_string (&self->special_unit_varieties,
+  size_t number = find_string (&self_html->special_unit_varieties,
                                special_unit_variety);
   int i = number -1;
   const char *special_unit_info_string;
   char *translation_context;
 
-  if (self->translated_special_unit_info_tree[type][i])
-    return self->translated_special_unit_info_tree[type][i];
+  if (self_html->translated_special_unit_info_tree[type][i])
+    return self_html->translated_special_unit_info_tree[type][i];
 
   special_unit_info_string
-    = self->translated_special_unit_info_texinfo[type][i];
+    = self_html->translated_special_unit_info_texinfo[type][i];
 
   /* if set to undef in user customization. To be forbidden? */
   if (!special_unit_info_string)
@@ -1876,11 +1887,11 @@ special_unit_info_tree (CONVERTER *self,
 
   xasprintf (&translation_context, "%s section %s",
              special_unit_variety, special_unit_info_tree_names[type]);
-  self->translated_special_unit_info_tree[type][i]
+  self_html->translated_special_unit_info_tree[type][i]
     = html_pcdt_tree (translation_context, special_unit_info_string,
                       self, 0);
   free (translation_context);
-  return self->translated_special_unit_info_tree[type][i];
+  return self_html->translated_special_unit_info_tree[type][i];
 }
 
 char *
@@ -2054,6 +2065,7 @@ html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
                            int in_code,
                            const char *command_info)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   char *explanation = 0;
   const char *context_name;
   unsigned long context_type = 0;
@@ -2088,7 +2100,7 @@ html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
                              explanation, 0);
 
   html_set_multiple_conversions (self, 0);
-  push_element_reference_stack_element (&self->referred_command_stack,
+  push_element_reference_stack_element (&self_html->referred_command_stack,
                                         command, get_sv_hv (command->sv));
 
   add_tree_to_build (self, selected_tree);
@@ -2099,7 +2111,7 @@ html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
 
   remove_tree_to_build (self, selected_tree);
 
-  pop_element_reference_stack (&self->referred_command_stack);
+  pop_element_reference_stack (&self_html->referred_command_stack);
 
   html_unset_multiple_conversions (self);
 
@@ -2344,11 +2356,12 @@ html_unit_is_top_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 static int
 html_global_direction_text (CONVERTER *self, int direction)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   if ((direction > DEFAULT_GLOBAL_DIRECTION_LAST_IDX
        && direction < DEFAULT_TEXT_DIRECTION_LAST_IDX +1)
       || (direction > NON_SPECIAL_DIRECTIONS_NR
-            + (int) self->special_unit_varieties.number
-            + (int) self->added_global_units_directions.number -1))
+            + (int) self_html->special_unit_varieties.number
+            + (int) self_html->added_global_units_directions.number -1))
     {
       return 1;
     }
@@ -2363,6 +2376,7 @@ from_element_direction (CONVERTER *self, int direction,
                         const char *source_filename,
                         const ELEMENT *source_command)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const char *filename_from;
   const OUTPUT_UNIT *target_unit = 0;
   const ELEMENT *command = 0;
@@ -2372,12 +2386,12 @@ from_element_direction (CONVERTER *self, int direction,
     return 0;
 
   if (!source_unit)
-    source_unit = self->current_output_unit;
+    source_unit = self_html->current_output_unit;
 
   if (source_filename)
     filename_from = source_filename;
   else
-    filename_from = self->current_filename.filename;
+    filename_from = self_html->current_filename.filename;
 
   /* To debug:
   fprintf (stderr, "FED: %d %s %s\n", direction,
@@ -2386,12 +2400,12 @@ from_element_direction (CONVERTER *self, int direction,
    */
 
   if (direction < D_direction_Last+1)
-    target_unit = self->global_units_directions[direction];
+    target_unit = self_html->global_units_directions[direction];
   else if (direction > NON_SPECIAL_DIRECTIONS_NR - 1)
     {
       /* special units (global) directions and added global directions */
       target_unit
-       = self->global_units_directions
+       = self_html->global_units_directions
            [D_direction_Last + direction - NON_SPECIAL_DIRECTIONS_NR +1];
     }
   else if ((!source_unit || html_unit_is_top_output_unit (self, source_unit))
@@ -2492,15 +2506,16 @@ html_special_unit_info (const CONVERTER *self,
                         enum special_unit_info_type type,
                         const char *special_unit_variety)
 {
+  const HTML_CONVERTER_STATE *self_html = &self->html_converter;
   /* number is index +1 */
-  size_t number = find_string (&self->special_unit_varieties,
+  size_t number = find_string (&self_html->special_unit_varieties,
                                special_unit_variety);
 
   if (number > 0)
     {
       int i = number -1;
 
-      return self->special_unit_info[type][i];
+      return self_html->special_unit_info[type][i];
     }
 
   return 0;
@@ -2530,42 +2545,43 @@ add_new_css_page (PAGES_CSS_LIST *css_pages, const char *page_name)
 static void
 collect_css_element_class (CONVERTER *self, const char *selector)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const CSS_SELECTOR_STYLE *selector_style
-    = find_css_selector_style (&self->css_element_class_styles, selector);
+    = find_css_selector_style (&self_html->css_element_class_styles, selector);
   if (selector_style)
     {
       size_t i;
       size_t css_files_index;
       CSS_LIST *page_css_list;
-      if (self->document_global_context_counter)
+      if (self_html->document_global_context_counter)
         {
           css_files_index = 0;
         }
       else
         {
-          css_files_index = self->current_filename.file_number;
+          css_files_index = self_html->current_filename.file_number;
           /* files not associated to output units.  Only try the
              last one, as the files should be processed sequentially */
           if (css_files_index == 0)
             {
-              if (self->current_filename.filename)
+              if (self_html->current_filename.filename)
                 {
-                  if (self->page_css.number > 1)
+                  if (self_html->page_css.number > 1)
                     {
                       CSS_LIST *last_css_page
-                       = &self->page_css.list[self->page_css.number -1];
+                       = &self_html->page_css.list[self_html->page_css.number -1];
                       if (last_css_page->page_name
-                          && !strcmp (self->current_filename.filename,
+                          && !strcmp (self_html->current_filename.filename,
                                    last_css_page->page_name))
                         {
-                          css_files_index = self->page_css.number -1;
+                          css_files_index = self_html->page_css.number -1;
                         }
                     }
                   if (css_files_index == 0)
                     {
-                      add_new_css_page (&self->page_css,
-                                        self->current_filename.filename);
-                      css_files_index = self->page_css.number -1;
+                      add_new_css_page (&self_html->page_css,
+                                        self_html->current_filename.filename);
+                      css_files_index = self_html->page_css.number -1;
                     }
                 }
             }
@@ -2575,7 +2591,7 @@ collect_css_element_class (CONVERTER *self, const char *selector)
               return;
             }
         }
-      page_css_list = &self->page_css.list[css_files_index];
+      page_css_list = &self_html->page_css.list[css_files_index];
       for (i = 0; i < page_css_list->number; i++)
         {
           if (!strcmp (page_css_list->list[i], selector))
@@ -2631,6 +2647,7 @@ char *
 html_attribute_class (CONVERTER *self, const char *element,
                       const STRING_LIST *classes)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   TEXT result;
   char *style = 0;
   size_t i;
@@ -2662,7 +2679,7 @@ html_attribute_class (CONVERTER *self, const char *element,
 
           xasprintf (&selector, "%s.%s", element, style_class);
           selector_style
-            = find_css_selector_style (&self->css_element_class_styles,
+            = find_css_selector_style (&self_html->css_element_class_styles,
                                        selector);
           free (selector);
           if (selector_style && selector_style->style)
@@ -2734,8 +2751,9 @@ html_default_format_comment (CONVERTER *self, const char *text)
 char *
 html_format_comment (CONVERTER *self, const char *text)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_comment];
+   = &self_html->current_formatting_references[FR_format_comment];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -2771,8 +2789,9 @@ void
 format_separate_anchor (CONVERTER *self, const char *id,
                         const char *class, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_separate_anchor];
+   = &self_html->current_formatting_references[FR_format_separate_anchor];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -2798,6 +2817,7 @@ html_direction_string (CONVERTER *self, int direction,
                        enum direction_string_type string_type,
                        enum direction_string_context context)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   int direction_unit_direction_idx = direction;
 
   /* Perl direction not found in C */
@@ -2819,11 +2839,11 @@ html_direction_string (CONVERTER *self, int direction,
   else if (direction > NON_SPECIAL_DIRECTIONS_NR - 1)
     direction -= FIRSTINFILE_NR;
 
-  if (!self->directions_strings[string_type][direction][context]
+  if (!self_html->directions_strings[string_type][direction][context]
       && string_type < TDS_TRANSLATED_MAX_NR)
     {
       HTML_DIRECTION_STRING_TRANSLATED *dir_translated
-        = &self->translated_direction_strings[string_type][direction];
+        = &self_html->translated_direction_strings[string_type][direction];
       if (dir_translated->to_convert)
         {
           char *result_string;
@@ -2835,7 +2855,7 @@ html_direction_string (CONVERTER *self, int direction,
 
           text_init (&translation_context);
           direction_name
-           = self->main_units_direction_names[direction_unit_direction_idx];
+           = self_html->main_units_direction_names[direction_unit_direction_idx];
           text_append (&translation_context, direction_name);
 
           if (direction == RUD_type_This)
@@ -2865,7 +2885,7 @@ html_direction_string (CONVERTER *self, int direction,
           free (context_str);
 
           destroy_element_and_children (translated_tree);
-          self->directions_strings[string_type][direction][context]
+          self_html->directions_strings[string_type][direction][context]
                 = result_string;
         }
       else
@@ -2882,13 +2902,13 @@ html_direction_string (CONVERTER *self, int direction,
                 = html_cdt_string (context_converted_string, self, 0, 0);
               char *result_string
                 = html_substitute_non_breaking_space (self, translated_string);
-              self->directions_strings[string_type][direction][context]
+              self_html->directions_strings[string_type][direction][context]
                 = result_string;
               free (translated_string);
             }
         }
     }
-  return self->directions_strings[string_type][direction][context];
+  return self_html->directions_strings[string_type][direction][context];
 }
 
 static void
@@ -2931,6 +2951,7 @@ static const STRING_LIST copiable_link_classes = {copiable_link_array, 1, 1};
 static char *
 get_copiable_anchor (CONVERTER *self, const char *id)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   if (id && strlen (id) && self->conf->COPIABLE_LINKS.o.integer > 0)
     {
       TEXT result;
@@ -2940,7 +2961,7 @@ get_copiable_anchor (CONVERTER *self, const char *id)
       text_append (&result, attribute_class);
       free (attribute_class);
       text_printf (&result, " href=\"#%s\"> %s</a>",
-                   id, self->special_character[SC_paragraph_symbol].string);
+                   id, self_html->special_character[SC_paragraph_symbol].string);
       return result.text;
     }
   return 0;
@@ -3029,6 +3050,7 @@ char *
 html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                         const ELEMENT *element, const char *source_filename)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const char *filename_from;
   int is_contents = (cmd == CM_contents);
   TEXT result;
@@ -3044,7 +3066,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
   if (source_filename)
     filename_from = source_filename;
   else
-    filename_from = self->current_filename.filename;
+    filename_from = self_html->current_filename.filename;
 
   text_init (&result);
   text_append (&result, "");
@@ -3293,8 +3315,9 @@ format_contents (CONVERTER *self,
                  const enum command_id cmd, const ELEMENT *element,
                  const char *filename)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_contents];
+   = &self_html->current_formatting_references[FR_format_contents];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -3314,8 +3337,9 @@ format_heading_text (CONVERTER *self, const enum command_id cmd,
                      int level, const char *id, const ELEMENT *element,
                      const char *target, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_heading_text];
+   = &self_html->current_formatting_references[FR_format_heading_text];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -3387,8 +3411,9 @@ format_single_footnote (CONVERTER *self, const ELEMENT *element,
                         const char *footnote_location_href, const char *mark,
                         TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_single_footnote];
+   = &self_html->current_formatting_references[FR_format_single_footnote];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -3412,9 +3437,10 @@ format_single_footnote (CONVERTER *self, const ELEMENT *element,
 void
 html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   size_t i;
   HTML_PENDING_FOOTNOTE_STACK *pending_footnotes
-   = &self->pending_footnotes;
+   = &self_html->pending_footnotes;
 
   if (pending_footnotes->top > 0)
     {
@@ -3466,8 +3492,9 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
 void
 format_footnotes_sequence (CONVERTER *self, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_footnotes_sequence];
+   = &self_html->current_formatting_references[FR_format_footnotes_sequence];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -3551,8 +3578,9 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
 void
 format_footnotes_segment (CONVERTER *self, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_footnotes_segment];
+   = &self_html->current_formatting_references[FR_format_footnotes_segment];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -3614,8 +3642,9 @@ html_default_format_program_string (CONVERTER *self, TEXT *result)
 void
 format_program_string (CONVERTER *self, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_program_string];
+   = &self_html->current_formatting_references[FR_format_program_string];
 
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
@@ -3640,6 +3669,7 @@ char *
 html_default_format_end_file (CONVERTER *self, const char *filename,
                               const OUTPUT_UNIT *output_unit)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   TEXT result;
 
   text_init (&result);
@@ -3670,16 +3700,16 @@ html_default_format_end_file (CONVERTER *self, const char *filename,
   if (self->conf->PRE_BODY_CLOSE.o.string)
     text_append (&result, self->conf->PRE_BODY_CLOSE.o.string);
 
-  if (self->jslicenses.number)
+  if (self_html->jslicenses.number)
     {
       int infojs_jslicenses_file_nr = 0;
       int mathjax_jslicenses_file_nr = 0;
       size_t i;
       int status;
-      for (i = 0; i < self->jslicenses.number; i++)
+      for (i = 0; i < self_html->jslicenses.number; i++)
         {
           const JSLICENSE_FILE_INFO_LIST *jslicences_files_info
-            = &self->jslicenses.list[i];
+            = &self_html->jslicenses.list[i];
           if (!strcmp (jslicences_files_info->category, "infojs"))
             infojs_jslicenses_file_nr = jslicences_files_info->number;
           else if (!strcmp (jslicences_files_info->category, "mathjax"))
@@ -3726,8 +3756,9 @@ char *
 html_format_end_file (CONVERTER *self, const char *filename,
                       const OUTPUT_UNIT *output_unit)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_end_file];
+   = &self_html->current_formatting_references[FR_format_end_file];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -3773,6 +3804,7 @@ void
 html_default_format_css_lines (CONVERTER *self, const char *filename,
                                TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const STRING_LIST *css_refs;
   const STRING_LIST *css_import_lines;
   const STRING_LIST *css_rule_lines;
@@ -3814,7 +3846,7 @@ html_default_format_css_lines (CONVERTER *self, const char *filename,
             {
               const char *selector = css_element_classes->list[i];
               const CSS_SELECTOR_STYLE *selector_style
-               = find_css_selector_style (&self->css_element_class_styles,
+               = find_css_selector_style (&self_html->css_element_class_styles,
                                           selector);
               if (selector_style->style)
                 text_printf (result, "%s {%s}\n", selector,
@@ -3853,8 +3885,9 @@ html_default_format_css_lines (CONVERTER *self, const char *filename,
 void
 format_css_lines (CONVERTER *self, const char *filename, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_css_lines];
+   = &self_html->current_formatting_references[FR_format_css_lines];
 
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
@@ -3896,9 +3929,10 @@ static BEGIN_FILE_INFORMATION *
 file_header_information (CONVERTER *self, const ELEMENT *command,
                          const char *filename)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   BEGIN_FILE_INFORMATION *begin_info = (BEGIN_FILE_INFORMATION *)
                           malloc (sizeof (BEGIN_FILE_INFORMATION));
-  const char *description = self->documentdescription_string;
+  const char *description = self_html->documentdescription_string;
   char *command_description = 0;
   int status;
   TEXT text;
@@ -3939,7 +3973,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
 
 
       if (command_string && strlen (command_string)
-          && strcmp (command_string, self->title_string))
+          && strcmp (command_string, self_html->title_string))
         {
           char *context_str;
           NAMED_STRING_ELEMENT_LIST *substrings
@@ -3949,7 +3983,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
           ELEMENT *title_element = new_text_element (ET__converted);
 
           text_append (element_text->e.text, command_string);
-          text_append (title_element->e.text, self->title_string);
+          text_append (title_element->e.text, self_html->title_string);
 
           add_element_to_named_string_element_list (substrings, "title",
                                                     title_element);
@@ -3989,7 +4023,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
                                                       HTT_string);
     }
   if (!begin_info->title)
-    begin_info->title = strdup (self->title_string);
+    begin_info->title = strdup (self_html->title_string);
 
   if (command_description && strlen (command_description))
     begin_info->keywords = strdup (command_description);
@@ -4223,6 +4257,7 @@ char *
 html_default_format_begin_file (CONVERTER *self, const char *filename,
                                 const OUTPUT_UNIT *output_unit)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const ELEMENT *node_command = 0;
   const ELEMENT *command_for_title = 0;
   BEGIN_FILE_INFORMATION *begin_info;
@@ -4268,8 +4303,8 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
   if (begin_info->encoding)
     text_append (&result, begin_info->encoding);
   text_append_n (&result, "\n", 1);
-  if (self->copying_comment)
-    text_append (&result, self->copying_comment);
+  if (self_html->copying_comment)
+    text_append (&result, self_html->copying_comment);
   text_printf (&result, "<title>%s</title>\n\n", begin_info->title);
   if (begin_info->description)
     text_append (&result, begin_info->description);
@@ -4289,15 +4324,15 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
   text_append_n (&result, "\n", 1);
   if (begin_info->generator)
     text_append (&result, begin_info->generator);
-  if (self->date_in_header)
-    text_append (&result, self->date_in_header);
+  if (self_html->date_in_header)
+    text_append (&result, self_html->date_in_header);
   text_append (&result,
     "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"");
   html_close_lone_element (self, &result);
   text_append_n (&result, "\n", 1);
 
-  if (self->documentinfo_metadata)
-    text_append (&result, self->documentinfo_metadata);
+  if (self_html->documentinfo_metadata)
+    text_append (&result, self_html->documentinfo_metadata);
 
   text_append_n (&result, "\n", 1);
   get_links (self, filename, output_unit, node_command, &result);
@@ -4323,8 +4358,9 @@ char *
 html_format_begin_file (CONVERTER *self, const char *filename,
                         const OUTPUT_UNIT *output_unit)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_begin_file];
+   = &self_html->current_formatting_references[FR_format_begin_file];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -4389,8 +4425,9 @@ format_button_icon_img (CONVERTER *self,
                         const char *button_name,
                         const char *icon, const char *name)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_button_icon_img];
+   = &self_html->current_formatting_references[FR_format_button_icon_img];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -4553,6 +4590,7 @@ html_default_format_button (CONVERTER *self,
                             const BUTTON_SPECIFICATION *button,
                             const ELEMENT *element)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   if (button->type == BST_function)
     {
       return call_button_simple_function (self, button->b.sv_reference);
@@ -4592,15 +4630,15 @@ html_default_format_button (CONVERTER *self,
       else if (html_global_direction_text (self, button->b.direction) > 0)
         {
           /* handle space button */
-          if (self->html_active_icons
-              && self->html_active_icons[button->b.direction])
+          if (self_html->html_active_icons
+              && self_html->html_active_icons[button->b.direction])
             {
               const char *button_name_string = html_direction_string (self,
                                      button->b.direction, TDS_type_button,
                                                       TDS_context_string);
               formatted_button->active
                 = format_button_icon_img (self, button_name_string,
-                         self->html_active_icons[button->b.direction], 0);
+                         self_html->html_active_icons[button->b.direction], 0);
             }
           else
             {
@@ -4624,10 +4662,10 @@ html_default_format_button (CONVERTER *self,
                = html_direction_string (self, button->b.direction,
                                    TDS_type_description, TDS_context_string);
 
-              if (self->html_active_icons
-                  && self->html_active_icons[button->b.direction])
+              if (self_html->html_active_icons
+                  && self_html->html_active_icons[button->b.direction])
                 {
-                  active_icon = self->html_active_icons[button->b.direction];
+                  active_icon = self_html->html_active_icons[button->b.direction];
                 }
 
               text_init (&active_text);
@@ -4690,11 +4728,11 @@ html_default_format_button (CONVERTER *self,
 
               text_init (&passive_text);
 
-              if (self->html_passive_icons
-                  && self->html_passive_icons[button->b.direction])
+              if (self_html->html_passive_icons
+                  && self_html->html_passive_icons[button->b.direction])
                 {
                   passive_icon
-                    = self->html_passive_icons[button->b.direction];
+                    = self_html->html_passive_icons[button->b.direction];
                 }
               if (passive_icon)
                 {
@@ -4737,8 +4775,9 @@ format_button (CONVERTER *self,
                const BUTTON_SPECIFICATION *button,
                const ELEMENT *element)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_button];
+   = &self_html->current_formatting_references[FR_format_button];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -4901,8 +4940,9 @@ format_navigation_panel (CONVERTER *self,
                          const char *cmdname, const ELEMENT *element,
                          int vertical, int in_header, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_navigation_panel];
+   = &self_html->current_formatting_references[FR_format_navigation_panel];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -4969,8 +5009,9 @@ format_navigation_header (CONVERTER *self,
                           const char *cmdname,
                           const ELEMENT *element, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_navigation_header];
+   = &self_html->current_formatting_references[FR_format_navigation_header];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -4993,6 +5034,7 @@ html_default_format_element_header (CONVERTER *self,
                                const char *cmdname, const ELEMENT *command,
                                const OUTPUT_UNIT *output_unit, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   if (self->conf->DEBUG.o.integer > 0)
     {
       size_t i;
@@ -5031,7 +5073,7 @@ html_default_format_element_header (CONVERTER *self,
       int previous_is_top = 0;
       if (output_unit->unit_filename)
         {
-          file_index = self->output_unit_file_indices[output_unit->index];
+          file_index = self_html->output_unit_file_indices[output_unit->index];
           count_in_file
             = count_elements_in_file_number (self, CEFT_current,
                                              file_index +1);
@@ -5111,8 +5153,9 @@ format_element_header (CONVERTER *self,
                        const char *cmdname, const ELEMENT *element,
                        const OUTPUT_UNIT *output_unit, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_element_header];
+   = &self_html->current_formatting_references[FR_format_element_header];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -5173,6 +5216,7 @@ html_default_format_element_footer (CONVERTER *self,
                               const char *content, const ELEMENT *element,
                               TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   int is_top = html_unit_is_top_output_unit (self, output_unit);
   int next_is_top = 0;
   int next_is_special = 0;
@@ -5199,9 +5243,9 @@ html_default_format_element_footer (CONVERTER *self,
       size_t count_in_file;
 
       if (unit_type == OU_special_unit)
-        file_index = self->special_unit_file_indices[output_unit->index];
+        file_index = self_html->special_unit_file_indices[output_unit->index];
       else
-        file_index = self->output_unit_file_indices[output_unit->index];
+        file_index = self_html->output_unit_file_indices[output_unit->index];
       count_in_file
         = count_elements_in_file_number (self, CEFT_remaining, file_index +1);
 
@@ -5223,7 +5267,7 @@ html_default_format_element_footer (CONVERTER *self,
     {
       STRING_LIST *closed_strings;
       closed_strings = html_close_registered_sections_level (self,
-                                       self->current_filename.file_number, 0);
+                                       self_html->current_filename.file_number, 0);
 
       if (closed_strings->number)
         {
@@ -5332,8 +5376,9 @@ format_element_footer (CONVERTER *self,
                               const char *content, const ELEMENT *element,
                               TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_element_footer];
+   = &self_html->current_formatting_references[FR_format_element_footer];
 
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
@@ -5447,6 +5492,7 @@ html_default_format_node_redirection_page (CONVERTER *self,
                                            const ELEMENT *element,
                                            const char *filename)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   TEXT result;
   TEXT body;
   BEGIN_FILE_INFORMATION *begin_info;
@@ -5494,8 +5540,8 @@ html_default_format_node_redirection_page (CONVERTER *self,
   if (begin_info->encoding)
     text_append (&result, begin_info->encoding);
   text_append_n (&result, "\n", 1);
-  if (self->copying_comment)
-    text_append (&result, self->copying_comment);
+  if (self_html->copying_comment)
+    text_append (&result, self_html->copying_comment);
   text_printf (&result, "<title>%s</title>\n\n", begin_info->title);
   if (begin_info->description)
     text_append (&result, begin_info->description);
@@ -5515,8 +5561,8 @@ html_default_format_node_redirection_page (CONVERTER *self,
   text_append_n (&result, "\n", 1);
   if (begin_info->generator)
     text_append (&result, begin_info->generator);
-  if (self->date_in_header)
-    text_append (&result, self->date_in_header);
+  if (self_html->date_in_header)
+    text_append (&result, self_html->date_in_header);
   text_append (&result, begin_info->css_lines);
   text_append_n (&result, "\n", 1);
   text_printf (&result, "<meta http-equiv=\"Refresh\" content=\"0; url=%s\"",
@@ -5530,8 +5576,8 @@ html_default_format_node_redirection_page (CONVERTER *self,
 
   free (href);
 
-  if (self->documentinfo_metadata)
-    text_append (&result, self->documentinfo_metadata);
+  if (self_html->documentinfo_metadata)
+    text_append (&result, self_html->documentinfo_metadata);
 
   if (begin_info->extra_head)
     text_append (&result, begin_info->extra_head);
@@ -5555,8 +5601,9 @@ char *
 html_format_node_redirection_page (CONVERTER *self, const ELEMENT *element,
                                    const char *filename)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_node_redirection_page];
+   = &self_html->current_formatting_references[FR_format_node_redirection_page];
 
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
@@ -5575,9 +5622,10 @@ html_format_node_redirection_page (CONVERTER *self, const ELEMENT *element,
 static void
 format_simpletitle (CONVERTER *self, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   char *title_text;
   char *context_str;
-  enum command_id cmd = self->simpletitle_cmd;
+  enum command_id cmd = self_html->simpletitle_cmd;
 
   STRING_LIST *classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
@@ -5586,7 +5634,7 @@ format_simpletitle (CONVERTER *self, TEXT *result)
              builtin_command_name (cmd));
   title_text
     = html_convert_tree_new_formatting_context (self,
-        self->simpletitle_tree, context_str, 0, 0, 0, 0);
+        self_html->simpletitle_tree, context_str, 0, 0, 0, 0);
   free (context_str);
   format_heading_text (self, cmd, classes, title_text,
                                     0, 0, 0, 0, result);
@@ -5599,6 +5647,7 @@ static char *
 contents_inline_element (CONVERTER *self, const enum command_id cmd,
                          const ELEMENT *element)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   char *table_of_contents;
 
   if (self->conf->DEBUG.o.integer > 0)
@@ -5608,10 +5657,10 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
   if (table_of_contents && strlen (table_of_contents))
     {
       int j;
-      for (j = 0; self->command_special_variety_name_index[j].cmd; j++)
+      for (j = 0; self_html->command_special_variety_name_index[j].cmd; j++)
         {
           COMMAND_ID_INDEX cmd_variety_index
-                = self->command_special_variety_name_index[j];
+                = self_html->command_special_variety_name_index[j];
           if (cmd_variety_index.cmd == cmd)
             {
               const char *id;
@@ -5623,12 +5672,12 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
               char *attribute_class;
 
               const char *special_unit_variety
-                = self->special_unit_varieties.list[cmd_variety_index.index];
+                = self_html->special_unit_varieties.list[cmd_variety_index.index];
               int special_unit_direction_index
                     = html_special_unit_variety_direction_index (self,
                                                 special_unit_variety);
               const OUTPUT_UNIT *special_unit
-                = self->global_units_directions[special_unit_direction_index];
+                = self_html->global_units_directions[special_unit_direction_index];
               const ELEMENT *unit_command
                 = special_unit->uc.special_unit_command;
 
@@ -5721,8 +5770,9 @@ contents_shortcontents_in_title (CONVERTER *self, TEXT *result)
 void
 open_quotation_titlepage_stack (CONVERTER *self, int do_authors_list)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   ELEMENT_REFERENCE_STACK_STACK *stack
-    = &self->shared_conversion_state.elements_authors;
+    = &self_html->shared_conversion_state.elements_authors;
 
   if (stack->top >= stack->space)
     {
@@ -5746,6 +5796,7 @@ static const STRING_LIST maketitle_titlepage_classes
 void
 format_maketitle (CONVERTER *self, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   DOCUMENT_INFO *document_info = get_document_documentinfo (self->document);
 
   if (document_info)
@@ -5772,7 +5823,7 @@ format_maketitle (CONVERTER *self, TEXT *result)
       open_quotation_titlepage_stack (self, 0);
       html_convert_tree_append (self, e, result, "format maketitle");
       destroy_element (e);
-      self->shared_conversion_state.elements_authors.top--;
+      self_html->shared_conversion_state.elements_authors.top--;
 
       text_append_n (result, "</div>\n", 7);
 
@@ -5783,6 +5834,7 @@ format_maketitle (CONVERTER *self, TEXT *result)
 static char *
 html_default_format_titlepage (CONVERTER *self)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   int titlepage_text = 0;
   TEXT result;
   text_init (&result);
@@ -5796,14 +5848,14 @@ html_default_format_titlepage (CONVERTER *self)
       tmp->e.c->contents.list = 0;
       destroy_element (tmp);
       titlepage_text = 1;
-      self->shared_conversion_state.elements_authors.top--;
+      self_html->shared_conversion_state.elements_authors.top--;
     }
   else if (self->document->global_commands.maketitle)
     {
       format_maketitle (self, &result);
       titlepage_text = 1;
     }
-  else if (self->simpletitle_tree)
+  else if (self_html->simpletitle_tree)
     {
       format_simpletitle (self, &result);
       titlepage_text = 1;
@@ -5820,8 +5872,9 @@ html_default_format_titlepage (CONVERTER *self)
 static char *
 format_titlepage (CONVERTER *self)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_titlepage];
+   = &self_html->current_formatting_references[FR_format_titlepage];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -5837,6 +5890,7 @@ format_titlepage (CONVERTER *self)
 char *
 html_default_format_title_titlepage (CONVERTER *self)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   if (self->conf->SHOW_TITLE.o.integer > 0)
     {
       if (self->conf->USE_TITLEPAGE_FOR_TITLE.o.integer)
@@ -5849,7 +5903,7 @@ html_default_format_title_titlepage (CONVERTER *self)
           text_init (&result);
           text_append (&result, "");
 
-          if (self->simpletitle_tree)
+          if (self_html->simpletitle_tree)
             format_simpletitle (self, &result);
 
           contents_shortcontents_in_title (self, &result);
@@ -5862,8 +5916,9 @@ html_default_format_title_titlepage (CONVERTER *self)
 char *
 html_format_title_titlepage (CONVERTER *self)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_title_titlepage];
+   = &self_html->current_formatting_references[FR_format_title_titlepage];
   if (formatting_reference->status == FRS_status_default_set
       || formatting_reference->status == FRS_status_none)
     {
@@ -5944,6 +5999,8 @@ html_command_conversion_external (CONVERTER *self, const enum command_id cmd,
                                   const HTML_ARGS_FORMATTED *args_formatted,
                                   const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+
   /* C specific debug message */
   /*
   if (self->conf->DEBUG.o.integer > 0)
@@ -5952,7 +6009,7 @@ html_command_conversion_external (CONVERTER *self, const enum command_id cmd,
    */
 
   const FORMATTING_REFERENCE *formatting_reference
-    = self->current_commands_conversion_function[cmd].formatting_reference;
+    = self_html->current_commands_conversion_function[cmd].formatting_reference;
 
   /* NOTE it should always be true as in the main loop a formatting
      function is called only if command_conversion is set, which should
@@ -5969,6 +6026,7 @@ html_convert_no_arg_command (CONVERTER *self, const enum command_id cmd,
                              const HTML_ARGS_FORMATTED *args_formatted,
                              const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   enum command_id formatted_cmd = cmd;
   enum conversion_context context;
   const HTML_NO_ARG_COMMAND_CONVERSION *specification;
@@ -5987,7 +6045,7 @@ html_convert_no_arg_command (CONVERTER *self, const enum command_id cmd,
     }
 
   specification
-    = &self->html_no_arg_command_conversion[formatted_cmd]
+    = &self_html->html_no_arg_command_conversion[formatted_cmd]
            .context_formatting[context];
 
   text_element_conversion (self, specification, formatted_cmd, result);
@@ -6000,6 +6058,7 @@ html_css_string_convert_no_arg_command (CONVERTER *self,
                                 const HTML_ARGS_FORMATTED *args_formatted,
                                 const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   enum command_id formatted_cmd = cmd;
 
   if (html_in_upper_case (self)
@@ -6009,7 +6068,7 @@ html_css_string_convert_no_arg_command (CONVERTER *self,
     }
 
   text_append (result,
-    self->html_no_arg_command_conversion[formatted_cmd]
+    self_html->html_no_arg_command_conversion[formatted_cmd]
                          .context_formatting[HCC_type_css_string].text);
 }
 
@@ -6035,6 +6094,7 @@ html_convert_style_command (CONVERTER *self, const enum command_id cmd,
                             const HTML_ARGS_FORMATTED *args_formatted,
                             const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   enum command_id style_cmd = cmd;
   const HTML_STYLE_COMMAND_CONVERSION *formatting_spec;
 
@@ -6058,10 +6118,10 @@ html_convert_style_command (CONVERTER *self, const enum command_id cmd,
 
   if (html_in_preformatted_context (self))
     formatting_spec
-      = &self->html_style_command_conversion[style_cmd][HCC_type_preformatted];
+      = &self_html->html_style_command_conversion[style_cmd][HCC_type_preformatted];
   else
     formatting_spec
-      = &self->html_style_command_conversion[style_cmd][HCC_type_normal];
+      = &self_html->html_style_command_conversion[style_cmd][HCC_type_normal];
 
   if (formatting_spec->element)
     {
@@ -6231,6 +6291,7 @@ html_convert_explained_command (CONVERTER *self, const enum command_id cmd,
                                 const HTML_ARGS_FORMATTED *args_formatted,
                                 const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   TEXT explained_string;
   TEXT *text_result;
   const char *explained_arg = 0;
@@ -6238,7 +6299,7 @@ html_convert_explained_command (CONVERTER *self, const enum command_id cmd,
   const char *explanation_string = 0;
   const char *explanation_result = 0;
   EXPLAINED_COMMAND_TYPE_LIST *type_explanations
-    = &self->shared_conversion_state.explained_commands;
+    = &self_html->shared_conversion_state.explained_commands;
 
   if (element->e.c->contents.number > 0
       && element->e.c->contents.list[0]->e.c->contents.number > 0)
@@ -6375,6 +6436,7 @@ compare_footnote_id (const void *a, const void *b)
 FOOTNOTE_ID_NUMBER *
 find_footnote_id_number (const CONVERTER *self, const char *footnote_id)
 {
+  const HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const ELEMENT_LIST *global_footnotes
     = &self->document->global_commands.footnotes;
 
@@ -6390,7 +6452,7 @@ find_footnote_id_number (const CONVERTER *self, const char *footnote_id)
     }
 
   result = (FOOTNOTE_ID_NUMBER *) bsearch (&searched_footnote_id,
-                self->shared_conversion_state.footnote_id_numbers,
+                self_html->shared_conversion_state.footnote_id_numbers,
                 global_footnotes->number, sizeof (FOOTNOTE_ID_NUMBER),
                 compare_footnote_id);
   return result;
@@ -6402,6 +6464,7 @@ html_convert_footnote_command (CONVERTER *self, const enum command_id cmd,
                                const HTML_ARGS_FORMATTED *args_formatted,
                                const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   static const char *target_prefix = "t_f";
   char *footnote_mark;
   const char *footnote_id;
@@ -6415,8 +6478,8 @@ html_convert_footnote_command (CONVERTER *self, const enum command_id cmd,
   char *attribute_class;
   STRING_LIST *classes;
 
-  self->shared_conversion_state.footnote_number++;
-  foot_num = self->shared_conversion_state.footnote_number;
+  self_html->shared_conversion_state.footnote_number++;
+  foot_num = self_html->shared_conversion_state.footnote_number;
 
   if (self->conf->NUMBER_FOOTNOTES.o.integer > 0)
     xasprintf (&footnote_mark, "%d", foot_num);
@@ -6496,7 +6559,7 @@ html_convert_footnote_command (CONVERTER *self, const enum command_id cmd,
     footnote_href = html_command_href (self, element, 0, 0, footid);
 
   html_register_footnote (self, element, footid, docid, foot_num,
-                          self->current_filename.filename,
+                          self_html->current_filename.filename,
                           multi_expanded_region);
 
   classes = new_string_list ();
@@ -6883,6 +6946,7 @@ html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
                          const ELEMENT *element, int set_case,
                          int use_numeric_entities)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   char *text_set = set_case_if_only_word_characters (text, set_case);
 
   /* do not return a dotless i or j as such if it is further composed
@@ -6919,14 +6983,14 @@ html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
     {
       char *formatted_accent;
       if (strlen (text_set) == 1 && isascii_alpha (*text_set)
-          && self->accent_entities[element->e.c->cmd].entity
-          && self->accent_entities[element->e.c->cmd].characters
-          && strlen (self->accent_entities[element->e.c->cmd].characters)
-          && strrchr (self->accent_entities[element->e.c->cmd].characters,
+          && self_html->accent_entities[element->e.c->cmd].entity
+          && self_html->accent_entities[element->e.c->cmd].characters
+          && strlen (self_html->accent_entities[element->e.c->cmd].characters)
+          && strrchr (self_html->accent_entities[element->e.c->cmd].characters,
                        *text_set))
         {
           xasprintf (&formatted_accent, "&%s%s;", text_set,
-                     self->accent_entities[element->e.c->cmd].entity);
+                     self_html->accent_entities[element->e.c->cmd].entity);
           free (text_set);
           return formatted_accent;
         }
@@ -7330,6 +7394,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
                               const HTML_ARGS_FORMATTED *args_formatted,
                               const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const char *element_id;
   const OUTPUT_UNIT *output_unit = 0;
   TEXT element_header;
@@ -7509,7 +7574,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
       && builtin_command_data[cmd].flags & CF_root)
     {
       int in_skipped_node_top
-        = self->shared_conversion_state.in_skipped_node_top;
+        = self_html->shared_conversion_state.in_skipped_node_top;
 
       if (in_skipped_node_top == 1)
         {
@@ -7615,7 +7680,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
         level = section_level (opening_section);
 
       closed_strings = html_close_registered_sections_level (self,
-                                 self->current_filename.file_number, level);
+                                 self_html->current_filename.file_number, level);
 
       if (closed_strings->number)
         {
@@ -7630,7 +7695,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
       free (closed_strings);
 
       html_register_opened_section_level (self,
-                        self->current_filename.file_number, level, "</div>\n");
+                        self_html->current_filename.file_number, level, "</div>\n");
 
     /* use a specific class name to mark that this is the start of
        the section extent. It is not necessary where the section is. */
@@ -7801,6 +7866,7 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
                            const HTML_ARGS_FORMATTED *args_formatted,
                            const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   char *name = 0;
   HTML_ARG_FORMATTED *file_arg = 0;
   char *file = 0;
@@ -7916,7 +7982,7 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
            target at the same time, which is not possible.
          */
              && !command_is_in_referred_command_stack (
-                   &self->referred_command_stack, associated_title_command, 0))
+                   &self_html->referred_command_stack, associated_title_command, 0))
             {
               if (html_in_string (self))
                 name = html_command_text (self, associated_title_command,
@@ -7954,7 +8020,7 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
            USE_NODES=0 and node referring to the section and section referring
            to the node */
                    && !command_is_in_referred_command_stack (
-                         &self->referred_command_stack, target_root, 0))
+                         &self_html->referred_command_stack, target_root, 0))
             {
               if (self->conf->xrefautomaticsectiontitle.o.string
            && !strcmp (self->conf->xrefautomaticsectiontitle.o.string, "on"))
@@ -8345,6 +8411,7 @@ indent_with_table (CONVERTER *self, const enum command_id cmd,
                    const char *content, const STRING_LIST *extra_classes,
                    TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   char *attribute_class;
 
   STRING_LIST *classes = new_string_list ();
@@ -8357,8 +8424,8 @@ indent_with_table (CONVERTER *self, const enum command_id cmd,
   text_append (result, attribute_class);
   text_append_n (result, "><tr><td>", 9);
   text_append_n (result,
-                self->special_character[SC_non_breaking_space].string,
-                self->special_character[SC_non_breaking_space].len);
+                self_html->special_character[SC_non_breaking_space].string,
+                self_html->special_character[SC_non_breaking_space].len);
   text_append_n (result, "</td><td>", 9);
   text_append (result, content);
   text_append_n (result, "</td></tr></table>\n", 19);
@@ -8619,6 +8686,7 @@ html_convert_menu_command (CONVERTER *self, const enum command_id cmd,
                            const HTML_ARGS_FORMATTED *args_formatted,
                            const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   char *attribute_class;
   STRING_LIST *classes;
 
@@ -8629,7 +8697,7 @@ html_convert_menu_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  self->shared_conversion_state.html_menu_entry_index = 0;
+  self_html->shared_conversion_state.html_menu_entry_index = 0;
 
   if (!content || content[strspn (content, whitespace_chars)] == '\0')
     return;
@@ -8835,8 +8903,9 @@ html_convert_quotation_command (CONVERTER *self, const enum command_id cmd,
                                 const HTML_ARGS_FORMATTED *args_formatted,
                                 const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   ELEMENT_REFERENCE_STACK_STACK *elements_authors
-    = &self->shared_conversion_state.elements_authors;
+    = &self_html->shared_conversion_state.elements_authors;
 
   char *cancelled = html_cancel_pending_formatted_inline_content (self,
                                             builtin_command_name (cmd));
@@ -8986,15 +9055,16 @@ char *
 html_convert_css_string_for_list_mark (CONVERTER *self, const ELEMENT *element,
                                        const char *explanation)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   char *result;
   int i;
   for (i = 0; special_list_mark_css_string_no_arg_command[i].cmd > 0; i++)
     {
       enum command_id cmd = special_list_mark_css_string_no_arg_command[i].cmd;
       special_list_mark_css_string_no_arg_command[i].saved
-        = self->html_no_arg_command_conversion[cmd]
+        = self_html->html_no_arg_command_conversion[cmd]
               .context_formatting[HCC_type_css_string].text;
-      self->html_no_arg_command_conversion[cmd]
+      self_html->html_no_arg_command_conversion[cmd]
                      .context_formatting[HCC_type_css_string].text
         = special_list_mark_css_string_no_arg_command[i].string;
     }
@@ -9004,7 +9074,7 @@ html_convert_css_string_for_list_mark (CONVERTER *self, const ELEMENT *element,
   for (i = 0; special_list_mark_css_string_no_arg_command[i].cmd > 0; i++)
     {
       enum command_id cmd = special_list_mark_css_string_no_arg_command[i].cmd;
-      self->html_no_arg_command_conversion[cmd]
+      self_html->html_no_arg_command_conversion[cmd]
                   .context_formatting[HCC_type_css_string].text
         = special_list_mark_css_string_no_arg_command[i].saved;
       special_list_mark_css_string_no_arg_command[i].saved = 0;
@@ -9019,6 +9089,7 @@ html_convert_itemize_command (CONVERTER *self, const enum command_id cmd,
                               const HTML_ARGS_FORMATTED *args_formatted,
                               const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const char *mark_class_name = 0;
   STRING_LIST *classes;
   char *attribute_class;
@@ -9064,7 +9135,7 @@ html_convert_itemize_command (CONVERTER *self, const enum command_id cmd,
       xasprintf (&mark_class, "mark-%s", mark_class_name);
       xasprintf (&ul_mark_selector, "ul.%s", mark_class);
 
-      selector_style = find_css_selector_style (&self->css_element_class_styles,
+      selector_style = find_css_selector_style (&self_html->css_element_class_styles,
                                                 ul_mark_selector);
       free (ul_mark_selector);
       if (selector_style && selector_style->style)
@@ -9277,6 +9348,7 @@ html_convert_sp_command (CONVERTER *self, const enum command_id cmd,
                          const HTML_ARGS_FORMATTED *args_formatted,
                          const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const STRING_LIST *misc_args = lookup_extra_string_list (element,
                                                 AI_key_misc_args);
   unsigned int sp_nr = 1;
@@ -9297,8 +9369,8 @@ html_convert_sp_command (CONVERTER *self, const enum command_id cmd,
     {
       for (i = 0; i < sp_nr; i++)
         {
-          text_append_n (result, self->line_break_element.string,
-                                 self->line_break_element.len);
+          text_append_n (result, self_html->line_break_element.string,
+                                 self_html->line_break_element.len);
          text_append_n (result, "\n", 1);
         }
     }
@@ -9406,13 +9478,14 @@ html_convert_author_command (CONVERTER *self, const enum command_id cmd,
                              const HTML_ARGS_FORMATTED *args_formatted,
                              const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const char *arg = 0;
   char *attribute_class;
   STRING_LIST *classes;
   ELEMENT_REFERENCE_STACK *authors_list;
 
   ELEMENT_REFERENCE_STACK_STACK *elements_authors
-    = &self->shared_conversion_state.elements_authors;
+    = &self_html->shared_conversion_state.elements_authors;
 
   if (elements_authors->top == 0)
     return;
@@ -9443,8 +9516,8 @@ html_convert_author_command (CONVERTER *self, const enum command_id cmd,
       text_append_n (result, ">", 1);
       text_append (result, arg);
       text_append_n (result, "</strong>", 9);
-      text_append_n (result, self->line_break_element.string,
-                             self->line_break_element.len);
+      text_append_n (result, self_html->line_break_element.string,
+                             self_html->line_break_element.len);
       text_append_n (result, "\n", 1);
 
       free (attribute_class);
@@ -9542,6 +9615,7 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
                            const HTML_ARGS_FORMATTED *args_formatted,
                            const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   if (html_in_string (self))
     {
       if (content)
@@ -9653,10 +9727,9 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
     }
   else if (element->e.c->parent->type == ET_row)
     {
-      conversion_function_cmd_conversion (self,
-                  &self->current_commands_conversion_function[CM_tab],
-                   cmd, element, args_formatted,
-                    content, result);
+      conversion_function_cmd_conversion
+        (self, &self_html->current_commands_conversion_function[CM_tab],
+         cmd, element, args_formatted, content, result);
     }
 }
 
@@ -9770,7 +9843,8 @@ html_convert_maketitle_command (CONVERTER *self, const enum command_id cmd,
                                     const HTML_ARGS_FORMATTED *args_formatted,
                                     const char *content, TEXT *result)
 {
-  text_append (result, self->title_titlepage);
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  text_append (result, self_html->title_titlepage);
 }
 
 static char *caption_in_listoffloats_array[] = {"caption-in-listoffloats"};
@@ -9787,6 +9861,7 @@ html_convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
                                    const HTML_ARGS_FORMATTED *args_formatted,
                                    const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const LISTOFFLOATS_TYPE_LIST *listoffloats;
   const char *listoffloats_name;
   size_t i;
@@ -9816,7 +9891,7 @@ html_convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
             return;
 
           formatted_listoffloats_nr
-            = &self->shared_conversion_state.formatted_listoffloats_nr[i];
+            = &self_html->shared_conversion_state.formatted_listoffloats_nr[i];
           (*formatted_listoffloats_nr)++;
           if (*formatted_listoffloats_nr > 1)
             xasprintf (&multiple_pass_str, "listoffloats-%d",
@@ -9938,6 +10013,7 @@ printindex_letters_head_foot_internal (CONVERTER *self, const char *index_name,
                            const char *alpha_text,
                            const char *non_alpha_text, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   char *index_name_cmd_class;
   char *generic_cmd_class;
   char *attribute_class;
@@ -9961,8 +10037,8 @@ printindex_letters_head_foot_internal (CONVERTER *self, const char *index_name,
                                       letters_header_explanation);
   text_append_n (result, ": ", 2);
   text_append_n (result,
-                 self->special_character[SC_non_breaking_space].string,
-                 self->special_character[SC_non_breaking_space].len);
+                 self_html->special_character[SC_non_breaking_space].string,
+                 self_html->special_character[SC_non_breaking_space].len);
   text_append_n (result, " </th><td>", 10);
   if (non_alpha_text)
     text_append (result, non_alpha_text);
@@ -9970,12 +10046,12 @@ printindex_letters_head_foot_internal (CONVERTER *self, const char *index_name,
     {
       text_append_n (result, " ", 1);
       text_append_n (result,
-                     self->special_character[SC_non_breaking_space].string,
-                     self->special_character[SC_non_breaking_space].len);
+                     self_html->special_character[SC_non_breaking_space].string,
+                     self_html->special_character[SC_non_breaking_space].len);
       text_append_n (result, " \n", 2);
       text_append_n (result,
-                     self->line_break_element.string,
-                     self->line_break_element.len);
+                     self_html->line_break_element.string,
+                     self_html->line_break_element.len);
       text_append_n (result, "\n", 1);
     }
   if (alpha_text)
@@ -10032,6 +10108,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                                  const HTML_ARGS_FORMATTED *args_formatted,
                                  const char *content, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const STRING_LIST *misc_args;
   const char *index_name;
   const INDEX_SORTED_BY_LETTER *idx;
@@ -10090,10 +10167,10 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
   memset (&subentries_list, 0, sizeof (CONST_ELEMENT_LIST));
 
-  if (self->current_output_unit
-      && self->current_output_unit->uc.unit_command)
+  if (self_html->current_output_unit
+      && self_html->current_output_unit->uc.unit_command)
     index_element_id
-      = html_command_id (self, self->current_output_unit->uc.unit_command);
+      = html_command_id (self, self_html->current_output_unit->uc.unit_command);
 
   if (!index_element_id)
     {
@@ -10237,16 +10314,16 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
             = converter_index_content_element (main_entry_element, self, 0);
 
           entry_index_nr
-             = index_number_index_by_name (&self->sorted_index_names,
+             = index_number_index_by_name (&self_html->sorted_index_names,
                                            index_entry_ref->index_name);
-          entry_index = self->sorted_index_names.list[entry_index_nr-1];
+          entry_index = self_html->sorted_index_names.list[entry_index_nr-1];
 
  /* to avoid double error messages, call
     html_convert_tree_new_formatting_context
     below with a multiple_pass argument if an entry was already formatted once,
     for example if there are multiple printindex. */
           formatted_index_entry_nr
-            = &self->shared_conversion_state
+            = &self_html->shared_conversion_state
                .formatted_index_entries[entry_index_nr -1][entry_number -1];
           (*formatted_index_entry_nr)++;
 
@@ -10734,7 +10811,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                       if (!associated_command)
                         {
                           associated_command
-                     = self->global_units_directions[D_Top]->uc.unit_command;
+                     = self_html->global_units_directions[D_Top]->uc.unit_command;
 
          /* NOTE the warning here catches the most relevant cases of
             index entry that is not associated to the right command, which
@@ -11005,8 +11082,8 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                 {
                   text_append_n (&entries_text, "\n ", 2);
                   text_append_n (&entries_text,
-                        self->special_character[SC_non_breaking_space].string,
-                        self->special_character[SC_non_breaking_space].len);
+                        self_html->special_character[SC_non_breaking_space].string,
+                        self_html->special_character[SC_non_breaking_space].len);
                   text_append_n (&entries_text, " \n", 2);
                   text_append (&entries_text, non_alpha[i]);
                 }
@@ -11022,8 +11099,8 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
               text_append (&entries_text, alpha[i]);
               text_append_n (&entries_text, "\n ", 2);
               text_append_n (&entries_text,
-                 self->special_character[SC_non_breaking_space].string,
-                 self->special_character[SC_non_breaking_space].len);
+                 self_html->special_character[SC_non_breaking_space].string,
+                 self_html->special_character[SC_non_breaking_space].len);
               text_append_n (&entries_text, " \n", 2);
             }
           alpha_text = strdup (entries_text.text);
@@ -11241,7 +11318,8 @@ void
 html_command_open_external (CONVERTER *self, const enum command_id cmd,
                             const ELEMENT *element, TEXT *result)
 {
-  if (self->commands_open[cmd].status > 0)
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  if (self_html->commands_open[cmd].status > 0)
     call_commands_open (self, cmd, element, result);
 }
 
@@ -11249,11 +11327,12 @@ void
 html_open_node_part_command (CONVERTER *self, const enum command_id cmd,
                         const ELEMENT *element, TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   if (self->conf->NO_TOP_NODE_OUTPUT.o.integer > 0)
     {
       const ELEMENT *node_element = 0;
       int in_skipped_node_top
-        = self->shared_conversion_state.in_skipped_node_top;
+        = self_html->shared_conversion_state.in_skipped_node_top;
 
       if (cmd == CM_node)
         node_element = element;
@@ -11280,14 +11359,14 @@ html_open_node_part_command (CONVERTER *self, const enum command_id cmd,
                 {
                   node_is_top = 1;
                   in_skipped_node_top = 1;
-                  self->shared_conversion_state.in_skipped_node_top
+                  self_html->shared_conversion_state.in_skipped_node_top
                     = in_skipped_node_top;
                 }
             }
           if (!node_is_top && in_skipped_node_top == 1)
             {
               in_skipped_node_top = -1;
-              self->shared_conversion_state.in_skipped_node_top
+              self_html->shared_conversion_state.in_skipped_node_top
                 = in_skipped_node_top;
             }
         }
@@ -11340,8 +11419,9 @@ html_type_conversion_external (CONVERTER *self, const enum element_type type,
                                const ELEMENT *element, const char *content,
                                TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
-    = self->current_types_conversion_function[type].formatting_reference;
+    = self_html->current_types_conversion_function[type].formatting_reference;
   /* NOTE it should always be true, as in the main loop a formatting
      function is called only if type_conversion is set, which should not
      be if formatting_reference status is 0 */
@@ -11355,6 +11435,7 @@ html_convert_text (CONVERTER *self, const enum element_type type,
                    const ELEMENT *element, const char *content,
                    TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   char *content_used;
   int contents_used_to_be_freed = 0;
 
@@ -11579,6 +11660,7 @@ html_convert_paragraph_type (CONVERTER *self, const enum element_type type,
 static char *
 preformatted_class (const CONVERTER *self)
 {
+  const HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const COMMAND_OR_TYPE *cur_pre_class = 0;
   const COMMAND_OR_TYPE_STACK *pre_classes
         = html_preformatted_classes_stack (self);
@@ -11608,7 +11690,7 @@ preformatted_class (const CONVERTER *self)
 
         {
           xasprintf (&pre_class, "%s-preformatted",
-                     self->pre_class_types[cur_pre_class->ct.type]);
+                     self_html->pre_class_types[cur_pre_class->ct.type]);
         }
       if (pre_class)
         return pre_class;
@@ -11881,6 +11963,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                               const ELEMENT *element, const char *content,
                               TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const ELEMENT *name_entry = 0;
   const ELEMENT *menu_description = 0;
   ELEMENT *menu_entry_node = 0;
@@ -11997,8 +12080,8 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
             }
         }
     }
-  self->shared_conversion_state.html_menu_entry_index++;
-  html_menu_entry_index = self->shared_conversion_state.html_menu_entry_index;
+  self_html->shared_conversion_state.html_menu_entry_index++;
+  html_menu_entry_index = self_html->shared_conversion_state.html_menu_entry_index;
 
   if (html_inside_preformatted (self) || in_string)
     {
@@ -12380,6 +12463,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
                             const ELEMENT *element, const char *content,
                             TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   const char *index_id;
   PARSED_DEF *parsed_def;
   STRING_LIST *classes;
@@ -12502,8 +12586,8 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
           && self->conf->deftypefnnewline.o.string
           && !strcmp (self->conf->deftypefnnewline.o.string, "on"))
         {
-          text_append_n (&def_call, self->line_break_element.string,
-                                    self->line_break_element.len);
+          text_append_n (&def_call, self_html->line_break_element.string,
+                                    self_html->line_break_element.len);
           text_append_n (&def_call, " ", 1);
         }
       else if (type_text_len > 0)
@@ -12798,7 +12882,8 @@ void
 html_type_open_external (CONVERTER *self, enum element_type type,
                          const ELEMENT *element, TEXT *result)
 {
-  if (self->types_open[type].status > 0)
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  if (self_html->types_open[type].status > 0)
     call_types_open (self, type, element, result);
 }
 
@@ -12825,7 +12910,8 @@ html_output_unit_conversion_external (CONVERTER *self,
                          const OUTPUT_UNIT *output_unit, const char *content,
                          TEXT *result)
 {
-  if (self->output_units_conversion[unit_type].status > 0)
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  if (self_html->output_units_conversion[unit_type].status > 0)
     call_output_units_conversion (self, unit_type, output_unit, content,
                                   result);
 }
@@ -12835,6 +12921,7 @@ html_convert_unit_type (CONVERTER *self, const enum output_unit_type unit_type,
                         const OUTPUT_UNIT *output_unit, const char *content,
                         TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   STRING_LIST *closed_strings;
   const ELEMENT *unit_command;
 
@@ -12844,7 +12931,7 @@ html_convert_unit_type (CONVERTER *self, const enum output_unit_type unit_type,
   if (!output_unit->tree_unit_directions[D_prev])
     {
       if (!self->document->global_commands.maketitle)
-        text_append (result, self->title_titlepage);
+        text_append (result, self_html->title_titlepage);
       if (!output_unit->tree_unit_directions[D_next])
         {
           /* only one unit, use simplified formatting */
@@ -12864,7 +12951,7 @@ html_convert_unit_type (CONVERTER *self, const enum output_unit_type unit_type,
     /* do it here, as it is won't be done at end of page in
        format_element_footer */
           closed_strings = html_close_registered_sections_level (self,
-                                   self->current_filename.file_number, 0);
+                                   self_html->current_filename.file_number, 0);
 
           if (closed_strings->number)
             {
@@ -12897,6 +12984,7 @@ html_convert_special_unit_type (CONVERTER *self,
                                 const char *content,
                                 TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   char *heading;
   size_t number;
   TEXT special_unit_body;
@@ -12916,11 +13004,11 @@ html_convert_special_unit_type (CONVERTER *self,
     return;
 
   special_unit_variety = output_unit->special_unit_variety;
-  number = find_string (&self->special_unit_varieties,
+  number = find_string (&self_html->special_unit_varieties,
                         special_unit_variety);
 
   closed_strings = html_close_registered_sections_level (self,
-                                self->current_filename.file_number, 0);
+                                self_html->current_filename.file_number, 0);
 
   if (closed_strings->number)
     {
@@ -12937,7 +13025,7 @@ html_convert_special_unit_type (CONVERTER *self,
   text_init (&special_unit_body);
   text_append (&special_unit_body, "");
 
-  (*self->special_unit_body_formatting[number -1].special_unit_body_formatting)
+  (*self_html->special_unit_body_formatting[number -1].special_unit_body_formatting)
          (self, number, special_unit_variety, output_unit, &special_unit_body);
 
   /* This may happen with footnotes in regions that are not expanded,
@@ -12970,7 +13058,7 @@ html_convert_special_unit_type (CONVERTER *self,
 
   if (output_unit->unit_filename)
     {
-      size_t file_index = self->special_unit_file_indices[output_unit->index];
+      size_t file_index = self_html->special_unit_file_indices[output_unit->index];
       count_in_file
         = count_elements_in_file_number (self, CEFT_current, file_index +1);
     }
@@ -13017,7 +13105,8 @@ html_special_unit_body_formatting_external (CONVERTER *self,
                                     const OUTPUT_UNIT *output_unit,
                                     TEXT *result)
 {
-  if (self->special_unit_body[special_unit_number -1].status > 0)
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  if (self_html->special_unit_body[special_unit_number -1].status > 0)
     call_special_unit_body_formatting (self, special_unit_number,
                                        special_unit_variety,
                                        output_unit, result);
@@ -13085,6 +13174,7 @@ html_default_format_special_body_about (CONVERTER *self,
                                         const OUTPUT_UNIT *output_unit,
                                         TEXT *result)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   size_t i;
   const BUTTON_SPECIFICATION_LIST *buttons
            = self->conf->SECTION_BUTTONS.o.buttons;
@@ -13160,14 +13250,14 @@ html_default_format_special_body_about (CONVERTER *self,
 
       if (button->type == BST_direction)
         {
-          if (self->html_active_icons
-              && self->html_active_icons[direction])
+          if (self_html->html_active_icons
+              && self_html->html_active_icons[direction])
             {
               const char *button_name_string
                    = html_direction_string (self, direction,
                                        TDS_type_button, TDS_context_string);
               char *button = format_button_icon_img (self, button_name_string,
-                                        self->html_active_icons[direction], 0);
+                                        self_html->html_active_icons[direction], 0);
               text_append (result, button);
               free (button);
             }
@@ -13236,12 +13326,12 @@ html_default_format_special_body_about (CONVERTER *self,
                                       self, 0, 0, result, "ABOUT");
   text_append_n (result, " ", 1);
   text_append_n (result,
-                self->special_character[SC_non_breaking_space].string,
-                self->special_character[SC_non_breaking_space].len);
+                self_html->special_character[SC_non_breaking_space].string,
+                self_html->special_character[SC_non_breaking_space].len);
   text_append_n (result, " ", 1);
   text_append_n (result,
-                self->special_character[SC_non_breaking_space].string,
-                self->special_character[SC_non_breaking_space].len);
+                self_html->special_character[SC_non_breaking_space].string,
+                self_html->special_character[SC_non_breaking_space].len);
   text_append_n (result, "\n", 1);
 
   text_append (result, "            <strong>&lt;== ");
@@ -13275,9 +13365,10 @@ static const enum command_id label_cmd_types_ids[] = {
 char *
 html_output_internal_links (CONVERTER *self)
 {
+  HTML_CONVERTER_STATE *self_html = &self->html_converter;
   TEXT out_string;
   size_t document_units_descriptor
-    = self->output_units_descriptors[OUDT_units];
+    = self_html->output_units_descriptors[OUDT_units];
   const OUTPUT_UNIT_LIST *output_units;
   char *language;
   INDEX_SORTED_BY_LETTER *index_entries_by_letter
@@ -13450,9 +13541,9 @@ html_output_internal_links (CONVERTER *self)
   if (index_entries_by_letter)
     {
       size_t i;
-      for (i = 0; i < self->sorted_index_names.number; i++)
+      for (i = 0; i < self_html->sorted_index_names.number; i++)
         {
-          const INDEX *current_index = self->sorted_index_names.list[i];
+          const INDEX *current_index = self_html->sorted_index_names.list[i];
           const INDEX_SORTED_BY_LETTER *index_sorted;
           int found = 0;
           size_t l;
@@ -13514,9 +13605,9 @@ html_output_internal_links (CONVERTER *self)
                                                        self, 0);
 
                   entry_index_nr
-                    = index_number_index_by_name (&self->sorted_index_names,
+                    = index_number_index_by_name (&self_html->sorted_index_names,
                                                   index_entry_ref->index_name);
-                  entry_index = self->sorted_index_names.list[entry_index_nr-1];
+                  entry_index = self_html->sorted_index_names.list[entry_index_nr-1];
                   in_code = entry_index->in_code;
                   if (in_code)
                     self->convert_text_options->code_state++;

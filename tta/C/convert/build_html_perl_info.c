@@ -118,6 +118,7 @@ html_pass_htmlxref (HTMLXREF_MANUAL_LIST *htmlxref_list, SV *converter_sv)
 SV *
 build_no_arg_commands_formatting (const CONVERTER *converter)
 {
+  const HTML_CONVERTER_STATE *self_html = &converter->html_converter;
   HV *no_arg_commands_formatting_hv;
   size_t i;
 
@@ -131,7 +132,7 @@ build_no_arg_commands_formatting (const CONVERTER *converter)
       enum conversion_context cctx;
       const char *command_name = builtin_command_name (cmd);
       const HTML_NO_ARG_COMMAND_FORMATTING *no_arg_formatting
-        = &converter->html_no_arg_command_conversion[cmd];
+        = &self_html->html_no_arg_command_conversion[cmd];
 
       HV *context_hv = newHV ();
       hv_store (no_arg_commands_formatting_hv, command_name,
@@ -196,6 +197,7 @@ void
 html_pass_conversion_initialization (CONVERTER *converter,
                                      SV *converter_sv)
 {
+  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
   HV *converter_hv;
   HV *converter_info_hv;
   HV *translation_cache_hv;
@@ -221,7 +223,7 @@ html_pass_conversion_initialization (CONVERTER *converter,
       converter_info_hv = (HV *) SvRV (*converter_info_sv);
       hv_clear (converter_info_hv);
 
-      if (converter_info_hv != converter->pl_info_hv)
+      if (converter_info_hv != self_html->pl_info_hv)
         fprintf (stderr, "REMARK: Perl and C stored converter_info differ\n");
     }
   else
@@ -231,7 +233,7 @@ html_pass_conversion_initialization (CONVERTER *converter,
       STORE("converter_info", newRV_noinc ((SV *)converter_info_hv));
       /* store in C to be sure that the caching is in the same Perl object
         even if the Perl data changes */
-      converter->pl_info_hv = converter_info_hv;
+      self_html->pl_info_hv = converter_info_hv;
       SvREFCNT_inc (converter_info_hv);
     }
 
@@ -241,7 +243,7 @@ html_pass_conversion_initialization (CONVERTER *converter,
 
   /* Conversion to LaTeX is in Perl */
   if (converter->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
-    converter->external_references_number++;
+    self_html->external_references_number++;
 
   if (converter->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
     {
@@ -252,7 +254,7 @@ html_pass_conversion_initialization (CONVERTER *converter,
                 newRV_noinc ((SV *)options_latex_math_hv), 0);
     }
 
-  if (converter->external_references_number > 0)
+  if (self_html->external_references_number > 0)
     {
       html_pass_converter_initialization_state (converter, converter_hv);
     }
@@ -262,13 +264,14 @@ void
 html_pass_converter_setup_state (const CONVERTER *converter,
                                  SV *converter_sv)
 {
+  const HTML_CONVERTER_STATE *self_html = &converter->html_converter;
   HV *converter_hv;
 
   dTHX;
 
   converter_hv = (HV *) SvRV (converter_sv);
 
-  if (converter->use_unicode_text)
+  if (self_html->use_unicode_text)
     STORE("use_unicode_text", newSViv (1));
 #undef STORE
 }
@@ -327,11 +330,12 @@ build_html_files_source_info (const FILE_SOURCE_INFO_LIST *files_source_info)
 void
 set_document_units_handle (CONVERTER *converter, SV *converter_sv)
 {
+  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
   dTHX;
 
   HV *converter_hv = (HV *) SvRV (converter_sv);
   SV *units_array_sv = setup_output_units_handler (converter->document,
-                           converter->output_units_descriptors[OUDT_units]);
+                           self_html->output_units_descriptors[OUDT_units]);
   hv_store (converter_hv, "document_units", strlen ("document_units"),
             units_array_sv, 0);
 }
@@ -434,13 +438,14 @@ void
 build_simpletitle (const CONVERTER *converter, HV *converter_info_hv)
 {
   dTHX;
+  const HTML_CONVERTER_STATE *self_html = &converter->html_converter;
 
   hv_store (converter_info_hv, "simpletitle_tree",
             strlen ("simpletitle_tree"),
-            newSVsv ((SV *) converter->simpletitle_tree->sv), 0);
+            newSVsv ((SV *) self_html->simpletitle_tree->sv), 0);
   hv_store (converter_info_hv, "simpletitle_command_name",
             strlen ("simpletitle_command_name"),
-            newSVpv (builtin_command_name (converter->simpletitle_cmd), 0), 0);
+            newSVpv (builtin_command_name (self_html->simpletitle_cmd), 0), 0);
 }
 
 void
@@ -494,10 +499,12 @@ pass_sv_converter_info (const CONVERTER *converter,
 
   dTHX;
 
+  const HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+
   converter_hv = (HV *) SvRV (converter_sv);
   /* do not find the cache in Perl data but in C to be more robust to
      changes in Perl objects */
-  converter_info_hv = converter->pl_info_hv;
+  converter_info_hv = self_html->pl_info_hv;
 
   /* The information is cached in the same place as in Perl code.
      Either Perl code or XS/C code is used, so this is for consistency
@@ -515,13 +522,13 @@ pass_sv_converter_info (const CONVERTER *converter,
      each defined information */
   if (!strcmp (converter_info, "non_breaking_space"))
     new_sv
-   = newSVpv_utf8 (converter->special_character[SC_non_breaking_space].string, 0);
+   = newSVpv_utf8 (self_html->special_character[SC_non_breaking_space].string, 0);
   else if (!strcmp (converter_info, "paragraph_symbol"))
     new_sv
-   = newSVpv_utf8 (converter->special_character[SC_paragraph_symbol].string, 0);
+   = newSVpv_utf8 (self_html->special_character[SC_paragraph_symbol].string, 0);
   else if (!strcmp (converter_info, "line_break_element"))
     new_sv
-   = newSVpv_utf8 (converter->line_break_element.string, 0);
+   = newSVpv_utf8 (self_html->line_break_element.string, 0);
   else if (!strcmp (converter_info, "document"))
     {
       SV **document_sv = hv_fetch (converter_hv, "document",
@@ -533,13 +540,13 @@ pass_sv_converter_info (const CONVERTER *converter,
     }
   else if (!strcmp (converter_info, "document_name"))
     {
-      if (converter->document_name)
-        new_sv = newSVpv_utf8 (converter->document_name, 0);
+      if (self_html->document_name)
+        new_sv = newSVpv_utf8 (self_html->document_name, 0);
     }
   else if (!strcmp (converter_info, "destination_directory"))
     {
-      if (converter->destination_directory)
-        new_sv = newSVpv_utf8 (converter->destination_directory, 0);
+      if (self_html->destination_directory)
+        new_sv = newSVpv_utf8 (self_html->destination_directory, 0);
     }
   else if (!strcmp (converter_info, "expanded_formats"))
     {
@@ -555,7 +562,7 @@ pass_sv_converter_info (const CONVERTER *converter,
     }
   else if (!strcmp (converter_info, "jslicenses"))
     {
-      pass_jslicenses (&converter->jslicenses, converter_info_hv);
+      pass_jslicenses (&self_html->jslicenses, converter_info_hv);
       info_sv = hv_fetch (converter_info_hv, converter_info,
                           strlen (converter_info), 0);
       /* probably always true */
@@ -566,43 +573,43 @@ pass_sv_converter_info (const CONVERTER *converter,
     }
   else if (!strcmp (converter_info, "copying_comment"))
     {
-      if (converter->copying_comment)
-        new_sv = newSVpv_utf8 (converter->copying_comment, 0);
+      if (self_html->copying_comment)
+        new_sv = newSVpv_utf8 (self_html->copying_comment, 0);
     }
   else if (!strcmp (converter_info, "documentdescription_string"))
     {
-      if (converter->documentdescription_string)
-        new_sv = newSVpv_utf8 (converter->documentdescription_string, 0);
+      if (self_html->documentdescription_string)
+        new_sv = newSVpv_utf8 (self_html->documentdescription_string, 0);
     }
   else if (!strcmp (converter_info, "documentinfo_metadata"))
     {
-      if (converter->documentinfo_metadata)
-        new_sv = newSVpv_utf8 (converter->documentinfo_metadata, 0);
+      if (self_html->documentinfo_metadata)
+        new_sv = newSVpv_utf8 (self_html->documentinfo_metadata, 0);
     }
   else if (!strcmp (converter_info, "date_in_header"))
     {
-      if (converter->date_in_header)
-        new_sv = newSVpv_utf8 (converter->date_in_header, 0);
+      if (self_html->date_in_header)
+        new_sv = newSVpv_utf8 (self_html->date_in_header, 0);
     }
   else if (!strcmp (converter_info, "title_titlepage"))
     {
-      if (converter->title_titlepage)
-        new_sv = newSVpv_utf8 (converter->title_titlepage, 0);
+      if (self_html->title_titlepage)
+        new_sv = newSVpv_utf8 (self_html->title_titlepage, 0);
     }
   else if (!strcmp (converter_info, "title_string"))
     {
-      new_sv = newSVpv_utf8 (converter->title_string, 0);
+      new_sv = newSVpv_utf8 (self_html->title_string, 0);
     }
   else if (!strcmp (converter_info, "title_tree"))
     {
-      if (converter->added_title_tree)
-        build_texinfo_tree (converter->title_tree, 1);
-      new_sv = newSVsv ((SV *) converter->title_tree->sv);
+      if (self_html->added_title_tree)
+        build_texinfo_tree (self_html->title_tree, 1);
+      new_sv = newSVsv ((SV *) self_html->title_tree->sv);
     }
   else if (!strcmp (converter_info, "simpletitle_tree")
            || !strcmp (converter_info, "simpletitle_command_name"))
     {
-      if (converter->simpletitle_tree)
+      if (self_html->simpletitle_tree)
         {
           build_simpletitle (converter, converter_info_hv);
 

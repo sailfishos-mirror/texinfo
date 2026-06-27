@@ -305,7 +305,8 @@ destroy_element_reference_stack (ELEMENT_REFERENCE_STACK *stack)
 HTML_DOCUMENT_CONTEXT *
 html_top_document_context (const CONVERTER *self)
 {
-  const HTML_DOCUMENT_CONTEXT_STACK *stack = &self->html_document_context;
+  const HTML_DOCUMENT_CONTEXT_STACK *stack;
+  stack = &self->html_converter.html_document_context;
 
   if (stack->top == 0)
     fatal ("HTML document context stack empty for top");

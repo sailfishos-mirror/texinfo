@@ -3131,11 +3131,13 @@ enumerate_item_representation (const ELEMENT *element)
 int
 html_get_direction_index (const CONVERTER *converter, const char *direction)
 {
-  if (converter && converter->main_units_direction_names)
+  const HTML_CONVERTER_STATE *self_html
+    = converter ? &converter->html_converter : NULL;
+  if (self_html && self_html->main_units_direction_names)
     {
       int found;
       uintptr_t idx = (uintptr_t)
-        c_hashmap_value (&converter->units_direction_names_index,
+        c_hashmap_value (&self_html->units_direction_names_index,
                          direction, &found);
       if (found)
         return idx;
@@ -3148,12 +3150,15 @@ html_get_direction_index (const CONVERTER *converter, const char *direction)
 const char *
 direction_unit_direction_name (int direction, const CONVERTER *converter)
 {
+  const HTML_CONVERTER_STATE *self_html
+    = converter ? &converter->html_converter : NULL;
+
   if (direction < 0)
     return 0;
   else if (direction < NON_SPECIAL_DIRECTIONS_NR)
     return html_button_direction_names[direction];
-  else if (converter && converter->main_units_direction_names)
-    return converter->main_units_direction_names[direction];
+  else if (self_html && self_html->main_units_direction_names)
+    return self_html->main_units_direction_names[direction];
   else
    return 0;
 }

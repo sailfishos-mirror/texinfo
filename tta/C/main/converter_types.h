@@ -804,68 +804,7 @@ typedef struct PLAINTEXT_CONVERSION_STATE {
     TEXT pending_text;
 } PLAINTEXT_CONVERSION_STATE;
 
-typedef struct CONVERTER {
-    int converter_descriptor;
-  /* perl converter. This should be SV *sv,
-     but we don't want to include the Perl headers everywhere; */
-    void *sv;
-
-  /* this is the type of the converter, not of the output.  (Similar to
-     a module name in Perl).  Should only be used to determine which
-     functions are to be called */
-    enum converter_format format;
-    /* used to pass converter_defaults result, if going through XS and
-       destroyed shortly after */
-    CONVERTER_INITIALIZATION_INFO *format_defaults;
-    OPTIONS *conf;
-    /* an array containing the fields of conf ordered by name */
-    OPTION **sorted_options;
-    /* set to commands user defined from customization in generic converter
-       during converter initialization, or reset and set to each of
-       the commands values just before starting the conversion in HTML */
-    COMMAND_OPTION_VALUE commands_init_conf[BUILTIN_CMD_NUMBER];
-    EXPANDED_FORMAT *expanded_formats;
-    TRANSLATED_COMMAND_LIST translated_commands;
-    /* set based on documentlanguage customization option, if set,
-       and reset when the documentlanguage changes.  Allocated
-       and put in the cache if the language was never seen.
-     */
-    const LANG_TRANSLATION *current_lang_translations;
-
-    ERROR_MESSAGE_LIST error_messages;
-    /* for error messages registered in the converter */
-    STRING_LIST small_strings;
-
-    DOCUMENT *document;
-
-    /* reset in converter_set_document */
-    struct TEXT_OPTIONS *convert_text_options;
-    struct TEXT_OPTIONS *convert_index_text_options;
-
-    int upper_case[BUILTIN_CMD_NUMBER];
-
-    /* output unit files API */
-    /* reset for output */
-    FILE_NAME_PATH_COUNTER_LIST output_unit_files;
-
-    /* to find index in output_unit_files based on name */
-    /* reset upon allocation */
-    NAME_NUMBER_LIST page_name_number;
-
-  /* API to open, set encoding and register files */
-    OUTPUT_FILES_INFORMATION output_files_information;
-
-  /* associates deprecated directories and reference directories */
-    DEPRECATED_DIRS_LIST deprecated_config_directories;
-
-    INDICES_SORT_STRINGS *indices_sort_strings;
-    COLLATIONS_INDICES_SORTED_BY_INDEX *sorted_indices_by_index;
-    COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
-
-  /* Info/plaintext specific */
-    PLAINTEXT_CONVERSION_STATE plaintext_converter;
-
-  /* HTML specific */
+typedef struct HTML_CONVERTER_STATE {
     /* set for a converter */
     int external_references_number; /* total number of external references
                               that could be called during conversion */
@@ -1060,6 +999,71 @@ typedef struct CONVERTER {
        they do not change even if later on another object is passed.
      */
     void *pl_info_hv; /* converter->{'converter_info'} */
+} HTML_CONVERTER_STATE;
+
+typedef struct CONVERTER {
+    int converter_descriptor;
+  /* perl converter. This should be SV *sv,
+     but we don't want to include the Perl headers everywhere; */
+    void *sv;
+
+  /* this is the type of the converter, not of the output.  (Similar to
+     a module name in Perl).  Should only be used to determine which
+     functions are to be called */
+    enum converter_format format;
+    /* used to pass converter_defaults result, if going through XS and
+       destroyed shortly after */
+    CONVERTER_INITIALIZATION_INFO *format_defaults;
+    OPTIONS *conf;
+    /* an array containing the fields of conf ordered by name */
+    OPTION **sorted_options;
+    /* set to commands user defined from customization in generic converter
+       during converter initialization, or reset and set to each of
+       the commands values just before starting the conversion in HTML */
+    COMMAND_OPTION_VALUE commands_init_conf[BUILTIN_CMD_NUMBER];
+    EXPANDED_FORMAT *expanded_formats;
+    TRANSLATED_COMMAND_LIST translated_commands;
+    /* set based on documentlanguage customization option, if set,
+       and reset when the documentlanguage changes.  Allocated
+       and put in the cache if the language was never seen.
+     */
+    const LANG_TRANSLATION *current_lang_translations;
+
+    ERROR_MESSAGE_LIST error_messages;
+    /* for error messages registered in the converter */
+    STRING_LIST small_strings;
+
+    DOCUMENT *document;
+
+    /* reset in converter_set_document */
+    struct TEXT_OPTIONS *convert_text_options;
+    struct TEXT_OPTIONS *convert_index_text_options;
+
+    int upper_case[BUILTIN_CMD_NUMBER];
+
+    /* output unit files API */
+    /* reset for output */
+    FILE_NAME_PATH_COUNTER_LIST output_unit_files;
+
+    /* to find index in output_unit_files based on name */
+    /* reset upon allocation */
+    NAME_NUMBER_LIST page_name_number;
+
+  /* API to open, set encoding and register files */
+    OUTPUT_FILES_INFORMATION output_files_information;
+
+  /* associates deprecated directories and reference directories */
+    DEPRECATED_DIRS_LIST deprecated_config_directories;
+
+    INDICES_SORT_STRINGS *indices_sort_strings;
+    COLLATIONS_INDICES_SORTED_BY_INDEX *sorted_indices_by_index;
+    COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
+
+  /* Info/plaintext specific */
+    PLAINTEXT_CONVERSION_STATE plaintext_converter;
+
+  /* HTML specific */
+    HTML_CONVERTER_STATE html_converter;
 } CONVERTER;
 
 typedef struct TRANSLATED_SUI_ASSOCIATION {

@@ -2510,6 +2510,9 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV *converter_sv)
 
   if (converter->document)
     {
+      /* Used to access output_units_descriptors. */
+      HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+
  /* need to setup the Perl tree before rebuilding the output units as
     they refer to Perl root command elements */
       store_document_texinfo_tree (converter->document);
@@ -2525,7 +2528,7 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV *converter_sv)
          information.
        */
           output_units_list_to_perl_hash (converter->document,
-            converter->output_units_descriptors[OUDT_external_nodes_units]);
+            self_html->output_units_descriptors[OUDT_external_nodes_units]);
 
           /* reuse "document_units" array if set */
           document_units_sv
@@ -2536,7 +2539,7 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV *converter_sv)
             {
               AV *av_output_units = (AV *) SvRV (*document_units_sv);
               size_t output_units_descriptor
-                 = converter->output_units_descriptors[OUDT_units];
+                 = self_html->output_units_descriptors[OUDT_units];
 
               av_clear (av_output_units);
               if (!fill_output_units_descriptor_av (converter->document,
@@ -2558,16 +2561,16 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV *converter_sv)
             {
               SV *output_units_sv
                 = build_output_units_list (converter->document,
-                   converter->output_units_descriptors[OUDT_units]);
+                   self_html->output_units_descriptors[OUDT_units]);
               hv_store (converter_hv, "document_units",
                         strlen ("document_units"),
                         output_units_sv, 0);
             }
 
           output_units_list_to_perl_hash (converter->document,
-                      converter->output_units_descriptors[OUDT_special_units]);
+                      self_html->output_units_descriptors[OUDT_special_units]);
           output_units_list_to_perl_hash (converter->document,
-            converter->output_units_descriptors[OUDT_associated_special_units]);
+            self_html->output_units_descriptors[OUDT_associated_special_units]);
 
           converter->document->modified_information &= ~F_DOCM_output_units;
         }
@@ -3412,6 +3415,8 @@ html_build_buttons_specification (CONVERTER *converter,
   buttons_av = newAV ();
 
   buttons->av = buttons_av;
+  HTML_CONVERTER_STATE *self_html = converter
+                                    ? &converter->html_converter : NULL;
 
   for (i = 0; i < buttons->number; i++)
     {
@@ -3422,8 +3427,8 @@ html_build_buttons_specification (CONVERTER *converter,
                                          &user_function_number);
       buttons->BIT_user_function_number += user_function_number;
 
-      if (converter)
-        converter->external_references_number += user_function_number;
+      if (self_html)
+        self_html->external_references_number += user_function_number;
 
       button->sv = button_sv;
 
