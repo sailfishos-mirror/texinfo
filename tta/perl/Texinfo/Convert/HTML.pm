@@ -1489,6 +1489,7 @@ sub _html_cache_translate_string($$$;$) {
         $translation_context_str = '';
       }
 
+      my $invalidated_cache;
       my $strings_cache = $translations->{$translation_context_str};
       if (defined($strings_cache)) {
         my $translated_string_tree = $strings_cache->{$string};
@@ -1501,6 +1502,7 @@ sub _html_cache_translate_string($$$;$) {
             }
             return $translated_string_tree;
           } elsif ($debug_level >= 2) {
+            $invalidated_cache = 1;
             # if the string has changed, the cache is invalidated by
             # resetting the cached string array reference just below.
             if (scalar(@$translated_string_tree) > 1) {
@@ -1519,13 +1521,13 @@ sub _html_cache_translate_string($$$;$) {
       } else {
         $strings_cache = {};
         $translations->{$translation_context_str} = $strings_cache;
-        if ($debug_level >= 2) {
-          print STDERR "T user new translation ".
-                  "'$string-$translation_context_str' '$translated_string'"
-                  ." $cached_lang\n";
-        }
       }
 
+      if ($debug_level >= 2 and not $invalidated_cache) {
+        print STDERR "T user new translation ".
+                "'$string-$translation_context_str' '$translated_string'"
+                ." $cached_lang\n";
+      }
       my $result = [$translated_string];
 
       $strings_cache->{$string} = $result;

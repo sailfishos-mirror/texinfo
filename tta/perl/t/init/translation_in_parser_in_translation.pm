@@ -8,9 +8,8 @@ use strict;
 use Texinfo::Common;
 use Texinfo::Convert::NodeNameNormalization;
 
-# a translation of the Next button for which there is a translation
-# by the parser of index of @def* commands like '{name} of {class}'.
-# also test commands in parser restricted mode.
+# a translation of the Next button with @-commands needing translation.
+# also test commands in 'parser restricted mode' with NO_INDEX and similar set.
 my %translations = (
   'fr' => {
            'Next' => {'NodeNext direction string'
@@ -34,7 +33,8 @@ BB
 @printindex xx
 '},
 # translations are parsed with NO_INDEX and similar set, therefore printindex
-# argument is not set in misc_args and therefore there is no conversion
+# argument is not set in misc_args and therefore there is no conversion,
+# and no actual test of translation of '{name} on {class}'.
             '{name} on {class}' => {''
                => '@deftypeop m n o p q r
 CC
