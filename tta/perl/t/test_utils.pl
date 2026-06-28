@@ -146,9 +146,6 @@ if (defined($Texinfo::ModulePath::default_test_level)
   $default_test_level = $Texinfo::ModulePath::default_test_level;
 }
 
-my $XS_structuring = Texinfo::XSLoader::XS_modules_enabled();
-my $XS_conversion = Texinfo::XSLoader::XS_modules_enabled();
-
 my $generated_texis_dir = 't_texis';
 
 my $input_files_dir = $srcdir."/t/input_files/";
@@ -942,19 +939,10 @@ sub test($$)
     $document = $parser->parse_texi_file($test_file);
   }
 
-  # Get the tree object.  Note that if XS structuring in on, the argument
+  # Get the tree object.  Note that if XS is used, the argument
   # prevents the tree being built as a Perl structure at this stage; only
   # a "handle" is returned.
-  my $tree;
-  if (!$XS_structuring) {
-    $tree = $document->tree();
-    # rebuild every information associated to the document, such that
-    # no flags of modified structure in C are set and XS code called
-    # to get document structures directly returns the Perl data.
-    $tree = Texinfo::Document::build_tree($tree);
-  } else {
-    $tree = $document->tree($XS_structuring);
-  }
+  my $tree = $document->tree(1);
 
   my $errors = $document->parser_errors();
 
@@ -1093,7 +1081,7 @@ sub test($$)
   my $indices_sorted_sort_strings
     = $document->print_document_indices_sort_strings();
 
-  $tree = $document->tree($XS_conversion);
+  $tree = $document->tree(1);
 
   my $input_file_names_encoding
       = Texinfo::Common::input_file_name_encoding(

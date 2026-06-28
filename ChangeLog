@@ -1,5 +1,15 @@
 2026-06-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl (test),
+	tta/perl/t/z_misc/test_protect_hashchar_at_line_beginning.t
+	(run_test), tta/perl/texi2any.pl: call document->tree() with an
+	argument to get an handle only independently of
+	XSLoader::XS_modules_enabled result.  TEXINFO_XS=omit is checked by
+	XSLoader such that the XS module of Document will not be loaded anyway
+	if TEXINFO_XS=omit.
+
+2026-06-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/*.pm (BEGIN), tta/perl/Texinfo/*.pm
 	(BEGIN): do not use XS_modules_enabled to determine if the call to
 	Texinfo::XSLoader::init should be done with an undef XS module file

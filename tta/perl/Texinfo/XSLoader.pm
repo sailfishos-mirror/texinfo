@@ -243,9 +243,9 @@ sub init {
       # Disabled at run time
       # Don't try to use the XS module
       or ($TEXINFO_XS eq 'omit') 
-      # An undefined module name should only happen based on the TEXINFO_XS_*
-      # environment variables values.  Which module names are undef should be
-      # consistent.  Only possible for modules depending on parser.
+      # An undefined XS module name should only happen for Texinfo::Translations
+      # in case translations should be handled in Perl only.
+      # All the modules in that case should have a Perl only fallback.
       or (!defined($module_name))) {
 
     # No fallback module

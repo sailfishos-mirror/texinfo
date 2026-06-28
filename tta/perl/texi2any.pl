@@ -1712,9 +1712,6 @@ die _encode_message(
    .sprintf(__("Try `%s --help' for more information.")."\n", $real_command_name))
      unless ($input_files_nr >= 1);
 
-# XS parser and not explicitly unset
-my $XS_structuring = Texinfo::XSLoader::XS_modules_enabled();
-
 if (defined($ENV{TEXINFO_XS_EXTERNAL_CONVERSION})
     and $ENV{TEXINFO_XS_EXTERNAL_CONVERSION}) {
   set_from_cmdline('XS_EXTERNAL_CONVERSION', 1);
@@ -1832,10 +1829,10 @@ while (@input_files) {
   $document->register_document_options($document_options);
 
 
-  # Get the tree object.  Note that if XS structuring in on, the argument
+  # Get the tree object.  Note that if XS is used, the argument
   # prevents the tree being built as a Perl structure at this stage; only
   # a "handle" is returned.
-  my $tree = $document->tree($XS_structuring);
+  my $tree = $document->tree(1);
 
   if (defined($tree)
       and (get_conf('DUMP_TREE')
@@ -1912,10 +1909,6 @@ while (@input_files) {
   if (defined(get_conf('MACRO_EXPAND')) and $file_index == 0) {
     require Texinfo::Convert::Texinfo;
     Texinfo::Convert::Texinfo->import();
-    # if convert_to_texinfo is not XS code get Perl tree.
-    if (not Texinfo::XSLoader::XS_modules_enabled()) {
-      $tree = $document->tree();
-    }
     my $texinfo_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
     #print STDERR "$texinfo_text\n";
     my $encoded_macro_expand_file_name = get_conf('MACRO_EXPAND');
@@ -1969,13 +1962,6 @@ while (@input_files) {
     $error_count = handle_errors($document->parser_errors(), $error_count,
                                  \%opened_files);
     goto NEXT;
-  }
-
-  if (!$XS_structuring) {
-    # rebuild every information associated to the document, such that
-    # no flags of modified structure in C are set and XS code called
-    # to get document structures directly returns the Perl data.
-    $tree = Texinfo::Document::build_tree($tree);
   }
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
