@@ -39,6 +39,8 @@ typedef struct TRANSLATED_SUI_ASSOCIATION {
           enum special_unit_info_type string_type;
 } TRANSLATED_SUI_ASSOCIATION;
 
+extern const TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
+
 extern const char * const default_special_unit_info[SPECIAL_UNIT_INFO_TYPE_NR][4];
 
 extern const char * const default_special_unit_tree_info[SPECIAL_UNIT_INFO_TREE_NR][4];

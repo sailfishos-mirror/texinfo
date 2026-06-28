@@ -207,6 +207,8 @@ if ($C_format) {
   print HDR "          enum special_unit_info_type string_type;\n";
   print HDR "} TRANSLATED_SUI_ASSOCIATION;\n\n";
 
+  print HDR "extern const TRANSLATED_SUI_ASSOCIATION"
+          . " translated_special_unit_info[];\n\n";
 }
 
 # gather for direction structures below

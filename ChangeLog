@@ -1,5 +1,16 @@
 2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Move some non-types out of html_converter_types.h
+
+	* tta/maintain/generate_code_convert_data.pl:
+	Output declaration of 'translated_special_unit_info' array.
+	This is possible now that the definition of TRANSLATED_SUI_ASSOCIATION
+	is in this file.
+	* tta/C/convert/html_converter_types.h: Remove
+	declaration of 'translated_special_unit_info' array.
+
+2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Move TRANSLATED_SUI_ASSOCIATION type definition
 
 	* tta/maintain/generate_code_convert_data.pl:

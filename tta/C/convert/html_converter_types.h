@@ -75,9 +75,6 @@ typedef struct COMMAND_ARGS_SPECIFICATION {
     unsigned long flags[MAX_COMMAND_ARGS_NR];
 } COMMAND_ARGS_SPECIFICATION;
 
-/* in html_conversion_data.c */
-extern const TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
-
 /* in format_html.c */
 extern const char *direction_string_type_names[];
 extern const char *direction_string_context_names[];
