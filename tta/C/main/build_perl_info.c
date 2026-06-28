@@ -2577,7 +2577,8 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV *converter_sv)
     }
 }
 
-/* Can be called to rebuild output units when the converter is not known.
+/* Can be called to (re)build the tree and rebuild output units when the
+   converter is not known or when there is only a Document.
    Output units are kept in the document, but are setup and destroyed by
    converters.  If converters accessed concurently documents, there may
    be trouble here (and in other codes too).
@@ -2633,53 +2634,55 @@ document_tree (SV *document_in, int handler_only)
 
   if (document)
     {
-      if (!handler_only)
+      if (document->tree)
         {
-          store_document_tree_output_units (document);
-          if (document->tree)
-            return newSVsv (document->tree->sv);
-        }
-      else if (document->tree)
-        {
-          const char *document_key = "tree_document_descriptor";
-          HV *element_hv;
-          SV **element_document_descriptor_sv;
-
-          build_new_base_element (document->tree);
-
-      /* in that case, we do not reuse the "tree" reference
-         in document->hv.  We therefore need to readd anything
-         relevant, in practice only "tree_document_descriptor" */
-
-          element_hv = (HV *) SvRV ((SV *) document->tree->sv);
-
-          element_document_descriptor_sv
-           = hv_fetch (element_hv, document_key, strlen (document_key), 0);
-
-          if (!element_document_descriptor_sv)
+          if (!handler_only)
             {
-              hv_store (element_hv, document_key, strlen (document_key),
-                        newSViv (document->descriptor), 0);
+              store_document_tree_output_units (document);
             }
-          /* the element_document_descriptor_sv may already exist if
-             $document->tree(1) is called twice, which should probably
-             never be particularly useful, but is not frowned upon either.
-             In 2026 it never happened in the tests.
-           */
           else
             {
-              size_t stored_document_descriptor
-                = (size_t) SvIV (*element_document_descriptor_sv);
-              if (stored_document_descriptor != document->descriptor)
-                fatal ("Handler only tree inconsistent document descriptor");
-              /*
-              fatal ("tree_document_descriptor already existing in new element");
+              const char *document_key = "tree_document_descriptor";
+              HV *element_hv;
+              SV **element_document_descriptor_sv;
+
+              build_new_base_element (document->tree);
+
+          /* in that case, we do not reuse the "tree" reference
+             in document->hv.  We therefore need to readd anything
+             relevant, in practice only "tree_document_descriptor" */
+
+              element_hv = (HV *) SvRV ((SV *) document->tree->sv);
+
+              element_document_descriptor_sv
+               = hv_fetch (element_hv, document_key, strlen (document_key), 0);
+
+              if (!element_document_descriptor_sv)
+                {
+                  hv_store (element_hv, document_key, strlen (document_key),
+                            newSViv (document->descriptor), 0);
+                }
+              /* the element_document_descriptor_sv may already exist if
+                 $document->tree(1) is called twice, which should probably
+                 never be particularly useful, but is not frowned upon either.
+                 In 2026 it never happened in the tests.
                */
+              else
+                {
+                  size_t stored_document_descriptor
+                    = (size_t) SvIV (*element_document_descriptor_sv);
+                  if (stored_document_descriptor != document->descriptor)
+                    fatal ("Handle only tree inconsistent document descriptor");
+                  /* to check that it never happens
+                  fatal ("tree_document_descriptor already existing");
+                   */
+                }
             }
           return newSVsv (document->tree->sv);
         }
 
-  /* Prefer the tree of the Perl document associated to the C data */
+  /* No C tree.
+     Prefer the tree of the Perl document associated to the C data */
       sv_reference = hv_fetch (document->hv, "tree", strlen ("tree"), 0);
     }
 
