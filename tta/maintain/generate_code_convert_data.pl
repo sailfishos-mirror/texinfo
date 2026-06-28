@@ -178,13 +178,14 @@ if ($C_format) {
   print HDR "#define SPECIAL_UNIT_INFO_TREE_NR "
     .(scalar(@su_ordered_translated_hashes))."\n\n";
 
-  print HDR "extern const char"
-          . " *special_unit_info_type_names[SPECIAL_UNIT_INFO_TYPE_NR];\n";
-  print HDR "extern const char"
-          . " *special_unit_info_tree_names[SPECIAL_UNIT_INFO_TREE_NR];\n\n";
-
   print HDR "#define CUSTOMIZED_SPECIAL_UNIT_INFO_TYPE_NR "
   ."(SPECIAL_UNIT_INFO_TYPE_NR + SPECIAL_UNIT_INFO_TREE_NR)\n\n";
+
+  print HDR "extern const char"
+          . " *special_unit_info_type_names"
+          .  "[CUSTOMIZED_SPECIAL_UNIT_INFO_TYPE_NR];\n";
+  print HDR "extern const char"
+          . " *special_unit_info_tree_names[SPECIAL_UNIT_INFO_TREE_NR];\n\n";
 
   print HDR "/* translated */\n";
   print HDR "enum special_unit_info_tree {\n"

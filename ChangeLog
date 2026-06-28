@@ -1,5 +1,14 @@
 2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Fix excess elements in array initialiser warning
+
+	* tta/maintain/generate_code_convert_data.pl,
+	Use CUSTOMIZED_SPECIAL_UNIT_INFO_TYPE_NR instead of
+	SPECIAL_UNIT_INFO_TYPE_NR as number of elements in
+	'special_unit_info_type_names' array.
+
+2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/maintain/generate_code_convert_data.pl:
 	Use HTML_CONVERSION_DATA_H rather than CONVERSION_DATA_H as
 	include guard symbol in a/tta/C/main/html_conversion_data.h.
