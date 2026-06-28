@@ -43,7 +43,7 @@
 /* newSVpv_utf8 element_to_perl_hash */
 #include "build_perl_info.h"
 /* for html_conversion_context_type_names */
-#include "html_converter_types.h"
+#include "convert_html.h"
 #include "build_html_perl_state.h"
 #include "xs_utils.h"
 

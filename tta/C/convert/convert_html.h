@@ -131,5 +131,11 @@ int html_node_redirections (CONVERTER *self,
 /* int html_finish_output (CONVERTER *self, const char *output_file,
                         const char *destination_directory); */
 
+
+
+/* Global arrays */
+extern const char *html_conversion_context_type_names[];
+extern const char *html_stage_handler_stage_type_names[];
+
 
 #endif

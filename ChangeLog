@@ -3,6 +3,15 @@
 	Move some non-types out of html_converter_types.h
 
 	* tta/C/convert/html_converter_types.h,
+	* tta/C/convert/convert_html.h: Move declarations of
+	html_conversion_context_type_names and
+	html_stage_handler_stage_type_names to convert_html.h.
+
+2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Move some non-types out of html_converter_types.h
+
+	* tta/C/convert/html_converter_types.h,
 	* tta/C/convert/format_html.h: Move declarations of
 	direction_string_type_names and direction_string_context_names
 	arrays.

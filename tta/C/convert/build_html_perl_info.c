@@ -47,8 +47,10 @@
 #include "build_perl_info.h"
 /* for NAMED_STRING_ELEMENT_LIST */
 #include "translations.h"
-/* for no_arg_formatted_cmd  html_conversion_context_type_names */
+/* for no_arg_formatted_cmd */
 #include "html_converter_types.h"
+/* for html_conversion_context_type_names */
+#include "convert_html.h"
 /* for htmlxref_split_type_names
    html_nr_string_directions */
 #include "html_prepare_converter.h"

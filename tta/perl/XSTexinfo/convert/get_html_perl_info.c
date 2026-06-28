@@ -34,10 +34,8 @@
 #include "xs_utils.h"
 /* fatal */
 #include "base_utils.h"
-/* also for
-   html_conversion_context_type_names html_stage_handler_stage_type_names
- */
-#include "html_converter_types.h"
+/* html_conversion_context_type_names html_stage_handler_stage_type_names */
+#include "convert_html.h"
 /* clear_strings_list html_button_direction_names index_number_index_by_name
    ... */
 #include "utils.h"
