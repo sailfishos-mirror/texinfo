@@ -41,15 +41,21 @@ MODULE = Texinfo::Translations	PACKAGE = Texinfo::Translations
 PROTOTYPES: ENABLE
 
 void
-setup_output_strings (localesdir, strings_textdomain="texinfo_document")
+_XS_setup_output_strings (localesdir, SV *strings_textdomain_sv=0)
        char *localesdir = (char *)SvPVbyte_nolen($arg);
-       char *strings_textdomain;
+    PREINIT:
+       const char *strings_textdomain = "texinfo_document";
       CODE:
+       if (strings_textdomain_sv && SvOK (strings_textdomain_sv))
+         strings_textdomain = SvPVutf8_nolen (strings_textdomain_sv);
        setup_output_strings_translations (localesdir,
                                           strings_textdomain);
 
+# not used because the tree is in Perl only and the tree is associated to
+# the string in the array reference returned here, but the array reference
+# is recreated here for each call, therefore the tree is not reused.
 SV *
-cache_translate_string (string, SV *lang_translations, SV *translation_context_sv=0, SV *debug_level_sv=0)
+unused_cache_translate_string (string, SV *lang_translations, SV *translation_context_sv=0, SV *debug_level_sv=0)
       const char *string = (char *)SvPVutf8_nolen($arg);
     PREINIT:
         int debug_level = 0;

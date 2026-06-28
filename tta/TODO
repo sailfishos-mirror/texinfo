@@ -23,6 +23,8 @@ unset TEXINFO_XS; for file in t/*.t ; do bfile=`basename $file .t`; perl -w $fil
 export TEXINFO_XS=omit; for file in t/*.t ; do bfile=`basename $file .t`; perl -w $file -d 3 2>t/check_debug_differences/PL_$bfile.err ; done
 for file in t/*.t ; do bfile=`basename $file .t`; sed 's/^C|//' t/check_debug_differences/XS_$bfile.err | diff -u t/check_debug_differences/PL_$bfile.err - > t/check_debug_differences/debug_$bfile.diff; done
 
+sed 's/^C|//' Ct2.err | diff -u Pt2.err - > dt2.diff
+
 Bugs
 ====
 

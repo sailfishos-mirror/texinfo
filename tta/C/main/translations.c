@@ -1206,6 +1206,9 @@ gdt_tree (const char *string, DOCUMENT *document,
       if (!translated_string)
         translated_string = string;
 
+      if (debug_level >= 2)
+        fprintf (stderr, "C|TT convert '%s'\n", translated_string);
+
       translation_document
         = replace_convert_substrings (translated_string, replaced_substrings,
                                       debug_level);
@@ -1220,6 +1223,8 @@ gdt_tree (const char *string, DOCUMENT *document,
        */
       tree_remove_parents (translated_string_tree->tree);
     }
+  else if (debug_level >= 2)
+    fprintf (stderr, "C|TT reuse '%s'\n", string);
 
   result_tree = copy_element_tree (translated_string_tree->tree, 0);
 

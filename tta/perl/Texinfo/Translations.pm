@@ -95,6 +95,28 @@ Locale::Messages->select_package ('gettext_pp');
 my $messages_textdomain = 'texinfo';
 our $strings_textdomain = 'texinfo_document';
 
+# TODO remove second argument?  In that case remove the equivalent in
+# C code too.  Right now, it is not possible to actually set a
+# different domain, but it could theoretically be useful if users
+# want to use their domain.  In that case, it should be settable
+# simultaneously in Perl and C.
+# Check if it could be useful for SWIG interface, maybe?
+sub setup_output_strings($;$) {
+  my ($localesdir, $in_strings_textdomain) = @_;
+
+  _XS_setup_output_strings($localesdir, $in_strings_textdomain);
+
+  if (defined($in_strings_textdomain)) {
+    $Texinfo::Translations::strings_textdomain = $in_strings_textdomain;
+  }
+  if (defined($localesdir)) {
+    Locale::Messages::bindtextdomain(
+       $Texinfo::Translations::strings_textdomain, $localesdir);
+  } else {
+    warn 'WARNING: string textdomain directory undefined'."\n";
+  }
+}
+
 # libintl converts between encodings but doesn't decode them into the
 # perl internal format.
 sub _decode_i18n_string($$) {
@@ -446,6 +468,98 @@ sub set_preamble_language_commands($$$$) {
   return $lang_translations;
 }
 
+# Return an array reference with a translated string.
+# The LANG_TRANSLATIONS argument holds the current language information,
+# including the string that can be used as gettext lang selection LANGUAGE,
+# and possibly an hash that is used to hold translations already done for
+# that language information.
+# There is no such hash if the language information is passed from C.
+# If the language information is undef or the language is an empty string,
+# no translation is needed.
+sub cache_translate_string($$;$$) {
+  my ($string, $lang_translations, $translation_context, $debug_level) = @_;
+
+  #if (!defined($string)) {
+  #  confess("cache_translate_string: undef string\n");
+  #}
+
+  $debug_level = 0 if (!defined($debug_level));
+
+  my $translations;
+
+  if (!defined($lang_translations)) {
+    # unknown language, use default translated string and tree cache
+    # associated to the empty string.
+    $translations
+      = $Texinfo::Translations::converters_translation_cache->{''}->[2];
+  } else {
+    $translations = $lang_translations->[2];
+  }
+
+  my $translation_context_str;
+
+  if (defined($translation_context)) {
+    $translation_context_str = $translation_context;
+  } else {
+    $translation_context_str = '';
+  }
+
+  if (exists($translations->{$translation_context_str})) {
+    if (exists($translations->{$translation_context_str}->{$string})) {
+      # return cached translation and tree
+      if ($debug_level >= 2) {
+        my $translated_string
+          = $translations->{$translation_context_str}->{$string}->[0];
+        my $cached_lang = '';
+        if (defined($lang_translations)) {
+          $cached_lang = $lang_translations->[0]->{'bcp47_locale'};
+        }
+        if (defined($translated_string)) {
+          print STDERR "T hit cache ".
+             "'$string-$translation_context_str' '$translated_string'"
+             ." $cached_lang\n";
+        } else {
+          print STDERR "T hit cache no need ".
+            "'$string-$translation_context_str'"."\n";
+        }
+      }
+      return $translations->{$translation_context_str}->{$string};
+    }
+  } else {
+    $translations->{$translation_context_str} = {};
+  }
+
+  my $strings_cache = $translations->{$translation_context_str};
+
+  # no translation, but still needed to setup caching for the associated
+  # tree
+  if (!defined($lang_translations)
+      or $lang_translations->[0]->{'bcp47_locale'} eq '') {
+    if ($debug_level >= 2) {
+       print STDERR "T no need ".
+             "'$string-$translation_context_str'"."\n";
+    }
+    my $result = [undef];
+    $strings_cache->{$string} = $result;
+    return $result;
+  }
+
+  my $translated_string = translate_string($string, $lang_translations->[1],
+                                           $translation_context);
+
+  if ($debug_level >= 2) {
+     print STDERR "T new translation ".
+             "'$string-$translation_context_str' '$translated_string'"
+             ." ".$lang_translations->[0]->{'bcp47_locale'}."\n";
+  }
+  my $result = [$translated_string];
+
+  $strings_cache->{$string} = $result;
+
+  #print STDERR "_GDT '$string' '$translated_string'\n";
+  return $result;
+}
+
 # Cache translations in a hash to avoid having to go through the locale
 # system rigmarole every time.
 # Unknown language is preset.
@@ -470,6 +584,8 @@ sub gdt($;$$$$$$) {
       $translation_context, $customization_information,
       $translate_string_method) = @_;
 
+  $debug_level = 0 if (!defined($debug_level));
+
   my $result_tree;
   my $translated_string_tree;
   if (defined($translate_string_method)) {
@@ -487,12 +603,18 @@ sub gdt($;$$$$$$) {
   if (scalar(@$translated_string_tree) == 1) {
     my $translated_string = $translated_string_tree->[0];
     $translated_string = $string if (!defined($translated_string));
+
+    if ($debug_level >= 2) {
+      print STDERR "TT convert '$translated_string'\n";
+    }
     # No need to convert this more than once as we should get the same
     # every time.  Cache the non-substituted tree in translated_string_tree.
     my $tree
       = _replace_convert_substrings($translated_string, $replaced_substrings,
                                     $debug_level);
     push @$translated_string_tree, $tree;
+  } elsif ($debug_level >= 2) {
+    print STDERR "TT reuse '$string'\n";
   }
 
   # TODO maybe dclone could be more efficient, but we want to have the same

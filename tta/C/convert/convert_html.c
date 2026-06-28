@@ -284,6 +284,9 @@ html_gdt_tree (const char *string, CONVERTER *self,
       if (!translated_string)
         translated_string = string;
 
+      if (debug_level >= 2)
+        fprintf (stderr, "C|TT convert '%s'\n", translated_string);
+
       translation_document
         = replace_convert_substrings (translated_string, replaced_substrings,
                                       debug_level);
@@ -297,6 +300,8 @@ html_gdt_tree (const char *string, CONVERTER *self,
          translated strings.  There is a test for such a situation
          in the t/ *.t tests with @def* commands in translation. */
     }
+  else if (debug_level >= 2)
+    fprintf (stderr, "C|TT reuse '%s'\n", string);
 
   result_tree = copy_element_tree (translated_string_tree->tree, 0);
 

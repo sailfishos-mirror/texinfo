@@ -1,5 +1,23 @@
 2026-06-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Translations.pm (setup_output_strings)
+	(cache_translate_string), tta/perl/Texinfo/TranslationsNonXS.pm
+	(_XS_setup_output_strings),
+	tta/perl/XSTexinfo/parser_document/TranslationsXS.xs
+	(_XS_setup_output_strings): remove XS interface for
+	cache_translate_string.  The translated string tree is in Perl only,
+	with the XS interface the tree is associated to the string in the
+	array reference returned from the XS function, therefore the array
+	reference is recreated for each call, therefore the tree is not
+	reused.  Therefore remove the XS interface.
+	Add _XS_setup_output_strings to setup the strings both in C and Perl.
+
+	* tta/C/convert/convert_html.c (html_gdt_tree),
+	tta/C/main/translations.c (gdt_tree), tta/perl/Texinfo/Translations.pm
+	(gdt): add debug output for translated tree reusing.
+
+2026-06-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (document_tree): change the order of
 	conditionals to have a code easier to read.
 
