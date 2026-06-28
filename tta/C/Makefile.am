@@ -154,7 +154,7 @@ C_libtexinfo_sources = \
 		      main/utils.h \
 		      main/system.h \
 		      main/converter_types.h \
-		      main/html_converter.h \
+		      main/html_converter_state.h \
 		      main/unicode.c \
 		      main/unicode.h \
 		      main/hashmap.c \

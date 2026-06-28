@@ -17,8 +17,6 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#include "html_converter.h"
-
 #include <stddef.h>
 /* for iconv_t */
 #include <iconv.h>
@@ -29,6 +27,7 @@
 #include "document_types.h"
 #include "option_types.h"
 #include "options_data.h"
+#include "html_converter_state.h"
 
 /* for interdependency with convert_to_text.h */
 struct TEXT_OPTIONS;

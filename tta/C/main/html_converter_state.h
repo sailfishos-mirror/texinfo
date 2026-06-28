@@ -1,7 +1,6 @@
-/* html_converter.h - declarations of types for HTML used in many places */
-/* FIXME: name clash with convert/html_converter_types.h */
-#ifndef HTML_CONVERTER_H
-#define HTML_CONVERTER_H
+/* html_converter_state.h - types for HTML-specific converter state */
+#ifndef HTML_CONVERTER_STATE_H
+#define HTML_CONVERTER_STATE_H
 
 /* Copyright 2010-2026 Free Software Foundation, Inc.
 
@@ -18,7 +17,6 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#include <stddef.h>
 /* for FILE */
 #include <stdio.h>
 
