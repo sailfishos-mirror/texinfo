@@ -11,13 +11,6 @@
 
 2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
 
-
-	* tta/C/convert/format_html.c,
-	* tta/C/convert/html_conversion_state.c,
-	* tta/C/convert/convert_html.c,
-
-2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
-
 	Move some non-types out of html_converter_types.h
 
 	* tta/C/convert/html_converter_types.h,
