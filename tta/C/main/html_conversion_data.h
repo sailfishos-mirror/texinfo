@@ -1,7 +1,7 @@
 /* Automatically generated from generate_code_convert_data.pl */
 
-#ifndef CONVERSION_DATA_H
-#define CONVERSION_DATA_H
+#ifndef HTML_CONVERSION_DATA_H
+#define HTML_CONVERSION_DATA_H
 
 typedef struct HTML_DEFAULT_DIRECTION_STRING_TRANSLATED {
     const char *converted;

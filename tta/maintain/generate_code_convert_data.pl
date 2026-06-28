@@ -90,7 +90,7 @@ if ($perl_format) {
   print OUT "#include \"converter_types.h\"\n\n";
 }
 
-my $C_header_string = 'CONVERSION_DATA_H';
+my $C_header_string = 'HTML_CONVERSION_DATA_H';
 if ($perl_format) {
 } else {
   print HDR "/* Automatically generated from $program_name */\n\n";

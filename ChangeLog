@@ -1,3 +1,9 @@
+2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/maintain/generate_code_convert_data.pl:
+	Use HTML_CONVERSION_DATA_H rather than CONVERSION_DATA_H as
+	include guard symbol in a/tta/C/main/html_conversion_data.h.
+
 2026-06-28 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/maintain/generate_code_convert_data.pl: fix typo in
