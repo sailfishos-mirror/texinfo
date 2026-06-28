@@ -303,5 +303,10 @@ SPECIAL_BODY_FORMATTING_FUNCTION(about)
 
 #undef SPECIAL_BODY_FORMATTING_FUNCTION
 
+
+
+/* Global arrays */
+extern const char *direction_string_type_names[];
+extern const char *direction_string_context_names[];
 
 #endif

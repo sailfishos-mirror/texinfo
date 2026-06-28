@@ -34,7 +34,7 @@
 #include "xs_utils.h"
 /* fatal */
 #include "base_utils.h"
-/* also for direction_string_type_names direction_string_context_names
+/* also for
    html_conversion_context_type_names html_stage_handler_stage_type_names
  */
 #include "html_converter_types.h"
@@ -62,6 +62,7 @@
 #include "format_html.h"
 /* destroy_element_reference_stack */
 #include "command_stack.h"
+/* direction_string_type_names direction_string_context_names */
 #include "get_perl_info.h"
 /* for newSVpv_utf8 */
 #include "build_perl_info.h"
