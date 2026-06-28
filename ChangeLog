@@ -1,3 +1,10 @@
+2026-06-28 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/build_perl_info.c (document_tree): reorganize code to be
+	easier to read.  Assume that sv field is set upon building tree to
+	Perl.  Assert that an existing tree_document_descriptor is the same as
+	the document one.
+
 2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Finish moving non-types out of html_converter_types.h

@@ -2619,7 +2619,7 @@ store_document_tree_output_units (DOCUMENT *document)
    document could be found and if HANDLER_ONLY is not set, else from
    a Perl document, if possible the one associated with C data, otherwise
    DOCUMENT_IN.
-   If the C document data was not stored, the tree will be only be
+   If the C document data was not stored, the tree will only be
    in DOCUMENT_IN. */
 SV *
 document_tree (SV *document_in, int handler_only)
@@ -2631,43 +2631,52 @@ document_tree (SV *document_in, int handler_only)
 
   document = get_sv_document_document (document_in, 0);
 
-  if (!handler_only && document)
+  if (document)
     {
-      store_document_tree_output_units (document);
-      if (document->tree && document->tree->sv)
-        return newSVsv (document->tree->sv);
-    }
-
-  if (document && document->tree)
-    {
-      build_new_base_element (document->tree);
-
-      /* in that case, we do not reuse the "tree" reference
-         in document->hv.  We therefore need to readd anything
-         relevant, in practice only "tree_document_descriptor" */
-      if (document->tree->sv)
+      if (!handler_only)
+        {
+          store_document_tree_output_units (document);
+          if (document->tree)
+            return newSVsv (document->tree->sv);
+        }
+      else if (document->tree)
         {
           const char *document_key = "tree_document_descriptor";
           HV *element_hv;
           SV **element_document_descriptor_sv;
 
+          build_new_base_element (document->tree);
+
+      /* in that case, we do not reuse the "tree" reference
+         in document->hv.  We therefore need to readd anything
+         relevant, in practice only "tree_document_descriptor" */
+
           element_hv = (HV *) SvRV ((SV *) document->tree->sv);
 
           element_document_descriptor_sv
-            = hv_fetch (element_hv, document_key, strlen (document_key), 0);
+           = hv_fetch (element_hv, document_key, strlen (document_key), 0);
 
           if (!element_document_descriptor_sv)
             {
               hv_store (element_hv, document_key, strlen (document_key),
                         newSViv (document->descriptor), 0);
             }
+          /* the element_document_descriptor_sv may already exist if
+             $document->tree(1) is called twice, which should probably
+             never be particularly useful, but is not frowned upon either */
+          else
+            {
+              size_t stored_document_descriptor
+                = (size_t) SvIV (*element_document_descriptor_sv);
+              if (stored_document_descriptor != document->descriptor)
+                fatal ("Handler only tree inconsistent document descriptor");
+            }
           return newSVsv (document->tree->sv);
         }
-    }
 
   /* Prefer the tree of the Perl document associated to the C data */
-  if (document)
-    sv_reference = hv_fetch (document->hv, "tree", strlen ("tree"), 0);
+      sv_reference = hv_fetch (document->hv, "tree", strlen ("tree"), 0);
+    }
 
   if (!sv_reference)
     {
