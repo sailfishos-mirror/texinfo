@@ -1,5 +1,15 @@
 2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Move some non-types out of html_converter_types.h
+
+	* tta/C/convert/html_converter_types.h: Remove
+	declarations of snecial_unit_info_type_names and
+	special_unit_info_tree_names arrays.
+	* tta/maintain/generate_code_convert_data.pl: Generate them
+	in html_conversion_data.h.
+
+2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/main/converter_types.h, tta/C/main/html_converter.h:
 	Split out html_converter.h.
 

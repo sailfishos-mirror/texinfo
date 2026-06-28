@@ -22,6 +22,9 @@ enum special_unit_info_type {
 
 #define SPECIAL_UNIT_INFO_TREE_NR 1
 
+extern const char *snecial_unit_info_type_names[SPECIAL_UNIT_INFO_TYPE_NR];
+extern const char *special_unit_info_tree_names[SPECIAL_UNIT_INFO_TREE_NR];
+
 #define CUSTOMIZED_SPECIAL_UNIT_INFO_TYPE_NR (SPECIAL_UNIT_INFO_TYPE_NR + SPECIAL_UNIT_INFO_TREE_NR)
 
 /* translated */

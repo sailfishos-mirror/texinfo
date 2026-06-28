@@ -77,10 +77,6 @@ typedef struct COMMAND_ARGS_SPECIFICATION {
 
 /* in html_conversion_data.c */
 extern const TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
-/* SPECIAL_UNIT_INFO_TYPE_NR elements */
-extern const char *special_unit_info_type_names[];
-/* SPECIAL_UNIT_INFO_TREE_NR elements */
-extern const char *special_unit_info_tree_names[];
 
 /* in format_html.c */
 extern const char *direction_string_type_names[];
