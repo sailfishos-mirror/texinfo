@@ -1,5 +1,16 @@
 2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Move TRANSLATED_SUI_ASSOCIATION type definition
+
+	* tta/maintain/generate_code_convert_data.pl:
+	Output TRANSLATED_SUI_ASSOCIATION definition in
+	html_conversion_data.h.
+	* tta/C/main/converter_types.h: Remove definition of
+	TRANSLATED_SUI_ASSOCIATION and remove #include of
+	"html_conversion_data.h".
+
+2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Fix excess elements in array initialiser warning
 
 	* tta/maintain/generate_code_convert_data.pl,

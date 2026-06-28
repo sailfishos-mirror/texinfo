@@ -201,6 +201,12 @@ if ($C_format) {
          ."};\n\n";
 
   print HDR "};\n\n";
+
+  print HDR "typedef struct TRANSLATED_SUI_ASSOCIATION {\n";
+  print HDR "      enum special_unit_info_tree tree_type;\n";
+  print HDR "          enum special_unit_info_type string_type;\n";
+  print HDR "} TRANSLATED_SUI_ASSOCIATION;\n\n";
+
 }
 
 # gather for direction structures below

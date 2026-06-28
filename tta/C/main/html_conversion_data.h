@@ -34,6 +34,11 @@ enum special_unit_info_tree {
    SUIT_type_heading,
 };
 
+typedef struct TRANSLATED_SUI_ASSOCIATION {
+      enum special_unit_info_tree tree_type;
+          enum special_unit_info_type string_type;
+} TRANSLATED_SUI_ASSOCIATION;
+
 extern const char * const default_special_unit_info[SPECIAL_UNIT_INFO_TYPE_NR][4];
 
 extern const char * const default_special_unit_tree_info[SPECIAL_UNIT_INFO_TREE_NR][4];

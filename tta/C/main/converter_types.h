@@ -23,8 +23,6 @@
 /* for iconv_t */
 #include <iconv.h>
 
-/* for enum special_unit_info_type ... */
-#include "html_conversion_data.h"
 #include "element_types.h"
 #include "command_ids.h"
 #include "tree_types.h"
@@ -141,11 +139,6 @@ typedef struct CONVERTER {
   /* HTML specific */
     HTML_CONVERTER_STATE html_converter;
 } CONVERTER;
-
-typedef struct TRANSLATED_SUI_ASSOCIATION {
-    enum special_unit_info_tree tree_type;
-    enum special_unit_info_type string_type;
-} TRANSLATED_SUI_ASSOCIATION;
 
 /* following types used in several converter codes, but not in this file */
 typedef struct TARGET_FILENAME {
