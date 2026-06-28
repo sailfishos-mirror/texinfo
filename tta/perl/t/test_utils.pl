@@ -1081,8 +1081,6 @@ sub test($$)
   my $indices_sorted_sort_strings
     = $document->print_document_indices_sort_strings();
 
-  $tree = $document->tree(1);
-
   my $input_file_names_encoding
       = Texinfo::Common::input_file_name_encoding(
                  $document->get_conf('INPUT_FILE_NAME_ENCODING'),

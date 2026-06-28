@@ -1,5 +1,13 @@
 2026-06-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl (test): do not call $document->tree again
+	after structuring code, the previously obtained tree should be right.
+
+	* tta/C/main/build_perl_info.c (document_tree): add to comment now
+	that $document->tree(1) is not called twice anymore.
+
+2026-06-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (document_tree): reorganize code to be
 	easier to read.  Assume that sv field is set upon building tree to
 	Perl.  Assert that an existing tree_document_descriptor is the same as

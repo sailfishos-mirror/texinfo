@@ -2663,13 +2663,18 @@ document_tree (SV *document_in, int handler_only)
             }
           /* the element_document_descriptor_sv may already exist if
              $document->tree(1) is called twice, which should probably
-             never be particularly useful, but is not frowned upon either */
+             never be particularly useful, but is not frowned upon either.
+             In 2026 it never happened in the tests.
+           */
           else
             {
               size_t stored_document_descriptor
                 = (size_t) SvIV (*element_document_descriptor_sv);
               if (stored_document_descriptor != document->descriptor)
                 fatal ("Handler only tree inconsistent document descriptor");
+              /*
+              fatal ("tree_document_descriptor already existing in new element");
+               */
             }
           return newSVsv (document->tree->sv);
         }
