@@ -59,15 +59,10 @@ our @EXPORT_OK = qw(
 
 
 BEGIN {
-  my $shared_library_name = "ConvertTexinfoXS";
-  if (!Texinfo::XSLoader::XS_modules_enabled()) {
-    undef $shared_library_name;
-  }
-
   Texinfo::XSLoader::init (
       "Texinfo::Convert::Texinfo",
       "Texinfo::Convert::TexinfoNonXS",
-      $shared_library_name,
+      'ConvertTexinfoXS',
       undef,
       ['texinfo', 'texinfoxs'],
   );

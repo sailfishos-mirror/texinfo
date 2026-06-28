@@ -30,15 +30,10 @@ use Texinfo::Document;
 our $VERSION = '7.3dev';
 
 BEGIN {
-  my $shared_library_name = "ParserXS";
-  if (!Texinfo::XSLoader::XS_modules_enabled()) {
-    undef $shared_library_name;
-  }
-
   Texinfo::XSLoader::init (
       "Texinfo::Parser",
       "Texinfo::ParserNonXS",
-      $shared_library_name,
+      'ParserXS',
       "Texinfo::ParserXS",
       ['texinfo', 'texinfoxs'],
   );

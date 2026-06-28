@@ -44,14 +44,10 @@ use Texinfo::Translations;
 our $VERSION = '7.3dev';
 
 BEGIN {
-  my $shared_library_name = "StructuringXS";
-  if (!Texinfo::XSLoader::XS_modules_enabled()) {
-    undef $shared_library_name;
-  }
   Texinfo::XSLoader::init (
     "Texinfo::Structuring",
     "Texinfo::StructuringNonXS",
-    $shared_library_name,
+    'StructuringXS',
     undef,
     ['texinfo', 'texinfoxs'],
   );

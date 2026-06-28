@@ -68,14 +68,10 @@ our @EXPORT_OK = qw(
 );
 
 BEGIN {
-  my $shared_library_name = "OutputUnitsXS";
-  if (!Texinfo::XSLoader::XS_modules_enabled()) {
-    undef $shared_library_name;
-  }
   Texinfo::XSLoader::init (
     "Texinfo::OutputUnits",
     "Texinfo::OutputUnitsNonXS",
-    $shared_library_name,
+    'OutputUnitsXS',
     undef,
     ['texinfo', 'texinfoxs'],
   );

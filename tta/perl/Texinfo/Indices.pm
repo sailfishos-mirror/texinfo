@@ -74,14 +74,10 @@ our $VERSION = '7.3dev';
 # index_entry_first_letter_text_or_command
 
 BEGIN {
-  my $shared_library_name = "IndicesXS";
-  if (!Texinfo::XSLoader::XS_modules_enabled()) {
-    undef $shared_library_name;
-  }
   Texinfo::XSLoader::init (
     "Texinfo::Indices",
     "Texinfo::IndicesNonXS",
-    $shared_library_name,
+    'IndicesXS',
     undef,
     ['texinfo', 'texinfoxs', 'texinfo-convert', 'texinfo-convertxs'],
   );

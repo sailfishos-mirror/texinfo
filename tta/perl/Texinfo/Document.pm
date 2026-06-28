@@ -51,15 +51,10 @@ use Texinfo::ManipulateTree;
 our $VERSION = '7.3dev';
 
 BEGIN {
-  my $shared_library_name = "DocumentXS";
-  if (!Texinfo::XSLoader::XS_modules_enabled()) {
-    undef $shared_library_name;
-  }
-
   Texinfo::XSLoader::init (
     "Texinfo::Document",
     "Texinfo::DocumentNonXS",
-    $shared_library_name,
+    'DocumentXS',
     undef,
     ['texinfo', 'texinfoxs'],
   );

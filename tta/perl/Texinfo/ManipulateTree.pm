@@ -76,14 +76,10 @@ normalized_entry_associated_internal_node
 );
 
 BEGIN {
-  my $shared_library_name = "ManipulateTreeXS";
-  if (!Texinfo::XSLoader::XS_modules_enabled()) {
-    undef $shared_library_name;
-  }
   Texinfo::XSLoader::init (
     "Texinfo::ManipulateTree",
     "Texinfo::ManipulateTreeNonXS",
-    $shared_library_name,
+    'ManipulateTreeXS',
     undef,
     ['texinfo', 'texinfoxs'],
   );
@@ -91,41 +87,20 @@ BEGIN {
 
 
 
-my $XS_structuring = Texinfo::XSLoader::XS_modules_enabled();
-
 # expected number of references to the object
 # The $element variable owns one count to reference and to object.
 # The parent contents or the extra key or the info key or the
 # source mark element key also holds a count to the object.
 # plus possibly one count owned by the C code
-my $destroyed_objects_refcount;
-# used in messages
-my $destroyed_objects_refcount_text;
-# expected number of references to the object if created in Perl without
-# any reference owned by the C code.  Only possible with XS parser, and
-# with structure without XS.
-my $no_XS_objects_refcount;
+my $destroyed_objects_refcount = 2;
 
 # expected number of references to the element SV
 my $element_SV_target_count = 1;
-
-$destroyed_objects_refcount = 2;
-$destroyed_objects_refcount_text = $destroyed_objects_refcount;
 
 if (Texinfo::XSLoader::XS_modules_enabled()
     and $Texinfo::XSLoader::core_modules_built) {
   # a reference in C too
   $destroyed_objects_refcount++;
-
-  if (!$XS_structuring) {
-    # transformations may create elements in pure Perl only when
-    # structuring is not done with XS extensions.
-    $no_XS_objects_refcount = $destroyed_objects_refcount -1;
-    $destroyed_objects_refcount_text
-      = "$destroyed_objects_refcount or $no_XS_objects_refcount";
-  } else {
-    $destroyed_objects_refcount_text = $destroyed_objects_refcount;
-  }
 }
 
 
@@ -541,21 +516,9 @@ sub _element_remove_references($;$$) {
 
     if (exists($element->{'contents'})) {
       if (exists($element->{'extra'})) {
-        #if (exists($element->{'extra'}->{'def_index_element'})) {
-        #  _element_remove_references($element->{'extra'}->{'def_index_element'},
-        #                         # C tree not always build
-        #                         #$check_refcount, $silent_refcount);
-        #                           undef, $silent_refcount);
-        #  delete $element->{'extra'}->{'def_index_element'};
-        #  if (exists($element->{'extra'}->{'def_index_ref_element'})) {
-        #    _element_remove_references(
-        #      $element->{'extra'}->{'def_index_ref_element'},
-        #                           # C tree not always build
-        #                           #$check_refcount, $silent_refcount);
-        #                           undef, $silent_refcount);
-        #    delete $element->{'extra'}->{'def_index_ref_element'};
-        #  }
-        #}
+        # if there were out of tree elements, they would be recursed into
+        # here.
+        #
         # hold duplicates of the element label contents
         foreach my $key ('node_content', 'manual_content') {
           if (exists($element->{'extra'}->{$key})) {
@@ -580,9 +543,7 @@ sub _element_remove_references($;$$) {
     #if (1) {
     #Devel::Peek::Dump($element);
     if ($reference_count != $element_SV_target_count
-        or ($object_count != $destroyed_objects_refcount
-            and !(defined($no_XS_objects_refcount)
-                  and $object_count == $no_XS_objects_refcount))) {
+        or $object_count != $destroyed_objects_refcount) {
       my $findref_info;
       if ($devel_findref_loading_error) {
         $findref_info = '';
@@ -590,7 +551,7 @@ sub _element_remove_references($;$$) {
         $findref_info = Devel::FindRef::track($element)."\n";
       }
       my $message = "Element refcount ($reference_count, $object_count) != ".
-             "($element_SV_target_count, $destroyed_objects_refcount_text)";
+             "($element_SV_target_count, $destroyed_objects_refcount)";
       warn "You found a bug: $message for $element\n\n".
       Texinfo::ManipulateTree::element_print_details($element)."\n".
        $findref_info;

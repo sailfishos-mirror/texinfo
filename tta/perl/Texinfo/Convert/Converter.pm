@@ -85,14 +85,10 @@ xml_accents
 );
 
 BEGIN {
-  my $shared_library_name = "ConvertConverterXS";
-  if (!Texinfo::XSLoader::XS_modules_enabled()) {
-    undef $shared_library_name;
-  }
   Texinfo::XSLoader::init (
     "Texinfo::Convert::Converter",
     "Texinfo::Convert::ConverterNonXS",
-    $shared_library_name,
+    'ConvertConverterXS',
     undef,
     ['texinfo', 'texinfoxs', 'texinfo-convert', 'texinfo-convertxs'],
   );

@@ -110,14 +110,10 @@ BEGIN {
   }
 
   # Main conversion XS and NonXS interfaces loading
-  my $shared_library_name = "ConvertHTMLXS";
-  if (!Texinfo::XSLoader::XS_modules_enabled()) {
-    undef $shared_library_name;
-  }
   Texinfo::XSLoader::init (
     "Texinfo::Convert::HTML",
     "Texinfo::Convert::HTMLNonXS",
-    $shared_library_name,
+    'ConvertHTMLXS',
     undef,
     ['texinfo', 'texinfoxs', 'texinfo-convert', 'texinfo-convertxs'],
   );

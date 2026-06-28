@@ -1,3 +1,16 @@
+2026-06-28 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/*.pm (BEGIN), tta/perl/Texinfo/*.pm
+	(BEGIN): do not use XS_modules_enabled to determine if the call to
+	Texinfo::XSLoader::init should be done with an undef XS module file
+	name, TEXINFO_XS=omit is checked in XSLoader::init, and that is all is
+	needed to decide if the XS module file should be loaded.
+
+	* tta/perl/Texinfo/ManipulateTree.pm (_element_remove_references):
+	remove the case with XS for structuring only as it cannot happen
+	anymore.  Remove $no_XS_objects_refcount and
+	$destroyed_objects_refcount_text.
+
 2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Move some non-types out of html_converter_types.h
