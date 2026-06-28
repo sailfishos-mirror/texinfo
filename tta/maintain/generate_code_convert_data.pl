@@ -179,7 +179,7 @@ if ($C_format) {
     .(scalar(@su_ordered_translated_hashes))."\n\n";
 
   print HDR "extern const char"
-          . " *snecial_unit_info_type_names[SPECIAL_UNIT_INFO_TYPE_NR];\n";
+          . " *special_unit_info_type_names[SPECIAL_UNIT_INFO_TYPE_NR];\n";
   print HDR "extern const char"
           . " *special_unit_info_tree_names[SPECIAL_UNIT_INFO_TREE_NR];\n\n";
 
