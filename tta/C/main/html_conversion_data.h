@@ -71,6 +71,17 @@ extern const char *direction_type_translation_context[];
    hgdt_name(Space) \
 
 
+enum global_unit_direction {
+#define hgdt_name(name) D_ ## name,
+HTML_GLOBAL_DIRECTIONS_LIST
+#undef hgdt_name
+};
+
+/* NOTE the special output units direction names
+   are obtained dynamically from the perl input and stored in
+   special_unit_info and put later on in
+   special_units_direction_name */
+
 /* relative output unit directions */
 #define RUD_DIRECTIONS_TYPES_LIST \
    rud_type(This) \

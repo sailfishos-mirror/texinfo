@@ -551,6 +551,17 @@ if ($perl_format) {
   }
   print HDR "\n\n";
 
+  print HDR "enum global_unit_direction {\n";
+  print HDR "#define hgdt_name(name) D_ ## name,\n";
+  print HDR "HTML_GLOBAL_DIRECTIONS_LIST\n";
+  print HDR "#undef hgdt_name\n";
+  print HDR "};\n\n";
+
+  print HDR "/* NOTE the special output units direction names\n";
+  print HDR "   are obtained dynamically from the perl input and stored in\n";
+  print HDR "   special_unit_info and put later on in\n";
+  print HDR "   special_units_direction_name */\n\n";
+
   print HDR "/* relative output unit directions */\n";
   print HDR "#define RUD_DIRECTIONS_TYPES_LIST \\\n";
   foreach my $direction (@{$direction_orders{'relative'}}) {

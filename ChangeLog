@@ -1,5 +1,16 @@
 2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Finish moving non-types out of html_converter_types.h
+	
+	* tta/maintain/generate_code_convert_data.pl:
+	Generate "enum global_unit_direction" (defining D_up etc.)
+	in html_conversion_data.h.  This means that html_converter_types.h
+	does not need to include "html_conversion_data.h", which contains
+	variable declarations.  This means that html_converter_types.h
+	now only contains types, matching its name.
+
+2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Move some non-types out of html_converter_types.h
 
 	* tta/C/convert/html_converter_types.h,

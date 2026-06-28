@@ -75,21 +75,5 @@ typedef struct COMMAND_ARGS_SPECIFICATION {
     unsigned long flags[MAX_COMMAND_ARGS_NR];
 } COMMAND_ARGS_SPECIFICATION;
 
-/* see Texinfo::HTML _prepare_output_units_global_targets
-
-   NOTE the special output units direction names
-   are obtained dynamically from the perl input and stored in
-   special_unit_info and put later on in
-   special_units_direction_name
- */
-
-#include "html_conversion_data.h"
-
-enum global_unit_direction {
-  #define hgdt_name(name) D_ ## name,
-   HTML_GLOBAL_DIRECTIONS_LIST
-  #undef hgdt_name
-};
-
 
 #endif
