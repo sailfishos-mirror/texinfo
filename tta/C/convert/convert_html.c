@@ -78,7 +78,7 @@
 #include "html_conversion_state.h"
 #include "format_html.h"
 #include "convert_html.h"
-/* html_nr_string_directions */
+/* html_nr_string_directions ... */
 #include "html_prepare_converter.h"
 #include "html_conversion_api.h"
 

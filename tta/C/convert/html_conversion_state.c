@@ -25,6 +25,7 @@
 #include "element_types.h"
 #include "converter_types.h"
 #include "html_converter_types.h"
+#include "html_prepare_converter.h"
 /* fatal */
 #include "base_utils.h"
 #include "command_stack.h"

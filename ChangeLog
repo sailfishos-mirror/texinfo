@@ -3,6 +3,24 @@
 	Move some non-types out of html_converter_types.h
 
 	* tta/C/convert/html_converter_types.h,
+	* tta/C/convert/html_prepare_converter.h:
+	Move declarations to html_prepare_converter.h:
+	html_command_args_flags, html_commands_data,
+	special_list_mark_css_string_no_arg_command, no_arg_formatted_cmd,
+	style_formatted_cmd, accent_cmd, format_raw_cmd.
+
+2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+
+	* tta/C/convert/format_html.c,
+	* tta/C/convert/html_conversion_state.c,
+	* tta/C/convert/convert_html.c,
+
+2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Move some non-types out of html_converter_types.h
+
+	* tta/C/convert/html_converter_types.h,
 	* tta/C/convert/convert_html.h: Move declarations of
 	html_conversion_context_type_names and
 	html_stage_handler_stage_type_names to convert_html.h.

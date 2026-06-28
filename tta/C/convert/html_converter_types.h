@@ -75,19 +75,6 @@ typedef struct COMMAND_ARGS_SPECIFICATION {
     unsigned long flags[MAX_COMMAND_ARGS_NR];
 } COMMAND_ARGS_SPECIFICATION;
 
-/* in html_prepare_converter.c */
-extern COMMAND_ARGS_SPECIFICATION html_command_args_flags[BUILTIN_CMD_NUMBER];
-
-extern HTML_COMMAND_STRUCT html_commands_data[BUILTIN_CMD_NUMBER];
-
-extern SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD
-            special_list_mark_css_string_no_arg_command[];
-
-extern COMMAND_ID_LIST no_arg_formatted_cmd;
-extern COMMAND_ID_LIST style_formatted_cmd;
-extern COMMAND_ID_LIST accent_cmd;
-extern COMMAND_ID_LIST format_raw_cmd;
-
 /* see Texinfo::HTML _prepare_output_units_global_targets
 
    NOTE the special output units direction names

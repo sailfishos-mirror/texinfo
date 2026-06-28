@@ -106,4 +106,22 @@ void html_reset_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info);
           const char *output_file, const char *destination_directory,
           const char *output_filename, const char *document_name); */
 
+
+
+#include "html_converter_types.h"
+
+/* Global data */
+
+extern COMMAND_ARGS_SPECIFICATION html_command_args_flags[BUILTIN_CMD_NUMBER];
+
+extern HTML_COMMAND_STRUCT html_commands_data[BUILTIN_CMD_NUMBER];
+
+extern SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD
+            special_list_mark_css_string_no_arg_command[];
+
+extern COMMAND_ID_LIST no_arg_formatted_cmd;
+extern COMMAND_ID_LIST style_formatted_cmd;
+extern COMMAND_ID_LIST accent_cmd;
+extern COMMAND_ID_LIST format_raw_cmd;
+
 #endif
