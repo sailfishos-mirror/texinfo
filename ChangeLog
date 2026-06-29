@@ -1,3 +1,17 @@
+2026-06-29 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Translations.pm (cache_translate_string): set the
+	context to an empty string if the language is unknown.  Set
+	$cached_lang in the block it is used.
+
+	* tta/C/main/translations.c (cache_translate_string): show
+	translation_context in debug message.
+
+	* tta/C/convert/convert_html.c (html_cdt_string),
+	tta/C/main/translations.c (gdt_string),
+	tta/perl/Texinfo/Translations.pm (gdt_string): add debug message for
+	*_string.
+
 2026-06-28 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Translations.pm (setup_output_strings)

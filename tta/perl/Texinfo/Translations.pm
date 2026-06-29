@@ -65,10 +65,14 @@ our $VERSION = '7.3dev';
 
 BEGIN {
   my $shared_library_name = "TranslationsXS";
-  # We want the Perl setup_output_strings function implementation to be
-  # called if use_libintl_perl_in_xs.  Also avoids the complication of going
-  # through XS and then back to Perl through a call of Perl function
-  # from C.
+  # Currently there are is no real overriding in XS, the following comment is
+  # more for the cases of some being added in the future, as it was in the
+  # past.  In the mean time, no need to load strings through XS if they are not
+  # used.
+  ## We want the Perl setup_output_strings function implementation to be
+  ## called if use_libintl_perl_in_xs.  Also avoids the complication of going
+  ## through XS and then back to Perl through a call of Perl function
+  ## from C.
   if ($Texinfo::ModulePath::use_libintl_perl_in_xs eq 'yes'
       # Before Perl 5.38.0 getenv/setenv and similar cannot be reliably used in
       # XS and could lead to memory corruption, depending on the platform.
@@ -487,21 +491,23 @@ sub cache_translate_string($$;$$) {
 
   my $translations;
 
+  my $translation_context_str;
+
   if (!defined($lang_translations)) {
     # unknown language, use default translated string and tree cache
     # associated to the empty string.
     $translations
       = $Texinfo::Translations::converters_translation_cache->{''}->[2];
+    # the context is not useful in that case.
+    $translation_context_str = '';
   } else {
     $translations = $lang_translations->[2];
-  }
 
-  my $translation_context_str;
-
-  if (defined($translation_context)) {
-    $translation_context_str = $translation_context;
-  } else {
-    $translation_context_str = '';
+    if (defined($translation_context)) {
+      $translation_context_str = $translation_context;
+    } else {
+      $translation_context_str = '';
+    }
   }
 
   if (exists($translations->{$translation_context_str})) {
@@ -510,17 +516,18 @@ sub cache_translate_string($$;$$) {
       if ($debug_level >= 2) {
         my $translated_string
           = $translations->{$translation_context_str}->{$string}->[0];
-        my $cached_lang = '';
-        if (defined($lang_translations)) {
-          $cached_lang = $lang_translations->[0]->{'bcp47_locale'};
-        }
         if (defined($translated_string)) {
+          my $cached_lang = '';
+          if (defined($lang_translations)) {
+            $cached_lang = $lang_translations->[0]->{'bcp47_locale'};
+          }
           print STDERR "T hit cache ".
              "'$string-$translation_context_str' '$translated_string'"
              ." $cached_lang\n";
         } else {
           print STDERR "T hit cache no need ".
-            "'$string-$translation_context_str'"."\n";
+            "'$string-". (defined($translation_context) ?
+                   $translation_context : '')."'\n";
         }
       }
       return $translations->{$translation_context_str}->{$string};
@@ -537,7 +544,8 @@ sub cache_translate_string($$;$$) {
       or $lang_translations->[0]->{'bcp47_locale'} eq '') {
     if ($debug_level >= 2) {
        print STDERR "T no need ".
-             "'$string-$translation_context_str'"."\n";
+             "'$string-" . (defined($translation_context) ?
+                   $translation_context : '')."'\n";
     }
     my $result = [undef];
     $strings_cache->{$string} = $result;
@@ -661,6 +669,9 @@ sub gdt_string($;$$$$$$) {
 
   my $converted_string = $translated_string->[0];
   $converted_string = $string if (!defined($converted_string));
+  if ($debug_level >= 2) {
+    print STDERR "TT string '$converted_string'\n";
+  }
   return _replace_substrings ($converted_string, $replaced_substrings);
 }
 

@@ -924,13 +924,14 @@ cache_translate_string (const char *string,
       if (found)
         {
           if (debug_level >= 2)
-            fprintf (stderr, "C|T hit cache no need '%s-'\n",
-                     string);
+            fprintf (stderr, "C|T hit cache no need '%s-%s'\n",
+                     string, translation_context ? translation_context : "");
           return unknown_lang_translations.list[string_nr -1];
         }
 
       if (debug_level >= 2)
-        fprintf (stderr, "C|T no need '%s-'\n", string);
+        fprintf (stderr, "C|T no need '%s-%s'\n", string,
+              translation_context ? translation_context : "");
 
       return add_translation_tree (&unknown_lang_translations, string);
     }
@@ -1264,6 +1265,9 @@ gdt_string (const char *string, const LANG_TRANSLATION *lang_translation,
 
   if (!translated_string)
     translated_string = string;
+
+  if (debug_level >= 2)
+    fprintf (stderr, "C|TT string '%s'\n", translated_string);
 
   result = replace_substrings (translated_string, replaced_substrings);
   return result;
