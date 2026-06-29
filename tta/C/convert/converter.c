@@ -56,7 +56,7 @@
 /* convert_to_texinfo */
 #include "convert_to_texinfo.h"
 #include "node_name_normalization.h"
-/* cdt_tree expand_today free_tree_added_elements... */
+/* expand_today free_tree_added_elements... */
 #include "convert_utils.h"
 /* for NAMED_STRING_ELEMENT_LIST new_named_string_element_list ... */
 #include "translations.h"
@@ -81,17 +81,18 @@ CONVERTER_FORMAT_DATA converter_format_data[] = {
   {"html", "Texinfo::Convert::HTML", &html_format_setup, 0,
    &html_converter_defaults,
    &html_converter_initialize, &html_output, &html_convert,
-   &html_convert_tree, 0, &html_free_converter, &html_element_cdt_tree},
+   &html_convert_tree, 0, &html_free_converter,
+   &html_cdt_tree, &html_element_cdt_tree},
   {"rawtext", "Texinfo::Convert::Text", 0, &rawtext_converter,
    0, 0, &rawtext_output,
-   &rawtext_convert, &rawtext_convert_tree, 0, 0, 0},
+   &rawtext_convert, &rawtext_convert_tree, 0, 0, 0, 0},
   {"plaintexinfo", "Texinfo::Convert::PlainTexinfo", 0, 0,
    &plaintexinfo_converter_defaults, 0, &plaintexinfo_output,
-   &plaintexinfo_convert, &plaintexinfo_convert_tree, 0, 0, 0},
+   &plaintexinfo_convert, &plaintexinfo_convert_tree, 0, 0, 0, 0},
   {"plaintext", "Texinfo::Convert::Plaintext", 0, 0,
    &plaintext_converter_defaults,
    &plaintext_converter_initialize, &plaintext_output, &plaintext_convert,
-   &plaintext_convert_tree, 0, &plaintext_free_converter, 0},
+   &plaintext_convert_tree, 0, &plaintext_free_converter, 0, 0},
 };
 
 /* associate lower case no brace accent command to the upper case
@@ -890,6 +891,33 @@ converter_output_tree (CONVERTER *converter, DOCUMENT *document,
 
 
 ELEMENT *
+cdt_tree (const char *string, CONVERTER *self,
+          NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+          const char *translation_context)
+{
+  int debug_level;
+
+  if (self->format != COF_none
+      && converter_format_data[self->format].cdt_tree)
+    {
+      ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+        = converter_format_data[self->format].cdt_tree;
+
+       return (*cdt_tree_fn) (string, self, replaced_substrings,
+                              translation_context);
+    }
+
+  debug_level = self->conf->DEBUG.o.integer;
+
+  return gdt_tree (string, self->document, self->current_lang_translations,
+                   replaced_substrings,
+                   debug_level, translation_context, 0);
+}
+
+
+ELEMENT *
 element_cdt_tree (const char *string, const ELEMENT *element,
                   CONVERTER *self,
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -1195,14 +1223,10 @@ set_converter_preamble_language_commands (CONVERTER *self)
 
 
 ELEMENT *
-converter_expand_today (CONVERTER *converter,
-   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                        )
+converter_expand_today (CONVERTER *converter)
 {
   int test = converter->conf->TEST.o.integer;
-  CONVERTER_CDT_TREE converter_cdt_tree = {converter, cdt_tree_fn};
+  CONVERTER_CDT_TREE converter_cdt_tree = {converter, &cdt_tree};
 
   return expand_today (test, converter->current_lang_translations,
                        converter->conf->DEBUG.o.integer,
@@ -1210,13 +1234,9 @@ converter_expand_today (CONVERTER *converter,
 }
 
 ELEMENT *
-converter_translated_command_tree (CONVERTER *self, enum command_id cmd,
-   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                        )
+converter_translated_command_tree (CONVERTER *self, enum command_id cmd)
 {
-  CONVERTER_CDT_TREE converter_cdt_tree = {self, cdt_tree_fn};
+  CONVERTER_CDT_TREE converter_cdt_tree = {self, &cdt_tree};
   return translated_command_tree (&self->translated_commands, cmd,
                                   self->current_lang_translations,
                                   self->conf->DEBUG.o.integer,

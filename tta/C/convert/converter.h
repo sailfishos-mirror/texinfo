@@ -107,6 +107,10 @@ typedef struct CONVERTER_FORMAT_DATA {
                                        const ELEMENT *tree);
     void (* converter_release_output_units) (CONVERTER *self);
     void (* converter_free) (CONVERTER *self);
+    /* overriding cdt_tree in HTML */
+    ELEMENT * (*cdt_tree) (const char *string, CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context);
     /* overriding of element_cdt_tree in HTML */
     ELEMENT * (*element_cdt_tree) (const char *string, const ELEMENT *element,
                              CONVERTER *self,
@@ -191,17 +195,9 @@ int create_destination_directory (CONVERTER *self,
 const char *current_bcp47_locale (CONVERTER *self);
 void set_converter_preamble_language_commands (CONVERTER *self);
 
-ELEMENT *converter_expand_today (CONVERTER *converter,
-   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                        );
+ELEMENT *converter_expand_today (CONVERTER *converter);
 ELEMENT *converter_translated_command_tree (CONVERTER *self,
-                             enum command_id cmd,
-   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                        );
+                                            enum command_id cmd);
 
 void set_global_document_commands (CONVERTER *converter,
                                   const enum command_location location,

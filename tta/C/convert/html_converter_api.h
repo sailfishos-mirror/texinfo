@@ -37,6 +37,9 @@ void html_converter_initialize (CONVERTER *converter);
 
 /* in convert_html.c */
 char *html_convert_tree (CONVERTER *self, const ELEMENT *tree);
+ELEMENT *html_cdt_tree (const char *string, CONVERTER *self,
+               NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+               const char *translation_context);
 ELEMENT *html_element_cdt_tree (const char *string, const ELEMENT *element,
                        CONVERTER *self,
                        NAMED_STRING_ELEMENT_LIST *replaced_substrings,

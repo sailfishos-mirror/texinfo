@@ -83,10 +83,6 @@ void find_element_authors (const ELEMENT *element,
 COMMENT_OR_END_LINE *comment_or_end_line (const ELEMENT *element);
 ARGUMENT_COMMENT_END_LINE *argument_comment_end_line (const ELEMENT *element);
 
-ELEMENT *cdt_tree (const char * string, CONVERTER *self,
-                   struct NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                   const char *translation_context);
-
 ELEMENT *translated_command_tree (TRANSLATED_COMMAND_LIST *translated_commands,
                          enum command_id cmd,
                          const LANG_TRANSLATION *lang_translation,

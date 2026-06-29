@@ -1223,18 +1223,6 @@ find_element_authors (const ELEMENT *element,
                                    quotation_authors);
 }
 
-ELEMENT *
-cdt_tree (const char *string, CONVERTER *self,
-          NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-          const char *translation_context)
-{
-  int debug_level = self->conf->DEBUG.o.integer;
-
-  return gdt_tree (string, self->document, self->current_lang_translations,
-                   replaced_substrings,
-                   debug_level, translation_context, 0);
-}
-
 /* called from generic converter and conversion to raw text converter */
 ELEMENT *
 translated_command_tree (TRANSLATED_COMMAND_LIST *translated_commands,

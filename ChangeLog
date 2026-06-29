@@ -1,5 +1,18 @@
 2026-06-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (converter_format_data, cdt_tree),
+	tta/C/convert/converter.h (CONVERTER_FORMAT_DATA),
+	tta/C/main/convert_utils.c: add cdt_tree dispatch to
+	CONVERTER_FORMAT_DATA.  Move cdt_tree out of convert_utils.c to
+	converter.c and dispatch to the cdt_tree format function if found in
+	converter_format_data, for HTML.
+
+	* tta/C/convert/converter.c (converter_expand_today)
+	(converter_translated_command_tree): remove cdt_tree_fn argument,
+	pass directly cdt_tree.
+
+2026-06-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/converter_types.h (CONVERTER_CACHE_TRANSLATE): rename
 	TRANSLATION_FUNCTION as CONVERTER_CACHE_TRANSLATE.  Update users.
 

@@ -753,8 +753,7 @@ html_translate_names (CONVERTER *self)
           else
              /* generic Converter default translated commands */
              translated_tree
-                        = converter_translated_command_tree (self, cmd,
-                                                             &html_cdt_tree);
+                        = converter_translated_command_tree (self, cmd);
 
           if (translated_tree)
             {

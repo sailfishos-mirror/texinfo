@@ -6079,7 +6079,7 @@ html_convert_today_command (CONVERTER *self, const enum command_id cmd,
                             const HTML_ARGS_FORMATTED *args_formatted,
                             const char *content, TEXT *result)
 {
-  ELEMENT *today_element = converter_expand_today (self, &html_cdt_tree);
+  ELEMENT *today_element = converter_expand_today (self);
 
   add_tree_to_build (self, today_element);
 
