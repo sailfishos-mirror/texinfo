@@ -1,5 +1,19 @@
 2026-06-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (html_convert_def_line_type): handle the
+	case of parent element not existing, using the same extra information
+	as in Perl.
+
+	* tta/C/main/converter_types.h (TRANSLATION_FUNCTION),
+	tta/C/main/translations.c (gdt_tree, gdt_string): add a translation
+	function argument to be able to replace the call to
+	cache_translate_string (same as in Perl).  Update callers.
+
+	* tta/C/convert/convert_html.c (html_cdt_tree): call gdt_tree with
+	html_cache_translate_string in argument.  Remove html_gdt_tree.
+
+2026-06-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Translations.pm (cache_translate_string): set the
 	context to an empty string if the language is unknown.  Set
 	$cached_lang in the block it is used.

@@ -312,13 +312,13 @@ element_index_content_element (const ELEMENT *element,
     {
       index_element = gdt_tree ("{name} on {class}",
                 document, element_lang_translations,
-                substrings, debug_level, 0);
+                substrings, debug_level, 0, 0);
     }
   else if (builtin_command_data[def_command].flags & CF_def_class_variable)
     {
       index_element = gdt_tree ("{name} of {class}",
                 document, element_lang_translations,
-                substrings, debug_level, 0);
+                substrings, debug_level, 0, 0);
     }
   /* should not be possible, still considered for more robust code */
   else

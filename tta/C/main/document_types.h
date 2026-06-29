@@ -395,7 +395,7 @@ typedef struct ELEMENT_STACK {
     size_t space;
 } ELEMENT_STACK;
 
-/* in SWIG interface, but we do not wnat to have the type defined in the
+/* in SWIG interface, but we do not want to have the type defined in the
    header file used in the definition of the interface */
 typedef struct PARSER {
     size_t parser_conf_descriptor;

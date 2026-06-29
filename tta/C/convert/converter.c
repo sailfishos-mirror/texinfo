@@ -920,7 +920,7 @@ element_cdt_tree (const char *string, const ELEMENT *element,
     debug_level = options->DEBUG.o.integer;
 
   return gdt_tree (string, self->document, lang_translation,
-                   replaced_substrings, debug_level, translation_context);
+                   replaced_substrings, debug_level, translation_context, 0);
 }
 
 

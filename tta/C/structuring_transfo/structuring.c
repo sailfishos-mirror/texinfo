@@ -2284,6 +2284,7 @@ insert_menu_comment_content (ELEMENT_LIST *element_list, size_t position,
   insert_into_element_list (element_list, menu_comment, position);
 }
 
+/* TODO called from converters?  If yes pass translation function? */
 ELEMENT *
 new_complete_node_menu (const NODE_RELATIONS *node_relations,
                         DOCUMENT *document,
@@ -2360,7 +2361,7 @@ new_complete_node_menu (const NODE_RELATIONS *node_relations,
                       part_title
                         = gdt_tree ("Part: {part_title}", document,
                                     lang_translations,
-                                    substrings, debug_level, 0);
+                                    substrings, debug_level, 0, 0);
 
                       insert_menu_comment_content (&new_menu->e.c->contents,
                                                    content_index, part_title,
@@ -2376,7 +2377,7 @@ new_complete_node_menu (const NODE_RELATIONS *node_relations,
                       ELEMENT *appendix_title
                         = gdt_tree ("Appendices", document,
                                     lang_translations,
-                                    0, debug_level, 0);
+                                    0, debug_level, 0, 0);
 
                       insert_menu_comment_content (&new_menu->e.c->contents,
                                                    content_index,
@@ -2679,7 +2680,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
           master_menu_title
             = gdt_tree (" --- The Detailed Node Listing ---", 0,
                         lang_translation, 0,
-                        options->DEBUG.o.integer, 0);
+                        options->DEBUG.o.integer, 0, 0);
 
           for (i = 0; i < master_menu_title->e.c->contents.number; i++)
             {

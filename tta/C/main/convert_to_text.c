@@ -1057,7 +1057,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         */
           tree = gdt_tree (category_text, 0,
                            text_options->current_lang_translations,
-                           0, text_options->DEBUG, translation_context);
+                           0, text_options->DEBUG, translation_context, 0);
         }
       else
         {
@@ -1074,7 +1074,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
              converted tree should be very simple and is a string only,
              no macro, no file */
           tree = gdt_tree (category_text, 0, lang_translation,
-                           0, 0, translation_context);
+                           0, 0, translation_context, 0);
         }
 
       if (tree)

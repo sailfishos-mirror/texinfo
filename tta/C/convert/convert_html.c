@@ -255,83 +255,20 @@ html_cache_translate_string (CONVERTER *self, const char *string,
                                  translation_context, debug_level);
 }
 
-/* same as gdt_tree with html_cache_translate_string called instead of
-   cache_translate_string and converter in argument, not document. */
-ELEMENT *
-html_gdt_tree (const char *string, CONVERTER *self,
-               const LANG_TRANSLATION *lang_translation,
-               NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-               const char *translation_context)
-{
-  int debug_level = 0;
-  const OPTIONS *options = self->conf;
-  TRANSLATION_TREE *translated_string_tree;
-  ELEMENT *result_tree;
-
-  if (options && options->DEBUG.o.integer >= 0)
-    debug_level = options->DEBUG.o.integer;
-
-  translated_string_tree
-    = html_cache_translate_string (self, string, lang_translation,
-                                   translation_context);
-
-  if (!translated_string_tree->tree)
-    {
-      DOCUMENT *translation_document;
-      DOCUMENT *document = self->document;
-      const char *translated_string = translated_string_tree->translation;
-
-      if (!translated_string)
-        translated_string = string;
-
-      if (debug_level >= 2)
-        fprintf (stderr, "C|TT convert '%s'\n", translated_string);
-
-      translation_document
-        = replace_convert_substrings (translated_string, replaced_substrings,
-                                      debug_level);
-      translated_string_tree->tree
-        = unregister_document_merge_with_document (translation_document,
-                                                   document);
-
-      /* in gdt_tree parent information is removed from the
-         translated_string_tree->tree.  We do not do it here, as we have
-         no control over the @-commands appearing in user-defined
-         translated strings.  There is a test for such a situation
-         in the t/ *.t tests with @def* commands in translation. */
-    }
-  else if (debug_level >= 2)
-    fprintf (stderr, "C|TT reuse '%s'\n", string);
-
-  result_tree = copy_element_tree (translated_string_tree->tree, 0);
-
-  if (replaced_substrings)
-    substitute_substrings_in_tree (result_tree, replaced_substrings);
-
-  if (debug_level > 0)
-    {
-      char *result_texi = convert_to_texinfo (result_tree);
-      const char *translated_string = translated_string_tree->translation;
-
-      if (!translated_string)
-        translated_string = string;
-
-      fprintf (stderr, "C|RESULT GDT: '%s' '%s' '%s'\n", string,
-                                     translated_string, result_texi);
-      free (result_texi);
-    }
-
-  return result_tree;
-}
-
-/* same as cdt_tree with html_gdt_tree called instead of gdt_tree */
+/* same as cdt_tree with html_cache_translate_string passed to gdt_tree */
 ELEMENT *
 html_cdt_tree (const char *string, CONVERTER *self,
                NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                const char *translation_context)
 {
-  return html_gdt_tree (string, self, self->current_lang_translations,
-                        replaced_substrings, translation_context);
+  TRANSLATION_FUNCTION html_translation_function = {self,
+                                          &html_cache_translate_string};
+  int debug_level = self->conf->DEBUG.o.integer;
+
+  return gdt_tree (string, self->document, self->current_lang_translations,
+                        replaced_substrings,
+                        debug_level, translation_context,
+                        &html_translation_function);
 }
 
 char *
@@ -384,8 +321,14 @@ html_element_cdt_tree (const char *string, const ELEMENT *element,
     = new_element_language_translation (&converters_translation_cache,
                                         element, TXI_CONVERT_STRINGS_NR);
 
-  return html_gdt_tree (string, self, lang_translation,
-                        replaced_substrings, translation_context);
+  TRANSLATION_FUNCTION html_translation_function = {self,
+                                          &html_cache_translate_string};
+  int debug_level = self->conf->DEBUG.o.integer;
+
+  return gdt_tree (string, self->document, lang_translation,
+                        replaced_substrings,
+                        debug_level, translation_context,
+                        &html_translation_function);
 }
 
 void

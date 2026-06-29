@@ -36,6 +36,9 @@
 #include "text.h"
 #include "command_ids.h"
 #include "tree_types.h"
+#include "document_types.h"
+/* for TRANSLATION_FUNCTION */
+#include "converter_types.h"
 #include "options_data.h"
 #include "types_data.h"
 /* isascii_lower isascii_upper fatal */
@@ -57,10 +60,6 @@
 #include "translations.h"
 
 #define _(String) gettext (String)
-
-/*
-my $DEFAULT_ENCODING = 'utf-8';
-*/
 
 static char *working_locale = 0;
 static char *locale_command = 0;
@@ -1190,14 +1189,21 @@ ELEMENT *
 gdt_tree (const char *string, DOCUMENT *document,
           const LANG_TRANSLATION *lang_translation,
           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-          int debug_level, const char *translation_context)
+          int debug_level, const char *translation_context,
+          TRANSLATION_FUNCTION *translation_function)
 {
   TRANSLATION_TREE *translated_string_tree;
   ELEMENT *result_tree;
 
-  translated_string_tree
-    = cache_translate_string (string, lang_translation,
-                              translation_context, debug_level);
+  if (translation_function)
+    translated_string_tree
+      = translation_function->cache_translate_string_fn (
+             translation_function->converter, string, lang_translation,
+                                translation_context);
+  else
+    translated_string_tree
+      = cache_translate_string (string, lang_translation,
+                                translation_context, debug_level);
 
   if (!translated_string_tree->tree)
     {
@@ -1251,15 +1257,22 @@ gdt_tree (const char *string, DOCUMENT *document,
 char *
 gdt_string (const char *string, const LANG_TRANSLATION *lang_translation,
             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-            const char *translation_context, int debug_level)
+            const char *translation_context, int debug_level,
+            TRANSLATION_FUNCTION *translation_function)
 {
   TRANSLATION_TREE *translated_string_tree;
   const char *translated_string;
   char *result;
 
-  translated_string_tree
-    = cache_translate_string (string, lang_translation,
-                              translation_context, debug_level);
+  if (translation_function)
+    translated_string_tree
+      = translation_function->cache_translate_string_fn (
+             translation_function->converter, string, lang_translation,
+                                translation_context);
+  else
+    translated_string_tree
+      = cache_translate_string (string, lang_translation,
+                                translation_context, debug_level);
 
   translated_string = translated_string_tree->translation;
 
@@ -1280,7 +1293,7 @@ pgdt_tree (const char *translation_context, const char *string,
            int debug_level)
 {
   return gdt_tree (string, document, lang_translation, replaced_substrings,
-                   debug_level, translation_context);
+                   debug_level, translation_context, 0);
 }
 
 NAMED_STRING_ELEMENT_LIST *

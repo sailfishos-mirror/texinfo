@@ -12496,7 +12496,20 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
   if (element->e.c->cmd)
     original_def_cmd = element->e.c->cmd;
   else
-    original_def_cmd = element->e.c->parent->e.c->cmd;
+    {
+      if (element->e.c->parent)
+        original_def_cmd = element->e.c->parent->e.c->cmd;
+      else
+        {
+          /* If the tree is a copy, there is no parent, for instance in
+             user-defined translations with @def* commands, which would
+             be quite unusual, but is tested in tests.
+           */
+          const char *original_def_cmdname
+            = lookup_extra_string (element, AI_key_original_def_cmdname);
+          original_def_cmd = lookup_builtin_command (original_def_cmdname);
+        }
+    }
 
   if (builtin_command_data[original_def_cmd].flags & CF_def_alias)
     {
@@ -12522,7 +12535,20 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
     def_cmd = element->e.c->cmd;
   else
   /* the parent is the def both for def* def_line and def*x */
-    def_cmd = element->e.c->parent->e.c->cmd;
+    {
+      if (element->e.c->parent)
+        def_cmd = element->e.c->parent->e.c->cmd;
+      else
+        {
+          /* If the tree is a copy, there is no parent, for instance in
+             user-defined translations with @def* commands, which would
+             be quite unusual, but is tested in tests.
+           */
+          const char *def_command
+            = lookup_extra_string (element, AI_key_def_command);
+          def_cmd = lookup_builtin_command (def_command);
+        }
+    }
 
   if (builtin_command_data[def_cmd].flags & CF_def_alias)
     {
