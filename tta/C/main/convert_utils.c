@@ -316,11 +316,7 @@ free_comma_index_subentries_tree (ELEMENT_LIST *element_list)
 
 ELEMENT *
 expand_today (int test, const LANG_TRANSLATION *lang_translation,
-              int debug, CONVERTER *converter,
-   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-             )
+              int debug, CONVERTER_CDT_TREE *converter_cdt_tree)
 {
   time_t tloc;
   struct tm *time_tm;
@@ -353,7 +349,7 @@ expand_today (int test, const LANG_TRANSLATION *lang_translation,
 
   year = time_tm->tm_year + 1900;
 
-  if ((converter && cdt_tree_fn) || lang_translation)
+  if (converter_cdt_tree || lang_translation)
     {
       NAMED_STRING_ELEMENT_LIST *substrings;
       ELEMENT *month_tree;
@@ -365,11 +361,12 @@ expand_today (int test, const LANG_TRANSLATION *lang_translation,
       text_printf (day_element->e.text, "%d", time_tm->tm_mday);
       text_printf (year_element->e.text, "%d", year);
 
-      if (converter && cdt_tree_fn)
+      if (converter_cdt_tree)
         {
           month_tree
-          = cdt_tree_fn (convert_utils_month_name[time_tm->tm_mon],
-                         converter, 0, 0);
+            = converter_cdt_tree->cdt_tree_fn (
+                       convert_utils_month_name[time_tm->tm_mon],
+                       converter_cdt_tree->converter, 0, 0);
         }
       else
         {
@@ -384,10 +381,12 @@ expand_today (int test, const LANG_TRANSLATION *lang_translation,
       add_element_to_named_string_element_list (substrings,
                                                 "year", year_element);
 
-      if (converter && cdt_tree_fn)
+      if (converter_cdt_tree)
         {
-          result = cdt_tree_fn ("{month} {day}, {year}", converter,
-                                substrings, 0);
+          result
+            = converter_cdt_tree->cdt_tree_fn ("{month} {day}, {year}",
+                                     converter_cdt_tree->converter,
+                                     substrings, 0);
         }
       else
         {
@@ -814,11 +813,7 @@ destroy_parsed_def (PARSED_DEF *parsed_def)
 ELEMENT *
 definition_category_tree (const ELEMENT *current,
                           const LANG_TRANSLATION *lang_translation,
-                          int debug, CONVERTER *converter,
-   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                         )
+                          int debug, CONVERTER_CDT_TREE *converter_cdt_tree)
 {
   ELEMENT *result = 0;
   ELEMENT *arg_category = 0;
@@ -872,10 +867,12 @@ definition_category_tree (const ELEMENT *current,
                                                 "category", category_copy);
       add_element_to_named_string_element_list (substrings,
                                                 "class", class_copy);
-      if (converter && cdt_tree_fn)
+      if (converter_cdt_tree)
         {
-          result = cdt_tree_fn ("{category} on @code{{class}}", converter,
-                                substrings, 0);
+          result
+            = converter_cdt_tree->cdt_tree_fn ("{category} on @code{{class}}",
+                                               converter_cdt_tree->converter,
+                                               substrings, 0);
         }
       else if (lang_translation)
         {
@@ -906,10 +903,12 @@ definition_category_tree (const ELEMENT *current,
       add_element_to_named_string_element_list (substrings,
                                                 "class", class_copy);
 
-      if (converter && cdt_tree_fn)
+      if (converter_cdt_tree)
         {
-          result = cdt_tree_fn ("{category} of @code{{class}}", converter,
-                                substrings, 0);
+          result
+            = converter_cdt_tree->cdt_tree_fn ("{category} of @code{{class}}",
+                                               converter_cdt_tree->converter,
+                                               substrings, 0);
         }
       else if (lang_translation)
         {
@@ -1241,11 +1240,7 @@ ELEMENT *
 translated_command_tree (TRANSLATED_COMMAND_LIST *translated_commands,
                          enum command_id cmd,
                          const LANG_TRANSLATION *lang_translation,
-                         int debug, CONVERTER *converter,
-   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                        )
+                         int debug, CONVERTER_CDT_TREE *converter_cdt_tree)
 {
   size_t i;
   for (i = 0; i < translated_commands->number; i++)
@@ -1256,9 +1251,10 @@ translated_command_tree (TRANSLATED_COMMAND_LIST *translated_commands,
           && translated_command->translation)
         {
           ELEMENT *result;
-          if (converter && cdt_tree_fn)
-            result = cdt_tree_fn (translated_command->translation,
-                                  converter, 0, 0);
+          if (converter_cdt_tree)
+            result = converter_cdt_tree->cdt_tree_fn (
+                                  translated_command->translation,
+                                  converter_cdt_tree->converter, 0, 0);
           else
             result = gdt_tree (translated_command->translation,
                                0, lang_translation, 0, debug, 0, 0);

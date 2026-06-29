@@ -1,3 +1,15 @@
+2026-06-29 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/converter_types.h (CONVERTER_CACHE_TRANSLATE): rename
+	TRANSLATION_FUNCTION as CONVERTER_CACHE_TRANSLATE.  Update users.
+
+	* tta/C/main/converter_types.h (CONVERTER_CDT_TREE),
+	tta/C/main/convert_utils.c (expand_today, definition_category_tree)
+	(translated_command_tree): add CONVERTER_CDT_TREE that brings together
+	a converter and a cdt_tree function reference.  Pass it as argument to
+	expand_today, definition_category_tree and translated_command_tree.
+	Update callers.
+
 2026-06-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Start count context stack

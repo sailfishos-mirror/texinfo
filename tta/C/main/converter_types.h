@@ -175,14 +175,21 @@ typedef struct CONVERTER_TEXT_INFO {
 } CONVERTER_TEXT_INFO;
 
 /* for translation, to pass HTML specific function and the converter */
-typedef struct TRANSLATION_FUNCTION {
+typedef struct CONVERTER_CACHE_TRANSLATE {
     CONVERTER *converter;
     TRANSLATION_TREE * (* cache_translate_string_fn) (
                         CONVERTER *converter,
                         const char *string,
                         const LANG_TRANSLATION *lang_translation,
                         const char *translation_context);
-} TRANSLATION_FUNCTION;
+} CONVERTER_CACHE_TRANSLATE;
+
+typedef struct CONVERTER_CDT_TREE {
+    CONVERTER *converter;
+    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context);
+} CONVERTER_CDT_TREE;
 
 
 #endif

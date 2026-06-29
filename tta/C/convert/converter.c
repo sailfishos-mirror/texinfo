@@ -1202,9 +1202,11 @@ converter_expand_today (CONVERTER *converter,
                         )
 {
   int test = converter->conf->TEST.o.integer;
+  CONVERTER_CDT_TREE converter_cdt_tree = {converter, cdt_tree_fn};
 
   return expand_today (test, converter->current_lang_translations,
-                       converter->conf->DEBUG.o.integer, converter, cdt_tree_fn);
+                       converter->conf->DEBUG.o.integer,
+                       &converter_cdt_tree);
 }
 
 ELEMENT *
@@ -1214,10 +1216,11 @@ converter_translated_command_tree (CONVERTER *self, enum command_id cmd,
                              const char *translation_context)
                         )
 {
+  CONVERTER_CDT_TREE converter_cdt_tree = {self, cdt_tree_fn};
   return translated_command_tree (&self->translated_commands, cmd,
                                   self->current_lang_translations,
                                   self->conf->DEBUG.o.integer,
-                                  self, cdt_tree_fn);
+                                  &converter_cdt_tree);
 }
 
 

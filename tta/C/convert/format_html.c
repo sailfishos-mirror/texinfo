@@ -12707,11 +12707,12 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
 
   if (self->conf->DEF_TABLE.o.integer > 0)
     {
+      CONVERTER_CDT_TREE converter_cdt_tree = {self, &html_cdt_tree};
       ELEMENT *def_category_tree
          = definition_category_tree (element,
                             self->current_lang_translations,
-                            self->conf->DEBUG.o.integer, self,
-                            &html_cdt_tree);
+                            self->conf->DEBUG.o.integer,
+                            &converter_cdt_tree);
 
       attribute_class = html_attribute_class (self, "tr", classes);
       destroy_strings_list (classes);

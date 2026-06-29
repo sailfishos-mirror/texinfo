@@ -37,7 +37,7 @@
 #include "command_ids.h"
 #include "tree_types.h"
 #include "document_types.h"
-/* for TRANSLATION_FUNCTION */
+/* for CONVERTER_CACHE_TRANSLATE */
 #include "converter_types.h"
 #include "options_data.h"
 #include "types_data.h"
@@ -1190,7 +1190,7 @@ gdt_tree (const char *string, DOCUMENT *document,
           const LANG_TRANSLATION *lang_translation,
           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
           int debug_level, const char *translation_context,
-          TRANSLATION_FUNCTION *translation_function)
+          CONVERTER_CACHE_TRANSLATE *translation_function)
 {
   TRANSLATION_TREE *translated_string_tree;
   ELEMENT *result_tree;
@@ -1258,7 +1258,7 @@ char *
 gdt_string (const char *string, const LANG_TRANSLATION *lang_translation,
             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
             const char *translation_context, int debug_level,
-            TRANSLATION_FUNCTION *translation_function)
+            CONVERTER_CACHE_TRANSLATE *translation_function)
 {
   TRANSLATION_TREE *translated_string_tree;
   const char *translated_string;

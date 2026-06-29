@@ -9,7 +9,7 @@
 #include "document_types.h"
 
 /* avoid #include "converter_types.h" */
-struct TRANSLATION_FUNCTION;
+struct CONVERTER_CACHE_TRANSLATE;
 
 // msgfmt --statistics po_document/*.pot
 #define TXI_DOCUMENT_TRANSLATED_STRINGS_NR 244
@@ -100,13 +100,13 @@ ELEMENT *gdt_tree (const char *string, DOCUMENT *document,
                    const LANG_TRANSLATION *lang_translation,
                    NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                    int debug_level, const char *translation_context,
-                   struct TRANSLATION_FUNCTION *translation_function);
+                   struct CONVERTER_CACHE_TRANSLATE *translation_function);
 
 char *gdt_string (const char *string,
                   const LANG_TRANSLATION *lang_translation,
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                   const char *translation_context, int debug_level,
-                  struct TRANSLATION_FUNCTION *translation_function);
+                  struct CONVERTER_CACHE_TRANSLATE *translation_function);
 
 ELEMENT *pgdt_tree (const char *translation_context, const char *string,
                     DOCUMENT *document,

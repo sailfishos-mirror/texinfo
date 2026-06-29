@@ -39,7 +39,7 @@
 #include "unicode.h"
 /* wipe_error_message_list */
 #include "errors.h"
-/* for PARSED_DEF cdt_tree add_heading_number
+/* for PARSED_DEF add_heading_number
    translated_command_tree ... */
 #include "convert_utils.h"
 #include "document.h"
@@ -458,7 +458,7 @@ convert_def_line (const ELEMENT *element, TEXT_OPTIONS *text_options,
   ELEMENT *parsed_definition_category
      = definition_category_tree (element,
                                  text_options->current_lang_translations,
-                                 text_options->DEBUG, 0, 0);
+                                 text_options->DEBUG, 0);
   if (parsed_definition_category)
     {
       ELEMENT *converted_element = new_element (ET_NONE);
@@ -684,7 +684,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               ELEMENT *today_element
                 = expand_today (text_options->TEST,
                                 text_options->current_lang_translations,
-                                text_options->DEBUG, 0, 0);
+                                text_options->DEBUG, 0);
               convert_to_text_internal (today_element,
                                         text_options, result);
               destroy_element_and_children (today_element);
@@ -697,7 +697,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           ELEMENT *tree
             = translated_command_tree (&text_options->translated_commands,
                data_cmd, text_options->current_lang_translations,
-               text_options->DEBUG, 0, 0);
+               text_options->DEBUG, 0);
 
           if (tree)
             {

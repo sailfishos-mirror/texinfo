@@ -46,11 +46,7 @@ ELEMENT_LIST *comma_index_subentries_tree (const ELEMENT *current,
 void free_comma_index_subentries_tree (ELEMENT_LIST *element);
 
 ELEMENT *expand_today (int test, const LANG_TRANSLATION *lang_translation,
-              int debug, CONVERTER *converter,
-   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-             );
+                       int debug, CONVERTER_CDT_TREE *converter_cdt_tree);
 
 char *add_heading_number (const ELEMENT *current, char *text,
                           int numbered,
@@ -73,11 +69,7 @@ PARSED_DEF *definition_arguments_content (const ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);
 ELEMENT *definition_category_tree (const ELEMENT *current,
                           const LANG_TRANSLATION *lang_translation,
-                          int debug, CONVERTER *converter,
-   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                          );
+                          int debug, CONVERTER_CDT_TREE *converter_cdt_tree);
 
 const ELEMENT *itemize_line_prepended_element (const ELEMENT *block_line_arg);
 const ELEMENT *item_itemize_prepended (const ELEMENT *element);
@@ -98,11 +90,7 @@ ELEMENT *cdt_tree (const char * string, CONVERTER *self,
 ELEMENT *translated_command_tree (TRANSLATED_COMMAND_LIST *translated_commands,
                          enum command_id cmd,
                          const LANG_TRANSLATION *lang_translation,
-                         int debug, CONVERTER *converter,
-   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context)
-                        );
+                         int debug, CONVERTER_CDT_TREE *converter_cdt_tree);
 
 char *encoded_input_file_name (const char *input_file_name_encoding,
                          int doc_encoding_for_input_file_name,

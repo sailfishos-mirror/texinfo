@@ -261,7 +261,7 @@ html_cdt_tree (const char *string, CONVERTER *self,
                NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                const char *translation_context)
 {
-  TRANSLATION_FUNCTION html_translation_function = {self,
+  CONVERTER_CACHE_TRANSLATE html_translation_function = {self,
                                           &html_cache_translate_string};
   int debug_level = self->conf->DEBUG.o.integer;
 
@@ -321,7 +321,7 @@ html_element_cdt_tree (const char *string, const ELEMENT *element,
     = new_element_language_translation (&converters_translation_cache,
                                         element, TXI_CONVERT_STRINGS_NR);
 
-  TRANSLATION_FUNCTION html_translation_function = {self,
+  CONVERTER_CACHE_TRANSLATE html_translation_function = {self,
                                           &html_cache_translate_string};
   int debug_level = self->conf->DEBUG.o.integer;
 
