@@ -1,3 +1,19 @@
+2026-06-29  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Start count context stack
+
+	* tta/C/main/text.c (text_destroy): Add function to free and
+	zero text buffer.
+
+	* tta/C/main/plaintext_converter_state.h:
+	split from tta/C/main/converter_types.h.
+	* tta/C/main/plaintext_converter_state.h
+	(PLAINTEXT_CONVERSION_STATE, PLAINTEXT_CONVERTER_STATE): rename.
+
+	* tta/C/convert/convert_to_plaintext.c:
+	Add functions for count context stack, conversion initialization
+	and finalization.
+
 2026-06-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/main/html_converter.h, tta/C/main/html_converter_state.h:

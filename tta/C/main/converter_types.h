@@ -27,6 +27,7 @@
 #include "document_types.h"
 #include "option_types.h"
 #include "options_data.h"
+#include "plaintext_converter_state.h"
 #include "html_converter_state.h"
 
 /* for interdependency with convert_to_text.h */
@@ -47,12 +48,6 @@ typedef struct CONVERTER_INITIALIZATION_INFO {
     /* gather strings that are not customization options */
     STRING_LIST non_valid_customization;
 } CONVERTER_INITIALIZATION_INFO;
-
-typedef struct PLAINTEXT_CONVERSION_STATE {
-    /* TODO: replace with 'count_context' stack */
-    TEXT pending_text;
-} PLAINTEXT_CONVERSION_STATE;
-
 
 
 /* except for COF_none, which means that the format has no C implementation,
@@ -133,7 +128,7 @@ typedef struct CONVERTER {
     COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
 
   /* Info/plaintext specific */
-    PLAINTEXT_CONVERSION_STATE plaintext_converter;
+    PLAINTEXT_CONVERTER_STATE plaintext_converter;
 
   /* HTML specific */
     HTML_CONVERTER_STATE html_converter;

@@ -13,7 +13,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-/* In sync with Texinfo::Convert::Plaintext.  Not written yet. */
+/* In sync with Texinfo::Convert::Plaintext.  Very little written yet. */
 
 #include <config.h>
 #include <stdlib.h>
@@ -36,38 +36,124 @@
 #include "builtin_commands.h"
 #include "debug.h"
 #include "convert_to_plaintext.h"
+#include "base_utils.h"
+
+/* Data structure utilities.  These could possibly be placed in a
+   separate file. */
+
+void
+reset_count_context_stack (COUNT_CONTEXT_STACK *stack)
+{
+  stack->top = 0;
+  stack->space = 0;
+  free (stack->stack);
+  stack->stack = 0;
+}
+
+
+static void
+push_count_context (COUNT_CONTEXT_STACK *stack,
+                    COUNT_CONTEXT ctxt)
+{
+  if (stack->top >= stack->space)
+    {
+      stack->stack
+        = realloc (stack->stack,
+                   (stack->space += 2) * sizeof (stack->stack[0]));
+    }
+
+  stack->stack[stack->top++] = ctxt;
+}
+
+static void
+destroy_count_context (COUNT_CONTEXT *ctxt)
+{
+  text_destroy (&ctxt->result);
+}
+
+void
+pop_count_context (COUNT_CONTEXT_STACK *stack)
+{
+  if (stack->top == 0)
+    fatal ("count context stack empty");
+
+  destroy_count_context (&stack->stack[stack->top--]);
+}
+
+COUNT_CONTEXT *
+top_count_context (const COUNT_CONTEXT_STACK *stack)
+{
+  if (stack->top == 0)
+    fatal ("count context stack empty for top");
+
+  return &stack->stack[stack->top - 1];
+}
+
+
+void
+clear_count_context_stack (COUNT_CONTEXT_STACK *stack)
+{
+  while (stack->top > 0)
+    pop_count_context (stack);
+}
+
+
+
+
+static void
+plaintext_conversion_initialization  (CONVERTER *self, DOCUMENT *document)
+{
+  COUNT_CONTEXT bottom_count_context = { 0 };
+  push_count_context (&self->plaintext_converter.count_context,
+                      bottom_count_context);
+}
+
+static void
+plaintext_conversion_finalization  (CONVERTER *self)
+{
+  /* TODO */
+}
 
 static void
 stream_output (CONVERTER *self, const char *text)
 {
-  text_append (&self->plaintext_converter.pending_text, text);
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = &self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+    = top_count_context (&self_plaintext->count_context);
+
+  text_append (&count_context->result, text);
 }
 
 static void
 stream_output_add_text (CONVERTER *self, const char *text)
 {
   /* TODO */
-  text_append (&self->plaintext_converter.pending_text, text);
+  stream_output (self, text);
 }
 
 static void
 stream_output_add_next (CONVERTER *self, const char *text)
 {
   /* TODO */
-  text_append (&self->plaintext_converter.pending_text, text);
+  stream_output (self, text);
 }
 
 static void
 stream_output_encoded (CONVERTER *self, const char *encoded)
 {
   /* TODO */
-  text_append (&self->plaintext_converter.pending_text, encoded);
+  stream_output (self, encoded);
 }
 
-static char *
+static const char *
 stream_result (CONVERTER *self)
 {
-  /* TODO */
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = &self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+    = top_count_context (&self_plaintext->count_context);
+
+  char *result = count_context->result.text;
+  return result ? result : "";
 }
 
 static void
@@ -190,19 +276,26 @@ convert_to_plaintext (CONVERTER *self, const ELEMENT *e)
 {
   if (!e)
     return strdup ("");
-  text_init (&self->plaintext_converter.pending_text);
   convert_to_plaintext_internal (self, e);
-  return self->plaintext_converter.pending_text.text;
+
+  return strdup (stream_result (self));
 }
 
 void
 plaintext_free_converter (CONVERTER *self)
 {
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = &self->plaintext_converter;
+
+  clear_count_context_stack (&self_plaintext->count_context);
 }
 
 void
 plaintext_converter_initialize (CONVERTER *self)
 {
+  memset (&self->plaintext_converter, 0,
+          sizeof (self->plaintext_converter));
+  /* TODO */
+  /* Mainly set conversion options based on configuration variables */
 }
 
 CONVERTER_INITIALIZATION_INFO *
@@ -226,7 +319,10 @@ plaintext_output (CONVERTER *converter, DOCUMENT *document)
 char *
 plaintext_convert (CONVERTER *converter, DOCUMENT *document)
 {
+  plaintext_conversion_initialization (converter, document);
+  /* TODO */
   char *result = convert_to_plaintext (converter, document->tree);
+  plaintext_conversion_finalization (converter);
   return result;
 }
 
@@ -234,6 +330,10 @@ char *
 plaintext_convert_tree (CONVERTER *converter,
                            const ELEMENT *tree)
 {
+  COUNT_CONTEXT new_count_context = { 0 };
+  push_count_context (&converter->plaintext_converter.count_context,
+                      new_count_context);
+
   char *result = convert_to_plaintext (converter, tree);
   return result;
 }

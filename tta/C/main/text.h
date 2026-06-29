@@ -33,5 +33,6 @@ void text_append_n (TEXT *t, const char *s, size_t len);
 void text_printf (TEXT *t, const char *format, ...);
 void text_alloc (TEXT *t, size_t len);
 void text_reset (TEXT *t);
+void text_destroy (TEXT *t);
 
 #endif

@@ -97,3 +97,11 @@ text_init (TEXT *t)
   t->end = t->space = 0;
   t->text = 0;
 }
+
+void
+text_destroy (TEXT *t)
+{
+  free (t->text);
+  t->text = 0;
+  t->end = t->space = 0;
+}
