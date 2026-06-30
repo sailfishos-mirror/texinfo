@@ -202,9 +202,10 @@ html_cache_translate_string (CONVERTER *self, const char *string,
               free (translated_string);
               if (debug_level >= 2)
                 {
-                  fprintf (stderr, "C|T user hit cache '%s-%s' '%s' %s\n",
+                  fprintf (stderr, "C|UserCacheT [%s] hit '%s-%s' '%s'\n",
+                           lang_info->bcp47_locale,
                            string, translation_context_str,
-                           result->translation, lang_info->bcp47_locale);
+                           result->translation);
                 }
               return result;
             }
@@ -217,19 +218,21 @@ html_cache_translate_string (CONVERTER *self, const char *string,
               if (debug_level >= 2)
                 {
                   fprintf (stderr,
-                "C|T user invalid cache tree '%s-%s' '%s' (old: %s) %s\n",
+                "C|UserCacheT [%s] invalid tree '%s-%s' '%s' (old: %s)\n",
+                           lang_info->bcp47_locale,
                            string, translation_context_str,
                            translated_string,
-                           result->translation, lang_info->bcp47_locale);
+                           result->translation);
                 }
             }
           else if (debug_level >= 2)
             {
               fprintf (stderr,
-              "C|T user change translation '%s-%s' '%s' (old: %s) %s\n",
+              "C|UserCacheT [%s] invalid translation '%s-%s' '%s' (old: %s)\n",
+                           lang_info->bcp47_locale,
                            string, translation_context_str,
                            translated_string,
-                           result->translation, lang_info->bcp47_locale);
+                           result->translation);
             }
           free (result->translation);
           result->translation = translated_string;
@@ -238,9 +241,9 @@ html_cache_translate_string (CONVERTER *self, const char *string,
       else if (debug_level >= 2)
         {
           fprintf (stderr,
-           "C|T user new translation '%s-%s' '%s' %s\n",
-              string, translation_context_str, translated_string,
-              lang_info->bcp47_locale);
+           "C|UserCacheT [%s] new '%s-%s' '%s'\n",
+              lang_info->bcp47_locale, string,
+              translation_context_str, translated_string);
         }
 
       result = add_translation_tree (translations, translated_context_string);
@@ -296,7 +299,7 @@ html_cdt_string (const char *string, CONVERTER *self,
     translated_string = string;
 
   if (debug_level >= 2)
-    fprintf (stderr, "C|TT string '%s'\n", translated_string);
+    fprintf (stderr, "C|StringT '%s'\n", translated_string);
 
   result = replace_substrings (translated_string, replaced_substrings);
   return result;

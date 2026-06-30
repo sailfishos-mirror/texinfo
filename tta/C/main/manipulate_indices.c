@@ -58,6 +58,7 @@ merge_indices (INDEX_LIST *indices_information)
   size_t merged_indices_space = 4;
   size_t merged_indices_number = 0;
   size_t i;
+  const INDEX **sorted_index_names;
 
   if (!indices_information->number)
     return 0;
@@ -68,9 +69,13 @@ merge_indices (INDEX_LIST *indices_information)
   MERGED_INDICES *merged_indices
     = (MERGED_INDICES *) malloc (sizeof (MERGED_INDICES));
 
+  /* sort for reproducible error or debug messages if there are
+     messages with translations */
+  sorted_index_names = sort_index_names(indices_information);
+
   for (i = 0; i < indices_information->number; i++)
     {
-      INDEX *idx = indices_information->list[i];
+      INDEX *idx = sorted_index_names[i];
       if (idx->index_entries && idx->entries_number)
         {
           size_t j;
@@ -133,6 +138,8 @@ merge_indices (INDEX_LIST *indices_information)
 
   merged_indices->indices = merged_indices_list;
   merged_indices->number = merged_indices_number;
+
+  free (sorted_index_names);
 
   return merged_indices;
 }

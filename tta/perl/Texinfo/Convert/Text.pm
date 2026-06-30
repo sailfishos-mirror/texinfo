@@ -831,8 +831,8 @@ sub _convert($$) {
                $element);
 
         $tree = Texinfo::Translations::gdt($category_text,
-                             $new_lang_translations, undef, undef,
-                             $translation_context);
+                             $new_lang_translations, undef,
+                             $options->{'DEBUG'}, $translation_context);
       }
       $result = _convert($options, $tree);
       return $result;

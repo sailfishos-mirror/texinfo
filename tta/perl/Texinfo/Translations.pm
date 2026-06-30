@@ -521,11 +521,10 @@ sub cache_translate_string($$;$$) {
           if (defined($lang_translations)) {
             $cached_lang = $lang_translations->[0]->{'bcp47_locale'};
           }
-          print STDERR "T hit cache ".
-             "'$string-$translation_context_str' '$translated_string'"
-             ." $cached_lang\n";
+          print STDERR "CacheT [$cached_lang] hit ".
+             "'$string-$translation_context_str' '$translated_string'\n";
         } else {
-          print STDERR "T hit cache no need ".
+          print STDERR "CacheT [] hit ".
             "'$string-". (defined($translation_context) ?
                    $translation_context : '')."'\n";
         }
@@ -543,7 +542,7 @@ sub cache_translate_string($$;$$) {
   if (!defined($lang_translations)
       or $lang_translations->[0]->{'bcp47_locale'} eq '') {
     if ($debug_level >= 2) {
-       print STDERR "T no need ".
+       print STDERR "CacheT [] new ".
              "'$string-" . (defined($translation_context) ?
                    $translation_context : '')."'\n";
     }
@@ -556,9 +555,8 @@ sub cache_translate_string($$;$$) {
                                            $translation_context);
 
   if ($debug_level >= 2) {
-     print STDERR "T new translation ".
-             "'$string-$translation_context_str' '$translated_string'"
-             ." ".$lang_translations->[0]->{'bcp47_locale'}."\n";
+     print STDERR "CacheT [".$lang_translations->[0]->{'bcp47_locale'}."] new ".
+             "'$string-$translation_context_str' '$translated_string'\n";
   }
   my $result = [$translated_string];
 
@@ -613,7 +611,7 @@ sub gdt($;$$$$$$) {
     $translated_string = $string if (!defined($translated_string));
 
     if ($debug_level >= 2) {
-      print STDERR "TT convert '$translated_string'\n";
+      print STDERR "TreeT convert '$translated_string'\n";
     }
     # No need to convert this more than once as we should get the same
     # every time.  Cache the non-substituted tree in translated_string_tree.
@@ -622,7 +620,7 @@ sub gdt($;$$$$$$) {
                                     $debug_level);
     push @$translated_string_tree, $tree;
   } elsif ($debug_level >= 2) {
-    print STDERR "TT reuse '$string'\n";
+    print STDERR "TreeT reuse '$string'\n";
   }
 
   # TODO maybe dclone could be more efficient, but we want to have the same
@@ -669,8 +667,8 @@ sub gdt_string($;$$$$$$) {
 
   my $converted_string = $translated_string->[0];
   $converted_string = $string if (!defined($converted_string));
-  if ($debug_level >= 2) {
-    print STDERR "TT string '$converted_string'\n";
+  if (defined($debug_level) and $debug_level >= 2) {
+    print STDERR "StringT '$converted_string'\n";
   }
   return _replace_substrings ($converted_string, $replaced_substrings);
 }

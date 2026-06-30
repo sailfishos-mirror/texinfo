@@ -311,7 +311,9 @@ sub setup_index_entries_sort_strings($$$$;$$) {
   $convert_text_options->{'enabled_encoding'} = 'utf-8';
 
   my $indices_sort_strings = {};
-  foreach my $index_name (keys(%$index_entries)) {
+  # sort for reproducible error or debug messages if there are
+  # messages with translations
+  foreach my $index_name (sort(keys(%$index_entries))) {
     my @index_entries_sort_strings;
     foreach my $index_entry (@{$index_entries->{$index_name}}) {
       my $entry_index_name = $index_entry->{'index_name'};

@@ -1492,9 +1492,8 @@ sub _html_cache_translate_string($$$;$) {
         if (defined($translated_string_tree)) {
           if ($translated_string_tree->[0] eq $translated_string) {
             if ($debug_level >= 2) {
-              print STDERR "T user hit cache ".
-                  "'$string-$translation_context_str' '$translated_string'"
-                  ." $cached_lang\n";
+              print STDERR "UserCacheT [$cached_lang] hit ".
+                  "'$string-$translation_context_str' '$translated_string'\n";
             }
             return $translated_string_tree;
           } elsif ($debug_level >= 2) {
@@ -1502,15 +1501,13 @@ sub _html_cache_translate_string($$$;$) {
             # if the string has changed, the cache is invalidated by
             # resetting the cached string array reference just below.
             if (scalar(@$translated_string_tree) > 1) {
-              print STDERR "T user invalid cache tree ".
+              print STDERR "UserCacheT [$cached_lang] invalid tree ".
                   "'$string-$translation_context_str' '$translated_string'"
-                  ." (old $translated_string_tree->[0])"
-                  ." $cached_lang\n";
+                  ." (old $translated_string_tree->[0])\n";
             } else {
-              print STDERR "T user change translation ".
+              print STDERR "UserCacheT [$cached_lang] invalid translation ".
                   "'$string-$translation_context_str' '$translated_string'"
-                  ." (old $translated_string_tree->[0])"
-                  ." $cached_lang\n";
+                  ." (old $translated_string_tree->[0])\n";
             }
           }
         }
@@ -1520,9 +1517,8 @@ sub _html_cache_translate_string($$$;$) {
       }
 
       if ($debug_level >= 2 and not $invalidated_cache) {
-        print STDERR "T user new translation ".
-                "'$string-$translation_context_str' '$translated_string'"
-                ." $cached_lang\n";
+        print STDERR "UserCacheT [$cached_lang] new ".
+                "'$string-$translation_context_str' '$translated_string'\n";
       }
       my $result = [$translated_string];
 

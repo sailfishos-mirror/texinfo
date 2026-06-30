@@ -889,7 +889,7 @@ definition_category_tree (const ELEMENT *current,
                                             current, TXI_CONVERT_STRINGS_NR);
 
           result = gdt_tree ("{category} on @code{{class}}", 0,
-                             lang_translation, substrings, 0, 0, 0);
+                             lang_translation, substrings, debug, 0, 0);
         }
       destroy_named_string_element_list (substrings);
     }
@@ -926,7 +926,7 @@ definition_category_tree (const ELEMENT *current,
                                             current, TXI_CONVERT_STRINGS_NR);
 
           result = gdt_tree ("{category} of @code{{class}}", 0,
-                             lang_translation, substrings, 0, 0, 0);
+                             lang_translation, substrings, debug, 0, 0);
         }
       destroy_named_string_element_list (substrings);
     }

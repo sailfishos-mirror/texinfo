@@ -1,3 +1,37 @@
+2026-06-30 Patrice Dumas  <pertusus@free.fr>
+
+	* README-hacking: explain how to use commands and visually check
+	that caching of translated strings and reuse of associated trees
+	is effective.
+
+	* tta/C/convert/convert_html.c (html_cache_translate_string)
+	(html_cdt_string), tta/C/main/translations.c (cache_translate_string)
+	(gdt_tree), tta/perl/Texinfo/Convert/HTML.pm
+	(_html_cache_translate_string), tta/perl/Texinfo/Translations.pm
+	(cache_translate_string, gdt): make translation caching and tree
+	reusing debugging messages easier to read and to extract.
+
+	* tta/perl/t/test_utils.pl (test): use a variable if debugging is set.
+	Add output for the main test steps if debugging is set.
+
+	* tta/perl/t/test_utils.pl (test): pass debug indicator to Document
+	by using completed_parser_options instead of parser_options to set
+	structuring and document options.  Pass debug indicator to converter
+	to raw text.
+
+	* tta/C/main/convert_to_text.c (convert_to_text_internal),
+	tta/C/main/convert_utils.c (definition_category_tree),
+	tta/perl/Texinfo/Convert/Text.pm (_convert),
+	tta/perl/Texinfo/Convert/Utils.pm (definition_category_tree): pass
+	debug level in more functions, when outputting raw text.
+
+	* tta/C/main/manipulate_indices.c (merge_indices),
+	tta/perl/Texinfo/Indices.pm (setup_index_entries_sort_strings): sort
+	merged indices based on name in C, and sort directly index names
+	processed in setup_index_entries_sort_strings in Perl, to have a
+	reproducible order for index sort string generation in case there is
+	an error or debugging output.
+
 2026-06-29 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/converter.c (converter_format_data, cdt_tree),

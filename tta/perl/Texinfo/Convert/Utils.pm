@@ -393,7 +393,7 @@ sub definition_category_tree($;$$$) {
                $Texinfo::Translations::converters_translation_cache,
                $current);
       my $tree = Texinfo::Translations::gdt('{category} on @code{{class}}',
-                                 $new_lang_translations, $substrings);
+                                 $new_lang_translations, $substrings, $debug);
       return $tree;
     }
   } elsif (exists($Texinfo::Commands::def_class_variable_commands{
@@ -414,7 +414,7 @@ sub definition_category_tree($;$$$) {
                $Texinfo::Translations::converters_translation_cache,
                $current);
       return Texinfo::Translations::gdt('{category} of @code{{class}}',
-                                 $new_lang_translations, $substrings);
+                                 $new_lang_translations, $substrings, $debug);
     }
   }
 }

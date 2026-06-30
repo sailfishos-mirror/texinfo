@@ -640,6 +640,8 @@ sub test($$)
     $converter_options = {};
   }
 
+  my $debug = $self->{'DEBUG'};
+
   if (!defined($converter_options->{'XS_EXTERNAL_CONVERSION'})
       and defined($ENV{TEXINFO_XS_EXTERNAL_CONVERSION})
       and $ENV{TEXINFO_XS_EXTERNAL_CONVERSION}) {
@@ -903,7 +905,7 @@ sub test($$)
 
   my $completed_parser_options =
           {'INCLUDE_DIRECTORIES' => [$srcdir.'/t/include/'],
-           'DEBUG' => $self->{'DEBUG'},
+           'DEBUG' => $debug,
             %$parser_options};
 
   my $parser = Texinfo::Parser::parser($completed_parser_options);
@@ -915,10 +917,10 @@ sub test($$)
   my $document;
   if (!$test_file) {
     if ($full_document) {
-      print STDERR "  TEST FULL $test_name\n" if ($self->{'DEBUG'});
+      print STDERR "  TEST FULL $test_name\n" if ($debug);
       $document = $parser->parse_texi_text($test_text);
     } else {
-      print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
+      print STDERR "  TEST $test_name\n" if ($debug);
       $document = $parser->parse_texi_piece($test_text);
       if (defined($test_input_file_name)) {
         warn "ERROR: $self->{'name'}: $test_name: piece of texi with a file name\n";
@@ -935,7 +937,7 @@ sub test($$)
                                           $test_input_file_name);
     }
   } else {
-    print STDERR "  TEST $test_name ($test_file)\n" if ($self->{'DEBUG'});
+    print STDERR "  TEST $test_name ($test_file)\n" if ($debug);
     $document = $parser->parse_texi_file($test_file);
   }
 
@@ -974,15 +976,15 @@ sub test($$)
   foreach my $parser_and_structuring_option ('FORMAT_MENU', 'DEBUG',
                                              'documentlanguage',
                                              'documentscript') {
-    if (exists($parser_options->{$parser_and_structuring_option})) {
+    if (exists($completed_parser_options->{$parser_and_structuring_option})) {
       $test_customization_options->{$parser_and_structuring_option}
-        = $parser_options->{$parser_and_structuring_option};
+        = $completed_parser_options->{$parser_and_structuring_option};
     }
   }
-  if (!exists($parser_options->{'TEST'})) {
+  if (!exists($completed_parser_options->{'TEST'})) {
     $test_customization_options->{'TEST'} = $default_test_level;
   } else {
-    $test_customization_options->{'TEST'} = $parser_options->{'TEST'};
+    $test_customization_options->{'TEST'} = $completed_parser_options->{'TEST'};
   }
 
   my $remove_references = 0;
@@ -1013,6 +1015,8 @@ sub test($$)
   # document
   my $document_options = $test_customization->get_customization_options_hash();
   $document->register_document_options($document_options);
+
+  print STDERR "DOING structuring and indices sorting\n" if ($debug);
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
     Texinfo::Transformations::fill_gaps_in_sectioning_in_document($document);
@@ -1099,11 +1103,14 @@ sub test($$)
   }
   my $text_options = {'TEST' => $default_test_level,
                       'expanded_formats' => \%expanded_formats};
-  if (defined($parser_options->{'COMMAND_LINE_ENCODING'})) {
-    $text_options->{'COMMAND_LINE_ENCODING'}
-      = $parser_options->{'COMMAND_LINE_ENCODING'};
+  foreach my $text_option ('COMMAND_LINE_ENCODING', 'DEBUG') {
+    if (exists($completed_parser_options->{$text_option})) {
+      $text_options->{$text_option}
+        = $completed_parser_options->{$text_option};
+    }
   }
 
+  print STDERR "DOING TEXT\n" if ($debug);
   my $converted_text
       = Texinfo::Convert::Text::convert_to_text($tree, $text_options);
 
@@ -1142,7 +1149,7 @@ sub test($$)
         if (!exists($format_converter_options->{'TEST'}));
       $format_converter_options->{'INCLUDE_DIRECTORIES'} = [
                                           $srcdir.'/t/include/'];
-      #print STDERR "Doing $test_name: $format\n";
+      print STDERR "\nDOING $test_name: $format\n" if ($debug);
       my ($converter, $converter_init_errors);
       ($converted{$format}, $converter, $converter_init_errors)
            = &{$formats{$format}}($self, $test_name, $format_type,
@@ -1264,7 +1271,7 @@ sub test($$)
   # should not interfere with conversion.
   my $unsplit_needed = Texinfo::OutputUnits::unsplit($document);
   print STDERR "  UNSPLIT: $test_name\n"
-    if ($self->{'DEBUG'} and $unsplit_needed);
+    if ($debug and $unsplit_needed);
 
   # NOTE either a PlainTexinfo converter or a direct call to
   # convert_to_texinfo can be used to test conversion back to Texinfo,
@@ -1274,7 +1281,7 @@ sub test($$)
 
   my $output_units
     = Texinfo::OutputUnits::do_units_directions_pages($document,
-                         $test_split_by_node, $split_pages, $self->{'DEBUG'});
+                         $test_split_by_node, $split_pages, $debug);
 
   my $errors_text;
   my $float_text;

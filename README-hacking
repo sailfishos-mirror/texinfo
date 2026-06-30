@@ -370,6 +370,24 @@ Manual testing:
   export TEXINFO_XS=omit; for file in t/*.t ; do bfile=`basename $file .t`; perl -w $file -d 1 2>t/check_debug_differences/PL_$bfile.err ; done
   for file in t/*.t ; do bfile=`basename $file .t`; sed 's/^C|//' t/check_debug_differences/XS_$bfile.err | diff -u t/check_debug_differences/PL_$bfile.err - > t/check_debug_differences/debug_$bfile.diff; done
 
+. check that translated strings and associated tree caching is effective
+
+  Non-functional caching does not change the output, and the associated
+  debugging is only enabled for DEBUG > 1, as the caching debug output
+  is different for XS and pure Perl (in general, more hit of the cache
+  with pure Perl, as a cache in both Perl and C data must be built with XS).
+  The check should be done with TEXINFO_XS unset or set to omit.
+  Output with debugging level set to 2, grep the messages and check visually
+  that cache is hit once built with the following commands (in tta/perl):
+   cache common for all the converters for translated strings:
+    perl -w t/init_files_tests.t -d2 2>&1 | grep '\<CacheT ' | less
+   cache for user-defined translations in HTML reset for each conversion:
+    perl -w t/init_files_tests.t -d2 2>&1 | grep '\<UserCacheT ' | less
+   tree parsed based on the translated tree to check reuse:
+    perl -w t/init_files_tests.t -d2 2>&1 | grep '\<TreeT ' | less
+   everything together:
+    perl -w t/init_files_tests.t -d2 2>&1 | grep '\<\(TreeT \|\(User\)\?CacheT \)' | less
+
 check for C compiler warnings by configuring with
 
 our_CFLAGS='-Wall -Wformat-security -Wstrict-prototypes -Wno-parentheses -Wno-missing-braces'
