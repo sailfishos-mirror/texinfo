@@ -177,7 +177,7 @@ C_libtexinfo_sources = \
 		      main/unicode-collation/collation_data_lookup.h \
 		      main/unicode-collation/collation_key.c \
 		      main/unicode-collation/collation_key.h \
-		      main/list-macros.h \
+		      main/list_macros.h \
 		      parsetexi/api.c \
 		      parsetexi/api.h \
 		      parsetexi/parser.c \
