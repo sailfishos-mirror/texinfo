@@ -1,5 +1,10 @@
 2026-06-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/main/manipulate_tree.c (add_source_mark):
+	Use generic list macro.
+
+2026-06-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/main/utils.c (add_string): Define with generic list macros.
 
 2026-06-30  Gavin Smith <gavinsmith0123@gmail.com>

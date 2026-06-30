@@ -621,6 +621,8 @@ tree_remove_parents (ELEMENT *element)
 
 /* Source marks low level handling functions and relocate_source_marks */
 
+def_list_fns(SOURCE_MARK_LIST, source_mark, SOURCE_MARK *, 1)
+
 void
 add_source_mark (SOURCE_MARK *source_mark, ELEMENT *e)
 {
@@ -633,18 +635,7 @@ add_source_mark (SOURCE_MARK *source_mark, ELEMENT *e)
     }
 
   s_mark_list = e->source_mark_list;
-
-  if (s_mark_list->number == s_mark_list->space)
-    {
-      s_mark_list->space++;
-      s_mark_list->list
-          = realloc (s_mark_list->list,
-                     s_mark_list->space * sizeof (SOURCE_MARK *));
-      if (!s_mark_list->list)
-        fatal ("realloc failed");
-    }
-  s_mark_list->list[s_mark_list->number] = source_mark;
-  s_mark_list->number++;
+  add_(source_mark) (s_mark_list, source_mark);
 }
 
 static SOURCE_MARK *
