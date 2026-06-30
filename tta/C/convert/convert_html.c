@@ -269,9 +269,8 @@ html_cdt_tree (const char *string, CONVERTER *self,
   int debug_level = self->conf->DEBUG.o.integer;
 
   return gdt_tree (string, self->document, self->current_lang_translations,
-                        replaced_substrings,
-                        debug_level, translation_context,
-                        &html_translation_function);
+                        replaced_substrings, translation_context,
+                        debug_level, &html_translation_function);
 }
 
 char *
@@ -312,9 +311,8 @@ html_element_cdt_tree (const char *string, const ELEMENT *element,
   int debug_level = self->conf->DEBUG.o.integer;
 
   return gdt_tree (string, self->document, lang_translation,
-                        replaced_substrings,
-                        debug_level, translation_context,
-                        &html_translation_function);
+                        replaced_substrings, translation_context,
+                        debug_level, &html_translation_function);
 }
 
 void

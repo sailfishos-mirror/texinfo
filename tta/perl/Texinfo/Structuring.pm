@@ -437,7 +437,7 @@ sub new_complete_node_menu($;$$$)
            = Texinfo::Translations::gdt('Part: {part_title}',
                                         $lang_translations,
                                      {'part_title' => $part_title_copy},
-                                         $debug);
+                                         undef, undef, $debug);
           _insert_menu_comment_content($new_menu->{'contents'}, $content_index,
                                        $part_title, ($content_index == 0));
           $content_index++;
@@ -447,7 +447,7 @@ sub new_complete_node_menu($;$$$)
             and $appendix_commands{$child_section->{'cmdname'}}) {
           my $appendix_title
              = Texinfo::Translations::gdt('Appendices',
-                                 $lang_translations, undef, $debug);
+                                 $lang_translations, undef, undef, $debug);
           _insert_menu_comment_content($new_menu->{'contents'}, $content_index,
                                        $appendix_title,
                                        ($content_index == 0 or $part_added));
@@ -505,7 +505,7 @@ sub new_detailmenu($$$$$$;$$) {
     my $master_menu_title
            = Texinfo::Translations::gdt(' --- The Detailed Node Listing ---',
                   $lang_translations,
-                  undef, $debug);
+                  undef, undef, $debug);
     my @master_menu_title_contents;
     foreach my $content (@{$master_menu_title->{'contents'}}) {
       $content->{'parent'} = $first_preformatted

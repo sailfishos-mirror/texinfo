@@ -386,14 +386,15 @@ sub definition_category_tree($;$$$) {
       # in descriptions of object-oriented programming methods or operations.
       my $tree = Texinfo::Translations::gdt('{category} on @code{{class}}',
                                             $lang_translations, $substrings,
-                                            $debug);
+                                            undef, $debug);
     } else {
       my $new_lang_translations
         = Texinfo::Translations::new_element_language_translation(
                $Texinfo::Translations::converters_translation_cache,
                $current);
       my $tree = Texinfo::Translations::gdt('{category} on @code{{class}}',
-                                 $new_lang_translations, $substrings, $debug);
+                                       $new_lang_translations, $substrings,
+                                       undef, $debug);
       return $tree;
     }
   } elsif (exists($Texinfo::Commands::def_class_variable_commands{
@@ -407,14 +408,15 @@ sub definition_category_tree($;$$$) {
       # or instance variable.
       return Texinfo::Translations::gdt('{category} of @code{{class}}',
                                         $lang_translations, $substrings,
-                                        $debug);
+                                        undef, $debug);
     } else {
       my $new_lang_translations
         = Texinfo::Translations::new_element_language_translation(
                $Texinfo::Translations::converters_translation_cache,
                $current);
       return Texinfo::Translations::gdt('{category} of @code{{class}}',
-                                 $new_lang_translations, $substrings, $debug);
+                                   $new_lang_translations, $substrings,
+                                   undef, $debug);
     }
   }
 }
@@ -451,7 +453,7 @@ sub expand_today($;$$$) {
           { 'month' => $month_tree,
             'day' => Texinfo::TreeElement::new({'text' => $mday}),
             'year' => Texinfo::TreeElement::new({'text' => $year}) },
-           $debug);
+           undef, $debug);
   } else {
     $tree = Texinfo::TreeElement::new({'text' =>
              "$Texinfo::Convert::Utils::month_name[$mon] $mday, $year"});
@@ -469,8 +471,8 @@ sub translated_command_tree($$$$;$) {
     if (defined($converter)) {
       return $converter->cdt($to_translate);
     } else {
-      return Texinfo::Translations::gdt($to_translate,
-                             $lang_translations, 0, $debug);
+      return Texinfo::Translations::gdt($to_translate, $lang_translations,
+                                        undef, undef, $debug);
     }
   }
   return undef;
@@ -568,12 +570,12 @@ sub add_heading_number($$;$$$) {
         $result = Texinfo::Translations::gdt_string(
                     'Appendix {number} {section_title}', $lang_translations,
                     {'number' => $number, 'section_title' => $text},
-                    $debug_level);
+                    undef, $debug_level);
       } else {
         $result = Texinfo::Translations::gdt_string(
                        '{number} {section_title}', $lang_translations,
                        {'number' => $number, 'section_title' => $text},
-                       $debug_level);
+                       undef, $debug_level);
       }
     } else {
       $result = $text;

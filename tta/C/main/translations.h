@@ -99,7 +99,7 @@ char *replace_substrings (const char *string,
 ELEMENT *gdt_tree (const char *string, DOCUMENT *document,
                    const LANG_TRANSLATION *lang_translation,
                    NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                   int debug_level, const char *translation_context,
+                   const char *translation_context, int debug_level,
                    struct CONVERTER_CACHE_TRANSLATE *translation_function);
 
 char *gdt_string (const char *string,

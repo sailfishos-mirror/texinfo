@@ -1189,7 +1189,7 @@ ELEMENT *
 gdt_tree (const char *string, DOCUMENT *document,
           const LANG_TRANSLATION *lang_translation,
           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-          int debug_level, const char *translation_context,
+          const char *translation_context, int debug_level,
           CONVERTER_CACHE_TRANSLATE *translation_function)
 {
   TRANSLATION_TREE *translated_string_tree;
@@ -1293,7 +1293,7 @@ pgdt_tree (const char *translation_context, const char *string,
            int debug_level)
 {
   return gdt_tree (string, document, lang_translation, replaced_substrings,
-                   debug_level, translation_context, 0);
+                   translation_context, debug_level, 0);
 }
 
 NAMED_STRING_ELEMENT_LIST *

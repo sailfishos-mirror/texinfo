@@ -262,7 +262,7 @@ sub element_index_content_element($;$$) {
     $index_element
       = Texinfo::Translations::gdt('{name} on {class}',
                    $element_lang_translations, $substrings,
-                   $debug_level);
+                   undef, $debug_level);
   } elsif (exists($Texinfo::Commands::def_class_variable_commands{
                                                             $def_command})) {
   # TRANSLATORS: association of a variable or instance variable with
@@ -270,7 +270,7 @@ sub element_index_content_element($;$$) {
   # instance variable.
     $index_element = Texinfo::Translations::gdt('{name} of {class}',
                    $element_lang_translations, $substrings,
-                   $debug_level);
+                   undef, $debug_level);
   }
 
   # prefer a type-less container rather than 'root_line' returned by gdt

@@ -912,8 +912,8 @@ cdt_tree (const char *string, CONVERTER *self,
   debug_level = self->conf->DEBUG.o.integer;
 
   return gdt_tree (string, self->document, self->current_lang_translations,
-                   replaced_substrings,
-                   debug_level, translation_context, 0);
+                   replaced_substrings, translation_context,
+                   debug_level, 0);
 }
 
 
@@ -948,7 +948,8 @@ element_cdt_tree (const char *string, const ELEMENT *element,
     debug_level = options->DEBUG.o.integer;
 
   return gdt_tree (string, self->document, lang_translation,
-                   replaced_substrings, debug_level, translation_context, 0);
+                   replaced_substrings, translation_context,
+                   debug_level, 0);
 }
 
 

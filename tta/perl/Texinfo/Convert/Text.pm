@@ -821,7 +821,7 @@ sub _convert($$) {
         # the end of the preamble, so we let the caller set it.
         $tree = Texinfo::Translations::gdt($category_text,
                                $options->{'current_lang_translations'}, undef,
-                               $options->{'DEBUG'}, $translation_context);
+                               $translation_context, $options->{'DEBUG'});
       } else {
         # if there is no documentlanguage information, we use the
         # documentlanguage available in the tree.
@@ -832,7 +832,7 @@ sub _convert($$) {
 
         $tree = Texinfo::Translations::gdt($category_text,
                              $new_lang_translations, undef,
-                             $options->{'DEBUG'}, $translation_context);
+                             $translation_context, $options->{'DEBUG'});
       }
       $result = _convert($options, $tree);
       return $result;

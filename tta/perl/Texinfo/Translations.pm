@@ -578,16 +578,20 @@ our $converters_translation_cache = {'' => [{'bcp47_locale' => ''}, '', {}]};
 # NOTE If called from a converter, the language will in general be set from
 # document language related @-commands, primarily documentlanguage, when
 # encountered.  Before the first @documentlanguage, it could depend on the
-# converter.  Some do not set the language before it @documentlanguage
+# converter.  Some do not set the language before @documentlanguage is
 # encountered, some set based on @documentlanguage and other language
 # related @-commands from the preamble.
+# $REPLACED_SUBSTRINGS associates identifiers that can be present in the
+# translation (in braces as is usual in Perl gettext) to Texinfo trees
+# that should be inserted where the identifiers appear in the translation.
 # $TRANSLATED_STRING_METHOD is optional.  If set, it is called instead of
-# cache_translate_string.
+# cache_translate_string.  This is used for HTML to get user-defined
+# translations.
 # $TRANSLATED_STRING_METHOD takes $CUSTOMIZATION_INFORMATION as first argument
 # in addition to other cache_translate_string arguments.
 sub gdt($;$$$$$$) {
-  my ($string, $lang_translations, $replaced_substrings, $debug_level,
-      $translation_context, $customization_information,
+  my ($string, $lang_translations, $replaced_substrings,
+      $translation_context, $debug_level, $customization_information,
       $translate_string_method) = @_;
 
   $debug_level = 0 if (!defined($debug_level));
@@ -599,13 +603,15 @@ sub gdt($;$$$$$$) {
            = &$translate_string_method($customization_information,
                                        $string, $lang_translations,
                                        $translation_context);
-
   } else {
     $translated_string_tree
      = cache_translate_string($string, $lang_translations,
                               $translation_context, $debug_level);
   }
 
+  # No need to convert the string resulting from the translation more
+  # than once as we should get the same every time.  The non-substituted
+  # tree is therefore cached in $translated_string_tree (as second element).
   if (scalar(@$translated_string_tree) == 1) {
     my $translated_string = $translated_string_tree->[0];
     $translated_string = $string if (!defined($translated_string));
@@ -613,11 +619,14 @@ sub gdt($;$$$$$$) {
     if ($debug_level >= 2) {
       print STDERR "TreeT convert '$translated_string'\n";
     }
-    # No need to convert this more than once as we should get the same
-    # every time.  Cache the non-substituted tree in translated_string_tree.
+
+    # is there are $replaced_substrings, the corresponding braced identifiers
+    # found in the $translated_string are put in an internal @-command.
+    # The $translated_string is parsed into a Texinfo tree.
     my $tree
       = _replace_convert_substrings($translated_string, $replaced_substrings,
                                     $debug_level);
+    # Cache the non-substituted tree in translated_string_tree.
     push @$translated_string_tree, $tree;
   } elsif ($debug_level >= 2) {
     print STDERR "TreeT reuse '$string'\n";
@@ -650,7 +659,7 @@ sub gdt($;$$$$$$) {
 # a Texinfo tree.
 sub gdt_string($;$$$$$$) {
   my ($string, $lang_translations, $replaced_substrings,
-      $debug_level, $translation_context,
+      $translation_context, $debug_level,
       $customization_information, $translate_string_method) = @_;
 
   my $translated_string;
@@ -800,8 +809,8 @@ sub pgdt($$;$$$$$) {
       $lang_translations, $replaced_substrings, $debug_level,
       $customization_information, $translate_string_method) = @_;
 
-  return gdt($string, $lang_translations, $replaced_substrings, $debug_level,
-             $translation_context, $customization_information,
+  return gdt($string, $lang_translations, $replaced_substrings,
+             $translation_context, $debug_level, $customization_information,
              $translate_string_method);
 }
 
@@ -817,7 +826,7 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
 
 =head1 SYNOPSIS
 
-  @ISA = qw(Texinfo::Translations);
+  use Texinfo::Translations;
 
   Texinfo::Translations::setup_output_strings('LocaleData');
 
@@ -903,7 +912,7 @@ but returns a simple string, for already converted strings.
 
 =item $tree = gdt($string, $lang_translations, $replaced_substrings, $translation_context, $debug_level, $object, $translate_string_method)
 
-=item $string = gdt_string($string, $lang_translations, $replaced_substrings, $debug_level, $translation_context, $object, $translate_string_method)
+=item $string = gdt_string($string, $lang_translations, $replaced_substrings, $translation_context, $debug_level, $object, $translate_string_method)
 
 X<C<gdt>> X<C<gdt_string>>
 
@@ -925,13 +934,13 @@ For C<gdt>, the value is a Texinfo tree element that is substituted in the
 resulting Texinfo tree. For C<gdt_string>, the value is a string that
 is replaced in the resulting string.
 
-I<$debug_level> is an optional debugging level similar to
-the C<DEBUG> customization variable.  If set, the debug level minus one is
-passed to the Texinfo string parser called in C<gdt>.
-
 The I<$translation_context> is optional.  If not C<undef> this is a translation
 context string for I<$string>.  It is the first argument of C<pgettext>
 in the C API of Gettext.
+
+I<$debug_level> is an optional debugging level similar to
+the C<DEBUG> customization variable.  If set, the debug level minus one is
+passed to the Texinfo string parser called in C<gdt>.
 
 For example, in the following call, the string
 C<See {reference} in @cite{{book}}> is translated, then
@@ -950,7 +959,7 @@ translated strings by providing a I<$translate_string_method> argument.  If not
 undef it should be a reference on a function that is called instead of
 C<cache_translate_string>.  The I<$object> is passed as first argument of the
 I<$translate_string_method>, the other arguments are the same as
-L<< C<cache_translate_string>|/$translated_string_tree = cache_translate_string($string, $lang_translations, $translation_context) >>
+L<< C<cache_translate_string>|/$translated_string_tree = cache_translate_string($string, $lang_translations, $translation_context, $debug_level) >>
 arguments.
 
 =item $tree = pgdt($translation_context, $string, $lang_translations, $replaced_substrings, $debug_level, $object, $translate_string_method)

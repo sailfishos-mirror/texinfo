@@ -1,3 +1,10 @@
+2026-06-30 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/translations.c (gdt_tree),
+	tta/perl/Texinfo/Translations.pm (gdt, gdt_string): change order of
+	arguments, put translation_context before debug_level.  Update
+	callers.
+
 2026-06-30  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/main/manipulate_tree.c (add_source_mark):

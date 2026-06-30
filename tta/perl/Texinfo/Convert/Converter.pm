@@ -441,8 +441,8 @@ sub cdt($$;$$) {
   return Texinfo::Translations::gdt($string,
                                     $self->{'current_lang_translations'},
                                     $replaced_substrings,
-                                    $self->get_conf('DEBUG'),
-                                    $translation_context);
+                                    $translation_context,
+                                    $self->get_conf('DEBUG'));
 }
 
 sub cdt_string($$;$$) {
@@ -451,8 +451,8 @@ sub cdt_string($$;$$) {
   return Texinfo::Translations::gdt_string($string,
                                     $self->{'current_lang_translations'},
                                     $replaced_substrings,
-                                    $self->get_conf('DEBUG'),
-                                    $translation_context);
+                                    $translation_context,
+                                    $self->get_conf('DEBUG'));
 }
 
 sub pcdt($$;$$) {
@@ -473,8 +473,8 @@ sub element_cdt($$$;$$) {
                             $element);
   return Texinfo::Translations::gdt($string, $element_lang_translations,
                                     $replaced_substrings,
-                                    $self->get_conf('DEBUG'),
-                                    $translation_context);
+                                    $translation_context,
+                                    $self->get_conf('DEBUG'));
 }
 
 # language

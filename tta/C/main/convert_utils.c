@@ -371,7 +371,7 @@ expand_today (int test, const LANG_TRANSLATION *lang_translation,
       else
         {
           month_tree = gdt_tree (convert_utils_month_name[time_tm->tm_mon],
-                                 0, lang_translation, 0, debug, 0, 0);
+                                 0, lang_translation, 0, 0, debug, 0);
         }
       substrings = new_named_string_element_list ();
       add_element_to_named_string_element_list (substrings,
@@ -391,7 +391,7 @@ expand_today (int test, const LANG_TRANSLATION *lang_translation,
       else
         {
           result = gdt_tree ("{month} {day}, {year}", 0, lang_translation,
-                             substrings, debug, 0, 0);
+                             substrings, 0, debug, 0);
         }
       destroy_named_string_element_list (substrings);
     }
@@ -880,7 +880,7 @@ definition_category_tree (const ELEMENT *current,
      TRANSLATORS: association of a method or operation category with a class
      in descriptions of object-oriented programming methods or operations. */
           result = gdt_tree ("{category} on @code{{class}}", 0,
-                             lang_translation, substrings, debug, 0, 0);
+                             lang_translation, substrings, 0, debug, 0);
         }
       else
         {
@@ -889,7 +889,7 @@ definition_category_tree (const ELEMENT *current,
                                             current, TXI_CONVERT_STRINGS_NR);
 
           result = gdt_tree ("{category} on @code{{class}}", 0,
-                             lang_translation, substrings, debug, 0, 0);
+                             lang_translation, substrings, 0, debug, 0);
         }
       destroy_named_string_element_list (substrings);
     }
@@ -917,7 +917,7 @@ definition_category_tree (const ELEMENT *current,
       a class in descriptions of object-oriented programming variables
       or instance variable. */
           result = gdt_tree ("{category} of @code{{class}}", 0,
-                             lang_translation, substrings, debug, 0, 0);
+                             lang_translation, substrings, 0, debug, 0);
         }
       else
         {
@@ -926,7 +926,7 @@ definition_category_tree (const ELEMENT *current,
                                             current, TXI_CONVERT_STRINGS_NR);
 
           result = gdt_tree ("{category} of @code{{class}}", 0,
-                             lang_translation, substrings, debug, 0, 0);
+                             lang_translation, substrings, 0, debug, 0);
         }
       destroy_named_string_element_list (substrings);
     }
@@ -1245,7 +1245,7 @@ translated_command_tree (TRANSLATED_COMMAND_LIST *translated_commands,
                                   converter_cdt_tree->converter, 0, 0);
           else
             result = gdt_tree (translated_command->translation,
-                               0, lang_translation, 0, debug, 0, 0);
+                               0, lang_translation, 0, 0, debug, 0);
           return result;
         }
     }
