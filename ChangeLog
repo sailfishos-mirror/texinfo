@@ -1,5 +1,11 @@
 2026-06-30 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c (html_cdt_string): call gdt_string with
+	the cache function replacement argument instead of reimplementing
+	gdt_string.
+
+2026-06-30 Patrice Dumas  <pertusus@free.fr>
+
 	* README-hacking: explain how to use commands and visually check
 	that caching of translated strings and reuse of associated trees
 	is effective.

@@ -279,30 +279,13 @@ html_cdt_string (const char *string, CONVERTER *self,
                  NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                  const char *translation_context)
 {
-  int debug_level = 0;
-  const OPTIONS *options = self->conf;
-  const TRANSLATION_TREE *translated_string_tree;
-  const char *translated_string;
-  char *result;
+  CONVERTER_CACHE_TRANSLATE html_translation_function = {self,
+                                          &html_cache_translate_string};
+  int debug_level = self->conf->DEBUG.o.integer;
 
-  if (options && options->DEBUG.o.integer >= 0)
-    debug_level = options->DEBUG.o.integer;
-
-  translated_string_tree
-    = html_cache_translate_string (self, string,
-                                   self->current_lang_translations,
-                                   translation_context);
-
-  translated_string = translated_string_tree->translation;
-
-  if (!translated_string)
-    translated_string = string;
-
-  if (debug_level >= 2)
-    fprintf (stderr, "C|StringT '%s'\n", translated_string);
-
-  result = replace_substrings (translated_string, replaced_substrings);
-  return result;
+  return gdt_string (string, self->current_lang_translations,
+                     replaced_substrings, translation_context, debug_level,
+                     &html_translation_function);
 }
 
 ELEMENT *
