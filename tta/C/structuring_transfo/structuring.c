@@ -2050,7 +2050,7 @@ number_floats (DOCUMENT *document)
   for (i = 0; i < listoffloats_list->number; i++)
     {
       const LISTOFFLOATS_TYPE *listoffloats
-        = &listoffloats_list->float_types[i];
+        = &listoffloats_list->list[i];
       int float_index = 0;
       int nr_in_chapter = 0;
       const SECTION_RELATIONS *current_chapter_relations = 0;

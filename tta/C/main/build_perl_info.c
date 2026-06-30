@@ -1566,7 +1566,7 @@ build_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats)
   for (i = 0; i < listoffloats->number; i++)
     {
       size_t j;
-      LISTOFFLOATS_TYPE *listoffloat = &listoffloats->float_types[i];
+      LISTOFFLOATS_TYPE *listoffloat = &listoffloats->list[i];
       FLOAT_INFORMATION_LIST *float_list = &listoffloat->float_list;
       SV *float_type = newSVpv_utf8 (listoffloat->type, 0);
       AV *av = newAV ();

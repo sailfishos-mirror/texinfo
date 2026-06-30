@@ -911,7 +911,7 @@ txi_ext_get_float_type_floats_information (DOCUMENT *document,
 
   for (i = 0; i < listoffloats->number; i++)
     {
-      LISTOFFLOATS_TYPE *float_types = &listoffloats->float_types[i];
+      LISTOFFLOATS_TYPE *float_types = &listoffloats->list[i];
       if (!strcmp (float_types->type, float_type))
         {
           if (float_types->float_list.number > 0)

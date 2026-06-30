@@ -1,3 +1,11 @@
+2026-06-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Start on generic list macros
+
+	* tta/C/main/list_macros.h: new file.
+	(def_list_macro): New macro for defining list type.
+	* tta/C/main/tree_types.h: use it throughout.
+
 2026-06-30 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_html.c (html_cdt_string): call gdt_string with

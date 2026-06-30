@@ -62,7 +62,7 @@ find_float_type (LISTOFFLOATS_TYPE_LIST *listoffloats_list,
   size_t i;
   for (i = 0; i < listoffloats_list->number; i++)
     {
-      LISTOFFLOATS_TYPE *listoffloats = &listoffloats_list->float_types[i];
+      LISTOFFLOATS_TYPE *listoffloats = &listoffloats_list->list[i];
       if (!strcmp (listoffloats->type, float_type))
         return listoffloats;
     }
@@ -80,12 +80,12 @@ add_to_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list,
 
   if (listoffloats_list->number == listoffloats_list->space)
     {
-      listoffloats_list->float_types
-               = realloc (listoffloats_list->float_types,
+      listoffloats_list->list
+               = realloc (listoffloats_list->list,
                   (listoffloats_list->space += 5) * sizeof (LISTOFFLOATS_TYPE));
     }
 
-  result = &listoffloats_list->float_types[listoffloats_list->number];
+  result = &listoffloats_list->list[listoffloats_list->number];
   memset (result, 0, sizeof (LISTOFFLOATS_TYPE));
   result->type = strdup (type);
 
@@ -146,7 +146,7 @@ float_list_to_listoffloats_list (const FLOAT_RECORD_LIST *floats_list,
                                      float_record->section);
     }
 
-  qsort (result->float_types, result->number,
+  qsort (result->list, result->number,
          sizeof (LISTOFFLOATS_TYPE), compare_listoffloats_type);
 
 }
@@ -158,11 +158,11 @@ free_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list)
   for (i = 0; i < listoffloats_list->number; i++)
     {
       LISTOFFLOATS_TYPE *listoffloats_type
-         = &listoffloats_list->float_types[i];
+         = &listoffloats_list->list[i];
       free (listoffloats_type->type);
       free (listoffloats_type->float_list.list);
     }
-  free (listoffloats_list->float_types);
+  free (listoffloats_list->list);
 }
 
 static void
@@ -244,7 +244,7 @@ print_listoffloats_types (LISTOFFLOATS_TYPE_LIST *listoffloats_list)
     {
       size_t j;
       LISTOFFLOATS_TYPE *listoffloats_type
-         = &listoffloats_list->float_types[i];
+         = &listoffloats_list->list[i];
       text_printf (&result, "%s: %zu\n", listoffloats_type->type,
                    listoffloats_type->float_list.number);
 

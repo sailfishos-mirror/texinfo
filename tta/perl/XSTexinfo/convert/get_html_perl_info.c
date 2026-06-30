@@ -1622,7 +1622,7 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
 
           for (i = 0; i < listoffloats->number; i++)
             {
-              LISTOFFLOATS_TYPE *float_types = &listoffloats->float_types[i];
+              LISTOFFLOATS_TYPE *float_types = &listoffloats->list[i];
               if (!strcmp (float_types->type, type))
                 {
                   if (float_types->float_list.number > 0)
@@ -1832,7 +1832,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
             = &converter->document->listoffloats;
           for (i = 0; i < listoffloats->number; i++)
             {
-              const LISTOFFLOATS_TYPE *float_types = &listoffloats->float_types[i];
+              const LISTOFFLOATS_TYPE *float_types = &listoffloats->list[i];
               if (!strcmp (float_types->type, type))
                 {
                   if (float_types->float_list.number > 0)

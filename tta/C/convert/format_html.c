@@ -9879,7 +9879,7 @@ html_convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
 
   for (i = 0; i < listoffloats->number; i++)
     {
-      const LISTOFFLOATS_TYPE *float_types = &listoffloats->float_types[i];
+      const LISTOFFLOATS_TYPE *float_types = &listoffloats->list[i];
       if (!strcmp (float_types->type, listoffloats_name))
         {
           char *attribute_class;

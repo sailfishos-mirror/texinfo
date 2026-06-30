@@ -24,6 +24,7 @@
 #include "element_types.h"
 #include "text.h"
 #include "source_mark_types.h"
+#include "list_macros.h"
 
 /* the *_none enums are not necessarily used, they may also
    be there to avoid using 0, for a code easier to debug */
@@ -178,18 +179,10 @@ typedef struct ASSOCIATED_INFO_DATA {
     uint16_t data;
 } ASSOCIATED_INFO_DATA;
 
-typedef struct ELEMENT_LIST {
-    struct ELEMENT **list;
-    size_t number;
-    size_t space;
-} ELEMENT_LIST;
+def_list_type(ELEMENT_LIST, struct ELEMENT *);
 
 /* not used in parser */
-typedef struct CONST_ELEMENT_LIST {
-    const struct ELEMENT **list;
-    size_t number;
-    size_t space;
-} CONST_ELEMENT_LIST;
+def_list_type(CONST_ELEMENT_LIST, const struct ELEMENT *);
 
 typedef struct INDEX_ENTRY_LOCATION {
     char *index_name;
@@ -197,11 +190,7 @@ typedef struct INDEX_ENTRY_LOCATION {
                    merged index */
 } INDEX_ENTRY_LOCATION;
 
-typedef struct STRING_LIST {
-    char **list;
-    size_t number;
-    size_t space;
-} STRING_LIST;
+def_list_type(STRING_LIST, char *);
 
 typedef struct KEY_PAIR {
     enum ai_key_name key;
@@ -236,11 +225,7 @@ typedef struct ASSOCIATED_INFO {
     size_t info_space;
 } ASSOCIATED_INFO;
 
-typedef struct SOURCE_MARK_LIST {
-    struct SOURCE_MARK **list;
-    size_t number;
-    size_t space;
-} SOURCE_MARK_LIST;
+def_list_type(SOURCE_MARK_LIST, SOURCE_MARK *);
 
 /* Defined fully in main/document_types.h */
 struct OUTPUT_UNIT;
@@ -300,17 +285,8 @@ typedef struct NODE_RELATIONS {
     void *hv;
 } NODE_RELATIONS;
 
-typedef struct NODE_RELATIONS_LIST {
-    struct NODE_RELATIONS **list;
-    size_t number;
-    size_t space;
-} NODE_RELATIONS_LIST;
-
-typedef struct CONST_NODE_RELATIONS_LIST {
-    const struct NODE_RELATIONS **list;
-    size_t number;
-    size_t space;
-} CONST_NODE_RELATIONS_LIST;
+def_list_type(NODE_RELATIONS_LIST, struct NODE_RELATIONS *);
+def_list_type(CONST_NODE_RELATIONS_LIST, const struct NODE_RELATIONS *);
 
 typedef struct HEADING_RELATIONS {
     const ELEMENT *element;
@@ -321,11 +297,7 @@ typedef struct HEADING_RELATIONS {
     void *hv;
 } HEADING_RELATIONS;
 
-typedef struct HEADING_RELATIONS_LIST {
-    struct HEADING_RELATIONS **list;
-    size_t number;
-    size_t space;
-} HEADING_RELATIONS_LIST;
+def_list_type(HEADING_RELATIONS_LIST, struct HEADING_RELATIONS *);
 
 typedef struct SECTION_RELATIONS {
     const ELEMENT *element;
@@ -343,11 +315,7 @@ typedef struct SECTION_RELATIONS {
     void *hv;
 } SECTION_RELATIONS;
 
-typedef struct SECTION_RELATIONS_LIST {
-    struct SECTION_RELATIONS **list;
-    size_t number;
-    size_t space;
-} SECTION_RELATIONS_LIST;
+def_list_type(SECTION_RELATIONS_LIST, struct SECTION_RELATIONS *);
 
 /* not used in parser */
 typedef struct SECTIONING_ROOT {
@@ -405,22 +373,14 @@ typedef struct {
     const ELEMENT *reference;
 } LABEL;
 
-typedef struct {
-    size_t number;
-    size_t space;
-    LABEL *list;
-} LABEL_LIST;
+def_list_type(LABEL_LIST, LABEL);
 
 typedef struct {
     ELEMENT *float_element;
     const SECTION_RELATIONS *float_section;
 } FLOAT_INFORMATION;
 
-typedef struct {
-    size_t number;
-    size_t space;
-    FLOAT_INFORMATION *list;
-} FLOAT_INFORMATION_LIST;
+def_list_type(FLOAT_INFORMATION_LIST, FLOAT_INFORMATION);
 
 /* The float elements are reference to tree elements, but they are not const
    because in number_floats they are found through the listoffloats list */
@@ -429,11 +389,7 @@ typedef struct {
     FLOAT_INFORMATION_LIST float_list;
 } LISTOFFLOATS_TYPE;
 
-typedef struct {
-    size_t number;
-    size_t space;
-    LISTOFFLOATS_TYPE *float_types;
-} LISTOFFLOATS_TYPE_LIST;
+def_list_type(LISTOFFLOATS_TYPE_LIST, LISTOFFLOATS_TYPE);
 
 /* element is a reference to the tree, but it is not const because it is
    used to set the listoffloats list elements list */
@@ -528,11 +484,7 @@ typedef struct NAMED_STRING_ELEMENT {
     char *string; /* const in gdt_string, but used temporarily in gdt_tree */
 } NAMED_STRING_ELEMENT;
 
-typedef struct NAMED_STRING_ELEMENT_LIST {
-    size_t number;
-    size_t space;
-    NAMED_STRING_ELEMENT *list;
-} NAMED_STRING_ELEMENT_LIST;
+def_list_type(NAMED_STRING_ELEMENT_LIST, NAMED_STRING_ELEMENT);
 
 /* used for targets */
 struct BUCKET;
