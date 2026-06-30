@@ -1812,19 +1812,14 @@ add_include_directory (const char *input_filename,
   free (filename);
 }
 
+def_list_fns(STRING_LIST, string, char *, 5)
+
 char *
 add_string (const char *string, STRING_LIST *strings_list)
 {
-  char *result;
-  if (strings_list->number == strings_list->space)
-    {
-      strings_list->list = realloc (strings_list->list,
-                   sizeof (char *) * (strings_list->space += 5));
-    }
-  strings_list->list[strings_list->number] = strdup (string);
-  result = strings_list->list[strings_list->number];
-  strings_list->number++;
-  return result;
+  char *new_string = strdup (string);
+  add_(string) (strings_list, new_string);
+  return new_string;
 }
 
 void

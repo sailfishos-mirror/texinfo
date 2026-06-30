@@ -1,5 +1,9 @@
 2026-06-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/main/utils.c (add_string): Define with generic list macros.
+
+2026-06-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Generic list appending
 
 	* tta/C/main/list_macros.h:
