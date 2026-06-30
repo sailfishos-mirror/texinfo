@@ -58,6 +58,9 @@
 #include "base_utils.h"
 /* for xvasprintf */
 #include "text.h"
+/* set_use_perl_interpreter */
+#include "xs_utils.h"
+#include "options_defaults.h"
 /* parse_file_path whitespace_chars xasprintf digit_chars encode_with_iconv
    wipe_values locate_file_in_dirs null_device_names
    messages_and_encodings_setup */
@@ -82,6 +85,8 @@
 #include "texinfo.h"
 /* for call_module_converter */
 #include "call_conversion_perl.h"
+/* for call_finish_perl call_eval_use_module */
+#include "call_embed_perl.h"
 /* for html_builtin_default_css_text */
 #include "html_prepare_converter.h"
 
@@ -666,6 +671,78 @@ warn_deprecated_dirs (DEPRECATED_DIRS_LIST *deprecated_dirs_used)
   deprecated_dirs_used->number = 0;
 }
 
+/*
+  Start an embedded Perl interpreter and initialize by passing the
+  load_txi_modules_basename script to be called from the embedded
+  interpreter.
+
+  Return 0 in case of success.
+ */
+/* TODO warn/exit if loaded twice?  The problem with being loaded
+   twice is that the init files code may have modified previous
+   interpreter data */
+static int
+load_interpreter (const INTERPRETER_LOADING_INFO *loading_info)
+{
+  const char *load_txi_modules_basename = "load_txi_modules";
+  char *load_modules_path;
+  int status;
+
+  if (txi_paths_info.texinfo_uninstalled)
+    xasprintf (&load_modules_path, "%s/perl/%s.pl",
+               txi_paths_info.p.uninstalled.t2a_srcdir,
+               load_txi_modules_basename);
+  else
+    xasprintf (&load_modules_path, "%s/%s",
+               txi_paths_info.p.installed.converter_datadir,
+               load_txi_modules_basename);
+  status = call_init_perl (loading_info->argc_ref, loading_info->argv_ref,
+                           loading_info->env_ref, load_modules_path,
+                           loading_info->version_checked);
+
+  /* status < 0 means replacement call_init_perl that does nothing */
+  if (status > 0)
+    {
+      char *message;
+      /* unexpected failure, no point continuing, the output needs
+         the interpreter and libperl will segfault */
+      xasprintf (&message, "call_init_perl status: %d", status);
+      fatal (message);
+      free (message);
+    }
+  else if (status < 0)
+    {
+      fprintf (stderr, "WARNING: no interpreter embedding code built\n");
+      /*
+         no need to call set_use_perl_interpreter
+         txi_interpreter_use_no_interpreter, it is the default in
+         that case */
+    }
+  else
+    set_use_perl_interpreter (txi_interpreter_use_embedded);
+
+  free (load_modules_path);
+  return status;
+}
+
+static int
+load_init_file (const char *file,
+                const INTERPRETER_LOADING_INFO *loading_info)
+{
+  int status = 0;
+  if (embedded_interpreter == txi_interpreter_want_embedded)
+    {
+      int interpreter_status = load_interpreter (loading_info);
+      if (!interpreter_status)
+        embedded_interpreter = txi_interpreter_use_embedded;
+    }
+
+  if (embedded_interpreter == txi_interpreter_use_embedded)
+    status = call_config_GNUT_load_init_file (file);
+
+  return status;
+}
+
 int loaded_init_files_nr = 0;
 
 static void
@@ -680,8 +757,7 @@ locate_and_load_init_file (const char *filename, STRING_LIST *directories,
 
   if (file)
     {
-      int status = txi_load_init_file (file, loading_info,
-                                       &embedded_interpreter);
+      int status = load_init_file (file, loading_info);
 
       if (status)
         loaded_init_files_nr++;
@@ -719,8 +795,7 @@ locate_and_load_extension_file (const char *filename, STRING_LIST *directories,
 
   if (file)
     {
-      int status = txi_load_init_file (file, loading_info,
-                                       &embedded_interpreter);
+      int status = load_init_file (file, loading_info);
 
       if (status)
         loaded_init_files_nr++;
@@ -786,6 +861,28 @@ write_to_file (char *output_text, FILE *file_fh,
           "ERROR: write to %s failed (%zu/%zu)\n",
                 encoded_file_name, write_len, res_len);
     }
+}
+
+/* associate transformation name to the corresponding flag */
+static const TRANSFORMATION_NAME_FLAG txi_tree_transformation_table[] = {
+#define tt_type(name) {#name, STTF_ ## name},
+   TT_TYPES_LIST
+#undef tt_type
+  {NULL, 0}
+};
+
+/* similar to Texinfo::Common::valid_tree_transformation */
+/* Also returns the flag associated to the transformation */
+static unsigned long
+find_tree_transformation (const char *transformation_name)
+{
+  int i;
+  for (i = 0; txi_tree_transformation_table[i].name; i++)
+    {
+      if (!strcmp (transformation_name, txi_tree_transformation_table[i].name))
+        return txi_tree_transformation_table[i].flag;
+    }
+  return 0;
 }
 
 typedef struct FORMAT_NAME {
@@ -973,6 +1070,15 @@ static const char *possible_split[] = {
   "chapter", "section", "node", NULL
 };
 
+static void
+err_add_option_value (OPTIONS_LIST *options_list, const char *option_name,
+                      int int_value, const char *char_value)
+{
+  if (!add_option_value (options_list, option_name,
+                         int_value, char_value))
+    fprintf (stderr, "BUG: error setting %s\n", option_name);
+}
+
 /* we use env in case a Perl interpreter is embedded in order to blindly
    follow the documentation in perlembed, which is not very explicit */
 int
@@ -993,6 +1099,12 @@ main (int argc, char *argv[], char *env[])
   /* used except for the first file, to remove some options that are only
      relevant for the first file */
   OPTIONS_LIST non_first_file_cmdline_options;
+  const char *configured_version = PACKAGE_VERSION_CONFIG;
+  const char *configured_package = PACKAGE_CONFIG;
+  const char *configured_name = PACKAGE_NAME_CONFIG;
+  const char *configured_url = PACKAGE_URL_CONFIG;
+  const char *configured_name_version
+    = PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG;
   /* make sure that non_first_file_cmdline_options was initialized,
      even if a file was skipped */
   int non_first_file_cmdline_initialized = 0;
@@ -1056,7 +1168,6 @@ main (int argc, char *argv[], char *env[])
   int default_is_html = 1;
   char *init_file_format;
   const char *set_message_encoding = 0;
-  const char *version_for_embedded_interpreter_check;
   int call_texi2dvi = 0;
   int Xopt_arg_nr = 0;
   char *texi2dvi = 0;
@@ -1195,16 +1306,21 @@ main (int argc, char *argv[], char *env[])
   setup_texinfo_main (texinfo_uninstalled, datadir,
                       t2a_builddir, t2a_srcdir);
 
-  if (texinfo_uninstalled)
-    version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+nc";
-  else
-    version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
-
   /* setup loading_info used for Perl interpreter embedding if needed */
-  txi_setup_load_interpreter (embedded_interpreter,
-                        &argc, &argv, &env,
-                        version_for_embedded_interpreter_check,
-                        &loading_info);
+  if (embedded_interpreter == txi_interpreter_want_embedded)
+    {
+      const char *version_for_embedded_interpreter_check;
+
+      if (texinfo_uninstalled)
+        version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+nc";
+      else
+        version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
+
+      loading_info.argc_ref = &argc;
+      loading_info.argv_ref = &argv;
+      loading_info.env_ref = &env;
+      loading_info.version_checked = version_for_embedded_interpreter_check;
+    }
 
   free (t2a_builddir);
   free (t2a_srcdir);
@@ -1240,10 +1356,33 @@ main (int argc, char *argv[], char *env[])
     }
 #endif
 
-  /* Set initial configuration */
   /* program_options corresponds to main_program_set_options in texi2any */
-  txi_set_base_default_options (&program_options, locale_encoding,
-                                console_output_encoding, program_file);
+  initialize_options_list (&program_options);
+
+  /* Set initial configuration */
+  /* Customization variables independent of conversion format are set similarly
+     in texi2any.pl */
+  err_add_option_value (&program_options, "PROGRAM", 0, program_file);
+#define set_configured_information(varname,varvalue) \
+    err_add_option_value (&program_options, #varname, 0, varvalue);
+  set_configured_information(PACKAGE_VERSION, configured_version)
+  set_configured_information(PACKAGE, configured_package)
+  set_configured_information(PACKAGE_NAME, configured_name)
+  set_configured_information(PACKAGE_AND_VERSION, configured_name_version)
+  set_configured_information(PACKAGE_URL, configured_url)
+#undef set_configured_information
+
+  err_add_option_value (&program_options, "COMMAND_LINE_ENCODING", 0,
+                        locale_encoding);
+  err_add_option_value (&program_options, "MESSAGE_ENCODING", 0,
+                        console_output_encoding);
+  err_add_option_value (&program_options, "LOCALE_ENCODING", 0,
+                        locale_encoding);
+
+  /* same as Texinfo::Common::default_main_program_customization_options */
+  /* in general transmitted to converters as default */
+  add_program_cmdline_options_defaults (&program_options);
+  add_program_customization_options_defaults (&program_options);
 
   free (locale_encoding);
   free (console_output_encoding);
@@ -1381,9 +1520,8 @@ main (int argc, char *argv[], char *env[])
 
   for (i = 0; i < config_init_files.number; i++)
     {
-      int status = txi_load_init_file (config_init_files.list[i],
-                                       &loading_info,
-                                       &embedded_interpreter);
+      int status = load_init_file (config_init_files.list[i],
+                                   &loading_info);
       if (status)
         loaded_init_files_nr++;
     }
@@ -2284,7 +2422,7 @@ main (int argc, char *argv[], char *env[])
     {
       if (embedded_interpreter == txi_interpreter_want_embedded)
         {
-          int status = txi_load_interpreter (&loading_info);
+          int status = load_interpreter (&loading_info);
           if (!status)
             embedded_interpreter = txi_interpreter_use_embedded;
         }
@@ -2313,7 +2451,7 @@ main (int argc, char *argv[], char *env[])
           if (strlen (transformation))
             {
               unsigned long transfo_flag
-                = txi_find_tree_transformation (transformation);
+                = find_tree_transformation (transformation);
               if (transfo_flag)
                 transformation_flags |= transfo_flag;
               else
@@ -2505,7 +2643,7 @@ main (int argc, char *argv[], char *env[])
         {
           if (embedded_interpreter == txi_interpreter_want_embedded)
             {
-              int status = txi_load_interpreter (&loading_info);
+              int status = load_interpreter (&loading_info);
               if (!status)
                 embedded_interpreter = txi_interpreter_use_embedded;
             }
@@ -2522,7 +2660,8 @@ main (int argc, char *argv[], char *env[])
     }
 
   /* load external module if external_module is set */
-  txi_converter_output_format_setup (converted_format, external_module);
+  if (external_module)
+    call_eval_use_module (external_module);
 
   /*
   For now, FORMAT_MENU is the only variable that can be set from converter
@@ -2533,9 +2672,32 @@ main (int argc, char *argv[], char *env[])
    in practice TEXI2HTML set, for conversion to HTML to select
    possibly different customization variable values.
    */
-  format_defaults = txi_converter_format_defaults (converted_format,
-                                                   external_module,
-                                                   &cmdline_options);
+  if (external_module)
+    {
+      format_defaults = call_module_converter_defaults (external_module,
+                                                        &cmdline_options);
+    }
+
+  /* Get information on an output format
+     defaults, taking into account cmdline_options.  It is not needed
+     for converter initialization, as similar code is already called.
+     Similar to call to Texinfo::Convert::XXXX->converter_defaults($options)
+   */
+  if (!format_defaults)
+    {
+      enum converter_format converter_format;
+      CONVERTER_INITIALIZATION_INFO *conf;
+
+      converter_format
+        = find_format_name_converter_format (converted_format);
+      conf = new_converter_initialization_info ();
+
+      copy_options_list (&conf->conf, &cmdline_options);
+
+      format_defaults = converter_defaults (converter_format, conf);
+
+      destroy_converter_initialization_info (conf);
+    }
 
   format_menu_option_nr = program_options.options->FORMAT_MENU.number;
 
@@ -3158,9 +3320,12 @@ main (int argc, char *argv[], char *env[])
       copy_strings (converter_texinfo_language_config_dirs,
                     texinfo_language_config_dirs);
 
-      txi_converter_initialization_setup (converter_init_info,
-                                          &deprecated_directories,
-                                          &convert_options);
+      /* setup converter_init_info initialization data. */
+      copy_deprecated_dirs (
+               &converter_init_info->deprecated_config_directories,
+                            &deprecated_directories);
+
+      copy_options_list (&converter_init_info->conf, &convert_options);
 
       /* converter setup */
       if (external_module)
@@ -3358,7 +3523,7 @@ main (int argc, char *argv[], char *env[])
             {
               if (embedded_interpreter == txi_interpreter_want_embedded)
                 {
-                  int status = txi_load_interpreter (&loading_info);
+                  int status = load_interpreter (&loading_info);
                   if (!status)
                     embedded_interpreter = txi_interpreter_use_embedded;
                 }
@@ -3617,7 +3782,8 @@ main (int argc, char *argv[], char *env[])
   free_strings_list (&internal_extension_dirs);
   free (extensions_dir);
 
-  txi_stop_interpreter (embedded_interpreter);
+  if (embedded_interpreter == txi_interpreter_use_embedded)
+    call_finish_perl ();
 
   free_strings_list (&opened_files);
 

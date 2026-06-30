@@ -60,29 +60,7 @@ typedef struct INTERPRETER_LOADING_INFO {
     const char *version_checked;
 } INTERPRETER_LOADING_INFO;
 
-unsigned long txi_find_tree_transformation (const char *transformation_name);
-
-void txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
-                              const char *locale_encoding,
-                              const char *console_output_encoding,
-                              const char *program_file);
-
 void txi_general_output_strings_setup (void);
-
-int txi_load_interpreter (const INTERPRETER_LOADING_INFO *loading_info);
-
-void txi_setup_load_interpreter (enum interpreter_use use_interpreter,
-                      int *argc_ref, char ***argv_ref, char ***env_ref,
-                      const char *version_checked,
-                      INTERPRETER_LOADING_INFO *loading_info);
-
-void txi_converter_output_format_setup (const char *converted_format,
-                                        const char *external_module);
-
-CONVERTER_INITIALIZATION_INFO *txi_converter_format_defaults (
-                               const char *converted_format,
-                               const char *external_module,
-                               OPTIONS_LIST *customizations);
 
 void txi_parser (const char *file_path, const VALUE_LIST *values,
                  OPTIONS_LIST *options);
@@ -92,17 +70,8 @@ DOCUMENT *txi_parse_texi_file (const char *input_file_path, int *status);
 void txi_complete_document (DOCUMENT *document, unsigned long flags,
                             int format_menu);
 
-void txi_converter_initialization_setup (CONVERTER_INITIALIZATION_INFO *conf,
-                                    const DEPRECATED_DIRS_LIST *deprecated_dirs,
-                                    const OPTIONS_LIST *customizations);
-int txi_load_init_file (const char *file,
-                        const INTERPRETER_LOADING_INFO *loading_info,
-                        enum interpreter_use *embedded_interpreter);
-void txi_stop_interpreter (enum interpreter_use embedded_interpreter);
-
 char *txi_converter_output (CONVERTER *converter, DOCUMENT *document,
                             const char *external_module);
-char *txi_converter_convert (CONVERTER *converter, DOCUMENT *document);
 
 CONVERTER_TEXT_INFO *txi_sort_element_counts (const char *external_module,
                                const OPTIONS_LIST *customizations,

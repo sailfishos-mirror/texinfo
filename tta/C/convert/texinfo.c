@@ -69,82 +69,6 @@
 
 #define _(String) gettext (String)
 
-/* associate transformation name to the corresponding flag */
-static const TRANSFORMATION_NAME_FLAG txi_tree_transformation_table[] = {
-#define tt_type(name) {#name, STTF_ ## name},
-   TT_TYPES_LIST
-#undef tt_type
-  {NULL, 0}
-};
-
-/* similar to Texinfo::Common::valid_tree_transformation */
-/* Also returns the flag associated to the transformation */
-unsigned long
-txi_find_tree_transformation (const char *transformation_name)
-{
-  int i;
-  for (i = 0; txi_tree_transformation_table[i].name; i++)
-    {
-      if (!strcmp (transformation_name, txi_tree_transformation_table[i].name))
-        return txi_tree_transformation_table[i].flag;
-    }
-  return 0;
-}
-
-/*
-  Start an embedded Perl interpreter and initialize by passing the
-  load_txi_modules_basename script to be called from the embedded
-  interpreter.
-
-  Return 0 in case of success.
- */
-/* TODO warn/exit if loaded twice?  The problem with being loaded
-   twice is that the init files code may have modified previous
-   interpreter data */
-int
-txi_load_interpreter (const INTERPRETER_LOADING_INFO *loading_info)
-{
-  const char *load_txi_modules_basename = "load_txi_modules";
-  char *load_modules_path;
-  int status;
-
-  if (txi_paths_info.texinfo_uninstalled)
-    xasprintf (&load_modules_path, "%s/perl/%s.pl",
-               txi_paths_info.p.uninstalled.t2a_srcdir,
-               load_txi_modules_basename);
-  else
-    xasprintf (&load_modules_path, "%s/%s",
-               txi_paths_info.p.installed.converter_datadir,
-               load_txi_modules_basename);
-  status = call_init_perl (loading_info->argc_ref, loading_info->argv_ref,
-                           loading_info->env_ref, load_modules_path,
-                           loading_info->version_checked);
-
-  /* status < 0 means replacement call_init_perl that does nothing */
-  if (status > 0)
-    {
-      char *message;
-      /* unexpected failure, no point continuing, the output needs
-         the interpreter and libperl will segfault */
-      xasprintf (&message, "call_init_perl status: %d", status);
-      fatal (message);
-      free (message);
-    }
-  else if (status < 0)
-    {
-      fprintf (stderr, "WARNING: no interpreter embedding code built\n");
-      /*
-         no need to call set_use_perl_interpreter
-         txi_interpreter_use_no_interpreter, it is the default in
-         that case */
-    }
-  else
-    set_use_perl_interpreter (txi_interpreter_use_embedded);
-
-  free (load_modules_path);
-  return status;
-}
-
 /* assume that there is already a Perl interpreter loaded, but the
    texi2any Perl modules are not loaded and load some modules.
    Currently unused */
@@ -177,83 +101,6 @@ txi_use_interpreter_load_modules (int texinfo_uninstalled, const char *datadir,
       set_use_perl_interpreter (txi_interpreter_use_interpreter);
       return 0;
     }
-}
-
-/* Start an embedded interpreter or initialize an existing interpreter.
-   To be called before loading init files.
- */
-/* TODO remove the use_interpreter unused possibilities */
-void
-txi_setup_load_interpreter (enum interpreter_use use_interpreter,
-                      int *argc_ref, char ***argv_ref, char ***env_ref,
-                      const char *version_checked,
-                      INTERPRETER_LOADING_INFO *loading_info)
-{
-  if (use_interpreter == txi_interpreter_use_embedded
-      || use_interpreter == txi_interpreter_want_embedded)
-    {
-      loading_info->argc_ref = argc_ref;
-      loading_info->argv_ref = argv_ref;
-      loading_info->env_ref = env_ref;
-      loading_info->version_checked = version_checked;
-      if (use_interpreter == txi_interpreter_use_embedded)
-        txi_load_interpreter (loading_info);
-    }
-  else
-    {
-      set_use_perl_interpreter (txi_interpreter_use_no_interpreter);
-    }
-}
-
-static void
-err_add_option_value (OPTIONS_LIST *options_list, const char *option_name,
-                      int int_value, const char *char_value)
-{
-  if (!add_option_value (options_list, option_name,
-                         int_value, char_value))
-    fprintf (stderr, "BUG: error setting %s\n", option_name);
-}
-
-/* ALTIMP texi2any.pl and load_txi_modules.pl */
-/* Customization variables independent of conversion format are set similarly
-   in texi2any.pl */
-void
-txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
-                              const char *locale_encoding,
-                              const char *console_output_encoding,
-                              const char *program_file)
-{
-  const char *configured_version = PACKAGE_VERSION_CONFIG;
-  const char *configured_package = PACKAGE_CONFIG;
-  const char *configured_name = PACKAGE_NAME_CONFIG;
-  const char *configured_url = PACKAGE_URL_CONFIG;
-  const char *configured_name_version
-    = PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG;
-
-  initialize_options_list (main_program_set_options);
-
-  /* similar to options coming from texi2any */
-  err_add_option_value (main_program_set_options, "PROGRAM", 0, program_file);
-#define set_configured_information(varname,varvalue) \
-    err_add_option_value (main_program_set_options, #varname, 0, varvalue);
-  set_configured_information(PACKAGE_VERSION, configured_version)
-  set_configured_information(PACKAGE, configured_package)
-  set_configured_information(PACKAGE_NAME, configured_name)
-  set_configured_information(PACKAGE_AND_VERSION, configured_name_version)
-  set_configured_information(PACKAGE_URL, configured_url)
-#undef set_configured_information
-
-  err_add_option_value (main_program_set_options, "COMMAND_LINE_ENCODING", 0,
-                        locale_encoding);
-  err_add_option_value (main_program_set_options, "MESSAGE_ENCODING", 0,
-                        console_output_encoding);
-  err_add_option_value (main_program_set_options, "LOCALE_ENCODING", 0,
-                        locale_encoding);
-
-  /* same as Texinfo::Common::default_main_program_customization_options */
-  /* in general transmitted to converters as default */
-  add_program_cmdline_options_defaults (main_program_set_options);
-  add_program_customization_options_defaults (main_program_set_options);
 }
 
 /* ALTIMP texi2any.pl and load_txi_modules.pl */
@@ -293,79 +140,6 @@ txi_general_output_strings_setup (void)
       setup_output_strings_translations (locales_dir, 0);
       free (locales_dir);
     }
-}
-
-int
-txi_load_init_file (const char *file,
-                    const INTERPRETER_LOADING_INFO *loading_info,
-                    enum interpreter_use *embedded_interpreter)
-{
-  int status = 0;
-  if (*embedded_interpreter == txi_interpreter_want_embedded)
-    {
-      int interpreter_status = txi_load_interpreter (loading_info);
-      if (!interpreter_status)
-        *embedded_interpreter = txi_interpreter_use_embedded;
-    }
-
-  if (*embedded_interpreter == txi_interpreter_use_embedded)
-    status = call_config_GNUT_load_init_file (file);
-
-  return status;
-}
-
-void
-txi_stop_interpreter (enum interpreter_use embedded_interpreter)
-{
-  if (embedded_interpreter == txi_interpreter_use_embedded)
-    call_finish_perl ();
-}
-
-/* hide call_eval_use_module from the main program */
-void
-txi_converter_output_format_setup (const char *converted_format,
-                                   const char *external_module)
-{
-  if (external_module)
-    /* in that case the functions below are called from Perl */
-    call_eval_use_module (external_module);
-}
-
-/* ALTIMP Texinfo::Convert::XXXX */
-/* This function should be used to get information on an output format
-   defaults, taking into account CUSTOMIZATIONS.  It is not needed
-   for converter initialization, as similar code is already called.
-   Similar to Texinfo::Convert::XXXX->converter_defaults($options)
- */
-CONVERTER_INITIALIZATION_INFO *
-txi_converter_format_defaults (const char *converted_format,
-                               const char *external_module,
-                               OPTIONS_LIST *customizations)
-{
-  enum converter_format converter_format;
-  CONVERTER_INITIALIZATION_INFO *conf;
-  CONVERTER_INITIALIZATION_INFO *format_defaults;
-
-  if (external_module)
-    {
-      format_defaults = call_module_converter_defaults (external_module,
-                                                        customizations);
-      if (format_defaults)
-        return format_defaults;
-    }
-
-  converter_format
-    = find_format_name_converter_format (converted_format);
-  conf = new_converter_initialization_info ();
-
-  if (customizations)
-    copy_options_list (&conf->conf, customizations);
-
-  format_defaults = converter_defaults (converter_format, conf);
-
-  destroy_converter_initialization_info (conf);
-
-  return format_defaults;
 }
 
 /* ALTIMP Texinfo/ParserXS.pm */
@@ -581,21 +355,6 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
     number_floats (document);
 }
 
-/* In texi2any.pl, not in a separate function */
-/* setup CONF initialization data. */
-void
-txi_converter_initialization_setup (CONVERTER_INITIALIZATION_INFO *conf,
-                                    const DEPRECATED_DIRS_LIST *deprecated_dirs,
-                                    const OPTIONS_LIST *customizations)
-{
-  if (deprecated_dirs)
-    copy_deprecated_dirs (&conf->deprecated_config_directories,
-                          deprecated_dirs);
-
-  if (customizations)
-    copy_options_list (&conf->conf, customizations);
-}
-
 /* high level interface, possibly hiding some details of the data */
 
 DOCUMENT *
@@ -667,8 +426,8 @@ txi_sort_element_counts (const char *external_module,
       CONVERTER_TEXT_INFO *result = (CONVERTER_TEXT_INFO *)
         malloc (sizeof (CONVERTER_TEXT_INFO));
 
-      txi_converter_initialization_setup (converter_init_info,
-                                          0, customizations);
+      if (customizations)
+        copy_options_list (&converter_init_info->conf, customizations);
 
       call_eval_use_module (external_module);
       result->converter
@@ -697,13 +456,6 @@ txi_sort_element_counts (const char *external_module,
       fatal ("no external module for sort element count");
       return 0;
     }
-}
-
-/* similar to Texinfo::Convert::XXX->convert */
-char *
-txi_converter_convert (CONVERTER *converter, DOCUMENT *document)
-{
-  return converter_convert (converter, document);
 }
 
 /* ALTIMP Texinfo::Document::destroy_document */
