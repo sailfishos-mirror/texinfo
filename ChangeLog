@@ -1,5 +1,16 @@
 2026-06-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Generic list appending
+
+	* tta/C/main/list_macros.h:
+	(decl_list_fns, def_list_fns):
+	New macros for declaring and defining functions that operating on lists.
+	(add_): Macro for accessing function defined by def_list_fns.
+	* tta/C/main/tree.c (add_to_const_element_list, add_to_element_list):
+	Define with decl_list_fns/def_list_fns.
+
+2026-06-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Start on generic list macros
 
 	* tta/C/main/list_macros.h: new file.

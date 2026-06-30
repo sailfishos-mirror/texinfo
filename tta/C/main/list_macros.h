@@ -23,6 +23,26 @@
       size_t space; \
   } NAME
 
+/* Output declarations for header files. */
+#define decl_list_fns(LISTNAME, OBJNAME, TYPE) \
+  void add_to_ ## OBJNAME ## _list (LISTNAME *list, TYPE object)
+
+/* Output function definitions for .c source files. */
+#define def_list_fns(LISTNAME, OBJNAME, TYPE, INC) \
+  void add_to_ ## OBJNAME ## _list (LISTNAME *list, TYPE object) { \
+    if (list->number + 1 >= list->space) \
+      { \
+        list->space += INC; \
+        list->list = realloc (list->list, list->space * sizeof (TYPE)); \
+        if (!list->list) \
+          fatal ("realloc failed"); \
+      } \
+    list->list[list->number++] = object; \
+  }
+
+/* Convenience to avoid using generated names.  This can help in navigating
+   the source code. */
+#define add_(OBJNAME) add_to_ ## OBJNAME ## _list
 
 
 #endif

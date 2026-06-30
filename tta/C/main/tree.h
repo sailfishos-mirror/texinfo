@@ -19,8 +19,10 @@ ELEMENT *new_text_element (enum element_type type);
 ELEMENT_LIST *new_list (void);
 CONST_ELEMENT_LIST *new_const_element_list (void);
 const ELEMENT **new_directions (void);
-void add_to_const_element_list (CONST_ELEMENT_LIST *list, const ELEMENT *e);
-void add_to_element_list (ELEMENT_LIST *list, ELEMENT *e);
+
+decl_list_fns(CONST_ELEMENT_LIST, const_element, const ELEMENT *);
+decl_list_fns(ELEMENT_LIST, element, ELEMENT *);
+
 void add_to_element_contents (ELEMENT *parent, ELEMENT *e);
 void add_element_to_element_contents (ELEMENT *parent, ELEMENT *e);
 void add_to_contents_as_array (ELEMENT *parent, ELEMENT *e);
