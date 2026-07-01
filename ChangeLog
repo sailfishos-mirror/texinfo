@@ -1,3 +1,7 @@
+2026-07-01  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/C/texi2any.c (main): Avoid accessing an uninitialized variable.
+
 2026-06-30 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/texinfo.c, tta/C/texi2any.c (find_tree_transformation)

@@ -2672,6 +2672,7 @@ main (int argc, char *argv[], char *env[])
    in practice TEXI2HTML set, for conversion to HTML to select
    possibly different customization variable values.
    */
+  format_defaults = NULL;
   if (external_module)
     {
       format_defaults = call_module_converter_defaults (external_module,
