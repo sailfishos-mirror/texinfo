@@ -356,18 +356,6 @@ reallocate_list (ELEMENT_LIST *list)
     }
 }
 
-static void
-reallocate_const_element_list (CONST_ELEMENT_LIST *list)
-{
-  if (list->number + 1 >= list->space)
-    {
-      list->space += 10;
-      list->list = realloc (list->list, list->space * sizeof (const ELEMENT *));
-      if (!list->list)
-        fatal ("realloc failed");
-    }
-}
-
 /* Make sure there is space for at least N more elements. */
 static void
 reallocate_list_for (size_t n, ELEMENT_LIST *list)

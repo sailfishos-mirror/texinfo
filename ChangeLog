@@ -1,5 +1,17 @@
 2026-07-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Generic list macros: add reallocate_
+
+	* tta/C/main/list_macros.h (decl_list_fns, def_list_fns):
+	Generate reallocation function.
+	* tta/C/main/structure_list.c (setup_reallocate_relations_list):
+	Remove this macro.  Rely on def_list_fns to generate reallocation
+	functions.
+	(add_heading_to_heading_relations_list): Use generic list macros to
+	append to list.
+
+2026-07-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Generic list macros
 
 	* tta/C/main/structure_list.c
