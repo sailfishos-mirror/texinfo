@@ -1,5 +1,12 @@
 2026-07-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/main/translations.c
+	(add_string_to_named_string_element_list)
+	(add_element_to_named_string_element_list):
+	Define with generic macros.
+
+2026-07-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/main/floats.c
 	(add_to_listoffloats_list, add_to_float_information_list):
 	Use generic macros.

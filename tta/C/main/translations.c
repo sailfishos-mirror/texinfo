@@ -1308,18 +1308,8 @@ new_named_string_element_list (void)
   return result;
 }
 
-void
-reallocate_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel)
-{
-  if (nsel->number >= nsel->space)
-    {
-      nsel->space += 1;
-      nsel->list = realloc (nsel->list,
-                            nsel->space * sizeof (NAMED_STRING_ELEMENT));
-      if (!nsel->list)
-        fatal ("realloc failed");
-    }
-}
+def_list_fns (NAMED_STRING_ELEMENT_LIST, named_string_element,
+              NAMED_STRING_ELEMENT, 1)
 
 /* arguments to be freed by the caller, even name as it is a constant
    string in general */
@@ -1327,31 +1317,24 @@ void
 add_string_to_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel,
                                          const char *name, char *string)
 {
-  NAMED_STRING_ELEMENT *new_string;
+  NAMED_STRING_ELEMENT new_string = { 0 };
+  new_string.name = name;
+  new_string.string = string;
 
-  reallocate_named_string_element_list (nsel);
-  new_string = &nsel->list[nsel->number];
-  new_string->element = 0;
-  new_string->name = name;
-  new_string->string = string;
-  nsel->number++;
+  add_(named_string_element) (nsel, new_string);
 }
 
 /* arguments to be freed by the caller, even name as it is a constant
    string in general */
 void
 add_element_to_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel,
-                                          const char *name,
-                                          ELEMENT *element)
+                                          const char *name, ELEMENT *element)
 {
-  NAMED_STRING_ELEMENT *new_element;
+  NAMED_STRING_ELEMENT new_element = { 0 };
+  new_element.name = name;
+  new_element.element = element;
 
-  reallocate_named_string_element_list (nsel);
-  new_element = &nsel->list[nsel->number];
-  new_element->element = element;
-  new_element->name = name;
-  new_element->string = 0;
-  nsel->number++;
+  add_(named_string_element) (nsel, new_element);
 }
 
 void
