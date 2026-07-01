@@ -27,6 +27,7 @@
 #include "node_name_normalization.h"
 #include "convert_to_texinfo.h"
 #include "floats.h"
+#include "base_utils.h"
 
 char *
 parse_float_type (ELEMENT *current, ELEMENT *element)
