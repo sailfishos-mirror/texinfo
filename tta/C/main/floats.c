@@ -69,6 +69,10 @@ find_float_type (LISTOFFLOATS_TYPE_LIST *listoffloats_list,
   return 0;
 }
 
+/* Trailing _ to avoid name clash with following function. */
+def_list_fns (LISTOFFLOATS_TYPE_LIST, listoffloats_,
+              LISTOFFLOATS_TYPE, 5)
+
 static LISTOFFLOATS_TYPE *
 add_to_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list,
                           const char *type)
@@ -78,44 +82,26 @@ add_to_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list,
   if (result)
     return result;
 
-  if (listoffloats_list->number == listoffloats_list->space)
-    {
-      listoffloats_list->list
-               = realloc (listoffloats_list->list,
-                  (listoffloats_list->space += 5) * sizeof (LISTOFFLOATS_TYPE));
-    }
+  LISTOFFLOATS_TYPE new = { 0 };
+  new.type = strdup (type);
+  add_(listoffloats_) (listoffloats_list, new);
 
-  result = &listoffloats_list->list[listoffloats_list->number];
-  memset (result, 0, sizeof (LISTOFFLOATS_TYPE));
-  result->type = strdup (type);
-
-  listoffloats_list->number++;
-
-  return result;
+  return &listoffloats_list->list[listoffloats_list->number - 1];
 }
+
+def_list_fns (FLOAT_INFORMATION_LIST, float_info, FLOAT_INFORMATION, 5)
 
 static FLOAT_INFORMATION *
 add_to_float_information_list (FLOAT_INFORMATION_LIST *float_list,
                                ELEMENT *float_element,
                                const SECTION_RELATIONS *float_section)
 {
-  FLOAT_INFORMATION *result;
-  if (float_list->number == float_list->space)
-    {
-      float_list->list
-               = realloc (float_list->list,
-                  (float_list->space += 5) * sizeof (FLOAT_INFORMATION));
-    }
+  FLOAT_INFORMATION result = { 0 };
+  result.float_element = float_element;
+  result.float_section = float_section;
+  add_(float_info) (float_list, result);
 
-  result = &float_list->list[float_list->number];
-  memset (result, 0, sizeof (FLOAT_INFORMATION));
-
-  result->float_element = float_element;
-  result->float_section = float_section;
-
-  float_list->number++;
-
-  return result;
+  return &float_list->list[float_list->number - 1];
 }
 
 static int
