@@ -16,14 +16,14 @@ void reallocate_node_relations_for (size_t n, NODE_RELATIONS_LIST *list);
 
 const struct SECTION_RELATIONS **new_section_directions (void);
 
-void add_to_node_relations_list (NODE_RELATIONS_LIST *list,
-                                 NODE_RELATIONS *node_relations);
+decl_list_fns(NODE_RELATIONS_LIST, node_relations, NODE_RELATIONS *);
+decl_list_fns(CONST_NODE_RELATIONS_LIST, const_node_relations,
+              const NODE_RELATIONS *);
+decl_list_fns(SECTION_RELATIONS_LIST, section_relations, SECTION_RELATIONS *);
+
 NODE_RELATIONS *add_node_to_node_relations_list (NODE_RELATIONS_LIST *list,
                                             ELEMENT *e);
-void add_to_const_node_relations_list (CONST_NODE_RELATIONS_LIST *list,
-                                       const NODE_RELATIONS *node_relations);
-void add_to_section_relations_list (SECTION_RELATIONS_LIST *list,
-                                    SECTION_RELATIONS *section_relations);
+
 SECTION_RELATIONS *add_section_to_section_relations_list (
                                                SECTION_RELATIONS_LIST *list,
                                                   ELEMENT *e);

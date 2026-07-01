@@ -154,7 +154,7 @@ sectioning_structure (DOCUMENT *document)
                                  builtin_command_name (content->e.c->cmd));
                   level = prev_section_level + 1;
                 }
-              add_to_section_relations_list (
+              add_(section_relations) (
                            previous_section_relations->section_children,
                            section_relations);
               section_relations->section_directions[D_up]
