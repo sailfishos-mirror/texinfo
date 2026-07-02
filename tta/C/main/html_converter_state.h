@@ -370,11 +370,7 @@ typedef struct FILE_STREAM {
     void *io;
 } FILE_STREAM;
 
-typedef struct FILE_STREAM_LIST {
-    size_t number;
-    size_t space;
-    FILE_STREAM *list;
-} FILE_STREAM_LIST;
+def_list_type(FILE_STREAM_LIST, FILE_STREAM);
 
 typedef struct OUTPUT_FILES_INFORMATION {
     STRING_LIST opened_files;
@@ -389,11 +385,7 @@ typedef struct FILE_SOURCE_INFO {
     char *path;
 } FILE_SOURCE_INFO;
 
-typedef struct FILE_SOURCE_INFO_LIST {
-    size_t number;
-    size_t space;
-    FILE_SOURCE_INFO *list;
-} FILE_SOURCE_INFO_LIST;
+def_list_type(FILE_SOURCE_INFO_LIST, FILE_SOURCE_INFO);
 
 typedef struct SPECIAL_UNIT_DIRECTION {
     const OUTPUT_UNIT *output_unit;
@@ -464,11 +456,7 @@ typedef struct CSS_SELECTOR_STYLE {
     char *style;
 } CSS_SELECTOR_STYLE;
 
-typedef struct CSS_SELECTOR_STYLE_LIST {
-    size_t number;
-    size_t space;
-    CSS_SELECTOR_STYLE *list;
-} CSS_SELECTOR_STYLE_LIST;
+def_list_type(CSS_SELECTOR_STYLE_LIST, CSS_SELECTOR_STYLE);
 
 /* we have a circular reference with TYPE_CONVERSION_FUNCTION
    and CONVERTER and with COMMAND_CONVERSION_FUNCTION and CONVERTER */
@@ -605,22 +593,14 @@ typedef struct HTMLXREF_MANUAL {
     char *urlprefix[htmlxref_split_type_chapter +1];
 } HTMLXREF_MANUAL;
 
-typedef struct HTMLXREF_MANUAL_LIST {
-    size_t number;
-    size_t space;
-    HTMLXREF_MANUAL *list;
-} HTMLXREF_MANUAL_LIST;
+def_list_type(HTMLXREF_MANUAL_LIST, HTMLXREF_MANUAL);
 
 typedef struct ASSOCIATED_INFO_LIST {
     size_t number;
     ASSOCIATED_INFO *list;
 } ASSOCIATED_INFO_LIST;
 
-typedef struct STRING_STACK_LIST {
-    size_t number;
-    size_t space;
-    STRING_STACK *list;
-} STRING_STACK_LIST;
+def_list_type(STRING_STACK_LIST, STRING_STACK);
 
 typedef struct JSLICENSE_FILE_INFO {
     char *filename;
@@ -641,11 +621,7 @@ typedef struct JSLICENSE_CATEGORY_LIST {
 } JSLICENSE_CATEGORY_LIST;
 
 /* contains only indices with entries */
-typedef struct SORTED_INDEX_NAMES {
-    size_t number;
-    size_t space;
-    const INDEX **list;
-} SORTED_INDEX_NAMES;
+def_list_type(SORTED_INDEX_NAMES, const INDEX *);
 
 typedef struct FILE_INFO_KEY_PAIR {
     const char *key;
@@ -680,11 +656,7 @@ typedef struct SPECIAL_UNIT_INFO {
     char *value;
 } SPECIAL_UNIT_INFO;
 
-typedef struct SPECIAL_UNIT_INFO_LIST {
-    size_t number;
-    size_t space;
-    SPECIAL_UNIT_INFO *list;
-} SPECIAL_UNIT_INFO_LIST;
+def_list_type(SPECIAL_UNIT_INFO_LIST, SPECIAL_UNIT_INFO *);
 
 typedef struct PRE_CLASS_TYPE_INFO {
     enum element_type type;
@@ -696,11 +668,7 @@ typedef struct DEPRECATED_DIR_INFO {
   char *obsolete_dir;
 } DEPRECATED_DIR_INFO;
 
-typedef struct DEPRECATED_DIRS_LIST {
-  size_t space;
-  size_t number;
-  DEPRECATED_DIR_INFO *list;
-} DEPRECATED_DIRS_LIST;
+def_list_type(DEPRECATED_DIRS_LIST, DEPRECATED_DIR_INFO);
 
 typedef struct HTML_CONVERTER_STATE {
     /* set for a converter */

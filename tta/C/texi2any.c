@@ -265,7 +265,7 @@ add_config_paths (const char *env_string, const char *subdir,
 static DEPRECATED_DIR_INFO overriding_sysconfdir_info[1] = {
   {XDG_SYSCONFDIR, SYSCONFDIR} };
 static const DEPRECATED_DIRS_LIST overriding_sysconfdir_list = {
-  1, 1, overriding_sysconfdir_info };
+  overriding_sysconfdir_info, 1, 1 };
 
 static STRING_LIST *
 set_subdir_directories (const char *datadir, const char *subdir,
