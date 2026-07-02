@@ -1,5 +1,25 @@
 2026-07-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/translations.c (general_output_strings_setup): move
+	txi_general_output_strings_setup to translations.c and rename as
+	general_output_strings_setup.  Update callers.
+
+	* tta/C/parsetexi/api.c (parser): move txi_parser to api.c and rename
+	as parser.  Update callers.
+
+	* tta/C/structuring_transfo/transformations.c
+	(complete_transform_document),
+	tta/C/structuring_transfo/transformations.h (TT_TYPES_LIST),
+	tta/swig/python/Makefile.am (_Texinfo_la_CPPFLAGS),
+	tta/swig/perl/Makefile.am (Texinfo_la_CPPFLAGS): move
+	txi_complete_document to transformations.c and rename as
+	complete_transform_document.  Update callers.  Move TT_TYPES_LIST and
+	STTF_* to transformations.h.  Add structuring_transfo to includes.
+
+	* tta/C/Makefile.am (C_libtexinfo_main_sources): remove texinfo.c.
+
+2026-07-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/call_perl_function.c (txi_use_interpreter_load_modules),
 	tta/C/convert/texinfo.c: move the txi_use_interpreter_load_modules
 	unused function to call_perl_function.c.

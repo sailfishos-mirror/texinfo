@@ -1730,3 +1730,62 @@ protect_first_parenthesis_in_targets_in_document (DOCUMENT *document)
   document->modified_information |= F_DOCM_tree;
 }
 
+/* ALTIMP in texi2any.pl */
+/* call all the structuring/transformations typically done for a document.
+   FLAGS select the structure/transformations called.  If FORMAT_MENU is set
+   the structure functions related to menus are called.
+   No implementation in Perl as a function, as the modules are loaded on
+   demand, which makes it impossible to implement as a function.
+
+   Only called from C.
+*/
+void
+complete_transform_document (DOCUMENT *document, unsigned long flags,
+                             int format_menu)
+{
+  int use_sections = (flags & STTF_complete_menus_use_sections);
+
+  if (flags & STTF_fill_gaps_in_sectioning)
+    fill_gaps_in_sectioning_in_document (document, 0);
+
+  if (flags & STTF_relate_index_entries_to_table_items)
+    relate_index_entries_to_table_items_in_document (document);
+
+  if (flags & STTF_move_index_entries_after_items)
+    move_index_entries_after_items_in_document (document);
+
+  if (flags & STTF_insert_nodes_for_sectioning_commands)
+    insert_nodes_for_sectioning_commands (document);
+
+  associate_internal_references (document);
+
+  sectioning_structure (document);
+
+  if (!(flags & STTF_no_warn_non_empty_parts))
+    warn_non_empty_parts (document);
+
+  if (flags & STTF_complete_tree_nodes_menus)
+    complete_tree_nodes_menus_in_document (document, use_sections);
+
+  if (flags & STTF_complete_tree_nodes_missing_menu)
+    complete_tree_nodes_missing_menu (document, use_sections);
+
+  if (flags & STTF_regenerate_master_menu)
+    regenerate_master_menu (document, use_sections);
+
+  if (flags & STTF_nodes_tree)
+    {
+      construct_nodes_tree (document);
+
+      if (format_menu)
+        {
+          check_node_tree_menu_structure (document);
+          complete_node_tree_with_menus (document);
+          check_nodes_are_referenced (document);
+        }
+    }
+
+  if (flags & STTF_floats)
+    number_floats (document);
+}
+

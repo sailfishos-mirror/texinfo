@@ -24,6 +24,7 @@
 #include <errno.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <sys/stat.h>
 
 #ifdef ENABLE_NLS
 #include <libintl.h>
@@ -119,6 +120,49 @@ setup_output_strings_translations (const char *localesdir,
                strings_textdomain, localesdir, strerror (errno));
     }
 #endif
+}
+
+/* ALTIMP texi2any.pl and load_txi_modules.pl */
+/* initialization of the library for output strings translations for
+   parsing and conversion (generic), to be called once.
+
+   Only called from C, from XS determination of locales_dir
+   is done in Perl and passed through _XS_setup_output_strings XS.
+ */
+void
+general_output_strings_setup (void)
+{
+  char *locales_dir;
+
+  /* code in texinfo.pl */
+  if (txi_paths_info.texinfo_uninstalled)
+    {
+      struct stat finfo;
+      int not_found = 1;
+
+      if (txi_paths_info.p.uninstalled.t2a_builddir)
+        {
+          xasprintf (&locales_dir, "%s/LocaleData",
+                     txi_paths_info.p.uninstalled.t2a_builddir);
+
+          if (stat (locales_dir, &finfo) == 0 && S_ISDIR (finfo.st_mode))
+            {
+              not_found = 0;
+              setup_output_strings_translations (locales_dir, 0);
+            }
+          free (locales_dir);
+        }
+
+      if (not_found)
+        fprintf (stderr, "Locales dir for document strings not found\n");
+    }
+  else if (txi_paths_info.p.installed.converter_datadir)
+    {
+      xasprintf (&locales_dir, "%s/locale",
+                 txi_paths_info.p.installed.converter_datadir);
+      setup_output_strings_translations (locales_dir, 0);
+      free (locales_dir);
+    }
 }
 
 /* return non-zero if locale is "C", "C.UTF-8" (or similar) or "POSIX" */

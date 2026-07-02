@@ -61,6 +61,8 @@
 /* set_use_perl_interpreter */
 #include "xs_utils.h"
 #include "options_defaults.h"
+/* general_output_strings_setup */
+#include "translations.h"
 /* parse_file_path whitespace_chars xasprintf digit_chars encode_with_iconv
    wipe_values locate_file_in_dirs null_device_names
    messages_and_encodings_setup */
@@ -73,6 +75,7 @@
 #include "api.h"
 /* setup_texinfo_main set_document_options */
 #include "document.h"
+#include "transformations.h"
 #include "convert_to_texinfo.h"
 /* needed because commands are used to determine expanded regions names */
 #include "builtin_commands.h"
@@ -83,7 +86,6 @@
 #include "converter.h"
 /* for html_output_internal_links */
 #include "html_converter_api.h"
-#include "texinfo.h"
 /* call_close_perl_io */
 #include "api_to_perl.h"
 /* for call_document_remove_document_references */
@@ -2473,7 +2475,7 @@ main (int argc, char *argv[], char *env[])
     }
 
   /* Setup output string translations (including Locales path). */
-  txi_general_output_strings_setup ();
+  general_output_strings_setup ();
 
   /* load a Perl interpreter for the options or configurations triggering
      calling Perl functions from C */
@@ -3026,7 +3028,7 @@ main (int argc, char *argv[], char *env[])
 
       /* Texinfo file parsing */
       /* initialize parser */
-      txi_parser (input_file_path, &values, &parser_options);
+      parser (input_file_path, &values, &parser_options);
 
       /* Texinfo document tree parsing */
       document = parse_file (input_file_path, &status);
@@ -3237,7 +3239,8 @@ main (int argc, char *argv[], char *env[])
       /* structure and transformations */
 
       /* do_menu corresponds to FORMAT_MENU undef or set to menu */
-      txi_complete_document (document, converted_format_specification->flags
+      complete_transform_document (document,
+                                   converted_format_specification->flags
                                        | transformation_flags, do_menu);
 
       merge_error_messages_lists (&document->parser_error_messages,

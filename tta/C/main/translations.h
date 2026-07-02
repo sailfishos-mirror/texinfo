@@ -38,6 +38,7 @@ extern LANG_TRANSLATION **converters_translation_cache;
 void set_output_strings_translate_method (int use_external_translate_string_in);
 void setup_output_strings_translations (const char *localesdir,
                                         const char *strings_textdomain_in);
+void general_output_strings_setup (void);
 
 void free_translation_cache (LANG_TRANSLATION **translation_cache);
 

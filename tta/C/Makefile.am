@@ -644,9 +644,7 @@ C_libtexinfo_main_sources = \
                        api_for_swig/swig_interface.c \
                        api_for_swig/swig_interface.h \
                        api_for_swig/swig_parser_api.c \
-                       api_for_swig/swig_parser_api.h \
-                       convert/texinfo.c \
-                       convert/texinfo.h
+                       api_for_swig/swig_parser_api.h
 
 libtexinfo_main_la_SOURCES = \
    $(C_libtexinfo_main_sources)

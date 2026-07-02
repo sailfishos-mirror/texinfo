@@ -40,6 +40,7 @@
 #include "types_data.h"
 #include "tree_types.h"
 #include "reader_types.h"
+#include "translations.h"
 #include "api.h"
 #include "parser_conf.h"
 #include "conf.h"
@@ -51,8 +52,8 @@
 #include "manipulate_tree.h"
 #include "document.h"
 #include "manipulate_indices.h"
+#include "transformations.h"
 #include "reader_api.h"
-#include "texinfo.h"
 #include "convert_to_text.h"
 /* expand_verbatiminclude */
 #include "convert_utils.h"
@@ -69,7 +70,7 @@
 // Initialization
 
 %init %{
-txi_general_output_strings_setup ();
+general_output_strings_setup ();
 
 reset_parser (0);
 %}
@@ -281,7 +282,7 @@ void set_document_options (DOCUMENT *document,
                       const OPTIONS_LIST *cmdline_options=0,
                       const OPTIONS_LIST *init_files_options=0);
 
-// texinfo.h
+// transformations.h
 /* document tree transformations selection flags */
 #define STTF_complete_tree_nodes_menus              0x0001
 #define STTF_complete_tree_nodes_missing_menu       0x0002
@@ -301,9 +302,8 @@ void set_document_options (DOCUMENT *document,
    and regenerate_master_menu */
 #define STTF_complete_menus_use_sections            0x0800
 
-%rename(complete_document) txi_complete_document;
-void txi_complete_document (DOCUMENT *document, unsigned long flags,
-                            int format_menu);
+void complete_transform_document (DOCUMENT *document, unsigned long flags,
+                                  int format_menu);
 
 // Only one of the next two function should be called as both clear the
 // document errors list.

@@ -51,7 +51,7 @@ _Texinfo_la_LIBADD = $(top_builddir)/C/libtexinfo-main-static.la
 
 # Same as ctexi2any, not sure whether it is needed or not
 _Texinfo_la_LIBADD += $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
-_Texinfo_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/parsetexi -I$(txi_libs_srcdir)/convert -I$(txi_libs_srcdir)/api_for_swig ${PYTHON_CPPFLAGS}
+_Texinfo_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/parsetexi -I$(txi_libs_srcdir)/structuring_transfo -I$(txi_libs_srcdir)/convert -I$(txi_libs_srcdir)/api_for_swig ${PYTHON_CPPFLAGS}
 
 clean-local:
 	rm -rf __pycache__
