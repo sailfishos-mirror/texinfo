@@ -1323,10 +1323,10 @@ debug_print_html_contexts (const CONVERTER *self)
   const HTML_FORMATTING_CONTEXT_STACK *formatting_context_stack
     = &top_document_ctx->formatting_context;
 
-  for (i = 0; i < document_context_stack->top; i++)
+  for (i = 0; i < document_context_stack->number; i++)
     {
       const HTML_DOCUMENT_CONTEXT *document_context
-        = &document_context_stack->stack[i];
+        = &document_context_stack->list[i];
       if (i != 0)
         text_append (&contexts_str, "|");
       if (document_context->context)
@@ -1336,10 +1336,10 @@ debug_print_html_contexts (const CONVERTER *self)
     }
   text_append (&contexts_str, "](");
 
-  for (i = 0; i < formatting_context_stack->top; i++)
+  for (i = 0; i < formatting_context_stack->number; i++)
     {
       const HTML_FORMATTING_CONTEXT *formatting_context
-       = &formatting_context_stack->stack[i];
+       = &formatting_context_stack->list[i];
       if (i != 0)
         text_append (&contexts_str, "|");
       if (formatting_context->context_name)
@@ -1351,9 +1351,9 @@ debug_print_html_contexts (const CONVERTER *self)
   text_append (&contexts_str, ")");
    /*
   text_append (&contexts_str, "{");
-  for (i = 0; i < top_document_ctx->block_commands.top; i++)
+  for (i = 0; i < top_document_ctx->block_commands.number; i++)
     {
-      enum command_id cmd = top_document_ctx->block_commands.stack[i];
+      enum command_id cmd = top_document_ctx->block_commands.list[i];
       if (i != 0)
         text_append (&contexts_str, "|");
       text_append (&contexts_str, builtin_command_name (cmd));
@@ -2450,17 +2450,17 @@ html_reset_shared_conversion_state (CONVERTER *self)
 
   /* cannot happen with default Perl code, but could happen with
      user-defined code */
-  if (shared_conversion_state->elements_authors.top > 0)
+  if (shared_conversion_state->elements_authors.number > 0)
     {
       fprintf (stderr,
-              "BUG: shared_conversion_state->elements_authors.top: %zu\n",
-               shared_conversion_state->elements_authors.top);
-      for (i = 0; i < shared_conversion_state->elements_authors.top; i++)
+              "BUG: shared_conversion_state->elements_authors.number: %zu\n",
+               shared_conversion_state->elements_authors.number);
+      for (i = 0; i < shared_conversion_state->elements_authors.number; i++)
         {
           destroy_element_reference_stack (
-            shared_conversion_state->elements_authors.stack[i]);
+            shared_conversion_state->elements_authors.list[i]);
         }
-      shared_conversion_state->elements_authors.top = 0;
+      shared_conversion_state->elements_authors.number = 0;
     }
 
   shared_conversion_state->in_skipped_node_top = 0;
@@ -2496,7 +2496,7 @@ html_conversion_finalization (CONVERTER *self)
   for (i = 0; i < self_html->pending_closes.number; i++)
     {
       STRING_STACK *file_pending_closes = &self_html->pending_closes.list[i];
-      if (file_pending_closes->top > 0)
+      if (file_pending_closes->number > 0)
         {
           FILE_NAME_PATH_COUNTER *file_counter
             = &self->output_unit_files.list[i];
@@ -2504,17 +2504,17 @@ html_conversion_finalization (CONVERTER *self)
 
           message_list_document_warn (&self->error_messages, self->conf, 0,
              "%s: %zu registered opened sections not closed",
-              page_name, file_pending_closes->top);
+              page_name, file_pending_closes->number);
           clear_string_stack (file_pending_closes);
         }
     }
 
-  if (self_html->pending_inline_content.top > 0)
+  if (self_html->pending_inline_content.number > 0)
     {
       char *inline_content = html_get_pending_formatted_inline_content (self);
       message_list_document_warn (&self->error_messages, self->conf, 0,
          "%zu registered inline contents: %s",
-           self_html->pending_inline_content.top, inline_content);
+           self_html->pending_inline_content.number, inline_content);
       free (inline_content);
     }
 
@@ -2548,11 +2548,11 @@ html_conversion_finalization (CONVERTER *self)
     }
   self_html->associated_inline_content.number = 0;
 
-  if (self_html->pending_footnotes.top > 0)
+  if (self_html->pending_footnotes.number > 0)
     {
       message_list_document_warn (&self->error_messages, self->conf, 0,
                                   "%zu pending footnotes",
-                                  self_html->pending_footnotes.top);
+                                  self_html->pending_footnotes.number);
       html_clear_pending_footnotes (&self_html->pending_footnotes);
     }
 
@@ -2561,15 +2561,15 @@ html_conversion_finalization (CONVERTER *self)
   /* could change to 0 in releases? */
   if (1)
     {
-      if (self_html->html_document_context.top > 0)
+      if (self_html->html_document_context.number > 0)
         fprintf (stderr, "BUG: document context top > 0: %zu\n",
-                         self_html->html_document_context.top);
+                         self_html->html_document_context.number);
       if (self_html->document_global_context_counter)
         fprintf (stderr, "BUG: document_global_context_counter: %d\n",
                          self_html->document_global_context_counter);
-      if (self_html->multiple_pass.top > 0)
+      if (self_html->multiple_pass.number > 0)
         fprintf (stderr, "BUG: multiple_conversions: %zu\n",
-                         self_html->multiple_pass.top);
+                         self_html->multiple_pass.number);
     }
 }
 

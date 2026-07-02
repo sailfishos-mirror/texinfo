@@ -862,10 +862,10 @@ preformatted_classes_stack (SV *converter_in)
                                  "preformatted_classes_stack");
         preformatted_classes_stack = html_preformatted_classes_stack (self);
         preformatted_classes_av = newAV();
-        for (i = 0; i < preformatted_classes_stack->top; i++)
+        for (i = 0; i < preformatted_classes_stack->number; i++)
           {
             const COMMAND_OR_TYPE *cmd_or_type
-              = &preformatted_classes_stack->stack[i];
+              = &preformatted_classes_stack->list[i];
             const char *pre_class = 0;
             if (cmd_or_type->variety == CTV_type_command)
               pre_class = builtin_command_data[cmd_or_type->ct.cmd].cmdname;
@@ -2004,7 +2004,7 @@ get_pending_footnotes (SV *converter_in)
         pending_footnotes_av = newAV ();
         HTML_CONVERTER_STATE *self_html = self ? &self->html_converter : NULL;
 
-        if (self_html && self_html->pending_footnotes.top)
+        if (self_html && self_html->pending_footnotes.number)
           {
             HTML_PENDING_FOOTNOTE_STACK *stack
              = &self_html->pending_footnotes;

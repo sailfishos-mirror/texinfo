@@ -1,5 +1,23 @@
 2026-07-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Use generic list macros for HTML_CONVERTER_STATE
+	
+	* tta/C/main/html_converter_state:
+	(COMMAND_OR_TYPE_STACK, STRING_STACK, INTEGER_STACK)
+	(ELEMENT_REFERENCE_STACK, HTML_TARGET_LIST)
+	(EXPLAINED_COMMAND_TYPE_LIST, ELEMENT_REFERENCE_STACK_STACK)
+	(PAGES_CSS_LIST, TRANSLATED_COMMAND_LIST)
+	(HTML_FORMATTING_CONTEXT_STACK, HTML_DOCUMENT_CONTEXT_STACK)
+	(HTML_PENDING_FOOTNOTE_STACK, HTML_INLINE_CONTENT_STACK)
+	(HTML_ASSOCIATED_INLINE_CONTENT_LIST):
+
+	Define with def_list_type.  This changes the names of fields
+	'stack' to 'list', and 'top' to 'number'.
+	
+	All uses updated.
+
+2026-07-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/main/translations.c
 	(add_string_to_named_string_element_list)
 	(add_element_to_named_string_element_list):

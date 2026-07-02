@@ -3443,12 +3443,12 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
   HTML_PENDING_FOOTNOTE_STACK *pending_footnotes
    = &self_html->pending_footnotes;
 
-  if (pending_footnotes->top > 0)
+  if (pending_footnotes->number > 0)
     {
-      for (i = 0; i < pending_footnotes->top; i++)
+      for (i = 0; i < pending_footnotes->number; i++)
         {
           const HTML_PENDING_FOOTNOTE *pending_footnote_info
-           = pending_footnotes->stack[i];
+           = pending_footnotes->list[i];
           const ELEMENT *command = pending_footnote_info->command;
           const char *footid = pending_footnote_info->footid;
           int number_in_doc = pending_footnote_info->number_in_doc;
@@ -3484,9 +3484,9 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
           free (footnote_mark);
           free (footnote_location_href);
 
-          html_free_pending_footnote (pending_footnotes->stack[i]);
+          html_free_pending_footnote (pending_footnotes->list[i]);
         }
-      pending_footnotes->top = 0;
+      pending_footnotes->number = 0;
     }
 }
 
@@ -5775,19 +5775,19 @@ open_quotation_titlepage_stack (CONVERTER *self, int do_authors_list)
   ELEMENT_REFERENCE_STACK_STACK *stack
     = &self_html->shared_conversion_state.elements_authors;
 
-  if (stack->top >= stack->space)
+  if (stack->number >= stack->space)
     {
-      stack->stack
-        = realloc (stack->stack,
+      stack->list
+        = realloc (stack->list,
                    (stack->space += 5) * sizeof (ELEMENT_REFERENCE_STACK *));
     }
 
   if (do_authors_list)
-    stack->stack[stack->top] = new_element_reference_stack ();
+    stack->list[stack->number] = new_element_reference_stack ();
   else
-    stack->stack[stack->top] = 0;
+    stack->list[stack->number] = 0;
 
-  stack->top++;
+  stack->number++;
 }
 
 static char *maketitle_titlepage_array[] = {"maketitle-titlepage"};
@@ -5824,7 +5824,7 @@ format_maketitle (CONVERTER *self, TEXT *result)
       open_quotation_titlepage_stack (self, 0);
       html_convert_tree_append (self, e, result, "format maketitle");
       destroy_element (e);
-      self_html->shared_conversion_state.elements_authors.top--;
+      self_html->shared_conversion_state.elements_authors.number--;
 
       text_append_n (result, "</div>\n", 7);
 
@@ -5849,7 +5849,7 @@ html_default_format_titlepage (CONVERTER *self)
       tmp->e.c->contents.list = 0;
       destroy_element (tmp);
       titlepage_text = 1;
-      self_html->shared_conversion_state.elements_authors.top--;
+      self_html->shared_conversion_state.elements_authors.number--;
     }
   else if (self->document->global_commands.maketitle)
     {
@@ -8949,11 +8949,11 @@ html_convert_quotation_command (CONVERTER *self, const enum command_id cmd,
         text_append (result, content);
     }
 
-  if (elements_authors->top > 0)
+  if (elements_authors->number > 0)
     {
       size_t i;
       ELEMENT_REFERENCE_STACK *authors
-        = elements_authors->stack[elements_authors->top -1];
+        = elements_authors->list[elements_authors->number -1];
 
       if (!authors)
         {
@@ -8962,9 +8962,9 @@ html_convert_quotation_command (CONVERTER *self, const enum command_id cmd,
         }
       else
         {
-          for (i = 0; i < authors->top; i++)
+          for (i = 0; i < authors->number; i++)
             {
-              const ELEMENT *author = authors->stack[i].element;
+              const ELEMENT *author = authors->list[i].element;
               if (author->e.c->contents.list[0]->e.c->contents.number > 0)
                 {
                   NAMED_STRING_ELEMENT_LIST *substrings
@@ -8983,8 +8983,8 @@ html_convert_quotation_command (CONVERTER *self, const enum command_id cmd,
                 }
             }
           destroy_element_reference_stack (authors);
-          elements_authors->stack[elements_authors->top -1] = 0;
-          elements_authors->top--;
+          elements_authors->list[elements_authors->number -1] = 0;
+          elements_authors->number--;
         }
     }
   else
@@ -9488,10 +9488,10 @@ html_convert_author_command (CONVERTER *self, const enum command_id cmd,
   ELEMENT_REFERENCE_STACK_STACK *elements_authors
     = &self_html->shared_conversion_state.elements_authors;
 
-  if (elements_authors->top == 0)
+  if (elements_authors->number == 0)
     return;
 
-  authors_list = elements_authors->stack[elements_authors->top -1];
+  authors_list = elements_authors->list[elements_authors->number -1];
 
   if (!authors_list)
     {/* in titlepage */
@@ -9671,10 +9671,10 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
               const COMMAND_OR_TYPE_STACK *pre_classes
                 = html_preformatted_classes_stack (self);
               size_t i;
-              for (i = 0; i < pre_classes->top; i++)
+              for (i = 0; i < pre_classes->number; i++)
                 {
                   const COMMAND_OR_TYPE *cmd_or_type
-                   = &pre_classes->stack[i];
+                   = &pre_classes->list[i];
                   if (cmd_or_type->variety == CTV_type_command)
                     {
                       enum command_id pre_class_cmd = cmd_or_type->ct.cmd;
@@ -11669,9 +11669,9 @@ preformatted_class (const CONVERTER *self)
   const COMMAND_OR_TYPE_STACK *pre_classes
         = html_preformatted_classes_stack (self);
   size_t i;
-  for (i = 0; i < pre_classes->top; i++)
+  for (i = 0; i < pre_classes->number; i++)
     {
-      const COMMAND_OR_TYPE *cmd_or_type = &pre_classes->stack[i];
+      const COMMAND_OR_TYPE *cmd_or_type = &pre_classes->list[i];
       if (!(cur_pre_class
             && (cur_pre_class->variety == CTV_type_command
                 && builtin_command_data[cur_pre_class->ct.cmd].other_flags

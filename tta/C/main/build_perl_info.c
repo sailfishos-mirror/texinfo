@@ -1367,9 +1367,9 @@ build_integer_stack (const INTEGER_STACK *integer_stack)
 
   av = newAV ();
 
-  for (i = 0; i < integer_stack->top; i++)
+  for (i = 0; i < integer_stack->number; i++)
     {
-      int value = integer_stack->stack[i];
+      int value = integer_stack->list[i];
       av_push (av, newSViv (value));
     }
   return av;

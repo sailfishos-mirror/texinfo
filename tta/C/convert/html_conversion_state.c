@@ -46,28 +46,28 @@ static void
 push_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack,
                               char *context_name)
 {
-  if (stack->top >= stack->space)
+  if (stack->number >= stack->space)
     {
-      stack->stack
-        = realloc (stack->stack,
+      stack->list
+        = realloc (stack->list,
                    (stack->space += 5) * sizeof (HTML_FORMATTING_CONTEXT));
     }
 
-  memset (&stack->stack[stack->top], 0, sizeof (HTML_FORMATTING_CONTEXT));
+  memset (&stack->list[stack->number], 0, sizeof (HTML_FORMATTING_CONTEXT));
 
-  stack->stack[stack->top].context_name = strdup (context_name);
+  stack->list[stack->number].context_name = strdup (context_name);
 
-  stack->top++;
+  stack->number++;
 }
 
 static void
 pop_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack)
 {
-  if (stack->top == 0)
+  if (stack->number == 0)
     fatal ("HTML formatting context stack empty");
 
-  free (stack->stack[stack->top - 1].context_name);
-  stack->top--;
+  free (stack->list[stack->number - 1].context_name);
+  stack->number--;
 }
 
 void
@@ -80,14 +80,14 @@ html_new_document_context (CONVERTER *self,
   HTML_DOCUMENT_CONTEXT_STACK *stack = &self_html->html_document_context;
   HTML_DOCUMENT_CONTEXT *doc_context;
 
-  if (stack->top >= stack->space)
+  if (stack->number >= stack->space)
     {
-      stack->stack
-        = realloc (stack->stack,
+      stack->list
+        = realloc (stack->list,
                    (stack->space += 5) * sizeof (HTML_DOCUMENT_CONTEXT));
     }
 
-  doc_context = &stack->stack[stack->top];
+  doc_context = &stack->list[stack->number];
   memset (doc_context, 0, sizeof (HTML_DOCUMENT_CONTEXT));
 
   if (context_name)
@@ -113,7 +113,7 @@ html_new_document_context (CONVERTER *self,
   if (block_command)
     push_command (&doc_context->block_commands, block_command);
 
-  stack->top++;
+  stack->number++;
 
   if (context_type & CTXF_string)
     html_set_string_context (self);
@@ -127,29 +127,29 @@ html_pop_document_context (CONVERTER *self)
   HTML_DOCUMENT_CONTEXT_STACK *stack = &self_html->html_document_context;
   HTML_DOCUMENT_CONTEXT *document_ctx;
 
-  if (stack->top == 0)
+  if (stack->number == 0)
     fatal ("HTML document context stack empty for pop");
 
-  document_ctx = &stack->stack[stack->top -1];
+  document_ctx = &stack->list[stack->number -1];
 
   free (document_ctx->context);
   free (document_ctx->document_global_context);
-  free (document_ctx->monospace.stack);
-  free (document_ctx->preformatted_context.stack);
-  free (document_ctx->composition_context.stack);
-  free (document_ctx->preformatted_classes.stack);
+  free (document_ctx->monospace.list);
+  free (document_ctx->preformatted_context.list);
+  free (document_ctx->composition_context.list);
+  free (document_ctx->preformatted_classes.list);
   if (document_ctx->block_commands.top > 0)
     pop_command (&document_ctx->block_commands);
   free (document_ctx->block_commands.stack);
   pop_html_formatting_context (&document_ctx->formatting_context);
-  free (document_ctx->formatting_context.stack);
+  free (document_ctx->formatting_context.list);
 
   if (document_ctx->document_global_context)
     {
       self_html->document_global_context_counter--;
     }
 
-  stack->top--;
+  stack->number--;
 }
 
 int
@@ -611,7 +611,7 @@ const char *
 html_multi_expanded_region (CONVERTER *self)
 {
   HTML_CONVERTER_STATE *self_html = &self->html_converter;
-  if (self_html->multiple_pass.top > 0)
+  if (self_html->multiple_pass.number > 0)
     return top_string_stack (&self_html->multiple_pass);
 
   return 0;
@@ -635,7 +635,7 @@ size_t
 html_in_multiple_conversions (const CONVERTER *self)
 {
   const HTML_CONVERTER_STATE *self_html = &self->html_converter;
-  return self_html->multiple_pass.top;
+  return self_html->multiple_pass.number;
 }
 
 void
@@ -652,16 +652,16 @@ html_register_footnote (CONVERTER *self, const ELEMENT *command,
 
   stack = &self_html->pending_footnotes;
 
-  if (stack->top >= stack->space)
+  if (stack->number >= stack->space)
     {
-      stack->stack
-        = realloc (stack->stack,
+      stack->list
+        = realloc (stack->list,
                    (stack->space += 5) * sizeof (HTML_PENDING_FOOTNOTE *));
     }
   pending_footnote = (HTML_PENDING_FOOTNOTE *)
                       malloc (sizeof (HTML_PENDING_FOOTNOTE));
-  stack->stack[stack->top] = pending_footnote;
-  stack->top++;
+  stack->list[stack->number] = pending_footnote;
+  stack->number++;
 
   pending_footnote->command = command;
   pending_footnote->footid = strdup (footid);
@@ -690,11 +690,11 @@ void
 html_clear_pending_footnotes (HTML_PENDING_FOOTNOTE_STACK *stack)
 {
   size_t i;
-  for (i = 0; i < stack->top; i++)
+  for (i = 0; i < stack->number; i++)
     {
-      html_free_pending_footnote (stack->stack[i]);
+      html_free_pending_footnote (stack->list[i]);
     }
-  stack->top = 0;
+  stack->number = 0;
 }
 
 void
@@ -709,18 +709,18 @@ html_register_pending_formatted_inline_content (CONVERTER *self,
     return;
 
   stack = &self_html->pending_inline_content;
-  if (stack->top >= stack->space)
+  if (stack->number >= stack->space)
     {
-      stack->stack
-        = realloc (stack->stack,
+      stack->list
+        = realloc (stack->list,
                    (stack->space += 5) * sizeof (HTML_INLINE_CONTENT));
     }
-  pending_content = &stack->stack[stack->top];
+  pending_content = &stack->list[stack->number];
 
   pending_content->category = strdup (category);
   pending_content->string = strdup (inline_content);
 
-  stack->top++;
+  stack->number++;
 }
 
 /* cancel only the first pending content for the category */
@@ -730,25 +730,25 @@ html_cancel_pending_formatted_inline_content (CONVERTER *self,
 {
   HTML_CONVERTER_STATE *self_html = &self->html_converter;
   HTML_INLINE_CONTENT_STACK *stack = &self_html->pending_inline_content;
-  if (stack->top)
+  if (stack->number)
     {
-      size_t current_position = stack->top;
+      size_t current_position = stack->number;
       size_t current_idx;
       while (current_position > 0)
         {
           current_idx = current_position - 1;
-          if (!strcmp (stack->stack[current_idx].category, category))
+          if (!strcmp (stack->list[current_idx].category, category))
             {
-              char *inline_content = stack->stack[current_idx].string;
-              free (stack->stack[current_idx].category);
-              if (current_position < stack->top)
+              char *inline_content = stack->list[current_idx].string;
+              free (stack->list[current_idx].category);
+              if (current_position < stack->number)
                 {
-                  memmove (&stack->stack[current_idx],
-                           &stack->stack[current_idx+1],
+                  memmove (&stack->list[current_idx],
+                           &stack->list[current_idx+1],
                            sizeof (HTML_INLINE_CONTENT)
-                               * (stack->top - (current_idx +1)));
+                               * (stack->number - (current_idx +1)));
                 }
-              stack->top--;
+              stack->number--;
               return inline_content;
             }
         }
@@ -761,18 +761,18 @@ html_get_pending_formatted_inline_content (CONVERTER *self)
 {
   HTML_CONVERTER_STATE *self_html = &self->html_converter;
   HTML_INLINE_CONTENT_STACK *stack = &self_html->pending_inline_content;
-  if (stack->top)
+  if (stack->number)
     {
       TEXT result;
       size_t i;
       text_init (&result);
-      for (i = 0; i < stack->top; i++)
+      for (i = 0; i < stack->number; i++)
         {
-          text_append (&result, stack->stack[i].string);
-          free (stack->stack[i].string);
-          free (stack->stack[i].category);
+          text_append (&result, stack->list[i].string);
+          free (stack->list[i].string);
+          free (stack->list[i].category);
         }
-      stack->top = 0;
+      stack->number = 0;
       return result.text;
     }
   else
@@ -996,7 +996,7 @@ html_register_opened_section_level (CONVERTER *self, size_t file_number,
   STRING_STACK *file_pending_closes 
     = &self_html->pending_closes.list[file_number -1];
 
-  while ((int) file_pending_closes->top < level)
+  while ((int) file_pending_closes->number < level)
     {
       push_string_stack_string (file_pending_closes, "");
     }
@@ -1027,7 +1027,7 @@ html_close_registered_sections_level (CONVERTER *self, size_t file_number,
     = &self_html->pending_closes.list[file_number -1];
   STRING_LIST *closed_elements = new_string_list ();
 
-  while ((int) file_pending_closes->top > level)
+  while ((int) file_pending_closes->number > level)
     {
       const char *close_string = top_string_stack (file_pending_closes);
       if (strlen (close_string))

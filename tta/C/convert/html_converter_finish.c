@@ -424,8 +424,8 @@ html_free_converter (CONVERTER *self)
 
   free (accent_cmd.list);
 
-  free (preformatted_cmd_list.stack);
-  free (def_cmd_list.stack);
+  free (preformatted_cmd_list.list);
+  free (def_cmd_list.list);
 
   free (style_formatted_cmd.list);
  */
@@ -436,25 +436,25 @@ html_free_converter (CONVERTER *self)
   for (j = 0; j < self_html->pending_closes.space; j++)
     {
       STRING_STACK *file_pending_closes = &self_html->pending_closes.list[j];
-      free (file_pending_closes->stack);
+      free (file_pending_closes->list);
     }
   free (self_html->pending_closes.list);
 
-  free (self_html->pending_footnotes.stack);
+  free (self_html->pending_footnotes.list);
 
-  free (self_html->pending_inline_content.stack);
+  free (self_html->pending_inline_content.list);
 
   free (self_html->associated_inline_content.list);
 
   free (self_html->no_arg_formatted_cmd_translated.list);
 
-  free (self_html->referred_command_stack.stack);
+  free (self_html->referred_command_stack.list);
 
-  free (self_html->multiple_pass.stack);
+  free (self_html->multiple_pass.list);
 
-  free (self_html->html_document_context.stack);
+  free (self_html->html_document_context.list);
 
-  free (self_html->shared_conversion_state.elements_authors.stack);
+  free (self_html->shared_conversion_state.elements_authors.list);
 
   free (self_html->shared_conversion_state.explained_commands.list);
 

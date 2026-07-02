@@ -1517,16 +1517,16 @@ get_authors_list (CONVERTER *converter, SV *quotation_titlepage_nr_sv,
 
   elements_authors = &self_html->shared_conversion_state.elements_authors;
   quotation_titlepage_nr = (size_t) SvIV (quotation_titlepage_nr_sv);
-  if (quotation_titlepage_nr != elements_authors->top)
+  if (quotation_titlepage_nr != elements_authors->number)
     {
       fprintf (stderr,
-        "BUG: quotation_titlepage_nr %zu != elements_authors->top %zu\n",
-               quotation_titlepage_nr, elements_authors->top);
+        "BUG: quotation_titlepage_nr %zu != elements_authors->number %zu\n",
+               quotation_titlepage_nr, elements_authors->number);
     }
   else
     {
       ELEMENT_REFERENCE_STACK *authors
-        = elements_authors->stack[elements_authors->top -1];
+        = elements_authors->list[elements_authors->number -1];
       if (!authors && access_elements_authors)
         fprintf (stderr,
           "BUG: access element_authors "
@@ -1650,18 +1650,18 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
           /* difference should only be 1 with default Perl code as
              a quotation or title page is added on top of the stack
              or removed from the top of the stack */
-          while (quotation_titlepage_nr < elements_authors->top)
+          while (quotation_titlepage_nr < elements_authors->number)
             {
               ELEMENT_REFERENCE_STACK *authors
-                = elements_authors->stack[elements_authors->top -1];
+                = elements_authors->list[elements_authors->number -1];
               if (authors)
                 {
                   destroy_element_reference_stack (authors);
-                  elements_authors->stack[elements_authors->top -1] = 0;
+                  elements_authors->list[elements_authors->number -1] = 0;
                 }
-              elements_authors->top--;
+              elements_authors->number--;
             }
-          while (quotation_titlepage_nr > elements_authors->top)
+          while (quotation_titlepage_nr > elements_authors->number)
             open_quotation_titlepage_stack (converter, 0);
         }
     }
@@ -1696,7 +1696,7 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
                 {
                   ELEMENT_REFERENCE_STACK_STACK *elements_authors
                     = &self_html->shared_conversion_state.elements_authors;
-                  elements_authors->stack[elements_authors->top -1]
+                  elements_authors->list[elements_authors->number -1]
                     = new_element_reference_stack ();
                 }
             }
@@ -1708,9 +1708,9 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
                  already increased when the author element was added.
                */
               /* unlikely integer overflow */
-              if ((size_t) author_nr != authors->top)
+              if ((size_t) author_nr != authors->number)
                 fprintf (stderr, "BUG: unexpected element_authors_number"
-                                 "%d != %zu\n", author_nr, authors->top);
+                                 "%d != %zu\n", author_nr, authors->number);
             }
         }
     }
@@ -1739,10 +1739,10 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
           /* should be on top and, in default code, have been obtained by
              getting element_authors_number */
           size_t author_idx = (size_t) SvIV (args_sv[1]);
-          if (author_idx != authors->top)
+          if (author_idx != authors->number)
             {
               fprintf (stderr, "BUG: unexpected elements_authors number"
-                                 "%zu != %zu\n", author_idx, authors->top);
+                                 "%zu != %zu\n", author_idx, authors->number);
             }
           else
             {
@@ -1847,7 +1847,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
         }
     }
   else if (!strcmp (state_name, "quotation_titlepage_stack"))
-    return newSViv (self_html->shared_conversion_state.elements_authors.top);
+    return newSViv (self_html->shared_conversion_state.elements_authors.number);
   else if (!strcmp (state_name, "element_authors_number"))
     {
       ELEMENT_REFERENCE_STACK *authors = get_authors_list (converter,
@@ -1855,7 +1855,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
       if (!authors)
         return newSViv (-1);
       else
-        return newSViv (authors->top);
+        return newSViv (authors->number);
     }
   else if (!strcmp (state_name, "elements_authors"))
     {
@@ -1864,9 +1864,9 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
       if (authors)
         {
           size_t author_idx = (size_t) SvIV (args_sv[1]);
-          if (author_idx < authors->top)
+          if (author_idx < authors->number)
             {
-              ELEMENT_REFERENCE *author = &authors->stack[author_idx];
+              ELEMENT_REFERENCE *author = &authors->list[author_idx];
               if (author->element)
                 return newSVsv ((SV *)author->element->sv);
               else if (author->hv)

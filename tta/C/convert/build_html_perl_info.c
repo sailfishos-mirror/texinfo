@@ -404,12 +404,12 @@ build_pending_footnotes (AV *av, HTML_PENDING_FOOTNOTE_STACK *stack)
 {
   dTHX;
 
-  if (stack->top > 0)
+  if (stack->number > 0)
     {
       size_t i;
-      for (i = 0; i < stack->top; i++)
+      for (i = 0; i < stack->number; i++)
         {
-          HTML_PENDING_FOOTNOTE *pending_footnote = stack->stack[i];
+          HTML_PENDING_FOOTNOTE *pending_footnote = stack->list[i];
 
           AV *pending_footnote_av = newAV ();
           SV *sv = newRV_noinc ((SV *) pending_footnote_av);

@@ -26,6 +26,7 @@
 #include "command_ids.h"
 #include "tree_types.h"
 #include "document_types.h"
+#include "list_macros.h"
 
 enum formatting_reference_status {
    FRS_status_none,
@@ -186,23 +187,9 @@ typedef struct {
     } ct;
 } COMMAND_OR_TYPE;
 
-typedef struct {
-    COMMAND_OR_TYPE *stack;
-    size_t top;   /* One above last pushed. */
-    size_t space;
-} COMMAND_OR_TYPE_STACK;
-
-typedef struct {
-    char **stack;
-    size_t top;   /* One above last pushed. */
-    size_t space;
-} STRING_STACK;
-
-typedef struct {
-    int *stack;
-    size_t top;   /* One above last pushed. */
-    size_t space;
-} INTEGER_STACK;
+def_list_type(COMMAND_OR_TYPE_STACK, COMMAND_OR_TYPE);
+def_list_type(STRING_STACK, char *);
+def_list_type(INTEGER_STACK, int);
 
 /* an element in C, and/or a reference to an external language (Perl)
    for stack functions called from outside of the C converter */
@@ -213,11 +200,7 @@ typedef struct ELEMENT_REFERENCE {
     const void *hv;
 } ELEMENT_REFERENCE;
 
-typedef struct ELEMENT_REFERENCE_STACK {
-    ELEMENT_REFERENCE *stack;
-    size_t top;
-    size_t space;
-} ELEMENT_REFERENCE_STACK;
+def_list_type(ELEMENT_REFERENCE_STACK, ELEMENT_REFERENCE);
 
 typedef struct FILE_NUMBER_NAME {
     size_t file_number;
@@ -255,11 +238,7 @@ typedef struct HTML_TARGET {
     int formatted_nodedescription_nr;
 } HTML_TARGET;
 
-typedef struct HTML_TARGET_LIST {
-    size_t number;
-    size_t space;
-    HTML_TARGET *list;
-} HTML_TARGET_LIST;
+def_list_type(HTML_TARGET_LIST, HTML_TARGET);
 
 typedef struct EXPLAINED_COMMAND_TYPE {
     enum command_id cmd;
@@ -267,22 +246,14 @@ typedef struct EXPLAINED_COMMAND_TYPE {
     char *explanation;
 } EXPLAINED_COMMAND_TYPE;
 
-typedef struct EXPLAINED_COMMAND_TYPE_LIST {
-    size_t number;
-    size_t space;
-    EXPLAINED_COMMAND_TYPE *list;
-} EXPLAINED_COMMAND_TYPE_LIST;
+def_list_type(EXPLAINED_COMMAND_TYPE_LIST, EXPLAINED_COMMAND_TYPE);
 
 typedef struct FOOTNOTE_ID_NUMBER {
     const char *footnote_id;
     int number;
 } FOOTNOTE_ID_NUMBER;
 
-typedef struct ELEMENT_REFERENCE_STACK_STACK {
-    ELEMENT_REFERENCE_STACK **stack;
-    size_t top;
-    size_t space;
-} ELEMENT_REFERENCE_STACK_STACK;
+def_list_type(ELEMENT_REFERENCE_STACK_STACK, ELEMENT_REFERENCE_STACK *);
 
 typedef struct HTML_SHARED_CONVERSION_STATE {
     int in_skipped_node_top;
@@ -350,12 +321,8 @@ typedef struct CSS_LIST {
     char **list;
 } CSS_LIST;
 
-typedef struct PAGES_CSS_LIST {
-    size_t number;
-    size_t space;
-    CSS_LIST *list; /* index 0 is for document_global_context_css
-                       others for the output files */
-} PAGES_CSS_LIST;
+/* index 0 is for document_global_context_css others for the output files */
+def_list_type(PAGES_CSS_LIST, CSS_LIST);
 
 typedef struct COMMAND_ID_INDEX {
     enum command_id cmd;
@@ -367,11 +334,7 @@ typedef struct TRANSLATED_COMMAND {
     char *translation;
 } TRANSLATED_COMMAND;
 
-typedef struct TRANSLATED_COMMAND_LIST {
-    size_t number;
-    size_t space;
-    TRANSLATED_COMMAND *list;
-} TRANSLATED_COMMAND_LIST;
+def_list_type(TRANSLATED_COMMAND_LIST, TRANSLATED_COMMAND);
 
 typedef struct COMMAND_INTEGER_INFORMATION {
     enum command_id cmd;
@@ -470,11 +433,7 @@ typedef struct HTML_FORMATTING_CONTEXT {
     int no_break;
 } HTML_FORMATTING_CONTEXT;
 
-typedef struct HTML_FORMATTING_CONTEXT_STACK {
-    HTML_FORMATTING_CONTEXT *stack;
-    size_t top;   /* One above last pushed context. */
-    size_t space;
-} HTML_FORMATTING_CONTEXT_STACK;
+def_list_type(HTML_FORMATTING_CONTEXT_STACK, HTML_FORMATTING_CONTEXT);
 
 typedef struct HTML_DOCUMENT_CONTEXT {
     char *context;
@@ -492,11 +451,8 @@ typedef struct HTML_DOCUMENT_CONTEXT {
     COMMAND_OR_TYPE_STACK preformatted_classes;
 } HTML_DOCUMENT_CONTEXT;
 
-typedef struct HTML_DOCUMENT_CONTEXT_STACK {
-    HTML_DOCUMENT_CONTEXT *stack;
-    size_t top;   /* One above last pushed context. */
-    size_t space;
-} HTML_DOCUMENT_CONTEXT_STACK;
+
+def_list_type(HTML_DOCUMENT_CONTEXT_STACK, HTML_DOCUMENT_CONTEXT);
 
 typedef struct FIXED_STRING_WITH_LEN {
     const char *string;
@@ -621,22 +577,14 @@ typedef struct HTML_PENDING_FOOTNOTE {
     char *multi_expanded_region;
 } HTML_PENDING_FOOTNOTE;
 
-typedef struct HTML_PENDING_FOOTNOTE_STACK {
-    size_t top;
-    size_t space;
-    HTML_PENDING_FOOTNOTE **stack;
-} HTML_PENDING_FOOTNOTE_STACK;
+def_list_type(HTML_PENDING_FOOTNOTE_STACK, HTML_PENDING_FOOTNOTE *);
 
 typedef struct HTML_INLINE_CONTENT {
     char *category;
     char *string;
 } HTML_INLINE_CONTENT;
 
-typedef struct HTML_INLINE_CONTENT_STACK {
-    size_t top;
-    size_t space;
-    HTML_INLINE_CONTENT *stack;
-} HTML_INLINE_CONTENT_STACK;
+def_list_type(HTML_INLINE_CONTENT_STACK, HTML_INLINE_CONTENT);
 
 /* there should be either a pointer to a C tree element in element,
    if set from C, or a reference to a Perl tree element in sv, if set
@@ -649,11 +597,8 @@ typedef struct HTML_ASSOCIATED_INLINE_CONTENT {
     TEXT inline_content;
 } HTML_ASSOCIATED_INLINE_CONTENT;
 
-typedef struct HTML_ASSOCIATED_INLINE_CONTENT_LIST {
-    size_t number;
-    size_t space;
-    HTML_ASSOCIATED_INLINE_CONTENT *list;
-} HTML_ASSOCIATED_INLINE_CONTENT_LIST;
+def_list_type(HTML_ASSOCIATED_INLINE_CONTENT_LIST,
+              HTML_ASSOCIATED_INLINE_CONTENT);
 
 typedef struct HTMLXREF_MANUAL {
     char *manual;
