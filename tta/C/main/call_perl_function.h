@@ -14,8 +14,4 @@ void *call_setup_lang_collator (const char *locale_lang);
 BYTES_STRING *call_collator_getSortKey (const void *collator_sv,
                                         const char *string);
 
-int call_eval_load_texinfo_modules (int texinfo_uninstalled,
-          const char *t2a_builddir, int updirs, const char *converter_datadir,
-          const char *converter_libdir, const char *datadir);
-
 #endif

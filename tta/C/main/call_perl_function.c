@@ -329,3 +329,37 @@ call_eval_load_texinfo_modules (int texinfo_uninstalled,
 }
 
 
+/* assume that there is already a Perl interpreter loaded, but the
+   texi2any Perl modules are not loaded and load some modules.
+   Currently unused */
+int
+txi_use_interpreter_load_modules (int texinfo_uninstalled, const char *datadir,
+                              const char *converter_datadir,
+                              const char *converter_libdir,
+                              const char *t2a_builddir,
+                              const char *t2a_srcdir, int updirs)
+{
+  int loaded
+     = call_eval_load_texinfo_modules (texinfo_uninstalled, t2a_builddir,
+                                      updirs, converter_datadir,
+                                      converter_libdir, datadir);
+
+  /* In general, loaded <= 0 cannot happen, because failure to call Perl
+     if embedded or to load modules should lead to dying/croaking
+     earlier, notably in XSLoader */
+
+  if (loaded < 0)
+    {
+    /* Unexpected failure loading Perl modules, consider that there is no
+       Perl interpreter
+     */
+      set_use_perl_interpreter (0);
+      return 1;
+    }
+  else
+    {
+      set_use_perl_interpreter (txi_interpreter_use_interpreter);
+      return 0;
+    }
+}
+
