@@ -330,7 +330,7 @@ sub perl_converter_remove_output_units($) {
   # C/XS converters.
   # For a C/XS converter, we go through the C data output units lists
   # and remove references to output units Perl data for each of the output
-  # units, in a separate code called through converter_remove_output_units
+  # units in a separate code called through converter_remove_output_units
   # XS interface.
   my $output_units_lists = $self->get_output_units_lists();
 

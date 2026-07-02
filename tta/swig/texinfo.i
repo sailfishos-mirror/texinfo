@@ -255,14 +255,14 @@ DOCUMENT *txi_ext_parse_text (PARSER *parser, const char *string,
 // Only one of the next two function should be called as both clear the
 // document errors list.
 
-// texinfo.h
+// swig_interface.h
 // Output the error messages on stderr
-%rename(output_parser_error_messages) txi_output_parser_error_messages;
-size_t txi_output_parser_error_messages (DOCUMENT *document,
+%rename(output_parser_error_messages) txi_ext_output_parser_error_messages;
+
+size_t txi_ext_output_parser_error_messages (DOCUMENT *document,
                                   const char *message_encoding=0,
                                   int no_warn=0, int use_filename=0);
 
-// swig_interface.h
 // Get the error messages.  The caller should call
 // destroy_error_messages_list on the return value when done.
 %rename(get_parser_error_messages) txi_ext_get_parser_error_messages;
@@ -308,14 +308,13 @@ void txi_complete_document (DOCUMENT *document, unsigned long flags,
 // Only one of the next two function should be called as both clear the
 // document errors list.
 
-// texinfo.h
+// swig_interface.h
 // Output the error messages on stderr
-%rename(output_document_error_messages) txi_output_document_error_messages;
-size_t txi_output_document_error_messages (DOCUMENT *document,
+%rename(output_document_error_messages) txi_ext_output_document_error_messages;
+size_t txi_ext_output_document_error_messages (DOCUMENT *document,
                                     const char *message_encoding=0,
                                     int no_warn=0, int use_filename=0);
 
-// swig_interface.h
 // Get the error messages.  The caller should call
 // destroy_error_messages_list on the return value when done.
 %rename(get_document_error_messages) txi_ext_get_document_error_messages;
@@ -668,21 +667,8 @@ const READER_TOKEN *txi_reader_skip_children (struct READER *reader,
 
 // Finish
 
-// Beware of the name clash, destroy_document exists already in texinfo libs
-%rename(destroy_document) txi_ext_inline_destroy_document;
-%inline %{
-void txi_ext_inline_destroy_document (DOCUMENT *document);
-%}
-
-// texinfo.h
-%{
-void
-txi_ext_inline_destroy_document (DOCUMENT *document)
-{
-  txi_destroy_document (document, 0, 0);
-}
-%}
-
+// document.h
+void destroy_document (DOCUMENT *document);
 
 // Conversion
 

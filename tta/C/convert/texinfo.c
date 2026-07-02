@@ -38,36 +38,23 @@
 #include "interpreter_use_types.h"
 #include "document_types.h"
 #include "option_types.h"
-#include "options_defaults.h"
 #include "api.h"
 /* fatal */
 #include "base_utils.h"
 #include "conf.h"
 #include "errors.h"
-/* parse_file_path free_output_files_information */
+/* parse_file_path */
 #include "utils.h"
-#include "customization_options.h"
 #include "document.h"
 #include "translations.h"
 #include "structuring.h"
 #include "transformations.h"
 #include "convert_utils.h"
-/* find_format_name_converter_format setup_converter_generic
- converter_defaults destroy_converter_initialization_info converter_converter
- converter_output converter_convert converter_remove_output_units
- destroy_converter */
-#include "converter.h"
-#include "html_converter_api.h"
+/* call_eval_load_texinfo_modules */
 #include "call_perl_function.h"
-#include "call_conversion_perl.h"
-#include "call_embed_perl.h"
-#include "call_document_perl_functions.h"
 /* definition of set_use_perl_interpreter */
 #include "xs_utils.h"
-#include "api_to_perl.h"
 #include "texinfo.h"
-
-#define _(String) gettext (String)
 
 /* assume that there is already a Perl interpreter loaded, but the
    texi2any Perl modules are not loaded and load some modules.
@@ -355,207 +342,3 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
     number_floats (document);
 }
 
-/* high level interface, possibly hiding some details of the data */
-
-DOCUMENT *
-txi_parse_texi_file (const char *input_file_path, int *status)
-{
-  return parse_file (input_file_path, status);
-}
-
-/* similar to Texinfo::Convert::XXX->output */
-char *
-txi_converter_output (CONVERTER *converter, DOCUMENT *document,
-                      const char *external_module)
-{
-  if (external_module)
-    {
-      size_t i;
-      OUTPUT_TEXT_FILES_INFO *output_text_files_info
-                = call_converter_output (converter, document);
-      OUTPUT_FILES_INFORMATION *output_files_information
-                = output_text_files_info->output_files_information;
-      FILE_STREAM_LIST *unclosed_files
-         = &output_files_information->unclosed_files;
-
-      char *text_result = 0;
-      if (output_text_files_info->text)
-        {
-          text_result = strdup (output_text_files_info->text);
-          free (output_text_files_info->text);
-        }
-
-      if (output_files_information)
-        {
-          copy_strings (&converter->output_files_information.opened_files,
-                        &output_files_information->opened_files);
-          /* copy unclosed files */
-          for (i = 0; i < unclosed_files->number; i++)
-            {
-              register_unclosed_file (
-                   &converter->output_files_information,
-                   unclosed_files->list[i].file_path,
-                   unclosed_files->list[i].stream,
-                   unclosed_files->list[i].io);
-            }
-          free_output_files_information (output_files_information);
-          free (output_files_information);
-        }
-      free (output_text_files_info);
-      return text_result;
-    }
-
-  return converter_output (converter, document);
-}
-
-/* corresponds to, in texi2any.pl:
-   - load elements count module
-   - initialize converter
-   - call the converter specific method
- */
-CONVERTER_TEXT_INFO *
-txi_sort_element_counts (const char *external_module,
-                         const OPTIONS_LIST *customizations,
-                         DOCUMENT *document, int use_sections,
-                         int count_words)
-{
-  if (external_module)
-    {
-      CONVERTER_INITIALIZATION_INFO *converter_init_info
-       = new_converter_initialization_info ();
-      CONVERTER_TEXT_INFO *result = (CONVERTER_TEXT_INFO *)
-        malloc (sizeof (CONVERTER_TEXT_INFO));
-
-      if (customizations)
-        copy_options_list (&converter_init_info->conf, customizations);
-
-      call_eval_use_module (external_module);
-      result->converter
-         = call_module_converter (external_module, converter_init_info);
-      if (!result->converter)
-        { /* the caller should make sure an interpreter is loaded */
-          char *message;
-          xasprintf (&message,
-            "no interpreter or NULL return for sort element count module: %s",
-                     external_module);
-          fatal (message);
-          free (message);
-          return 0;
-        }
-
-      result->text = call_sort_element_counts (result->converter, document,
-                                               use_sections, count_words);
-
-      destroy_converter_initialization_info (converter_init_info);
-      return result;
-    }
-  /* cannot happen right now since the argument is set in the only
-     caller */
-  else
-    {
-      fatal ("no external module for sort element count");
-      return 0;
-    }
-}
-
-/* ALTIMP Texinfo::Document::destroy_document */
-void
-txi_destroy_document (DOCUMENT *document, const char *external_module,
-                      int remove_references)
-{
-  ERROR_MESSAGE_LIST *error_messages = 0;
-  int check_counts = (document->options->TEST.o.integer > 1);
-  if (check_counts)
-    {
-      /* Call Perl function to remove Perl references when Perl code is used */
-      if (external_module)
-        call_document_remove_document_references (document,
-                                                  remove_references);
-      error_messages = set_check_element_interpreter_refcount ();
-    }
-
-  destroy_document (document);
-  if (check_counts)
-    {
-      /* the messages are discarded.  The same information has already
-         been printed on STDERR */
-      clear_error_message_list (error_messages);
-      unset_check_element_interpreter_refcount ();
-    }
-}
-
-/* ALTIMP Texinfo::Convert::Converter */
-void
-txi_converter_remove_output_units (CONVERTER *converter,
-                                   const char *external_module)
-{
-  if (external_module)
-    release_converter_output_units_remove_perl_output_units (converter);
-  converter_remove_output_units (converter);
-}
-
-/* ALTIMP Texinfo::Convert::Converter */
-void
-txi_destroy_converter (CONVERTER *converter, const char *external_module)
-{
-  if (external_module)
-    call_object_converter_perl_release (converter);
-  destroy_converter (converter);
-}
-
-/* defined here to hide call_close_perl_io PerlIO closing function call */
-int
-txi_close_file_stream (const char *program_file, const FILE_STREAM *file_stream)
-{
-  int error_nrs = 0;
-
-  if (file_stream->stream)
-    {
-      if (fclose (file_stream->stream))
-        {
-          fprintf (stderr, _("%s: error on closing %s: %s"),
-                   program_file, file_stream->file_path,
-                   strerror (errno));
-          fprintf (stderr, "%s", "\n");
-          error_nrs++;
-        }
-    }
-  /* having io field set can not happen when C output_files_open_out
-     is called, only when getting conversion results from Perl.
-   */
-  if (file_stream->io)
-    {
-      char *errno_message = call_close_perl_io (file_stream->io);
-      if (errno_message)
-        {
-          fprintf (stderr, _("%s: error on closing io %s: %s"),
-                   program_file, file_stream->file_path,
-                   errno_message);
-          fprintf (stderr, "%s", "\n");
-          free (errno_message);
-          error_nrs++;
-        }
-    }
-
-  return error_nrs;
-}
-
-size_t
-txi_output_parser_error_messages (DOCUMENT *document,
-                                  const char *message_encoding,
-                                  int no_warn, int use_filename)
-{
-  return output_error_messages (&document->parser_error_messages,
-                                message_encoding, no_warn,
-                                use_filename);
-}
-
-size_t
-txi_output_document_error_messages (DOCUMENT *document,
-                                    const char *message_encoding,
-                                    int no_warn, int use_filename)
-{
-  return output_error_messages (&document->error_messages, message_encoding,
-                                no_warn, use_filename);
-
-}

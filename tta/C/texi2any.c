@@ -70,6 +70,7 @@
 #include "txi_config.h"
 /* tree_print_details */
 #include "manipulate_tree.h"
+#include "api.h"
 /* setup_texinfo_main set_document_options */
 #include "document.h"
 #include "convert_to_texinfo.h"
@@ -83,7 +84,13 @@
 /* for html_output_internal_links */
 #include "html_converter_api.h"
 #include "texinfo.h"
-/* for call_module_converter */
+/* call_close_perl_io */
+#include "api_to_perl.h"
+/* for call_document_remove_document_references */
+#include "call_document_perl_functions.h"
+/* for call_module_converter call_converter_output
+   release_converter_output_units_remove_perl_output_units
+   call_object_converter_perl_release call_sort_element_counts */
 #include "call_conversion_perl.h"
 /* for call_finish_perl call_eval_use_module */
 #include "call_embed_perl.h"
@@ -167,6 +174,18 @@ static FORMAT_SPECIFICATION formats_table[] = {
   {"structure", STTF_nodes_tree | STTF_floats | STTF_split, NULL, NULL, NULL},
   {NULL, 0, NULL, NULL, NULL}
 };
+
+typedef struct INTERPRETER_LOADING_INFO {
+    int *argc_ref;
+    char ***argv_ref;
+    char ***env_ref;
+    const char *version_checked;
+} INTERPRETER_LOADING_INFO;
+
+typedef struct TRANSFORMATION_NAME_FLAG {
+    const char *name;
+    unsigned long flag;
+} TRANSFORMATION_NAME_FLAG;
 
 static VALUE_LIST values;
 
@@ -621,8 +640,9 @@ handle_parser_errors (DOCUMENT *document, const char *set_message_encoding,
                       STRING_LIST *opened_files)
 {
   size_t errors_nr
-        = txi_output_parser_error_messages (document, set_message_encoding,
-                                            no_warn, test_mode_set);
+       = output_error_messages (&document->parser_error_messages,
+                                set_message_encoding, no_warn,
+                                test_mode_set);
   return handle_errors (errors_nr, error_count, opened_files);
 }
 
@@ -914,6 +934,19 @@ name_of_format (const char *format)
   return format;
 }
 
+static void
+remove_converter_and_output_units (CONVERTER *converter,
+                                   const char *external_module)
+{
+  if (external_module)
+    {
+      release_converter_output_units_remove_perl_output_units (converter);
+      call_object_converter_perl_release (converter);
+    }
+  converter_remove_output_units (converter);
+  destroy_converter (converter);
+}
+
 const char *input_file_suffixes[] = {
 ".txi",".texinfo",".texi",".txinfo", "", NULL
 };
@@ -1077,6 +1110,42 @@ err_add_option_value (OPTIONS_LIST *options_list, const char *option_name,
   if (!add_option_value (options_list, option_name,
                          int_value, char_value))
     fprintf (stderr, "BUG: error setting %s\n", option_name);
+}
+
+int
+close_file_stream (const char *program_file, const FILE_STREAM *file_stream)
+{
+  int error_nrs = 0;
+
+  if (file_stream->stream)
+    {
+      if (fclose (file_stream->stream))
+        {
+          fprintf (stderr, _("%s: error on closing %s: %s"),
+                   program_file, file_stream->file_path,
+                   strerror (errno));
+          fprintf (stderr, "%s", "\n");
+          error_nrs++;
+        }
+    }
+  /* having io field set can not happen when C output_files_open_out
+     is called, only when getting conversion results from Perl.
+   */
+  if (file_stream->io)
+    {
+      char *errno_message = call_close_perl_io (file_stream->io);
+      if (errno_message)
+        {
+          fprintf (stderr, _("%s: error on closing io %s: %s"),
+                   program_file, file_stream->file_path,
+                   errno_message);
+          fprintf (stderr, "%s", "\n");
+          free (errno_message);
+          error_nrs++;
+        }
+    }
+
+  return error_nrs;
 }
 
 /* we use env in case a Perl interpreter is embedded in order to blindly
@@ -2960,7 +3029,7 @@ main (int argc, char *argv[], char *env[])
       txi_parser (input_file_path, &values, &parser_options);
 
       /* Texinfo document tree parsing */
-      document = txi_parse_texi_file (input_file_path, &status);
+      document = parse_file (input_file_path, &status);
 
       set_document_options (document, &program_options, &cmdline_options,
                             init_files_options);
@@ -3175,8 +3244,9 @@ main (int argc, char *argv[], char *env[])
                                   &document->error_messages);
 
       errors_nr
-        = txi_output_parser_error_messages (document, set_message_encoding,
-                                            no_warn, test_mode_set);
+         = output_error_messages (&document->parser_error_messages,
+                                  set_message_encoding, no_warn,
+                                  test_mode_set);
 
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
 
@@ -3350,11 +3420,46 @@ main (int argc, char *argv[], char *env[])
         }
 
       /* conversion */
-      /* If Perl output conversion is called, a minimal Perl document is
-         built before calling the conversion */
+      if (external_module)
+        {
+          size_t i;
+          /* a minimal Perl document is built before the conversion */
+          OUTPUT_TEXT_FILES_INFO *output_text_files_info
+                    = call_converter_output (converter, document);
+          OUTPUT_FILES_INFORMATION *output_files_information
+                    = output_text_files_info->output_files_information;
+          FILE_STREAM_LIST *unclosed_files
+             = &output_files_information->unclosed_files;
+
+          result = 0;
+          if (output_text_files_info->text)
+            {
+              result = strdup (output_text_files_info->text);
+              free (output_text_files_info->text);
+            }
+
+          if (output_files_information)
+            {
+              copy_strings (&converter->output_files_information.opened_files,
+                            &output_files_information->opened_files);
+              /* copy unclosed files */
+              for (i = 0; i < unclosed_files->number; i++)
+                {
+                  register_unclosed_file (
+                       &converter->output_files_information,
+                       unclosed_files->list[i].file_path,
+                       unclosed_files->list[i].stream,
+                       unclosed_files->list[i].io);
+                }
+              free_output_files_information (output_files_information);
+              free (output_files_information);
+            }
+          free (output_text_files_info);
+        }
+      else
       /* return value can be NULL in case of errors or an empty string, but
          not anything else as parse_file is used with a file */
-      result = txi_converter_output (converter, document, external_module);
+        result = converter_output (converter, document);
 
       free (result);
       clear_converter_initialization_info (converter_init_info);
@@ -3403,8 +3508,8 @@ main (int argc, char *argv[], char *env[])
                 }
               else
                 {
-                  int close_error = txi_close_file_stream (program_file,
-                                                           file_stream);
+                  int close_error = close_file_stream (program_file,
+                                                       file_stream);
 
                   if (close_error)
                     errors_count = handle_errors (close_error,
@@ -3503,10 +3608,7 @@ main (int argc, char *argv[], char *env[])
       if ((test_option && test_option->o.integer > 0)
           || file_index < input_files.number -1)
         {
-          txi_converter_remove_output_units (converter, external_module);
-
-          /* destroy converter */
-          txi_destroy_converter (converter, external_module);
+          remove_converter_and_output_units (converter, external_module);
         }
 
       if (file_index == 0)
@@ -3518,29 +3620,11 @@ main (int argc, char *argv[], char *env[])
                 = sort_element_count_option->o.string;
             }
 
-          /* The main work is done by txi_sort_element_counts, which in
-             turn calls Perl code */
-          if (sort_element_count_file_name)
-            {
-              if (embedded_interpreter == txi_interpreter_want_embedded)
-                {
-                  int status = load_interpreter (&loading_info);
-                  if (!status)
-                    embedded_interpreter = txi_interpreter_use_embedded;
-                }
-
-              if (embedded_interpreter != txi_interpreter_use_embedded)
-                {
-                  fprintf (stderr,
-                           "ERROR: no interpreter for SORT_ELEMENT_COUNT\n");
-                  exit (EXIT_FAILURE);
-                }
-            }
-
           if (sort_element_count_file_name)
             {
               char *sort_element_count_text = 0;
               CONVERTER_TEXT_INFO *sort_element_count_info;
+              CONVERTER_INITIALIZATION_INFO *sort_elt_converter_init_info;
               OPTION *use_nodes_option
                = GNUT_get_conf (program_options.options->USE_NODES.number);
               int no_use_nodes = (use_nodes_option
@@ -3568,6 +3652,21 @@ main (int argc, char *argv[], char *env[])
               int error_element_count_file = 0;
               char *output_file_name_encoding = 0;
 
+              /* The main work is done by Perl code */
+              if (embedded_interpreter == txi_interpreter_want_embedded)
+                {
+                  int status = load_interpreter (&loading_info);
+                  if (!status)
+                    embedded_interpreter = txi_interpreter_use_embedded;
+                }
+
+              if (embedded_interpreter != txi_interpreter_use_embedded)
+                {
+                  fprintf (stderr,
+                           "ERROR: no interpreter for SORT_ELEMENT_COUNT\n");
+                  exit (EXIT_FAILURE);
+                }
+
               /* set such that the code releasing the document is called from
                  Perl */
               if (!external_module)
@@ -3589,18 +3688,47 @@ main (int argc, char *argv[], char *env[])
               copy_strings (converter_include_dirs, &prepended_include_directories);
               copy_strings (converter_include_dirs, cmdline_include_dirs);
 
-            /* sort_element_count_info cannot be NULL, as the functions aborts
-               instead of returning NULL.  However, we code here as if it could
-               be NULL because of some error */
-              sort_element_count_info
-               = txi_sort_element_counts (elt_count_external_module,
-                     &convert_options, document,
-                     use_sections, (sort_element_count_words_option
+              sort_elt_converter_init_info
+                = new_converter_initialization_info ();
+              sort_element_count_info = (CONVERTER_TEXT_INFO *)
+                malloc (sizeof (CONVERTER_TEXT_INFO));
+
+              copy_options_list (&sort_elt_converter_init_info->conf,
+                                 &convert_options);
+
+                /* corresponds to, in texi2any.pl:
+                   - load elements count module
+                   - initialize converter
+                   - call the converter specific method
+                 */
+              call_eval_use_module (elt_count_external_module);
+              sort_element_count_info->converter
+                 = call_module_converter (elt_count_external_module,
+                                          sort_elt_converter_init_info);
+
+              /* The Perl interpreter should have been loaded, so it
+                 should be another error */
+              if (!sort_element_count_info->converter)
+                {
+                  char *message;
+                  xasprintf (&message,
+        "no interpreter or NULL return for sort element count module: %s",
+                         elt_count_external_module);
+                  fatal (message);
+                  free (message);
+                }
+
+              sort_element_count_info->text
+                = call_sort_element_counts (sort_element_count_info->converter,
+                                            document, use_sections,
+                        (sort_element_count_words_option
                          && sort_element_count_words_option->o.integer > 0));
 
+              destroy_converter_initialization_info (
+                                                sort_elt_converter_init_info);
+
               /* output resulting text in the sort_element_count_file_name */
-              if (sort_element_count_info)
-                sort_element_count_text = sort_element_count_info->text;
+              sort_element_count_text = sort_element_count_info->text;
 
               if (!sort_element_count_text)
                 sort_element_count_text = strdup ("");
@@ -3662,12 +3790,10 @@ main (int argc, char *argv[], char *env[])
 
               if (sort_element_count_info)
                 {
-                  txi_converter_remove_output_units (
-                                   sort_element_count_info->converter,
-                                   elt_count_external_module);
-                  /* destroy converter and sort_element_count_info */
-                  txi_destroy_converter (sort_element_count_info->converter,
-                                         elt_count_external_module);
+                  remove_converter_and_output_units (
+                                     sort_element_count_info->converter,
+                                          elt_count_external_module);
+
                   free (sort_element_count_info);
                 }
 
@@ -3689,8 +3815,27 @@ main (int argc, char *argv[], char *env[])
     next_input_file:
       if ((test_option && test_option->o.integer > 0)
           || file_index < input_files.number -1)
-        /* destroy document */
-        txi_destroy_document (document, external_module, remove_references);
+        {
+          /* destroy document */
+           ERROR_MESSAGE_LIST *error_messages = 0;
+           int check_counts = (document->options->TEST.o.integer > 1);
+           if (check_counts && external_module)
+             {
+      /* Call Perl function to remove Perl references when Perl code is used */
+               call_document_remove_document_references (document,
+                                                  remove_references);
+               error_messages = set_check_element_interpreter_refcount ();
+             }
+
+           destroy_document (document);
+           if (check_counts && external_module)
+             {
+              /* the messages are discarded.  The same information has already
+                 been printed on STDERR */
+               clear_error_message_list (error_messages);
+               unset_check_element_interpreter_refcount ();
+             }
+         }
 
       free (input_directory);
       free (canon_input_dir);
@@ -3706,7 +3851,7 @@ main (int argc, char *argv[], char *env[])
 
   if (main_program_unclosed_stdout.file_path)
     {
-      int close_error = txi_close_file_stream (program_file,
+      int close_error = close_file_stream (program_file,
                                          &main_program_unclosed_stdout);
       if (close_error)
         errors_count = handle_errors (close_error, errors_count, &opened_files);

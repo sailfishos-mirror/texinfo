@@ -975,6 +975,25 @@ txi_ext_text_options_set_encoding (TEXT_OPTIONS *text_options,
 
 
 
+size_t
+txi_ext_output_parser_error_messages (DOCUMENT *document,
+                                  const char *message_encoding,
+                                  int no_warn, int use_filename)
+{
+  return output_error_messages (&document->parser_error_messages,
+                                message_encoding, no_warn,
+                                use_filename);
+}
+
+size_t
+txi_ext_output_document_error_messages (DOCUMENT *document,
+                                    const char *message_encoding,
+                                    int no_warn, int use_filename)
+{
+  return output_error_messages (&document->error_messages, message_encoding,
+                                no_warn, use_filename);
+}
+
 FORMATTED_ERROR_MESSAGE_LIST *
 txi_ext_get_error_messages_list_messages (ERROR_MESSAGE_LIST *error_messages,
                                           const char *message_encoding,

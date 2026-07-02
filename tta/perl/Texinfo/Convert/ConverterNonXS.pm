@@ -172,7 +172,7 @@ sub _generic_converter_init($$;$) {
   $converter->{'error_warning_messages'} = [];
 }
 
-# ALTIMP convert/texinfo.c txi_converter_remove_output_units
+# ALTIMP convert/converter.c converter_remove_output_units
 sub converter_remove_output_units($) {
   my $self = shift;
 

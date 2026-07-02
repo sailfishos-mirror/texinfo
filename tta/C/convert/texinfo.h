@@ -9,11 +9,6 @@
 #include "converter_types.h"
 #include "option_types.h"
 
-typedef struct TRANSFORMATION_NAME_FLAG {
-    const char *name;
-    unsigned long flag;
-} TRANSFORMATION_NAME_FLAG;
-
 /* tree transformations, keep in sync with
    Texinfo::Common::valid_tree_transformations and STTF flags just below */
 #define TT_TYPES_LIST \
@@ -53,46 +48,12 @@ typedef struct TRANSFORMATION_NAME_FLAG {
 /* mark a format handled by texi2dvi */
 #define STTF_texi2dvi_format                        0x4000
 
-typedef struct INTERPRETER_LOADING_INFO {
-    int *argc_ref;
-    char ***argv_ref;
-    char ***env_ref;
-    const char *version_checked;
-} INTERPRETER_LOADING_INFO;
-
 void txi_general_output_strings_setup (void);
 
 void txi_parser (const char *file_path, const VALUE_LIST *values,
                  OPTIONS_LIST *options);
 
-DOCUMENT *txi_parse_texi_file (const char *input_file_path, int *status);
-
 void txi_complete_document (DOCUMENT *document, unsigned long flags,
                             int format_menu);
-
-char *txi_converter_output (CONVERTER *converter, DOCUMENT *document,
-                            const char *external_module);
-
-CONVERTER_TEXT_INFO *txi_sort_element_counts (const char *external_module,
-                               const OPTIONS_LIST *customizations,
-                               DOCUMENT *document, int use_options,
-                               int count_words);
-
-size_t txi_output_parser_error_messages (DOCUMENT *document,
-                                         const char *message_encoding,
-                                         int no_warn, int use_filename);
-size_t txi_output_document_error_messages (DOCUMENT *document,
-                                           const char *message_encoding,
-                                           int no_warn, int use_filename);
-
-void txi_destroy_document (DOCUMENT *document, const char *external_module,
-                           int remove_references);
-
-void txi_converter_remove_output_units (CONVERTER *converter,
-                                        const char *external_module);
-void txi_destroy_converter (CONVERTER *converter, const char *external_module);
-
-int txi_close_file_stream (const char *program_file,
-                           const FILE_STREAM *file_stream);
 
 #endif

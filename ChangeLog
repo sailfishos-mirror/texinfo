@@ -1,3 +1,29 @@
+2026-07-02 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/texinfo.c, tta/C/api_for_swig/swig_interface.c
+	(txi_ext_output_parser_error_messages)
+	(txi_ext_output_document_error_messages), tta/C/texi2any.c (main),
+	tta/swig/texinfo.i: inline txi_output_parser_error_messages in main.
+	Move txi_output_document_error_messages and
+	txi_output_parser_error_messages dd to swig_interface.c and rename as
+	txi_ext_output_parser_error_messages and and
+	txi_ext_output_document_error_messages.  Use in texinfo.i.
+
+	* tta/C/convert/texinfo.c, tta/C/texi2any.c (main, close_file_stream):
+	move txi_close_file_stream to texi2any.c and rename as
+	close_file_stream.
+
+	* tta/C/convert/texinfo.c, tta/C/texi2any.c (TRANSFORMATION_NAME_FLAG)
+	(INTERPRETER_LOADING_INFO): move structures to texi2any.c.
+
+	* tta/C/convert/texinfo.c, tta/C/texi2any.c (main)
+	(remove_converter_and_output_units), tta/swig/texinfo.i: inline
+	txi_parse_texi_file, txi_converter_output, txi_sort_element_counts,
+	txi_destroy_document, txi_converter_remove_output_units and
+	txi_destroy_converter in texi2any.c, add the
+	remove_converter_and_output_units function.  Call directly
+	destroy_document in texinfo.i.
+
 2026-07-01  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Use generic list macros for HTML_CONVERTER_STATE
