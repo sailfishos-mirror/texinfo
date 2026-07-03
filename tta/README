@@ -148,6 +148,14 @@ If you want to delve into making a new Perl converter backend, the
 documentation in perl/Texinfo/Convert/Converter.pm is a good starting
 point, as it describes the existing backends and other places to look.
 
+If you want to port a backend from Perl to C or do a new backend in C,
+you should add a line in the converter_format_data table in
+tta/C/convert/converter.c code and register in the table the functions
+needed for the conversion.  This interface is similar to the Perl
+Converter interface, therefore the documentation in
+tta/Texinfo/Convert/Converter.pm could be useful too.
+
+
 The Texinfo parser builds a complicated parse tree.  It can output a lot of
 debug information about the tree, and what it's doing generally.  For example,
 these commands output the tree (in different forms):

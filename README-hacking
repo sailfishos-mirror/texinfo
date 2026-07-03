@@ -222,9 +222,17 @@ http://ftpmirror.gnu.org/texinfo.
 
 References for working on various parts of the system:
 
-If you want to delve into making a new backend for the Perl makeinfo,
-the documentation in tta/Texinfo/Convert/Converter.pm is a good starting
-point, as it describes the existing backends and other places to look.
+If you want to delve into making a new backend for makeinfo/texi2any in
+Perl, the documentation in tta/Texinfo/Convert/Converter.pm is a good
+starting point, as it describes the existing backends and other places
+to look.
+
+If you want to port a backend from Perl to C or do a new backend in C,
+you should add a line in the converter_format_data table in
+tta/C/convert/converter.c code and register in the table the functions
+needed for the conversion.  This interface is similar to the Perl
+Converter interface, therefore the documentation in
+tta/Texinfo/Convert/Converter.pm could be useful too.
 
 If you want to delve into texinfo.tex, a thorough plain TeX reference
 is available under the GFDL:
