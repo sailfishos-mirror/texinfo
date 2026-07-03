@@ -176,7 +176,14 @@ static FORMAT_SPECIFICATION formats_table[] = {
   {NULL, 0, NULL, NULL, NULL}
 };
 
+enum interpreter_use {
+   txi_interpreter_want_embedded = -1,
+   txi_interpreter_use_no_interpreter,
+   txi_interpreter_use_embedded,
+};
+
 typedef struct INTERPRETER_LOADING_INFO {
+    enum interpreter_use embedded_interpreter;
     int *argc_ref;
     char ***argv_ref;
     char ***env_ref;
@@ -188,12 +195,6 @@ typedef struct TRANSFORMATION_NAME_FLAG {
     unsigned long flag;
 } TRANSFORMATION_NAME_FLAG;
 
-enum interpreter_use {
-   txi_interpreter_want_embedded = -1,
-   txi_interpreter_use_no_interpreter,
-   txi_interpreter_use_embedded,
-};
-
 static VALUE_LIST values;
 
 /* options common to parser and converter */
@@ -202,9 +203,6 @@ static OPTIONS_LIST cmdline_options;
 static OPTIONS_LIST *init_files_options;
 
 static char *program_file;
-
-static enum interpreter_use embedded_interpreter
-   = txi_interpreter_use_no_interpreter;
 
 /* texi2any */
 static void
@@ -708,12 +706,15 @@ warn_deprecated_dirs (DEPRECATED_DIRS_LIST *deprecated_dirs_used)
 /* TODO warn/exit if loaded twice?  The problem with being loaded
    twice is that the init files code may have modified previous
    interpreter data */
-static int
-load_interpreter (const INTERPRETER_LOADING_INFO *loading_info)
+static void
+load_interpreter (INTERPRETER_LOADING_INFO *loading_info)
 {
   const char *load_txi_modules_basename = "load_txi_modules";
   char *load_modules_path;
   int status;
+
+  if (loading_info->embedded_interpreter != txi_interpreter_want_embedded)
+    return;
 
   if (txi_paths_info.texinfo_uninstalled)
     xasprintf (&load_modules_path, "%s/perl/%s.pl",
@@ -740,27 +741,26 @@ load_interpreter (const INTERPRETER_LOADING_INFO *loading_info)
   else if (status < 0)
     {
       fprintf (stderr, "WARNING: no interpreter embedding code built\n");
+      loading_info->embedded_interpreter = txi_interpreter_use_no_interpreter;
     }
   else
-    set_use_perl_interpreter (1);
+    {
+      loading_info->embedded_interpreter = txi_interpreter_use_embedded;
+      set_use_perl_interpreter (1);
+    }
 
   free (load_modules_path);
-  return status;
 }
 
 static int
 load_init_file (const char *file,
-                const INTERPRETER_LOADING_INFO *loading_info)
+                INTERPRETER_LOADING_INFO *loading_info)
 {
   int status = 0;
-  if (embedded_interpreter == txi_interpreter_want_embedded)
-    {
-      int interpreter_status = load_interpreter (loading_info);
-      if (!interpreter_status)
-        embedded_interpreter = txi_interpreter_use_embedded;
-    }
 
-  if (embedded_interpreter == txi_interpreter_use_embedded)
+  load_interpreter (loading_info);
+
+  if (loading_info->embedded_interpreter == txi_interpreter_use_embedded)
     status = call_config_GNUT_load_init_file (file);
 
   return status;
@@ -787,7 +787,7 @@ locate_and_load_init_file (const char *filename, STRING_LIST *directories,
       else
         {
           char *decoded_filename = GNUT_decode_input ((char *) filename);
-          if (embedded_interpreter != txi_interpreter_use_embedded)
+          if (loading_info->embedded_interpreter != txi_interpreter_use_embedded)
             fprintf (stderr, "WARNING: no interpreter, cannot load: %s\n",
                      filename);
           else
@@ -812,7 +812,7 @@ locate_and_load_init_file (const char *filename, STRING_LIST *directories,
 
 static void
 locate_and_load_extension_file (const char *filename, STRING_LIST *directories,
-                                const INTERPRETER_LOADING_INFO *loading_info)
+                                INTERPRETER_LOADING_INFO *loading_info)
 {
   char *file = locate_file_in_dirs (filename, directories, 0, 0, 0);
 
@@ -825,7 +825,7 @@ locate_and_load_extension_file (const char *filename, STRING_LIST *directories,
       else
         {
           char *decoded_filename = GNUT_decode_input ((char *) filename);
-          if (embedded_interpreter != txi_interpreter_use_embedded)
+          if (loading_info->embedded_interpreter != txi_interpreter_use_embedded)
             fprintf (stderr, "WARNING: no interpreter, cannot load: %s\n",
                      filename);
           else
@@ -1253,7 +1253,8 @@ main (int argc, char *argv[], char *env[])
   char *program_basename;
   size_t file_index;
   int remove_references = 0;
-  INTERPRETER_LOADING_INFO loading_info;
+  INTERPRETER_LOADING_INFO loading_info
+    = {txi_interpreter_use_no_interpreter, 0, 0, 0, 0};
   enum converter_format converter_format;
 
   memset (&main_program_unclosed_stdout, 0, sizeof (FILE_STREAM));
@@ -1294,12 +1295,12 @@ main (int argc, char *argv[], char *env[])
     }
 
 #ifdef EMBED_PERL
-  embedded_interpreter = txi_interpreter_want_embedded;
+  loading_info.embedded_interpreter = txi_interpreter_want_embedded;
 #endif
 
   perl_embed_env = getenv ("TEXINFO_C_EMBED_PERL");
   if (perl_embed_env && !strcmp (perl_embed_env, "0"))
-    embedded_interpreter = txi_interpreter_use_no_interpreter;
+    loading_info.embedded_interpreter = txi_interpreter_use_no_interpreter;
 
   /* this corresponds to the texi2any.pl BEGIN block and
      Texinfo::ModulePath::init call */
@@ -1377,7 +1378,7 @@ main (int argc, char *argv[], char *env[])
                       t2a_builddir, t2a_srcdir);
 
   /* setup loading_info used for Perl interpreter embedding if needed */
-  if (embedded_interpreter == txi_interpreter_want_embedded)
+  if (loading_info.embedded_interpreter == txi_interpreter_want_embedded)
     {
       const char *version_for_embedded_interpreter_check;
 
@@ -2479,12 +2480,7 @@ main (int argc, char *argv[], char *env[])
  #endif
      )
     {
-      if (embedded_interpreter == txi_interpreter_want_embedded)
-        {
-          int status = load_interpreter (&loading_info);
-          if (!status)
-            embedded_interpreter = txi_interpreter_use_embedded;
-        }
+      load_interpreter (&loading_info);
     }
 
   /* determine the format_specification now that the output format is known */
@@ -2700,14 +2696,9 @@ main (int argc, char *argv[], char *env[])
 
       if (external_module)
         {
-          if (embedded_interpreter == txi_interpreter_want_embedded)
-            {
-              int status = load_interpreter (&loading_info);
-              if (!status)
-                embedded_interpreter = txi_interpreter_use_embedded;
-            }
+          load_interpreter (&loading_info);
 
-          if (embedded_interpreter != txi_interpreter_use_embedded)
+          if (loading_info.embedded_interpreter != txi_interpreter_use_embedded)
             {
               fprintf (stderr, "ERROR: no interpreter for %s\n",
                        external_module);
@@ -3644,14 +3635,9 @@ main (int argc, char *argv[], char *env[])
               char *output_file_name_encoding = 0;
 
               /* The main work is done by Perl code */
-              if (embedded_interpreter == txi_interpreter_want_embedded)
-                {
-                  int status = load_interpreter (&loading_info);
-                  if (!status)
-                    embedded_interpreter = txi_interpreter_use_embedded;
-                }
+              load_interpreter (&loading_info);
 
-              if (embedded_interpreter != txi_interpreter_use_embedded)
+              if (loading_info.embedded_interpreter != txi_interpreter_use_embedded)
                 {
                   fprintf (stderr,
                            "ERROR: no interpreter for SORT_ELEMENT_COUNT\n");
@@ -3919,7 +3905,7 @@ main (int argc, char *argv[], char *env[])
   free_strings_list (&internal_extension_dirs);
   free (extensions_dir);
 
-  if (embedded_interpreter == txi_interpreter_use_embedded)
+  if (loading_info.embedded_interpreter == txi_interpreter_use_embedded)
     call_finish_perl ();
 
   free_strings_list (&opened_files);

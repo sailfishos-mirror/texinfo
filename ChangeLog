@@ -1,5 +1,16 @@
 2026-07-03 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/texi2any.c (INTERPRETER_LOADING_INFO): add
+	embedded_interpreter field.
+
+	* tta/C/texi2any.c (load_interpreter, main): use embedded_interpreter
+	field of INTERPRETER_LOADING_INFO instead of the embedded_interpreter
+	variable.  Check if the interpreter should be loaded based on
+	loading_info->embedded_interpreter in load_interpreter instead of in
+	the calling code.
+
+2026-07-03 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (libperlcall_utils_la_SOURCES), tta/C/texi2any.c
 	(enum interpreter_use): move enum interpreter_use to texi2any.c, and
 	define used values only.  Remove interpreter_use_types.h.
