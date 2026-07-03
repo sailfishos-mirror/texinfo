@@ -71,7 +71,7 @@
 #include "txi_config.h"
 /* tree_print_details */
 #include "manipulate_tree.h"
-#include "api.h"
+#include "parser_api.h"
 /* setup_texinfo_main set_document_options */
 #include "document.h"
 #include "transformations.h"

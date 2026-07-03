@@ -54,7 +54,7 @@
 #include "debug.h"
 #include "document.h"
 #include "conf.h"
-#include "api.h"
+#include "parser_api.h"
 #include "call_perl_function.h"
 /* for debugging */
 #include "convert_to_texinfo.h"

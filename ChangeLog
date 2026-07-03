@@ -1,7 +1,13 @@
 2026-07-03 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/Makefile.am (C_libtexinfo_sources),
+	tta/C/parsetexi/parser_api.c, tta/C/parsetexi/parser_api.h: rename
+	parsetexi/api.c to parsetexi/parser_api.c.  Update users.
+
+2026-07-03 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/tests/many_input_files/*.sh: add ${dir_suffix} for staging_dir
-	tu use a different one for native and non native test.
+	to use a different one for native and non native test.
 
 2026-07-03 Patrice Dumas  <pertusus@free.fr>
 

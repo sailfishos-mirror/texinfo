@@ -50,7 +50,7 @@
 #include "parser.h"
 /* for init_index_commands */
 #include "indices.h"
-#include "api.h"
+#include "parser_api.h"
 
 static DOCUMENT *
 initialize_parsing (enum context root_ct)

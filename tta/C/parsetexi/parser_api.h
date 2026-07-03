@@ -1,6 +1,6 @@
-/* api.h - declarations for api.c */
-#ifndef API_H
-#define API_H
+/* parser_api.h - declarations for parser_api.c */
+#ifndef PARSER_API_H
+#define PARSER_API_H
 
 #include "tree_types.h"
 #include "document_types.h"
