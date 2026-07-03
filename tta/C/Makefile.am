@@ -61,8 +61,7 @@ noinst_LTLIBRARIES += libperlcall_utils.la
 
 libperlcall_utils_la_SOURCES = \
 		main/xs_utils.c \
-		main/xs_utils.h \
-		main/interpreter_use_types.h
+		main/xs_utils.h
 
 if ! DISABLE_XS
 libperlcall_utils_la_SOURCES += main/set_perl_interpreter.c

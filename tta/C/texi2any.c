@@ -50,7 +50,6 @@
 #endif
 
 #include "text.h"
-#include "interpreter_use_types.h"
 #include "option_types.h"
 #include "document_types.h"
 #include "converter_types.h"
@@ -188,6 +187,12 @@ typedef struct TRANSFORMATION_NAME_FLAG {
     const char *name;
     unsigned long flag;
 } TRANSFORMATION_NAME_FLAG;
+
+enum interpreter_use {
+   txi_interpreter_want_embedded = -1,
+   txi_interpreter_use_no_interpreter,
+   txi_interpreter_use_embedded,
+};
 
 static VALUE_LIST values;
 
