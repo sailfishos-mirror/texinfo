@@ -737,7 +737,7 @@ load_interpreter (const INTERPRETER_LOADING_INFO *loading_info)
       fprintf (stderr, "WARNING: no interpreter embedding code built\n");
     }
   else
-    set_use_perl_interpreter (txi_interpreter_use_embedded);
+    set_use_perl_interpreter (1);
 
   free (load_modules_path);
   return status;

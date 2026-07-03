@@ -1,5 +1,15 @@
 2026-07-03 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/set_perl_interpreter.c (use_perl_interpreter)
+	(set_use_perl_interpreter, has_perl_interpreter): only use 2 values
+	for use_perl_interpreter, 0 or 1.  Update callers.
+
+	* tta/perl/XSTexinfo/parser_document/DocumentXS.xs (init): call
+	set_use_perl_interpreter independently of initialization of C
+	libraries.
+
+2026-07-03 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/texi2any.c (main): remove default_is_html, considering that it
 	is always false.
 

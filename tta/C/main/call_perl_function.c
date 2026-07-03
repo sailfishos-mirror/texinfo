@@ -75,7 +75,7 @@ call_translations_translate_string (const char *string,
   dTHX;
 
   /* this happens if USE_LIBINTL_PERL_IN_XS is set while there is no
-     embedded Perl */
+     Perl interpreter */
   if (!has_perl_interpreter ())
     return 0;
 
@@ -122,6 +122,8 @@ call_setup_lang_collator (const char *locale_lang)
 
   dTHX;
 
+  /* happens if Locale dependent sorting is wanted while there is no
+     Perl interpreter */
   if (!has_perl_interpreter ())
     return 0;
 
@@ -208,10 +210,12 @@ call_collator_getSortKey (const void *collator_sv, const char *string)
   return result;
 }
 
-/* Used to load the Texinfo modules similar to texi2any.pl or
-   load_txi_modules.pl, but trimmed down and from C.  This is used
-   from the SWIG Perl interface to allow calls to Perl functions from C */
+
 
+/* Used to load the Texinfo modules similar to texi2any.pl or
+   load_txi_modules.pl, but trimmed down and from C.
+ */
+/* Currently unused */
 static void
 call_modulepath_init (int updirs, const char *perl_modules_dir,
                       const char *converter_libdir,
@@ -353,12 +357,11 @@ txi_use_interpreter_load_modules (int texinfo_uninstalled, const char *datadir,
     /* Unexpected failure loading Perl modules, consider that there is no
        Perl interpreter
      */
-      set_use_perl_interpreter (0);
       return 1;
     }
   else
     {
-      set_use_perl_interpreter (txi_interpreter_use_interpreter);
+      set_use_perl_interpreter (1);
       return 0;
     }
 }

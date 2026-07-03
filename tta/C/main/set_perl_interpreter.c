@@ -22,21 +22,16 @@
    is disabled.
  */
 
-/* to set to 0 if Perl code is compiled in, but there is no Perl
-   interpreter */
-static enum interpreter_use use_perl_interpreter
-  = txi_interpreter_want_embedded;
+int use_perl_interpreter = 0;
 
 void
-set_use_perl_interpreter (enum interpreter_use value)
+set_use_perl_interpreter (int value)
 {
-  use_perl_interpreter = value;
+  use_perl_interpreter = (value != 0);
 }
 
 int
 has_perl_interpreter (void)
 {
-  return (use_perl_interpreter == txi_interpreter_use_embedded
-          || use_perl_interpreter == txi_interpreter_use_interpreter);
-
+  return use_perl_interpreter;
 }

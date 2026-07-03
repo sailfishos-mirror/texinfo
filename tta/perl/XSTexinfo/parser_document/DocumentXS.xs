@@ -79,9 +79,10 @@ init (SV *texinfo_uninstalled_sv, SV *datadir_sv, SV *t2a_builddir_sv, SV *t2a_s
 
             setup_texinfo_main (texinfo_uninstalled, datadir,
                                 t2a_builddir, t2a_srcdir);
-
-            set_use_perl_interpreter (txi_interpreter_use_embedded);
           }
+
+        set_use_perl_interpreter (1);
+
         RETVAL = 1;
     OUTPUT:
         RETVAL
