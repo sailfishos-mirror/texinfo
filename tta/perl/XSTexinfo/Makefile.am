@@ -83,7 +83,8 @@ MiscXS_la_LIBADD = $(platform_PERL_LIBADD)
 # different values than code including Perl headers to include
 # configure/Gnulib headers but no Perl header.
 noinst_LTLIBRARIES += libparagraph.la
-libparagraph_la_SOURCES = xspara.c xspara.h \
+libparagraph_la_SOURCES = ../../C/convert/plaintext_paragraph.c \
+                 ../../C/convert/plaintext_paragraph.h \
                  ../../C/main/base_utils.c ../../C/main/base_utils.h \
                  ../../C/main/text.c ../../C/main/text.h
 libparagraph_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(srcdir) $(GNULIB_CPPFLAGS)
@@ -93,7 +94,7 @@ libparagraph_la_LDFLAGS = $(perl_conf_LIB_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(
 xs_LTLIBRARIES += ParagraphXS.la
 nodist_ParagraphXS_la_SOURCES = ParagraphXS.c
 CLEANFILES += ParagraphXS.c
-ParagraphXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(srcdir) $(XSLIBS_CPPFLAGS)
+ParagraphXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert -I$(srcdir) $(XSLIBS_CPPFLAGS)
 ParagraphXS_la_LIBADD = libparagraph.la $(platform_PERL_LIBADD)
 
 EXTRA_DIST += ParagraphXS.xs MiscXS.xs

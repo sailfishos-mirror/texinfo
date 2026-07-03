@@ -1,4 +1,4 @@
-/* xspara.h - declarations for xspara.c */
+/* plaintext_paragraph.h - declarations for plaintext_paragraph.c */
 #ifndef XSPARA_H
 #define XSPARA_H
 

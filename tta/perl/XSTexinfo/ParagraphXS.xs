@@ -18,7 +18,7 @@
 #include "perl.h"
 #include "XSUB.h"
 
-#include "xspara.h"
+#include "plaintext_paragraph.h"
 
 MODULE = Texinfo::Convert::Paragraph PACKAGE = Texinfo::Convert::Paragraph PREFIX = xspara_
 

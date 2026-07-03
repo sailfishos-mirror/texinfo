@@ -32,7 +32,7 @@
 
 #include "text.h"
 #include "base_utils.h"
-#include "xspara.h"
+#include "plaintext_paragraph.h"
 
 static int debug = 0;
 
