@@ -79,8 +79,6 @@ dist_modules_DATA = \
  Texinfo/HTMLData.pm \
  Texinfo/HTMLDataCSS.pm \
  Texinfo/DebugTree.pm \
- Texinfo/Document/Indices.pm \
- Texinfo/Document/IndicesNonXS.pm \
  Texinfo/Document.pm \
  Texinfo/DocumentNonXS.pm \
  Texinfo/Documentlanguages.pm \
@@ -113,6 +111,11 @@ dist_noinst_DATA = \
 
 modules_DATA = \
  Texinfo/ModulePath.pm
+
+documentmodulesdir = $(converterdatadir)/Texinfo/Document
+dist_documentmodules_DATA = \
+ Texinfo/Document/Indices.pm \
+ Texinfo/Document/IndicesNonXS.pm
 
 convertmodulesdir = $(converterdatadir)/Texinfo/Convert
 dist_convertmodules_DATA = \

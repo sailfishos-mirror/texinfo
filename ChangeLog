@@ -1,5 +1,11 @@
 2026-07-03 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.am (documentmodulesdir)
+	(dist_documentmodules_DATA): fix installation directory for
+	Texinfo::Document::Indices* modules.
+
+2026-07-03 Patrice Dumas  <pertusus@free.fr>
+
 	* doc/tta_api/Makefile.am (texi2any_internals_dependencies),
 	tta/perl/Makefile.am (dist_modules_DATA),
 	tta/perl/Texinfo/Document.pm, tta/perl/Texinfo/Document/Indices.pm
