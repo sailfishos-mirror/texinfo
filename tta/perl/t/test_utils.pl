@@ -1072,7 +1072,8 @@ sub test($$)
     }
   }
 
-  my $indices_info_text = $document->print_document_indices_information();
+  my $indices_info_text
+    = Texinfo::Document::Indices::print_document_indices_information($document);
   # only print indices information if it differs from the default
   # indices.  Indices information is not about the entries.
   $indices = $indices_info_text
@@ -1083,7 +1084,7 @@ sub test($$)
   # that would need a function like print_document_indices_sort_strings
   # but for converters.
   my $indices_sorted_sort_strings
-    = $document->print_document_indices_sort_strings();
+   = Texinfo::Document::Indices::print_document_indices_sort_strings($document);
 
   my $input_file_names_encoding
       = Texinfo::Common::input_file_name_encoding(

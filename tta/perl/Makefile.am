@@ -79,6 +79,8 @@ dist_modules_DATA = \
  Texinfo/HTMLData.pm \
  Texinfo/HTMLDataCSS.pm \
  Texinfo/DebugTree.pm \
+ Texinfo/Document/Indices.pm \
+ Texinfo/Document/IndicesNonXS.pm \
  Texinfo/Document.pm \
  Texinfo/DocumentNonXS.pm \
  Texinfo/Documentlanguages.pm \

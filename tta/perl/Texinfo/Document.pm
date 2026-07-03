@@ -45,7 +45,6 @@ use Texinfo::TreeElement;
 use Texinfo::Common;
 
 use Texinfo::Report;
-use Texinfo::Indices;
 use Texinfo::ManipulateTree;
 
 our $VERSION = '7.3dev';
@@ -281,115 +280,6 @@ sub remove_document_references($;$) {
       delete $document->{'tree'};
     }
   }
-}
-
-
-
-# Indices
-
-# When the indexes are merged but not sorted, it is sensible to call this
-# function directly, but in most cases, it is already called.  Also called
-# directly in a few tests.
-# An XS override is not needed:
-#  * For functions used in tests, it is possible/needed to call
-#    indices_information() before calling merged_indices to build the
-#    'indices' from C.
-#  * In converters, it is better if calling functions are implemented in C too,
-#    rather than going through an XS interface.
-sub merged_indices($) {
-  my $self = shift;
-
-  if (exists($self->{'indices'})) {
-    if (!exists($self->{'merged_indices'})) {
-      $self->{'merged_indices'}
-        = Texinfo::Indices::merge_indices($self->{'indices'});
-    }
-  }
-  return $self->{'merged_indices'};
-}
-
-# calls Texinfo::Indices::setup_index_entries_sort_strings and caches the
-# result.
-# Should only be used in tests.  Called by sorted_indices_by_index, in
-# that case also used to get C Document data.
-sub _document_indices_sort_strings($) {
-  my $document = shift;
-
-  if (!exists($document->{'index_entries_sort_strings'})) {
-    # call before calling merged_indices to make sure that indices
-    # are built from XS if needed.
-    my $indices_information = $document->indices_information();
-
-    my $indices_sort_strings
-      = Texinfo::Indices::setup_index_entries_sort_strings($document,
-              undef, $document->merged_indices(),
-              $indices_information, 0,
-              $document->get_conf('DEBUG'));
-    $document->{'index_entries_sort_strings'} = $indices_sort_strings;
-  }
-  return $document->{'index_entries_sort_strings'};
-}
-
-# Unused
-# calls Texinfo::Indices::sort_indices_by_letter and caches the result.
-sub sorted_indices_by_letter($;$$) {
-  my ($document, $use_unicode_collation, $lang_sorting_locale) = @_;
-
-  my $lang_key;
-  if (defined($use_unicode_collation) and !($use_unicode_collation)) {
-    $lang_key = '';
-  } elsif (!defined($lang_sorting_locale)) {
-    # special name corresponding to Unicode Collation with 'Non-Ignorable'
-    # set for variable collation elements
-    $lang_key = '-';
-  } else {
-    $lang_key = $lang_sorting_locale;
-  }
-
-  $document->{'sorted_indices_by_letter'} = {}
-    if (!exists($document->{'sorted_indices_by_letter'}));
-
-  if (!exists($document->{'sorted_indices_by_letter'}->{$lang_key})) {
-    my $indices_sort_strings = _document_indices_sort_strings($document);
-
-    $document->{'sorted_indices_by_letter'}->{$lang_key}
-      = Texinfo::Indices::sort_indices_by_letter(
-                     $indices_sort_strings,
-                     $use_unicode_collation, $lang_sorting_locale);
-  }
-  return $document->{'sorted_indices_by_letter'}->{$lang_key};
-}
-
-# calls Texinfo::Indices::sort_indices_by_index and caches the result.
-# No XS override.
-# There is no reason to call this function outside of tests.
-# The interface to C Document index data is through the
-# _document_indices_sort_strings call.
-sub sorted_indices_by_index($;$$) {
-  my ($document, $use_unicode_collation, $lang_sorting_locale) = @_;
-
-  my $lang_key;
-  if (defined($use_unicode_collation) and !$use_unicode_collation) {
-    $lang_key = '';
-  } elsif (!defined($lang_sorting_locale)) {
-    # special name corresponding to Unicode Collation with 'Non-Ignorable'
-    # set for variable collation elements
-    $lang_key = '-';
-  } else {
-    $lang_key = $lang_sorting_locale;
-  }
-
-  $document->{'sorted_indices_by_index'} = {}
-    if (!exists($document->{'sorted_indices_by_index'}));
-
-  if (!exists($document->{'sorted_indices_by_index'}->{$lang_key})) {
-    my $indices_sort_strings = _document_indices_sort_strings($document);
-
-    $document->{'sorted_indices_by_index'}->{$lang_key}
-      = Texinfo::Indices::sort_indices_by_index($indices_sort_strings,
-                       $use_unicode_collation, $lang_sorting_locale);
-  }
-  return $document->{'sorted_indices_by_index'}->{$lang_key};
 }
 
 
@@ -777,59 +667,6 @@ the indexes corresponding to the following texinfo
                   'fn' => {'name' => 'fn', 'in_code' => 1, },
                   'some' => {'name' => 'some', 'in_code' => 0},
                   'code' => {'name' => 'code', 'in_code' => 1}};
-
-=back
-
-=head2 Merging and sorting indexes
-
-Merged and sorted document indexes are also available.  Parsed indexes
-are not merged nor sorted, L<Texinfo::Indices> functions are
-called to merge or sort the indexes the first time the following
-methods are called.  The results are afterwards associated to the
-document and simply returned.
-
-=over
-
-=item $merged_indices = $document->merged_indices()
-X<C<merged_indices>>
-
-Merge indexes if needed and return merged indexes.  The I<$merged_indices>
-returned is a hash reference whose keys are the index names and values arrays
-of index entry structures described in L</index_entries>.
-
-L<< C<Texinfo::Indices::merge_indices>|Texinfo::Indices/$merged_indices = merge_indices($indices_information) >>
-is used to merge the indexes.
-
-It is not useful to call this function directly if indexes are sorted, as
-it is already called by index sorting functions.
-
-=back
-
-In general, this module sorting methods should not be called except
-maybe in tests, L<Texinfo::Convert::Converter/Index sorting> Converter methods
-should be used.
-
-=over
-
-=item $sorted_indices = sorted_indices_by_index($document, $use_unicode_collation, $lang_sorting_locale)
-X<C<sorted_indices_by_index>>
-
-C<sorted_indices_by_index> returns the indexes with all entries
-of an index together.
-
-By default, indexes are sorted according to the I<Unicode Collation Algorithm>
-defined in the L<Unicode Technical Standard
-#10|http://www.unicode.org/reports/tr10/>, without language-specific collation
-tailoring.  If the optional I<$use_unicode_collation> argument is set to 0,
-the sorting will not use
-the I<Unicode Collation Algorithm> and simply sort according to the codepoints.
-The optional I<$lang_sorting_locale> language is used for linguistic
-tailoring of the sorting, if possible.
-
-The array of the sorted index entries is associated with the index name.
-
-L<< C<Texinfo::Indices::sort_indices_by_index>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_index($indices_sort_strings, $use_unicode_collation, $lang_sorting_locale) >>
-is used to sort the indexes, if needed.
 
 =back
 

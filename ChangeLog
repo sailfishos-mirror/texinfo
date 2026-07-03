@@ -1,5 +1,26 @@
 2026-07-03 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/tta_api/Makefile.am (texi2any_internals_dependencies),
+	tta/perl/Makefile.am (dist_modules_DATA),
+	tta/perl/Texinfo/Document.pm, tta/perl/Texinfo/Document/Indices.pm
+	(merged_indices, _document_indices_sort_strings)
+	(sorted_indices_by_letter, sorted_indices_by_index),
+	tta/perl/Texinfo/DocumentNonXS.pm,
+	tta/perl/Texinfo/Document/IndicesNonXS.pm
+	(print_document_indices_information)
+	(print_document_indices_sort_strings), tta/perl/XSTexinfo/Makefile.am
+	(xs_LTLIBRARIES, DocumentIndicesXS_*),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs,
+	tta/perl/XSTexinfo/parser_document/DocumentIndicesXS.xs
+	(print_document_indices_information)
+	(print_document_indices_sort_strings): move indices related code from
+	Texinfo::Document* and XS interfaces to a new module,
+	Texinfo::Document::Indices, to avoid a circular dependency and to
+	separate the document indices related code.
+	Update callers.
+
+2026-07-03 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Translations.pm (_substitute_element_array): remove
 	the call to Texinfo::Document::build_tree, there should never be a
 	tree with an handle only passed to gdt and similar.

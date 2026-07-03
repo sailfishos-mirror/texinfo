@@ -67,6 +67,7 @@ texi2any_internals_dependencies = \
   $(top_srcdir)/tta/perl/Texinfo/Translations.pm \
   $(top_srcdir)/tta/perl/Texinfo/Transformations.pm \
   $(top_srcdir)/tta/perl/Texinfo/Indices.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Document/Indices.pm \
   $(top_srcdir)/tta/perl/Texinfo/OutputUnits.pm \
   $(top_srcdir)/tta/perl/Texinfo/Convert/Texinfo.pm \
   $(top_srcdir)/tta/perl/Texinfo/Convert/Utils.pm \

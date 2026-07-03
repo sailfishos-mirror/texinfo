@@ -349,6 +349,7 @@ tta/perl/XSTexinfo/.libs
 
 tta/perl/XSTexinfo/parser_document/ConfigXS.c
 tta/perl/XSTexinfo/parser_document/DocumentXS.c
+tta/perl/XSTexinfo/parser_document/DocumentIndicesXS.c
 tta/perl/XSTexinfo/parser_document/IndicesXS.c
 tta/perl/XSTexinfo/parser_document/ManipulateTreeXS.c
 tta/perl/XSTexinfo/parser_document/ParserXS.c

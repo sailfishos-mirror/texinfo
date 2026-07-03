@@ -57,7 +57,7 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 3);
 use Texinfo::Common;
 use Texinfo::Indices;
 use Texinfo::Parser;
-use Texinfo::Document;
+use Texinfo::Document::Indices;
 use Texinfo::Convert::Texinfo;
 
 
@@ -110,7 +110,7 @@ my $index_name = 'cp';
 # First determine the reference index entries sorting order by using
 # texi2any Perl code.  If XS is used, the parsing and sort strings are
 # done in C, but the collation is always done in Perl since there is
-# no XS override for Texinfo::Document::sorted_indices_by_index.
+# no XS override for Texinfo::Document::Indices::sorted_indices_by_index.
 my $parser = Texinfo::Parser::parser();
 
 my $doc = $parser->parse_texi_text($texi);
@@ -125,7 +125,7 @@ foreach my $lang (undef, 'sv') {
     $label = 'no language';
   }
   my $sorted_indices
-     = Texinfo::Document::sorted_indices_by_index($doc, 1, $lang);
+     = Texinfo::Document::Indices::sorted_indices_by_index($doc, 1, $lang);
   my $sorted_entries = $sorted_indices->{$index_name};
   my @reference_index_entries_texi;
   foreach my $index_entry (@$sorted_entries) {

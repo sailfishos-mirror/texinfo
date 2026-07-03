@@ -133,6 +133,21 @@ EXTRA_DIST += parser_document/DocumentXS.xs
 DocumentXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main $(XSLIBS_CPPFLAGS)
 DocumentXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 
+########################## DocumentIndices XS
+
+if USE_SHARED_TXI_LIBRARIES
+xs_LTLIBRARIES += DocumentIndicesXS.la
+endif
+
+nodist_DocumentIndicesXS_la_SOURCES = parser_document/DocumentIndicesXS.c
+CLEANFILES += parser_document/DocumentIndicesXS.c
+
+EXTRA_DIST += parser_document/DocumentIndicesXS.xs
+
+# locate include files under out-of-source builds.
+DocumentIndicesXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main $(XSLIBS_CPPFLAGS)
+DocumentIndicesXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
+
 ########################## Translations XS
 
 if USE_SHARED_TXI_LIBRARIES

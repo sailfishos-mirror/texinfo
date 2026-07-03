@@ -182,6 +182,7 @@ use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Convert::Text;
 use Texinfo::Indices;
+use Texinfo::Document::Indices;
 use Texinfo::Convert::Converter;
 
 our @ISA = qw(Texinfo::Convert::Converter);
@@ -1006,7 +1007,8 @@ sub _prepare_indices($) {
 
   my $indices_information = $self->{'document'}->indices_information();
   return if (!defined($indices_information));
-  my $merged_index_entries = $self->{'document'}->merged_indices();
+  my $merged_index_entries
+    = Texinfo::Document::Indices::merged_indices($self->{'document'});
   return if (!defined($merged_index_entries));
 
   $self->{'index_formatting_text_options'}

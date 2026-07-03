@@ -12,6 +12,7 @@ use Texinfo::Convert::Text;
 use Texinfo::Parser;
 use Texinfo::Document;
 use Texinfo::Indices;
+use Texinfo::Document::Indices;
 # for cmp_deeply
 use Test::Deep;
 # package Texinfo::MainConfig is in Texinfo::Config
@@ -51,7 +52,7 @@ my $main_configuration = Texinfo::MainConfig::new();
 Texinfo::Config::GNUT_initialize_customization(undef, {}, {});
 
 my $indices_information = $document->indices_information();
-my $index_entries = $document->merged_indices();
+my $index_entries = Texinfo::Document::Indices::merged_indices($document);
 my $document_options = $main_configuration->get_customization_options_hash();
 $document->register_document_options($document_options);
 
@@ -140,11 +141,11 @@ $document->register_document_options($document_options);
 
 # use Document function to sort
 my $document_sorted_index_entries
-  = Texinfo::Document::sorted_indices_by_index($document);
+  = Texinfo::Document::Indices::sorted_indices_by_index($document);
 
 # Texinfo::Indices to sort (and set $index_entries_sort_strings).
 $indices_information = $document->indices_information();
-$index_entries = $document->merged_indices();
+$index_entries = Texinfo::Document::Indices::merged_indices($document);
 $indices_sort_strings
   = Texinfo::Indices::setup_index_entries_sort_strings($document, undef,
                                       $index_entries, $indices_information);

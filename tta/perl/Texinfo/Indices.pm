@@ -59,15 +59,6 @@ use Texinfo::Convert::Text;
 
 our $VERSION = '7.3dev';
 
-# In general, Texinfo::Document depends on this here module, but there
-# is also a dependence to Texinfo::Document through the call to
-# Texinfo::Document::indices_sort_strings call, hence a circular dependency.
-# It is more natural to have Texinfo::Document import the here module,
-# so we do not load Texinfo::Document here.  If we did, there should not be any
-# issue, though, as the modules do not setup data such that their order of
-# loading is not important.
-#use Texinfo::Document;
-
 # The methods that are usefully called directly (outside of tests) are:
 # index_entry_element_sort_string
 # setup_index_entry_keys_formatting
