@@ -300,7 +300,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
             {
               check_register_target_element_label (
                                         anchor_id_element, brace_command);
-              if (nesting_context.regions_stack.top > 0)
+              if (nesting_context.regions_stack.number > 0)
                 {
                   add_extra_string_dup (anchor_id_element,
                                         AI_key_element_region,

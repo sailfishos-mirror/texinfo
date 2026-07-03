@@ -1,3 +1,11 @@
+2026-07-03  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Generic list macros
+
+	* tta/C/main/document_types.h (VALUE_LIST, ELEMENT_STACK),
+	* tta/C/main/tree_types.h (FLOAT_RECORD_LIST, COMMAND_STACK):
+	Define with def_list_type.
+
 2026-07-03 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/structuring_transfo/structuring.c (new_complete_node_menu)

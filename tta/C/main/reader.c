@@ -285,9 +285,9 @@ txi_reader_collect_commands_list (ELEMENT *tree,
           || next->category == TXI_READ_EMPTY)
         {
           size_t i;
-          for (i = 0; i < commands->top; i++)
+          for (i = 0; i < commands->number; i++)
             {
-              if (next->element->e.c->cmd == commands->stack[i])
+              if (next->element->e.c->cmd == commands->list[i])
                 {
                   add_to_const_element_list (collected_commands_list,
                                              next->element);

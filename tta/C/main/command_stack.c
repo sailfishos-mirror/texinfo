@@ -32,50 +32,50 @@
 void
 reset_command_stack (COMMAND_STACK *stack)
 {
-  stack->top = 0;
+  stack->number = 0;
   stack->space = 0;
-  free (stack->stack);
-  stack->stack = 0;
+  free (stack->list);
+  stack->list = 0;
 }
 
 void
 push_command (COMMAND_STACK *stack, enum command_id cmd)
 {
-  if (stack->top >= stack->space)
+  if (stack->number >= stack->space)
     {
-      stack->stack
-        = realloc (stack->stack,
+      stack->list
+        = realloc (stack->list,
                    (stack->space += 5) * sizeof (enum command_id));
     }
 
   /*
-  fprintf (stderr, "---STPUSH %p (%ld) %d %s\n", stack, stack->top,
+  fprintf (stderr, "---STPUSH %p (%ld) %d %s\n", stack, stack->number,
                                             cmd, command_name(cmd));
    */
-  stack->stack[stack->top] = cmd;
-  stack->top++;
+  stack->list[stack->number] = cmd;
+  stack->number++;
 }
 
 enum command_id
 pop_command (COMMAND_STACK *stack)
 {
-  if (stack->top == 0)
+  if (stack->number == 0)
     fatal ("command stack empty");
 
   /*
-  fprintf (stderr, "---STPOP %p (%ld) %d %s\n", stack, stack->top,
-   stack->stack[stack->top-1], command_name(stack->stack[stack->top-1]));
+  fprintf (stderr, "---STPOP %p (%ld) %d %s\n", stack, stack->number,
+   stack->list[stack->number-1], command_name(stack->list[stack->number-1]));
    */
-  return stack->stack[--stack->top];
+  return stack->list[--stack->number];
 }
 
 enum command_id
 top_command (const COMMAND_STACK *stack)
 {
-  if (stack->top == 0)
+  if (stack->number == 0)
     fatal ("command stack empty for top");
 
-  return stack->stack[stack->top - 1];
+  return stack->list[stack->number - 1];
 }
 
 
@@ -213,25 +213,25 @@ top_integer_stack (const INTEGER_STACK *stack)
 void
 push_stack_element (ELEMENT_STACK *stack, const ELEMENT *e)
 {
-  if (stack->top >= stack->space)
+  if (stack->number >= stack->space)
     {
-      stack->stack
-        = realloc (stack->stack,
+      stack->list
+        = realloc (stack->list,
                    (stack->space += 5) * sizeof (ELEMENT *));
     }
 
-  stack->stack[stack->top] = e;
-  stack->top++;
+  stack->list[stack->number] = e;
+  stack->number++;
 }
 
 const ELEMENT *
 pop_stack_element (ELEMENT_STACK *stack)
 {
-  if (stack->top == 0)
+  if (stack->number == 0)
     fatal ("element stack empty");
 
-  stack->top--;
-  return stack->stack[stack->top +1];
+  stack->number--;
+  return stack->list[stack->number + 1];
 }
 
 

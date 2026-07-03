@@ -42,8 +42,8 @@ current_context_command (void)
     fatal ("command stack empty");
   for (i = top -1; i > 0; i--)
     {
-      if (command_stack.stack[i] != CM_NONE)
-        return command_stack.stack[i];
+      if (command_stack.list[i] != CM_NONE)
+        return command_stack.list[i];
     }
   return CM_NONE;
 }
@@ -145,7 +145,7 @@ in_preformatted_context_not_menu ()
       ct = context_stack[i];
       if (ct != ct_line && ct != ct_preformatted)
         return 0;
-      cmd = command_stack.stack[i];
+      cmd = command_stack.list[i];
       if (command_data(cmd).flags & CF_block
           && command_data(cmd).data != BLOCK_menu
           && ct == ct_preformatted)

@@ -2566,9 +2566,9 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
           size_t j;
           int up_node_in_menu = 0;
 
-          for (j = 0; j < up_nodes->top; j++)
+          for (j = 0; j < up_nodes->number; j++)
             {
-              const ELEMENT *up_node = up_nodes->stack[j];
+              const ELEMENT *up_node = up_nodes->list[j];
               const char *normalized_up_node
                 = lookup_extra_string (up_node, AI_key_identifier);
               if (!strcmp (normalized_child, normalized_up_node))
@@ -2607,7 +2607,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
 
       if (new_up_nodes)
         {
-          free (up_nodes->stack);
+          free (up_nodes->list);
           free (up_nodes);
         }
     }

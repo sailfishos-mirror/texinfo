@@ -138,9 +138,9 @@ html_pop_document_context (CONVERTER *self)
   free (document_ctx->preformatted_context.list);
   free (document_ctx->composition_context.list);
   free (document_ctx->preformatted_classes.list);
-  if (document_ctx->block_commands.top > 0)
+  if (document_ctx->block_commands.number > 0)
     pop_command (&document_ctx->block_commands);
-  free (document_ctx->block_commands.stack);
+  free (document_ctx->block_commands.list);
   pop_html_formatting_context (&document_ctx->formatting_context);
   free (document_ctx->formatting_context.list);
 
@@ -530,7 +530,7 @@ html_top_block_command (const CONVERTER *self)
 {
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   top_document_ctx = html_top_document_context (self);
-  if (top_document_ctx->block_commands.top <= 0)
+  if (top_document_ctx->block_commands.number <= 0)
     return 0;
   return top_command (&top_document_ctx->block_commands);
 }

@@ -503,7 +503,7 @@ parse_line_command_args (ELEMENT *line_command)
                        arg, i2->name);
                   }
                 if (!current_node && !current_section
-                      && nesting_context.regions_stack.top == 0)
+                      && nesting_context.regions_stack.number == 0)
                   {
                     line_warn ("printindex before document beginning: "
                                 "@printindex %s", arg);

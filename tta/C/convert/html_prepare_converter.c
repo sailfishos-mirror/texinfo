@@ -3271,11 +3271,11 @@ html_converter_customize (CONVERTER *self)
     }
 
   /* preformatted commands are implemented in C */
-  if (preformatted_cmd_list.top > 0)
+  if (preformatted_cmd_list.number > 0)
     {
-      for (i = 0; i < preformatted_cmd_list.top; i++)
+      for (i = 0; i < preformatted_cmd_list.number; i++)
         {
-          enum command_id cmd = preformatted_cmd_list.stack[i];
+          enum command_id cmd = preformatted_cmd_list.list[i];
           COMMAND_CONVERSION_FUNCTION *command_conversion
                = &self_html->command_conversion_function[cmd];
           COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
@@ -3299,11 +3299,11 @@ html_converter_customize (CONVERTER *self)
         }
     }
   /* def commands are implemented in C */
-  if (def_cmd_list.top > 0)
+  if (def_cmd_list.number > 0)
     {
-      for (i = 0; i < def_cmd_list.top; i++)
+      for (i = 0; i < def_cmd_list.number; i++)
         {
-          enum command_id cmd = def_cmd_list.stack[i];
+          enum command_id cmd = def_cmd_list.list[i];
           COMMAND_CONVERSION_FUNCTION *command_conversion
                = &self_html->command_conversion_function[cmd];
           COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
@@ -3618,9 +3618,9 @@ reset_html_targets (CONVERTER *self)
   HTML_CONVERTER_STATE *self_html = &self->html_converter;
   size_t i;
 
-  for (i = 0; i < self_html->html_target_cmds.top; i++)
+  for (i = 0; i < self_html->html_target_cmds.number; i++)
     {
-      enum command_id cmd = self_html->html_target_cmds.stack[i];
+      enum command_id cmd = self_html->html_target_cmds.list[i];
       reset_html_targets_list (self, &self_html->html_targets[cmd]);
     }
 
@@ -5355,7 +5355,7 @@ sort_cmd_targets (CONVERTER *self)
   /* holds the commands with targets that have been allocated, not only
      those with actual targets.  There is a difference only if the
      converter is reused */
-  self_html->html_target_cmds.top = 0;
+  self_html->html_target_cmds.number = 0;
 
   for (cmd = 0; cmd < BUILTIN_CMD_NUMBER; cmd++)
     {

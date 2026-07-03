@@ -2867,7 +2867,7 @@ find_innermost_accent_contents (const ELEMENT *element)
 void
 destroy_accent_stack (ACCENTS_STACK *accent_stack)
 {
-  free (accent_stack->stack.stack);
+  free (accent_stack->stack.list);
   if (accent_stack->argument)
     destroy_element (accent_stack->argument);
   free (accent_stack);

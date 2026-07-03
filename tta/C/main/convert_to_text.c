@@ -303,9 +303,9 @@ ascii_accents_internal (const char *text, const ELEMENT_STACK *stack,
   else
     result = strdup (text);
 
-  for (i = stack->top - 1; i >= 0; i--)
+  for (i = stack->number - 1; i >= 0; i--)
     {
-      const ELEMENT *accent_command = stack->stack[i];
+      const ELEMENT *accent_command = stack->list[i];
       char *formatted_accent = ascii_accent (0, result, accent_command, 0, 0,
                                              set_case);
       free (result);

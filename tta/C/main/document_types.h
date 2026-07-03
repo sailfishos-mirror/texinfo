@@ -374,11 +374,7 @@ typedef struct {
     char *value;
 } VALUE;
 
-typedef struct {
-    size_t number;
-    size_t space;
-    VALUE *list;
-} VALUE_LIST;
+def_list_type(VALUE_LIST, VALUE);
 
 /* enums needed in document and converters codes, but not in this file */
 enum command_location {
@@ -389,11 +385,7 @@ enum command_location {
 };
 
 /* in output units and converter */
-typedef struct ELEMENT_STACK {
-    const ELEMENT **stack;
-    size_t top;
-    size_t space;
-} ELEMENT_STACK;
+def_list_type(ELEMENT_STACK, const ELEMENT *);
 
 /* in SWIG interface, but we do not want to have the type defined in the
    header file used in the definition of the interface */

@@ -711,8 +711,8 @@ units_directions (const C_HASHMAP *identifiers_target,
                       const NODE_RELATIONS *up_node_relations = 0;
 
                       int in_up = 0;
-                      for (i = 0; i < up_list.top; i++)
-                        if (up == up_list.stack[i])
+                      for (i = 0; i < up_list.number; i++)
+                        if (up == up_list.list[i])
                           {
                             in_up = 1;
                             break;
@@ -747,7 +747,7 @@ units_directions (const C_HASHMAP *identifiers_target,
                       else
                         break;
                     }
-                  up_list.top = 0;
+                  up_list.number = 0;
                 }
             }
           if (directions[RUD_type_NodeForward]
@@ -904,7 +904,7 @@ units_directions (const C_HASHMAP *identifiers_target,
             }
         }
     }
-  free (up_list.stack);
+  free (up_list.list);
   if (print_debug > 0)
     {
       size_t i;

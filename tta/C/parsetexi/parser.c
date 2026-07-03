@@ -1493,9 +1493,9 @@ check_valid_nesting_context (enum command_id cmd)
     {
       invalid_context = CM_footnote;
     }
-  else if (nesting_context.basic_inline_stack.top > 0
-           || nesting_context.basic_inline_stack_on_line.top > 0
-           || nesting_context.basic_inline_stack_block.top > 0)
+  else if (nesting_context.basic_inline_stack.number > 0
+           || nesting_context.basic_inline_stack_on_line.number > 0
+           || nesting_context.basic_inline_stack_block.number > 0)
     {
       unsigned long flags = command_data(cmd).flags;
       int data = command_data(cmd).data;
@@ -1523,13 +1523,13 @@ check_valid_nesting_context (enum command_id cmd)
           || cmd == CM_footnote
           || cmd == CM_verb)
         {
-          if (nesting_context.basic_inline_stack.top > 0)
+          if (nesting_context.basic_inline_stack.number > 0)
             invalid_context = top_command
                                 (&nesting_context.basic_inline_stack);
-          else if (nesting_context.basic_inline_stack_on_line.top > 0)
+          else if (nesting_context.basic_inline_stack_on_line.number > 0)
             invalid_line = top_command
                                 (&nesting_context.basic_inline_stack_on_line);
-          else if (nesting_context.basic_inline_stack_block.top > 0)
+          else if (nesting_context.basic_inline_stack_block.number > 0)
             invalid_line = top_command
                                 (&nesting_context.basic_inline_stack_block);
         }
@@ -1557,7 +1557,7 @@ check_valid_nesting_context (enum command_id cmd)
         command_name(invalid_line));
     }
 
-  if (nesting_context.regions_stack.top > 0)
+  if (nesting_context.regions_stack.number > 0)
     {
       if ((command_data(cmd).flags & CF_block)
            && (command_data(cmd).data == BLOCK_region))

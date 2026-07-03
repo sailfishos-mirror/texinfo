@@ -300,7 +300,7 @@ enter_index_entry (enum command_id index_type_cmd,
     add_extra_index_entry (element, AI_key_index_entry, index_entry);
   }
 
-  if (nesting_context.regions_stack.top > 0)
+  if (nesting_context.regions_stack.number > 0)
     {
       enum command_id region = top_command (&nesting_context.regions_stack);
       add_extra_string_dup (element, AI_key_element_region, command_name (region));
@@ -312,7 +312,7 @@ enter_index_entry (enum command_id index_type_cmd,
       add_extra_string_dup (element, AI_key_element_node, normalized);
     }
 
-  if (nesting_context.regions_stack.top == 0
+  if (nesting_context.regions_stack.number == 0
       && !current_node && !current_section)
     line_warn ("entry for index `%s' outside of any node", idx->name);
 }

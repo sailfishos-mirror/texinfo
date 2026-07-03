@@ -354,7 +354,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
       command_e = new_command_element (ET_nobrace_command, cmd);
       add_to_element_contents (current, command_e);
       if (command_data(cmd).flags & CF_in_heading_spec
-          && (nesting_context.basic_inline_stack_on_line.top <= 0
+          && (nesting_context.basic_inline_stack_on_line.number <= 0
               || !(command_data(
           top_command (&nesting_context.basic_inline_stack_on_line)).flags
                     & CF_heading_spec)))

@@ -144,7 +144,7 @@ unicode_accent (const char *text, const ELEMENT *e, int index_in_stack,
     {
       if (index_in_stack == 0
           || !unicode_diacritics[element_builtin_cmd (
-                                stack->stack[index_in_stack-1])].text)
+                                stack->list[index_in_stack-1])].text)
         {
           if (!strcmp (text, "i"))
             /* dotless i in UTF-8 */
@@ -233,7 +233,7 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
   char *result = strdup (text);
   char *prev_eight_bit;
   char *new_eight_bit;
-  int const stack_nr = stack->top;
+  int const stack_nr = stack->number;
   char **results_stack
      = malloc ((stack_nr +1) * sizeof (char *));
 
@@ -243,7 +243,7 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
 
   for (i = stack_nr -1; i >= 0; i--)
     {
-      const ELEMENT *accent_command = stack->stack[i];
+      const ELEMENT *accent_command = stack->list[i];
       results_stack[i] = unicode_accent (results_stack[i+1], accent_command,
                                          i, stack);
       if (!results_stack[i])
@@ -323,7 +323,7 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
     #    underbar.
     */
       if (!strcmp (new_eight_bit, prev_eight_bit)
-          && !(stack->stack[j]->e.c->cmd == CM_dotless
+          && !(stack->list[j]->e.c->cmd == CM_dotless
                && !strcmp (results_stack[j], "i")))
         {
           free (new_eight_bit);
@@ -344,7 +344,7 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
    */
   for (; j >= 0; j--)
     {
-      const ELEMENT *accent_command = stack->stack[j];
+      const ELEMENT *accent_command = stack->list[j];
       char *formatted_result
           = (*format_accent) (self, result, accent_command, i, stack, set_case);
       free (result);
@@ -371,9 +371,9 @@ format_unicode_accents_stack_internal (CONVERTER *self, const char *text,
   int i;
   char *result = strdup (text);
 
-  for (i = stack->top - 1; i >= 0; i--)
+  for (i = stack->number - 1; i >= 0; i--)
     {
-      const ELEMENT *accent_command = stack->stack[i];
+      const ELEMENT *accent_command = stack->list[i];
       char *formatted_result = unicode_accent (result, accent_command,
                                                i, stack);
       if (formatted_result)
@@ -394,7 +394,7 @@ format_unicode_accents_stack_internal (CONVERTER *self, const char *text,
 
   for (; i >= 0; i--)
     {
-      const ELEMENT *accent_command = stack->stack[i];
+      const ELEMENT *accent_command = stack->list[i];
       char *formatted_result
           = (*format_accent) (self, result, accent_command, i, stack, set_case);
       free (result);

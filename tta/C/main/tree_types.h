@@ -399,17 +399,9 @@ typedef struct {
     const SECTION_RELATIONS *section;
 } FLOAT_RECORD;
 
-typedef struct {
-    size_t number;
-    size_t space;
-    FLOAT_RECORD *list;
-} FLOAT_RECORD_LIST;
+def_list_type(FLOAT_RECORD_LIST, FLOAT_RECORD);
 
-typedef struct {
-    enum command_id *stack;
-    size_t top;   /* One above last pushed command. */
-    size_t space;
-} COMMAND_STACK;
+def_list_type(COMMAND_STACK, enum command_id);
 
 enum tree_added_elements_status {
    tree_added_status_none,

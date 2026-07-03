@@ -92,9 +92,9 @@ html_free_converter (CONVERTER *self)
   /* targets */
   reset_html_targets (self);
 
-  for (j = 0; j < self_html->html_target_cmds.top; j++)
+  for (j = 0; j < self_html->html_target_cmds.number; j++)
     {
-      enum command_id cmd = self_html->html_target_cmds.stack[j];
+      enum command_id cmd = self_html->html_target_cmds.list[j];
       free (self_html->html_targets[cmd].list);
     }
 
@@ -103,7 +103,7 @@ html_free_converter (CONVERTER *self)
       free (self_html->html_special_targets[i].list);
     }
 
-  free (self_html->html_target_cmds.stack);
+  free (self_html->html_target_cmds.list);
 
   clear_c_hashmap (self_html->registered_ids_c_hashmap);
   free (self_html->registered_ids_c_hashmap);
