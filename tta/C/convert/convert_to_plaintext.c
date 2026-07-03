@@ -37,9 +37,10 @@
 #include "debug.h"
 #include "convert_to_plaintext.h"
 #include "base_utils.h"
+#include "plaintext_paragraph.h"
 
 /* Data structure utilities.  These could possibly be placed in a
-   separate file. */
+   separate file, or defined with macros in list_macros.h. */
 
 void
 reset_count_context_stack (COUNT_CONTEXT_STACK *stack)

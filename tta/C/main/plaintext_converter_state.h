@@ -28,6 +28,22 @@ typedef struct COUNT_CONTEXT {
 def_list_type(COUNT_CONTEXT_STACK, COUNT_CONTEXT);
 decl_list_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
 
+typedef struct FORMATTER_CONTAINER {
+  int paragraph; /* Paragaph ID */
+} FORMATTER_CONTAINER;
+
+typedef struct FORMATTER {
+  FORMATTER_CONTAINER container;
+  /* upper_case_stack */
+  /* font_type_stack */
+  /* w */
+  /* frenchspacing_stack */
+  /* suppress_styles */
+  /* no_added_eol */
+} FORMATTER;
+
+def_list_type(FORMATTER_STACK, FORMATTER);
+
 typedef struct PLAINTEXT_CONVERTER_STATE {
     COUNT_CONTEXT_STACK count_context;
 } PLAINTEXT_CONVERTER_STATE;
