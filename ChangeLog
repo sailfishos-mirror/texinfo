@@ -1,5 +1,16 @@
 2026-07-03 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/structuring_transfo/structuring.c (new_complete_node_menu)
+	(new_detailmenu): add CONVERTER_CACHE_TRANSLATE argument and pass to
+	gdt.  Update callers.
+
+	* tta/C/convert/format_html.c (html_convert_heading_command):
+	give html_translation_function to new_complete_node_menu and
+	new_complete_menu_master_menu with such that the user can replace the
+	default translations.
+
+2026-07-03 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/html_converter_state.h (SPECIAL_UNIT_INFO_LIST): not a
 	list of pointers.
 

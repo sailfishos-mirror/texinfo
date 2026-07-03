@@ -146,7 +146,7 @@ static const DOCUMENT_LANG_INFO unknown_lang_info = {"", 0, 0, 0, {0, 0, 0}};
 
 /* Same as translations.c cache_translate_string, but using the
    converter translations cache for user-defined translations */
-static TRANSLATION_TREE *
+TRANSLATION_TREE *
 html_cache_translate_string (CONVERTER *self, const char *string,
                              const LANG_TRANSLATION *lang_translation,
                              const char *translation_context)

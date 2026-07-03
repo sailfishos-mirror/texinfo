@@ -1323,7 +1323,7 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
             = node_relations->associated_section->element;
           ELEMENT *current_menu = new_complete_node_menu (node_relations,
                                                  document, lang_translation,
-                                                 debug_level, use_sections);
+                                                 debug_level, use_sections, 0);
           if (current_menu)
             {
               prepend_new_menu_in_node_section (node_relations,
@@ -1382,7 +1382,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
                                     document->options,
                                     lang_translation, identifiers_target,
                                     nodes_list,
-                                    menus, use_sections);
+                                    menus, use_sections, 0);
 
   /* no need for a master menu */
   if (!new_detailmenu_e)

@@ -28,6 +28,8 @@
 #include "global_commands_types.h"
 #include "options_data.h"
 #include "document_types.h"
+/* for CONVERTER_CACHE_TRANSLATE */
+#include "converter_types.h"
 /* fatal */
 #include "base_utils.h"
 #include "types_data.h"
@@ -2284,12 +2286,12 @@ insert_menu_comment_content (ELEMENT_LIST *element_list, size_t position,
   insert_into_element_list (element_list, menu_comment, position);
 }
 
-/* TODO called from converters?  If yes pass translation function? */
 ELEMENT *
 new_complete_node_menu (const NODE_RELATIONS *node_relations,
                         DOCUMENT *document,
                         const LANG_TRANSLATION *lang_translations,
-                        int debug_level, int use_sections)
+                        int debug_level, int use_sections,
+                        CONVERTER_CACHE_TRANSLATE *translation_function)
 {
   CONST_NODE_RELATIONS_LIST *node_childs
     = get_node_node_childs_from_sectioning (node_relations);
@@ -2361,7 +2363,8 @@ new_complete_node_menu (const NODE_RELATIONS *node_relations,
                       part_title
                         = gdt_tree ("Part: {part_title}", document,
                                     lang_translations,
-                                    substrings, 0, debug_level, 0);
+                                    substrings, 0, debug_level,
+                                    translation_function);
 
                       insert_menu_comment_content (&new_menu->e.c->contents,
                                                    content_index, part_title,
@@ -2376,8 +2379,8 @@ new_complete_node_menu (const NODE_RELATIONS *node_relations,
                     {
                       ELEMENT *appendix_title
                         = gdt_tree ("Appendices", document,
-                                    lang_translations,
-                                    0, 0, debug_level, 0);
+                                    lang_translations, 0, 0, debug_level,
+                                    translation_function);
 
                       insert_menu_comment_content (&new_menu->e.c->contents,
                                                    content_index,
@@ -2409,7 +2412,8 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
                   const OPTIONS *options,
                   const C_HASHMAP *identifiers_target,
                   const NODE_RELATIONS_LIST *nodes_list,
-                  int use_sections)
+                  int use_sections,
+                  CONVERTER_CACHE_TRANSLATE *translation_function)
 {
   ELEMENT_LIST *master_menu_contents;
   CONST_ELEMENT_LIST *menus = 0;
@@ -2478,7 +2482,8 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
       /* If there is no menu for the node, we create a temporary menu to be
          able to find and copy entries as if there was already a menu */
       new_current_menu = new_complete_node_menu (node_relations,
-                                                 0, 0, 0, use_sections);
+                                                 0, 0, 0, use_sections,
+                                                 translation_function);
       if (new_current_menu)
         {
           menus = new_const_element_list ();
@@ -2586,7 +2591,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
               ELEMENT_LIST *child_menu_content
                = print_down_menus (child, up_nodes, error_messages,
                                    options, identifiers_target, nodes_list,
-                                   use_sections);
+                                   use_sections, translation_function);
               if (child_menu_content)
                 {
                   insert_list_slice_into_list (master_menu_contents,
@@ -2618,7 +2623,8 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                 const LANG_TRANSLATION *lang_translation,
                 const C_HASHMAP *identifiers_target,
                 const NODE_RELATIONS_LIST *nodes_list,
-                const CONST_ELEMENT_LIST *menus, int use_sections)
+                const CONST_ELEMENT_LIST *menus, int use_sections,
+                CONVERTER_CACHE_TRANSLATE *translation_function)
 {
   /* only holds contents here, will add spaces and end in
      new_block_command */
@@ -2646,14 +2652,14 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                       ELEMENT_LIST *down_menus = print_down_menus (menu_node,
                                           0, error_messages, options,
                                           identifiers_target, nodes_list,
-                                          use_sections);
+                                          use_sections, translation_function);
                       if (down_menus)
                         {
                           size_t k;
                           for (k = 0; k < down_menus->number; k++)
                             down_menus->list[k]->e.c->parent = new_detailmenu_e;
                           insert_list_slice_into_contents (new_detailmenu_e,
-                                           new_detailmenu_e->e.c->contents.number,
+                                        new_detailmenu_e->e.c->contents.number,
                                            down_menus, 0, down_menus->number);
                           destroy_list (down_menus);
                         }
@@ -2680,7 +2686,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
           master_menu_title
             = gdt_tree (" --- The Detailed Node Listing ---", 0,
                         lang_translation, 0,
-                        0, options->DEBUG.o.integer, 0);
+                        0, options->DEBUG.o.integer, translation_function);
 
           for (i = 0; i < master_menu_title->e.c->contents.number; i++)
             {
@@ -2719,11 +2725,13 @@ new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
                                const LANG_TRANSLATION *lang_translations,
                                const C_HASHMAP *identifiers_target,
                                const NODE_RELATIONS_LIST *nodes_list,
-                               const NODE_RELATIONS *node_relations)
+                               const NODE_RELATIONS *node_relations,
+                               CONVERTER_CACHE_TRANSLATE *translation_function)
 {
   ELEMENT *menu_node = new_complete_node_menu (node_relations,
                                                0, lang_translations,
-                                               options->DEBUG.o.integer, 0);
+                                               options->DEBUG.o.integer, 0,
+                                               translation_function);
 
   if (menu_node)
     {
@@ -2741,7 +2749,7 @@ new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
               detailmenu = new_detailmenu (error_messages, options,
                                            lang_translations,
                                            identifiers_target, nodes_list,
-                                           menus, 0);
+                                           menus, 0, translation_function);
               destroy_const_element_list (menus);
 
               if (detailmenu)

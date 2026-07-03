@@ -7540,6 +7540,8 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
                   if (!menus && automatic_directions)
                     {
                       ELEMENT *menu_node;
+                      CONVERTER_CACHE_TRANSLATE html_translation_function
+                        = {self, &html_cache_translate_string};
 
                       if (format_menu == 1)
                         menu_node
@@ -7547,14 +7549,16 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
                             self->conf,
                             self->current_lang_translations,
                             &self->document->identifiers_target,
-                            nodes_list, associated_node_relations);
+                            nodes_list, associated_node_relations,
+                            &html_translation_function);
                       else
                          /* menu_no_detailmenu */
                         menu_node
                           = new_complete_node_menu (associated_node_relations,
                                         self->document,
                                         self->current_lang_translations,
-                                        self->conf->DEBUG.o.integer, 0);
+                                        self->conf->DEBUG.o.integer, 0,
+                                        &html_translation_function);
                       if (menu_node)
                         {
                           add_tree_to_build (self, menu_node);

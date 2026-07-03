@@ -65,6 +65,10 @@ void html_reset_translated_special_unit_info_tree (CONVERTER *self);
 
 /* void html_translate_names (CONVERTER *self) */
 
+TRANSLATION_TREE *html_cache_translate_string (CONVERTER *self,
+                             const char *string,
+                             const LANG_TRANSLATION *lang_translation,
+                             const char *translation_context);
 
 int html_run_stage_handlers (CONVERTER *self,
                              enum html_stage_handler_stage_type stage);
