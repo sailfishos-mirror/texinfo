@@ -735,10 +735,6 @@ load_interpreter (const INTERPRETER_LOADING_INFO *loading_info)
   else if (status < 0)
     {
       fprintf (stderr, "WARNING: no interpreter embedding code built\n");
-      /*
-         no need to call set_use_perl_interpreter
-         txi_interpreter_use_no_interpreter, it is the default in
-         that case */
     }
   else
     set_use_perl_interpreter (txi_interpreter_use_embedded);
@@ -1236,7 +1232,6 @@ main (int argc, char *argv[], char *env[])
   CONVERTER_INITIALIZATION_INFO *converter_init_info;
   const char *external_module = 0;
   const char *elt_count_external_module = "Texinfo::Convert::TextContent";
-  int default_is_html = 1;
   char *init_file_format;
   const char *set_message_encoding = 0;
   int call_texi2dvi = 0;
@@ -1295,7 +1290,6 @@ main (int argc, char *argv[], char *env[])
 
 #ifdef EMBED_PERL
   embedded_interpreter = txi_interpreter_want_embedded;
-  default_is_html = 0;
 #endif
 
   perl_embed_env = getenv ("TEXINFO_C_EMBED_PERL");
@@ -1471,13 +1465,10 @@ main (int argc, char *argv[], char *env[])
                         PACKAGE_VERSION_CONFIG "+nc");
     }
 
-  /* set default output format.  Is info in texi2any.pl */
+  /* set default output format. */
   /* better than making it the default value independently of the
      implementation */
-  if (default_is_html)
-    add_option_value (&program_options, "TEXINFO_OUTPUT_FORMAT", 0, "html");
-  else
-    add_option_value (&program_options, "TEXINFO_OUTPUT_FORMAT", 0, "info");
+  add_option_value (&program_options, "TEXINFO_OUTPUT_FORMAT", 0, "info");
 
 #ifdef _WIN32
 /*
@@ -2115,13 +2106,8 @@ main (int argc, char *argv[], char *env[])
       text_printf (&help_message,
                    _("Usage: %s [OPTION]... TEXINFO-FILE..."), program_file);
       text_append_n (&help_message, "\n\n", 2);
-      /* no added translations, reuse translations with they already exist */
-      if (default_is_html)
-        text_append (&help_message,
-        "Translate Texinfo source documentation to various other formats.");
-      else
     /* lie on the name, but this is no such a big lie */
-        text_append (&help_message,
+      text_append (&help_message,
    _("Translate Texinfo source documentation to various other formats, by default\n"
   "Info files suitable for reading online with Emacs or standalone GNU Info.\n\n"
   "This program is commonly installed as both `makeinfo' and `texi2any';\n"
@@ -2170,10 +2156,7 @@ main (int argc, char *argv[], char *env[])
         _("      --version               display version information and exit"));
       text_append_n (&help_message, "\n\n", 2);
 
-      if (default_is_html)
-        text_append (&help_message, "Output format selection (default is to produce HTML):");
-      else
-        text_append (&help_message, _("Output format selection (default is to produce Info):"));
+      text_append (&help_message, _("Output format selection (default is to produce Info):"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _("      --docbook               output Docbook XML"));
