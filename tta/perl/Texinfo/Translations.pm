@@ -41,18 +41,12 @@ use Storable qw(dclone);
 
 use Texinfo::XSLoader;
 
+use Texinfo::Documentlanguages;
+
 use Texinfo::TreeElement;
 
 # for __() analyze_documentlanguage_argument
 use Texinfo::Common;
-
-# note that there is a circular dependency with the parser module, as
-# the parser uses complete_indices() from this modules, while this module
-# uses a parser.  This is not problematic, however, as the
-# modules do not setup data such that their order of loading is not
-# important, as long as they load after their dependencies.
-
-use Texinfo::Document;
 
 use Texinfo::Convert::Unicode;
 
@@ -778,9 +772,6 @@ sub _substitute_element_array($$) {
           and $element->{'cmdname'} eq 'txiinternalvalue') {
         my $name = $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
         if (exists($replaced_substrings->{$name})) {
-          if ($replaced_substrings->{$name}->{'tree_document_descriptor'}) {
-            Texinfo::Document::build_tree($replaced_substrings->{$name});
-          }
           $array->[$idx] = $replaced_substrings->{$name};
         }
       } else {
