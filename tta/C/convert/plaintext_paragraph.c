@@ -112,7 +112,7 @@ static PARAGRAPH state;
 
 /* for debug */
 char *
-xspara__print_escaped_spaces (char *string, size_t len)
+para__print_escaped_spaces (char *string, size_t len)
 {
   static TEXT t;
   char *p = string;
@@ -144,7 +144,7 @@ static int state_array_size;
 static int current_state;
 
 static void
-xspara__switch_state (int id)
+para__switch_state (int id)
 {
   if (current_state == id)
     return;
@@ -156,7 +156,7 @@ xspara__switch_state (int id)
 }
 
 int
-xspara_new (void)
+para_new (void)
 {
   int i;
 
@@ -176,7 +176,7 @@ xspara_new (void)
     }
 
   state_array[i].in_use = 1;
-  xspara__switch_state (i);
+  para__switch_state (i);
 
   /* Zero formatter, reusing storage. */
   saved_space = state.space;
@@ -199,46 +199,46 @@ xspara_new (void)
 }
 
 void
-xspara_set_state (int paragraph)
+para_set_state (int paragraph)
 {
-  xspara__switch_state (paragraph);
+  para__switch_state (paragraph);
 }
 
 /* set a function to set the state for each of the possible configuration
    variables */
 
-#define xspara_SET_CONF(variable) \
-void xspara_set_conf_##variable (int variable) { \
+#define para_SET_CONF(variable) \
+void para_set_conf_##variable (int variable) { \
   state.variable = variable; \
 }
 
-XSPARA_CONF_VARIABLES_LIST
+PARA_CONF_VARIABLES_LIST
 
-#undef xspara_SET_CONF
+#undef para_SET_CONF
 
 /************************************************************************/
 
 
 /* Append a newline character to RESULT. */
 void
-xspara__cut_line (TEXT *result)
+para__cut_line (TEXT *result)
 {
   if (!state.ignore_columns)
     {
-      xspara__end_line ();
+      para__end_line ();
 
       text_append (result, "\n");
     }
 }
 
 int
-xspara_end_line_count (void)
+para_end_line_count (void)
 {
   return state.end_line_count;
 }
 
 int
-xspara_counter (void)
+para_counter (void)
 {
   return state.counter;
 }
@@ -246,7 +246,7 @@ xspara_counter (void)
 /* End a line (throwing away a pending space, which we don't need)
    Note _end_line in Paragraph.pm returned "\n". */
 void
-xspara__end_line (void)
+para__end_line (void)
 {
   state.counter = 0;
   state.space.end = 0;
@@ -266,16 +266,16 @@ xspara__end_line (void)
 }
 
 char *
-xspara_end_line (void)
+para_end_line (void)
 {
   state.end_line_count = 0;
-  xspara__end_line ();
+  para__end_line ();
   return "\n";
 }
 
 /* Return concatenation of SPACE and WORD. */
 char *
-xspara_get_pending (void)
+para_get_pending (void)
 {
   static TEXT t;
   text_reset (&t);
@@ -288,7 +288,7 @@ xspara_get_pending (void)
    afterwards.  Assume we don't need to wrap a line.  Only add spaces without a
    word if ADD_SPACES. */
 void
-xspara__add_pending_word (TEXT *result, int add_spaces)
+para__add_pending_word (TEXT *result, int add_spaces)
 {
   if (state.word.end == 0 && !state.invisible_pending_word && !add_spaces)
     return;
@@ -347,13 +347,13 @@ xspara__add_pending_word (TEXT *result, int add_spaces)
 
 /* Function for users of this module. */
 char *
-xspara_add_pending_word (int add_spaces)
+para_add_pending_word (int add_spaces)
 {
   static TEXT ret;
 
   text_reset (&ret);
   state.end_line_count = 0;
-  xspara__add_pending_word (&ret, add_spaces);
+  para__add_pending_word (&ret, add_spaces);
   if (ret.text)
     return ret.text;
   else
@@ -362,7 +362,7 @@ xspara_add_pending_word (int add_spaces)
 
 /* End a paragraph. */
 char *
-xspara_end (void)
+para_end (void)
 {
   static TEXT ret;
 
@@ -375,7 +375,7 @@ xspara_end (void)
   /* probably not really useful, but cleaner */
   state.last_letter = (char32_t) '\0';
 
-  xspara__add_pending_word (&ret, state.add_final_space);
+  para__add_pending_word (&ret, state.add_final_space);
   if (!state.no_final_newline && state.counter != 0)
     {
       text_append (&ret, "\n");
@@ -411,7 +411,7 @@ xspara_end (void)
    or not.  If COL_COUNT is non-negative, it is the number of screen columns
    taken up by the word. */
 void
-xspara__add_next (TEXT *result, char *word, int word_len,
+para__add_next (TEXT *result, char *word, int word_len,
                   int transparent, int col_count)
 {
   if (!word)
@@ -453,8 +453,8 @@ xspara__add_next (TEXT *result, char *word, int word_len,
     {
       /* If there was a newline in the word we just added, put the entire
          pending ouput in the results string, and start a new line. */
-      xspara__add_pending_word (result, 0);
-      xspara__end_line ();
+      para__add_pending_word (result, 0);
+      para__end_line ();
     }
   else
     {
@@ -500,7 +500,7 @@ xspara__add_next (TEXT *result, char *word, int word_len,
           && state.counter + state.word_counter + state.space_counter
               > state.max)
         {
-          xspara__cut_line (result);
+          para__cut_line (result);
         }
     }
   if (debug)
@@ -515,38 +515,38 @@ xspara__add_next (TEXT *result, char *word, int word_len,
 
 /* Like _add_next but zero end_line_count at beginning. */
 TEXT
-xspara_add_next (char *text, int text_len, int transparent)
+para_add_next (char *text, int text_len, int transparent)
 {
   static TEXT t;
 
   text_reset (&t);
   state.end_line_count = 0;
-  xspara__add_next (&t, text, text_len, transparent, -1);
+  para__add_next (&t, text, text_len, transparent, -1);
 
   return t;
 }
 
 void
-xspara_remove_end_sentence (void)
+para_remove_end_sentence (void)
 {
   state.end_sentence = eos_inhibited;
 }
 
 void
-xspara_add_end_sentence (void)
+para_add_end_sentence (void)
 {
   state.end_sentence = eos_present;
 }
 
 void
-xspara_allow_end_sentence (void)
+para_allow_end_sentence (void)
 {
   state.last_letter = (char32_t) 'a'; /* A lower-case letter. */
 }
 
 /* -1 in a parameter means leave that value as it is. */
 void
-xspara_set_space_protection (int no_break,
+para_set_space_protection (int no_break,
                              int ignore_columns,
                              int keep_end_lines,
                              int french_spacing,
@@ -589,7 +589,7 @@ enum text_class { type_NULL, type_spaces, type_regular,
 
 /* Return string to be added to paragraph contents, wrapping text. */
 TEXT
-xspara_add_text (char *text, int len)
+para_add_text (char *text, int len)
 {
   char *p = text, *q = 0;
   char32_t wc_fw = (char32_t) '0';
@@ -615,7 +615,7 @@ xspara_add_text (char *text, int len)
           fprintf(stderr, "p (%d+%d) s `%s', l `%" PRIuLEAST32 "', w%d `%s'\n",
                     state.counter, state.word_counter,
                     state.space.end == 0 ? ""
-                      : xspara__print_escaped_spaces (state.space.text,
+                      : para__print_escaped_spaces (state.space.text,
                                                       state.space.end),
                     state.last_letter, state.invisible_pending_word,
                     state.word.text);
@@ -703,15 +703,15 @@ xspara_add_text (char *text, int len)
           if (debug)
             {
               fprintf(stderr, "SPACES(%d) `%s'\n", state.counter,
-                      xspara__print_escaped_spaces (p, q - p));
+                      para__print_escaped_spaces (p, q - p));
             }
 
           if (state.unfilled)
             {
-              xspara__add_pending_word (&result, 0);
+              para__add_pending_word (&result, 0);
               if (memchr (p, '\n', q - p))
                 {
-                   xspara__end_line ();
+                   para__end_line ();
                    text_append (&result, "\n");
                 }
               else
@@ -742,14 +742,14 @@ xspara_add_text (char *text, int len)
                       && state.counter + state.word_counter
                           + state.space_counter > state.max)
                     {
-                      xspara__cut_line (&result);
+                      para__cut_line (&result);
                     }
                 }
             }
           else /* no_break off */
             {
               int pending = state.invisible_pending_word;
-              xspara__add_pending_word (&result, 0);
+              para__add_pending_word (&result, 0);
 
               if (state.counter != 0 || pending)
                 {
@@ -778,13 +778,13 @@ xspara_add_text (char *text, int len)
              a new line. */
           if (state.counter + state.space_counter > state.max)
             {
-              xspara__cut_line (&result);
+              para__cut_line (&result);
             }
 
           if (!state.unfilled && state.keep_end_lines
               && memchr (p, '\n', q - p))
             {
-              xspara__end_line ();
+              para__end_line ();
               text_append (&result, "\n");
             }
           state.last_letter = (char32_t) ' ';
@@ -810,24 +810,24 @@ xspara_add_text (char *text, int len)
           if (state.counter != 0
               && state.counter + state.word_counter > state.max)
             {
-              xspara__cut_line (&result);
+              para__cut_line (&result);
             }
           /* Accumulate the characters so that they can be pushed
              onto the next line if necessary. */
           if (!state.no_break && !state.double_width_no_break)
             {
-              xspara__add_pending_word (&result, 0);
+              para__add_pending_word (&result, 0);
             }
           state.end_sentence = eos_unset;
         }
       else if (type == type_EOS)
         {
-          xspara_allow_end_sentence ();
+          para_allow_end_sentence ();
         }
       /*************** Word character ******************************/
       else if (type == type_regular)
         {
-          xspara__add_next (&result, p, q - p, 0, regular_col_count);
+          para__add_next (&result, p, q - p, 0, regular_col_count);
           regular_col_count = 0;
 
           /* Now check for an end of sentence.  We can iterate backwards

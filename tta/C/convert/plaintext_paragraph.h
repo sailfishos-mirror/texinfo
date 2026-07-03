@@ -1,6 +1,6 @@
 /* plaintext_paragraph.h - declarations for plaintext_paragraph.c */
-#ifndef XSPARA_H
-#define XSPARA_H
+#ifndef PLAINTEXT_PARAGRAPH_H
+#define PLAINTEXT_PARAGRAPH_H
 
 /* Copyright 2010-2026 Free Software Foundation, Inc.
 
@@ -19,49 +19,48 @@
 
 #include "text.h"
 
-/* list of ParagraphXS configuration variables, to be reused in code
-   generation */
-#define XSPARA_CONF_VARIABLES_LIST \
-  xspara_SET_CONF(end_sentence) \
-  xspara_SET_CONF(max) \
-  xspara_SET_CONF(indent_length) \
-  xspara_SET_CONF(indent_length_next) \
-  xspara_SET_CONF(counter) \
-  xspara_SET_CONF(word_counter) \
-  xspara_SET_CONF(lines_counter) \
-  xspara_SET_CONF(end_line_count) \
-  xspara_SET_CONF(no_break) \
-  xspara_SET_CONF(ignore_columns) \
-  xspara_SET_CONF(keep_end_lines) \
-  xspara_SET_CONF(frenchspacing) \
-  xspara_SET_CONF(unfilled) \
-  xspara_SET_CONF(no_final_newline) \
-  xspara_SET_CONF(add_final_space) \
+/* list of configuration variables, to be reused in code generation */
+#define PARA_CONF_VARIABLES_LIST \
+  para_SET_CONF(end_sentence) \
+  para_SET_CONF(max) \
+  para_SET_CONF(indent_length) \
+  para_SET_CONF(indent_length_next) \
+  para_SET_CONF(counter) \
+  para_SET_CONF(word_counter) \
+  para_SET_CONF(lines_counter) \
+  para_SET_CONF(end_line_count) \
+  para_SET_CONF(no_break) \
+  para_SET_CONF(ignore_columns) \
+  para_SET_CONF(keep_end_lines) \
+  para_SET_CONF(frenchspacing) \
+  para_SET_CONF(unfilled) \
+  para_SET_CONF(no_final_newline) \
+  para_SET_CONF(add_final_space) \
 
 
-#define xspara_SET_CONF(variable) \
-void xspara_set_conf_##variable (int variable);
+#define para_SET_CONF(variable) \
+void para_set_conf_##variable (int variable);
 
- XSPARA_CONF_VARIABLES_LIST
+ PARA_CONF_VARIABLES_LIST
 
-#undef xspara_SET_CONF
+#undef para_SET_CONF
 
-int xspara_new (void);
+int para_new (void);
 
-void xspara_set_state (int paragraph);
-TEXT xspara_add_next (char *, int, int transparent);
-TEXT xspara_add_text (char *, int);
-void xspara_set_space_protection (int space_protection, int ignore_columns,
+void para_set_state (int paragraph);
+TEXT para_add_next (char *, int, int transparent);
+TEXT para_add_text (char *, int);
+void para_set_space_protection (int space_protection, int ignore_columns,
        int keep_end_lines, int french_spacing, int double_width_no_break);
-void xspara__end_line (void);
-char *xspara_end_line (void);
-char *xspara_get_pending (void);
-char *xspara_end (void);
-char *xspara_add_pending_word (int add_spaces);
-void xspara_allow_end_sentence (void);
-void xspara_remove_end_sentence (void);
-void xspara_add_end_sentence (void);
-int xspara_end_line_count (void);
-int xspara_counter (void);
+void para__end_line (void);
+char *para_end_line (void);
+char *para_get_pending (void);
+char *para_end (void);
+char *para_add_pending_word (int add_spaces);
+void para_allow_end_sentence (void);
+void para_remove_end_sentence (void);
+void para_add_end_sentence (void);
+int para_end_line_count (void);
+int para_counter (void);
 
 #endif

@@ -1,5 +1,10 @@
 2026-07-03  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/convert/plaintext_paragraph.c: rename all functions
+	to have para_ prefix rather than xspara_ prefix.
+
+2026-07-03  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/main/plaintext_converter_state.h: add FORMATTER.
 
 2026-07-03  Gavin Smith <gavinsmith0123@gmail.com>
