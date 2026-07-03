@@ -75,7 +75,7 @@ else
 fi
 
 [ -d $diffs_dir ] || mkdir $diffs_dir
-staging_dir=$diffs_dir/staging
+staging_dir=$diffs_dir/staging_${dir_suffix}
 [ -d $staging_dir ] || mkdir $staging_dir
 [ -d $raw_out_dir ] || mkdir $raw_out_dir
 

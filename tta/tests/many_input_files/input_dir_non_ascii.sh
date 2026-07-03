@@ -72,7 +72,7 @@ else
 fi
 
 [ -d $diffs_dir ] || mkdir $diffs_dir
-staging_dir=$diffs_dir/staging
+staging_dir=$diffs_dir/staging_${dir_suffix}
 [ -d $staging_dir ] || mkdir $staging_dir
 [ -d $raw_out_dir ] || mkdir $raw_out_dir
 
@@ -104,7 +104,7 @@ else
 
   dir=$basename
   if [ -d "$srcdir/${dir}_res" ]; then
-    rm -rf $staging_dir/${dir}_res
+    rm -rf $staging_dir/${dir}_res/
     cp -pr "$srcdir/${dir}_res" $staging_dir
     chmod -R u+w "$staging_dir/${dir}_res"
     diff $DIFF_OPTIONS -r "$staging_dir/${dir}_res" "$outdir" 2>>$logfile > "$diffs_dir/${dir}_${dir_suffix}.diff"
