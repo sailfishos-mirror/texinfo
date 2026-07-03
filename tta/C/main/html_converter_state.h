@@ -656,7 +656,7 @@ typedef struct SPECIAL_UNIT_INFO {
     char *value;
 } SPECIAL_UNIT_INFO;
 
-def_list_type(SPECIAL_UNIT_INFO_LIST, SPECIAL_UNIT_INFO *);
+def_list_type(SPECIAL_UNIT_INFO_LIST, SPECIAL_UNIT_INFO);
 
 typedef struct PRE_CLASS_TYPE_INFO {
     enum element_type type;

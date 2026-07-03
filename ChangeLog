@@ -1,3 +1,8 @@
+2026-07-03 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/html_converter_state.h (SPECIAL_UNIT_INFO_LIST): not a
+	list of pointers.
+
 2026-07-02 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/translations.c (general_output_strings_setup): move
