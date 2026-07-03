@@ -13,8 +13,6 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#include "interpreter_use_types.h"
-
 #include "xs_utils.h"
 
 /* there is a separate file for two functions only to be able to replace

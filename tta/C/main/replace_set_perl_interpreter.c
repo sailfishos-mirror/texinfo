@@ -16,13 +16,11 @@
 /* replace setting and getting Perl interpreter information to always unset
    and replace functions when called from pure C code */
 
-#include "interpreter_use_types.h"
-
 #include "xs_utils.h"
 
 /* in xs_utils.h */
 void
-set_use_perl_interpreter (enum interpreter_use value)
+set_use_perl_interpreter (int value)
 {
 }
 

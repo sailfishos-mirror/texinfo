@@ -1,5 +1,10 @@
 2026-07-03 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/xs_utils.h, tta/C/main/replace_set_perl_interpreter.c:
+	fix set_use_perl_interpreter prototype.
+
+2026-07-03 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/set_perl_interpreter.c (use_perl_interpreter)
 	(set_use_perl_interpreter, has_perl_interpreter): only use 2 values
 	for use_perl_interpreter, 0 or 1.  Update callers.

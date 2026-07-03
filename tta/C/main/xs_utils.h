@@ -22,10 +22,8 @@
 #include <stdarg.h>
 #include <stddef.h>
 
-#include "interpreter_use_types.h"
-
 /* in set_perl_interpreter.c */
-void set_use_perl_interpreter (enum interpreter_use value);
+void set_use_perl_interpreter (int value);
 int has_perl_interpreter (void);
 
 void non_perl_free (void *ptr);
