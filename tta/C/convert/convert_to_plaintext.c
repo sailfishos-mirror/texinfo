@@ -44,26 +44,14 @@
 void
 reset_count_context_stack (COUNT_CONTEXT_STACK *stack)
 {
-  stack->top = 0;
+  stack->number = 0;
   stack->space = 0;
-  free (stack->stack);
-  stack->stack = 0;
+  free (stack->list);
+  stack->list = 0;
 }
 
+def_list_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT, 2);
 
-static void
-push_count_context (COUNT_CONTEXT_STACK *stack,
-                    COUNT_CONTEXT ctxt)
-{
-  if (stack->top >= stack->space)
-    {
-      stack->stack
-        = realloc (stack->stack,
-                   (stack->space += 2) * sizeof (stack->stack[0]));
-    }
-
-  stack->stack[stack->top++] = ctxt;
-}
 
 static void
 destroy_count_context (COUNT_CONTEXT *ctxt)
@@ -74,26 +62,26 @@ destroy_count_context (COUNT_CONTEXT *ctxt)
 void
 pop_count_context (COUNT_CONTEXT_STACK *stack)
 {
-  if (stack->top == 0)
+  if (stack->number == 0)
     fatal ("count context stack empty");
 
-  destroy_count_context (&stack->stack[stack->top--]);
+  destroy_count_context (&stack->list[stack->number--]);
 }
 
 COUNT_CONTEXT *
 top_count_context (const COUNT_CONTEXT_STACK *stack)
 {
-  if (stack->top == 0)
+  if (stack->number == 0)
     fatal ("count context stack empty for top");
 
-  return &stack->stack[stack->top - 1];
+  return &stack->list[stack->number - 1];
 }
 
 
 void
 clear_count_context_stack (COUNT_CONTEXT_STACK *stack)
 {
-  while (stack->top > 0)
+  while (stack->number > 0)
     pop_count_context (stack);
 }
 
@@ -104,8 +92,8 @@ static void
 plaintext_conversion_initialization  (CONVERTER *self, DOCUMENT *document)
 {
   COUNT_CONTEXT bottom_count_context = { 0 };
-  push_count_context (&self->plaintext_converter.count_context,
-                      bottom_count_context);
+  add_(count_context) (&self->plaintext_converter.count_context,
+                       bottom_count_context);
 }
 
 static void
@@ -331,8 +319,8 @@ plaintext_convert_tree (CONVERTER *converter,
                            const ELEMENT *tree)
 {
   COUNT_CONTEXT new_count_context = { 0 };
-  push_count_context (&converter->plaintext_converter.count_context,
-                      new_count_context);
+  add_(count_context) (&converter->plaintext_converter.count_context,
+                       new_count_context);
 
   char *result = convert_to_plaintext (converter, tree);
   return result;
