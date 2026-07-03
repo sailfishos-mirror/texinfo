@@ -40,7 +40,7 @@
 #undef context
 
 #include "parser_api.h"
-#include "conf.h"
+#include "set_parser_conf.h"
 /* register_conf */
 #include "parser_conf.h"
 /* build_minimal_document build_document */

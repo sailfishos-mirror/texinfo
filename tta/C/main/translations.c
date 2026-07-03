@@ -53,7 +53,7 @@
 #include "api_to_perl.h"
 #include "debug.h"
 #include "document.h"
-#include "conf.h"
+#include "set_parser_conf.h"
 #include "parser_api.h"
 #include "call_perl_function.h"
 /* for debugging */

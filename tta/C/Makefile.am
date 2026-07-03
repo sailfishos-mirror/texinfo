@@ -184,8 +184,8 @@ C_libtexinfo_sources = \
 		      parsetexi/input.c \
 		      parsetexi/input.h \
 		      parsetexi/close.c \
-		      parsetexi/conf.c \
-		      parsetexi/conf.h \
+		      parsetexi/set_parser_conf.c \
+		      parsetexi/set_parser_conf.h \
 		      parsetexi/context_stack.c \
 		      parsetexi/context_stack.h \
 		      parsetexi/debug_parser.c \

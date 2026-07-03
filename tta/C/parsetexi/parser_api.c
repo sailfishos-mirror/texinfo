@@ -46,7 +46,7 @@
 /* for wipe_macros store_value init_values */
 #include "macro.h"
 /* for reset_conf */
-#include "conf.h"
+#include "set_parser_conf.h"
 #include "parser.h"
 /* for init_index_commands */
 #include "indices.h"

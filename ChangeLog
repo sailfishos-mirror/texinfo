@@ -1,6 +1,12 @@
 2026-07-03 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/Makefile.am (C_libtexinfo_sources),
+	tta/C/parsetexi/set_parser_conf.c, tta/C/parsetexi/set_parser_conf.h:
+	rename parsetexi/conf.c to parsetexi/set_parser_conf.c.  Update users.
+
+2026-07-03 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/Makefile.am (C_libtexinfo_sources),
 	tta/C/parsetexi/parser_api.c, tta/C/parsetexi/parser_api.h: rename
 	parsetexi/api.c to parsetexi/parser_api.c.  Update users.
 

@@ -19,7 +19,7 @@
 
 #include "utils.h"
 #include "parser_conf.h"
-#include "conf.h"
+#include "set_parser_conf.h"
 
 void
 parser_conf_set_show_menu (int i)

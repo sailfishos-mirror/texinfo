@@ -1,6 +1,6 @@
-/* conf.h - declarations for conf.c */
-#ifndef CONF_H
-#define CONF_H
+/* set_parser_conf.h - declarations for set_parser_conf.c */
+#ifndef SET_PARSER_CONF_H
+#define SET_PARSER_CONF_H
 /* Copyright 2010-2026 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify

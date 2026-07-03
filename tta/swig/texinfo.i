@@ -43,7 +43,7 @@
 #include "translations.h"
 #include "parser_api.h"
 #include "parser_conf.h"
-#include "conf.h"
+#include "set_parser_conf.h"
 #include "tree.h"
 #include "targets.h"
 #include "utils.h"

@@ -68,7 +68,7 @@
 #include "format_html.h"
 /* txi_paths_info */
 #include "document.h"
-#include "conf.h"
+#include "set_parser_conf.h"
 #include "parser_api.h"
 /* html_complete_no_arg_commands_formatting html_run_stage_handlers
    html_add_to_files_source_info html_find_file_source_info

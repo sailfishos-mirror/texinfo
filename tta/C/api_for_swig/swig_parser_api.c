@@ -23,7 +23,7 @@
 #include "parser_conf.h"
 #include "utils.h"
 #include "parser_api.h"
-#include "conf.h"
+#include "set_parser_conf.h"
 #include "swig_parser_api.h"
 
 PARSER *
@@ -105,7 +105,7 @@ txi_ext_parser_conf_add_value (PARSER *parser, const char *name,
 
 
 
-/* in conf.h */
+/* in set_parser_conf.h */
 
 void
 txi_ext_parser_conf_set_show_menu (PARSER *parser, int i)
