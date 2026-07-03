@@ -40,6 +40,7 @@ BEGIN {
     $Texinfo::ModulePath::texinfo_uninstalled = 1;
     $Texinfo::ModulePath::t2a_builddir = '';
   } else {
+    Texinfo::ModulePath->import();
     if ($Texinfo::ModulePath::enable_xs eq 'no') {
       $disable_XS = 1;
     }
