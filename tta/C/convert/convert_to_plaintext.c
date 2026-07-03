@@ -87,7 +87,52 @@ clear_count_context_stack (COUNT_CONTEXT_STACK *stack)
 }
 
 
+
 
+
+def_list_fns(FORMATTER_STACK, formatter, FORMATTER, 1);
+
+FORMATTER *
+top_formatter (FORMATTER_STACK *stack)
+{
+  if (stack->number == 0)
+    fatal ("formatter stack empty");
+  return &stack->list[stack->number - 1];
+}
+enum formatter_type {
+  formatter_paragraph,
+  formatter_line,
+  formatter_unfilled
+};
+
+FORMATTER
+new_formatter (CONVERTER *self, enum formatter_type type)
+{
+  FORMATTER formatter = { 0 };
+  formatter.container.paragraph = para_new ();
+
+  switch (type)
+    {
+    case formatter_paragraph:
+      break;
+    case formatter_line:
+      break;
+    case formatter_unfilled:
+      break;
+    default:
+      fatal ("unknown container type\n");
+    }
+  return formatter;
+}
+
+void
+push_top_formatter (CONVERTER *self)
+{
+  /* TODO: should be: */
+  /* FORMATTER top_formatter = new_formatter(self, formatter_line); */
+  FORMATTER top_formatter = new_formatter(self, formatter_paragraph);
+  add_(formatter) (&self->plaintext_converter.formatters, top_formatter);
+}
 
 static void
 plaintext_conversion_initialization  (CONVERTER *self, DOCUMENT *document)
@@ -95,6 +140,10 @@ plaintext_conversion_initialization  (CONVERTER *self, DOCUMENT *document)
   COUNT_CONTEXT bottom_count_context = { 0 };
   add_(count_context) (&self->plaintext_converter.count_context,
                        bottom_count_context);
+
+  /* TODO ... */
+
+  push_top_formatter (self);
 }
 
 static void
@@ -117,7 +166,10 @@ static void
 stream_output_add_text (CONVERTER *self, const char *text)
 {
   /* TODO */
-  stream_output (self, text);
+  para_set_state (top_formatter(&self->plaintext_converter.formatters)->container.paragraph);
+  TEXT result = para_add_text (text, strlen (text));
+  if (result.text)
+    stream_output (self, result.text);
 }
 
 static void
@@ -173,7 +225,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       /* TODO */
       if (element->e.text->end > 0)
         {
-           stream_output (self, element->e.text->text);
+           stream_output_add_text (self, element->e.text->text);
            return;
         }
     }
@@ -322,6 +374,7 @@ plaintext_convert_tree (CONVERTER *converter,
   COUNT_CONTEXT new_count_context = { 0 };
   add_(count_context) (&converter->plaintext_converter.count_context,
                        new_count_context);
+  push_top_formatter (converter);
 
   char *result = convert_to_plaintext (converter, tree);
   return result;

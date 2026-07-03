@@ -1,3 +1,11 @@
+2026-07-03  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Initial use of paragraph formatting
+
+	* tta/C/convert/convert_to_plaintext.c:
+	Add formatter stack and access plaintext_paragraph.c paragraph
+	formatting.
+
 2026-07-03 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/Makefile.am (C_libtexinfo_sources),

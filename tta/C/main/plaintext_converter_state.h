@@ -43,8 +43,10 @@ typedef struct FORMATTER {
 } FORMATTER;
 
 def_list_type(FORMATTER_STACK, FORMATTER);
+decl_list_fns(FORMATTER_STACK, formatter, FORMATTER);
 
 typedef struct PLAINTEXT_CONVERTER_STATE {
+    FORMATTER_STACK formatters;
     COUNT_CONTEXT_STACK count_context;
 } PLAINTEXT_CONVERTER_STATE;
 
