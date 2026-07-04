@@ -180,6 +180,7 @@ const TEXT *simple_arg_text (const ELEMENT *element, int *surplus_arg);
 INDEX *indices_info_index_by_name (const INDEX_LIST *indices_information,
                                    const char *name);
 INDEX *ultimate_index (INDEX *index);
+const INDEX *ultimate_index_const (const INDEX *index);
 INDEX_ENTRY_AND_INDEX *lookup_index_entry (
                     const INDEX_ENTRY_LOCATION *index_entry_info,
                     const INDEX_LIST *indices_info);

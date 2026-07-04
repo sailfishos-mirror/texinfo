@@ -1,5 +1,16 @@
 2026-07-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Fix const warning
+	
+	* tta/C/main/utils.c (ultimate_index_const): Add.  The same as
+	ultimate_index, except take and return const pointers.
+	* tta/C/main/manipulate_indices.c (merge_indices): Call it instead
+	of ultimate_index.
+	
+	Warning presumably introduced in commit on 2026-06-30.
+
+2026-07-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/convert/convert_to_plaintext.c: flesh out slightly
 
 2026-07-04  Gavin Smith <gavinsmith0123@gmail.com>

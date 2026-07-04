@@ -1148,6 +1148,15 @@ ultimate_index (INDEX *index)
   return index;
 }
 
+/* Duplicate of ultimate_index, used when result should be const. */
+const INDEX *
+ultimate_index_const (const INDEX *index)
+{
+  while (index->merged_in)
+    index = index->merged_in;
+  return index;
+}
+
 /* in Common.pm */
 INDEX_ENTRY_AND_INDEX *
 lookup_index_entry (const INDEX_ENTRY_LOCATION *index_entry_info,

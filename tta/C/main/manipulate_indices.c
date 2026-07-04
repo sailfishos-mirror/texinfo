@@ -75,16 +75,16 @@ merge_indices (INDEX_LIST *indices_information)
 
   for (i = 0; i < indices_information->number; i++)
     {
-      INDEX *idx = sorted_index_names[i];
+      const INDEX *idx = sorted_index_names[i];
       if (idx->index_entries && idx->entries_number)
         {
           size_t j;
-          INDEX *ultimate_idx;
+          const INDEX *ultimate_idx;
           char *in_idx_name;
           MERGED_INDEX *merged_idx = 0;
 
           if (idx->merged_in)
-            ultimate_idx = ultimate_index (idx);
+            ultimate_idx = ultimate_index_const (idx);
           else
             ultimate_idx = idx;
 
