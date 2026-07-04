@@ -78,46 +78,6 @@ typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
     ELEMENT *prepended;
 } FLOAT_CAPTION_PREPENDED_ELEMENT;
 
-typedef struct CONVERTER_FORMAT_DATA {
-    const char *default_format;
-    const char *perl_converter_class;
-    /* initialization of the converter library data independent of
-       customization */
-    void (* format_setup) (enum converter_format format);
-    /* replaces the whole default converter initialization sequence
-       (in Perl corresponds to a converter redefining the converter method) */
-    void (* converter_converter) (CONVERTER *self,
-                            const CONVERTER_INITIALIZATION_INFO *conf);
-    /* next two are called from the default converter_converter
-       implementation, if converter_converter is NULL */
-    /* usually setup default customization options for the converter */
-    CONVERTER_INITIALIZATION_INFO *
-       (* converter_defaults) (enum converter_format format,
-                               const CONVERTER_INITIALIZATION_INFO *conf);
-    /* initialization of converter after getting customization options */
-    void (* converter_initialize) (CONVERTER *self);
-    /* convert a full document tree to an output file */
-    char * (* converter_output) (CONVERTER *converter, DOCUMENT *document);
-    /* convert a full document tree to a string without headers nor footers */
-    char * (* converter_convert) (CONVERTER *converter, DOCUMENT *document);
-    /* currently unused, could be modified when it become used, but it would
-       probably be better to stick to that API to be consistent with Perl */
-    /* expected to be called for conversions of sub trees */
-    char * (* converter_convert_tree) (CONVERTER *converter,
-                                       const ELEMENT *tree);
-    void (* converter_release_output_units) (CONVERTER *self);
-    void (* converter_free) (CONVERTER *self);
-    /* overriding cdt_tree in HTML */
-    ELEMENT * (*cdt_tree) (const char *string, CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context);
-    /* overriding of element_cdt_tree in HTML */
-    ELEMENT * (*element_cdt_tree) (const char *string, const ELEMENT *element,
-                             CONVERTER *self,
-                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                             const char *translation_context);
-} CONVERTER_FORMAT_DATA;
-
 extern enum command_id no_brace_command_accent_upper_case[][2];
 
 extern enum command_id default_upper_case_commands[];
@@ -129,8 +89,6 @@ extern const char *xml_text_entity_no_arg_commands[];
 extern const char *xml_text_entity_no_arg_commands_formatting[];
 
 extern COMMAND_ACCENT_ENTITY_INFO xml_accent_text_entities[];
-
-extern CONVERTER_FORMAT_DATA converter_format_data[];
 
 void setup_converter_generic (void);
 

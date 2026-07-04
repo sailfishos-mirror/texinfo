@@ -1,3 +1,13 @@
+2026-07-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	CONVERTER_FORMAT_DATA
+
+	* tta/C/convert/converter.h, tta/C/convert/converter.c
+	(CONVERTER_FORMAT_DATA, converter_format_data):
+	Move type definition to converter.c and declare data array
+	as static.  Add a comment about the purpose of the
+	'perl_converter_class' string.
+
 2026-07-03  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Initial use of paragraph formatting
