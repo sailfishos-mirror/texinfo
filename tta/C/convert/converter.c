@@ -77,7 +77,8 @@
 typedef struct CONVERTER_FORMAT_DATA {
     const char *default_format;
     /* Class name of a Perl object through which this converter can be
-       accessed in Perl code.  Relevant for Perl embedding C code. */
+       selected from Perl code, mainly for the creation of a new converter
+       structure.  Relevant for Perl embedding C code. */
     const char *perl_converter_class;
     /* initialization of the converter library data independent of
        customization */
