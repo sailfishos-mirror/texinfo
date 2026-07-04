@@ -246,6 +246,9 @@ if (!$@) {
   }
 }
 
+# According to the https://perldoc.perl.org/I18N::Langinfo documentation,
+# starting with Perl 5.28 released in 2018, the module works on all
+# platforms, therefore this specific code is probably run for older Perl only.
 if (!defined($locale_encoding) and $^O eq 'MSWin32') {
   eval 'require Win32::API';
   if (!$@) {
@@ -271,7 +274,7 @@ if (!defined($locale_encoding) and $^O eq 'MSWin32') {
   }
 }
 
-# initial setup of messages internalisation framework
+# initial setup of messages internationalisation framework
 # work-around in case libintl-perl do not do it itself
 # see http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html#The-LANGUAGE-variable
 

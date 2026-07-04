@@ -161,10 +161,20 @@ foreach my $dir ('t', 't/results', $output_files_dir) {
   }
 }
 
+# NOTE the texi2any corresponding code is more elaborate for Windows
+# and may determine a console encoding for messages distinct from the
+# file output encoding.
+# According to the https://perldoc.perl.org/I18N::Langinfo documentation,
+# starting with Perl 5.28 released in 2018, the module works on all
+# platforms, therefore the specific code would only be needed for older Perl.
+# Unless there are reports, leave it as is.
+#
+# There has been no reports by testers so far, although some probably
+# tested with older Perl years ago, probably because the locale encoding
+# is not so useful, only for diagnostic messages with non-ASCII characters
+# and with $arg_output set for errors only.
 my $locale_encoding = langinfo(CODESET);
 $locale_encoding = undef if ($locale_encoding eq '');
-
-# TODO use same code as in texi2any for MSWin32
 
 # to encode is() diagnostic messages.  From Test::More documentation
 if (defined($locale_encoding)) {

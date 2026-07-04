@@ -1,5 +1,10 @@
 2026-07-04 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl, tta/perl/texi2any.pl: add comments on
+	I18N::Langinfo on Windows platform.
+
+2026-07-04 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl (test): with $arg_output set, collect
 	errors messages after they have been collected and fix corresponding
 	code.
