@@ -222,6 +222,23 @@ stream_byte_count (void)
   /* TODO */
 }
 
+/* TODO decode */
+
+/* TODO string_width_encoded */
+
+/* TODO update_locations_counts */
+
+/* Called at the beginning of a line.  Add a blank line if the output does
+   not already end in one. */
+static void
+add_newline_if_needed (CONVERTER *self)
+{
+  /* TODO check pending_text */
+  stream_output (self, "\n");
+}
+
+/* TODO ... */
+
 
 static void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 
@@ -235,6 +252,29 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   /* TODO check right way to check text in union field */
   if (type_data[type].flags & TF_text)
     {
+      if (type == ET_empty_line || type == ET_after_menu_description_line)
+        {
+          if (0) /* TODO: default_preformatted_context_commands */
+            {
+            }
+          else
+            {
+              add_newline_if_needed (self);
+            }
+        }
+      /* %ignorable_space_types in Plaintext.pm */
+      else if (type == ET_ignorable_spaces_after_command
+               || type == ET_spaces_at_end
+               /* not ignored as menu manual formatting is kept as is */
+               /* || type == ET_space_at_end_menu_node */
+               || type == ET_spaces_after_close_brace
+               || type == ET_spaces_before_argument
+               || type == ET_spaces_after_argument)
+        {
+          /* TODO ET_spaces_after_close_brace form feeds */
+          return;
+        }
+
       /* TODO */
       if (element->e.text->end > 0)
         {
