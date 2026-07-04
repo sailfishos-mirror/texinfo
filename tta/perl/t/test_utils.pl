@@ -1169,8 +1169,6 @@ sub test($$)
       }
       # output converted result and errors in files if $arg_output is set
       if ($arg_output) {
-        # FIXME wrong for errors, should output errors after they have been
-        # collected.
         mkdir ("$output_files_dir/$self->{'name'}")
           if (! -d "$output_files_dir/$self->{'name'}");
         my $extension;
@@ -1218,26 +1216,6 @@ sub test($$)
             close (OUTFILE) or warn "Close $outfile: $!\n";
           }
         }
-        if ($converted_errors{$format}) {
-          my $errors_file
-            = "$output_files_dir/$self->{'name'}/${test_name}_$format.err";
-          if (!open(ERRFILE, ">$errors_file")) {
-            warn "Open $errors_file: $!\n";
-          } else {
-            foreach my $error_message (@{$converted_errors{$format}}) {
-              my $error_line = $error_message->{'error_line'};
-              if (defined($locale_encoding)) {
-                $error_line = Encode::encode($locale_encoding, $error_line);
-              }
-              if (defined($error_message->{'line_nr'})) {
-                $error_line = $error_message->{'line_nr'} . ':' . ' '
-                   . $error_line;
-              }
-              print ERRFILE $error_line;
-            }
-            close (ERRFILE) or warn "Close $errors_file: $!\n";
-          }
-        }
       }
       $converter->converter_remove_output_units();
       $converter->destroy_converter();
@@ -1253,6 +1231,28 @@ sub test($$)
                                           $input_file_names_encoding, 1);
       }
 
+      if ($arg_output) {
+        if (scalar(@$converter_errors)) {
+          my $errors_file
+            = "$output_files_dir/$self->{'name'}/${test_name}_$format.err";
+          if (!open(ERRFILE, ">$errors_file")) {
+            warn "Open $errors_file: $!\n";
+          } else {
+            foreach my $error_message (@{$converter_errors}) {
+              my $error_line = $error_message->{'error_line'};
+              if (defined($locale_encoding)) {
+                $error_line = Encode::encode($locale_encoding, $error_line);
+              }
+              if (defined($error_message->{'line_nr'})) {
+                $error_line = $error_message->{'line_nr'} . ':' . ' '
+                   . $error_line;
+              }
+              print ERRFILE $error_line;
+            }
+            close (ERRFILE) or warn "Close $errors_file: $!\n";
+          }
+        }
+      }
       $converter = undef;
     }
   }
