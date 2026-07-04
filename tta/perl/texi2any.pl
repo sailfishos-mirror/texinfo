@@ -1624,6 +1624,29 @@ if (get_conf('SHOW_BUILTIN_CSS_RULES')) {
   exit(0);
 }
 
+# error out if there is no input file.
+# Note that the input file names are binary strings and are not decoded
+my @input_files = @ARGV;
+# use STDIN if not a tty
+@input_files = ('-') if (!scalar(@input_files) and !-t STDIN
+                         and !$call_texi2dvi);
+
+my $input_files_nr = scalar(@input_files);
+
+die _encode_message(
+    sprintf(__("%s: missing file argument.")."\n", $real_command_name)
+   .sprintf(__("Try `%s --help' for more information.")."\n", $real_command_name))
+     unless ($input_files_nr >= 1);
+
+if (defined($ENV{TEXINFO_XS_EXTERNAL_CONVERSION})
+    and $ENV{TEXINFO_XS_EXTERNAL_CONVERSION}) {
+  set_from_cmdline('XS_EXTERNAL_CONVERSION', 1);
+}
+if (defined($ENV{TEXINFO_XS_EXTERNAL_FORMATTING})
+    and $ENV{TEXINFO_XS_EXTERNAL_FORMATTING}) {
+  set_from_cmdline('XS_EXTERNAL_FORMATTING', 1);
+}
+
 
 if (exists($formats_table{$converted_format}->{'module'})) {
   # Speed up initialization by only loading the module we need.
@@ -1699,27 +1722,6 @@ foreach my $parser_settable_option (@parser_settable_options) {
 }
 
 # Main processing, process all the files given on the command line
-# Note that the input file names are binary strings and are not decoded
-my @input_files = @ARGV;
-# use STDIN if not a tty
-@input_files = ('-') if (!scalar(@input_files) and !-t STDIN
-                         and !$call_texi2dvi);
-
-my $input_files_nr = scalar(@input_files);
-
-die _encode_message(
-    sprintf(__("%s: missing file argument.")."\n", $real_command_name)
-   .sprintf(__("Try `%s --help' for more information.")."\n", $real_command_name))
-     unless ($input_files_nr >= 1);
-
-if (defined($ENV{TEXINFO_XS_EXTERNAL_CONVERSION})
-    and $ENV{TEXINFO_XS_EXTERNAL_CONVERSION}) {
-  set_from_cmdline('XS_EXTERNAL_CONVERSION', 1);
-}
-if (defined($ENV{TEXINFO_XS_EXTERNAL_FORMATTING})
-    and $ENV{TEXINFO_XS_EXTERNAL_FORMATTING}) {
-  set_from_cmdline('XS_EXTERNAL_FORMATTING', 1);
-}
 
 my $remove_references = 0;
 my $test_level = get_conf('TEST');

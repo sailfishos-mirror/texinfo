@@ -1255,6 +1255,9 @@ main (int argc, char *argv[], char *env[])
   int remove_references = 0;
   INTERPRETER_LOADING_INFO loading_info
     = {txi_interpreter_use_no_interpreter, 0, 0, 0, 0};
+   /*
+    = {txi_interpreter_want_embedded, 0, 0, 0, 0};
+    */
   enum converter_format converter_format;
 
   memset (&main_program_unclosed_stdout, 0, sizeof (FILE_STREAM));
@@ -2625,7 +2628,38 @@ main (int argc, char *argv[], char *env[])
       exit (EXIT_SUCCESS);
     }
 
-  /* NOTE there is an effect only if Perl converter is used */
+  if (optind < argc)
+    {
+      int j;
+      for (j = optind; j < argc; j++)
+        add_string (argv[j], &input_files);
+    }
+  else if (!isatty (fileno (stdin)) && !call_texi2dvi)
+    {
+      add_string ("-", &input_files);
+    }
+  else
+    {
+      char *formatted_message;
+      char *encoded_message;
+
+      xasprintf (&formatted_message, _("%s: missing file argument."),
+                 program_file);
+      encoded_message = GNUT_encode_message (formatted_message);
+      free (formatted_message);
+      fprintf (stderr, "%s\n", encoded_message);
+      free (encoded_message);
+
+      xasprintf (&formatted_message,
+                 _("Try `%s --help' for more information."),
+                 program_file);
+      encoded_message = GNUT_encode_message (formatted_message);
+      free (formatted_message);
+      fprintf (stderr, "%s\n", encoded_message);
+      free (encoded_message);
+      exit (EXIT_FAILURE);
+    }
+
   txi_xs_external_conversion = getenv ("TEXINFO_XS_EXTERNAL_CONVERSION");
   if (txi_xs_external_conversion && strlen (txi_xs_external_conversion)
       && strcmp (txi_xs_external_conversion, "0"))
@@ -2823,38 +2857,6 @@ main (int argc, char *argv[], char *env[])
     = GNUT_get_conf (program_options.options->MESSAGE_ENCODING.number);
   if (message_encoding_option && message_encoding_option->o.string)
     set_message_encoding = message_encoding_option->o.string;
-
-  if (optind < argc)
-    {
-      int j;
-      for (j = optind; j < argc; j++)
-        add_string (argv[j], &input_files);
-    }
-  else if (!isatty (fileno (stdin)) && !call_texi2dvi)
-    {
-      add_string ("-", &input_files);
-    }
-  else
-    {
-      char *formatted_message;
-      char *encoded_message;
-
-      xasprintf (&formatted_message, _("%s: missing file argument."),
-                 program_file);
-      encoded_message = GNUT_encode_message (formatted_message);
-      free (formatted_message);
-      fprintf (stderr, "%s\n", encoded_message);
-      free (encoded_message);
-
-      xasprintf (&formatted_message,
-                 _("Try `%s --help' for more information."),
-                 program_file);
-      encoded_message = GNUT_encode_message (formatted_message);
-      free (formatted_message);
-      fprintf (stderr, "%s\n", encoded_message);
-      free (encoded_message);
-      exit (EXIT_FAILURE);
-    }
 
   if (test_option)
     {
