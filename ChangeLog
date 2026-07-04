@@ -1,5 +1,9 @@
 2026-07-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/convert/convert_to_plaintext.c: flesh out slightly
+
+2026-07-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/convert/convert_to_plaintext.c (add_newline_if_needed): Add.
 
 2026-07-04  Gavin Smith <gavinsmith0123@gmail.com>

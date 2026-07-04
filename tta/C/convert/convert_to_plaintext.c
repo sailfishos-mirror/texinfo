@@ -247,6 +247,7 @@ static void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 static void
 convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 {
+  PLAINTEXT_CONVERTER_STATE *self_pt = &self->plaintext_converter;
   enum element_type type = element->type;
 
   /* TODO check right way to check text in union field */
@@ -281,6 +282,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
            stream_output_add_text (self, element->e.text->text);
            return;
         }
+
+      /* TODO: no return statement here in Perl code but we need
+         need to stop reading uninitialized or overloaded struct members. */
+      return;
     }
 
   /* %ignored_types in Plaintext.pm */
@@ -290,9 +295,40 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       || type == ET_arguments_line)
     return;
 
+  /* check for ignored command */
   enum command_id cmd = element->e.c->cmd;
   if (cmd != CM_NONE)
     {
+      /* TODO: %ignored_line_commands */
+      /* TODO: %ignored_nobrace_commands */
+
+      /* %ignored_brace_commands */
+      if (cmd == CM_caption
+          || cmd == CM_shortcaption
+          || cmd == CM_hyphenation
+          || cmd == CM_sortas
+          || cmd == CM_errormsg
+          || cmd == CM_seeentry
+          || cmd == CM_seealso)
+        {
+          return;
+        }
+      /* %ignored_block_commands */
+      if (cmd == CM_ignore
+          || cmd == CM_macro
+          || cmd == CM_rmacro
+          || cmd == CM_linemacro
+          || cmd == CM_copying
+          || cmd == CM_documentdescription
+          || cmd == CM_documentinfo
+          || cmd == CM_publication
+          || cmd == CM_titlepage
+          || cmd == CM_direntry
+          || cmd == CM_nodedescriptionblock)
+        {
+          return;
+        }
+      /* TODO: ignore %format_raw_commands unless expanded */
     }
 
   /* TODO: Index entry check */
@@ -300,14 +336,51 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   if (type == ET_index_entry_command)
     return;
 
-  int cell = 0, preformatted = 0;
-
+  int cell = 0;
+  const FORMATTER *preformatted = NULL;
   if (cmd != CM_NONE)
     {
+      /* TODO what about non-builtin commands?
+         Check why command_data macro, USER_COMMAND_BIT or 
+         user_defined_command_data not used anywhere outside
+         of parsetexi/ directory. */
+      const COMMAND *command_data = &builtin_command_data[cmd];
+      if (command_data->flags & CF_brace
+          && command_data->data == BRACE_accent)
+        {
+        }
+      else if (type = ET_definfoenclose_command)
+        {
+        }
+      else if (command_data->flags & CF_brace)
+        {
+          /* if style_map */
+          /* else*/ if (cmd == CM_link)
+            {
+            }
+          /* else if ref_commands */
+          else if (cmd == CM_image)
+            ;
+          else if (cmd == CM_today)
+            ;
+          /* else if brace_no_arg_commands */
+          else if (cmd == CM_email)
+            ;
+          else if (cmd == CM_uref || cmd == CM_url)
+            ;
+          /* ... */
+
+        }
+      else if (command_data->flags & CF_block)
+        {
+        }
+      else if (cmd == CM_node)
+        ;
+      /* else if sectioning_heading_commands */
       /* TODO */
     }
 
-  const FORMATTER *paragraph = NULL;
+  size_t paragraph = 0;
 
   if (type != ET_NONE)
     {
@@ -315,8 +388,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         {
           /* TODO */
           FORMATTER new_paragraph = new_formatter (self, formatter_paragraph);
-          add_(formatter) (&self->plaintext_converter.formatters, new_paragraph);
-          paragraph = top_formatter(&self->plaintext_converter.formatters);
+          add_(formatter) (&self_pt->formatters, new_paragraph);
+          paragraph = self_pt->formatters.number - 1;
         }
       else if (type == ET_preformatted || type == ET_rawpreformatted)
         {
@@ -354,7 +427,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   /* Close paragraphs and preformatted. */
   if (paragraph)
     {
-      para_set_state (paragraph->container.paragraph);
+      para_set_state (self_pt->formatters.list[paragraph].container.paragraph);
       char *result = para_end ();
       /* TODO third parameter to stream_output? */
       stream_output (self, result);
