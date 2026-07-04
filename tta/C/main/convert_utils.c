@@ -754,43 +754,43 @@ converter_expand_verbatiminclude (const ELEMENT *current,
             global_information, debug);
 }
 
+/* ELEMENT should be a @def*x or a @def*line line commands or the
+   def_line type appearing right in the other @def commands. */
 PARSED_DEF *
 definition_arguments_content (const ELEMENT *element)
 {
   PARSED_DEF *result = malloc (sizeof (PARSED_DEF));
   memset (result, 0, sizeof (PARSED_DEF));
-  /* this condition is most probably always true */
-  if (element->e.c->contents.number > 0)
+  size_t i;
+
+  const ELEMENT *def_line_args = element->e.c->contents.list[0];
+
+  if (def_line_args->e.c->contents.number > 0)
     {
-      size_t i;
-      const ELEMENT *def_line = element->e.c->contents.list[0];
-      if (def_line->e.c->contents.number > 0)
+      for (i = 0; i < def_line_args->e.c->contents.number; i++)
         {
-          for (i = 0; i < def_line->e.c->contents.number; i++)
+          ELEMENT *arg = def_line_args->e.c->contents.list[i];
+          if (arg->type == ET_def_class)
+            result->class = arg;
+          else if (arg->type == ET_def_category)
+            result->category = arg;
+          else if (arg->type == ET_def_type)
+            result->type = arg;
+          else if (arg->type == ET_def_name)
+            result->name = arg;
+          else if (arg->type == ET_def_arg || arg->type == ET_def_typearg
+                   || arg->type == ET_delimiter)
             {
-              ELEMENT *arg = def_line->e.c->contents.list[i];
-              if (arg->type == ET_def_class)
-                result->class = arg;
-              else if (arg->type == ET_def_category)
-                result->category = arg;
-              else if (arg->type == ET_def_type)
-                result->type = arg;
-              else if (arg->type == ET_def_name)
-                result->name = arg;
-              else if (arg->type == ET_def_arg || arg->type == ET_def_typearg
-                       || arg->type == ET_delimiter)
-                {
-                  i--;
-                  break;
-                }
+              i--;
+              break;
             }
-          if (i < def_line->e.c->contents.number - 1)
-            {
-              ELEMENT *args = new_element (ET_NONE);
-              insert_slice_into_contents (args, 0, def_line,
-                                          i + 1, def_line->e.c->contents.number);
-              result->args = args;
-            }
+        }
+      if (i < def_line_args->e.c->contents.number - 1)
+        {
+          ELEMENT *args = new_element (ET_NONE);
+          insert_slice_into_contents (args, 0, def_line_args, i + 1,
+                                 def_line_args->e.c->contents.number);
+          result->args = args;
         }
     }
   return result;
@@ -804,14 +804,16 @@ destroy_parsed_def (PARSED_DEF *parsed_def)
   free (parsed_def);
 }
 
-/* the CONVERTER and CDT_TREE_FN arguments allow to use the HTML converter
+/* ELEMENT should be a @def*x or a @def*line line commands or the
+   def_line type appearing right in the other @def commands.
+   the CONVERTER_CDT_TREE argument allows to use the HTML converter
    specific translation function.
-   If they are not specified, LANG_TRANSLATION is used for translations
+   If it is not specified, LANG_TRANSLATION is used for translations
    information.
    If not set, translation is based on information in the element.
  */
 ELEMENT *
-definition_category_tree (const ELEMENT *current,
+definition_category_tree (const ELEMENT *element,
                           const LANG_TRANSLATION *lang_translation,
                           int debug, CONVERTER_CDT_TREE *converter_cdt_tree)
 {
@@ -821,26 +823,21 @@ definition_category_tree (const ELEMENT *current,
   ELEMENT *class_copy;
   const char *def_cmdname;
   enum command_id def_command;
+  size_t i;
 
-  /* TODO is always true.  Remove condition, or add everywhere */
-  if (current->e.c->contents.number > 0)
+  const ELEMENT *def_line_args = element->e.c->contents.list[0];
+
+  for (i = 0; i < def_line_args->e.c->contents.number; i++)
     {
-      size_t i;
-      const ELEMENT *def_line = current->e.c->contents.list[0];
-      for (i = 0; i < def_line->e.c->contents.number; i++)
-        {
-          ELEMENT *arg = def_line->e.c->contents.list[i];
-          if (arg->type == ET_def_class)
-            arg_class = arg;
-          else if (arg->type == ET_def_category)
-            arg_category = arg;
-          else if (arg->type == ET_def_arg || arg->type == ET_def_typearg
-                   || arg->type == ET_delimiter)
-            break;
-        }
+      ELEMENT *arg = def_line_args->e.c->contents.list[i];
+      if (arg->type == ET_def_class)
+        arg_class = arg;
+      else if (arg->type == ET_def_category)
+        arg_category = arg;
+      else if (arg->type == ET_def_arg || arg->type == ET_def_typearg
+               || arg->type == ET_delimiter)
+        break;
     }
-  else
-    return 0;
 
   if (!arg_class)
     {
@@ -855,7 +852,7 @@ definition_category_tree (const ELEMENT *current,
 
   class_copy = copy_element_tree (arg_class, 0);
 
-  def_cmdname = lookup_extra_string (current, AI_key_def_command);
+  def_cmdname = lookup_extra_string (element, AI_key_def_command);
   def_command = lookup_builtin_command (def_cmdname);
 
   if (builtin_command_data[def_command].flags & CF_def_class_method)
@@ -886,7 +883,7 @@ definition_category_tree (const ELEMENT *current,
         {
           const LANG_TRANSLATION *lang_translation
            = new_element_language_translation (&converters_translation_cache,
-                                            current, TXI_CONVERT_STRINGS_NR);
+                                            element, TXI_CONVERT_STRINGS_NR);
 
           result = gdt_tree ("{category} on @code{{class}}", 0,
                              lang_translation, substrings, 0, debug, 0);
@@ -923,7 +920,7 @@ definition_category_tree (const ELEMENT *current,
         {
           const LANG_TRANSLATION *lang_translation
            = new_element_language_translation (&converters_translation_cache,
-                                            current, TXI_CONVERT_STRINGS_NR);
+                                            element, TXI_CONVERT_STRINGS_NR);
 
           result = gdt_tree ("{category} of @code{{class}}", 0,
                              lang_translation, substrings, 0, debug, 0);

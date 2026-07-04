@@ -1,3 +1,10 @@
+2026-07-04 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/convert_utils.c (definition_arguments_content)
+	(definition_category_tree): assume that the tree is correct and that
+	the definition line arguments container always exist.  Change in
+	variable names, change in comments.
+
 2026-07-03 Patrice Dumas  <pertusus@free.fr>
 
 	* README-hacking: update the list of files relevant for ppport.

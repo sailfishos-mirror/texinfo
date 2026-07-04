@@ -67,7 +67,7 @@ ELEMENT *converter_expand_verbatiminclude (const ELEMENT *current,
 
 PARSED_DEF *definition_arguments_content (const ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);
-ELEMENT *definition_category_tree (const ELEMENT *current,
+ELEMENT *definition_category_tree (const ELEMENT *element,
                           const LANG_TRANSLATION *lang_translation,
                           int debug, CONVERTER_CDT_TREE *converter_cdt_tree);
 

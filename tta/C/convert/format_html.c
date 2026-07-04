@@ -11254,7 +11254,7 @@ html_convert_def_command (CONVERTER *self, const enum command_id cmd,
   char *class;
 
   if (builtin_command_data[cmd].flags & CF_line)
-    {
+    { /* def*x and def*line commands */
       html_convert_def_line_type (self, ET_def_line, element, content, result);
       return;
     }
@@ -12466,6 +12466,8 @@ static_class(category_def, category-def)
 
 #undef static_class
 
+/* directly registered for 'def_line' type, and called in definition
+   commands formatting function for @def*x and @def*line */
 void
 html_convert_def_line_type (CONVERTER *self, const enum element_type type,
                             const ELEMENT *element, const char *content,
