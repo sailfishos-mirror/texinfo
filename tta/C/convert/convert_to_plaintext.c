@@ -128,10 +128,23 @@ new_formatter (CONVERTER *self, enum formatter_type type)
 void
 push_top_formatter (CONVERTER *self)
 {
-  /* TODO: should be: */
-  /* FORMATTER top_formatter = new_formatter(self, formatter_line); */
-  FORMATTER top_formatter = new_formatter(self, formatter_paragraph);
+  FORMATTER top_formatter = new_formatter(self, formatter_line);
   add_(formatter) (&self->plaintext_converter.formatters, top_formatter);
+}
+
+void
+pop_formatter (CONVERTER *self)
+{
+  FORMATTER_STACK *stack = &self->plaintext_converter.formatters;
+
+  if (stack->number == 0)
+    fatal ("formatter stack empty");
+
+  /* Note: no memory needs to be freed here. */
+  /* Note: para_end should have been called by this point to free memory
+     resources in plaintext_paragraph.c. */
+
+  stack->number--;
 }
 
 static void
@@ -254,13 +267,16 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       /* TODO */
     }
 
-  int paragraph = 0;
+  const FORMATTER *paragraph = NULL;
 
   if (type != ET_NONE)
     {
       if (type == ET_paragraph)
         {
           /* TODO */
+          FORMATTER new_paragraph = new_formatter (self, formatter_paragraph);
+          add_(formatter) (&self->plaintext_converter.formatters, new_paragraph);
+          paragraph = top_formatter(&self->plaintext_converter.formatters);
         }
       else if (type == ET_preformatted || type == ET_rawpreformatted)
         {
@@ -298,6 +314,11 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   /* Close paragraphs and preformatted. */
   if (paragraph)
     {
+      para_set_state (paragraph->container.paragraph);
+      char *result = para_end ();
+      /* TODO third parameter to stream_output? */
+      stream_output (self, result);
+      pop_formatter (self);
     }
   if (preformatted)
     {

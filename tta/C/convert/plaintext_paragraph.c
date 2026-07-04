@@ -112,10 +112,10 @@ static PARAGRAPH state;
 
 /* for debug */
 char *
-para__print_escaped_spaces (char *string, size_t len)
+para__print_escaped_spaces (const char *string, size_t len)
 {
   static TEXT t;
-  char *p = string;
+  const char *p = string;
   text_reset (&t);
   while (p < string + len)
     {
@@ -411,7 +411,7 @@ para_end (void)
    or not.  If COL_COUNT is non-negative, it is the number of screen columns
    taken up by the word. */
 void
-para__add_next (TEXT *result, char *word, int word_len,
+para__add_next (TEXT *result, const char *word, int word_len,
                   int transparent, int col_count)
 {
   if (!word)
@@ -425,7 +425,7 @@ para__add_next (TEXT *result, char *word, int word_len,
   if (!transparent)
     {
       /* Save last character in WORD */
-      char *p = word + word_len;
+      const char *p = word + word_len;
 
       while (p > word)
         {
@@ -466,7 +466,7 @@ para__add_next (TEXT *result, char *word, int word_len,
           int len = 0;
           int left = word_len;
           char32_t w;
-          char *p = word;
+          const char *p = word;
 
           while (left > 0)
             {
@@ -515,7 +515,7 @@ para__add_next (TEXT *result, char *word, int word_len,
 
 /* Like _add_next but zero end_line_count at beginning. */
 TEXT
-para_add_next (char *text, int text_len, int transparent)
+para_add_next (const char *text, int text_len, int transparent)
 {
   static TEXT t;
 
@@ -589,9 +589,9 @@ enum text_class { type_NULL, type_spaces, type_regular,
 
 /* Return string to be added to paragraph contents, wrapping text. */
 TEXT
-para_add_text (char *text, int len)
+para_add_text (const char *text, int len)
 {
-  char *p = text, *q = 0;
+  const char *p = text, *q = 0;
   char32_t wc_fw = (char32_t) '0';
   size_t next_len = 0;
   int width;
@@ -833,7 +833,7 @@ para_add_text (char *text, int len)
           /* Now check for an end of sentence.  We can iterate backwards
              by bytes as all the end-sentence characters or punctuation are
              ASCII. */
-          char *q2 = q;
+          const char *q2 = q;
           while (q2 > p)
             {
               q2--;

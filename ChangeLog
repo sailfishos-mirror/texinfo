@@ -1,3 +1,12 @@
+2026-07-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	C plaintext converter - separate paragraphs
+
+	* tta/C/convert/convert_to_plaintext.c: add paragraph formatter
+	on stack for each paragraph.
+	* tta/C/convert/plaintext_paragraph.c (para_add_next, para_add_text):
+	Take const char * parameters rather than char *.
+
 2026-07-04 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/converter.c (CONVERTER_FORMAT_DATA): add to comment on
