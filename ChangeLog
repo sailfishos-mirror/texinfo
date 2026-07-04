@@ -1,3 +1,11 @@
+2026-07-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\include): Check if the file name includes a
+	space character, and if it does, wrap the file name in { } before
+	running \input.
+	
+	Report from Werner Lemberg.
+
 2026-07-04 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/convert_utils.c (definition_arguments_content)
