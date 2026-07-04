@@ -1,5 +1,17 @@
 2026-07-04 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/Makefile.am (ctexi2any_CPPFLAGS), tta/C/texi2any.c
+	(load_interpreter, main): have loading_info embedded_interpreter
+	default to txi_interpreter_want_embedded, do not set it based on the
+	EMBED_PERL flag, remove EMBED_PERL.  Do not warn in load_interpreter
+	if the interpreter is not built, should be done by the calling code.
+	Add such a missing warning.
+
+	* tta/C/Makefile.am (noinst_PROGRAMS, texistatic_*): rename
+	teximakehtml as texistatic.
+
+2026-07-04 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/texi2any.c (main), tta/perl/texi2any.pl: determine if there
 	is no argument and error out earlier, before loading converter code.
 

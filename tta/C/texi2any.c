@@ -740,7 +740,6 @@ load_interpreter (INTERPRETER_LOADING_INFO *loading_info)
     }
   else if (status < 0)
     {
-      fprintf (stderr, "WARNING: no interpreter embedding code built\n");
       loading_info->embedded_interpreter = txi_interpreter_use_no_interpreter;
     }
   else
@@ -1254,10 +1253,7 @@ main (int argc, char *argv[], char *env[])
   size_t file_index;
   int remove_references = 0;
   INTERPRETER_LOADING_INFO loading_info
-    = {txi_interpreter_use_no_interpreter, 0, 0, 0, 0};
-   /*
     = {txi_interpreter_want_embedded, 0, 0, 0, 0};
-    */
   enum converter_format converter_format;
 
   memset (&main_program_unclosed_stdout, 0, sizeof (FILE_STREAM));
@@ -1296,10 +1292,6 @@ main (int argc, char *argv[], char *env[])
           free (check_file);
         }
     }
-
-#ifdef EMBED_PERL
-  loading_info.embedded_interpreter = txi_interpreter_want_embedded;
-#endif
 
   perl_embed_env = getenv ("TEXINFO_C_EMBED_PERL");
   if (perl_embed_env && !strcmp (perl_embed_env, "0"))
@@ -2484,6 +2476,10 @@ main (int argc, char *argv[], char *env[])
      )
     {
       load_interpreter (&loading_info);
+
+      if (loading_info.embedded_interpreter != txi_interpreter_use_embedded)
+        fprintf (stderr, "WARNING: no Perl interpreter "
+                         "for collation/translation\n");
     }
 
   /* determine the format_specification now that the output format is known */

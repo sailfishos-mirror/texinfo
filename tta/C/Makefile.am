@@ -708,7 +708,7 @@ ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libte
 # the compiling and linking flags must match there will be a failure to
 # build (for example AlmaLinux).
 ctexi2any_CFLAGS = $(perl_conf_CFLAGS)
-ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DEMBED_PERL
+ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 
 # in configure.ac, it is checked that Perl is embedded (and that shared
 # libraries are built)
@@ -727,17 +727,17 @@ install-exec-hook:
 	-makeinfo_f=`echo makeinfo$(EXEEXT) | sed -e '$(transform)'`; texi2any_f=`echo texi2any$(EXEEXT)| sed -e '$(transform)'`; (cd $(DESTDIR)$(bindir)/ && $(LN_S) $$texi2any_f $$makeinfo_f)
 endif
 
-################################# C only static main program demonstrator
-# The same effect can be obtained with the main program in C with
-# XS disabled at configure time or the interpreter disabled at runtime.
-# Not really useful nowadays besides making sure that the replacement functions
-# required for linking are provided.
+################################# C only static main program
+# The same can be obtained with ctexi2any with XS disabled at configure time
+# or the interpreter disabled at runtime.
+# Not useful besides making sure that the replacement functions
+# required for linking are provided without needing to disable XS.
 
 if ! DISABLE_ADDITIONAL_CHECKS
-noinst_PROGRAMS += teximakehtml
+noinst_PROGRAMS += texistatic
 endif
 
-teximakehtml_SOURCES = \
+texistatic_SOURCES = \
                        $(C_libtexinfo_sources) \
                        $(C_libtexinfo_convert_sources) \
                        $(C_libtexinfo_main_sources) \
@@ -752,9 +752,9 @@ teximakehtml_SOURCES = \
 # configure checks, such that they are consistent for detected
 # libraries flags such as LTLIBINTL.
 # Perl LDFLAGS are brought in by AM_LDFLAGS
-teximakehtml_CFLAGS = $(perl_conf_CFLAGS)
-teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la $(EUIDACCESS_LIBGEN) $(HARD_LOCALE_LIB) $(LIBPTHREAD) $(LIBTHREAD) $(LTLIBC32CONV) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(MBRTOWC_LIB) $(PTHREAD_ONCE_LIB) $(SETLOCALE_NULL_LIB)
+texistatic_CFLAGS = $(perl_conf_CFLAGS)
+texistatic_LDADD = $(top_builddir)/gnulib/lib/libgnu.la $(EUIDACCESS_LIBGEN) $(HARD_LOCALE_LIB) $(LIBPTHREAD) $(LIBTHREAD) $(LTLIBC32CONV) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(MBRTOWC_LIB) $(PTHREAD_ONCE_LIB) $(SETLOCALE_NULL_LIB)
 
-teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
+texistatic_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 
 
