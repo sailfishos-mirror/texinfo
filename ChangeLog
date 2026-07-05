@@ -1,5 +1,12 @@
 2026-07-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Convert/Plaintext.pm
+	(new_formatter) <flush commands>:
+	Set 'ignore_columns' and 'keep_end_lines' on container configuration
+	rather than calling set_space_protection.
+
+2026-07-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/convert/plaintext_paragraph.h (PARA_CONF_VARIABLES_LIST):
 	Add double_width_no_break, for completeness.
 

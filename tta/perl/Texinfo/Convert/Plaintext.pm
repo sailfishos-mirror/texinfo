@@ -975,11 +975,11 @@ sub new_formatter($$;$) {
   } else {
     die "Unknown container type $type\n";
   }
-  $container = Texinfo::Convert::Paragraph::new($container_conf);
-
   if ($flush_commands{$self->{'context'}->[-1]}) {
-    set_space_protection($container, undef, 1, 1);
+    $container_conf->{'ignore_columns'} = 1;
+    $container_conf->{'keep_end_lines'} = 1;
   }
+  $container = Texinfo::Convert::Paragraph::new($container_conf);
 
   my $formatter = {'container' => $container,
                    'upper_case_stack' => [{}],
