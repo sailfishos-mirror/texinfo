@@ -1,3 +1,9 @@
+2026-07-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_stream_output_count_nl):
+	New function, copied from _stream_output.
+	(_stream_output): Remove optional third parameter.
+
 2026-07-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix const warning
