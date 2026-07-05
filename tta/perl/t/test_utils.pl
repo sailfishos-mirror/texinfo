@@ -93,7 +93,8 @@ use Texinfo::Convert::DocBook;
 use vars qw(%result_texis %result_texts %result_tree_text %result_errors
    %result_indices %result_floats %result_nodes_list %result_sections_list
    %result_sectioning_root %result_headings_list
-   %result_converted %result_converted_errors %result_indices_sort_strings);
+   %result_converted %result_converted_errors %result_converted_sort_strings
+   %result_indices_sort_strings);
 
 Locale::Messages->select_package('gettext_pp');
 
@@ -1128,7 +1129,9 @@ sub test($$)
   # holds conversion function output returned as text for each format.
   # Should not be set for formats outputting to files.
   my %converted;
+
   my %converted_errors;
+  my %converted_sort_strings;
 
   foreach my $format (@tested_formats) {
     if (defined($formats{$format})) {
@@ -1177,6 +1180,19 @@ sub test($$)
         # output() be called for the main format name, for example html.
         warn "ERROR: $self->{'name'}: $test_name: $format: file test with result as text\n";
       }
+
+      # only for the formats that call indices sorting.
+      if ($format_type eq 'html' or $format_type eq 'info'
+          or $format_type eq 'plaintext') {
+        my $format_indices_sorted_sort_strings
+          = $converter->print_converter_indices_sort_strings();
+        # next step:
+        # if (defined($format_indices_sorted_sort_strings) {
+        #   $converted_sort_strings{$format}
+        #     = $format_indices_sorted_sort_strings;
+        # }
+      }
+
       # output converted result and errors in files if $arg_output is set
       if ($arg_output) {
         mkdir ("$output_files_dir/$self->{'name'}")
@@ -1362,7 +1378,8 @@ sub test($$)
      'use vars qw(%result_texis %result_texts %result_tree_text %result_errors'."\n".
      '   %result_indices %result_floats %result_nodes_list %result_sections_list'."\n".
      '   %result_sectioning_root %result_headings_list'."\n".
-     '   %result_converted %result_converted_errors %result_indices_sort_strings);'."\n\n";
+     '   %result_converted %result_converted_errors %result_converted_sort_strings'."\n"
+     .'   %result_indices_sort_strings);'."\n\n";
     print OUT 'use utf8;'."\n\n";
 
     # NOTE $test_name is in general used for directories, file names,
@@ -1430,6 +1447,12 @@ sub test($$)
         $out_result .= "\n".'$result_converted{\''.$format.'\'}->{\''
                        .$test_name.'\'} = \''
                        .protect_perl_string($converted{$format})."';\n\n";
+      }
+      if (defined($converted_sort_strings{$format})) {
+        $out_result
+         .= '$result_converted_sort_strings{\''.$format.'\'}->{\''.
+           $test_name.'\'} = \''
+           . protect_perl_string($converted_sort_strings{$format})."';\n\n";
       }
       if (defined($converted_errors{$format})) {
         $out_result

@@ -1790,3 +1790,243 @@ print_indices_information (INDEX_LIST *indices_info)
 
   return result.text;
 }
+
+/* structures and functions used to find sort strings based on the
+   sorted index index entry, using the original index name and
+   index entry position in the original index
+ */
+typedef struct INDEX_ENTRIES_SORT_STRINGS {
+  const INDEX *index;
+  const INDEX_ENTRY_SORT_STRING **sort_strings;
+} INDEX_ENTRIES_SORT_STRINGS;
+
+typedef struct INDICES_ENTRIES_SORT_STRINGS {
+  size_t space;
+  size_t number;
+  INDEX_ENTRIES_SORT_STRINGS *list;
+} INDICES_ENTRIES_SORT_STRINGS;
+
+static size_t
+find_indices_entries_sort_strings_index (const INDEX_LIST *indices_info,
+       INDICES_ENTRIES_SORT_STRINGS *map_idx_sort_str,
+                                   const char* index_name)
+{
+  size_t i;
+  size_t result_index;
+  INDEX_ENTRIES_SORT_STRINGS *idx_sort_str;
+
+  for (i = 0; i < map_idx_sort_str->number; i++)
+    {
+      if (!strcmp (map_idx_sort_str->list[i].index->name, index_name))
+        return i;
+    }
+
+  if (map_idx_sort_str->number >= map_idx_sort_str->space)
+    {
+      map_idx_sort_str->list = realloc (map_idx_sort_str->list,
+                    (map_idx_sort_str->space += 1)
+                           * sizeof (INDEX_ENTRIES_SORT_STRINGS));
+      if (!map_idx_sort_str->list)
+        fatal ("realloc failed");
+    }
+
+  result_index = map_idx_sort_str->number;
+  idx_sort_str = &map_idx_sort_str->list[result_index];
+
+  idx_sort_str->index = 0;
+
+  for (i = 0; i < indices_info->number; i++)
+    {
+      if (indices_info->list[i]->name == index_name)
+        {
+          idx_sort_str->index = indices_info->list[i];
+          break;
+        }
+    }
+
+  if (!idx_sort_str->index)
+    {
+      char *msg;
+      xasprintf (&msg, "sort strings index not found: %s\n", index_name);
+      fatal (msg);
+      free (msg);
+    }
+
+  idx_sort_str->sort_strings = (const INDEX_ENTRY_SORT_STRING **)
+   malloc (idx_sort_str->index->entries_number
+           * sizeof (const INDEX_ENTRY_SORT_STRING *));
+  memset (idx_sort_str->sort_strings, 0, idx_sort_str->index->entries_number
+                * sizeof (const INDEX_ENTRY_SORT_STRING *));
+
+  map_idx_sort_str->number++;
+
+  return result_index;
+}
+
+static void
+setup_indices_entries_sort_strings (const INDEX_LIST *indices_info,
+                  INDICES_ENTRIES_SORT_STRINGS *map_idx_sort_str,
+                  const INDEX_SORT_STRINGS *index_sort_strings)
+{
+  size_t i;
+
+  for (i = 0; i < index_sort_strings->entries_number; i++)
+    {
+      INDEX_ENTRY_SORT_STRING *sort_string
+        = &index_sort_strings->sort_string_entries[i];
+      size_t index_idx
+        = find_indices_entries_sort_strings_index (indices_info,
+                                                 map_idx_sort_str,
+                                         sort_string->entry->index_name);
+      map_idx_sort_str->list[index_idx]
+             .sort_strings[sort_string->entry->number -1]
+        = sort_string;
+    }
+}
+
+/* TODO more comments
+   TODO pass document or &document->indices_info? */
+char *
+print_indices_sort_strings (
+      const INDEX_SORTED_BY_INDEX *sorted_index_entries,
+      const INDICES_SORT_STRINGS *indices_sort_strings,
+      const DOCUMENT *document)
+{
+  TEXT result;
+  size_t i;
+  NAME_NUMBER_LIST indices_sort_strings_n_nr;
+  NAME_NUMBER_LIST sorted_index_entries_n_nr;
+  INDICES_ENTRIES_SORT_STRINGS indices_entries_sort_string;
+
+  if (!indices_sort_strings)
+    return 0;
+
+  memset (&indices_entries_sort_string,
+          0, sizeof (INDICES_ENTRIES_SORT_STRINGS));
+
+  memset (&indices_sort_strings_n_nr, 0, sizeof (NAME_NUMBER_LIST));
+
+  allocate_name_number_list (&indices_sort_strings_n_nr,
+                             indices_sort_strings->number);
+
+  for (i = 0; i < indices_sort_strings->number; i++)
+    {
+      NAME_NUMBER *index_name_number = &indices_sort_strings_n_nr.list[i];
+      index_name_number->name = indices_sort_strings->indices[i].index->name;
+      index_name_number->number = i;
+    }
+
+  sort_name_number_list (&indices_sort_strings_n_nr);
+
+  memset (&sorted_index_entries_n_nr, 0, sizeof (NAME_NUMBER_LIST));
+
+  allocate_name_number_list (&sorted_index_entries_n_nr,
+                             indices_sort_strings->number);
+
+  /* use the sorting of indices_sort_strings and find the number,
+     index +1 of the sorted index name with a linear search.  The number
+     is used and not the index in order to use 0 to mean not found */
+  for (i = 0; i < indices_sort_strings->number; i++)
+    {
+      size_t j;
+      const char *index_name = indices_sort_strings_n_nr.list[i].name;
+      NAME_NUMBER *index_name_number = &sorted_index_entries_n_nr.list[i];
+
+      index_name_number->name = index_name;
+      index_name_number->number = 0;
+
+      for (j = 0; sorted_index_entries[j].name; j++)
+        {
+          if (! strcmp(sorted_index_entries[j].name,
+                       index_name))
+            {
+              index_name_number->number = j+1;
+              break;
+            }
+        }
+    }
+
+  text_init (&result);
+  text_append (&result, "");
+
+  for (i = 0; i < indices_sort_strings_n_nr.number; i++)
+    {
+      NAME_NUMBER *sorted_indices_number = &sorted_index_entries_n_nr.list[i];
+      size_t sorted_index_nr = sorted_indices_number->number;
+      const INDEX_SORTED_BY_INDEX *sorted_index;
+
+      if (sorted_index_nr == 0)
+        continue;
+
+      sorted_index
+        = &sorted_index_entries[sorted_index_nr -1];
+      if (sorted_index->entries_number > 0)
+        {
+          size_t j;
+          NAME_NUMBER *sort_string_number = &indices_sort_strings_n_nr.list[i];
+          const INDEX_SORT_STRINGS *index_sort_strings
+            = &indices_sort_strings->indices[sort_string_number->number];
+
+          setup_indices_entries_sort_strings (&document->indices_info,
+                      &indices_entries_sort_string, index_sort_strings);
+
+          text_printf (&result, "%s:\n", sorted_index->name);
+          for (j = 0; j < sorted_index->entries_number; j++)
+            {
+              const INDEX_ENTRY *idx_entry = sorted_index->entries[j];
+              const INDEX_ENTRY_SORT_STRING *sort_string = 0;
+              size_t k;
+              for (k = 0; k < indices_entries_sort_string.number; k++)
+                {
+                  if (!strcmp (indices_entries_sort_string.list[k].index->name,
+                               idx_entry->index_name))
+                    {
+                      sort_string = indices_entries_sort_string.list[k]
+                                       .sort_strings[idx_entry->number -1];
+                      break;
+                    }
+                }
+              if (!sort_string)
+                {
+                  char *msg;
+                  xasprintf (&msg, "sort string not found: %s",
+                                    idx_entry->index_name);
+                  fatal (msg);
+                  free (msg);
+                }
+
+              text_append_n (&result, " ", 1);
+      /* same as Texinfo::Indices format_index_entries_sort_strings */
+              text_append (&result,
+                  sort_string->sort_string_subentries[0].sort_string);
+              if (sort_string->subentries_number > 1)
+                {
+                  size_t n;
+                  for (n = 1; n < sort_string->subentries_number; n++)
+                    {
+                      text_append_n (&result, ", ", 2);
+                      text_append (&result,
+                        sort_string->sort_string_subentries[n].sort_string);
+                    }
+                }
+              text_append_n (&result, "\n", 1);
+            }
+
+           /* reset indices_entries_sort_string */
+          for (j = 0; j < indices_entries_sort_string.number; j++)
+            {
+              free (indices_entries_sort_string.list[j].sort_strings);
+              indices_entries_sort_string.list[j].index = 0;
+            }
+          indices_entries_sort_string.number = 0;
+        }
+    }
+
+  free (indices_entries_sort_string.list);
+
+  free_name_number_list (&sorted_index_entries_n_nr);
+  free_name_number_list (&indices_sort_strings_n_nr);
+
+  return result.text;
+}
+

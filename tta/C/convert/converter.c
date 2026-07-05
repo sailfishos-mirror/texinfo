@@ -1818,6 +1818,21 @@ get_converter_indices_sorted_by_letter (CONVERTER *self, char **language)
   return 0;
 }
 
+/* for tests */
+char *
+print_converter_indices_sort_strings (CONVERTER *self)
+{
+  char *language;
+  const INDICES_SORT_STRINGS *indices_sort_strings
+               = converter_indices_sort_strings (self);
+
+  const INDEX_SORTED_BY_INDEX *sorted_index_entries
+    = get_converter_indices_sorted_by_index (self, &language);
+
+  return print_indices_sort_strings (sorted_index_entries,
+                                     indices_sort_strings,
+                                     self->document);
+}
 /* to be freed by caller */
 char *
 top_node_filename (const CONVERTER *self, const char *document_name)
@@ -2488,3 +2503,4 @@ xml_comment (CONVERTER *converter, const char *text)
   text_append_n (&result, " -->\n", 5);
   return result.text;
 }
+

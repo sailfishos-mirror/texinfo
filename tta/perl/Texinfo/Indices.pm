@@ -674,6 +674,27 @@ sub print_indices_information($) {
   return $result;
 }
 
+sub print_indices_sort_strings($$) {
+  my ($sorted_index_entries, $indices_sort_strings) = @_;
+
+  my $index_entries_sort_strings
+   = format_index_entries_sort_strings($indices_sort_strings);
+
+  my $idx_sort_strings_str = '';
+  foreach my $index_name (sort(keys(%$sorted_index_entries))) {
+    # index entries sort strings sorted in the order of the index entries
+    my $index_entries = $sorted_index_entries->{$index_name};
+    if (scalar(@{$index_entries})) {
+      $idx_sort_strings_str .= "${index_name}:\n";
+      foreach my $index_entry (@{$index_entries}) {
+        my $sort_string = $index_entries_sort_strings->{$index_entry};
+        $idx_sort_strings_str .= " ${sort_string}\n";
+      }
+    }
+  }
+  return $idx_sort_strings_str;
+}
+
 
 1;
 

@@ -185,6 +185,8 @@ INDEX_SORTED_BY_INDEX *get_converter_indices_sorted_by_index (CONVERTER *self,
 INDEX_SORTED_BY_LETTER *get_converter_indices_sorted_by_letter
                                            (CONVERTER *self, char **language);
 
+char *print_converter_indices_sort_strings (CONVERTER *self);
+
 char *top_node_filename (const CONVERTER *self, const char *document_name);
 
 ELEMENT *float_type_number (CONVERTER *self, const ELEMENT *float_e);

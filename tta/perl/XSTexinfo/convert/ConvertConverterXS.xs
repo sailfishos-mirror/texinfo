@@ -35,6 +35,7 @@
 #include "document_types.h"
 #include "converter_types.h"
 #include "builtin_commands.h"
+#include "xs_utils.h"
 /* message_list_document_error message_list_format_document_message
    wipe_error_message_list */
 #include "errors.h"
@@ -570,6 +571,29 @@ get_converter_indices_sorted_by_letter (SV *converter_sv)
           RETVAL = newSV (0);
     OUTPUT:
         RETVAL
+
+SV *
+print_converter_indices_sort_strings (SV *converter_sv)
+     PREINIT:
+        CONVERTER *self;
+        char *result = 0;
+     CODE:
+        self = get_sv_converter (converter_sv,
+                                 "print_converter_indices_sort_strings");
+        if (self)
+          {
+            result = print_converter_indices_sort_strings (self);
+          }
+        if (result)
+          {
+            RETVAL = newSVpv_utf8 (result, 0);
+            non_perl_free (result);
+          }
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
 
 # pass the stream of an unclosed file path.
 # tried with OutputStream instead of FILE, but it did not work, there

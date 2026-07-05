@@ -127,4 +127,8 @@ void destroy_sorted_indices_by_letter (
 const INDEX **sort_index_names (INDEX_LIST *indices_info);
 char *print_indices_information (INDEX_LIST *indices_info);
 
+char *print_indices_sort_strings (
+      const INDEX_SORTED_BY_INDEX *sorted_index_entries,
+      const INDICES_SORT_STRINGS *indices_sort_strings,
+      const DOCUMENT *document);
 #endif

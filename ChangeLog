@@ -1,3 +1,33 @@
+2026-07-05 Patrice Dumas  <pertusus@free.fr>
+
+	Implement printing of converter indices sort strings
+
+	* tta/C/main/document.c (print_document_indices_sort_strings),
+	tta/C/main/manipulate_indices.c (INDEX_ENTRIES_SORT_STRINGS)
+	(INDICES_ENTRIES_SORT_STRINGS)
+	(find_indices_entries_sort_strings_index)
+	(setup_indices_entries_sort_strings, print_indices_sort_strings),
+	tta/perl/Texinfo/Document/IndicesNonXS.pm
+	(print_document_indices_sort_strings), tta/perl/Texinfo/Indices.pm
+	(print_indices_information): split out of
+	print_document_indices_sort_strings the association of index entries
+	to sort strings and the output of sort strings by index to the
+	print_indices_sort_strings function, moved to manipulate_indices.c or
+	Indices.pm. Move INDEX_ENTRIES_SORT_STRINGS,
+	INDICES_ENTRIES_SORT_STRINGS, find_indices_entries_sort_strings_index
+	and setup_indices_entries_sort_strings to manipulate_indices.c.
+
+	* tta/C/convert/converter.c (print_converter_indices_sort_strings),
+	tta/perl/Texinfo/Convert/ConverterNonXS.pm
+	(print_converter_indices_sort_strings),
+	tta/perl/XSTexinfo/convert/ConvertConverterXS.xs
+	(print_converter_indices_sort_strings):
+	add print_converter_indices_sort_strings, including an XS interface.
+
+	* tta/perl/t/test_utils.pl (test): prepare printing sort strings for
+	converters, setting new variables in output files and calling
+	print_converter_indices_sort_strings.
+
 2026-07-04 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/t/test_utils.pl, tta/perl/texi2any.pl: add comments on

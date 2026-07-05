@@ -516,4 +516,15 @@ sub get_converter_indices_sorted_by_index($) {
   return $self->{'sorted_indices_by_index'}->{$lang_key};
 }
 
+sub print_converter_indices_sort_strings($) {
+  my $self = shift;
+
+  my $indices_sort_strings = _converter_indices_sort_strings($self);
+
+  my $sorted_index_entries = $self->get_converter_indices_sorted_by_index();
+
+  return Texinfo::Indices::print_indices_sort_strings($sorted_index_entries,
+                                                      $indices_sort_strings);
+}
+
 1;

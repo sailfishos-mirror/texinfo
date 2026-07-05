@@ -68,27 +68,12 @@ sub print_document_indices_sort_strings($) {
 
   my $indices_sort_strings = _document_indices_sort_strings($document);
 
-  my $index_entries_sort_strings
-   = Texinfo::Indices::format_index_entries_sort_strings(
-                                                     $indices_sort_strings);
-
   my $sorted_index_entries
        = sorted_indices_by_index($document,
                             $use_unicode_collation, $lang_sorting_locale);
 
-  my $idx_sort_strings_str = '';
-  foreach my $index_name (sort(keys(%$sorted_index_entries))) {
-    # index entries sort strings sorted in the order of the index entries
-    my $index_entries = $sorted_index_entries->{$index_name};
-    if (scalar(@{$index_entries})) {
-      $idx_sort_strings_str .= "${index_name}:\n";
-      foreach my $index_entry (@{$index_entries}) {
-        my $sort_string = $index_entries_sort_strings->{$index_entry};
-        $idx_sort_strings_str .= " ${sort_string}\n";
-      }
-    }
-  }
-  return $idx_sort_strings_str;
+  return Texinfo::Indices::print_indices_sort_strings($sorted_index_entries,
+                                                      $indices_sort_strings);
 }
 
 1;
