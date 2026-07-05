@@ -1182,7 +1182,7 @@ sub test($$)
           or $format_type eq 'plaintext') {
         my $format_indices_sort_strings
           = $converter->print_converter_indices_sort_strings();
-        if (defined($format_indices_sorted_sort_strings)) {
+        if (defined($format_indices_sort_strings)) {
           $converted_sort_strings{$format} = $format_indices_sort_strings;
         }
       }
