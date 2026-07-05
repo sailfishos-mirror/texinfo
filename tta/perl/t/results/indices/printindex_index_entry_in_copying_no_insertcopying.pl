@@ -340,6 +340,14 @@ coding: utf-8
 End:
 ';
 
+$result_converted_sort_strings{'info'}->{'printindex_index_entry_in_copying_no_insertcopying'} = 'fn:
+ Copying this document
+ ftable item
+ fun
+ xf
+ xftable xitem
+';
+
 
 $result_converted{'plaintext'}->{'printindex_index_entry_in_copying_no_insertcopying'} = 'top
 ***
@@ -349,6 +357,14 @@ Top.
 1 Chapter
 *********
 
+';
+
+$result_converted_sort_strings{'plaintext'}->{'printindex_index_entry_in_copying_no_insertcopying'} = 'fn:
+ Copying this document
+ ftable item
+ fun
+ xf
+ xftable xitem
 ';
 
 

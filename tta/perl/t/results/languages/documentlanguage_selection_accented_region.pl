@@ -132,4 +132,8 @@ $result_converted{'plaintext'}->{'documentlanguage_selection_accented_region'} =
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'documentlanguage_selection_accented_region'} = 'vr:
+ Language of Which
+';
+
 1;

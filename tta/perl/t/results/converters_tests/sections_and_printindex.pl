@@ -229,6 +229,11 @@ Appendix A App
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'sections_and_printindex'} = 'cp:
+ entry1
+ entry2
+';
+
 
 $result_converted{'html_text'}->{'sections_and_printindex'} = '<div class="top-level-extent" id="Top">
 <p class="nav-panel">

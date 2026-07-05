@@ -555,6 +555,13 @@ In text w: z?  n; p.  fn
      defop n
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'frenchspacing_and_code'} = 'fn:
+ name? n. d on class: MyC. b
+ name? n. d on class: MyC. b
+ vname? n; d on nvclass: MyC. u
+ vname? n; d on vclass: MyC. u
+';
+
 
 $result_converted{'html_text'}->{'frenchspacing_and_code'} = '
 

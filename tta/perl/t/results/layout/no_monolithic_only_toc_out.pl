@@ -211,4 +211,8 @@ $result_indices_sort_strings{'no_monolithic_only_toc_out'} = 'cp:
  top
 ';
 
+$result_converted_sort_strings{'file_html'}->{'no_monolithic_only_toc_out'} = 'cp:
+ top
+';
+
 1;

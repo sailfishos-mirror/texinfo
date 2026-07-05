@@ -422,4 +422,21 @@ $result_indices_sort_strings{'index_no_node'} = 'cp:
  unnumbered after text
 ';
 
+$result_converted_sort_strings{'file_html'}->{'index_no_node'} = 'cp:
+ chapter
+ Chapter2
+ second
+ second
+ top section
+ top section
+ top section
+ top section
+ top section
+ top section
+ top section1
+ truc
+ unnumbered
+ unnumbered after text
+';
+
 1;

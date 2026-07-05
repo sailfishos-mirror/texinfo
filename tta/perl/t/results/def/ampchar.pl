@@ -92,6 +92,10 @@ $result_converted{'plaintext'}->{'ampchar'} = ' -- Constructor on a: b (const st
    & & & { } @
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'ampchar'} = 'fn:
+ b on a
+';
+
 
 $result_converted{'html'}->{'ampchar'} = '<!DOCTYPE html>
 <html>
@@ -126,6 +130,10 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'ampchar'} = 'fn:
+ b on a
 ';
 
 $result_converted_errors{'html'}->{'ampchar'} = '* W |must specify a title with a title command or @top

@@ -312,4 +312,9 @@ strong.def-name {font-family: monospace; font-weight: bold}
 </html>
 ';
 
+$result_converted_sort_strings{'html'}->{'deftypefnnewline_for_copying_after'} = 'fn:
+ NAME
+ something
+';
+
 1;

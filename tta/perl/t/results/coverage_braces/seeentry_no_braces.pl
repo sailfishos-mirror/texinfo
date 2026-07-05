@@ -150,6 +150,10 @@ $result_converted{'plaintext'}->{'seeentry_no_braces'} = 'top
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'seeentry_no_braces'} = 'cp:
+ aa
+';
+
 
 $result_converted{'html_text'}->{'seeentry_no_braces'} = '<div class="top-level-extent" id="Top">
 <p class="nav-panel">

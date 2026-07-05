@@ -273,6 +273,13 @@ $result_converted{'plaintext'}->{'inter_item_commands_in_itemize'} = 'top
    • bullet item
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'inter_item_commands_in_itemize'} = 'cp:
+ also a cindex in itemize
+ also a cindex in itemize
+ index entry right after @item
+ index entry within itemize
+';
+
 
 $result_converted{'html_text'}->{'inter_item_commands_in_itemize'} = '<div class="top-level-extent" id="Top">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>

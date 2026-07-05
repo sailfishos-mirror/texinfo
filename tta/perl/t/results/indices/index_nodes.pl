@@ -493,9 +493,54 @@ fn:
  somewhere
 ';
 
+$result_converted_sort_strings{'file_info'}->{'index_nodes'} = 'cp:
+ ! entry in node
+ a concept a node
+ another
+ entry a
+ entry after printindex
+ entry in node
+ entry in node
+ something
+fn:
+ a function
+ fun in node
+ somewhere
+';
+
+$result_converted_sort_strings{'file_html'}->{'index_nodes'} = 'cp:
+ ! entry in node
+ a concept a node
+ another
+ entry a
+ entry after printindex
+ entry in node
+ entry in node
+ something
+fn:
+ a function
+ fun in node
+ somewhere
+';
+
 $result_converted_errors{'file_html'}->{'index_nodes'} = '* W index_nodes.texi|must specify a title with a title command or @top
  warning: must specify a title with a title command or @top
 
+';
+
+$result_converted_sort_strings{'file_plaintext'}->{'index_nodes'} = 'cp:
+ ! entry in node
+ a concept a node
+ another
+ entry a
+ entry after printindex
+ entry in node
+ entry in node
+ something
+fn:
+ a function
+ fun in node
+ somewhere
 ';
 
 1;

@@ -135,6 +135,10 @@ $result_converted{'plaintext'}->{'inter_item_commands_in_table_in_example'} = ' 
      D
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'inter_item_commands_in_table_in_example'} = 'cp:
+ index entry between item and itemx
+';
+
 
 $result_converted{'html_text'}->{'inter_item_commands_in_table_in_example'} = '<div class="example">
 <dl class="table">

@@ -280,6 +280,14 @@ $result_converted{'plaintext'}->{'printindex_merged_indices_code_style'} = 'top
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'printindex_merged_indices_code_style'} = 'fn:
+ c"b
+ cdi"h
+ ddi``g
+ f``g
+ v"j
+';
+
 
 $result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<div class="top-level-extent" id="Top">
 <p class="nav-panel">

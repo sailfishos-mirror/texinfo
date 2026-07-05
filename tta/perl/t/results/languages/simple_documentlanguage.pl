@@ -122,4 +122,8 @@ $result_indices_sort_strings{'simple_documentlanguage'} = 'vr:
 $result_converted{'plaintext'}->{'simple_documentlanguage'} = ' -- Variable d\'instance de AAA : BBB CCC
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'simple_documentlanguage'} = 'vr:
+ BBB de AAA
+';
+
 1;

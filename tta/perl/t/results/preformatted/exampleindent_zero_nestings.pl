@@ -652,6 +652,11 @@ exdented second
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'exampleindent_zero_nestings'} = 'fn:
+ arg
+ arg
+';
+
 
 $result_converted{'html'}->{'exampleindent_zero_nestings'} = '<!DOCTYPE html>
 <html>
@@ -780,6 +785,11 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'exampleindent_zero_nestings'} = 'fn:
+ arg
+ arg
 ';
 
 $result_converted_errors{'html'}->{'exampleindent_zero_nestings'} = '* W |must specify a title with a title command or @top

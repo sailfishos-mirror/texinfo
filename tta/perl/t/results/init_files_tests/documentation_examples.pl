@@ -609,6 +609,11 @@ $result_indices_sort_strings{'documentation_examples'} = 'cp:
  i2
 ';
 
+$result_converted_sort_strings{'file_html'}->{'documentation_examples'} = 'cp:
+ e1
+ i2
+';
+
 $result_converted_errors{'file_html'}->{'documentation_examples'} = '* W l59|@node `Index\' file index.html for redirection exists
  warning: @node `Index\' file index.html for redirection exists
 

@@ -377,4 +377,8 @@ $result_converted{'plaintext'}->{'invalid_documentlanguage'} = 'top
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'invalid_documentlanguage'} = 'vr:
+ Language of Which
+';
+
 1;

@@ -427,6 +427,11 @@ $result_indices_sort_strings{'references_to_top_no_top_output'} = 'cp:
  index in Top
 ';
 
+$result_converted_sort_strings{'file_html'}->{'references_to_top_no_top_output'} = 'cp:
+ chap index
+ index in Top
+';
+
 
 $result_converted{'html_text'}->{'references_to_top_no_top_output'} = '
 

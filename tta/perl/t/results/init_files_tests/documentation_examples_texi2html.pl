@@ -609,4 +609,9 @@ $result_indices_sort_strings{'documentation_examples_texi2html'} = 'cp:
  i2
 ';
 
+$result_converted_sort_strings{'file_html'}->{'documentation_examples_texi2html'} = 'cp:
+ e1
+ i2
+';
+
 1;

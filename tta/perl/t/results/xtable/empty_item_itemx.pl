@@ -124,6 +124,12 @@ after an empty itemx, before an empty item
 in item before end table
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'empty_item_itemx'} = 'vr:
+ after an empty itemx, before an empty item
+ first item
+ in item before end table
+';
+
 
 $result_converted{'html_text'}->{'empty_item_itemx'} = '<dl class="vtable">
 <dd>

@@ -648,4 +648,16 @@ $result_indices_sort_strings{'multiple_lang_chapters_texi2html'} = 'vr:
  BBB of AAA
 ';
 
+$result_converted_sort_strings{'file_html'}->{'multiple_lang_chapters_texi2html'} = 'vr:
+ BBB de AAA
+ BBB of AAA
+ BBB of AAA
+';
+
+$result_converted_sort_strings{'file_info'}->{'multiple_lang_chapters_texi2html'} = 'vr:
+ BBB de AAA
+ BBB of AAA
+ BBB of AAA
+';
+
 1;

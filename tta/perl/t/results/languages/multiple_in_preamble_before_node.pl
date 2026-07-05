@@ -280,6 +280,11 @@ top section
      error→
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'multiple_in_preamble_before_node'} = 'vr:
+ a de copying
+ BBB von c
+';
+
 
 $result_converted{'info'}->{'multiple_in_preamble_before_node'} = 'This is , produced from .
 
@@ -319,6 +324,11 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: de
 End:
+';
+
+$result_converted_sort_strings{'info'}->{'multiple_in_preamble_before_node'} = 'vr:
+ a de copying
+ BBB von c
 ';
 
 
@@ -380,6 +390,11 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'multiple_in_preamble_before_node'} = 'vr:
+ a de copying
+ BBB von c
 ';
 
 

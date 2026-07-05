@@ -90,4 +90,8 @@ $result_converted{'plaintext'}->{'code_in_def'} = ' -- Function: int foo (const 
      Documentation of ‘foo’.
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'code_in_def'} = 'fn:
+ foo
+';
+
 1;

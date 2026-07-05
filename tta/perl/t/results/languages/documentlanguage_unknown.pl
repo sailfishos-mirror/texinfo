@@ -324,4 +324,12 @@ $result_indices_sort_strings{'documentlanguage_unknown'} = 'fn:
  name on class
 ';
 
+$result_converted_sort_strings{'file_html'}->{'documentlanguage_unknown'} = 'fn:
+ name on class
+';
+
+$result_converted_sort_strings{'file_info'}->{'documentlanguage_unknown'} = 'fn:
+ name on class
+';
+
 1;

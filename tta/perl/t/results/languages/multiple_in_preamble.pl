@@ -318,6 +318,12 @@ $result_converted{'plaintext'}->{'multiple_in_preamble'} = 'top section
  -- Instanzvariable of de: FFF GGG
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'multiple_in_preamble'} = 'vr:
+ a de copying
+ BBB od hr
+ FFF von de
+';
+
 
 $result_converted{'info'}->{'multiple_in_preamble'} = 'This is , produced from .
 
@@ -357,6 +363,12 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: de
 End:
+';
+
+$result_converted_sort_strings{'info'}->{'multiple_in_preamble'} = 'vr:
+ a de copying
+ BBB od hr
+ FFF von de
 ';
 
 
@@ -420,6 +432,12 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'multiple_in_preamble'} = 'vr:
+ a de copying
+ BBB od hr
+ FFF von de
 ';
 
 

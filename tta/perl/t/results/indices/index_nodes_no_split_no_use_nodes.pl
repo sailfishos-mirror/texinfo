@@ -493,6 +493,21 @@ fn:
  somewhere
 ';
 
+$result_converted_sort_strings{'file_html'}->{'index_nodes_no_split_no_use_nodes'} = 'cp:
+ ! entry in node
+ a concept a node
+ another
+ entry a
+ entry after printindex
+ entry in node
+ entry in node
+ something
+fn:
+ a function
+ fun in node
+ somewhere
+';
+
 $result_converted_errors{'file_html'}->{'index_nodes_no_split_no_use_nodes'} = '* W index_nodes.texi|must specify a title with a title command or @top
  warning: must specify a title with a title command or @top
 
@@ -529,6 +544,21 @@ $result_converted_errors{'file_html'}->{'index_nodes_no_split_no_use_nodes'} = '
 * W index_nodes.texi:l42|entry for index `fn\' for @printindex fn outside of any section
  warning: entry for index `fn\' for @printindex fn outside of any section
 
+';
+
+$result_converted_sort_strings{'file_plaintext'}->{'index_nodes_no_split_no_use_nodes'} = 'cp:
+ ! entry in node
+ a concept a node
+ another
+ entry a
+ entry after printindex
+ entry in node
+ entry in node
+ something
+fn:
+ a function
+ fun in node
+ somewhere
 ';
 
 1;

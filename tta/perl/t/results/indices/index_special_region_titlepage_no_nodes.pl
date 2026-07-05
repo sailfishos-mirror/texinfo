@@ -610,12 +610,48 @@ fn:
  fun
 ';
 
+$result_converted_sort_strings{'file_info'}->{'index_special_region_titlepage_no_nodes'} = 'cp:
+ Copying appendix
+ Copying this document
+ Public domain
+ Titlepage footnote
+ Titlepage index
+fn:
+ another fun
+ findex entry
+ fun
+';
+
 $result_converted_errors{'file_info'}->{'index_special_region_titlepage_no_nodes'} = '* E index_special_region.texi:l6|@anchor output more than once: Copying information
  @anchor output more than once: Copying information
 
 * E index_special_region.texi:l9|@anchor output more than once: Public domain reference
  @anchor output more than once: Public domain reference
 
+';
+
+$result_converted_sort_strings{'file_html'}->{'index_special_region_titlepage_no_nodes'} = 'cp:
+ Copying appendix
+ Copying this document
+ Public domain
+ Titlepage footnote
+ Titlepage index
+fn:
+ another fun
+ findex entry
+ fun
+';
+
+$result_converted_sort_strings{'file_plaintext'}->{'index_special_region_titlepage_no_nodes'} = 'cp:
+ Copying appendix
+ Copying this document
+ Public domain
+ Titlepage footnote
+ Titlepage index
+fn:
+ another fun
+ findex entry
+ fun
 ';
 
 1;

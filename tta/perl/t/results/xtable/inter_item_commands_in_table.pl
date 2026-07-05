@@ -804,6 +804,32 @@ _b_
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'inter_item_commands_in_table'} = 'cp:
+ cindex after line
+ cindex before line
+ cindex between lines
+ cindex first
+ cindex in table
+ cindex in table
+ index entry between item and itemx
+ index entry between item and itemx
+ samp cindex in table
+ samp cindex in table
+ second
+ third
+fn:
+ a
+ avar--b
+ b
+ b
+ c
+ d
+vr:
+ aasis--b
+ acode--b
+ b
+';
+
 
 $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '<div class="top-level-extent" id="Top">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>

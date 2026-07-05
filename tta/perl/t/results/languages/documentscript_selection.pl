@@ -368,4 +368,11 @@ $result_converted{'plaintext'}->{'documentscript_selection'} = 'top
  -- Instance Variable of script: before change
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'documentscript_selection'} = 'vr:
+ BBB of SSS
+ before of script
+ other од some
+ reset од after
+';
+
 1;

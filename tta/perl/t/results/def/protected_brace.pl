@@ -63,4 +63,8 @@ $result_indices_sort_strings{'protected_brace'} = 'fn:
 $result_converted{'plaintext'}->{'protected_brace'} = ' -- c: {
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'protected_brace'} = 'fn:
+ {
+';
+
 1;

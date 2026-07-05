@@ -280,6 +280,12 @@ thing
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'inter_item_commands_in_multitable'} = 'cp:
+ cindex
+ index entry between empty lines
+ index entry within multitable
+';
+
 
 $result_converted{'html_text'}->{'inter_item_commands_in_multitable'} = '<table class="multitable">
 <tbody><tr><td>truc

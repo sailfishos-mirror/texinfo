@@ -342,6 +342,10 @@ exdented first
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'exampleindent_set_nestings'} = 'fn:
+ arg
+';
+
 
 $result_converted{'html'}->{'exampleindent_set_nestings'} = '<!DOCTYPE html>
 <html>
@@ -422,6 +426,10 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'exampleindent_set_nestings'} = 'fn:
+ arg
 ';
 
 $result_converted_errors{'html'}->{'exampleindent_set_nestings'} = '* W |must specify a title with a title command or @top

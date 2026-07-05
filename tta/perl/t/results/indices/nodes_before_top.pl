@@ -657,6 +657,23 @@ fn:
  somewhere
 ';
 
+$result_converted_sort_strings{'file_html'}->{'nodes_before_top'} = 'cp:
+ ! entry in node
+ a concept a node
+ another
+ entry a
+ entry after printindex
+ entry in node
+ first before top
+ node in menu before top
+ printindex node in menu before top
+ something
+fn:
+ a function
+ fun in node
+ somewhere
+';
+
 $result_converted_errors{'file_html'}->{'nodes_before_top'} = '* W nodes_before_top.texi|must specify a title with a title command or @top
  warning: must specify a title with a title command or @top
 

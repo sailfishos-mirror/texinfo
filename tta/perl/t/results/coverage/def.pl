@@ -539,6 +539,24 @@ $result_converted{'plaintext'}->{'def'} = ' -- c-ategory: d--effn_name a--rgumen
      Various deff lines
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'def'} = 'fn:
+ after
+ bidule machin
+ d--effn_name
+ de--ffn_name
+ deffnx
+ followed
+ i
+ id i ule
+ id ule
+ log trap
+ log trap1
+ log trap2
+ machin
+ machin
+ truc
+';
+
 
 $result_converted{'html_text'}->{'def'} = '
 <dl class="first-deffn def-block">

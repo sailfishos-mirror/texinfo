@@ -404,6 +404,10 @@ Ref to anchor An anchor
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'things_before_setfilename'} = 'cp:
+ index entry
+';
+
 
 $result_converted{'html'}->{'things_before_setfilename'} = '<!DOCTYPE html>
 <html>
@@ -466,6 +470,10 @@ ul.toc-numbered-mark {list-style: none}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'things_before_setfilename'} = 'cp:
+ index entry
 ';
 
 
@@ -594,6 +602,10 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
+';
+
+$result_converted_sort_strings{'info'}->{'things_before_setfilename'} = 'cp:
+ index entry
 ';
 
 1;

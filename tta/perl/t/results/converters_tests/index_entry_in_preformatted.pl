@@ -181,6 +181,12 @@ $result_converted{'plaintext'}->{'index_entry_in_preformatted'} = 'top
      text2
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'index_entry_in_preformatted'} = 'cp:
+ first
+ last
+ other
+';
+
 
 $result_converted{'html_text'}->{'index_entry_in_preformatted'} = '<div class="top-level-extent" id="Top">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>

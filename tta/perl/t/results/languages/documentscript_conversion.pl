@@ -458,6 +458,13 @@ See f: Top.  A dp_s-(Akl)
  -- p_L-l-InstV-l of script: p_L-before change
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'documentscript_conversion'} = 'vr:
+ BBB of SSS
+ before l-o-l script
+ other s-o-s some
+ reset l-o-l after
+';
+
 
 $result_converted{'info'}->{'documentscript_conversion'} = 'This is , produced from .
 
@@ -503,6 +510,13 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: qaa
 End:
+';
+
+$result_converted_sort_strings{'info'}->{'documentscript_conversion'} = 'vr:
+ BBB of SSS
+ before l-o-l script
+ other s-o-s some
+ reset l-o-l after
 ';
 
 
@@ -578,6 +592,13 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'documentscript_conversion'} = 'vr:
+ BBB of SSS
+ before l-o-l script
+ other s-o-s some
+ reset l-o-l after
 ';
 
 

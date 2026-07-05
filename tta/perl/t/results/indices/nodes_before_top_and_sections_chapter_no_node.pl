@@ -853,4 +853,23 @@ fn:
  somewhere
 ';
 
+$result_converted_sort_strings{'file_html'}->{'nodes_before_top_and_sections_chapter_no_node'} = 'cp:
+ ! entry in node
+ a concept a node
+ another
+ entry a
+ entry after printindex
+ entry in node
+ first before top
+ node in chapter
+ node in menu before top
+ printindex node in menu before top
+ something
+ top section
+fn:
+ a function
+ fun in node
+ somewhere
+';
+
 1;

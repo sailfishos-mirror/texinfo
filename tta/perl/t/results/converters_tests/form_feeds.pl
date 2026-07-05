@@ -491,6 +491,11 @@ type 1
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'form_feeds'} = 'fn:
+ machin
+ xmachin
+';
+
 
 $result_converted{'html_text'}->{'form_feeds'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 

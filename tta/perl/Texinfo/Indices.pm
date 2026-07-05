@@ -692,6 +692,7 @@ sub print_indices_sort_strings($$) {
       }
     }
   }
+  return if ($idx_sort_strings_str eq '');
   return $idx_sort_strings_str;
 }
 

@@ -108,4 +108,8 @@ $result_converted{'plaintext'}->{'end_of_lines_protected'} = ' -- category: deff
      deffn
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'end_of_lines_protected'} = 'fn:
+ deffn_name
+';
+
 1;

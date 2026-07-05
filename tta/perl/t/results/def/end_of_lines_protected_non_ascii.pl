@@ -116,4 +116,8 @@ $result_converted{'plaintext'}->{'end_of_lines_protected_non_ascii'} = ' -- catÃ
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'end_of_lines_protected_non_ascii'} = 'fn:
+ deffn_nÃ¹me
+';
+
 1;

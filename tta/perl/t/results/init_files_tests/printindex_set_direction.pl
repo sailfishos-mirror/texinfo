@@ -321,6 +321,14 @@ vr:
  VV
 ';
 
+$result_converted_sort_strings{'file_html'}->{'printindex_set_direction'} = 'cp:
+ CC
+fn:
+ FF
+vr:
+ VV
+';
+
 $result_converted_errors{'file_html'}->{'printindex_set_direction'} = '* W |not setting an unknown direction: NewDirection
  warning: not setting an unknown direction: NewDirection
 

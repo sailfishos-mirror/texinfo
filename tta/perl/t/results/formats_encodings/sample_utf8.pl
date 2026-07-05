@@ -539,4 +539,18 @@ $result_indices_sort_strings{'sample_utf8'} = 'cp:
  另一个，index entry
 ';
 
+$result_converted_sort_strings{'file_html'}->{'sample_utf8'} = 'cp:
+ ĄĘ ae ąę
+ chapter, first
+ é Â
+ 另一个，index entry
+';
+
+$result_converted_sort_strings{'file_info'}->{'sample_utf8'} = 'cp:
+ ĄĘ ae ąę
+ chapter, first
+ é Â
+ 另一个，index entry
+';
+
 1;

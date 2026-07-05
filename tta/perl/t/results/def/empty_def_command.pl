@@ -128,4 +128,10 @@ $result_converted{'plaintext'}->{'empty_def_command'} = ' -- empty: deffn
  -- empty: deffnx
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'empty_def_command'} = 'fn:
+ deffn
+ deffn
+ deffnx
+';
+
 1;

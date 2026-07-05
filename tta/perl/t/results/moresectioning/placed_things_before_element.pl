@@ -298,6 +298,10 @@ coding: utf-8
 End:
 ';
 
+$result_converted_sort_strings{'info'}->{'placed_things_before_element'} = 'cp:
+ index entry
+';
+
 $result_converted_errors{'info'}->{'placed_things_before_element'} = '* W |document without nodes
  warning: document without nodes
 
@@ -388,6 +392,10 @@ td.menu-entry-destination {vertical-align: top}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'placed_things_before_element'} = 'cp:
+ index entry
 ';
 
 $result_converted_errors{'html'}->{'placed_things_before_element'} = '* W |must specify a title with a title command or @top

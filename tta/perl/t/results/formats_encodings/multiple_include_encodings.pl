@@ -923,4 +923,12 @@ $result_indices_sort_strings{'multiple_include_encodings'} = 'cp:
  Ą ą ˛ Ę ę
 ';
 
+$result_converted_sort_strings{'file_html'}->{'multiple_include_encodings'} = 'cp:
+ Ą ą ˛ Ę ę
+';
+
+$result_converted_sort_strings{'file_info'}->{'multiple_include_encodings'} = 'cp:
+ Ą ą ˛ Ę ę
+';
+
 1;

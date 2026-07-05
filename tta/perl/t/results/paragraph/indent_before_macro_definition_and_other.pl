@@ -148,6 +148,10 @@ $result_converted{'plaintext'}->{'indent_before_macro_definition_and_other'} = '
    HHERE
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'indent_before_macro_definition_and_other'} = 'cp:
+ ei
+';
+
 $result_converted_errors{'plaintext'}->{'indent_before_macro_definition_and_other'} = '* W l4|could not find @image file `my_image.txt\' nor alternate text
  warning: could not find @image file `my_image.txt\' nor alternate text
 

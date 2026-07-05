@@ -125,6 +125,10 @@ $result_indices_sort_strings{'unknown_region'} = 'vr:
 $result_converted{'plaintext'}->{'unknown_region'} = ' -- Variable d\'instance de AAA : BBB CCC
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'unknown_region'} = 'vr:
+ BBB de AAA
+';
+
 
 $result_converted{'info'}->{'unknown_region'} = 'This is , produced from .
 
@@ -148,6 +152,10 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: fr_NOWHERE
 End:
+';
+
+$result_converted_sort_strings{'info'}->{'unknown_region'} = 'vr:
+ BBB de AAA
 ';
 
 
@@ -193,6 +201,10 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'unknown_region'} = 'vr:
+ BBB de AAA
 ';
 
 $result_converted_errors{'html'}->{'unknown_region'} = '* W |must specify a title with a title command or @top

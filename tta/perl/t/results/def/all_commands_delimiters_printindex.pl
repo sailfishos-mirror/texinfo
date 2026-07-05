@@ -3213,6 +3213,58 @@ coding: utf-8
 End:
 ';
 
+$result_converted_sort_strings{'info'}->{'all_commands_delimiters_printindex'} = 'fn:
+ ,expose on ,Window
+ ,expose on ,Window
+ ;expose on ;Window
+ ;expose on ;Window
+ )expose on )Window
+ )expose on )Window
+ A2
+ A2
+ A3
+ A3
+ A3 on A2
+ A3 on A2
+ A4 on A2
+ A4 on A2
+ apply
+ e,xpose on W,indow
+ e,xpose on W,indow
+ e;xpose on W;indow
+ e;xpose on W;indow
+ e)xpose on W)indow
+ e)xpose on W)indow
+ expose on W,indow
+ expose on Window
+ expose on windows
+ foobar
+ foobar
+ foobug
+ forward--char
+ fun_name
+ fun_name1
+ name on Windowint
+ push
+tp:
+ A2
+ A2
+ A2
+ pair
+vr:
+ A2
+ A2
+ A3
+ A3
+ A3 of A2
+ A4 of A2
+ A4 of A2
+ border-pattern of Window
+ border-pattern of Window
+ enable
+ fill-column
+';
+
 
 $result_converted{'html'}->{'all_commands_delimiters_printindex'} = '<!DOCTYPE html>
 <html>
@@ -3603,6 +3655,58 @@ th.index-letter-header-printindex {text-align: left}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'all_commands_delimiters_printindex'} = 'fn:
+ ,expose on ,Window
+ ,expose on ,Window
+ ;expose on ;Window
+ ;expose on ;Window
+ )expose on )Window
+ )expose on )Window
+ A2
+ A2
+ A3
+ A3
+ A3 on A2
+ A3 on A2
+ A4 on A2
+ A4 on A2
+ apply
+ e,xpose on W,indow
+ e,xpose on W,indow
+ e;xpose on W;indow
+ e;xpose on W;indow
+ e)xpose on W)indow
+ e)xpose on W)indow
+ expose on W,indow
+ expose on Window
+ expose on windows
+ foobar
+ foobar
+ foobug
+ forward--char
+ fun_name
+ fun_name1
+ name on Windowint
+ push
+tp:
+ A2
+ A2
+ A2
+ pair
+vr:
+ A2
+ A2
+ A3
+ A3
+ A3 of A2
+ A4 of A2
+ A4 of A2
+ border-pattern of Window
+ border-pattern of Window
+ enable
+ fill-column
 ';
 
 $result_converted_errors{'html'}->{'all_commands_delimiters_printindex'} = '* W |must specify a title with a title command or @top

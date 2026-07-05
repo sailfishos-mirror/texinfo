@@ -442,4 +442,12 @@ $result_converted{'plaintext'}->{'unknown_documentscript_selection'} = 'top
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'unknown_documentscript_selection'} = 'vr:
+ BBB of SSS
+ before of script
+ other од some
+ reset од after
+ script of after
+';
+
 1;

@@ -1090,10 +1090,6 @@ sub test($$)
   $indices = $indices_info_text
     unless($indices_info_text eq $initial_index_names);
 
-  # TODO It could be interesting to show the result
-  # of indices sort strings for each of the converter.  For
-  # that would need a function like print_document_indices_sort_strings
-  # but for converters.
   my $indices_sorted_sort_strings
    = Texinfo::Document::Indices::print_document_indices_sort_strings($document);
 
@@ -1181,16 +1177,14 @@ sub test($$)
         warn "ERROR: $self->{'name'}: $test_name: $format: file test with result as text\n";
       }
 
-      # only for the formats that call indices sorting.
+      # For the formats that need indices sorting, compare sorting strings
       if ($format_type eq 'html' or $format_type eq 'info'
           or $format_type eq 'plaintext') {
-        my $format_indices_sorted_sort_strings
+        my $format_indices_sort_strings
           = $converter->print_converter_indices_sort_strings();
-        # next step:
-        # if (defined($format_indices_sorted_sort_strings) {
-        #   $converted_sort_strings{$format}
-        #     = $format_indices_sorted_sort_strings;
-        # }
+        if (defined($format_indices_sorted_sort_strings)) {
+          $converted_sort_strings{$format} = $format_indices_sort_strings;
+        }
       }
 
       # output converted result and errors in files if $arg_output is set
@@ -1301,9 +1295,9 @@ sub test($$)
     if ($debug and $unsplit_needed);
 
   # NOTE either a PlainTexinfo converter or a direct call to
-  # convert_to_texinfo can be used to test conversion back to Texinfo,
-  # both for pure Perl and XS.  We use convert_to_texinfo as is should
-  # require less resources as there is no need to create a converter.
+  # convert_to_texinfo can be used to test conversion back to Texinfo.
+  # We use convert_to_texinfo that should require less resources, because
+  # there is no need to create a converter.
   my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
   my $output_units
@@ -1616,6 +1610,22 @@ sub test($$)
                     $test_name.' converted '.$format);
           }
         }
+
+        if ($reference_exists) {
+          $tests_count += 1;
+          ok(((not defined($converted_sort_strings{$format})
+               and (not exists($result_converted_sort_strings{$format})
+                    or not exists(
+                      $result_converted_sort_strings{$format}->{$test_name})))
+              or (defined($converted_sort_strings{$format})
+                  and exists($result_converted_sort_strings{$format})
+                  and exists(
+                        $result_converted_sort_strings{$format}->{$test_name})
+                  and $converted_sort_strings{$format} eq
+                       $result_converted_sort_strings{$format}->{$test_name})),
+             $test_name.' indices sort '.$format);
+        }
+
 
         if ($reference_exists) {
           $tests_count += 1;

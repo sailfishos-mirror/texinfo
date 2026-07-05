@@ -370,6 +370,12 @@ $result_converted{'plaintext'}->{'multiple_documentlanguage'} = 'top
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'multiple_documentlanguage'} = 'vr:
+ a de copying
+ BBB de fr
+ BBB od hr
+';
+
 
 $result_converted{'info'}->{'multiple_documentlanguage'} = 'This is , produced from .
 
@@ -423,6 +429,12 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: hr
 End:
+';
+
+$result_converted_sort_strings{'info'}->{'multiple_documentlanguage'} = 'vr:
+ a de copying
+ BBB de fr
+ BBB od hr
 ';
 
 
@@ -525,6 +537,12 @@ th.index-letter-header-printindex {text-align: left}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'multiple_documentlanguage'} = 'vr:
+ a de copying
+ BBB de fr
+ BBB od hr
 ';
 
 

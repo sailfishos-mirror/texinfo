@@ -173,4 +173,18 @@ $result_indices_sort_strings{'translation_in_parser_in_translation'} = 'fn:
  dd de db
 ';
 
+$result_converted_sort_strings{'file_html'}->{'translation_in_parser_in_translation'} = 'fn:
+ m on n: o p q r
+CC
+
+
+Method on s: t u v w x
+DD
+
+ entry
+
+
+
+';
+
 1;

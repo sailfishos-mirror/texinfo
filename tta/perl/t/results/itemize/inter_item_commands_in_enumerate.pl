@@ -385,6 +385,16 @@ $result_converted{'plaintext'}->{'inter_item_commands_in_enumerate'} = 'top
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'inter_item_commands_in_enumerate'} = 'cp:
+ another
+ cindex
+ first idx
+ index inter in enumerate after line
+ index inter in enumerate before line
+ index inter in enumerate between lines
+ sedond idx
+';
+
 
 $result_converted{'html_text'}->{'inter_item_commands_in_enumerate'} = '<div class="top-level-extent" id="Top">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>

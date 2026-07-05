@@ -240,6 +240,10 @@ $result_converted{'plaintext'}->{'documentscript_variant_reset_in_preamble'} = '
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'documentscript_variant_reset_in_preamble'} = 'vr:
+ by од used
+';
+
 
 $result_converted{'info'}->{'documentscript_variant_reset_in_preamble'} = 'This is , produced from .
 
@@ -275,6 +279,10 @@ Local Variables:
 coding: utf-8
 Info-documentlanguage: sr
 End:
+';
+
+$result_converted_sort_strings{'info'}->{'documentscript_variant_reset_in_preamble'} = 'vr:
+ by од used
 ';
 
 
@@ -333,6 +341,10 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'documentscript_variant_reset_in_preamble'} = 'vr:
+ by од used
 ';
 
 

@@ -686,4 +686,15 @@ $result_indices_sort_strings{'customize_definition_index_translations'} = 'fn:
  fr de op class fr
 ';
 
+$result_converted_sort_strings{'file_html'}->{'customize_definition_index_translations'} = 'fn:
+ deAT in op class deAT
+ default of cv class default
+ default on op class default
+ La méthode fr pour la op class fr
+ La variable fr de cv class fr
+ Name de der op class de
+ Variable de der cv class de
+ Variable(AT) deAT der cv class deAT
+';
+
 1;

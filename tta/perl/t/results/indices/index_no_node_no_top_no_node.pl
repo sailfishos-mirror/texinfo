@@ -554,6 +554,23 @@ coding: utf-8
 End:
 ';
 
+$result_converted_sort_strings{'info'}->{'index_no_node_no_top_no_node'} = 'cp:
+ chapter
+ Chapter2
+ second
+ second
+ top section
+ top section
+ top section
+ top section
+ top section
+ top section
+ top section1
+ truc
+ unnumbered
+ unnumbered after text
+';
+
 $result_converted_errors{'info'}->{'index_no_node_no_top_no_node'} = '* W index_no_node_no_top.texi|document without nodes
  warning: document without nodes
 
@@ -731,6 +748,23 @@ Text of chapter
 
 In chapter 2
 
+';
+
+$result_converted_sort_strings{'plaintext'}->{'index_no_node_no_top_no_node'} = 'cp:
+ chapter
+ Chapter2
+ second
+ second
+ top section
+ top section
+ top section
+ top section
+ top section
+ top section
+ top section1
+ truc
+ unnumbered
+ unnumbered after text
 ';
 
 $result_converted_errors{'plaintext'}->{'index_no_node_no_top_no_node'} = '* W index_no_node_no_top.texi:l41|entry for index `cp\' outside of any node

@@ -417,6 +417,18 @@ sixx
      HHHHHH
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'item_index_transformation'} = 'cp:
+ after1
+ After1
+ after2
+ After2
+ after6
+ after7
+ before1
+ Before1
+ before2
+';
+
 
 $result_converted{'html_text'}->{'item_index_transformation'} = '<div class="chapter-level-extent" id="chap">
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>

@@ -68,4 +68,8 @@ $result_indices_sort_strings{'leading_space_in_def_arg'} = 'fn:
 $result_converted{'plaintext'}->{'leading_space_in_def_arg'} = ' -- category: name arg
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'leading_space_in_def_arg'} = 'fn:
+ name
+';
+
 1;

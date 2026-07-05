@@ -182,4 +182,8 @@ star.  noindentafter noindent sp
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'at_commands_glued_in_paragraph'} = 'cp:
+ index
+';
+
 1;

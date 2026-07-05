@@ -180,4 +180,8 @@ $result_converted{'plaintext'}->{'alias_of_added_index'} = 'top
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'alias_of_added_index'} = 'sli:
+ entry
+';
+
 1;

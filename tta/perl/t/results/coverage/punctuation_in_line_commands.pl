@@ -330,6 +330,10 @@ top! After punc
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'punctuation_in_line_commands'} = 'cp:
+ index! After punc
+';
+
 
 $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 <div class="top-level-extent" id="node_0021-After-punc">

@@ -210,4 +210,12 @@ $result_indices_sort_strings{'char_latin2_latin2_in_refs'} = 'cp:
  Ą ą Ę ę
 ';
 
+$result_converted_sort_strings{'file_html'}->{'char_latin2_latin2_in_refs'} = 'cp:
+ Ą ą Ę ę
+';
+
+$result_converted_sort_strings{'file_info'}->{'char_latin2_latin2_in_refs'} = 'cp:
+ Ą ą Ę ę
+';
+
 1;

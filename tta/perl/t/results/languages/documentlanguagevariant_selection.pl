@@ -451,4 +451,12 @@ $result_converted{'plaintext'}->{'documentlanguagevariant_selection'} = 'top
  -- Instance Variable of one: after change
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'documentlanguagevariant_selection'} = 'vr:
+ after of one
+ BBB of SSS
+ before of script
+ other од some
+ reset од after
+';
+
 1;

@@ -295,6 +295,11 @@ Text ‘code in w’ text.  <‘code in key’ text>
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'contain_plain_text_nestings'} = 'cp:
+  text
+  text
+';
+
 
 $result_converted{'html_text'}->{'contain_plain_text_nestings'} = '<div class="top-level-extent" id="Top">
 <p class="nav-panel">

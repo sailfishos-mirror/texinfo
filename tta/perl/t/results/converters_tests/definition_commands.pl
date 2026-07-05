@@ -4683,6 +4683,88 @@ produces:
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'definition_commands'} = 'fn:
+ .ft
+ \\f(fn
+ \\f[font]
+ \\ff
+ \\n[.sty]
+ apply
+ apply
+ fname
+ fname
+ fname
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ name
+vr:
+ border-pattern of Window
+ border-pattern of Window
+';
+
 
 $result_converted{'html_text'}->{'definition_commands'} = '<div class="top-level-extent" id="Top">
 <h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
@@ -4847,6 +4929,88 @@ to <var class="var">font</var> (one-character name&nbsp;<var class="var">f</var>
 
 </div>
 </div>
+';
+
+$result_converted_sort_strings{'file_html'}->{'definition_commands'} = 'fn:
+ .ft
+ \\f(fn
+ \\f[font]
+ \\ff
+ \\n[.sty]
+ apply
+ apply
+ fname
+ fname
+ fname
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ name
+vr:
+ border-pattern of Window
+ border-pattern of Window
 ';
 
 

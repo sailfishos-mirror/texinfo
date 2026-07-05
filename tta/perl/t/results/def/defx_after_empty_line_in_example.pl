@@ -134,4 +134,9 @@ $result_converted{'plaintext'}->{'defx_after_empty_line_in_example'} = '      --
       -- truc: bidulr machin...
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'defx_after_empty_line_in_example'} = 'fn:
+ bidulr
+ i
+';
+
 1;

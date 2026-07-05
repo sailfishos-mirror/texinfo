@@ -517,6 +517,10 @@ $result_converted{'plaintext'}->{'at_commands_in_raw'} = 'top
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'at_commands_in_raw'} = 'fn:
+ fentry2
+';
+
 
 $result_converted{'html_text'}->{'at_commands_in_raw'} = '<div class="top-level-extent" id="Top">
 <p class="nav-panel">

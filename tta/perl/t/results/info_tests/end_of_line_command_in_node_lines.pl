@@ -401,4 +401,9 @@ $result_indices_sort_strings{'end_of_line_command_in_node_lines'} = 'cp:
  b
 ';
 
+$result_converted_sort_strings{'file_info'}->{'end_of_line_command_in_node_lines'} = 'cp:
+ a 
+ b
+';
+
 1;

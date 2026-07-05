@@ -99,6 +99,10 @@ $result_indices_sort_strings{'comment_index_before_defline'} = 'cp:
 $result_converted{'plaintext'}->{'comment_index_before_defline'} = ' -- a: b c d
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'comment_index_before_defline'} = 'cp:
+ entry
+';
+
 
 $result_converted{'html'}->{'comment_index_before_defline'} = '<!DOCTYPE html>
 <html>
@@ -132,6 +136,10 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'comment_index_before_defline'} = 'cp:
+ entry
 ';
 
 $result_converted_errors{'html'}->{'comment_index_before_defline'} = '* W |must specify a title with a title command or @top

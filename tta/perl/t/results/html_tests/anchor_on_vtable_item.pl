@@ -358,4 +358,10 @@ th.index-letter-header-printindex {text-align: left}
 </html>
 ';
 
+$result_converted_sort_strings{'html'}->{'anchor_on_vtable_item'} = 'vr:
+ lab3
+ label1
+ label2
+';
+
 1;

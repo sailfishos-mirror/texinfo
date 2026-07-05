@@ -120,4 +120,9 @@ $result_converted{'plaintext'}->{'defx_after_comment_in_example'} = '      -- fs
       -- truc: bidulr machin...
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'defx_after_comment_in_example'} = 'fn:
+ bidulr
+ i
+';
+
 1;

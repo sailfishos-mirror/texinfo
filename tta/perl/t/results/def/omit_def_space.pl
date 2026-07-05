@@ -158,6 +158,11 @@ $result_converted{'plaintext'}->{'omit_def_space'} = ' -- Function: function(arg
      explain
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'omit_def_space'} = 'fn:
+ another
+ function
+';
+
 
 $result_converted{'html'}->{'omit_def_space'} = '<!DOCTYPE html>
 <html>
@@ -204,6 +209,11 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'omit_def_space'} = 'fn:
+ another
+ function
 ';
 
 $result_converted_errors{'html'}->{'omit_def_space'} = '* W |must specify a title with a title command or @top

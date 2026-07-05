@@ -477,4 +477,20 @@ fn:
  somewhere
 ';
 
+$result_converted_sort_strings{'file_html'}->{'split_chapter_index'} = 'cp:
+ ! entry in node
+ a concept in first
+ another
+ entry a
+ entry after printindex
+ entry in node
+ entry in node
+ printindex subsection 2
+ something
+fn:
+ a function
+ fun in node
+ somewhere
+';
+
 1;

@@ -417,6 +417,14 @@ Copyright notice 1: The Public Domain notice(2)
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'float_copying'} = 'cp:
+ indexed caption
+ indexed caption copying footnote
+fn:
+ indexed caption function
+ public domain function
+';
+
 
 $result_converted{'info'}->{'float_copying'} = 'This is , produced from .
 
@@ -511,6 +519,14 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
+';
+
+$result_converted_sort_strings{'info'}->{'float_copying'} = 'cp:
+ indexed caption
+ indexed caption copying footnote
+fn:
+ indexed caption function
+ public domain function
 ';
 
 $result_converted_errors{'info'}->{'float_copying'} = '* E l3|@float output more than once: public domain
@@ -696,6 +712,14 @@ the author abandon his copyright.
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'float_copying'} = 'cp:
+ indexed caption
+ indexed caption copying footnote
+fn:
+ indexed caption function
+ public domain function
 ';
 
 

@@ -193,4 +193,8 @@ $result_indices_sort_strings{'directions_buttons'} = 'cp:
  Here
 ';
 
+$result_converted_sort_strings{'file_html'}->{'directions_buttons'} = 'cp:
+ Here
+';
+
 1;

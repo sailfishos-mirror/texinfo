@@ -1524,4 +1524,25 @@ coding: utf-8
 End:
 ';
 
+$result_converted_sort_strings{'info'}->{'test_index'} = 'cp:
+ ¡
+ "
+ @
+ in Top
+ index entry in appendix before para
+ index entry looooooooooooooooooooooooooooooooooooooooooooooooooooooooong
+ index in chapter end
+fn:
+ a fun
+ after lines.
+ after more than 100 lines
+ function index entry
+ i
+ index entry between indices
+ itemx fun
+ machin
+ other function
+ second fun
+';
+
 1;

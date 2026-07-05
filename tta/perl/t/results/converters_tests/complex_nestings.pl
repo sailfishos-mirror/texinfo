@@ -406,6 +406,15 @@ $result_converted{'plaintext'}->{'complex_nestings'} = 'top
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'complex_nestings'} = 'fn:
+ my def
+ name
+ other def
+vr:
+ variables
+ variables too
+';
+
 
 $result_converted{'html_text'}->{'complex_nestings'} = '<div class="top-level-extent" id="Top">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>

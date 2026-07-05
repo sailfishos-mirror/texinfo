@@ -324,4 +324,12 @@ $result_indices_sort_strings{'documentlanguage'} = 'fn:
  name na class
 ';
 
+$result_converted_sort_strings{'file_html'}->{'documentlanguage'} = 'fn:
+ name na class
+';
+
+$result_converted_sort_strings{'file_info'}->{'documentlanguage'} = 'fn:
+ name na class
+';
+
 1;

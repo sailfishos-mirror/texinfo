@@ -200,4 +200,8 @@ $result_converted{'plaintext'}->{'at_commands_glued_in_example'} = '     at@.
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'at_commands_glued_in_example'} = 'cp:
+ index
+';
+
 1;

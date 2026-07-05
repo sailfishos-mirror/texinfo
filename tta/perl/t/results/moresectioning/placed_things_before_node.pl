@@ -377,6 +377,10 @@ coding: utf-8
 End:
 ';
 
+$result_converted_sort_strings{'info'}->{'placed_things_before_node'} = 'cp:
+ index entry
+';
+
 $result_converted_errors{'info'}->{'placed_things_before_node'} = '* W l1|@anchor outside of any node
  warning: @anchor outside of any node
 
@@ -468,6 +472,10 @@ span:hover a.copiable-link {visibility: visible}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'placed_things_before_node'} = 'cp:
+ index entry
 ';
 
 

@@ -134,4 +134,8 @@ th.index-letter-header-printindex {text-align: left}
 </html>
 ';
 
+$result_converted_sort_strings{'html'}->{'index_and_node_same_name'} = 'cp:
+ node
+';
+
 1;

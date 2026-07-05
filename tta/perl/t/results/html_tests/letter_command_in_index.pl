@@ -250,4 +250,10 @@ th.index-letter-header-printindex {text-align: left}
 </html>
 ';
 
+$result_converted_sort_strings{'html'}->{'letter_command_in_index'} = 'cp:
+ ê
+ ł
+ Þ
+';
+
 1;

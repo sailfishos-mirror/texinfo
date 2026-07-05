@@ -193,4 +193,13 @@ $result_converted{'plaintext'}->{'inter_item_commands_in_def_in_example'} = '   
           In deff item.
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'inter_item_commands_in_def_in_example'} = 'cp:
+ between deffnx
+ cindex in deff item
+fn:
+ i
+ id i ule
+ log trap1
+';
+
 1;

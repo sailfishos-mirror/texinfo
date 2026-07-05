@@ -132,4 +132,8 @@ $result_converted{'plaintext'}->{'documentlanguage_selection_region_unicode'} = 
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'documentlanguage_selection_region_unicode'} = 'vr:
+ Language of Which
+';
+
 1;

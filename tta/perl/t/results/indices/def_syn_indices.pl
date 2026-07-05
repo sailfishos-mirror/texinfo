@@ -556,6 +556,18 @@ coding: utf-8
 End:
 ';
 
+$result_converted_sort_strings{'info'}->{'def_syn_indices'} = 'codeidx:
+ a index entry tẽ î
+fn:
+ cindex entry
+ index truc
+pg:
+ abc index entry
+ defg index entry
+ pindex codeidx
+ truc kindex
+';
+
 
 $result_converted{'plaintext'}->{'def_syn_indices'} = 'top
 ***
@@ -595,6 +607,18 @@ definedx truc after
 * cindex entry:                          Chapter index.         (line 8)
 * index truc:                            Chapter index.         (line 8)
 
+';
+
+$result_converted_sort_strings{'plaintext'}->{'def_syn_indices'} = 'codeidx:
+ a index entry tẽ î
+fn:
+ cindex entry
+ index truc
+pg:
+ abc index entry
+ defg index entry
+ pindex codeidx
+ truc kindex
 ';
 
 

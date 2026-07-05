@@ -104,4 +104,9 @@ $result_converted{'plaintext'}->{'defx_after_comment'} = ' -- fset: I a g
  -- truc: bidulr machin...
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'defx_after_comment'} = 'fn:
+ bidulr
+ i
+';
+
 1;

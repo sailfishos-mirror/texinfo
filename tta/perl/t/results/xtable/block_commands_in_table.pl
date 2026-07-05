@@ -482,6 +482,14 @@ _second item_
    After table.
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'block_commands_in_table'} = 'vr:
+ item
+ item before ignored lines
+ itemx after an empty line
+ itemx now
+ vindex
+';
+
 
 $result_converted{'html_text'}->{'block_commands_in_table'} = '<div class="top-level-extent" id="Top">
 <h1 class="top" id="Element"><span>Element<a class="copiable-link" href="#Element"> &para;</a></span></h1>

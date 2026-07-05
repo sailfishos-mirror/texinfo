@@ -684,6 +684,21 @@ $result_converted{'plaintext'}->{'table_nested'} = 'Quotation
           After table.
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'table_nested'} = 'vr:
+ first item
+ first item
+ first item
+ last
+ last
+ last
+ second item
+ second item
+ second item
+ second itemx
+ second itemx
+ second itemx
+';
+
 
 $result_converted{'html_text'}->{'table_nested'} = '
 <p>Quotation

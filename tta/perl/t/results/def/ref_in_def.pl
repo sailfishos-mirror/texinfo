@@ -191,4 +191,9 @@ $result_converted{'plaintext'}->{'ref_in_def'} = ' -- myanchor: myanchor see mya
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'ref_in_def'} = 'fn:
+ myanchor
+ myanchor
+';
+
 1;

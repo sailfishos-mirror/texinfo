@@ -564,6 +564,28 @@ coding: utf-8
 End:
 ';
 
+$result_converted_sort_strings{'info'}->{'sorted_subentries'} = 'cp:
+ , aa
+ aa, bb
+ aa, dd
+ ab, cc
+ bb, cc
+ hhh
+ hhh
+ hhh, 
+ hhh, jjj
+ hhh, jjj
+ hhh, jjj, A
+ hhh, jjj, lll
+ hhh, jjj, lll
+ hhh, jjj, lll, ppp
+ hhh, JJJ, mymail
+ hhh, k
+ hhh, k, nnn
+ hhh, l, third
+ hhh jjj
+';
+
 $result_converted_errors{'info'}->{'sorted_subentries'} = '* W l16|empty index sub entry 1 key in @cindex
  warning: empty index sub entry 1 key in @cindex
 
@@ -601,6 +623,28 @@ $result_converted{'plaintext'}->{'sorted_subentries'} = '1 one
 * hhh, l, third:                         chapter second.        (line 6)
 * hhh jjj:                               chapter one.           (line 2)
 
+';
+
+$result_converted_sort_strings{'plaintext'}->{'sorted_subentries'} = 'cp:
+ , aa
+ aa, bb
+ aa, dd
+ ab, cc
+ bb, cc
+ hhh
+ hhh
+ hhh, 
+ hhh, jjj
+ hhh, jjj
+ hhh, jjj, A
+ hhh, jjj, lll
+ hhh, jjj, lll
+ hhh, jjj, lll, ppp
+ hhh, JJJ, mymail
+ hhh, k
+ hhh, k, nnn
+ hhh, l, third
+ hhh jjj
 ';
 
 $result_converted_errors{'plaintext'}->{'sorted_subentries'} = '* W l16|empty index sub entry 1 key in @cindex

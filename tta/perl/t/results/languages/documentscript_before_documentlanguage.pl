@@ -191,4 +191,8 @@ $result_converted{'plaintext'}->{'documentscript_before_documentlanguage'} = 'to
  -- Променљива примерка од some: other ivar
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'documentscript_before_documentlanguage'} = 'vr:
+ other од some
+';
+
 1;

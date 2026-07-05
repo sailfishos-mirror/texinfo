@@ -757,4 +757,184 @@ $result_indices_sort_strings{'encoding_index_ascii'} = 'cp:
  Þ
 ';
 
+$result_converted_sort_strings{'file_html'}->{'encoding_index_ascii'} = 'cp:
+ -
+ --
+ ,
+ ¡
+ \'
+ "
+ "
+ "
+ “
+ @
+ `
+ °
+ ≥
+ €
+ 0
+ 9
+ a
+ A
+ ª
+ Æ
+ b
+ B
+ c
+ d
+ Ð
+ e
+ é é
+ f
+ g
+ h
+ i
+ î î (dotless)
+ ï ïïï
+ î îîîî
+ ı ı (dotless)
+ j
+ k
+ l
+ ł
+ Ł
+ m
+ n
+ o
+ º
+ p
+ q
+ r
+ s
+ ß
+ t
+ u
+ v
+ w
+ x
+ y
+ z
+ Þ
+';
+
+$result_converted_sort_strings{'file_plaintext'}->{'encoding_index_ascii'} = 'cp:
+ -
+ --
+ ,
+ ¡
+ \'
+ "
+ "
+ "
+ “
+ @
+ `
+ °
+ ≥
+ €
+ 0
+ 9
+ a
+ A
+ ª
+ Æ
+ b
+ B
+ c
+ d
+ Ð
+ e
+ é é
+ f
+ g
+ h
+ i
+ î î (dotless)
+ ï ïïï
+ î îîîî
+ ı ı (dotless)
+ j
+ k
+ l
+ ł
+ Ł
+ m
+ n
+ o
+ º
+ p
+ q
+ r
+ s
+ ß
+ t
+ u
+ v
+ w
+ x
+ y
+ z
+ Þ
+';
+
+$result_converted_sort_strings{'file_info'}->{'encoding_index_ascii'} = 'cp:
+ -
+ --
+ ,
+ ¡
+ \'
+ "
+ "
+ "
+ “
+ @
+ `
+ °
+ ≥
+ €
+ 0
+ 9
+ a
+ A
+ ª
+ Æ
+ b
+ B
+ c
+ d
+ Ð
+ e
+ é é
+ f
+ g
+ h
+ i
+ î î (dotless)
+ ï ïïï
+ î îîîî
+ ı ı (dotless)
+ j
+ k
+ l
+ ł
+ Ł
+ m
+ n
+ o
+ º
+ p
+ q
+ r
+ s
+ ß
+ t
+ u
+ v
+ w
+ x
+ y
+ z
+ Þ
+';
+
 1;

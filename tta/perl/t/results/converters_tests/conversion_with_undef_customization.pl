@@ -265,4 +265,16 @@ fn:
  name
 ';
 
+$result_converted_sort_strings{'file_html'}->{'conversion_with_undef_customization'} = 'cp:
+ entry
+fn:
+ name
+';
+
+$result_converted_sort_strings{'file_info'}->{'conversion_with_undef_customization'} = 'cp:
+ entry
+fn:
+ name
+';
+
 1;

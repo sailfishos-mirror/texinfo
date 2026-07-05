@@ -94,6 +94,10 @@ coding: utf-8
 End:
 ';
 
+$result_converted_sort_strings{'info'}->{'bracketed_arg_no_space'} = 'fn:
+ e gh
+';
+
 $result_converted_errors{'info'}->{'bracketed_arg_no_space'} = '* W |document without nodes
  warning: document without nodes
 
@@ -132,6 +136,10 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'bracketed_arg_no_space'} = 'fn:
+ e gh
 ';
 
 $result_converted_errors{'html'}->{'bracketed_arg_no_space'} = '* W |must specify a title with a title command or @top

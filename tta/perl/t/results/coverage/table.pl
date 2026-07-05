@@ -215,6 +215,15 @@ table itemx
 *unknown command after indicating command*
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'table'} = 'cp:
+ index entry
+ky:
+ key
+vr:
+ itemx vtable
+ vtable item
+';
+
 
 $result_converted{'html_text'}->{'table'} = '
 <dl class="table">

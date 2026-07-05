@@ -102,4 +102,9 @@ $result_converted{'plaintext'}->{'defx_after_empty_line'} = ' -- fset: I a g
  -- truc: bidulr machin...
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'defx_after_empty_line'} = 'fn:
+ bidulr
+ i
+';
+
 1;

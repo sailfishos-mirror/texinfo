@@ -503,4 +503,14 @@ fn:
  public domain function
 ';
 
+$result_converted_sort_strings{'file_html'}->{'float_copying'} = 'cp:
+ indexed caption
+ indexed caption copying footnote
+ listofloats
+ Top
+fn:
+ indexed caption function
+ public domain function
+';
+
 1;

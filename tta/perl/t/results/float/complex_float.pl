@@ -1151,6 +1151,12 @@ See Text 1: text with a lot of features.
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'complex_float'} = 'cp:
+ float example
+ float example in caption
+ float example in caption 2
+';
+
 
 $result_converted{'html'}->{'complex_float'} = '<!DOCTYPE html>
 <html>
@@ -1361,6 +1367,12 @@ A footnote 2.
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'complex_float'} = 'cp:
+ float example
+ float example in caption
+ float example in caption 2
 ';
 
 

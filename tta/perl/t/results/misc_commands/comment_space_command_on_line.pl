@@ -325,6 +325,10 @@ Text 1.1
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'comment_space_command_on_line'} = 'cp:
+ index entry  
+';
+
 
 $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 <div class="top-level-extent" id="Top">
@@ -544,6 +548,10 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
+';
+
+$result_converted_sort_strings{'info'}->{'comment_space_command_on_line'} = 'cp:
+ index entry  
 ';
 
 

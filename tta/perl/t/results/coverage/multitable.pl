@@ -188,6 +188,10 @@ lone mu-ltitable item
 truc   bidule
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'multitable'} = 'cp:
+ index entry within multitable
+';
+
 
 $result_converted{'html_text'}->{'multitable'} = '
 <table class="multitable">

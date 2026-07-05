@@ -48,6 +48,4 @@ $result_sectioning_root{'raw_block_on_line'} = '';
 
 $result_headings_list{'raw_block_on_line'} = '';
 
-$result_indices_sort_strings{'raw_block_on_line'} = '';
-
 1;

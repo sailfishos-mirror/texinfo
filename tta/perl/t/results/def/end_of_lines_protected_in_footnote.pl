@@ -125,4 +125,8 @@ $result_converted{'plaintext'}->{'end_of_lines_protected_in_footnote'} = '(1)
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'end_of_lines_protected_in_footnote'} = 'fn:
+ deffn_name
+';
+
 1;

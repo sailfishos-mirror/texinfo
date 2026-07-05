@@ -112,4 +112,9 @@ $result_converted{'plaintext'}->{'defx_in_example'} = '      -- fset: I a g
       -- truc: bidulr machin...
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'defx_in_example'} = 'fn:
+ bidulr
+ i
+';
+
 1;

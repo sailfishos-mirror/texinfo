@@ -88,6 +88,10 @@ $result_converted{'plaintext'}->{'def_in_example'} = '      -- Function: name ar
           in defun
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'def_in_example'} = 'fn:
+ name
+';
+
 
 $result_converted{'html'}->{'def_in_example'} = '<!DOCTYPE html>
 <html>
@@ -125,6 +129,10 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'def_in_example'} = 'fn:
+ name
 ';
 
 $result_converted_errors{'html'}->{'def_in_example'} = '* W |must specify a title with a title command or @top

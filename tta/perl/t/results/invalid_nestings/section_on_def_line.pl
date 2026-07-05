@@ -99,6 +99,10 @@ Something
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'section_on_def_line'} = 'fn:
+ b
+';
+
 
 $result_converted{'xml'}->{'section_on_def_line'} = '<deffn><definitionterm><indexterm index="fn" number="1">b</indexterm> <defcategory>a</defcategory> <deffunction>b</deffunction> </definitionterm>
 </deffn>

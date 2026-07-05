@@ -237,4 +237,10 @@ th.index-letter-header-printindex {text-align: left}
 </html>
 ';
 
+$result_converted_sort_strings{'html'}->{'U_in_index'} = 'cp:
+ 0074 letter t
+ 00B5 greek letter mu
+ 0131 dotless i
+';
+
 1;

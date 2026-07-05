@@ -261,6 +261,10 @@ coding: iso-8859-1
 End:
 ';
 
+$result_converted_sort_strings{'info'}->{'no_element'} = 'cp:
+ index entry
+';
+
 $result_converted_errors{'info'}->{'no_element'} = '* W |document without nodes
  warning: document without nodes
 
@@ -338,6 +342,10 @@ h1.settitle {text-align:center}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'no_element'} = 'cp:
+ index entry
 ';
 
 1;

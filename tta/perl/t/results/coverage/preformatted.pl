@@ -119,6 +119,10 @@ $result_converted{'plaintext'}->{'preformatted'} = '     e--xample  some
      in table in format
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'preformatted'} = 'vr:
+ item in table in format
+';
+
 
 $result_converted{'html_text'}->{'preformatted'} = '
 <div class="example">

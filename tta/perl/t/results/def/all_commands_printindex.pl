@@ -1446,6 +1446,38 @@ coding: utf-8
 End:
 ';
 
+$result_converted_sort_strings{'info'}->{'all_commands_printindex'} = 'fn:
+ d--efmac_name
+ d--efmethod_name on c--lass
+ d--efop_name on c--lass
+ d--efop_name on c--lass
+ d--efspec_name
+ d--eftypefn_name
+ d--eftypefn_name
+ d--eftypefun_name
+ d--eftypemethod_name on c--lass
+ d--eftypeop_name on c--lass
+ d--eftypeop_name on c--lass
+ d--efun_name
+ n--ame
+ n--ame
+tp:
+ d--eftp_name
+vr:
+ d--efcv_name of c--lass
+ d--efcv_name of c--lass
+ d--efivar_name of c--lass
+ d--efopt_name
+ d--eftypecv_name of c--lass
+ d--eftypecv_name of c--lass
+ d--eftypeivar_name of c--lass
+ d--eftypevar_name
+ d--eftypevr_name
+ d--efvar_name
+ d--efvar_name
+ d--efvr_name
+';
+
 
 $result_converted{'html'}->{'all_commands_printindex'} = '<!DOCTYPE html>
 <html>
@@ -1689,6 +1721,38 @@ th.index-letter-header-printindex {text-align: left}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'all_commands_printindex'} = 'fn:
+ d--efmac_name
+ d--efmethod_name on c--lass
+ d--efop_name on c--lass
+ d--efop_name on c--lass
+ d--efspec_name
+ d--eftypefn_name
+ d--eftypefn_name
+ d--eftypefun_name
+ d--eftypemethod_name on c--lass
+ d--eftypeop_name on c--lass
+ d--eftypeop_name on c--lass
+ d--efun_name
+ n--ame
+ n--ame
+tp:
+ d--eftp_name
+vr:
+ d--efcv_name of c--lass
+ d--efcv_name of c--lass
+ d--efivar_name of c--lass
+ d--efopt_name
+ d--eftypecv_name of c--lass
+ d--eftypecv_name of c--lass
+ d--eftypeivar_name of c--lass
+ d--eftypevar_name
+ d--eftypevr_name
+ d--efvar_name
+ d--efvar_name
+ d--efvr_name
 ';
 
 $result_converted_errors{'html'}->{'all_commands_printindex'} = '* W |must specify a title with a title command or @top

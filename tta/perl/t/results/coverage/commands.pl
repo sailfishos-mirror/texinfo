@@ -139,6 +139,10 @@ majorheading in b
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'commands'} = 'cp:
+ index entry "in text" LaTeX
+';
+
 
 $result_converted{'html_text'}->{'commands'} = '<p>@ TeX &nbsp;&euml; &icirc; &atilde; &aring;
 </p>

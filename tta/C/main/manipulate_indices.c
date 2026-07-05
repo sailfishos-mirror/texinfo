@@ -2027,6 +2027,12 @@ print_indices_sort_strings (
   free_name_number_list (&sorted_index_entries_n_nr);
   free_name_number_list (&indices_sort_strings_n_nr);
 
+  if (result.end == 0)
+    {
+      free (result.text);
+      return 0;
+    }
+
   return result.text;
 }
 

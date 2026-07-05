@@ -249,4 +249,13 @@ $result_indices_sort_strings{'colons_in_index_entries_and_node'} = 'cp:
  g: h
 ';
 
+$result_converted_sort_strings{'file_info'}->{'colons_in_index_entries_and_node'} = 'cp:
+ :
+ :a
+ b:c
+ d::e
+ f :d
+ g: h
+';
+
 1;

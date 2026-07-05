@@ -608,4 +608,40 @@ fn:
  fun
 ';
 
+$result_converted_sort_strings{'file_info'}->{'index_special_region_no_insertcopying'} = 'cp:
+ Copying appendix
+ Copying this document
+ Public domain
+ Titlepage footnote
+ Titlepage index
+fn:
+ another fun
+ findex entry
+ fun
+';
+
+$result_converted_sort_strings{'file_html'}->{'index_special_region_no_insertcopying'} = 'cp:
+ Copying appendix
+ Copying this document
+ Public domain
+ Titlepage footnote
+ Titlepage index
+fn:
+ another fun
+ findex entry
+ fun
+';
+
+$result_converted_sort_strings{'file_plaintext'}->{'index_special_region_no_insertcopying'} = 'cp:
+ Copying appendix
+ Copying this document
+ Public domain
+ Titlepage footnote
+ Titlepage index
+fn:
+ another fun
+ findex entry
+ fun
+';
+
 1;

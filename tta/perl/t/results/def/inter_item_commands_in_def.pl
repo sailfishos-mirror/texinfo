@@ -178,4 +178,13 @@ $result_converted{'plaintext'}->{'inter_item_commands_in_def'} = ' -- fset: I a 
      In deff item.
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'inter_item_commands_in_def'} = 'cp:
+ between deffnx
+ cindex in deff item
+fn:
+ i
+ id i ule
+ log trap1
+';
+
 1;

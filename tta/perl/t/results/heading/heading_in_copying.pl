@@ -138,6 +138,10 @@ second in copying @ _subheading_
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'heading_in_copying'} = 'cp:
+ cindex copying
+';
+
 
 $result_converted{'html'}->{'heading_in_copying'} = '<!DOCTYPE html>
 <html>
@@ -187,6 +191,10 @@ span:hover a.copiable-link {visibility: visible}
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'heading_in_copying'} = 'cp:
+ cindex copying
 ';
 
 $result_converted_errors{'html'}->{'heading_in_copying'} = '* W |must specify a title with a title command or @top

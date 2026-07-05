@@ -82,6 +82,10 @@ BBB
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'heading_in_footnote'} = 'cp:
+ ind e
+';
+
 
 $result_converted{'html_text'}->{'heading_in_footnote'} = '<p>T<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p><div class="footnotes-segment">

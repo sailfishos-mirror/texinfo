@@ -249,6 +249,15 @@ $result_indices_sort_strings{'colons_in_index_entries_and_node_no_quoting'} = 'c
  g: h
 ';
 
+$result_converted_sort_strings{'file_info'}->{'colons_in_index_entries_and_node_no_quoting'} = 'cp:
+ :
+ :a
+ b:c
+ d::e
+ f :d
+ g: h
+';
+
 $result_converted_errors{'file_info'}->{'colons_in_index_entries_and_node_no_quoting'} = '* W l4|menu entry node name should not contain `:\'
  warning: menu entry node name should not contain `:\'
 

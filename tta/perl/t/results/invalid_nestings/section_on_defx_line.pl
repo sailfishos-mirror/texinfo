@@ -129,6 +129,11 @@ Something
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'section_on_defx_line'} = 'fn:
+ b
+ j
+';
+
 
 $result_converted{'xml'}->{'section_on_defx_line'} = '<deffn><definitionterm><indexterm index="fn" number="1">j</indexterm> <defcategory>h</defcategory> <deffunction>j</deffunction> <defparam>k</defparam> <defparam>l</defparam> </definitionterm>
 <deffnx><definitionterm><indexterm index="fn" number="2">b</indexterm> <defcategory>a</defcategory> <deffunction>b</deffunction> </definitionterm></deffnx>

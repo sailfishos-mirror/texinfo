@@ -482,4 +482,10 @@ $result_converted{'plaintext'}->{'macro_alias_definfoenclose_defindex'} = 'top
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'macro_alias_definfoenclose_defindex'} = 'phoo:
+ idd
+ igg
+ ikk
+';
+
 1;

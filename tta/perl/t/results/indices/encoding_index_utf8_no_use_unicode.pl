@@ -727,4 +727,178 @@ $result_indices_sort_strings{'encoding_index_utf8_no_use_unicode'} = 'cp:
  ł
 ';
 
+$result_converted_sort_strings{'file_html'}->{'encoding_index_utf8_no_use_unicode'} = 'cp:
+ "
+ "
+ "
+ \'
+ ,
+ -
+ --
+ 0
+ 9
+ @
+ `
+ ¡
+ °
+ “
+ €
+ ≥
+ A
+ B
+ a
+ b
+ c
+ d
+ e
+ f
+ g
+ h
+ i
+ j
+ k
+ l
+ m
+ n
+ o
+ p
+ q
+ r
+ s
+ t
+ u
+ v
+ w
+ x
+ y
+ z
+ Æ
+ Ð
+ Þ
+ ß
+ é é
+ î î (dotless)
+ î îîîî
+ ï ïïï
+ ı ı (dotless)
+ Ł
+ ł
+';
+
+$result_converted_sort_strings{'file_plaintext'}->{'encoding_index_utf8_no_use_unicode'} = 'cp:
+ "
+ "
+ "
+ \'
+ ,
+ -
+ --
+ 0
+ 9
+ @
+ `
+ ¡
+ °
+ “
+ €
+ ≥
+ A
+ B
+ a
+ b
+ c
+ d
+ e
+ f
+ g
+ h
+ i
+ j
+ k
+ l
+ m
+ n
+ o
+ p
+ q
+ r
+ s
+ t
+ u
+ v
+ w
+ x
+ y
+ z
+ Æ
+ Ð
+ Þ
+ ß
+ é é
+ î î (dotless)
+ î îîîî
+ ï ïïï
+ ı ı (dotless)
+ Ł
+ ł
+';
+
+$result_converted_sort_strings{'file_info'}->{'encoding_index_utf8_no_use_unicode'} = 'cp:
+ "
+ "
+ "
+ \'
+ ,
+ -
+ --
+ 0
+ 9
+ @
+ `
+ ¡
+ °
+ “
+ €
+ ≥
+ A
+ B
+ a
+ b
+ c
+ d
+ e
+ f
+ g
+ h
+ i
+ j
+ k
+ l
+ m
+ n
+ o
+ p
+ q
+ r
+ s
+ t
+ u
+ v
+ w
+ x
+ y
+ z
+ Æ
+ Ð
+ Þ
+ ß
+ é é
+ î î (dotless)
+ î îîîî
+ ï ïïï
+ ı ı (dotless)
+ Ł
+ ł
+';
+
 1;

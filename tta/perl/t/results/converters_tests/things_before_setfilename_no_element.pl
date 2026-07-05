@@ -316,6 +316,10 @@ $result_converted{'plaintext'}->{'things_before_setfilename_no_element'} = 'Ref 
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'things_before_setfilename_no_element'} = 'cp:
+ index entry
+';
+
 
 $result_converted{'html'}->{'things_before_setfilename_no_element'} = '<!DOCTYPE html>
 <html>
@@ -347,6 +351,10 @@ $result_converted{'html'}->{'things_before_setfilename_no_element'} = '<!DOCTYPE
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'things_before_setfilename_no_element'} = 'cp:
+ index entry
 ';
 
 $result_converted_errors{'html'}->{'things_before_setfilename_no_element'} = '* W things_before_setfilename_no_element.texi|must specify a title with a title command or @top
@@ -446,6 +454,10 @@ End Tag Table
 Local Variables:
 coding: utf-8
 End:
+';
+
+$result_converted_sort_strings{'info'}->{'things_before_setfilename_no_element'} = 'cp:
+ index entry
 ';
 
 $result_converted_errors{'info'}->{'things_before_setfilename_no_element'} = '* W things_before_setfilename_no_element.texi|document without nodes

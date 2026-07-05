@@ -467,6 +467,10 @@ in nodescription, tfloat 1.1: f1.
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'commands_in_nodedescriptionblock'} = 'cp:
+ in nodedescriptionblock
+';
+
 $result_converted_errors{'plaintext'}->{'commands_in_nodedescriptionblock'} = '* W l22|could not find @image file `float_image.txt\' nor alternate text
  warning: could not find @image file `float_image.txt\' nor alternate text
 
@@ -582,6 +586,10 @@ where the max column could be. in&nbsp;w<!-- /@w -->.
 
 </body>
 </html>
+';
+
+$result_converted_sort_strings{'html'}->{'commands_in_nodedescriptionblock'} = 'cp:
+ in nodedescriptionblock
 ';
 
 $result_converted_errors{'html'}->{'commands_in_nodedescriptionblock'} = '* W l22|@image file `float_image\' (for HTML) not found, using `float_image.jpg\'

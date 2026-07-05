@@ -90,6 +90,10 @@ $result_converted{'plaintext'}->{'index_command_before_end_table'} = '‘in item
 
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'index_command_before_end_table'} = 'vr:
+ var
+';
+
 
 $result_converted{'html_text'}->{'index_command_before_end_table'} = '
 <dl class="table">

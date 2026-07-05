@@ -150,4 +150,9 @@ $result_converted{'plaintext'}->{'def_groupings_args'} = ' -- a: baac
  -- VARc: br s carg)
 ';
 
+$result_converted_sort_strings{'plaintext'}->{'def_groupings_args'} = 'fn:
+ baac
+ br s
+';
+
 1;
