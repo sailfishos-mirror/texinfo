@@ -926,8 +926,8 @@ sub _process_text_internal($) {
   return $text;
 }
 
-sub new_formatter($$;$) {
-  my ($self, $type, $conf) = @_;
+sub new_formatter($$;$$) {
+  my ($self, $type, $paragraph_conf, $formatter_conf) = @_;
 
   my $container_conf = {
     'max' => $self->{'text_element_context'}->[-1]->{'max'},
@@ -951,9 +951,9 @@ sub new_formatter($$;$) {
   # need to be manually enabled by uncommenting.
   #$container_conf->{'DEBUG'} = 1 if ($self->{'debug'});
 
-  if (defined($conf)) {
-    foreach my $key (keys(%$conf)) {
-      $container_conf->{$key} = $conf->{$key};
+  if (defined($paragraph_conf)) {
+    foreach my $key (keys(%$paragraph_conf)) {
+      $container_conf->{$key} = $paragraph_conf->{$key};
     }
   }
 
@@ -988,9 +988,9 @@ sub new_formatter($$;$) {
                    'frenchspacing_stack' => [ $frenchspacing_conf ],
                    'suppress_styles' => undef,
                    'no_added_eol' => undef};
-  if (defined($conf)) {
-    $formatter->{'suppress_styles'} = $conf->{'suppress_styles'};
-    $formatter->{'no_added_eol'} = $conf->{'no_added_eol'};
+  if (defined($formatter_conf)) {
+    $formatter->{'suppress_styles'} = $formatter_conf->{'suppress_styles'};
+    $formatter->{'no_added_eol'} = $formatter_conf->{'no_added_eol'};
   }
 
   if ($type eq 'unfilled') {
@@ -1043,12 +1043,13 @@ sub convert_line($$;$) {
 
 # convert with a line formatter in a new count context, not changing
 # the current context.  return the result of the conversion.
-sub convert_line_new_context($$;$) {
-  my ($self, $converted, $conf) = @_;
+sub convert_line_new_context($$;$$) {
+  my ($self, $converted, $paragraph_conf, $formatter_conf) = @_;
 
   push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                      'encoding_disabled' => 1};
-  my $formatter = new_formatter($self, 'line', $conf);
+  my $formatter = new_formatter($self, 'line',
+                                $paragraph_conf, $formatter_conf);
   push @{$self->{'formatters'}}, $formatter;
   _convert($self, $converted);
   _stream_output($self,
@@ -1770,9 +1771,9 @@ sub node_name($$) {
     }
     my $node_text = Texinfo::TreeElement::new({'type' => '_code',
                                        'contents' => [$label_element]});
-    my ($result, $width) = $self->convert_line_new_context($node_text,
-                                    {'suppress_styles' => 1,
-                                     'no_added_eol' => 1,});
+    my ($result, $width) = $self->convert_line_new_context($node_text, undef,
+                                    { 'suppress_styles' => 1,
+                                      'no_added_eol' => 1 } );
     $result = _stream_encode($self, $result);
     $self->{'node_names_text'}->{$node}
       = {'text' => _normalize_top_node($result),
@@ -1791,7 +1792,7 @@ sub _cache_node_names($$) {
   }
   $node_names_hash = $self->{'node_names_text'};
 
-  my $formatter = new_formatter($self, 'line',
+  my $formatter = new_formatter($self, 'line', undef,
                     {'suppress_styles' => 1, 'no_added_eol' => 1,});
   push @{$self->{'formatters'}}, $formatter;
 
@@ -1946,9 +1947,8 @@ sub process_printindex($$;$) {
 
   # Use the same line formatter for all the index entries.  This is
   # slightly faster than making a new one for each entry.
-  my $formatter = new_formatter($self, 'line',
-                                 {'indent' => 0, 'suppress_styles' => 1,
-                                  'no_added_eol' => 1});
+  my $formatter = new_formatter($self, 'line', {'indent' => 0 },
+    { 'suppress_styles' => 1, 'no_added_eol' => 1 } );
   push @{$self->{'formatters'}}, $formatter;
 
   foreach my $entry (@{$index_entries->{$index_name}}) {
@@ -2832,13 +2832,13 @@ sub _convert_def_line($$) {
     }
 
     my $def_paragraph = new_formatter($self, 'paragraph',
-     { 'indent_length' =>
-          $self->{'format_context'}->[-2]->{'context_indent_len'},
-       'indent_length_next' =>
-           $self->{'format_context'}->[-1]->{'context_indent_len'}
-             + $default_indent_length,
-       'suppress_styles' => 1
-     });
+      { 'indent_length' =>
+           $self->{'format_context'}->[-2]->{'context_indent_len'},
+        'indent_length_next' =>
+            $self->{'format_context'}->[-1]->{'context_indent_len'}
+              + $default_indent_length },
+      { 'suppress_styles' => 1 }
+     );
     push @{$self->{'formatters'}}, $def_paragraph;
 
     _convert($self, $tree);

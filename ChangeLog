@@ -1,5 +1,11 @@
 2026-07-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Convert/Plaintext.pm (new_formatter):
+	Split $conf parameter into two parameters, one for paragraph
+	configuration only.
+
+2026-07-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/Texinfo/Convert/Plaintext.pm
 	(new_formatter) <flush commands>:
 	Set 'ignore_columns' and 'keep_end_lines' on container configuration
