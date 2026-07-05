@@ -1594,10 +1594,6 @@ sub test($$)
           }
         }
 
-        # TODO for HTML format tests, it could be a good idea to produce
-        # and check a representation of global and text directions,
-        # including added and special units directions.
-
         if ($reference_exists) {
           $tests_count += 1;
           ok(((not defined($converted_errors{$format})

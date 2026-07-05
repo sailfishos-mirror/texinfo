@@ -75,7 +75,7 @@ sub merged_indices($) {
 # calls Texinfo::Indices::setup_index_entries_sort_strings and caches the
 # result.
 # Should only be used in tests.  Called by sorted_indices_by_index, in
-# that case also used to get C Document data.
+# that case also used to get C Document data built as indices_information.
 sub _document_indices_sort_strings($) {
   my $document = shift;
 
@@ -180,10 +180,10 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-Merge and sort document indices.  Parsed indexes
-are not merged nor sorted, L<Texinfo::Indices> functions are
-called to merge or sort the indexes the first time the following
-methods are called.  The results are afterwards associated to the
+Merge and sort document indices.  When a Texinfo Document is parsed,
+the indices are not merged nor sorted.  This module methods call
+L<Texinfo::Indices> functions to merge or sort indexes the first
+time the method is called.  The results are afterwards associated to the
 document and simply returned.
 
 =head1 METHODS
@@ -195,7 +195,7 @@ X<C<merged_indices>>
 
 Merge indexes if needed and return merged indexes.  The I<$merged_indices>
 returned is a hash reference whose keys are the index names and values arrays
-of index entry structures described in L</index_entries>.
+of index entry structures described in L<Texinfo::Document/index_entries>.
 
 L<< C<Texinfo::Indices::merge_indices>|Texinfo::Indices/$merged_indices = merge_indices($indices_information) >>
 is used to merge the indexes.

@@ -27,10 +27,10 @@ Texinfo to other formats.  There is no promise of API stability.
 @node Texinfo@asis{::}Document@asis{::}Indices DESCRIPTION
 @section Texinfo::Document::Indices DESCRIPTION
 
-Merge and sort document indices.  Parsed indexes
-are not merged nor sorted, @ref{Texinfo@asis{::}Indices NAME,, Texinfo::Indices} functions are
-called to merge or sort the indexes the first time the following
-methods are called.  The results are afterwards associated to the
+Merge and sort document indices.  When a Texinfo Document is parsed,
+the indices are not merged nor sorted.  This module methods call
+@ref{Texinfo@asis{::}Indices NAME,, Texinfo::Indices} functions to merge or sort indexes the first
+time the method is called.  The results are afterwards associated to the
 document and simply returned.
 
 @node Texinfo@asis{::}Document@asis{::}Indices METHODS
@@ -43,7 +43,7 @@ document and simply returned.
 
 Merge indexes if needed and return merged indexes.  The @emph{$merged_indices}
 returned is a hash reference whose keys are the index names and values arrays
-of index entry structures described in @ref{Texinfo@asis{::}Document@asis{::}Indices index_entries,, index_entries}.
+of index entry structures described in @ref{Texinfo@asis{::}Document index_entries}.
 
 @ref{Texinfo@asis{::}Indices $merged_indices = merge_indices($indices_information),, @code{Texinfo::Indices::merge_indices}}
 is used to merge the indexes.

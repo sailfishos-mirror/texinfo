@@ -747,7 +747,7 @@ keys are the index names and values arrays of index entry structures
 described in details in L<Texinfo::Document/index_entries>.
 
 In general, this method should not be called directly, instead
-L<< C<Texinfo::Document::merged_indices>|Texinfo::Document/$merged_indices = $document->merged_indices() >>
+L<< C<Texinfo::Document::Indices::merged_indices>|Texinfo::Document::Indices/$merged_indices = $document->merged_indices() >>
 should be called on a document, which calls C<merge_indices> if needed and
 associate the merged indices to the document.
 
@@ -765,7 +765,7 @@ I<$indices_sort_strings> are strings used to sort the index entries,
 by index, obtained by converting the index entries to text.
 Indices are obtained from a Texinfo Document, and should have been merged
 previously, in general by using
-L<< C<Texinfo::Document::merged_indices>|Texinfo::Document/$merged_indices = $document->merged_indices() >>.
+L<< C<Texinfo::Document::Indices::merged_indices>|Texinfo::Document::Indices/$merged_indices = $document->merged_indices() >>.
 
 By default, indices are sorted according to the I<Unicode Collation Algorithm>
 defined in the L<Unicode Technical Standard
@@ -798,6 +798,16 @@ strings are independent from the sorting keys used internally to sort indices.
 
 =over
 
+=item $options = setup_index_entry_keys_formatting($customization_information)
+X<C<setup_index_entry_keys_formatting>>
+
+Return options relevant for index entries sorting strings used for
+conversion of Texinfo to output.
+
+Should be called early, since it sets up language information corresponding to
+the language current at the end of the preamble.  (Note that commands appearing
+in index entry whose output may depend on a language are rare.)
+
 =item $sort_string = index_entry_element_sort_string($document_info, $main_entry, $index_entry_element, $options, $prefer_reference_element, $converter, $debug_level)
 X<C<index_entry_element_sort_string>>
 
@@ -814,7 +824,7 @@ that can be used to gather information.
 The I<$options> are options used for Texinfo conversion to text for the
 generation of the sorting string and, when called directly (and not through
 index sorting functions), are generally obtained from
-L<setup_index_entry_keys_formatting|/$option = setup_index_entry_keys_formatting($customization_information)>
+L<setup_index_entry_keys_formatting|/$options = setup_index_entry_keys_formatting($customization_information)>
 early on, and reused in every call.
 
 If I<$prefer_reference_element> is set, prefer an untranslated
@@ -822,16 +832,6 @@ element for the formatting as sorting string.
 
 If I<$converter> is set, use the converter for index entries with
 index string based on a translation.
-
-=item $option = setup_index_entry_keys_formatting($customization_information)
-X<C<setup_index_entry_keys_formatting>>
-
-Return options relevant for index keys sorting for conversion of Texinfo
-to output.
-
-Should be called early, since it sets up language information corresponding to
-the language current at the end of the preamble.  (Note that commands appearing
-in index entry whose output may depend on a language are rare.)
 
 =back
 
