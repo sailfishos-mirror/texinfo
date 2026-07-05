@@ -47,6 +47,26 @@
 #define reallocate_(OBJNAME) reallocate_ ## OBJNAME ## _list
 #define add_(OBJNAME) add_to_ ## OBJNAME ## _list
 
+/* Extra functions when list is used as a stack. */
+
+/* Output declarations for header files. */
+#define decl_stack_fns(LISTNAME, OBJNAME, TYPE) \
+  void top_of_ ## OBJNAME ## _list (LISTNAME *list); \
+  void pop_ ## OBJNAME ## _list (LISTNAME *list)
+
+/* Output function definitions for .c source files. */
+#define def_stack_fns(LISTNAME, OBJNAME, TYPE) \
+    TYPE *top_of_ ## OBJNAME ## _list (LISTNAME *list) { \
+        if (list->number == 0) fatal (#OBJNAME " stack empty\n"); \
+        return &list->list[list->number - 1]; } \
+    void pop_ ## OBJNAME ## _list (LISTNAME *list) { \
+        if (list->number == 0) fatal (#OBJNAME " stack empty\n"); \
+        list->number--; }
+
+
+#define top_(OBJNAME) top_of_ ## OBJNAME ## _list
+#define pop_(OBJNAME) pop_ ## OBJNAME ## _list
+
 
 #endif
 

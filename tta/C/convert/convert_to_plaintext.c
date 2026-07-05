@@ -91,14 +91,8 @@ clear_count_context_stack (COUNT_CONTEXT_STACK *stack)
 
 
 def_list_fns(FORMATTER_STACK, formatter, FORMATTER, 1);
+def_stack_fns(FORMATTER_STACK, formatter, FORMATTER);
 
-FORMATTER *
-top_formatter (FORMATTER_STACK *stack)
-{
-  if (stack->number == 0)
-    fatal ("formatter stack empty");
-  return &stack->list[stack->number - 1];
-}
 enum formatter_type {
   formatter_paragraph,
   formatter_line,
@@ -125,9 +119,19 @@ new_formatter (CONVERTER *self, enum formatter_type type)
   return formatter;
 }
 
+def_list_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT, 2);
+def_stack_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
+
 void
-push_top_formatter (CONVERTER *self)
+push_top_formatter (CONVERTER *self) /* , CONTEXT top_context) */
 {
+  PLAINTEXT_CONVERTER_STATE *self_pt = &self->plaintext_converter;
+
+  FORMAT_CONTEXT top_format = { 0 };
+  /* top_format 'cmdname' is '_top_format' in Perl.  Use 0 in C. */
+
+  add_(format_context) (&self_pt->format_context, top_format);
+
   FORMATTER top_formatter = new_formatter(self, formatter_line);
   add_(formatter) (&self->plaintext_converter.formatters, top_formatter);
 }
@@ -146,6 +150,8 @@ pop_formatter (CONVERTER *self)
 
   stack->number--;
 }
+
+
 
 static void
 plaintext_conversion_initialization  (CONVERTER *self, DOCUMENT *document)
@@ -176,10 +182,18 @@ stream_output (CONVERTER *self, const char *text)
 }
 
 static void
-stream_output_add_text (CONVERTER *self, const char *text)
+stream_output_count_nl (CONVERTER *self, const char *text)
 {
   /* TODO */
-  para_set_state (top_formatter(&self->plaintext_converter.formatters)->container.paragraph);
+  stream_output (self, text);
+}
+
+static void
+stream_output_add_text (CONVERTER *self, const char *text)
+{
+  PLAINTEXT_CONVERTER_STATE *self_pt = &self->plaintext_converter;
+  /* TODO */
+  para_set_state (top_(formatter) (&self_pt->formatters)->container.paragraph);
   TEXT result = para_add_text (text, strlen (text));
   if (result.text)
     stream_output (self, result.text);
@@ -386,10 +400,25 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
     {
       if (type == ET_paragraph)
         {
+          FORMAT_CONTEXT *top_format
+            = top_(format_context) (&self_pt->format_context);
+
+          int para_indent = 0;
+          if (!top_format->cmd) /* '_top_format' in Perl */
+            {
+              para_indent = 3; /* TODO get_conf('paragraphindent') */
+            }
+
           /* TODO */
           FORMATTER new_paragraph = new_formatter (self, formatter_paragraph);
+          /* TODO: need to pass para_indent to new_formatter. */
+          para_set_conf_indent_length (para_indent);
+          para_set_conf_indent_length_next (0);
+
           add_(formatter) (&self_pt->formatters, new_paragraph);
           paragraph = self_pt->formatters.number - 1;
+
+          top_format->paragraph_count++;
         }
       else if (type == ET_preformatted || type == ET_rawpreformatted)
         {
@@ -429,8 +458,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
     {
       para_set_state (self_pt->formatters.list[paragraph].container.paragraph);
       char *result = para_end ();
-      /* TODO third parameter to stream_output? */
-      stream_output (self, result);
+      stream_output_count_nl (self, result);
       pop_formatter (self);
     }
   if (preformatted)

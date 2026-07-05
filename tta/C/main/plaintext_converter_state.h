@@ -16,17 +16,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
+#include "command_ids.h"
 #include "list_macros.h"
-
-typedef struct COUNT_CONTEXT {
-  size_t lines;
-  size_t bytes;
-  TEXT result;
-  /* TEXT pending_text; */
-} COUNT_CONTEXT;
-
-def_list_type(COUNT_CONTEXT_STACK, COUNT_CONTEXT);
-decl_list_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
 
 typedef struct FORMATTER_CONTAINER {
   int paragraph; /* Paragaph ID */
@@ -45,9 +36,37 @@ typedef struct FORMATTER {
 def_list_type(FORMATTER_STACK, FORMATTER);
 decl_list_fns(FORMATTER_STACK, formatter, FORMATTER);
 
+typedef struct FORMAT_CONTEXT {
+  enum command_id cmd;
+  int paragraph_count;
+  int context_index_len;
+  int row;
+  int row_counts;
+  int paragraph_counts;
+  int columns_size;
+} FORMAT_CONTEXT;
+
+def_list_type(FORMAT_CONTEXT_STACK, FORMAT_CONTEXT);
+decl_list_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
+
+typedef struct COUNT_CONTEXT {
+  size_t lines;
+  size_t bytes;
+  TEXT result;
+  /* TEXT pending_text; */
+} COUNT_CONTEXT;
+
+def_list_type(COUNT_CONTEXT_STACK, COUNT_CONTEXT);
+decl_list_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
+
+/* see comment re "6 stacks" in Plaintext.pm */
 typedef struct PLAINTEXT_CONVERTER_STATE {
+    /* context */
+    FORMAT_CONTEXT_STACK format_context;
+    /* text_element_context */
     FORMATTER_STACK formatters;
     COUNT_CONTEXT_STACK count_context;
+    /* document_context */
 } PLAINTEXT_CONVERTER_STATE;
 
 

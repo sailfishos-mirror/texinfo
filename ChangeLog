@@ -1,5 +1,16 @@
 2026-07-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	C plaintext converter - start on paragraph indentation
+
+	* tta/C/main/list_macros.h (decl_stack_fns, def_stack_fns)
+	(top_, pop_): New.
+	* tta/C/main/plaintext_converter_state.h: fill out
+	* tta/C/convert/convert_to_plaintext.c:
+	At a new paragraph, access 'format_context' stack and set
+	paragraph indentation settings.
+
+2026-07-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/Texinfo/Convert/Plaintext.pm (_stream_output_count_nl):
 	New function, copied from _stream_output.
 	(_stream_output): Remove optional third parameter.
