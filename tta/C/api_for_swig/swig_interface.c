@@ -852,12 +852,9 @@ txi_ext_get_index_sorted_by_index (DOCUMENT *document, const char *index_name,
   const INDEX_SORTED_BY_INDEX *idx;
   const INDEX_SORTED_BY_INDEX *index_sorted = 0;
 
-  COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices
+  INDEX_SORTED_BY_INDEX *indices_sorted_by_index
     = document_sorted_indices_by_index (document, use_unicode_collation,
                                collation_language, collation_locale);
-
-  INDEX_SORTED_BY_INDEX *indices_sorted_by_index
-    = collation_sorted_indices->sorted_indices;
 
   if (!indices_sorted_by_index)
     return 0;

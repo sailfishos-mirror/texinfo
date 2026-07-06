@@ -49,7 +49,7 @@ void set_document_options (DOCUMENT *document,
 
 const MERGED_INDICES *document_merged_indices (DOCUMENT *document);
 
-COLLATION_INDICES_SORTED_BY_INDEX *document_sorted_indices_by_index (
+INDEX_SORTED_BY_INDEX *document_sorted_indices_by_index (
                          DOCUMENT *document,
                          int use_unicode_collation,
                          const char *input_lang_sorting_locale,

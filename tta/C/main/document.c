@@ -350,8 +350,7 @@ document_indices_sort_strings (DOCUMENT *document)
 }
 
 /* Used in tests and in SWIG interface */
-/* TODO return collation_sorted_indices->sorted_indices? */
-COLLATION_INDICES_SORTED_BY_INDEX *
+INDEX_SORTED_BY_INDEX *
 document_sorted_indices_by_index (DOCUMENT *document,
                          int use_unicode_collation,
                          const char *input_lang_sorting_locale,
@@ -386,11 +385,11 @@ document_sorted_indices_by_index (DOCUMENT *document,
                                  use_unicode_collation, lang_sorting_locale,
                                  collation_locale);
     }
-  return collation_sorted_indices;
+  return collation_sorted_indices->sorted_indices;
 }
 
 /* Unused */
-COLLATION_INDICES_SORTED_BY_LETTER *
+INDEX_SORTED_BY_LETTER *
 document_sorted_indices_by_letter (DOCUMENT *document,
                           int use_unicode_collation,
                           const char *input_lang_sorting_locale,
@@ -426,7 +425,7 @@ document_sorted_indices_by_letter (DOCUMENT *document,
                                   use_unicode_collation, lang_sorting_locale,
                                   collation_locale);
     }
-  return collation_sorted_indices;
+  return collation_sorted_indices->sorted_indices;
 }
 
 void
@@ -627,7 +626,7 @@ print_document_indices_sort_strings (DOCUMENT *document)
   const MERGED_INDICES *merged_indices;
   int use_unicode_collation = 1;
   const INDICES_SORT_STRINGS *indices_sort_strings;
-  const COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_index_entries;
+  const INDEX_SORTED_BY_INDEX *indices_sorted_by_index;
   const char *lang_sorting_locale = 0;
 
   merged_indices = document_merged_indices (document);
@@ -646,13 +645,12 @@ print_document_indices_sort_strings (DOCUMENT *document)
 
   indices_sort_strings = document_indices_sort_strings (document);
 
-  collation_sorted_index_entries
+  indices_sorted_by_index
    = document_sorted_indices_by_index (document,
                                        use_unicode_collation,
                                        lang_sorting_locale, 0);
 
-  return print_indices_sort_strings (
-                      collation_sorted_index_entries->sorted_indices,
+  return print_indices_sort_strings (indices_sorted_by_index,
                                      indices_sort_strings, document);
 }
 
