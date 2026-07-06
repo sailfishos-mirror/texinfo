@@ -35,6 +35,15 @@ $result = Texinfo::Convert::Text::convert_to_text($tree, {'sort_string' => 1,
 
 is($result, "\x{00A9} ,,", 'sort iso-8859-1');
 
+
+# NOTE the following tests test low-level Perl code that it not supposed
+# to be directly called in general.  XS/C functions are not called except for
+# parsing and getting index information.
+#
+# Similar input and conversion result are tested as part
+# of other tests.  Therefore this file could be removed without much
+# loss in test coverage.  Some functions could be made internal in that case.
+
 $parser = Texinfo::Parser::parser();
 my $document = $parser->parse_texi_text('@node Top
 
@@ -51,6 +60,7 @@ my $document = $parser->parse_texi_text('@node Top
 my $main_configuration = Texinfo::MainConfig::new();
 Texinfo::Config::GNUT_initialize_customization(undef, {}, {});
 
+# With XS, the indices information is built to Perl in this call.
 my $indices_information = $document->indices_information();
 my $index_entries = Texinfo::Document::Indices::merged_indices($document);
 my $document_options = $main_configuration->get_customization_options_hash();
@@ -139,7 +149,8 @@ $document->register_document_options($document_options);
  'hhh, jjj, A',
  'hhh, jjj, lll', 'hhh, jjj, lll', 'hhh, JJJ, mymail', 'hhh, k', 'hhh jjj');
 
-# use Document function to sort
+# use Document function to sort.
+# With XS, the indices information is built to Perl in this call.
 my $document_sorted_index_entries
   = Texinfo::Document::Indices::sorted_indices_by_index($document);
 

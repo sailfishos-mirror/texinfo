@@ -1,10 +1,21 @@
 2026-07-06 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_indices.c (print_indices_sort_strings): inline
+	setup_indices_entries_sort_strings in print_indices_sort_strings and
+	remove.  More comments.
+
+	* tta/C/main/manipulate_indices.c (INDEX_ENTRIES_SORT_STRINGS)
+	(find_indices_entries_sort_strings_index, print_indices_sort_strings):
+	replace index field in INDEX_ENTRIES_SORT_STRINGS by index_name, as it
+	is all that is accessed from the index.
+
+	* tta/perl/t/z_misc/test_sort.t: more comments.
+
+2026-07-06 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/document.c (document_sorted_indices_by_index)
 	(document_sorted_indices_by_letter): return indices sorted by index or
 	by letter instead of the collation information.  Update callers.
-
-2026-07-06 Patrice Dumas  <pertusus@free.fr>
 
 2026-07-06 Patrice Dumas  <pertusus@free.fr>
 
