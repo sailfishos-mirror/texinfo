@@ -1,3 +1,15 @@
+2026-07-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Paragraph conf
+
+	* tta/perl/XSTexinfo/ParagraphXS.xs (para_new):
+	Warn if there is a key in the paragraph configuration hash that is
+	not a recognized configuration variable.
+	* tta/perl/Texinfo/Convert/Plaintext.pm (process_printindex):
+	Use 'indent_length' instead of 'indent' in call to new_formatter.
+	* tta/perl/Texinfo/Convert/Info.pm (format_ref): Fix call to
+	convert_line_new_context.
+
 2026-07-05 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/t/test_utils.pl (test): fix variable name. Report from

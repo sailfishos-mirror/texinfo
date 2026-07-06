@@ -67,6 +67,12 @@ para_new (...)
      /* PARA_CONF_VARIABLES_LIST is replaced by para_SET_CONF(variable)
         for each of the configuration variables, which starts with else if */
                 PARA_CONF_VARIABLES_LIST
+                else
+                  {
+                    fprintf (stderr,
+                             "bug: unrecognized paragraph conf var %s\n",
+                             var_name);
+                  }
               }
           }
 

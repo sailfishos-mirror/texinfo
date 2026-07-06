@@ -1947,7 +1947,7 @@ sub process_printindex($$;$) {
 
   # Use the same line formatter for all the index entries.  This is
   # slightly faster than making a new one for each entry.
-  my $formatter = new_formatter($self, 'line', {'indent' => 0 },
+  my $formatter = new_formatter($self, 'line', {'indent_length' => 0 },
     { 'suppress_styles' => 1, 'no_added_eol' => 1 } );
   push @{$self->{'formatters'}}, $formatter;
 

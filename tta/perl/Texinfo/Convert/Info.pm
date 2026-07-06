@@ -704,6 +704,7 @@ sub format_ref($$$) {
     ($node_name, undef) = $self->convert_line_new_context(
         Texinfo::TreeElement::new({'type' => '_code',
                                    'contents' => [$label_element]}),
+                                   undef,
                                   {'suppress_styles' => 1,
                                     'no_added_eol' => 1});
     $self->{'silent'}--;
