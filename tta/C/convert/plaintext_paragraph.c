@@ -46,25 +46,15 @@ enum eos_status { eos_unset = -2, eos_inhibited = 0, eos_present = 1,
 
 typedef struct {
     TEXT space; /* Pending space, to be output before the pending word. */
-    TEXT word; /* Pending word.  If outputting this would have led to
-                  the line to be too long, the line should have been cut before
-                  saving it. */
+    TEXT word;  /* Pending word.  If outputting this would have led to
+                   the line to be too long, the line should have been cut before
+                   saving it. */
 
     /* When word.end == 0, this indicates a word of length 0. */
     int invisible_pending_word;
 
-    /* Length of space in multibyte characters. */
-    int space_counter;
-
-    /* Characters added so far in current word. */
-    int word_counter;
-
-    enum eos_status end_sentence;
-
-    int max; /* Maximum length of line. */
-    int indent_length; /* Columns to indent this line. */
-    int indent_length_next; /* Columns to indent the rest of the lines. */
-    int counter; /* Columns so far on this line. */
+    int space_counter; /* Length of space in multibyte characters. */
+    int word_counter;  /* Characters added so far in current word. */
 
     int lines_counter; /* Lines so far added in paragraph. */
     int end_line_count; /* Number of newlines so far in an output unit, i.e.
@@ -72,6 +62,19 @@ typedef struct {
 
     char32_t last_letter; /* Last letter in word, used to decide if we're
                             at the end of a sentence. */
+    enum eos_status end_sentence; /* See comment at enum eos_status. */
+
+    int in_use; /* used in paragraph state array */
+
+    /* configuration variables - can be set directly via access functions. */
+    int counter;            /* Columns so far on this line. */
+    int max;                /* Maximum length of line. */
+    int indent_length;      /* Columns to indent this line. */
+    int indent_length_next; /* Columns to indent the rest of the lines. */
+    int unfilled;           /* No wrapping of lines and spaces are kept
+                               as-is. */
+    int no_final_newline;   /* Do not terminate with a final newline. */
+    int add_final_space;    /* Terminate with any trailing space. */
 
     /* Options set with set_space_protection. */
     int no_break;       /* Line break forbidden, as in @w. */
@@ -82,16 +85,6 @@ typedef struct {
     int frenchspacing;  /* Only one space, not two, after a full stop. */
     int double_width_no_break; /* No line break between double width chars. */
 
-    /* No wrapping of lines and spaces are kept as-is. */
-    int unfilled;
-
-    /* Do not terminate with a final newline. */
-    int no_final_newline;
-
-    /* Terminate with any trailing space. */
-    int add_final_space;
-
-    int in_use;
 } PARAGRAPH;
 
 static PARAGRAPH state;

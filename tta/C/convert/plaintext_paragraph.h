@@ -21,22 +21,19 @@
 
 /* list of configuration variables, to be reused in code generation */
 #define PARA_CONF_VARIABLES_LIST \
-  para_SET_CONF(end_sentence) \
+  para_SET_CONF(counter) \
   para_SET_CONF(max) \
   para_SET_CONF(indent_length) \
   para_SET_CONF(indent_length_next) \
-  para_SET_CONF(counter) \
-  para_SET_CONF(word_counter) \
-  para_SET_CONF(lines_counter) \
   para_SET_CONF(end_line_count) \
+  para_SET_CONF(unfilled) \
+  para_SET_CONF(no_final_newline) \
+  para_SET_CONF(add_final_space) \
   para_SET_CONF(no_break) \
   para_SET_CONF(ignore_columns) \
   para_SET_CONF(keep_end_lines) \
   para_SET_CONF(frenchspacing) \
-  para_SET_CONF(double_width_no_break) \
-  para_SET_CONF(unfilled) \
-  para_SET_CONF(no_final_newline) \
-  para_SET_CONF(add_final_space) \
+  para_SET_CONF(double_width_no_break)
 
 
 #define para_SET_CONF(variable) \
@@ -51,7 +48,7 @@ int para_new (void);
 void para_set_state (int paragraph);
 TEXT para_add_next (const char *, int, int transparent);
 TEXT para_add_text (const char *, int);
-void para_set_space_protection (int space_protection, int ignore_columns,
+void para_set_space_protection (int no_break, int ignore_columns,
        int keep_end_lines, int french_spacing, int double_width_no_break);
 void para__end_line (void);
 char *para_end_line (void);

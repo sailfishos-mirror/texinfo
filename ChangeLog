@@ -1,5 +1,13 @@
 2026-07-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/convert/plaintext_paragraph.h (PARA_CONF_VARIABLES_LIST):
+	Remove word_counter and lines_counter as these are not set from
+	outside the module.
+	* tta/C/convert/plaintext_paragraph.c (struct PARAGRAPH):
+	Reorder struct members.
+
+2026-07-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Paragraph conf
 
 	* tta/perl/XSTexinfo/ParagraphXS.xs (para_new):
