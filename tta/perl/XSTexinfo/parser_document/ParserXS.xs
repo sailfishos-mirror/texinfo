@@ -173,6 +173,7 @@ parse_texi_line (SV *parser_sv, SV *string_sv, ...)
             if (no_store)
               fprintf (stderr, "REMOVED C doc Perl tree '%s'\n", string);
              */
+            /* always build the tree to Perl */
             RETVAL = document_tree (document_sv, 0);
           }
       OUTPUT:

@@ -17,6 +17,15 @@ use Texinfo::Convert::HTML;
 
 ok(1, 'modules loading');
 
+# Tests of low-level innermost accent stack code and diverse direct
+# conversions.
+#
+# Similar input and conversion result are tested as part
+# of other tests.  Therefore this file could be removed without much
+# loss in test coverage.  If this is done, it should be checked, however,
+# that the peculiar use of a converter outside of output/convert done
+# below is also tested somewhere else.
+
 sub _find_accent($) {
   my $root = shift;
 
@@ -33,7 +42,7 @@ sub _find_accent($) {
   return $current;
 }
 
-# FIXME does not test the XS code
+# NOTE does not test the XS code except for parsing.
 sub test_accent_stack ($) {
   my $test = shift;
 
@@ -41,6 +50,9 @@ sub test_accent_stack ($) {
   my $name = $test->[1];
   my $reference = $test->[2];
   my $parser = Texinfo::Parser::parser();
+  # with XS the returned tree is built to Perl and the following codes
+  # either do not have interfaces, or when they do (case of convert_to_text)
+  # operate on tree elements that have no handle to retrieve the C data.
   my $root = $parser->parse_texi_line($texi);
   my $accent_tree = _find_accent($root);
   my ($contents_element, $commands_stack) =
@@ -85,7 +97,7 @@ sub ord_hex_string($) {
   return ($ord, $hex);
 }
 
-# FIXME does not test the XS code
+# NOTE does not test the XS code except for parsing.
 sub test_enable_encoding ($) {
   my $test = shift;
 
@@ -97,6 +109,9 @@ sub test_enable_encoding ($) {
   my $reference_unicode = $test->[5];
 
   my $parser = Texinfo::Parser::parser();
+  # with XS the returned tree is built to Perl and the following codes
+  # either do not have interfaces, or when they do (case of convert_to_text)
+  # operate on tree elements that have no handle to retrieve the C data.
   my $root = $parser->parse_texi_line($texi);
   my $accent_tree = _find_accent($root);
 
