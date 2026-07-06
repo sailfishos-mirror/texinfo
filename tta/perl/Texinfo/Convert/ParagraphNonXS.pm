@@ -261,6 +261,19 @@ sub allow_end_sentence($) {
   $paragraph->{'last_letter'} = 'a'; # lower-case
 }
 
+sub set_frenchspacing($$) {
+  my ($paragraph, $val) = @_;
+
+  $paragraph->{'frenchspacing'} = $val;
+}
+
+sub set_double_width_no_break($$) {
+  my ($paragraph, $val) = @_;
+
+  $paragraph->{'double_width_no_break'} = $val;
+}
+
+
 sub set_space_protection($$;$$$$) {
   my ($paragraph, $no_break, $ignore_columns, $keep_end_lines,
       $frenchspacing, $double_width_no_break) = @_;

@@ -227,7 +227,19 @@ para_allow_end_sentence (int paragraph)
     CODE:
         para_set_state (paragraph);
         para_allow_end_sentence ();
-  
+
+void
+para_set_frenchspacing (int paragraph, int val)
+    CODE:
+        para_set_state (paragraph);
+        para_set_conf_frenchspacing (val);
+
+void
+para_set_double_width_no_break (int paragraph, int val)
+    CODE:
+        para_set_state (paragraph);
+        para_set_conf_double_width_no_break (val);
+
 # Optional parameters are IGNORE_COLUMNS, KEEP_END_LINES, FRENCHSPACING,
 # DOUBLE_WIDTH_NO_BREAK.
 # Pass them to the C function as -1 if not given or undef.

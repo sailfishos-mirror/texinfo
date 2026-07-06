@@ -29,6 +29,8 @@ our $VERSION = '7.3dev';
 our @EXPORT_OK = qw(
     add_text
     add_next
+    set_frenchspacing
+    set_double_width_no_break
     set_space_protection
     remove_end_sentence
     allow_end_sentence

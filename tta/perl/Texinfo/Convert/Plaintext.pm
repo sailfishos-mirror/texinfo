@@ -55,7 +55,7 @@ use Texinfo::Convert::Text;
 use Texinfo::Convert::Converter;
 use Texinfo::Convert::Paragraph qw(add_end_sentence add_next add_pending_word
        add_text allow_end_sentence end_line remove_end_sentence
-       set_space_protection);
+       set_frenchspacing set_space_protection);
 
 require Exporter;
 our @ISA = qw(Texinfo::Convert::Converter);
@@ -1375,7 +1375,7 @@ sub _open_code($) {
     $formatter->{'font_type_stack'}->[-1]->{'monospace'}++;
   }
   push @{$formatter->{'frenchspacing_stack'}}, 'on';
-  set_space_protection($formatter->{'container'}, undef, undef, undef, 1);
+  set_frenchspacing($formatter->{'container'}, 1);
 }
 
 sub _close_code($) {
@@ -1387,8 +1387,7 @@ sub _close_code($) {
   pop @{$formatter->{'frenchspacing_stack'}};
   my $frenchspacing = 0;
   $frenchspacing = 1 if ($formatter->{'frenchspacing_stack'}->[-1] eq 'on');
-  set_space_protection($formatter->{'container'}, undef,
-                       undef, undef, $frenchspacing);
+  set_frenchspacing($formatter->{'container'}, $frenchspacing);
 }
 
 my $footnote_indent = 3;
@@ -3100,8 +3099,7 @@ sub _convert($$) {
         }
         if (exists($no_punctation_munging_commands{$cmdname})) {
           push @{$formatter->{'frenchspacing_stack'}}, 'on';
-          set_space_protection($formatter->{'container'}, undef,
-                               undef, undef, 1);
+          set_frenchspacing($formatter->{'container'}, 1);
         }
         if (exists($upper_case_commands{$cmdname})) {
           $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}++;
@@ -3176,8 +3174,7 @@ sub _convert($$) {
           my $frenchspacing = 0;
           $frenchspacing = 1 if ($formatter->{'frenchspacing_stack'}->[-1]
                                  eq 'on');
-          set_space_protection($formatter->{'container'}, undef,
-                               undef, undef, $frenchspacing);
+          set_frenchspacing($formatter->{'container'}, $frenchspacing);
         }
         if (exists($upper_case_commands{$cmdname})) {
           $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}--;
@@ -4348,7 +4345,7 @@ sub _convert($$) {
       return;
     } elsif ($type eq 'frenchspacing') {
       push @{$formatter->{'frenchspacing_stack'}}, 'on';
-      set_space_protection($formatter->{'container'}, undef, undef, undef, 1);
+      set_frenchspacing($formatter->{'container'}, 1);
     } elsif ($type eq '_code') {
       _open_code($formatter);
     } elsif ($type eq '_stop_upper_case') {
@@ -4384,8 +4381,7 @@ sub _convert($$) {
       pop @{$formatter->{'frenchspacing_stack'}};
       my $frenchspacing = 0;
       $frenchspacing = 1 if ($formatter->{'frenchspacing_stack'}->[-1] eq 'on');
-      set_space_protection($formatter->{'container'}, undef,
-                           undef, undef, $frenchspacing);
+      set_frenchspacing($formatter->{'container'}, $frenchspacing);
     } elsif ($type eq '_code') {
       _close_code($formatter);
     } elsif ($type eq '_stop_upper_case') {

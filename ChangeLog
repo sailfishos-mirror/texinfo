@@ -1,3 +1,19 @@
+2026-07-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Reduce use of set_space_protection
+
+	* tta/perl/XSTexinfo/ParagraphXS.xs,
+	tta/perl/Texinfo/Convert/ParagraphNonXS.pm
+	(set_frenchspacing, set_double_width_no_break):
+	New functions.
+	* tta/perl/Texinfo/Convert/Paragraph.pm: Add these to @EXPORT_OK.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_open_code, _convert),
+	* tta/perl/Texinfo/Convert/Info.pm (_format_ref):
+	Use these instead of set_space_protection, as it's easier to
+	understand without remembering what all the arguments to
+	set_space_protection mean.
+
 2026-07-06 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/manipulate_indices.c (print_indices_sort_strings): inline

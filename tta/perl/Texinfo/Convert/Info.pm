@@ -41,7 +41,8 @@ use Texinfo::Convert::Text;
 use Texinfo::Convert::Plaintext;
 
 use Texinfo::Convert::Paragraph qw(add_next add_text get_pending
-                                   set_space_protection);
+                                   set_space_protection
+                                   set_double_width_no_break);
 
 our @ISA = qw(Texinfo::Convert::Plaintext);
 
@@ -613,8 +614,7 @@ sub format_ref($$$) {
   # Disallow breaks in runs of Chinese text in node names, because a
   # break would be normalized to a single space by the Info reader, and
   # the node wouldn't be found.
-  set_space_protection($formatter->{'container'},
-              undef, undef, undef, undef, 1);
+  set_double_width_no_break($formatter->{'container'}, 1);
 
   if ($cmdname eq 'xref') {
     $self->_convert(Texinfo::TreeElement::new(
@@ -827,8 +827,7 @@ sub format_ref($$$) {
     set_space_protection($formatter->{'container'}, 0, undef)
       if ($formatter->{'w'} == 0);
   }
-  set_space_protection($formatter->{'container'},
-                       undef,undef,undef,undef,0); # double_width_no_break
+  set_double_width_no_break($formatter->{'container'}, 0);
 }
 
 my @directions = ('Next', 'Prev', 'Up');
