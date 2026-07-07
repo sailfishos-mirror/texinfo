@@ -1,5 +1,16 @@
 2026-07-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove parameters from set_space_protection
+
+	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm, (set_space_protection),
+	* tta/C/convert/plaintext_paragraph.c (para_set_space_protection),
+	* tta/perl/XSTexinfo/ParagraphXS.xs (para_set_space_protection):
+	Remove all optional parameters.
+
+	* tta/perl/t/z_misc/paragraph.t: update use of set_space_protection.
+
+2026-07-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Reduce use of set_space_protection
 
 	* tta/perl/XSTexinfo/ParagraphXS.xs,

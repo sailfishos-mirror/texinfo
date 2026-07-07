@@ -48,8 +48,7 @@ int para_new (void);
 void para_set_state (int paragraph);
 TEXT para_add_next (const char *, int, int transparent);
 TEXT para_add_text (const char *, int);
-void para_set_space_protection (int no_break, int ignore_columns,
-       int keep_end_lines, int french_spacing, int double_width_no_break);
+void para_set_space_protection (int no_break);
 void para__end_line (void);
 char *para_end_line (void);
 char *para_get_pending (void);

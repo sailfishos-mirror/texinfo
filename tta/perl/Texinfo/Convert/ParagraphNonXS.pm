@@ -274,20 +274,12 @@ sub set_double_width_no_break($$) {
 }
 
 
-sub set_space_protection($$;$$$$) {
-  my ($paragraph, $no_break, $ignore_columns, $keep_end_lines,
-      $frenchspacing, $double_width_no_break) = @_;
+sub set_space_protection($$) {
+  my ($paragraph, $no_break) = @_;
 
   $paragraph->{'no_break'} = $no_break
     if defined($no_break);
-  $paragraph->{'ignore_columns'} = $ignore_columns
-    if defined($ignore_columns);
-  $paragraph->{'keep_end_lines'} = $keep_end_lines
-    if defined($keep_end_lines);
-  $paragraph->{'frenchspacing'} = $frenchspacing
-    if defined($frenchspacing);
-  $paragraph->{'double_width_no_break'} = $double_width_no_break
-    if defined($double_width_no_break);
+
   # begin a word, to have something even if empty
   if ($no_break and $paragraph->{'word'} eq '') {
     $paragraph->{'invisible_pending_word'} = 1;

@@ -3108,7 +3108,7 @@ sub _convert($$) {
         }
         if ($cmdname eq 'w') {
           $formatter->{'w'}++;
-          set_space_protection($formatter->{'container'}, 1, undef)
+          set_space_protection($formatter->{'container'}, 1)
             if ($formatter->{'w'} == 1);
         }
         my ($text_before, $text_after);
@@ -3151,7 +3151,7 @@ sub _convert($$) {
            if ($text_after ne '');
         if ($cmdname eq 'w') {
           $formatter->{'w'}--;
-          set_space_protection($formatter->{'container'}, 0, undef)
+          set_space_protection($formatter->{'container'}, 0)
             if ($formatter->{'w'} == 0);
         }
         if (exists($brace_code_commands{$cmdname})) {

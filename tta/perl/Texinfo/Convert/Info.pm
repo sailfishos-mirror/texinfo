@@ -608,7 +608,7 @@ sub format_ref($$$) {
   if ($self->{'document_context'}->[-1]->{'in_multitable'}) {
     $in_multitable = 1;
     $formatter->{'w'}++;
-    set_space_protection($formatter->{'container'}, 1, undef)
+    set_space_protection($formatter->{'container'}, 1)
       if ($formatter->{'w'} == 1);
   }
   # Disallow breaks in runs of Chinese text in node names, because a
@@ -824,7 +824,7 @@ sub format_ref($$$) {
 
   if ($in_multitable) {
     $formatter->{'w'}--;
-    set_space_protection($formatter->{'container'}, 0, undef)
+    set_space_protection($formatter->{'container'}, 0)
       if ($formatter->{'w'} == 0);
   }
   set_double_width_no_break($formatter->{'container'}, 0);

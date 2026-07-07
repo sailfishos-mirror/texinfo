@@ -240,55 +240,15 @@ para_set_double_width_no_break (int paragraph, int val)
         para_set_state (paragraph);
         para_set_conf_double_width_no_break (val);
 
-# Optional parameters are IGNORE_COLUMNS, KEEP_END_LINES, FRENCHSPACING,
-# DOUBLE_WIDTH_NO_BREAK.
-# Pass them to the C function as -1 if not given or undef.
 void
-para_set_space_protection (int paragraph, space_protection_in, ...)
+para_set_space_protection (int paragraph, space_protection_in)
         SV * space_protection_in
     PREINIT:
         int space_protection = -1;
-        int ignore_columns = -1;
-        int keep_end_lines = -1;
-        int french_spacing = -1;
-        int double_width_no_break = -1;
-        SV *arg_in;
     CODE:
         if (SvOK(space_protection_in))
           space_protection = (int)SvIV(space_protection_in);
-        /* Get optional arguments from stack. */
-        items -= 2;
-        if (items > 0)
-          {
-            items--;
-            arg_in = ST(2);
-            if (SvOK(arg_in))
-              ignore_columns = (int)SvIV(arg_in);
-          }
-        if (items > 0)
-          {
-            items--;
-            arg_in = ST(3);
-            if (SvOK(arg_in))
-              keep_end_lines = (int)SvIV(arg_in);
-          }
-        if (items > 0)
-          {
-            items--;
-            arg_in = ST(4);
-            if (SvOK(arg_in))
-              french_spacing = (int)SvIV(arg_in);
-          }
-        if (items > 0)
-          {
-            items--;
-            arg_in = ST(5);
-            if (SvOK(arg_in))
-              double_width_no_break = (int)SvIV(arg_in);
-          }
 
         para_set_state (paragraph);
-        para_set_space_protection
-          (space_protection, ignore_columns, keep_end_lines,
-           french_spacing, double_width_no_break);
+        para_set_space_protection (space_protection);
 

@@ -539,28 +539,10 @@ para_allow_end_sentence (void)
 
 /* -1 in a parameter means leave that value as it is. */
 void
-para_set_space_protection (int no_break,
-                             int ignore_columns,
-                             int keep_end_lines,
-                             int french_spacing,
-                             int double_width_no_break)
+para_set_space_protection (int no_break)
 {
   if (no_break != -1)
     state.no_break = no_break;
-  if (ignore_columns != -1)
-    state.ignore_columns = ignore_columns;
-  if (keep_end_lines != -1)
-    state.keep_end_lines = keep_end_lines;
-  if (double_width_no_break != -1)
-    state.double_width_no_break = double_width_no_break;
-  if (french_spacing != -1)
-    state.frenchspacing = french_spacing;
-
-  /*fprintf (stderr, "SETTING SPACE (%d, %d, %d, %d)\n",
-                                   no_break,
-                                   ignore_columns,
-                                   keep_end_lines,
-                                   french_spacing);*/
 
  if (no_break != -1 && state.no_break && state.word.end == 0)
    {
