@@ -123,7 +123,7 @@ parse_line_command_args (ELEMENT *line_command)
 
   cmd = line_command->e.c->cmd;
 
-  if (command_data(cmd).flags & CF_root)
+  if (parsed_command_data(cmd).flags & CF_root)
     {
       /* arguments_line type element */
       const ELEMENT *arguments_line = line_command->e.c->contents.list[0];
@@ -200,14 +200,15 @@ parse_line_command_args (ELEMENT *line_command)
           }
         else
           {
-            if (command_data(existing_cmd).flags & CF_block)
+            if (parsed_command_data(existing_cmd).flags & CF_block)
               line_warn ("environment command %s as argument to @alias",
                          command_name(existing_cmd));
           }
 
-        if (command_data(existing_cmd).flags & CF_ALIAS)
+        if (parsed_command_data(existing_cmd).flags & CF_ALIAS)
           {
-            enum command_id alias_exist_cmd = command_data(existing_cmd).data;
+            enum command_id alias_exist_cmd
+              = parsed_command_data(existing_cmd).data;
             if (! strcmp (command_name(alias_exist_cmd), new))
               line_warn ("recursive alias definition of %s through %s ignored",
                             new, command_name(existing_cmd));
@@ -829,7 +830,7 @@ end_line_starting_block (ELEMENT *current)
   if (command == CM_NONE)
     fatal ("end_line_starting_block: parent command not found");
 
-  if (command_data(command).flags & CF_contain_basic_inline)
+  if (parsed_command_data(command).flags & CF_contain_basic_inline)
       (void) pop_command (&nesting_context.basic_inline_stack_block);
 
   if (current->e.c->parent->flags & EF_def_line)
@@ -943,7 +944,7 @@ end_line_starting_block (ELEMENT *current)
       add_to_float_record_list (&parser_float_records, float_type, current,
                                 current_section);
     }
-  else if (command_data(command).flags & CF_blockitem)
+  else if (parsed_command_data(command).flags & CF_blockitem)
     {
       if (command == CM_enumerate)
         {
@@ -1008,13 +1009,14 @@ end_line_starting_block (ELEMENT *current)
              not a mark (noarg) command, warn */
           if (command_as_argument
               && command_as_argument->e.c->contents.number <= 0
-              && command_data(command_as_argument->e.c->cmd).data != BRACE_noarg)
+              && parsed_command_data(command_as_argument->e.c->cmd).data
+                                                            != BRACE_noarg)
             {
                command_warn (current, "@%s expected braces",
                              command_name(command_as_argument->e.c->cmd));
             }
         }
-      else if (command_data(command).data == BLOCK_item_line)
+      else if (parsed_command_data(command).data == BLOCK_item_line)
         {
           const ELEMENT *command_as_argument
             = block_line_argument_command (block_line_arg);
@@ -1040,7 +1042,8 @@ end_line_starting_block (ELEMENT *current)
             }
           else
             {
-              if (command_data(command_as_argument->e.c->cmd).data == BRACE_noarg)
+              if (parsed_command_data(command_as_argument->e.c->cmd).data
+                                                                == BRACE_noarg)
                 {
                   command_error (current,
                                  "command @%s not accepting argument in brace "
@@ -1059,8 +1062,8 @@ end_line_starting_block (ELEMENT *current)
         current = bi;
       }
     } /* CF_blockitem */
-  else if (command_data (command).args_number == 0
-           && (! (command_data (command).flags & CF_variadic))
+  else if (parsed_command_data(command).args_number == 0
+           && (! (parsed_command_data(command).flags & CF_variadic))
            && ! empty_spaces_argument (block_line_arg))
     {
       char *texi_arg;
@@ -1072,7 +1075,7 @@ end_line_starting_block (ELEMENT *current)
       free (texi_arg);
     }
 
-  if (command_data(command).data == BLOCK_conditional)
+  if (parsed_command_data(command).data == BLOCK_conditional)
     {
       int iftrue = 0; /* Whether the conditional is true. */
       int bad_line = 1;
@@ -1169,7 +1172,7 @@ end_line_starting_block (ELEMENT *current)
         }
     }
 
-  if (command_data(command).data == BLOCK_menu)
+  if (parsed_command_data(command).data == BLOCK_menu)
     {
       /* Start reading a menu.  Processing will continue in
          in menus.c. */
@@ -1179,7 +1182,7 @@ end_line_starting_block (ELEMENT *current)
       current = menu_comment;
       debug ("C|MENU_COMMENT OPEN");
     }
-  if (command_data(command).data == BLOCK_format_raw)
+  if (parsed_command_data(command).data == BLOCK_format_raw)
     {
       if (parser_format_expanded_p (command_name(command)))
         {
@@ -1188,8 +1191,8 @@ end_line_starting_block (ELEMENT *current)
           current = rawpreformatted;
         }
     }
-  if (command_data(command).data != BLOCK_raw
-      && command_data(command).data != BLOCK_conditional)
+  if (parsed_command_data(command).data != BLOCK_raw
+      && parsed_command_data(command).data != BLOCK_conditional)
     current = begin_preformatted (current);
 
   return current;
@@ -1249,14 +1252,14 @@ end_line_misc_line (ELEMENT *current)
   if (cmd == CM_item)
     data_cmd = CM_item_LINE;
 
-  if (command_data(data_cmd).flags & CF_contain_basic_inline)
+  if (parsed_command_data(data_cmd).flags & CF_contain_basic_inline)
     (void) pop_command (&nesting_context.basic_inline_stack_on_line);
 
-  arg_spec = command_data(data_cmd).data;
+  arg_spec = parsed_command_data(data_cmd).data;
 
   if (arg_spec != LINE_specific
-      && (command_data (data_cmd).args_number > 1
-          || (command_data (data_cmd).flags & CF_variadic)))
+      && (parsed_command_data(data_cmd).args_number > 1
+          || (parsed_command_data(data_cmd).flags & CF_variadic)))
     counter_pop (&count_remaining_args);
 
   if (current->e.c->parent->flags & EF_def_line)
@@ -1305,7 +1308,7 @@ end_line_misc_line (ELEMENT *current)
                 {
                   /* Check if argument is a block Texinfo command. */
                   end_id = lookup_command (end_command);
-                  if (end_id == 0 || !(command_data(end_id).flags & CF_block))
+                  if (end_id == 0 || !(parsed_command_data(end_id).flags & CF_block))
                     {
                       command_warn (current, "unknown @end %s", end_command);
                       free (end_command); end_command = 0;
@@ -1794,7 +1797,7 @@ end_line_misc_line (ELEMENT *current)
       end_elt = pop_element_from_contents (current);
 
       /* If not a conditional */
-      if (command_data(end_id).data != BLOCK_conditional
+      if (parsed_command_data(end_id).data != BLOCK_conditional
           /* ignored conditional */
           || current->e.c->cmd == end_id
           /* not a non-ignored conditional */
@@ -1814,8 +1817,8 @@ end_line_misc_line (ELEMENT *current)
 
               add_to_element_contents (closed_command, end_elt);
 
-              if (command_data(closed_command->e.c->cmd).data == BLOCK_menu
-                  && command_data(current_context_command ()).data
+              if (parsed_command_data(closed_command->e.c->cmd).data == BLOCK_menu
+                  && parsed_command_data(current_context_command ()).data
                                                               == BLOCK_menu)
                 {
                   ELEMENT *e;
@@ -1926,7 +1929,7 @@ end_line_misc_line (ELEMENT *current)
           line_error ("@columnfractions only meaningful on a @multitable line");
         }
     }
-  else if (command_data(data_cmd).flags & CF_root)
+  else if (parsed_command_data(data_cmd).flags & CF_root)
     {
       SECTION_RELATIONS *section_relations = 0;
       current = last_contents_child (current);
@@ -1981,7 +1984,7 @@ end_line_misc_line (ELEMENT *current)
         }
     }
   /* only *heading as sectioning commands are handled just before */
-  else if (command_data(data_cmd).flags & CF_sectioning_heading
+  else if (parsed_command_data(data_cmd).flags & CF_sectioning_heading
            || data_cmd == CM_xrefname)
    {
      HEADING_RELATIONS *heading_relations

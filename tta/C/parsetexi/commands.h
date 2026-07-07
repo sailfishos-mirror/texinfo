@@ -26,13 +26,14 @@ extern COMMAND *user_defined_command_data;
 
 enum command_id lookup_command (const char *cmdname);
 
-#define command_data(id) \
+#define parsed_command_data(id) \
   (!((id) & USER_COMMAND_BIT) \
    ? builtin_command_data[(id)] \
    : user_defined_command_data[(id) & ~USER_COMMAND_BIT])
 
-#define command_flags(elt) (!(elt) ? 0 : (command_data((elt)->e.c->cmd).flags))
-#define command_name(cmd) (command_data(cmd).cmdname)
+#define command_flags(elt) \
+  (!(elt) ? 0 : (parsed_command_data((elt)->e.c->cmd).flags))
+#define command_name(cmd) (parsed_command_data(cmd).cmdname)
 
 int close_preformatted_command (enum command_id cmd_id);
 

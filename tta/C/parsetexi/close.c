@@ -53,7 +53,7 @@ close_brace_command (ELEMENT *current,
 
   counter_pop (&count_remaining_args);
 
-  if (command_data(current->e.c->cmd).data == BRACE_context)
+  if (parsed_command_data(current->e.c->cmd).data == BRACE_context)
     {
       if (pop_context () != ct_base)
         fatal ("base context brace command context expected");
@@ -120,7 +120,7 @@ close_all_style_commands (ELEMENT *current,
 {
   while (current->e.c->parent
          && (command_flags(current->e.c->parent) & CF_brace)
-         && !(command_data(current->e.c->parent->e.c->cmd).data
+         && !(parsed_command_data(current->e.c->parent->e.c->cmd).data
                                                   == BRACE_context))
     {
       debug ("C|CLOSING(all_style_commands) @%s",
@@ -129,10 +129,10 @@ close_all_style_commands (ELEMENT *current,
       if (current->type == ET_brace_container
           || current->type == ET_brace_arg)
         {
-          if (command_data(current->e.c->parent->e.c->cmd).data
+          if (parsed_command_data(current->e.c->parent->e.c->cmd).data
                                                   == BRACE_arguments)
             isolate_leading_trailing (current, 0);
-          else if (command_data(current->e.c->parent->e.c->cmd).data
+          else if (parsed_command_data(current->e.c->parent->e.c->cmd).data
                                                   == BRACE_inline)
             isolate_leading_trailing (current, 1);
         }
@@ -312,7 +312,7 @@ close_command_cleanup (ELEMENT *current)
 
   /* Put everything after the last @def*x command in a def_item type
      container. */
-  if (command_data(current->e.c->cmd).flags & CF_def
+  if (parsed_command_data(current->e.c->cmd).flags & CF_def
       || current->e.c->cmd == CM_defblock)
     {
       gather_def_item (current, 0);
@@ -329,7 +329,7 @@ close_command_cleanup (ELEMENT *current)
 
   /* Block commands that contain @item's - e.g. @multitable, @table,
      @itemize. */
-  if (command_data(current->e.c->cmd).flags & CF_blockitem
+  if (parsed_command_data(current->e.c->cmd).flags & CF_blockitem
       /* > 1 for the arguments_line */
       && current->e.c->contents.number > 1
       && current->e.c->contents.list[1]->type == ET_before_item)
@@ -384,13 +384,13 @@ close_command_cleanup (ELEMENT *current)
 void
 pop_block_command_contexts (enum command_id cmd)
 {
-  if (command_data(cmd).flags & CF_preformatted
-       || command_data(cmd).data == BLOCK_menu)
+  if (parsed_command_data(cmd).flags & CF_preformatted
+       || parsed_command_data(cmd).data == BLOCK_menu)
     {
       if (pop_context () != ct_preformatted)
         fatal ("preformatted context expected");
     }
-  else if (command_data(cmd).data == BLOCK_format_raw)
+  else if (parsed_command_data(cmd).data == BLOCK_format_raw)
     {
       if (pop_context () != ct_rawpreformatted)
         fatal ("rawpreformatted context expected");
@@ -400,7 +400,7 @@ pop_block_command_contexts (enum command_id cmd)
       if (pop_context () != ct_math)
         fatal ("math context expected");
     }
-  else if (command_data(cmd).data == BLOCK_region)
+  else if (parsed_command_data(cmd).data == BLOCK_region)
     {
       (void) pop_command (&nesting_context.regions_stack);
     }
@@ -457,7 +457,7 @@ close_current (ELEMENT *current,
           pop_block_command_contexts (cmd);
           current = current->e.c->parent;
           /* In ignored conditional. */
-          if (command_data(cmd).data == BLOCK_conditional)
+          if (parsed_command_data(cmd).data == BLOCK_conditional)
             close_ignored_block_conditional (current);
         }
       else
@@ -557,7 +557,8 @@ close_commands (ELEMENT *current, enum command_id closed_block_cmd,
       *closed_element = current;
       current = current->e.c->parent;
 
-      if (command_data((*closed_element)->e.c->cmd).data == BLOCK_conditional)
+      if (parsed_command_data((*closed_element)->e.c->cmd).data
+                                                         == BLOCK_conditional)
         /* In ignored conditional. */
         close_ignored_block_conditional (current);
     }

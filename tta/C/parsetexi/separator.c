@@ -60,11 +60,11 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
       enum command_id cmd = current->e.c->cmd;
       ELEMENT *arg;
 
-      if (command_data(cmd).flags & CF_contain_basic_inline)
+      if (parsed_command_data(cmd).flags & CF_contain_basic_inline)
         push_command (&nesting_context.basic_inline_stack, cmd);
 
       counter_push (&count_remaining_args, current,
-                    command_data(cmd).args_number);
+                    parsed_command_data(cmd).args_number);
       counter_dec (&count_remaining_args);
 
       if (cmd == CM_verb)
@@ -101,7 +101,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
               line += char_len;
             }
         }
-      else if (command_data(cmd).data == BRACE_context)
+      else if (parsed_command_data(cmd).data == BRACE_context)
         {
           ELEMENT *space_e;
           int n;
@@ -152,14 +152,14 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
       else /* not context brace */
         {
           /* Commands that disregard leading whitespace. */
-          if (command_data(cmd).data == BRACE_arguments
-              || command_data(cmd).data == BRACE_inline)
+          if (parsed_command_data(cmd).data == BRACE_arguments
+              || parsed_command_data(cmd).data == BRACE_inline)
             {
               arg = new_element (ET_brace_arg);
 
               if (cmd == CM_inlineraw)
                 push_context (ct_inlineraw, cmd);
-              else if (command_data(cmd).flags & CF_math)
+              else if (parsed_command_data(cmd).flags & CF_math)
                 push_context (ct_math, cmd);
             }
           else
@@ -281,13 +281,13 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
 
       abort_empty_line (current);
 
-      if (command_data(closed_cmd).data == BRACE_arguments)
+      if (parsed_command_data(closed_cmd).data == BRACE_arguments)
         isolate_leading_trailing (current, 0);
-      else if (command_data(closed_cmd).data == BRACE_inline
+      else if (parsed_command_data(closed_cmd).data == BRACE_inline
                && current->type != ET_elided_brace_command_arg)
         isolate_leading_trailing (current, 1);
 
-      debug ("C|CLOSING(brace) @%s", command_data(closed_cmd).cmdname);
+      debug ("C|CLOSING(brace) @%s", parsed_command_data(closed_cmd).cmdname);
 
 
       if (closed_cmd == CM_anchor || closed_cmd == CM_namedanchor)
@@ -308,7 +308,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                 }
             }
         }
-      else if (command_data(closed_cmd).flags & CF_ref)
+      else if (parsed_command_data(closed_cmd).flags & CF_ref)
         {
           ELEMENT *ref = brace_command;
           int link_or_inforef = (closed_cmd == CM_link
@@ -434,7 +434,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                 }
             }
         }
-      else if ((command_data(closed_cmd).data == BRACE_inline)
+      else if ((parsed_command_data(closed_cmd).data == BRACE_inline)
                || closed_cmd == CM_abbr
                || closed_cmd == CM_acronym)
         {
@@ -506,10 +506,10 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
         {
           register_command_as_argument (brace_command);
         }
-      else if (command_data(closed_cmd).data == BRACE_noarg)
+      else if (parsed_command_data(closed_cmd).data == BRACE_noarg)
         {
           if (current->e.c->contents.number > 0
-              && command_data(closed_cmd).data == BRACE_noarg)
+              && parsed_command_data(closed_cmd).data == BRACE_noarg)
             line_warn ("command @%s does not accept arguments",
                        command_name(closed_cmd));
         }
@@ -593,7 +593,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
   if (counter_value (&count_remaining_args, command_element) != COUNTER_VARIADIC)
     counter_dec (&count_remaining_args);
 
-  if (command_data(command_element->e.c->cmd).data == BRACE_inline)
+  if (parsed_command_data(command_element->e.c->cmd).data == BRACE_inline)
     {
       int expandp = 0;
       const char *format = lookup_extra_string (command_element, AI_key_format);

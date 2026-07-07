@@ -118,7 +118,7 @@ in_paragraph (ELEMENT *current)
 {
   while (current->e.c->parent
          && (command_flags(current->e.c->parent) & CF_brace)
-         && !(command_data(current->e.c->parent->e.c->cmd).data
+         && !(parsed_command_data(current->e.c->parent->e.c->cmd).data
                                                  == BRACE_context))
     {
       current = current->e.c->parent->e.c->parent;
@@ -348,14 +348,14 @@ handle_other_command (ELEMENT *current, const char **line_inout,
 
   *status = STILL_MORE_TO_PROCESS;
 
-  arg_spec = command_data(cmd).data;
+  arg_spec = parsed_command_data(cmd).data;
   if (arg_spec != NOBRACE_skipspace)
     {
       command_e = new_command_element (ET_nobrace_command, cmd);
       add_to_element_contents (current, command_e);
-      if (command_data(cmd).flags & CF_in_heading_spec
+      if (parsed_command_data(cmd).flags & CF_in_heading_spec
           && (nesting_context.basic_inline_stack_on_line.number <= 0
-              || !(command_data(
+              || !(parsed_command_data(
           top_command (&nesting_context.basic_inline_stack_on_line)).flags
                     & CF_heading_spec)))
 
@@ -701,7 +701,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
   *status = STILL_MORE_TO_PROCESS;
 
   /* Root commands (like @node) and @bye */
-  if (command_data(data_cmd).flags & CF_root || cmd == CM_bye)
+  if (parsed_command_data(data_cmd).flags & CF_root || cmd == CM_bye)
     {
       ELEMENT *closed_elt; /* Not used */
       current = close_commands (current, 0, &closed_elt, cmd);
@@ -718,7 +718,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
   /* Look up information about this command
      ( text line lineraw specific special ). */
-  arg_spec = command_data(data_cmd).data;
+  arg_spec = parsed_command_data(data_cmd).data;
 
   /* All the cases using the raw line.
      For some commands, the arguments are determined especially from the
@@ -808,7 +808,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
             }
           else
             {
-              if (!comment_text && command_data (data_cmd).args_number == 0)
+              if (!comment_text && parsed_command_data(data_cmd).args_number == 0)
                 {
                   int has_comment = 0;
                   const char *q
@@ -842,7 +842,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                                                          spaces_before, 0);
                         }
 
-                      if (command_data (data_cmd).args_number == 0)
+                      if (parsed_command_data(data_cmd).args_number == 0)
                         {
                    /* For commands without argument, a bogus argument is in
                       text_element. */
@@ -855,7 +855,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
               else
                 {
                   raw_line_command_arg_spaces (text_element, line_args);
-                  if (command_data (data_cmd).args_number == 0)
+                  if (parsed_command_data(data_cmd).args_number == 0)
                     {
                    /* For commands without argument, a bogus argument is in
                       text_element. */
@@ -942,7 +942,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
         {
           /* Add to contents */
 
-          if (command_data(cmd).flags & CF_index_entry_command)
+          if (parsed_command_data(cmd).flags & CF_index_entry_command)
             command_e = new_command_element (ET_index_entry_command, cmd);
           else
             command_e = new_command_element (ET_line_command, cmd);
@@ -995,7 +995,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
           add_to_element_contents (current, command_e);
 
-          if (command_data(data_cmd).flags & CF_sectioning_heading)
+          if (parsed_command_data(data_cmd).flags & CF_sectioning_heading)
             {
               int sections_level_modifier
                 = parsed_document->global_info.sections_level_modifier;
@@ -1006,7 +1006,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                 }
             }
           /* @def*x */
-          else if (command_data(data_cmd).flags & CF_def)
+          else if (parsed_command_data(data_cmd).flags & CF_def)
             {
               enum command_id base_command;
               int after_paragraph;
@@ -1085,7 +1085,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       current = last_contents_child (current);
       arg = new_element (ET_line_arg);
 
-      if (command_data(data_cmd).flags & CF_root)
+      if (parsed_command_data(data_cmd).flags & CF_root)
         {
           ELEMENT *arguments_line = new_element (ET_arguments_line);
           add_to_element_contents (current, arguments_line);
@@ -1094,7 +1094,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       else /* def or line command */
         add_to_element_contents (current, arg);
 
-      if (command_data(data_cmd).flags & CF_contain_basic_inline)
+      if (parsed_command_data(data_cmd).flags & CF_contain_basic_inline)
         push_command (&nesting_context.basic_inline_stack_on_line, cmd);
 
       /* LINE_specific commands arguments are handled in a specific way.
@@ -1102,13 +1102,13 @@ handle_line_command (ELEMENT *current, const char **line_inout,
          and more than one is node, so the following condition only applies
          to node */
       if (arg_spec != LINE_specific
-          && command_data (data_cmd).args_number > 1)
+          && parsed_command_data(data_cmd).args_number > 1)
         {
           counter_push (&count_remaining_args,
                         current,
-                        command_data (data_cmd).args_number - 1);
+                        parsed_command_data(data_cmd).args_number - 1);
         }
-      else if (command_data (data_cmd).flags & CF_variadic)
+      else if (parsed_command_data(data_cmd).flags & CF_variadic)
         {
           /* Unlimited args */
           counter_push (&count_remaining_args, current,
@@ -1142,9 +1142,9 @@ handle_line_command (ELEMENT *current, const char **line_inout,
         current_node->element->flags |= EF_isindex;
 
 
-      if (command_data(data_cmd).flags & CF_def)
+      if (parsed_command_data(data_cmd).flags & CF_def)
         current = last_contents_child (current);
-      else if (command_data(data_cmd).flags & CF_root)
+      else if (parsed_command_data(data_cmd).flags & CF_root)
         {
           /* arguments_line type element */
           const ELEMENT *arguments_line = current->e.c->contents.list[0];
@@ -1195,12 +1195,12 @@ handle_block_command (ELEMENT *current, const char **line_inout,
                       enum command_id cmd, ELEMENT **command_element)
 {
   const char *line = *line_inout;
-  unsigned long flags = command_data(cmd).flags;
+  unsigned long flags = parsed_command_data(cmd).flags;
   ELEMENT *block = 0;
   ELEMENT *bla_element;   /* block line arg element */
   ELEMENT *block_line_e;
 
-  if (command_data(cmd).data == BLOCK_menu
+  if (parsed_command_data(cmd).data == BLOCK_menu
       && (current->type == ET_menu_comment
           || current->type == ET_menu_entry_description))
     {
@@ -1248,19 +1248,19 @@ handle_block_command (ELEMENT *current, const char **line_inout,
     {
       block = new_command_element (ET_block_command, cmd);
 
-      if (command_data(cmd).data == BLOCK_preformatted)
+      if (parsed_command_data(cmd).data == BLOCK_preformatted)
         push_context (ct_preformatted, cmd);
       else if (cmd == CM_displaymath)
         push_context (ct_math, cmd);
-      else if (command_data(cmd).data == BLOCK_format_raw)
+      else if (parsed_command_data(cmd).data == BLOCK_format_raw)
         {
           push_context (ct_rawpreformatted, cmd);
         }
-      else if (command_data(cmd).data == BLOCK_region)
+      else if (parsed_command_data(cmd).data == BLOCK_region)
         {
           push_command (&nesting_context.regions_stack, cmd);
         }
-      else if (command_data(cmd).data == BLOCK_menu)
+      else if (parsed_command_data(cmd).data == BLOCK_menu)
         {
           push_context (ct_preformatted, cmd);
 
@@ -1308,13 +1308,13 @@ handle_block_command (ELEMENT *current, const char **line_inout,
         }
 
       block_line_e = block;
-      if (command_data (block_line_e->e.c->cmd).args_number > 1)
+      if (parsed_command_data(block_line_e->e.c->cmd).args_number > 1)
         {
           counter_push (&count_remaining_args,
                         block_line_e,
-                        command_data (block_line_e->e.c->cmd).args_number - 1);
+                        parsed_command_data(block_line_e->e.c->cmd).args_number - 1);
         }
-      else if (command_data (block_line_e->e.c->cmd).flags & CF_variadic)
+      else if (parsed_command_data(block_line_e->e.c->cmd).flags & CF_variadic)
         {
           /* Unlimited args */
           counter_push (&count_remaining_args, block_line_e,
@@ -1326,7 +1326,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
   add_to_element_contents (current, block);
 
   bla_element = new_element (ET_block_line_arg);
-  if (!(command_data(cmd).flags & CF_def))
+  if (!(parsed_command_data(cmd).flags & CF_def))
     {
       ELEMENT *arguments = new_element (ET_arguments_line);
       add_to_element_contents (block_line_e, arguments);
@@ -1338,7 +1338,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
     }
 
 
-  if (command_data(cmd).flags & CF_contain_basic_inline)
+  if (parsed_command_data(cmd).flags & CF_contain_basic_inline)
     push_command (&nesting_context.basic_inline_stack_block, cmd);
 
   register_global_command (block, 0);
@@ -1360,9 +1360,9 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
 
   debug ("C|OPEN BRACE @%s", command_name(cmd));
 
-  if (command_data(cmd).flags & CF_INFOENCLOSE)
+  if (parsed_command_data(cmd).flags & CF_INFOENCLOSE)
     command_e = new_command_element (ET_definfoenclose_command, cmd);
-  else if (command_data(cmd).data == BRACE_context)
+  else if (parsed_command_data(cmd).data == BRACE_context)
     command_e = new_command_element (ET_context_brace_command, cmd);
   else
     command_e = new_command_element (ET_brace_command, cmd);
@@ -1386,7 +1386,7 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
     }
   else
     {
-      if (command_data(cmd).flags & CF_INFOENCLOSE)
+      if (parsed_command_data(cmd).flags & CF_INFOENCLOSE)
         {
           INFO_ENCLOSE *ie = lookup_infoenclose (cmd);
           if (ie)

@@ -54,7 +54,7 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
      This may happen for a construct like:
      @deffnx a b @section
      but otherwise the end of line will lead to the command closing. */
-  if (command_data(current->e.c->cmd).flags & CF_line)
+  if (parsed_command_data(current->e.c->cmd).flags & CF_line)
     return;
 
   contents_count = current->e.c->contents.number;
@@ -374,7 +374,7 @@ parse_def (enum command_id command, ELEMENT *current)
   split_def_args (current, contents_idx);
 
   /* Check for "def alias" - for example @defun for @deffn. */
-  if (command_data(command).flags & CF_def_alias)
+  if (parsed_command_data(command).flags & CF_def_alias)
     {
       ELEMENT *spaces_before;
       char *category;

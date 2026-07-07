@@ -359,7 +359,7 @@ register_global_command (ELEMENT *current, enum command_id cmd_in)
   if (cmd == CM_summarycontents)
     cmd = CM_shortcontents;
 
-  if (command_data(cmd).flags & CF_global)
+  if (parsed_command_data(cmd).flags & CF_global)
     {
       if (!current->e.c->source_info.line_nr)
         current->e.c->source_info = current_source_info;
@@ -394,7 +394,7 @@ register_global_command (ELEMENT *current, enum command_id cmd_in)
 
       return 1;
     }
-  else if ((command_data(cmd).flags & CF_global_unique))
+  else if ((parsed_command_data(cmd).flags & CF_global_unique))
     {
       ELEMENT **where = 0;
 
@@ -513,7 +513,7 @@ rearrange_tree_beginning (ELEMENT *before_node_section,
             first_idx = i+1;
           else if (content->type == ET_paragraph
                    || (!(type_data[content->type].flags & TF_text)
-                       && !(command_data(content->e.c->cmd).flags
+                       && !(parsed_command_data(content->e.c->cmd).flags
                                                       & CF_preamble)))
             break;
         }
@@ -713,7 +713,7 @@ begin_paragraph (ELEMENT *current)
             break;
           if (!(type_data[child->type].flags & TF_text)
               && child->e.c->cmd
-              && command_data(child->e.c->cmd).flags & CF_close_paragraph)
+              && parsed_command_data(child->e.c->cmd).flags & CF_close_paragraph)
             break;
           /* after an indent there are ignorable_spaces_after_command
              skip through spaces only text element that could be there */
@@ -1264,7 +1264,7 @@ parent_of_command_as_argument (ELEMENT *current)
   return current->type == ET_block_line_arg
     && current->e.c->parent->e.c->parent
     && (current->e.c->parent->e.c->parent->e.c->cmd == CM_itemize
-        || command_data(current->e.c->parent->e.c->parent->e.c->cmd).data
+        || parsed_command_data(current->e.c->parent->e.c->parent->e.c->cmd).data
                                                           == BLOCK_item_line)
     && (current->e.c->contents.number == 1
         || (current->e.c->contents.number == 2
@@ -1358,7 +1358,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
 
   int ok = 0; /* Whether nesting is allowed. */
 
-  unsigned long cmd_flags = command_data(cmd).flags;
+  unsigned long cmd_flags = parsed_command_data(cmd).flags;
   enum command_id outer;
   unsigned long outer_flags;
 
@@ -1368,7 +1368,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
     parent_command = current->e.c->parent;
 
   outer = parent_command->e.c->cmd;
-  outer_flags = command_data(outer).flags;
+  outer_flags = parsed_command_data(outer).flags;
 
   /* first three conditions check if in the main contents of the commands
      or in the arguments where there is checking of nesting */
@@ -1384,21 +1384,21 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
   else if (outer_flags & CF_contain_plain_text)
     {
       if ((cmd_flags & CF_brace
-           && command_data(cmd).data == BRACE_accent)
+           && parsed_command_data(cmd).data == BRACE_accent)
           || (cmd_flags & CF_nobrace
-              && command_data(cmd).data == NOBRACE_symbol
+              && parsed_command_data(cmd).data == NOBRACE_symbol
               && (!(cmd_flags & CF_in_heading_spec))))
         ok = 1;
       else if (cmd_flags & CF_brace
-               && command_data(cmd).data == BRACE_noarg)
+               && parsed_command_data(cmd).data == BRACE_noarg)
         ok = 1; /* glyph command */
       if (cmd == CM_c || cmd == CM_comment)
         ok = 1;
     }
   else if (((outer_flags & CF_brace)       /* "full text commands" */
-               && (command_data(outer).data == BRACE_style_other
-                   || command_data(outer).data == BRACE_style_code
-                   || command_data(outer).data == BRACE_style_no_code))
+               && (parsed_command_data(outer).data == BRACE_style_other
+                   || parsed_command_data(outer).data == BRACE_style_code
+                   || parsed_command_data(outer).data == BRACE_style_no_code))
            || outer == CM_center
            || outer == CM_exdent
            || outer == CM_item
@@ -1413,7 +1413,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
          should be consistent with the perl parser */
       if (cmd_flags & CF_brace && !(cmd_flags & CF_INFOENCLOSE))
         ok = 1;
-      if (cmd_flags & CF_nobrace && command_data(cmd).data == NOBRACE_symbol)
+      if (cmd_flags & CF_nobrace && parsed_command_data(cmd).data == NOBRACE_symbol)
         ok = 1;
       /* selected line commands */
       else if (cmd == CM_c
@@ -1427,8 +1427,8 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
         ok = 1;
       /* selected block commands */
       else if (cmd_flags & CF_block
-               && (command_data(cmd).data == BLOCK_format_raw
-                    || command_data(cmd).data == BLOCK_conditional))
+               && (parsed_command_data(cmd).data == BLOCK_format_raw
+                    || parsed_command_data(cmd).data == BLOCK_conditional))
         ok = 1;
       /* not valid in these commands, only right in @float */
       if (cmd == CM_caption || cmd == CM_shortcaption)
@@ -1439,9 +1439,9 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
              brace commands */
           ok = 0;
           if (outer_flags & CF_brace
-              && (command_data(outer).data == BRACE_style_other
-                  || command_data(outer).data == BRACE_style_code
-                  || command_data(outer).data == BRACE_style_no_code))
+              && (parsed_command_data(outer).data == BRACE_style_other
+                  || parsed_command_data(outer).data == BRACE_style_code
+                  || parsed_command_data(outer).data == BRACE_style_no_code))
               ok = 1;
         }
     }
@@ -1497,8 +1497,8 @@ check_valid_nesting_context (enum command_id cmd)
            || nesting_context.basic_inline_stack_on_line.number > 0
            || nesting_context.basic_inline_stack_block.number > 0)
     {
-      unsigned long flags = command_data(cmd).flags;
-      int data = command_data(cmd).data;
+      unsigned long flags = parsed_command_data(cmd).flags;
+      int data = parsed_command_data(cmd).data;
 
       if (!(                                             /* inclusions */
                 (flags & (CF_brace | CF_in_heading_spec))
@@ -1544,9 +1544,9 @@ check_valid_nesting_context (enum command_id cmd)
     }
 
   /* Inclusions for "basic inline with refs" commands. */
-  if (command_data(invalid_line).flags & (CF_sectioning_heading | CF_def))
+  if (parsed_command_data(invalid_line).flags & (CF_sectioning_heading | CF_def))
     {
-      if (command_data(cmd).flags & CF_ref)
+      if (parsed_command_data(cmd).flags & CF_ref)
         invalid_line = 0;
     }
 
@@ -1559,8 +1559,8 @@ check_valid_nesting_context (enum command_id cmd)
 
   if (nesting_context.regions_stack.number > 0)
     {
-      if ((command_data(cmd).flags & CF_block)
-           && (command_data(cmd).data == BLOCK_region))
+      if ((parsed_command_data(cmd).flags & CF_block)
+           && (parsed_command_data(cmd).data == BLOCK_region))
         invalid_context = top_command (&nesting_context.regions_stack);
     }
 
@@ -2027,16 +2027,16 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           line = line_after_command;
           goto funexit;
         }
-      if (cmd && (command_data(cmd).flags & CF_ALIAS))
+      if (cmd && (parsed_command_data(cmd).flags & CF_ALIAS))
         {
           from_alias = cmd;
-          cmd = command_data(cmd).data;
+          cmd = parsed_command_data(cmd).data;
         }
     }
 
   /* Handle user-defined macros before anything else because their expansion
      may lead to changes in the line. */
-  if (cmd && (command_data(cmd).flags & CF_MACRO))
+  if (cmd && (parsed_command_data(cmd).flags & CF_MACRO))
     {
       static char *allocated_line;
 
@@ -2158,7 +2158,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
      Need to be done as early as possible such that no other condition
      prevail and lead to a missed command */
   if (command_flags(current) & CF_brace && *line != '{'
-      && command_data(current->e.c->cmd).data != BRACE_accent
+      && parsed_command_data(current->e.c->cmd).data != BRACE_accent
       && parent_of_command_as_argument (current->e.c->parent))
     {
       register_command_as_argument (current);
@@ -2191,14 +2191,14 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       /* command marked as unknown, normally a registered user-defined command
          that was set as @alias-ed but has not been defined since, or
          that has been removed (with @unmacro) */
-      || (command_data(cmd).flags & CF_UNKNOWN)
+      || (parsed_command_data(cmd).flags & CF_UNKNOWN)
           /* Alias command that did not resolve to a non alias command.
              This is possible only if the command read was already an alias
              resolving to cmd and not to a non alias command.  In turn,
              this is possible if there was an error at the time of alias
              definition (because the alias was defined recursively to itself).
            */
-      || (command_data(cmd).flags & CF_ALIAS))
+      || (parsed_command_data(cmd).flags & CF_ALIAS))
     {
       const char *unknown_cmd;
 
@@ -2238,7 +2238,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       debug_print_protected_string (line); debug ("");
 
       if (strchr (whitespace_chars, *line)
-               && ((command_data(current->e.c->cmd).data == BRACE_accent)
+               && ((parsed_command_data(current->e.c->cmd).data == BRACE_accent)
             || global_parser_conf->ignore_space_after_braced_command_name))
         {
            int whitespaces_len;
@@ -2318,7 +2318,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
     /* special case for accent commands, use following character except @
        as argument */
       else if ((command_flags(current) & CF_brace
-                && command_data(current->e.c->cmd).data == BRACE_accent)
+                && parsed_command_data(current->e.c->cmd).data == BRACE_accent)
                && *line != '@')
         {
           ELEMENT *e, *e2;
@@ -2468,7 +2468,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         }
 
       /* Warn on deprecated command */
-      if (command_data(cmd).flags & CF_deprecated)
+      if (parsed_command_data(cmd).flags & CF_deprecated)
         {
           line_warn ("@%s is obsolete", command_name(cmd));
         }
@@ -2490,8 +2490,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
          paragraph as it also closes the empty line */
       if ((!last_element || last_element->type != ET_empty_line)
           && ((cmd == CM_node || cmd == CM_bye)
-              || (command_data(cmd).flags & CF_block)
-              || ((command_data(cmd).flags & CF_line)
+              || (parsed_command_data(cmd).flags & CF_block)
+              || ((parsed_command_data(cmd).flags & CF_line)
                   && cmd != CM_comment
                   && cmd != CM_c
                   && cmd != CM_columnfractions
@@ -2507,7 +2507,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       /* close_paragraph_not_preformatted */
       if (cmd == CM_sp)
         current = end_paragraph (current, 0, 0);
-      else if (command_data(cmd).flags & CF_close_paragraph)
+      else if (parsed_command_data(cmd).flags & CF_close_paragraph)
         current = end_paragraph_preformatted (current, 0, 0);
 
       /* done here and not above because it is not possible to check the parent
@@ -2548,14 +2548,14 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         }
 
       /* check command doesn't start a paragraph */
-      if (!(command_data(data_cmd).flags & CF_no_paragraph))
+      if (!(parsed_command_data(data_cmd).flags & CF_no_paragraph))
         {
           if (in_begin_paragraph (current))
             current = begin_paragraph (current);
         }
 
       /* No-brace command */
-      if (command_data(data_cmd).flags & CF_nobrace)
+      if (parsed_command_data(data_cmd).flags & CF_nobrace)
         {
           int status;
           current = handle_other_command (current, &line, cmd, &status,
@@ -2565,7 +2565,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
               retval = status;
             }
         }
-      else if (command_data(data_cmd).flags & CF_line)
+      else if (parsed_command_data(data_cmd).flags & CF_line)
         {
           int status;
           current = handle_line_command (current, &line, cmd, data_cmd, &status,
@@ -2575,13 +2575,14 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
               /* @ignore or @verbatim and ignored conditionals
                  followed by a comment */
               if (command_flags(current) & CF_block
-                  && (command_data(current->e.c->cmd).data == BLOCK_raw
-             || command_data(current->e.c->cmd).data == BLOCK_conditional))
+                  && (parsed_command_data(current->e.c->cmd).data == BLOCK_raw
+             || parsed_command_data(current->e.c->cmd).data == BLOCK_conditional))
                 {
                   process_raw_block_contents (current, &line);
                 }
               else if (command_flags(current) & CF_block
-                  && command_data(current->e.c->cmd).data == BLOCK_format_raw)
+                  && parsed_command_data(current->e.c->cmd).data
+                                                        == BLOCK_format_raw)
                 {
                   process_ignored_raw_format_block_contents (current, &line);
                 }
@@ -2593,7 +2594,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
               retval = status;
             }
         }
-      else if (command_data(data_cmd).flags & CF_block)
+      else if (parsed_command_data(data_cmd).flags & CF_block)
         {
           if (cmd == CM_macro || cmd == CM_rmacro || cmd == CM_linemacro)
             {
@@ -2606,7 +2607,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
             current = handle_block_command (current, &line, cmd,
                                             &command_element);
         }
-      else if (command_data(data_cmd).flags & CF_brace)
+      else if (parsed_command_data(data_cmd).flags & CF_brace)
         {
           current = handle_brace_command (current, &line, cmd, &command_element);
         }
@@ -2715,15 +2716,15 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           the command, as a rawpreformatted container is immediatly added
           in a non ignored format_raw */
       if (command_flags(current) & CF_block
-          && command_data(current->e.c->cmd).data == BLOCK_format_raw)
+          && parsed_command_data(current->e.c->cmd).data == BLOCK_format_raw)
         {
           process_ignored_raw_format_block_contents (current, &line);
         }
       /* @ignore and @verbatim followed by an end of line
          and ignored conditionals */
       else if (command_flags(current) & CF_block
-          && (command_data(current->e.c->cmd).data == BLOCK_raw
-             || command_data(current->e.c->cmd).data == BLOCK_conditional))
+          && (parsed_command_data(current->e.c->cmd).data == BLOCK_raw
+             || parsed_command_data(current->e.c->cmd).data == BLOCK_conditional))
         {
           process_raw_block_contents (current, &line);
         }
