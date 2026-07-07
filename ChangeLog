@@ -1,5 +1,10 @@
 2026-07-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/convert/convert_to_plaintext.c (convert_to_plaintext_internal):
+	Call element_builtin_cmd and remove TODO comment.  From Patrice.
+
+2026-07-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove parameters from set_space_protection
 
 	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm, (set_space_protection),

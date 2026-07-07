@@ -310,7 +310,12 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
     return;
 
   /* check for ignored command */
-  enum command_id cmd = element->e.c->cmd;
+  /* enum command_id cmd = element->e.c->cmd; */
+  enum command_id cmd = element_builtin_cmd (element);
+  /* or, to have @item in line commands as item_LINE
+  enum command_id cmd = element_builtin_data_cmd (element);
+   */
+
   if (cmd != CM_NONE)
     {
       /* TODO: %ignored_line_commands */
@@ -354,10 +359,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   const FORMATTER *preformatted = NULL;
   if (cmd != CM_NONE)
     {
-      /* TODO what about non-builtin commands?
-         Check why command_data macro, USER_COMMAND_BIT or 
-         user_defined_command_data not used anywhere outside
-         of parsetexi/ directory. */
       const COMMAND *command_data = &builtin_command_data[cmd];
       if (command_data->flags & CF_brace
           && command_data->data == BRACE_accent)
