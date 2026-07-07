@@ -1083,7 +1083,7 @@ html_converter_get_customization_sv (SV *converter_sv,
       if (i == 0)
         ref_name = "";
       else
-        ref_name = builtin_command_data[i].cmdname;
+        ref_name = command_data[i].cmdname;
       FORMATTING_REFERENCE *open_formatting_reference
        = &self_html->commands_open[i];
       FORMATTING_REFERENCE *conversion_formatting_reference
@@ -1112,7 +1112,7 @@ html_converter_get_customization_sv (SV *converter_sv,
       if (i == 0)
         ref_name = "";
       else
-        ref_name = builtin_command_data[i].cmdname;
+        ref_name = command_data[i].cmdname;
 
      FORMATTING_REFERENCE *conversion_formatting_reference
        = &self_html->css_string_commands_conversion[i];

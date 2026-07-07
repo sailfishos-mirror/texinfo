@@ -571,10 +571,10 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           tree_built = translated_tree;
         }
       xasprintf (&explanation, "Translated NO ARG @%s ctx %s",
-                 builtin_command_data[cmd].cmdname,
+                 command_data[cmd].cmdname,
                  html_conversion_context_type_names[reset_context]);
       xasprintf (&context, "Tr %s ctx %s",
-                 builtin_command_data[cmd].cmdname,
+                 command_data[cmd].cmdname,
                  html_conversion_context_type_names[reset_context]);
       if (reset_context == HCC_type_normal)
         {
@@ -1471,11 +1471,11 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
       /*
       if (self->conf->DEBUG.o.integer > 0)
         fprintf (stderr, "C|COMMAND: %s %s\n",
-                 builtin_command_data[data_cmd].cmdname,
-                 builtin_command_data[cmd].cmdname);
+                 command_data[data_cmd].cmdname,
+                 command_data[cmd].cmdname);
       */
 
-      if (builtin_command_data[data_cmd].flags & CF_root)
+      if (command_data[data_cmd].flags & CF_root)
         {
           self_html->current_root_command = element;
           self_html->modified_state |= HMSF_current_root;
@@ -1499,8 +1499,8 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
           text_append (&content_formatted, "");
 
           if (element->e.c->contents.number > 0
-              && (builtin_command_data[data_cmd].flags & CF_root
-                  || builtin_command_data[data_cmd].flags & CF_block
+              && (command_data[data_cmd].flags & CF_root
+                  || command_data[data_cmd].flags & CF_block
                   || data_cmd == CM_tab || data_cmd == CM_headitem
                   || data_cmd == CM_item))
             {
@@ -1543,11 +1543,11 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                 }
             }
 
-          if ((builtin_command_data[data_cmd].flags & CF_brace
+          if ((command_data[data_cmd].flags & CF_brace
                /* could be 0 for brace commands without braces */
                && element->e.c->contents.number > 0)
-              || (builtin_command_data[data_cmd].flags & CF_line
-                  && builtin_command_data[data_cmd].data == LINE_line)
+              || (command_data[data_cmd].flags & CF_line
+                  && command_data[data_cmd].data == LINE_line)
               || ((cmd == CM_item || cmd == CM_itemx)
                   && element->e.c->contents.number > 0
                   && element->e.c->contents.list[0]->type == ET_line_arg)
@@ -1815,7 +1815,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
           if (self->conf->DEBUG.o.integer > 0
               || self->conf->VERBOSE.o.integer > 0)
             fprintf (stderr, "Command not converted: %s\n", command_name);
-          if (builtin_command_data[data_cmd].flags & CF_root)
+          if (command_data[data_cmd].flags & CF_root)
             {
               self_html->current_root_command = 0;
               self_html->modified_state |= HMSF_current_root;

@@ -276,10 +276,10 @@ parse_line_command_args (ELEMENT *line_command)
         /* check that it is an highlighting command */
         new_cmd = lookup_builtin_command (new_command);
         if (new_cmd &&
-            (!(builtin_command_data[new_cmd].flags & CF_brace)
-             || (builtin_command_data[new_cmd].data != BRACE_style_no_code
-                 && builtin_command_data[new_cmd].data != BRACE_style_code
-                 && builtin_command_data[new_cmd].data != BRACE_style_other)))
+            (!(command_data[new_cmd].flags & CF_brace)
+             || (command_data[new_cmd].data != BRACE_style_no_code
+                 && command_data[new_cmd].data != BRACE_style_code
+                 && command_data[new_cmd].data != BRACE_style_other)))
           {
             line_error ("cannot redefine with @definfoenclose: %s",
                         new_command);
@@ -761,8 +761,8 @@ end_line_def_line (ELEMENT *current)
       if (index_entry)
         {
           if (def_info_class &&
-              (builtin_command_data[def_command].flags & CF_def_class_method
-               || builtin_command_data[def_command].flags
+              (command_data[def_command].flags & CF_def_class_method
+               || command_data[def_command].flags
                                                & CF_def_class_variable))
             {
               STRING_LIST *global_documentlanguagevariant
@@ -994,8 +994,8 @@ end_line_starting_block (ELEMENT *current)
               && arg->e.c->contents.list[0]->e.c->contents.number == 0)))
                     {
                       enum command_id cmd = element_builtin_cmd (arg);
-                      if (builtin_command_data[cmd].flags & CF_brace
-                          && builtin_command_data[cmd].data == BRACE_accent)
+                      if (command_data[cmd].flags & CF_brace
+                          && command_data[cmd].data == BRACE_accent)
                         {
                           command_warn (current, "accent command `@%s' "
                             "not allowed as @%s argument",

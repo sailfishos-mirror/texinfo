@@ -288,7 +288,7 @@ setup_structuring_data (void)
           * SECTION_LEVEL_NR * sizeof (enum command_id));
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
     {
-      if (builtin_command_data[i].flags & CF_sectioning_heading)
+      if (command_data[i].flags & CF_sectioning_heading)
         {
           enum structuring_commands_categories category;
 
@@ -994,15 +994,15 @@ new_element_from_names (const char *type_name, const char *command_name,
       /* determines the type of the command */
       if (e_type == ET_NONE)
         {
-          if (builtin_command_data[cmd].flags & CF_nobrace)
+          if (command_data[cmd].flags & CF_nobrace)
             e_type = ET_nobrace_command;
-          else if (builtin_command_data[cmd].flags & CF_line)
+          else if (command_data[cmd].flags & CF_line)
             e_type = ET_line_command;
-          else if (builtin_command_data[cmd].flags & CF_block)
+          else if (command_data[cmd].flags & CF_block)
             e_type = ET_block_command;
-          else if (builtin_command_data[cmd].flags & CF_brace)
+          else if (command_data[cmd].flags & CF_brace)
             {
-              if (builtin_command_data[cmd].data == BRACE_context)
+              if (command_data[cmd].data == BRACE_context)
                 e_type = ET_context_brace_command;
               else
                 e_type = ET_brace_command;
@@ -2269,8 +2269,8 @@ block_line_argument_command (const ELEMENT *block_line_arg)
                   && arg->e.c->contents.list[0]->e.c->contents.number == 0)))
         {
           enum command_id cmd = element_builtin_cmd (arg);
-          if (builtin_command_data[cmd].flags & CF_brace
-              && builtin_command_data[cmd].data != BRACE_accent)
+          if (command_data[cmd].flags & CF_brace
+              && command_data[cmd].data != BRACE_accent)
             {
               return arg;
             }
@@ -2668,10 +2668,10 @@ informative_command_value (const ELEMENT *element, enum command_id *cmd_out)
     cmd = CM_shortcontents;
 
   *cmd_out = cmd;
-  if (builtin_command_data[cmd].flags & CF_line
-      && builtin_command_data[cmd].data == LINE_lineraw)
+  if (command_data[cmd].flags & CF_line
+      && command_data[cmd].data == LINE_lineraw)
     {
-      if (builtin_command_data[cmd].args_number <= 0)
+      if (command_data[cmd].args_number <= 0)
         return "1";
       /* NOTE only @set, which is not an informative command associated
          to a customization variable can have args.number > 1.
@@ -2699,8 +2699,8 @@ informative_command_value (const ELEMENT *element, enum command_id *cmd_out)
   misc_args = lookup_extra_string_list (element, AI_key_misc_args);
   if (misc_args && misc_args->number > 0)
     return misc_args->list[0];
-  if (builtin_command_data[cmd].flags & CF_line
-      && builtin_command_data[cmd].data == LINE_line)
+  if (command_data[cmd].flags & CF_line
+      && command_data[cmd].data == LINE_line)
    {
       int surplus_arg;
       const TEXT *arg_text = simple_arg_text (element->e.c->contents.list[0],
@@ -2747,7 +2747,7 @@ get_global_document_command (const GLOBAL_COMMANDS *global_commands,
     fprintf (stderr, "BUG: get_global_document_command: unknown CL: %d\n",
                      command_location);
 
-  if (builtin_command_data[cmd].flags & CF_global)
+  if (command_data[cmd].flags & CF_global)
     {
       const ELEMENT_LIST *command_list
         = get_cmd_global_multi_command (global_commands, cmd);
@@ -2816,8 +2816,8 @@ find_innermost_accent_contents (const ELEMENT *element)
 
       /* the following can happen if called with a bad tree */
       if (!data_cmd
-          || !(builtin_command_data[data_cmd].flags & CF_brace
-               && builtin_command_data[data_cmd].data == BRACE_accent))
+          || !(command_data[data_cmd].flags & CF_brace
+               && command_data[data_cmd].data == BRACE_accent))
         return accent_stack;
 
       push_stack_element (&accent_stack->stack, current);
@@ -2837,8 +2837,8 @@ find_innermost_accent_contents (const ELEMENT *element)
                 = element_builtin_data_cmd (content);
               if (content_data_cmd)
                 {
-                  if (builtin_command_data[content_data_cmd].flags & CF_brace
-               && builtin_command_data[content_data_cmd].data == BRACE_accent)
+                  if (command_data[content_data_cmd].flags & CF_brace
+               && command_data[content_data_cmd].data == BRACE_accent)
                     {
          /* if accent is tieaccent, keep everything and do not try to
             nest more */
@@ -2992,9 +2992,9 @@ is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries)
       data_cmd = element_builtin_data_cmd (content);
       if (data_cmd)
         {
-          unsigned long flags = builtin_command_data[data_cmd].flags;
+          unsigned long flags = command_data[data_cmd].flags;
           unsigned long other_flags
-               = builtin_command_data[data_cmd].other_flags;
+               = command_data[data_cmd].other_flags;
           if (content->type == ET_index_entry_command)
             {
               if (do_not_ignore_index_entries)

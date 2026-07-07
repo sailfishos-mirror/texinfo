@@ -490,8 +490,8 @@ is_texinfo_output_formats (const char *format)
   else
     {
       enum command_id cmd = lookup_builtin_command (format);
-      if (cmd && builtin_command_data[cmd].flags & CF_block
-           && builtin_command_data[cmd].data == BLOCK_format_raw)
+      if (cmd && command_data[cmd].flags & CF_block
+           && command_data[cmd].data == BLOCK_format_raw)
         return 1;
     }
   return 0;

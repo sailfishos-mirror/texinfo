@@ -257,7 +257,7 @@ split_by_section (DOCUMENT *document)
 
       ELEMENT *content = root->e.c->contents.list[i];
       enum command_id data_cmd = element_builtin_data_cmd (content);
-      unsigned long flags = builtin_command_data[data_cmd].flags;
+      unsigned long flags = command_data[data_cmd].flags;
       const NODE_RELATIONS *node_relations = 0;
       const SECTION_RELATIONS *new_section_relations = 0;
 

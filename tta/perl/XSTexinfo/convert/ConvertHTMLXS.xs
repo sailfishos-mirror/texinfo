@@ -868,7 +868,7 @@ preformatted_classes_stack (SV *converter_in)
               = &preformatted_classes_stack->list[i];
             const char *pre_class = 0;
             if (cmd_or_type->variety == CTV_type_command)
-              pre_class = builtin_command_data[cmd_or_type->ct.cmd].cmdname;
+              pre_class = command_data[cmd_or_type->ct.cmd].cmdname;
             else if (cmd_or_type->variety == CTV_type_type)
               pre_class
                 = self->html_converter.pre_class_types[cmd_or_type->ct.type];

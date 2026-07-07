@@ -1103,7 +1103,7 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
   while (1)
     {
       enum command_id data_cmd = element_builtin_data_cmd (current);
-      unsigned long flags = builtin_command_data[data_cmd].flags;
+      unsigned long flags = command_data[data_cmd].flags;
 
       if (current->type == ET_special_unit_element)
         {
@@ -1116,7 +1116,7 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
       if (data_cmd && (flags & CF_root))
         root_command = current;
       else if (data_cmd && (flags & CF_block)
-               && builtin_command_data[data_cmd].data == BLOCK_region)
+               && command_data[data_cmd].data == BLOCK_region)
         {
           const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
             (self->document, self_html->output_units_descriptors[OUDT_units]);
@@ -1305,7 +1305,7 @@ html_command_node (CONVERTER *self, const ELEMENT *command)
                   if (root_command && root_command->e.c->cmd == CM_node)
                     target_info->node_command = root_command;
                   else if (self->document && root_command
-               && builtin_command_data[root_command->e.c->cmd].flags & CF_root)
+               && command_data[root_command->e.c->cmd].flags & CF_root)
                     {
                       int status;
                       const SECTION_RELATIONS_LIST *sections_list
@@ -1984,7 +1984,7 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
             {
               ELEMENT *line_arg;
 
-              if (builtin_command_data[command->e.c->cmd].flags & CF_root)
+              if (command_data[command->e.c->cmd].flags & CF_root)
                 {
                   /* arguments_line type element */
                   const ELEMENT *arguments_line
@@ -6006,7 +6006,7 @@ html_command_conversion_external (CONVERTER *self, const enum command_id cmd,
   /*
   if (self->conf->DEBUG.o.integer > 0)
     fprintf (stderr, "DEBUG: command conversion %s '%s'\n",
-             builtin_command_data[cmd].cmdname, content);
+             command_data[cmd].cmdname, content);
    */
 
   const FORMATTING_REFERENCE *formatting_reference
@@ -6961,8 +6961,8 @@ html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
         {
           enum command_id p_cmd
             = element_builtin_cmd (element->e.c->parent->e.c->parent);
-          if ((builtin_command_data[p_cmd].flags & CF_brace
-               && builtin_command_data[p_cmd].data == BRACE_accent)
+          if ((command_data[p_cmd].flags & CF_brace
+               && command_data[p_cmd].data == BRACE_accent)
               && p_cmd != CM_tieaccent)
             {
               return text_set;
@@ -7414,7 +7414,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
   enum command_id level_corrected_opening_section_cmd = 0;
 
   enum command_id data_cmd = element_builtin_data_cmd (element);
-  unsigned long flags = builtin_command_data[data_cmd].flags;
+  unsigned long flags = command_data[data_cmd].flags;
 
   /* No situation where this could happen */
   if (html_in_string (self))
@@ -7576,7 +7576,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
     }
 
   if (self->conf->NO_TOP_NODE_OUTPUT.o.integer > 0
-      && builtin_command_data[cmd].flags & CF_root)
+      && command_data[cmd].flags & CF_root)
     {
       int in_skipped_node_top
         = self_html->shared_conversion_state.in_skipped_node_top;
@@ -7754,8 +7754,8 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
     {
       STRING_LIST *heading_classes;
       if (self->conf->TOC_LINKS.o.integer > 0
-          && (builtin_command_data[cmd].flags & CF_root)
-          && (builtin_command_data[cmd].flags & CF_sectioning_heading))
+          && (command_data[cmd].flags & CF_root)
+          && (command_data[cmd].flags & CF_sectioning_heading))
         {
           char *content_href = html_command_contents_href (self, element,
                                                            CM_contents, 0);
@@ -9682,7 +9682,7 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
                   if (cmd_or_type->variety == CTV_type_command)
                     {
                       enum command_id pre_class_cmd = cmd_or_type->ct.cmd;
-                      if (builtin_command_data[pre_class_cmd].other_flags
+                      if (command_data[pre_class_cmd].other_flags
                                                 & CF_preformatted_code)
                         {
                            char *attribute_class
@@ -10075,7 +10075,7 @@ get_element_root_command_element (CONVERTER *self, const ELEMENT *command)
       if (self->conf->USE_NODES.o.integer > 0)
         {
           if (root_command->e.c->cmd != CM_node
-              && builtin_command_data[root_command->e.c->cmd].flags & CF_root
+              && command_data[root_command->e.c->cmd].flags & CF_root
               && self->document)
             {
               int status;
@@ -10934,8 +10934,8 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
             }
 
           if (letter_command
-              && (!(builtin_command_data[letter_cmd].flags & CF_brace
-                    && builtin_command_data[letter_cmd].data == BRACE_accent))
+              && (!(command_data[letter_cmd].flags & CF_brace
+                    && command_data[letter_cmd].data == BRACE_accent))
               && letter_cmd != CM_U
             /* special case, the uppercasing of that command is not done
                if as a command, while it is done correctly in letter */
@@ -11253,7 +11253,7 @@ html_convert_def_command (CONVERTER *self, const enum command_id cmd,
   enum command_id original_cmd = cmd;
   char *class;
 
-  if (builtin_command_data[cmd].flags & CF_line)
+  if (command_data[cmd].flags & CF_line)
     { /* def*x and def*line commands */
       html_convert_def_line_type (self, ET_def_line, element, content, result);
       return;
@@ -11270,7 +11270,7 @@ html_convert_def_command (CONVERTER *self, const enum command_id cmd,
 
   if (cmd != CM_defblock)
     {
-      if (builtin_command_data[cmd].flags & CF_def_alias)
+      if (command_data[cmd].flags & CF_def_alias)
         {
           int i;
           for (i = 0; def_aliases[i].alias ; i++)
@@ -11678,10 +11678,10 @@ preformatted_class (const CONVERTER *self)
       const COMMAND_OR_TYPE *cmd_or_type = &pre_classes->list[i];
       if (!(cur_pre_class
             && (cur_pre_class->variety == CTV_type_command
-                && builtin_command_data[cur_pre_class->ct.cmd].other_flags
+                && command_data[cur_pre_class->ct.cmd].other_flags
                                    & CF_preformatted_code)
             && (!((cmd_or_type->variety == CTV_type_command
-                   && builtin_command_data[cmd_or_type->ct.cmd].other_flags
+                   && command_data[cmd_or_type->ct.cmd].other_flags
                                      & CF_preformatted_code)
                   || cmd_or_type->ct.cmd == CM_menu))))
          cur_pre_class = cmd_or_type;
@@ -12517,7 +12517,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
         }
     }
 
-  if (builtin_command_data[original_def_cmd].flags & CF_def_alias)
+  if (command_data[original_def_cmd].flags & CF_def_alias)
     {
       int i;
       for (i = 0; def_aliases[i].alias ; i++)
@@ -12556,7 +12556,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
         }
     }
 
-  if (builtin_command_data[def_cmd].flags & CF_def_alias)
+  if (command_data[def_cmd].flags & CF_def_alias)
     {
       int i;
       for (i = 0; def_aliases[i].alias ; i++)

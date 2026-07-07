@@ -359,7 +359,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   const FORMATTER *preformatted = NULL;
   if (cmd != CM_NONE)
     {
-      const COMMAND *command_data = &builtin_command_data[cmd];
+      const COMMAND *command_data = &command_data[cmd];
       if (command_data->flags & CF_brace
           && command_data->data == BRACE_accent)
         {

@@ -1077,7 +1077,7 @@ unused_set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
   if (0 && data_cmd == CM_node)
      /*
       (data_cmd == CM_node
-       || (builtin_command_data[data_cmd].flags & CF_sectioning_heading))
+       || (command_data[data_cmd].flags & CF_sectioning_heading))
        */
     {
 
@@ -1720,7 +1720,7 @@ print_element_details (ELEMENT *element, int level, const char *prepended,
     data_cmd = element_builtin_data_cmd (element);
 
   if (data_cmd
-      && builtin_command_data[data_cmd].flags & CF_root)
+      && command_data[data_cmd].flags & CF_root)
     {
       const ELEMENT *argument_line = element->e.c->contents.list[0];
       if (argument_line->e.c->contents.number > 0)

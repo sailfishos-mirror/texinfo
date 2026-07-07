@@ -390,7 +390,7 @@ html_format_setup (enum converter_format format)
     {
       enum command_id small_cmd = small_block_associated_command[i][0];
       enum command_id cmd = small_block_associated_command[i][1];
-      if (builtin_command_data[cmd].flags & CF_preformatted)
+      if (command_data[cmd].flags & CF_preformatted)
         {
           register_pre_class_command (small_cmd, cmd);
         }
@@ -415,51 +415,51 @@ html_format_setup (enum converter_format format)
         no_arg_formatted_cmd_nr++;
 
       if (html_style_commands_element[i]
-          || (builtin_command_data[i].flags & CF_brace
-              && (builtin_command_data[i].data == BRACE_style_other
-                  || builtin_command_data[i].data == BRACE_style_code
-                  || builtin_command_data[i].data == BRACE_style_no_code)))
+          || (command_data[i].flags & CF_brace
+              && (command_data[i].data == BRACE_style_other
+                  || command_data[i].data == BRACE_style_code
+                  || command_data[i].data == BRACE_style_no_code)))
         {
           html_commands_data[i].flags |= HF_style_command;
           style_formatted_cmd_nr++;
         }
 
-      if (builtin_command_data[i].flags & CF_brace
-          && builtin_command_data[i].data == BRACE_accent)
+      if (command_data[i].flags & CF_brace
+          && command_data[i].data == BRACE_accent)
         {
           accent_cmd_nr++;
           html_command_args_flags[i].status = 1;
           html_command_args_flags[i].flags[0] = F_AFT_none;
         }
 
-      if ((builtin_command_data[i].flags & CF_block
-           && builtin_command_data[i].data != BLOCK_format_raw)
-          || builtin_command_data[i].flags & CF_root)
+      if ((command_data[i].flags & CF_block
+           && command_data[i].data != BLOCK_format_raw)
+          || command_data[i].flags & CF_root)
         register_format_context_command (i);
 
-      if (builtin_command_data[i].flags & CF_preformatted
-          || builtin_command_data[i].flags & CF_root)
+      if (command_data[i].flags & CF_preformatted
+          || command_data[i].flags & CF_root)
         html_commands_data[i].flags |= HF_composition_context;
 
-      if (builtin_command_data[i].flags & CF_block)
+      if (command_data[i].flags & CF_block)
         {
-          if (builtin_command_data[i].data == BLOCK_menu)
+          if (command_data[i].data == BLOCK_menu)
             html_commands_data[i].flags |= HF_composition_context;
-          else if (builtin_command_data[i].data == BLOCK_format_raw)
+          else if (command_data[i].data == BLOCK_format_raw)
             {
               html_commands_data[i].flags |= HF_format_raw;
               format_raw_cmd_nr++;
             }
         }
 
-      if (builtin_command_data[i].flags & CF_preformatted)
+      if (command_data[i].flags & CF_preformatted)
         {
           if (!(html_commands_data[i].flags & HF_pre_class))
             register_pre_class_command (i, 0);
           push_command (&preformatted_cmd_list, i);
         }
 
-      if (builtin_command_data[i].flags & CF_def)
+      if (command_data[i].flags & CF_def)
         push_command (&def_cmd_list, i);
     }
   register_pre_class_command (CM_verbatim, 0);
@@ -498,8 +498,8 @@ html_format_setup (enum converter_format format)
   no_arg_formatted_cmd_idx = 0;
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
     {
-      if (builtin_command_data[i].flags & CF_brace
-          && builtin_command_data[i].data == BRACE_accent)
+      if (command_data[i].flags & CF_brace
+          && command_data[i].data == BRACE_accent)
         {
           accent_cmd.list[accent_cmd.number] = i;
           accent_cmd.number++;
@@ -620,7 +620,7 @@ html_format_setup (enum converter_format format)
           = (char *)text_brace_no_arg_commands[cmd];
       else
         fprintf (stderr, "BUG: %s: no css_string\n",
-                         builtin_command_data[cmd].cmdname);
+                         command_data[cmd].cmdname);
     }
 
   /* w not in css_string, set the corresponding default_css_element_class_styles
@@ -635,7 +635,7 @@ html_format_setup (enum converter_format format)
     {
       enum command_id cmd = no_arg_formatted_cmd.list[i];
       if (default_no_arg_commands_formatting[cmd][HCC_type_css_string].text
-          && builtin_command_data[cmd].flags & CF_brace)
+          && command_data[cmd].flags & CF_brace)
         {
           char *selector;
           text_append_n (&css_string_text, "list-style-type: ", 17);
@@ -3891,7 +3891,7 @@ html_conversion_initialization (CONVERTER *self, const char *context,
 
                   /* reset CSS for itemize command arguments */
                   if (cctx == HCC_type_css_string
-                      && builtin_command_data[cmd].flags & CF_brace
+                      && command_data[cmd].flags & CF_brace
                       && cmd != CM_bullet && cmd != CM_w)
                     {
                       const char *special_list_mark_command
@@ -4867,7 +4867,7 @@ new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
      be possible for that command to be a user-defined command,
      but it is better to be consistent, and it may change in the future */
   enum command_id data_cmd = element_builtin_data_cmd (command);
-  unsigned long flags = builtin_command_data[data_cmd].flags;
+  unsigned long flags = command_data[data_cmd].flags;
 
   normalized_name = target_filename->target;
   filename = target_filename->filename;

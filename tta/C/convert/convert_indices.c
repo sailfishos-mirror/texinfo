@@ -56,13 +56,13 @@ converter_index_content_element (const ELEMENT *element,
   add_element_to_named_string_element_list (substrings,
                                             "class", class_copy);
 
-  if (builtin_command_data[def_command].flags & CF_def_class_method)
+  if (command_data[def_command].flags & CF_def_class_method)
     {
       index_element = element_cdt_tree ("{name} on {class}",
                                         element, converter,
                                         substrings, 0);
     }
-  else if (builtin_command_data[def_command].flags & CF_def_class_variable)
+  else if (command_data[def_command].flags & CF_def_class_variable)
     {
       index_element = element_cdt_tree ("{name} of {class}",
                                         element, converter,
@@ -157,7 +157,7 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
         {
           enum command_id data_cmd = element_builtin_data_cmd (content);
 
-          if (builtin_command_data[data_cmd].other_flags & CF_formatted_nobrace)
+          if (command_data[data_cmd].other_flags & CF_formatted_nobrace)
             {
               if (ignore_chars && data_cmd == CM_AT_SIGN
                   && strchr (ignore_chars, '@'))
@@ -167,16 +167,16 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
             }
           else
             {
-              if (builtin_command_data[data_cmd].flags & CF_brace)
+              if (command_data[data_cmd].flags & CF_brace)
                 {
-                  int brace_command_type = builtin_command_data[data_cmd].data;
+                  int brace_command_type = command_data[data_cmd].data;
 
-                  if ((builtin_command_data[data_cmd].other_flags
+                  if ((command_data[data_cmd].other_flags
                        & CF_non_formatted_brace)
                       || data_cmd == CM_footnote
                       || data_cmd == CM_dmn
                       || data_cmd == CM_value
-                      || (builtin_command_data[data_cmd].other_flags
+                      || (command_data[data_cmd].other_flags
                           & CF_in_index))
                     continue;
                   else if (brace_command_type == BRACE_accent
@@ -207,7 +207,7 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
                                                             ignore_chars);
                     }
                 }
-              else if ((builtin_command_data[data_cmd].other_flags
+              else if ((command_data[data_cmd].other_flags
                         & CF_formatted_line)
                        && data_cmd != CM_page)
                 {

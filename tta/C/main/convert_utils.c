@@ -855,7 +855,7 @@ definition_category_tree (const ELEMENT *element,
   def_cmdname = lookup_extra_string (element, AI_key_def_command);
   def_command = lookup_builtin_command (def_cmdname);
 
-  if (builtin_command_data[def_command].flags & CF_def_class_method)
+  if (command_data[def_command].flags & CF_def_class_method)
     {
       ELEMENT *category_copy = copy_element_tree (arg_category, 0);
       NAMED_STRING_ELEMENT_LIST *substrings
@@ -890,7 +890,7 @@ definition_category_tree (const ELEMENT *element,
         }
       destroy_named_string_element_list (substrings);
     }
-  else if (builtin_command_data[def_command].flags & CF_def_class_variable)
+  else if (command_data[def_command].flags & CF_def_class_variable)
     {
       ELEMENT *category_copy = copy_element_tree (arg_category, 0);
       NAMED_STRING_ELEMENT_LIST *substrings
@@ -1062,7 +1062,7 @@ item_line_block_line_argument_command (const ELEMENT *block_line_arg)
   if (arg)
     {
       enum command_id data_cmd = element_builtin_data_cmd (arg);
-      if (builtin_command_data[data_cmd].data == BRACE_noarg)
+      if (command_data[data_cmd].data == BRACE_noarg)
         arg = 0;
     }
 
@@ -1139,7 +1139,7 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
           if (command_name)
             command->e.c->string_info[sit_command_name] = strdup (command_name);
         }
-      if (builtin_command_data[data_cmd].data == BRACE_context)
+      if (command_data[data_cmd].data == BRACE_context)
         {
     /* This corresponds to a bogus @*table line with command line @footnote
        or @math.  We do not really care about the formatting of the result
@@ -1158,7 +1158,7 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
               add_to_contents_as_array (arg, paragraph);
             }
         }
-      else if (builtin_command_data[data_cmd].data == BRACE_arguments)
+      else if (command_data[data_cmd].data == BRACE_arguments)
         {
           arg = new_element_added (tree, ET_brace_arg);
           add_to_contents_as_array (arg, element->e.c->contents.list[0]);
@@ -1196,9 +1196,9 @@ find_element_authors_internal (const ELEMENT *element,
       || cmd == CM_smallquotation
       || cmd == CM_titlepage
       || cmd == CM_menu
-      || (builtin_command_data[cmd].flags & CF_brace
-          && builtin_command_data[cmd].data == BRACE_context)
-      || builtin_command_data[cmd].flags & CF_line)
+      || (command_data[cmd].flags & CF_brace
+          && command_data[cmd].data == BRACE_context)
+      || command_data[cmd].flags & CF_line)
     return;
 
   if (element->type == ET_arguments_line)
@@ -1416,9 +1416,9 @@ find_root_command_next_heading_command (const ELEMENT *root,
 
       if (data_cmd)
         {
-          unsigned long flags = builtin_command_data[data_cmd].flags;
+          unsigned long flags = command_data[data_cmd].flags;
           unsigned long other_flags
-               = builtin_command_data[data_cmd].other_flags;
+               = command_data[data_cmd].other_flags;
           if (flags & CF_sectioning_heading)
             return content;
           if (content->type == ET_index_entry_command)
@@ -1450,10 +1450,10 @@ find_root_command_next_heading_command (const ELEMENT *root,
           else if (flags & CF_block)
             {
               if (other_flags & CF_non_formatted_block
-               || builtin_command_data[data_cmd].data == BLOCK_region
+               || command_data[data_cmd].data == BLOCK_region
                 /* ignored conditional */
-               || builtin_command_data[data_cmd].data == BLOCK_conditional
-               || (builtin_command_data[data_cmd].data == BLOCK_format_raw
+               || command_data[data_cmd].data == BLOCK_conditional
+               || (command_data[data_cmd].data == BLOCK_format_raw
                    && !format_expanded_p
                              (formats, element_command_name (content))))
                 continue;

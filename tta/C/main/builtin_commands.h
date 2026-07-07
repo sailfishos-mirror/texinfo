@@ -27,15 +27,15 @@ typedef struct command_struct {
     int args_number; /* Number of arguments for brace or line commands. */
 } COMMAND;
 
-extern const COMMAND builtin_command_data[];
+extern const COMMAND command_data[];
 
 #define builtin_command_flags(e) \
-   (!(e) ? 0 : (builtin_command_data[(e)->cmd].flags))
-#define builtin_command_name(cmd) (builtin_command_data[cmd].cmdname)
+   (!(e) ? 0 : (command_data[(e)->cmd].flags))
+#define builtin_command_name(cmd) (command_data[cmd].cmdname)
 /* no builtin_ prefix, as it is not used in parser, so no ambiguity */
 /* should not be called on a text element */
 #define command_other_flags(elt) \
-   (!(elt) ? 0 : (builtin_command_data[(elt)->e.c->cmd].other_flags))
+   (!(elt) ? 0 : (command_data[(elt)->e.c->cmd].other_flags))
 
 extern int ref_3_args_order[];
 extern int ref_5_args_order[];

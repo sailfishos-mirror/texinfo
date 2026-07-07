@@ -1373,7 +1373,7 @@ set_global_document_commands (CONVERTER *converter,
             {
               fprintf (stderr, "C|SET_global(%s) %s\n",
                        command_location_names[location],
-                       builtin_command_data[cmd].cmdname);
+                       command_data[cmd].cmdname);
             }
           if (converter->document)
             {
@@ -1423,7 +1423,7 @@ normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
   char *normalized_name;
   const ELEMENT *label_element;
 
-  if (builtin_command_data[command->e.c->cmd].flags & CF_root)
+  if (command_data[command->e.c->cmd].flags & CF_root)
     /* for root level sectioning commands, the first element is the
        arguments_line element, it contains the label element */
     label_element = command->e.c->contents.list[0]->e.c->contents.list[0];

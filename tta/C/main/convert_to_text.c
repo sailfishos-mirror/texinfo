@@ -614,24 +614,24 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       data_cmd = element_builtin_data_cmd (element);
 
      /* hyphenation anchor errormsg sortas caption shortcaption */
-  if (builtin_command_data[data_cmd].other_flags & CF_non_formatted_brace
-      || (builtin_command_data[data_cmd].flags & CF_block
+  if (command_data[data_cmd].other_flags & CF_non_formatted_brace
+      || (command_data[data_cmd].flags & CF_block
           && (/* ignored_block_commands */
               /* titlepage copying documentdescription */
-              builtin_command_data[data_cmd].data == BLOCK_region
+              command_data[data_cmd].data == BLOCK_region
               /* ignore nodedescriptionblock, @*macro */
-              || builtin_command_data[data_cmd].other_flags
+              || command_data[data_cmd].other_flags
                                             & CF_non_formatted_block
               || (/* html tex xml docbook latex */
-                  builtin_command_data[data_cmd].data == BLOCK_format_raw
+                  command_data[data_cmd].data == BLOCK_format_raw
                   && !format_expanded_p (text_options->expanded_formats,
                                     builtin_command_name (data_cmd)))))
        /* here ignore most of the line commands */
       || element->type == ET_index_entry_command
-      || (builtin_command_data[data_cmd].flags & CF_line
-          && !(builtin_command_data[data_cmd].other_flags
+      || (command_data[data_cmd].flags & CF_line
+          && !(command_data[data_cmd].other_flags
                                              & CF_formatted_line)
-          && !(builtin_command_data[data_cmd].flags & CF_def)
+          && !(command_data[data_cmd].flags & CF_def)
           && !(data_cmd == CM_sp
                || data_cmd == CM_verbatiminclude))
       || data_cmd == CM_footnote
@@ -644,11 +644,11 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
     return;
 
   if (data_cmd
-      && builtin_command_data[data_cmd].flags & CF_brace
-      && builtin_command_data[data_cmd].data == BRACE_inline
+      && command_data[data_cmd].flags & CF_brace
+      && command_data[data_cmd].data == BRACE_inline
       && data_cmd != CM_inlinefmtifelse)
     {
-      if (builtin_command_data[data_cmd].other_flags & CF_inline_format)
+      if (command_data[data_cmd].other_flags & CF_inline_format)
         {
           char *format = lookup_extra_string (element, AI_key_format);
           if (!format
@@ -714,8 +714,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           free (brace_no_args_text);
           return;
         }
-      if (builtin_command_data[data_cmd].flags & CF_brace
-          && builtin_command_data[data_cmd].data == BRACE_accent)
+      if (command_data[data_cmd].flags & CF_brace
+          && command_data[data_cmd].data == BRACE_accent)
         {
           char *text = text_accents (element, text_options->encoding,
                                      text_options->set_case);
@@ -809,7 +809,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
             }
           return;
         }
-      else if ((builtin_command_data[data_cmd].other_flags & CF_explained)
+      else if ((command_data[data_cmd].other_flags & CF_explained)
                && element->e.c->contents.number >= 2)
         {
           TEXT explanation;
@@ -826,8 +826,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
             }
           return;
         }
-      else if ((builtin_command_data[data_cmd].flags & CF_brace)
-               && builtin_command_data[data_cmd].data == BRACE_inline)
+      else if ((command_data[data_cmd].flags & CF_brace)
+               && command_data[data_cmd].data == BRACE_inline)
         {
           size_t arg_index = 1;
           if (data_cmd == CM_inlineraw)
@@ -853,15 +853,15 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       else if (element->e.c->contents.number > 0
                 && (element->e.c->contents.list[0]->type == ET_brace_container
                     || element->e.c->contents.list[0]->type == ET_brace_arg
-                    || (builtin_command_data[data_cmd].flags & CF_brace
-                        && builtin_command_data[data_cmd].flags & CF_math)))
+                    || (command_data[data_cmd].flags & CF_brace
+                        && command_data[data_cmd].flags & CF_math)))
         {
           int in_code = 0;
           if (data_cmd == CM_sc)
             text_options->set_case++;
 
-          if (builtin_command_data[data_cmd].other_flags & CF_brace_code
-              || builtin_command_data[data_cmd].flags & CF_math)
+          if (command_data[data_cmd].other_flags & CF_brace_code
+              || command_data[data_cmd].flags & CF_math)
             in_code = 1;
 
           if (in_code)
@@ -923,7 +923,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               free (args_line.text);
             }
         }
-      else if (builtin_command_data[data_cmd].flags & CF_sectioning_heading)
+      else if (command_data[data_cmd].flags & CF_sectioning_heading)
         {
           const ELEMENT *line_arg;
           TEXT text;
@@ -932,7 +932,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           text_init (&text);
           text_append (&text, "");
 
-          if (builtin_command_data[data_cmd].flags & CF_root)
+          if (command_data[data_cmd].flags & CF_root)
             {
               /* arguments_line type element */
               const ELEMENT *arguments_line = element->e.c->contents.list[0];
@@ -951,10 +951,10 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           ADD(heading);
           free (heading);
           free (text.text);
-          if (!(builtin_command_data[data_cmd].flags & CF_root))
+          if (!(command_data[data_cmd].flags & CF_root))
             return;
         }
-      else if (builtin_command_data[data_cmd].other_flags & CF_formatted_line)
+      else if (command_data[data_cmd].other_flags & CF_formatted_line)
         {
           if (data_cmd != CM_node)
             {
@@ -971,9 +971,9 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               return;
             }
         }
-      else if (builtin_command_data[data_cmd].flags & CF_line)
+      else if (command_data[data_cmd].flags & CF_line)
         {
-          if (builtin_command_data[data_cmd].flags & CF_def)
+          if (command_data[data_cmd].flags & CF_def)
             {
               convert_def_line (element, text_options, result);
             }
@@ -1091,15 +1091,15 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       int in_code = 0;
       int in_raw = 0;
       if ((data_cmd
-           && (builtin_command_data[data_cmd].other_flags & CF_preformatted_code
-               || builtin_command_data[data_cmd].flags & CF_math
-               || (builtin_command_data[data_cmd].flags & CF_block
-                   && builtin_command_data[data_cmd].data == BLOCK_raw)))
+           && (command_data[data_cmd].other_flags & CF_preformatted_code
+               || command_data[data_cmd].flags & CF_math
+               || (command_data[data_cmd].flags & CF_block
+                   && command_data[data_cmd].data == BLOCK_raw)))
           || element->type == ET_menu_entry_node)
         in_code = 1;
       else if (data_cmd
-               && builtin_command_data[data_cmd].flags & CF_block
-               && builtin_command_data[data_cmd].data == BLOCK_format_raw)
+               && command_data[data_cmd].flags & CF_block
+               && command_data[data_cmd].data == BLOCK_format_raw)
         in_raw = 1;
 
       if (in_raw)

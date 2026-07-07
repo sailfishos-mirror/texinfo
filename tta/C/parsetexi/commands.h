@@ -28,7 +28,7 @@ enum command_id lookup_command (const char *cmdname);
 
 #define parsed_command_data(id) \
   (!((id) & USER_COMMAND_BIT) \
-   ? builtin_command_data[(id)] \
+   ? command_data[(id)] \
    : user_defined_command_data[(id) & ~USER_COMMAND_BIT])
 
 #define command_flags(elt) \

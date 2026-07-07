@@ -123,8 +123,8 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
     {
       if (command_normalization_text[cmd])
         ADD(command_normalization_text[cmd]);
-      if (builtin_command_data[cmd].flags & CF_brace
-          && builtin_command_data[cmd].data == BRACE_accent)
+      if (command_data[cmd].flags & CF_brace
+          && command_data[cmd].data == BRACE_accent)
         {
           if (e->e.c->contents.number > 0)
             {
@@ -155,7 +155,7 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
             }
           return;
         }
-      else if (builtin_command_data[cmd].flags & CF_ref)
+      else if (command_data[cmd].flags & CF_ref)
         {
           int order_index = 0;
           int *arguments_order = ref_5_args_order;

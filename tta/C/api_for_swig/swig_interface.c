@@ -59,7 +59,7 @@ txi_ext_element_command_is_##name (ELEMENT *element) \
   if (type_data[element->type].flags & TF_text) \
     return 0; \
   cmd = element_builtin_data_cmd (element); \
-  return builtin_command_data[cmd].flags & CF_##name; \
+  return command_data[cmd].flags & CF_##name; \
 }
   TXI_CM_FLAGS_LIST
 #undef cm_flag
@@ -73,7 +73,7 @@ txi_ext_element_command_is_##name (ELEMENT *element) \
   if (type_data[element->type].flags & TF_text) \
     return 0; \
   cmd = element_builtin_data_cmd (element); \
-  return builtin_command_data[cmd].other_flags & CF_##name; \
+  return command_data[cmd].other_flags & CF_##name; \
 }
   TXI_CM_OTHER_FLAGS_LIST
 #undef cm_oflag
@@ -120,14 +120,14 @@ txi_ext_element_command_data_type (ELEMENT *element)
   enum command_id cmd = element_builtin_data_cmd (element);
   if (cmd)
     {
-      int cmd_data_type = builtin_command_data[cmd].data;
-      if (builtin_command_data[cmd].flags & CF_brace)
+      int cmd_data_type = command_data[cmd].data;
+      if (command_data[cmd].flags & CF_brace)
         return brace_command_data_type_name[cmd_data_type];
-      else if (builtin_command_data[cmd].flags & CF_line)
+      else if (command_data[cmd].flags & CF_line)
         return line_command_data_type_name[cmd_data_type];
-      else if (builtin_command_data[cmd].flags & CF_nobrace)
+      else if (command_data[cmd].flags & CF_nobrace)
         return nobrace_command_data_type_name[cmd_data_type];
-      else if (builtin_command_data[cmd].flags & CF_block)
+      else if (command_data[cmd].flags & CF_block)
         return block_command_data_type_name[cmd_data_type];
     }
 
@@ -689,7 +689,7 @@ txi_ext_get_section_relations (ELEMENT *element, DOCUMENT *document)
 
   enum command_id data_cmd = element_builtin_data_cmd (element);
 
-  if (!(builtin_command_data[data_cmd].flags & CF_root))
+  if (!(command_data[data_cmd].flags & CF_root))
     return 0;
 
   section_number

@@ -29,7 +29,7 @@
 #include "html_conversion_data.h"
 #include "tree_types.h"
 #include "converter_types.h"
-/* for builtin_command_data */
+/* for command_data */
 #include "builtin_commands.h"
 /* for HMSF_* */
 #include "utils.h"
@@ -128,7 +128,7 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
           int k;
           enum command_id cmd
             = self_html->no_arg_formatted_cmd_translated.list[j];
-          const char *cmdname = builtin_command_data[cmd].cmdname;
+          const char *cmdname = command_data[cmd].cmdname;
           HTML_NO_ARG_COMMAND_FORMATTING *no_arg_cmd_formatting
             = &self_html->html_no_arg_command_conversion[cmd];
           SV **no_arg_command_sv

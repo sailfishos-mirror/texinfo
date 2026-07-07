@@ -161,13 +161,13 @@ html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
   HTML_DOCUMENT_CONTEXT *top_document_ctx;
   HTML_FORMATTING_CONTEXT *top_formating_ctx;
 
-  if ((builtin_command_data[data_cmd].flags & CF_brace
-       && (builtin_command_data[data_cmd].data == BRACE_context
-           || builtin_command_data[data_cmd].flags & CF_math))
+  if ((command_data[data_cmd].flags & CF_brace
+       && (command_data[data_cmd].data == BRACE_context
+           || command_data[data_cmd].flags & CF_math))
       || data_cmd == CM_printindex)
     {
       html_new_document_context (self,
-                   builtin_command_data[data_cmd].cmdname, 0, 0, 0);
+                   command_data[data_cmd].cmdname, 0, 0, 0);
 
     }
   top_document_ctx = html_top_document_context (self);
@@ -176,7 +176,7 @@ html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
     {
       char *context_str;
       xasprintf (&context_str, "@%s",
-                 builtin_command_data[data_cmd].cmdname);
+                 command_data[data_cmd].cmdname);
       push_html_formatting_context (
                  &top_document_ctx->formatting_context,
                  context_str);
@@ -186,7 +186,7 @@ html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
   top_formating_ctx
     = html_top_formatting_context (&top_document_ctx->formatting_context);
 
-  if (builtin_command_data[data_cmd].flags & CF_block)
+  if (command_data[data_cmd].flags & CF_block)
     {
       push_command (&top_document_ctx->block_commands, data_cmd);
     }
@@ -195,12 +195,12 @@ html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
     {
       push_command_or_type (&top_document_ctx->preformatted_classes,
                             html_commands_data[data_cmd].pre_class_cmd, 0);
-      if (builtin_command_data[data_cmd].flags & CF_preformatted)
+      if (command_data[data_cmd].flags & CF_preformatted)
         {
           preformatted = 1;
           top_document_ctx->inside_preformatted++;
         }
-      else if (builtin_command_data[data_cmd].data == BLOCK_menu
+      else if (command_data[data_cmd].data == BLOCK_menu
                && top_document_ctx->inside_preformatted)
         preformatted = 1;
     }
@@ -222,13 +222,13 @@ html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
       top_document_ctx->verbatim_ctx++;
     }
 
-  if (builtin_command_data[data_cmd].other_flags & CF_brace_code
-      || builtin_command_data[data_cmd].other_flags & CF_preformatted_code)
+  if (command_data[data_cmd].other_flags & CF_brace_code
+      || command_data[data_cmd].other_flags & CF_preformatted_code)
     {
       push_integer_stack_integer (&top_document_ctx->monospace, 1);
     }
-  else if (builtin_command_data[data_cmd].flags & CF_brace
-           && builtin_command_data[data_cmd].data == BRACE_style_no_code)
+  else if (command_data[data_cmd].flags & CF_brace
+           && command_data[data_cmd].data == BRACE_style_no_code)
     {
       push_integer_stack_integer (&top_document_ctx->monospace, 0);
     }
@@ -236,7 +236,7 @@ html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
     {
       top_formating_ctx->upper_case_ctx++;
     }
-  else if (builtin_command_data[data_cmd].flags & CF_math)
+  else if (command_data[data_cmd].flags & CF_math)
     {
       top_document_ctx->math_ctx++;
       if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
@@ -273,7 +273,7 @@ html_convert_command_update_context (CONVERTER *self, enum command_id data_cmd)
   if (html_commands_data[data_cmd].flags & HF_pre_class)
     {
       pop_command_or_type (&top_document_ctx->preformatted_classes);
-      if (builtin_command_data[data_cmd].flags & CF_preformatted)
+      if (command_data[data_cmd].flags & CF_preformatted)
         top_document_ctx->inside_preformatted--;
     }
 
@@ -286,10 +286,10 @@ html_convert_command_update_context (CONVERTER *self, enum command_id data_cmd)
       top_formating_ctx->no_break--;
     }
 
-  if (builtin_command_data[data_cmd].other_flags & CF_preformatted_code
-      || (builtin_command_data[data_cmd].flags & CF_brace
-          && builtin_command_data[data_cmd].data == BRACE_style_no_code)
-      || builtin_command_data[data_cmd].other_flags & CF_brace_code)
+  if (command_data[data_cmd].other_flags & CF_preformatted_code
+      || (command_data[data_cmd].flags & CF_brace
+          && command_data[data_cmd].data == BRACE_style_no_code)
+      || command_data[data_cmd].other_flags & CF_brace_code)
     {
       pop_integer_stack (&top_document_ctx->monospace);
     }
@@ -297,7 +297,7 @@ html_convert_command_update_context (CONVERTER *self, enum command_id data_cmd)
     {
       top_formating_ctx->upper_case_ctx--;
     }
-  else if (builtin_command_data[data_cmd].flags & CF_math)
+  else if (command_data[data_cmd].flags & CF_math)
     {
       top_document_ctx->math_ctx--;
     }
@@ -311,7 +311,7 @@ html_convert_command_update_context (CONVERTER *self, enum command_id data_cmd)
       top_document_ctx->verbatim_ctx--;
     }
 
-  if (builtin_command_data[data_cmd].flags & CF_block)
+  if (command_data[data_cmd].flags & CF_block)
     {
       pop_command (&top_document_ctx->block_commands);
     }
@@ -322,9 +322,9 @@ html_convert_command_update_context (CONVERTER *self, enum command_id data_cmd)
                  &top_document_ctx->formatting_context);
     }
 
-  if ((builtin_command_data[data_cmd].flags & CF_brace
-       && (builtin_command_data[data_cmd].data == BRACE_context
-           || builtin_command_data[data_cmd].flags & CF_math))
+  if ((command_data[data_cmd].flags & CF_brace
+       && (command_data[data_cmd].data == BRACE_context
+           || command_data[data_cmd].flags & CF_math))
       || data_cmd == CM_printindex)
     {
       html_pop_document_context (self);

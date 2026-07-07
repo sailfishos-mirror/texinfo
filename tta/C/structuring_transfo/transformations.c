@@ -199,7 +199,7 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
     {
       const ELEMENT *content = root->e.c->contents.list[idx];
       enum command_id data_cmd = element_builtin_data_cmd (content);
-      unsigned long flags = builtin_command_data[data_cmd].flags;
+      unsigned long flags = command_data[data_cmd].flags;
 
       if (!data_cmd || data_cmd == CM_node || !(CF_root & flags))
         {
@@ -320,7 +320,7 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
         {
           const ELEMENT *content = root->e.c->contents.list[idx_next_section];
           enum command_id data_cmd = element_builtin_data_cmd (content);
-          unsigned long flags = builtin_command_data[data_cmd].flags;
+          unsigned long flags = command_data[data_cmd].flags;
 
           if (data_cmd && data_cmd != CM_node && (CF_root & flags))
             break;
@@ -877,7 +877,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
     {
       ELEMENT *content = root->e.c->contents.list[idx];
       enum command_id data_cmd = element_builtin_data_cmd (content);
-      unsigned long flags = builtin_command_data[data_cmd].flags;
+      unsigned long flags = command_data[data_cmd].flags;
 
       if (data_cmd && data_cmd != CM_node && data_cmd != CM_part
           && flags & CF_root)
@@ -975,7 +975,7 @@ reference_to_arg_internal (const char *type,
                            void *argument)
 {
   if (!(type_data[e->type].flags & TF_text) && e->e.c->cmd
-      && builtin_command_data[e->e.c->cmd].flags & CF_ref)
+      && command_data[e->e.c->cmd].flags & CF_ref)
     {
       DOCUMENT *document = (DOCUMENT *) argument;
       int order_index = 0;

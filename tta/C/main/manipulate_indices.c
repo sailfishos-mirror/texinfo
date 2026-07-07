@@ -232,8 +232,8 @@ get_index_content_info_element (const ELEMENT *element,
         = lookup_builtin_command (def_cmdname);
       ELEMENT *name_copy = copy_element_tree (name, 0);
       remove_def_types (name_copy);
-      if (!(builtin_command_data[def_command].flags & CF_def_class_method)
-          && !(builtin_command_data[def_command].flags
+      if (!(command_data[def_command].flags & CF_def_class_method)
+          && !(command_data[def_command].flags
                                        & CF_def_class_variable))
         {
           return name_copy;
@@ -249,10 +249,10 @@ get_index_content_info_element (const ELEMENT *element,
               /* container without type */
               ELEMENT *index_entry_normalized = new_element (ET_NONE);
 
-              if (builtin_command_data[def_command].flags
+              if (command_data[def_command].flags
                                              & CF_def_class_method)
                 text_append (text_element->e.text, " on ");
-              else if (builtin_command_data[def_command].flags
+              else if (command_data[def_command].flags
                                             & CF_def_class_variable)
                 text_append (text_element->e.text, " of ");
            /* should not be possible, still considered for more robust code */
@@ -315,13 +315,13 @@ element_index_content_element (const ELEMENT *element,
     = new_element_language_translation (&converters_translation_cache,
                                         element, TXI_CONVERT_STRINGS_NR);
 
-  if (builtin_command_data[def_command].flags & CF_def_class_method)
+  if (command_data[def_command].flags & CF_def_class_method)
     {
       index_element = gdt_tree ("{name} on {class}",
                 document, element_lang_translations,
                 substrings, 0, debug_level, 0);
     }
-  else if (builtin_command_data[def_command].flags & CF_def_class_variable)
+  else if (command_data[def_command].flags & CF_def_class_variable)
     {
       index_element = gdt_tree ("{name} of {class}",
                 document, element_lang_translations,

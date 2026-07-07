@@ -52,16 +52,16 @@ lookup_builtin_command (const char *cmdname)
   /* cast as target.cmdname is not const, though we know we do not modify */
   target.cmdname = (char *) cmdname;
 
-  c = (COMMAND *) bsearch (&target, builtin_command_data + 1,
+  c = (COMMAND *) bsearch (&target, command_data + 1,
         /* number of elements */
-        sizeof (builtin_command_data) / sizeof (builtin_command_data[0]) - 1,
-        sizeof (builtin_command_data[0]),
+        sizeof (command_data) / sizeof (command_data[0]) - 1,
+        sizeof (command_data[0]),
         compare_command_fn);
 
   if (c)
     {
       enum command_id cmd;
-      cmd = c - &builtin_command_data[0];
+      cmd = c - &command_data[0];
       return cmd;
    }
   return 0;
@@ -77,7 +77,7 @@ element_command_name (const ELEMENT *e)
        following code the generic command is used in the copy */
       && e->e.c->cmd != CM_index_entry_command
       && e->e.c->cmd != CM_definfoenclose_command)
-    return builtin_command_data[e->e.c->cmd].cmdname;
+    return command_data[e->e.c->cmd].cmdname;
   else if (type_data[e->type].flags & TF_with_command)
     {
       const char *cmdname = e->e.c->string_info[sit_command_name];

@@ -1272,7 +1272,7 @@ find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
       const char *cmdname = SvPVutf8_nolen (*cmdname_sv);
       cmd = lookup_builtin_command (cmdname);
 
-      if (builtin_command_data[cmd].flags & CF_root
+      if (command_data[cmd].flags & CF_root
           && cmd != CM_node)
         {
           const ELEMENT *element = find_root_command (document,

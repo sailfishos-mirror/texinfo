@@ -94,7 +94,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
                 ADD((char *)elt->e.text->text);
             }
 
-          if (builtin_command_data[cmd].flags & CF_nobrace)
+          if (command_data[cmd].flags & CF_nobrace)
             {
            /* the spaces following a command are put in a text element in the
               tree, not associated to the command element. */
@@ -112,8 +112,8 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
               only argument, there is no separation by commas */
               convert_args (arguments, result);
             }
-          else if (builtin_command_data[cmd].flags & CF_brace
-                   || builtin_command_data[cmd].flags & CF_INFOENCLOSE
+          else if (command_data[cmd].flags & CF_brace
+                   || command_data[cmd].flags & CF_INFOENCLOSE
                    || e->type == ET_macro_call || e->type == ET_rmacro_call)
             {
               int braces;
@@ -146,7 +146,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
                 ADD("}");
               return;
             }
-          else if (builtin_command_data[cmd].flags & CF_line
+          else if (command_data[cmd].flags & CF_line
                    || e->type == ET_index_entry_command
                    || e->type == ET_macro_call_line
                    || e->type == ET_rmacro_call_line)
@@ -155,7 +155,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
               convert_args (e, result);
               return;
             }
-          else if (builtin_command_data[cmd].flags & CF_def
+          else if (command_data[cmd].flags & CF_def
                    || e->type == ET_linemacro_call)
             { /* @def* commands (that are also block commands) */
             }
@@ -332,7 +332,7 @@ root_heading_command_to_texinfo (const ELEMENT *element)
   if (data_cmd)
     {
       if ((data_cmd == CM_node
-           || (builtin_command_data[data_cmd].flags & CF_sectioning_heading))
+           || (command_data[data_cmd].flags & CF_sectioning_heading))
           && element->e.c->contents.list[0]->type == ET_arguments_line
           /* Should always be true */
           && element->e.c->contents.list[0]->e.c->contents.list[0]->type

@@ -413,7 +413,7 @@ print_sectioning_root (const DOCUMENT *document)
 static char *
 print_line_command (const ELEMENT *element)
 {
-  if (builtin_command_data[element->e.c->cmd].flags & CF_root)
+  if (command_data[element->e.c->cmd].flags & CF_root)
     return root_command_element_string (element);
   else
     {
