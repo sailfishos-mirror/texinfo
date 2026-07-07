@@ -52,6 +52,7 @@ reset_count_context_stack (COUNT_CONTEXT_STACK *stack)
 }
 
 def_list_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT, 2);
+def_stack_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
 
 
 static void
@@ -68,16 +69,6 @@ pop_count_context (COUNT_CONTEXT_STACK *stack)
 
   destroy_count_context (&stack->list[stack->number--]);
 }
-
-COUNT_CONTEXT *
-top_count_context (const COUNT_CONTEXT_STACK *stack)
-{
-  if (stack->number == 0)
-    fatal ("count context stack empty for top");
-
-  return &stack->list[stack->number - 1];
-}
-
 
 void
 clear_count_context_stack (COUNT_CONTEXT_STACK *stack)
@@ -140,15 +131,11 @@ void
 pop_formatter (CONVERTER *self)
 {
   FORMATTER_STACK *stack = &self->plaintext_converter.formatters;
-
-  if (stack->number == 0)
-    fatal ("formatter stack empty");
+  pop_(formatter) (stack);
 
   /* Note: no memory needs to be freed here. */
   /* Note: para_end should have been called by this point to free memory
      resources in plaintext_paragraph.c. */
-
-  stack->number--;
 }
 
 
@@ -174,9 +161,9 @@ plaintext_conversion_finalization  (CONVERTER *self)
 static void
 stream_output (CONVERTER *self, const char *text)
 {
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = &self->plaintext_converter;
+  PLAINTEXT_CONVERTER_STATE *self_pt = &self->plaintext_converter;
   COUNT_CONTEXT *count_context
-    = top_count_context (&self_plaintext->count_context);
+    = top_(count_context) (&self_pt->count_context);
 
   text_append (&count_context->result, text);
 }
@@ -218,7 +205,7 @@ stream_result (CONVERTER *self)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = &self->plaintext_converter;
   COUNT_CONTEXT *count_context
-    = top_count_context (&self_plaintext->count_context);
+    = top_(count_context) (&self_plaintext->count_context);
 
   char *result = count_context->result.text;
   return result ? result : "";
