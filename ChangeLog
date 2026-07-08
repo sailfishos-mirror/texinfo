@@ -1,3 +1,13 @@
+2026-07-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Simplify new_formatter interface
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert) <list of floats>:
+	Do not pass "max" configuration value to 'new_formatter' as 'new_formatter'
+	retrieves this value itself.  This allows simplifying the interface of
+	'new_formatter' as now the only configuration values it takes are
+	'indent_length' and 'indent_length_next'.
+
 2026-07-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/convert/convert_to_plaintext.c:

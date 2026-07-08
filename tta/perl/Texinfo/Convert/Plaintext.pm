@@ -3904,8 +3904,7 @@ sub _convert($$) {
           my $formatter = new_formatter($self, 'paragraph',
             {
               'indent_length' => 0,
-              'indent_length_next' => $listoffloat_entry_length,
-              'max' => $self->{'text_element_context'}->[-1]->{'max'},
+              'indent_length_next' => $listoffloat_entry_length
             });
           my $container = $formatter->{'container'};
           push @{$self->{'formatters'}}, $formatter;
