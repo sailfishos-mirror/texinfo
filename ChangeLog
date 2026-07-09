@@ -1,5 +1,13 @@
 2026-07-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	new_formatter for C plaintext converter
+
+	* tta/C/convert/convert_to_plaintext.c (new_formatter):
+	Set appropriate paragraph formatting settings.  (This produced a big
+	improvement in the output at this stage of development.)
+
+2026-07-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Simplify new_formatter interface
 
 	* tta/perl/Texinfo/Convert/Plaintext.pm (new_formatter):

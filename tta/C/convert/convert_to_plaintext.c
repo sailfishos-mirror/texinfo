@@ -91,18 +91,35 @@ enum formatter_type {
 };
 
 FORMATTER
-new_formatter (CONVERTER *self, enum formatter_type type)
+new_formatter (CONVERTER *self, enum formatter_type type,
+               int indent_length, int indent_length_next)
 {
   FORMATTER formatter = { 0 };
   formatter.container.paragraph = para_new ();
 
+  if (indent_length != -1)
+    para_set_conf_indent_length (indent_length);
+  if (indent_length_next != -1)
+    para_set_conf_indent_length_next (indent_length_next);
+
   switch (type)
     {
     case formatter_paragraph:
+      /* nothing to change */
       break;
     case formatter_line:
+      para_set_conf_max (10000001);
+      para_set_conf_keep_end_lines (1);
+      para_set_conf_no_final_newline (1);
+      para_set_conf_add_final_space (1);
       break;
     case formatter_unfilled:
+      para_set_conf_max (10000000);
+      para_set_conf_ignore_columns (1);
+      para_set_conf_keep_end_lines (1);
+      para_set_conf_frenchspacing (1);
+      para_set_conf_unfilled (1);
+      para_set_conf_no_final_newline (1);
       break;
     default:
       fatal ("unknown container type\n");
@@ -123,7 +140,7 @@ push_top_formatter (CONVERTER *self) /* , CONTEXT top_context) */
 
   add_(format_context) (&self_pt->format_context, top_format);
 
-  FORMATTER top_formatter = new_formatter(self, formatter_line);
+  FORMATTER top_formatter = new_formatter(self, formatter_line, -1, -1);
   add_(formatter) (&self->plaintext_converter.formatters, top_formatter);
 }
 
@@ -397,11 +414,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               para_indent = 3; /* TODO get_conf('paragraphindent') */
             }
 
-          /* TODO */
-          FORMATTER new_paragraph = new_formatter (self, formatter_paragraph);
-          /* TODO: need to pass para_indent to new_formatter. */
-          para_set_conf_indent_length (para_indent);
-          para_set_conf_indent_length_next (0);
+          FORMATTER new_paragraph
+            = new_formatter (self, formatter_paragraph, para_indent, 0);
 
           add_(formatter) (&self_pt->formatters, new_paragraph);
           paragraph = self_pt->formatters.number - 1;
