@@ -926,15 +926,18 @@ sub _process_text_internal($) {
   return $text;
 }
 
-sub new_formatter($$;$$) {
-  my ($self, $type, $paragraph_conf, $formatter_conf) = @_;
+sub new_formatter($$;$$$) {
+  my ($self, $type,
+      $indent_length, $indent_length_next, $formatter_conf) = @_;
 
   my $container_conf = {
+    'indent_length' =>
+         (defined($indent_length) ? $indent_length
+           : $self->{'format_context'}->[-1]->{'context_indent_len'}),
+    'indent_length_next' =>
+         (defined($indent_length_next) ? $indent_length_next : undef),
     'max' => $self->{'text_element_context'}->[-1]->{'max'},
   };
-
-  $container_conf->{'indent_length'}
-      = $self->{'format_context'}->[-1]->{'context_indent_len'};
 
   my $frenchspacing_conf = $self->get_conf('frenchspacing');
 
@@ -950,12 +953,6 @@ sub new_formatter($$;$$) {
   #                                   and $self->{'debug'} > 1);
   # need to be manually enabled by uncommenting.
   #$container_conf->{'DEBUG'} = 1 if ($self->{'debug'});
-
-  if (defined($paragraph_conf)) {
-    foreach my $key (keys(%$paragraph_conf)) {
-      $container_conf->{$key} = $paragraph_conf->{$key};
-    }
-  }
 
   my $container;
   if ($type eq 'paragraph') {
@@ -1028,10 +1025,11 @@ sub plaintext_line_error($$$$) {
   }
 }
 
-sub convert_line($$;$) {
-  my ($self, $converted, $conf) = @_;
+sub convert_line($$;$$) {
+  my ($self, $converted, $indent_length, $indent_length_next) = @_;
 
-  my $formatter = new_formatter($self, 'line', $conf);
+  my $formatter = new_formatter($self, 'line',
+                                $indent_length, $indent_length_next);
   push @{$self->{'formatters'}}, $formatter;
   _convert($self, $converted);
   _stream_output($self,
@@ -1043,13 +1041,15 @@ sub convert_line($$;$) {
 
 # convert with a line formatter in a new count context, not changing
 # the current context.  return the result of the conversion.
-sub convert_line_new_context($$;$$) {
-  my ($self, $converted, $paragraph_conf, $formatter_conf) = @_;
+sub convert_line_new_context($$;$$$) {
+  my ($self, $converted, $indent_length, $indent_length_next,
+      $formatter_conf) = @_;
 
   push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                      'encoding_disabled' => 1};
   my $formatter = new_formatter($self, 'line',
-                                $paragraph_conf, $formatter_conf);
+                                $indent_length, $indent_length_next,
+                                $formatter_conf);
   push @{$self->{'formatters'}}, $formatter;
   _convert($self, $converted);
   _stream_output($self,
@@ -1770,7 +1770,8 @@ sub node_name($$) {
     }
     my $node_text = Texinfo::TreeElement::new({'type' => '_code',
                                        'contents' => [$label_element]});
-    my ($result, $width) = $self->convert_line_new_context($node_text, undef,
+    my ($result, $width) = $self->convert_line_new_context($node_text,
+                                                           undef, undef,
                                     { 'suppress_styles' => 1,
                                       'no_added_eol' => 1 } );
     $result = _stream_encode($self, $result);
@@ -1791,7 +1792,7 @@ sub _cache_node_names($$) {
   }
   $node_names_hash = $self->{'node_names_text'};
 
-  my $formatter = new_formatter($self, 'line', undef,
+  my $formatter = new_formatter($self, 'line', undef, undef,
                     {'suppress_styles' => 1, 'no_added_eol' => 1,});
   push @{$self->{'formatters'}}, $formatter;
 
@@ -1946,7 +1947,7 @@ sub process_printindex($$;$) {
 
   # Use the same line formatter for all the index entries.  This is
   # slightly faster than making a new one for each entry.
-  my $formatter = new_formatter($self, 'line', {'indent_length' => 0 },
+  my $formatter = new_formatter($self, 'line', 0, undef,
     { 'suppress_styles' => 1, 'no_added_eol' => 1 } );
   push @{$self->{'formatters'}}, $formatter;
 
@@ -2831,11 +2832,9 @@ sub _convert_def_line($$) {
     }
 
     my $def_paragraph = new_formatter($self, 'paragraph',
-      { 'indent_length' =>
-           $self->{'format_context'}->[-2]->{'context_indent_len'},
-        'indent_length_next' =>
-            $self->{'format_context'}->[-1]->{'context_indent_len'}
-              + $default_indent_length },
+      $self->{'format_context'}->[-2]->{'context_indent_len'},
+      $self->{'format_context'}->[-1]->{'context_indent_len'}
+         + $default_indent_length,
       { 'suppress_styles' => 1 }
      );
     push @{$self->{'formatters'}}, $def_paragraph;
@@ -3659,8 +3658,7 @@ sub _convert($$) {
                 my $column_size = 0;
                 if (exists($content->{'contents'})) {
                   my ($formatted_prototype, $width)
-                      = $self->convert_line_new_context
-                          ($content, {'indent_length' => 0});
+                      = $self->convert_line_new_context ($content, 0);
                   $column_size = $width;
                 }
                 push @$columnsize, 2+$column_size;
@@ -3760,8 +3758,7 @@ sub _convert($$) {
         my $frenchspacing_element = {'type' => 'frenchspacing',
                                      'contents' => [$table_item_tree]};
         $self->convert_line($frenchspacing_element,
-             {'indent_length' =>
-                 $self->{'format_context'}->[-2]->{'context_indent_len'}});
+               $self->{'format_context'}->[-2]->{'context_indent_len'});
         _ensure_end_of_line($self);
       }
       return;
@@ -3771,9 +3768,8 @@ sub _convert($$) {
                                                       eq 'item_container') {
       $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
       my $line = new_formatter($self, 'line',
-          {'indent_length' =>
-              $self->{'format_context'}->[-2]->{'context_indent_len'}
-              + $item_indent_format_length{$element->{'parent'}->{'cmdname'}}});
+        $self->{'format_context'}->[-2]->{'context_indent_len'}
+          + $item_indent_format_length{$element->{'parent'}->{'cmdname'}});
       push @{$self->{'formatters'}}, $line;
       if ($element->{'parent'}->{'cmdname'} eq 'enumerate') {
         _stream_output_add_next($self,
@@ -3822,7 +3818,7 @@ sub _convert($$) {
         $self->convert_line (
              {'type' => 'frenchspacing',
               'contents' => [$element->{'contents'}->[0]]},
-             {'indent_length' => 0});
+             0);
       }
       _ensure_end_of_line($self);
       my $result = _stream_result($self);
@@ -3842,8 +3838,7 @@ sub _convert($$) {
         if (exists(
             $default_preformatted_context_commands{$self->{'context'}->[-1]})) {
           my $formatter = new_formatter($self, 'unfilled',
-            {'indent_length' =>
-                $self->{'format_context'}->[-2]->{'context_indent_len'}});
+              $self->{'format_context'}->[-2]->{'context_indent_len'});
           $formatter->{'font_type_stack'}->[-1]->{'monospace'} = 1;
           push @{$self->{'formatters'}}, $formatter;
           _convert($self, $element->{'contents'}->[0]);
@@ -3852,8 +3847,7 @@ sub _convert($$) {
           pop @{$self->{'formatters'}};
         } else {
           $self->convert_line($element->{'contents'}->[0],
-             {'indent_length' =>
-                 $self->{'format_context'}->[-2]->{'context_indent_len'}});
+             $self->{'format_context'}->[-2]->{'context_indent_len'});
         }
       }
       _ensure_end_of_line($self);
@@ -3902,10 +3896,7 @@ sub _convert($$) {
           next if !defined($float_entry);
 
           my $formatter = new_formatter($self, 'paragraph',
-            {
-              'indent_length' => 0,
-              'indent_length_next' => $listoffloat_entry_length
-            });
+                                        0, $listoffloat_entry_length);
           my $container = $formatter->{'container'};
           push @{$self->{'formatters'}}, $formatter;
 
@@ -4065,7 +4056,7 @@ sub _convert($$) {
   my $paragraph;
   if (defined($type)) {
     if ($type eq 'paragraph') {
-      my $conf = {};
+      my ($para_indent, $para_indent_next);
       # indent. Not first paragraph.
       if ($self->{'format_context'}->[-1]->{'cmdname'} eq '_top_format'
           and $self->get_conf('paragraphindent') ne 'asis'
@@ -4077,12 +4068,12 @@ sub _convert($$) {
                 and ($self->{'format_context'}->[-1]->{'paragraph_count'}
                   or $self->get_conf('firstparagraphindent') eq 'insert')
                and !$self->{'text_element_context'}->[-1]->{'counter'}))) {
-        my $para_indent = $self->get_conf('paragraphindent');
+        $para_indent = $self->get_conf('paragraphindent');
         $para_indent = 0 if $para_indent eq 'none';
-        $conf->{'indent_length'} = $para_indent;
-        $conf->{'indent_length_next'} = 0;
+        $para_indent_next = 0;
       }
-      $paragraph = new_formatter($self, 'paragraph', $conf);
+      $paragraph = new_formatter($self, 'paragraph',
+                                 $para_indent, $para_indent_next);
       push @{$self->{'formatters'}}, $paragraph;
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
       if ($self->{'context'}->[-1] eq 'flushright') {
@@ -4295,7 +4286,7 @@ sub _convert($$) {
             if (!$long_description) {
               # push a paragraph container to format the description.
               $description_para = new_formatter($self, 'paragraph',
-                  { 'indent_length' => $description_indent_length });
+                  $description_indent_length);
               push @{$self->{'formatters'}}, $description_para;
               $formatted_elt = $node_description->{'contents'}->[0];
             } else {

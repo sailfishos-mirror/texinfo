@@ -1,3 +1,13 @@
+2026-07-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Simplify new_formatter interface
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (new_formatter):
+	Take 'indent_length' and 'indent_length_next' as subroutine
+	parameters rather than hash values.  This should make this function
+	easier to replicate in a C reimplementation.
+	(convert_line, convert_line_new_context): Likewise.
+
 2026-07-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Simplify new_formatter interface
