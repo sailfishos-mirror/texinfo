@@ -411,7 +411,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           int para_indent = 0;
           if (!top_format->cmd) /* '_top_format' in Perl */
             {
-              para_indent = 3; /* TODO get_conf('paragraphindent') */
+              para_indent = self->conf->paragraphindent;
             }
 
           FORMATTER new_paragraph

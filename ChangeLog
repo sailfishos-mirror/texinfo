@@ -1,5 +1,10 @@
 2026-07-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/convert/convert_to_plaintext.c (convert_to_plaintext_internal):
+	Get paragraph indent from self->conf.
+
+2026-07-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	new_formatter for C plaintext converter
 
 	* tta/C/convert/convert_to_plaintext.c (new_formatter):
