@@ -1,5 +1,27 @@
 2026-07-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Attempt at comments in data file cross-referencing other files
+
+	* tta/data/converters_defaults.txt: add comment at top
+	of file cross-referencing other related files.
+
+	* tta/maintain/regenerate_perl_options_info.pl,
+	* tta/maintain/regenerate_C_options_info.pl:
+	Reference converter_defaults.txt and relevant Makefile.am files.
+	Correct file names in comments at tops of files.
+
+	* tta/perl/Makefile.am: Add comment about keeping a file name in
+	sync with a comment in a another file.
+
+	The thinking behind these comments is that if someone finds one
+	of these files is relevant to converter options values, they should
+	be easily able to find how they are set and used across the rest of
+	the code base.
+	They should also be able to easily know what comments to update
+	in case of any changes to prevent out-of-date information.
+
+2026-07-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Continue C plaintext converter
 
 	* tta/C/convert/convert_to_plaintext.c (convert_to_plaintext_internal):

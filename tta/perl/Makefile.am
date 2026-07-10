@@ -386,6 +386,8 @@ $(srcdir)/Texinfo/Options.pm: ../data/converters_defaults.txt ../data/options_da
 	    $(srcdir)/../data/converters_defaults.txt \
 	    $(srcdir)/Texinfo/Options.pm \
 	       < $(srcdir)/../data/options_data.txt
+# Note: keep Texinfo/Options.pm filename in sync with comment at
+# top of ../data/converters_defaults.txt.
 
 $(srcdir)/Texinfo/CommandsValues.pm: ../data/commands_values.txt $(srcdir)/../maintain/generate_code_commands_values.pl
 	$(PERL) $(srcdir)/../maintain/generate_code_commands_values.pl \

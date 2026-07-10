@@ -1,6 +1,6 @@
 #! /usr/bin/env perl
 
-# regenerate_options_infos.pl: generate perl hashes based on
+# regenerate_C_options_info.pl: generate C data structures based on
 # commands information, structure and code used in XS.
 #
 # Copyright 2022-2026 Free Software Foundation, Inc.
@@ -17,6 +17,8 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+# Run on ../data/converter_defaults.txt by rule in ../C/Makefile.am.
 
 use strict;
 

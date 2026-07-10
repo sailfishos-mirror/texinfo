@@ -15,6 +15,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# Input to ../maintain/regenerate_C_options_info.pl and
+# ../maintain/regenerate_perl_options_info.pl via Makefile rules.
+# See rules in ../C/Makefile.am (producing several C source files)
+# and ../perl/Makefile.am (producing ../perl/Texinfo/Options.pm).
+
 # This information is used to setup customization options for both C and
 # Perl.  For C complex option types are not actually handled, only
 # strings and integers.
