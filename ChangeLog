@@ -1,5 +1,11 @@
 2026-07-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: remove missed self-destructing note for post
+	7.3 release, which should have been removed after DUMP_TREE
+	change on 2026-04-01.
+
+2026-07-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Attempt at comments in data file cross-referencing other files
 
 	* tta/data/converters_defaults.txt: add comment at top

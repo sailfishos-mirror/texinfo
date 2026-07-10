@@ -706,7 +706,6 @@ news item at savannah.
 configure.ac, util/texi2dvi: add "dev" to versions for clarity,
 until it's time to do pretests again.
 
-see "Post-release:" section in TODO file.  delete this note once done.
 -------------------------------------------------------------------------
 
 Other files are uploaded to ftp.gnu.org as and when they are updated
