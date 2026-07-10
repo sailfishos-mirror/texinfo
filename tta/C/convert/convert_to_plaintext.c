@@ -363,35 +363,59 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   const FORMATTER *preformatted = NULL;
   if (cmd != CM_NONE)
     {
-      const COMMAND *command_data = &command_data[cmd];
-      if (command_data->flags & CF_brace
-          && command_data->data == BRACE_accent)
-        {
-        }
-      else if (type = ET_definfoenclose_command)
-        {
-        }
-      else if (command_data->flags & CF_brace)
+      const COMMAND *cmd_data = &command_data[cmd];
+      if (cmd_data->flags & CF_brace
+          && cmd_data->data == BRACE_accent)
+        return;
+      else if (type == ET_definfoenclose_command)
+        return;
+      else if (cmd_data->flags & CF_brace)
         {
           /* if style_map */
           /* else*/ if (cmd == CM_link)
-            {
-            }
-          /* else if ref_commands */
+            return;
+          else if (cmd_data->flags & CF_ref)
+            return;
           else if (cmd == CM_image)
-            ;
+            return;
           else if (cmd == CM_today)
-            ;
-          /* else if brace_no_arg_commands */
+            return;
+          else if (cmd_data->data == BRACE_noarg)
+            return;
           else if (cmd == CM_email)
-            ;
+            return;
           else if (cmd == CM_uref || cmd == CM_url)
-            ;
-          /* ... */
-
+            return;
+          else if (cmd == CM_footnote)
+            return;
+          else if (cmd == CM_anchor || cmd == CM_namedanchor)
+            return;
+          else if (cmd == CM_footnote)
+            return;
+          else if (cmd_data->flags & CF_explained)
+            return;
+          else if (cmd_data->data == BRACE_inline)
+            return;
+          else if (cmd_data->flags & CF_math)
+            return;
+          else if (cmd == CM_titlefont)
+            return;
+          else if (cmd == CM_U)
+            return;
+          else if (cmd == CM_value)
+            return;
         }
-      else if (command_data->flags & CF_block)
+      /* else if (nobrace_symbol_text) */
+      else if (cmd_data->flags & CF_block)
         {
+          if (cmd_data->data == BLOCK_menu)
+            {
+              /* const char *format_menu = self->conf->FORMAT_MENU; */
+              const char *format_menu = self->conf->FORMAT_MENU.o.string;
+              if (!format_menu || !*format_menu
+                  || !strcmp (format_menu, "nomenu"))
+                return;
+            }
         }
       else if (cmd == CM_node)
         ;
@@ -411,7 +435,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           int para_indent = 0;
           if (!top_format->cmd) /* '_top_format' in Perl */
             {
-              para_indent = self->conf->paragraphindent;
+              para_indent = 3;
+              /* FIXME this should be: */
+              /* para_indent = self->conf->paragraphindent.o.integer; */
             }
 
           FORMATTER new_paragraph

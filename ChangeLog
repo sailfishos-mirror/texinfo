@@ -1,3 +1,11 @@
+2026-07-10  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Continue C plaintext converter
+
+	* tta/C/convert/convert_to_plaintext.c (convert_to_plaintext_internal):
+	Don't get paragraph indent from self->conf until we work out how to do
+	this.  Fill out more skeleton code.
+
 2026-07-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/convert/convert_to_plaintext.c (convert_to_plaintext_internal):
