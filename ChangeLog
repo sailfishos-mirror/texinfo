@@ -1,3 +1,17 @@
+2026-07-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix messaging after index search
+
+	* info/indices.c (info_indices_of_file_buffer):
+	Reset list of index entries once we find a node with
+	an index tag.
+	* info/t/infodir/index-search.info: Add missing index tag to
+	test file.
+	
+	It was possible that the string "CAN'T SEE THIS" would
+	be displayed as the name of an index in the message line,
+	due to incorrect internal counting of index entries.
+
 2026-07-11  Thomas <thomb@pm.me>  (tiny change)
 
 	* info/t/quoted-index-target.sh: new test.

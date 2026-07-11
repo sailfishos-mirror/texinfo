@@ -192,6 +192,8 @@ info_indices_of_file_buffer (FILE_BUFFER *file_buffer)
                          as we now know that all the nodes with indices
                          in the Info filebuffer should have markers. */
                       clear_index_nodenames ();
+                      free (result);
+                      result = NULL;
                     }
                   last_index_tag = tag;
                 }
