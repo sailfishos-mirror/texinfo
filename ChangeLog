@@ -1,3 +1,7 @@
+2026-07-11  Thomas <thomb@pm.me>  (tiny change)
+
+	* info/t/quoted-index-target.sh: new test.
+
 2026-07-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix index reference to node with : in its name

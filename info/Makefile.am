@@ -206,6 +206,7 @@ info_tests = \
 	t/spec-menu.sh \
 	t/empty.sh \
 	t/index-paren.sh \
+	t/quoted-index-target.sh \
 	t/help.sh
 
 TESTS = $(info_tests)
