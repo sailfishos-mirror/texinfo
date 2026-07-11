@@ -1,3 +1,12 @@
+2026-07-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix index reference to node with : in its name
+
+	* info/scan.c (scan_reference_label): Include DEL byte in
+	argument to strcspn.  This reverses change on 2024-12-30.
+	
+	Fix from ThomB <thomb@pm.me>.
+
 2026-07-10  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: remove missed self-destructing note for post

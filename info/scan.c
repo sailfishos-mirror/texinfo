@@ -1151,7 +1151,7 @@ scan_reference_label (REFERENCE *entry, int in_index)
 
       while (1)
         {
-          n = strcspn (p, ":\n");
+          n = strcspn (p, ":\n" INFO_QUOTE_STR);
           if (p[n] == ':')
             {
               m += n + 1;
