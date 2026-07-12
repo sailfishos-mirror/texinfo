@@ -12,12 +12,14 @@
 #include "collation_data_lookup.h"
 #include "collation_key.h"
 
-Collation_choice unicoll_default (void)
+Collation_choice
+unicoll_default (void)
 {
   return (Collation_choice) UNICOLL_VARIABLE_NONIGNORABLE;
 }
 
-Collation_choice unicoll_set_variable (Collation_choice collation,
+Collation_choice
+unicoll_set_variable (Collation_choice collation,
                                        int variable)
 {
   if (variable != UNICOLL_VARIABLE_NONIGNORABLE
@@ -31,7 +33,8 @@ Collation_choice unicoll_set_variable (Collation_choice collation,
 }
 
 /* Set bit to disable output of a collation level. */
-Collation_choice unicoll_disable_level (Collation_choice collation, int level)
+Collation_choice
+unicoll_disable_level (Collation_choice collation, int level)
 {
   switch (level)
   {
@@ -50,7 +53,8 @@ Collation_choice unicoll_disable_level (Collation_choice collation, int level)
 }
 
 /* Clear bit to enable output of a collation level. */
-Collation_choice unicoll_enable_level (Collation_choice collation, int level)
+Collation_choice
+unicoll_enable_level (Collation_choice collation, int level)
 {
   switch (level)
   {
@@ -69,8 +73,8 @@ Collation_choice unicoll_enable_level (Collation_choice collation, int level)
 }
 
 
-Collation_choice unicoll_set_normalization (Collation_choice collation,
-                                            int normalization_on)
+Collation_choice
+unicoll_set_normalization (Collation_choice collation, int normalization_on)
 {
   /* Set bit to disable normalization. */
   if (normalization_on)
@@ -81,8 +85,8 @@ Collation_choice unicoll_set_normalization (Collation_choice collation,
 
 /* If CONTRACTIONS_ON is 0, disable use of contractions, i.e. sequence
    lookup. */
-Collation_choice unicoll_set_contractions (Collation_choice collation,
-                                            int contractions_on)
+Collation_choice
+unicoll_set_contractions (Collation_choice collation, int contractions_on)
 {
   if (contractions_on)
     return (collation & ~UNICOLL_CONTRACTIONS_MASK);
@@ -93,7 +97,8 @@ Collation_choice unicoll_set_contractions (Collation_choice collation,
 /* If PARTIAL_KEY_ENABLED is non-zero, u*_make_collation_key does not
    re-allocate RESULTBUF and will return a partial key (null-terminated)
    if the full result would be longer than *LENGTHP bytes. */
-Collation_choice unicoll_enable_partial (Collation_choice collation,
+Collation_choice
+unicoll_enable_partial (Collation_choice collation,
                                          int partial_key_enabled)
 {
   if (!partial_key_enabled)
@@ -103,16 +108,12 @@ Collation_choice unicoll_enable_partial (Collation_choice collation,
 }
 
 #define BITS 32
-#define UNIT uint32_t
 #include "uN_make_key_streaming.inc"
 #undef BITS
-#undef UNIT
 
 #define BITS 8
-#define UNIT uint8_t
 #include "uN_make_key_streaming.inc"
 #undef BITS
-#undef UNIT
 
 static char *
 make_key_internal (char *psort_key,
@@ -318,7 +319,8 @@ u32_make_collation_key (Collation_choice collation,
                         const char32_t *codepoints_in, size_t length_in,
                         char *resultbuf, size_t *lengthp)
 {
-  if (u32_make_key_streaming (codepoints_in, length_in, resultbuf, lengthp))
+  if (u32_make_key_streaming (collation,
+                              codepoints_in, length_in, resultbuf, lengthp))
     return resultbuf;
 
   return u32_make_collation_key_internal (collation,
@@ -557,7 +559,8 @@ u8_make_collation_key (Collation_choice collation,
 
   static char32_t *ret;
 
-  if (u8_make_key_streaming (u8_str, length_in, resultbuf, lengthp))
+  if (u8_make_key_streaming (collation,
+                             u8_str, length_in, resultbuf, lengthp))
     {
       /* u8_make_key_streaming returns resultbuf or null. */
       return resultbuf;
