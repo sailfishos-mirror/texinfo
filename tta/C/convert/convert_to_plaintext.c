@@ -544,7 +544,7 @@ plaintext_converter_defaults (enum converter_format format,
   CONVERTER_INITIALIZATION_INFO *format_defaults
     = new_converter_initialization_info ();
 
-  /* add_plaintext_converter_regular_options_defaults (&format_defaults->conf); */
+  add_plaintext_regular_options_defaults (&format_defaults->conf);
 
   return format_defaults;
 }

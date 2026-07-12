@@ -1,5 +1,10 @@
 2026-07-12  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/convert/convert_to_plaintext.c (plaintext_converter_defaults):
+	Call new generated function add_plaintext_regular_options_defaults.
+
+2026-07-12  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/data/converters_defaults.txt:
 	Add section for 'plaintext'.  Edit comments at top of file.
 
