@@ -1,5 +1,9 @@
 2026-07-12  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/main/unicode-collation: sync
+
+2026-07-12  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/convert/convert_to_plaintext.c (plaintext_converter_defaults):
 	Call new generated function add_plaintext_regular_options_defaults.
 

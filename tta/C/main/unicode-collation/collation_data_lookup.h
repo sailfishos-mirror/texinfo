@@ -14,7 +14,9 @@ struct collation_unit {
 int collation_element_is_variable (struct collation_unit *element);
 
 void lookup_collation_data_at_char (char32_t *const string,
+                              const char32_t *const string_const,
                               size_t length,
+                              int disable_sequences,
                               size_t *n_codepoints_out,
                               const struct collation_unit **collation_units,
                               size_t *n_collation_units);

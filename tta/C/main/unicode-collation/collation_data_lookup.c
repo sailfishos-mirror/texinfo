@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include <errno.h>
 #include "unictype.h"
 #include "uninorm.h"
 
@@ -58,27 +59,29 @@ lookup_codepoint_data (char32_t codepoint)
   return data;
 }
 
-#define check_sequences 1
-
-/* STRING points into a char32_t array.  First check for sequence entry
-   at STRING, then for individual codepoint entry.  This function can
-   reorder STRING. */
-void
-lookup_collation_data_at_char (char32_t *const string,
-                               size_t length,
-                               size_t *n_codepoints_out,
-                               const struct collation_unit **collation_units,
-                               size_t *n_collation_units)
+static int
+compare_trie_node_children (const void *a, const void *b)
 {
+  struct trie_node *node1 = (struct trie_node *) a;
+  struct trie_node *node2 = (struct trie_node *) b;
+
+  return (node1->codepoint > node2->codepoint)
+       - (node1->codepoint < node2->codepoint);
+}
+
+/* Check for sequence at STRING, rearranging for a non-contiguous
+   match if necessary. */
+static int
+check_sequence_rearranging (char32_t *const string,
+                            const size_t length,
+                            const struct trie_node **node_out)
+{
+  char32_t *pchar;
+  char32_t *seq_end = 0;
+  int max_combining_class = 0;
   const struct trie_node *node = &collation_data.trie_array[0];
 
-  char32_t *pchar;
-  char32_t *pre_non_starter = 0;
-  int max_combining_class = 0;
-
   size_t n_codepoints;
-
-#if check_sequences
 
   /* Starting at the beginning of the string, try to match the longest
      sequence possible. */
@@ -86,8 +89,8 @@ lookup_collation_data_at_char (char32_t *const string,
        pchar < string + length && (*pchar) != 0;
        pchar++)
     {
-      int combining_class;
-      if (pre_non_starter)
+      int combining_class = 0;
+      if (seq_end)
         {
           /* We are trying to find a non-continguous match. */
 
@@ -105,10 +108,106 @@ lookup_collation_data_at_char (char32_t *const string,
                  match by earlier non-starters. */
               continue;
             }
-
-          max_combining_class = combining_class;
         }
 
+      int num_children = node->num_children;
+      uint32_t first_child = node->first_child;
+
+      /* Search for matching child. */
+      struct trie_node dummy = { 0 };
+      dummy.codepoint = *pchar;
+
+      struct trie_node *found = bsearch (&dummy,
+          &collation_data.trie_array[first_child],
+          num_children,
+          sizeof(collation_data.trie_array[first_child]),
+          compare_trie_node_children);
+
+      /* For non-contiguous matches, we require each extra
+         character to lead to a sequence with collation data.
+         Hence 0FB2 0334 0F71 0F80 will not match with 0FB2 0F71 0F80,
+         unless there is data for 0FB2 0F71.
+             The UCA#10 document discusses this sequence for Tibetan but I
+         don't really understand it, e.g. why 0FB2 0F71 was missing.
+             According to "UTC #187 properties feedback & recommendations",
+         2026-04-16 [*], this was an anomaly that will be
+         eliminated in the future.
+             See also documentation for Perl module Unicode::Collate.
+         [*] https://www.unicode.org/L2/L2026/26096-pag-report-utc187.pdf
+         */
+      if (found && (!seq_end || found->data_index))
+        {
+          node = found;
+          n_codepoints++;
+        }
+
+      if (seq_end)
+        {
+          if (found)
+            {
+              /* This is part of a non-contiguous match.  Move matched
+                 character right after the contiguous part of the match. */
+              char32_t tmp = *pchar;
+              memmove (&seq_end[2], &seq_end[1],
+                       (pchar - &seq_end[1]) * sizeof (char32_t));
+              seq_end[1] = tmp;
+              seq_end++;
+
+              break;
+            }
+          else
+            max_combining_class = combining_class;
+        }
+
+      if (!found)
+        {
+          if (!seq_end && pchar > string)
+            {
+              /* Start looking for a non-contiguous match. */
+              pchar--;
+              seq_end = pchar;
+              continue;
+            }
+          else if (seq_end)
+            {
+              /* Continue looking for a non-contiguous match. */
+              continue;
+            }
+          else
+            {
+              /* Cannot extend a match. */
+              break;
+            }
+        }
+    }
+  if (n_codepoints >= 2)
+    {
+      *node_out = node;
+      return n_codepoints;
+    }
+
+  return 0;
+}
+
+/* Much simplified version of 'check_sequence_rearranging'.
+   Takes a const STRING as an argument and does not attempt
+   to look for a non-contiguous match. */
+static int
+check_sequence_nonrearranging (const char32_t *const string,
+                            const size_t length,
+                            const struct trie_node **node_out)
+{
+  const char32_t *pchar;
+  const struct trie_node *node = &collation_data.trie_array[0];
+
+  size_t n_codepoints;
+
+  /* Starting at the beginning of the string, try to match the longest
+     sequence possible. */
+  for (pchar = string, n_codepoints = 0;
+       pchar < string + length && (*pchar) != 0;
+       pchar++)
+    {
       int num_children = node->num_children;
       uint32_t first_child = node->first_child;
 
@@ -123,87 +222,86 @@ lookup_collation_data_at_char (char32_t *const string,
 
           if (child_codepoint == *pchar)
             {
-              /* For non-contiguous matches, we should only absorb
-                 one extra character, so require node to be terminal. */
-              if (!pre_non_starter || child->data_index)
-                {
-                  node = child;
-                  found = 1;
-                  n_codepoints++;
-                }
+              node = child;
+              found = 1;
+              n_codepoints++;
               break;
             }
           if (child_codepoint > *pchar)
             break;
         }
 
-      if (found && pre_non_starter)
-        {
-          /* This is part of a non-contiguous match.  Move matched
-             character right after the contiguous part of the match. */
-          char32_t tmp = *pchar;
-          memmove (&pre_non_starter[2], &pre_non_starter[1],
-                   (pchar - &pre_non_starter[1]) * sizeof (char32_t));
-          pre_non_starter[1] = tmp;
-
-          break;
-
-          /* Note: we can only absorb one extra character for non-contiguous
-             matches.  Hence 0FB2 0334 0F71 0F80 matches with
-             0FB2 0F80 TIBETAN VOWEL SIGN VOCALIC R, not with
-             0FB2 0F71 0F80 TIBETAN VOWEL SIGN VOCALIC RR */
-        }
-      else if (!found)
-        {
-          if (!pre_non_starter && pchar > string)
-            {
-              /* Start looking for a non-contiguous match. */
-              pchar--;
-              pre_non_starter = pchar;
-              continue;
-            }
-          else if (pre_non_starter)
-            {
-              /* Continue looking for a non-contiguous match. */
-              continue;
-            }
-          else
-            {
-              /* Cannot extend a match. */
-              break;
-            }
-        }
+      if (!found)
+        break;
     }
 
   if (n_codepoints >= 2)
     {
-      COLLATION_DATA data;
-      size_t data_index = node->data_index;
-      data.num_elements = node->num_elements;
-      if (data_index != 0)
-        {
-          data.array = &collation_data.collation_data[data_index];
-          (*n_codepoints_out) = n_codepoints;
+      *node_out = node;
+      return n_codepoints;
+    }
 
-          *collation_units = data.array;
-          *n_collation_units = data.num_elements;
-          return;
+  return 0;
+}
+
+/* STRING or STRING_CONST points into a char32_t array.
+   First check for sequence entry at STRING, then for individual codepoint entry.
+   This function can reorder STRING, but not STRING_CONST.  Exactly one must
+   be non-null.
+
+   Output variables:
+     N_CODEPOINTS_OUT: number of codepoints consumed to find match
+     COLLATION_UNITS: pointer to data array
+     N_COLLATION_UNITS: length of data array
+     */
+void
+lookup_collation_data_at_char (char32_t *const string,
+                               const char32_t *const string_const,
+                               const size_t length,
+                               int disable_sequences,
+                               size_t *n_codepoints_out,
+                               const struct collation_unit **collation_units,
+                               size_t *n_collation_units)
+{
+  if (string && string_const || !string && !string_const)
+    {
+      /* bug */
+      errno = EINVAL;
+      (*n_codepoints_out) = 0;
+      return;
+    }
+#define CHECK_SEQUENCE_BIT 0x80
+
+  COLLATION_DATA data = lookup_codepoint_data
+                          (string ? string[0] : string_const[0]);
+  if ((data.num_elements & CHECK_SEQUENCE_BIT) && !disable_sequences)
+    {
+      const struct trie_node *node = NULL;
+      size_t n_codepoints_matched;
+
+      if (string)
+        n_codepoints_matched
+          = check_sequence_rearranging (string, length, &node);
+      else /* string_const */
+        n_codepoints_matched
+          = check_sequence_nonrearranging (string_const, length, &node);
+
+      if (n_codepoints_matched > 0)
+        {
+          size_t data_index = node->data_index;
+          if (data_index != 0)
+            {
+              (*n_codepoints_out) = n_codepoints_matched;
+              *collation_units = &collation_data.collation_data[data_index];
+              *n_collation_units = node->num_elements;
+              return;
+            }
         }
     }
 
-#endif
-
-  COLLATION_DATA data = lookup_codepoint_data (string[0]);
-  if (data.array)
-    {
-      (*n_codepoints_out) = 1;
-    }
-  else
-    {
-      (*n_codepoints_out) = 0;
-    }
+  (*n_codepoints_out) = data.array ? 1 : 0;
   *collation_units = data.array;
-  *n_collation_units = data.num_elements;
+  *n_collation_units = (data.num_elements & ~CHECK_SEQUENCE_BIT);
   return;
 }
 

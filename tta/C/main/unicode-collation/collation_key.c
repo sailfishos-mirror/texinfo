@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <errno.h>
+#include <setjmp.h>
 
 #include "unistr.h"
 #include "uninorm.h"
@@ -11,12 +12,14 @@
 #include "collation_data_lookup.h"
 #include "collation_key.h"
 
-Collation_choice unicoll_default (void)
+Collation_choice
+unicoll_default (void)
 {
   return (Collation_choice) UNICOLL_VARIABLE_NONIGNORABLE;
 }
 
-Collation_choice unicoll_set_variable (Collation_choice collation,
+Collation_choice
+unicoll_set_variable (Collation_choice collation,
                                        int variable)
 {
   if (variable != UNICOLL_VARIABLE_NONIGNORABLE
@@ -24,13 +27,54 @@ Collation_choice unicoll_set_variable (Collation_choice collation,
       && variable != UNICOLL_VARIABLE_BLANKED)
     {
       errno = EINVAL;
-      return 0;
+      return collation;
     }
   return (Collation_choice) (collation & ~UNICOLL_VARIABLE_MASK) | variable;
 }
 
-Collation_choice unicoll_set_normalization (Collation_choice collation,
-                                            int normalization_on)
+/* Set bit to disable output of a collation level. */
+Collation_choice
+unicoll_disable_level (Collation_choice collation, int level)
+{
+  switch (level)
+  {
+    case 1:
+      return (collation | UNICOLL_LEVEL1_BIT);
+    case 2:
+      return (collation | UNICOLL_LEVEL2_BIT);
+    case 3:
+      return (collation | UNICOLL_LEVEL3_BIT);
+    case 4:
+      return (collation | UNICOLL_LEVEL4_BIT);
+    default:
+      errno = EINVAL;
+      return collation;
+  }
+}
+
+/* Clear bit to enable output of a collation level. */
+Collation_choice
+unicoll_enable_level (Collation_choice collation, int level)
+{
+  switch (level)
+  {
+    case 1:
+      return (collation & ~UNICOLL_LEVEL1_BIT);
+    case 2:
+      return (collation & ~UNICOLL_LEVEL2_BIT);
+    case 3:
+      return (collation & ~UNICOLL_LEVEL3_BIT);
+    case 4:
+      return (collation & ~UNICOLL_LEVEL4_BIT);
+    default:
+      errno = EINVAL;
+      return collation;
+  }
+}
+
+
+Collation_choice
+unicoll_set_normalization (Collation_choice collation, int normalization_on)
 {
   /* Set bit to disable normalization. */
   if (normalization_on)
@@ -39,11 +83,257 @@ Collation_choice unicoll_set_normalization (Collation_choice collation,
     return (collation | UNICOLL_NORMALIZATION_MASK);
 }
 
+/* If CONTRACTIONS_ON is 0, disable use of contractions, i.e. sequence
+   lookup. */
+Collation_choice
+unicoll_set_contractions (Collation_choice collation, int contractions_on)
+{
+  if (contractions_on)
+    return (collation & ~UNICOLL_CONTRACTIONS_MASK);
+  else
+    return (collation | UNICOLL_CONTRACTIONS_MASK);
+}
+
+/* If PARTIAL_KEY_ENABLED is non-zero, u*_make_collation_key does not
+   re-allocate RESULTBUF and will return a partial key (null-terminated)
+   if the full result would be longer than *LENGTHP bytes. */
+Collation_choice
+unicoll_enable_partial (Collation_choice collation,
+                                         int partial_key_enabled)
+{
+  if (!partial_key_enabled)
+    return (collation & ~UNICOLL_PARTIAL_MASK);
+  else
+    return (collation | UNICOLL_PARTIAL_MASK);
+}
+
+#define BITS 32
+#include "uN_make_key_streaming.inc"
+#undef BITS
+
+#define BITS 8
+#include "uN_make_key_streaming.inc"
+#undef BITS
+
+static char *
+make_key_internal (char *psort_key,
+                   struct collation_unit *elements, size_t elements_count,
+                   int variable_shifted_or_blanked, int variable_shifted,
+                   int primaryp, int secondaryp, int tertiaryp,
+                   jmp_buf bug_jmp,
+                   char *limit)
+{
+  int last_was_variable;
+
+#define cat(c) { \
+  if (psort_key == limit) return psort_key; \
+  else *psort_key++ = (c); \
+}
+  /* Note that we do not call malloc in this function so no clean-up
+     is required at function exit. */
+
+  /* Output collation key without any null bytes.
+     See UTS#10 s.9.4 "Avoiding Zero Bytes". */
+
+  if (primaryp)
+    {
+      for (size_t i = 0; i < elements_count; i++)
+        {
+          uint16_t weight = elements[i].primary;
+
+          if (variable_shifted_or_blanked
+              && collation_element_is_variable (&elements[i]))
+            {
+              /* Skip at primary level. */
+              continue;
+            }
+
+          if (weight)
+            {
+              if (weight > 0xFE00)
+                {
+                  /* bug: primary weight too high */
+                  errno = EINVAL;
+                  longjmp (bug_jmp, 1);
+                }
+              cat ((weight / 0xFF) + 1);
+              cat ((weight % 0xFF) + 1);
+            }
+        }
+
+      if (secondaryp || tertiaryp || variable_shifted)
+        {
+          cat ('\x01');
+          cat ('\x01');
+        }
+    }
+
+  if (secondaryp)
+    {
+      last_was_variable = 0;
+      for (size_t i = 0; i < elements_count; i++)
+        {
+          if (variable_shifted_or_blanked
+              && collation_element_is_variable (&elements[i]))
+            {
+              /* Skip at secondary level. */
+              last_was_variable = 1;
+              continue;
+            }
+
+          if (last_was_variable)
+            {
+              /* Ignore completely - e.g. combining grave following a space. */
+              if (!elements[i].primary && elements[i].tertiary)
+                continue;
+
+              /* This could be a continuation element for a high secondary
+                 weight. */
+              if (!elements[i].primary && elements[i].secondary)
+                continue;
+            }
+          uint16_t weight = elements[i].secondary;
+
+          if (weight)
+            {
+              if (weight == 0xFF)
+                {
+                  /* bug: secondary weight too high */
+                  errno = EINVAL;
+                  longjmp (bug_jmp, 1);
+                }
+              cat (weight + 1);
+            }
+          last_was_variable = 0;
+        }
+
+      /* As we only use a single byte per unit at secondary level,
+         a single byte suffices as a level separator. */
+      if (tertiaryp || variable_shifted)
+        cat ('\x01');
+    }
+
+  if (tertiaryp)
+    {
+      last_was_variable = 0;
+      for (size_t i = 0; i < elements_count; i++)
+        {
+          if (variable_shifted_or_blanked
+              && collation_element_is_variable (&elements[i]))
+            {
+              /* Skip at tertiary level. */
+              last_was_variable = 1;
+              continue;
+            }
+
+          if (last_was_variable)
+            {
+              /* Ignore completely - e.g. combining grave following a space. */
+              if (!elements[i].primary && elements[i].tertiary)
+                continue;
+
+              /* This could be a continuation element for a high secondary
+                 weight. */
+              if (!elements[i].primary && elements[i].secondary)
+                continue;
+            }
+
+          uint8_t weight = elements[i].tertiary;
+          if (weight)
+            {
+              if (weight == 0xFF)
+                {
+                  /* bug: tertiary weight too high */
+                  errno = EINVAL;
+                  longjmp (bug_jmp, 1);
+                }
+              cat (weight + 1);
+            }
+        }
+      /* As we only use a single byte per unit at tertiary level,
+         a single byte suffices as a level separator. */
+      if (variable_shifted)
+        cat ('\x01');
+    }
+
+  if (variable_shifted)
+    {
+      /* See UTS #10 c.4 "Variable Weighting". */
+
+      last_was_variable = 0;
+      for (size_t i = 0; i < elements_count; i++)
+        {
+          int variable_element = collation_element_is_variable (&elements[i]);
+          if (!elements[i].primary && !elements[i].secondary
+              && !elements[i].tertiary)
+            {
+              /* Completely ignorable element. */
+              continue;
+            }
+          else if (!elements[i].primary
+                   && (elements[i].secondary || elements[i].tertiary)
+                   && last_was_variable)
+            {
+              /* E.g. combining grave following a space.  Ignore. */
+              continue;
+            }
+          else if (variable_element)
+            {
+              uint16_t weight = elements[i].primary;
+              if (weight > 0xFE00)
+                {
+                  /* bug: shifted primary weight too high */
+                  errno = EINVAL;
+                  longjmp (bug_jmp, 1);
+                }
+              cat ((weight / 0xFF) + 1);
+              cat ((weight % 0xFF) + 1);
+            }
+          else if (!elements[i].primary
+                   && (elements[i].secondary || elements[i].tertiary)
+                   && !last_was_variable)
+            {
+              /* This needs to be greater than any shifted weights. */
+              cat (0xFF);
+              cat (0xFF);
+            }
+          else if (elements[i].primary && !variable_element)
+            {
+              /* This needs to be greater than any shifted weights. */
+              cat (0xFF);
+              cat (0xFF);
+            }
+          last_was_variable = variable_element;
+        }
+    }
+  return psort_key;
+#undef cat
+}
+
+static char *u32_make_collation_key_internal (Collation_choice collation,
+                        const char32_t *codepoints_in, size_t length_in,
+                        char *resultbuf, size_t *lengthp);
+
 char *
 u32_make_collation_key (Collation_choice collation,
                         const char32_t *codepoints_in, size_t length_in,
                         char *resultbuf, size_t *lengthp)
 {
+  if (u32_make_key_streaming (collation,
+                              codepoints_in, length_in, resultbuf, lengthp))
+    return resultbuf;
+
+  return u32_make_collation_key_internal (collation,
+                        codepoints_in, length_in, resultbuf, lengthp);
+}
+
+static char *
+u32_make_collation_key_internal (Collation_choice collation,
+                        const char32_t *codepoints_in, size_t length_in,
+                        char *resultbuf, size_t *lengthp)
+{
+
+  char *sort_key;
   int variable = (collation & UNICOLL_VARIABLE_MASK);
 
   if (variable != UNICOLL_VARIABLE_NONIGNORABLE
@@ -58,18 +348,26 @@ u32_make_collation_key (Collation_choice collation,
   int variable_shifted_or_blanked = (variable == UNICOLL_VARIABLE_SHIFTED
                                   || variable == UNICOLL_VARIABLE_BLANKED);
 
-  char32_t *codepoints;
+  int disable_sequence_lookup = (collation & UNICOLL_CONTRACTIONS_MASK);
+
+  int fix_length = 0;
+
+  char32_t *codepoints = NULL;
+  const char32_t *codepoints_const = NULL;
+  const char32_t *pcodepoints;
   size_t length;
 
   if (!(collation & UNICOLL_NORMALIZATION_MASK))
     {
       codepoints =
         u32_normalize (UNINORM_NFD, codepoints_in, length_in, NULL, &length);
+      pcodepoints = codepoints;
     }
   else
     {
-      codepoints = u32_strdup (codepoints_in);
+      codepoints_const = codepoints_in;
       length = length_in;
+      pcodepoints = codepoints_const;
     }
 
   /* get array of collation entries */
@@ -87,7 +385,8 @@ u32_make_collation_key (Collation_choice collation,
   if (!entry_array)
     {
       errno = ENOMEM;
-      return 0;
+      sort_key = 0;
+      goto cleanup;
     }
 
   size_t n_entries = 0;
@@ -98,7 +397,10 @@ u32_make_collation_key (Collation_choice collation,
       const struct collation_unit *data_array;
       size_t data_num_elements;
 
-      lookup_collation_data_at_char (&codepoints[i], length - i,
+      lookup_collation_data_at_char (codepoints ? &codepoints[i] : 0,
+                                     codepoints_const ? &codepoints_const[i] : 0,
+                                     length - i,
+                                     disable_sequence_lookup,
                                      &n_consumed,
                                      &data_array,
                                      &data_num_elements);
@@ -131,7 +433,8 @@ u32_make_collation_key (Collation_choice collation,
   if (!elements)
     {
       errno = ENOMEM;
-      return 0;
+      sort_key = 0;
+      goto cleanup;
     }
   size_t elements_count = 0;
   for (size_t i = 0; i < n_entries; i++)
@@ -148,7 +451,7 @@ u32_make_collation_key (Collation_choice collation,
         {
           size_t num_entry_elements;
           get_implicit_weight
-            (codepoints[entry_array[i].string_index],
+            (pcodepoints[entry_array[i].string_index],
              &elements[elements_count], &num_entry_elements);
           elements_count += num_entry_elements;
 
@@ -156,20 +459,45 @@ u32_make_collation_key (Collation_choice collation,
     }
   free (entry_array);
 
-  char *sort_key;
   char *psort_key;
   size_t sort_key_alloc;
 
-  /* Three levels (primary/secondary/tertiary).  Two bytes per
-     collation element at primary, one byte at secondary, one byte
-     at tertiary.  "\x01\x01" between primary and secondary level
-     and "\x01" between secondary and tertiary level.  Not all of
-     these bytes are used if there are null weights. */
-  sort_key_alloc = num_elements * 4 + 3;
+  int primaryp, secondaryp, tertiaryp, quaternaryp;
+  primaryp = !(collation & UNICOLL_LEVEL1_BIT);
+  secondaryp = !(collation & UNICOLL_LEVEL2_BIT);
+  tertiaryp = !(collation & UNICOLL_LEVEL3_BIT);
+  quaternaryp = !(collation & UNICOLL_LEVEL4_BIT);
 
-  /* Add space for quaternary level if necessary. */
+  if (!quaternaryp)
+    variable_shifted = 0;
+
+  sort_key_alloc = 0;
+  if (primaryp)
+    {
+      /* Two bytes per collation element plus "\x01\x01" separator. */
+      sort_key_alloc += num_elements * 2;
+      if (secondaryp || tertiaryp || variable_shifted)
+        sort_key_alloc += 2;
+    }
+  if (secondaryp)
+    {
+      /* One byte per collation element plus "\x01" separator. */
+      sort_key_alloc += num_elements * 1;
+      if (tertiaryp || variable_shifted)
+        sort_key_alloc += 1;
+    }
+  if (tertiaryp)
+    {
+      /* One byte per collation element plus "\x01" separator. */
+      sort_key_alloc += num_elements * 1;
+      if (variable_shifted)
+        sort_key_alloc += 1;
+    }
   if (variable_shifted)
-    sort_key_alloc += 1 + num_elements * 2;
+    {
+      /* Two bytes per collation element. */
+      sort_key_alloc += num_elements * 2;
+    }
 
   /* Terminating null. */
   sort_key_alloc++;
@@ -178,185 +506,43 @@ u32_make_collation_key (Collation_choice collation,
     sort_key = resultbuf;
   else
     {
-      sort_key = malloc (sort_key_alloc);
-      if (!sort_key)
+      int partial_key_enabled = (collation & UNICOLL_PARTIAL_MASK);
+      if (!partial_key_enabled)
         {
-          errno = ENOMEM;
-          return 0;
+          sort_key = malloc (sort_key_alloc);
+          if (!sort_key)
+            {
+              errno = ENOMEM;
+              goto cleanup;
+            }
+        }
+      else
+        {
+          sort_key = resultbuf;
+          fix_length = 1;
         }
     }
 
   psort_key = sort_key;
-
-  /* Output collation key without any null bytes.
-     See UTS#10 s.9.4 "Avoiding Zero Bytes". */
-
-  /* Primary */
-  for (size_t i = 0; i < elements_count; i++)
+  jmp_buf bug_jmp; 
+  if (!setjmp (bug_jmp))
     {
-      uint16_t weight = elements[i].primary;
+      psort_key = make_key_internal (psort_key, elements, elements_count,
+                                     variable_shifted_or_blanked, variable_shifted,
+                                     primaryp, secondaryp, tertiaryp,
+                                     bug_jmp,
+                                     fix_length ? &sort_key[*lengthp] : NULL);
 
-      if (variable_shifted_or_blanked
-          && collation_element_is_variable (&elements[i]))
-        {
-          /* Skip at primary level. */
-          continue;
-        }
-
-      if (weight)
-        {
-          if (weight > 0xFE00)
-            {
-              /* bug: primary weight too high */
-              errno = EINVAL;
-              return 0;
-            }
-          *psort_key++ = (weight / 0xFF) + 1;
-          *psort_key++ = (weight % 0xFF) + 1;
-        }
+      *psort_key = '\0';
+      *lengthp = psort_key - sort_key + 1;
+    }
+  else
+    {
+      /* a bug was detected in the library */
+      sort_key = 0;
     }
 
-  *psort_key++ = '\x01';
-  *psort_key++ = '\x01';
-
-  /* Secondary */
-  int last_was_variable = 0;
-  for (size_t i = 0; i < elements_count; i++)
-    {
-      if (variable_shifted_or_blanked
-          && collation_element_is_variable (&elements[i]))
-        {
-          /* Skip at secondary level. */
-          last_was_variable = 1;
-          continue;
-        }
-
-      if (last_was_variable)
-        {
-          /* Ignore completely - e.g. combining grave following a space. */
-          if (!elements[i].primary && elements[i].tertiary)
-            continue;
-
-          /* This could be a continuation element for a high secondary
-             weight. */
-          if (!elements[i].primary && elements[i].secondary)
-            continue;
-        }
-      uint16_t weight = elements[i].secondary;
-
-      if (weight)
-        {
-          if (weight == 0xFF)
-            {
-              /* bug: secondary weight too high */
-              errno = EINVAL;
-              return 0;
-            }
-          *psort_key++ = weight + 1;
-        }
-      last_was_variable = 0;
-    }
-
-  /* As we only use a single byte per unit at secondary and tertiary levels,
-     a single byte suffices as a level separator. */
-  *psort_key++ = '\x01';
-
-  /* Tertiary */
-  last_was_variable = 0;
-  for (size_t i = 0; i < elements_count; i++)
-    {
-      if (variable_shifted_or_blanked
-          && collation_element_is_variable (&elements[i]))
-        {
-          /* Skip at tertiary level. */
-          last_was_variable = 1;
-          continue;
-        }
-
-      if (last_was_variable)
-        {
-          /* Ignore completely - e.g. combining grave following a space. */
-          if (!elements[i].primary && elements[i].tertiary)
-            continue;
-
-          /* This could be a continuation element for a high secondary
-             weight. */
-          if (!elements[i].primary && elements[i].secondary)
-            continue;
-        }
-
-      uint8_t weight = elements[i].tertiary;
-      if (weight)
-        {
-          if (weight == 0xFF)
-            {
-              /* bug: tertiary weight too high */
-              errno = EINVAL;
-              return 0;
-            }
-          *psort_key++ = weight + 1;
-        }
-    }
-
-  if (variable_shifted)
-    {
-      /* See UTS #10 c.4 "Variable Weighting". */
-
-      /* Quaternary level.  Only significant if sort keys are identical
-         up to this point.  As we only use single bytes at tertiary level,
-         a single byte separator should suffice. */
-      *psort_key++ = '\x01';
-
-      last_was_variable = 0;
-      for (size_t i = 0; i < elements_count; i++)
-        {
-          int variable_element = collation_element_is_variable (&elements[i]);
-          if (!elements[i].primary && !elements[i].secondary
-              && !elements[i].tertiary)
-            {
-              /* Completely ignorable element. */
-              continue;
-            }
-          else if (!elements[i].primary
-                   && (elements[i].secondary || elements[i].tertiary)
-                   && last_was_variable)
-            {
-              /* E.g. combining grave following a space.  Ignore. */
-              continue;
-            }
-          else if (variable_element)
-            {
-              uint16_t weight = elements[i].primary;
-              if (weight > 0xFE00)
-                {
-                  /* bug: shifted primary weight too high */
-                  errno = EINVAL;
-                  return 0;
-                }
-              *psort_key++ = (weight / 0xFF) + 1;
-              *psort_key++ = (weight % 0xFF) + 1;
-            }
-          else if (!elements[i].primary
-                   && (elements[i].secondary || elements[i].tertiary)
-                   && !last_was_variable)
-            {
-              /* This needs to be greater than any shifted weights. */
-              *psort_key++ = 0xFF;
-              *psort_key++ = 0xFF;
-            }
-          else if (elements[i].primary && !variable_element)
-            {
-              /* This needs to be greater than any shifted weights. */
-              *psort_key++ = 0xFF;
-              *psort_key++ = 0xFF;
-            }
-          last_was_variable = variable_element;
-        }
-    }
-
-  *psort_key = '\0';
-  *lengthp = psort_key - sort_key;
-
+ cleanup:
   free (elements);
   free (codepoints);
 
@@ -373,6 +559,13 @@ u8_make_collation_key (Collation_choice collation,
 
   static char32_t *ret;
 
+  if (u8_make_key_streaming (collation,
+                             u8_str, length_in, resultbuf, lengthp))
+    {
+      /* u8_make_key_streaming returns resultbuf or null. */
+      return resultbuf;
+    }
+
   ret = u8_to_u32 (u8_str, length_in, u32_str, &u32_len);
   if (ret != u32_str)
     {
@@ -380,7 +573,7 @@ u8_make_collation_key (Collation_choice collation,
       u32_str = ret;
     }
 
-  char *key = u32_make_collation_key (collation, u32_str, u32_len,
-                                          resultbuf, lengthp);
+  char *key = u32_make_collation_key_internal (collation, u32_str, u32_len,
+                                               resultbuf, lengthp);
   return key;
 }
