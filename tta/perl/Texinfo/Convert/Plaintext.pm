@@ -383,20 +383,10 @@ foreach my $command ('var', 'cite', 'dmn', keys(%brace_code_commands)) {
   $no_punctation_munging_commands{$command} = 1;
 }
 
-my %defaults = (
-  # Customization options
-  'ENABLE_ENCODING'      => 1,
-  'ASCII_DASHES_AND_QUOTES' => 1,
-  'ASCII_GLYPH'          => 0,
-  'FORMAT_MENU'          => 'nomenu',
-  #'EXTENSION'            => 'info',
-  'EXTENSION'            => 'txt',
-  #'USE_SETFILENAME_EXTENSION' => 1,
-  'INFO_SPECIAL_CHARS_WARNING' => undef,
-  # different from the default, which is undef
-  'OUTFILE'              => '-',
-  'USE_NODES'            => 1,
-);
+# values for integer and string options in code generated from
+# Texinfo/Convert/converters_defaults.txt
+my $regular_defaults = Texinfo::Options::get_regular_options('plaintext');
+my %defaults = ( %{$regular_defaults} );
 
 sub push_top_formatter($$) {
   my ($self, $top_context) = @_;

@@ -191,6 +191,32 @@ add_plaintexinfo_converter_regular_options_defaults (OPTIONS_LIST *options_list)
 }
 
 void
+set_plaintext_regular_options_defaults (OPTIONS *options)
+{
+  option_set_conf (&options->ENABLE_ENCODING, 1, 0);
+  option_set_conf (&options->ASCII_DASHES_AND_QUOTES, 1, 0);
+  option_set_conf (&options->ASCII_GLYPH, 0, 0);
+  option_set_conf (&options->FORMAT_MENU, -2, "nomenu");
+  option_set_conf (&options->EXTENSION, -2, "txt");
+  option_set_conf (&options->INFO_SPECIAL_CHARS_WARNING, -1, 0);
+  option_set_conf (&options->OUTFILE, -2, "-");
+  option_set_conf (&options->USE_NODES, 1, 0);
+}
+
+void
+add_plaintext_regular_options_defaults (OPTIONS_LIST *options_list)
+{
+  add_option_value (options_list, "ENABLE_ENCODING", 1, 0);
+  add_option_value (options_list, "ASCII_DASHES_AND_QUOTES", 1, 0);
+  add_option_value (options_list, "ASCII_GLYPH", 0, 0);
+  add_option_value (options_list, "FORMAT_MENU", -2, "nomenu");
+  add_option_value (options_list, "EXTENSION", -2, "txt");
+  add_option_value (options_list, "INFO_SPECIAL_CHARS_WARNING", -1, 0);
+  add_option_value (options_list, "OUTFILE", -2, "-");
+  add_option_value (options_list, "USE_NODES", 1, 0);
+}
+
+void
 set_texi2html_regular_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->FORMAT_MENU, -2, "menu");

@@ -35,6 +35,10 @@ void set_plaintexinfo_converter_regular_options_defaults (OPTIONS *options);
 
 void add_plaintexinfo_converter_regular_options_defaults (OPTIONS_LIST *options_list);
 
+void set_plaintext_regular_options_defaults (OPTIONS *options);
+
+void add_plaintext_regular_options_defaults (OPTIONS_LIST *options_list);
+
 void set_texi2html_regular_options_defaults (OPTIONS *options);
 
 void add_texi2html_regular_options_defaults (OPTIONS_LIST *options_list);

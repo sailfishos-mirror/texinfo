@@ -358,6 +358,19 @@ my %plaintexinfo_converter_regular_options_defaults = (
 
 $regular_options_types{'plaintexinfo_converter'} = \%plaintexinfo_converter_regular_options_defaults;
 
+my %plaintext_regular_options_defaults = (
+  'ENABLE_ENCODING'                  => 1,
+  'ASCII_DASHES_AND_QUOTES'          => 1,
+  'ASCII_GLYPH'                      => 0,
+  'FORMAT_MENU'                      => 'nomenu',
+  'EXTENSION'                        => 'txt',
+  'INFO_SPECIAL_CHARS_WARNING'       => undef,
+  'OUTFILE'                          => '-',
+  'USE_NODES'                        => 1,
+);
+
+$regular_options_types{'plaintext'} = \%plaintext_regular_options_defaults;
+
 my %texi2html_regular_options_defaults = (
   'FORMAT_MENU'                      => 'menu',
   'USE_SETFILENAME_EXTENSION'        => 0,

@@ -20,17 +20,18 @@
 # See rules in ../C/Makefile.am (producing several C source files)
 # and ../perl/Makefile.am (producing ../perl/Texinfo/Options.pm).
 
-# This information is used to setup customization options for both C and
-# Perl.  For C complex option types are not actually handled, only
+# This information is used to set up customization options for both C and
+# Perl.  For C, complex option types are not actually handled, only
 # strings and integers.
 # The list of options, information about options types, defaults and
 # categories can be taken from the main options data source.
 
-# The interfaces to this information setup by scripts processing this file
-# are not documented, under the assumption that this information is only
-# used for officially maintained converters with more than one implementation
-# language and that user-defined converters can use their own way to
-# store their defaults.
+# This information is only used for officially maintained converters
+# with more than one implementation language.  Any user-defined converters
+# should use their own way to store their defaults.
+
+# FIXME although it's not a user-visible file, some comments explaining
+# the file format could be useful for maintenance purposes.
 
 
 # for Texinfo::Parser
@@ -79,6 +80,20 @@ PROGRAM
 -- plaintexinfo_converter
 EXTENSION             texi
 OUTFILE               -
+
+# Texinfo::Convert::Plaintext
+--  plaintext
+ENABLE_ENCODING       1
+ASCII_DASHES_AND_QUOTES  1
+ASCII_GLYPH           0
+FORMAT_MENU           nomenu
+#EXTENSION             info
+EXTENSION             txt
+#USE_SETFILENAME_EXTENSION    1
+INFO_SPECIAL_CHARS_WARNING   undef
+# different from the default, which is undef
+OUTFILE              -
+USE_NODES            1
 
 -- html_converter
 

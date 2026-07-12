@@ -1,3 +1,11 @@
+2026-07-12  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/data/converters_defaults.txt:
+	Add section for 'plaintext'.  Edit comments at top of file.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (%defaults):
+	Set with Texinfo::Options::get_regular_options.
+
 2026-07-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix messaging after index search
