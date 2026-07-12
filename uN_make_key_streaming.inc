@@ -1,18 +1,18 @@
-/* uN_make_key_streaming.inc - set BITS and UNIT, then include this file. */
+/* uN_make_key_streaming.inc - set BITS, then include this file. */
 /* Define fast partial implementation of collation key. */
 
 #ifndef BITS
 #error "bits per character unit not defined in generic file"
 #endif
 
-#ifndef UNIT
-#error "character unit type not defined in generic file"
-#endif
+#define XXUNIT(N) uint ## N ## _t
+#define XUNIT(N) XXUNIT(N)
+#define UNIT XUNIT(BITS)
+/* NB extra level of macro expansion needed for BITS to be expanded. */
 
 #define XXNAME(N) u ## N ## _make_key_streaming
 #define XNAME(N) XXNAME(N)
 #define NAME XNAME(BITS)
-/* NB extra level of macro expansion needed for BITS to be expanded. */
 
 #define XXuN_mbsnlen(N) u ## N ## _mbsnlen
 #define XuN_mbsnlen(N) XXuN_mbsnlen(N)
@@ -104,6 +104,15 @@ NAME (Collation_choice collation,
   return resultbuf;
 }
 
+#undef UNIT
+#undef XUNIT
+#undef XXUNIT
 #undef NAME
+#undef XNAME
+#undef XXNAME
 #undef uN_mbsnlen
+#undef XuN_mbsnlen
+#undef XXuN_mbsnlen
 #undef uN_mbtouc
+#undef XuN_mbtouc
+#undef XXuN_mbtouc
