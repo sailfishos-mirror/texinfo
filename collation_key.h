@@ -13,6 +13,7 @@
 #define UNICOLL_CONTRACTIONS_MASK 0x8
 #define UNICOLL_PARTIAL_MASK 0x10
 
+/* Bits set if output disabled at a level. */
 #define UNICOLL_LEVEL1_BIT 0x20
 #define UNICOLL_LEVEL2_BIT 0x40
 #define UNICOLL_LEVEL3_BIT 0x80

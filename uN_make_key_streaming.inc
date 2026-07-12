@@ -1,3 +1,6 @@
+/* uN_make_key_streaming.inc - set BITS and UNIT, then include this file. */
+/* Define fast partial implementation of collation key. */
+
 #ifndef BITS
 #error "bits per character unit not defined in generic file"
 #endif
@@ -25,15 +28,25 @@
    at the same time for a single codepoint.  If we hit any contractions or
    expansions, we bail out. */
 static char *
-NAME (const UNIT *string, size_t n, char *resultbuf, size_t *lengthp)
+NAME (Collation_choice collation,
+      const UNIT *string, size_t n, char *resultbuf, size_t *lengthp)
 {
+  if ((collation
+         & (UNICOLL_LEVEL1_BIT | UNICOLL_LEVEL2_BIT | UNICOLL_LEVEL3_BIT))
+           != 0
+      || (collation & UNICOLL_VARIABLE_MASK) != UNICOLL_VARIABLE_NONIGNORABLE)
+    {
+      /* Only use if all of primary/secondary/tertiary levels are enabled
+         and the Variable setting is "Non-Ignorable". */
+      return NULL;
+    }
+
   /* Three levels (primary/secondary/tertiary).  Two bytes per
      collation element at primary, one byte at secondary, one byte
      at tertiary.  "\x01\x01" between primary and secondary level
      and "\x01" between secondary and tertiary level, and one terminating
      null.
      Not all of these bytes are used if there are null weights. */
-  /* TODO: check which levels are enabled */
   size_t len = uN_mbsnlen (string, n);
   size_t reqd_len = len * 4 + 4;
   if (!resultbuf || reqd_len > *lengthp)
