@@ -21,7 +21,8 @@ bin_PROGRAMS += collation_test
 
 collation_test_SOURCES = collation_test.c \
                          collation_data_lookup.c collation_data_lookup.h \
-                         collation_key.c collation_key.h
+                         collation_key.c collation_key.h \
+                         uN_make_key_streaming.inc
 
 
 TESTS=t/collation-test-non-ignorable.sh \
