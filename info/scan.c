@@ -127,9 +127,6 @@ info_parse_node (char *string)
     }
 }
 
-#define INFO_QUOTE '\177'
-#define INFO_QUOTE_STR "\177"
-
 /* Set *OUTPUT to a copy of the string starting at START and finishing at
    a character in TERMINATOR, unless START[0] == INFO_QUOTE, in which case
    copy string from START+1 until the next occurence of INFO_QUOTE.  If

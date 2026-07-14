@@ -1,3 +1,10 @@
+2026-07-14  Thomas <thomb@pm.me>  (tiny change)
+
+	* info/indices.c (format_reference):
+	Place quoting DEL bytes around node name if it contains a :.
+	* info/scan.h, info/scan.c: move INFO_QUOTE, INFO_QUOTE_STR definition
+	to scan.h.
+
 2026-07-14  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/t/quoted-index-target.sh: in grep regular expression, replace

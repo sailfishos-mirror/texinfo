@@ -900,7 +900,11 @@ format_reference (REFERENCE *ref, const char *filename, struct text_buffer *buf)
 
   if (ref->filename && strcmp (ref->filename, filename))
     n += text_buffer_printf (buf, "(%s)", ref->filename);
-  n += text_buffer_printf (buf, "%s. ", ref->nodename);
+
+  if (strchr(ref->nodename, ':'))
+    n += text_buffer_printf (buf, INFO_QUOTE_STR "%s" INFO_QUOTE_STR ". ", ref->nodename);
+  else
+    n += text_buffer_printf (buf, "%s. ", ref->nodename);
 
   if (n < LINECOL)
     n += text_buffer_fill (buf, ' ', LINECOL - n);

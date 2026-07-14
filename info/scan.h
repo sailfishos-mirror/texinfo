@@ -23,6 +23,9 @@
 #include "nodes.h"
 #include "window.h"
 
+#define INFO_QUOTE '\177'
+#define INFO_QUOTE_STR "\177"
+
 /* Variable which holds the most recent filename parsed as a result of
    calling info_parse_xxx (). */
 extern char *info_parsed_filename;
