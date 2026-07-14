@@ -1,5 +1,10 @@
 2026-07-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert):
+	Return after processing text.
+
+2026-07-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Rename generated file.
 
 	* tta/C/main/element_types.awk: Rename generated file

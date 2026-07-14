@@ -2951,13 +2951,11 @@ sub _convert($$) {
         }
         $count_context->{'pending_text'} .= $added_text;
       }
-      return;
     } elsif (defined($type) and $type eq 'spaces_before_paragraph') {
       if ($self->get_conf('paragraphindent') eq 'asis') {
         _stream_output($self, $element->{'text'});
       }
       # TODO if not asis, output _get_form_feeds($element->{'text'})?
-      return;
     # ignore text outside of any format, but warn if ignored text not empty
     } else {
       if (defined($type)) {
@@ -2974,8 +2972,8 @@ sub _convert($$) {
         # @image, @titlefont, @*
         _stream_output_add_text($self, $element->{'text'});
       }
-      return;
     }
+    return;
   }
 
   return if (defined($type) and exists($ignored_types{$type}));
