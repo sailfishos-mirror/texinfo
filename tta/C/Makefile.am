@@ -99,11 +99,11 @@ C_libtexinfo_sources = \
 		      main/text.h \
 		      main/base_utils.c \
 		      main/base_utils.h \
-		      main/element_types.c \
 		      main/element_types.h \
 		      main/command_ids.h \
 		      main/builtin_commands.c \
 		      main/builtin_commands.h \
+		      main/types_data.c \
 		      main/types_data.h \
 		      main/debug.c \
 		      main/debug.h \
