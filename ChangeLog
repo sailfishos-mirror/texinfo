@@ -1,3 +1,7 @@
+2026-07-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/t/quoted-index-target.sh: update test
+
 2026-07-14  Thomas <thomb@pm.me>  (tiny change)
 
 	* info/indices.c (format_reference):
