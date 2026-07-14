@@ -28,6 +28,7 @@
 
 #include <errno.h>
 #include <stdckdint.h>
+#include <stdcountof.h>
 #include <stddef.h>
 #include <sys/stat.h>
 #include <time.h>
@@ -220,7 +221,7 @@ get_stat_birthtime (_GL_UNUSED struct stat const *st)
    in *ST, if this platform suffers from a macOS and Solaris bug where
    tv_nsec might be negative.  Return the adjusted RESULT, setting
    errno to EOVERFLOW if normalization overflowed.  This function
-   is intended to be private to this .h file.  */
+   is intended to be private to Gnulib.  */
 _GL_STAT_TIME_INLINE int
 stat_time_normalize (int result, _GL_UNUSED struct stat *st)
 {
@@ -232,7 +233,7 @@ stat_time_normalize (int result, _GL_UNUSED struct stat *st)
       short int const ts_off[] = { STAT_TIMESPEC_OFFSETOF (st_atim),
                                    STAT_TIMESPEC_OFFSETOF (st_mtim),
                                    STAT_TIMESPEC_OFFSETOF (st_ctim) };
-      for (int i = 0; i < sizeof ts_off / sizeof *ts_off; i++)
+      for (int i = 0; i < countof (ts_off); i++)
         {
           struct timespec *ts = (struct timespec *) ((char *) st + ts_off[i]);
           long int q = ts->tv_nsec / timespec_hz;

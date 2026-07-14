@@ -62,7 +62,6 @@
 #  uninorm/u32-normalize \
 #  uninorm/u8-normalize \
 #  unistr/u32-next \
-#  unistr/u32-strdup \
 #  unistr/u8-mbsnlen \
 #  unistr/u8-mbtouc \
 #  unistr/u8-next \
@@ -835,6 +834,12 @@ EXTRA_DIST += mbchar.h
 
 ## end   gnulib module mbchar
 
+## begin gnulib module mbiter-aux
+
+libgnu_la_SOURCES += mbiter-aux.h mbiter-aux.c
+
+## end   gnulib module mbiter-aux
+
 ## begin gnulib module mbiterf
 
 libgnu_la_SOURCES += mbiterf.h mbiterf.c
@@ -900,6 +905,12 @@ EXTRA_DIST += memchr.valgrind
 libgnu_la_SOURCES += memeq.c
 
 ## end   gnulib module memeq
+
+## begin gnulib module minmax
+
+libgnu_la_SOURCES += minmax.h
+
+## end   gnulib module minmax
 
 ## begin gnulib module msvc-inval
 
@@ -3057,26 +3068,6 @@ libgnu_la_SOURCES += unistr/u32-next.c
 endif
 
 ## end   gnulib module unistr/u32-next
-
-## begin gnulib module unistr/u32-strdup
-
-if LIBUNISTRING_COMPILE_UNISTR_U32_STRDUP
-libgnu_la_SOURCES += unistr/u32-strdup.c
-endif
-
-EXTRA_DIST += unistr/u-strdup.h
-
-## end   gnulib module unistr/u32-strdup
-
-## begin gnulib module unistr/u32-strlen
-
-if LIBUNISTRING_COMPILE_UNISTR_U32_STRLEN
-libgnu_la_SOURCES += unistr/u32-strlen.c
-endif
-
-EXTRA_DIST += unistr/u-strlen.h
-
-## end   gnulib module unistr/u32-strlen
 
 ## begin gnulib module unistr/u32-strmbtouc
 

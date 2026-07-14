@@ -1272,6 +1272,7 @@ _GL_STRNUL_INLINE const char *_gl_strnul (const char *string)
 }
 #  endif
 #  ifdef __cplusplus
+extern "C++" { /* needed for AIX and Solaris 10 */
 _GL_BEGIN_NAMESPACE
 template <typename T> T strnul (T);
 template <> inline const char *strnul<const char *> (const char *s)
@@ -1279,6 +1280,7 @@ template <> inline const char *strnul<const char *> (const char *s)
 template <> inline       char *strnul<      char *> (      char *s)
 { return const_cast<char *>(_gl_strnul (s)); }
 _GL_END_NAMESPACE
+}
 #  else
 #   if (defined __GNUC__ && __GNUC__ + (__GNUC_MINOR__ >= 9) > 4 && !defined __cplusplus) \
        || (defined __clang__ && __clang_major__ >= 3) \
@@ -1409,7 +1411,7 @@ _GL_EXTERN_C char * mbsstr (const char *haystack, const char *needle)
 /* Don't silently convert a 'const char *' to a 'char *'.  Programmers want
    compiler warnings for 'const' related mistakes.  */
 #  ifdef __cplusplus
-extern "C++" { /* needed for AIX */
+extern "C++" { /* needed for AIX and Solaris 10 */
 template <typename T>
   T * mbsstr_template (T* haystack, const char *needle);
 template <>
@@ -1477,7 +1479,7 @@ _GL_EXTERN_C char * mbspcasecmp (const char *string, const char *prefix)
 /* Don't silently convert a 'const char *' to a 'char *'.  Programmers want
    compiler warnings for 'const' related mistakes.  */
 #  ifdef __cplusplus
-extern "C++" { /* needed for AIX */
+extern "C++" { /* needed for AIX and Solaris 10 */
 template <typename T>
   T * mbspcasecmp_template (T* string, const char *prefix);
 template <>
@@ -1515,7 +1517,7 @@ _GL_EXTERN_C char * mbscasestr (const char *haystack, const char *needle)
 /* Don't silently convert a 'const char *' to a 'char *'.  Programmers want
    compiler warnings for 'const' related mistakes.  */
 #  ifdef __cplusplus
-extern "C++" { /* needed for AIX */
+extern "C++" { /* needed for AIX and Solaris 10 */
 template <typename T>
   T * mbscasestr_template (T* haystack, const char *needle);
 template <>
@@ -1645,15 +1647,21 @@ _GL_EXTERN_C bool mbs_endswith (const char *string, const char *suffix)
 
 /* Map any int, typically from errno, into an error message.  */
 #if @GNULIB_STRERROR@
+/* The return type 'const char *' serves the purpose of producing warnings
+   for invalid uses of the value returned from this function.  */
 # if @REPLACE_STRERROR@
 #  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
 #   undef strerror
 #   define strerror rpl_strerror
+#   define GNULIB_defined_strerror 1
 #  endif
-_GL_FUNCDECL_RPL (strerror, char *, (int), );
-_GL_CXXALIAS_RPL (strerror, char *, (int));
+_GL_FUNCDECL_RPL (strerror, const char *, (int), );
+_GL_CXXALIAS_RPL (strerror, const char *, (int));
 # else
-_GL_CXXALIAS_SYS (strerror, char *, (int));
+_GL_CXXALIAS_SYS_CAST (strerror, const char *, (int));
+#  if !defined strerror && !defined __cplusplus
+#   define strerror(...) ((const char *) strerror (__VA_ARGS__))
+#  endif
 # endif
 # if __GLIBC__ >= 2
 _GL_CXXALIASWARN (strerror);
