@@ -291,18 +291,14 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                || type == ET_spaces_after_argument)
         {
           /* TODO ET_spaces_after_close_brace form feeds */
-          return;
         }
 
       /* TODO */
       if (element->e.text->end > 0)
         {
            stream_output_add_text (self, element->e.text->text);
-           return;
         }
 
-      /* TODO: no return statement here in Perl code but we need
-         need to stop reading uninitialized or overloaded struct members. */
       return;
     }
 
