@@ -1,5 +1,11 @@
 2026-07-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/:
+	run "gnulib --add-import unistr/u32-mbsnlen unistr/u32-mbtouc".
+	Report from Bruno Haible.
+
+2026-07-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/: run "gnulib --remove-import unistr/u32-strdup" as
 	this module is not needed any more.
 

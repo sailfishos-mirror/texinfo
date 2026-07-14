@@ -61,6 +61,8 @@
 #  uninorm/nfkd \
 #  uninorm/u32-normalize \
 #  uninorm/u8-normalize \
+#  unistr/u32-mbsnlen \
+#  unistr/u32-mbtouc \
 #  unistr/u32-next \
 #  unistr/u8-mbsnlen \
 #  unistr/u8-mbtouc \
@@ -3052,6 +3054,22 @@ endif
 EXTRA_DIST += unistr/u-cpy.h
 
 ## end   gnulib module unistr/u32-cpy
+
+## begin gnulib module unistr/u32-mbsnlen
+
+if LIBUNISTRING_COMPILE_UNISTR_U32_MBSNLEN
+libgnu_la_SOURCES += unistr/u32-mbsnlen.c
+endif
+
+## end   gnulib module unistr/u32-mbsnlen
+
+## begin gnulib module unistr/u32-mbtouc
+
+if LIBUNISTRING_COMPILE_UNISTR_U32_MBTOUC
+libgnu_la_SOURCES += unistr/u32-mbtouc.c
+endif
+
+## end   gnulib module unistr/u32-mbtouc
 
 ## begin gnulib module unistr/u32-mbtouc-unsafe
 
