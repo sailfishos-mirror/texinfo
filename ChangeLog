@@ -1,3 +1,7 @@
+2026-07-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/C/Makefile.am: Fix rules to refer to main/types_data.c correctly.
+
 2026-07-14  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Continue C plaintext converter

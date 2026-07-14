@@ -294,7 +294,7 @@ BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
                 main/html_conversion_data.h \
                 main/html_css_data.c \
                 main/html_css_data.h \
-                main/element_types.c \
+                main/types_data.c \
                 main/element_types.h \
                 main/global_commands_types.h \
                 main/global_multi_commands_case.c \
@@ -309,7 +309,7 @@ BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
 EXTRA_DIST += main/element_types.txt main/element_types.awk \
 	       main/command_data.awk
 
-products_element_types = $(srcdir)/main/element_types.c \
+products_element_types = $(srcdir)/main/types_data.c \
                          $(srcdir)/main/element_types.h
 
 # See "Multiple Outputs" in the automake manual for this and following
