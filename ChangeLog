@@ -1,3 +1,9 @@
+2026-07-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/t/quoted-index-target.sh: in grep regular expression, replace
+	"[[:blank:]]\{1,\}" with "  *", as this seems simpler and avoids any
+	hint of locale dependence.
+
 2026-07-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/main/unicode-collation: sync

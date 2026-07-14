@@ -23,7 +23,7 @@ $ginfo --file quoting --index-search "Colon::in, name" --all >$ginfo_output
 # Test that the found index entry has the correct node name. An index entry
 # split in the wrong place should not match this RE, rather be shaped something
 # like "* Colon::in, name: ^?Colon::      in.     (line 0)"
-grep '\* Colon::in, name:[[:blank:]]\{1,\}Colon::in, name' $ginfo_output
+grep '\* Colon::in, name:  *Colon::in, name' $ginfo_output
 
 retval=$?
 
