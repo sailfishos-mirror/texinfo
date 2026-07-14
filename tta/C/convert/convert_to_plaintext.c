@@ -416,7 +416,34 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       else if (cmd == CM_node)
         ;
       /* else if sectioning_heading_commands */
-      /* TODO */
+      /* else if item or itemx */
+      else if (cmd == CM_headitem || cmd == CM_item || cmd == CM_tab)
+        ;
+      /* else if def_commands */
+      else if (cmd == CM_center)
+        return;
+      else if (cmd == CM_exdent)
+        return;
+      else if (cmd == CM_verbatiminclude)
+        return;
+      else if (cmd == CM_insertcopying)
+        return;
+      else if (cmd == CM_printindex)
+        return;
+      else if (cmd == CM_listoffloats)
+        return;
+      else if (cmd == CM_sp)
+        return;
+      else if (cmd == CM_contents)
+        return;
+      else if (cmd == CM_shortcontents || cmd == CM_summarycontents)
+        return;
+      else if (cmd == CM_author)
+        return;
+      /* else if informative_commands */
+      else if (cmd == CM_documentlanguagevariant)
+        return;
+      /* TODO else unknown_command - possibly not relevant for C code */
     }
 
   size_t paragraph = 0;
@@ -483,6 +510,15 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   /* Now closing.  First, close types. */
   if (type != ET_NONE)
     {
+      /* TODO ficititious types */
+      /* if (type == ET_frenchspacing) */
+      /* else if type == ET__code  */
+      /* else if type == ET__stop_upper_case  */
+      /* else if type == ET__suppress_style  */
+      /* else */ if (type == ET_row)
+        ;
+      else if (type == ET_before_node_section)
+        ;
     }
 
   /* Close paragraphs and preformatted. */
@@ -500,6 +536,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   /* Close commands */
   if (cmd != CM_NONE)
     {
+      if (cmd == CM_float)
+        ;
+      else if (cmd == CM_quotation || cmd == CM_smallquotation)
+        ;
+      else if (cmd == CM_multitable)
+        ;
+      /* else if root_commands etc. */
     }
   return;
 }

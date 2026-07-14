@@ -3,6 +3,13 @@
 	Continue C plaintext converter
 
 	* tta/C/convert/convert_to_plaintext.c (convert_to_plaintext_internal):
+	Add more template code.
+
+2026-07-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Continue C plaintext converter
+
+	* tta/C/convert/convert_to_plaintext.c (convert_to_plaintext_internal):
 	Return statement after processing text now matches Perl code.
 
 2026-07-14  Gavin Smith <gavinsmith0123@gmail.com>
