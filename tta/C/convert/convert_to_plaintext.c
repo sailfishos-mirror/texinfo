@@ -247,8 +247,7 @@ stream_yield_result (CONVERTER *self)
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_pt->count_context);
 
-  char *result = count_context->result.text;
-  text_abandon (&count_context->result);
+  char *result = text_yield (&count_context->result);
   return result ? result : strdup ("");
 }
 

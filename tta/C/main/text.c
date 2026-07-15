@@ -108,9 +108,11 @@ text_destroy (TEXT *t)
 
 /* Remove reference to allocating storage, without freeing it.
    This allows other objects to take ownership of the storage. */
-void
-text_abandon (TEXT *t)
+char *
+text_yield (TEXT *t)
 {
+  char *text = t->text;
   t->text = 0;
   t->end = t->space = 0;
+  return text;
 }

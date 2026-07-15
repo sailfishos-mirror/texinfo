@@ -1,5 +1,10 @@
 2026-07-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/main/text.c (text_abandon, text_yield): Rename
+	and return pointer to text buffer.
+
+2026-07-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Continue C plaintext converter
 
 	* tta/C/main/text.c (text_abandon): New function.
