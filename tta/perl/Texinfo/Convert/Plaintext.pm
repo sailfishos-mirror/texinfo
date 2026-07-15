@@ -651,7 +651,7 @@ sub convert_tree($$) {
 sub convert_output_unit($$) {
   my ($self, $output_unit) = @_;
 
-  $self->{'count_context'}->[-1]->{'result'} = '';
+  _stream_reset ($self);
 
   if (exists($output_unit->{'unit_contents'})) {
     foreach my $content (@{$output_unit->{'unit_contents'}}) {
@@ -663,7 +663,7 @@ sub convert_output_unit($$) {
   _adjust_final_locations($self);
   $self->count_context_bug_message('footnotes ', $output_unit);
 
-  return _stream_result($self);
+  return _stream_yield_result($self);
 }
 
 sub convert($$) {
@@ -1115,6 +1115,15 @@ sub add_image($$$$;$) {
   };
 }
 
+sub _stream_reset($) {
+  my ($self) = @_;
+
+  my $count_context = $self->{'count_context'}->[-1];
+
+  delete $count_context->{'pending_text'};
+  $count_context->{'result'} = '';
+}
+
 sub _stream_output($$) {
   my ($self, $text) = @_;
 
@@ -1213,7 +1222,17 @@ sub _stream_result($) {
   _stream_byte_count($self); # flush pending
 
   my $result = $self->{'count_context'}->[-1]->{'result'};
+  return defined($result) ? $result : '';
+}
 
+# Like _stream_result, but do not keep the result.
+sub _stream_yield_result($) {
+  my $self = shift;
+
+  _stream_byte_count($self); # flush pending
+
+  my $result = $self->{'count_context'}->[-1]->{'result'};
+  undef $self->{'count_context'}->[-1]->{'result'};
   return defined($result) ? $result : '';
 }
 
