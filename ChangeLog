@@ -1,5 +1,16 @@
 2026-07-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Continue C plaintext converter
+
+	* tta/C/main/text.c (text_abandon): New function.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(stream_reset, stream_yield_result): New.
+	(convert_to_plaintext): Call stream_yield_result to avoid calling
+	strdup unnecessarily.
+
+2026-07-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/Texinfo/Convert/Plaintext.pm
 	(_stream_reset, _stream_yield_result): New functions.
 	(convert_output_unit): Use them.

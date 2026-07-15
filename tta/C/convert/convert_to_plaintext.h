@@ -22,6 +22,4 @@ char *plaintext_convert_tree (CONVERTER *converter,
 void plaintext_free_converter (CONVERTER *converter);
 void plaintext_converter_initialize (CONVERTER *self);
 
-char *convert_to_plaintext (CONVERTER *self, const ELEMENT *e);
-
 #endif

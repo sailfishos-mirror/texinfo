@@ -175,6 +175,17 @@ plaintext_conversion_finalization  (CONVERTER *self)
   /* TODO */
 }
 
+/* TODO: reset more than just 'result'? */
+static void
+stream_reset (CONVERTER *self)
+{
+  PLAINTEXT_CONVERTER_STATE *self_pt = &self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+    = top_(count_context) (&self_pt->count_context);
+
+  text_reset (&count_context->result);
+}
+
 static void
 stream_output (CONVERTER *self, const char *text)
 {
@@ -224,8 +235,21 @@ stream_result (CONVERTER *self)
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
 
-  char *result = count_context->result.text;
+  const char *result = count_context->result.text;
   return result ? result : "";
+}
+
+/* Like stream_result, but do not keep the result. */
+static char *
+stream_yield_result (CONVERTER *self)
+{
+  PLAINTEXT_CONVERTER_STATE *self_pt = &self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+    = top_(count_context) (&self_pt->count_context);
+
+  char *result = count_context->result.text;
+  text_abandon (&count_context->result);
+  return result ? result : strdup ("");
 }
 
 static void
@@ -549,14 +573,14 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
 
 /* Return value to be freed by caller. */
-char *
+static char *
 convert_to_plaintext (CONVERTER *self, const ELEMENT *e)
 {
   if (!e)
     return strdup ("");
   convert_to_plaintext_internal (self, e);
 
-  return strdup (stream_result (self));
+  return stream_yield_result (self);
 }
 
 void
@@ -594,6 +618,7 @@ plaintext_output (CONVERTER *converter, DOCUMENT *document)
   return converter_output_tree (converter, document, 0, 0, 0, 0);
 }
 
+/* ALTIMP: Texinfo:Convert::Plaintext::convert */
 char *
 plaintext_convert (CONVERTER *converter, DOCUMENT *document)
 {
