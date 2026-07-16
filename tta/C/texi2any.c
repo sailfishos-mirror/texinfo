@@ -1974,6 +1974,14 @@ main (int argc, char *argv[], char *env[])
             if (!strcmp (value, "none") || !strcmp (value, "asis")
                 || is_ascii_digit (value))
               {
+                const char *integer_value;
+                if (value[0] == 'n') /* none */
+                  integer_value = "0";
+                else if (value[0] == 'a') /* asis */
+                  integer_value = "-2";
+                else
+                  integer_value = value;
+
                 GNUT_set_from_cmdline (&cmdline_options,
                           cmdline_options.options->paragraphindent.number,
                                   value);
@@ -2097,8 +2105,6 @@ main (int argc, char *argv[], char *env[])
     {
       char *encoded_message;
       char *endptr;
-      const char *option_value;
-      int paragraphindent_size;
       TEXT help_message;
       OPTION *error_limit_option
         = GNUT_get_conf (program_options.options->ERROR_LIMIT.number);
@@ -2234,14 +2240,13 @@ main (int argc, char *argv[], char *env[])
    "                                which they are defined (this is the default)"));
       text_append_n (&help_message, "\n", 1);
 
-      option_value
-  = txi_base_sorted_options[program_options.options->paragraphindent.number -1]->o.string;
-      paragraphindent_size = strtol (option_value, &endptr, 10);
+      int option_value
+  = txi_base_sorted_options[program_options.options->paragraphindent.number -1]->o.integer;
       text_printf (&help_message, _(
    "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default %d).\n"
    "                                If VAL is `none', do not indent; if VAL is\n"
    "                                `asis', preserve existing indentation."),
-                   paragraphindent_size);
+                   option_value);
       text_append_n (&help_message, "\n", 1);
       text_printf (&help_message, _(
    "      --split-size=NUM        split Info files at size NUM (default %d)"),

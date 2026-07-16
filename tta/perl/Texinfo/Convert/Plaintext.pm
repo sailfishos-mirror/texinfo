@@ -2971,7 +2971,8 @@ sub _convert($$) {
         $count_context->{'pending_text'} .= $added_text;
       }
     } elsif (defined($type) and $type eq 'spaces_before_paragraph') {
-      if ($self->get_conf('paragraphindent') eq 'asis') {
+      my $indent = $self->get_conf('paragraphindent');
+      if ($indent == -2) { # 'asis'
         _stream_output($self, $element->{'text'});
       }
       # TODO if not asis, output _get_form_feeds($element->{'text'})?
@@ -4066,7 +4067,7 @@ sub _convert($$) {
       my ($para_indent, $para_indent_next);
       # indent. Not first paragraph.
       if ($self->{'format_context'}->[-1]->{'cmdname'} eq '_top_format'
-          and $self->get_conf('paragraphindent') ne 'asis'
+          and $self->get_conf('paragraphindent') >= 0
           and $self->get_conf('paragraphindent')
           and ((exists($element->{'extra'})
                 and $element->{'extra'}->{'indent'})
@@ -4076,7 +4077,6 @@ sub _convert($$) {
                   or $self->get_conf('firstparagraphindent') eq 'insert')
                and !$self->{'text_element_context'}->[-1]->{'counter'}))) {
         $para_indent = $self->get_conf('paragraphindent');
-        $para_indent = 0 if $para_indent eq 'none';
         $para_indent_next = 0;
       }
       $paragraph = new_formatter($self, 'paragraph',

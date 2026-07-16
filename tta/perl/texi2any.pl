@@ -1325,7 +1325,10 @@ There is NO WARRANTY, to the extent permitted by law."), "2026")."\n";
  'paragraph-indent|p=s' => sub {
     my $value = _decode_input($_[1]);
     if ($value =~ /^([0-9]+)$/ or $value eq 'none' or $value eq 'asis') {
-      set_from_cmdline('paragraphindent', $value);
+      my $integer_value =   ($value eq 'none') ? 0
+                          : ($value eq 'asis') ? -2
+                          : ($value + 0);
+      set_from_cmdline('paragraphindent', $integer_value);
     } else {
       die _encode_message(sprintf(
    __("%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."),

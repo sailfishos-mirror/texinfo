@@ -453,7 +453,7 @@ set_multiple_at_command_options_defaults (OPTIONS *options)
   option_set_conf (&options->microtype, -2, 0);
   option_set_conf (&options->oddheading, -2, 0);
   option_set_conf (&options->oddfooting, -2, 0);
-  option_set_conf (&options->paragraphindent, -2, "3");
+  option_set_conf (&options->paragraphindent, 3, 0);
   option_set_conf (&options->shortcontents, 0, 0);
   option_set_conf (&options->summarycontents, 0, 0);
   option_set_conf (&options->urefbreakstyle, -2, "after");
@@ -483,7 +483,7 @@ add_multiple_at_command_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "microtype", -2, 0);
   add_option_value (options_list, "oddheading", -2, 0);
   add_option_value (options_list, "oddfooting", -2, 0);
-  add_option_value (options_list, "paragraphindent", -2, "3");
+  add_option_value (options_list, "paragraphindent", 3, 0);
   add_option_value (options_list, "shortcontents", 0, 0);
   add_option_value (options_list, "summarycontents", 0, 0);
   add_option_value (options_list, "urefbreakstyle", -2, "after");

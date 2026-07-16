@@ -69,7 +69,7 @@ kbdinputstyle              multiple_at_command distinct char
 microtype                  multiple_at_command undef    char
 oddheading                 multiple_at_command undef    char
 oddfooting                 multiple_at_command undef    char
-paragraphindent            multiple_at_command 3        char
+paragraphindent            multiple_at_command 3        integer
 shortcontents              multiple_at_command 0        integer
 summarycontents            multiple_at_command 0        integer
 urefbreakstyle             multiple_at_command after    char

@@ -2698,7 +2698,17 @@ informative_command_value (const ELEMENT *element, enum command_id *cmd_out)
     return text_arg;
   misc_args = lookup_extra_string_list (element, AI_key_misc_args);
   if (misc_args && misc_args->number > 0)
-    return misc_args->list[0];
+    {
+      const char *arg = misc_args->list[0];
+      if (cmd == CM_paragraphindent)
+        {
+          if (!strcmp (arg, "asis"))
+            arg = "-2";
+          else if (!strcmp (arg, "none"))
+            arg = "0";
+        }
+      return arg;
+    }
   if (command_data[cmd].flags & CF_line
       && command_data[cmd].data == LINE_line)
    {

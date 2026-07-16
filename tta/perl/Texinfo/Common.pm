@@ -1457,13 +1457,19 @@ sub informative_command_value($) {
   } elsif (exists($element->{'extra'})
            and exists($element->{'extra'}->{'misc_args'})
            and exists($element->{'extra'}->{'misc_args'}->[0])) {
-    return $cmdname, $element->{'extra'}->{'misc_args'}->[0];
-  } elsif ($Texinfo::Commands::line_commands{$cmdname} eq 'line') {
-   my ($arg, $surplus)
-    = Texinfo::Common::simple_arg_text($element->{'contents'}->[0]);
+    my $arg = $element->{'extra'}->{'misc_args'}->[0];
     if (defined($arg)) {
-      return $cmdname, $arg;
+      if ($cmdname eq 'paragraphindent') {
+        $arg =   ($arg eq 'asis') ? -2
+               : ($arg eq 'none') ? 0
+               : $arg;
+      }
     }
+    return $cmdname, $arg;
+  } elsif ($Texinfo::Commands::line_commands{$cmdname} eq 'line') {
+    my ($arg, $surplus)
+     = Texinfo::Common::simple_arg_text($element->{'contents'}->[0]);
+    return $cmdname, $arg;
   }
   return undef, undef;
 }

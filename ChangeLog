@@ -1,5 +1,25 @@
 2026-07-16  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Change paragraphindent from string to integer
+
+	* tta/data/options_data.txt: declare paragraphindent as integer
+
+	* tta/perl/Texinfo/Common.pm (informative_command_value),
+	* tta/C/main/utils.c (informative_command_value),
+	* tta/perl/texi2any.pl,
+	* tta/C/texi2any.c:
+	For paragraphindent, save 'asis' value as -2 and 'none' value as 0.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert): update to handle
+	paragraphindent setting as integer.
+
+	* tta/C/convert/convert_to_plaintext.c: update
+
+	This simplifies the C conversion code as we now don't need to call
+	strcmp and strtol for every paragraph.
+
+2026-07-16  Gavin Smith <gavinsmith0123@gmail.com>
+
 	LaTeX: \smallbreak before definition
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert_def_line):

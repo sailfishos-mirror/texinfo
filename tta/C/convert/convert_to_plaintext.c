@@ -475,22 +475,16 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
     {
       if (type == ET_paragraph)
         {
-          const char *paragraphindent = self->conf->paragraphindent.o.string;
+          int paragraphindent = self->conf->paragraphindent.o.integer;
 
           FORMAT_CONTEXT *top_format
             = top_(format_context) (&self_pt->format_context);
 
           int paragraphindent_size = 0;
           if (!top_format->cmd /* '_top_format' in Perl */
-              && strcmp (paragraphindent, "asis") != 0)
+              && paragraphindent >= 0) /* 'asis' */
             {
-              if (!strcmp (paragraphindent, "none"))
-                paragraphindent_size = 0;
-              else
-                {
-                  char *endptr;
-                  paragraphindent_size = strtol (paragraphindent, &endptr, 10);
-                }
+              paragraphindent_size = paragraphindent;
             }
 
           FORMATTER new_paragraph

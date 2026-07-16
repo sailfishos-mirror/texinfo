@@ -214,7 +214,7 @@ initialize_options (OPTIONS *options)
   initialize_option (&options->microtype, GOT_char, "microtype", 0);
   initialize_option (&options->oddheading, GOT_char, "oddheading", 0);
   initialize_option (&options->oddfooting, GOT_char, "oddfooting", 0);
-  initialize_option (&options->paragraphindent, GOT_char, "paragraphindent", 0);
+  initialize_option (&options->paragraphindent, GOT_integer, "paragraphindent", 0);
   initialize_option (&options->shortcontents, GOT_integer, "shortcontents", 0);
   initialize_option (&options->summarycontents, GOT_integer, "summarycontents", 0);
   initialize_option (&options->urefbreakstyle, GOT_char, "urefbreakstyle", 0);
