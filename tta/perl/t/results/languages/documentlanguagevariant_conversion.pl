@@ -746,6 +746,7 @@ See \\hyperref[anchor:Top]{\\chaptername~\\ref*{anchor:Top} [Top], page~\\pagere
 A dp\\_v1234-(Akl)
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{other \\EmbracOn{}\\textnormal{\\textsl{ivar}}\\EmbracOff{}}& [v1234-InstV-v of \\texttt{some}]
@@ -756,6 +757,7 @@ A dp\\_v1234-(Akl)
 \\selectlanguage{qaa}%
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{reset \\EmbracOn{}\\textnormal{\\textsl{ivar}}\\EmbracOff{}}& [l-InstV-l of \\texttt{after}]
@@ -774,6 +776,7 @@ C dp\\_l-(Ckl)
 
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{before \\EmbracOn{}\\textnormal{\\textsl{change}}\\EmbracOff{}}& [l-InstV-l of \\texttt{script}]

@@ -1,3 +1,12 @@
+2026-07-16  Gavin Smith <gavinsmith0123@gmail.com>
+
+	LaTeX: \smallbreak before definition
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert_def_line):
+	Output \smallbreak before definition output.
+	
+	Report from Dimitris Papavasiliou <dpapavas@protonmail.ch>.
+
 2026-07-15  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/main/text.c (text_abandon, text_yield): Rename

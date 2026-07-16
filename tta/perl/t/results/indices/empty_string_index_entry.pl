@@ -414,6 +414,7 @@ $result_converted{'latex'}->{'empty_string_index_entry'} = '\\documentclass{book
 \\end{description}
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{\\hbox{} \\EmbracOn{}\\textnormal{\\textsl{ }}\\EmbracOff{}}& [Function]
@@ -421,6 +422,7 @@ $result_converted{'latex'}->{'empty_string_index_entry'} = '\\documentclass{book
 
 \\index[fn]{@\\texttt{\\hbox{}}}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{\\hbox{} \\EmbracOn{}\\textnormal{\\textsl{ }}\\EmbracOff{}}& [Function]

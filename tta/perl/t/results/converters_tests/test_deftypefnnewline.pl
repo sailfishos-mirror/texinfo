@@ -1048,6 +1048,7 @@ $result_converted{'latex_text'}->{'test_deftypefnnewline'} = '
 \\label{anchor:chapter}%
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{data-type}& [Function]\\\\
@@ -1060,6 +1061,7 @@ aaa
 \\end{Texinfoindented}
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{t{-}{-}ype}& [c--ategory]\\\\
@@ -1072,6 +1074,7 @@ d--eftypefn no arg
 \\end{Texinfoindented}
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{t{-}{-}ype}& [c--ategory on \\texttt{c{-}{-}lass}]\\\\
@@ -1084,6 +1087,7 @@ d--eftypeop
 \\end{Texinfoindented}
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{t{-}{-}ype}& [c--ategory on \\texttt{c{-}{-}lass}]\\\\
@@ -1096,6 +1100,7 @@ d--eftypeop no arg
 \\end{Texinfoindented}
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{t{-}{-}ype d{-}{-}eftypecv\\_name}& [c--ategory of \\texttt{c{-}{-}lass}]
@@ -1108,6 +1113,7 @@ d--eftypecv
 \\end{Texinfoindented}
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{t{-}{-}ype d{-}{-}eftypecv\\_name a{-}{-}rguments...}& [c--ategory of \\texttt{c{-}{-}lass}]
@@ -1120,6 +1126,7 @@ d--eftypecv with arguments
 \\end{Texinfoindented}
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{arg}& [fun]
@@ -1133,6 +1140,7 @@ fff
 
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{data-type2 name2 arguments2...}& [Function]
@@ -1145,6 +1153,7 @@ aaa2
 \\end{Texinfoindented}
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{t{-}{-}ype2 d{-}{-}eftypefn\\_name2}& [c--ategory2]
@@ -1157,6 +1166,7 @@ d--eftypefn no arg2
 \\end{Texinfoindented}
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{t{-}{-}ype2 d{-}{-}eftypeop\\_name2 a{-}{-}rguments2...}& [c--ategory2 on \\texttt{c{-}{-}lass2}]
@@ -1169,6 +1179,7 @@ d--eftypeop2
 \\end{Texinfoindented}
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{t{-}{-}ype2 d{-}{-}eftypeop\\_name2}& [c--ategory2 on \\texttt{c{-}{-}lass2}]
@@ -1181,6 +1192,7 @@ d--eftypeop no arg2
 \\end{Texinfoindented}
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{t{-}{-}ype2 d{-}{-}eftypecv\\_name2}& [c--ategory2 of \\texttt{c{-}{-}lass2}]
@@ -1193,6 +1205,7 @@ d--eftypecv2
 \\end{Texinfoindented}
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{t{-}{-}ype2 d{-}{-}eftypecv\\_name2 a{-}{-}rguments2...}& [c--ategory2 of \\texttt{c{-}{-}lass2}]
@@ -1205,6 +1218,7 @@ d--eftypecv with arguments2
 \\end{Texinfoindented}
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{arg2}& [fun2]

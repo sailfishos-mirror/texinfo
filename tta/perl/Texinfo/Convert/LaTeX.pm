@@ -2781,6 +2781,8 @@ sub _convert_def_line($$) {
 
     $self->{'packages'}->{'tabularx'} = 1;
     my $def_line_result = '';
+    $def_line_result .= "\\smallbreak\n";
+
     # First column (X) is as wide as possible, second column (r) is for
     # category.  @{} removes space at left side of table.
     # Without \noindent, a def* after a section beginning is indented

@@ -183,6 +183,7 @@ $result_converted{'latex'}->{'defline_no_params'} = '\\documentclass{book}
 
 \\begin{document}
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{truc}& [Builtin]

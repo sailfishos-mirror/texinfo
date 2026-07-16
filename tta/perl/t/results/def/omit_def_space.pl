@@ -227,6 +227,7 @@ $result_converted{'latex_text'}->{'omit_def_space'} = '\\label{anchor:Top}%
 
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{function\\EmbracOn{}\\textnormal{\\textsl{(arg1, arg2)}}\\EmbracOff{}}& [Function]
@@ -234,6 +235,7 @@ $result_converted{'latex_text'}->{'omit_def_space'} = '\\label{anchor:Top}%
 
 \\index[fn]{function@\\texttt{function}}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{another\\EmbracOn{}\\textnormal{\\textsl{(aarg)}}\\EmbracOff{}}& [Function]

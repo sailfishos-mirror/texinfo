@@ -619,6 +619,7 @@ $result_converted{'xml'}->{'def'} = '
 
 $result_converted{'latex_text'}->{'def'} = '
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{d{-}{-}effn\\_name \\EmbracOn{}\\textnormal{\\textsl{a--rguments...}}\\EmbracOff{}}& [c--ategory]
@@ -631,6 +632,7 @@ d--effn
 \\end{Texinfoindented}
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{de{-}{-}ffn\\_name \\EmbracOn{}\\textnormal{\\textsl{ar--guments    more args   even more so}}\\EmbracOff{}}& [cate--gory]
@@ -643,6 +645,7 @@ def--fn
 \\end{Texinfoindented}
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{\\Texinfocommandstyletextvar{i} \\EmbracOn{}\\textnormal{\\textsl{a g}}\\EmbracOff{}}& [fset]
@@ -650,6 +653,7 @@ def--fn
 
 \\index[fn]{i@\\texttt{\\Texinfocommandstyletextvar{i}}}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{truc \\EmbracOn{}\\textnormal{\\textsl{}}\\EmbracOff{}}& [cmde]
@@ -657,6 +661,7 @@ def--fn
 
 \\index[fn]{truc@\\texttt{truc}}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{log trap \\EmbracOn{}\\textnormal{\\textsl{}}\\EmbracOff{}}& [Command]
@@ -664,6 +669,7 @@ def--fn
 
 \\index[fn]{log trap@\\texttt{log trap}}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{log trap1 \\EmbracOn{}\\textnormal{\\textsl{}}\\EmbracOff{}}& [Command]
@@ -671,6 +677,7 @@ def--fn
 
 \\index[fn]{log trap1@\\texttt{log trap1}}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{log trap2 \\EmbracOn{}\\textnormal{\\textsl{}}\\EmbracOff{}}& [Command]
@@ -678,6 +685,7 @@ def--fn
 
 \\index[fn]{log trap2@\\texttt{log trap2}}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{\\textbf{id ule} \\EmbracOn{}\\textnormal{\\textsl{truc}}\\EmbracOff{}}& [cmde]
@@ -685,6 +693,7 @@ def--fn
 
 \\index[fn]{id ule@\\texttt{\\textbf{id ule}}}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{\\textbf{id `\\texttt{i}\'\\ ule} \\EmbracOn{}\\textnormal{\\textsl{truc}}\\EmbracOff{}}& [cmde2]
@@ -692,6 +701,7 @@ def--fn
 
 \\index[fn]{id i ule@\\texttt{\\textbf{id `\\texttt{i}\'\\ ule}}}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{machin}& []
@@ -699,6 +709,7 @@ def--fn
 
 \\index[fn]{machin@\\texttt{machin}}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{bidule machin}& []
@@ -706,6 +717,7 @@ def--fn
 
 \\index[fn]{bidule machin@\\texttt{bidule machin}}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{machin}& [truc]
@@ -713,6 +725,7 @@ def--fn
 
 \\index[fn]{machin@\\texttt{machin}}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{followed \\EmbracOn{}\\textnormal{\\textsl{by a comment}}\\EmbracOff{}}& [truc]
@@ -720,6 +733,7 @@ def--fn
 
 \\index[fn]{followed@\\texttt{followed}}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{after \\EmbracOn{}\\textnormal{\\textsl{a deff item}}\\EmbracOff{}}& [truc]
@@ -727,6 +741,7 @@ def--fn
 
 \\index[fn]{after@\\texttt{after}}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{deffnx \\EmbracOn{}\\textnormal{\\textsl{before end deffn}}\\EmbracOff{}}& [truc]

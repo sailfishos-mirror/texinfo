@@ -238,6 +238,7 @@ $result_converted{'latex'}->{'comment_index_before_defline'} = '\\documentclass{
 \\index[cp]{entry@entry}%
 
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{b \\EmbracOn{}\\textnormal{\\textsl{c d}}\\EmbracOff{}}& [a]

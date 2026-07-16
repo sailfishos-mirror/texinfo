@@ -533,6 +533,7 @@ $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\ttfamily deffs
 \\end{Texinfopreformatted}
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{my def \\EmbracOn{}\\textnormal{\\textsl{args \\Texinfocommandstyletextvar{arg} \\dots{}\\@}}\\EmbracOff{}}& [Function]
@@ -540,6 +541,7 @@ $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 
 \\index[fn]{my def@\\texttt{my def}}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{other def \\EmbracOn{}\\textnormal{\\textsl{no args}}\\EmbracOff{}}& [Function]
@@ -549,6 +551,7 @@ $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{name \\EmbracOn{}\\textnormal{\\textsl{and now the args}}\\EmbracOff{}}& [type]
@@ -558,6 +561,7 @@ $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\begin{Texinfoindented}
 \\unskip{\\parskip=0pt\\noindent}%
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{variables \\EmbracOn{}\\textnormal{\\textsl{variable-name}}\\EmbracOff{}}& [Variable]
@@ -568,6 +572,7 @@ $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\ttfamily 
 \\end{Texinfopreformatted}
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{variables too \\EmbracOn{}\\textnormal{\\textsl{other-variable}}\\EmbracOff{}}& [Variable]

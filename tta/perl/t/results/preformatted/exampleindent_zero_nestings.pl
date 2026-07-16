@@ -972,6 +972,7 @@ EXAMPLE INDENT in format
 
 \\begin{Texinfoindented}
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{arg}& [name]
@@ -1053,6 +1054,7 @@ EXAMPLE INDENT in format
 
 \\begin{Texinfoindented}
 
+\\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{arg}& [name]
