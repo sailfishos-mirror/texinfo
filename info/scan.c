@@ -1331,7 +1331,7 @@ scan_reference_target (REFERENCE *entry, NODE *node, int in_parentheses)
       entry->nodename = 0;
       char *node_start = inptr + length;
 
-      /* First check for . followed by space or end of line. */
+      /* First check for . followed by space, tab or end of line. */
       if (*node_start != INFO_QUOTE)
         {
           /* Confine search to present line. */
@@ -1340,6 +1340,8 @@ scan_reference_target (REFERENCE *entry, NODE *node, int in_parentheses)
             *nl = '\0';
 
           char *node_end = strstr (node_start, ". ");
+          if (!node_end)
+            node_end = strstr (node_start, ".\t");
           if (!node_end)
             {
               /* Check for . at end of line. */

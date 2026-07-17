@@ -1,5 +1,10 @@
 2026-07-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/scan.c (scan_reference_target) <menu entry>:
+	Allow tab to follow period in terminating node name.
+
+2026-07-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Use sig_atomic_t
 
 	* info/signals.c [!HAVE_SIGACTION] (term_conf_busy),
