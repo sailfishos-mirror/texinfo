@@ -78,7 +78,7 @@ restore_termsig (int sig, const signal_info *saved)
 typedef void (*signal_info) ();
 #define set_termsig(sig, old) (void)(*(old) = signal (sig, info_signal_proc))
 #define restore_termsig(sig, saved) (void)signal (sig, *(saved))
-static int term_conf_busy = 0;
+static volatile sig_atomic_t term_conf_busy = 0;
 #endif /* !HAVE_SIGACTION */
 
 static signal_info old_TSTP, old_TTOU, old_TTIN;
@@ -149,7 +149,7 @@ reset_info_window_sizes (void)
 }
 
 /* Number of times we were told to ignore SIGWINCH. */
-static int sigwinch_block_count = 0;
+static volatile sig_atomic_t sigwinch_block_count = 0;
 
 void
 signal_block_winch (void)

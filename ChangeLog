@@ -1,3 +1,12 @@
+2026-07-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Use sig_atomic_t
+
+	* info/signals.c [!HAVE_SIGACTION] (term_conf_busy),
+	(sigwinch_block_count):
+	Declare as volatile sig_atomic_t rather than int, as they
+	are accessed inside the signal handler info_signal_proc.
+
 2026-07-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/signals.c (info_signal_handler) [!HAVE_SIGACTION]:
