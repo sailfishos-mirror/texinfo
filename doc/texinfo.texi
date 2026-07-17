@@ -7739,10 +7739,8 @@ specific @code{\listof} command is output.
 @findex image
 
 You can insert an image given in an external file with the
-@code{@@image} command.  Although images can be used anywhere,
-including the middle of a paragraph, we describe them in this chapter
-since they are most often part of a displayed figure or example.
-
+@code{@@image} command.  Images are most often part of a displayed figure
+or example, although can be used in most locations.
 
 @node Image Syntax
 @subsection Image Syntax
@@ -7822,6 +7820,13 @@ for a package @var{foo}.  Copying the files into
 
 The @var{width} and @var{height} arguments are described in the next
 section.
+
+@cindex Images @subentry using inside paragraphs
+We recommend you try to avoid using images inside paragraphs.  The
+results will likely be sub-optimal in Info format, as @command{texi2any}
+does not have enough information to break lines around the image in the
+best place.  (The results are likely to be especially bad if
+@file{@var{filename}.txt} consists of more than one line of text.)
 
 If an image is the first thing in a paragraph and followed by
 more text, then you should precede the @code{@@image} command with

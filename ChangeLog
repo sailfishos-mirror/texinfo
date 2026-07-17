@@ -1,5 +1,10 @@
 2026-07-17  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Images, Image Syntax):
+	Try to discourage using images inside paragraphs.
+
+2026-07-17  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Info: Add space for image output
 
 	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (add_to_counter),
