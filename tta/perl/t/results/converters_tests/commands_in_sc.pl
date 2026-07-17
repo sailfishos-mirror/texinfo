@@ -353,8 +353,8 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 1 chap
 ******
 
-A Ñ Å TeX [myimage] *note chap:: *Note (f)node:: *note NAME: (argf)ext. inverb ÿ
-MA+TH (1) <la> B (a) LB c E <a@c> AB (D)
+A Ñ Å TeX [myimage] *note chap:: *Note (f)node:: *note NAME: (argf)ext. inverb
+ÿ MA+TH (1) <la> B (a) LB c E <a@c> AB (D)
 
    ---------- Footnotes ----------
 
@@ -364,7 +364,7 @@ MA+TH (1) <la> B (a) LB c E <a@c> AB (D)
 Tag Table:
 Node: Top27
 Node: chap124
-Ref: inanchor262
+Ref: inanchor263
 Ref: chap-Footnote-1343
 
 End Tag Table

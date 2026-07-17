@@ -93,6 +93,12 @@ para_end_line_count (int paragraph)
     OUTPUT:
         RETVAL
 
+void
+para_add_to_counter (int paragraph, int n)
+    CODE:
+        para_set_state (paragraph);
+        para_add_to_counter (n);
+
 int
 para_counter (int paragraph)
     CODE:

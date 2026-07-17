@@ -3220,6 +3220,16 @@ sub _convert($$) {
         # add an empty word so that following spaces aren't lost
         add_next($formatter->{'container'}, '');
         my ($image, $lines_count) = $self->format_image_element($element);
+        # We do not how much horizontal space @image will take:
+        #   * In plain text output or standalone Info, the replacement
+        #     text will be used
+        #   * In Emacs Info, the image file may be displayed.
+        # So if an @image is used inside a paragraph, we cannot break
+        # the line in a place that will always work.
+        # Here we just add a small number to the line counter as a compromise.
+        # (However, multi-line replacement texts are unlikely to look good if
+        # used inside a paragraph.)
+        Texinfo::Convert::Paragraph::add_to_counter($formatter->{'container'}, 3);
         _add_lines_count($self, $lines_count);
         _stream_output($self, $image);
         return;

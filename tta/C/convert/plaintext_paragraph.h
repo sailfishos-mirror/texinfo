@@ -58,6 +58,7 @@ void para_allow_end_sentence (void);
 void para_remove_end_sentence (void);
 void para_add_end_sentence (void);
 int para_end_line_count (void);
+void para_add_to_counter (int n);
 int para_counter (void);
 
 #endif

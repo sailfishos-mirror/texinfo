@@ -1,3 +1,19 @@
+2026-07-17  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Info: Add space for image output
+
+	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (add_to_counter),
+	* tta/C/convert/plaintext_paragraph.c (para_add_to_counter),
+	* tta/perl/XSTexinfo/ParagraphXS.xs (para_add_to_counter):
+	New functions.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert) <image>:
+	Call it in order to account for some horizontal space taken
+	up by an image.  Add a comment describing the unsatisfactory
+	situation.
+	
+	Report from Werner.
+
 2026-07-16  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Change paragraphindent from string to integer

@@ -230,6 +230,12 @@ para_end_line_count (void)
   return state.end_line_count;
 }
 
+void
+para_add_to_counter (int n)
+{
+  state.counter += n;
+}
+
 int
 para_counter (void)
 {

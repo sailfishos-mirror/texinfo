@@ -391,8 +391,8 @@ $result_converted{'plaintext'}->{'various_itemize_command_as_argument'} = 'top
 
      Inlineraw
 
-     Image
-     Second
+    Image
+    Second
 
    (1) aa
    (2) F2 aa
