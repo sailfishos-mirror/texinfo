@@ -1,5 +1,18 @@
 2026-07-17  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/signals.c (info_signal_handler) [!HAVE_SIGACTION]:
+	Remove #define of info_signal_handler to info_signal_proc.
+	This is incorrect as the former is a structure and the latter
+	is a function.  info_signal_handler is not referred to
+	elsewhere in this file under !HAVE_SIGACTION, except under
+	#ifdef SA_NOCLDSTOP, where it is accessed as a structure.  If
+	both conditions are true, there is a compilation error.
+	
+	This #define appears to have been present since the use of sigaction
+	was introduced in a patch by AIDA Shinra, dated 2003-01-25.
+
+2026-07-17  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Images, Image Syntax):
 	Try to discourage using images inside paragraphs.
 
