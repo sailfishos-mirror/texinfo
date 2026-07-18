@@ -117,7 +117,7 @@ AC_SYS_POSIX_TERMIOS
 AC_TYPE_OFF_T
 
 # Checks for library functions.
-AC_CHECK_FUNCS(setlocale sigaction sigprocmask posix_openpt)
+AC_CHECK_FUNCS(setlocale sigaction posix_openpt)
 
 ptys_tests='yes'
 AC_ARG_ENABLE([ptys-tests],

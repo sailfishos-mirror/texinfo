@@ -1,5 +1,17 @@
 2026-07-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* configure.ac (AC_CHECK_FUNCS):
+	Remove check for sigprocmask.
+
+	* info/signals.c (info_signal_proc)
+	[!HAVE_SIGACTION && HAVE_SIGPROCMASK]:
+	Remove code.  Systems without sigaction but which do have
+	sigprocmask may be rare - the Gnulib manual only mentions
+	that both functions are missing on mingw and MSVC 14.
+	(term_conf_busy): Remove unused.
+
+2026-07-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/scan.c (scan_reference_target) <menu entry>:
 	Allow tab to follow period in terminating node name.
 

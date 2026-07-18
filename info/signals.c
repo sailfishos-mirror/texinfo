@@ -78,7 +78,6 @@ restore_termsig (int sig, const signal_info *saved)
 typedef void (*signal_info) ();
 #define set_termsig(sig, old) (void)(*(old) = signal (sig, info_signal_proc))
 #define restore_termsig(sig, saved) (void)signal (sig, *(saved))
-static volatile sig_atomic_t term_conf_busy = 0;
 #endif /* !HAVE_SIGACTION */
 
 static signal_info old_TSTP, old_TTOU, old_TTIN;
@@ -176,20 +175,6 @@ info_signal_proc (int sig)
 {
   signal_info *old_signal_handler = NULL;
 
-#if !defined (HAVE_SIGACTION)
-  /* best effort: first increment this counter and later block signals */
-  if (term_conf_busy)
-    return;
-  term_conf_busy++;
-#if defined (HAVE_SIGPROCMASK)
-    {
-      sigset_t nvar, ovar;
-      sigemptyset (&nvar);
-      mask_termsig (&nvar);
-      sigprocmask (SIG_BLOCK, &nvar, &ovar);
-    }
-#endif /* HAVE_SIGPROCMASK */
-#endif /* !HAVE_SIGACTION */
   switch (sig)
     {
 #if defined (SIGTSTP)
@@ -294,18 +279,6 @@ info_signal_proc (int sig)
       break;
 #endif /* SIGWINCH || SIGUSR1 */
     }
-#if !defined (HAVE_SIGACTION)
-  /* at this time it is safer to perform unblock after decrement */
-  term_conf_busy--;
-#if defined (HAVE_SIGPROCMASK)
-    {
-      sigset_t nvar, ovar;
-      sigemptyset (&nvar);
-      mask_termsig (&nvar);
-      sigprocmask (SIG_UNBLOCK, &nvar, &ovar);
-    }
-#endif /* HAVE_SIGPROCMASK */
-#endif /* !HAVE_SIGACTION */
 }
 
 
