@@ -1,6 +1,12 @@
 2026-07-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* configure.ac (AC_CHECK_FUNCS):
+	Re-add sigprocmask as HAVE_SIGPROCMASK is used in
+	into/signals.h.
+
+2026-07-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* configure.ac (AC_CHECK_FUNCS):
 	Remove check for sigprocmask.
 
 	* info/signals.c (info_signal_proc)
