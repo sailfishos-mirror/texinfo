@@ -1,5 +1,15 @@
 2026-07-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove unused definitions for !HAVE_SIGPROCMASK
+	
+	* info/signals.h [!HAVE_SIGPROCMASK]
+	(sigmask, SIG_UNBLOCK, SIG_BLOCK, sigset_t, sigemptyset, sigfillset)
+	(sigaddset, sigdelset, sigismember, sigsuspend):
+	Remove #define's as these symbols are not otherwise used under
+	this condition.
+
+2026-07-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove check of SA_NOCLDSTOP
 	
 	* info/signals.c (initialize_info_signal_handler):

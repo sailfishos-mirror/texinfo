@@ -31,40 +31,6 @@ void signal_unblock_winch (void);
 #define SIGCHLD SIGCLD
 #endif
 
-#if !defined (HAVE_SIGPROCMASK) && !defined (sigmask)
-#  define sigmask(x) (1 << ((x)-1))
-#endif /* !HAVE_SIGPROCMASK && !sigmask */
-
-#if !defined (HAVE_SIGPROCMASK)
-#  if !defined (SIG_BLOCK)
-#    define SIG_UNBLOCK 1
-#    define SIG_BLOCK   2
-#    define SIG_SETMASK 3
-#  endif /* SIG_BLOCK */
-
-/* Type of a signal set. */
-#  define sigset_t int
-
-/* Make SET have no signals in it. */
-#  define sigemptyset(set) (*(set) = (sigset_t)0x0)
-
-/* Make SET have the full range of signal specifications possible. */
-#  define sigfillset(set) (*(set) = (sigset_t)0xffffffffff)
-
-/* Add SIG to the contents of SET. */
-#  define sigaddset(set, sig) *(set) |= sigmask (sig)
-
-/* Delete SIG from the contents of SET. */
-#  define sigdelset(set, sig) *(set) &= ~(sigmask (sig))
-
-/* Tell if SET contains SIG. */
-#  define sigismember(set, sig) (*(set) & (sigmask (sig)))
-
-/* Suspend the process until the reception of one of the signals
-   not present in SET. */
-#  define sigsuspend(set) sigpause (*(set))
-#endif /* !HAVE_SIGPROCMASK */
-
 #if defined (HAVE_SIGPROCMASK)
 
 #define BLOCK_SIGNAL(sig) \
