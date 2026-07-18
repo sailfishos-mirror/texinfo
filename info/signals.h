@@ -35,10 +35,7 @@ void signal_unblock_winch (void);
 #  define sigmask(x) (1 << ((x)-1))
 #endif /* !HAVE_SIGPROCMASK && !sigmask */
 
-/* Without SA_NOCLDSTOP, sigset_t might end up being undefined even
-   though we have sigprocmask, on older systems, according to Nelson
-   Beebe.  The test is from coreutils/sort.c, via Paul Eggert.  */
-#if !defined (HAVE_SIGPROCMASK) || !defined (SA_NOCLDSTOP)
+#if !defined (HAVE_SIGPROCMASK)
 #  if !defined (SIG_BLOCK)
 #    define SIG_UNBLOCK 1
 #    define SIG_BLOCK   2

@@ -87,15 +87,11 @@ static signal_info old_QUIT;
 void
 initialize_info_signal_handler (void)
 {
-#ifdef SA_NOCLDSTOP
-  /* (Based on info from Paul Eggert found in coreutils.)  Don't use
-     HAVE_SIGACTION to decide whether to use the sa_handler, sa_flags,
-     sa_mask members, as some systems (Solaris 7+) don't define them.  Use
-     SA_NOCLDSTOP instead; it's been part of POSIX.1 since day 1 (in 1988).  */
+#ifdef HAVE_SIGACTION
   info_signal_handler.sa_handler = info_signal_proc;
   info_signal_handler.sa_flags = 0;
   mask_termsig (&info_signal_handler.sa_mask);
-#endif /* SA_NOCLDSTOP */
+#endif /* HAVE_SIGACTION */
 
 #if defined (SIGTSTP)
   set_termsig (SIGTSTP, &old_TSTP);

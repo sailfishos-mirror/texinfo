@@ -1,5 +1,20 @@
 2026-07-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove check of SA_NOCLDSTOP
+	
+	* info/signals.c (initialize_info_signal_handler):
+	Use #ifdef HAVE_SIGACTION instead of #ifdef SA_NOCLDSTOP.
+	* info/signals.h: Remove check of SA_NOCLDSTOP from condition.
+	
+	The use of SA_NOCLDSTOP was introduced on 2004-03-27 for
+	the benefit of Solaris 7, which is likely no longer a relevant
+	system to support.
+	signals.h had a comment referencing "sort.c" in the coreutils
+	sources, but recent coreutils sources do not check SA_NOCLDSTOP
+	any more (likely since change on 2025-11-22).
+
+2026-07-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/signals.h:
 	Remove use of HAVE_SIGSETMASK conditional.  Check for
 	sigsetmask was removed on 2019-02-17.
