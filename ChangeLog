@@ -1,3 +1,11 @@
+2026-07-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/signals.h:
+	Remove use of HAVE_SIGSETMASK conditional.  Check for
+	sigsetmask was removed on 2019-02-17.
+
+2026-07-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 2026-07-19 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/TODO: link to recently started discussions on manuals
@@ -9,7 +17,7 @@
 
 	* configure.ac (AC_CHECK_FUNCS):
 	Re-add sigprocmask as HAVE_SIGPROCMASK is used in
-	into/signals.h.
+	info/signals.h.
 
 2026-07-18  Gavin Smith <gavinsmith0123@gmail.com>
 

@@ -68,8 +68,7 @@ void signal_unblock_winch (void);
 #  define sigsuspend(set) sigpause (*(set))
 #endif /* !HAVE_SIGPROCMASK */
 
-#if defined (HAVE_SIGPROCMASK) || defined (HAVE_SIGSETMASK)
-/* These definitions are used both in POSIX and non-POSIX implementations. */
+#if defined (HAVE_SIGPROCMASK)
 
 #define BLOCK_SIGNAL(sig) \
   do { \
@@ -89,9 +88,9 @@ void signal_unblock_winch (void);
     sigprocmask (SIG_UNBLOCK, &nvar, &ovar); \
   } while (0)
 
-#else /* !HAVE_SIGPROCMASK && !HAVE_SIGSETMASK */
+#else /* !HAVE_SIGPROCMASK */
 #  define BLOCK_SIGNAL(sig)
 #  define UNBLOCK_SIGNAL(sig)
-#endif /* !HAVE_SIGPROCMASK && !HAVE_SIGSETMASK */
+#endif /* !HAVE_SIGPROCMASK */
 
 #endif /* not INFO_SIGNALS_H */
