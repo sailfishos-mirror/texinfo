@@ -1,3 +1,8 @@
+2026-07-19  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\include): Remove \tracingmacros=1 left in
+	by mistake.
+
 2026-07-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Remove unused definitions for !HAVE_SIGPROCMASK
