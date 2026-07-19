@@ -500,11 +500,14 @@ sub _setup_sort_sortable_strings_collator($$$) {
       foreach my $entry_subentries_sort_string_alpha
                                    (@{$index_entry->{'sort_strings'}}) {
         my $sort_string = $entry_subentries_sort_string_alpha->{'sort_string'};
-        # TODO we do not mix decoded and non-decoded strings anymore so
-        # utf8::upgrade is probably not needed anymore.  To be safe,
-        # we can keep it until we only support perl > 5.12. (5.14.0 released
-        # in 2011).
-        # This avoids varying results depending on whether the string is
+        # TODO we do not mix decoded and non-decoded strings anymore, we decode
+        # all the strings, and Encode::decode for old Perl should already set
+        # the UTF-8 flag for anything else than ASCII (for recent
+        # Perl the UTF-8 flag is set for ASCII too), so utf8::upgrade is
+        # probably not needed anymore.  To be safe, we can keep it until we
+        # only support perl > 5.12. (5.14.0 released in 2011).
+        #
+        # This avoided varying results depending on whether the string is
         # represented internally in UTF-8.  See 'the "Unicode bug"' in the
         # "perlunicode" man page.
         utf8::upgrade($sort_string);

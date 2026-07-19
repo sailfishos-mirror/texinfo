@@ -443,12 +443,22 @@ char_latin1_latin1_in_refs_tree.txt content encoded in latin1
 Texinfo manuals translations
 ============================
 
-A possible system, for translation only, no special handling of
-cross-references is to use po4a, possibly with Texinfo SWIG interface
-based new texinfoparser format.
+A po4a texinfo parser based on the Texinfo SWIG interface is to be
+integrated in po4a, maybe for the next Texinfo release, which
+should also have the SWIG interface built by default if SWIG is detected.
 
-Discussions
------------
+Using po4a with one of the two po4a texinfo parsers could be the
+recommended way to translate manuals, solving some of the issues discussed
+in the past.
+
+Discussions started post 7.3 release:
+https://lists.gnu.org/archive/html/bug-texinfo/2026-07/msg00050.html
+https://lists.gnu.org/archive/html/bug-texinfo/2026-07/msg00051.html
+https://lists.gnu.org/archive/html/bug-texinfo/2026-07/msg00052.html
+
+
+Past discussions on that subject
+--------------------------------
 
 Main TODO
 Support installation of manuals in different languages, along these lines:
