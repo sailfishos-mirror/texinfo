@@ -1,5 +1,20 @@
 2026-07-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Change info test not to use :cntrl: in grep regex
+
+	* info/t/quoted-index-target.sh: Strip out DEL bytes
+	from output file with tr.  Remove use of "[[:cntrl:]]" in
+	grep regex to check for such bytes.  Alter test slightly
+	to be effective with updated regex, using "--index-search"
+	instead of "--index-search --all", which means we actually
+	go to the referenced node.
+
+	The use of "[[:cntrl:]]" in a grep regex led to a failure on
+	Solaris 11, where apparently such character classes are not
+	recognised by the grep program.  Report from Bruno.
+
+2026-07-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/info.c (main) <--index-search>:
 	Pass -1 as starting offset to next_index_match otherwise we
 	skip over the very first index entry in the first index node.

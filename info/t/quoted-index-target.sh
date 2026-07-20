@@ -18,13 +18,13 @@ srcdir=${srcdir:-.}
 . $srcdir/t/Init-test.inc
 
 # Perform an index search for a quoted target
-$ginfo --file quoting --index-search "Colon::in, name" --all >$ginfo_output
+run_ginfo --file quoting --index-search "Colon::in, name"
 
-# Test that the found index entry has the correct node name. An index entry
-# split in the wrong place should not match this RE, rather be shaped something
-# like "* Colon::in, name: ^?Colon::      in.     (line 0)"
-q='[[:cntrl:]]\{0,1\}'
-grep "\\* Colon::in, name:  *${q}Colon::in, name${q}." $ginfo_output
+printf Dq >&7 &
+timeout_test
+
+# Check that we went to the right node.
+cat $ginfo_output | tr -d '\177' | grep 'Node: Colon::in, name'
 
 retval=$?
 
