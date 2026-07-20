@@ -1109,7 +1109,7 @@ main (int argc, char *argv[])
           REFERENCE *result;
           int i, match_offset;
 
-          result = next_index_match (initial_fb, index_search_string, 0, 1,
+          result = next_index_match (initial_fb, index_search_string, -1, 1,
                                      &i, &match_offset);
 
           if (result)
