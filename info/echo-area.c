@@ -842,8 +842,8 @@ ea_kill_text (int from, int to)
 
       if (slot + 1 > kill_ring_slots)
         kill_ring = xrealloc (kill_ring,
-			      (kill_ring_slots += max_retained_kills)
-			      * sizeof (char *));
+                              (kill_ring_slots += max_retained_kills)
+                              * sizeof (char *));
 
       if (slot != kill_ring_index)
         free (kill_ring[slot]);
@@ -949,7 +949,7 @@ info_read_completing_internal (const char *prompt, REFERENCE **completions,
       if (force && line && *line && completions)
         {
           long i;
-	  
+
           build_completions ();
 
           /* If there is only one completion, then make the line be that
@@ -1048,9 +1048,9 @@ DECLARE_INFO_COMMAND (ea_possible_completions, _("List possible completions"))
 
       text_buffer_init (&message);
       text_buffer_printf (&message, ngettext ("%d completion:\n",
-					  "%d completions:\n",
-					  completions_found_index),
-				completions_found_index);
+                                          "%d completions:\n",
+                                          completions_found_index),
+                                completions_found_index);
 
       /* Find the maximum length of a label. */
       for (i = 0; i < completions_found_index; i++)
@@ -1136,7 +1136,7 @@ DECLARE_INFO_COMMAND (ea_possible_completions, _("List possible completions"))
             /* If we can split the window to display most of the completion
                items, then do so. */
             if (calling_window->height > (iterations * 2)
-		&& calling_window->height / 2 >= WINDOW_MIN_SIZE)
+                && calling_window->height / 2 >= WINDOW_MIN_SIZE)
               {
                 remember_calling_window (calling_window);
 
@@ -1327,7 +1327,7 @@ build_completions (void)
        use that.  */
     if (completions_found_index > 1)
       {
-	int req_len = strlen (request);
+        int req_len = strlen (request);
 
         for (i = 0; i < completions_found_index; i++)
           if (strncmp (request, completions_found[i]->label, req_len) == 0)

@@ -99,7 +99,7 @@ get_output_from_program (char *filename, char *formatter_args[],
     filename = xstrdup (filename);
     for (i = 0; i < cmdlen; i++)
       if (filename[i] == '/')
-	filename[i] = '\\';
+        filename[i] = '\\';
 #endif
 
     for (i = 1; formatter_args[i]; i++)
@@ -112,7 +112,7 @@ get_output_from_program (char *filename, char *formatter_args[],
     if (fd_err > 2)
       dup2 (fd_err, fileno (stderr)); /* Don't print errors. */
     sprintf (cmdline, "\"%s\" %s %s", filename,
-	     formatter_args[1], formatter_args[2] ? formatter_args[2] : "");
+             formatter_args[1], formatter_args[2] ? formatter_args[2] : "");
 #ifdef __MINGW32__
     free (filename);
 #endif

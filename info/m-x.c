@@ -183,8 +183,8 @@ DECLARE_INFO_COMMAND (set_screen_height,
   if (screenheight == old_height)
     {
       /* Display dimensions didn't actually change, so
-	 window_new_screen_size won't do anything, but we've
-	 already cleared the display above.  Undo the damage.  */
+         window_new_screen_size won't do anything, but we've
+         already cleared the display above.  Undo the damage.  */
       window_mark_chain (windows, W_UpdateWindow);
       display_update_display ();
     }

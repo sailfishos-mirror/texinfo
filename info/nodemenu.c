@@ -153,8 +153,8 @@ get_visited_nodes (void)
       /* Delete duplicates. */
       for (i = 0, newlen = 1; i < lines_index - 1; i++)
         {
-	  /* Use FILENAME_CMP here, since the most important piece
-	     of info in each line is the file name of the node.  */
+          /* Use FILENAME_CMP here, since the most important piece
+             of info in each line is the file name of the node.  */
           if (FILENAME_CMP (lines[i], lines[i + 1]) == 0)
             {
               free (lines[i]);

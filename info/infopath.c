@@ -72,10 +72,10 @@ infopath_init ()
 
       unsigned len = strlen (path_from_env);
       if (len && path_from_env[len - 1] == PATH_SEP[0])
-	{
-	  path_from_env[len - 1] = 0;
-	  infopath_add (DEFAULT_INFOPATH);
-	}
+        {
+          path_from_env[len - 1] = 0;
+          infopath_add (DEFAULT_INFOPATH);
+        }
     }
 }
 

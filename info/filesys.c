@@ -308,7 +308,7 @@ convert_eols (char *text, size_t textlen)
    pointer.  Set *FINFO with information about file. */
 char *
 filesys_read_info_file (char *pathname, size_t *filesize,
-			struct stat *finfo, int *is_compressed)
+                struct stat *finfo, int *is_compressed)
 {
   off_t stat_fsize;
   size_t file_size;
@@ -351,10 +351,10 @@ filesys_read_info_file (char *pathname, size_t *filesize,
       contents = xmalloc (1 + read_file_size);
       if ((read (descriptor, contents, read_file_size)) != read_file_size)
         {
-	  filesys_error_number = errno;
-	  close (descriptor);
-	  free (contents);
-	  return NULL;
+          filesys_error_number = errno;
+          close (descriptor);
+          free (contents);
+          return NULL;
         }
       contents[read_file_size] = 0;
       close (descriptor);

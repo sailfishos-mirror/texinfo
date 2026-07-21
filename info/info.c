@@ -704,12 +704,12 @@ add_file_directory_to_path (char *filename)
   if (temp != directory_name)
     {
       if (HAVE_DRIVE (directory_name) && temp == directory_name + 2)
-	{
-	  /* The directory of "d:foo" is stored as "d:.", to avoid
-	     mixing it with "d:/" when a slash is appended.  */
-	  *temp = '.';
-	  temp += 2;
-	}
+        {
+          /* The directory of "d:foo" is stored as "d:.", to avoid
+             mixing it with "d:/" when a slash is appended.  */
+          *temp = '.';
+          temp += 2;
+        }
       temp[-1] = 0;
       infopath_add (directory_name);
     }
@@ -784,7 +784,7 @@ main (int argc, char *argv[])
       int option_character;
 
       option_character = getopt_long (argc, argv, short_options, long_options,
-				      &getopt_long_index);
+                                      &getopt_long_index);
 
       /* getopt_long returns EOF when there are no more long options. */
       if (option_character == EOF)
@@ -800,10 +800,10 @@ main (int argc, char *argv[])
         case 0:
           break;
 
-	case 'a':
-	  all_matches_p = 1;
-	  break;
-	  
+        case 'a':
+          all_matches_p = 1;
+          break;
+
           /* User wants to add a directory. */
         case 'd':
           infopath_add (optarg);
@@ -841,8 +841,8 @@ main (int argc, char *argv[])
           goto_invocation_p = 1;
           break;
 
-	  /* User has specified that she wants the escape sequences
-	     in man pages to be passed thru unaltered.  */
+          /* User has specified that she wants the escape sequences
+             in man pages to be passed thru unaltered.  */
         case 'R':
           raw_escapes_p = 1;
           break;
@@ -859,10 +859,10 @@ main (int argc, char *argv[])
           break;
 
 #if defined(__MSDOS__) || defined(__MINGW32__)
-	  /* User wants speech-friendly output.  */
-	case 'b':
-	  speech_friendly = 1;
-	  break;
+          /* User wants speech-friendly output.  */
+        case 'b':
+          speech_friendly = 1;
+          break;
 #endif /* __MSDOS__ || __MINGW32__ */
 
           /* User has specified a string to search all indices for. */
@@ -895,17 +895,17 @@ main (int argc, char *argv[])
           init_file = optarg;
           break;
 
-	case 'v':
-	  {
+        case 'v':
+          {
             VARIABLE_ALIST *var;
-	    char *p;
-	    p = strchr (optarg, '=');
-	    if (!p)
-	      {
-		info_error (_("malformed variable assignment: %s"), optarg);
-		exit (EXIT_FAILURE);
-	      }
-	    *p++ = 0;
+            char *p;
+            p = strchr (optarg, '=');
+            if (!p)
+              {
+                                nfo_error (_("malformed variable assignment: %s"), optarg);
+                                xit (EXIT_FAILURE);
+              }
+            *p++ = 0;
 
             if (!(var = variable_by_name (optarg)))
               {
@@ -913,19 +913,18 @@ main (int argc, char *argv[])
                 exit (EXIT_FAILURE);
               }
 
-	    if (!set_variable_to_value (var, p, SET_ON_COMMAND_LINE))
-	      {
+            if (!set_variable_to_value (var, p, SET_ON_COMMAND_LINE))
+              {
                 info_error (_("value %s is not valid for variable %s"),
                             p, optarg);
-		exit (EXIT_FAILURE);
-	      }	
-	  }
-	  break;
-	  
-	case 'x':
-	  set_debug_level (optarg);
-	  break;
-	  
+                                xit (EXIT_FAILURE);
+              }                                  }
+          break;
+
+        case 'x':
+          set_debug_level (optarg);
+          break;
+
         default:
           fprintf (stderr, _("Try --help for more information.\n"));
           exit (EXIT_FAILURE);
@@ -951,7 +950,7 @@ main (int argc, char *argv[])
   " <https://gnu.org/licenses/gpl.html>\n"
   "This is free software: you are free to change and redistribute it.\n"
   "There is NO WARRANTY, to the extent permitted by law.\n"),
-	      "2026");
+              "2026");
       exit (EXIT_SUCCESS);
     }
 

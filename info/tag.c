@@ -100,70 +100,70 @@ tag_image (char *text, struct text_buffer *outbuf)
       size_t cur_len;
       
       if (mb_isspace (mbi_cur (iter)))
-	{
-	  if (state == state_val)
-	    {
+        {
+          if (state == state_val)
+            {
               struct info_tag *new_kw = tag_found_keyword (&tmpbuf, &kw);
               new_kw->next = tag_head;
               tag_head = new_kw;
               state = state_delim;
               continue;
-	    }
-	  if (state == state_delim)
-	    continue;
-	}
+            }
+          if (state == state_delim)
+            continue;
+        }
       else if (state == state_delim)
-	state = state_kw;
+        state = state_kw;
       cur_len = mb_len (mbi_cur (iter));
       cur_ptr = mbi_cur_ptr (iter);
       
       if (state == state_qstr && escaped)
-	{
-	  escaped = 0;
-	}
+        {
+          escaped = 0;
+        }
       else if (cur_len == 1)
-	{
-	  switch (*cur_ptr)
-	    {
-	    case '=':
-	      if (state != state_kw)
-		break;
-	      text_buffer_add_char (&tmpbuf, 0);
-	      kw = tmpbuf.base;
-	      if (!mbi_avail (iter))
-		break;
-	      mbi_advance (iter);
-	      state = state_val;
-	      cur_len = mb_len (mbi_cur (iter));
-	      cur_ptr = mbi_cur_ptr (iter);
-	      if (!(cur_len == 1 && *cur_ptr == '"'))
-		break;
-	      /* fall through */
+        {
+          switch (*cur_ptr)
+            {
+            case '=':
+              if (state != state_kw)
+                break;
+              text_buffer_add_char (&tmpbuf, 0);
+              kw = tmpbuf.base;
+              if (!mbi_avail (iter))
+                break;
+              mbi_advance (iter);
+              state = state_val;
+              cur_len = mb_len (mbi_cur (iter));
+              cur_ptr = mbi_cur_ptr (iter);
+              if (!(cur_len == 1 && *cur_ptr == '"'))
+                break;
+              /* fall through */
 
-	    case '"':
-	      if (state == state_val)
-		{
-		  state = state_qstr;
-		  continue;
-		}
-	      if (state == state_qstr)
-		{
-		  struct info_tag *new_kw = tag_found_keyword (&tmpbuf, &kw);
-		  new_kw->next = tag_head;
-		  tag_head = new_kw;
-		  state = state_delim;
-		  continue;
-		}
-	      break;
+            case '"':
+              if (state == state_val)
+                {
+                  state = state_qstr;
+                  continue;
+                }
+              if (state == state_qstr)
+                {
+                  struct info_tag *new_kw = tag_found_keyword (&tmpbuf, &kw);
+                  new_kw->next = tag_head;
+                  tag_head = new_kw;
+                  state = state_delim;
+                  continue;
+                }
+              break;
 
-	    case '\\':
-	      if (state == state_qstr)
-		{
-		  escaped = 1;
-		  continue;
-		}
-	    }
-	}
+            case '\\':
+              if (state == state_qstr)
+                {
+                  escaped = 1;
+                  continue;
+                }
+            }
+        }
       text_buffer_add_string (&tmpbuf, cur_ptr, cur_len);
     }
 

@@ -75,7 +75,7 @@ int control_g_waiting (void);
 void pause_or_input (void);
 
 void dump_nodes_to_file (REFERENCE **references,
-				char *output_filename, int flags);
+                         char *output_filename, int flags);
 int write_node_to_stream (NODE *node, FILE *stream);
 
 char *program_name_from_file_name (char *file_name);

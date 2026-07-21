@@ -211,17 +211,17 @@ info_signal_proc (int sig)
         terminal_clear_to_eol ();
         fflush (stdout);
         terminal_unprep_terminal ();
-	restore_termsig (sig, old_signal_handler);
-	UNBLOCK_SIGNAL (sig);
-	kill (getpid (), sig);
+        restore_termsig (sig, old_signal_handler);
+        UNBLOCK_SIGNAL (sig);
+        kill (getpid (), sig);
 
         /* The program is returning now.  Restore our signal handler,
            turn on terminal handling, redraw the screen, and place the
            cursor where it belongs. */
         terminal_prep_terminal ();
-	set_termsig (sig, old_signal_handler);
-	/* window size might be changed while sleeping */
-	reset_info_window_sizes_required = 1;
+        set_termsig (sig, old_signal_handler);
+        /* window size might be changed while sleeping */
+        reset_info_window_sizes_required = 1;
       }
       break;
 

@@ -359,15 +359,15 @@ must_fopen (char *filename, char *mode)
 static unsigned int func_key;
 
 static void
-init_func_key(unsigned int val)
+init_func_key (unsigned int val)
 {
-	func_key = val;
+  func_key = val;
 }
 
 static unsigned int
-next_func_key(void)
+next_func_key (void)
 {
-	return func_key++;
+  return func_key++;
 }
 
 

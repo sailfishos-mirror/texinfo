@@ -53,7 +53,7 @@ tilde_expand_word (const char *filename)
               if (entry)
                 temp_home = entry->pw_dir;
 #else
-	      temp_home = ".";
+              temp_home = ".";
 #endif
             }
 
@@ -102,9 +102,9 @@ tilde_expand_word (const char *filename)
           endpwent ();
           free (username);
 #else
-	  free (dirname);
-	  dirname = xstrdup (temp_name);
-	  free (temp_name);
+          free (dirname);
+          dirname = xstrdup (temp_name);
+          free (temp_name);
 #endif
         }
     }

@@ -615,11 +615,11 @@ set_variable_to_value (VARIABLE_ALIST *var, char *value, int where)
       char *p;
       long n = strtol (value, &p, 10);
       if (*p == 0 && INT_MIN <= n && n <= INT_MAX)
-	{
+        {
           *(int *)var->value = n;
           var->where_set = where;
-	  return 1;
-	}
+          return 1;
+        }
     }
 
   return 0;

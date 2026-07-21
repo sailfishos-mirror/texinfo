@@ -1,5 +1,18 @@
 2026-07-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	info: expand tabs to spaces
+
+	* info/echo-area.c, info/filesys.c, info/info.c, info/infopath.c,
+	info/makedoc.c, info/m-x.c info/nodemenu.c, info/run-external.c,
+	info/signals.c, info/tag.c, info/tilde.c, info/variables.c,
+	info/session.h:
+	Expand tabs used for indentation in files where they are anomalous.
+	
+	Leading tabs can make the output of "git diff" look wrong due
+	to lines being misaligned.
+
+2026-07-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	info: do less in SIGWINCH handler
 	
 	* info/signals.c (signal_block_winch, signal_unblock_winch):
