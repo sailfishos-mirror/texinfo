@@ -201,6 +201,9 @@ void set_file_path (CONVERTER *self, const char *filename, const char *filepath,
 void clear_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 void free_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 
+void initialize_cmd_list (COMMAND_ID_LIST *cmd_list, size_t size,
+                          size_t number);
+
 void xml_format_text_with_numeric_entities (const char *text, TEXT *result);
 char *xml_numeric_entity_accent (enum command_id cmd, const char *text);
 char *xml_comment (CONVERTER *converter, const char *text);

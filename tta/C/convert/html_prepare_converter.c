@@ -243,19 +243,6 @@ static void register_pre_class_command (enum command_id cmd,
   html_commands_data[cmd].flags |= HF_pre_class;
 }
 
-/* NOTE relatively generic */
-static void
-initialize_cmd_list (COMMAND_ID_LIST *cmd_list, size_t size, size_t number)
-{
-  cmd_list->list = (enum command_id *) malloc
-    (size * sizeof (enum command_id));
-  cmd_list->number = number;
-  if (number)
-    {
-      memset (cmd_list->list, 0, number * sizeof (enum command_id));
-    }
-}
-
 static void
 set_no_arg_commands_formatting (HTML_NO_ARG_COMMAND_CONVERSION *spec,
                                 char *text)

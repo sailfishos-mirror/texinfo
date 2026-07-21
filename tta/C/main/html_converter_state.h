@@ -202,6 +202,13 @@ typedef struct ELEMENT_REFERENCE {
 
 def_list_type(ELEMENT_REFERENCE_STACK, ELEMENT_REFERENCE);
 
+/* TODO should better be in converter_types.h, but converter_types.h
+   depends on the current file */
+typedef struct COMMAND_ID_LIST {
+    size_t number;
+    enum command_id *list;
+} COMMAND_ID_LIST;
+
 typedef struct FILE_NUMBER_NAME {
     size_t file_number;
     const char *filename;
@@ -302,11 +309,6 @@ typedef struct HTML_DIRECTION_STRING_TRANSLATED {
     char *to_convert;
     char *converted[TDS_context_string +1];
 } HTML_DIRECTION_STRING_TRANSLATED;
-
-typedef struct COMMAND_ID_LIST {
-    size_t number;
-    enum command_id *list;
-} COMMAND_ID_LIST;
 
 typedef struct ARRAY_INDEX_LIST {
     size_t number;

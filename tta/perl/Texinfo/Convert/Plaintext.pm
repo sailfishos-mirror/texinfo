@@ -570,7 +570,7 @@ sub converter_initialize($) {
     $self->{'info_special_chars_warning'}
        = $self->get_conf('INFO_SPECIAL_CHARS_WARNING');
   } else {
-    $self->{'info_special_chars_warning'} = '';
+    $self->{'info_special_chars_warning'} = 0;
   }
 
   return $self;

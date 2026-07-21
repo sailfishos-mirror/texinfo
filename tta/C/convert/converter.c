@@ -133,7 +133,7 @@ static CONVERTER_FORMAT_DATA converter_format_data[] = {
   {"plaintexinfo", "Texinfo::Convert::PlainTexinfo", 0, 0,
    &plaintexinfo_converter_defaults, 0, &plaintexinfo_output,
    &plaintexinfo_convert, &plaintexinfo_convert_tree, 0, 0, 0, 0},
-  {"plaintext", "Texinfo::Convert::Plaintext", 0, 0,
+  {"plaintext", "Texinfo::Convert::Plaintext", &plaintext_format_setup, 0,
    &plaintext_converter_defaults,
    &plaintext_converter_initialize, &plaintext_output, &plaintext_convert,
    &plaintext_convert_tree, 0, &plaintext_free_converter, 0, 0},
@@ -2255,6 +2255,20 @@ destroy_converter (CONVERTER *converter)
     converter_list[converter_descriptor-1] = 0;
 
   free (converter);
+}
+
+
+
+void
+initialize_cmd_list (COMMAND_ID_LIST *cmd_list, size_t size, size_t number)
+{
+  cmd_list->list = (enum command_id *) malloc
+    (size * sizeof (enum command_id));
+  cmd_list->number = number;
+  if (number)
+    {
+      memset (cmd_list->list, 0, number * sizeof (enum command_id));
+    }
 }
 
 

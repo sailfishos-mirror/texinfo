@@ -67,6 +67,12 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     FORMATTER_STACK formatters;
     COUNT_CONTEXT_STACK count_context;
     /* document_context */
+
+    /* to cache values based on customization options */
+    char *enabled_encoding;
+    int to_utf8;
+    /* */
+    int ignored_commands[BUILTIN_CMD_NUMBER];
 } PLAINTEXT_CONVERTER_STATE;
 
 

@@ -35,9 +35,47 @@
 #include "extra.h"
 #include "builtin_commands.h"
 #include "debug.h"
+/* for format_expanded_p */
+#include "utils.h"
 #include "convert_to_plaintext.h"
 #include "base_utils.h"
 #include "plaintext_paragraph.h"
+
+static const enum command_id informative_global_commands[]
+             = {CM_paragraphindent, CM_firstparagraphindent,
+                CM_exampleindent,
+  CM_frenchspacing, CM_footnotestyle, CM_documentlanguage, CM_documentscript,
+  CM_deftypefnnewline};
+
+static const enum command_id contents_commands[]
+             = {CM_contents, CM_shortcontents, CM_summarycontents, 0};
+
+static COMMAND_ID_LIST format_raw_cmd;
+
+/* Plaintext command data flags */
+/*
+#define PF_                     0x0002
+*/
+#define PF_format_raw           0x0004
+/*
+#define HF_composition_context  0x0001
+#define HF_pre_class            0x0008
+#define HF_small_block_command  0x0010
+#define HF_HTML_align           0x0020
+#define HF_special_variety      0x0040
+#define HF_indented_preformatted 0x0080
+#define HF_style_command         0x0100
+*/
+
+typedef struct PLAINTEXT_COMMAND_STRUCT {
+    unsigned long flags;
+    /*
+    enum command_id pre_class_cmd;
+    enum command_id upper_case_cmd;
+     */
+} PLAINTEXT_COMMAND_STRUCT;
+
+PLAINTEXT_COMMAND_STRUCT plaintext_commands_data[BUILTIN_CMD_NUMBER];
 
 /* Data structure utilities.  These could possibly be placed in a
    separate file, or defined with macros in list_macros.h. */
@@ -157,13 +195,71 @@ pop_formatter (CONVERTER *self)
 
 
 
+/* set information that is independent of customization, only called once */
+void
+plaintext_format_setup (enum converter_format format)
+{
+  int i;
+  int format_raw_cmd_nr = 0;
+
+  /* count commands in some categories */
+  for (i = 1; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      if (command_data[i].flags & CF_block)
+        {
+          if (command_data[i].data == BLOCK_menu)
+            {}
+          /*
+            plaintext_command_data[i].flags |= PF_menu
+           */
+          else if (command_data[i].data == BLOCK_format_raw)
+            {
+              plaintext_commands_data[i].flags |= PF_format_raw;
+              format_raw_cmd_nr++;
+            }
+        }
+    }
+
+  initialize_cmd_list (&format_raw_cmd, format_raw_cmd_nr, 0);
+
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      if (plaintext_commands_data[i].flags & PF_format_raw)
+        {
+          format_raw_cmd.list[format_raw_cmd.number] = i;
+          format_raw_cmd.number++;
+        }
+    }
+}
+
 static void
 plaintext_conversion_initialization  (CONVERTER *self, DOCUMENT *document)
 {
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = &self->plaintext_converter;
+
   COUNT_CONTEXT bottom_count_context = { 0 };
   add_(count_context) (&self->plaintext_converter.count_context,
                        bottom_count_context);
 
+  converter_set_document (self, document);
+
+  set_global_document_commands (self, CL_before, informative_global_commands);
+  set_global_document_commands (self, CL_before, contents_commands);
+
+  /* TODO ... */
+
+  if (self->conf->ENABLE_ENCODING.o.integer > 0
+      && self->conf->OUTPUT_ENCODING_NAME.o.string)
+    {
+      free (self_plaintext->enabled_encoding);
+      self_plaintext->enabled_encoding
+         = strdup (self->conf->OUTPUT_ENCODING_NAME.o.string);
+      if (!strcmp (self_plaintext->enabled_encoding, "utf-8"))
+        {
+          self_plaintext->to_utf8 = 1;
+          /* TODO ... */
+        }
+    }
   /* TODO ... */
 
   push_top_formatter (self);
@@ -581,16 +677,65 @@ plaintext_free_converter (CONVERTER *self)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = &self->plaintext_converter;
 
+  free (self_plaintext->enabled_encoding);
   clear_count_context_stack (&self_plaintext->count_context);
 }
 
 void
 plaintext_converter_initialize (CONVERTER *self)
 {
-  memset (&self->plaintext_converter, 0,
-          sizeof (self->plaintext_converter));
+  int i;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = &self->plaintext_converter;
+
+  memset (self_plaintext, 0, sizeof (self_plaintext));
+
+  for (i = 0; i < format_raw_cmd.number; i++)
+    {
+      enum command_id cmd = format_raw_cmd.list[i];
+      const char *format = builtin_command_name (cmd);
+      if (!format_expanded_p (self->expanded_formats, format))
+        self_plaintext->ignored_commands[cmd] = 1;
+    }
+
   /* TODO */
-  /* Mainly set conversion options based on configuration variables */
+
+  if (self->conf->ASCII_PUNCTUATION.o.integer > 0)
+    {
+      option_set_conf (&self->conf->ASCII_DASHES_AND_QUOTES, 1, 0);
+      option_set_conf (&self->conf->ASCII_GLYPH, 1, 0);
+      option_set_conf (&self->conf->OPEN_QUOTE_SYMBOL, 0, "'");
+      option_set_conf (&self->conf->CLOSE_QUOTE_SYMBOL, 0, "'");
+      option_set_conf (&self->conf->OPEN_DOUBLE_QUOTE_SYMBOL, 0, "\"");
+      option_set_conf (&self->conf->CLOSE_DOUBLE_QUOTE_SYMBOL, 0, "\"");
+    }
+
+  if (self->conf->ASCII_DASHES_AND_QUOTES.o.integer == -1)
+    option_force_conf (&self->conf->ASCII_DASHES_AND_QUOTES, 0, 0);
+
+  if (self->conf->FILLCOLUMN.o.integer == -1)
+    {
+      int fillcolumn_default = txi_base_options.FILLCOLUMN.o.integer;
+      option_force_conf (&self->conf->FILLCOLUMN,
+                         fillcolumn_default, 0);
+    }
+
+  if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.string != 0
+      && strcmp (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.string, ""))
+    {
+      if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer == -1)
+        option_set_conf (&self->conf->INFO_SPECIAL_CHARS_WARNING, 1, 0);
+    }
+  else
+    {
+      if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.string == 0)
+        option_force_conf (&self->conf->INFO_SPECIAL_CHARS_QUOTE, 0, "");
+
+      if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer == -1)
+        option_set_conf (&self->conf->INFO_SPECIAL_CHARS_WARNING, 0, 0);
+    }
+
+  if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer == -1)
+    option_force_conf (&self->conf->INFO_SPECIAL_CHARS_WARNING, 0, 0);
 }
 
 CONVERTER_INITIALIZATION_INFO *

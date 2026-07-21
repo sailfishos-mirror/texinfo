@@ -8,6 +8,8 @@
 #include "tree_types.h"
 #include "converter_types.h"
 
+void plaintext_format_setup (enum converter_format format);
+
 CONVERTER_INITIALIZATION_INFO *plaintext_converter_defaults
                                 (enum converter_format format,
                                  const CONVERTER_INITIALIZATION_INFO *conf);

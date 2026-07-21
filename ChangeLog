@@ -1,3 +1,32 @@
+2026-07-21 Patrice Dumas  <pertusus@free.fr>
+
+	Continue C plaintext converter and conversion initialization
+
+	* tta/C/convert/converter.c (initialize_cmd_list),
+	tta/C/convert/html_prepare_converter.c: move initialize_cmd_list to
+	converter.c.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_converter_initialize),
+	tta/C/main/plaintext_converter_state.h (PLAINTEXT_CONVERTER_STATE):
+	implement plaintext_converter_initialize.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (converter_initialize):
+	info_special_chars_warning is an integer, not a string.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_conversion_initialization, informative_global_commands)
+	(contents_commands, plaintext_free_converter)
+	(plaintext_converter_initialize),
+	tta/C/main/plaintext_converter_state.h (PLAINTEXT_CONVERTER_STATE):
+	being the implemention of plaintext_conversion_initialization.
+
+	* tta/C/convert/convert_to_plaintext.c (format_raw_cmd)
+	(PLAINTEXT_COMMAND_STRUCT, plaintext_commands_data)
+	(plaintext_format_setup), tta/C/convert/converter.c
+	(converter_format_data): setup constant data related to raw formt
+	commands.
+
 2026-07-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Change info test not to use :cntrl: in grep regex
