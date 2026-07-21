@@ -1,3 +1,26 @@
+2026-07-21  Gavin Smith <gavinsmith0123@gmail.com>
+
+	info: do less in SIGWINCH handler
+	
+	* info/signals.c (signal_block_winch, signal_unblock_winch):
+	Remove functions.  Remove all calls to these functions.
+	(sigwinch_block_count): Remove.
+	(This reverses much of change on 2014-07-07.)
+
+	(info_signal_proc) <SIGWINCH, SIGUSR1>: Do not do any redrawing
+	of terminal inside this function.  Instead, set a volatile variable
+	to indicate that the terminal size may have changed and that windows
+	need to be redrawn.
+	(maybe_update_after_signal): New function, to be called outside of
+	a signal handler on a regular basis.  Redraw display if it's possible
+	the screen size has changed.
+	
+	* info/session.c (fill_input_buffer): Call maybe_update_after_signal.
+	
+	According to C standards and glibc documentation, accessing data
+	structures or calling library functions in a signal handler can
+	lead to undefined behaviour.
+
 2026-07-21 Patrice Dumas  <pertusus@free.fr>
 
 	Continue C plaintext converter and conversion initialization

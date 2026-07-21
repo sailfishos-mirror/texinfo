@@ -23,8 +23,7 @@
 #include <sys/types.h>
 #include <signal.h>
 
-void signal_block_winch (void);
-void signal_unblock_winch (void);
+void maybe_update_after_signal (void);
 
 /* For sysV68 --phdm@info.ucl.ac.be.  */
 #if !defined (SIGCHLD) && defined (SIGCLD)

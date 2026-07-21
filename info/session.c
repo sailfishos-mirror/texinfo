@@ -27,6 +27,7 @@
 #include "echo-area.h"
 #include "footnotes.h"
 #include "variables.h"
+#include "signals.h"
 
 #ifdef HAVE_SYS_IOCTL_H
 #include <sys/ioctl.h>
@@ -412,6 +413,7 @@ fill_input_buffer (int wait)
       int success;
       do
         {
+          maybe_update_after_signal ();
           success = info_gather_typeahead (wait);
         }
       while (!success && errno == EINTR); /* Try again if the read was

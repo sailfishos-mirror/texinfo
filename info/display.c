@@ -22,7 +22,6 @@
 #include "session.h"
 #include "util.h"
 #include "search.h"
-#include "signals.h"
 #include "variables.h"
 
 static void free_display (DISPLAY_LINE **display);
@@ -50,14 +49,12 @@ display_clear_display (DISPLAY_LINE **display)
 {
   register int i;
 
-  signal_block_winch ();
   for (i = 0; display[i]; i++)
     {
       display[i]->text[0] = '\0';
       display[i]->textlen = 0;
       display[i]->inverse = 0;
     }
-  signal_unblock_winch ();
 }
 
 /* Non-zero if we didn't completely redisplay a window. */
@@ -69,10 +66,6 @@ display_update_display (void)
 {
   register WINDOW *win;
 
-  /* Block window resize signals (SIGWINCH) while accessing the the_display
-     object, because the signal handler may reallocate it out from under our
-     feet. */
-  signal_block_winch ();
   display_was_interrupted_p = 0;
 
   for (win = windows; win; win = win->next)
@@ -90,7 +83,6 @@ display_update_display (void)
 
   /* Always update the echo area. */
   display_update_one_window (the_echo_area);
-  signal_unblock_winch ();
 }
 
 /* Return the screen column of where to write to screen to update line to
@@ -795,13 +787,11 @@ display_update_one_window (WINDOW *win)
   long line_index = 0;
   DISPLAY_LINE **display = the_display;
 
-  signal_block_winch ();
-
   /* If display is inhibited, that counts as an interrupted display. */
   if (display_inhibited)
     {
       display_was_interrupted_p = 1;
-      goto funexit;
+      return;
     }
 
   /* If the window has no height, quit now.  Strictly speaking, it
@@ -810,14 +800,14 @@ display_update_one_window (WINDOW *win)
      becomes negative, but since historically this has often been the culprit
      for crashes, do our best to be doubly safe.  */
   if (win->height <= 0 || win->width <= 0)
-    goto funexit;
+    return;
 
   /* If the window's first row doesn't appear in the_screen, then it
      cannot be displayed.  This can happen when the_echo_area is the
      window to be displayed, and the screen has shrunk to less than one
      line. */
   if ((win->first_row < 0) || (win->first_row > the_screen->height))
-    goto funexit;
+    return;
 
   /* If this window has a modeline, it might need to be redisplayed.  Do
      this before the rest of the window to aid in navigation in case the
@@ -852,7 +842,7 @@ display_update_one_window (WINDOW *win)
       line_index = display_update_node_text (win);
 
       if (display_was_interrupted_p)
-        goto funexit;
+        return;
     }
 
   /* We have reached the end of the node or the end of the window.  If it
@@ -877,7 +867,7 @@ display_update_one_window (WINDOW *win)
           if (info_any_buffered_input_p ())
             {
               display_was_interrupted_p = 1;
-              goto funexit;
+              return;
             }
         }
     }
@@ -886,8 +876,6 @@ display_update_one_window (WINDOW *win)
 
   /* Okay, this window doesn't need updating anymore. */
   win->flags &= ~W_UpdateWindow;
- funexit:
-  signal_unblock_winch ();
 }
 
 /* Scroll screen lines from START inclusive to END exclusive down

@@ -134,6 +134,8 @@ redisplay_after_signal (void)
   fflush (stdout);
 }
 
+volatile sig_atomic_t reset_info_window_sizes_required = 0;
+
 void
 reset_info_window_sizes (void)
 {
@@ -143,27 +145,21 @@ reset_info_window_sizes (void)
   redisplay_after_signal ();
 }
 
-/* Number of times we were told to ignore SIGWINCH. */
-static volatile sig_atomic_t sigwinch_block_count = 0;
-
 void
-signal_block_winch (void)
+maybe_update_after_signal (void)
 {
-#if defined (SIGWINCH)
-  if (sigwinch_block_count == 0)
-    BLOCK_SIGNAL (SIGWINCH);
-  sigwinch_block_count++;
-#endif
-}
+  if (reset_info_window_sizes_required)
+    {
+      /* prevent infinite recursion */
+      static volatile sig_atomic_t in_function = 0;
+      if (in_function)
+        return;
+      in_function = 1;
 
-void
-signal_unblock_winch (void)
-{
-#if defined (SIGWINCH)
-  sigwinch_block_count--;
-  if (sigwinch_block_count == 0)
-    UNBLOCK_SIGNAL (SIGWINCH);
-#endif
+      reset_info_window_sizes ();
+      in_function = 0;
+      reset_info_window_sizes_required = 0;
+    }
 }
 
 static void
@@ -225,7 +221,7 @@ info_signal_proc (int sig)
         terminal_prep_terminal ();
 	set_termsig (sig, old_signal_handler);
 	/* window size might be changed while sleeping */
-	reset_info_window_sizes ();
+	reset_info_window_sizes_required = 1;
       }
       break;
 
@@ -236,43 +232,9 @@ info_signal_proc (int sig)
 #ifdef SIGUSR1
     case SIGUSR1:
 #endif
-      {
-	/* Turn off terminal IO, tell our parent that the window has changed,
-	   then reinitialize the terminal and rebuild our windows. */
-#ifdef SIGWINCH
-	if (sig == SIGWINCH)
-	  old_signal_handler = &old_WINCH;
-#endif
-#ifdef SIGUSR1
-	if (sig == SIGUSR1)
-	  old_signal_handler = &old_USR1;
-#endif
-
-        /* This seems risky: what if we receive a (real) signal before
-           the next line is reached? */
-#if 0
-	restore_termsig (sig, old_signal_handler);
-	kill (getpid (), sig);
-#endif
-
-	/* After our old signal handler returns... */
-	set_termsig (sig, old_signal_handler); /* needless? */
-
-        if (sigwinch_block_count != 0)
-          abort ();
-
-        /* Avoid any of the code unblocking the signal too early.  This
-           should set the variable to 1 because we shouldn't be here if
-           sigwinch_block_count > 0. */
-        sigwinch_block_count++;
-
-	reset_info_window_sizes ();
-
-        sigwinch_block_count--;
-        /* Don't unblock the signal until after we've finished. */
-	UNBLOCK_SIGNAL (sig);
-      }
-      break;
+       reset_info_window_sizes_required = 1;
+       UNBLOCK_SIGNAL (sig);
+       break;
 #endif /* SIGWINCH || SIGUSR1 */
     }
 }
