@@ -238,6 +238,3 @@ info_signal_proc (int sig)
 #endif /* SIGWINCH || SIGUSR1 */
     }
 }
-
-
-/* vim: set sw=2 cino={1s>2sn-s^-se-s: */

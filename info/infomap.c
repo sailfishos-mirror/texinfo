@@ -733,5 +733,3 @@ read_init_file (char *init_file)
         }
     }
 }
-
-/* vim: set sw=2 cino={1s>2sn-s^-se-s: */
