@@ -1,5 +1,10 @@
 2026-07-22 Patrice Dumas  <pertusus@free.fr>
 
+	* info/info.c (main): fix removed first letters of function name
+	calls.
+
+2026-07-22 Patrice Dumas  <pertusus@free.fr>
+
 	C plaintext converter output and convert
 
 	* tta/C/convert/convert_to_plaintext.c

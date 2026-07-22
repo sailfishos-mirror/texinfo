@@ -902,8 +902,8 @@ main (int argc, char *argv[])
             p = strchr (optarg, '=');
             if (!p)
               {
-                                nfo_error (_("malformed variable assignment: %s"), optarg);
-                                xit (EXIT_FAILURE);
+                info_error (_("malformed variable assignment: %s"), optarg);
+                exit (EXIT_FAILURE);
               }
             *p++ = 0;
 
@@ -917,7 +917,7 @@ main (int argc, char *argv[])
               {
                 info_error (_("value %s is not valid for variable %s"),
                             p, optarg);
-                                xit (EXIT_FAILURE);
+                exit (EXIT_FAILURE);
               }                                  }
           break;
 
