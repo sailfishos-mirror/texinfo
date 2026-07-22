@@ -1,5 +1,12 @@
 2026-07-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (HTML Output Structure Customization):
+	Move discussion of SPLIT after discussion of USE_NODES and say
+	that by default, "each output unit" rather than "each node" is
+	output in a separate file as this may not be the case if USE_NODES=0.
+
+2026-07-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/signals.c (info_signal_proc) <SIGWINCH>:
 	Do not attempt to unblock signal, as this should be unnecessary.
 
