@@ -1,5 +1,14 @@
 2026-07-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (plaintext_free_converter)
+	(plaintext_converter_initialize), tta/C/main/converter_types.h
+	(CONVERTER): make plaintext_converter a pointer.  Update users.
+
+	* tta/C/convert/convert_to_plaintext.c: rename self_pt as
+	self_plaintext, more homogeneous code.
+
+2026-07-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (set_output_units_files): free
 	file_name_text text.
 

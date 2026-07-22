@@ -131,7 +131,7 @@ typedef struct CONVERTER {
     COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
 
   /* Info/plaintext specific */
-    PLAINTEXT_CONVERTER_STATE plaintext_converter;
+    PLAINTEXT_CONVERTER_STATE *plaintext_converter;
 
   /* HTML specific */
     HTML_CONVERTER_STATE *html_converter;

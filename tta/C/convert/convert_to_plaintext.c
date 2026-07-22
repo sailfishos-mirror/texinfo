@@ -176,21 +176,23 @@ def_stack_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
 void
 push_top_formatter (CONVERTER *self) /* , CONTEXT top_context) */
 {
-  PLAINTEXT_CONVERTER_STATE *self_pt = &self->plaintext_converter;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
 
   FORMAT_CONTEXT top_format = { 0 };
   /* top_format 'cmdname' is '_top_format' in Perl.  Use 0 in C. */
 
-  add_(format_context) (&self_pt->format_context, top_format);
+  add_(format_context) (&self_plaintext->format_context, top_format);
 
   FORMATTER top_formatter = new_formatter(self, formatter_line, -1, -1);
-  add_(formatter) (&self->plaintext_converter.formatters, top_formatter);
+  add_(formatter) (&self_plaintext->formatters, top_formatter);
 }
 
 void
 pop_formatter (CONVERTER *self)
 {
-  FORMATTER_STACK *stack = &self->plaintext_converter.formatters;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+
+  FORMATTER_STACK *stack = &self_plaintext->formatters;
   pop_(formatter) (stack);
 
   /* Note: no memory needs to be freed here. */
@@ -240,7 +242,7 @@ plaintext_format_setup (enum converter_format format)
 static void
 plaintext_conversion_initialization  (CONVERTER *self, DOCUMENT *document)
 {
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = &self->plaintext_converter;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
 
   COUNT_CONTEXT bottom_count_context = { 0 };
   add_(count_context) (&self_plaintext->count_context,
@@ -274,7 +276,7 @@ static void
 plaintext_conversion_finalization (CONVERTER *self)
 {
   /* TODO */
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = &self->plaintext_converter;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
 
   /*
   pop_top_formatter (self);
@@ -287,9 +289,9 @@ plaintext_conversion_finalization (CONVERTER *self)
 static void
 stream_reset (CONVERTER *self)
 {
-  PLAINTEXT_CONVERTER_STATE *self_pt = &self->plaintext_converter;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   COUNT_CONTEXT *count_context
-    = top_(count_context) (&self_pt->count_context);
+    = top_(count_context) (&self_plaintext->count_context);
 
   text_reset (&count_context->result);
 }
@@ -297,9 +299,9 @@ stream_reset (CONVERTER *self)
 static void
 stream_output (CONVERTER *self, const char *text)
 {
-  PLAINTEXT_CONVERTER_STATE *self_pt = &self->plaintext_converter;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   COUNT_CONTEXT *count_context
-    = top_(count_context) (&self_pt->count_context);
+    = top_(count_context) (&self_plaintext->count_context);
 
   text_append (&count_context->result, text);
 }
@@ -314,9 +316,10 @@ stream_output_count_nl (CONVERTER *self, const char *text)
 static void
 stream_output_add_text (CONVERTER *self, const char *text)
 {
-  PLAINTEXT_CONVERTER_STATE *self_pt = &self->plaintext_converter;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   /* TODO */
-  para_set_state (top_(formatter) (&self_pt->formatters)->container.paragraph);
+  para_set_state (top_(formatter) (
+                       &self_plaintext->formatters)->container.paragraph);
   TEXT result = para_add_text (text, strlen (text));
   if (result.text)
     stream_output (self, result.text);
@@ -339,7 +342,7 @@ stream_output_encoded (CONVERTER *self, const char *encoded)
 static const char *
 stream_result (CONVERTER *self)
 {
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = &self->plaintext_converter;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
 
@@ -351,9 +354,9 @@ stream_result (CONVERTER *self)
 static char *
 stream_yield_result (CONVERTER *self)
 {
-  PLAINTEXT_CONVERTER_STATE *self_pt = &self->plaintext_converter;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   COUNT_CONTEXT *count_context
-    = top_(count_context) (&self_pt->count_context);
+    = top_(count_context) (&self_plaintext->count_context);
 
   char *result = text_yield (&count_context->result);
   return result ? result : strdup ("");
@@ -396,7 +399,7 @@ static void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 static void
 convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 {
-  PLAINTEXT_CONVERTER_STATE *self_pt = &self->plaintext_converter;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   enum element_type type = element->type;
 
   /* TODO check right way to check text in union field */
@@ -586,7 +589,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           int paragraphindent = self->conf->paragraphindent.o.integer;
 
           FORMAT_CONTEXT *top_format
-            = top_(format_context) (&self_pt->format_context);
+            = top_(format_context) (&self_plaintext->format_context);
 
           int paragraphindent_size = 0;
           if (!top_format->cmd /* '_top_format' in Perl */
@@ -599,8 +602,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             = new_formatter (self, formatter_paragraph,
                              paragraphindent_size, 0);
 
-          add_(formatter) (&self_pt->formatters, new_paragraph);
-          paragraph = self_pt->formatters.number - 1;
+          add_(formatter) (&self_plaintext->formatters, new_paragraph);
+          paragraph = self_plaintext->formatters.number - 1;
 
           top_format->paragraph_count++;
         }
@@ -649,7 +652,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   /* Close paragraphs and preformatted. */
   if (paragraph)
     {
-      para_set_state (self_pt->formatters.list[paragraph].container.paragraph);
+      para_set_state (
+          self_plaintext->formatters.list[paragraph].container.paragraph);
       char *result = para_end ();
       stream_output_count_nl (self, result);
       pop_formatter (self);
@@ -687,17 +691,21 @@ convert_to_plaintext (CONVERTER *self, const ELEMENT *e)
 void
 plaintext_free_converter (CONVERTER *self)
 {
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = &self->plaintext_converter;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
 
   free (self_plaintext->enabled_encoding);
   clear_count_context_stack (&self_plaintext->count_context);
+
+  free (self_plaintext);
 }
 
 void
 plaintext_converter_initialize (CONVERTER *self)
 {
   size_t i;
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = &self->plaintext_converter;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = (PLAINTEXT_CONVERTER_STATE *)
+                                malloc (sizeof (PLAINTEXT_CONVERTER_STATE));
+  self->plaintext_converter = self_plaintext;
 
   memset (self_plaintext, 0, sizeof (*self_plaintext));
 
@@ -802,7 +810,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
   size_t output_units_descriptor;
   OUTPUT_UNIT_LIST *output_units;
   const NODE_RELATIONS_LIST *nodes_list;
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = &self->plaintext_converter;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
 
   /*
   return converter_output_tree (self, document, 0, 0, 0, 0);
@@ -1142,7 +1150,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
 char *
 plaintext_convert (CONVERTER *self, DOCUMENT *document)
 {
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = &self->plaintext_converter;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   size_t output_units_descriptor;
   OUTPUT_UNIT_LIST *output_units;
   size_t i;
@@ -1170,13 +1178,13 @@ plaintext_convert (CONVERTER *self, DOCUMENT *document)
 }
 
 char *
-plaintext_convert_tree (CONVERTER *converter,
-                           const ELEMENT *tree)
+plaintext_convert_tree (CONVERTER *self, const ELEMENT *tree)
 {
-  COUNT_CONTEXT new_count_context = { 0 };
-  add_(count_context) (&converter->plaintext_converter.count_context,
-                       new_count_context);
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
 
-  char *result = convert_to_plaintext (converter, tree);
+  COUNT_CONTEXT new_count_context = { 0 };
+  add_(count_context) (&self_plaintext->count_context, new_count_context);
+
+  char *result = convert_to_plaintext (self, tree);
   return result;
 }

@@ -14,14 +14,13 @@ CONVERTER_INITIALIZATION_INFO *plaintext_converter_defaults
                                 (enum converter_format format,
                                  const CONVERTER_INITIALIZATION_INFO *conf);
 
-char *plaintext_output (CONVERTER *converter, DOCUMENT *document);
+char *plaintext_output (CONVERTER *self, DOCUMENT *document);
 
-char *plaintext_convert (CONVERTER *converter, DOCUMENT *document);
+char *plaintext_convert (CONVERTER *self, DOCUMENT *document);
 
-char *plaintext_convert_tree (CONVERTER *converter,
-                                 const ELEMENT *tree);
+char *plaintext_convert_tree (CONVERTER *self, const ELEMENT *tree);
 
-void plaintext_free_converter (CONVERTER *converter);
+void plaintext_free_converter (CONVERTER *self);
 void plaintext_converter_initialize (CONVERTER *self);
 
 #endif
