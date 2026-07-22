@@ -556,14 +556,15 @@ get_node_node_childs_from_sectioning (const NODE_RELATIONS *node_relations)
   return node_childs;
 }
 
-static char **
-register_referenced_node (const ELEMENT *node, char **referenced_identifiers,
+static const char **
+register_referenced_node (const ELEMENT *node,
+                          const char **referenced_identifiers,
                           size_t *referenced_identifier_space_ptr,
                           size_t *referenced_identifier_number_ptr)
 {
   size_t referenced_identifier_space = *referenced_identifier_space_ptr;
   size_t referenced_identifier_number = *referenced_identifier_number_ptr;
-  char *normalized;
+  const char *normalized;
 
   if (node->e.c->cmd != CM_node)
     return referenced_identifiers;
@@ -576,7 +577,7 @@ register_referenced_node (const ELEMENT *node, char **referenced_identifiers,
           referenced_identifier_space *= 2;
           referenced_identifiers
              = realloc (referenced_identifiers,
-                        referenced_identifier_space * sizeof (char *));
+                        referenced_identifier_space * sizeof (const char *));
         }
       referenced_identifiers[referenced_identifier_number] = normalized;
       referenced_identifier_number++;
@@ -633,12 +634,12 @@ check_nodes_are_referenced (DOCUMENT *document)
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
   const ELEMENT_LIST *refs = &document->internal_references;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
-  OPTIONS *options = document->options;
+  const OPTIONS *options = document->options;
   int warn_debug = (options && options->DEBUG.o.integer > 0);
   int check_node_in_menu;
   int all_nodes_are_referenced;
 
-  char **referenced_identifiers;
+  const char **referenced_identifiers;
   size_t referenced_identifier_space;
   size_t referenced_identifier_number = 1;
   size_t i;
@@ -653,7 +654,7 @@ check_nodes_are_referenced (DOCUMENT *document)
 
   referenced_identifier_space = nodes_list->number * 2;
   referenced_identifiers
-    = malloc (referenced_identifier_space * sizeof (char *));
+    = malloc (referenced_identifier_space * sizeof (const char *));
 
   top_target_element = find_identifier_target (identifiers_target,
                                                "Top");
@@ -663,7 +664,7 @@ check_nodes_are_referenced (DOCUMENT *document)
   if (!top_node)
     {
       top_node = nodes_list->list[0]->element;
-      char *normalized = lookup_extra_string (top_node, AI_key_identifier);
+      const char *normalized = lookup_extra_string (top_node, AI_key_identifier);
       if (normalized)
         referenced_identifiers[0] = normalized;
       else
@@ -764,11 +765,11 @@ check_nodes_are_referenced (DOCUMENT *document)
       size_t i;
       for (i = 0; i < refs->number; i++)
         {
-          ELEMENT *ref = refs->list[i];
+          const ELEMENT *ref = refs->list[i];
           if (ref->e.c->contents.number > 0)
             {
-              ELEMENT *label_arg = ref->e.c->contents.list[0];
-              char *ref_normalized;
+              const ELEMENT *label_arg = ref->e.c->contents.list[0];
+              const char *ref_normalized;
               if (type_data[label_arg->type].flags & TF_text)
                 continue;
 
@@ -776,7 +777,8 @@ check_nodes_are_referenced (DOCUMENT *document)
                                                     AI_key_normalized);
               if (ref_normalized)
                 {
-                  ELEMENT *target = find_identifier_target (identifiers_target,
+                  const ELEMENT *target
+                           = find_identifier_target (identifiers_target,
                                                             ref_normalized);
                   if (target)
                     referenced_identifiers =
@@ -795,7 +797,7 @@ check_nodes_are_referenced (DOCUMENT *document)
    */
 
   qsort (referenced_identifiers, referenced_identifier_number,
-         sizeof (char *), compare_strings);
+         sizeof (const char *), compare_strings);
 
    /*
   fprintf (stderr, "DEBUG: sorted referenced: %zu\n",
@@ -823,7 +825,8 @@ check_nodes_are_referenced (DOCUMENT *document)
                 {
                   memmove (&referenced_identifiers[i+1],
                            &referenced_identifiers[j+1],
-                    (referenced_identifier_number - (j + 1))* sizeof (char*));
+                    (referenced_identifier_number - (j + 1))
+                                                 * sizeof (const char *));
                 }
               referenced_identifier_number -= (j - i);
             }
@@ -865,7 +868,7 @@ check_nodes_are_referenced (DOCUMENT *document)
             {
               const char *found = (const char *)bsearch (&normalized,
                              referenced_identifiers,
-                             referenced_identifier_number, sizeof (char *),
+                             referenced_identifier_number, sizeof (const char *),
                              compare_strings);
               if (!found)
                 {
@@ -913,7 +916,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
   const NODE_RELATIONS_LIST *nodes_list = &document->nodes_list;
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
-  OPTIONS *options = document->options;
+  const OPTIONS *options = document->options;
 
   int check_menu_entries = 1;
   size_t i;
