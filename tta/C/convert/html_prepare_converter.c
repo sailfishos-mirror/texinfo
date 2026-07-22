@@ -695,7 +695,7 @@ html_builtin_default_css_text (void)
 int
 html_nr_string_directions (const CONVERTER *self)
 {
-  const HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  const HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   /* The corresponding direction without FirstInFile are used instead
      of FirstInFile*, so the directions_strings are not set */
@@ -729,7 +729,7 @@ html_set_global_direction (CONVERTER *self,
               DIRECTION_NODE_NAME_LIST *customized_global_units_directions,
               const char *direction, const char *node_name)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   DIRECTION_NODE_NAME *direction_node_name = 0;
   int main_directions_idx = html_get_direction_index (self, direction);
   if (main_directions_idx < 0)
@@ -1253,7 +1253,7 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
 static void
 load_htmlxref_files (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   const char *htmlxref_mode = self->conf->HTMLXREF_MODE.o.string;
   const char *htmlxref_file_name = "htmlxref.cnf";
@@ -1833,7 +1833,7 @@ html_process_css_file (CONVERTER *self, FILE *fh, char *filename,
 static void
 html_prepare_css (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   const STRING_LIST *css_files;
   STRING_LIST *css_import_lines;
   STRING_LIST *css_rule_lines;
@@ -1969,6 +1969,10 @@ html_converter_initialize_beginning (CONVERTER *self)
   const char *split = self->conf->SPLIT.o.string;
   int max_header_level = self->conf->MAX_HEADER_LEVEL.o.integer;
 
+  self->html_converter = (HTML_CONVERTER_STATE *)
+                              malloc (sizeof (HTML_CONVERTER_STATE));
+  memset (self->html_converter, 0, sizeof (HTML_CONVERTER_STATE));
+
   if (!self->conf->FORMAT_MENU.o.string)
     option_force_conf (&self->conf->FORMAT_MENU, 0, "");
 
@@ -2049,7 +2053,7 @@ extern const STRING_LIST default_special_unit_varieties;
 void
 html_converter_init_special_unit_varieties (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   /* NOTE if the special units can be customized, then
      self_html->special_unit_varieties should ba set and used directly instead.
      Also default special units and special units indices should be
@@ -2062,7 +2066,7 @@ html_converter_init_special_unit_varieties (CONVERTER *self)
 void
 html_converter_init_special_units_info (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t nr_special_units;
 
   nr_special_units = self_html->special_unit_varieties.number;
@@ -2172,7 +2176,7 @@ new_directions_strings_translated_type (int nr_string_directions)
 static int *
 determine_non_default_special_unit_directions (const CONVERTER *self)
 {
-  const HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  const HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t i;
   size_t nr_special_units = self_html->special_unit_varieties.number;
   int *non_default_special_unit_directions = 0;
@@ -2551,7 +2555,7 @@ static const SPECIAL_UNIT_BODY_INTERNAL_CONVERSION
 int
 html_set_main_units_direction_names (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t nr_special_units = self_html->special_unit_varieties.number;
   /* The corresponding direction without FirstInFile are used instead
      of FirstInFile*, so the directions_strings are not set */
@@ -2727,7 +2731,7 @@ html_set_main_units_direction_names (CONVERTER *self)
 void
 html_converter_customize (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t i;
   int l;
   enum direction_string_type DS_type;
@@ -3602,7 +3606,7 @@ reset_html_targets_list (CONVERTER *self, HTML_TARGET_LIST *targets)
 void
 reset_html_targets (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t i;
 
   for (i = 0; i < self_html->html_target_cmds.number; i++)
@@ -3620,7 +3624,7 @@ reset_html_targets (CONVERTER *self)
 void
 reset_html_page_css (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t i;
 
   for (i = 0; i < self_html->page_css.number; i++)
@@ -3645,7 +3649,7 @@ void
 html_conversion_initialization (CONVERTER *self, const char *context,
                                 DOCUMENT *document)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   int i;
   size_t j;
   const char *output_encoding;
@@ -4098,7 +4102,7 @@ html_conversion_initialization (CONVERTER *self, const char *context,
 static void
 init_conversion_after_setup_handler (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   /* the presence of contents elements in the document is used in diverse
      places, set it once for all here */
@@ -4149,7 +4153,7 @@ initialize_jslicense_files (JSLICENSE_FILE_INFO_LIST *jslicences_files_info,
 int
 html_setup_output (CONVERTER *self, char **paths)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   int handler_fatal_error_level;
   int setup_handler_status;
@@ -4355,7 +4359,7 @@ compare_special_units (const void *a, const void *b)
 static void
 prepare_special_units (CONVERTER *self, size_t output_units_descriptor)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   size_t i;
   STRING_LIST *special_unit_varieties = &self_html->special_unit_varieties;
@@ -4548,7 +4552,7 @@ prepare_special_units (CONVERTER *self, size_t output_units_descriptor)
 void
 html_prepare_conversion_units (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t output_units_descriptor;
 
   if (self->conf->USE_NODES.o.integer > 0)
@@ -4593,14 +4597,14 @@ html_prepare_conversion_units (CONVERTER *self)
 int
 html_id_is_registered (CONVERTER *self, const char *string)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   return is_c_hashmap_registered (self_html->registered_ids_c_hashmap, string);
 }
 
 void
 html_register_id (CONVERTER *self, const char *string)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   c_hashmap_register (self_html->registered_ids_c_hashmap, string, 0);
 }
 
@@ -4634,7 +4638,7 @@ static HTML_TARGET *
 add_element_target (CONVERTER *self, const ELEMENT *element,
                     const char *target)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   enum command_id cmd = element_builtin_cmd (element);
   HTML_TARGET_LIST *targets = &self_html->html_targets[cmd];
   return add_element_target_to_list (targets, element, target);
@@ -4644,7 +4648,7 @@ static HTML_TARGET *
 add_special_target (CONVERTER *self, enum special_target_type type,
                     const ELEMENT *element, const char *target)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   HTML_TARGET_LIST *targets = &self_html->html_special_targets[type];
   return add_element_target_to_list (targets, element, target);
 }
@@ -4673,7 +4677,7 @@ unique_target (CONVERTER *self, const char *target_base)
 static void
 set_special_units_targets_files (CONVERTER *self, const char *document_name)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   size_t i;
   TEXT text_name;
@@ -4768,7 +4772,7 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
 static void
 prepare_associated_special_units_targets (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   const OUTPUT_UNIT_LIST *associated_special_units = retrieve_output_units
    (self->document,
     self_html->output_units_descriptors[OUDT_associated_special_units]);
@@ -5060,7 +5064,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
 static void
 prepare_index_entries_targets (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   if (self->document->indices_info.number > 0)
     {
       size_t i;
@@ -5173,7 +5177,7 @@ static const char *docid_base = "DOCF";
 static void
 prepare_footnotes_targets (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   const ELEMENT_LIST *global_footnotes
     = &self->document->global_commands.footnotes;
@@ -5335,7 +5339,7 @@ check_targets_order (enum command_id cmd, HTML_TARGET_LIST *element_targets)
 static void
 sort_cmd_targets (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   enum command_id cmd;
   int type;
 
@@ -5379,7 +5383,7 @@ sort_cmd_targets (CONVERTER *self)
 static size_t
 ids_hashmap_predicted_values (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t sectioning_commands_nr;
   size_t index_entries_nr = 0;
   size_t heading_commands_nr = 0;
@@ -5426,7 +5430,7 @@ void
 html_prepare_conversion_units_targets (CONVERTER *self,
                                        const char *document_name)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t predicted_values = ids_hashmap_predicted_values (self);
 
   /* Not done as in Perl in conversion initialization, to be able to
@@ -5472,7 +5476,7 @@ html_prepare_conversion_units_targets (CONVERTER *self,
 void
 html_prepare_output_units_global_targets (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   int i;
   int all_special_units_nr = 0;
   int s;
@@ -5773,7 +5777,7 @@ compare_global_units_direction_name (const void *a, const void *b)
 void
 html_setup_global_units_direction_names (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   SPECIAL_UNIT_DIRECTION *global_units_directions_list;
   int i;
@@ -5860,7 +5864,7 @@ html_setup_global_units_direction_names (CONVERTER *self)
 void
 html_setup_global_texts_direction_names (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t i;
 
   for (i = DEFAULT_GLOBAL_DIRECTION_LAST_IDX+1;
@@ -5904,7 +5908,7 @@ add_to_unit_file_name_paths (char **unit_file_name_paths,
 static void
 html_initialize_pending_closes (CONVERTER *self, size_t number)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   if (self_html->pending_closes.space < number)
     {
@@ -5928,7 +5932,7 @@ html_initialize_pending_closes (CONVERTER *self, size_t number)
 static void
 prepare_page_css (CONVERTER *self, size_t pages_number)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   /* 0 is for document_global_context_css, the remaining indices
      for the output unit files or the unique page with convert */
@@ -5953,7 +5957,7 @@ prepare_page_css (CONVERTER *self, size_t pages_number)
 void
 html_setup_output_simple_page (CONVERTER *self, const char *output_filename)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   NAME_NUMBER *page_name_number;
 
@@ -5990,7 +5994,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                       const char *destination_directory, const char *output_filename,
                       const char *document_name)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   FILE_SOURCE_INFO_LIST *files_source_info;
   char **unit_file_name_paths;
@@ -6492,7 +6496,7 @@ html_prepare_units_directions_files (CONVERTER *self,
           const char *output_file, const char *destination_directory,
           const char *output_filename, const char *document_name)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   size_t i;
   FILE_SOURCE_INFO_LIST *files_source_info = 0;

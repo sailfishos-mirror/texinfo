@@ -134,7 +134,7 @@ typedef struct CONVERTER {
     PLAINTEXT_CONVERTER_STATE plaintext_converter;
 
   /* HTML specific */
-    HTML_CONVERTER_STATE html_converter;
+    HTML_CONVERTER_STATE *html_converter;
 } CONVERTER;
 
 /* following types used in several converter codes, but not in this file */

@@ -2511,7 +2511,7 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV *converter_sv)
   if (converter->document)
     {
       /* Used to access output_units_descriptors. */
-      HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+      HTML_CONVERTER_STATE *self_html = converter->html_converter;
 
  /* need to setup the Perl tree before rebuilding the output units as
     they refer to Perl root command elements */
@@ -3433,7 +3433,7 @@ html_build_buttons_specification (CONVERTER *converter,
 
   buttons->av = buttons_av;
   HTML_CONVERTER_STATE *self_html = converter
-                                    ? &converter->html_converter : NULL;
+                                    ? converter->html_converter : NULL;
 
   for (i = 0; i < buttons->number; i++)
     {

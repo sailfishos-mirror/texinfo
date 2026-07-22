@@ -306,7 +306,7 @@ HTML_DOCUMENT_CONTEXT *
 html_top_document_context (const CONVERTER *self)
 {
   const HTML_DOCUMENT_CONTEXT_STACK *stack;
-  stack = &self->html_converter.html_document_context;
+  stack = &self->html_converter->html_document_context;
 
   if (stack->number == 0)
     fatal ("HTML document context stack empty for top");

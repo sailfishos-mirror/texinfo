@@ -66,7 +66,7 @@ static const char *lang_trans_key = "current_lang_translations";
 static void
 build_html_translated_names (HV *converter_hv, CONVERTER *converter)
 {
-  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+  HTML_CONVERTER_STATE *self_html = converter->html_converter;
   SV **no_arg_commands_formatting_sv;
 
   dTHX;
@@ -192,7 +192,7 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
 void
 build_html_formatting_state (CONVERTER *converter)
 {
-  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+  HTML_CONVERTER_STATE *self_html = converter->html_converter;
   HV *converter_hv;
   unsigned long flags;
 

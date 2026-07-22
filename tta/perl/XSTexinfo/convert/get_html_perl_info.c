@@ -159,7 +159,7 @@ html_converter_init_special_unit_sv (SV *converter_sv,
   converter = get_sv_converter (converter_sv,
                                 "html_converter_init_special_unit_sv");
 
-  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+  HTML_CONVERTER_STATE *self_html = converter->html_converter;
   special_unit_varieties = &self_html->special_unit_varieties;
 
   if (customized_special_unit_info && SvOK (customized_special_unit_info))
@@ -286,7 +286,7 @@ html_converter_get_customization_sv (SV *converter_sv,
 
   converter = get_sv_converter (converter_sv,
                                 "html_converter_get_customization_sv");
-  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+  HTML_CONVERTER_STATE *self_html = converter->html_converter;
 
   special_unit_varieties = &self_html->special_unit_varieties;
 
@@ -1349,7 +1349,7 @@ html_find_element_from_sv (CONVERTER *converter, const SV *element_sv,
   HV *element_hv;
   SV **type_sv;
   const ELEMENT *element;
-  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+  HTML_CONVERTER_STATE *self_html = converter->html_converter;
 
   dTHX;
 
@@ -1471,7 +1471,7 @@ find_index_entry_numbers_index_entry_sv (CONVERTER *converter,
           int entry_number = SvIV (*number_sv);
 
           *index_nr = index_number_index_by_name
-            (&converter->html_converter.sorted_index_names, index_name);
+            (&converter->html_converter->sorted_index_names, index_name);
           return entry_number;
         }
     }
@@ -1511,7 +1511,7 @@ get_authors_list (CONVERTER *converter, SV *quotation_titlepage_nr_sv,
 {
   size_t quotation_titlepage_nr;
   ELEMENT_REFERENCE_STACK_STACK *elements_authors;
-  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+  HTML_CONVERTER_STATE *self_html = converter->html_converter;
 
   dTHX;
 
@@ -1544,7 +1544,7 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
                                const int args_nr, SV **args_sv)
 {
   dTHX;
-  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+  HTML_CONVERTER_STATE *self_html = converter->html_converter;
 
   if (!strcmp (state_name, "formatted_index_entries"))
     {
@@ -1769,7 +1769,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
                                const int args_nr, SV **args_sv)
 {
   dTHX;
-  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+  HTML_CONVERTER_STATE *self_html = converter->html_converter;
 
   if (!strcmp (state_name, "formatted_index_entries"))
     {

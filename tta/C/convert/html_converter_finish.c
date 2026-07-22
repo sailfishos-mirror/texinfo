@@ -76,7 +76,7 @@ html_destroy_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
 void
 html_free_converter (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   int i;
   size_t j;
   int nr_string_directions = html_nr_string_directions (self);
@@ -465,5 +465,7 @@ html_free_converter (CONVERTER *self)
   free_strings_list (&self_html->files_css_rule_lines);
 
   free_special_unit_info_list (&self_html->customized_special_unit_info);
+
+  free (self_html);
 }
 

@@ -118,7 +118,7 @@ html_pass_htmlxref (HTMLXREF_MANUAL_LIST *htmlxref_list, SV *converter_sv)
 SV *
 build_no_arg_commands_formatting (const CONVERTER *converter)
 {
-  const HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+  const HTML_CONVERTER_STATE *self_html = converter->html_converter;
   HV *no_arg_commands_formatting_hv;
   size_t i;
 
@@ -197,7 +197,7 @@ void
 html_pass_conversion_initialization (CONVERTER *converter,
                                      SV *converter_sv)
 {
-  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+  HTML_CONVERTER_STATE *self_html = converter->html_converter;
   HV *converter_hv;
   HV *converter_info_hv;
   HV *translation_cache_hv;
@@ -264,7 +264,7 @@ void
 html_pass_converter_setup_state (const CONVERTER *converter,
                                  SV *converter_sv)
 {
-  const HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+  const HTML_CONVERTER_STATE *self_html = converter->html_converter;
   HV *converter_hv;
 
   dTHX;
@@ -330,7 +330,7 @@ build_html_files_source_info (const FILE_SOURCE_INFO_LIST *files_source_info)
 void
 set_document_units_handle (CONVERTER *converter, SV *converter_sv)
 {
-  HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+  HTML_CONVERTER_STATE *self_html = converter->html_converter;
   dTHX;
 
   HV *converter_hv = (HV *) SvRV (converter_sv);
@@ -438,7 +438,7 @@ void
 build_simpletitle (const CONVERTER *converter, HV *converter_info_hv)
 {
   dTHX;
-  const HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+  const HTML_CONVERTER_STATE *self_html = converter->html_converter;
 
   hv_store (converter_info_hv, "simpletitle_tree",
             strlen ("simpletitle_tree"),
@@ -499,7 +499,7 @@ pass_sv_converter_info (const CONVERTER *converter,
 
   dTHX;
 
-  const HTML_CONVERTER_STATE *self_html = &converter->html_converter;
+  const HTML_CONVERTER_STATE *self_html = converter->html_converter;
 
   converter_hv = (HV *) SvRV (converter_sv);
   /* do not find the cache in Perl data but in C to be more robust to

@@ -76,7 +76,7 @@ html_new_document_context (CONVERTER *self,
         const char *document_global_context,
         enum command_id block_command)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   HTML_DOCUMENT_CONTEXT_STACK *stack = &self_html->html_document_context;
   HTML_DOCUMENT_CONTEXT *doc_context;
 
@@ -122,7 +122,7 @@ html_new_document_context (CONVERTER *self,
 void
 html_pop_document_context (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   HTML_DOCUMENT_CONTEXT_STACK *stack = &self_html->html_document_context;
   HTML_DOCUMENT_CONTEXT *document_ctx;
@@ -334,7 +334,7 @@ html_convert_command_update_context (CONVERTER *self, enum command_id data_cmd)
 void
 html_open_type_update_context (CONVERTER *self, enum element_type type)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   HTML_DOCUMENT_CONTEXT *top_document_ctx = html_top_document_context (self);
   HTML_FORMATTING_CONTEXT *top_formating_ctx
@@ -365,7 +365,7 @@ html_open_type_update_context (CONVERTER *self, enum element_type type)
 void
 html_convert_type_update_context (CONVERTER *self, enum element_type type)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   HTML_DOCUMENT_CONTEXT *top_document_ctx = html_top_document_context (self);
 
   if (self_html->code_types[type])
@@ -610,7 +610,7 @@ html_unset_raw_context (CONVERTER *self)
 const char *
 html_multi_expanded_region (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   if (self_html->multiple_pass.number > 0)
     return top_string_stack (&self_html->multiple_pass);
 
@@ -620,21 +620,21 @@ html_multi_expanded_region (CONVERTER *self)
 void
 html_set_multiple_conversions (CONVERTER *self, const char *multiple_pass)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   push_string_stack_string (&self_html->multiple_pass, multiple_pass);
 }
 
 void
 html_unset_multiple_conversions (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   pop_string_stack (&self_html->multiple_pass);
 }
 
 size_t
 html_in_multiple_conversions (const CONVERTER *self)
 {
-  const HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  const HTML_CONVERTER_STATE *self_html = self->html_converter;
   return self_html->multiple_pass.number;
 }
 
@@ -643,7 +643,7 @@ html_register_footnote (CONVERTER *self, const ELEMENT *command,
      const char *footid, const char *docid, int number_in_doc,
      const char *footnote_location_filename, const char *multi_expanded_region)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   HTML_PENDING_FOOTNOTE_STACK *stack;
   HTML_PENDING_FOOTNOTE *pending_footnote;
 
@@ -701,7 +701,7 @@ void
 html_register_pending_formatted_inline_content (CONVERTER *self,
                              const char *category, const char *inline_content)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   HTML_INLINE_CONTENT *pending_content;
   HTML_INLINE_CONTENT_STACK *stack;
 
@@ -728,7 +728,7 @@ char *
 html_cancel_pending_formatted_inline_content (CONVERTER *self,
                                               const char *category)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   HTML_INLINE_CONTENT_STACK *stack = &self_html->pending_inline_content;
   if (stack->number)
     {
@@ -759,7 +759,7 @@ html_cancel_pending_formatted_inline_content (CONVERTER *self,
 char *
 html_get_pending_formatted_inline_content (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   HTML_INLINE_CONTENT_STACK *stack = &self_html->pending_inline_content;
   if (stack->number)
     {
@@ -812,7 +812,7 @@ html_associate_pending_formatted_inline_content (CONVERTER *self,
                                             const void *hv,
                                             const char *inline_content)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   HTML_ASSOCIATED_INLINE_CONTENT_LIST *associated_content_list
     = &self_html->associated_inline_content;
   HTML_ASSOCIATED_INLINE_CONTENT *element_associated_content = 0;
@@ -871,7 +871,7 @@ html_get_associated_formatted_inline_content (CONVERTER *self,
                                               const ELEMENT *element,
                                               const void *hv)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   HTML_ASSOCIATED_INLINE_CONTENT_LIST *associated_content_list
     = &self_html->associated_inline_content;
   HTML_ASSOCIATED_INLINE_CONTENT *element_associated_content = 0;
@@ -936,7 +936,7 @@ void
 html_register_file_information (CONVERTER *self, const char *key,
                                 int value)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   FILE_ASSOCIATED_INFO *associated_info
     = &self_html->html_files_information.list[self_html->current_filename.file_number];
   add_associated_file_info_integer (associated_info, key, value);
@@ -959,7 +959,7 @@ int
 html_get_file_information (const CONVERTER *self, const char *key,
                            const char *filename, int *status)
 {
-  const HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  const HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t page_number;
   const FILE_ASSOCIATED_INFO *associated_info;
   const FILE_INFO_KEY_PAIR *k;
@@ -992,7 +992,7 @@ void
 html_register_opened_section_level (CONVERTER *self, size_t file_number,
                                     int level, const char *close_string)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   STRING_STACK *file_pending_closes 
     = &self_html->pending_closes.list[file_number -1];
 
@@ -1022,7 +1022,7 @@ STRING_LIST *
 html_close_registered_sections_level (CONVERTER *self, size_t file_number,
                                       int level)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   STRING_STACK *file_pending_closes
     = &self_html->pending_closes.list[file_number -1];
   STRING_LIST *closed_elements = new_string_list ();
@@ -1120,7 +1120,7 @@ size_t
 html_check_htmlxref_already_warned (CONVERTER *self, const char *manual_name,
                                     const SOURCE_INFO *source_info)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   STRING_LIST *htmlxref_warned_list
     = &self_html->check_htmlxref_already_warned;
   char *node_manual_key;
@@ -1164,7 +1164,7 @@ const OUTPUT_UNIT *
 html_find_direction_name_global_unit (const CONVERTER *self,
                                       const char *direction_name)
 {
-  const HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  const HTML_CONVERTER_STATE *self_html = self->html_converter;
   SPECIAL_UNIT_DIRECTION *result = 0;
   static SPECIAL_UNIT_DIRECTION searched_direction;
 
@@ -1201,7 +1201,7 @@ void
 html_css_add_info (CONVERTER *self, enum css_info_type type,
                    const char *css_info)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   if (type == CI_css_info_rules)
     add_string (css_info, &self_html->css_rule_lines);
   else if (type == CI_css_info_imports)
@@ -1211,7 +1211,7 @@ html_css_add_info (CONVERTER *self, enum css_info_type type,
 const STRING_LIST *
 html_css_get_info (CONVERTER *self, enum css_info_type type)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   if (type == CI_css_info_rules)
     return &self_html->css_rule_lines;
   else if (type == CI_css_info_imports)
@@ -1335,7 +1335,7 @@ html_css_set_selector_style (CSS_SELECTOR_STYLE_LIST *css_element_class_styles,
 const char *
 html_css_get_selector_style (CONVERTER *self, const char *css_info)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   const CSS_SELECTOR_STYLE *selector_style
    = find_css_selector_style (&self_html->css_element_class_styles, css_info);
@@ -1359,7 +1359,7 @@ compare_strings (const void *a, const void *b)
 STRING_LIST *
 html_get_css_elements_classes (CONVERTER *self, const char *filename)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t j;
   size_t page_number;
   STRING_LIST *result;

@@ -683,7 +683,13 @@ converter_set_document (CONVERTER *converter, DOCUMENT *document)
     {
       int i;
       for (i = 0; i < OUDT_external_nodes_units+1; i++)
-        converter->html_converter.output_units_descriptors[i] = 0;
+        /* FIXME do that only if converter->html_converter, or
+           put in the generic converter or move to HTML specific code?
+           For some reason this
+           does not trigger a segmentation fault.  Because this is
+           not often called as it requires reusing a converter?
+         */
+        converter->html_converter->output_units_descriptors[i] = 0;
       converter->document = 0;
     }
 
@@ -2281,6 +2287,7 @@ set_output_units_files (CONVERTER *self,
 
           self->output_unit_file_indices[i] = output_unit_file_idx;
         }
+      free (file_name_text.text);
       free (top_node_filename_str);
     }
 
@@ -2310,19 +2317,24 @@ destroy_converter_output_units (CONVERTER *self)
   int i;
   int check_counts = (self->conf->TEST.o.integer > 1);
   ERROR_MESSAGE_LIST *error_messages = 0;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   if (check_counts)
     error_messages = set_check_element_interpreter_refcount ();
-  for (i = 0; i < OUDT_external_nodes_units+1; i++)
+  /* FIXME move to generic converter or move code to HTML specific function? */
+  if (self_html)
     {
-      if (self->html_converter.output_units_descriptors[i])
+      for (i = 0; i < OUDT_external_nodes_units+1; i++)
         {
-          OUTPUT_UNIT_LIST *output_unit_list
-            = retrieve_output_units (self->document,
-                                     self->html_converter.output_units_descriptors[i]);
-          if (output_unit_list)
-            free_output_unit_list (output_unit_list);
-          self->html_converter.output_units_descriptors[i] = 0;
+          if (self_html->output_units_descriptors[i])
+            {
+              OUTPUT_UNIT_LIST *output_unit_list
+                = retrieve_output_units (self->document,
+                           self_html->output_units_descriptors[i]);
+              if (output_unit_list)
+                free_output_unit_list (output_unit_list);
+              self_html->output_units_descriptors[i] = 0;
+            }
         }
     }
   if (check_counts)
@@ -2336,24 +2348,29 @@ destroy_converter_output_units (CONVERTER *self)
 static void
 reset_tree_to_build (CONVERTER *self)
 {
-  if (self->html_converter.tree_to_build.number > 0)
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
+
+  if (self_html)
     {
-      fprintf (stderr, "BUG: tree_to_build: %zu\n",
-                       self->html_converter.tree_to_build.number);
-      if (self->conf->DEBUG.o.integer > 0)
+      if (self_html->tree_to_build.number > 0)
         {
-          size_t i;
-          for (i = 0; i < self->html_converter.tree_to_build.number; i++)
+          fprintf (stderr, "BUG: tree_to_build: %zu\n",
+                           self_html->tree_to_build.number);
+          if (self->conf->DEBUG.o.integer > 0)
             {
-              ELEMENT *element = self->html_converter.tree_to_build.list[i];
-          /* in most cases, the trees have been destroyed, so this
-             will often segfault */
-              fprintf (stderr, " %zu: '%s'\n", i,
-                               convert_to_texinfo (element));
+              size_t i;
+              for (i = 0; i < self_html->tree_to_build.number; i++)
+                {
+                  ELEMENT *element = self_html->tree_to_build.list[i];
+              /* in most cases, the trees have been destroyed, so this
+                 will often segfault */
+                  fprintf (stderr, " %zu: '%s'\n", i,
+                                   convert_to_texinfo (element));
+                }
             }
         }
+      self_html->tree_to_build.number = 0;
     }
-  self->html_converter.tree_to_build.number = 0;
 }
 
 void
@@ -2374,7 +2391,7 @@ converter_remove_output_units (CONVERTER *self)
   /* HTML specific, but good to be here.
      If there is still tree to build at this point, this means
      will almost certainty that there is something wrong, as
-     the associated trees are most likely to have been destroyed
+     it is likely that the associated trees have been destroyed
      and having the output units is a sign that conversion data
      should have been reset or could be reset at any time.
    */

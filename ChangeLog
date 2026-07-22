@@ -1,3 +1,22 @@
+2026-07-22 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/converter.c (set_output_units_files): free
+	file_name_text text.
+
+	* tta/C/convert/html_prepare_converter.c
+	(html_converter_initialize_beginning),
+	tta/C/convert/html_converter_finish.c (html_free_converter),
+	tta/C/main/converter_types.h (CONVERTER): make html_converter a
+	pointer in CONVERTER.  Update users.
+
+	* tta/C/main/get_perl_info.c (find_element_extra_index_entry_sv):
+	access html_converter only if converter is set.
+
+	* tta/C/main/get_perl_info.c (converter_release_output_units_built),
+	tta/C/convert/converter.c (destroy_converter_output_units),
+	tta/C/convert/converter.c (reset_tree_to_build): check if
+	html_converter is set.
+
 2026-07-22  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (HTML Output Structure Customization):

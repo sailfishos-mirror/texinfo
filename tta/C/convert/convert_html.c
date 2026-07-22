@@ -104,7 +104,7 @@ format_translate_message (CONVERTER *self,
                                   const DOCUMENT_LANG_INFO *lang_info,
                                   const char *message_context)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
    = &self_html->current_formatting_references[FR_format_translate_message];
 
@@ -119,7 +119,7 @@ html_custom_translate_string (CONVERTER *self, const char *string,
                               const DOCUMENT_LANG_INFO *lang_info,
                               const char *translation_context)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   const FORMATTING_REFERENCE *formatting_reference
     = &self_html->current_formatting_references[FR_format_translate_message];
 
@@ -151,7 +151,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
                              const LANG_TRANSLATION *lang_translation,
                              const char *translation_context)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   int debug_level = 0;
   char *translated_string;
   const DOCUMENT_LANG_INFO *lang_info;
@@ -318,7 +318,7 @@ html_element_cdt_tree (const char *string, const ELEMENT *element,
 void
 add_tree_to_build (CONVERTER *self, ELEMENT *e)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   if (self_html->external_references_number > 0)
     add_to_element_list (&self_html->tree_to_build, e);
 }
@@ -326,7 +326,7 @@ add_tree_to_build (CONVERTER *self, ELEMENT *e)
 void
 remove_tree_to_build (CONVERTER *self, ELEMENT *e)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   if (self_html->external_references_number > 0)
     replace_remove_list_element (&self_html->tree_to_build, e, 0);
 }
@@ -420,7 +420,7 @@ char *
 html_convert_css_string (CONVERTER *self, const ELEMENT *element,
                          const char *context_str)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   char *css_string_context_str;
   char *context_string_str;
@@ -505,7 +505,7 @@ html_clear_direction_string_type (const CONVERTER *self,
 void
 html_reset_translated_special_unit_info_tree (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   STRING_LIST *special_unit_varieties = &self_html->special_unit_varieties;
   int j;
   for (j = 0; translated_special_unit_info[j].tree_type != SUIT_type_none; j++)
@@ -530,7 +530,7 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
                enum command_id cmd, enum conversion_context reset_context,
                enum conversion_context ref_context, int translate)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   HTML_NO_ARG_COMMAND_FORMATTING *no_arg_formatting
     = &self_html->html_no_arg_command_conversion[cmd];
   HTML_NO_ARG_COMMAND_CONVERSION *conversion_contexts
@@ -635,7 +635,7 @@ html_complete_no_arg_commands_formatting (CONVERTER *self, enum command_id cmd,
 void
 html_translate_names (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t j;
   const STRING_LIST *special_unit_varieties
     = &self_html->special_unit_varieties;
@@ -802,7 +802,7 @@ int
 html_run_stage_handlers (CONVERTER *self,
                          enum html_stage_handler_stage_type stage)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t i;
   HTML_STAGE_HANDLER_INFO_LIST *stage_handlers
     = &self_html->html_stage_handlers[stage];
@@ -871,7 +871,7 @@ static const enum command_id simpletitle_cmds[] =
 void
 html_prepare_simpletitle (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   int i;
   for (i = 0; simpletitle_cmds[i]; i++)
     {
@@ -890,7 +890,7 @@ html_prepare_simpletitle (CONVERTER *self)
 void
 html_free_direction_icons_array (CONVERTER *self, char ***direction_icons)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   if (*direction_icons)
     {
       size_t i;
@@ -920,7 +920,7 @@ order_direction_icons_list (CONVERTER *self,
                             char ***direction_icon_names,
                             size_t icons_nr)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   html_free_direction_icons_array (self, direction_icon_names);
 
   /* there are always directions, so should always be true */
@@ -956,7 +956,7 @@ order_direction_icons_list (CONVERTER *self,
 void
 html_prepare_direction_icons (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   /* consistent with main_units_direction_names size */
   size_t icons_nr = self_html->special_unit_varieties.number
@@ -978,7 +978,7 @@ void
 html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
                               const char *output_filename)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
     (self->document, self_html->output_units_descriptors[OUDT_units]);
 
@@ -1005,7 +1005,7 @@ int
 html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
                                     const char *output_filename)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   int i;
   ELEMENT *fulltitle_tree = 0;
@@ -1310,7 +1310,7 @@ destroy_args_formatted (HTML_ARGS_FORMATTED *args_formatted)
 char *
 debug_print_html_contexts (const CONVERTER *self)
 {
-  const HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  const HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   size_t i;
   TEXT contexts_str;
@@ -1368,7 +1368,7 @@ void
 html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                           TEXT *result, const char *explanation)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   /* for debugging, for explanations */
   TEXT command_type;
@@ -1955,7 +1955,7 @@ void
 convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
                      const char *explanation, TEXT *result)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   TEXT content_formatted;
   /* store this to be able to show only what was added in debug message */
   size_t input_result_end = result->end;
@@ -2044,7 +2044,7 @@ convert_convert_output_unit_internal (CONVERTER *self, TEXT *result,
 char *
 html_convert_convert (CONVERTER *self, const ELEMENT *root)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   TEXT result;
   size_t unit_nr = 0;
@@ -2090,7 +2090,7 @@ convert_output_output_unit_internal (CONVERTER *self,
                                      const OUTPUT_UNIT *output_unit,
                                      size_t unit_nr)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   FILE_NAME_PATH_COUNTER *unit_file = 0;
   size_t file_index;
@@ -2258,7 +2258,7 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
                      const char *output_file, const char *destination_directory,
                      const char *output_filename, const char *document_name)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   int status = 1;
   TEXT result;
   TEXT text; /* reused for all the output units */
@@ -2423,7 +2423,7 @@ clear_type_explanations (EXPLAINED_COMMAND_TYPE_LIST *type_explanations)
 void
 html_reset_shared_conversion_state (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t i;
   HTML_SHARED_CONVERSION_STATE *shared_conversion_state
     = &self_html->shared_conversion_state;
@@ -2473,7 +2473,7 @@ html_reset_shared_conversion_state (CONVERTER *self)
 void
 html_conversion_finalization (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   size_t i;
   for (i = 0; i < self_html->html_files_information.number; i++)
     {
@@ -2576,7 +2576,7 @@ html_conversion_finalization (CONVERTER *self)
 void
 html_check_transfer_state_finalization (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   /* could change to 0 in releases? */
   if (1)
@@ -2664,7 +2664,7 @@ file_error_or_write_close (CONVERTER *self, const char *out_filepath,
 static void
 do_jslicenses_file (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   const char *destination_directory = self_html->destination_directory;
   const char *setting = self->conf->JS_WEBLABELS.o.string;
@@ -2846,7 +2846,7 @@ static const char *js_files[4] = {"info.js", "modernizr.js", "info.css", 0};
 void
 html_do_js_files (CONVERTER *self)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   const char *destination_directory = self_html->destination_directory;
 
   if (self->conf->INFO_JS_DIR.o.string)
@@ -3039,7 +3039,7 @@ char *
 html_prepare_node_redirection_page (CONVERTER *self, const ELEMENT *element,
                                     const char *filename)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   char *result;
 
   self_html->current_filename.filename = filename;
@@ -3056,7 +3056,7 @@ int
 html_node_redirections (CONVERTER *self,
             const char *output_file, const char *destination_directory)
 {
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
   FILE_SOURCE_INFO_LIST *files_source_info = &self_html->files_source_info;
   int redirection_files_done = 0;
   if (identifiers_target_number (&self->document->identifiers_target)

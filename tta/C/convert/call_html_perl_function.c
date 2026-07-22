@@ -66,7 +66,7 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
                                                 const char *default_filename)
 {
   SV *special_unit_target_file_name_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -132,7 +132,7 @@ call_file_id_setting_label_target_name (CONVERTER *self,
                 const char *target, int *called)
 {
   SV *label_target_name_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -199,7 +199,7 @@ call_file_id_setting_node_file_name (CONVERTER *self,
                    int *called)
 {
   SV *node_file_name_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -264,7 +264,7 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
                       const char *target_shortcontents, const char *filename)
 {
   SV *sectioning_command_target_name_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -339,7 +339,7 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
                                  const char *filename, const char *filepath)
 {
   SV *unit_file_name_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -407,7 +407,7 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
                      const char *file_name)
 {
   SV *external_target_split_name_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -491,7 +491,7 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
                      const char *target, const char *file)
 {
   SV *external_target_non_split_name_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -560,7 +560,7 @@ call_file_id_setting_redirection_file_names (CONVERTER *self,
                 STRING_LIST *reference_redirection_files)
 {
   SV *redirection_file_names_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -1292,7 +1292,7 @@ call_formatting_function_format_button_icon_img (CONVERTER *self,
   SV *result_sv;
   SV *formatting_reference_sv;
 
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -1352,7 +1352,7 @@ call_formatting_function_format_button (CONVERTER *self,
   SV *passive_sv;
   SV *active_sv;
   SV *formatting_reference_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -1428,7 +1428,7 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -1490,7 +1490,7 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -1554,7 +1554,7 @@ call_formatting_function_format_heading_text (CONVERTER *self,
   SV *formatting_reference_sv;
   SV *classes_sv;
   SV *element_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -1635,7 +1635,7 @@ call_formatting_function_format_contents (CONVERTER *self,
   SV *command_sv;
   SV *result_sv;
   SV *formatting_reference_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -1695,7 +1695,7 @@ call_formatting_function_format_separate_anchor (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -1750,7 +1750,7 @@ call_formatting_function_format_element_header (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -1807,7 +1807,7 @@ call_formatting_function_format_element_footer (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -1865,7 +1865,7 @@ call_formatting_function_format_node_redirection_page (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -1921,7 +1921,7 @@ call_types_conversion (CONVERTER *self, const enum element_type type,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -1985,7 +1985,7 @@ call_types_open (CONVERTER *self, const enum element_type type,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -2092,7 +2092,7 @@ call_commands_conversion (CONVERTER *self, const enum command_id cmd,
   SV *formatting_reference_sv;
   SV *args_formatted_sv;
   const char *command_name;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -2159,7 +2159,7 @@ call_commands_open (CONVERTER *self, const enum command_id cmd,
   SV *result_sv;
   SV *formatting_reference_sv;
   const char *command_name;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -2221,7 +2221,7 @@ call_output_units_conversion (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -2282,7 +2282,7 @@ call_special_unit_body_formatting (CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   SV *formatting_reference_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -2338,7 +2338,7 @@ call_button_simple_function (CONVERTER *self,
   FORMATTED_BUTTON_INFO *result;
   SV *need_delimiter_sv;
   SV *active_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -2398,7 +2398,7 @@ call_button_direction_function (CONVERTER *self,
   FORMATTED_BUTTON_INFO *result;
   SV *need_delimiter_sv;
   SV *active_sv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 
@@ -2468,7 +2468,7 @@ call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
   SV **options_latex_math_sv;
   SV *options_latex_math;
   HV *converter_hv;
-  HTML_CONVERTER_STATE *self_html = &self->html_converter;
+  HTML_CONVERTER_STATE *self_html = self->html_converter;
 
   dTHX;
 

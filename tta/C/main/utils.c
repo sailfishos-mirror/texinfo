@@ -3146,7 +3146,7 @@ int
 html_get_direction_index (const CONVERTER *converter, const char *direction)
 {
   const HTML_CONVERTER_STATE *self_html
-    = converter ? &converter->html_converter : NULL;
+    = converter ? converter->html_converter : NULL;
   if (self_html && self_html->main_units_direction_names)
     {
       int found;
@@ -3165,7 +3165,7 @@ const char *
 direction_unit_direction_name (int direction, const CONVERTER *converter)
 {
   const HTML_CONVERTER_STATE *self_html
-    = converter ? &converter->html_converter : NULL;
+    = converter ? converter->html_converter : NULL;
 
   if (direction < 0)
     return 0;

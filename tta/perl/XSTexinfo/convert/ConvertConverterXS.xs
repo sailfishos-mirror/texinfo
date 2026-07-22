@@ -718,7 +718,7 @@ XS_get_output_units_lists (SV *converter_in)
                                  "get_output_units_lists");
 
         store_document_tree_output_units (self->document);
-        HTML_CONVERTER_STATE *self_html = &self->html_converter;
+        HTML_CONVERTER_STATE *self_html = self->html_converter;
 
         output_units_sv = build_output_units_list (self->document,
           self_html->output_units_descriptors[OUDT_units]);
