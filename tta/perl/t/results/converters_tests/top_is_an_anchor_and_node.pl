@@ -50,10 +50,7 @@ $result_texts{'top_is_an_anchor_and_node'} = '
 
 ';
 
-$result_errors{'top_is_an_anchor_and_node'} = '* W l5|node `some node\' unreferenced
- warning: node `some node\' unreferenced
-
-';
+$result_errors{'top_is_an_anchor_and_node'} = '';
 
 $result_nodes_list{'top_is_an_anchor_and_node'} = '1|some node
 ';
