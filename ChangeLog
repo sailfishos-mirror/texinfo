@@ -1,3 +1,9 @@
+2026-07-22  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/signals.c, info/signals.h:
+	Move most of the contents of signals.h into signals.c.
+	Provide declaration of initialize_info_signal_handler in signals.h.
+
 2026-07-22 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/structuring_transfo/structuring.c (register_referenced_node)

@@ -23,7 +23,39 @@
 #include "window.h"
 #include "signals.h"
 
-void initialize_info_signal_handler (void);
+#include <sys/types.h>
+#include <signal.h>
+
+/* For sysV68 --phdm@info.ucl.ac.be.  */
+#if !defined (SIGCHLD) && defined (SIGCLD)
+#define SIGCHLD SIGCLD
+#endif
+
+#if defined (HAVE_SIGPROCMASK)
+
+#define BLOCK_SIGNAL(sig) \
+  do { \
+    sigset_t nvar, ovar; \
+    sigemptyset (&nvar); \
+    sigemptyset (&ovar); \
+    sigaddset (&nvar, sig); \
+    sigprocmask (SIG_BLOCK, &nvar, &ovar); \
+  } while (0)
+
+#define UNBLOCK_SIGNAL(sig) \
+  do { \
+    sigset_t nvar, ovar; \
+    sigemptyset (&ovar); \
+    sigemptyset (&nvar); \
+    sigaddset (&nvar, sig); \
+    sigprocmask (SIG_UNBLOCK, &nvar, &ovar); \
+  } while (0)
+
+#else /* !HAVE_SIGPROCMASK */
+#  define BLOCK_SIGNAL(sig)
+#  define UNBLOCK_SIGNAL(sig)
+#endif /* !HAVE_SIGPROCMASK */
+
 
 /* **************************************************************** */
 /*                                                                  */

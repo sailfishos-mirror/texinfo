@@ -278,9 +278,6 @@ info_read_and_dispatch (void)
     }
 }
 
-/* Found in signals.c */
-extern void initialize_info_signal_handler (void );
-
 /* Initialize terminal, read configuration file and set key bindings. */
 void
 initialize_terminal_and_keymaps (char *init_file)
