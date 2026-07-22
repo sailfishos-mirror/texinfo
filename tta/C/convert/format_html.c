@@ -2333,10 +2333,10 @@ html_get_top_unit (DOCUMENT *document, const OUTPUT_UNIT_LIST *output_units)
     return section_top->e.c->associated_unit;
   else
     {
-      const ELEMENT *node_top = find_identifier_target
+      const ELEMENT *top_target_element = find_identifier_target
                           (&document->identifiers_target, "Top");
-      if (node_top)
-        return node_top->e.c->associated_unit;
+      if (top_target_element && top_target_element->e.c->cmd == CM_node)
+        return top_target_element->e.c->associated_unit;
     }
 
   if (output_units)

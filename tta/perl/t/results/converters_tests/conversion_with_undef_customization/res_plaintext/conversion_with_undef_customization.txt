@@ -1,0 +1,41 @@
+top
+***
+
+top
+1 Chape^
+  1.1 Section
+top
+1 Chape^
+
+* Menu:
+
+* chape^::
+
+ -- The Detailed Node Listing --
+
+Chape^
+
+* sec::
+
+1 Chape^
+********
+
+Text(*)
+
+* Menu:
+
+* sec::
+
+   ---------- Footnotes ----------
+
+   (*) Go 's'
+
+1.1 Section
+===========
+
+* Menu:
+
+* entry:                                 chape^.               (line 24)
+
+ -- category: type name something ( aa )
+     A def.

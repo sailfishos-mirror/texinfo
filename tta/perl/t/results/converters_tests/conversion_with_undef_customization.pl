@@ -277,4 +277,10 @@ fn:
  name
 ';
 
+$result_converted_sort_strings{'file_plaintext'}->{'conversion_with_undef_customization'} = 'cp:
+ entry
+fn:
+ name
+';
+
 1;

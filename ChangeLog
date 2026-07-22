@@ -1,5 +1,30 @@
 2026-07-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (html_get_top_unit),
+	tta/C/convert/html_prepare_converter.c (html_set_pages_files),
+	tta/C/main/output_unit.c (units_directions),
+	tta/C/structuring_transfo/structuring. (check_nodes_are_referenced)
+	(complete_node_tree_with_menus, set_top_node_next)
+	(construct_nodes_tree), tta/C/structuring_transfo/transformations.c
+	(regenerate_master_menu), tta/perl/Texinfo/Convert/HTMLNonXS.pm
+	(_get_top_unit, _html_set_pages_files),
+	tta/perl/Texinfo/OutputUnits.pm (units_directions),
+	tta/perl/Texinfo/StructuringNonXS.pm (check_nodes_are_referenced)
+	(complete_node_tree_with_menus, construct_nodes_tree),
+	tta/perl/Texinfo/TransformationsNonXS.pm (regenerate_master_menu):
+	rename node_top as top_node.  Rename top_node as top_target_element
+	when it is not checked that the element is a @node element.  Check
+	that the element is a @node when needed.
+
+	* tta/perl/Makefile.tres, tta/perl/t/converters_tests.t
+	(top_is_an_anchor, top_is_an_anchor_and_node): test an anchor being
+	named Top.
+
+	* tta/perl/Makefile.tres, tta/perl/t/converters_tests.t (@file_tests):
+	also test file_plaintext.
+
+2026-07-22 Patrice Dumas  <pertusus@free.fr>
+
 	* info/info.c (main): fix removed first letters of function name
 	calls.
 

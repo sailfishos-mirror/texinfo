@@ -645,7 +645,8 @@ check_nodes_are_referenced (DOCUMENT *document)
   size_t nr_nodes_to_find = 0;
   size_t nr_not_found = 0;
 
-  const ELEMENT *top_node;
+  const ELEMENT *top_node = 0;
+  const ELEMENT *top_target_element;
 
   if (nodes_list->number < 1)
     return;
@@ -654,8 +655,11 @@ check_nodes_are_referenced (DOCUMENT *document)
   referenced_identifiers
     = malloc (referenced_identifier_space * sizeof (char *));
 
-  top_node = find_identifier_target (identifiers_target,
-                                     "Top");
+  top_target_element = find_identifier_target (identifiers_target,
+                                               "Top");
+  if (top_target_element && top_target_element->e.c->cmd == CM_node)
+    top_node = top_target_element;
+
   if (!top_node)
     {
       top_node = nodes_list->list[0]->element;
@@ -924,7 +928,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
                   || strcmp (options->FORMAT_MENU.o.string, "menu")))
     check_menu_entries = 0;
 
-  const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
+  const ELEMENT *top_target_element
+    = find_identifier_target (identifiers_target, "Top");
 
   /*
   First go through all the menus and set menu up, menu next and menu prev,
@@ -1003,7 +1008,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                       menu_node_relations
                                        = node_relations_of_node
                                            (menu_node, nodes_list);
-                                      if (menu_node != top_node
+                                      if (menu_node != top_target_element
                                           && node_automatic_directions (menu_node))
                                         {
                                           if (!menu_node_relations->node_directions)
@@ -1031,7 +1036,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                                   AI_key_manual_content);
                       if (!prev_manual_content)
                         {
-                          if (previous_node != top_node
+                          if (previous_node != top_target_element
                               && node_automatic_directions (previous_node))
                             {
                               if (!previous_node_relations->node_directions)
@@ -1052,7 +1057,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
 
                       if (!manual_content)
                         {
-                          if (menu_node != top_node
+                          if (menu_node != top_target_element
                               && node_automatic_directions (menu_node))
                             {
                               if (!menu_node_relations->node_directions)
@@ -1692,7 +1697,7 @@ set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
 {
   const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
 
-  if (!top_node)
+  if (!top_node || (top_node->e.c->cmd != CM_node))
     return 0;
 
   if (node_automatic_directions (top_node))
@@ -1800,6 +1805,9 @@ construct_nodes_tree (DOCUMENT *document)
   OPTIONS *options = document->options;
   int warn_debug = (options && options->DEBUG.o.integer > 0);
 
+  const ELEMENT *top_target_element
+            = find_identifier_target (identifiers_target, "Top");
+
   set_top_node_next (&document->nodes_list, identifiers_target);
 
   size_t i;
@@ -1816,9 +1824,7 @@ construct_nodes_tree (DOCUMENT *document)
 
       if (node_automatic_directions (node))
         {
-          const ELEMENT *top_node
-            = find_identifier_target (identifiers_target, "Top");
-          if (node != top_node)
+          if (node != top_target_element)
             {
               enum directions d;
               for (d = 0; d < directions_length; d++)

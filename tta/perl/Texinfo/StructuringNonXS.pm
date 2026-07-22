@@ -400,8 +400,14 @@ sub check_nodes_are_referenced($) {
 
   return unless (defined($nodes_list) and scalar(@{$nodes_list}));
 
-  my $top_node = $identifier_target->{'Top'};
-  $top_node = $nodes_list->[0]->{'element'} if (!defined($top_node));
+  my $top_node;
+  my $top_target_element = $identifier_target->{'Top'};
+  if (defined($top_target_element)
+      and $top_target_element->{'cmdname'} eq 'node') {
+    $top_node = $top_target_element;
+  } else {
+    $top_node = $nodes_list->[0]->{'element'};
+  }
 
   my %referenced_nodes = ($top_node => 1);
   my %referenced_in_menus = ();
@@ -495,7 +501,7 @@ sub complete_node_tree_with_menus($) {
   my $check_menu_entries = (!$customization_information->get_conf('novalidate')
       and (!defined($format_menu) or $format_menu eq 'menu'
            or $format_menu eq 'menu_no_detailmenu'));
-  my $top_node = $identifier_target->{'Top'};
+  my $top_target_element = $identifier_target->{'Top'};
 
   # First go through all the menus and set menu up, menu next and menu prev,
   # and warn for unknown nodes.
@@ -537,7 +543,8 @@ sub complete_node_tree_with_menus($) {
                           and $menu_node->{'cmdname'} eq 'node') {
                         $menu_node_relations
                           = $nodes_list->[$menu_node->{'extra'}->{'node_number'} -1];
-                        if ((!defined($top_node) or $menu_node ne $top_node)
+                        if ((!defined($top_target_element)
+                             or $menu_node ne $top_target_element)
                             and _node_automatic_directions($menu_node)) {
                           $menu_node_relations->{'node_directions'} = {}
                            if (!exists($menu_node_relations->{'node_directions'}));
@@ -560,7 +567,8 @@ sub complete_node_tree_with_menus($) {
             if (defined($menu_node) and defined($previous_node_relations)
                 and !exists($previous_node_relations->{'element'}
                                     ->{'extra'}->{'manual_content'})) {
-              if ((!defined($top_node) or $previous_node ne $top_node)
+              if ((!defined($top_target_element)
+                   or $previous_node ne $top_target_element)
                   and _node_automatic_directions($previous_node)) {
                 $previous_node_relations->{'node_directions'} = {}
                   if (!exists($previous_node_relations->{'node_directions'}));
@@ -573,7 +581,8 @@ sub complete_node_tree_with_menus($) {
             }
             if (defined($menu_node_relations) and defined($previous_node)
                 and !exists($menu_node->{'extra'}->{'manual_content'})) {
-              if ((!defined($top_node) or $menu_node ne $top_node)
+              if ((!defined($top_target_element)
+                   or $menu_node ne $top_target_element)
                   and _node_automatic_directions($menu_node)) {
                 $menu_node_relations->{'node_directions'} = {}
                   if (!exists($menu_node_relations->{'node_directions'}));
@@ -989,7 +998,8 @@ sub _set_top_node_next($$) {
 
   my $top_node = $identifier_target->{'Top'};
 
-  return undef if (!defined($top_node));
+  return undef if (!defined($top_node)
+                   or $top_node->{'cmdname'} ne 'node');
 
   if (_node_automatic_directions($top_node)) {
     my $top_node_next;
@@ -1075,7 +1085,7 @@ sub construct_nodes_tree($) {
   my $customization_information = $document;
   my $identifier_target = $document->labels_information();
 
-  my $top_node = $identifier_target->{'Top'};
+  my $top_target_element = $identifier_target->{'Top'};
   # Go through all the nodes and set directions.
   my $nodes_list = $document->nodes_list();
 
@@ -1085,7 +1095,7 @@ sub construct_nodes_tree($) {
     my $node = $node_relations->{'element'};
 
     if (_node_automatic_directions($node)) {
-      if (!defined($top_node) or $node ne $top_node) {
+      if (!defined($top_target_element) or $node ne $top_target_element) {
         foreach my $direction (@node_directions_names) {
           if (exists($node_relations->{'associated_section'})) {
             my $direction_relation = $node_relations->{'associated_section'};

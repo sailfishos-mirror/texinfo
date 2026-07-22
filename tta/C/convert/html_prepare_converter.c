@@ -6019,28 +6019,34 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
   else
     {
       char *top_node_filename_str;
-      const OUTPUT_UNIT *node_top_output_unit = 0;
+      const OUTPUT_UNIT *top_node_output_unit = 0;
       const char *extension = 0;
-      const ELEMENT *node_top = 0;
+      const ELEMENT *top_node = 0;
+      const ELEMENT *top_target_element = 0;
       size_t file_nr = 0;
       size_t i;
 
       /* first determine the top node file name. */
       if (identifiers_target_number (&self->document->identifiers_target))
-        node_top = find_identifier_target (&self->document->identifiers_target,
-                                           "Top");
+        {
+          top_target_element
+              = find_identifier_target (&self->document->identifiers_target,
+                                       "Top");
+          if (top_target_element && top_target_element->e.c->cmd == CM_node)
+            top_node = top_target_element;
+        }
 
       top_node_filename_str = top_node_filename (self, document_name);
 
-      if (node_top && top_node_filename_str)
+      if (top_node && top_node_filename_str)
         {
-          node_top_output_unit = node_top->e.c->associated_unit;
+          top_node_output_unit = top_node->e.c->associated_unit;
           html_add_to_files_source_info (files_source_info,
                                         top_node_filename_str,
                                         "special_file", "Top", 0, 0);
           add_to_unit_file_name_paths (unit_file_name_paths,
                                        top_node_filename_str,
-                                       node_top_output_unit);
+                                       top_node_output_unit);
         }
 
       if (self->conf->EXTENSION.o.string
@@ -6053,7 +6059,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
           const OUTPUT_UNIT *file_output_unit;
           const char *output_unit_file_name;
           /* For Top node. */
-          if (node_top_output_unit && node_top_output_unit == output_unit)
+          if (top_node_output_unit && top_node_output_unit == output_unit)
             continue;
 
           file_output_unit = output_unit->first_in_page;
@@ -6145,7 +6151,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                     = file_output_unit->unit_section;
                   if (command)
                     {
-                      if (command->element->e.c->cmd == CM_top && !node_top
+                      if (command->element->e.c->cmd == CM_top && !top_node
                           && top_node_filename_str)
                         {
                    /* existing top_node_filename can happen, see
@@ -6204,7 +6210,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                   else
                     {
                       /* when everything else has failed */
-                      if (file_nr == 0 && !node_top
+                      if (file_nr == 0 && !top_node
                           && top_node_filename_str)
                         {
                           const FILE_SOURCE_INFO *file_source_info

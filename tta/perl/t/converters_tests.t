@@ -1647,9 +1647,21 @@ undef, {'test_file' => 'minimal_empty_empty.texi'}],
 ['empty',
 undef, {'test_file' => 'empty.texi'}],
 ['simplest_test_prefix',
-undef,{'test_file' => 'simplest.texi',},
+undef, {'test_file' => 'simplest.texi',},
 {'SPLIT' => '', 'PREFIX' => 'truc'}
 ],
+['top_is_an_anchor',
+'@setfilename top_is_an_anchor.info
+
+@anchor{Top}
+'],
+['top_is_an_anchor_and_node',
+'@setfilename top_is_an_anchor_and_node.info
+
+@anchor{Top}
+
+@node some node
+'],
 ['indices_in_begin_tables_lists',
 undef, {'test_file' => '../../../tests/formatting/indices_in_begin_tables_lists.texi'},
 {'SPLIT' => '', 'USE_NODES' => 0}],
@@ -1866,7 +1878,7 @@ foreach my $test (@html_text_cases) {
 
 foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_html';
-  push @{$test->[2]->{'test_formats'}}, 'file_info';
+  push @{$test->[2]->{'test_formats'}}, ('file_info', 'file_plaintext');
   push @{$test->[2]->{'test_formats'}}, ('file_xml', 'file_docbook', 'file_latex');
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }

@@ -1527,4 +1527,48 @@ vr:
  b
 ';
 
+$result_converted_sort_strings{'file_plaintext'}->{'indices_in_begin_tables_lists'} = 'cp:
+ also a cindex in itemize
+ also a cindex in itemize
+ another
+ before comment
+ before text
+ before text and comment
+ cindex
+ cindex after line
+ cindex before line
+ cindex between lines
+ cindex first
+ cindex in table
+ cindex in table
+ direct in item in preformatted
+ first idx
+ in example itemize after comment
+ in example itemize alone before item
+ in example itemize before comment
+ in example itemize before item 1
+ in example itemize before item 2
+ in example itemize before line
+ index entry between item and itemx
+ index entry right after @item
+ index entry within itemize
+ index inter in enumerate after line
+ index inter in enumerate before line
+ index inter in enumerate between lines
+ samp cindex in table
+ samp cindex in table
+ second
+ sedond idx
+ third
+fn:
+ avar--b
+ b
+ c
+ d
+vr:
+ aasis--b
+ acode--b
+ b
+';
+
 1;

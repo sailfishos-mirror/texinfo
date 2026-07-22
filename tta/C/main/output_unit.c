@@ -624,14 +624,17 @@ units_directions (const C_HASHMAP *identifiers_target,
 {
   size_t i;
   ELEMENT_STACK up_list;
-  ELEMENT *node_top;
+  const ELEMENT *top_node = 0;
+  const ELEMENT *top_target_element;
 
   if (!output_units || !output_units->number)
     return;
 
   memset (&up_list, 0, sizeof (ELEMENT_STACK));
 
-  node_top = find_identifier_target (identifiers_target, "Top");
+  top_target_element = find_identifier_target (identifiers_target, "Top");
+  if (top_target_element && top_target_element->e.c->cmd == CM_node)
+    top_node = top_target_element;
 
   for (i = 0; i < output_units->number; i++)
     {
@@ -717,7 +720,7 @@ units_directions (const C_HASHMAP *identifiers_target,
                             in_up = 1;
                             break;
                           }
-                      if (in_up || (node_top && node_top == up))
+                      if (in_up || (top_node && top_node == up))
                         break;
 
                       if (up->e.c->cmd == CM_node)

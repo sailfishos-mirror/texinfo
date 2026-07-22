@@ -1356,7 +1356,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   size_t index;
   const LANG_TRANSLATION *lang_translation = 0;
 
-  if (top_node)
+  if (top_node && (top_node->e.c->cmd == CM_node))
     {
       int status;
       size_t top_node_number

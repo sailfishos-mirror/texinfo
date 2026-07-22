@@ -1456,14 +1456,15 @@ sub _get_top_unit($;$) {
     }
   }
 
-  my $node_top = $self->converter_find_identifier_target('Top');
+  my $top_target_element = $self->converter_find_identifier_target('Top');
 
-  if (defined($node_top)) {
-    if (!exists($node_top->{'associated_unit'})) {
-      die "No associated unit for node_top: "
-         .Texinfo::Common::debug_print_element($node_top, 1);
+  if (defined($top_target_element)
+      and $top_target_element->{'cmdname'} eq 'node') {
+    if (!exists($top_target_element->{'associated_unit'})) {
+      die "No associated unit for Top node: "
+         .Texinfo::Common::debug_print_element($top_target_element, 1);
     }
-    return $node_top->{'associated_unit'};
+    return $top_target_element->{'associated_unit'};
   }
 
   if (defined($output_units)) {
@@ -4059,18 +4060,22 @@ sub _html_set_pages_files($$$$$$$$) {
     }
 
     # first determine the top node file name.
-    my $node_top;
-    $node_top = $identifiers_target->{'Top'}
-                               if (defined($identifiers_target));
-
+    my $top_node;
+    if (defined($identifiers_target)) {
+      my $top_target_element = $identifiers_target->{'Top'};
+      if (defined($top_target_element)
+          and $top_target_element->{'cmdname'} eq 'node') {
+        $top_node = $top_target_element;
+      }
+    }
     my $top_node_filename = $self->top_node_filename($document_name);
-    my $node_top_output_unit;
-    if (defined($node_top) and defined($top_node_filename)) {
-      $node_top_output_unit = $node_top->{'associated_unit'};
+    my $top_node_output_unit;
+    if (defined($top_node) and defined($top_node_filename)) {
+      $top_node_output_unit = $top_node->{'associated_unit'};
       die "BUG: No output unit for top node"
-        if (!defined($node_top_output_unit));
+        if (!defined($top_node_output_unit));
       push @filenames_order, $top_node_filename;
-      $unit_file_name_paths{$node_top_output_unit} = $top_node_filename;
+      $unit_file_name_paths{$top_node_output_unit} = $top_node_filename;
       $files_source_info{$top_node_filename}
          = {'file_info_type' => 'special_file',
             'file_info_name' => 'Top',
@@ -4084,7 +4089,7 @@ sub _html_set_pages_files($$$$$$$$) {
 
     foreach my $output_unit (@$output_units) {
       # For Top node.
-      next if ($node_top_output_unit and $output_unit eq $node_top_output_unit);
+      next if ($top_node_output_unit and $output_unit eq $top_node_output_unit);
 
       my $file_output_unit = $output_unit->{'first_in_page'};
       if (!defined($file_output_unit)) {
@@ -4137,7 +4142,7 @@ sub _html_set_pages_files($$$$$$$$) {
           my $command = $file_output_unit->{'unit_section'};
           if (defined($command)) {
             if ($command->{'element'}->{'cmdname'} eq 'top'
-                and !defined($node_top) and defined($top_node_filename)) {
+                and !defined($top_node) and defined($top_node_filename)) {
               $unit_file_name_paths{$file_output_unit} = $top_node_filename;
 
               # existing top_node_filename can happen, see
@@ -4170,7 +4175,7 @@ sub _html_set_pages_files($$$$$$$$) {
             }
           } else {
             # when everything else has failed
-            if ($file_nr == 0 and !defined($node_top)
+            if ($file_nr == 0 and !defined($top_node)
                 and defined($top_node_filename)) {
               $unit_file_name_paths{$file_output_unit} = $top_node_filename;
               unless (exists($files_source_info{$top_node_filename})) {

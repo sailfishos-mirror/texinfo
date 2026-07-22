@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V7.3//EN" "http://www.gnu.org/software/texinfo/dtd/7.3/texinfo.dtd">
+<texinfo>
+<filename file="top_is_an_anchor_and_node.xml"></filename>
+<setfilename file="top_is_an_anchor_and_node.info"> top_is_an_anchor_and_node.info</setfilename>
+
+<anchor identifier="Top">Top</anchor>
+
+<node identifier="some-node"><nodename> some node</nodename></node>
+</texinfo>

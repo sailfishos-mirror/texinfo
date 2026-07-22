@@ -171,6 +171,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/combined_fonts/res_html \
   t/results/converters_tests/combined_fonts/res_info \
   t/results/converters_tests/combined_fonts/res_latex \
+  t/results/converters_tests/combined_fonts/res_plaintext \
   t/results/converters_tests/combined_fonts/res_xml \
   t/results/converters_tests/commands_in_sc.pl \
   t/results/converters_tests/commands_in_settitle_with_title.pl \
@@ -187,6 +188,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/conversion_with_undef_customization/res_html \
   t/results/converters_tests/conversion_with_undef_customization/res_info \
   t/results/converters_tests/conversion_with_undef_customization/res_latex \
+  t/results/converters_tests/conversion_with_undef_customization/res_plaintext \
   t/results/converters_tests/conversion_with_undef_customization/res_xml \
   t/results/converters_tests/definition_commands.pl \
   t/results/converters_tests/definition_commands/res_html \
@@ -198,6 +200,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/empty/res_html \
   t/results/converters_tests/empty/res_info \
   t/results/converters_tests/empty/res_latex \
+  t/results/converters_tests/empty/res_plaintext \
   t/results/converters_tests/empty/res_xml \
   t/results/converters_tests/empty_accent.pl \
   t/results/converters_tests/empty_xrefname.pl \
@@ -207,6 +210,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/extension_undef/res_html \
   t/results/converters_tests/extension_undef/res_info \
   t/results/converters_tests/extension_undef/res_latex \
+  t/results/converters_tests/extension_undef/res_plaintext \
   t/results/converters_tests/extension_undef/res_xml \
   t/results/converters_tests/footnote_no_number.pl \
   t/results/converters_tests/footnote_no_number_separate.pl \
@@ -221,12 +225,14 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/indices_in_begin_tables_lists/res_html \
   t/results/converters_tests/indices_in_begin_tables_lists/res_info \
   t/results/converters_tests/indices_in_begin_tables_lists/res_latex \
+  t/results/converters_tests/indices_in_begin_tables_lists/res_plaintext \
   t/results/converters_tests/indices_in_begin_tables_lists/res_xml \
   t/results/converters_tests/indices_in_begin_tables_lists_entries_after_item.pl \
   t/results/converters_tests/indices_in_begin_tables_lists_entries_after_item/res_docbook \
   t/results/converters_tests/indices_in_begin_tables_lists_entries_after_item/res_html \
   t/results/converters_tests/indices_in_begin_tables_lists_entries_after_item/res_info \
   t/results/converters_tests/indices_in_begin_tables_lists_entries_after_item/res_latex \
+  t/results/converters_tests/indices_in_begin_tables_lists_entries_after_item/res_plaintext \
   t/results/converters_tests/indices_in_begin_tables_lists_entries_after_item/res_xml \
   t/results/converters_tests/inline.pl \
   t/results/converters_tests/inline_expand_tex.pl \
@@ -244,18 +250,21 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/minimal_empty_empty/res_html \
   t/results/converters_tests/minimal_empty_empty/res_info \
   t/results/converters_tests/minimal_empty_empty/res_latex \
+  t/results/converters_tests/minimal_empty_empty/res_plaintext \
   t/results/converters_tests/minimal_empty_empty/res_xml \
   t/results/converters_tests/minimal_empty_with_bye.pl \
   t/results/converters_tests/minimal_empty_with_bye/res_docbook \
   t/results/converters_tests/minimal_empty_with_bye/res_html \
   t/results/converters_tests/minimal_empty_with_bye/res_info \
   t/results/converters_tests/minimal_empty_with_bye/res_latex \
+  t/results/converters_tests/minimal_empty_with_bye/res_plaintext \
   t/results/converters_tests/minimal_empty_with_bye/res_xml \
   t/results/converters_tests/minimal_empty_with_input.pl \
   t/results/converters_tests/minimal_empty_with_input/res_docbook \
   t/results/converters_tests/minimal_empty_with_input/res_html \
   t/results/converters_tests/minimal_empty_with_input/res_info \
   t/results/converters_tests/minimal_empty_with_input/res_latex \
+  t/results/converters_tests/minimal_empty_with_input/res_plaintext \
   t/results/converters_tests/minimal_empty_with_input/res_xml \
   t/results/converters_tests/multitable_prototypes.pl \
   t/results/converters_tests/namedanchor.pl \
@@ -279,18 +288,21 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/setfilename_no_extension/res_html \
   t/results/converters_tests/setfilename_no_extension/res_info \
   t/results/converters_tests/setfilename_no_extension/res_latex \
+  t/results/converters_tests/setfilename_no_extension/res_plaintext \
   t/results/converters_tests/setfilename_no_extension/res_xml \
   t/results/converters_tests/simplest_no_node_section.pl \
   t/results/converters_tests/simplest_no_node_section/res_docbook \
   t/results/converters_tests/simplest_no_node_section/res_html \
   t/results/converters_tests/simplest_no_node_section/res_info \
   t/results/converters_tests/simplest_no_node_section/res_latex \
+  t/results/converters_tests/simplest_no_node_section/res_plaintext \
   t/results/converters_tests/simplest_no_node_section/res_xml \
   t/results/converters_tests/simplest_test_prefix.pl \
   t/results/converters_tests/simplest_test_prefix/res_docbook \
   t/results/converters_tests/simplest_test_prefix/res_html \
   t/results/converters_tests/simplest_test_prefix/res_info \
   t/results/converters_tests/simplest_test_prefix/res_latex \
+  t/results/converters_tests/simplest_test_prefix/res_plaintext \
   t/results/converters_tests/simplest_test_prefix/res_xml \
   t/results/converters_tests/some_at_commands_in_ref_nodes.pl \
   t/results/converters_tests/some_at_commands_in_ref_nodes_transliterate.pl \
@@ -306,6 +318,20 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/things_before_setfilename.pl \
   t/results/converters_tests/things_before_setfilename_no_element.pl \
   t/results/converters_tests/top_in_ref.pl \
+  t/results/converters_tests/top_is_an_anchor.pl \
+  t/results/converters_tests/top_is_an_anchor/res_docbook \
+  t/results/converters_tests/top_is_an_anchor/res_html \
+  t/results/converters_tests/top_is_an_anchor/res_info \
+  t/results/converters_tests/top_is_an_anchor/res_latex \
+  t/results/converters_tests/top_is_an_anchor/res_plaintext \
+  t/results/converters_tests/top_is_an_anchor/res_xml \
+  t/results/converters_tests/top_is_an_anchor_and_node.pl \
+  t/results/converters_tests/top_is_an_anchor_and_node/res_docbook \
+  t/results/converters_tests/top_is_an_anchor_and_node/res_html \
+  t/results/converters_tests/top_is_an_anchor_and_node/res_info \
+  t/results/converters_tests/top_is_an_anchor_and_node/res_latex \
+  t/results/converters_tests/top_is_an_anchor_and_node/res_plaintext \
+  t/results/converters_tests/top_is_an_anchor_and_node/res_xml \
   t/results/converters_tests/unknown_value.pl \
   t/results/converters_tests/various_itemize_command_as_argument.pl \
   t/results/converters_tests/various_vtable_command_as_argument.pl \

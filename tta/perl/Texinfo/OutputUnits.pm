@@ -357,7 +357,13 @@ sub units_directions($$$;$) {
 
   return if (!defined($output_units) or !scalar(@$output_units));
 
-  my $node_top = $identifier_target->{'Top'};
+  my $top_node;
+  my $top_target_element = $identifier_target->{'Top'};
+  if (defined($top_target_element)
+      and $top_target_element->{'cmdname'} eq 'node') {
+    $top_node = $top_target_element;
+  }
+
   foreach my $output_unit (@$output_units) {
     my $directions = {};
     $directions->{'This'} = $output_unit;
@@ -428,7 +434,7 @@ sub units_directions($$$;$) {
         # the condition with the up_list avoids infinite loops
         # the last condition stops when the Top node is reached.
         while (not (grep {$up eq $_} @up_list
-                    or ($node_top and $up eq $node_top))) {
+                    or ($top_node and $up eq $top_node))) {
           my $up_node_relations;
           if (exists($up->{'cmdname'}) and $up->{'cmdname'} eq 'node') {
             $up_node_relations

@@ -663,7 +663,8 @@ sub regenerate_master_menu($;$) {
 
   my $top_node = $identifier_target->{'Top'};
 
-  return undef if (!defined($top_node));
+  return undef if (!defined($top_node)
+                   or $top_node->{'cmdname'} ne 'node');
 
   my $top_node_relations
     = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
