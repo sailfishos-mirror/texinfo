@@ -265,7 +265,6 @@ info_signal_proc (int sig)
     case SIGUSR1:
 #endif
        reset_info_window_sizes_required = 1;
-       UNBLOCK_SIGNAL (sig);
        break;
 #endif /* SIGWINCH || SIGUSR1 */
     }

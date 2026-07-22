@@ -1,5 +1,10 @@
 2026-07-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/signals.c (info_signal_proc) <SIGWINCH>:
+	Do not attempt to unblock signal, as this should be unnecessary.
+
+2026-07-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/signals.c, info/signals.h:
 	Move most of the contents of signals.h into signals.c.
 	Provide declaration of initialize_info_signal_handler in signals.h.
