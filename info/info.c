@@ -918,7 +918,8 @@ main (int argc, char *argv[])
                 info_error (_("value %s is not valid for variable %s"),
                             p, optarg);
                 exit (EXIT_FAILURE);
-              }                                  }
+              }
+            }
           break;
 
         case 'x':
