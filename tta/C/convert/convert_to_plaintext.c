@@ -694,10 +694,12 @@ plaintext_free_converter (CONVERTER *self)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
 
+  /* happens if created from XS */
+  if (!self_plaintext)
+    return;
+
   free (self_plaintext->enabled_encoding);
   clear_count_context_stack (&self_plaintext->count_context);
-
-  free (self_plaintext);
 }
 
 void

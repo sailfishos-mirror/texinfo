@@ -1,5 +1,11 @@
 2026-07-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (plaintext_free_converter):
+	free plaintext_converter only if it was allocated.  It is allocated
+	if the converter is created from C, but not if created from XS.
+
+2026-07-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/converter_types.h (TRANSLATED_COMMAND)
 	(TRANSLATED_COMMAND_LIST, DEPRECATED_DIR_INFO, DEPRECATED_DIRS_LIST)
 	(enum command_type_variety, COMMAND_ID_LIST, FILE_STREAM)
