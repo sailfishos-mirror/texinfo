@@ -1,3 +1,36 @@
+2026-07-22 Patrice Dumas  <pertusus@free.fr>
+
+	C plaintext converter output and convert
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_converter_initialize): fix sizeof call.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_convert_tree): do
+	not set top_formatter context that is supposed to be already set.
+
+	* tta/C/main/html_converter_state.h (HTML_CONVERTER_STATE),
+	tta/C/main/converter_types.h (CONVERTER): move
+	output_unit_file_indices field to the generic converter as it should
+	be along with output_unit_files.  Update users.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_conversion_finalization),
+	tta/C/main/plaintext_converter_state.h (PLAINTEXT_CONVERTER_STATE):
+	add encoding_disabled field.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (set_output_units_files):
+	use directly associated_unit for Top node.  Fix set_output_unit_file
+	call in the last resort code (which is probably never called).
+
+	* tta/C/convert/converter.c (set_output_units_files): add.
+
+	* tta/C/convert/convert_to_plaintext.c (convert_output_unit)
+	(plaintext_output, plaintext_convert): implement plaintext_output
+	and plaintext_convert fully, and convert_output_unit partially.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (output): change a variable
+	name.
+
 2026-07-21  Gavin Smith <gavinsmith0123@gmail.com>
 
 	info: expand tabs to spaces

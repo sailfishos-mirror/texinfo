@@ -1233,7 +1233,7 @@ html_command_filename (CONVERTER *self, const ELEMENT *command)
           if (root_unit->output_unit->unit_type == OU_unit)
             {
               size_t file_index
-               = self_html->output_unit_file_indices[root_unit->output_unit->index];
+               = self->output_unit_file_indices[root_unit->output_unit->index];
               target_info->file_number_name.file_number = file_index +1;
             }
         }
@@ -1431,7 +1431,7 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
             malloc (sizeof (FILE_NUMBER_NAME));
           set_target_filename->filename = output_units->list[0]->unit_filename;
           set_target_filename->file_number
-              = self_html->output_unit_file_indices[0] +1;
+              = self->output_unit_file_indices[0] +1;
         }
       target_filename = set_target_filename;
     }
@@ -1834,7 +1834,7 @@ html_footnote_location_href (CONVERTER *self, const ELEMENT *command,
               && root_unit->output_unit->unit_filename)
             {
               size_t file_index
-            = self_html->output_unit_file_indices[root_unit->output_unit->index];
+            = self->output_unit_file_indices[root_unit->output_unit->index];
               footnote_location_target_info->file_number_name.file_number
                 = file_index +1;
               footnote_location_target_info->file_number_name.filename
@@ -5074,7 +5074,7 @@ html_default_format_element_header (CONVERTER *self,
       int previous_is_top = 0;
       if (output_unit->unit_filename)
         {
-          file_index = self_html->output_unit_file_indices[output_unit->index];
+          file_index = self->output_unit_file_indices[output_unit->index];
           count_in_file
             = count_elements_in_file_number (self, CEFT_current,
                                              file_index +1);
@@ -5246,7 +5246,7 @@ html_default_format_element_footer (CONVERTER *self,
       if (unit_type == OU_special_unit)
         file_index = self_html->special_unit_file_indices[output_unit->index];
       else
-        file_index = self_html->output_unit_file_indices[output_unit->index];
+        file_index = self->output_unit_file_indices[output_unit->index];
       count_in_file
         = count_elements_in_file_number (self, CEFT_remaining, file_index +1);
 

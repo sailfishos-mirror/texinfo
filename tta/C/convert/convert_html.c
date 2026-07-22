@@ -986,7 +986,7 @@ html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
     {
       self_html->current_filename.filename = output_units->list[0]->unit_filename;
       self_html->current_filename.file_number
-        = self_html->output_unit_file_indices[0]+1;
+        = self->output_unit_file_indices[0]+1;
     }
   else
     {
@@ -2121,7 +2121,7 @@ convert_output_output_unit_internal (CONVERTER *self,
     }
   else
     {
-      file_index = self_html->output_unit_file_indices[output_unit->index];
+      file_index = self->output_unit_file_indices[output_unit->index];
       self_html->current_filename.file_number = file_index +1;
       unit_file = &self->output_unit_files.list[file_index];
 

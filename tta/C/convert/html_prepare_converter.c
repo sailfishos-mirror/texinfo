@@ -5957,8 +5957,8 @@ html_setup_output_simple_page (CONVERTER *self, const char *output_filename)
 
   NAME_NUMBER *page_name_number;
 
-  free (self_html->output_unit_file_indices);
-  self_html->output_unit_file_indices = 0;
+  free (self->output_unit_file_indices);
+  self->output_unit_file_indices = 0;
 
   free (self_html->special_unit_file_indices);
   self_html->special_unit_file_indices = 0;
@@ -6034,11 +6034,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
 
       if (node_top && top_node_filename_str)
         {
-          size_t i;
           node_top_output_unit = node_top->e.c->associated_unit;
-          for (i = 0; i < output_units->number; i++)
-            if (output_units->list[i] == node_top_output_unit)
-              break;
           html_add_to_files_source_info (files_source_info,
                                         top_node_filename_str,
                                         "special_file", "Top", 0, 0);
@@ -6268,8 +6264,8 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
       free (top_node_filename_str);
     }
 
-  self_html->output_unit_file_indices = (size_t *)
-    realloc (self_html->output_unit_file_indices,
+  self->output_unit_file_indices = (size_t *)
+    realloc (self->output_unit_file_indices,
              output_units->number * sizeof (size_t));
 
   for (i = 0; i < output_units->number; i++)
@@ -6341,7 +6337,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
         }
       output_unit_file_idx
         = set_output_unit_file (self, output_unit, filename, 1);
-      self_html->output_unit_file_indices[i] = output_unit_file_idx;
+      self->output_unit_file_indices[i] = output_unit_file_idx;
       output_unit_file = &self->output_unit_files.list[output_unit_file_idx];
       if (self->conf->DEBUG.o.integer > 0)
         {

@@ -112,6 +112,9 @@ typedef struct CONVERTER {
     /* output unit files API */
     /* reset for output */
     FILE_NAME_PATH_COUNTER_LIST output_unit_files;
+    /* reset at allocation */
+    size_t *output_unit_file_indices;   /* array of indices in output_unit_files
+              each position corresponding to an output unit. */
 
     /* to find index in output_unit_files based on name */
     /* reset upon allocation */

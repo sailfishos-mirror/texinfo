@@ -4067,7 +4067,8 @@ sub _html_set_pages_files($$$$$$$$) {
     my $node_top_output_unit;
     if (defined($node_top) and defined($top_node_filename)) {
       $node_top_output_unit = $node_top->{'associated_unit'};
-      die "BUG: No output unit for top node" if (!defined($node_top_output_unit));
+      die "BUG: No output unit for top node"
+        if (!defined($node_top_output_unit));
       push @filenames_order, $top_node_filename;
       $unit_file_name_paths{$node_top_output_unit} = $top_node_filename;
       $files_source_info{$top_node_filename}

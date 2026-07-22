@@ -73,6 +73,7 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     int to_utf8;
     /* */
     int ignored_commands[BUILTIN_CMD_NUMBER];
+    int encoding_disabled;
 } PLAINTEXT_CONVERTER_STATE;
 
 

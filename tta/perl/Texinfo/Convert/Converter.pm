@@ -828,17 +828,13 @@ sub set_output_units_files($$$$$$) {
     my $top_node_filename = $self->top_node_filename($document_name);
     # first determine the top node file name.
     if (defined($node_top) and defined($top_node_filename)) {
-      my $node_top_unit = $self->_get_root_element($node_top);
-      if (!defined($node_top_unit)) {
-        print STDERR "No element for top node (".scalar(@$output_units)." units)\n"
-         if ($self->get_conf('DEBUG'));
-      } else {
-        $self->set_file_path($top_node_filename, $destination_directory);
-        $self->set_output_unit_file($node_top_unit, $top_node_filename);
-      }
+      my $node_top_output_unit = $node_top->{'associated_unit'};
+      die "BUG: No output unit for top node"
+           if (!defined($node_top_output_unit));
+      $self->set_file_path($top_node_filename, $destination_directory);
+      $self->set_output_unit_file($node_top_output_unit, $top_node_filename);
     }
     my $file_nr = 0;
-    my $previous_page;
     foreach my $output_unit (@$output_units) {
       # For Top node.
       next if (defined($output_unit->{'unit_filename'}));
@@ -867,7 +863,7 @@ sub set_output_units_files($$$$$$) {
                                   $arguments_line->{'contents'}->[0]);
             }
             $node_filename .= $extension;
-            $self->set_file_path($node_filename,$destination_directory);
+            $self->set_file_path($node_filename, $destination_directory);
             $self->set_output_unit_file($file_output_unit, $node_filename);
             last;
           }
@@ -898,7 +894,7 @@ sub set_output_units_files($$$$$$) {
               my $filename = $document_name . "_$file_nr";
               $filename .= $extension;
               $self->set_file_path($filename, $destination_directory);
-              $self->set_output_unit_file($output_unit, $filename);
+              $self->set_output_unit_file($file_output_unit, $filename);
             }
             $file_nr++;
           }

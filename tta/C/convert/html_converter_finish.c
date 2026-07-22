@@ -126,7 +126,6 @@ html_free_converter (CONVERTER *self)
       self_html->pl_info_hv = 0;
     }
 
-  free (self_html->output_unit_file_indices);
   free (self_html->special_unit_file_indices);
 
   html_free_files_source_info (&self_html->files_source_info);

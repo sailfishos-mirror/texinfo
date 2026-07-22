@@ -769,17 +769,18 @@ sub output($$) {
       my $path_encoding;
       ($encoded_outfile_name, $path_encoding)
         = $self->encoded_output_file_name($outfile_name);
-      my $error_message;
+      my $open_error_message;
       # the third return information, set if the file has already been used
       # in this files_information is not checked as this cannot happen.
-      ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
+      ($fh, $open_error_message)
+           = Texinfo::Convert::Utils::output_files_open_out(
                     $self->output_files_information(),
                     $encoded_outfile_name, undef,
                     $self->get_conf('OUTPUT_ENCODING_NAME'));
       if (!defined($fh)) {
         $self->converter_document_error(
                  sprintf(__("could not open %s for writing: %s"),
-                                      $outfile_name, $error_message));
+                                      $outfile_name, $open_error_message));
         $self->conversion_finalization();
         return undef;
       }

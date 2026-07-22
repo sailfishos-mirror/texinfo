@@ -50,6 +50,7 @@
 #include "customization_options.h"
 #include "errors.h"
 #include "builtin_commands.h"
+#include "targets.h"
 /* also for cmd_text data */
 #include "convert_to_text.h"
 /* for error message for debugging */
@@ -2059,6 +2060,248 @@ free_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
   free (output_unit_files->list);
 }
 
+/* Called in plaintext converter.  The HTML converter defines its
+   own version.
+   set file counters.
+ */
+
+void
+set_output_units_files (CONVERTER *self,
+                        const OUTPUT_UNIT_LIST *output_units,
+                        const char *output_file,
+                        const char *destination_directory,
+                        const char *output_filename,
+                        const char *document_name)
+{
+  size_t i;
+  const char *extension = 0;
+  char **unit_file_name_paths;
+
+  /* same as calling initialize_output_units_files in Perl */
+  clear_output_unit_files (&self->output_unit_files);
+
+  unit_file_name_paths = (char **)
+   malloc (output_units->number * sizeof (char *));
+  memset (unit_file_name_paths, 0,
+          output_units->number * sizeof (char *));
+
+  if (self->conf->EXTENSION.o.string
+      && strlen (self->conf->EXTENSION.o.string))
+    extension = self->conf->EXTENSION.o.string;
+
+  self->output_unit_file_indices = (size_t *)
+    realloc (self->output_unit_file_indices,
+             output_units->number * sizeof (size_t));
+
+  if (!self->conf->SPLIT.o.string || !strlen (self->conf->SPLIT.o.string))
+    {
+      set_file_path (self, output_filename, output_file, 0);
+      for (i = 0; i < output_units->number; i++)
+        {
+          OUTPUT_UNIT *output_unit = output_units->list[i];
+          size_t output_unit_file_idx
+            = set_output_unit_file (self, output_unit, output_filename, 1);
+          self->output_unit_file_indices[i] = output_unit_file_idx;
+        }
+    }
+  else
+    {
+      char *top_node_filename_str;
+      OUTPUT_UNIT *node_top_output_unit = 0;
+      const ELEMENT *node_top = 0;
+      size_t file_nr = 0;
+      size_t i;
+      size_t top_output_unit_file_idx;
+      size_t file_output_unit_file_idx;
+
+      if (identifiers_target_number (&self->document->identifiers_target))
+        node_top = find_identifier_target (&self->document->identifiers_target,
+                                           "Top");
+
+      top_node_filename_str = top_node_filename (self, document_name);
+
+      /* first determine the top node file name. */
+      if (node_top && top_node_filename_str)
+        {
+          node_top_output_unit = node_top->e.c->associated_unit;
+          set_file_path (self, top_node_filename_str, 0,
+                         destination_directory);
+          top_output_unit_file_idx
+            = set_output_unit_file (self, node_top_output_unit,
+                                    top_node_filename_str, 1);
+        }
+
+      TEXT file_name_text;
+      text_init (&file_name_text);
+
+      for (i = 0; i < output_units->number; i++)
+        {
+          OUTPUT_UNIT *output_unit = output_units->list[i];
+          OUTPUT_UNIT *file_output_unit;
+          size_t output_unit_file_idx;
+          /* For Top node. */
+          if (node_top_output_unit && node_top_output_unit == output_unit)
+            {
+              self->output_unit_file_indices[i] = top_output_unit_file_idx;
+              continue;
+            }
+
+          file_output_unit = output_unit->first_in_page;
+
+          if (!file_output_unit->unit_filename)
+            {
+              size_t j;
+              for (j = 0; j < file_output_unit->unit_contents.number; j++)
+                {
+                  const ELEMENT *root_command
+                     = file_output_unit->unit_contents.list[j];
+                  if (root_command->e.c->cmd == CM_node)
+                    {
+                      const ELEMENT *node_target = 0;
+                      const char *normalized
+                           = lookup_extra_string (root_command,
+                                                  AI_key_identifier);
+                      if (normalized)
+                        node_target
+                         = find_identifier_target (
+                                  &self->document->identifiers_target,
+                                  normalized);
+                   /* double node are not normalized, they are handled here */
+                      if (!node_target)
+                        text_append (&file_name_text, "unknown_node");
+                      else
+                        {
+                          const ELEMENT *arguments_line
+                            = root_command->e.c->contents.list[0];
+                          char *node_filename
+                            = node_information_filename (self, normalized,
+                          /* node label is the first arguments_line content,
+                             the first argument on the line */
+                                      arguments_line->e.c->contents.list[0]);
+
+                          text_append (&file_name_text, node_filename);
+                          free (node_filename);
+                        }
+
+
+                      if (extension)
+                        {
+                          text_append (&file_name_text, ".");
+                          text_append (&file_name_text, extension);
+                        }
+
+                      set_file_path (self, file_name_text.text, 0,
+                                     destination_directory);
+                      file_output_unit_file_idx
+                       = set_output_unit_file (self, file_output_unit,
+                                               file_name_text.text, 1);
+
+                      text_reset (&file_name_text);
+
+                      break;
+                    }
+                }
+              if (!file_output_unit->unit_filename)
+                {
+                  /* use section to do the file name if there is no node */
+                  const SECTION_RELATIONS *command
+                    = file_output_unit->unit_section;
+                  if (command)
+                    {
+                      if (command->element->e.c->cmd == CM_top && !node_top
+                          && top_node_filename_str)
+                        {
+                          set_file_path (self, top_node_filename_str, 0,
+                                         destination_directory);
+                          file_output_unit_file_idx
+                           = set_output_unit_file (self, file_output_unit,
+                                                   top_node_filename_str, 1);
+                        }
+                      else
+                        {
+                          char *filename;
+                          TARGET_FILENAME *target_filename
+                            = normalized_sectioning_command_filename (self,
+                                                           command->element);
+
+                          free (target_filename->target);
+                          filename = target_filename->filename;
+
+                          free (target_filename);
+
+                          set_file_path (self, filename, 0,
+                                         destination_directory);
+                          file_output_unit_file_idx
+                           = set_output_unit_file (self, file_output_unit,
+                                                   filename, 1);
+                          free (filename);
+                        }
+                    }
+                  else
+                   {
+                      /* when everything else has failed */
+                      if (file_nr == 0 && !node_top
+                          && top_node_filename_str)
+                        {
+                          set_file_path (self, top_node_filename_str, 0,
+                                         destination_directory);
+                          file_output_unit_file_idx
+                           = set_output_unit_file (self, file_output_unit,
+                                                   top_node_filename_str, 1);
+                        }
+                      else
+                        {
+                          text_printf (&file_name_text, "%s_%zu",
+                                       document_name, file_nr);
+                          if (extension)
+                            {
+                              text_append (&file_name_text, ".");
+                              text_append (&file_name_text, extension);
+                            }
+                          set_file_path (self, file_name_text.text, 0,
+                                         destination_directory);
+                          file_output_unit_file_idx
+                           = set_output_unit_file (self, file_output_unit,
+                                                   file_name_text.text, 1);
+
+                          text_reset (&file_name_text);
+
+                        }
+                      file_nr++;
+                    }
+                }
+            }
+
+          if (output_unit != file_output_unit)
+            output_unit_file_idx
+                = set_output_unit_file (self, output_unit,
+                                  file_output_unit->unit_filename, 1);
+          else
+            output_unit_file_idx = file_output_unit_file_idx;
+
+          self->output_unit_file_indices[i] = output_unit_file_idx;
+        }
+      free (top_node_filename_str);
+    }
+
+  if (self->conf->DEBUG.o.integer > 0)
+    {
+      for (i = 0; i < output_units->number; i++)
+        {
+          const OUTPUT_UNIT *output_unit = output_units->list[i];
+          size_t output_unit_file_idx
+            = self->output_unit_file_indices[i];
+          FILE_NAME_PATH_COUNTER *output_unit_file
+            = &self->output_unit_files.list[output_unit_file_idx];
+          char *output_unit_text = output_unit_texi (output_unit);
+          fprintf (stderr, "C|Page %s: %s(%d)\n", output_unit_text,
+                 output_unit->unit_filename, output_unit_file->counter);
+          free (output_unit_text);
+        }
+    }
+  free (unit_file_name_paths);
+}
+
 
 
 static void
@@ -2195,6 +2438,7 @@ free_generic_converter (CONVERTER *self)
 
   free_output_files_information (&self->output_files_information);
   free_output_unit_files (&self->output_unit_files);
+  free (self->output_unit_file_indices);
 
   if (self->convert_text_options)
     destroy_text_options (self->convert_text_options);

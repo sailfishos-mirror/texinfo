@@ -784,9 +784,9 @@ typedef struct HTML_CONVERTER_STATE {
     FILE_SOURCE_INFO_LIST files_source_info;
     /* reset in conversion initialization */
     JSLICENSE_CATEGORY_LIST jslicenses;
-    size_t *output_unit_file_indices;   /* array of indices in output_unit_files
-              each position corresponding to an output unit. */
-    size_t *special_unit_file_indices;  /* same for special output units */
+    size_t *special_unit_file_indices;  /* array of indices in
+              output_unit_files each position corresponding to a
+              special output unit */
     /* Next are in converter_info in Perl.  Reset in conversion initialization */
     char *title_titlepage;
     ELEMENT *simpletitle_tree;
