@@ -34,6 +34,8 @@
 #include "option_types.h"
 #include "document_types.h"
 #include "converter_types.h"
+/* for HTML_CONVERTER_STATE */
+#include "html_converter_state.h"
 #include "builtin_commands.h"
 #include "xs_utils.h"
 /* message_list_document_error message_list_format_document_message

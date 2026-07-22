@@ -17,6 +17,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
+/* for FILE */
+#include <stdio.h>
 #include <stddef.h>
 /* for iconv_t */
 #include <iconv.h>
@@ -27,17 +29,36 @@
 #include "document_types.h"
 #include "option_types.h"
 #include "options_data.h"
-#include "plaintext_converter_state.h"
-#include "html_converter_state.h"
+#include "list_macros.h"
 
 /* for interdependency with convert_to_text.h */
 struct TEXT_OPTIONS;
 
 struct C_HASHMAP;
 
+struct PLAINTEXT_CONVERTER_STATE;
+
+struct HTML_CONVERTER_STATE;
+
 /* formatting context flags */
 #define CTXF_string     0x0001
 #define CTXF_code       0x0002
+
+
+
+typedef struct TRANSLATED_COMMAND {
+    enum command_id cmd;
+    char *translation;
+} TRANSLATED_COMMAND;
+
+def_list_type(TRANSLATED_COMMAND_LIST, TRANSLATED_COMMAND);
+
+typedef struct DEPRECATED_DIR_INFO {
+  char *reference_dir;
+  char *obsolete_dir;
+} DEPRECATED_DIR_INFO;
+
+def_list_type(DEPRECATED_DIRS_LIST, DEPRECATED_DIR_INFO);
 
 /* information on converter configuration from a source of configuration
    (either output format or user customization) */
@@ -68,6 +89,47 @@ enum sv_string_type {
    svt_char,
 };
 
+enum command_type_variety {
+   CTV_type_none,
+   CTV_type_command,
+   CTV_type_type,
+};
+
+typedef struct COMMAND_ID_LIST {
+    size_t number;
+    enum command_id *list;
+} COMMAND_ID_LIST;
+
+typedef struct FILE_STREAM {
+    char *file_path;
+    FILE *stream;
+    /* actually PerlIO */
+    void *io;
+} FILE_STREAM;
+
+def_list_type(FILE_STREAM_LIST, FILE_STREAM);
+
+typedef struct OUTPUT_FILES_INFORMATION {
+    STRING_LIST opened_files;
+    FILE_STREAM_LIST unclosed_files;
+} OUTPUT_FILES_INFORMATION;
+
+typedef struct FILE_NAME_PATH_COUNTER {
+    char *filename;
+    char *normalized_filename;
+    char *filepath;
+    int counter;
+    int elements_in_file_count; /* only used in HTML, corresponds to
+                                   'elements_in_file_count' */
+    TEXT body;           /* file body output, used for HTML */
+    const OUTPUT_UNIT *first_unit;
+} FILE_NAME_PATH_COUNTER;
+
+typedef struct FILE_NAME_PATH_COUNTER_LIST {
+    size_t number;
+    size_t space;
+    FILE_NAME_PATH_COUNTER *list;
+} FILE_NAME_PATH_COUNTER_LIST;
 
 typedef struct CONVERTER {
     int converter_descriptor;
@@ -131,13 +193,31 @@ typedef struct CONVERTER {
     COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
 
   /* Info/plaintext specific */
-    PLAINTEXT_CONVERTER_STATE *plaintext_converter;
+    struct PLAINTEXT_CONVERTER_STATE *plaintext_converter;
 
   /* HTML specific */
-    HTML_CONVERTER_STATE *html_converter;
+    struct HTML_CONVERTER_STATE *html_converter;
 } CONVERTER;
 
+/* in command_stack */
+/* either a type or a command id */
+typedef struct {
+    enum command_type_variety variety;
+    union {
+      enum command_id cmd;
+      enum element_type type;
+    } ct;
+} COMMAND_OR_TYPE;
+
+def_list_type(COMMAND_OR_TYPE_STACK, COMMAND_OR_TYPE);
+def_list_type(STRING_STACK, char *);
+def_list_type(INTEGER_STACK, int);
+
 /* following types used in several converter codes, but not in this file */
+
+/* contains only indices with entries */
+def_list_type(SORTED_INDEX_NAMES, const INDEX *);
+
 typedef struct TARGET_FILENAME {
     char *target;
     char *filename;
@@ -176,6 +256,16 @@ typedef struct CONVERTER_TEXT_INFO {
     CONVERTER *converter;
     char *text;
 } CONVERTER_TEXT_INFO;
+
+typedef struct ACCENT_ENTITY_INFO {
+    char *entity;
+    char *characters;
+} ACCENT_ENTITY_INFO;
+
+typedef struct COMMAND_ACCENT_ENTITY_INFO {
+    enum command_id cmd;
+    ACCENT_ENTITY_INFO accent_entity_info;
+} COMMAND_ACCENT_ENTITY_INFO;
 
 /* for translation, to pass HTML specific function and the converter */
 typedef struct CONVERTER_CACHE_TRANSLATE {

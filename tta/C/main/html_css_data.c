@@ -2,7 +2,7 @@
 
 #include <config.h>
 
-#include "converter_types.h"
+#include "html_converter_state.h"
 
 /* Generated from default_css_element_class_styles.csv */
 const CSS_SELECTOR_STYLE base_default_css_element_class_styles[] = {

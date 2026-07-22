@@ -20,18 +20,14 @@
 #include <string.h>
 #include <errno.h>
 
-#include "customization_options.h"
-#include "convert_to_texinfo.h"
-#include "converters_options.h"
-/* converter_output_tree */
-#include "converter.h"
-
-
 #include "text.h"
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
+#include "converter_types.h"
+#include "plaintext_converter_state.h"
 #include "types_data.h"
+#include "base_utils.h"
 /* for lookup_extra* */
 #include "extra.h"
 #include "builtin_commands.h"
@@ -39,11 +35,16 @@
 #include "debug.h"
 /* for format_expanded_p */
 #include "utils.h"
+#include "customization_options.h"
 #include "output_unit.h"
 /* for converter_encoded_output_file_name */
 #include "convert_utils.h"
-#include "base_utils.h"
+#include "convert_to_texinfo.h"
 #include "plaintext_paragraph.h"
+#include "converters_options.h"
+/* for write_or_return top_node_filename determine_files_and_directory
+   create_destination_directory ... */
+#include "converter.h"
 #include "convert_to_plaintext.h"
 
 static const enum command_id informative_global_commands[]

@@ -24,6 +24,8 @@
 #include "option_types.h"
 #include "document_types.h"
 #include "converter_types.h"
+/* for FILE_SOURCE_INFO_LIST */
+#include "html_converter_state.h"
 
 /* in html_converter_init_options.c */
 extern OPTIONS_LIST *html_default_options;

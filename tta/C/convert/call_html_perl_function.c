@@ -36,6 +36,7 @@
 /* *BUTTON* */
 #include "option_types.h"
 #include "converter_types.h"
+#include "html_converter_state.h"
 #include "types_data.h"
 /* non_perl_* */
 #include "xs_utils.h"

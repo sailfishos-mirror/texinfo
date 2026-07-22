@@ -24,6 +24,9 @@
 /* ELEMENT_STACK */
 #include "document_types.h"
 #include "converter_types.h"
+/* ELEMENT_REFERENCE_STACK HTML_DOCUMENT_CONTEXT HTML_FORMATTING_CONTEXT
+   HTML_FORMATTING_CONTEXT_STACK */
+#include "html_converter_state.h"
 
 void reset_command_stack (COMMAND_STACK *stack);
 void push_command (COMMAND_STACK *stack, enum command_id cmd);

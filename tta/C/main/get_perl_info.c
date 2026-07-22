@@ -31,6 +31,8 @@
 #include "options_data.h"
 #include "document_types.h"
 #include "converter_types.h"
+/* HTML_CONVERTER_STATE */
+#include "html_converter_state.h"
 /* non_perl_* */
 #include "xs_utils.h"
 /* fatal */

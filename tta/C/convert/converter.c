@@ -38,6 +38,8 @@
 #include "options_data.h"
 #include "document_types.h"
 #include "converter_types.h"
+/* for HTML_CONVERTER_STATE */
+#include "html_converter_state.h"
 #include "options_defaults.h"
 #include "converters_options.h"
 /* fatal isascii_alnum isascii_alpha */

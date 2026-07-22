@@ -4,6 +4,8 @@
 
 #include "command_ids.h"
 #include "converter_types.h"
+/* htmlxref_split_type_chapter */
+#include "html_converter_state.h"
 
 /* NOTE the high-level functions are declared in html_converter_api.h.
         the intermediate level functions are declared in

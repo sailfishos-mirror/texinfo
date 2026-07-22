@@ -31,6 +31,7 @@
 #include "options_data.h"
 #include "document_types.h"
 #include "converter_types.h"
+#include "html_converter_state.h"
 #include "option_types.h"
 #include "types_data.h"
 #include "html_converter_types.h"

@@ -17,8 +17,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-/* for FILE */
-#include <stdio.h>
+#include <stddef.h>
 
 /* for SPECIAL_UNIT_INFO_TYPE_NR ... */
 #include "html_conversion_data.h"
@@ -27,6 +26,7 @@
 #include "tree_types.h"
 #include "document_types.h"
 #include "list_macros.h"
+#include "converter_types.h"
 
 enum formatting_reference_status {
    FRS_status_none,
@@ -39,12 +39,6 @@ enum formatting_reference_status {
    FRS_status_ignored,            /* explicitly ignored. Only used for
                                      types_conversion and commands_conversion
                                    */
-};
-
-enum command_type_variety {
-   CTV_type_none,
-   CTV_type_command,
-   CTV_type_type,
 };
 
 /* for style commands up to STYLE_COMMAND_CONTEXT_NR and for
@@ -178,19 +172,6 @@ enum html_stage_handler_stage_type {
    #undef html_hsht_type
 };
 
-/* either a type or a command id */
-typedef struct {
-    enum command_type_variety variety;
-    union {
-      enum command_id cmd;
-      enum element_type type;
-    } ct;
-} COMMAND_OR_TYPE;
-
-def_list_type(COMMAND_OR_TYPE_STACK, COMMAND_OR_TYPE);
-def_list_type(STRING_STACK, char *);
-def_list_type(INTEGER_STACK, int);
-
 /* an element in C, and/or a reference to an external language (Perl)
    for stack functions called from outside of the C converter */
 typedef struct ELEMENT_REFERENCE {
@@ -201,13 +182,6 @@ typedef struct ELEMENT_REFERENCE {
 } ELEMENT_REFERENCE;
 
 def_list_type(ELEMENT_REFERENCE_STACK, ELEMENT_REFERENCE);
-
-/* TODO should better be in converter_types.h, but converter_types.h
-   depends on the current file */
-typedef struct COMMAND_ID_LIST {
-    size_t number;
-    enum command_id *list;
-} COMMAND_ID_LIST;
 
 typedef struct FILE_NUMBER_NAME {
     size_t file_number;
@@ -331,13 +305,6 @@ typedef struct COMMAND_ID_INDEX {
     size_t index;
 } COMMAND_ID_INDEX;
 
-typedef struct TRANSLATED_COMMAND {
-    enum command_id cmd;
-    char *translation;
-} TRANSLATED_COMMAND;
-
-def_list_type(TRANSLATED_COMMAND_LIST, TRANSLATED_COMMAND);
-
 typedef struct COMMAND_INTEGER_INFORMATION {
     enum command_id cmd;
     int integer;
@@ -347,37 +314,6 @@ typedef struct TYPE_INTEGER_INFORMATION {
     enum element_type type;
     int integer;
 } TYPE_INTEGER_INFORMATION;
-
-typedef struct FILE_NAME_PATH_COUNTER {
-    char *filename;
-    char *normalized_filename;
-    char *filepath;
-    int counter;
-    int elements_in_file_count; /* only used in HTML, corresponds to
-                                   'elements_in_file_count' */
-    TEXT body;           /* file body output, used for HTML */
-    const OUTPUT_UNIT *first_unit;
-} FILE_NAME_PATH_COUNTER;
-
-typedef struct FILE_NAME_PATH_COUNTER_LIST {
-    size_t number;
-    size_t space;
-    FILE_NAME_PATH_COUNTER *list;
-} FILE_NAME_PATH_COUNTER_LIST;
-
-typedef struct FILE_STREAM {
-    char *file_path;
-    FILE *stream;
-    /* actually PerlIO */
-    void *io;
-} FILE_STREAM;
-
-def_list_type(FILE_STREAM_LIST, FILE_STREAM);
-
-typedef struct OUTPUT_FILES_INFORMATION {
-    STRING_LIST opened_files;
-    FILE_STREAM_LIST unclosed_files;
-} OUTPUT_FILES_INFORMATION;
 
 typedef struct FILE_SOURCE_INFO {
     char *filename;
@@ -497,16 +433,6 @@ typedef struct HTML_ARGS_FORMATTED {
     HTML_ARG_FORMATTED *args;
 } HTML_ARGS_FORMATTED;
 
-typedef struct ACCENT_ENTITY_INFO {
-    char *entity;
-    char *characters;
-} ACCENT_ENTITY_INFO;
-
-typedef struct COMMAND_ACCENT_ENTITY_INFO {
-    enum command_id cmd;
-    ACCENT_ENTITY_INFO accent_entity_info;
-} COMMAND_ACCENT_ENTITY_INFO;
-
 typedef struct COMMAND_CONVERSION_FUNCTION {
     enum formatting_reference_status status;
     /* points to the perl formatting reference if it is used for
@@ -622,9 +548,6 @@ typedef struct JSLICENSE_CATEGORY_LIST {
     JSLICENSE_FILE_INFO_LIST *list;
 } JSLICENSE_CATEGORY_LIST;
 
-/* contains only indices with entries */
-def_list_type(SORTED_INDEX_NAMES, const INDEX *);
-
 typedef struct FILE_INFO_KEY_PAIR {
     const char *key;
     int integer;
@@ -664,13 +587,6 @@ typedef struct PRE_CLASS_TYPE_INFO {
     enum element_type type;
     char *pre_class;
 } PRE_CLASS_TYPE_INFO;
-
-typedef struct DEPRECATED_DIR_INFO {
-  char *reference_dir;
-  char *obsolete_dir;
-} DEPRECATED_DIR_INFO;
-
-def_list_type(DEPRECATED_DIRS_LIST, DEPRECATED_DIR_INFO);
 
 typedef struct HTML_CONVERTER_STATE {
     /* set for a converter */

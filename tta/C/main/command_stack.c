@@ -21,8 +21,10 @@
 #include "tree_types.h"
 /* ELEMENT_STACK */
 #include "document_types.h"
-/* HTML_FORMATTING_CONTEXT HTML_DOCUMENT_CONTEXT */
+/* COMMAND_OR_TYPE_STACK STRING_STACK ... */
 #include "converter_types.h"
+/* HTML_FORMATTING_CONTEXT HTML_DOCUMENT_CONTEXT */
+#include "html_converter_state.h"
 /* fatal */
 #include "base_utils.h"
 #include "command_stack.h"
