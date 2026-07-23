@@ -1,3 +1,29 @@
+2026-07-23  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Shadow targets for texinfo.tex
+	
+	* doc/texinfo.tex (\donoderef): If no preceding @node, use the
+	section text itself as the target name, passed to new macro
+	\setrefshadow.
+	(\setrefshadow): Output @xrshad line to .aux file for shadow target,
+	and run \pdfdest in PDF output.
+	(\setref, \dosetref): Split out \dosetref.
+	
+	(\xrshad): Provide definition for control sequence written to .aux
+	file.  Save information on shadow targets.
+	
+	(\checkshadowactive): New macro, used to check if a shadow target can
+	be referenced.
+	(\xrefX): Use \checkshadowactive to decide if we should output a
+	reference to a shadow target or not.
+
+	(\xrdef, \xrdefctxt): Split out \xrdefctxt.
+	(\getrefx): Use \xrdefctx.  Check for a shadow target if information
+	on the target couldn't be found.
+
+	(\countA): Move definition earlier in file to use it as a
+	general purpose count register.
+
 2026-07-22 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/plaintext_converter_state.h (PLAINTEXT_COMMAND_STRUCT):
