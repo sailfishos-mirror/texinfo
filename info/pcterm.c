@@ -163,7 +163,7 @@ w32_cleanup (void)
 }
 
 static void w32_info_init (void) __attribute__((constructor));
-static void pc_initialize_terminal (char *);
+static void pc_initialize_terminal (const char *);
 
 static void
 w32_info_init (void)
@@ -1161,7 +1161,7 @@ pc_unprep_terminal (void)
    to the dimensions that this terminal actually has.  Finally, the
    terminal screen is cleared. */
 static void
-pc_initialize_terminal (char *term_name)
+pc_initialize_terminal (const char *term_name)
 {
   char *info_colors;
 

@@ -57,7 +57,7 @@ extern int tputs (const char *str, int affcnt, int (*putc)(int));
    function is called with exactly the same arguments that were passed
    to the namesake function. */
 
-void (*terminal_initialize_terminal_hook) (char *terminal_name) = NULL;
+void (*terminal_initialize_terminal_hook) (const char *terminal_name) = NULL;
 void (*terminal_get_screen_size_hook) (void) = NULL;
 void (*terminal_prep_terminal_hook) (void) = NULL;
 void (*terminal_unprep_terminal_hook) (void) = NULL;
@@ -97,7 +97,7 @@ int mouse_protocol = MP_NONE;
    used to float within it.  And the name of the terminal.  */
 static char *term_buffer = NULL;
 static char *term_string_buffer = NULL;
-static char *term_name;
+static const char *term_name;
 
 /* Some strings to control terminal actions.  These are output by tputs (). */
 static char *term_goto, *term_clreol, *term_cr, *term_clrpag;
@@ -894,7 +894,7 @@ initialize_byte_map (void)
    to the dimensions that this terminal actually has.  Get and save various
    termcap strings. */
 void
-terminal_initialize_terminal (char *terminal_name)
+terminal_initialize_terminal (const char *terminal_name)
 {
   char *buffer;
 
