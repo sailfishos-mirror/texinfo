@@ -1,3 +1,11 @@
+2026-07-23  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Add const
+
+	* info/variables.c (update_rendition_from_string)
+	(update_highlight_searches, set_variable_to_value):
+	Change argument from type char * to const char *.
+
 2026-07-22 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_to_plaintext.c (plaintext_free_converter):

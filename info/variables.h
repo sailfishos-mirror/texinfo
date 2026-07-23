@@ -53,7 +53,7 @@ REFERENCE **make_variable_completions_array (void);
 
 /* Set the value of an info variable. */
 void set_variable (WINDOW *window, int count);
-int set_variable_to_value (VARIABLE_ALIST *var, char *value, int where);
+int set_variable_to_value (VARIABLE_ALIST *var, const char *value, int where);
 
 void describe_variable (WINDOW *window, int count);
 char *variable_description_string (VARIABLE_ALIST *var);

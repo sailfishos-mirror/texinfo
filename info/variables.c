@@ -484,7 +484,7 @@ make_variable_completions_array (void)
 }
 
 static void
-update_rendition_from_string (RENDITION *rendition, char *value)
+update_rendition_from_string (RENDITION *rendition, const char *value_in)
 {
   static struct {
       unsigned long mask;
@@ -527,6 +527,7 @@ update_rendition_from_string (RENDITION *rendition, char *value)
   unsigned long rendition_mask = 0;
   unsigned long rendition_value = 0;
 
+  char *value = xstrdup (value_in);
   component = strtok (value, ",");
   while (component)
     {
@@ -550,10 +551,11 @@ update_rendition_from_string (RENDITION *rendition, char *value)
   /* Now all the specified styles are recorded in rendition_value. */
   rendition->mask = rendition_mask;
   rendition->value = rendition_value;
+  free (value);
 }
 
 static void
-update_highlight_searches (char *value)
+update_highlight_searches (const char *value)
 {
   if (strcmp (on_off_choices[1], value) == 0)
     {
@@ -575,7 +577,7 @@ update_highlight_searches (char *value)
    by the user.  Update our internal data structure VAR using this
    information. */
 int
-set_variable_to_value (VARIABLE_ALIST *var, char *value, int where)
+set_variable_to_value (VARIABLE_ALIST *var, const char *value, int where)
 {
   /* If variable was set elsewhere with a higher priority, don't do
      anything, but don't indicate an error. */
