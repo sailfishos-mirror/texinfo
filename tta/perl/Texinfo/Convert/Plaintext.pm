@@ -337,9 +337,8 @@ foreach my $command (keys(%command_style_map)) {
 }
 
 # math is special
-my @asis_commands = ('asis', 'w', 'b', 'i', 'sc', 't', 'r',
-  'slanted', 'sansserif', 'var', 'verb', 'clicksequence',
-  'headitemfont', 'dmn');
+my @asis_commands = ('asis', 'w', 'b', 'i', 't', 'r', 'slanted', 'sansserif',
+                     'verb', 'clicksequence', 'headitemfont', 'dmn');
 
 foreach my $asis_command (@asis_commands) {
   $style_map{$asis_command} = ['', ''];
@@ -3109,11 +3108,6 @@ sub _convert($$) {
           push @{$formatter->{'frenchspacing_stack'}}, 'on';
           set_frenchspacing($formatter->{'container'}, 1);
         }
-        if (exists($upper_case_commands{$cmdname})) {
-          $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}++;
-          $formatter->{'upper_case_stack'}->[-1]->{'var'}++
-            if ($cmdname eq 'var');
-        }
         if ($cmdname eq 'w') {
           $formatter->{'w'}++;
           set_space_protection($formatter->{'container'}, 1)
@@ -3184,13 +3178,30 @@ sub _convert($$) {
                                  eq 'on');
           set_frenchspacing($formatter->{'container'}, $frenchspacing);
         }
-        if (exists($upper_case_commands{$cmdname})) {
-          $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}--;
-          if ($cmdname eq 'var') {
-            $formatter->{'upper_case_stack'}->[-1]->{'var'}--;
-            # Allow a following full stop to terminate a sentence.
-            allow_end_sentence($formatter->{'container'});
-          }
+        return;
+      } elsif (exists($upper_case_commands{$cmdname})) {
+        $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}++;
+        if ($cmdname eq 'var') {
+          $formatter->{'upper_case_stack'}->[-1]->{'var'}++;
+          push @{$formatter->{'frenchspacing_stack'}}, 'on';
+          set_frenchspacing($formatter->{'container'}, 1);
+        }
+
+        if (exists($element->{'contents'})) {
+          _convert($self, $element->{'contents'}->[0]);
+        }
+
+        $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}--;
+        if ($cmdname eq 'var') {
+          pop @{$formatter->{'frenchspacing_stack'}};
+          my $frenchspacing = 0;
+          $frenchspacing = 1 if ($formatter->{'frenchspacing_stack'}->[-1]
+                                 eq 'on');
+          set_frenchspacing($formatter->{'container'}, $frenchspacing);
+
+          $formatter->{'upper_case_stack'}->[-1]->{'var'}--;
+          # Allow a following full stop to terminate a sentence.
+          allow_end_sentence($formatter->{'container'});
         }
         return;
       } elsif ($cmdname eq 'link') {

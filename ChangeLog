@@ -1,3 +1,18 @@
+2026-07-24  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Split out handling of @var and @sc from "style map"
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert) <style map>:
+	Separate handling of "upper case commands" (@var and @sc) from
+	handling of commands added to $self->{'style_map'}.  Most of the
+	code in the "style map" clause was irrelevant, except for the
+	code under the %no_punctation_munging_commands (sic) condition to
+	set frenchspacing, which applied to @var.  However, @var already
+	had special-case code under the "upper case commands" condition,
+	so adding the frenchspacing code under the @var condition doesn't
+	increase complexity too much.
+	(@asis_commands): Remove 'var', 'sc'.
+
 2026-07-23  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Shadow targets for texinfo.tex
