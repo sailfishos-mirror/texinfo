@@ -2115,27 +2115,33 @@ set_output_units_files (CONVERTER *self,
   else
     {
       char *top_node_filename_str;
-      OUTPUT_UNIT *node_top_output_unit = 0;
-      const ELEMENT *node_top = 0;
+      OUTPUT_UNIT *top_node_output_unit = 0;
+      const ELEMENT *top_node = 0;
+      const ELEMENT *top_target_element;
       size_t file_nr = 0;
       size_t i;
       size_t top_output_unit_file_idx;
       size_t file_output_unit_file_idx;
 
       if (identifiers_target_number (&self->document->identifiers_target))
-        node_top = find_identifier_target (&self->document->identifiers_target,
-                                           "Top");
+        {
+          top_target_element
+            = find_identifier_target (&self->document->identifiers_target,
+                                      "Top");
+          if (top_target_element && top_target_element->e.c->cmd == CM_node)
+            top_node = top_target_element;
+        }
 
       top_node_filename_str = top_node_filename (self, document_name);
 
       /* first determine the top node file name. */
-      if (node_top && top_node_filename_str)
+      if (top_node && top_node_filename_str)
         {
-          node_top_output_unit = node_top->e.c->associated_unit;
+          top_node_output_unit = top_node->e.c->associated_unit;
           set_file_path (self, top_node_filename_str, 0,
                          destination_directory);
           top_output_unit_file_idx
-            = set_output_unit_file (self, node_top_output_unit,
+            = set_output_unit_file (self, top_node_output_unit,
                                     top_node_filename_str, 1);
         }
 
@@ -2148,7 +2154,7 @@ set_output_units_files (CONVERTER *self,
           OUTPUT_UNIT *file_output_unit;
           size_t output_unit_file_idx;
           /* For Top node. */
-          if (node_top_output_unit && node_top_output_unit == output_unit)
+          if (top_node_output_unit && top_node_output_unit == output_unit)
             {
               self->output_unit_file_indices[i] = top_output_unit_file_idx;
               continue;
@@ -2216,7 +2222,7 @@ set_output_units_files (CONVERTER *self,
                     = file_output_unit->unit_section;
                   if (command)
                     {
-                      if (command->element->e.c->cmd == CM_top && !node_top
+                      if (command->element->e.c->cmd == CM_top && !top_node
                           && top_node_filename_str)
                         {
                           set_file_path (self, top_node_filename_str, 0,
@@ -2248,7 +2254,7 @@ set_output_units_files (CONVERTER *self,
                   else
                    {
                       /* when everything else has failed */
-                      if (file_nr == 0 && !node_top
+                      if (file_nr == 0 && !top_node
                           && top_node_filename_str)
                         {
                           set_file_path (self, top_node_filename_str, 0,

@@ -66,7 +66,10 @@ $result_converted_errors{'file_html'}->{'top_is_an_anchor_and_node'} = '* W |mus
 
 ';
 
-$result_converted_errors{'file_info'}->{'top_is_an_anchor_and_node'} = '* W l3|@anchor outside of any node
+$result_converted_errors{'file_info'}->{'top_is_an_anchor_and_node'} = '* W |document without Top node
+ warning: document without Top node
+
+* W l3|@anchor outside of any node
  warning: @anchor outside of any node
 
 ';

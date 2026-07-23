@@ -820,24 +820,29 @@ sub set_output_units_files($$$$$$) {
       $self->set_output_unit_file($output_unit, $output_filename);
     }
   } else {
-    my $node_top;
+    my $top_node;
 
     my $identifiers_target;
     if (exists($self->{'document'})) {
       $identifiers_target = $self->{'document'}->labels_information();
     }
 
-    $node_top = $identifiers_target->{'Top'}
-                            if (defined($identifiers_target));
+    if (defined($identifiers_target)) {
+      my $top_target_element = $identifiers_target->{'Top'};
+      if (defined($top_target_element)
+          and $top_target_element->{'cmdname'} eq 'node') {
+        $top_node = $top_target_element;
+      }
+    }
 
     my $top_node_filename = $self->top_node_filename($document_name);
     # first determine the top node file name.
-    if (defined($node_top) and defined($top_node_filename)) {
-      my $node_top_output_unit = $node_top->{'associated_unit'};
+    if (defined($top_node) and defined($top_node_filename)) {
+      my $top_node_output_unit = $top_node->{'associated_unit'};
       die "BUG: No output unit for top node"
-           if (!defined($node_top_output_unit));
+           if (!defined($top_node_output_unit));
       $self->set_file_path($top_node_filename, $destination_directory);
-      $self->set_output_unit_file($node_top_output_unit, $top_node_filename);
+      $self->set_output_unit_file($top_node_output_unit, $top_node_filename);
     }
     my $file_nr = 0;
     foreach my $output_unit (@$output_units) {
@@ -878,7 +883,7 @@ sub set_output_units_files($$$$$$) {
           my $command = $file_output_unit->{'unit_section'};
           if ($command) {
             if ($command->{'element'}->{'cmdname'} eq 'top'
-                and !defined($node_top)
+                and !defined($top_node)
                 and defined($top_node_filename)) {
               $self->set_file_path($top_node_filename, $destination_directory);
               $self->set_output_unit_file($file_output_unit, $top_node_filename);
@@ -891,7 +896,7 @@ sub set_output_units_files($$$$$$) {
             }
           } else {
             # when everything else has failed
-            if ($file_nr == 0 and !defined($node_top)
+            if ($file_nr == 0 and !defined($top_node)
                 and defined($top_node_filename)) {
               $self->set_file_path($top_node_filename, $destination_directory);
               $self->set_output_unit_file($file_output_unit, $top_node_filename);

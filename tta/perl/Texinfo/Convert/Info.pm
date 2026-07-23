@@ -219,11 +219,20 @@ sub output($$) {
     }
   } else {
     my $identifiers_target;
+    my $top_node;
+
     if (exists($self->{'document'})) {
       $identifiers_target = $self->{'document'}->labels_information();
     }
-    unless (defined($identifiers_target)
-            and exists($identifiers_target->{'Top'})) {
+    if (defined($identifiers_target)) {
+      my $top_target_element = $identifiers_target->{'Top'};
+      if (defined($top_target_element)
+          and $top_target_element->{'cmdname'} eq 'node') {
+        $top_node = $top_target_element;
+      }
+    }
+
+    if (!defined($top_node)) {
       my $input_file_name;
       if (exists($self->{'document'})) {
         my $document_info = $self->{'document'}->global_information();
