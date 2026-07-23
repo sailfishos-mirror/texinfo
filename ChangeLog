@@ -1,3 +1,22 @@
+2026-07-22 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/plaintext_converter_state.h (PLAINTEXT_COMMAND_STRUCT):
+	move to plaintext_converter_state.h.
+
+	* tta/C/convert/convert_to_plaintext.c (PF_ignored)
+	(plaintext_format_setup, plaintext_converter_initialize)
+	(convert_to_plaintext_internal),
+	tta/C/main/plaintext_converter_state.h (PLAINTEXT_CONVERTER_STATE):
+	setup default ignored commands in plaintext_commands_data flags.  Add
+	commands_data PLAINTEXT_COMMAND_STRUCT array in
+	PLAINTEXT_CONVERTER_STATE.  Copy plaintext_commands_data to
+	commands_data in plaintext_converter_initialize, and modify based on
+	customization.
+
+	* tta/C/convert/convert_to_plaintext.c (PF_informative)
+	(plaintext_format_setup, convert_to_plaintext_internal): setup
+	informative commands as a flag in plaintext_commands_data.
+
 2026-07-23  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Add const

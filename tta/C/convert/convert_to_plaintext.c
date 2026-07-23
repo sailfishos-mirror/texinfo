@@ -60,11 +60,11 @@ static COMMAND_ID_LIST format_raw_cmd;
 
 /* Plaintext command data flags */
 /*
-#define PF_                     0x0002
 */
-#define PF_format_raw           0x0004
+#define PF_informative            0x0001
+#define PF_ignored                0x0002
+#define PF_format_raw             0x0004
 /*
-#define HF_composition_context  0x0001
 #define HF_pre_class            0x0008
 #define HF_small_block_command  0x0010
 #define HF_HTML_align           0x0020
@@ -73,15 +73,7 @@ static COMMAND_ID_LIST format_raw_cmd;
 #define HF_style_command         0x0100
 */
 
-typedef struct PLAINTEXT_COMMAND_STRUCT {
-    unsigned long flags;
-    /*
-    enum command_id pre_class_cmd;
-    enum command_id upper_case_cmd;
-     */
-} PLAINTEXT_COMMAND_STRUCT;
-
-PLAINTEXT_COMMAND_STRUCT plaintext_commands_data[BUILTIN_CMD_NUMBER];
+static PLAINTEXT_COMMAND_STRUCT plaintext_commands_data[BUILTIN_CMD_NUMBER];
 
 /* Data structure utilities.  These could possibly be placed in a
    separate file, or defined with macros in list_macros.h. */
@@ -210,10 +202,46 @@ plaintext_format_setup (enum converter_format format)
   int i;
   int format_raw_cmd_nr = 0;
 
-  /* count commands in some categories */
+  static enum command_id ignored_brace_commands[] = {
+      CM_caption, CM_shortcaption, CM_hyphenation, CM_sortas, CM_errormsg,
+      CM_seeentry, CM_seealso, 0};
+
+  static enum command_id ignored_block_commands[] = {
+      CM_ignore, CM_macro, CM_rmacro, CM_linemacro, CM_copying,
+      CM_documentdescription, CM_documentinfo, CM_publication, CM_titlepage,
+      CM_titlepage, CM_direntry, CM_nodedescriptionblock, 0};
+
+  static enum command_id non_formatted_line_command[] = {
+    CM_page, CM_need, CM_vskip, CM_title, CM_subtitle, CM_title,
+    CM_maketitle, 0};
+
+  for (i = 0; ignored_brace_commands[i]; i++)
+    plaintext_commands_data[ignored_brace_commands[i]].flags |= PF_ignored;
+
+  for (i = 0; ignored_block_commands[i]; i++)
+    plaintext_commands_data[ignored_block_commands[i]].flags |= PF_ignored;
+
+  /* count commands in some categories and set categories */
   for (i = 1; i < BUILTIN_CMD_NUMBER; i++)
     {
-      if (command_data[i].flags & CF_block)
+      if (command_data[i].flags & CF_nobrace)
+        {
+          if (command_data[i].other_flags & CF_formatted_nobrace)
+            {}
+          else
+            plaintext_commands_data[i].flags |= PF_ignored;
+        }
+      else if (command_data[i].flags & CF_line)
+        {
+          if (command_data[i].other_flags & CF_formattable_line
+              || command_data[i].other_flags & CF_formatted_line
+              || command_data[i].flags & CF_def
+              || command_data[i].flags & CF_index_entry_command)
+            {}
+          else
+            plaintext_commands_data[i].flags |= PF_ignored;
+        }
+      else if (command_data[i].flags & CF_block)
         {
           if (command_data[i].data == BLOCK_menu)
             {}
@@ -227,6 +255,23 @@ plaintext_format_setup (enum converter_format format)
             }
         }
     }
+
+  /* ignored formatted/formattable line commands */
+  for (i = 0; non_formatted_line_command[i]; i++)
+    plaintext_commands_data[non_formatted_line_command[i]].flags |= PF_ignored;
+
+  /* not ignored line commands */
+  for (i = 0; informative_global_commands[i]; i++)
+    {
+      enum command_id cmd = informative_global_commands[i];
+      plaintext_commands_data[cmd].flags &= ~PF_ignored;
+      plaintext_commands_data[cmd].flags |= PF_informative;
+    }
+
+  for (i = 0; contents_commands[i]; i++)
+    plaintext_commands_data[contents_commands[i]].flags &= ~PF_ignored;
+
+  plaintext_commands_data[CM_documentlanguagevariant].flags &= ~PF_ignored;
 
   initialize_cmd_list (&format_raw_cmd, format_raw_cmd_nr, 0);
 
@@ -453,36 +498,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
   if (cmd != CM_NONE)
     {
-      /* TODO: %ignored_line_commands */
-      /* TODO: %ignored_nobrace_commands */
-
-      /* %ignored_brace_commands */
-      if (cmd == CM_caption
-          || cmd == CM_shortcaption
-          || cmd == CM_hyphenation
-          || cmd == CM_sortas
-          || cmd == CM_errormsg
-          || cmd == CM_seeentry
-          || cmd == CM_seealso)
-        {
-          return;
-        }
-      /* %ignored_block_commands */
-      if (cmd == CM_ignore
-          || cmd == CM_macro
-          || cmd == CM_rmacro
-          || cmd == CM_linemacro
-          || cmd == CM_copying
-          || cmd == CM_documentdescription
-          || cmd == CM_documentinfo
-          || cmd == CM_publication
-          || cmd == CM_titlepage
-          || cmd == CM_direntry
-          || cmd == CM_nodedescriptionblock)
-        {
-          return;
-        }
-      /* TODO: ignore %format_raw_commands unless expanded */
+      if (self_plaintext->commands_data[cmd].flags & PF_ignored)
+        return;
     }
 
   /* TODO: Index entry check */
@@ -575,7 +592,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         return;
       else if (cmd == CM_author)
         return;
-      /* else if informative_commands */
+      else if (self_plaintext->commands_data[cmd].flags & PF_informative)
+        return;
       else if (cmd == CM_documentlanguagevariant)
         return;
       /* TODO else unknown_command - possibly not relevant for C code */
@@ -712,12 +730,15 @@ plaintext_converter_initialize (CONVERTER *self)
 
   memset (self_plaintext, 0, sizeof (*self_plaintext));
 
+  memcpy (self_plaintext->commands_data, plaintext_commands_data,
+          BUILTIN_CMD_NUMBER * sizeof (PLAINTEXT_COMMAND_STRUCT));
+
   for (i = 0; i < format_raw_cmd.number; i++)
     {
       enum command_id cmd = format_raw_cmd.list[i];
       const char *format = builtin_command_name (cmd);
       if (!format_expanded_p (self->expanded_formats, format))
-        self_plaintext->ignored_commands[cmd] = 1;
+        self_plaintext->commands_data[cmd].flags |= PF_ignored;
     }
 
   /* TODO */
@@ -1149,7 +1170,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
 
 /* ALTIMP: Texinfo:Convert::Plaintext::convert */
 /* never called from C, could be called from XS for t/?*.t tests if there
-   was an XS interface (which is not a clearly something to do) */
+   was an XS interface (which is not necessarily a good thing to do) */
 char *
 plaintext_convert (CONVERTER *self, DOCUMENT *document)
 {

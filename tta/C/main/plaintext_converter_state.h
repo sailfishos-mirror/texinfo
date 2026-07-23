@@ -19,6 +19,14 @@
 #include "command_ids.h"
 #include "list_macros.h"
 
+typedef struct PLAINTEXT_COMMAND_STRUCT {
+    unsigned long flags;
+    /*
+    enum command_id pre_class_cmd;
+    enum command_id upper_case_cmd;
+     */
+} PLAINTEXT_COMMAND_STRUCT;
+
 typedef struct FORMATTER_CONTAINER {
   int paragraph; /* Paragaph ID */
 } FORMATTER_CONTAINER;
@@ -72,7 +80,7 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     char *enabled_encoding;
     int to_utf8;
     /* */
-    int ignored_commands[BUILTIN_CMD_NUMBER];
+    PLAINTEXT_COMMAND_STRUCT commands_data[BUILTIN_CMD_NUMBER];
     int encoding_disabled;
 } PLAINTEXT_CONVERTER_STATE;
 
