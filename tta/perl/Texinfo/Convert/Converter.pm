@@ -482,6 +482,11 @@ sub element_cdt($$$;$$) {
 # language
 
 # TODO document
+# Does nothing if $DOCUMENTLANGUAGE is undef.  Therefore cannot be used
+# to reset documentlanguage to the situation at the beginning of conversion
+# to an unknown value, unless documentlanguage was not set from the
+# command-line.  To also reset to an unknown value, use
+# reset_lang_translation_from_customization.
 sub converter_set_documentlanguage($$) {
   my ($self, $documentlanguage) = @_;
 

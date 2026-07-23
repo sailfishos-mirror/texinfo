@@ -117,6 +117,22 @@ sub output($$) {
     $self->{'encoding_disabled'} = 1;
   }
 
+  my $global_commands;
+  if (exists($self->{'document'})) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+
+  my $default_bcp47_locale = $self->current_bcp47_locale();
+
+  # This also sets the language related options to their pre-conversion
+  # values.
+  $self->set_converter_preamble_language_commands();
+  # format the Info header and cached node names using the last value
+  # of the preamble.
+  my @informative_global_commands = $self->get_informative_global_commands();
+  $self->set_global_document_commands('preamble', \@informative_global_commands);
+  my $preamble_bcp47_locale = $self->current_bcp47_locale();
+
   my $header = $self->_info_header($input_basefile, $output_filename);
   # header + text between setfilename and first node
   my $complete_header = $header;
@@ -127,6 +143,14 @@ sub output($$) {
   $self->register_output_units_lists([$output_units]);
 
   $self->_cache_node_names($output_units);
+
+  $self->set_global_document_commands('before', \@informative_global_commands);
+
+  if ($default_bcp47_locale ne $preamble_bcp47_locale) {
+    $self->reset_lang_translation_from_customization(
+                           $self->get_conf('documentlanguage'),
+                           $self->get_conf('documentscript'));
+  }
 
   my $elements_images;
   if ($self->get_conf('INFO_MATH_IMAGES')) {
@@ -472,10 +496,7 @@ sub _info_header($$$) {
   if (exists($self->{'document'})) {
     $global_commands = $self->{'document'}->global_commands_information();
   }
-  # format @copying using the last value of the preamble.
-  my @informative_global_commands = $self->get_informative_global_commands();
-  $self->set_global_document_commands('preamble', \@informative_global_commands);
-  $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
+
   if (defined($global_commands) and exists($global_commands->{'copying'})) {
     print STDERR "COPYING HEADER\n" if ($self->get_conf('DEBUG'));
     $self->{'in_copying_header'} = 1;
@@ -484,9 +505,6 @@ sub _info_header($$$) {
     $self->process_footnotes();
     delete $self->{'in_copying_header'};
   }
-  $self->set_global_document_commands('before', \@informative_global_commands);
-  $self->converter_set_documentlanguage($self->get_conf('documentlanguage'));
-
   if (exists($global_commands->{'dircategory_direntry'})) {
     delete $self->{'ignored_commands'}->{'direntry'};
     foreach my $command (@{$global_commands->{'dircategory_direntry'}}) {
@@ -507,6 +525,7 @@ sub _info_header($$$) {
   $self->_add_newline_if_needed();
   $result = $self->_stream_result();
   pop @{$self->{'count_context'}};
+
   return $result;
 }
 

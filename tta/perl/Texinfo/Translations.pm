@@ -356,6 +356,8 @@ sub new_element_language_translation($$) {
 }
 
 # TODO document?
+# Do nothing if $DOCUMENTLANGUAGE is undef.
+#
 # resets script and language variants.
 sub set_translations_documentlanguage($$$) {
   my ($translations_cache, $documentlanguage, $current_lang_translations) = @_;

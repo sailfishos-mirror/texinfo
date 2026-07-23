@@ -471,7 +471,7 @@ $result_converted_sort_strings{'plaintext'}->{'documentlanguagevariant_conversio
 
 $result_converted{'info'}->{'documentlanguagevariant_conversion'} = 'This is , produced from .
 
- -- p_L-Instance Variable of SSS: p_L-BBB CCC
+ -- p_V1234-Instance Variable of SSS: p_V1234-BBB CCC
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)
@@ -503,8 +503,8 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 
 
 Tag Table:
-Node: Top74
-Node: chap149
+Node: Top82
+Node: chap157
 
 End Tag Table
 

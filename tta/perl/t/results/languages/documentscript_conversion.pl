@@ -468,7 +468,7 @@ $result_converted_sort_strings{'plaintext'}->{'documentscript_conversion'} = 'vr
 
 $result_converted{'info'}->{'documentscript_conversion'} = 'This is , produced from .
 
- -- p_L-Instance Variable of SSS: p_L-BBB CCC
+ -- p_S-Instance Variable of SSS: p_S-BBB CCC
 
 
 File: ,  Node: Top,  Next: chap,  Up: (dir)

@@ -1,3 +1,12 @@
+2026-07-22 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/Info.pm (output, _info_header): set
+	informative commands to the values at the end of the preamble outside
+	of _info_header and reset only after converting and caching the node
+	names.  Use set_converter_preamble_language_commands and
+	reset_lang_translation_from_customization to set all the language
+	information.
+
 2026-07-25  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/convert/convert_to_plaintext.c (convert_to_plaintext_internal):
