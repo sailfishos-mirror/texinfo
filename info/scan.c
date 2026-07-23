@@ -1450,7 +1450,7 @@ safe_string_index (char *ptr, long index, char *base, long len)
 static void
 scan_info_tag (NODE *node, int *in_index, FILE_BUFFER *fb)
 {
-  char *p, *p1;
+  const char *p, *p1;
   struct text_buffer *expansion = xmalloc (sizeof (struct text_buffer));
 
   p = inptr;

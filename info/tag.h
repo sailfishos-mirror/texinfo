@@ -20,7 +20,7 @@
 
 #include "util.h"
 
-int tag_expand (char **input, char *input_end,
+int tag_expand (const char **input, const char *input_end,
                 struct text_buffer *outbuf, int *is_index);
 
 #endif

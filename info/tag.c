@@ -24,7 +24,7 @@ struct tag_handler
 {
   const char *name;
   size_t len;
-  int (*handler) (char *, struct text_buffer *);
+  int (*handler) (const char *, struct text_buffer *);
 };
 
 struct info_tag
@@ -83,7 +83,7 @@ tag_found_keyword (struct text_buffer *tmpbuf_ptr, char **kw)
 /* Handle the image tag.  */
 
 static int
-tag_image (char *text, struct text_buffer *outbuf)
+tag_image (const char *text, struct text_buffer *outbuf)
 {
   mbi_iterator_t iter;
   enum { state_kw, state_val, state_qstr, state_delim } state = state_kw;
@@ -191,7 +191,7 @@ static struct tag_handler tagtab[] = {
 };
 
 static struct tag_handler *
-find_tag_handler (char *tag, size_t taglen)
+find_tag_handler (const char *tag, size_t taglen)
 {
   struct tag_handler *tp;
 
@@ -207,11 +207,11 @@ find_tag_handler (char *tag, size_t taglen)
    *INPUT points into a null-terminated area which may however contain other 
    null characters.  INPUT_END points to the end of this area. */
 int
-tag_expand (char **input, char *input_end,
+tag_expand (const char **input, const char *input_end,
             struct text_buffer *outbuf, int *is_index)
 {
-  char *p = *input;
-  char *q;
+  const char *p = *input;
+  const char *q;
   size_t len;
   struct tag_handler *tp;
 

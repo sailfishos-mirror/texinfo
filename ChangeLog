@@ -1,5 +1,14 @@
 2026-07-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Add const
+
+	* info/tag.c (tag_expand, struct tag_handler, tag_image)
+	(find_tag_handler, tag_expand):
+	Change type of parameters from char * to const char *, or
+	char ** to const char **.
+
+2026-07-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/terminal.c (terminal_new_terminal, terminal_new_terminal_hook):
 	Remove unused.
 
