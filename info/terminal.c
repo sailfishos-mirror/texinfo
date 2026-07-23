@@ -61,7 +61,6 @@ void (*terminal_initialize_terminal_hook) (const char *terminal_name) = NULL;
 void (*terminal_get_screen_size_hook) (void) = NULL;
 void (*terminal_prep_terminal_hook) (void) = NULL;
 void (*terminal_unprep_terminal_hook) (void) = NULL;
-void (*terminal_new_terminal_hook) (char *terminal_name) = NULL;
 void (*terminal_goto_xy_hook) (int x, int y) = NULL;
 void (*terminal_put_text_hook) (const char *string) = NULL;
 void (*terminal_write_chars_hook) (const char *string, int nchars) = NULL;
@@ -697,19 +696,6 @@ terminal_switch_rendition (unsigned long new)
 }
 
 
-/* Re-initialize the terminal considering that the TERM/TERMCAP variable
-   has changed. */
-void
-terminal_new_terminal (char *terminal_name)
-{
-  if (terminal_new_terminal_hook)
-    (*terminal_new_terminal_hook) (terminal_name);
-  else
-    {
-      terminal_initialize_terminal (terminal_name);
-    }
-}
-
 /* Saved values of the LINES and COLUMNS environmental variables. */
 static char *env_lines, *env_columns;
 

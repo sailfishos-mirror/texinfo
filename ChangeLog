@@ -1,5 +1,10 @@
 2026-07-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/terminal.c (terminal_new_terminal, terminal_new_terminal_hook):
+	Remove unused.
+
+2026-07-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Add const
 
 	* info/terminal.c (terminal_initialize_terminal)

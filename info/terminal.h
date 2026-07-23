@@ -62,10 +62,6 @@ extern void terminal_unprep_terminal (void);
 extern void (*terminal_prep_terminal_hook) (void);
 extern void (*terminal_unprep_terminal_hook) (void);
 
-/* Re-initialize the terminal to TERMINAL_NAME. */
-extern void terminal_new_terminal (char *terminal_name);
-extern void (*terminal_new_terminal_hook) (char *terminal_name);
-
 /* Move the cursor to the terminal location of X and Y. */
 extern void terminal_goto_xy (int x, int y);
 extern void (*terminal_goto_xy_hook) (int x, int y);
