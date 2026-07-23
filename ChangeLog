@@ -1,5 +1,11 @@
 2026-07-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Convert/Plaintext.pm
+	(%no_punctation_munging_commands, no_punctuation_munging_commands):
+	Rename.  Remove 'var' as it is no longer checked for in this hash.
+
+2026-07-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Split out handling of @var and @sc from "style map"
 
 	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert) <style map>:

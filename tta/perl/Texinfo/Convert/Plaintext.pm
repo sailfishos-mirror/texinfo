@@ -377,9 +377,9 @@ for my $index_style_command ('strong', 'emph', 'sub', 'sup', 'key') {
 
 # in those commands, there is no addition of double space after a dot.
 # math is special
-my %no_punctation_munging_commands;
-foreach my $command ('var', 'cite', 'dmn', keys(%brace_code_commands)) {
-  $no_punctation_munging_commands{$command} = 1;
+my %no_punctuation_munging_commands;
+foreach my $command ('cite', 'dmn', keys(%brace_code_commands)) {
+  $no_punctuation_munging_commands{$command} = 1;
 }
 
 # values for integer and string options in code generated from
@@ -3104,7 +3104,7 @@ sub _convert($$) {
             $formatter->{'font_type_stack'}->[-1]->{'normal'}++;
           }
         }
-        if (exists($no_punctation_munging_commands{$cmdname})) {
+        if (exists($no_punctuation_munging_commands{$cmdname})) {
           push @{$formatter->{'frenchspacing_stack'}}, 'on';
           set_frenchspacing($formatter->{'container'}, 1);
         }
@@ -3171,7 +3171,7 @@ sub _convert($$) {
         if (exists($non_quoted_commands_when_nested{$cmdname})) {
           $formatter->{'font_type_stack'}->[-1]->{'code_command'}--;
         }
-        if (exists($no_punctation_munging_commands{$cmdname})) {
+        if (exists($no_punctuation_munging_commands{$cmdname})) {
           pop @{$formatter->{'frenchspacing_stack'}};
           my $frenchspacing = 0;
           $frenchspacing = 1 if ($formatter->{'frenchspacing_stack'}->[-1]
