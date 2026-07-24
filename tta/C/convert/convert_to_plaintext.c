@@ -570,6 +570,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               /* TODO check no_punctuation_munging_commands */
               return;
             }
+          /* TODO upper_case_commands */
           else if (cmd == CM_link)
             return;
           else if (cmd_data->flags & CF_ref)
