@@ -64,6 +64,8 @@ static COMMAND_ID_LIST format_raw_cmd;
 #define PF_informative            0x0001
 #define PF_ignored                0x0002
 #define PF_format_raw             0x0004
+#define PF_style_map              0x0008
+#define PF_quoted                 0x0010
 /*
 #define HF_pre_class            0x0008
 #define HF_small_block_command  0x0010
@@ -283,6 +285,15 @@ plaintext_format_setup (enum converter_format format)
           format_raw_cmd.number++;
         }
     }
+
+  static enum command_id quoted_commands[] = {
+    CM_cite, CM_code, CM_command, CM_env, CM_file,
+    CM_indicateurl, CM_kbd, CM_option, CM_samp, 0
+  };
+
+  for (i = 0; (quoted_commands[i]); i++)
+    plaintext_commands_data[quoted_commands[i]].flags |= PF_quoted;
+  /* TODO set up style map for @strong etc. */
 }
 
 static void
@@ -519,8 +530,47 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         return;
       else if (cmd_data->flags & CF_brace)
         {
-          /* if style_map */
-          /* else*/ if (cmd == CM_link)
+          if ((plaintext_commands_data[cmd].flags & PF_quoted)
+              /* ||  style_map */ )
+            {
+              /* TODO check brace_code_commands */
+              /* TODO check style_no_code */
+              /* TODO check no_punctuation_munging_commands */
+              /* TODO @w */
+              /* TODO non_quoted_commands_when_nested */
+              const char *text_before = NULL, *text_after = NULL;
+              if (1)
+              /* if (plaintext_commands_data[quoted_commands[i].flags | PF_quoted) */
+                {
+                  text_before = "`"; /* TODO */
+                  text_after = "'"; /* TODO */
+                }
+              para_set_state (top_(formatter)
+                (&self_plaintext->formatters)->container.paragraph);
+              TEXT added = para_add_next (text_before,
+                                          strlen (text_before), 1);
+              if (added.text)
+                stream_output_count_nl (self, added.text);
+
+              if (element->e.c->contents.number != 0)
+                convert_to_plaintext_internal (self,
+                                               element->e.c->contents.list[0]);
+
+              para_set_state (top_(formatter)
+                (&self_plaintext->formatters)->container.paragraph);
+              added = para_add_next (text_after,
+                                     strlen (text_after), 1);
+              if (added.text)
+                stream_output_count_nl (self, added.text);
+
+              /* TODO @w */
+              /* TODO check brace_code_commands */
+              /* TODO check style_no_code */
+              /* TODO non_quoted_commands_when_nested */
+              /* TODO check no_punctuation_munging_commands */
+              return;
+            }
+          else if (cmd == CM_link)
             return;
           else if (cmd_data->flags & CF_ref)
             return;

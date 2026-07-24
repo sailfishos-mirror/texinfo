@@ -1,5 +1,10 @@
 2026-07-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/convert/convert_to_plaintext.c:
+	Initial implementation of handling "quoted commands".
+
+2026-07-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Split quoted commands from "style map"
 
 	* tta/perl/Texinfo/Convert/Plaintext.pm,
