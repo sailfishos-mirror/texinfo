@@ -1,5 +1,26 @@
 2026-07-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Split quoted commands from "style map"
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm,
+	(@quoted_commands, %quoted_commands): Change from array to hash.
+	(%style_map): Do not add quoted commands.
+	(conversion_initialization) <quoted commands>: Rather than updating
+	$self->{'style_map'}, save the open and close quote strings in
+	$self->{'open_quote'} and $self->{'close_quote'}.
+	(_convert) <style map commands>: Check for commands in %quoted_commands
+	as well as in $self->{'style_map'};
+	
+	This is intended to simplify the C implementation as it will be
+	slightly easier to check a Boolean flag for a Texinfo command
+	rather than retrieving string values for that command.  Many of the
+	"quoted commands" are very frequently used commands such as @code
+	so this should simplify a common case.
+	This also means that the only command left whose values are likely
+	to change inside $self->{'style_map'} is @dfn.
+
+2026-07-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/Texinfo/Convert/Plaintext.pm
 	(%no_punctation_munging_commands, no_punctuation_munging_commands):
 	Rename.  Remove 'var' as it is no longer checked for in this hash.
