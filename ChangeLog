@@ -1,5 +1,14 @@
 2026-07-25 Patrice Dumas  <pertusus@free.fr>
 
+	Do not call import on Texinfo::ModulePath without args in XSLoader.pm
+
+	* tta/perl/Texinfo/XSLoader.pm (BEGIN): do not call
+	Texinfo::ModulePath->import() without argument, it is always wrong not
+	to pass the directories.  Report and bisection from Dimitris
+	Papavasiliou.
+
+2026-07-25 Patrice Dumas  <pertusus@free.fr>
+
 	Begin C info converter
 
 	* tta/perl/Texinfo/Convert/Info.pm (_info_header): use directly

@@ -40,7 +40,9 @@ BEGIN {
     $Texinfo::ModulePath::texinfo_uninstalled = 1;
     $Texinfo::ModulePath::t2a_builddir = '';
   } else {
-    Texinfo::ModulePath->import();
+    # TODO no import with empty args, as this calls init without paths, which
+    # is wrong.
+    #Texinfo::ModulePath->import();
     if ($Texinfo::ModulePath::enable_xs eq 'no') {
       $disable_XS = 1;
     }
