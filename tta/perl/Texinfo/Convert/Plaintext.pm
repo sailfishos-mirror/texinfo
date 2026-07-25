@@ -1821,9 +1821,11 @@ sub _cache_node_names($$) {
 
   my $node_names_hash = $self->{'node_names_text'};
 
-  # TODO use $node_names_formatter
-  my $formatter = new_formatter($self, 'line', 0, undef,
-                  {'suppress_styles' => 1, 'no_added_eol' => 1,});
+  if (!defined($node_names_formatter)) {
+    $node_names_formatter = new_formatter($self, 'line', 0, undef,
+               {'suppress_styles' => 1, 'no_added_eol' => 1,});
+  }
+  my $formatter = $node_names_formatter;
 
   push @{$self->{'formatters'}}, $formatter;
 
@@ -1849,7 +1851,7 @@ sub _cache_node_names($$) {
     # reset counters
     Texinfo::Convert::Paragraph::end_line($formatter->{'container'});
   }
-  destroy_formatter(pop @{$self->{'formatters'}});
+  pop @{$self->{'formatters'}};
 }
 
 my $index_length_to_node = 41;

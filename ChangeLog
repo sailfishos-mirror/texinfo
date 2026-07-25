@@ -1,5 +1,10 @@
 2026-07-25 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_cache_node_names): use the
+	same long-living formatter as node_name.
+
+2026-07-25 Patrice Dumas  <pertusus@free.fr>
+
 	Distinguish paragraph end and destruction; improve node name caching
 
 	* tta/C/convert/plaintext_paragraph.c (para_end, para_destroy),
