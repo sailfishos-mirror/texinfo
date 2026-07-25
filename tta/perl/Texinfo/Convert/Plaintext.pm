@@ -723,6 +723,11 @@ sub output($$) {
   }
 
   my $nodes_list = $document->nodes_list();
+  # Do not call _cache_node_names as only the node names used in index
+  # formatting are needed, therefore we may generate names that are
+  # not used if we call the function.
+  #_cache_node_names($self, $nodes_list);
+
   Texinfo::OutputUnits::split_pages($output_units, $nodes_list,
                                     $self->get_conf('SPLIT'));
 
@@ -917,9 +922,7 @@ sub new_formatter($$;$$$) {
     'indent_length' =>
          (defined($indent_length) ? $indent_length
            : $self->{'format_context'}->[-1]->{'context_indent_len'}),
-    'indent_length_next' =>
-         (defined($indent_length_next) ? $indent_length_next : undef),
-    'max' => $self->{'text_element_context'}->[-1]->{'max'},
+    'indent_length_next' => $indent_length_next,
   };
 
   my $frenchspacing_conf = $self->get_conf('frenchspacing');
@@ -939,7 +942,8 @@ sub new_formatter($$;$$$) {
 
   my $container;
   if ($type eq 'paragraph') {
-    # nothing to change
+    $container_conf->{'max'} = $self->{'text_element_context'}->[-1]->{'max'};
+    # nothing else to change/set
   } elsif ($type eq 'line') {
     $container_conf->{'max'} = 10000001;
     $container_conf->{'keep_end_lines'} = 1;
@@ -991,6 +995,13 @@ sub new_formatter($$;$$$) {
   return $formatter;
 }
 
+sub destroy_formatter($) {
+  my $formatter = shift;
+
+  Texinfo::Convert::Paragraph::destroy($formatter->{'container'});
+  $formatter = undef;
+}
+
 # intercept messages, in case some Texinfo is processed twice
 sub plaintext_line_warn($$$$) {
   my ($self, $configuration_information, $text, $error_location_info) = @_;
@@ -1008,6 +1019,9 @@ sub plaintext_line_error($$$$) {
   }
 }
 
+# TODO move code
+sub _stream_output($$);
+
 sub convert_line($$;$$) {
   my ($self, $converted, $indent_length, $indent_length_next) = @_;
 
@@ -1016,9 +1030,8 @@ sub convert_line($$;$$) {
   push @{$self->{'formatters'}}, $formatter;
   _convert($self, $converted);
   _stream_output($self,
-                 Texinfo::Convert::Paragraph::end($formatter->{'container'}),
-                 $formatter->{'container'});
-  pop @{$self->{'formatters'}};
+                 Texinfo::Convert::Paragraph::end($formatter->{'container'}));
+  destroy_formatter(pop @{$self->{'formatters'}});
   return;
 }
 
@@ -1036,14 +1049,13 @@ sub convert_line_new_context($$;$$$) {
   push @{$self->{'formatters'}}, $formatter;
   _convert($self, $converted);
   _stream_output($self,
-                 Texinfo::Convert::Paragraph::end($formatter->{'container'}),
-                 $formatter->{'container'});
+                 Texinfo::Convert::Paragraph::end($formatter->{'container'}));
   my $result = _stream_result($self);
   my $count = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
 
   # Should always be 0 for well-formed input?
   my $end_line_count = $self->{'count_context'}->[-1]->{'lines'};
-  pop @{$self->{'formatters'}};
+  destroy_formatter(pop @{$self->{'formatters'}});
   pop @{$self->{'count_context'}};
 
   die if (!scalar(@{$self->{'count_context'}}));
@@ -1494,7 +1506,7 @@ sub process_footnotes($;$) {
 
   _stream_output_count_nl($self,
                  Texinfo::Convert::Paragraph::end($formatter->{'container'}));
-  pop @{$self->{'formatters'}};
+  destroy_formatter(pop @{$self->{'formatters'}});
 
   return;
 }
@@ -1753,11 +1765,7 @@ sub format_printindex($$) {
   return $self->process_printindex($printindex);
 }
 
-sub _normalize_top_node($) {
-  my $node_name = shift;
-
-  return Texinfo::Common::normalize_top_node_name($node_name);
-}
+my $node_names_formatter;
 
 # convert and cache a node name.  $NODE is a node element.
 sub node_name($$) {
@@ -1765,6 +1773,8 @@ sub node_name($$) {
 
   $self->{'node_names_text'} = {} if (!exists($self->{'node_names_text'}));
   if (!exists($self->{'node_names_text'}->{$node})) {
+    # if node names are set by _cache_node_name, they are not
+    # converted here, except for nodes dynamically added for footnotes.
     my $label_element = Texinfo::Common::get_label_element($node);
     if (!defined($label_element)) {
       # node direction to an external node
@@ -1772,60 +1782,74 @@ sub node_name($$) {
     }
     my $node_text = Texinfo::TreeElement::new({'type' => '_code',
                                        'contents' => [$label_element]});
-    my ($result, $width) = $self->convert_line_new_context($node_text,
-                                                           undef, undef,
-                                    { 'suppress_styles' => 1,
-                                      'no_added_eol' => 1 } );
-    $result = _stream_encode($self, $result);
+
+    my ($result, $width);
+    push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
+                                     'encoding_disabled' => 1};
+    if (!defined($node_names_formatter)) {
+      # FIXME $self could affect the result through frenchspacing
+      $node_names_formatter = new_formatter($self, 'line', 0, undef,
+                  {'suppress_styles' => 1, 'no_added_eol' => 1,});
+    }
+    my $formatter = $node_names_formatter;
+    push @{$self->{'formatters'}}, $formatter;
+
+    _convert($self, $node_text);
+    _stream_output_count_nl($self,
+      Texinfo::Convert::Paragraph::add_pending_word($formatter->{'container'}));
+    $result = _stream_result($self);
+    $width = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
+
+    # reset counters
+    Texinfo::Convert::Paragraph::end_line($formatter->{'container'});
+
+    pop @{$self->{'formatters'}};
+    pop @{$self->{'count_context'}};
     $self->{'node_names_text'}->{$node}
-      = {'text' => _normalize_top_node($result),
+      = {'text' => Texinfo::Common::normalize_top_node_name($result),
          'width' => $width };
   }
   return ($self->{'node_names_text'}->{$node}->{'text'},
           $self->{'node_names_text'}->{$node}->{'width'});
 }
 
+# the advantage of using that function is that we know that nodes only
+# are processed and the $label_element can be obtained more simply
+# than when the node is setup by a call to node_name().
 sub _cache_node_names($$) {
-  my ($self, $output_units) = @_;
+  my ($self, $nodes_list) = @_;
 
-  my $node_names_hash;
-  if (!exists($self->{'node_names_text'})) {
-    $self->{'node_names_text'} = {};
-  }
-  $node_names_hash = $self->{'node_names_text'};
+  my $node_names_hash = $self->{'node_names_text'};
 
-  my $formatter = new_formatter($self, 'line', undef, undef,
-                    {'suppress_styles' => 1, 'no_added_eol' => 1,});
+  # TODO use $node_names_formatter
+  my $formatter = new_formatter($self, 'line', 0, undef,
+                  {'suppress_styles' => 1, 'no_added_eol' => 1,});
+
   push @{$self->{'formatters'}}, $formatter;
 
-  foreach my $output_unit (@{$output_units}) {
-    my $node = $output_unit->{'unit_command'};
-    next if !defined($node);
+  foreach my $node_relations (@{$nodes_list}) {
+    my $node = $node_relations->{'element'};
+    my $label_element;
+    $label_element = $node->{'contents'}->[0]->{'contents'}->[0];
+    my $node_text = Texinfo::TreeElement::new({'type' => '_code',
+                                       'contents' => [$label_element]});
 
-    if (!exists($node_names_hash->{$node})) {
-      my $label_element;
-      #$label_element = Texinfo::Common::get_label_element($node);
-      $label_element = $node->{'contents'}->[0]->{'contents'}->[0];
-      my $node_text = Texinfo::TreeElement::new({'type' => '_code',
-                                         'contents' => [$label_element]});
+    push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
+    _convert($self, $node_text);
+    _stream_output_count_nl($self,
+      Texinfo::Convert::Paragraph::add_pending_word($formatter->{'container'}));
+    my $result = _stream_result($self);
+    my $width = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
 
-      push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
-      _convert($self, $node_text);
-      _stream_output_count_nl($self,
-        Texinfo::Convert::Paragraph::add_pending_word($formatter->{'container'}));
-      my $result = _stream_result($self);
-      my $width = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
+    pop @{$self->{'count_context'}};
 
-      pop @{$self->{'count_context'}};
-
-      $node_names_hash->{$node}
-        = {'text' => _normalize_top_node($result),
-           'width' => $width };
-    }
-    # reset line counter
+    $node_names_hash->{$node}
+      = {'text' => Texinfo::Common::normalize_top_node_name($result),
+         'width' => $width };
+    # reset counters
     Texinfo::Convert::Paragraph::end_line($formatter->{'container'});
   }
-  pop @{$self->{'formatters'}};
+  destroy_formatter(pop @{$self->{'formatters'}});
 }
 
 my $index_length_to_node = 41;
@@ -2534,7 +2558,7 @@ sub _text_heading($$$;$$) {
     $number = $current->{'extra'}->{'section_heading_number'};
   }
 
-  my ($heading, undef) = $self->convert_line_new_context (
+  my ($heading, undef) = $self->convert_line_new_context(
     Texinfo::TreeElement::new({'type' => 'frenchspacing',
                                'contents' => [$heading_element]}));
 
@@ -2845,7 +2869,7 @@ sub _convert_def_line($$) {
     _stream_output_count_nl($self,
       Texinfo::Convert::Paragraph::end($def_paragraph->{'container'}));
 
-    pop @{$self->{'formatters'}};
+    destroy_formatter(pop @{$self->{'formatters'}});
     delete $self->{'text_element_context'}->[-1]->{'counter'};
   }
 }
@@ -3686,7 +3710,7 @@ sub _convert($$) {
                 my $column_size = 0;
                 if (exists($content->{'contents'})) {
                   my ($formatted_prototype, $width)
-                      = $self->convert_line_new_context ($content, 0);
+                      = $self->convert_line_new_context($content, 0);
                   $column_size = $width;
                 }
                 push @$columnsize, 2+$column_size;
@@ -3813,7 +3837,7 @@ sub _convert($$) {
                      Texinfo::Convert::Paragraph::end($line->{'container'}));
       $self->{'text_element_context'}->[-1]->{'counter'} +=
          Texinfo::Convert::Paragraph::counter($line->{'container'});
-      pop @{$self->{'formatters'}};
+      destroy_formatter(pop @{$self->{'formatters'}});
     # open a multitable cell
     } elsif ($cmdname eq 'headitem' or $cmdname eq 'item'
              or $cmdname eq 'tab') {
@@ -3872,7 +3896,7 @@ sub _convert($$) {
           _convert($self, $element->{'contents'}->[0]);
           _stream_output_count_nl($self,
             Texinfo::Convert::Paragraph::end($formatter->{'container'}));
-          pop @{$self->{'formatters'}};
+          destroy_formatter(pop @{$self->{'formatters'}});
         } else {
           $self->convert_line($element->{'contents'}->[0],
              $self->{'format_context'}->[-2]->{'context_indent_len'});
@@ -4000,7 +4024,7 @@ sub _convert($$) {
           _stream_output_count_nl($self,
             Texinfo::Convert::Paragraph::end($container));
 
-          pop @{$self->{'formatters'}};
+          destroy_formatter(pop @{$self->{'formatters'}});
         }
         _stream_output($self, "\n");
         $lines_count++;
@@ -4329,7 +4353,7 @@ sub _convert($$) {
             if (!$long_description) {
               _stream_output_count_nl($self,
                  Texinfo::Convert::Paragraph::end($description_para->{'container'}));
-              pop @{$self->{'formatters'}};
+              destroy_formatter(pop @{$self->{'formatters'}});
             } else {
               pop @{$self->{'format_context'}};
             }
@@ -4527,7 +4551,7 @@ sub _convert($$) {
         $self->{'text_element_context'}->[-1]->{'max'}, 'right');
       _stream_output_encoded($self, $result);
     }
-    pop @{$self->{'formatters'}};
+    destroy_formatter(pop @{$self->{'formatters'}});
     delete $self->{'text_element_context'}->[-1]->{'counter'};
   # may have been opened for a block commands, @menu, raw output
   # format, @verbatim..., or for (raw)preformatted type
@@ -4559,7 +4583,7 @@ sub _convert($$) {
       _stream_output($self, $image);
       _ensure_end_of_line($self);
     }
-    pop @{$self->{'formatters'}};
+    destroy_formatter(pop @{$self->{'formatters'}});
     # We assume that, upon closing the preformatted we are at the
     # beginning of a line.
     delete $self->{'text_element_context'}->[-1]->{'counter'};

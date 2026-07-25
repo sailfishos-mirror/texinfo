@@ -382,17 +382,18 @@ para_end (void)
       state.end_line_count++;
     }
 
-  /* Now it's time to forget about the state. */
-  state_array[current_state].in_use = 0;
-  state.in_use = 0;
-
-  /* Don't do this so we can get the closing line counts. */
-  /* current_state = -1; */
-
   if (ret.text)
     return ret.text;
   else
     return "";
+}
+
+void
+para_destroy (void)
+{
+  /* Now it's time to forget about the state. */
+  state_array[current_state].in_use = 0;
+  state.in_use = 0;
 }
 
 /* check if a byte is in the printable ASCII range */

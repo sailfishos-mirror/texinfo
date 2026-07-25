@@ -326,7 +326,8 @@ info_output (CONVERTER *self, DOCUMENT *document)
   output_units_descriptor = split_by_node (document);
   output_units = retrieve_output_units (document, output_units_descriptor);
 
-  /* TODO */
+  /* TODO
+   */
 
   set_global_document_commands (self, CL_before, informative_global_commands);
 

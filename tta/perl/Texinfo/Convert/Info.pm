@@ -143,7 +143,7 @@ sub output($$) {
   my $output_units = Texinfo::OutputUnits::split_by_node($document);
   $self->register_output_units_lists([$output_units]);
 
-  $self->_cache_node_names($output_units);
+  $self->_cache_node_names($document->nodes_list());
 
   $self->set_global_document_commands('before', \@informative_global_commands);
 
@@ -501,6 +501,7 @@ sub _info_header($$$) {
   $result .= Texinfo::Convert::Paragraph::end($paragraph);
   $result .= "\n";
   $self->_stream_output($result, $paragraph);
+  Texinfo::Convert::Paragraph::destroy($paragraph);
 
   my $global_commands;
   if (exists($self->{'document'})) {

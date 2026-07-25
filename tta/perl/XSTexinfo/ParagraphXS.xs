@@ -155,7 +155,7 @@ para_add_pending_word (int paragraph, ...)
 SV *
 para_end (int paragraph)
     PREINIT:
-        char *retval;
+        const char *retval;
     CODE:
         para_set_state (paragraph);
         retval = para_end ();
@@ -165,6 +165,11 @@ para_end (int paragraph)
     OUTPUT:
         RETVAL
 
+void
+para_destroy (int paragraph)
+      CODE:
+        para_set_state (paragraph);
+        para_destroy ();
 
 SV *
 para_add_text (int paragraph, text_in)

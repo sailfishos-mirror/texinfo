@@ -53,6 +53,7 @@ void para__end_line (void);
 char *para_end_line (void);
 char *para_get_pending (void);
 const char *para_end (void);
+void para_destroy (void);
 char *para_add_pending_word (int add_spaces);
 void para_allow_end_sentence (void);
 void para_remove_end_sentence (void);

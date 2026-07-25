@@ -49,6 +49,7 @@ sub new(;$) {
       $self->{$key} = $conf->{$key};
     }
   }
+  #$self->{'DEBUG'} = 1;
   return $self;
 }
 
@@ -183,6 +184,12 @@ sub end($) {
     $paragraph->{'end_line_count'}++;
   }
   return $result;
+}
+
+sub destroy($) {
+  my $paragraph = shift;
+
+  $paragraph = undef;
 }
 
 my $end_sentence_characters = quotemeta('.?!');

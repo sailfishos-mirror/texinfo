@@ -1,5 +1,34 @@
 2026-07-25 Patrice Dumas  <pertusus@free.fr>
 
+	Distinguish paragraph end and destruction; improve node name caching
+
+	* tta/C/convert/plaintext_paragraph.c (para_end, para_destroy),
+	tta/perl/Texinfo/Convert/ParagraphNonXS.pm (destroy),
+	tta/perl/Texinfo/Convert/Plaintext.pm (destroy_formatter),
+	tta/perl/XSTexinfo/ParagraphXS.xs (para_destroy): add destroy for
+	paragraph and formatter and distinguish from end.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm,
+	tta/perl/Texinfo/Convert/Info.pm: destroy formatters when they are not
+	used anymore.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (node_name): use a long-living
+	formatter instead of calling convert_line_new_context.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_cache_node_names): go
+	through nodes_list instead of going through output units.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (convert_line)
+	(convert_line_new_context): remove bogus third argument.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (new_formatter): simplify
+	indent_length_next setting.  Set max for paragraph type only.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm: inline and remove
+	_normalize_top_node.
+
+2026-07-25 Patrice Dumas  <pertusus@free.fr>
+
 	Enable C info converter
 
 	* tta/C/convert/converter.c (converter_format_data),
