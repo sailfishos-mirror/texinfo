@@ -412,7 +412,7 @@ sub pop_top_formatter($) {
   my $self = shift;
 
   my $old_context = pop @{$self->{'context'}};
-  pop @{$self->{'formatters'}};
+  destroy_formatter(pop @{$self->{'formatters'}});
   pop @{$self->{'format_context'}};
   pop @{$self->{'text_element_context'}};
   pop @{$self->{'document_context'}};
@@ -2177,7 +2177,7 @@ sub process_printindex($$;$) {
     _add_lines_count($self, 1);
     _stream_output($self, $line_part);
   }
-  pop @{$self->{'formatters'}};
+  destroy_formatter(pop @{$self->{'formatters'}});
 
   _stream_output($self, "\n");
   _add_lines_count($self, 1);

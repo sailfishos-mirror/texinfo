@@ -392,6 +392,8 @@ void
 para_destroy (void)
 {
   /* Now it's time to forget about the state. */
+  if (debug)
+    fprintf (stderr, "SET UNUSED %d\n", current_state);
   state_array[current_state].in_use = 0;
   state.in_use = 0;
 }
