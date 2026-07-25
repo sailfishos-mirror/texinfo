@@ -21,6 +21,7 @@
 
 #include "text.h"
 #include "element_types.h"
+#include "command_ids.h"
 #include "document_types.h"
 #include "converter_types.h"
 #include "plaintext_converter_state.h"
@@ -141,6 +142,7 @@ info_header (CONVERTER *self, const char *input_basefile,
   text_append (&result, end_para_text);
   text_append_n (&result, "\n", 1);
   stream_output (self, result.text);
+  para_destroy ();
   /* FIXME free result.text? */
 
   if (self->document->global_commands.copying)

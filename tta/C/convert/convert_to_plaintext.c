@@ -176,8 +176,6 @@ pop_formatter (CONVERTER *self)
   pop_(formatter) (stack);
 
   /* Note: no memory needs to be freed here. */
-  /* Note: para_end should have been called by this point to free memory
-     resources in plaintext_paragraph.c. */
 }
 
 
@@ -716,8 +714,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
     {
       para_set_state (
           self_plaintext->formatters.list[paragraph].container.paragraph);
-      char *result = para_end ();
+      const char *result = para_end ();
       stream_output_count_nl (self, result);
+      para_destroy ();
       pop_formatter (self);
     }
   if (preformatted)
