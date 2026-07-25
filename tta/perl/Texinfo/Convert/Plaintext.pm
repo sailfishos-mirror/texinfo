@@ -1042,7 +1042,7 @@ sub convert_line_new_context($$;$$$) {
   my $count = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
 
   # Should always be 0 for well-formed input?
-  my $end_line_count =  $self->{'count_context'}->[-1]->{'lines'};
+  my $end_line_count = $self->{'count_context'}->[-1]->{'lines'};
   pop @{$self->{'formatters'}};
   pop @{$self->{'count_context'}};
 

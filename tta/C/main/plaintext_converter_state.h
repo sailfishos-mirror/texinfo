@@ -82,6 +82,7 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     /* */
     PLAINTEXT_COMMAND_STRUCT commands_data[BUILTIN_CMD_NUMBER];
     int encoding_disabled;
+    int in_copying_header;
 } PLAINTEXT_CONVERTER_STATE;
 
 

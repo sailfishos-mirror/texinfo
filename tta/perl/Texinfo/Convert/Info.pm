@@ -139,6 +139,7 @@ sub output($$) {
 
   my $header_bytes = length($header);
   my $complete_header_bytes = $header_bytes;
+
   my $output_units = Texinfo::OutputUnits::split_by_node($document);
   $self->register_output_units_lists([$output_units]);
 
@@ -518,9 +519,9 @@ sub _info_header($$$) {
     delete $self->{'ignored_commands'}->{'direntry'};
     foreach my $command (@{$global_commands->{'dircategory_direntry'}}) {
       if ($command->{'cmdname'} eq 'dircategory') {
-        if ($command->{'contents'}->[0]->{'contents'}) {
+        if (exists($command->{'contents'}->[0]->{'contents'})) {
           my ($converted, undef) = $self->convert_line_new_context(
-             {'contents' => $command->{'contents'}->[0]->{'contents'}});
+                                            $command->{'contents'}->[0]);
           $self->_stream_output("INFO-DIR-SECTION " . $converted . "\n");
         }
       } elsif ($command->{'cmdname'} eq 'direntry') {

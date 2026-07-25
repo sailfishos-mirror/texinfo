@@ -488,6 +488,8 @@ C_libtexinfo_convert_sources = \
                        convert/converters_options.h \
                        convert/convert_to_plaintext.c \
                        convert/convert_to_plaintext.h \
+                       convert/convert_to_info.c \
+                       convert/convert_to_info.h \
                        convert/convert_html.h \
                        convert/convert_html.c \
                        convert/format_html.h \

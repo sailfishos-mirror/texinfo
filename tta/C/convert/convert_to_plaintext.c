@@ -16,6 +16,7 @@
 /* In sync with Texinfo::Convert::Plaintext.  Very little written yet. */
 
 #include <config.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
@@ -24,6 +25,7 @@
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
+#include "document_types.h"
 #include "converter_types.h"
 #include "plaintext_converter_state.h"
 #include "types_data.h"
@@ -57,23 +59,6 @@ static const enum command_id contents_commands[]
              = {CM_contents, CM_shortcontents, CM_summarycontents, 0};
 
 static COMMAND_ID_LIST format_raw_cmd;
-
-/* Plaintext command data flags */
-/*
-*/
-#define PF_informative            0x0001
-#define PF_ignored                0x0002
-#define PF_format_raw             0x0004
-#define PF_style_map              0x0008
-#define PF_quoted                 0x0010
-/*
-#define HF_pre_class            0x0008
-#define HF_small_block_command  0x0010
-#define HF_HTML_align           0x0020
-#define HF_special_variety      0x0040
-#define HF_indented_preformatted 0x0080
-#define HF_style_command         0x0100
-*/
 
 static PLAINTEXT_COMMAND_STRUCT plaintext_commands_data[BUILTIN_CMD_NUMBER];
 
@@ -197,6 +182,13 @@ pop_formatter (CONVERTER *self)
 
 
 
+/* used to pass to info converter */
+const enum command_id *
+plaintext_get_informative_global_commands (void)
+{
+  return informative_global_commands;
+}
+
 /* set information that is independent of customization, only called once */
 void
 plaintext_format_setup (enum converter_format format)
@@ -296,8 +288,8 @@ plaintext_format_setup (enum converter_format format)
   /* TODO set up style map for @strong etc. */
 }
 
-static void
-plaintext_conversion_initialization  (CONVERTER *self, DOCUMENT *document)
+void
+plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
 
@@ -329,7 +321,7 @@ plaintext_conversion_initialization  (CONVERTER *self, DOCUMENT *document)
   push_top_formatter (self);
 }
 
-static void
+void
 plaintext_conversion_finalization (CONVERTER *self)
 {
   /* TODO */
@@ -353,7 +345,7 @@ stream_reset (CONVERTER *self)
   text_reset (&count_context->result);
 }
 
-static void
+void
 stream_output (CONVERTER *self, const char *text)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
@@ -396,7 +388,7 @@ stream_output_encoded (CONVERTER *self, const char *encoded)
   stream_output (self, encoded);
 }
 
-static const char *
+const char *
 stream_result (CONVERTER *self)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
@@ -439,7 +431,7 @@ stream_byte_count (void)
 
 /* Called at the beginning of a line.  Add a blank line if the output does
    not already end in one. */
-static void
+void
 add_newline_if_needed (CONVERTER *self)
 {
   /* TODO check pending_text */
@@ -449,11 +441,11 @@ add_newline_if_needed (CONVERTER *self)
 /* TODO ... */
 
 
-static void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
+void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 
 
 /* ALTIMP: _convert in Texinfo:Convert::Plaintext */
-static void
+void
 convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
@@ -845,8 +837,8 @@ plaintext_converter_defaults (enum converter_format format,
   return format_defaults;
 }
 
-static char *
-convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
+char *
+plaintext_convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 {
   stream_reset (self);
 
@@ -1056,7 +1048,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
       for (i = 0; i < output_units->number; i++)
         {
           OUTPUT_UNIT *output_unit = output_units->list[i];
-          char *node_text = convert_output_unit (self, output_unit);
+          char *node_text = plaintext_convert_output_unit (self, output_unit);
           write_or_return (conversion, encoded_outfile_name,
                            file_fh, &result, node_text);
           free (node_text);
@@ -1102,7 +1094,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
             = self->output_unit_file_indices[output_unit->index];
           FILE_NAME_PATH_COUNTER *unit_file
             = &self->output_unit_files.list[file_index];
-          char *node_text = convert_output_unit (self, output_unit);
+          char *node_text = plaintext_convert_output_unit (self, output_unit);
           unit_file->counter--;
 
           if (!unit_file->first_unit)
@@ -1242,7 +1234,7 @@ plaintext_convert (CONVERTER *self, DOCUMENT *document)
   for (i = 0; i < output_units->number; i++)
     {
       OUTPUT_UNIT *output_unit = output_units->list[i];
-      char *node_text = convert_output_unit (self, output_unit);
+      char *node_text = plaintext_convert_output_unit (self, output_unit);
       text_append (&result, node_text);
       free (node_text);
     }
