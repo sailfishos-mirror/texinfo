@@ -1771,7 +1771,6 @@ my $node_names_formatter;
 sub node_name($$) {
   my ($self, $node) = @_;
 
-  $self->{'node_names_text'} = {} if (!exists($self->{'node_names_text'}));
   if (!exists($self->{'node_names_text'}->{$node})) {
     # if node names are set by _cache_node_name, they are not
     # converted here, except for nodes dynamically added for footnotes.

@@ -32,7 +32,7 @@ use if $] >= 5.014, re => '/a';  # ASCII-only character classes in regexes
 
 use Unicode::EastAsianWidth;
 use Texinfo::Convert::Unicode;
-use Carp qw(cluck);
+use Carp qw(cluck confess);
 
 # initialize a paragraph hash.
 sub new(;$) {

@@ -1,5 +1,18 @@
 2026-07-25 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Info.pm (format_ref): if the
+	cross-reference target is an internal identifier, call node_name to
+	get the cached value or setup the cached value, it will be present
+	or needed for the tag table.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (node_name): do not check that
+	node_names_text key exists, it should always be initialized.
+
+	* tta/perl/Texinfo/Indices.pm (print_indices_information): check
+	if argument is not undef to avoid spurious autovivification.
+
+2026-07-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Plaintext.pm (_cache_node_names): use the
 	same long-living formatter as node_name.
 

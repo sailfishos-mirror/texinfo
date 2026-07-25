@@ -28,7 +28,7 @@ use warnings;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
-use Carp qw(cluck);
+use Carp qw(cluck confess);
 
 use File::Spec;
 
@@ -598,9 +598,9 @@ sub format_ref($$$) {
 
   if (exists($node_arg->{'extra'})
       and !exists($node_arg->{'extra'}->{'manual_content'})
-      # excludes external nodes, as only internal refs get an extra normalized
+      # exclude external nodes, as only internal refs get an extra normalized
       and defined($node_arg->{'extra'}->{'normalized'})
-      # exlude external nodes again, in case internal refs get normalized
+      # exclude external nodes again, in case internal refs get normalized
       and !defined($args[3])
       and !defined($args[4])
       and defined($identifiers_target)
@@ -609,8 +609,10 @@ sub format_ref($$$) {
       = $identifiers_target->{$node_arg->{'extra'}->{'normalized'}};
     $label_element
       = Texinfo::Common::get_label_element($target_element);
+    # cannot happen, target of references must have contents
     if (defined($label_element) and !exists($label_element->{'contents'})) {
       $label_element = undef;
+      $target_element = undef;
     }
   }
   if (!defined($label_element)) {
@@ -719,11 +721,14 @@ sub format_ref($$$) {
   # Due to the paragraph formatter holding pending text, converting
   # the node name with the current formatter does not yield all the
   # converted text.  To get the full node name (and no more), we
-  # can convert in a new context, using convert_line_new_context.
+  # can use the cached text if the node is an internal node.  Otherwise,
+  # we can convert in a new context, using convert_line_new_context.
   # However, it is slow to do this for every node.  So in the most
   # frequent case when the node name is a simple text element, use
   # that text instead.
-  if (defined($label_element) and exists($label_element->{'contents'})
+  if (defined($target_element)) {
+    ($node_name, undef) = $self->node_name($target_element);
+  } elsif (defined($label_element) and exists($label_element->{'contents'})
       and scalar(@{$label_element->{'contents'}}) == 1
       and exists($label_element->{'contents'}->[0]->{'text'})) {
     $node_name = $label_element->{'contents'}->[0]->{'text'};
@@ -734,7 +739,7 @@ sub format_ref($$$) {
     ($node_name, undef) = $self->convert_line_new_context(
         Texinfo::TreeElement::new({'type' => '_code',
                                    'contents' => [$label_element]}),
-                                   undef, undef,
+                                   0, undef,
                                   {'suppress_styles' => 1,
                                     'no_added_eol' => 1});
     $self->{'silent'}--;

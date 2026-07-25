@@ -680,6 +680,8 @@ sub print_indices_information($) {
 sub print_indices_sort_strings($$) {
   my ($sorted_index_entries, $indices_sort_strings) = @_;
 
+  return if (not defined($sorted_index_entries));
+
   my $index_entries_sort_strings
    = format_index_entries_sort_strings($indices_sort_strings);
 
