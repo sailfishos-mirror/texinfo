@@ -52,7 +52,7 @@ void para_set_space_protection (int no_break);
 void para__end_line (void);
 char *para_end_line (void);
 char *para_get_pending (void);
-char *para_end (void);
+const char *para_end (void);
 char *para_add_pending_word (int add_spaces);
 void para_allow_end_sentence (void);
 void para_remove_end_sentence (void);

@@ -360,7 +360,7 @@ para_add_pending_word (int add_spaces)
 }
 
 /* End a paragraph. */
-char *
+const char *
 para_end (void)
 {
   static TEXT ret;

@@ -72,6 +72,7 @@
 #include "html_converter_api.h"
 #include "plaintexinfo_converter_api.h"
 #include "convert_to_plaintext.h"
+#include "convert_to_info.h"
 #include "rawtext_converter_api.h"
 #include "convert_indices.h"
 #include "converter.h"
@@ -139,6 +140,11 @@ static CONVERTER_FORMAT_DATA converter_format_data[] = {
   {"plaintext", "Texinfo::Convert::Plaintext", &plaintext_format_setup, 0,
    &plaintext_converter_defaults,
    &plaintext_converter_initialize, &plaintext_output, &plaintext_convert,
+   &plaintext_convert_tree, 0, &plaintext_free_converter, 0, 0},
+  /* TODO having plaintext_format_setup here could lead to being called twice */
+  {"info", "Texinfo::Convert::Info", &plaintext_format_setup, 0,
+   &info_converter_defaults,
+   &plaintext_converter_initialize, &info_output, &plaintext_convert,
    &plaintext_convert_tree, 0, &plaintext_free_converter, 0, 0},
 };
 

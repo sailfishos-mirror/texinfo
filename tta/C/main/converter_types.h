@@ -80,6 +80,7 @@ enum converter_format {
    COF_rawtext,
    COF_plaintexinfo,
    COF_plaintext,
+   COF_info,
 };
 
 /* for string information passing to/from perl */

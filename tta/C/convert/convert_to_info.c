@@ -103,7 +103,7 @@ info_header (CONVERTER *self, const char *input_basefile,
   COUNT_CONTEXT info_header_count_context = { 0 };
   const char *program = self->conf->PROGRAM.o.string;
   const char *version = self->conf->PACKAGE_VERSION.o.string;
-  char *end_para_text;
+  const char *end_para_text;
   TEXT result;
   TEXT new_text;
   const char *header_text;
@@ -139,7 +139,6 @@ info_header (CONVERTER *self, const char *input_basefile,
   new_text = para_add_text (".", 1);
   end_para_text = para_end ();
   text_append (&result, end_para_text);
-  free (end_para_text);
   text_append_n (&result, "\n", 1);
   stream_output (self, result.text);
   /* FIXME free result.text? */
