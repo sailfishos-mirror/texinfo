@@ -319,7 +319,7 @@ u32_make_collation_key (Collation_choice collation,
                         const char32_t *codepoints_in, size_t length_in,
                         char *resultbuf, size_t *lengthp)
 {
-  if (u32_make_key_streaming (collation,
+  if (0 && u32_make_key_streaming (collation,
                               codepoints_in, length_in, resultbuf, lengthp))
     return resultbuf;
 
@@ -559,7 +559,7 @@ u8_make_collation_key (Collation_choice collation,
 
   static char32_t *ret;
 
-  if (u8_make_key_streaming (collation,
+  if (0 && u8_make_key_streaming (collation,
                              u8_str, length_in, resultbuf, lengthp))
     {
       /* u8_make_key_streaming returns resultbuf or null. */
