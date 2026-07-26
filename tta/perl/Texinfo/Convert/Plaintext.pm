@@ -384,6 +384,13 @@ foreach my $command ('cite', 'dmn', keys(%brace_code_commands)) {
 my $regular_defaults = Texinfo::Options::get_regular_options('plaintext');
 my %defaults = ( %{$regular_defaults} );
 
+sub destroy_formatter($) {
+  my $formatter = shift;
+
+  Texinfo::Convert::Paragraph::destroy($formatter->{'container'});
+  $formatter = undef;
+}
+
 sub push_top_formatter($$) {
   my ($self, $top_context) = @_;
 
@@ -995,13 +1002,6 @@ sub new_formatter($$;$$$) {
   return $formatter;
 }
 
-sub destroy_formatter($) {
-  my $formatter = shift;
-
-  Texinfo::Convert::Paragraph::destroy($formatter->{'container'});
-  $formatter = undef;
-}
-
 # intercept messages, in case some Texinfo is processed twice
 sub plaintext_line_warn($$$$) {
   my ($self, $configuration_information, $text, $error_location_info) = @_;
@@ -1017,50 +1017,6 @@ sub plaintext_line_error($$$$) {
   if (!$self->{'silent'}) {
     $self->converter_line_error($text, $error_location_info);
   }
-}
-
-# TODO move code
-sub _stream_output($$);
-
-sub convert_line($$;$$) {
-  my ($self, $converted, $indent_length, $indent_length_next) = @_;
-
-  my $formatter = new_formatter($self, 'line',
-                                $indent_length, $indent_length_next);
-  push @{$self->{'formatters'}}, $formatter;
-  _convert($self, $converted);
-  _stream_output($self,
-                 Texinfo::Convert::Paragraph::end($formatter->{'container'}));
-  destroy_formatter(pop @{$self->{'formatters'}});
-  return;
-}
-
-# convert with a line formatter in a new count context, not changing
-# the current context.  return the result of the conversion.
-sub convert_line_new_context($$;$$$) {
-  my ($self, $converted, $indent_length, $indent_length_next,
-      $formatter_conf) = @_;
-
-  push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                     'encoding_disabled' => 1};
-  my $formatter = new_formatter($self, 'line',
-                                $indent_length, $indent_length_next,
-                                $formatter_conf);
-  push @{$self->{'formatters'}}, $formatter;
-  _convert($self, $converted);
-  _stream_output($self,
-                 Texinfo::Convert::Paragraph::end($formatter->{'container'}));
-  my $result = _stream_result($self);
-  my $count = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
-
-  # Should always be 0 for well-formed input?
-  my $end_line_count = $self->{'count_context'}->[-1]->{'lines'};
-  destroy_formatter(pop @{$self->{'formatters'}});
-  pop @{$self->{'count_context'}};
-
-  die if (!scalar(@{$self->{'count_context'}}));
-
-  return ($result, $count, $end_line_count);
 }
 
 sub _add_lines_count($$) {
@@ -1293,6 +1249,47 @@ sub _stream_byte_count($) {
     }
   }
   return $count_context->{'bytes'};
+}
+
+sub convert_line($$;$$) {
+  my ($self, $converted, $indent_length, $indent_length_next) = @_;
+
+  my $formatter = new_formatter($self, 'line',
+                                $indent_length, $indent_length_next);
+  push @{$self->{'formatters'}}, $formatter;
+  _convert($self, $converted);
+  _stream_output($self,
+                 Texinfo::Convert::Paragraph::end($formatter->{'container'}));
+  destroy_formatter(pop @{$self->{'formatters'}});
+  return;
+}
+
+# convert with a line formatter in a new count context, not changing
+# the current context.  return the result of the conversion.
+sub convert_line_new_context($$;$$$) {
+  my ($self, $converted, $indent_length, $indent_length_next,
+      $formatter_conf) = @_;
+
+  push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
+                                     'encoding_disabled' => 1};
+  my $formatter = new_formatter($self, 'line',
+                                $indent_length, $indent_length_next,
+                                $formatter_conf);
+  push @{$self->{'formatters'}}, $formatter;
+  _convert($self, $converted);
+  _stream_output($self,
+                 Texinfo::Convert::Paragraph::end($formatter->{'container'}));
+  my $result = _stream_result($self);
+  my $count = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
+
+  # Should always be 0 for well-formed input?
+  my $end_line_count = $self->{'count_context'}->[-1]->{'lines'};
+  destroy_formatter(pop @{$self->{'formatters'}});
+  pop @{$self->{'count_context'}};
+
+  die if (!scalar(@{$self->{'count_context'}}));
+
+  return ($result, $count, $end_line_count);
 }
 
 # Used occasionally for already encoded output
