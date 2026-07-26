@@ -6,6 +6,7 @@
 #include "document_types.h"
 #include "converter_types.h"
 #include "plaintext_converter_state.h"
+#include "list_macros.h"
 
 /* Plaintext command data flags */
 #define PF_informative            0x0001
@@ -48,7 +49,10 @@ void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 /* TODO add plaintext_ prefix for all the functions? */
 void stream_output (CONVERTER *self, const char *text);
 const char *stream_result (CONVERTER *self);
+char *stream_yield_result (CONVERTER *self);
 
 void pop_count_context (COUNT_CONTEXT_STACK *stack);
 void add_newline_if_needed (CONVERTER *self);
+
+decl_stack_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
 #endif

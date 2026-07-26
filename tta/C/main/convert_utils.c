@@ -1473,3 +1473,4 @@ find_root_command_next_heading_command (const ELEMENT *root,
     }
   return 0;
 }
+

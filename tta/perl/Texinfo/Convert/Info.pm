@@ -134,11 +134,10 @@ sub output($$) {
   my $preamble_bcp47_locale = $self->current_bcp47_locale();
 
   my $header = $self->_info_header($input_basefile, $output_filename);
-  # header + text between setfilename and first node
-  my $complete_header = $header;
-
   my $header_bytes = length($header);
-  my $complete_header_bytes = $header_bytes;
+  # header + text between setfilename and first node
+  my $complete_header;
+  my $complete_header_bytes;
 
   my $output_units = Texinfo::OutputUnits::split_by_node($document);
   $self->register_output_units_lists([$output_units]);
@@ -196,31 +195,34 @@ sub output($$) {
     } else {
       $self->converter_document_warn(__("document without nodes"));
     }
-    my $old_context = $self->{'count_context'}->[-1];
-    my $new_context =
-      {'lines' => $old_context->{'lines'}, 'bytes' => $old_context->{'bytes'},
-       'locations' => [], 'result' => '' };
-    push @{$self->{'count_context'}}, $new_context;
+    #my $old_context = $self->{'count_context'}->[-1];
+    #my $new_context =
+    #  {'lines' => $old_context->{'lines'}, 'bytes' => $old_context->{'bytes'},
+    #   'locations' => [], 'result' => '' };
+    #push @{$self->{'count_context'}}, $new_context;
 
     my $root = $document->tree();
     $self->_convert($root);
     $self->process_footnotes();
-    my $output = $self->_stream_result();
-    pop @{$self->{'count_context'}};
+    my $root_output = $self->_stream_result();
+    #pop @{$self->{'count_context'}};
 
-    @{$old_context->{'locations'}}
-      = ( @{$old_context->{'locations'}}, @{$new_context->{'locations'}} );
-    $old_context->{'lines'} += $new_context->{'lines'};
+    #@{$old_context->{'locations'}}
+    #  = ( @{$old_context->{'locations'}}, @{$new_context->{'locations'}} );
+    #$old_context->{'lines'} += $new_context->{'lines'};
 
-    $output = $header.$output;
+    my $output = $header.$root_output;
     if (defined($fh)) {
-      print $fh $output;
+      print $fh $header.$root_output;
     } else {
       $result = $output;
     }
   } else {
     my $identifiers_target;
     my $top_node;
+
+    $complete_header = $header;
+    $complete_header_bytes = $header_bytes;
 
     if (exists($self->{'document'})) {
       $identifiers_target = $self->{'document'}->labels_information();

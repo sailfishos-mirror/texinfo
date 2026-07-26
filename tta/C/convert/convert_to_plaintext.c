@@ -21,6 +21,7 @@
 #include <string.h>
 #include <errno.h>
 
+#include "list_macros.h"
 #include "text.h"
 #include "command_ids.h"
 #include "element_types.h"
@@ -90,7 +91,8 @@ pop_count_context (COUNT_CONTEXT_STACK *stack)
   if (stack->number == 0)
     fatal ("count context stack empty");
 
-  destroy_count_context (&stack->list[stack->number--]);
+  stack->number--;
+  destroy_count_context (&stack->list[stack->number]);
 }
 
 void
@@ -386,6 +388,11 @@ stream_output_encoded (CONVERTER *self, const char *encoded)
   stream_output (self, encoded);
 }
 
+/* NOTE the returned string changes with new text streamed and is destroyed
+   after poping the count context.  Therefore this function should only
+   be used if the result is handled shortly after calling.  Otherwise
+   stream_yield_result should be used.
+ */
 const char *
 stream_result (CONVERTER *self)
 {
@@ -398,7 +405,8 @@ stream_result (CONVERTER *self)
 }
 
 /* Like stream_result, but do not keep the result. */
-static char *
+/* Return value to be freed by caller. */
+char *
 stream_yield_result (CONVERTER *self)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;

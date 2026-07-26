@@ -19,6 +19,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "list_macros.h"
 #include "text.h"
 #include "element_types.h"
 #include "command_ids.h"
@@ -64,7 +65,8 @@ info_converter_defaults (enum converter_format format,
    be correct under MS-Windows.   Return filehandle or undef on failure.
  */
 static FILE *
-open_info_file (CONVERTER *self, const char *filename)
+open_info_file (CONVERTER *self, const char *filename,
+                char **encoded_outfile_name_out)
 {
   FILE *file_fh;
   char *path_encoding;
@@ -76,6 +78,7 @@ open_info_file (CONVERTER *self, const char *filename)
             = converter_encoded_output_file_name (self->conf,
                                        &self->document->global_info,
                                   (char *)filename, &path_encoding, 0);
+  *encoded_outfile_name_out = encoded_outfile_name;
 
   file_fh = output_files_open_out (&self->output_files_information,
                                    encoded_outfile_name, &open_error_message,
@@ -90,13 +93,12 @@ open_info_file (CONVERTER *self, const char *filename)
                              filename, open_error_message);
     }
 
-  free (encoded_outfile_name);
   free (open_error_message);
 
   return file_fh;
 }
 
-static const char *
+static char *
 info_header (CONVERTER *self, const char *input_basefile,
              const char *output_filename)
 {
@@ -143,7 +145,7 @@ info_header (CONVERTER *self, const char *input_basefile,
   text_append_n (&result, "\n", 1);
   stream_output (self, result.text);
   para_destroy ();
-  /* FIXME free result.text? */
+  free (result.text);
 
   if (self->document->global_commands.copying)
     {
@@ -196,7 +198,7 @@ info_header (CONVERTER *self, const char *input_basefile,
     }
   add_newline_if_needed (self);
 
-  header_text = stream_result (self);
+  header_text = stream_yield_result (self);
 
   pop_count_context (&self_plaintext->count_context);
 
@@ -230,9 +232,12 @@ info_output (CONVERTER *self, DOCUMENT *document)
     = plaintext_get_informative_global_commands();
   const char *default_bcp47_locale;
   const char *preamble_bcp47_locale;
-  const char *header;
+  char *header = 0;
+  /* header + text between setfilename and first node */
   TEXT complete_header;
   size_t header_bytes;
+  int out_file_nr = 0;
+  char *encoded_outfile_name = 0;
 
   plaintext_conversion_initialization (self, document);
 
@@ -300,11 +305,20 @@ info_output (CONVERTER *self, DOCUMENT *document)
       if (self->conf->VERBOSE.o.integer > 0)
         fprintf (stderr, "Output file %s\n", output_file);
 
-      file_fh = open_info_file(self, output_file);
+      file_fh = open_info_file(self, output_file, &encoded_outfile_name);
       if (!file_fh)
         {
           status = 0;
           goto finalization;
+        }
+
+      if (self->conf->OUTPUT_ENCODING_NAME.o.string
+        && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "utf-8"))
+        {
+          conversion
+                 = get_encoding_conversion (
+                           self->conf->OUTPUT_ENCODING_NAME.o.string,
+                                              &output_conversions);
         }
     }
   else
@@ -319,11 +333,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
   preamble_bcp47_locale = current_bcp47_locale (self);
 
   header = info_header (self, input_basefile, output_filename);
-
-  /* header + text between setfilename and first node */
-  text_init (&complete_header);
-  text_append (&complete_header, header);
-  header_bytes = complete_header.end;
+  header_bytes = strlen (header);
 
   output_units_descriptor = split_by_node (document);
   output_units = retrieve_output_units (document, output_units_descriptor);
@@ -345,9 +355,70 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
   /* TODO */
 
+  if (self->conf->DEBUG.o.integer > 0)
+    fprintf (stderr, "C|DOCUMENT\n");
+
+  if (!output_units->list[0]->uc.unit_command)
+    {
+      const char *input_file_name;
+      GLOBAL_INFO *document_info = 0;
+      ELEMENT *root = document->tree;
+      const char *root_output;
+       /*
+      COUNT_CONTEXT *old_context
+        = top_(count_context) (&self_plaintext->count_context);
+      COUNT_CONTEXT new_context = { 0 };
+        */
+
+      if (self->document)
+        {
+          document_info = &self->document->global_info;
+          if (document_info && document_info->input_file_name)
+            {
+              SOURCE_INFO source_info;
+              fill_source_info_file (&source_info, self, 0,
+                                     document_info->input_file_name);
+
+              message_list_line_error_ext (&self->error_messages,
+                             (self->conf && self->conf->DEBUG.o.integer > 0),
+                        MSG_warning, 0, &source_info, "document without nodes");
+            }
+           else
+             message_list_document_warn (&self->error_messages, self->conf,
+                                         0, "document without nodes");
+        }
+       /*
+      new_context.bytes = old_context->bytes;
+      new_context.lines = old_context->lines;
+        */
+      convert_to_plaintext_internal (self, root);
+      /* TODO
+      $self->process_footnotes();
+       */
+      root_output = stream_result (self);
+
+      write_or_return (conversion, encoded_outfile_name, file_fh, &result,
+                       header);
+      /* cast to drop const */
+      write_or_return (conversion, encoded_outfile_name, file_fh, &result,
+                       (char *)root_output);
+    }
+  else
+    {
+      text_init (&complete_header);
+      text_append (&complete_header, header);
+
+       /* TODO */
+    }
+
+  /* TODO */
+
  finalization:
 
   plaintext_conversion_finalization (self);
+
+  free (encoded_outfile_name);
+  free (header);
 
   for (i = 0; i < 5; i++)
     {

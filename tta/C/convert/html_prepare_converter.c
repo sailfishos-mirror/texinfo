@@ -37,6 +37,7 @@
 #include "base_utils.h"
 /* new_element */
 #include "tree.h"
+/* also for fill_source_info_file */
 #include "errors.h"
 #include "builtin_commands.h"
 #include "command_stack.h"
@@ -963,27 +964,6 @@ get_create_htmlxref_manual (HTMLXREF_MANUAL_LIST *htmlxref_list,
   htmlxref_list->number++;
 
   return htmlxref_manual;
-}
-
-static void
-fill_source_info_file (SOURCE_INFO *source_info, CONVERTER *self,
-                       size_t line_nr, const char *file)
-{
-  source_info->macro = 0;
-  source_info->line_nr = line_nr;
-
-  if (self->conf->TEST.o.integer > 0)
-    {
-      char *filename_and_directory[2];
-     /* strip directories for out-of-source builds reproducible file names */
-      parse_file_path (file, filename_and_directory);
-      free (filename_and_directory[1]);
-      source_info->file_name = add_string (filename_and_directory[0],
-                                           &self->small_strings);
-      free (filename_and_directory[0]);
-    }
-  else
-    source_info->file_name = add_string (file, &self->small_strings);
 }
 
 static void

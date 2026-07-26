@@ -726,6 +726,8 @@ converter_conversion_initialization (CONVERTER *converter, DOCUMENT *document)
 }
 
 /* output fo $fh if defined, otherwise return the text. */
+/* NOTE TEXT should not be modified (by iconv), but it cannot be marked
+   as const if the iconv call does not have a const in prototype */
 void
 write_or_return (const ENCODING_CONVERSION *conversion,
                  const char *encoded_out_filepath,
@@ -739,6 +741,7 @@ write_or_return (const ENCODING_CONVERSION *conversion,
 
       if (conversion)
         {
+          /* cast to remove the const, for the prototype */
           result = encode_with_iconv (conversion->iconv,
                                       text, 0, ieh_error, 0);
           res_len = strlen (result);

@@ -66,6 +66,8 @@ size_t output_error_messages (ERROR_MESSAGE_LIST *error_messages,
                               const char *message_encoding,
                               int no_warn, int use_filename);
 
+void fill_source_info_file (SOURCE_INFO *source_info, CONVERTER *self,
+                            size_t line_nr, const char *file);
 
 void print_source_info_details (SOURCE_INFO *source_info, TEXT *result,
                                 const char *fname_encoding, int use_filename);

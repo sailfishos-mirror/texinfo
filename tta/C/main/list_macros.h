@@ -51,7 +51,7 @@
 
 /* Output declarations for header files. */
 #define decl_stack_fns(LISTNAME, OBJNAME, TYPE) \
-  void top_of_ ## OBJNAME ## _list (LISTNAME *list); \
+  TYPE *top_of_ ## OBJNAME ## _list (LISTNAME *list); \
   void pop_ ## OBJNAME ## _list (LISTNAME *list)
 
 /* Output function definitions for .c source files. */
