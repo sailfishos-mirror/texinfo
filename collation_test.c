@@ -100,6 +100,7 @@ main (int argc, char *argv[])
 
   char *sort_key1 = 0, *sort_key2 = 0;
   size_t sort_key1_len = 0, sort_key2_len = 0;
+  size_t sort_key1_size = 0;
 
   long int line_count = 0;
   long int fail_count = 0;
@@ -187,11 +188,9 @@ main (int argc, char *argv[])
           fail_count++;
         }
 
-      if (sort_key1 != buffer)
-        free (sort_key1);
-
-      sort_key1 = sort_key2;
+      string_save (&sort_key1, &sort_key1_size, sort_key2);
       sort_key1_len = sort_key2_len;
+
       string_save (&line1, &line1_size, line2);
     }
   if (fail_count == 0)
