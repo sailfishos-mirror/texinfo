@@ -103,12 +103,12 @@ sub output($$) {
     $self->force_conf('SPLIT_SIZE', undef);
   }
 
-  my $fh;
+  my ($fh, $encoded_outfile_name);
   if ($output_file ne '') {
     if ($self->get_conf('VERBOSE')) {
       print STDERR "Output file $output_file\n";
     }
-    $fh = _open_info_file($self, $output_file);
+    ($fh, $encoded_outfile_name) = _open_info_file($self, $output_file);
     if (!defined($fh)) {
       $self->conversion_finalization();
       return undef;
@@ -180,6 +180,8 @@ sub output($$) {
   print STDERR "DOCUMENT\n" if ($self->get_conf('DEBUG'));
 
   my $out_file_nr = 0;
+  my $new_output_file;
+  my $encoded_new_filename;
   my @indirect_files;
   if (not defined($output_units->[0]->{'unit_command'})) {
     my $input_file_name;
@@ -252,12 +254,13 @@ sub output($$) {
     }
     $out_file_nr = 1;
     my $first_node_seen = 0;
+    my $split_size = $self->get_conf('SPLIT_SIZE');
     $self->{'count_context'}->[-1]->{'bytes'} += $header_bytes;
     foreach my $output_unit (@$output_units) {
       if ($first_node_seen
-          and defined($self->get_conf('SPLIT_SIZE'))
+          and defined($split_size)
           and $self->{'count_context'}->[-1]->{'bytes'} >
-                  $out_file_nr * $self->get_conf('SPLIT_SIZE')
+                                              $out_file_nr * $split_size
           and defined($fh)) {
         # Split the output into an additional output file.
         my $close_error;
@@ -266,7 +269,8 @@ sub output($$) {
         }
         if ($out_file_nr == 1) {
           # Switch to split output.
-          $self->_register_closed_info_file($output_file);
+          Texinfo::Convert::Utils::output_files_register_closed(
+             $self->output_files_information(), $encoded_outfile_name);
           if (defined($close_error)) {
             $self->converter_document_error(
                   sprintf(__("error on closing %s: %s"),
@@ -278,7 +282,10 @@ sub output($$) {
             print STDERR "Renaming first output file as ".
                   $output_file.'-'.$out_file_nr."\n";
           }
-          unless (rename($output_file, $output_file.'-'.$out_file_nr)) {
+          my ($encoded_new_first, $new_path_encoding)
+            = $self->encoded_output_file_name($output_file.'-'.$out_file_nr);
+          unless (rename($encoded_outfile_name,
+                         $encoded_new_first)) {
             $self->converter_document_error(
                   sprintf(__("rename %s failed: %s"),
                                          $output_file, $!));
@@ -287,33 +294,30 @@ sub output($$) {
           }
           # remove the main file from opened files since it was renamed
           # and add the file with a number.
-          my ($encoded_output_filename, $path_encoding)
-            = $self->encoded_output_file_name($output_file);
-          my ($encoded_new_filename, $new_path_encoding)
-            = $self->encoded_output_file_name($output_file.'-'.$out_file_nr);
           Texinfo::Convert::Utils::output_files_rename_opened(
                          $self->output_files_information(),
-                         $encoded_output_filename, $encoded_new_filename);
+                         $encoded_outfile_name, $encoded_new_first);
           push @indirect_files, [$output_filename.'-'.$out_file_nr,
                                  $complete_header_bytes];
           #print STDERR join(' --> ', @{$indirect_files[-1]}) ."\n";
         } else {
-          $self->_register_closed_info_file($output_file.'-'.$out_file_nr);
+          Texinfo::Convert::Utils::output_files_register_closed(
+             $self->output_files_information(), $encoded_new_filename);
           if (defined($close_error)) {
             $self->converter_document_error(
                   sprintf(__("error on closing %s: %s"),
-                                  $output_file.'-'.$out_file_nr,
-                                  $close_error));
+                          $new_output_file, $close_error));
             $self->conversion_finalization();
             return undef;
           }
         }
         $out_file_nr++;
+        $new_output_file = $output_file.'-'.$out_file_nr;
         if ($self->get_conf('VERBOSE')) {
-          print STDERR "New output file ".
-                $output_file.'-'.$out_file_nr."\n";
+          print STDERR "New output file $new_output_file\n";
         }
-        $fh = _open_info_file($self, $output_file.'-'.$out_file_nr);
+        ($fh, $encoded_new_filename)
+           = _open_info_file($self, $new_output_file);
         if (!defined($fh)) {
           $self->conversion_finalization();
           return undef;
@@ -353,18 +357,19 @@ sub output($$) {
   }
   my $tag_text = '';
   if ($out_file_nr > 1) {
-    $self->_register_closed_info_file($output_file.'-'.$out_file_nr);
+    Texinfo::Convert::Utils::output_files_register_closed(
+             $self->output_files_information(), $encoded_new_filename);
     if (!close($fh)) {
       $self->converter_document_error(
                sprintf(__("error on closing %s: %s"),
-                            $output_file.'-'.$out_file_nr, $!));
+                            $new_output_file, $!));
       $self->conversion_finalization();
       return undef;
     }
     if ($self->get_conf('VERBOSE')) {
       print STDERR "Outputing the split manual file $output_file\n";
     }
-    $fh = _open_info_file($self, $output_file);
+    ($fh, $encoded_outfile_name) = _open_info_file($self, $output_file);
     if (!defined($fh)) {
       $self->conversion_finalization();
       return undef;
@@ -430,7 +435,8 @@ sub output($$) {
     # by open, which uses the lowest-numbered file descriptor not open,
     # for another filehandle.  Closing STDOUT is handled by the caller.
     unless ($output_file eq '-') {
-      $self->_register_closed_info_file($output_file);
+      Texinfo::Convert::Utils::output_files_register_closed(
+             $self->output_files_information(), $encoded_outfile_name);
       if (!close ($fh)) {
         $self->converter_document_error(
                   sprintf(__("error on closing %s: %s"),
@@ -464,19 +470,9 @@ sub _open_info_file($$) {
     $self->converter_document_error(sprintf(
         __("could not open %s for writing: %s"),
         $filename, $error_message));
-    return undef;
+    return (undef, undef);
   }
-  return $fh;
-}
-
-sub _register_closed_info_file($$) {
-  my ($self, $filename) = @_;
-
-  my ($encoded_filename, $path_encoding)
-      = $self->encoded_output_file_name($filename);
-
-  Texinfo::Convert::Utils::output_files_register_closed(
-             $self->output_files_information(), $encoded_filename)
+  return ($fh, $encoded_filename);
 }
 
 # Return (encoded) info header

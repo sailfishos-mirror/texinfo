@@ -1065,7 +1065,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
      for another filehandle.  Closing STDOUT is handled by the caller. */
       if (file_fh && !strcmp (outfile_name, "-"))
         {
-           output_files_register_closed
+          output_files_register_closed
                          (&self->output_files_information,
                           encoded_outfile_name);
           if (fclose (file_fh))
@@ -1240,7 +1240,7 @@ plaintext_convert (CONVERTER *self, DOCUMENT *document)
   text_append (&result, "");
   for (i = 0; i < output_units->number; i++)
     {
-      OUTPUT_UNIT *output_unit = output_units->list[i];
+      const OUTPUT_UNIT *output_unit = output_units->list[i];
       char *node_text = plaintext_convert_output_unit (self, output_unit);
       text_append (&result, node_text);
       free (node_text);

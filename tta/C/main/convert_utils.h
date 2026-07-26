@@ -118,5 +118,8 @@ void output_files_register_closed (OUTPUT_FILES_INFORMATION *self,
                                    const char *file_path);
 void register_unclosed_file (OUTPUT_FILES_INFORMATION *self,
                              const char *file_path, FILE *stream, void *io);
+void output_files_rename_opened (OUTPUT_FILES_INFORMATION *self,
+                                 const char *file_path,
+                                 const char *new_file_path);
 
 #endif

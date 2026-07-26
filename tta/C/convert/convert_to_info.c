@@ -18,6 +18,7 @@
 #include <config.h>
 #include <stdio.h>
 #include <string.h>
+#include <errno.h>
 
 #include "list_macros.h"
 #include "text.h"
@@ -30,6 +31,7 @@
 #include "errors.h"
 #include "utils.h"
 #include "translations.h"
+#include "targets.h"
 #include "customization_options.h"
 #include "output_unit.h"
 #include "convert_utils.h"
@@ -109,7 +111,7 @@ info_header (CONVERTER *self, const char *input_basefile,
   const char *end_para_text;
   TEXT result;
   TEXT new_text;
-  const char *header_text;
+  char *header_text;
 
   add_(count_context) (&self_plaintext->count_context,
                        info_header_count_context);
@@ -238,6 +240,8 @@ info_output (CONVERTER *self, DOCUMENT *document)
   size_t header_bytes;
   int out_file_nr = 0;
   char *encoded_outfile_name = 0;
+  char *encoded_new_filename = 0;
+  char *new_output_file = 0;
 
   plaintext_conversion_initialization (self, document);
 
@@ -273,7 +277,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
       goto finalization;
     }
 
-  /*
+  /* TODO
   # for format_node
   $self->{'output_filename'} = $output_filename;
    */
@@ -339,6 +343,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
   output_units = retrieve_output_units (document, output_units_descriptor);
 
   /* TODO
+    $self->_cache_node_names($document->nodes_list());
    */
 
   set_global_document_commands (self, CL_before, informative_global_commands);
@@ -353,14 +358,19 @@ info_output (CONVERTER *self, DOCUMENT *document)
                               TXI_CONVERT_STRINGS_NR);
     }
 
-  /* TODO */
+  /* TODO?  Or need Perl?
+  my $elements_images;
+  if ($self->get_conf('INFO_MATH_IMAGES')) {
+    require Texinfo::Convert::LaTeX;
+
+  }
+   */
 
   if (self->conf->DEBUG.o.integer > 0)
     fprintf (stderr, "C|DOCUMENT\n");
 
   if (!output_units->list[0]->uc.unit_command)
     {
-      const char *input_file_name;
       GLOBAL_INFO *document_info = 0;
       ELEMENT *root = document->tree;
       const char *root_output;
@@ -370,23 +380,20 @@ info_output (CONVERTER *self, DOCUMENT *document)
       COUNT_CONTEXT new_context = { 0 };
         */
 
-      if (self->document)
+      document_info = &document->global_info;
+      if (document_info && document_info->input_file_name)
         {
-          document_info = &self->document->global_info;
-          if (document_info && document_info->input_file_name)
-            {
-              SOURCE_INFO source_info;
-              fill_source_info_file (&source_info, self, 0,
-                                     document_info->input_file_name);
+          SOURCE_INFO source_info;
+          fill_source_info_file (&source_info, self, 0,
+                                 document_info->input_file_name);
 
-              message_list_line_error_ext (&self->error_messages,
-                             (self->conf && self->conf->DEBUG.o.integer > 0),
+           message_list_line_error_ext (&self->error_messages,
+                        (self->conf && self->conf->DEBUG.o.integer > 0),
                         MSG_warning, 0, &source_info, "document without nodes");
-            }
-           else
-             message_list_document_warn (&self->error_messages, self->conf,
-                                         0, "document without nodes");
         }
+      else
+        message_list_document_warn (&self->error_messages, self->conf,
+                                         0, "document without nodes");
        /*
       new_context.bytes = old_context->bytes;
       new_context.lines = old_context->lines;
@@ -405,10 +412,201 @@ info_output (CONVERTER *self, DOCUMENT *document)
     }
   else
     {
+      const ELEMENT *top_target_element = 0;
+      const ELEMENT *top_node = 0;
+      COUNT_CONTEXT *count_context;
+      size_t i;
+      int first_node_seen = 0;
+      int split_size = self->conf->SPLIT_SIZE.o.integer;
+      size_t node_text_len;
+
       text_init (&complete_header);
       text_append (&complete_header, header);
 
-       /* TODO */
+      if (identifiers_target_number (&document->identifiers_target))
+        {
+          top_target_element
+              = find_identifier_target (&document->identifiers_target,
+                                       "Top");
+          if (top_target_element && top_target_element->e.c->cmd == CM_node)
+            top_node = top_target_element;
+        }
+
+      if (!top_node)
+        {
+          GLOBAL_INFO *document_info = &document->global_info;
+          if (document_info && document_info->input_file_name)
+            {
+              SOURCE_INFO source_info;
+              fill_source_info_file (&source_info, self, 0,
+                                     document_info->input_file_name);
+
+              message_list_line_error_ext (&self->error_messages,
+                            (self->conf && self->conf->DEBUG.o.integer > 0),
+                            MSG_warning, 0, &source_info,
+                            "document without Top node");
+            }
+          else
+            message_list_document_warn (&self->error_messages, self->conf,
+                                             0, "document without Top node");
+        }
+
+      out_file_nr = 1;
+      count_context
+        = top_(count_context) (&self_plaintext->count_context);
+
+      count_context->bytes += header_bytes;
+      for (i = 0; i < output_units->number; i++)
+        {
+          const OUTPUT_UNIT *output_unit = output_units->list[i];
+          char *node_text;
+
+          /* TODO possible overflow?  count_context->bytes would overflow too
+             before */
+          if (first_node_seen
+              && split_size > 0
+              && count_context->bytes > out_file_nr * (size_t) split_size
+              && file_fh)
+            {
+              /* Split the output into an additional output file. */
+              char *close_error = 0;
+              if (fclose (file_fh) == EOF)
+                close_error = strdup (strerror (errno));
+              if (out_file_nr == 1)
+                {
+                  char *new_filename;
+                  char *encoded_new_first;
+                  char *new_path_encoding;
+
+                  /* Switch to split output. */
+                  output_files_register_closed
+                         (&self->output_files_information,
+                          encoded_outfile_name);
+                  if (close_error)
+                    {
+                      message_list_document_error (
+                        &self->error_messages, self->conf, 0,
+                        "error on closing %s: %s",
+                        output_file, close_error);
+
+                      free (close_error);
+                      status = 0;
+                      goto finalization;
+                    }
+
+                  xasprintf (&new_filename, "%s-%d", output_file,
+                             out_file_nr);
+                  if (self->conf->VERBOSE.o.integer > 0)
+                    fprintf (stderr, "Renaming first output file as %s\n",
+                             new_filename);
+
+                  encoded_new_first
+                     = converter_encoded_output_file_name (self->conf,
+                                       &self->document->global_info,
+                                       new_filename, &new_path_encoding, 0);
+                  free (new_path_encoding);
+                  free (new_filename);
+
+                  if (rename (encoded_outfile_name, encoded_new_first) != 0)
+                    {
+                      message_list_document_error (
+                        &self->error_messages, self->conf, 0,
+                        "rename %s failed: %s", output_file, strerror (errno));
+
+                      free (encoded_new_first);
+
+                      status = 0;
+                      goto finalization;
+                    }
+
+                  output_files_rename_opened (&self->output_files_information,
+                                              encoded_outfile_name,
+                                              encoded_new_first);
+                }
+              else
+                {
+                  output_files_register_closed (
+                                       &self->output_files_information,
+                                       encoded_new_filename);
+                  if (close_error)
+                    {
+                      message_list_document_error (
+                        &self->error_messages, self->conf, 0,
+                        "error on closing %s: %s",
+                        new_output_file, close_error);
+
+                      free (close_error);
+                      status = 0;
+                      goto finalization;
+                    }
+                }
+              out_file_nr++;
+              free (new_output_file);
+              free (encoded_new_filename);
+
+              xasprintf (&new_output_file, "%s-%d", output_file, out_file_nr);
+
+              if (self->conf->VERBOSE.o.integer > 0)
+                fprintf (stderr, "New output file %s\n",
+                         new_output_file);
+
+              file_fh = open_info_file(self, new_output_file,
+                                       &encoded_new_filename);
+              if (!file_fh)
+                {
+                  free (new_output_file);
+                  status = 0;
+                  goto finalization;
+                }
+
+              write_or_return (conversion, encoded_new_filename, file_fh,
+                               &result, complete_header.text);
+
+              count_context->bytes += complete_header.end;
+               /* TODO
+        push @indirect_files, [$output_filename.'-'.$out_file_nr,
+                               $self->{'count_context'}->[-1]->{'bytes'}];
+                */
+            }
+
+          node_text = plaintext_convert_output_unit (self, output_unit);
+          node_text_len = strlen (node_text);
+          if (node_text_len < 2
+              || node_text[node_text_len -1] != '\n'
+              || node_text[node_text_len -2] != '\n')
+            {
+              char *tmp = node_text;
+              char *new_node_text;
+              xasprintf (&new_node_text, "%s%s", node_text, "\n");
+              node_text = new_node_text;
+              free (tmp);
+              count_context->bytes++;
+            }
+
+          if (!first_node_seen)
+            {
+              /* We are outputting the first node. */
+              first_node_seen = 1;
+
+              write_or_return (conversion, encoded_new_filename, file_fh,
+                               &result, header);
+
+     /* When the first node was converted in convert_output_unit above, the
+        text before the first node (type 'before_node_section') was saved in
+        'text_before_first_node'.  Save this text for subsequent use in
+         case of split Info output. */
+                /* TODO
+         if (defined($self->{'text_before_first_node'})) {
+          $complete_header .= $self->{'text_before_first_node'};
+          $complete_header_bytes += length($self->{'text_before_first_node'});
+                 */
+            }
+
+          write_or_return (conversion, encoded_new_filename, file_fh,
+                           &result, node_text);
+        }
+      free (new_output_file);
+      free (encoded_new_filename);
     }
 
   /* TODO */

@@ -1374,6 +1374,23 @@ output_files_register_closed (OUTPUT_FILES_INFORMATION *self,
   fprintf (stderr, "BUG: %s not opened\n", file_path);
 }
 
+/* NOTE nothing is done with 'unclosed_files', assuming that the renamed
+   file was already closed (as is the case for the caller of this function).
+   Also the call to rename could be done in this function if there are more
+   callers, which would also be more consistent with output_files_open_out. */
+void
+output_files_rename_opened (OUTPUT_FILES_INFORMATION *self,
+                            const char *file_path,
+                            const char *new_file_path)
+{
+  size_t number = find_string (&self->opened_files, file_path);
+  if (number)
+    remove_from_strings_list (&self->opened_files, number -1);
+
+  if (!find_string (&self->opened_files, new_file_path))
+    add_string (new_file_path, &self->opened_files);
+}
+
 /* Unused */
 const ELEMENT *
 find_root_command_next_heading_command (const ELEMENT *root,
