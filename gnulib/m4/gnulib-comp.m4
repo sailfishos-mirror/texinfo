@@ -44,7 +44,6 @@ AC_DEFUN([gl_EARLY],
 
   # Code from module absolute-header:
   # Code from module array-mergesort:
-  # Code from module assert-h:
   # Code from module bool:
   # Code from module c99:
   # Code from module extensions:
@@ -57,6 +56,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module inline:
   # Code from module inttypes-h-incomplete:
   # Code from module limits-h:
+  # Code from module malloc-posix:
   # Code from module multiarch:
   # Code from module snippet/_Noreturn:
   # Code from module snippet/arg-nonnull:
@@ -64,6 +64,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module snippet/warn-on-use:
   # Code from module ssize_t:
   # Code from module std-gnu11:
+  # Code from module stdckdint-h:
   # Code from module stddef-h:
   # Code from module stdint-h:
   # Code from module stdlib-h:
@@ -77,6 +78,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module uninorm/canonical-decomposition:
   # Code from module uninorm/decompose-internal:
   # Code from module uninorm/decomposition-table:
+  # Code from module uninorm/filter:
   # Code from module uninorm/nfd:
   # Code from module uninorm/u32-normalize:
   # Code from module unistd-h:
@@ -114,9 +116,6 @@ AC_DEFUN([gl_INIT],
   gl_COMMON
   gl_source_base='gnulib/lib'
   gl_source_base_prefix=
-  gl_ASSERT_H
-  gl_CONDITIONAL_HEADER([assert.h])
-  AC_PROG_MKDIR_P
   gl_C_BOOL
   AC_REQUIRE([gl_EXTERN_INLINE])
   gl_FCNTL_H
@@ -129,8 +128,16 @@ AC_DEFUN([gl_INIT],
   gl_LIMITS_H
   gl_CONDITIONAL_HEADER([limits.h])
   AC_PROG_MKDIR_P
+  AC_REQUIRE([gl_FUNC_MALLOC_POSIX])
+  if test $REPLACE_MALLOC_FOR_MALLOC_POSIX = 1; then
+    AC_LIBOBJ([malloc])
+  fi
+  gl_STDLIB_MODULE_INDICATOR([malloc-posix])
   gl_MULTIARCH
   gt_TYPE_SSIZE_T
+  gl_STDCKDINT_H
+  gl_CONDITIONAL_HEADER([stdckdint.h])
+  AC_PROG_MKDIR_P
   gl_STDDEF_H
   gl_STDDEF_H_REQUIRE_DEFAULTS
   gl_CONDITIONAL_HEADER([stddef.h])
@@ -149,7 +156,7 @@ AC_DEFUN([gl_INIT],
   gl_UCHAR_H
   gl_UCHAR_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
-  gl_LIBUNISTRING_LIBHEADER([1.3], [unictype.h])
+  gl_LIBUNISTRING_LIBHEADER([1.4], [unictype.h])
   gl_UNICTYPE_H
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
@@ -163,6 +170,7 @@ AC_DEFUN([gl_INIT],
   AC_PROG_MKDIR_P
   gl_LIBUNISTRING_MODULE([1.4], [uninorm/canonical-decomposition])
   AC_REQUIRE([AC_C_INLINE])
+  gl_LIBUNISTRING_MODULE([1.4], [uninorm/filter])
   gl_UNINORM_H_REQUIRE_DEFAULTS
   gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.4], [uninorm/nfd])
   gl_MODULE_INDICATOR_FOR_TESTS([uninorm/u32-normalize])
@@ -386,11 +394,13 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/_Noreturn.h
   lib/arg-nonnull.h
   lib/array-mergesort.h
-  lib/assert.in.h
   lib/c++defs.h
   lib/fcntl.in.h
+  lib/intprops-internal.h
   lib/inttypes.in.h
   lib/limits.in.h
+  lib/malloc.c
+  lib/stdckdint.in.h
   lib/stddef.in.h
   lib/stdint.in.h
   lib/stdlib.c
@@ -415,6 +425,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/uninorm/normalize-internal.h
   lib/uninorm/u-normalize-internal.h
   lib/uninorm/u32-normalize.c
+  lib/uninorm/uninorm-filter.c
   lib/unistd.c
   lib/unistd.in.h
   lib/unistr.in.h
@@ -430,14 +441,12 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unistr/u8-mbtoucr.c
   lib/unistr/u8-to-u32.c
   lib/unitypes.in.h
-  lib/verify.h
   lib/warn-on-use.h
   lib/wchar.in.h
   lib/wctype-h.c
   lib/wctype.in.h
   m4/00gnulib.m4
   m4/absolute-header.m4
-  m4/assert_h.m4
   m4/c-bool.m4
   m4/codeset.m4
   m4/extensions.m4
@@ -451,12 +460,14 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/libunistring-base.m4
   m4/limits-h.m4
   m4/locale-en.m4
+  m4/malloc.m4
   m4/multiarch.m4
   m4/off64_t.m4
   m4/off_t.m4
   m4/pid_t.m4
   m4/ssize_t.m4
   m4/std-gnu11.m4
+  m4/stdckdint_h.m4
   m4/stddef_h.m4
   m4/stdint.m4
   m4/stdlib_h.m4

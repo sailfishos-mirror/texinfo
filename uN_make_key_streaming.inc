@@ -8,7 +8,8 @@
 #define XXUNIT(N) uint ## N ## _t
 #define XUNIT(N) XXUNIT(N)
 #define UNIT XUNIT(BITS)
-/* NB extra level of macro expansion needed for BITS to be expanded. */
+/* NB extra level of macro expansion needed for BITS to be expanded.
+   Same in following macro definitions. */
 
 #define XXNAME(N) u ## N ## _make_key_streaming
 #define XNAME(N) XXNAME(N)
@@ -21,6 +22,83 @@
 #define XXuN_mbtouc(N) u ## N ## _mbtouc
 #define XuN_mbtouc(N) XXuN_mbtouc(N)
 #define uN_mbtouc XuN_mbtouc(BITS)
+
+#define XXONECHAR(A) A ## _onechar
+#define XONECHAR(A) XXONECHAR(A)
+#define ONECHAR XONECHAR(NAME)
+
+#define XXSTREAM_DATA(A) A ## _stream_data
+#define XSTREAM_DATA(A) XXSTREAM_DATA(A)
+#define STREAM_DATA XSTREAM_DATA(NAME)
+
+struct STREAM_DATA {
+  char *resultbuf;
+  int len;
+  int len1;
+  int len2;
+  int len3;
+  int max_len;
+};
+
+/* Stream normalization.   The idea is to save space in the collation
+   data, as we also have normalization tables in this library.
+   The problem is that we don't know exactly how many characters will
+   result from normalization.
+   So we will have two jobs to make this work:
+     * Keep track of how many collation units we have written and if
+       there is space for any more.
+     * If finished, memcpy secondary, tertiary levels to the left so
+       there is the right number of separating \x01 bytes between them.
+*/
+static int ONECHAR (void *stream_data_in, char32_t codepoint)
+{
+  struct STREAM_DATA *state = stream_data_in;
+  const struct collation_unit *data;
+  size_t n_units;
+  size_t n_consumed;
+
+  if (state->len == state->max_len)
+    {
+      errno = EINVAL;
+      return -1;
+    }
+
+  lookup_collation_data_at_char (NULL, &codepoint, 1,
+                                 1, /* disable_sequences */
+                                 &n_consumed,
+                                 &data, &n_units);
+  if (n_units != 1 || n_consumed != 1)
+    {
+      errno = EINVAL;
+      return -1;
+    }
+  /* TODO: we could output more than one collation element if n_units > 1 */
+
+  uint16_t primary = data[0].primary;
+  uint8_t secondary = data[0].secondary;
+  uint8_t tertiary = data[0].tertiary;
+
+  if (state->len == state->max_len)
+    {
+      errno = EINVAL;
+      return -1;
+    }
+  state->len++;
+
+  if (primary)
+    {
+      state->resultbuf[state->len1 * 2]     = (primary / 0xFF) + 1;
+      state->resultbuf[state->len1 * 2 + 1] = (primary % 0xFF) + 1;
+      state->len1++;
+    }
+
+  if (secondary)
+    state->resultbuf[state->max_len * 2 + 2 + state->len2++] = secondary + 1;
+  if (tertiary)
+    state->resultbuf[state->max_len * 3 + 3 + state->len3++] = tertiary + 1;
+
+  return 0;
+}
 
 /* uN_make_key_streaming:
    Limited version of make_key_internal which avoids allocating a separate
@@ -41,78 +119,73 @@ NAME (Collation_choice collation,
       return NULL;
     }
 
-  /* Three levels (primary/secondary/tertiary).  Two bytes per
+  if (!resultbuf)
+    {
+    return NULL;
+    }
+
+  char32_t next_codepoint;
+  static struct uninorm_filter *filter = NULL;
+  struct STREAM_DATA stream_data = { 0 };
+  stream_data.resultbuf = resultbuf;
+
+  /* Calculate the maxiumum number of collation elements we can output
+     inside the output buffer.
+     Three levels (primary/secondary/tertiary).  Two bytes per
      collation element at primary, one byte at secondary, one byte
      at tertiary.  "\x01\x01" between primary and secondary level
      and "\x01" between secondary and tertiary level, and one terminating
      null.
      Not all of these bytes are used if there are null weights. */
-  size_t len = uN_mbsnlen (string, n);
-  size_t reqd_len = len * 4 + 4;
-  if (!resultbuf || reqd_len > *lengthp)
-    return NULL;
+  stream_data.max_len = (*lengthp - 4) / 4;
+
+  if (!filter)
+    filter = uninorm_filter_create (UNINORM_NFD, &ONECHAR, &stream_data);
 
   const UNIT *pstring = string;
-  char32_t codepoint;
-  int nbytes;
-  int count = 0;
+  size_t remaining = uN_mbsnlen (string, n);
 
-  size_t len_remaining = len;
-  /* Iterate over string */
-  while (len_remaining > 0)
+  while (remaining)
     {
-      const struct collation_unit *data;
-      size_t n_units;
-      size_t n_consumed;
+      size_t n_consumed = uN_mbtouc (&next_codepoint, pstring, remaining);
+      if (next_codepoint == 0xfffd) {
+        return NULL; }
 
-      n_consumed = uN_mbtouc (&codepoint, pstring, len_remaining);
-      if (codepoint == 0xfffd)
-        return NULL;
-      len_remaining -= n_consumed;
+      if (uninorm_filter_write (filter, next_codepoint) == -1) {
+        return NULL; }
       pstring += n_consumed;
-      lookup_collation_data_at_char (NULL, &codepoint, 1,
-                                     1, /* disable_sequences */
-                                     &n_consumed,
-                                     &data, &n_units);
-      if (n_units != 1 || n_consumed != 1)
-        return NULL; /* abort */
-
-      uint16_t primary = data[0].primary;
-      uint8_t secondary = data[0].secondary;
-      uint8_t tertiary = data[0].tertiary;
-
-      resultbuf[count * 2] = (primary / 0xFF) + 1;
-      resultbuf[count * 2 + 1] = (primary % 0xFF) + 1;
-
-      resultbuf[len * 2 + 2 + count] = secondary;
-      resultbuf[len * 3 + 3 + count] = tertiary;
-
-      count++;
+      remaining -= n_consumed;
     }
+  if (uninorm_filter_flush (filter) == -1) {
+    return NULL; }
+
+  const int len1 = stream_data.len1;
+  const int len2 = stream_data.len2;
+  const int len3 = stream_data.len3;
+  const int max_len = stream_data.max_len;
+
+  /* Shift oytput for secondary and tertiary levels to the correct
+     positions. */
+  memcpy(&resultbuf[len1 * 2 + 2], &resultbuf[max_len * 2 + 2], len2);
+  memcpy(&resultbuf[len1 * 2 + len2 + 3], &resultbuf[max_len * 3 + 3], len3);
+
   /* Primary level terminator. */
-  resultbuf[len * 2 + 0] = '\x01';
-  resultbuf[len * 2 + 1] = '\x01';
+  resultbuf[len1 * 2 + 0] = '\x01';
+  resultbuf[len1 * 2 + 1] = '\x01';
 
   /* Secondary level terminator */
-  resultbuf[len * 3 + 2] = '\x01';
+  resultbuf[len1 * 2 + len2 + 2] = '\x01';
 
   /* Tertiary level terminator and end of string */
-  resultbuf[len * 4 + 3] = '\x00';
+  resultbuf[len1 * 2 + len2 + len3 + 3] = '\x00';
 
-  *lengthp =  reqd_len;
-
+  *lengthp = len1 * 2 + len2 + len3 + 4;
   return resultbuf;
 }
 
+#undef ONECHAR
+#undef STREAM_DATA
 #undef UNIT
-#undef XUNIT
-#undef XXUNIT
 #undef NAME
-#undef XNAME
-#undef XXNAME
 #undef uN_mbsnlen
-#undef XuN_mbsnlen
-#undef XXuN_mbsnlen
 #undef uN_mbtouc
-#undef XuN_mbtouc
-#undef XXuN_mbtouc

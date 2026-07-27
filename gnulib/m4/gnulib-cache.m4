@@ -39,6 +39,7 @@
 #  --macro-prefix=gl \
 #  uchar-h \
 #  unictype/property-unified-ideograph \
+#  uninorm/filter \
 #  uninorm/nfd \
 #  uninorm/u32-normalize \
 #  unistr/u32-mbsnlen \
@@ -52,6 +53,7 @@ gl_LOCAL_DIR([])
 gl_MODULES([
   uchar-h
   unictype/property-unified-ideograph
+  uninorm/filter
   uninorm/nfd
   uninorm/u32-normalize
   unistr/u32-mbsnlen

@@ -241,10 +241,8 @@ build_allkeys_info (const char *filename)
              required in more cases to get correct results.  We want to
              avoid normalization where possible as it takes significant
              time. */
-          /*
           if (!check_codepoint_nondecomposable (codepoints[0]))
             continue;
-          */
           if (uc_is_property_unified_ideograph (codepoints[0]))
             continue;
         }

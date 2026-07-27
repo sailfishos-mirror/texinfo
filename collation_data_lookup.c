@@ -328,6 +328,18 @@ lookup_collation_data_at_char (char32_t *const string,
         }
     }
 
+  if (string_const && (data.num_elements & CHECK_SEQUENCE_BIT))
+    {
+      /* If a sequence record exists, do not return the single codepoint
+         record, as it is possible that we were unable to find a
+         discontiguous match.  The calling code should try again with the
+         STRING argument. */
+      errno = EINVAL;
+      (*n_codepoints_out) = 0;
+      (*n_collation_units) = 0;
+      return;
+    }
+
   (*n_codepoints_out) = data.array ? 1 : 0;
   *collation_units = data.array;
   *n_collation_units = (data.num_elements & ~CHECK_SEQUENCE_BIT);

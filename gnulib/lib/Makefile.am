@@ -34,6 +34,7 @@
 #  --macro-prefix=gl \
 #  uchar-h \
 #  unictype/property-unified-ideograph \
+#  uninorm/filter \
 #  uninorm/nfd \
 #  uninorm/u32-normalize \
 #  unistr/u32-mbsnlen \
@@ -86,37 +87,6 @@ HAVE_INCLUDE_NEXT = (__GNUC__ || __clang__ || 60000000 <= __DECC_VER)
 EXTRA_DIST += array-mergesort.h
 
 ## end   gnulib module array-mergesort
-
-## begin gnulib module assert-h
-
-BUILT_SOURCES += $(ASSERT_H)
-
-# We need the following in order to create <assert.h> when the system
-# doesn't have one that works with the given compiler.
-if GL_GENERATE_ASSERT_H
-assert.h: assert.in.h verify.h $(top_builddir)/config.status
-	$(gl_V_at){ $(SED_HEADER_STDOUT) \
-	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
-	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
-	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
-	      -e 's|@''NEXT_ASSERT_H''@|$(NEXT_ASSERT_H)|g' \
-	      < $(srcdir)/assert.in.h && \
-	  sed -e '/@assert.h omit start@/,/@assert.h omit end@/d' \
-	      -e 's|_gl_verify|_gl_static_assert|g' \
-	      -e 's|_GL_VERIFY|_GL_STATIC_ASSERT|g' \
-	      -e 's|_GL\(_STATIC_ASSERT_H\)|_GL\1|g' \
-	      < $(srcdir)/verify.h; \
-	} > $@-t
-	$(AM_V_at)mv $@-t $@
-else
-assert.h: $(top_builddir)/config.status
-	rm -f $@
-endif
-MOSTLYCLEANFILES += assert.h assert.h-t
-
-EXTRA_DIST += assert.in.h verify.h
-
-## end   gnulib module assert-h
 
 ## begin gnulib module fcntl-h
 
@@ -246,6 +216,15 @@ EXTRA_DIST += limits.in.h
 
 ## end   gnulib module limits-h
 
+## begin gnulib module malloc-posix
+
+
+EXTRA_DIST += malloc.c
+
+EXTRA_libgnu_a_SOURCES += malloc.c
+
+## end   gnulib module malloc-posix
+
 ## begin gnulib module snippet/_Noreturn
 
 # Because this Makefile snippet defines a variable used by other
@@ -293,6 +272,36 @@ WARN_ON_USE_H=$(srcdir)/warn-on-use.h
 EXTRA_DIST += warn-on-use.h
 
 ## end   gnulib module snippet/warn-on-use
+
+## begin gnulib module stdckdint-h
+
+BUILT_SOURCES += $(STDCKDINT_H)
+
+# We need the following in order to create <stdckdint.h> when the system
+# doesn't have one that works with the given compiler.
+if GL_GENERATE_STDCKDINT_H
+stdckdint.h: stdckdint.in.h $(top_builddir)/config.status
+	$(gl_V_at)$(SED_HEADER_STDOUT) \
+	      -e 's|@''GUARD_PREFIX''@|GL|g' \
+	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
+	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
+	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
+	      -e 's|@''NEXT_STDCKDINT_H''@|$(NEXT_STDCKDINT_H)|g' \
+	      -e 's|@''HAVE_C_STDCKDINT_H''@|$(HAVE_C_STDCKDINT_H)|g' \
+	      -e 's|@''HAVE_WORKING_C_STDCKDINT_H''@|$(HAVE_WORKING_C_STDCKDINT_H)|g' \
+	      -e 's|@''HAVE_CXX_STDCKDINT_H''@|$(HAVE_CXX_STDCKDINT_H)|g' \
+	      -e 's|@''HAVE_WORKING_CXX_STDCKDINT_H''@|$(HAVE_WORKING_CXX_STDCKDINT_H)|g' \
+	  $(srcdir)/stdckdint.in.h > $@-t
+	$(AM_V_at)mv $@-t $@
+else
+stdckdint.h: $(top_builddir)/config.status
+	rm -f $@
+endif
+MOSTLYCLEANFILES += stdckdint.h stdckdint.h-t
+
+EXTRA_DIST += intprops-internal.h stdckdint.in.h
+
+## end   gnulib module stdckdint-h
 
 ## begin gnulib module stddef-h
 
@@ -874,6 +883,16 @@ libgnu_a_SOURCES += uninorm/decomposition-table.c
 EXTRA_DIST += uninorm/decomposition-table.h uninorm/decomposition-table1.h uninorm/decomposition-table2.h
 
 ## end   gnulib module uninorm/decomposition-table
+
+## begin gnulib module uninorm/filter
+
+if LIBUNISTRING_COMPILE_UNINORM_FILTER
+libgnu_a_SOURCES += uninorm/uninorm-filter.c
+endif
+
+EXTRA_DIST += uninorm/normalize-internal.h
+
+## end   gnulib module uninorm/filter
 
 ## begin gnulib module uninorm/nfd
 
