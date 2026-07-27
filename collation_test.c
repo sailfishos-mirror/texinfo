@@ -9,15 +9,17 @@
 #include "collation_key.h"
 
 static void
-print_collation_key (const char *key, size_t length)
+print_collation_key (const unsigned char *key, size_t length)
 {
-  unsigned const char *p;
-  for (p = (unsigned const char *) key;
-       p < (unsigned const char *) key + length;
-       p += 2)
-    {
-      fprintf (stderr, "%02x%02x ", p[0], p[1]);
-    }
+  size_t n = length / 2 * 2;
+
+  /* Print bytes in pairs, for legibility. */
+  size_t i;
+  for (i = 0; i < n; i += 2)
+    fprintf (stderr, "%02x%02x ", key[i], key[i+1]);
+  if (i == length - 1)
+    fprintf (stderr, "%02x", key[i]);
+
   fprintf (stderr, "\n");
 }
 
@@ -172,9 +174,11 @@ main (int argc, char *argv[])
       sort_key2 = u32_make_collation_key (collation, codepoints, length,
                     buffer, &sort_key2_len);
 
+      if (trace)
+        print_collation_key (sort_key2, sort_key2_len);
+
       if (sort_key1 && sort_key2)
         {
-
           int cmp = strcmp (sort_key1, sort_key2);
           /* We expect that sort_key1 <= sort_key1. */
           if (cmp > 0)
