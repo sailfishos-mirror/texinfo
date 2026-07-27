@@ -1,6 +1,17 @@
+2026-07-27 Patrice Dumas  <pertusus@free.fr>
+
+	Finish C info converter output function except for node tags
+
+	* tta/C/convert/convert_to_info.c (INDIRECT_FILE_OFFSET),
+	INDIRECT_FILE_OFFSET_LIST, *indirect_files*: add indirect files lists
+	types and functions.
+
+	* tta/C/convert/convert_to_info.c (info_output): file indirect files
+	list and output tag table with indirect tags file and local variables.
+
 2026-07-26 Patrice Dumas  <pertusus@free.fr>
 
-	Continue C info cinverter output implementation
+	Continue C info converter output implementation
 
 	* tta/C/main/convert_utils.c (output_files_rename_opened): add.
 

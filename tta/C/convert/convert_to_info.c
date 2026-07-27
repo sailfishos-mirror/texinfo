@@ -18,6 +18,7 @@
 #include <config.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <errno.h>
 
 #include "list_macros.h"
@@ -27,6 +28,8 @@
 #include "document_types.h"
 #include "converter_types.h"
 #include "plaintext_converter_state.h"
+/* for fatal */
+#include "base_utils.h"
 #include "tree.h"
 #include "errors.h"
 #include "utils.h"
@@ -39,6 +42,17 @@
 #include "convert_to_plaintext.h"
 #include "plaintext_paragraph.h"
 #include "convert_to_info.h"
+
+typedef struct INDIRECT_FILE_OFFSET {
+  char *indirect_file;
+  int offset;
+} INDIRECT_FILE_OFFSET;
+
+def_list_type(INDIRECT_FILE_OFFSET_LIST, INDIRECT_FILE_OFFSET);
+def_list_fns(INDIRECT_FILE_OFFSET_LIST, indirect_files, INDIRECT_FILE_OFFSET, 3);
+/*
+decl_list_fns(INDIRECT_FILE_OFFSET_LIST, indirect_files, INDIRECT_FILE_OFFSET);
+ */
 
 CONVERTER_INITIALIZATION_INFO *
 info_converter_defaults (enum converter_format format,
@@ -242,11 +256,17 @@ info_output (CONVERTER *self, DOCUMENT *document)
   char *encoded_outfile_name = 0;
   char *encoded_new_filename = 0;
   char *new_output_file = 0;
+  INDIRECT_FILE_OFFSET_LIST indirect_files;
+  TEXT tag_text;
 
   plaintext_conversion_initialization (self, document);
 
   text_init (&result);
   text_append (&result, "");
+  text_init (&complete_header);
+  text_init (&tag_text);
+
+  memset (&indirect_files, 0, sizeof (INDIRECT_FILE_OFFSET_LIST));
 
   determine_files_and_directory (self,
                     self->conf->TEXINFO_OUTPUT_FORMAT.o.string, paths);
@@ -420,7 +440,6 @@ info_output (CONVERTER *self, DOCUMENT *document)
       int split_size = self->conf->SPLIT_SIZE.o.integer;
       size_t node_text_len;
 
-      text_init (&complete_header);
       text_append (&complete_header, header);
 
       if (identifiers_target_number (&document->identifiers_target))
@@ -460,6 +479,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
         {
           const OUTPUT_UNIT *output_unit = output_units->list[i];
           char *node_text;
+          INDIRECT_FILE_OFFSET indirect_file_offset;
 
           /* TODO possible overflow?  count_context->bytes would overflow too
              before */
@@ -505,7 +525,6 @@ info_output (CONVERTER *self, DOCUMENT *document)
                                        &self->document->global_info,
                                        new_filename, &new_path_encoding, 0);
                   free (new_path_encoding);
-                  free (new_filename);
 
                   if (rename (encoded_outfile_name, encoded_new_first) != 0)
                     {
@@ -514,6 +533,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
                         "rename %s failed: %s", output_file, strerror (errno));
 
                       free (encoded_new_first);
+                      free (new_filename);
 
                       status = 0;
                       goto finalization;
@@ -522,6 +542,12 @@ info_output (CONVERTER *self, DOCUMENT *document)
                   output_files_rename_opened (&self->output_files_information,
                                               encoded_outfile_name,
                                               encoded_new_first);
+                  free (encoded_new_first);
+
+                  indirect_file_offset.offset = complete_header.end;
+                  indirect_file_offset.indirect_file = strdup (new_filename);
+                  add_(indirect_files) (&indirect_files, indirect_file_offset);
+                  free (new_filename);
                 }
               else
                 {
@@ -563,10 +589,10 @@ info_output (CONVERTER *self, DOCUMENT *document)
                                &result, complete_header.text);
 
               count_context->bytes += complete_header.end;
-               /* TODO
-        push @indirect_files, [$output_filename.'-'.$out_file_nr,
-                               $self->{'count_context'}->[-1]->{'bytes'}];
-                */
+
+              indirect_file_offset.offset = count_context->bytes;
+              indirect_file_offset.indirect_file = strdup (new_output_file);
+              add_(indirect_files) (&indirect_files, indirect_file_offset);
             }
 
           node_text = plaintext_convert_output_unit (self, output_unit);
@@ -604,18 +630,112 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
           write_or_return (conversion, encoded_new_filename, file_fh,
                            &result, node_text);
+          free (node_text);
         }
-      free (new_output_file);
-      free (encoded_new_filename);
     }
 
-  /* TODO */
+  text_append (&tag_text, "");
+  if (out_file_nr > 1)
+    {
+      size_t i;
+      output_files_register_closed (&self->output_files_information,
+                                    encoded_new_filename);
+      if (fclose (file_fh) == EOF)
+        {
+          message_list_document_error (&self->error_messages, self->conf, 0,
+                                       "error on closing %s: %s",
+                                       new_output_file, strerror (errno));
+          status = 0;
+          goto finalization;
+        }
+      if (self->conf->VERBOSE.o.integer > 0)
+        fprintf (stderr, "Outputing the split manual file %s\n", output_file);
+
+      free (encoded_outfile_name);
+      file_fh = open_info_file(self, output_file, &encoded_outfile_name);
+      if (!file_fh)
+        {
+          status = 0;
+          goto finalization;
+        }
+
+      text_append_n (&tag_text, complete_header.text, complete_header.end);
+      text_append_n (&tag_text, "\x1F\nIndirect:\n", 12);
+      for (i = 0; i < indirect_files.number; i++)
+        {
+          text_printf (&tag_text, "%s: %d\n",
+                       indirect_files.list[i].indirect_file,
+                       indirect_files.list[i].offset);
+          free (indirect_files.list[i].indirect_file);
+        }
+      free (indirect_files.list);
+    }
+
+  text_append_n (&tag_text, "\x1F\nTag Table:\n", 13);
+  if (out_file_nr > 1)
+    text_append_n (&tag_text, "(Indirect)\n", 11);
+
+  /* TODO when locations are ready
+   # This may happen for anchors in @insertcopying
+  my %seen_anchors;
+  foreach my $label (@{$self->{'count_context'}->[-1]->{'locations'}}) {
+    next unless (exists($label->{'root'})
+                 and exists($label->{'root'}->{'extra'})
+                 and $label->{'root'}->{'extra'}->{'is_target'});
+    my $label_element = Texinfo::Common::get_label_element($label->{'root'});
+    my $prefix;
+
+   ....
+   }
+   */
+
+  const char *coding = 0;
+  if (self->conf->OUTPUT_ENCODING_NAME.o.string
+      && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, ""))
+    coding = self->conf->OUTPUT_ENCODING_NAME.o.string;
+
+  const char *documentlanguage = 0;
+  if (self->conf->documentlanguage.o.string)
+    documentlanguage = self->conf->documentlanguage.o.string;
+
+  if (coding || documentlanguage)
+    {
+      text_append_n (&tag_text, "\n\x1F\nLocal Variables:\n", 20);
+      if (coding)
+        text_printf (&tag_text, "coding: %s\n", coding);
+      if (documentlanguage)
+        text_printf (&tag_text, "Info-documentlanguage: %s\n",
+                     documentlanguage);
+      text_append_n (&tag_text, "End:\n", 5);
+    }
+
+  write_or_return (conversion, encoded_outfile_name, file_fh, &result,
+                   tag_text.text);
+
+  if (file_fh && strcmp (output_file, "-"))
+    {
+      output_files_register_closed (&self->output_files_information,
+                                   encoded_outfile_name);
+
+      if (fclose (file_fh) == EOF)
+        {
+          message_list_document_error (&self->error_messages, self->conf, 0,
+                                       "error on closing %s: %s",
+                                       output_file, strerror (errno));
+          status = 0;
+        }
+    }
+
 
  finalization:
 
   plaintext_conversion_finalization (self);
 
+  free (complete_header.text);
+  free (tag_text.text);
   free (encoded_outfile_name);
+  free (new_output_file);
+  free (encoded_new_filename);
   free (header);
 
   for (i = 0; i < 5; i++)
