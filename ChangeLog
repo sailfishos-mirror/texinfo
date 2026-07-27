@@ -1,3 +1,12 @@
+2026-07-27  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Use "$@"
+
+	* util/texi2pdf, util/pdftexi2dvi:
+	Replace use of ${1+"$@"} with "$@" and remove zsh workaround.
+	${1+"$@"} is no longer recommended as a workaround for ancient shells,
+	as documented in the Autoconf 2.73 manual.
+
 2026-07-27 Patrice Dumas  <pertusus@free.fr>
 
 	Finish C info converter output function except for node tags

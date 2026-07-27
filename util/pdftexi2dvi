@@ -7,9 +7,6 @@ test -f /bin/bsh && test -z "$RUNNING_BSH" \
   && { RUNNING_BSH=true; export RUNNING_BSH; exec /bin/bsh $0 ${1+"$@"}; }
 unset RUNNING_BSH
 
-# hack around a bug in zsh:
-test -n "${ZSH_VERSION+set}" && alias -g '${1+"$@"}'='"$@"'
-
 # special-case --version following GNU standards for identifying the
 # program name.  If --version is specified as other than the first
 # argument, we don't output the standard name, but then, we're not
@@ -26,4 +23,4 @@ EOF
   exit 0
 fi
 
-texi2dvi --pdf ${1+"$@"}
+texi2dvi --pdf "$@"
