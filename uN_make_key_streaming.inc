@@ -5,31 +5,23 @@
 #error "bits per character unit not defined in generic file"
 #endif
 
-#define XXUNIT(N) uint ## N ## _t
-#define XUNIT(N) XXUNIT(N)
-#define UNIT XUNIT(BITS)
-/* NB extra level of macro expansion needed for BITS to be expanded.
-   Same in following macro definitions. */
+#define xxconcat(a, b) a ## b
+#define xconcat(a, b) xxconcat(a, b)
+#define concat(a, b) xconcat(a, b)
 
-#define XXNAME(N) u ## N ## _make_key_streaming
-#define XNAME(N) XXNAME(N)
-#define NAME XNAME(BITS)
+#define xxconcat3(a, b, c) a ## b ## c
+#define xconcat3(a, b, c) xxconcat3(a, b, c)
+#define concat3(a, b, c) xconcat3(a, b, c)
 
-#define XXuN_mbsnlen(N) u ## N ## _mbsnlen
-#define XuN_mbsnlen(N) XXuN_mbsnlen(N)
-#define uN_mbsnlen XuN_mbsnlen(BITS)
+/* e.g. u8_make_key_streaming if BITS=8 */
+#define UNIT concat3(uint, BITS, _t)
+#define NAME concat3(u, BITS, _make_key_streaming)
 
-#define XXuN_mbtouc(N) u ## N ## _mbtouc
-#define XuN_mbtouc(N) XXuN_mbtouc(N)
-#define uN_mbtouc XuN_mbtouc(BITS)
+#define uN_mbsnlen concat3(u, BITS, _mbsnlen)
+#define uN_mbtouc concat3(u, BITS, _mbtouc)
 
-#define XXONECHAR(A) A ## _onechar
-#define XONECHAR(A) XXONECHAR(A)
-#define ONECHAR XONECHAR(NAME)
-
-#define XXSTREAM_DATA(A) A ## _stream_data
-#define XSTREAM_DATA(A) XXSTREAM_DATA(A)
-#define STREAM_DATA XSTREAM_DATA(NAME)
+#define ONECHAR concat(NAME, _onechar)
+#define STREAM_DATA concat(NAME, _stream_data)
 
 struct STREAM_DATA {
   char *resultbuf;
@@ -183,9 +175,3 @@ NAME (Collation_choice collation,
   return resultbuf;
 }
 
-#undef ONECHAR
-#undef STREAM_DATA
-#undef UNIT
-#undef NAME
-#undef uN_mbsnlen
-#undef uN_mbtouc
