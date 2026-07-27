@@ -2,6 +2,13 @@
 
 	Use "$@"
 
+	* util/texi2dvi,
+	Replace use of ${1+"$@"} with "$@".
+
+2026-07-27  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Use "$@"
+
 	* util/texi2pdf, util/pdftexi2dvi:
 	Replace use of ${1+"$@"} with "$@" and remove zsh workaround.
 	${1+"$@"} is no longer recommended as a workaround for ancient shells,

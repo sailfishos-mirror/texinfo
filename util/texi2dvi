@@ -1459,10 +1459,10 @@ mostly_clean ()
   set X "$t2ddir"
   shift
   $tidy || {
-    set X ${1+"$@"} `all_files`
+    set X "$@" `all_files`
     shift
   }
-  remove ${1+"$@"}
+  remove "$@"
 }
 
 
@@ -1560,11 +1560,8 @@ done
 # ended options/arguments parsing.
 # Use "set dummy ...; shift" rather than 'set - ..." because on
 # Solaris set - turns off set -x (but keeps set -e).
-# Use ${1+"$@"} rather than "$@" because Digital Unix and Ultrix 4.3
-# still expand "$@" to a single argument (the empty string) rather
-# than nothing at all.
 arg_sep="$$--$$"
-set dummy ${1+"$@"} "$arg_sep"; shift
+set dummy "$@" "$arg_sep"; shift
 
 while test x"$1" != x"$arg_sep"; do
   # Handle --option=value by splitting apart and putting back on argv.
@@ -1573,7 +1570,7 @@ while test x"$1" != x"$arg_sep"; do
       opt=`echo "$1" | $SED -e 's/=.*//'`
       val=`echo "$1" | $SED -e 's/[^=]*=//'`
       shift
-      set dummy "$opt" "$val" ${1+"$@"}; shift
+      set dummy "$opt" "$val" "$@"; shift
       ;;
   esac
 
@@ -1615,7 +1612,7 @@ while test x"$1" != x"$arg_sep"; do
     --) # What remains are not options.
       shift
       while test x"$1" != x"$arg_sep"; do
-        set dummy ${1+"$@"} "$1"; shift
+        set dummy "$@" "$1"; shift
         shift
       done
       break;;
@@ -1623,7 +1620,7 @@ while test x"$1" != x"$arg_sep"; do
       error 1 "Unknown or ambiguous option \`$1'." \
               "Try \`--help' for more information."
       ;;
-    *) set dummy ${1+"$@"} "$1"; shift;;
+    *) set dummy "$@" "$1"; shift;;
    esac
    shift
 done
