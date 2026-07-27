@@ -103,7 +103,10 @@ main (int argc, char *argv[])
   size_t sort_key1_size = 0;
 
   long int line_count = 0;
+
   long int fail_count = 0;
+  long int lt_count = 0;
+  long int eq_count = 0;
   long int skip_count = 0;
 
   Collation_choice collation = unicoll_default ();
@@ -169,23 +172,36 @@ main (int argc, char *argv[])
       sort_key2 = u32_make_collation_key (collation, codepoints, length,
                     buffer, &sort_key2_len);
 
-      /* We expect that sort_key1 <= sort_key1. */
-      if (sort_key1 && sort_key2 && strcmp (sort_key1, sort_key2) > 0)
+      if (sort_key1 && sort_key2)
         {
-          if (!quiet)
+
+          int cmp = strcmp (sort_key1, sort_key2);
+          /* We expect that sort_key1 <= sort_key1. */
+          if (cmp > 0)
             {
-              fprintf (stderr, "Test fail at line %ld\n", line_count);
-              fprintf (stderr, "line 1: %s\n", line1);
-              fprintf (stderr, "line 2: %s\n", line2);
+              if (!quiet)
+                {
+                  fprintf (stderr, "Test fail at line %ld\n", line_count);
+                  fprintf (stderr, "line 1: %s\n", line1);
+                  fprintf (stderr, "line 2: %s\n", line2);
 
-              fprintf (stderr, "Sort key 1: ");
-              print_collation_key (sort_key1, sort_key1_len);
+                  fprintf (stderr, "Sort key 1: ");
+                  print_collation_key (sort_key1, sort_key1_len);
 
-              fprintf (stderr, "Sort key 2: ");
-              print_collation_key (sort_key2, sort_key2_len);
-              fprintf (stderr, "\n");
+                  fprintf (stderr, "Sort key 2: ");
+                  print_collation_key (sort_key2, sort_key2_len);
+                  fprintf (stderr, "\n");
+                }
+              fail_count++;
             }
-          fail_count++;
+          else if (cmp < 0)
+            lt_count++;
+          else
+            eq_count++;
+          /* Keep track of how many strings compared equal to the previous one.
+             This should help to discover if the test is too weak: for example,
+             if all strings had the same sort key, the tests would still
+             pass! */
         }
 
       string_save (&sort_key1, &sort_key1_size, sort_key2);
@@ -195,15 +211,16 @@ main (int argc, char *argv[])
     }
   if (fail_count == 0)
     {
-      printf ("All tests passed\n");
-      printf ("(Skipped %ld)\n", skip_count);
+      printf ("all tests passed\n");
+      printf ("less than: %ld, equal: %ld\n", lt_count, eq_count);
+      printf ("(skipped %ld)\n", skip_count);
 
       exit (0);
     }
   else
     {
-      printf ("Total fails: %ld out of %ld\n", fail_count, line_count);
-      printf ("(Skipped %ld)\n", skip_count);
+      printf ("total fails: %ld out of %ld\n", fail_count, line_count);
+      printf ("(skipped %ld)\n", skip_count);
       exit (1);
     }
 }
