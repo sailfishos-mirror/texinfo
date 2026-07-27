@@ -139,6 +139,9 @@ char *converter_convert (CONVERTER *self, DOCUMENT *document);
 void converter_remove_output_units (CONVERTER *converter);
 void destroy_converter (CONVERTER *converter);
 
+ELEMENT *cdt_tree (const char *string, CONVERTER *self,
+                   NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                   const char *translation_context);
 ELEMENT *element_cdt_tree (const char *string, const ELEMENT *element,
                   CONVERTER *self,
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings,

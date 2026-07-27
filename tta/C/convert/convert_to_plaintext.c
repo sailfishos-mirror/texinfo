@@ -31,6 +31,7 @@
 #include "plaintext_converter_state.h"
 #include "types_data.h"
 #include "base_utils.h"
+#include "tree.h"
 /* for lookup_extra* */
 #include "extra.h"
 #include "builtin_commands.h"
@@ -38,6 +39,9 @@
 #include "debug.h"
 /* for format_expanded_p */
 #include "utils.h"
+#include "manipulate_tree.h"
+#include "translations.h"
+#include "targets.h"
 #include "customization_options.h"
 #include "output_unit.h"
 /* for converter_encoded_output_file_name */
@@ -446,6 +450,343 @@ add_newline_if_needed (CONVERTER *self)
 
 /* TODO ... */
 
+void
+plaintext_format_ref (CONVERTER *self, enum command_id cmd,
+                      const ELEMENT *element)
+{
+  const size_t max_xref_args = 5;
+  const ELEMENT *args[max_xref_args];
+  const ELEMENT *arg_node;
+  const ELEMENT *label_element = 0;
+  const ELEMENT *target_element = 0;
+  ELEMENT *float_type_number_element = 0;
+  ELEMENT *file_code_element = 0;
+  ELEMENT *file_stop_upper_case_element = 0;
+  ELEMENT *node_code_element = 0;
+  ELEMENT *node_stop_upper_case_element = 0;
+  ELEMENT *node_suppress_styles_element = 0;
+  const ELEMENT *file = 0;
+  const ELEMENT *node = 0;
+  const ELEMENT *book = 0;
+  const ELEMENT *name = 0;
+  size_t i;
+  NAMED_STRING_ELEMENT_LIST *substrings;
+  ELEMENT *tree;
+
+  /* no args may happen with bogus @-commands without argument, maybe only
+     at the end of a document */
+
+  if (!element->e.c->contents.number)
+    return;
+  else if (element->e.c->contents.number > max_xref_args)
+    fatal ("xref command with too many arguments");
+
+  memset (args, 0, max_xref_args * sizeof (const ELEMENT *));
+
+  for (i = 0; i < element->e.c->contents.number; i++)
+    {
+      const ELEMENT *arg = element->e.c->contents.list[i];
+      if (!empty_spaces_argument (arg))
+        args[i] = arg;
+    }
+
+  arg_node = element->e.c->contents.list[0];
+
+  /* normalize node name, to get a ref with the right formatting
+     NOTE as a consequence, the line numbers appearing in case of errors
+     correspond to the node lines numbers, and not the @ref. */
+  /* exclude external nodes (in case internal refs get normalized) */
+  if (!args[3] && !args[4])
+    {
+      const char *normalized
+       = lookup_extra_string (arg_node, AI_key_normalized);
+      const ELEMENT *manual_content = lookup_extra_container (arg_node,
+                                                      AI_key_manual_content);
+      if (normalized && !manual_content)
+        {
+          target_element = find_identifier_target (
+                                  &self->document->identifiers_target,
+                                  normalized);
+          label_element = get_label_element (target_element);
+        }
+    }
+  if (!label_element && args[0])
+    label_element = args[0];
+
+  /* if it a reference to a float with a label, $args[1] is
+     set to '$type $number' or '$number' if there is no type. */
+  if (!args[1] && target_element && target_element->e.c->cmd == CM_float)
+    {
+      float_type_number_element = float_type_number (self, target_element);
+      args[1] = float_type_number_element;
+    }
+
+  if (cmd == CM_inforef && args[2])
+    {
+      args[3] = args[2];
+      args[2] = 0;
+    }
+
+  if (args[1])
+    name = args[1];
+  else if (args[2])
+    name = args[2];
+
+  if (args[3])
+    {
+      file_code_element = new_element (ET__code);
+      add_to_contents_as_array (file_code_element, args[3]);
+      file_stop_upper_case_element = new_element (ET__stop_upper_case);
+      add_to_element_contents (file_stop_upper_case_element,
+                               file_code_element);
+      file = file_code_element;
+    }
+  else if (args[4])
+    book = args[4];
+
+  if (label_element)
+    {
+      node_suppress_styles_element = new_element (ET__suppress_styles);
+      add_to_contents_as_array (node_suppress_styles_element, label_element);
+      node_code_element = new_element (ET__code);
+      add_to_element_contents (node_code_element, node_suppress_styles_element);
+      node_stop_upper_case_element = new_element (ET__stop_upper_case);
+      add_to_element_contents (node_stop_upper_case_element,
+                               node_code_element);
+      node = node_suppress_styles_element;
+    }
+
+  substrings = new_named_string_element_list ();
+
+  if (node)
+    {
+      ELEMENT *node_copy = copy_element_tree (node, 0);
+      add_element_to_named_string_element_list (substrings,
+                                                "node", node_copy);
+      if (file)
+        {
+          ELEMENT *file_copy = copy_element_tree (file, 0);
+          add_element_to_named_string_element_list (substrings,
+                                                    "file", file_copy);
+          if (name)
+            {
+              ELEMENT *name_copy = copy_element_tree (name, 0);
+              add_element_to_named_string_element_list (substrings,
+                                                     "name", name_copy);
+              if (cmd == CM_xref || cmd == CM_inforef)
+                tree = cdt_tree ("See {name}: ({file}){node}", self,
+                                 substrings, 0);
+              else if (cmd == CM_pxref)
+                tree = cdt_tree ("see {name}: ({file}){node}", self,
+                                 substrings, 0);
+              else
+                tree = cdt_tree ("{name}: ({file}){node}", self,
+                                 substrings, 0);
+            }
+          else
+            {
+              if (cmd == CM_xref || cmd == CM_inforef)
+                tree = cdt_tree ("See ({file}){node}", self,
+                                 substrings, 0);
+              else if (cmd == CM_pxref)
+                tree = cdt_tree ("see ({file}){node}", self,
+                                 substrings, 0);
+              else
+                tree = cdt_tree ("({file}){node}", self,
+                                 substrings, 0);
+            }
+       }
+     else if (book)
+       {
+          ELEMENT *book_copy = copy_element_tree (book, 0);
+          add_element_to_named_string_element_list (substrings,
+                                               "book", book_copy);
+          if (name)
+            {
+              ELEMENT *name_copy = copy_element_tree (name, 0);
+              add_element_to_named_string_element_list (substrings,
+                                                     "name", name_copy);
+              if (cmd == CM_xref || cmd == CM_inforef)
+                tree = cdt_tree ("See {name}: {node} in @cite{{book}}", self,
+                                 substrings, 0);
+              else if (cmd == CM_pxref)
+                tree = cdt_tree ("see {name}: {node} in @cite{{book}}", self,
+                                 substrings, 0);
+              else
+                tree = cdt_tree ("{name}: {node} in @cite{{book}}", self,
+                                 substrings, 0);
+            }
+          else
+            {
+              if (cmd == CM_xref || cmd == CM_inforef)
+                tree = cdt_tree ("See {node} in @cite{{book}}", self,
+                                 substrings, 0);
+              else if (cmd == CM_pxref)
+                tree = cdt_tree ("see {node} in @cite{{book}}", self,
+                                 substrings, 0);
+              else
+                tree = cdt_tree ("{node} in @cite{{book}}", self,
+                                 substrings, 0);
+            }
+       }
+     else
+       {
+          if (name)
+            {
+              ELEMENT *name_copy = copy_element_tree (name, 0);
+              add_element_to_named_string_element_list (substrings,
+                                                     "name", name_copy);
+              if (cmd == CM_xref || cmd == CM_inforef)
+                tree = cdt_tree ("See {name}: {node}", self,
+                                 substrings, 0);
+              else if (cmd == CM_pxref)
+                tree = cdt_tree ("see {name}: {node}", self,
+                                 substrings, 0);
+              else
+                tree = cdt_tree ("{name}: {node}", self,
+                                 substrings, 0);
+            }
+          else
+            {
+              if (cmd == CM_xref || cmd == CM_inforef)
+                tree = cdt_tree ("See {node}", self,
+                                 substrings, 0);
+              else if (cmd == CM_pxref)
+                tree = cdt_tree ("see {node}", self,
+                                 substrings, 0);
+              else
+                tree = cdt_tree ("{node}", self,
+                                 substrings, 0);
+            }
+        }
+    }
+   else
+    {
+      if (file)
+        {
+          ELEMENT *file_copy = copy_element_tree (file, 0);
+          add_element_to_named_string_element_list (substrings,
+                                                    "file", file_copy);
+          if (name)
+            {
+              ELEMENT *name_copy = copy_element_tree (name, 0);
+              add_element_to_named_string_element_list (substrings,
+                                                     "name", name_copy);
+              if (cmd == CM_xref || cmd == CM_inforef)
+                tree = cdt_tree ("See {name}({file})", self,
+                                 substrings, 0);
+              else if (cmd == CM_pxref)
+                tree = cdt_tree ("see {name}({file})", self,
+                                 substrings, 0);
+              else
+                tree = cdt_tree ("{name}({file})", self,
+                                 substrings, 0);
+            }
+          else
+            {
+              if (cmd == CM_xref || cmd == CM_inforef)
+                tree = cdt_tree ("See ({file})", self,
+                                 substrings, 0);
+              else if (cmd == CM_pxref)
+                tree = cdt_tree ("see ({file})", self,
+                                 substrings, 0);
+              else
+                tree = cdt_tree ("({file})", self,
+                                 substrings, 0);
+            }
+       }
+     else if (book)
+       {
+          ELEMENT *book_copy = copy_element_tree (book, 0);
+          add_element_to_named_string_element_list (substrings,
+                                               "book", book_copy);
+          if (name)
+            {
+              ELEMENT *name_copy = copy_element_tree (name, 0);
+              add_element_to_named_string_element_list (substrings,
+                                                     "name", name_copy);
+              if (cmd == CM_xref || cmd == CM_inforef)
+                tree = cdt_tree ("See {name} in @cite{{book}}", self,
+                                 substrings, 0);
+              else if (cmd == CM_pxref)
+                tree = cdt_tree ("see {name} in @cite{{book}}", self,
+                                 substrings, 0);
+              else
+                tree = cdt_tree ("{name} in @cite{{book}}", self,
+                                 substrings, 0);
+            }
+          else
+            {
+              if (cmd == CM_xref || cmd == CM_inforef)
+                tree = cdt_tree ("See @cite{{book}}", self,
+                                 substrings, 0);
+              else if (cmd == CM_pxref)
+                tree = cdt_tree ("see @cite{{book}}", self,
+                                 substrings, 0);
+              else
+                tree = cdt_tree ("@cite{{book}}", self,
+                                 substrings, 0);
+            }
+       }
+     else
+       {
+          if (name)
+            {
+              ELEMENT *name_copy = copy_element_tree (name, 0);
+              add_element_to_named_string_element_list (substrings,
+                                                     "name", name_copy);
+              if (cmd == CM_xref || cmd == CM_inforef)
+                tree = cdt_tree ("See {name}", self,
+                                 substrings, 0);
+              else if (cmd == CM_pxref)
+                tree = cdt_tree ("see {name}", self,
+                                 substrings, 0);
+              else
+                tree = cdt_tree ("{name}", self,
+                                 substrings, 0);
+            }
+          else
+            {
+              ELEMENT *top_text = new_text_element (ET_other_text);
+              text_append_n (top_text->e.text, "Top", 3);
+              add_element_to_named_string_element_list (substrings,
+                                                        "node", top_text);
+
+              if (cmd == CM_xref || cmd == CM_inforef)
+                tree = cdt_tree ("See {node}", self,
+                                 substrings, 0);
+              else if (cmd == CM_pxref)
+                tree = cdt_tree ("see {node}", self,
+                                 substrings, 0);
+              else
+                tree = cdt_tree ("{node}", self,
+                                 substrings, 0);
+            }
+        }
+    }
+
+  destroy_named_string_element_list (substrings);
+
+  convert_to_plaintext_internal (self, tree);
+
+  destroy_element_and_children (tree);
+
+  if (node_suppress_styles_element)
+    {
+      destroy_element (node_suppress_styles_element);
+      destroy_element (node_code_element);
+      destroy_element (node_stop_upper_case_element);
+    }
+
+  if (file_code_element)
+    {
+      destroy_element (file_code_element);
+      destroy_element (file_stop_upper_case_element);
+    }
+
+  if (float_type_number_element)
+    destroy_element_and_children (float_type_number_element);
+}
 
 void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 
@@ -480,6 +821,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                || type == ET_spaces_after_argument)
         {
           /* TODO ET_spaces_after_close_brace form feeds */
+          return;
         }
 
       /* TODO */
@@ -572,7 +914,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           else if (cmd == CM_link)
             return;
           else if (cmd_data->flags & CF_ref)
-            return;
+            {
+              plaintext_format_ref (self, cmd, element);
+              return;
+            }
           else if (cmd == CM_image)
             return;
           else if (cmd == CM_today)

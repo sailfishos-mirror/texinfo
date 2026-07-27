@@ -418,15 +418,16 @@ sub output($$) {
   $tag_text .=  "\x{1F}\nEnd Tag Table\n";
 
   my $coding = $self->get_conf('OUTPUT_ENCODING_NAME');
+  $coding = undef if ($coding eq '');
   my $documentlanguage = $self->get_conf('documentlanguage');
 
-  if ($coding or defined($documentlanguage)) {
+  if (defined($coding) or defined($documentlanguage)) {
     # Note: Info readers expect the Local Variables section to be
     # under 1000 bytes in length so not many variables can be added here.
     $tag_text .= "\n\x{1F}\nLocal Variables:\n";
-    $tag_text .= "coding: $coding\n" if $coding;
+    $tag_text .= "coding: $coding\n" if (defined($coding));
     $tag_text .= "Info-documentlanguage: $documentlanguage\n"
-      if defined($documentlanguage);
+      if (defined($documentlanguage));
     $tag_text .= "End:\n";
   }
   if (defined($fh)) {
@@ -617,7 +618,7 @@ sub format_ref($$$) {
     $label_element = $args[0];
   }
 
-  # if it a reference to a float with a label, $arg[1] is
+  # if it a reference to a float with a label, $args[1] is
   # set to '$type $number' or '$number' if there is no type.
   if (! defined($args[1])
       and defined($target_element) and exists($target_element->{'cmdname'})

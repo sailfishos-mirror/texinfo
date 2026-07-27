@@ -1136,8 +1136,6 @@ substitute_substrings_in_tree (ELEMENT *tree,
   return tree;
 }
 
-/* the caller should have made sure that the
-   inserted elements do not appear elsewhere in the tree. */
 DOCUMENT *
 replace_convert_substrings (const char *translated_string,
                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -1279,6 +1277,13 @@ gdt_tree (const char *string, DOCUMENT *document,
 
   result_tree = copy_element_tree (translated_string_tree->tree, 0);
 
+  /* the caller should have made sure that the
+     inserted elements do not appear elsewhere in the tree as
+     they will also appear in result_tree after substituting them.
+     If result_tree is destroyed, which should be since it will not
+     be deallocated otherwise, the inserted elements will be destroyed
+     too.
+   */
   if (replaced_substrings)
     substitute_substrings_in_tree (result_tree, replaced_substrings);
 

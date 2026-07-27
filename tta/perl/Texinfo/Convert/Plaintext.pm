@@ -2187,8 +2187,6 @@ sub format_ref($$$) {
   # at the end of a document
   return if (!exists($element->{'contents'}));
 
-  my $formatter = $self->{'formatters'}->[-1];
-
   my @args;
   foreach my $arg (@{$element->{'contents'}}) {
     if (Texinfo::Common::empty_spaces_argument($arg)) {
@@ -2223,15 +2221,17 @@ sub format_ref($$$) {
       = $identifiers_target->{$node_arg->{'extra'}->{'normalized'}};
     $label_element
       = Texinfo::Common::get_label_element($target_element);
+    # cannot happen, target of references must have contents
     if (defined($label_element) and !exists($label_element->{'contents'})) {
       $label_element = undef;
+      $target_element = undef;
     }
   }
   if (!defined($label_element) and defined($args[0])) {
     $label_element = $args[0];
   }
 
-  # if it a reference to a float with a label, $arg[1] is
+  # if it a reference to a float with a label, $args[1] is
   # set to '$type $number' or '$number' if there is no type.
   if (! defined($args[1])
       and defined($target_element) and exists($target_element->{'cmdname'})

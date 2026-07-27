@@ -1,3 +1,23 @@
+2026-07-27 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): return immediately if a text type is
+	ignored.
+
+	* tta/C/main/element_types.txt (_code, _stop_upper_case)
+	(_suppress_styles): add types used internally in plaintext converter.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_format_ref)
+	(convert_to_plaintext_internal): add plaintext_format_ref and use in
+	convert_to_plaintext_internal.
+
+	* tta/perl/Texinfo/Convert/Info.pm (output): minor change to set
+	encoding only if not empty, and use defined in conditions when the
+	value is not used.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (format_ref): remove useless
+	variable and reset target_element too (in code that cannot be called).
+
 2026-07-27  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Use "$@"

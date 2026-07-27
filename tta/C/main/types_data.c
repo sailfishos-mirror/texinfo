@@ -91,5 +91,8 @@ const TYPE_DATA type_data[] = {
 {"bracketed_linemacro_arg", TF_text, 0},
 {"text", 0, 0},
 {"_converted", TF_text, 0},
+{"_code", 0, 0},
+{"_stop_upper_case", 0, 0},
+{"_suppress_styles", 0, 0},
 {"special_unit_element", 0, 0},
 };

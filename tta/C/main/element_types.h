@@ -90,6 +90,9 @@ ET_macro_call_arg_text,
 ET_bracketed_linemacro_arg,
 ET_text,
 ET__converted,
+ET__code,
+ET__stop_upper_case,
+ET__suppress_styles,
 ET_special_unit_element,
 };
 
