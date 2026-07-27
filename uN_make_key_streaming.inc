@@ -42,7 +42,8 @@ struct STREAM_DATA {
      * If finished, memcpy secondary, tertiary levels to the left so
        there is the right number of separating \x01 bytes between them.
 */
-static int ONECHAR (void *stream_data_in, char32_t codepoint)
+static int
+ONECHAR (void *stream_data_in, char32_t codepoint)
 {
   struct STREAM_DATA *state = stream_data_in;
   const struct collation_unit *data;
@@ -112,9 +113,7 @@ NAME (Collation_choice collation,
     }
 
   if (!resultbuf)
-    {
     return NULL;
-    }
 
   char32_t next_codepoint;
   static struct uninorm_filter *filter = NULL;
@@ -131,25 +130,31 @@ NAME (Collation_choice collation,
      Not all of these bytes are used if there are null weights. */
   stream_data.max_len = (*lengthp - 4) / 4;
 
-  if (!filter)
-    filter = uninorm_filter_create (UNINORM_NFD, &ONECHAR, &stream_data);
-
   const UNIT *pstring = string;
   size_t remaining = uN_mbsnlen (string, n);
+
+  /* Reduce the bound on the maximum length (with a random margin of safety).
+     This could improve data locality if resultbuf is very big. */
+  int needed_max_len = remaining + 2;
+  if (stream_data.max_len > needed_max_len)
+    stream_data.max_len = needed_max_len;
+
+  if (!filter)
+    filter = uninorm_filter_create (UNINORM_NFD, &ONECHAR, &stream_data);
 
   while (remaining)
     {
       size_t n_consumed = uN_mbtouc (&next_codepoint, pstring, remaining);
-      if (next_codepoint == 0xfffd) {
-        return NULL; }
+      if (next_codepoint == 0xfffd)
+        return NULL;
 
-      if (uninorm_filter_write (filter, next_codepoint) == -1) {
-        return NULL; }
+      if (uninorm_filter_write (filter, next_codepoint) == -1)
+        return NULL;
       pstring += n_consumed;
       remaining -= n_consumed;
     }
-  if (uninorm_filter_flush (filter) == -1) {
-    return NULL; }
+  if (uninorm_filter_flush (filter) == -1)
+    return NULL;
 
   const int len1 = stream_data.len1;
   const int len2 = stream_data.len2;
