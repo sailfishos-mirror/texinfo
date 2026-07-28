@@ -125,7 +125,18 @@ typedef struct CONVERTER_FORMAT_DATA {
    Same purpose as inherited methods in Texinfo::Convert::Converter */
 /* Should be kept in sync with enum converter_format
    and TXI_CONVERSION_FORMAT_NR */
+/* plaintext and info are first such that the index can also simply
+   be used for their specific dispatch table index */
 static CONVERTER_FORMAT_DATA converter_format_data[] = {
+  {"plaintext", "Texinfo::Convert::Plaintext", &plaintext_format_setup, 0,
+   &plaintext_converter_defaults,
+   &plaintext_converter_initialize, &plaintext_output, &plaintext_convert,
+   &plaintext_convert_tree, 0, &plaintext_free_converter, 0, 0},
+  /* TODO having plaintext_format_setup here could lead to being called twice */
+  {"info", "Texinfo::Convert::Info", &plaintext_format_setup, 0,
+   &info_converter_defaults,
+   &plaintext_converter_initialize, &info_output, &plaintext_convert,
+   &plaintext_convert_tree, 0, &plaintext_free_converter, 0, 0},
   {"html", "Texinfo::Convert::HTML", &html_format_setup, 0,
    &html_converter_defaults,
    &html_converter_initialize, &html_output, &html_convert,
@@ -137,15 +148,6 @@ static CONVERTER_FORMAT_DATA converter_format_data[] = {
   {"plaintexinfo", "Texinfo::Convert::PlainTexinfo", 0, 0,
    &plaintexinfo_converter_defaults, 0, &plaintexinfo_output,
    &plaintexinfo_convert, &plaintexinfo_convert_tree, 0, 0, 0, 0},
-  {"plaintext", "Texinfo::Convert::Plaintext", &plaintext_format_setup, 0,
-   &plaintext_converter_defaults,
-   &plaintext_converter_initialize, &plaintext_output, &plaintext_convert,
-   &plaintext_convert_tree, 0, &plaintext_free_converter, 0, 0},
-  /* TODO having plaintext_format_setup here could lead to being called twice */
-  {"info", "Texinfo::Convert::Info", &plaintext_format_setup, 0,
-   &info_converter_defaults,
-   &plaintext_converter_initialize, &info_output, &plaintext_convert,
-   &plaintext_convert_tree, 0, &plaintext_free_converter, 0, 0},
 };
 
 /* associate lower case no brace accent command to the upper case

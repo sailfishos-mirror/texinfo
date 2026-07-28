@@ -23,14 +23,17 @@
 
 #include "list_macros.h"
 #include "text.h"
-#include "element_types.h"
 #include "command_ids.h"
+#include "types_data.h"
+#include "element_types.h"
 #include "document_types.h"
 #include "converter_types.h"
 #include "plaintext_converter_state.h"
 /* for fatal */
 #include "base_utils.h"
+#include "builtin_commands.h"
 #include "tree.h"
+#include "extra.h"
 #include "errors.h"
 #include "utils.h"
 #include "translations.h"
@@ -750,5 +753,412 @@ info_output (CONVERTER *self, DOCUMENT *document)
       free (result.text);
       return 0;
     }
+}
+
+#include "manipulate_tree.h"
+void
+info_format_ref (CONVERTER *self, enum command_id cmd,
+                 const ELEMENT *element)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  const size_t max_xref_args = 5;
+  const ELEMENT *args[max_xref_args];
+  const ELEMENT *arg_node;
+  const ELEMENT *label_element = 0;
+  const ELEMENT *target_element = 0;
+  ELEMENT *float_type_number_element = 0;
+  ELEMENT *note_element;
+  ELEMENT *note_stop_upper_case_element;
+  const ELEMENT *name = 0;
+  size_t i;
+  int in_multitable = 0;
+  int has_file = 0;
+  const char *node_name;
+  ELEMENT *node_element = 0;
+  int quoting_required = 0;
+  const char *node_quote = "\x{7f}";
+
+  /* no args may happen with bogus @-commands without argument, maybe only
+     at the end of a document */
+
+  if (!element->e.c->contents.number)
+    return;
+  else if (element->e.c->contents.number > max_xref_args)
+    fatal ("xref command with too many arguments");
+
+  FORMATTER *formatter = top_(formatter) (&self_plaintext->formatters);
+
+  memset (args, 0, max_xref_args * sizeof (const ELEMENT *));
+
+  for (i = 0; i < element->e.c->contents.number; i++)
+    {
+      const ELEMENT *arg = element->e.c->contents.list[i];
+      if (!empty_spaces_argument (arg))
+        args[i] = arg;
+    }
+
+  arg_node = element->e.c->contents.list[0];
+
+
+  /* normalize node name, to get a ref with the right formatting
+     NOTE as a consequence, the line numbers appearing in case of errors
+     correspond to the node lines numbers, and not the @ref. */
+  /* exclude external nodes (in case internal refs get normalized) */
+  if (!args[3] && !args[4])
+    {
+      const char *normalized
+       = lookup_extra_string (arg_node, AI_key_normalized);
+      const ELEMENT *manual_content = lookup_extra_container (arg_node,
+                                                      AI_key_manual_content);
+      if (normalized && !manual_content)
+        {
+          target_element = find_identifier_target (
+                                  &self->document->identifiers_target,
+                                  normalized);
+          label_element = get_label_element (target_element);
+        }
+    }
+  if (!label_element)
+    /* may still be NULL if node argument is empty */
+    label_element = args[0];
+
+  /* if it a reference to a float with a label, $args[1] is
+     set to '$type $number' or '$number' if there is no type. */
+  if (!args[1] && target_element && target_element->e.c->cmd == CM_float)
+    {
+      float_type_number_element = float_type_number (self, target_element);
+      args[1] = float_type_number_element;
+    }
+
+  if (cmd == CM_inforef && args[2])
+    {
+      args[3] = args[2];
+      args[2] = 0;
+    }
+
+  if (args[1])
+    name = args[1];
+  else if (args[2])
+    name = args[2];
+
+  /* Treat cross-reference commands in a multitable cell as if they
+     were surrounded by @w{ ... }, so not to split output across
+     lines, leading text from other columns appearing to be part of the
+     cross-reference. */
+  /* TODO not ready in convert_to_plaintext.c
+  if ($self->{'document_context'}->[-1]->{'in_multitable'}) {
+    $in_multitable = 1;
+    $formatter->{'w'}++;
+    set_space_protection($formatter->{'container'}, 1)
+      if ($formatter->{'w'} == 1);
+  }
+  */
+
+ /* Disallow breaks in runs of Chinese text in node names, because a
+    break would be normalized to a single space by the Info reader, and
+    the node wouldn't be found. */
+  /* TODO when set_double_width_no_break is implemented
+   set_double_width_no_break($formatter->{'container'}, 1);
+   */
+
+  note_stop_upper_case_element = new_element (ET__stop_upper_case);
+  note_element = new_text_element (ET_other_text);
+
+  if (cmd == CM_xref)
+    text_append_n (note_element->e.text, "*Note ", 6);
+  else
+    text_append_n (note_element->e.text, "*note ", 6);
+
+  add_element_to_element_contents (note_stop_upper_case_element,
+                                   note_element);
+
+  convert_to_plaintext_internal (self, note_stop_upper_case_element);
+
+  destroy_element_and_children (note_stop_upper_case_element);
+
+  if (name)
+    {
+      int name_quoting_required = 0;
+   /* Convert line for sole purpose of checking if the output contains
+      a colon.  Output may differ slightly from the current formatting
+      context (e.g if inside @sc) but this should not make a difference. */
+   /* TODO convert_line_new_context
+    my ($name_text_checked, undef) = $self->convert_line_new_context($name);
+
+    if ($name_text_checked =~ /:/m) {
+      if ($self->{'info_special_chars_warning'}) {
+        $self->plaintext_line_warn($self, sprintf(__(
+           "\@%s cross-reference name should not contain `:'"),
+                                 $cmdname), $element->{'source_info'});
+      }
+      if ($self->{'info_special_chars_quote'}) {
+        $quoting_required = 1;
+      }
+    }
+    */
+
+    /* do the actual output of name */
+      if (name_quoting_required)
+        stream_output_add_text (self, node_quote);
+
+      convert_to_plaintext_internal (self, name);
+
+      if (name_quoting_required)
+        stream_output_add_text (self, node_quote);
+
+      stream_output_add_text (self, ": ");
+    }
+
+  if (args[3])
+    {
+      ELEMENT *file = new_element (ET_NONE);
+      ELEMENT *open_parenthese = new_text_element (ET_other_text);
+      text_append_n (open_parenthese->e.text, "(", 1);
+      ELEMENT *close_parenthese = new_text_element (ET_other_text);
+      text_append_n (close_parenthese->e.text, ")", 1);
+      ELEMENT *file_code_element = new_element (ET__code);
+      ELEMENT *file_stop_upper_case_element
+        = new_element (ET__stop_upper_case);
+      /* cast to drop const */
+      add_to_contents_as_array (file_code_element, (ELEMENT *)args[3]);
+      add_to_element_contents (file_stop_upper_case_element,
+                               file_code_element);
+      add_element_to_element_contents (file, open_parenthese);
+      add_to_element_contents (file, file_stop_upper_case_element);
+      add_element_to_element_contents (file, close_parenthese);
+
+      convert_to_plaintext_internal (self, file);
+      has_file = 1;
+
+      /* remove args[3] that should not be destroyed */
+      pop_element_from_contents (file_code_element);
+      destroy_element_and_children (file);
+    }
+  else if (args[4])
+    {
+     /* add a () such that the node is considered to be external,
+        even though the manual name is not known.  This should only
+        happen if a book argument is given, but no manual name. */
+      ELEMENT *e_parentheses = new_text_element (ET_other_text);
+      text_append_n (e_parentheses->e.text, "()", 2);
+      convert_to_plaintext_internal (self, e_parentheses);
+      destroy_element (e_parentheses);
+    }
+
+ /* Get the node name to be output.
+    Due to the paragraph formatter holding pending text, converting
+    the node name with the current formatter does not yield all the
+    converted text.  To get the full node name (and no more), we
+    can use the cached text if the node is an internal node.  Otherwise,
+    we can convert in a new context, using convert_line_new_context.
+    However, it is slow to do this for every node.  So in the most
+    frequent case when the node name is a simple text element, use
+    that text instead. */
+  if (0 && target_element)
+    {
+  /* TODO need node_name
+    ($node_name, undef) = $self->node_name($target_element); */
+    }
+  else if (label_element && label_element->e.c->contents.number == 1
+    && type_data[label_element->e.c->contents.list[0]->type].flags & TF_text)
+    {
+      node_name = label_element->e.c->contents.list[0]->e.text->text;
+    }
+  else if (label_element)
+    {
+  /* TODO convert_line_new_context silent
+    $self->{'silent'} = 0 if (!defined($self->{'silent'}));
+    $self->{'silent'}++;
+
+    ($node_name, undef) = $self->convert_line_new_context(
+        Texinfo::TreeElement::new({'type' => '_code',
+                                   'contents' => [$label_element]}),
+                                   0, undef,
+                                  {'suppress_styles' => 1,
+                                    'no_added_eol' => 1});
+    $self->{'silent'}--;
+   */
+    node_name = "toto.";
+    }
+  else
+    node_name = "";
+
+  if (has_file && node_name[strspn (node_name, whitespace_chars)] == '\0')
+    {
+  /* Some Info reader versions, at least the Info reader from
+     Texinfo 6.8 and 7.1 cannot follow a cross-reference
+     consisting only of a manual name, such as *Note (manual)::.
+     The Emacs Info reader does not seem to have this problem.
+     Add a Top node to have a node name.
+     Should probably be removed about 10-15 years after Info
+     reader have been fixed. */
+
+      node_element = new_text_element (ET_other_text);
+      text_append_n (node_element->e.text, "Top", 3);
+      label_element = 0;
+    }
+
+  if (label_element)
+    {
+      const char *check_chars;
+      const char *p;
+
+      if (name)
+        check_chars = ",\t.";
+      else
+        check_chars = ":";
+
+      p = strpbrk (node_name, check_chars);
+
+      if (p)
+        {
+          if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer > 0)
+            {
+              if (!self_plaintext->silent)
+                message_list_command_warn (&self->error_messages,
+                            (self->conf && self->conf->DEBUG.o.integer > 0),
+                           element, 0,
+                         "@%s node name should not contain `%c'",
+                          builtin_command_name(cmd), *p);
+            }
+          if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+            quoting_required = 1;
+        }
+    }
+
+  if (quoting_required)
+    stream_output_add_next (self, node_quote);
+
+  if (label_element || node_element)
+    {
+      ELEMENT *node_stop_upper_case_element
+        = new_element (ET__stop_upper_case);
+      ELEMENT *node_code_element = new_element (ET__code);
+      if (label_element)
+        /* cast to drop const */
+        add_to_element_contents (node_code_element, (ELEMENT *)label_element);
+      else
+        add_element_to_element_contents (node_code_element, node_element);
+      add_to_element_contents (node_stop_upper_case_element,
+                               node_code_element);
+
+      /* TODO
+      formatter->suppress_styles = 1;
+       */
+
+      convert_to_plaintext_internal (self, node_stop_upper_case_element);
+
+      /* TODO
+      formatter->suppress_styles = 0;
+       */
+
+      /* remove label_element that should not be destroyed */
+      if (label_element)
+        pop_element_from_contents (node_code_element);
+      destroy_element_and_children (node_stop_upper_case_element);
+    }
+
+  if (quoting_required)
+    stream_output_add_next (self, node_quote);
+
+  if (!name)
+    stream_output_add_next (self, "::");
+
+  /* Check if punctuation follows the ref command with a label
+     argument.  If not, add a full stop. */
+  if (name)
+    {
+      /* Find next element */
+      const ELEMENT *next = 0;
+      const ELEMENT *parent = element->e.c->parent;
+      size_t j;
+
+      for (j = 0; j < parent->e.c->contents.number - 1; j++)
+        {
+          if (parent->e.c->contents.list[j] == element)
+            {
+              next = parent->e.c->contents.list[j +1];
+              break;
+            }
+        }
+      if (!(next && type_data[next->type].flags & TF_text
+            && next->e.text->end > 0
+            && (next->e.text->text[0] == '.'
+                || next->e.text->text[0] == ',')))
+        {
+          ELEMENT *added_no_end_sentence_command;
+          ELEMENT *added_full_stop_text_elt;
+     /* In the past, it was explicily described in the manual that
+        some punctuation was automatically added for @pxref only,
+        while the other commands required a following full stop or
+        comma.
+
+        It is better if the user manages to find a wording with a
+        comma or full stop following naturally the ref command.
+        However, it is not possible in general except for @xref -- and
+        even for @xref it may be cumbersome.  Therefore we only warn
+        that a comma or full stop is missing with @xref such that the
+        user tries to add it in that case, in the other case, we
+        automatically add a full stop without warning.
+
+        There cannot be a perfect solution, as these issues stem from
+        the Info language design where it is not possible to
+        distinguish if punctuation used in cross reference is
+        part of the text or is added and should be considered as markup.
+      */
+          if (cmd == CM_xref && !self_plaintext->silent)
+            {
+              if (next && type_data[next->type].flags & TF_text)
+                {
+                  const char *p = next->e.text->text;
+                  p += strspn (p, whitespace_chars);
+                  if (*p != '\0')
+                    {
+                      /* Count any UTF-8 continuation bytes. */
+                      int char_len = 1;
+                      char *first_char;
+                      while ((p[char_len] & 0xC0) == 0x80)
+                        char_len++;
+
+                      first_char = strndup (p, char_len);
+
+                      message_list_command_warn (&self->error_messages,
+                          (self->conf && self->conf->DEBUG.o.integer > 0),
+                           element, 0,
+                         "`.' or `,' must follow @xref, not %s",
+                         first_char);
+
+                      free (first_char);
+                    }
+                  else
+                    message_list_command_warn (&self->error_messages,
+                          (self->conf && self->conf->DEBUG.o.integer > 0),
+                           element, 0,
+                           "`.' or `,' must follow @xref");
+                }
+            }
+          added_full_stop_text_elt = new_text_element (ET_other_text);
+          text_append_n (added_full_stop_text_elt->e.text, ".", 1);
+          convert_to_plaintext_internal (self, added_full_stop_text_elt);
+          destroy_element (added_full_stop_text_elt);
+
+          added_no_end_sentence_command
+            = new_command_element (ET_nobrace_command, CM_COLON);
+          convert_to_plaintext_internal (self, added_no_end_sentence_command);
+          destroy_element (added_no_end_sentence_command);
+        }
+    }
+
+  /* TODO
+    if ($in_multitable) {
+    $formatter->{'w'}--;
+    set_space_protection($formatter->{'container'}, 0)
+      if ($formatter->{'w'} == 0);
+  }
+  set_double_width_no_break($formatter->{'container'}, 0);
+  */
+
+  if (float_type_number_element)
+    destroy_element_and_children (float_type_number_element);
 }
 

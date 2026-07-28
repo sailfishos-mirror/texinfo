@@ -76,11 +76,11 @@ typedef struct CONVERTER_INITIALIZATION_INFO {
    table that dispatches the functions used for conversion */
 enum converter_format {
    COF_none = -1,
+   COF_plaintext,
+   COF_info,
    COF_html,
    COF_rawtext,
    COF_plaintexinfo,
-   COF_plaintext,
-   COF_info,
 };
 
 /* for string information passing to/from perl */

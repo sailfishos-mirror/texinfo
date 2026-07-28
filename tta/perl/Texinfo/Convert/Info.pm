@@ -580,7 +580,6 @@ sub format_ref($$$) {
       push @args, $arg;
     }
   }
-  $args[0] = {'text' => ''} if (!defined($args[0]));
 
   my $node_arg = $element->{'contents'}->[0];
 
@@ -615,6 +614,7 @@ sub format_ref($$$) {
     }
   }
   if (!defined($label_element)) {
+    # may still be undef if node argument is empty
     $label_element = $args[0];
   }
 
@@ -626,9 +626,17 @@ sub format_ref($$$) {
     my $name = $self->float_type_number($target_element);
     $args[1] = $name;
   }
+
   if ($cmdname eq 'inforef' and scalar(@args) >= 3) {
     $args[3] = $args[2];
     $args[2] = undef;
+  }
+
+  my $name;
+  if (defined($args[1])) {
+    $name = $args[1];
+  } elsif (defined($args[2])) {
+    $name = $args[2];
   }
 
   # Treat cross-reference commands in a multitable cell as if they
@@ -647,38 +655,16 @@ sub format_ref($$$) {
   # the node wouldn't be found.
   set_double_width_no_break($formatter->{'container'}, 1);
 
+  my $note_element;
   if ($cmdname eq 'xref') {
-    $self->_convert(Texinfo::TreeElement::new(
-                    {'type' => '_stop_upper_case',
-                     'contents' => [
-               Texinfo::TreeElement::new({'text' => '*Note '})]}));
+    $note_element = Texinfo::TreeElement::new({'text' => '*Note '});
   } else {
-    $self->_convert(Texinfo::TreeElement::new(
+    $note_element = Texinfo::TreeElement::new({'text' => '*note '});
+  }
+
+  $self->_convert(Texinfo::TreeElement::new(
                     {'type' => '_stop_upper_case',
-                     'contents' => [
-                Texinfo::TreeElement::new({'text' => '*note '})]}));
-  }
-  my $name;
-  if (defined($args[1])) {
-    $name = $args[1];
-  } elsif (defined($args[2])) {
-    $name = $args[2];
-  }
-  my $file;
-  if (defined($args[3])) {
-    $file = Texinfo::TreeElement::new({'contents' => [
-               Texinfo::TreeElement::new({'text' => '('}),
-               Texinfo::TreeElement::new({'type' => '_stop_upper_case',
-                  'contents' => [Texinfo::TreeElement::new(
-                                  {'type' => '_code',
-                                   'contents' => [$args[3]]})],}),
-               Texinfo::TreeElement::new({'text' => ')'}),]});
-  } elsif (defined($args[4])) {
-    # add a () such that the node is considered to be external,
-    # even though the manual name is not known.  This should only
-    # happen if a book argument is given, but no manual name.
-    $file = {'text' => '()'};
-  }
+                     'contents' => [$note_element]}));
 
   if (defined($name)) {
     # Convert line for sole purpose of checking if the output contains
@@ -697,21 +683,37 @@ sub format_ref($$$) {
         $quoting_required = 1;
       }
     }
-    my $pre_quote = $quoting_required ? "\x{7f}" : '';
-    my $post_quote = $pre_quote;
 
-    if ($pre_quote) {
-      $self->_stream_output_add_text($pre_quote);
+    # do the actual output of name
+    my $quote = "\x{7f}";
+
+    if ($quoting_required) {
+      $self->_stream_output_add_text($quote);
     }
     $self->_convert($name);
-    if ($post_quote) {
-      $self->_stream_output_add_text($post_quote);
+    if ($quoting_required) {
+      $self->_stream_output_add_text($quote);
     }
     $self->_stream_output_add_text(": ");
   }
 
-  if ($file) {
+  my $has_file = 0;
+  if (defined($args[3])) {
+    my $file = Texinfo::TreeElement::new({'contents' => [
+               Texinfo::TreeElement::new({'text' => '('}),
+               Texinfo::TreeElement::new({'type' => '_stop_upper_case',
+                  'contents' => [Texinfo::TreeElement::new(
+                                  {'type' => '_code',
+                                   'contents' => [$args[3]]})],}),
+               Texinfo::TreeElement::new({'text' => ')'}),]});
     $self->_convert($file);
+    $has_file = 1;
+  } elsif (defined($args[4])) {
+    # add a () such that the node is considered to be external,
+    # even though the manual name is not known.  This should only
+    # happen if a book argument is given, but no manual name.
+    $self->_convert(Texinfo::TreeElement::new({'text' => '()'}));
+    $has_file = 1;
   }
 
   my $node_name;
@@ -727,11 +729,11 @@ sub format_ref($$$) {
   # that text instead.
   if (defined($target_element)) {
     ($node_name, undef) = $self->node_name($target_element);
-  } elsif (defined($label_element) and exists($label_element->{'contents'})
+  } elsif (defined($label_element)
       and scalar(@{$label_element->{'contents'}}) == 1
       and exists($label_element->{'contents'}->[0]->{'text'})) {
     $node_name = $label_element->{'contents'}->[0]->{'text'};
-  } else {
+  } elsif (defined($label_element)) {
     $self->{'silent'} = 0 if (!defined($self->{'silent'}));
     $self->{'silent'}++;
 
@@ -742,8 +744,10 @@ sub format_ref($$$) {
                                   {'suppress_styles' => 1,
                                     'no_added_eol' => 1});
     $self->{'silent'}--;
+  } else {
+    $node_name = '';
   }
-  if (defined($file) and $node_name !~ /\S/) {
+  if ($has_file and $node_name !~ /\S/) {
     # Some Info reader versions, at least the Info reader from
     # Texinfo 6.8 and 7.1 cannot follow a cross-reference
     # consisting only of a manual name, such as *Note (manual)::.
@@ -754,42 +758,44 @@ sub format_ref($$$) {
     $label_element = {'text' => 'Top'};
   }
 
-  my $check_chars;
-  if (defined($name)) {
-    $check_chars = quotemeta ",\t.";
-  } else {
-    $check_chars = quotemeta ":";
-  }
-
-  my $quoting_required = 0;
-  if ($node_name =~ /([$check_chars])/m) {
-    if ($self->{'info_special_chars_warning'}) {
-      $self->plaintext_line_warn($self, sprintf(__(
-         "\@%s node name should not contain `%s'"), $cmdname, $1),
-                       $element->{'source_info'});
+  if (defined($label_element)) {
+    my $check_chars;
+    if (defined($name)) {
+      $check_chars = quotemeta ",\t.";
+    } else {
+      $check_chars = quotemeta ":";
     }
-    if ($self->{'info_special_chars_quote'}) {
-      $quoting_required = 1;
+
+    my $quoting_required = 0;
+    if ($node_name =~ /([$check_chars])/m) {
+      if ($self->{'info_special_chars_warning'}) {
+        $self->plaintext_line_warn($self, sprintf(__(
+           "\@%s node name should not contain `%s'"), $cmdname, $1),
+                         $element->{'source_info'});
+      }
+      if ($self->{'info_special_chars_quote'}) {
+        $quoting_required = 1;
+      }
     }
-  }
 
-  my $pre_quote = $quoting_required ? "\x{7f}" : '';
-  my $post_quote = $pre_quote;
+    my $pre_quote = $quoting_required ? "\x{7f}" : '';
+    my $post_quote = $pre_quote;
 
-  # node name
-  $self->_stream_output_add_next($pre_quote)
-         if ($pre_quote);
+    # node name
+    $self->_stream_output_add_next($pre_quote)
+           if ($pre_quote);
 
-  $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
-  $self->_convert(Texinfo::TreeElement::new(
+    $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
+    $self->_convert(Texinfo::TreeElement::new(
                   {'type' => '_stop_upper_case',
                    'contents' => [
                      Texinfo::TreeElement::new({'type' => '_code',
                       'contents' => [$label_element]})]}));
-  delete $self->{'formatters'}->[-1]->{'suppress_styles'};
+    delete $self->{'formatters'}->[-1]->{'suppress_styles'};
 
-  $self->_stream_output_add_next($post_quote)
+    $self->_stream_output_add_next($post_quote)
          if ($pre_quote);
+  }
 
   if (!defined($name)) {
     $self->_stream_output_add_next('::');

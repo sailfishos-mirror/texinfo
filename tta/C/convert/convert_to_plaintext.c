@@ -52,6 +52,7 @@
 /* for write_or_return top_node_filename determine_files_and_directory
    create_destination_directory ... */
 #include "converter.h"
+#include "convert_to_info.h"
 #include "convert_to_plaintext.h"
 
 static const enum command_id informative_global_commands[]
@@ -66,6 +67,13 @@ static const enum command_id contents_commands[]
 static COMMAND_ID_LIST format_raw_cmd;
 
 static PLAINTEXT_COMMAND_STRUCT plaintext_commands_data[BUILTIN_CMD_NUMBER];
+
+/* dispatch of formatting functions that are either for plaintext or
+   Info output.  The table is below, after the functions definitions */
+typedef struct PLAINTEXT_FORMAT_FUNCTIONS {
+    void (* format_ref) (CONVERTER *self, enum command_id cmd,
+                         const ELEMENT *element);
+} PLAINTEXT_FORMAT_FUNCTIONS;
 
 /* Data structure utilities.  These could possibly be placed in a
    separate file, or defined with macros in list_macros.h. */
@@ -366,7 +374,7 @@ stream_output_count_nl (CONVERTER *self, const char *text)
   stream_output (self, text);
 }
 
-static void
+void
 stream_output_add_text (CONVERTER *self, const char *text)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
@@ -378,7 +386,7 @@ stream_output_add_text (CONVERTER *self, const char *text)
     stream_output (self, result.text);
 }
 
-static void
+void
 stream_output_add_next (CONVERTER *self, const char *text)
 {
   /* TODO */
@@ -510,7 +518,8 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
           label_element = get_label_element (target_element);
         }
     }
-  if (!label_element && args[0])
+  if (!label_element)
+    /* may still be NULL if node argument is empty */
     label_element = args[0];
 
   /* if it a reference to a float with a label, $args[1] is
@@ -535,7 +544,8 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
   if (args[3])
     {
       file_code_element = new_element (ET__code);
-      add_to_contents_as_array (file_code_element, args[3]);
+      /* cast to drop const */
+      add_to_contents_as_array (file_code_element, (ELEMENT *)args[3]);
       file_stop_upper_case_element = new_element (ET__stop_upper_case);
       add_to_element_contents (file_stop_upper_case_element,
                                file_code_element);
@@ -547,7 +557,9 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
   if (label_element)
     {
       node_suppress_styles_element = new_element (ET__suppress_styles);
-      add_to_contents_as_array (node_suppress_styles_element, label_element);
+      /* cast to drop const */
+      add_to_contents_as_array (node_suppress_styles_element,
+                                (ELEMENT *)label_element);
       node_code_element = new_element (ET__code);
       add_to_element_contents (node_code_element, node_suppress_styles_element);
       node_stop_upper_case_element = new_element (ET__stop_upper_case);
@@ -788,6 +800,14 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
     destroy_element_and_children (float_type_number_element);
 }
 
+/* format_* dispatch table between plaintext and info.  Should be in sync with
+   enum converter_format */
+static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
+  {&plaintext_format_ref, },
+  {&info_format_ref, }
+};
+
+
 void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 
 
@@ -915,7 +935,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             return;
           else if (cmd_data->flags & CF_ref)
             {
-              plaintext_format_ref (self, cmd, element);
+              plaintext_functions[self->format].format_ref (self, cmd, element);
               return;
             }
           else if (cmd == CM_image)

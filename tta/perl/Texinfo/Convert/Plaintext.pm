@@ -2227,7 +2227,8 @@ sub format_ref($$$) {
       $target_element = undef;
     }
   }
-  if (!defined($label_element) and defined($args[0])) {
+  if (!defined($label_element)) {
+    # may still be undef if node argument is empty
     $label_element = $args[0];
   }
 
@@ -2239,6 +2240,7 @@ sub format_ref($$$) {
     my $name = $self->float_type_number($target_element);
     $args[1] = $name;
   }
+
   if ($cmdname eq 'inforef' and scalar(@args) >= 3) {
     $args[3] = $args[2];
     $args[2] = undef;
@@ -2250,6 +2252,7 @@ sub format_ref($$$) {
   } elsif (defined($args[2])) {
     $name = $args[2];
   }
+
   my $file;
   my $book;
   if (defined($args[3])) {

@@ -11,4 +11,6 @@ CONVERTER_INITIALIZATION_INFO *info_converter_defaults
 
 char *info_output (CONVERTER *self, DOCUMENT *document);
 
+void info_format_ref (CONVERTER *self, enum command_id cmd,
+                      const ELEMENT *element);
 #endif

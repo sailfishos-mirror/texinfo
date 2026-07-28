@@ -48,6 +48,8 @@ const enum command_id *plaintext_get_informative_global_commands (void);
 void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 /* TODO add plaintext_ prefix for all the functions? */
 void stream_output (CONVERTER *self, const char *text);
+void stream_output_add_text (CONVERTER *self, const char *text);
+void stream_output_add_next (CONVERTER *self, const char *text);
 const char *stream_result (CONVERTER *self);
 char *stream_yield_result (CONVERTER *self);
 
@@ -55,4 +57,5 @@ void pop_count_context (COUNT_CONTEXT_STACK *stack);
 void add_newline_if_needed (CONVERTER *self);
 
 decl_stack_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
+decl_stack_fns(FORMATTER_STACK, formatter, FORMATTER);
 #endif

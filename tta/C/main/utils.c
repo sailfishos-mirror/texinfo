@@ -2988,7 +2988,7 @@ is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries)
           else
             {
               const char *text = content->e.text->text;
-              /* only whitespace characters */
+              /* not only whitespace characters */
               if (text[strspn (text, whitespace_chars)] != '\0')
                 return 0;
               else
