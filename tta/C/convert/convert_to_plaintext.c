@@ -127,12 +127,11 @@ enum formatter_type {
   formatter_unfilled
 };
 
-FORMATTER
-new_formatter (CONVERTER *self, enum formatter_type type,
+static void
+fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
                int indent_length, int indent_length_next)
 {
-  FORMATTER formatter = { 0 };
-  formatter.container.paragraph = para_new ();
+  formatter->container.paragraph = para_new ();
 
   if (indent_length != -1)
     para_set_conf_indent_length (indent_length);
@@ -161,6 +160,14 @@ new_formatter (CONVERTER *self, enum formatter_type type,
     default:
       fatal ("unknown container type\n");
     }
+}
+
+FORMATTER
+new_formatter (CONVERTER *self, enum formatter_type type,
+               int indent_length, int indent_length_next)
+{
+  FORMATTER formatter = { 0 };
+  fill_formatter (&formatter, self, type, indent_length, indent_length_next);
   return formatter;
 }
 
@@ -311,6 +318,12 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
 
   converter_set_document (self, document);
 
+  self_plaintext->node_names_cache
+    = realloc (self_plaintext->node_names_cache,
+               document->nodes_list.number * sizeof (STRING_WITH_WIDTH));
+  memset (self_plaintext->node_names_cache, 0,
+          document->nodes_list.number * sizeof (STRING_WITH_WIDTH));
+
   set_global_document_commands (self, CL_before, informative_global_commands);
   set_global_document_commands (self, CL_before, contents_commands);
 
@@ -338,7 +351,10 @@ plaintext_conversion_finalization (CONVERTER *self)
 {
   /* TODO */
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  size_t i;
 
+  for (i = 0; i < self->document->nodes_list.number; i++)
+    free (self_plaintext->node_names_cache[i].string);
   /*
   pop_top_formatter (self);
    */
@@ -458,6 +474,99 @@ add_newline_if_needed (CONVERTER *self)
 
 /* TODO ... */
 
+static FORMATTER *node_names_formatter;
+
+static void
+plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
+                             STRING_WITH_WIDTH *string_result)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  const ELEMENT *label_element = get_label_element (element);
+  ELEMENT *node_text;
+  const char *pending_word;
+  char *result;
+  /* TODO encoding_disabled is set in Perl */
+  COUNT_CONTEXT new_count_context = { 0 };
+
+  if (!label_element)
+    {
+      /* external node */
+      label_element = lookup_extra_container (element, AI_key_node_content);
+    }
+
+  node_text = new_element (ET__code);
+  /* cast to drop const */
+  add_to_contents_as_array (node_text, (ELEMENT *)label_element);
+
+  if (!node_names_formatter)
+    {
+      node_names_formatter = (FORMATTER *) malloc (sizeof (FORMATTER));
+      memset (node_names_formatter, 0, sizeof (FORMATTER));
+      /* TODO {'suppress_styles' => 1, 'no_added_eol' => 1,} */
+      fill_formatter (node_names_formatter, self, formatter_line, 0, -1);
+    }
+
+  add_(count_context) (&self_plaintext->count_context, new_count_context);
+  add_(formatter) (&self_plaintext->formatters, *node_names_formatter);
+
+  para_set_state (top_(formatter) (
+                       &self_plaintext->formatters)->container.paragraph);
+
+  convert_to_plaintext_internal (self, node_text);
+  pending_word = para_add_pending_word (0);
+  stream_output_count_nl (self, pending_word);
+  result = stream_yield_result (self);
+  result = normalize_top_node_name (result);
+  string_result->width = para_counter ();
+
+  para_end_line ();
+  destroy_element (node_text);
+
+  pop_count_context (&self_plaintext->count_context);
+  pop_formatter (self);
+
+  para_set_state (top_(formatter) (
+                       &self_plaintext->formatters)->container.paragraph);
+
+  string_result->string = result;
+}
+
+/* TODO do caching for nodes in nodes_list only, for two reasons.
+   First, it is easier, as nodes have the node_number which allows
+   for an easy setup of an array for indexing, other elements would
+   need something else, maybe an hash for integers based on pointers.
+   Second, other elements are unlikely to be needed many times
+   in formatting as cached names.
+ */
+void
+plaintext_node_name (CONVERTER *self, const ELEMENT *element,
+                     STRING_WITH_WIDTH *string_result)
+{
+  if (element->e.c->cmd == CM_node)
+    {
+      int status;
+      size_t node_number = lookup_extra_integer (element,
+                                        AI_key_node_number, &status);
+      if (status == 0)
+        {
+          PLAINTEXT_CONVERTER_STATE *self_plaintext
+              = self->plaintext_converter;
+          STRING_WITH_WIDTH *node_name
+            = &self_plaintext->node_names_cache[node_number -1];
+          if (!node_name->string)
+            {
+              plaintext_convert_node_name (self, element,
+                                           node_name);
+            }
+
+          string_result->string = strdup (node_name->string);
+          string_result->width = node_name->width;
+          return;
+        }
+    }
+  plaintext_convert_node_name (self, element, string_result);
+}
+
 void
 plaintext_format_ref (CONVERTER *self, enum command_id cmd,
                       const ELEMENT *element)
@@ -473,10 +582,12 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
   ELEMENT *node_code_element = 0;
   ELEMENT *node_stop_upper_case_element = 0;
   ELEMENT *node_suppress_styles_element = 0;
-  const ELEMENT *file = 0;
-  const ELEMENT *node = 0;
-  const ELEMENT *book = 0;
-  const ELEMENT *name = 0;
+  /* next elements are temporarily modified during copy, so cannot be
+     const, but they are conceptually const */
+  ELEMENT *file = 0;
+  ELEMENT *node = 0;
+  ELEMENT *book = 0;
+  ELEMENT *name = 0;
   size_t i;
   NAMED_STRING_ELEMENT_LIST *substrings;
   ELEMENT *tree;
@@ -537,9 +648,9 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
     }
 
   if (args[1])
-    name = args[1];
+    name = (ELEMENT *) args[1];
   else if (args[2])
-    name = args[2];
+    name = (ELEMENT *) args[2];
 
   if (args[3])
     {
@@ -552,7 +663,7 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
       file = file_code_element;
     }
   else if (args[4])
-    book = args[4];
+    book = (ELEMENT *) args[4];
 
   if (label_element)
     {

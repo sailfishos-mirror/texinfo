@@ -773,7 +773,10 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
   size_t i;
   int in_multitable = 0;
   int has_file = 0;
-  const char *node_name;
+  /* if not set, means that node_name is actually const and needs not to
+     be freed */
+  int need_free_node_name = 0;
+  char *node_name;
   ELEMENT *node_element = 0;
   int quoting_required = 0;
   const char *node_quote = "\x{7f}";
@@ -954,10 +957,12 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
     However, it is slow to do this for every node.  So in the most
     frequent case when the node name is a simple text element, use
     that text instead. */
-  if (0 && target_element)
+  if (target_element)
     {
-  /* TODO need node_name
-    ($node_name, undef) = $self->node_name($target_element); */
+      STRING_WITH_WIDTH node_name_width;
+      plaintext_node_name (self, target_element, &node_name_width);
+      node_name = node_name_width.string;
+      need_free_node_name = 1;
     }
   else if (label_element && label_element->e.c->contents.number == 1
     && type_data[label_element->e.c->contents.list[0]->type].flags & TF_text)
@@ -1025,6 +1030,9 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
             quoting_required = 1;
         }
     }
+
+  if (need_free_node_name)
+    free (node_name);
 
   if (quoting_required)
     stream_output_add_next (self, node_quote);

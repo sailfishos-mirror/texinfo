@@ -134,7 +134,7 @@ SV *
 para_add_pending_word (int paragraph, ...)
     PREINIT:
         int add_spaces = 0;
-        char *retval;
+        const char *retval;
     CODE:
         items -= 1;
         if (items > 0)

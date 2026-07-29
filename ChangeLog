@@ -1,3 +1,30 @@
+2026-07-29 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/utils.c (normalize_top_node_name): add.
+
+	* tta/C/convert/plaintext_paragraph.c (para_add_pending_word),
+	tta/perl/XSTexinfo/ParagraphXS.xs (para_add_pending_word): make return
+	value of para_add_pending_word const as it is allocated and freed in
+	the function.
+
+	* tta/C/convert/convert_to_plaintext.c (fill_formatter): add.
+
+	* tta/C/main/plaintext_converter_state.h (STRING_WITH_WIDTH)
+	(PLAINTEXT_CONVERTER_STATE), tta/C/convert/convert_to_plaintext.c
+	(plaintext_conversion_initialization)
+	(plaintext_conversion_finalization): add node_names_cache array.
+	Allocate and release.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_convert_node_name)
+	(plaintext_node_name): implement.  Cache node names only, not other
+	commands names, since it is more complex to do and not often useful.
+
+	* tta/C/convert/convert_to_info.c (info_format_ref): use
+	plaintext_node_name.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_format_ref): copied
+	elements cannot be const.
+
 2026-07-28 Patrice Dumas  <pertusus@free.fr>
 
 	Add dispatch for plaintext or Info specific functions, use for format_ref

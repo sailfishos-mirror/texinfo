@@ -1053,6 +1053,25 @@ get_label_element (const ELEMENT *e)
   return 0;
 }
 
+static const char *lower_top_name = "top";
+
+/* ALTIMP perl/Texinfo/Common.pm */
+char *
+normalize_top_node_name (char *node_name)
+{
+  if (strlen (node_name) == strlen (lower_top_name))
+    {
+      int i;
+      for (i = 0; i < strlen (lower_top_name); i++)
+        if (!isascii_alnum(node_name[i])
+            || tolower (node_name[i]) != lower_top_name[i])
+          return node_name;
+      free (node_name);
+      return strdup ("Top");
+    }
+  return node_name;
+}
+
 /* ALTIMP perl/Texinfo/Common.pm */
 int
 empty_spaces_argument (const ELEMENT *element)

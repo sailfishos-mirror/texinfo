@@ -345,7 +345,9 @@ para__add_pending_word (TEXT *result, int add_spaces)
 }
 
 /* Function for users of this module. */
-char *
+/* Since the return value is destroyed when this function is called again,
+   the caller should make sure not to retain reference to it */
+const char *
 para_add_pending_word (int add_spaces)
 {
   static TEXT ret;

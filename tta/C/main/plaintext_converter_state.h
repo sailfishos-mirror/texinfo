@@ -67,6 +67,12 @@ typedef struct COUNT_CONTEXT {
 def_list_type(COUNT_CONTEXT_STACK, COUNT_CONTEXT);
 decl_list_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
 
+typedef struct STRING_WITH_WIDTH {
+    char *string;
+    /* TODO or size_t?  Matches return type of para_counter */
+    int width;
+} STRING_WITH_WIDTH;
+
 /* see comment re "6 stacks" in Plaintext.pm */
 typedef struct PLAINTEXT_CONVERTER_STATE {
     /* context */
@@ -84,7 +90,8 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     int encoding_disabled;
     int in_copying_header;
     int silent;
+    /* cache node names */
+    STRING_WITH_WIDTH *node_names_cache;
 } PLAINTEXT_CONVERTER_STATE;
-
 
 #endif
