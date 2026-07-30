@@ -113,11 +113,15 @@ para__end_line (int paragraph)
         para_set_state (paragraph);
         para__end_line ();
 
-char *
+SV *
 para_end_line (int paragraph)
+    PREINIT:
+        const char *end_line;
     CODE:
         para_set_state (paragraph);
-        RETVAL = para_end_line ();
+        end_line = para_end_line ();
+        RETVAL = newSVpv (end_line, 0);
+        SvUTF8_on (RETVAL);
     OUTPUT:
         RETVAL
 

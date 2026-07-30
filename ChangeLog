@@ -1,5 +1,10 @@
 2026-07-30 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/ParagraphXS.xs (para_end_line): adapt for
+	para_end_line return value being const.
+
+2026-07-30 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c (push_formatter)
 	(pop_formatter): add push_formatter that wraps add_(formatter) and
 	para_set_state.  Add para_set_state call to pop_formatter.  Replace
