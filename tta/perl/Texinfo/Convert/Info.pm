@@ -916,7 +916,10 @@ sub format_node($$;$) {
         and exists($node_relations->{'node_directions'}->{lc($direction)})) {
       my $node_direction
           = $node_relations->{'node_directions'}->{lc($direction)};
+
       $self->_stream_output(",  $direction: ");
+
+      # file
       if (exists($node_direction->{'extra'}->{'manual_content'})) {
         $self->convert_line(Texinfo::TreeElement::new(
                          {'type' => '_code',
@@ -925,6 +928,7 @@ sub format_node($$;$) {
                              $node_direction->{'extra'}->{'manual_content'},
                                Texinfo::TreeElement::new({'text' => ')'})]}));
       }
+
       if (exists($node_direction->{'extra'}->{'identifier'})
           or exists($node_direction->{'extra'}->{'normalized'})) {
         my $pre_quote = '';

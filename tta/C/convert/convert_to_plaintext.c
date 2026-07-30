@@ -177,6 +177,16 @@ def_list_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT, 2);
 def_stack_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
 
 void
+push_formatter (CONVERTER *self, FORMATTER *formatter)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+
+  FORMATTER_STACK *stack = &self_plaintext->formatters;
+  add_(formatter) (stack, *formatter);
+  para_set_state (top_(formatter) (stack)->container.paragraph);
+}
+
+void
 push_top_formatter (CONVERTER *self) /* , CONTEXT top_context) */
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
@@ -187,7 +197,7 @@ push_top_formatter (CONVERTER *self) /* , CONTEXT top_context) */
   add_(format_context) (&self_plaintext->format_context, top_format);
 
   FORMATTER top_formatter = new_formatter(self, formatter_line, -1, -1);
-  add_(formatter) (&self_plaintext->formatters, top_formatter);
+  push_formatter (self, &top_formatter);
 }
 
 void
@@ -198,6 +208,7 @@ pop_formatter (CONVERTER *self)
   FORMATTER_STACK *stack = &self_plaintext->formatters;
   pop_(formatter) (stack);
 
+  para_set_state (top_(formatter) (stack)->container.paragraph);
   /* Note: no memory needs to be freed here. */
 }
 
@@ -395,13 +406,17 @@ stream_output_count_nl (CONVERTER *self, const char *text)
 void
 stream_output_add_text (CONVERTER *self, const char *text)
 {
+  int count;
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-  /* TODO */
-  para_set_state (top_(formatter) (
-                       &self_plaintext->formatters)->container.paragraph);
+  COUNT_CONTEXT *count_context
+    = top_(count_context) (&self_plaintext->count_context);
+
   TEXT result = para_add_text (text, strlen (text));
+  count = para_end_line_count ();
+  count_context->lines += count;
+
   if (result.text)
-    stream_output (self, result.text);
+    text_append (&count_context->result, result.text);
 }
 
 void
@@ -467,7 +482,7 @@ plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
   FORMATTER formatter = new_formatter(self, formatter_line, indent_length,
                                       indent_length_next);
   const char *end_line;
-  add_(formatter) (&self_plaintext->formatters, formatter);
+  push_formatter (self, &formatter);
   convert_to_plaintext_internal (self, converted);
   end_line = para_end_line ();
   stream_output (self, end_line);
@@ -525,10 +540,7 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
     }
 
   add_(count_context) (&self_plaintext->count_context, new_count_context);
-  add_(formatter) (&self_plaintext->formatters, *node_names_formatter);
-
-  para_set_state (top_(formatter) (
-                       &self_plaintext->formatters)->container.paragraph);
+  push_formatter (self, node_names_formatter);
 
   convert_to_plaintext_internal (self, node_text);
   pending_word = para_add_pending_word (0);
@@ -542,9 +554,6 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
 
   pop_count_context (&self_plaintext->count_context);
   pop_formatter (self);
-
-  para_set_state (top_(formatter) (
-                       &self_plaintext->formatters)->container.paragraph);
 
   string_result->string = result;
 }
@@ -1040,8 +1049,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   text_before = "`"; /* TODO */
                   text_after = "'"; /* TODO */
                 }
-              para_set_state (top_(formatter)
-                (&self_plaintext->formatters)->container.paragraph);
               TEXT added = para_add_next (text_before,
                                           strlen (text_before), 1);
               if (added.text)
@@ -1051,8 +1058,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 convert_to_plaintext_internal (self,
                                                element->e.c->contents.list[0]);
 
-              para_set_state (top_(formatter)
-                (&self_plaintext->formatters)->container.paragraph);
               added = para_add_next (text_after,
                                      strlen (text_after), 1);
               if (added.text)
@@ -1148,8 +1153,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       /* TODO else unknown_command - possibly not relevant for C code */
     }
 
-  size_t paragraph = 0;
-
   if (type != ET_NONE)
     {
       if (type == ET_paragraph)
@@ -1170,8 +1173,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             = new_formatter (self, formatter_paragraph,
                              paragraphindent_size, 0);
 
-          add_(formatter) (&self_plaintext->formatters, new_paragraph);
-          paragraph = self_plaintext->formatters.number - 1;
+          push_formatter (self, &new_paragraph);
 
           top_format->paragraph_count++;
         }
@@ -1218,10 +1220,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
     }
 
   /* Close paragraphs and preformatted. */
-  if (paragraph)
+  if (type == ET_paragraph)
     {
-      para_set_state (
-          self_plaintext->formatters.list[paragraph].container.paragraph);
       const char *result = para_end ();
       stream_output_count_nl (self, result);
       para_destroy ();

@@ -574,6 +574,8 @@ enum text_class { type_NULL, type_spaces, type_regular,
                  type_unknown };
 
 /* Return string to be added to paragraph contents, wrapping text. */
+/* The return value should not be modified and should be accessed before
+   calling the function again */
 TEXT
 para_add_text (const char *text, int len)
 {
