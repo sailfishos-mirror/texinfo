@@ -13,7 +13,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-/* In sync with Texinfo::Convert::Info.  Very little written yet. */
+/* In sync with Texinfo::Convert::Info. */
 
 #include <config.h>
 #include <stdio.h>
@@ -52,10 +52,8 @@ typedef struct INDIRECT_FILE_OFFSET {
 } INDIRECT_FILE_OFFSET;
 
 def_list_type(INDIRECT_FILE_OFFSET_LIST, INDIRECT_FILE_OFFSET);
-def_list_fns(INDIRECT_FILE_OFFSET_LIST, indirect_files, INDIRECT_FILE_OFFSET, 3);
-/*
-decl_list_fns(INDIRECT_FILE_OFFSET_LIST, indirect_files, INDIRECT_FILE_OFFSET);
- */
+def_list_fns(INDIRECT_FILE_OFFSET_LIST, indirect_files,
+             INDIRECT_FILE_OFFSET, 3);
 
 CONVERTER_INITIALIZATION_INFO *
 info_converter_defaults (enum converter_format format,
@@ -627,6 +625,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
          if (defined($self->{'text_before_first_node'})) {
           $complete_header .= $self->{'text_before_first_node'};
           $complete_header_bytes += length($self->{'text_before_first_node'});
+         }
                  */
             }
 
@@ -753,6 +752,9 @@ info_output (CONVERTER *self, DOCUMENT *document)
       return 0;
     }
 }
+
+
+/* formatting functions differing from Plaintext formatting functions. */
 
 static const char *node_quote = "\x7f";
 

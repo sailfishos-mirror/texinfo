@@ -18,6 +18,8 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 #
 # Names of methods from Texinfo::Convert::Plaintext overriden begin with format_.
+#
+# ALTIMPL C/convert/convert_to_info.c
 
 package Texinfo::Convert::Info;
 
@@ -69,6 +71,94 @@ $defaults->{'INFO_SPECIAL_CHARS_WARNING'} = 1;
 
 sub converter_defaults($;$) {
   return $defaults;
+}
+
+# Wrapper around Texinfo::Convert::Utils::output_files_open_out.  Open the file
+# with any CR-LF conversion disabled.  We need this for tag tables to
+# be correct under MS-Windows.   Return filehandle or undef on failure.
+sub _open_info_file($$) {
+  my ($self, $filename) = @_;
+
+  my ($encoded_filename, $path_encoding)
+      = $self->encoded_output_file_name($filename);
+
+  # the third return information, set if the file has already been used
+  # in this files_information is not checked as this cannot happen.
+  my ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
+                               $self->output_files_information(),
+                               $encoded_filename, 'use_binmode',
+                               $self->get_conf('OUTPUT_ENCODING_NAME'));
+
+  if (!defined($fh)) {
+    $self->converter_document_error(sprintf(
+        __("could not open %s for writing: %s"),
+        $filename, $error_message));
+    return (undef, undef);
+  }
+  return ($fh, $encoded_filename);
+}
+
+# Return (encoded) info header
+sub _info_header($$$) {
+  my ($self, $input_basefile, $output_filename) = @_;
+
+  push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
+                                     'locations' => []};
+
+  my $paragraph = Texinfo::Convert::Paragraph::new();
+  my $result = add_text($paragraph, "This is ");
+  # This ensures that spaces in file are kept.
+  $result .= add_next($paragraph, $output_filename);
+  my $program = $self->get_conf('PROGRAM');
+  my $version = $self->get_conf('PACKAGE_VERSION');
+  if (defined($program) and $program ne '') {
+    $result .=
+        add_text($paragraph, ", produced by $program version $version from ");
+  } else {
+    $result .= add_text($paragraph, ", produced from ");
+  }
+  $result .= add_next($paragraph, $input_basefile);
+  $result .= add_text($paragraph, '.');
+  $result .= Texinfo::Convert::Paragraph::end($paragraph);
+  $result .= "\n";
+  $self->_stream_output($result, $paragraph);
+  Texinfo::Convert::Paragraph::destroy($paragraph);
+
+  my $global_commands;
+  if (exists($self->{'document'})) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+
+  if (defined($global_commands) and exists($global_commands->{'copying'})) {
+    print STDERR "COPYING HEADER\n" if ($self->get_conf('DEBUG'));
+    $self->{'in_copying_header'} = 1;
+    $self->_convert({'contents' =>
+          $global_commands->{'copying'}->{'contents'}});
+    $self->process_footnotes();
+    delete $self->{'in_copying_header'};
+  }
+  if (exists($global_commands->{'dircategory_direntry'})) {
+    delete $self->{'ignored_commands'}->{'direntry'};
+    foreach my $command (@{$global_commands->{'dircategory_direntry'}}) {
+      if ($command->{'cmdname'} eq 'dircategory') {
+        if (exists($command->{'contents'}->[0]->{'contents'})) {
+          my ($converted, undef) = $self->convert_line_new_context(
+                                            $command->{'contents'}->[0]);
+          $self->_stream_output("INFO-DIR-SECTION " . $converted . "\n");
+        }
+      } elsif ($command->{'cmdname'} eq 'direntry') {
+        $self->_stream_output("START-INFO-DIR-ENTRY\n");
+        $self->_convert($command);
+        $self->_stream_output("END-INFO-DIR-ENTRY\n\n");
+      }
+    }
+    $self->{'ignored_commands'}->{'direntry'} = 1;
+  }
+  $self->_add_newline_if_needed();
+  $result = $self->_stream_result();
+  pop @{$self->{'count_context'}};
+
+  return $result;
 }
 
 sub output($$) {
@@ -451,93 +541,9 @@ sub output($$) {
   return $result;
 }
 
-# Wrapper around Texinfo::Convert::Utils::output_files_open_out.  Open the file
-# with any CR-LF conversion disabled.  We need this for tag tables to
-# be correct under MS-Windows.   Return filehandle or undef on failure.
-sub _open_info_file($$) {
-  my ($self, $filename) = @_;
+
 
-  my ($encoded_filename, $path_encoding)
-      = $self->encoded_output_file_name($filename);
-
-  # the third return information, set if the file has already been used
-  # in this files_information is not checked as this cannot happen.
-  my ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
-                               $self->output_files_information(),
-                               $encoded_filename, 'use_binmode',
-                               $self->get_conf('OUTPUT_ENCODING_NAME'));
-
-  if (!defined($fh)) {
-    $self->converter_document_error(sprintf(
-        __("could not open %s for writing: %s"),
-        $filename, $error_message));
-    return (undef, undef);
-  }
-  return ($fh, $encoded_filename);
-}
-
-# Return (encoded) info header
-sub _info_header($$$) {
-  my ($self, $input_basefile, $output_filename) = @_;
-
-  push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                     'locations' => []};
-
-  my $paragraph = Texinfo::Convert::Paragraph::new();
-  my $result = add_text($paragraph, "This is ");
-  # This ensures that spaces in file are kept.
-  $result .= add_next($paragraph, $output_filename);
-  my $program = $self->get_conf('PROGRAM');
-  my $version = $self->get_conf('PACKAGE_VERSION');
-  if (defined($program) and $program ne '') {
-    $result .=
-        add_text($paragraph, ", produced by $program version $version from ");
-  } else {
-    $result .= add_text($paragraph, ", produced from ");
-  }
-  $result .= add_next($paragraph, $input_basefile);
-  $result .= add_text($paragraph, '.');
-  $result .= Texinfo::Convert::Paragraph::end($paragraph);
-  $result .= "\n";
-  $self->_stream_output($result, $paragraph);
-  Texinfo::Convert::Paragraph::destroy($paragraph);
-
-  my $global_commands;
-  if (exists($self->{'document'})) {
-    $global_commands = $self->{'document'}->global_commands_information();
-  }
-
-  if (defined($global_commands) and exists($global_commands->{'copying'})) {
-    print STDERR "COPYING HEADER\n" if ($self->get_conf('DEBUG'));
-    $self->{'in_copying_header'} = 1;
-    $self->_convert({'contents' =>
-          $global_commands->{'copying'}->{'contents'}});
-    $self->process_footnotes();
-    delete $self->{'in_copying_header'};
-  }
-  if (exists($global_commands->{'dircategory_direntry'})) {
-    delete $self->{'ignored_commands'}->{'direntry'};
-    foreach my $command (@{$global_commands->{'dircategory_direntry'}}) {
-      if ($command->{'cmdname'} eq 'dircategory') {
-        if (exists($command->{'contents'}->[0]->{'contents'})) {
-          my ($converted, undef) = $self->convert_line_new_context(
-                                            $command->{'contents'}->[0]);
-          $self->_stream_output("INFO-DIR-SECTION " . $converted . "\n");
-        }
-      } elsif ($command->{'cmdname'} eq 'direntry') {
-        $self->_stream_output("START-INFO-DIR-ENTRY\n");
-        $self->_convert($command);
-        $self->_stream_output("END-INFO-DIR-ENTRY\n\n");
-      }
-    }
-    $self->{'ignored_commands'}->{'direntry'} = 1;
-  }
-  $self->_add_newline_if_needed();
-  $result = $self->_stream_result();
-  pop @{$self->{'count_context'}};
-
-  return $result;
-}
+# formatting functions differing from Plaintext formatting functions.
 
 sub format_warn_strong_note($) {
   return 1;
