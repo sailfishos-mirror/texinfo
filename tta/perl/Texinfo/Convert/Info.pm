@@ -874,7 +874,7 @@ my @directions = ('Next', 'Prev', 'Up');
 sub format_node($$;$) {
   my ($self, $node, $node_relations) = @_;
 
-  return '' if (not exists($node->{'extra'})
+  return if (not exists($node->{'extra'})
                 or not $node->{'extra'}->{'is_target'});
 
   my ($node_text, undef) = $self->node_name($node);

@@ -90,6 +90,7 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     int encoding_disabled;
     int in_copying_header;
     int silent;
+    char *output_filename;
     /* cache node names */
     STRING_WITH_WIDTH *node_names_cache;
 } PLAINTEXT_CONVERTER_STATE;

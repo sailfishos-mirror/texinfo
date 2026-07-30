@@ -50,7 +50,7 @@ TEXT para_add_next (const char *, int, int transparent);
 TEXT para_add_text (const char *, int);
 void para_set_space_protection (int no_break);
 void para__end_line (void);
-char *para_end_line (void);
+const char *para_end_line (void);
 char *para_get_pending (void);
 const char *para_end (void);
 void para_destroy (void);

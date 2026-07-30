@@ -264,7 +264,7 @@ para__end_line (void)
   state.last_letter = (char32_t) '\n';
 }
 
-char *
+const char *
 para_end_line (void)
 {
   state.end_line_count = 0;

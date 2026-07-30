@@ -1,3 +1,29 @@
+2026-07-30 Patrice Dumas  <pertusus@free.fr>
+
+	Implement node line formatting in C info converter
+
+	* tta/C/convert/plaintext_paragraph.c (para_end_line): make return
+	value const.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_convert_line): add.
+
+	* tta/C/convert/convert_to_info.c (info_output),
+	tta/C/convert/convert_to_plaintext.c (plaintext_free_converter),
+	tta/C/main/plaintext_converter_state.h (PLAINTEXT_CONVERTER_STATE):
+	add output_filename field to PLAINTEXT_CONVERTER_STATE, fill it and
+	free it.
+
+	* tta/C/convert/convert_to_info.c (info_format_node, directions):
+	implement info_format_node.
+
+	* tta/C/convert/convert_to_plaintext.c (PLAINTEXT_FORMAT_FUNCTIONS)
+	(plaintext_format_node, plaintext_functions)
+	(convert_to_plaintext_internal): add noop plaintext_format_node and
+	add dispatch of node formatting in conversion.
+
+	* tta/perl/Texinfo/Convert/Info.pm (format_node): always return
+	nothing.
+
 2026-07-29 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/utils.c (normalize_top_node_name): add.

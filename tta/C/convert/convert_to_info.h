@@ -13,4 +13,6 @@ char *info_output (CONVERTER *self, DOCUMENT *document);
 
 void info_format_ref (CONVERTER *self, enum command_id cmd,
                       const ELEMENT *element);
+void info_format_node (CONVERTER *self, const ELEMENT *node,
+                       const NODE_RELATIONS *node_relations);
 #endif

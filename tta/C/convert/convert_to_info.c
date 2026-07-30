@@ -300,10 +300,9 @@ info_output (CONVERTER *self, DOCUMENT *document)
       goto finalization;
     }
 
-  /* TODO
-  # for format_node
-  $self->{'output_filename'} = $output_filename;
-   */
+  /* for format_node */
+  free (self_plaintext->output_filename);
+  self_plaintext->output_filename = strdup (output_filename);
 
   if (!strcmp (document_name, "-"))
     input_basefile = STDIN_DOCU_NAME;
@@ -755,7 +754,8 @@ info_output (CONVERTER *self, DOCUMENT *document)
     }
 }
 
-#include "manipulate_tree.h"
+static const char *node_quote = "\x7f";
+
 void
 info_format_ref (CONVERTER *self, enum command_id cmd,
                  const ELEMENT *element)
@@ -779,7 +779,6 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
   char *node_name;
   ELEMENT *node_element = 0;
   int quoting_required = 0;
-  const char *node_quote = "\x{7f}";
 
   /* no args may happen with bogus @-commands without argument, maybe only
      at the end of a document */
@@ -1170,3 +1169,173 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
     destroy_element_and_children (float_type_number_element);
 }
 
+static const char *directions[] = {"Next", "Prev", "Up", 0};
+
+/* NODE_RELATIONS is optional, for nodes that are not registered in
+   document nodes list.
+ */
+void
+info_format_node (CONVERTER *self, const ELEMENT *node,
+                  const NODE_RELATIONS *node_relations)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  const char *output_filename;
+  int is_target = (node->flags & EF_is_target);
+  char *node_begin;
+  const char *check_chars = ",";
+  const char *p;
+  int quoting_required = 0;
+  STRING_WITH_WIDTH node_text;
+  int i;
+  COUNT_CONTEXT *count_context
+        = top_(count_context) (&self_plaintext->count_context);
+
+  if (!is_target)
+    return;
+
+  plaintext_node_name (self, node, &node_text);
+
+  if (self_plaintext->output_filename)
+    output_filename = self_plaintext->output_filename;
+  else
+    /* May happen when only converting a fragment */
+    output_filename = "";
+
+  /* TODO
+    $self->add_location($node);
+   */
+  xasprintf (&node_begin, "\x1f\nFile: %s, Node: ", output_filename);
+  stream_output (self, node_begin);
+  free (node_begin);
+
+  p = strpbrk (node_text.string, check_chars);
+
+  if (p)
+    {
+      if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer > 0)
+        {
+          if (!self_plaintext->silent)
+            message_list_command_warn (&self->error_messages,
+                        (self->conf && self->conf->DEBUG.o.integer > 0),
+                       node, 0,
+                     "@node name should not contain `,': %s",
+       /* FIXME there is a _decode() in Perl.  Gavin, is it needed? */
+                      node_text.string);
+        }
+      if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+        quoting_required = 1;
+    }
+  if (quoting_required)
+    stream_output_encoded (self, node_quote);
+  stream_output_encoded (self, node_text.string);
+  if (quoting_required)
+    stream_output_encoded (self, node_quote);
+  free (node_text.string);
+
+  if (!node_relations)
+    {
+      const NODE_RELATIONS_LIST *nodes_list = &self->document->nodes_list;
+      int status;
+      size_t node_number = lookup_extra_integer (node, AI_key_node_number,
+                                                 &status);
+      if (status == 0)
+        node_relations = nodes_list->list[node_number -1];
+    }
+
+  if (node_relations)
+    {
+      for (i = 0; directions[i]; i++)
+        {
+          if (node_relations->node_directions[i])
+            {
+              const ELEMENT *node_direction
+                = node_relations->node_directions[i];
+              char *direction_label;
+              const ELEMENT *manual_content;
+
+              xasprintf (&direction_label, ", %s: ", directions[i]);
+              stream_output (self, direction_label);
+              free (direction_label);
+
+              /* file */
+              manual_content
+               = lookup_extra_container (node_direction, AI_key_manual_content);
+              if (manual_content)
+                {
+                  ELEMENT *direction_file_code_element = new_element (ET__code);
+                  ELEMENT *open_parenthese = new_text_element (ET_other_text);
+                  text_append_n (open_parenthese->e.text, "(", 1);
+                  ELEMENT *close_parenthese = new_text_element (ET_other_text);
+                  text_append_n (close_parenthese->e.text, ")", 1);
+                  add_element_to_element_contents (direction_file_code_element,
+                                                   open_parenthese);
+                  /* cast to drop const */
+                  add_to_contents_as_array (direction_file_code_element,
+                                            (ELEMENT *)manual_content);
+                  add_element_to_element_contents (direction_file_code_element,
+                                                   close_parenthese);
+
+                  plaintext_convert_line (self,
+                                    direction_file_code_element, -1, -1);
+                  destroy_element (open_parenthese);
+                  destroy_element (close_parenthese);
+                  destroy_element (direction_file_code_element);
+                }
+
+              const char *extra_identifier
+               = lookup_extra_string (node_direction, AI_key_identifier);
+              if (!extra_identifier)
+                extra_identifier
+                  = lookup_extra_string (node_direction, AI_key_normalized);
+
+              if (extra_identifier)
+                {
+                  const char *check_chars = ",";
+                  const char *p;
+                  int quoting_required = 0;
+
+                  plaintext_node_name (self, node_direction, &node_text);
+
+                  p = strpbrk (node_text.string, check_chars);
+
+                  if (p)
+                    {
+                      if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer > 0)
+                        {
+                          if (!self_plaintext->silent)
+                            message_list_command_warn (&self->error_messages,
+                          (self->conf && self->conf->DEBUG.o.integer > 0),
+                                       node, 0,
+                          "@node %s name should not contain `,': %s",
+         /* FIXME there is a _decode() in Perl.  Gavin, is it needed? */
+                               directions[i], node_text.string);
+                        }
+                      if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+                        quoting_required = 1;
+                    }
+                  if (quoting_required)
+                    stream_output_encoded (self, node_quote);
+                  stream_output_encoded (self, node_text.string);
+                  if (quoting_required)
+                    stream_output_encoded (self, node_quote);
+                  free (node_text.string);
+                }
+            }
+          else if (i == D_up && self->conf->TOP_NODE_UP.o.string)
+            {
+              const char *extra_identifier
+               = lookup_extra_string (node, AI_key_identifier);
+              if (!strcmp (extra_identifier, "Top"))
+                {
+                  char *dir_direction;
+                  xasprintf (&dir_direction, ",  %s: %s", directions[i],
+                            self->conf->TOP_NODE_UP.o.string);
+                  stream_output (self, dir_direction);
+                  free (dir_direction);
+                }
+            }
+        }
+    }
+  stream_output (self, "\n\n");
+  count_context->lines += 3;
+}

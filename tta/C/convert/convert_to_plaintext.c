@@ -73,6 +73,8 @@ static PLAINTEXT_COMMAND_STRUCT plaintext_commands_data[BUILTIN_CMD_NUMBER];
 typedef struct PLAINTEXT_FORMAT_FUNCTIONS {
     void (* format_ref) (CONVERTER *self, enum command_id cmd,
                          const ELEMENT *element);
+    void (* format_node) (CONVERTER *self, const ELEMENT *element,
+                          const NODE_RELATIONS *node_relations);
 } PLAINTEXT_FORMAT_FUNCTIONS;
 
 /* Data structure utilities.  These could possibly be placed in a
@@ -409,7 +411,7 @@ stream_output_add_next (CONVERTER *self, const char *text)
   stream_output (self, text);
 }
 
-static void
+void
 stream_output_encoded (CONVERTER *self, const char *encoded)
 {
   /* TODO */
@@ -455,6 +457,22 @@ static int
 stream_byte_count (void)
 {
   /* TODO */
+}
+
+void
+plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
+                        int indent_length, int indent_length_next)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  FORMATTER formatter = new_formatter(self, formatter_line, indent_length,
+                                      indent_length_next);
+  const char *end_line;
+  add_(formatter) (&self_plaintext->formatters, formatter);
+  convert_to_plaintext_internal (self, converted);
+  end_line = para_end_line ();
+  stream_output (self, end_line);
+  para_destroy ();
+  pop_formatter (self);
 }
 
 /* TODO decode */
@@ -911,11 +929,17 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
     destroy_element_and_children (float_type_number_element);
 }
 
+void
+plaintext_format_node (CONVERTER *self, const ELEMENT *node,
+                       const NODE_RELATIONS *node_relations)
+{
+}
+
 /* format_* dispatch table between plaintext and info.  Should be in sync with
    enum converter_format */
 static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
-  {&plaintext_format_ref, },
-  {&info_format_ref, }
+  {&plaintext_format_ref, &plaintext_format_node, },
+  {&info_format_ref, &info_format_node, }
 };
 
 
@@ -1091,7 +1115,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             }
         }
       else if (cmd == CM_node)
-        ;
+        plaintext_functions[self->format].format_node (self, element, 0);
       /* else if sectioning_heading_commands */
       /* else if item or itemx */
       else if (cmd == CM_headitem || cmd == CM_item || cmd == CM_tab)
@@ -1243,6 +1267,7 @@ plaintext_free_converter (CONVERTER *self)
     return;
 
   free (self_plaintext->enabled_encoding);
+  free (self_plaintext->output_filename);
   clear_count_context_stack (&self_plaintext->count_context);
 }
 
