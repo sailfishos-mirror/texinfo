@@ -1,5 +1,10 @@
 2026-07-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Convert/Plaintext.pm (%style_map):
+	Simplify initialisation slightly.
+
+2026-07-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	C plaintext converter: initial style map implementation
 
 	* tta/C/convert/convert_to_plaintext.c

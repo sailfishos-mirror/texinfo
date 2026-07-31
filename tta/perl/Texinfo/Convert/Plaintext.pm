@@ -329,11 +329,13 @@ my %command_style_map = (
   'emph'   => '_',
 );
 
-my %style_map;
-foreach my $command (keys(%command_style_map)) {
-  $style_map{$command} = [$command_style_map{$command},
-                          $command_style_map{$command}];
-}
+my %style_map = (
+  'strong' => ['*', '*'],
+  'emph'   => ['_', '_'],
+  'key'    => ['<', '>'],
+  'sub'    => ['_{', '}'],
+  'sup'    => ['^{', '}']
+);
 
 # math is special
 my @asis_commands = ('asis', 'w', 'b', 'i', 't', 'r', 'slanted', 'sansserif',
@@ -343,9 +345,6 @@ foreach my $asis_command (@asis_commands) {
   $style_map{$asis_command} = ['', ''];
 }
 
-$style_map{'key'} = ['<', '>'];
-$style_map{'sub'} = ['_{', '}'];
-$style_map{'sup'} = ['^{', '}'];
 
 my %quoted_commands;
 # %non_quoted_commands_when_nested have no quote when in code command contexts
