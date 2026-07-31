@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <stdint.h>
 
 #include "list_macros.h"
 #include "text.h"
@@ -31,6 +32,7 @@
 #include "plaintext_converter_state.h"
 #include "types_data.h"
 #include "base_utils.h"
+#include "hashmap.h"
 #include "tree.h"
 /* for lookup_extra* */
 #include "extra.h"
@@ -52,6 +54,7 @@
 /* for write_or_return top_node_filename determine_files_and_directory
    create_destination_directory ... */
 #include "converter.h"
+#include "convert_indices.h"
 #include "convert_to_info.h"
 #include "convert_to_plaintext.h"
 
@@ -75,6 +78,7 @@ typedef struct PLAINTEXT_FORMAT_FUNCTIONS {
                          const ELEMENT *element);
     void (* format_node) (CONVERTER *self, const ELEMENT *element,
                           const NODE_RELATIONS *node_relations);
+    void (* format_printindex) (CONVERTER *self, const ELEMENT *element);
 } PLAINTEXT_FORMAT_FUNCTIONS;
 
 /* Data structure utilities.  These could possibly be placed in a
@@ -331,6 +335,9 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
 
   converter_set_document (self, document);
 
+  if (document->indices_info.number > 0)
+    converter_sort_index_names (self);
+
   self_plaintext->node_names_cache
     = realloc (self_plaintext->node_names_cache,
                document->nodes_list.number * sizeof (STRING_WITH_WIDTH));
@@ -356,6 +363,13 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
     }
   /* TODO ... */
 
+  /* it is an error to have index entries outside of nodes, so there
+     is no point optimizing the size of the hash */
+  init_c_hashmap (&self_plaintext->index_entries_no_node, 10);
+
+  init_c_hashmap (&self_plaintext->index_entry_node_colon,
+                  document->nodes_list.number);
+
   push_top_formatter (self);
 }
 
@@ -372,7 +386,30 @@ plaintext_conversion_finalization (CONVERTER *self)
   pop_top_formatter (self);
    */
 
+  clear_c_hashmap (&self_plaintext->index_entries_no_node);
+  clear_c_hashmap (&self_plaintext->index_entry_node_colon);
+
+  free (self_plaintext->outside_of_any_node_text);
+  self_plaintext->outside_of_any_node_text = 0;
+  self_plaintext->outside_of_any_node_text_width = 0;
+
   self_plaintext->encoding_disabled = 0;
+}
+
+/* TODO
+protect_sentence_ends
+
+process_text_internal
+*/
+
+static void
+add_lines_count (CONVERTER *self, int lines_count)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+    = top_(count_context) (&self_plaintext->count_context);
+
+  count_context->lines += lines_count;
 }
 
 /* TODO: reset more than just 'result'? */
@@ -478,10 +515,10 @@ void
 plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
                         int indent_length, int indent_length_next)
 {
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   FORMATTER formatter = new_formatter(self, formatter_line, indent_length,
                                       indent_length_next);
   const char *end_line;
+
   push_formatter (self, &formatter);
   convert_to_plaintext_internal (self, converted);
   end_line = para_end_line ();
@@ -592,6 +629,593 @@ plaintext_node_name (CONVERTER *self, const ELEMENT *element,
         }
     }
   plaintext_convert_node_name (self, element, string_result);
+}
+
+typedef struct CONVERT_PRINTINDEX_ENTRIES_INFO {
+    const ELEMENT *node;
+    int line_nr;
+    int ignored;
+} CONVERT_PRINTINDEX_ENTRIES_INFO;
+
+static int index_length_to_node = 41;
+
+static const char *node_quote = "\x7f";
+
+void
+plaintext_process_printindex (CONVERTER *self,
+                              const ELEMENT *printindex, int in_info)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  const STRING_LIST *misc_args;
+  const char *index_name;
+  INDEX_SORTED_BY_INDEX *sorted_indexes;
+  char *language;
+  const INDEX_SORTED_BY_INDEX *idx;
+  const INDEX_SORTED_BY_INDEX *index_sorted = 0;
+  size_t i;
+  int max_index_line_nr_string_length = 0;
+  char *line_nr_with_max_format;
+  /* number of index entries that refer to something else than an index entry
+     in a node.  Corresponding with @seeentry or @seealso */
+  size_t reference_entries_nr = 0;
+  size_t other_entries_nr = 0;
+  FORMATTER formatter;
+  TEXT entry_line;
+  TEXT line_part;
+  C_HASHMAP *entry_counts;
+  int fillcolumn = self->conf->FILLCOLUMN.o.integer;
+
+  /* misc_args is not set with NO_INDEX set */
+  misc_args = lookup_extra_string_list (printindex, AI_key_misc_args);
+  if (misc_args && misc_args->number > 0)
+    index_name = misc_args->list[0];
+  else
+    return;
+
+  /* not sure that it can happen */
+  if (!self->document)
+    return;
+
+  sorted_indexes = get_converter_indices_sorted_by_index (self, &language);
+
+  if (!sorted_indexes)
+    return;
+
+  for (idx = sorted_indexes; idx->name; idx++)
+    {
+      if (!strcmp (idx->name, index_name))
+        {
+          index_sorted = idx;
+          break;
+        }
+    }
+  if (!index_sorted || !index_sorted->entries_number)
+    return;
+
+  CONVERT_PRINTINDEX_ENTRIES_INFO *entries_info
+    = (CONVERT_PRINTINDEX_ENTRIES_INFO *) malloc (
+    index_sorted->entries_number * sizeof (CONVERT_PRINTINDEX_ENTRIES_INFO));
+  memset (entries_info, 0,
+    index_sorted->entries_number * sizeof (CONVERT_PRINTINDEX_ENTRIES_INFO));
+
+  for (i = 0; i < index_sorted->entries_number; i++)
+    {
+      const INDEX_ENTRY *index_entry = index_sorted->entries[i];
+      const ELEMENT *main_entry_element = index_entry->entry_element;
+      const ELEMENT *node = 0;
+      char *line_nr_string;
+      int index_line_nr_string_length;
+
+      const ELEMENT *seealso;
+      const ELEMENT *seeentry = index_entry_referred_entry (main_entry_element,
+                                                            CM_seeentry);
+      int line_nr = 0;
+
+      if (seeentry)
+        {
+          reference_entries_nr++;
+          continue;
+        }
+
+      seealso = index_entry_referred_entry (main_entry_element, CM_seealso);
+      if (seealso)
+        {
+          reference_entries_nr++;
+          continue;
+        }
+
+     if (1)
+       {
+    /* TODO
+    if (exists($self->{'index_entries_line_location'})
+        and defined($self->{'index_entries_line_location'}
+                                              ->{$main_entry_element})) {
+      $line_nr = $self->{'index_entries_line_location'}
+                                     ->{$main_entry_element}->{'lines'};
+    }
+      */
+         line_nr = i+1;
+       }
+      else
+       {
+      /* ignore index entries in special regions that haven't been seen */
+          const char *element_region
+            = lookup_extra_string (main_entry_element, AI_key_element_region);
+          if (element_region)
+            {
+              entries_info[i].ignored = 1;
+              break;
+            }
+        }
+    /* priority given to the location determined dynamically as the
+       index entry may be in footnote. */
+      if (0)
+        {
+     /* TODO
+    if (exists($self->{'index_entries_line_location'})
+        and exists($self->{'index_entries_line_location'}
+                                             ->{$main_entry_element})
+        and defined($self->{'index_entries_line_location'}
+                                    ->{$main_entry_element}->{'node'})) {
+      $node = $self->{'index_entries_line_location'}
+                                    ->{$main_entry_element}->{'node'};
+    } elsif (exists($main_entry_element->{'extra'}->{'element_node'})) {
+      $node = $identifiers_target->{
+                        $main_entry_element->{'extra'}->{'element_node'}};
+    }
+       */
+        }
+      else
+        {
+          const char *element_node
+            = lookup_extra_string (main_entry_element, AI_key_element_node);
+          if (element_node)
+            {
+              C_HASHMAP *identifiers_target = &self->document->identifiers_target;
+              node = find_identifier_target (identifiers_target, element_node);
+            }
+        }
+
+      entries_info[i].node = node;
+      /* TODO in Perl !defined is used not 0, it may be beeded to do something
+         similar here */
+      if (!node)
+        line_nr = 0;
+      else if (in_info)
+        {
+          if (line_nr == 0)
+            line_nr = 4;
+          else if (line_nr < 3)
+            line_nr = 3;
+        }
+      xasprintf (&line_nr_string, "%d", line_nr);
+      index_line_nr_string_length = string_width_multibyte (line_nr_string);
+      free (line_nr_string);
+      if (max_index_line_nr_string_length < index_line_nr_string_length)
+        max_index_line_nr_string_length = index_line_nr_string_length;
+      entries_info[i].line_nr = line_nr;
+      other_entries_nr++;
+    }
+
+  if (other_entries_nr + reference_entries_nr == 0)
+    {
+      free (entries_info);
+      return;
+    }
+
+  add_newline_if_needed (self);
+
+  if (in_info)
+    {
+      /* FIXME nothing is actually streamed because of the first \x00 that
+         terminates the string */
+      stream_output (self, "\x00\x08[index\x00\x08]\n");
+      add_lines_count (self, 1);
+    }
+
+  stream_output (self, "* Menu:\n\n");
+  add_lines_count (self, 2);
+
+  /* this is used to count entries that are the same */
+  entry_counts = new_c_hashmap (index_sorted->entries_number);
+
+  /* Use the same line formatter for all the index entries.  This is
+     slightly faster than making a new one for each entry. */
+  fill_formatter (&formatter, self, formatter_line, 0, -1);
+  /* TODO
+     { 'suppress_styles' => 1, 'no_added_eol' => 1 } );
+   */
+  push_formatter (self, &formatter);
+
+  text_init (&entry_line);
+  text_init (&line_part);
+
+  xasprintf (&line_nr_with_max_format, "%%%dd",
+             max_index_line_nr_string_length);
+
+  for (i = 0; i < index_sorted->entries_number; i++)
+    {
+      const INDEX_ENTRY *index_entry = index_sorted->entries[i];
+      const ELEMENT *main_entry_element = index_entry->entry_element;
+      ELEMENT *entry_content_element;
+      ELEMENT *entry_tree_element;
+      ELEMENT_LIST *subentries_tree;
+      size_t entry_index_nr;
+      const INDEX *entry_index;
+      int in_code;
+      const char *end_result;
+      const ELEMENT *seeentry;
+      const ELEMENT *referred_entry = 0;
+      char *entry_text;
+      int found;
+      uintptr_t entry_text_count;
+      int line_width = 0;
+      const ELEMENT *node;
+      int line_nr;
+      int line_part_width;
+      int spaces_nr;
+      int j;
+
+      if (entries_info[i].ignored)
+        continue;
+
+      COUNT_CONTEXT new_count_context = { 0 };
+
+      entry_content_element
+        = converter_index_content_element (main_entry_element, self, 0);
+
+      subentries_tree = comma_index_subentries_tree (main_entry_element, 0);
+
+      entry_index_nr
+       = index_number_index_by_name (&self->sorted_index_names,
+                                    index_entry->index_name);
+      entry_index = self->sorted_index_names.list[entry_index_nr-1];
+      in_code = entry_index->in_code;
+
+      if (in_code)
+        entry_tree_element = new_element (ET__code);
+      else
+        entry_tree_element = new_element (ET__frenchspacing);
+
+      add_to_contents_as_array (entry_tree_element, entry_content_element);
+
+      if (subentries_tree)
+        {
+          insert_list_slice_into_contents (entry_tree_element,
+                               entry_tree_element->e.c->contents.number,
+                               subentries_tree, 0,
+                               subentries_tree->number);
+        }
+
+      /* Convert entry text in a new context in order to capture result. */
+      add_(count_context) (&self_plaintext->count_context, new_count_context);
+      /* TODO
+        $self->{'count_context'}->[-1]->{'encoding_disabled'} = 1;
+       */
+      convert_to_plaintext_internal (self, entry_tree_element);
+      end_result = para_end ();
+      stream_output_count_nl (self, end_result);
+      entry_text = stream_yield_result (self);
+      pop_count_context (&self_plaintext->count_context);
+
+      if (entry_text[strspn (entry_text, whitespace_chars)] == '\0')
+        goto finalize_entry;
+
+      seeentry = index_entry_referred_entry (main_entry_element, CM_seeentry);
+      if (seeentry)
+        referred_entry = seeentry;
+      else
+        referred_entry
+          = index_entry_referred_entry (main_entry_element, CM_seealso);
+
+      if (referred_entry)
+        {
+          ELEMENT *referred_tree;
+          ELEMENT *reference_tree;
+          NAMED_STRING_ELEMENT_LIST *substrings
+             = new_named_string_element_list ();
+
+          ELEMENT *referred_copy
+           = copy_element_tree (referred_entry->e.c->contents.list[0], 0);
+
+          if (in_code)
+            referred_tree = new_element (ET__code);
+          else
+            referred_tree = new_element (ET_NONE);
+
+          add_to_contents_as_array (referred_tree, referred_copy);
+
+     /* indent with the same width as '* ', but do not use * such that the
+       info readers never find a cross reference for @seeentry or @seealso */
+          stream_output (self, "  ");
+          line_width += 2;
+
+          if (seeentry)
+            {
+              ELEMENT *entry_tree_copy
+                = copy_element_tree (entry_tree_element, 0);
+              add_element_to_named_string_element_list (substrings,
+                                                "main_index_entry",
+                                                entry_tree_copy);
+              add_element_to_named_string_element_list (substrings,
+                                              "seeentry", referred_tree);
+              reference_tree
+                = cdt_tree ("{main_index_entry}, See@: {seeentry}", self,
+                            substrings, 0);
+            }
+          else
+            {
+              add_element_to_named_string_element_list (substrings,
+                                          "see_also_entry", referred_tree);
+              stream_output (self, entry_text);
+              stream_output (self, ": ");
+              line_width += string_width_multibyte (entry_text);
+              if (line_width < index_length_to_node)
+                {
+                  int j;
+                  for (j = 0; j < index_length_to_node - line_width; j++)
+                    stream_output (self, " ");
+                }
+              reference_tree = cdt_tree ("See also {see_also_entry}",
+                                        self, substrings, 0);
+            }
+
+          convert_to_plaintext_internal (self, reference_tree);
+          end_result = para_end ();
+          stream_output_count_nl (self, end_result);
+          stream_output (self, ".\n");
+          add_lines_count (self, 1);
+
+          destroy_named_string_element_list (substrings);
+          goto finalize_entry;
+        }
+
+  /* No need for protection, the Info readers should find the last : on
+     the line.  : in the node following the index entry node should be
+     protected, however, as done below, such that : in the node are not
+     mistaken as being part of the index entry. */
+
+      if (self->conf->INDEX_SPECIAL_CHARS_WARNING.o.integer > 0
+          && !self_plaintext->silent)
+        {
+          const char *check_chars = ":";
+
+          const char *p = strpbrk (entry_text, check_chars);
+
+          if (p)
+            {
+              char *texinfo_string = convert_to_texinfo (entry_tree_element);
+              const char *command_name
+                = element_command_name (main_entry_element);
+              if (!command_name)
+                {
+                  command_name
+                    = lookup_extra_string (main_entry_element,
+                                          AI_key_original_def_cmdname);
+                }
+
+              message_list_command_warn (&self->error_messages,
+                            (self->conf && self->conf->DEBUG.o.integer > 0),
+                           main_entry_element, 0,
+                    "Index entry in @%s with : produces invalid Info: %s",
+                          command_name, texinfo_string);
+              free (texinfo_string);
+            }
+        }
+
+      text_append_n (&entry_line, "* ", 2);
+      entry_text_count
+         = (uintptr_t)c_hashmap_value (entry_counts, entry_text, &found);
+      if (found)
+        {
+          entry_text_count++;
+          c_hashmap_set_value (entry_counts,
+                           entry_text, (const void *)entry_text_count);
+          text_printf (&entry_line, "<%" PRIuPTR ">", entry_text_count);
+        }
+      else
+        {
+          entry_text_count = 0;
+          c_hashmap_register (entry_counts,
+                           entry_text, (const void *)entry_text_count);
+        }
+
+      text_append (&entry_line, entry_text);
+      text_append_n (&entry_line, ": ", 2);
+      stream_output (self, entry_line.text);
+
+      line_width = string_width_multibyte (entry_line.text);
+      text_reset (&entry_line);
+
+      if (line_width < index_length_to_node)
+        {
+          int j;
+          for (j = 0; j < index_length_to_node - line_width; j++)
+            stream_output (self, " ");
+          line_width = index_length_to_node;
+        }
+
+      node = entries_info[i].node;
+
+      if (!node)
+        {
+          /* cache the transformation to text and byte counting, as
+             it is likely that there is more than one such entry */
+          if (!self_plaintext->outside_of_any_node_text)
+            {
+              ELEMENT *tree = cdt_tree ("outside_of_any_node_text",
+                                        self, 0 ,0);
+              /* TODO
+        my ($node_text, $width)
+          = $self->convert_line_new_context($tree);
+        $self->{'outside_of_any_node_text'} = $node_text;
+        $self->{'outside_of_any_node_text_width'} = $width;
+             */
+              self_plaintext->outside_of_any_node_text = strdup ("outside of any node");
+              self_plaintext->outside_of_any_node_text_width = strlen ("outside of any node");
+            }
+          stream_output (self, self_plaintext->outside_of_any_node_text);
+          line_width += self_plaintext->outside_of_any_node_text_width;
+    /* TODO when outside of sectioning commands this message was already
+       done by the Parser.
+       Warn, only once. */
+          if (!self_plaintext->silent)
+            {
+              char *entry_unique_string;
+
+              xasprintf (&entry_unique_string, "%s-%s",
+                         index_entry->index_name, index_entry->number);
+
+              if (! is_c_hashmap_registered (
+                            &self_plaintext->index_entries_no_node,
+                                       entry_unique_string))
+                {
+                  message_list_command_warn (&self->error_messages,
+                            (self->conf && self->conf->DEBUG.o.integer > 0),
+                           main_entry_element, 0,
+                     "entry for index `%s' outside of any node",
+                       index_entry->index_name);
+
+                  c_hashmap_register (&self_plaintext->index_entries_no_node,
+                                      entry_unique_string, 0);
+                }
+              free (entry_unique_string);
+            }
+        }
+      else
+        {
+          STRING_WITH_WIDTH node_name;
+          const char *p;
+          int quoting_required = 0;
+          int warn_special_char = (!self_plaintext->silent
+                  && self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer > 0);
+
+          plaintext_node_name (self, node, &node_name);
+
+          if (warn_special_char
+              || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+            {
+     /* protect characters that need to be protected in menu node entry
+        after menu entry name and also :, as the Info readers
+        should consider text up to : to be part of the index entry. */
+              p = node_name.string;
+              char warned_char[3];
+              while (*p)
+                {
+                  /* protect ,\t: and . followed by whitespace_chars */
+                  const char *q = strpbrk (p, ",\t:.");
+                  if (!q)
+                    break;
+                  if (*q == '.')
+                    {
+                      if (! *(q+1))
+                        break;
+                      if (!strchr (whitespace_chars, *(q+1)))
+                        {
+                          p = q+1;
+                          continue;
+                        }
+                      warned_char[1] = *(q+1);
+                      warned_char[2] = '\0';
+                    }
+                  else
+                    warned_char[1] = '\0';
+                  warned_char[0] = *q;
+
+                  if (warn_special_char)
+                    {
+                      if (! is_c_hashmap_registered (
+                            &self_plaintext->index_entry_node_colon,
+                                       node_name.string))
+                        {
+                          message_list_command_warn (&self->error_messages,
+                            (self->conf && self->conf->DEBUG.o.integer > 0),
+                           node, 0,
+                  "node name with index entries should not contain `%s'",
+                           warned_char);
+
+                          c_hashmap_register (
+                                 &self_plaintext->index_entry_node_colon,
+                                          node_name.string, 0);
+                        }
+                    }
+
+                  if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+                    quoting_required = 1;
+
+                  break;
+                }
+            }
+
+          if (quoting_required)
+            stream_output_encoded (self, node_quote);
+          stream_output_encoded (self, node_name.string);
+          line_width += node_name.width;
+          if (quoting_required)
+            stream_output_encoded (self, node_quote);
+
+          free (node_name.string);
+        }
+
+      stream_output (self, ".");
+      line_width++;
+
+      line_nr = entries_info[i].line_nr;
+      text_append_n (&line_part, "(line ", 6);
+      /* line_nr_with_max_format is "%" max_index_line_nr_string_length "d" */
+      text_printf (&line_part, line_nr_with_max_format, line_nr);
+      text_append_n (&line_part, ")", 1);
+
+      line_part_width = string_width_multibyte (line_part.text);
+
+      if (line_width + line_part_width +1 > fillcolumn)
+        {
+          stream_output (self, "\n");
+          add_lines_count (self, 1);
+          spaces_nr = fillcolumn - line_part_width;
+        }
+      else
+        spaces_nr = fillcolumn - line_part_width - line_width;
+
+      for (j = 0; j < spaces_nr; j++)
+        stream_output (self, " ");
+
+      stream_output (self, line_part.text);
+
+      text_reset (&line_part);
+
+      stream_output (self, "\n");
+      add_lines_count (self, 1);
+
+     finalize_entry:
+      free (entry_text);
+      if (subentries_tree)
+        free_comma_index_subentries_tree (subentries_tree);
+      destroy_element (entry_tree_element);
+      destroy_element_and_children (entry_content_element);
+    }
+
+  para_destroy ();
+  pop_formatter (self);
+
+  stream_output (self, "\n");
+  add_lines_count (self, 1);
+
+  clear_c_hashmap (entry_counts);
+  free (entry_counts);
+
+  free (entry_line.text);
+  free (line_part.text);
+
+  free (line_nr_with_max_format);
+
+  free (entries_info);
+}
+
+void
+plaintext_format_printindex (CONVERTER *self, const ELEMENT *printindex)
+{
+  plaintext_process_printindex (self, printindex, 0);
 }
 
 void
@@ -947,8 +1571,10 @@ plaintext_format_node (CONVERTER *self, const ELEMENT *node,
 /* format_* dispatch table between plaintext and info.  Should be in sync with
    enum converter_format */
 static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
-  {&plaintext_format_ref, &plaintext_format_node, },
-  {&info_format_ref, &info_format_node, }
+  {&plaintext_format_ref, &plaintext_format_node,
+   &plaintext_format_printindex, },
+  {&info_format_ref, &info_format_node,
+   &info_format_printindex,  }
 };
 
 
@@ -1135,7 +1761,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       else if (cmd == CM_insertcopying)
         return;
       else if (cmd == CM_printindex)
-        return;
+        {
+          plaintext_functions[self->format].format_printindex (self, element);
+          return;
+        }
       else if (cmd == CM_listoffloats)
         return;
       else if (cmd == CM_sp)
@@ -1268,6 +1897,7 @@ plaintext_free_converter (CONVERTER *self)
 
   free (self_plaintext->enabled_encoding);
   free (self_plaintext->output_filename);
+
   clear_count_context_stack (&self_plaintext->count_context);
 }
 

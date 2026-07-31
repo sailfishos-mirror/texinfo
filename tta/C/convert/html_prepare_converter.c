@@ -4022,47 +4022,7 @@ html_conversion_initialization (CONVERTER *self, const char *context,
   html_new_document_context (self, context, 0, 0, 0);
   self_html->document_global_context_counter = 0;
 
-  if (self->document && self->document->indices_info.number)
-    {
-      size_t i;
-      size_t j;
-      INDEX_LIST *indices_info = &self->document->indices_info;
-      size_t index_nr = indices_info->number;
-      size_t non_empty_index_nr = 0;
-      size_t idx_non_empty = 0;
-
-      const INDEX **sorted_index_names = sort_index_names (indices_info);
-
-      for (i = 0; i < index_nr; i++)
-        {
-          INDEX *idx = indices_info->list[i];
-          if (idx->entries_number > 0)
-            non_empty_index_nr++;
-        }
-
-      /* store only non empty indices in sorted_index_names */
-      self_html->sorted_index_names.number = non_empty_index_nr;
-      /* resize if needed */
-      if (self_html->sorted_index_names.number > self_html->sorted_index_names.space)
-        {
-          self_html->sorted_index_names.space = self_html->sorted_index_names.number;
-          self_html->sorted_index_names.list = (const INDEX **)
-             realloc (self_html->sorted_index_names.list,
-                      self_html->sorted_index_names.space * sizeof (INDEX *));
-        }
-      for (j = 0; j < index_nr; j++)
-        {
-          if (sorted_index_names[j]->entries_number > 0)
-            {
-              self_html->sorted_index_names.list[idx_non_empty]
-                  = sorted_index_names[j];
-              idx_non_empty++;
-            }
-        }
-      free (sorted_index_names);
-    }
-  else
-    self_html->sorted_index_names.number = 0;
+  converter_sort_index_names (self);
 
   if (self->document)
     {
@@ -5049,12 +5009,12 @@ prepare_index_entries_targets (CONVERTER *self)
     {
       size_t i;
       self_html->shared_conversion_state.formatted_index_entries
-        = (int **) malloc (self_html->sorted_index_names.number * sizeof (int *));
+        = (int **) malloc (self->sorted_index_names.number * sizeof (int *));
 
-      for (i = 0; i < self_html->sorted_index_names.number; i++)
+      for (i = 0; i < self->sorted_index_names.number; i++)
         {
           size_t j;
-          const INDEX *idx = self_html->sorted_index_names.list[i];
+          const INDEX *idx = self->sorted_index_names.list[i];
           /* no need to test for idx->entries_number > 0 as indices without
              entries are not kept in sorted_index_names. */
           self_html->shared_conversion_state.formatted_index_entries[i]
@@ -5380,8 +5340,8 @@ ids_hashmap_predicted_values (CONVERTER *self)
   if (self->document->indices_info.number > 0)
     {
       size_t i;
-      for (i = 0; i < self_html->sorted_index_names.number; i++)
-        index_entries_nr += self_html->sorted_index_names.list[i]->entries_number;
+      for (i = 0; i < self->sorted_index_names.number; i++)
+        index_entries_nr += self->sorted_index_names.list[i]->entries_number;
     }
 
   for (i = 0; heading_commands_list[i]; i++)

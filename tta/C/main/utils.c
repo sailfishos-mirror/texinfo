@@ -370,7 +370,7 @@ to_upper_or_lower_multibyte (const char *text, int lower_or_upper)
 }
 
 int
-width_multibyte (const char *text)
+string_width_multibyte (const char *text)
 {
   int result;
   uint8_t *u8_text = utf8_from_string (text);
@@ -1061,7 +1061,7 @@ normalize_top_node_name (char *node_name)
 {
   if (strlen (node_name) == strlen (lower_top_name))
     {
-      int i;
+      size_t i;
       for (i = 0; i < strlen (lower_top_name); i++)
         if (!isascii_alnum(node_name[i])
             || tolower (node_name[i]) != lower_top_name[i])

@@ -183,6 +183,7 @@ _converted                                text
 
 # For Plaintext/Info converter
 _code
+_frenchspacing
 _stop_upper_case
 _suppress_styles
 

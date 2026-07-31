@@ -756,6 +756,18 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
 /* formatting functions differing from Plaintext formatting functions. */
 
+/*
+ sub format_warn_strong_note($) {
+   return 1;
+ } 
+*/
+
+void
+info_format_printindex (CONVERTER *self, const ELEMENT *printindex)
+{
+  plaintext_process_printindex (self, printindex, 1);
+}
+
 static const char *node_quote = "\x7f";
 
 void

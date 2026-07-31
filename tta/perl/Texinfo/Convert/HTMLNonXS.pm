@@ -5559,16 +5559,16 @@ sub output_internal_links($) {
     }
   }
 
-  my $index_entries_by_letter
+  my $sorted_indexes_by_letter
     = $self->get_converter_indices_sorted_by_letter();
-  if (defined($index_entries_by_letter)) {
+  if (defined($sorted_indexes_by_letter)) {
     my $indices_information;
     if (exists($self->{'document'})) {
       $indices_information = $self->{'document'}->indices_information();
     }
 
-    foreach my $index_name (sort(keys(%{$index_entries_by_letter}))) {
-      foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
+    foreach my $index_name (sort(keys(%{$sorted_indexes_by_letter}))) {
+      foreach my $letter_entry (@{$sorted_indexes_by_letter->{$index_name}}) {
         foreach my $index_entry (@{$letter_entry->{'entries'}}) {
           my $main_entry_element = $index_entry->{'entry_element'};
           # does not refer to the document

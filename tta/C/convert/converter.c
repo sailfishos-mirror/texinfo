@@ -1778,6 +1778,7 @@ get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
   return 0;
 }
 
+/* LANGUAGE output value need not to be freed by the caller */
 INDEX_SORTED_BY_LETTER *
 get_converter_indices_sorted_by_letter (CONVERTER *self, char **language)
 {
@@ -2466,6 +2467,8 @@ free_generic_converter (CONVERTER *self)
       free (self->sorted_options);
       free (self->conf);
     }
+
+  free (self->sorted_index_names.list);
 
   destroy_converter_index_sorting (self);
 

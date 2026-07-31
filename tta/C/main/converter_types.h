@@ -132,6 +132,9 @@ typedef struct FILE_NAME_PATH_COUNTER_LIST {
     FILE_NAME_PATH_COUNTER *list;
 } FILE_NAME_PATH_COUNTER_LIST;
 
+/* contains only indices with entries */
+def_list_type(SORTED_INDEX_NAMES, const INDEX *);
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be SV *sv,
@@ -189,6 +192,9 @@ typedef struct CONVERTER {
   /* associates deprecated directories and reference directories */
     DEPRECATED_DIRS_LIST deprecated_config_directories;
 
+    /* resized and reset at the beginning of the conversion */
+    SORTED_INDEX_NAMES sorted_index_names;
+
     INDICES_SORT_STRINGS *indices_sort_strings;
     COLLATIONS_INDICES_SORTED_BY_INDEX *sorted_indices_by_index;
     COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
@@ -215,9 +221,6 @@ def_list_type(STRING_STACK, char *);
 def_list_type(INTEGER_STACK, int);
 
 /* following types used in several converter codes, but not in this file */
-
-/* contains only indices with entries */
-def_list_type(SORTED_INDEX_NAMES, const INDEX *);
 
 typedef struct TARGET_FILENAME {
     char *target;

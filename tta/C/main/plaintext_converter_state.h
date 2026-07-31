@@ -90,9 +90,21 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     int encoding_disabled;
     int in_copying_header;
     int silent;
+
+    /* conversion state */
     char *output_filename;
     /* cache node names */
     STRING_WITH_WIDTH *node_names_cache;
+    /* cache "outside of any node" translated string for use in
+       printindex formatting */
+    char *outside_of_any_node_text;
+    int outside_of_any_node_text_width;
+    /* register index entries warned as being outside of any node to avoid
+       warning twice */
+    C_HASHMAP index_entries_no_node;
+    /* register node names already warned for characters that should
+       not appear in printindex */
+    C_HASHMAP index_entry_node_colon;
 } PLAINTEXT_CONVERTER_STATE;
 
 #endif

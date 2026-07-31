@@ -1043,12 +1043,8 @@ find_element_extra_index_entry_sv (const DOCUMENT *document,
     }
   else
    {
-     const HTML_CONVERTER_STATE *self_html = converter->html_converter;
-     /* FIXME move sorted_index_names to generic converter, or
-        check self_html?  Probably only called on an HTML converter
-        at least for now. */
      index_entry = find_sorted_index_names_index_entry_extra_index_entry_sv (
-                      &self_html->sorted_index_names, extra_index_entry_sv);
+                      &converter->sorted_index_names, extra_index_entry_sv);
    }
 
   return index_entry;

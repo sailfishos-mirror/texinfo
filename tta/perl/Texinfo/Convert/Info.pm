@@ -558,7 +558,8 @@ sub format_contents($$$) {
 sub format_printindex($$) {
   my ($self, $printindex) = @_;
 
-  return $self->process_printindex($printindex, 1);
+  $self->process_printindex($printindex, 1);
+  return;
 }
 
 sub format_error_outside_of_any_node($$) {

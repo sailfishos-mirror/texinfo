@@ -434,7 +434,7 @@ text_heading (const ELEMENT *current, const char *text,
   if (status != 0)
     level = section_level (current);
 
-  text_width = width_multibyte (heading_with_number);
+  text_width = string_width_multibyte (heading_with_number);
 
   free (heading_with_number);
 

@@ -871,6 +871,7 @@ sub output($$) {
   $self->conversion_finalization();
   return undef;
 }
+
 my $end_sentence = quotemeta('.?!');
 my $after_punctuation = quotemeta('"\')]');
 
@@ -1708,7 +1709,8 @@ sub format_contents($$$) {
         _stream_output($self, ' ' x $repeat_count);
       }
       my ($text, undef) = $self->convert_line_new_context(
-            {'contents' => [$section_title_tree], 'type' => 'frenchspacing'});
+       Texinfo::TreeElement::new({'contents' => [$section_title_tree],
+                                  'type' => '_frenchspacing'}));
       chomp ($text);
       $text .= "\n";
       _stream_output($self, $text);
@@ -1754,12 +1756,6 @@ sub _menu($$) {
     }
   }
   return;
-}
-
-sub format_printindex($$) {
-  my ($self, $printindex) = @_;
-
-  return $self->process_printindex($printindex);
 }
 
 my $node_names_formatter;
@@ -1870,13 +1866,18 @@ sub process_printindex($$;$) {
   }
 
   my $indices_information = $self->{'document'}->indices_information();
-  my $index_entries;
+  my $sorted_indexes;
   if (defined($indices_information)) {
-    $index_entries = $self->get_converter_indices_sorted_by_index();
+    $sorted_indexes = $self->get_converter_indices_sorted_by_index();
   }
 
-  if (!defined($index_entries) or !exists($index_entries->{$index_name})
-      or !scalar(@{$index_entries->{$index_name}})) {
+  if (!defined($sorted_indexes) or !exists($sorted_indexes->{$index_name})) {
+    return;
+  }
+
+  my $sorted_index = $sorted_indexes->{$index_name};
+
+  if (!scalar(@{$sorted_index})) {
     return;
   }
 
@@ -1891,7 +1892,7 @@ sub process_printindex($$;$) {
   # in a node.  Corresponding with @seeentry or @seealso
   my $reference_entries_nr = 0;
 
-  foreach my $entry (@{$index_entries->{$index_name}}) {
+  foreach my $entry (@{$sorted_index}) {
     my $main_entry_element = $entry->{'entry_element'};
 
     my $seeentry
@@ -1940,9 +1941,12 @@ sub process_printindex($$;$) {
     $entry_nodes{$entry} = $node;
     if (!defined($node)) {
       $line_nr = 0;
-    } elsif($in_info) {
-      $line_nr = 3 if (defined($line_nr) and $line_nr < 3);
-      $line_nr = 4 if (!defined($line_nr));
+    } elsif ($in_info) {
+      if (!defined($line_nr)) {
+        $line_nr = 4;
+      } elsif ($line_nr < 3) {
+        $line_nr = 3;
+      }
     } else {
       $line_nr = 0 if (!defined($line_nr));
     }
@@ -1975,35 +1979,34 @@ sub process_printindex($$;$) {
     { 'suppress_styles' => 1, 'no_added_eol' => 1 } );
   push @{$self->{'formatters'}}, $formatter;
 
-  foreach my $entry (@{$index_entries->{$index_name}}) {
+  foreach my $entry (@{$sorted_index}) {
     next if (exists($ignored_entries{$entry}));
 
     my $main_entry_element = $entry->{'entry_element'};
     my $entry_index_name = $entry->{'index_name'};
     my $entry_content_element
       = $self->converter_index_content_element($main_entry_element);
+
     my $entry_tree
      = Texinfo::TreeElement::new({'contents' => [$entry_content_element]});
+    if ($indices_information->{$entry_index_name}->{'in_code'}) {
+      $entry_tree->{'type'} = '_code';
+    } else {
+      $entry_tree->{'type'} = '_frenchspacing';
+    }
     my $subentries_tree
        = Texinfo::Convert::Utils::comma_index_subentries_tree(
                                                    $main_entry_element);
-    if ($indices_information->{$entry_index_name}->{'in_code'}) {
-      $entry_tree->{'type'} = '_code';
-      $subentries_tree->{'type'} = '_code'
-        if (defined($subentries_tree));
-    } else {
-      $entry_tree->{'type'} = 'frenchspacing';
-       $subentries_tree->{'type'} = 'frenchspacing'
-        if (defined($subentries_tree));
+    if (defined($subentries_tree)) {
+      push @{$entry_tree->{'contents'}}, $subentries_tree;
     }
-    my $entry_text = '';
 
     # Convert entry text in a new context in order to capture result.
+    my $entry_text;
+
     push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
     $self->{'count_context'}->[-1]->{'encoding_disabled'} = 1;
     _convert($self, $entry_tree);
-    _convert($self, $subentries_tree)
-      if (defined($subentries_tree));
     _stream_output_count_nl($self,
                    Texinfo::Convert::Paragraph::end($formatter->{'container'}));
     $entry_text = _stream_result($self);
@@ -2028,9 +2031,7 @@ sub process_printindex($$;$) {
       my $referred_tree = Texinfo::TreeElement::new({});
       $referred_tree->{'type'} = '_code'
         if ($indices_information->{$entry_index_name}->{'in_code'});
-      if (exists($referred_entry->{'contents'})) {
-        $referred_tree->{'contents'} = [$referred_entry];
-      }
+      $referred_tree->{'contents'} = [$referred_entry];
 
       # indent with the same width as '* ', but do not use * such that the
       # info readers never find a cross reference for @seeentry or @seealso
@@ -2038,18 +2039,10 @@ sub process_printindex($$;$) {
       $line_width += 2;
       my $reference_tree;
       if (defined($seeentry)) {
-        if (defined($subentries_tree)) {
-          $reference_tree
-      = $self->cdt('{main_index_entry}{subentries}, See@: {seeentry}',
-                                        {'subentries' => $subentries_tree,
-                                         'main_index_entry' => $entry_tree,
-                                         'seeentry' => $referred_tree});
-        } else {
-          $reference_tree
+        $reference_tree
       = $self->cdt('{main_index_entry}, See@: {seeentry}',
                                         {'main_index_entry' => $entry_tree,
                                          'seeentry' => $referred_tree});
-        }
       } else {
         my $entry_line = "$entry_text: ";
         $line_width += Texinfo::Convert::Unicode::string_width($entry_line);
@@ -2178,6 +2171,13 @@ sub process_printindex($$;$) {
 
   _stream_output($self, "\n");
   _add_lines_count($self, 1);
+}
+
+sub format_printindex($$) {
+  my ($self, $printindex) = @_;
+
+  $self->process_printindex($printindex);
+  return;
 }
 
 sub format_ref($$$) {
@@ -2560,7 +2560,7 @@ sub _text_heading($$$;$$) {
   }
 
   my ($heading, undef) = $self->convert_line_new_context(
-    Texinfo::TreeElement::new({'type' => 'frenchspacing',
+    Texinfo::TreeElement::new({'type' => '_frenchspacing',
                                'contents' => [$heading_element]}));
 
   my $text;
@@ -3439,7 +3439,7 @@ sub _convert($$) {
           # in abbr spaces never end a sentence.
           my $argument;
           if ($cmdname eq 'abbr') {
-            $argument = Texinfo::TreeElement::new({'type' => 'frenchspacing',
+            $argument = Texinfo::TreeElement::new({'type' => '_frenchspacing',
                          'contents' => [$element->{'contents'}->[0]]});
           } else {
             $argument = $element->{'contents'}->[0];
@@ -3504,7 +3504,7 @@ sub _convert($$) {
                                                'encoding_disabled' => 1,
                                                    'locations' => []};
           }
-          _convert($self, Texinfo::TreeElement::new({'type' => 'frenchspacing',
+          _convert($self, Texinfo::TreeElement::new({'type' => '_frenchspacing',
            'contents' => [Texinfo::TreeElement::new({'type' => '_code',
                           'contents' => [$element->{'contents'}->[0]]})]}));
           if (exists($self->{'elements_images'})
@@ -3675,7 +3675,7 @@ sub _convert($$) {
         if (!Texinfo::Common::empty_spaces_argument($block_line_arg)) {
           my $prepended = $self->cdt('@b{{quotation_arg}:} ',
                                 {'quotation_arg' => $block_line_arg});
-          $prepended->{'type'} = 'frenchspacing';
+          $prepended->{'type'} = '_frenchspacing';
           #_convert($self, $prepended);
           my ($converted, $width, $extra_lines)
             = $self->convert_line_new_context($prepended);
@@ -3736,7 +3736,7 @@ sub _convert($$) {
         if (!Texinfo::Common::empty_spaces_argument($block_line_arg)) {
           my $prepended = $self->cdt('@center @b{{cartouche_arg}}',
                                  {'cartouche_arg' => $block_line_arg});
-          $prepended->{'type'} = 'frenchspacing';
+          $prepended->{'type'} = '_frenchspacing';
           # Do not consider the title to be like a paragraph
           my $previous_paragraph_count
               = $self->{'format_context'}->[-1]->{'paragraph_count'};
@@ -3808,7 +3808,7 @@ sub _convert($$) {
           # or @enumerate in @*table, which is erroneous
           return;
         }
-        my $frenchspacing_element = {'type' => 'frenchspacing',
+        my $frenchspacing_element = {'type' => '_frenchspacing',
                                      'contents' => [$table_item_tree]};
         $self->convert_line($frenchspacing_element,
                $self->{'format_context'}->[-2]->{'context_indent_len'});
@@ -3869,7 +3869,7 @@ sub _convert($$) {
                                                    'locations' => []};
       if (exists($element->{'contents'}->[0]->{'contents'})) {
         $self->convert_line (
-             {'type' => 'frenchspacing',
+             {'type' => '_frenchspacing',
               'contents' => [$element->{'contents'}->[0]]},
              0);
       }
@@ -3957,7 +3957,7 @@ sub _convert($$) {
 
           _stream_output_add_next($self, '* ');
 
-          $float_entry->{'type'} = 'frenchspacing';
+          $float_entry->{'type'} = '_frenchspacing';
           _convert($self, $float_entry);
 
           _stream_output_add_next($self, ': ');
@@ -4385,7 +4385,7 @@ sub _convert($$) {
       }
 
       return;
-    } elsif ($type eq 'frenchspacing') {
+    } elsif ($type eq '_frenchspacing') {
       push @{$formatter->{'frenchspacing_stack'}}, 'on';
       set_frenchspacing($formatter->{'container'}, 1);
     } elsif ($type eq '_code') {
@@ -4419,7 +4419,7 @@ sub _convert($$) {
 
   # now closing. First, close types.
   if (defined($type)) {
-    if ($type eq 'frenchspacing') {
+    if ($type eq '_frenchspacing') {
       pop @{$formatter->{'frenchspacing_stack'}};
       my $frenchspacing = 0;
       $frenchspacing = 1 if ($formatter->{'frenchspacing_stack'}->[-1] eq 'on');
@@ -4604,7 +4604,7 @@ sub _convert($$) {
         my ($caption, $prepended)
           = Texinfo::Convert::Converter::float_name_caption($self, $element);
         if (defined($prepended)) {
-          $prepended->{'type'} = 'frenchspacing';
+          $prepended->{'type'} = '_frenchspacing';
           my ($float_number, $columns)
             = $self->convert_line_new_context($prepended);
           _stream_output($self, $float_number);

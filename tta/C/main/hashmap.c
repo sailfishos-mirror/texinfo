@@ -173,6 +173,35 @@ c_hashmap_register (C_HASHMAP *H, const char *in_string,
 }
 
 void
+c_hashmap_set_value (C_HASHMAP *H, const char *in_string,
+                     const void *value)
+{
+  unsigned int hash;
+  BUCKET *B;
+
+  if (!H->count)
+    {
+      c_hashmap_register (H, in_string, value);
+      return;
+    }
+
+  hash = hash_string(in_string, H);
+  B = H->bucket[hash];
+
+  while (B)
+    {
+      if (!strcmp(B->string, in_string))
+        {
+          B->value = value;
+          return;
+        }
+      B = B->next;
+    }
+
+  c_hashmap_register (H, in_string, value);
+}
+
+void
 clear_c_hashmap (C_HASHMAP *H)
 {
   int i;

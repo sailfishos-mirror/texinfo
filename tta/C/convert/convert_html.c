@@ -2441,7 +2441,7 @@ html_reset_shared_conversion_state (CONVERTER *self)
      early and prepare_conversion_units_targets was never called */
   if (self_html->shared_conversion_state.formatted_index_entries)
     {
-      for (i = 0; i < self_html->sorted_index_names.number; i++)
+      for (i = 0; i < self->sorted_index_names.number; i++)
         {
           free (self_html->shared_conversion_state.formatted_index_entries[i]);
         }

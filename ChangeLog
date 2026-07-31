@@ -1,3 +1,56 @@
+2026-07-31 Patrice Dumas  <pertusus@free.fr>
+
+	Implement conversion of printindex in plaintext and Info C converters
+
+	* tta/C/convert/format_html.c (html_convert_printindex_command)
+	(html_output_internal_links), tta/perl/Texinfo/Convert/HTML.pm
+	(_convert_printindex_command, output_internal_links): rename
+	index_entries_by_letter as sorted_indexes_by_letter.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (process_printindex): rename
+	index_entries as sorted_indexes.  Add sorted_index variable.  Change
+	conditions for clearer code.  Put subentries in the same container as
+	the main entry.
+
+	* tta/C/main/utils.c (string_width_multibyte): rename width_multibyte
+	as string_width_multibyte.  Update callers.
+
+	* tta/C/main/hashmap.c (c_hashmap_set_value): add.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm, tta/C/main/element_types.txt:
+	rename frenchspacing special type as _frenchspacing.  Add to C.
+
+	* tta/C/convert/convert_indices.c (converter_sort_index_names),
+	tta/C/convert/converter.c (free_generic_converter),
+	tta/C/convert/html_converter_finish.c (html_free_converter),
+	tta/C/convert/html_prepare_converter.c
+	(html_conversion_initialization), tta/C/main/html_converter_state.h
+	(HTML_CONVERTER_STATE), tta/C/main/converter_types.h (CONVERTER): move
+	code used to sort index names and remove empty indices in converter
+	out of HTML conversion to the converter_sort_index_names function in
+	convert_indices.c.  Move sorted_index_names from HTML_CONVERTER_STATE
+	to CONVERTER.  Update users.
+
+	* tta/C/convert/convert_to_plaintext.c (add_lines_count): add.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_conversion_initialization)
+	(plaintext_conversion_finalization),
+	tta/C/main/plaintext_converter_state.h (PLAINTEXT_CONVERTER_STATE): add
+	index_entries_no_node and index_entry_node_colon hash maps,
+	outside_of_any_node_text and outside_of_any_node_text_width used for
+	printindex output to PLAINTEXT_CONVERTER_STATE, initialize and release.
+
+	* tta/C/convert/convert_to_info.c (info_format_printindex),
+	tta/C/convert/convert_to_plaintext.c (PLAINTEXT_FORMAT_FUNCTIONS)
+	(CONVERT_PRINTINDEX_ENTRIES_INFO, plaintext_process_printindex)
+	(plaintext_format_printindex, plaintext_functions)
+	(convert_to_plaintext_internal): implement
+	plaintext_process_printindex and dispatch functions to use in
+	conversion to plaintext and Info.
+
+	* tta/perl/Texinfo/Convert/Info.pm (format_contents): return undef.
+
 2026-07-30 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/Info.pm: move code around.

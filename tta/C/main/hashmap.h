@@ -30,6 +30,8 @@ void c_hashmap_register (C_HASHMAP *H, const char *in_string,
                          const void *value);
 const void *c_hashmap_value (const C_HASHMAP *H, const char *in_string,
                              int *found);
+void c_hashmap_set_value (C_HASHMAP *H, const char *in_string,
+                          const void *value);
 void clear_c_hashmap (C_HASHMAP *H);
 size_t c_hashmap_count (const C_HASHMAP *H);
 

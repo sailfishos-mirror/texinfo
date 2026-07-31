@@ -1471,7 +1471,7 @@ find_index_entry_numbers_index_entry_sv (CONVERTER *converter,
           int entry_number = SvIV (*number_sv);
 
           *index_nr = index_number_index_by_name
-            (&converter->html_converter->sorted_index_names, index_name);
+            (&converter->sorted_index_names, index_name);
           return entry_number;
         }
     }

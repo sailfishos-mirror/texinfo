@@ -1206,7 +1206,6 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
 const FILE_NUMBER_NAME *
 html_command_filename (CONVERTER *self, const ELEMENT *command)
 {
-  HTML_CONVERTER_STATE *self_html = self->html_converter;
   HTML_TARGET *target_info;
 
   target_info = html_get_target (self, command);
@@ -5035,7 +5034,6 @@ html_default_format_element_header (CONVERTER *self,
                                const char *cmdname, const ELEMENT *command,
                                const OUTPUT_UNIT *output_unit, TEXT *result)
 {
-  HTML_CONVERTER_STATE *self_html = self->html_converter;
   if (self->conf->DEBUG.o.integer > 0)
     {
       size_t i;
@@ -10144,7 +10142,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   char *alpha_text = 0;
   char *non_alpha_text = 0;
   char *language;
-  INDEX_SORTED_BY_LETTER *index_entries_by_letter;
+  INDEX_SORTED_BY_LETTER *sorted_indexes_by_letter;
 
   /* misc_args is not set with NO_INDEX set */
   misc_args = lookup_extra_string_list (element, AI_key_misc_args);
@@ -10156,13 +10154,13 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   if (html_in_string (self))
     return;
 
-  index_entries_by_letter
+  sorted_indexes_by_letter
     = get_converter_indices_sorted_by_letter (self, &language);
 
-  if (!index_entries_by_letter)
+  if (!sorted_indexes_by_letter)
     return;
 
-  for (idx = index_entries_by_letter; idx->name; idx++)
+  for (idx = sorted_indexes_by_letter; idx->name; idx++)
     {
       if (!strcmp (idx->name, index_name))
         {
@@ -10322,9 +10320,9 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
             = converter_index_content_element (main_entry_element, self, 0);
 
           entry_index_nr
-             = index_number_index_by_name (&self_html->sorted_index_names,
+             = index_number_index_by_name (&self->sorted_index_names,
                                            index_entry_ref->index_name);
-          entry_index = self_html->sorted_index_names.list[entry_index_nr-1];
+          entry_index = self->sorted_index_names.list[entry_index_nr-1];
 
  /* to avoid double error messages, call
     html_convert_tree_new_formatting_context
@@ -10793,7 +10791,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                       if (!associated_command
                           && *formatted_index_entry_nr == 1)
                         {
-                          char *element_region
+                          const char *element_region
                            = lookup_extra_string (main_entry_element,
                                                   AI_key_element_region);
         /* do not warn if the entry is in a special region, like titlepage */
@@ -13408,7 +13406,7 @@ html_output_internal_links (CONVERTER *self)
     = self_html->output_units_descriptors[OUDT_units];
   const OUTPUT_UNIT_LIST *output_units;
   char *language;
-  INDEX_SORTED_BY_LETTER *index_entries_by_letter
+  INDEX_SORTED_BY_LETTER *sorted_indexes_by_letter
     = get_converter_indices_sorted_by_letter (self, &language);
 
   text_init (&out_string);
@@ -13575,12 +13573,12 @@ html_output_internal_links (CONVERTER *self)
     }
 #undef LABEL_CMD_TYPES_NR
 
-  if (index_entries_by_letter)
+  if (sorted_indexes_by_letter)
     {
       size_t i;
-      for (i = 0; i < self_html->sorted_index_names.number; i++)
+      for (i = 0; i < self->sorted_index_names.number; i++)
         {
-          const INDEX *current_index = self_html->sorted_index_names.list[i];
+          const INDEX *current_index = self->sorted_index_names.list[i];
           const INDEX_SORTED_BY_LETTER *index_sorted;
           int found = 0;
           size_t l;
@@ -13588,7 +13586,7 @@ html_output_internal_links (CONVERTER *self)
           if (current_index->merged_in)
             continue;
 
-          for (index_sorted = index_entries_by_letter; index_sorted->name;
+          for (index_sorted = sorted_indexes_by_letter; index_sorted->name;
                index_sorted++)
             {
               if (!strcmp (current_index->name, index_sorted->name))
@@ -13642,9 +13640,9 @@ html_output_internal_links (CONVERTER *self)
                                                        self, 0);
 
                   entry_index_nr
-                    = index_number_index_by_name (&self_html->sorted_index_names,
+                    = index_number_index_by_name (&self->sorted_index_names,
                                                   index_entry_ref->index_name);
-                  entry_index = self_html->sorted_index_names.list[entry_index_nr-1];
+                  entry_index = self->sorted_index_names.list[entry_index_nr-1];
                   in_code = entry_index->in_code;
                   if (in_code)
                     self->convert_text_options->code_state++;

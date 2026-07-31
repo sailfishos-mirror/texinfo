@@ -23,4 +23,6 @@ INDEX_ENTRY_TEXT_OR_COMMAND *index_entry_first_letter_text_or_command (
                                           const INDEX_ENTRY *index_entry,
                                           CONVERTER *converter);
 
+void converter_sort_index_names (CONVERTER *self);
+
 #endif

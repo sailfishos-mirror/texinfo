@@ -683,8 +683,6 @@ typedef struct HTML_CONVERTER_STATE {
     /* allocated at converter initialization, reset when translate_names
        is called or at the end of the conversion */
     ELEMENT **translated_special_unit_info_tree[SUIT_type_heading+1];
-    /* resized and reset at the beginning of the conversion */
-    SORTED_INDEX_NAMES sorted_index_names;
     /* set or reset before conversion */
     void *registered_ids_c_hashmap;
     /* potentially one target list per command (only for some actually,

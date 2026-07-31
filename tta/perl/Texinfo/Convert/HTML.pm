@@ -4726,11 +4726,11 @@ sub _convert_printindex_command($$$$) {
     return '';
   }
 
-  my $index_entries_by_letter
+  my $sorted_indexes_by_letter
     = $self->get_converter_indices_sorted_by_letter();
-  if (!defined($index_entries_by_letter)
-      or !exists($index_entries_by_letter->{$index_name})
-      or !scalar(@{$index_entries_by_letter->{$index_name}})) {
+  if (!defined($sorted_indexes_by_letter)
+      or !exists($sorted_indexes_by_letter->{$index_name})
+      or !scalar(@{$sorted_indexes_by_letter->{$index_name}})) {
     return '';
   }
 
@@ -4740,7 +4740,7 @@ sub _convert_printindex_command($$$$) {
     $indices_information = $document->indices_information();
   }
 
-  #foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
+  #foreach my $letter_entry (@{$sorted_indexes_by_letter->{$index_name}}) {
   #  print STDERR "IDXLETTER $letter_entry->{'letter'}\n";
   #  foreach my $index_entry (@{$letter_entry->{'entries'}}) {
   #    print STDERR "   ".join('|', keys(%$index_entry))."||| $index_entry->{'key'}\n";
@@ -4772,7 +4772,7 @@ sub _convert_printindex_command($$$$) {
   my $symbol_idx = 0;
   my $normalized_letter_idx = 0;
 
-  foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
+  foreach my $letter_entry (@{$sorted_indexes_by_letter->{$index_name}}) {
     my $letter = $letter_entry->{'letter'};
     my $is_symbol = $letter !~ /^\p{Alpha}/;
     $letter_is_symbol{$letter} = $is_symbol;
@@ -4798,7 +4798,7 @@ sub _convert_printindex_command($$$$) {
   # Next do the entries to determine the letters that are not empty
   my @letter_entries;
   my $result_index_entries = '';
-  foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
+  foreach my $letter_entry (@{$sorted_indexes_by_letter->{$index_name}}) {
     my $letter = $letter_entry->{'letter'};
     my $entries_text = '';
     my $entry_nr = -1;

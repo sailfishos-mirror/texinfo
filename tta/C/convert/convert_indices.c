@@ -265,3 +265,51 @@ index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry,
     }
 }
 
+
+
+/* sort indices by name and remove empty indices */
+void
+converter_sort_index_names (CONVERTER *self)
+{
+  if (self->document && self->document->indices_info.number)
+    {
+      size_t i;
+      size_t j;
+      INDEX_LIST *indices_info = &self->document->indices_info;
+      size_t index_nr = indices_info->number;
+      size_t non_empty_index_nr = 0;
+      size_t idx_non_empty = 0;
+
+      const INDEX **sorted_index_names = sort_index_names (indices_info);
+
+      for (i = 0; i < index_nr; i++)
+        {
+          INDEX *idx = indices_info->list[i];
+          if (idx->entries_number > 0)
+            non_empty_index_nr++;
+        }
+
+      /* store only non empty indices in sorted_index_names */
+      self->sorted_index_names.number = non_empty_index_nr;
+      /* resize if needed */
+      if (self->sorted_index_names.number > self->sorted_index_names.space)
+        {
+          self->sorted_index_names.space = self->sorted_index_names.number;
+          self->sorted_index_names.list = (const INDEX **)
+             realloc (self->sorted_index_names.list,
+                      self->sorted_index_names.space * sizeof (INDEX *));
+        }
+      for (j = 0; j < index_nr; j++)
+        {
+          if (sorted_index_names[j]->entries_number > 0)
+            {
+              self->sorted_index_names.list[idx_non_empty]
+                  = sorted_index_names[j];
+              idx_non_empty++;
+            }
+        }
+      free (sorted_index_names);
+    }
+  else
+    self->sorted_index_names.number = 0;
+}

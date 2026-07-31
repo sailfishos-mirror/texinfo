@@ -47,6 +47,8 @@ const enum command_id *plaintext_get_informative_global_commands (void);
 
 void plaintext_node_name (CONVERTER *self, const ELEMENT *element,
                           STRING_WITH_WIDTH *string_result);
+void plaintext_process_printindex (CONVERTER *self,
+                                   const ELEMENT *printindex, int in_info);
 
 void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 /* TODO add plaintext_ prefix for all the functions? */

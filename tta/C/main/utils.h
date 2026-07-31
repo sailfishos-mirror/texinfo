@@ -144,7 +144,7 @@ int xasprintf (char **ptr, const char *template, ...);
 
 size_t count_multibyte (const char *text);
 char *to_upper_or_lower_multibyte (const char *text, int lower_or_upper);
-int width_multibyte (const char *text);
+int string_width_multibyte (const char *text);
 int word_bytes_len_multibyte (const char *text);
 
 void messages_and_encodings_setup (const char *datadir);

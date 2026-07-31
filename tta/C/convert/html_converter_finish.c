@@ -356,8 +356,6 @@ html_free_converter (CONVERTER *self)
 
   free (self_html->global_units_direction_names.list);
 
-  free (self_html->sorted_index_names.list);
-
   free_js_categories_list (&self_html->jslicenses);
 
   html_free_direction_icons_array (self, &self_html->html_active_icons);
