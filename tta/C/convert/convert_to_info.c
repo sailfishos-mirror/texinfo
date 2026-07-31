@@ -759,7 +759,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
 /*
  sub format_warn_strong_note($) {
    return 1;
- } 
+ }
 */
 
 void
@@ -1192,6 +1192,20 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
 
   if (float_type_number_element)
     destroy_element_and_children (float_type_number_element);
+}
+
+void
+info_format_error_outside_of_any_node (CONVERTER *self,
+                                       const ELEMENT *element)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+
+  if (!self_plaintext->current_node && !self_plaintext->silent)
+    message_list_command_warn (&self->error_messages,
+                     (self->conf && self->conf->DEBUG.o.integer > 0),
+                      element, 0,
+                     "@%s outside of any node",
+                     element_command_name (element));
 }
 
 static const char *directions[] = {"Next", "Prev", "Up", 0};

@@ -93,6 +93,7 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
 
     /* conversion state */
     char *output_filename;
+    const ELEMENT *current_node;
     /* cache node names */
     STRING_WITH_WIDTH *node_names_cache;
     /* cache "outside of any node" translated string for use in

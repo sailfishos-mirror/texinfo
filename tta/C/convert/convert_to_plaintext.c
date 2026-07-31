@@ -97,6 +97,8 @@ typedef struct PLAINTEXT_FORMAT_FUNCTIONS {
     void (* format_node) (CONVERTER *self, const ELEMENT *element,
                           const NODE_RELATIONS *node_relations);
     void (* format_printindex) (CONVERTER *self, const ELEMENT *element);
+    void (* format_error_outside_of_any_node) (CONVERTER *self,
+                                               const ELEMENT *element);
 } PLAINTEXT_FORMAT_FUNCTIONS;
 
 void
@@ -424,6 +426,7 @@ plaintext_conversion_finalization (CONVERTER *self)
   free (self_plaintext->outside_of_any_node_text);
   self_plaintext->outside_of_any_node_text = 0;
   self_plaintext->outside_of_any_node_text_width = 0;
+  self_plaintext->current_node = 0;
 
   self_plaintext->encoding_disabled = 0;
 }
@@ -1633,13 +1636,21 @@ plaintext_format_node (CONVERTER *self, const ELEMENT *node,
 {
 }
 
+void
+plaintext_format_error_outside_of_any_node (CONVERTER *self,
+                                            const ELEMENT *element)
+{
+}
+
 /* format_* dispatch table between plaintext and info.  Should be in sync with
    enum converter_format */
 static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
   {&plaintext_format_ref, &plaintext_format_node,
-   &plaintext_format_printindex, },
+   &plaintext_format_printindex,
+   &plaintext_format_error_outside_of_any_node, },
   {&info_format_ref, &info_format_node,
-   &info_format_printindex,  }
+   &info_format_printindex,
+   info_format_error_outside_of_any_node, }
 };
 
 
@@ -1835,7 +1846,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             }
         }
       else if (cmd == CM_node)
-        plaintext_functions[self->format].format_node (self, element, 0);
+        {
+          self_plaintext->current_node = element;
+          plaintext_functions[self->format].format_node (self, element, 0);
+        }
       /* else if sectioning_heading_commands */
       /* else if item or itemx */
       else if (cmd == CM_headitem || cmd == CM_item || cmd == CM_tab)
