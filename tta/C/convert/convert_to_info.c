@@ -793,6 +793,9 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
   char *node_name;
   ELEMENT *node_element = 0;
   int quoting_required = 0;
+  int warn_special_char
+    = (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer > 0
+       && !self_plaintext->silent);
 
   /* no args may happen with bogus @-commands without argument, maybe only
      at the end of a document */
@@ -895,23 +898,29 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
   if (name)
     {
       int name_quoting_required = 0;
-   /* Convert line for sole purpose of checking if the output contains
-      a colon.  Output may differ slightly from the current formatting
-      context (e.g if inside @sc) but this should not make a difference. */
-   /* TODO convert_line_new_context
-    my ($name_text_checked, undef) = $self->convert_line_new_context($name);
 
-    if ($name_text_checked =~ /:/m) {
-      if ($self->{'info_special_chars_warning'}) {
-        $self->plaintext_line_warn($self, sprintf(__(
-           "\@%s cross-reference name should not contain `:'"),
-                                 $cmdname), $element->{'source_info'});
-      }
-      if ($self->{'info_special_chars_quote'}) {
-        $quoting_required = 1;
-      }
-    }
-    */
+      if (warn_special_char
+          || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+        {
+  /* Convert line for sole purpose of checking if the output contains
+     a colon.  Output may differ slightly from the current formatting
+     context (e.g if inside @sc) but this should not make a difference. */
+          STRING_COUNT_LINE_COUNT name_text_checked;
+          plaintext_convert_line_new_context (self, name, -1, -1,
+                                              &name_text_checked);
+          if (strpbrk (name_text_checked.string, ":"))
+            {
+              if (warn_special_char)
+                message_list_command_warn (&self->error_messages,
+                     (self->conf && self->conf->DEBUG.o.integer > 0),
+                           element, 0,
+                    "@%s cross-reference name should not contain `:'",
+                          builtin_command_name(cmd));
+
+              if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+                quoting_required = 1;
+            }
+        }
 
     /* do the actual output of name */
       if (name_quoting_required)
@@ -984,19 +993,22 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
     }
   else if (label_element)
     {
-  /* TODO convert_line_new_context silent
-    $self->{'silent'} = 0 if (!defined($self->{'silent'}));
-    $self->{'silent'}++;
+      STRING_COUNT_LINE_COUNT node_text_checked;
+      ELEMENT *node_code_element = new_element (ET__code);
+      add_to_contents_as_array (node_code_element,
+                                (ELEMENT *)label_element);
 
-    ($node_name, undef) = $self->convert_line_new_context(
-        Texinfo::TreeElement::new({'type' => '_code',
-                                   'contents' => [$label_element]}),
-                                   0, undef,
+      self_plaintext->silent++;
+      plaintext_convert_line_new_context (self, node_code_element,
+                                           -1, -1,
+               /* TODO
                                   {'suppress_styles' => 1,
                                     'no_added_eol' => 1});
-    $self->{'silent'}--;
-   */
-    node_name = "toto.";
+                */
+                                          &node_text_checked);
+      self_plaintext->silent--;
+      destroy_element (node_code_element);
+      node_name = node_text_checked.string;
     }
   else
     node_name = "";
@@ -1016,7 +1028,9 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
       label_element = 0;
     }
 
-  if (label_element)
+  if (label_element
+      && (warn_special_char
+          || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0))
     {
       const char *check_chars;
       const char *p;
@@ -1030,15 +1044,12 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
 
       if (p)
         {
-          if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer > 0)
-            {
-              if (!self_plaintext->silent)
-                message_list_command_warn (&self->error_messages,
-                            (self->conf && self->conf->DEBUG.o.integer > 0),
-                           element, 0,
-                         "@%s node name should not contain `%c'",
-                          builtin_command_name(cmd), *p);
-            }
+          if (warn_special_char)
+            message_list_command_warn (&self->error_messages,
+                        (self->conf && self->conf->DEBUG.o.integer > 0),
+                       element, 0,
+                     "@%s node name should not contain `%c'",
+                      builtin_command_name(cmd), *p);
           if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
             quoting_required = 1;
         }
@@ -1196,11 +1207,12 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
   const char *output_filename;
   int is_target = (node->flags & EF_is_target);
   char *node_begin;
-  const char *check_chars = ",";
-  const char *p;
   int quoting_required = 0;
   STRING_WITH_WIDTH node_text;
   int i;
+  int warn_special_char
+    = (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer > 0
+       && !self_plaintext->silent);
   COUNT_CONTEXT *count_context
         = top_(count_context) (&self_plaintext->count_context);
 
@@ -1222,22 +1234,25 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
   stream_output (self, node_begin);
   free (node_begin);
 
-  p = strpbrk (node_text.string, check_chars);
-
-  if (p)
+  if (warn_special_char
+      || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
     {
-      if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer > 0)
+      const char *check_chars = ",";
+      const char *p = strpbrk (node_text.string, check_chars);
+
+      if (p)
         {
-          if (!self_plaintext->silent)
+          if (warn_special_char)
             message_list_command_warn (&self->error_messages,
                         (self->conf && self->conf->DEBUG.o.integer > 0),
                        node, 0,
                      "@node name should not contain `,': %s",
        /* FIXME there is a _decode() in Perl.  Gavin, is it needed? */
                       node_text.string);
+
+          if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+            quoting_required = 1;
         }
-      if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
-        quoting_required = 1;
     }
   if (quoting_required)
     stream_output_encoded (self, node_quote);
@@ -1304,28 +1319,30 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
 
               if (extra_identifier)
                 {
-                  const char *check_chars = ",";
-                  const char *p;
                   int quoting_required = 0;
 
                   plaintext_node_name (self, node_direction, &node_text);
 
-                  p = strpbrk (node_text.string, check_chars);
-
-                  if (p)
+                  if (warn_special_char
+                      || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
                     {
-                      if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer > 0)
+                      const char *check_chars = ",";
+                      const char *p = strpbrk (node_text.string,
+                                               check_chars);
+
+                      if (p)
                         {
-                          if (!self_plaintext->silent)
+                          if (warn_special_char)
                             message_list_command_warn (&self->error_messages,
                           (self->conf && self->conf->DEBUG.o.integer > 0),
                                        node, 0,
                           "@node %s name should not contain `,': %s",
          /* FIXME there is a _decode() in Perl.  Gavin, is it needed? */
                                directions[i], node_text.string);
+                          if (
+                       self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+                            quoting_required = 1;
                         }
-                      if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
-                        quoting_required = 1;
                     }
                   if (quoting_required)
                     stream_output_encoded (self, node_quote);

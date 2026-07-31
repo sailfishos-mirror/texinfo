@@ -527,6 +527,39 @@ plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
   pop_formatter (self);
 }
 
+/* convert with a line formatter in a new count context, not changing
+   the current context.  return the result of the conversion.
+ */
+void
+plaintext_convert_line_new_context (CONVERTER *self,
+                          const ELEMENT *converted,
+                          int indent_length, int indent_length_next,
+                           /* TODO $formatter_conf, */
+                          STRING_COUNT_LINE_COUNT *output)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  /* TODO encoding_disabled is set in Perl */
+  COUNT_CONTEXT new_count_context = { 0 };
+  FORMATTER formatter = new_formatter(self, formatter_line, indent_length,
+                                      indent_length_next);
+  const char *end_line;
+
+  add_(count_context) (&self_plaintext->count_context, new_count_context);
+  push_formatter (self, &formatter);
+
+  convert_to_plaintext_internal (self, converted);
+  end_line = para_end_line ();
+  stream_output (self, end_line);
+
+  output->string = stream_yield_result (self);
+  output->count = para_counter ();
+  output->line_count = new_count_context.lines;
+
+  para_destroy ();
+  pop_formatter (self);
+  pop_count_context (&self_plaintext->count_context);
+}
+
 /* TODO decode */
 
 /* TODO string_width_encoded */
@@ -1045,14 +1078,14 @@ plaintext_process_printindex (CONVERTER *self,
             {
               ELEMENT *tree = cdt_tree ("outside_of_any_node_text",
                                         self, 0 ,0);
-              /* TODO
-        my ($node_text, $width)
-          = $self->convert_line_new_context($tree);
-        $self->{'outside_of_any_node_text'} = $node_text;
-        $self->{'outside_of_any_node_text_width'} = $width;
-             */
-              self_plaintext->outside_of_any_node_text = strdup ("outside of any node");
-              self_plaintext->outside_of_any_node_text_width = strlen ("outside of any node");
+              STRING_COUNT_LINE_COUNT node_text;
+              plaintext_convert_line_new_context (self, tree,
+                                                  -1, -1,
+                                                  &node_text);
+
+              self_plaintext->outside_of_any_node_text = node_text.string;
+              self_plaintext->outside_of_any_node_text_width
+                 = node_text.count;
             }
           stream_output (self, self_plaintext->outside_of_any_node_text);
           line_width += self_plaintext->outside_of_any_node_text_width;

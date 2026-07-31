@@ -23,6 +23,12 @@
 #define HF_style_command         0x0100
 */
 
+typedef struct STRING_COUNT_LINE_COUNT {
+    char *string;
+    int count;
+    int line_count;
+} STRING_COUNT_LINE_COUNT;
+
 void plaintext_format_setup (enum converter_format format);
 
 CONVERTER_INITIALIZATION_INFO *plaintext_converter_defaults
@@ -59,6 +65,11 @@ void stream_output_add_next (CONVERTER *self, const char *text);
 const char *stream_result (CONVERTER *self);
 char *stream_yield_result (CONVERTER *self);
 
+void plaintext_convert_line_new_context (CONVERTER *self,
+                          const ELEMENT *converted,
+                          int indent_length, int indent_length_next,
+                           /* TODO $formatter_conf, */
+                          STRING_COUNT_LINE_COUNT *output);
 void plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
                              int indent_length, int indent_length_next);
 
