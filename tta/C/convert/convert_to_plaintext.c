@@ -69,6 +69,24 @@ static const enum command_id contents_commands[]
 
 static COMMAND_ID_LIST format_raw_cmd;
 
+/* Only used in this file */
+struct style_map {
+  enum command_id cmd;
+  const char *pre;
+  const char *post;
+};
+
+static struct style_map style_map[] =
+{
+  {CM_strong, "*", "*"},
+  {CM_emph, "_", "_"},
+  {CM_key, "<", ">"},
+  {CM_sub, "_{", "}"},
+  {CM_sup, "^{", "}"},
+};
+/* TODO also asis_commands */
+
+
 static PLAINTEXT_COMMAND_STRUCT plaintext_commands_data[BUILTIN_CMD_NUMBER];
 
 /* dispatch of formatting functions that are either for plaintext or
@@ -222,6 +240,17 @@ plaintext_get_informative_global_commands (void)
   return informative_global_commands;
 }
 
+/* Can be used to sort structures whose first field is an
+   enum command_id. */
+int
+compare_cmd_id_fn (const void *a, const void *b)
+{
+  const enum command_id *cmd1 = a;
+  const enum command_id *cmd2 = b;
+
+  return (*cmd1 - *cmd2) - (*cmd2 - *cmd1);
+}
+
 /* set information that is independent of customization, only called once */
 void
 plaintext_format_setup (enum converter_format format)
@@ -318,7 +347,13 @@ plaintext_format_setup (enum converter_format format)
 
   for (i = 0; (quoted_commands[i]); i++)
     plaintext_commands_data[quoted_commands[i]].flags |= PF_quoted;
-  /* TODO set up style map for @strong etc. */
+
+  /* Sort style_map by command. */
+  int n = sizeof(style_map) / sizeof(style_map[0]);
+  qsort (style_map, n, sizeof(style_map[0]), &compare_cmd_id_fn);
+
+  for (i = 0; i < n; i++)
+    plaintext_commands_data[style_map[i].cmd].flags |= PF_style_map;
 }
 
 void
@@ -1690,8 +1725,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         return;
       else if (cmd_data->flags & CF_brace)
         {
-          if ( /* style_map || */
-              plaintext_commands_data[cmd].flags & PF_quoted
+          if ((plaintext_commands_data[cmd].flags & (PF_quoted | PF_style_map))
               || cmd == CM_dfn /* %double_quoted_commands in Perl */)
             {
               /* TODO check brace_code_commands */
@@ -1700,7 +1734,27 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               /* TODO @w */
               /* TODO non_quoted_commands_when_nested */
               const char *text_before = NULL, *text_after = NULL;
-              if (plaintext_commands_data[cmd].flags & PF_quoted)
+              if (plaintext_commands_data[cmd].flags & PF_style_map)
+                {
+                  /* Look up in style map by linear search.
+                     Binary search would also be possible, although the
+                     array is not very big. */
+                  int n = sizeof(style_map) / sizeof(style_map[0]);
+                  int i;
+                  for (i = 0; i < n; i++)
+                    {
+                      if (style_map[i].cmd == cmd)
+                        break;
+                    }
+                  if (i < n)
+                    {
+                      text_before = style_map[i].pre;
+                      text_after = style_map[i].post;
+                    }
+                  else
+                    ; /* bug */
+                }
+              else if (plaintext_commands_data[cmd].flags & PF_quoted)
                 {
                   text_before = "`"; /* TODO */
                   text_after = "'"; /* TODO */

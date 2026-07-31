@@ -1,5 +1,16 @@
 2026-07-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	C plaintext converter: initial style map implementation
+
+	* tta/C/convert/convert_to_plaintext.c
+	(struct style_map): Add type.
+	(style_map): Add array.
+	(plaintext_format_setup): Sort style_map array, and set PF_style_map
+	command for commands listed therein.
+	(convert_to_plaintext): Check PF_style_map and retrieve style map data.
+
+2026-07-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/C/convert/convert_to_plaintext.c: remove superannuated comment.
 
 2026-07-31  Gavin Smith <gavinsmith0123@gmail.com>
