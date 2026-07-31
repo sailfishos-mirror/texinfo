@@ -1693,8 +1693,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         return;
       else if (cmd_data->flags & CF_brace)
         {
-          if ((plaintext_commands_data[cmd].flags & PF_quoted)
-              /* ||  style_map */ )
+          if ( /* style_map || */
+              plaintext_commands_data[cmd].flags & PF_quoted
+              || cmd == CM_dfn /* %double_quoted_commands in Perl */)
             {
               /* TODO check brace_code_commands */
               /* TODO check style_no_code */
@@ -1702,11 +1703,15 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               /* TODO @w */
               /* TODO non_quoted_commands_when_nested */
               const char *text_before = NULL, *text_after = NULL;
-              if (1)
-              /* if (plaintext_commands_data[quoted_commands[i].flags | PF_quoted) */
+              if (plaintext_commands_data[cmd].flags & PF_quoted)
                 {
                   text_before = "`"; /* TODO */
                   text_after = "'"; /* TODO */
+                }
+              else if (cmd == CM_dfn)
+                {
+                  text_before = "\""; /* TODO */
+                  text_after = "\""; /* TODO */
                 }
               TEXT added = para_add_next (text_before,
                                           strlen (text_before), 1);
