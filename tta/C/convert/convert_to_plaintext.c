@@ -81,9 +81,6 @@ typedef struct PLAINTEXT_FORMAT_FUNCTIONS {
     void (* format_printindex) (CONVERTER *self, const ELEMENT *element);
 } PLAINTEXT_FORMAT_FUNCTIONS;
 
-/* Data structure utilities.  These could possibly be placed in a
-   separate file, or defined with macros in list_macros.h. */
-
 void
 reset_count_context_stack (COUNT_CONTEXT_STACK *stack)
 {
