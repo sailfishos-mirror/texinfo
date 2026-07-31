@@ -326,7 +326,6 @@ foreach my $type (
 # All those commands run with the text.
 my %command_style_map = (
   'strong' => '*',
-  'dfn'    => '"',
   'emph'   => '_',
 );
 
@@ -343,8 +342,6 @@ my @asis_commands = ('asis', 'w', 'b', 'i', 't', 'r', 'slanted', 'sansserif',
 foreach my $asis_command (@asis_commands) {
   $style_map{$asis_command} = ['', ''];
 }
-
-my @double_quoted_commands = ('dfn');
 
 $style_map{'key'} = ['<', '>'];
 $style_map{'sub'} = ['_{', '}'];
@@ -364,6 +361,8 @@ for my $quoted_command ('cite', 'code', 'command', 'env', 'file',
 # always quoted even when nested
 delete $non_quoted_commands_when_nested{'samp'};
 delete $non_quoted_commands_when_nested{'indicateurl'};
+
+my %double_quoted_commands = ('dfn' => 1);
 
 # Commands producing styles that are output in node names and index entries.
 my %index_style_commands;
@@ -469,13 +468,13 @@ sub conversion_initialization($;$) {
   # for INFO_MATH_IMAGES
   #$self->{'elements_images'};
 
-  %{$self->{'style_map'}} = %style_map;
-
   Texinfo::Convert::Utils::output_files_disable_output_encoding
     ($self->{'output_files'}, 1);
 
   $self->{'open_quote'} = "'";
   $self->{'close_quote'} = "'";
+  $self->{'open_double_quote'} = '"';
+  $self->{'close_double_quote'} = '"';
 
   if ($self->get_conf('ENABLE_ENCODING')) {
     my $enabled_encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
@@ -487,10 +486,9 @@ sub conversion_initialization($;$) {
         # Directed single quotes
         $self->{'open_quote'} = "\x{2018}";
         $self->{'close_quote'} = "\x{2019}";
-        foreach my $quoted_command (@double_quoted_commands) {
-          # Directed double quotes
-          $self->{'style_map'}->{$quoted_command} = ["\x{201C}", "\x{201D}"];
-        }
+        # Directed double quotes
+        $self->{'open_double_quote'} = "\x{201C}";
+        $self->{'close_double_quote'} = "\x{201D}";
       }
     }
   }
@@ -502,16 +500,10 @@ sub conversion_initialization($;$) {
   }
 
   if (defined($self->get_conf('OPEN_DOUBLE_QUOTE_SYMBOL'))) {
-    foreach my $quoted_command (@double_quoted_commands) {
-      $self->{'style_map'}->{$quoted_command}->[0]
-       = $self->get_conf('OPEN_DOUBLE_QUOTE_SYMBOL');
-    }
+    $self->{'open_double_quote'} = $self->get_conf('OPEN_DOUBLE_QUOTE_SYMBOL');
   }
   if (defined($self->get_conf('CLOSE_DOUBLE_QUOTE_SYMBOL'))) {
-    foreach my $quoted_command (@double_quoted_commands) {
-      $self->{'style_map'}->{$quoted_command}->[1]
-       = $self->get_conf('CLOSE_DOUBLE_QUOTE_SYMBOL');
-    }
+    $self->{'close_double_quote'} = $self->get_conf('CLOSE_DOUBLE_QUOTE_SYMBOL');
   }
 
   # some caching to avoid calling get_conf
@@ -3107,9 +3099,11 @@ sub _convert($$) {
                                 $element->{'extra'}->{'end'}, 1));
       return;
     } elsif (exists($brace_commands{$cmdname})) {
-      my $is_quoted_command;
-      if (($is_quoted_command = exists($quoted_commands{$cmdname}))
-            or exists($self->{'style_map'}->{$cmdname})) {
+      my ($is_quoted_command, $is_double_quoted_command);
+      if (exists($style_map{$cmdname})
+            or ($is_quoted_command = exists($quoted_commands{$cmdname}))
+            or ($is_double_quoted_command
+                = exists($double_quoted_commands{$cmdname}))) {
         if (exists($brace_code_commands{$cmdname})) {
           if (!$formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
             push @{$formatter->{'font_type_stack'}}, {'monospace' => 1};
@@ -3142,12 +3136,19 @@ sub _convert($$) {
                  and !exists($index_style_commands{$cmdname})) {
           $text_before = '';
           $text_after = '';
+        } elsif (exists($style_map{$cmdname})) {
+          $text_before = $style_map{$cmdname}->[0];
+          $text_after = $style_map{$cmdname}->[1];
         } elsif ($is_quoted_command) {
           $text_before = $self->{'open_quote'};
           $text_after = $self->{'close_quote'};
+        } elsif ($is_double_quoted_command) {
+          $text_before = $self->{'open_double_quote'};
+          $text_after = $self->{'close_double_quote'};
         } else {
-          $text_before = $self->{'style_map'}->{$cmdname}->[0];
-          $text_after = $self->{'style_map'}->{$cmdname}->[1];
+          # bug
+          $text_before = '';
+          $text_after = '';
         }
         # do this after determining $text_before/$text_after such that it
         # doesn't impact the current command, but only commands nested within
