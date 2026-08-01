@@ -25,6 +25,7 @@
 #undef context
 
 #include <stdio.h>
+#include <string.h>
 #include <errno.h>
 
 /* non_perl_* has_perl_interpreter */

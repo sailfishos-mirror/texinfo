@@ -2,6 +2,8 @@
 #ifndef HTML_PREPARE_CONVERTER_H
 #define HTML_PREPARE_CONVERTER_H
 
+#include <stddef.h>
+
 #include "command_ids.h"
 #include "converter_types.h"
 /* htmlxref_split_type_chapter */

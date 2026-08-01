@@ -23,6 +23,7 @@
 /* for iconv_t */
 #include <iconv.h>
 
+#include "text.h"
 #include "element_types.h"
 #include "command_ids.h"
 #include "tree_types.h"

@@ -13,7 +13,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-/* needed for vasprintf which may come from Gnulib */
+/* needed for vasprintf which may come from Gnulib, and also for
+   xs_utils.h to have config.h loaded before Gnulib header files */
 #include <config.h>
 
 #include <stdlib.h>

@@ -18,9 +18,9 @@
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 #include "command_ids.h"
+#include "text.h"
 #include "tree_types.h"
 #include "converter_types.h"
-#include "html_converter_types.h"
 #include "html_converter_state.h"
 
 /* NOTE the intermediate level functions are declared in

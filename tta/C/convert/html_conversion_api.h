@@ -20,8 +20,9 @@
 /* HTML functions that are needed to implement converter_initialize()
    and conversion with output() or convert() */
 
-#include "tree_types.h"
 #include "option_types.h"
+#include "options_data.h"
+#include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
 /* for FILE_SOURCE_INFO_LIST */

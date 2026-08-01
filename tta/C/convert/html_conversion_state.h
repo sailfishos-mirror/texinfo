@@ -2,7 +2,16 @@
 #ifndef HTML_CONVERSION_STATE_H
 #define HTML_CONVERSION_STATE_H
 
+#include <stddef.h>
+
+#include "element_types.h"
+#include "command_ids.h"
+#include "tree_types.h"
+#include "document_types.h"
+#include "converter_types.h"
 #include "html_converter_types.h"
+/* for HTML_PENDING_FOOTNOTE_STACK */
+#include "html_converter_state.h"
 
 void html_new_document_context (CONVERTER *self,
         const char *context_name, unsigned long context_type,

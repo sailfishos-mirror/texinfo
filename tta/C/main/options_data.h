@@ -3,6 +3,8 @@
 #ifndef OPTIONS_DATA_H
 #define OPTIONS_DATA_H
 
+#include <stddef.h>
+
 #include "option_types.h"
 
 /* Undefine values set from autoconf as we use these as

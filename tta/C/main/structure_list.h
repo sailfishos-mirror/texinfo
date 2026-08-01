@@ -4,9 +4,9 @@
 
 #include <stddef.h>
 
-#include "text.h"
 #include "tree_types.h"
 #include "document_types.h"
+#include "list_macros.h"
 
 NODE_RELATIONS_LIST *new_node_relations_list (void);
 CONST_NODE_RELATIONS_LIST *new_const_node_relations_list (void);

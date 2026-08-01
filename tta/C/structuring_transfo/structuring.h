@@ -2,7 +2,6 @@
 #ifndef STRUCTURING_H
 #define STRUCTURING_H
 
-#include "command_ids.h"
 #include "options_data.h"
 #include "tree_types.h"
 #include "document_types.h"

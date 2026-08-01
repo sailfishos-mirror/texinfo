@@ -2,7 +2,6 @@
 #ifndef PARSER_API_H
 #define PARSER_API_H
 
-#include "tree_types.h"
 #include "document_types.h"
 #include "option_types.h"
 

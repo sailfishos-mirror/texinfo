@@ -2,8 +2,6 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include <stddef.h>
-
 #include "source_mark_types.h"
 #include "tree_types.h"
 

@@ -3,7 +3,7 @@
 #define UNICODE_H
 
 #include <stddef.h>
-#include <unitypes.h>
+#include <stdint.h>
 
 #include "command_ids.h"
 #include "tree_types.h"

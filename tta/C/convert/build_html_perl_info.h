@@ -7,6 +7,8 @@
 
 #include "tree_types.h"
 #include "converter_types.h"
+/* for HTMLXREF_MANUAL_LIST FILE_SOURCE_INFO_LIST ... */
+#include "html_converter_state.h"
 
 void html_pass_htmlxref (HTMLXREF_MANUAL_LIST *htmlxref_list, SV *converter_sv);
 

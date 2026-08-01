@@ -2,6 +2,9 @@
 #ifndef MANIPULATE_INDICES_H
 #define MANIPULATE_INDICES_H
 
+#include <stddef.h>
+
+#include "command_ids.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"

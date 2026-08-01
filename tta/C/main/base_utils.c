@@ -25,10 +25,10 @@
   #include <config.h>
 #endif
 
+#include <stddef.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdio.h>
-#include <stddef.h>
 
 void bug (char *message)
 {

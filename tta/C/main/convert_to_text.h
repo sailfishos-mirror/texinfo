@@ -2,8 +2,6 @@
 #ifndef CONVERT_TO_TEXT_H
 #define CONVERT_TO_TEXT_H
 
-#include <stddef.h>
-
 #include "options_data.h"
 #include "tree_types.h"
 #include "document_types.h"

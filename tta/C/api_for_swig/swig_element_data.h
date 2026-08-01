@@ -2,6 +2,7 @@
 #ifndef SWIG_ELEMENT_DATA_H
 #define SWIG_ELEMENT_DATA_H
 
+#include "tree_types.h"
 #include "swig_element_types.h"
 
 #define cm_flag(name) \

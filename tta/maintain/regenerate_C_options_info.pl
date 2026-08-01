@@ -182,6 +182,7 @@ print HEADER "/* Automatically generated from $program_name */\n\n";
 
 print HEADER "#ifndef OPTIONS_DATA_H\n#define OPTIONS_DATA_H\n\n";
 
+print HEADER "#include <stddef.h>\n\n";
 print HEADER "#include \"option_types.h\"\n\n";
 
 print HEADER "/* Undefine values set from autoconf as we use these as\n";

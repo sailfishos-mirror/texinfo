@@ -16,8 +16,6 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#include "element_types.h"
-
 typedef struct types_struct {
   char *name;
   unsigned long flags;

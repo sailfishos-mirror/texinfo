@@ -2,12 +2,8 @@
 #ifndef SWIG_PARSER_API_H
 #define SWIG_PARSER_API_H
 
-#include <stddef.h>
-
-#include "source_mark_types.h"
 #include "tree_types.h"
 #include "document_types.h"
-#include "swig_error_messages_types.h"
 
 PARSER *txi_ext_parser (void);
 void txi_ext_destroy_parser (PARSER *parser);

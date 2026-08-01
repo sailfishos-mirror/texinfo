@@ -5,6 +5,8 @@
 #include "EXTERN.h"
 #include "perl.h"
 
+#include <stddef.h>
+
 #include "tree_types.h"
 #include "document_types.h"
 

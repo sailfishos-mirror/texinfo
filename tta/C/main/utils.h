@@ -18,7 +18,6 @@
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 #include <stddef.h>
-#include <stdarg.h>
 /* for iconv_t */
 #include <iconv.h>
 /* for S_ISDIR, S_IFDIR and S_IFMT */
@@ -32,6 +31,7 @@
 #include "options_data.h"
 #include "document_types.h"
 #include "converter_types.h"
+#include "list_macros.h"
 
 #define gdt_noop(String) String
 /* only used for def_aliases.  Inverse the arguments to match with the

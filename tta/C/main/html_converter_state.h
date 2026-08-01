@@ -23,6 +23,9 @@
 #include "html_conversion_data.h"
 #include "element_types.h"
 #include "command_ids.h"
+/* for HTT_* enum html_text_type */
+#include "option_types.h"
+#include "text.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "list_macros.h"

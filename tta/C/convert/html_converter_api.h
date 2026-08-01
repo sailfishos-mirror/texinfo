@@ -19,9 +19,9 @@
 
 /* High-level API of HTML converter */
 
+#include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
-#include "option_types.h"
 
 /* in html_prepare_converter.c */
 void html_format_setup (enum converter_format format);

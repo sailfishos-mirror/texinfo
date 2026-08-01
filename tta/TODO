@@ -1259,6 +1259,21 @@ In tta/tests/, generate Texinfo file for Texinfo TeX coverage
 From doc/
 texi2pdf -I ../tta/tests/layout/ ../tta/tests/formatting_valid.texi
 
+Check includes with iwyu
+rm -rf ../res_iwyu_hdr
+mkdir ../res_iwyu_hdr
+
+for file in */*.h ; do bfile=`basename $file .h`; include-what-you-use -DDATADIR='"/usr"' -I ../ -I main $file 2>../res_iwyu_hdr/$bfile.2 ; done
+
+for file in main/build_perl_info.h main/get_perl_info.h */build_html_perl_info.h *//build_html_perl_state.h */build_perl_tree_elements.h convert/get_converter_perl_info.h */get_perl_tree_elements.h ../perl/XSTexinfo/*/*.h ; do bfile=`basename $file .h`; include-what-you-use -I . -I main -I convert -D_LARGEFILE64_SOURCE -I /usr/lib/x86_64-linux-gnu/perl/5.42.2/CORE/ $file 2>../res_iwyu_hdr/$bfile.2 ; done
+
+rm -rf ../res_iwyu_code
+mkdir ../res_iwyu_code
+
+include-what-you-use -I . -D_LARGEFILE64_SOURCE -I /usr/lib/x86_64-linux-gnu/perl/5.42.2/CORE/ main/api_to_perl.c
+
+include-what-you-use -DDATADIR='"/usr"' -I ../ main/utils.c
+
 To generate valgrind .supp rules: --gen-suppressions=all --log-file=gen_supp_rules.log
 
 Check memory leaks

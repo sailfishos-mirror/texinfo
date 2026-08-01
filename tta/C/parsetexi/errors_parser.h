@@ -2,8 +2,6 @@
 #ifndef PARSER_ERRORS_H
 #define PARSER_ERRORS_H
 
-#include <stdarg.h>
-
 #include "tree_types.h"
 #include "document_types.h"
 

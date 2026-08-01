@@ -13,7 +13,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 /* Avoid namespace conflicts. */
 #define context perl_context
@@ -28,6 +29,7 @@
 #include "text.h"
 #include "command_ids.h"
 #include "tree_types.h"
+#include "option_types.h"
 #include "options_data.h"
 #include "document_types.h"
 #include "converter_types.h"
@@ -37,8 +39,6 @@
 #include "xs_utils.h"
 /* fatal */
 #include "base_utils.h"
-#include "tree.h"
-#include "extra.h"
 #include "builtin_commands.h"
 #include "debug.h"
 /* add_include_directory add_string ... */

@@ -16,7 +16,7 @@ void txi_ext_text_options_set_##name (struct TEXT_OPTIONS *text_options, int i);
  TEXT_INDICATOR_CONVERTER_OPTIONS
 #undef tico_option_name
 
-void txi_ext_text_options_set_encoding (TEXT_OPTIONS *text_options,
+void txi_ext_text_options_set_encoding (struct TEXT_OPTIONS *text_options,
                                         const char *encoding);
 
 void txi_ext_text_options_clear_expanded_formats (

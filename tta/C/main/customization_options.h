@@ -21,7 +21,9 @@
 
 #include "option_types.h"
 #include "options_data.h"
+#include "global_commands_types.h"
 #include "command_ids.h"
+#include "tree_types.h"
 /* for enum command_location */
 #include "document_types.h"
 #include "converter_types.h"

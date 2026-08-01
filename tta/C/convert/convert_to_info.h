@@ -2,6 +2,8 @@
 #ifndef CONVERT_TO_INFO_H
 #define CONVERT_TO_INFO_H
 
+#include "command_ids.h"
+#include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
 

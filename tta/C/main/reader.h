@@ -3,10 +3,10 @@
 #define READER_H
  
 #include <stddef.h>
+#include <sys/types.h>
  
 #include "reader_types.h"
 #include "tree_types.h"
-#include "document_types.h"
 
 typedef struct READER_CONTEXT {
     ssize_t index;

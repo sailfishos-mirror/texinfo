@@ -3,11 +3,14 @@
 #define CONVERTER_H
 
 #include <stddef.h>
+/* for FILE */
+#include <stdio.h>
 
 #include "text.h"
 #include "command_ids.h"
 #include "option_types.h"
 #include "tree_types.h"
+#include "document_types.h"
 #include "converter_types.h"
 
 /* to avoid a dependency on convert_to_text.h */

@@ -16,18 +16,24 @@
 /* code that does not fit anywhere else */
 
 /* includes config.h */
-#include <system.h>
+#include "system.h"
 
+#include <stddef.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdio.h>
+/* for strcasecmp */
+#include <strings.h>
 #include <sys/stat.h>
+#include <stdarg.h>
 #include <iconv.h>
 #include <errno.h>
 #include "unistr.h"
 #include "unicase.h"
 #include "uniwidth.h"
+#include <unitypes.h>
 #include <unictype.h>
 /* for euidaccess.  Not portable, use gnulib */
 #include <unistd.h>
@@ -52,6 +58,7 @@
 /* for CL_* */
 #include "document_types.h"
 #include "converter_types.h"
+#include "html_converter_state.h"
 /* isascii_alnum isascii_alpha isascii_upper */
 #include "base_utils.h"
 #include "hashmap.h"
@@ -59,10 +66,10 @@
 #include "extra.h"
 #include "builtin_commands.h"
 #include "debug.h"
-#include "api_to_perl.h"
 /* push_stack_element */
 #include "command_stack.h"
 #include "unicode.h"
+#include "list_macros.h"
 #include "utils.h"
 
 #define min_level command_structuring_level[CM_chapter]

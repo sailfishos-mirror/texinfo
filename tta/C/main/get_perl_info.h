@@ -12,7 +12,6 @@
 #include "option_types.h"
 #include "options_data.h"
 #include "converter_types.h"
-#include "convert_to_text.h"
 
 /* in options_get_perl.c */
 void html_fill_sv_options (OPTIONS *options, const CONVERTER *converter);

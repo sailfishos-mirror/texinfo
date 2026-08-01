@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 
+#include "element_types.h"
 #include "command_ids.h"
 #include "options_data.h"
 #include "tree_types.h"

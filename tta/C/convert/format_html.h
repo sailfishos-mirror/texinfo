@@ -17,11 +17,17 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
+#include <stddef.h>
+
 #include "command_ids.h"
 #include "element_types.h"
+#include "option_types.h"
+#include "text.h"
 #include "tree_types.h"
+#include "document_types.h"
 #include "converter_types.h"
-#include "html_converter_types.h"
+/* for HTML_TARGET ... */
+#include "html_converter_state.h"
 
 typedef struct ROOT_AND_UNIT {
     const OUTPUT_UNIT *output_unit;

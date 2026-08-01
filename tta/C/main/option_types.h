@@ -19,6 +19,7 @@
 
 #include <stddef.h>
 
+#include "command_ids.h"
 #include "html_conversion_data.h"
 #include "tree_types.h"
 

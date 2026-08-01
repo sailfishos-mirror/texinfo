@@ -21,6 +21,7 @@
 
 #include <stddef.h>
 
+#include "element_types.h"
 #include "command_ids.h"
 #include "source_mark_types.h"
 #include "tree_types.h"

@@ -16,8 +16,6 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#include <stddef.h>
-
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"

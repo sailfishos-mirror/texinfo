@@ -2,8 +2,6 @@
 #ifndef SWIG_TEXT_OPTIONS_TYPES_H
 #define SWIG_TEXT_OPTIONS_TYPES_H
 
-#include "document_types.h"
-
 #define TEXT_INDICATOR_CONVERTER_OPTIONS \
   tico_option_name(ASCII_GLYPH) \
   tico_option_name(DEBUG) \

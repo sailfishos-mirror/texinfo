@@ -19,6 +19,7 @@
 
 /* PlainTexinfo Converter API */
 
+#include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
 

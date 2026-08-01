@@ -4,6 +4,9 @@
 
 #include <stddef.h>
 
+#include "element_types.h"
+#include "command_ids.h"
+#include "list_macros.h"
 #include "tree_types.h"
 
 /* Array of "associated info" key names, extra type and data. */

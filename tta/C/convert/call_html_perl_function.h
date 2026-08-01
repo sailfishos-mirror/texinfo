@@ -2,8 +2,14 @@
 #ifndef CALL_HTML_PERL_FUNCTION_H
 #define CALL_HTML_PERL_FUNCTION_H
 
-#include "tree_types.h"
+#include <stddef.h>
+
+#include "element_types.h"
+#include "command_ids.h"
 #include "option_types.h"
+#include "text.h"
+#include "tree_types.h"
+#include "document_types.h"
 #include "converter_types.h"
 #include "html_converter_state.h"
 

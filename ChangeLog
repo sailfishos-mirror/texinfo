@@ -1,3 +1,11 @@
+2026-08-01 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/*/*.*, tta/perl/XSTexinfo/convert/get_html_perl_info.h:
+	correct includes mainly for header files using include-what-you-use
+	from iwyu.  This leads to removing the include of config.h from
+	xs_utils.h, which is a good thing as the xs_utils.h file is included in
+	Perl C code that should not include Gnulib headers.
+
 2026-08-01  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Plaintext C converter: use curly quotes
@@ -151,8 +159,8 @@
 	outside_of_any_node_text.
 
 	* tta/C/convert/convert_to_info.c (info_format_ref, info_format_node):
-	do the check of chracter to quote in node names only if the node names
-	are quoted or there is a warning emitted.
+	do the check of character to quote in node names only if the node
+	names are quoted or there is a warning emitted.
 
 2026-07-31 Patrice Dumas  <pertusus@free.fr>
 
