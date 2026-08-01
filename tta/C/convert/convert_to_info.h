@@ -18,4 +18,6 @@ void info_format_error_outside_of_any_node (CONVERTER *self,
                                        const ELEMENT *element);
 void info_format_node (CONVERTER *self, const ELEMENT *node,
                        const NODE_RELATIONS *node_relations);
+void info_format_image_element (CONVERTER *self, const ELEMENT *element,
+                           STRING_LINE_COUNT *result);
 #endif

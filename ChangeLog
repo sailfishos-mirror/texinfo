@@ -1,3 +1,22 @@
+2026-08-01 Patrice Dumas  <pertusus@free.fr>
+
+	Info and plaintext C converter @image formatting
+
+	* tta/C/convert/converter.c (converter_txt_image_text): add.
+
+	* tta/C/convert/convert_to_info.c (protect_image_string)
+	(info_format_image, info_format_image_element),
+	tta/C/convert/convert_to_plaintext.c (PLAINTEXT_FORMAT_FUNCTIONS)
+	(plaintext_image_formatted_text, plaintext_format_image_element)
+	(plaintext_functions, convert_to_plaintext_internal),
+	tta/C/main/converter_types.h (STRING_LINE_COUNT): implement Info and
+	plaintext image formatting, add dispatch.  In Info, the result is
+	incorrect because NULL is used as a quoting character and the code is
+	not adapted to that.
+
+	* tta/C/convert/convert_to_info.c (info_format_node): check that
+	node_directions is set before accessing.
+
 2026-07-31 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_to_plaintext.c

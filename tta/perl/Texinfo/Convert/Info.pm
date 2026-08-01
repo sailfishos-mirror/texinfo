@@ -1009,6 +1009,8 @@ sub format_image($$$;$$$) {
     $result .= " text=\"$text\"";
   }
   $result .= "\x{00}\x{08}]";
+
+  return $result;
 }
 
 my @image_files_extensions = ('.png', '.jpg');

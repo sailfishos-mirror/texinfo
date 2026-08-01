@@ -1509,6 +1509,84 @@ node_information_filename (CONVERTER *self, const char *normalized,
 
 
 
+char *
+converter_txt_image_text (CONVERTER *self, const ELEMENT *element,
+                          const char *basefile, int *width_out)
+{
+  char *input_file_encoding;
+  char *txt_file;
+  char *image_text_file;
+  char *file_name;
+
+  xasprintf (&image_text_file, "%s.txt", basefile);
+
+  file_name = converter_encoded_input_file_name (self->conf,
+                    &self->document->global_info,
+                    image_text_file, 0, &input_file_encoding,
+                    &element->e.c->source_info);
+  free (input_file_encoding);
+
+  txt_file = locate_include_file (file_name,
+                                self->conf->INCLUDE_DIRECTORIES.o.strlist);
+  free (file_name);
+
+  if (txt_file)
+    {
+      FILE *filehandle = fopen (txt_file, "r");
+      if (filehandle)
+        {
+          ssize_t status;
+          char *line = 0;
+          size_t n = 1;
+          TEXT result;
+          int max_width = 0;
+
+          text_init (&result);
+          text_append (&result, "");
+
+          while (1)
+            {
+              status = getline (&line, &n, filehandle);
+              if (status != -1)
+                {
+                  int width = string_width_multibyte (line);
+                  if (width > max_width)
+                    max_width = width;
+                  text_append_n (&result, line, n);
+                  free (line);
+                  line = 0;
+                }
+              else
+                break;
+            }
+          free (line);
+
+          if (fclose (filehandle) == EOF)
+            {
+              message_list_command_warn (&self->error_messages,
+                        (self->conf && self->conf->DEBUG.o.integer > 0),
+                         element, 0,
+                         "error on closing image text file %s: %s",
+                         image_text_file, strerror (errno));
+            }
+          *width_out = max_width;
+          free (image_text_file);
+          return result.text;
+        }
+      else
+        {
+          message_list_command_warn (&self->error_messages,
+                        (self->conf && self->conf->DEBUG.o.integer > 0),
+                         element, 0,
+                         "@image file `%s' unreadable: %s",
+                         image_text_file, strerror (errno));
+        }
+    }
+  free (image_text_file);
+  *width_out = -1;
+  return 0;
+}
+
 ELEMENT *
 float_type_number (CONVERTER *self, const ELEMENT *float_e)
 {

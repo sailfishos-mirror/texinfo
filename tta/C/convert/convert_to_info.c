@@ -42,6 +42,7 @@
 #include "output_unit.h"
 #include "convert_utils.h"
 #include "converter.h"
+#include "convert_to_text.h"
 #include "convert_to_plaintext.h"
 #include "plaintext_paragraph.h"
 #include "convert_to_info.h"
@@ -1285,7 +1286,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
         node_relations = nodes_list->list[node_number -1];
     }
 
-  if (node_relations)
+  if (node_relations && node_relations->node_directions)
     {
       for (i = 0; directions[i]; i++)
         {
@@ -1383,4 +1384,245 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
     }
   stream_output (self, "\n\n");
   count_context->lines += 3;
+}
+
+#define QUOTE_SLASH "\\\""
+
+static void
+protect_image_string (const char *string, TEXT *result)
+{
+  const char *p;
+
+  if (!string)
+    return;
+
+  p = strpbrk (string, QUOTE_SLASH);
+  if (p)
+    {
+      if (p != string)
+        text_append_n (result, string, p - string);
+      while (1)
+        {
+          const char *q;
+          text_append_n (result, "\\", 1);
+          text_append_n (result, p, 1);
+          p++;
+          if (!*p)
+            return;
+          q = strpbrk (p, QUOTE_SLASH);
+          if (q)
+            {
+              if (q != p)
+                {
+                  text_append_n (result, p, q - p);
+                  p = q;
+                }
+            }
+          else
+            {
+              text_append (result, p);
+              return;
+            }
+        }
+    }
+  else
+    text_append (result, string);
+}
+
+char *
+info_format_image (CONVERTER *self, const char *image_file,
+                   const char *text, const char *alt,
+                  /* TODO not sure about dpi and depth types */
+                   const char *dpi, const char *depth)
+{
+  TEXT result;
+
+  text_init (&result);
+  text_append (&result, "");
+
+  text_append_n (&result, "\x00\x08[image src=\"", 14);
+  protect_image_string (image_file, &result);
+  text_append_n (&result, "\"", 1);
+
+  if (dpi)
+    {
+      int dpi_nr = strtol (dpi, NULL, 10);
+      if (dpi_nr > 0)
+        text_printf (&result, " dpi=%ld", dpi_nr);
+    }
+
+  if (depth)
+    {
+      int depth_nr = strtol (depth, NULL, 10);
+      if (depth_nr > 0)
+        text_printf (&result, " depth=%ld", depth_nr);
+    }
+
+  if (alt)
+    {
+      text_append_n (&result, " alt=\"", 6);
+      protect_image_string (alt, &result);
+      text_append_n (&result, "\"", 1);
+    }
+
+  if (text)
+    {
+      text_append_n (&result, " text=\"", 7);
+      protect_image_string (text, &result);
+      text_append_n (&result, "\"", 1);
+    }
+
+  text_append_n (&result, "\x00\x08]", 3);
+
+  return result.text;
+}
+
+static const char *image_files_extensions[] = {
+ ".png", ".jpg", 0
+};
+
+void
+info_format_image_element (CONVERTER *self, const ELEMENT *element,
+                           STRING_LINE_COUNT *result)
+{
+  if (element->e.c->contents.number > 0
+      && !empty_spaces_argument (element->e.c->contents.list[0]))
+    {
+      PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+      char *basefile;
+      size_t i;
+      STRING_LIST *extensions = new_string_list ();
+      char *image_file = 0;
+      char *text = 0;
+      char *alt = 0;
+      int no_align;
+      int lines_count = 0;
+      int width = 0;
+      const char *p;
+
+      self->convert_text_options->code_state++;
+      basefile = convert_to_text (element->e.c->contents.list[0],
+                                  self->convert_text_options);
+      self->convert_text_options->code_state--;
+
+      if (element->e.c->contents.number > 4
+          && element->e.c->contents.list[4]->e.c->contents.number > 0)
+        {
+          char *extension;
+          char *dot_extension;
+
+          self->convert_text_options->code_state++;
+          extension = convert_to_text (element->e.c->contents.list[4],
+                                       self->convert_text_options);
+          self->convert_text_options->code_state--;
+
+          xasprintf (&dot_extension, ".%s", extension);
+          add_string (dot_extension, extensions);
+          free (dot_extension);
+          add_string (extension, extensions);
+        }
+      for (i = 0; image_files_extensions[i]; i++)
+        add_string (image_files_extensions[i], extensions);
+
+      for (i = 0; i < extensions->number; i++)
+        {
+          char *located_image_path;
+          char *file_name;
+          char *input_file_encoding;
+
+          xasprintf (&image_file, "%s%s", basefile, extensions->list[i]);
+
+          file_name = converter_encoded_input_file_name (self->conf,
+                    &self->document->global_info,
+                    image_file, 0, &input_file_encoding,
+                    &element->e.c->source_info);
+          free (input_file_encoding);
+
+          located_image_path = locate_include_file (file_name,
+                                   self->conf->INCLUDE_DIRECTORIES.o.strlist);
+          free (file_name);
+
+          if (located_image_path)
+            {
+       /* use the basename and not the file found.  It is agreed that it is
+          better, since in any case the files are moved.
+        */
+              free (located_image_path);
+              break;
+            }
+          else
+            {
+              free (image_file);
+              image_file = 0;
+            }
+        }
+
+      text = converter_txt_image_text (self, element, basefile, &width);
+      if (text)
+        {
+          size_t text_len = strlen (text);
+          /* remove last end of line */
+          if (text_len > 0 && text[text_len - 1] == '\n')
+            text[text_len - 1] = '\0';
+        }
+
+      if (element->e.c->contents.number > 3
+          && element->e.c->contents.list[3]->e.c->contents.number > 0)
+        alt = convert_to_text (element->e.c->contents.list[3],
+                                       self->convert_text_options);
+
+      if (image_file || text || alt)
+        {
+          char *image_string = info_format_image (self, image_file,
+                                                  text, alt, 0, 0);
+          if (self_plaintext->formatters.number == 1)
+            {
+              xasprintf (&result->string, "%s\n", image_string);
+              free (image_string);
+            }
+          else
+            result->string = image_string;
+
+          no_align = 0;
+        }
+      else
+        {
+          no_align = 1;
+          result->string = plaintext_image_formatted_text (self, element,
+                                                       basefile, text);
+        }
+      free (basefile);
+
+      p = result->string;
+      while (1)
+        {
+          const char *q = strpbrk (p, "\n");
+          if (q)
+            {
+              lines_count++;
+              p = q +1;
+             /* FIXME there are '\0' in the image quote characters */
+              if (!*p)
+                break;
+            }
+          else
+            break;
+        }
+
+      result->line_count = lines_count;
+
+       /* TODO
+      plaintext_add_image (element, lines_count +1, width, no_align);
+        */
+
+      free (text);
+      free (alt);
+      free (image_file);
+
+      destroy_strings_list (extensions);
+
+      return;
+    }
+
+  memset (result, 0, sizeof (STRING_LINE_COUNT));
 }

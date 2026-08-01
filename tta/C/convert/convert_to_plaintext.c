@@ -51,6 +51,7 @@
 #include "convert_to_texinfo.h"
 #include "plaintext_paragraph.h"
 #include "converters_options.h"
+#include "convert_to_text.h"
 /* for write_or_return top_node_filename determine_files_and_directory
    create_destination_directory ... */
 #include "converter.h"
@@ -92,13 +93,15 @@ static PLAINTEXT_COMMAND_STRUCT plaintext_commands_data[BUILTIN_CMD_NUMBER];
 /* dispatch of formatting functions that are either for plaintext or
    Info output.  The table is below, after the functions definitions */
 typedef struct PLAINTEXT_FORMAT_FUNCTIONS {
-    void (* format_ref) (CONVERTER *self, enum command_id cmd,
-                         const ELEMENT *element);
+    void (* format_error_outside_of_any_node) (CONVERTER *self,
+                                               const ELEMENT *element);
+    void (* format_image_element) (CONVERTER *self, const ELEMENT *element,
+                                   STRING_LINE_COUNT *result);
     void (* format_node) (CONVERTER *self, const ELEMENT *element,
                           const NODE_RELATIONS *node_relations);
     void (* format_printindex) (CONVERTER *self, const ELEMENT *element);
-    void (* format_error_outside_of_any_node) (CONVERTER *self,
-                                               const ELEMENT *element);
+    void (* format_ref) (CONVERTER *self, enum command_id cmd,
+                         const ELEMENT *element);
 } PLAINTEXT_FORMAT_FUNCTIONS;
 
 void
@@ -1642,15 +1645,116 @@ plaintext_format_error_outside_of_any_node (CONVERTER *self,
 {
 }
 
+char *
+plaintext_image_formatted_text (CONVERTER *self, const ELEMENT *element,
+                                const char *basefile, const char *text)
+{
+  TEXT result;
+
+  if (text)
+    return strdup (text);
+
+  text_init (&result);
+
+  text_append_n (&result, "[", 1);
+  if (element->e.c->contents.number >= 4
+      && !empty_spaces_argument (element->e.c->contents.list[3]))
+    {
+      char *alt = convert_to_text (element->e.c->contents.list[3],
+                                       self->convert_text_options);
+      text_append (&result, alt);
+      free (alt);
+    }
+  else
+    text_append (&result, basefile);
+  text_append_n (&result, "]", 1);
+
+  return result.text;
+}
+
+void
+plaintext_format_image_element (CONVERTER *self, const ELEMENT *element,
+                                STRING_LINE_COUNT *result)
+{
+  if (element->e.c->contents.number > 0
+      && !empty_spaces_argument (element->e.c->contents.list[0]))
+    {
+      char *basefile;
+      char *text;
+      int width = -1;
+      const char *p;
+      int lines_count = 0;
+
+      self->convert_text_options->code_state++;
+      basefile = convert_to_text (element->e.c->contents.list[0],
+                                  self->convert_text_options);
+      self->convert_text_options->code_state--;
+
+      text = converter_txt_image_text (self, element, basefile, &width);
+
+      if (text)
+        {
+          size_t text_len = strlen (text);
+          /* remove last end of line */
+          if (text_len > 0 && text[text_len - 1] == '\n')
+            text[text_len - 1] = '\0';
+        }
+
+      result->string = plaintext_image_formatted_text (self, element,
+                                                       basefile, text);
+
+      if (width == -1)
+        width = string_width_multibyte (result->string);
+
+      p = result->string;
+      while (1)
+        {
+          const char *q = strpbrk (p, "\n");
+          if (q)
+            {
+              lines_count++;
+              p = q +1;
+             /* FIXME there are '\0' in the image quote characters */
+              if (!*p)
+                break;
+            }
+          else
+            break;
+        }
+
+      result->line_count = lines_count;
+   /* the last line is part of the image but do not have a new line,
+      so 1 is added to $lines_count to have the number of lines of
+      the image */
+    /* TODO
+    $self->add_image($element, $lines_count+1, $width);
+     */
+      free (basefile);
+
+      return;
+    }
+
+  memset (result, 0, sizeof (STRING_LINE_COUNT));
+}
+
+
 /* format_* dispatch table between plaintext and info.  Should be in sync with
    enum converter_format */
 static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
-  {&plaintext_format_ref, &plaintext_format_node,
+  {
+   &plaintext_format_error_outside_of_any_node,
+   &plaintext_format_image_element,
+   &plaintext_format_node,
    &plaintext_format_printindex,
-   &plaintext_format_error_outside_of_any_node, },
-  {&info_format_ref, &info_format_node,
+   &plaintext_format_ref,
+  },
+  {
+   &info_format_error_outside_of_any_node,
+   &info_format_image_element,
+   &info_format_node,
    &info_format_printindex,
-   info_format_error_outside_of_any_node, }
+   &info_format_ref,
+  }
 };
 
 
@@ -1805,7 +1909,37 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               return;
             }
           else if (cmd == CM_image)
-            return;
+            {
+              const char *pending_word;
+              STRING_LINE_COUNT image_result;
+
+              pending_word = para_add_pending_word (1);
+              stream_output_count_nl (self, pending_word);
+
+              /* add an empty word so that following spaces aren't lost */
+              para_add_next ("", 0, 0);
+              plaintext_functions[self->format].format_image_element (self,
+                                                   element, &image_result);
+
+       /* We do not how much horizontal space @image will take:
+            * In plain text output or standalone Info, the replacement
+              text will be used
+            * In Emacs Info, the image file may be displayed.
+          So if an @image is used inside a paragraph, we cannot break
+          the line in a place that will always work.
+          Here we just add a small number to the line counter as a compromise.
+          (However, multi-line replacement texts are unlikely to look good if
+          used inside a paragraph.) */
+              para_add_to_counter (3);
+              add_lines_count (self, image_result.line_count);
+              if (image_result.string)
+                {
+                  stream_output (self, image_result.string);
+
+                  free (image_result.string);
+                }
+              return;
+            }
           else if (cmd == CM_today)
             return;
           else if (cmd_data->data == BRACE_noarg)

@@ -55,6 +55,8 @@ void plaintext_node_name (CONVERTER *self, const ELEMENT *element,
                           STRING_WITH_WIDTH *string_result);
 void plaintext_process_printindex (CONVERTER *self,
                                    const ELEMENT *printindex, int in_info);
+char *plaintext_image_formatted_text (CONVERTER *self, const ELEMENT *element,
+                                      const char *basefile, const char *text);
 
 void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 /* TODO add plaintext_ prefix for all the functions? */
