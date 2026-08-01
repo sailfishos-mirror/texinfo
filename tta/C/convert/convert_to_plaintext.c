@@ -2044,13 +2044,15 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 }
               else if (plaintext_commands_data[cmd].flags & PF_quoted)
                 {
-                  text_before = "`"; /* TODO */
-                  text_after = "'"; /* TODO */
+                  text_before = "‘"; /* UTF-8 left single quotation mark */
+                  text_after = "’";  /* UTF-8 right single quotation mark */
+                  /* TODO */
                 }
               else if (cmd == CM_dfn)
                 {
-                  text_before = "\""; /* TODO */
-                  text_after = "\""; /* TODO */
+                  text_before = "“"; /* UTF-8 left double quotation mark */
+                  text_after = "”";  /* UTF-8 right double quotation mark */
+                  /* TODO */
                 }
               else if (plaintext_commands_data[cmd].flags & PF_asis)
                 {

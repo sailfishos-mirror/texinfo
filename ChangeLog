@@ -1,5 +1,12 @@
 2026-08-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Plaintext C converter: use curly quotes
+
+	* tta/C/convert/convert_to_plaintext.c (convert_to_plaintext_internal)
+	Hardcode use of UTF-8 curly quotes for now.
+
+2026-08-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Plaintext C converter asis_commands
 
 	* tta/C/convert/convert_to_plaintext.h (PF_asis): Add flag.
