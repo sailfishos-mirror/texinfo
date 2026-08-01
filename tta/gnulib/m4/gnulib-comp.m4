@@ -216,6 +216,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module uninorm/decompose-internal:
   # Code from module uninorm/decomposition:
   # Code from module uninorm/decomposition-table:
+  # Code from module uninorm/filter:
   # Code from module uninorm/nfc:
   # Code from module uninorm/nfd:
   # Code from module uninorm/nfkd:
@@ -829,6 +830,7 @@ AC_DEFUN([gl_INIT],
   gl_LIBUNISTRING_MODULE([1.3], [uninorm/composition])
   gl_LIBUNISTRING_MODULE([1.4], [uninorm/decomposition])
   AC_REQUIRE([AC_C_INLINE])
+  gl_LIBUNISTRING_MODULE([1.4], [uninorm/filter])
   gl_UNINORM_H_REQUIRE_DEFAULTS
   gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.4], [uninorm/nfc])
   gl_UNINORM_H_REQUIRE_DEFAULTS
@@ -1346,6 +1348,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/uninorm/u-normalize-internal.h
   lib/uninorm/u32-normalize.c
   lib/uninorm/u8-normalize.c
+  lib/uninorm/uninorm-filter.c
   lib/unistd.c
   lib/unistd.in.h
   lib/unistr.in.h

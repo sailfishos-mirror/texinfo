@@ -1,3 +1,11 @@
+2026-08-01  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Import uninorm/filter
+
+	* tta/: Run "gnulib-tool --add-import uninorm/filter".
+
+	For C collation code.
+
 2026-08-03 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/parsetexi/parser.c (add_preamble_lang_cmd): fix type name in

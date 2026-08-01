@@ -61,6 +61,7 @@
 #  unictype/property-join-control \
 #  unictype/property-test \
 #  unictype/property-unified-ideograph \
+#  uninorm/filter \
 #  uninorm/nfc \
 #  uninorm/nfd \
 #  uninorm/nfkd \
@@ -108,6 +109,7 @@ gl_MODULES([
   unictype/property-join-control
   unictype/property-test
   unictype/property-unified-ideograph
+  uninorm/filter
   uninorm/nfc
   uninorm/nfd
   uninorm/nfkd

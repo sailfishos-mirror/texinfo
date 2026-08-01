@@ -56,6 +56,7 @@
 #  unictype/property-join-control \
 #  unictype/property-test \
 #  unictype/property-unified-ideograph \
+#  uninorm/filter \
 #  uninorm/nfc \
 #  uninorm/nfd \
 #  uninorm/nfkd \
@@ -2761,6 +2762,16 @@ libgnu_la_SOURCES += uninorm/decomposition-table.c
 EXTRA_DIST += uninorm/decomposition-table.h uninorm/decomposition-table1.h uninorm/decomposition-table2.h
 
 ## end   gnulib module uninorm/decomposition-table
+
+## begin gnulib module uninorm/filter
+
+if LIBUNISTRING_COMPILE_UNINORM_FILTER
+libgnu_la_SOURCES += uninorm/uninorm-filter.c
+endif
+
+EXTRA_DIST += uninorm/normalize-internal.h
+
+## end   gnulib module uninorm/filter
 
 ## begin gnulib module uninorm/nfc
 
