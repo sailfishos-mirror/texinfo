@@ -13,7 +13,9 @@
 #define PF_ignored                0x0002
 #define PF_format_raw             0x0004
 #define PF_style_map              0x0008
-#define PF_quoted                 0x0010
+#define PF_asis                   0x0010
+#define PF_quoted                 0x0020
+
 /*
 #define HF_pre_class            0x0008
 #define HF_small_block_command  0x0010

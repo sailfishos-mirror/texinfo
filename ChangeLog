@@ -1,5 +1,14 @@
 2026-08-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Plaintext C converter asis_commands
+
+	* tta/C/convert/convert_to_plaintext.h (PF_asis): Add flag.
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_format_setup): Set PF_asis on some commands.
+	(convert_to_plaintext_internal): Update.
+
+2026-08-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Separate asis_commands from style_map
 
 	* tta/perl/Texinfo/Convert/Plaintext.pm

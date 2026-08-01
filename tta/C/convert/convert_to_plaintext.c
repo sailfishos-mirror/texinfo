@@ -85,7 +85,6 @@ static struct style_map style_map[] =
   {CM_sub, "_{", "}"},
   {CM_sup, "^{", "}"},
 };
-/* TODO also asis_commands */
 
 
 static PLAINTEXT_COMMAND_STRUCT plaintext_commands_data[BUILTIN_CMD_NUMBER];
@@ -347,6 +346,14 @@ plaintext_format_setup (enum converter_format format)
           format_raw_cmd.number++;
         }
     }
+
+  static enum command_id asis_commands[] = {
+    CM_asis, CM_w, CM_b, CM_i, CM_t, CM_r, CM_slanted, CM_sansserif,
+    CM_verb, CM_clicksequence, CM_headitemfont, CM_dmn, 0
+  };
+
+  for (i = 0; (asis_commands[i]); i++)
+    plaintext_commands_data[asis_commands[i]].flags |= PF_asis;
 
   static enum command_id quoted_commands[] = {
     CM_cite, CM_code, CM_command, CM_env, CM_file,
@@ -2005,7 +2012,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         return;
       else if (cmd_data->flags & CF_brace)
         {
-          if ((plaintext_commands_data[cmd].flags & (PF_quoted | PF_style_map))
+          if ((plaintext_commands_data[cmd].flags
+               & (PF_style_map | PF_asis | PF_quoted))
               || cmd == CM_dfn /* %double_quoted_commands in Perl */)
             {
               /* TODO check brace_code_commands */
@@ -2044,6 +2052,14 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   text_before = "\""; /* TODO */
                   text_after = "\""; /* TODO */
                 }
+              else if (plaintext_commands_data[cmd].flags & PF_asis)
+                {
+                  text_before = "";
+                  text_after = "";
+                }
+              else
+                ; /* bug */
+
               TEXT added = para_add_next (text_before,
                                           strlen (text_before), 1);
               if (added.text)
