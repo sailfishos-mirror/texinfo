@@ -764,6 +764,12 @@ info_output (CONVERTER *self, DOCUMENT *document)
 */
 
 void
+info_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
+                           enum command_id contents_or_shortcontents_cmd)
+{
+}
+
+void
 info_format_printindex (CONVERTER *self, const ELEMENT *printindex)
 {
   plaintext_process_printindex (self, printindex, 1);

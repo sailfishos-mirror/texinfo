@@ -1368,6 +1368,94 @@ sub _ensure_end_of_line($) {
   return;
 }
 
+my $node_names_formatter;
+
+# convert and cache a node name.  $NODE is a node element.
+sub node_name($$) {
+  my ($self, $node) = @_;
+
+  if (!exists($self->{'node_names_text'}->{$node})) {
+    # if node names are set by _cache_node_name, they are not
+    # converted here, except for nodes dynamically added for footnotes.
+    my $label_element = Texinfo::Common::get_label_element($node);
+    if (!defined($label_element)) {
+      # node direction to an external node
+      $label_element = $node->{'extra'}->{'node_content'};
+    }
+    my $node_text = Texinfo::TreeElement::new({'type' => '_code',
+                                       'contents' => [$label_element]});
+
+    my ($result, $width);
+    push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
+                                     'encoding_disabled' => 1};
+    if (!defined($node_names_formatter)) {
+      # FIXME $self could affect the result through frenchspacing
+      $node_names_formatter = new_formatter($self, 'line', 0, undef,
+                  {'suppress_styles' => 1, 'no_added_eol' => 1,});
+    }
+    my $formatter = $node_names_formatter;
+    push @{$self->{'formatters'}}, $formatter;
+
+    _convert($self, $node_text);
+    _stream_output_count_nl($self,
+      Texinfo::Convert::Paragraph::add_pending_word($formatter->{'container'}));
+    $result = _stream_result($self);
+    $width = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
+
+    # reset counters
+    Texinfo::Convert::Paragraph::end_line($formatter->{'container'});
+
+    pop @{$self->{'formatters'}};
+    pop @{$self->{'count_context'}};
+    $self->{'node_names_text'}->{$node}
+      = {'text' => Texinfo::Common::normalize_top_node_name($result),
+         'width' => $width };
+  }
+  return ($self->{'node_names_text'}->{$node}->{'text'},
+          $self->{'node_names_text'}->{$node}->{'width'});
+}
+
+# the advantage of using that function is that we know that nodes only
+# are processed and the $label_element can be obtained more simply
+# than when the node is setup by a call to node_name().
+sub _cache_node_names($$) {
+  my ($self, $nodes_list) = @_;
+
+  my $node_names_hash = $self->{'node_names_text'};
+
+  if (!defined($node_names_formatter)) {
+    $node_names_formatter = new_formatter($self, 'line', 0, undef,
+               {'suppress_styles' => 1, 'no_added_eol' => 1,});
+  }
+  my $formatter = $node_names_formatter;
+
+  push @{$self->{'formatters'}}, $formatter;
+
+  foreach my $node_relations (@{$nodes_list}) {
+    my $node = $node_relations->{'element'};
+    my $label_element;
+    $label_element = $node->{'contents'}->[0]->{'contents'}->[0];
+    my $node_text = Texinfo::TreeElement::new({'type' => '_code',
+                                       'contents' => [$label_element]});
+
+    push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
+    _convert($self, $node_text);
+    _stream_output_count_nl($self,
+      Texinfo::Convert::Paragraph::add_pending_word($formatter->{'container'}));
+    my $result = _stream_result($self);
+    my $width = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
+
+    pop @{$self->{'count_context'}};
+
+    $node_names_hash->{$node}
+      = {'text' => Texinfo::Common::normalize_top_node_name($result),
+         'width' => $width };
+    # reset counters
+    Texinfo::Convert::Paragraph::end_line($formatter->{'container'});
+  }
+  pop @{$self->{'formatters'}};
+}
+
 
 sub _open_code($) {
   my $formatter = shift;
@@ -1649,10 +1737,8 @@ sub format_contents($$$) {
   my $contents = 1 if ($contents_or_shortcontents eq 'contents');
 
   # no sections
-  return ('', 0) if (!defined($sectioning_root)
+  return if (!defined($sectioning_root)
                      or !exists($sectioning_root->{'section_children'}));
-
-  my $sections_list = $self->{'document'}->sections_list();
 
   my $root_level = $sectioning_root->{'section_children'}->[0]
                                 ->{'element'}->{'extra'}->{'section_level'};
@@ -1670,6 +1756,13 @@ sub format_contents($$$) {
  SECTION:
     while ($section_relations) {
       my $section = $section_relations->{'element'};
+      my $repeat_count
+        = 2 * ($section->{'extra'}->{'section_level'} - ($root_level+1));
+
+      if ($repeat_count > 0) {
+        _stream_output($self, ' ' x $repeat_count);
+      }
+
       # arguments_line type element
       my $arguments_line = $section->{'contents'}->[0];
       my $line_arg = $arguments_line->{'contents'}->[0];
@@ -1693,12 +1786,6 @@ sub format_contents($$$) {
       } else {
         $section_title_tree = $line_arg;
       }
-      my $repeat_count
-        = 2 * ($section->{'extra'}->{'section_level'} - ($root_level+1));
-
-      if ($repeat_count > 0) {
-        _stream_output($self, ' ' x $repeat_count);
-      }
       my ($text, undef) = $self->convert_line_new_context(
        Texinfo::TreeElement::new({'contents' => [$section_title_tree],
                                   'type' => '_frenchspacing'}));
@@ -1706,6 +1793,7 @@ sub format_contents($$$) {
       $text .= "\n";
       _stream_output($self, $text);
       $lines_count++;
+
       if (exists($section_relations->{'section_children'})
           and (defined($contents)
                or $section->{'extra'}->{'section_level'} < $root_level+1)) {
@@ -1747,94 +1835,6 @@ sub _menu($$) {
     }
   }
   return;
-}
-
-my $node_names_formatter;
-
-# convert and cache a node name.  $NODE is a node element.
-sub node_name($$) {
-  my ($self, $node) = @_;
-
-  if (!exists($self->{'node_names_text'}->{$node})) {
-    # if node names are set by _cache_node_name, they are not
-    # converted here, except for nodes dynamically added for footnotes.
-    my $label_element = Texinfo::Common::get_label_element($node);
-    if (!defined($label_element)) {
-      # node direction to an external node
-      $label_element = $node->{'extra'}->{'node_content'};
-    }
-    my $node_text = Texinfo::TreeElement::new({'type' => '_code',
-                                       'contents' => [$label_element]});
-
-    my ($result, $width);
-    push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                     'encoding_disabled' => 1};
-    if (!defined($node_names_formatter)) {
-      # FIXME $self could affect the result through frenchspacing
-      $node_names_formatter = new_formatter($self, 'line', 0, undef,
-                  {'suppress_styles' => 1, 'no_added_eol' => 1,});
-    }
-    my $formatter = $node_names_formatter;
-    push @{$self->{'formatters'}}, $formatter;
-
-    _convert($self, $node_text);
-    _stream_output_count_nl($self,
-      Texinfo::Convert::Paragraph::add_pending_word($formatter->{'container'}));
-    $result = _stream_result($self);
-    $width = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
-
-    # reset counters
-    Texinfo::Convert::Paragraph::end_line($formatter->{'container'});
-
-    pop @{$self->{'formatters'}};
-    pop @{$self->{'count_context'}};
-    $self->{'node_names_text'}->{$node}
-      = {'text' => Texinfo::Common::normalize_top_node_name($result),
-         'width' => $width };
-  }
-  return ($self->{'node_names_text'}->{$node}->{'text'},
-          $self->{'node_names_text'}->{$node}->{'width'});
-}
-
-# the advantage of using that function is that we know that nodes only
-# are processed and the $label_element can be obtained more simply
-# than when the node is setup by a call to node_name().
-sub _cache_node_names($$) {
-  my ($self, $nodes_list) = @_;
-
-  my $node_names_hash = $self->{'node_names_text'};
-
-  if (!defined($node_names_formatter)) {
-    $node_names_formatter = new_formatter($self, 'line', 0, undef,
-               {'suppress_styles' => 1, 'no_added_eol' => 1,});
-  }
-  my $formatter = $node_names_formatter;
-
-  push @{$self->{'formatters'}}, $formatter;
-
-  foreach my $node_relations (@{$nodes_list}) {
-    my $node = $node_relations->{'element'};
-    my $label_element;
-    $label_element = $node->{'contents'}->[0]->{'contents'}->[0];
-    my $node_text = Texinfo::TreeElement::new({'type' => '_code',
-                                       'contents' => [$label_element]});
-
-    push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
-    _convert($self, $node_text);
-    _stream_output_count_nl($self,
-      Texinfo::Convert::Paragraph::add_pending_word($formatter->{'container'}));
-    my $result = _stream_result($self);
-    my $width = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
-
-    pop @{$self->{'count_context'}};
-
-    $node_names_hash->{$node}
-      = {'text' => Texinfo::Common::normalize_top_node_name($result),
-         'width' => $width };
-    # reset counters
-    Texinfo::Convert::Paragraph::end_line($formatter->{'container'});
-  }
-  pop @{$self->{'formatters'}};
 }
 
 my $index_length_to_node = 41;
@@ -3868,7 +3868,7 @@ sub _convert($$) {
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                                    'locations' => []};
       if (exists($element->{'contents'}->[0]->{'contents'})) {
-        $self->convert_line (
+        $self->convert_line(
              {'type' => '_frenchspacing',
               'contents' => [$element->{'contents'}->[0]]},
              0);
@@ -4047,7 +4047,8 @@ sub _convert($$) {
       }
       delete $self->{'text_element_context'}->[-1]->{'counter'};
       return;
-    } elsif ($cmdname eq 'contents') {
+    } elsif ($cmdname eq 'contents'
+             or $cmdname eq 'shortcontents' or $cmdname eq 'summarycontents') {
       my $sections_list;
       my $sectioning_root;
       if (exists($self->{'document'})) {
@@ -4056,19 +4057,7 @@ sub _convert($$) {
       }
 
       if (defined($sections_list) and scalar(@$sections_list)) {
-        $self->format_contents($sectioning_root, 'contents');
-      }
-      return;
-    } elsif ($cmdname eq 'shortcontents' or $cmdname eq 'summarycontents') {
-      my $sections_list;
-      my $sectioning_root;
-      if (exists($self->{'document'})) {
-        $sections_list = $self->{'document'}->sections_list();
-        $sectioning_root = $self->{'document'}->sectioning_root();
-      }
-
-      if (defined($sections_list) and scalar(@$sections_list)) {
-        $self->format_contents($sectioning_root, 'shortcontents');
+        $self->format_contents($sectioning_root, $cmdname);
       }
       return;
     } elsif ($cmdname eq 'author') {

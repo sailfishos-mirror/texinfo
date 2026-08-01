@@ -11,6 +11,8 @@ CONVERTER_INITIALIZATION_INFO *info_converter_defaults
 
 char *info_output (CONVERTER *self, DOCUMENT *document);
 
+void info_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
+                           enum command_id contents_or_shortcontents_cmd);
 void info_format_printindex (CONVERTER *self, const ELEMENT *printindex);
 void info_format_ref (CONVERTER *self, enum command_id cmd,
                       const ELEMENT *element);

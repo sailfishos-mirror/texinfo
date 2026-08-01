@@ -1,5 +1,28 @@
 2026-08-01 Patrice Dumas  <pertusus@free.fr>
 
+	plaintext C converter contents formatting
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm: move node_name and
+	_cache_node_names.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (format_contents): remove
+	useless code.  Move repeat_count and spaces output before.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert): call
+	contents, shortcontents and summarycontents conversion in the same
+	condition.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_convert_line)
+	(plaintext_convert_line_new_context): call para_end as should be.
+
+	* tta/C/convert/convert_to_info.c (info_format_contents),
+	tta/C/convert/convert_to_plaintext.c (PLAINTEXT_COMMAND_STRUCT)
+	(plaintext_format_contents, plaintext_functions)
+	(convert_to_plaintext_internal): implement plaintext_format_contents
+	and add dispatch and conversion of contents.
+
+2026-08-01 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (converter_txt_image_text): do not use the
 	buffer size as string length.
 

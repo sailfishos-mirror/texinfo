@@ -93,6 +93,9 @@ static PLAINTEXT_COMMAND_STRUCT plaintext_commands_data[BUILTIN_CMD_NUMBER];
 /* dispatch of formatting functions that are either for plaintext or
    Info output.  The table is below, after the functions definitions */
 typedef struct PLAINTEXT_FORMAT_FUNCTIONS {
+    void (*  format_contents) (CONVERTER *self,
+                               SECTIONING_ROOT *sectioning_root,
+                               enum command_id contents_or_shortcontents_cmd);
     void (* format_error_outside_of_any_node) (CONVERTER *self,
                                                const ELEMENT *element);
     void (* format_image_element) (CONVERTER *self, const ELEMENT *element,
@@ -559,7 +562,7 @@ plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
 
   push_formatter (self, &formatter);
   convert_to_plaintext_internal (self, converted);
-  end_line = para_end_line ();
+  end_line = para_end ();
   stream_output (self, end_line);
   para_destroy ();
   pop_formatter (self);
@@ -586,7 +589,7 @@ plaintext_convert_line_new_context (CONVERTER *self,
   push_formatter (self, &formatter);
 
   convert_to_plaintext_internal (self, converted);
-  end_line = para_end_line ();
+  end_line = para_end ();
   stream_output (self, end_line);
 
   output->string = stream_yield_result (self);
@@ -700,6 +703,153 @@ plaintext_node_name (CONVERTER *self, const ELEMENT *element,
         }
     }
   plaintext_convert_node_name (self, element, string_result);
+}
+
+void
+plaintext_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
+                           enum command_id contents_or_shortcontents_cmd)
+{
+  int is_contents = (contents_or_shortcontents_cmd == CM_contents);
+  const SECTION_RELATIONS_LIST *root_children;
+  int status;
+  int root_level;
+  size_t i;
+  int lines_count = 0;
+
+  if (!sectioning_root)
+    return;
+
+  root_children = &sectioning_root->section_children;
+  root_level = lookup_extra_integer (root_children->list[0]->element,
+                                     AI_key_section_level,
+                                     &status);
+
+  for (i = 0; i < root_children->number; i++)
+    {
+      const ELEMENT *top_section = root_children->list[i]->element;
+      int section_level
+        = lookup_extra_integer (top_section, AI_key_section_level, &status);
+      if (section_level > root_level)
+        root_level = section_level;
+    }
+
+ /* This is done like that because the tree may not be well formed if
+    there is a @part after a @chapter for example. */
+  for (i = 0; i < root_children->number; i++)
+    {
+      const SECTION_RELATIONS *top_relations = root_children->list[i];
+      const SECTION_RELATIONS *section_relations = top_relations;
+      while (section_relations)
+        {
+          const ELEMENT *section = section_relations->element;
+          const ELEMENT *arguments_line = section->e.c->contents.list[0];
+          ELEMENT *line_arg = arguments_line->e.c->contents.list[0];
+          ELEMENT *section_title_tree;
+          ELEMENT *section_title_element = new_element (ET__frenchspacing);
+          int numbered_section;
+          int status;
+          int section_level = lookup_extra_integer (section,
+                                       AI_key_section_level, &status);
+          const char *section_number
+           = lookup_extra_string (section, AI_key_section_heading_number);
+          STRING_COUNT_LINE_COUNT section_text;
+
+          int repeat_count = 2 * (section_level - (root_level+1));
+          if (repeat_count > 0)
+            {
+              int j;
+              for (j = 0; j < repeat_count; j++)
+                stream_output (self, " ");
+            }
+
+          numbered_section = (section_number
+             && self->conf->NUMBER_SECTIONS.o.integer != 0);
+
+          if (numbered_section)
+            {
+              NAMED_STRING_ELEMENT_LIST *replaced_substrings
+                = new_named_string_element_list ();
+              ELEMENT *e_number = new_text_element (ET_normal_text);
+              ELEMENT *section_title_copy = copy_element_tree (line_arg, 0);
+
+              add_element_to_named_string_element_list (
+                          replaced_substrings, "section_title",
+                          section_title_copy);
+              text_append (e_number->e.text, section_number);
+              add_element_to_named_string_element_list (
+                          replaced_substrings, "number", e_number);
+
+              if (section->e.c->cmd == CM_appendix && section_level == 1)
+                  section_title_tree
+                      = cdt_tree ("Appendix {number} {section_title}",
+                                  self, replaced_substrings, 0);
+              else
+                section_title_tree = cdt_tree ("{number} {section_title}",
+                                             self, replaced_substrings, 0);
+
+              destroy_named_string_element_list (replaced_substrings);
+            }
+          else
+            section_title_tree = line_arg;
+
+          add_to_contents_as_array (section_title_element,
+                                    section_title_tree);
+
+          plaintext_convert_line_new_context (self, section_title_element,
+                                                  -1, -1,
+                                                  &section_text);
+          if (numbered_section)
+            destroy_element_and_children (section_title_element);
+          else
+            destroy_element (section_title_element);
+
+          stream_output (self, section_text.string);
+          if (section_text.string[strlen (section_text.string) -1] != '\n')
+            stream_output (self, "\n");
+          lines_count++;
+          free (section_text.string);
+
+          if (section_relations->section_children
+              && section_relations->section_children->number > 0
+              && (is_contents || section_level < root_level+1))
+            section_relations = section_relations->section_children->list[0];
+          else if (section_relations->section_directions
+                   && section_relations->section_directions[D_next])
+            {
+              if (section_relations == top_relations)
+                break;
+
+              section_relations
+                = section_relations->section_directions[D_next];
+            }
+          else
+            {
+              if (section_relations == top_relations)
+                break;
+
+              while (section_relations->section_directions
+                     && section_relations->section_directions[D_up])
+                {
+                  section_relations
+                    = section_relations->section_directions[D_up];
+
+                  if (section_relations == top_relations)
+                    {
+                      section_relations = NULL;
+                      break;
+                    }
+
+                  if (section_relations->section_directions
+                      && section_relations->section_directions[D_next])
+                    {
+                      section_relations
+                        = section_relations->section_directions[D_next];
+                      break;
+                    }
+                }
+            }
+        }
+    }
 }
 
 typedef struct CONVERT_PRINTINDEX_ENTRIES_INFO {
@@ -1755,6 +1905,7 @@ plaintext_format_image_element (CONVERTER *self, const ELEMENT *element,
    enum converter_format */
 static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
   {
+   &plaintext_format_contents,
    &plaintext_format_error_outside_of_any_node,
    &plaintext_format_image_element,
    &plaintext_format_node,
@@ -1762,6 +1913,7 @@ static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
    &plaintext_format_ref,
   },
   {
+   &info_format_contents,
    &info_format_error_outside_of_any_node,
    &info_format_image_element,
    &info_format_node,
@@ -2019,10 +2171,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         return;
       else if (cmd == CM_sp)
         return;
-      else if (cmd == CM_contents)
-        return;
-      else if (cmd == CM_shortcontents || cmd == CM_summarycontents)
-        return;
+      else if (cmd == CM_contents
+               || cmd == CM_shortcontents || cmd == CM_summarycontents)
+        {
+          if (self->document->sections_list.number > 1)
+            return plaintext_functions[self->format].format_contents (self,
+                                     self->document->sectioning_root, cmd);
+        }
       else if (cmd == CM_author)
         return;
       else if (self_plaintext->commands_data[cmd].flags & PF_informative)
