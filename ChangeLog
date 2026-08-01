@@ -1,5 +1,17 @@
 2026-08-01 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (converter_txt_image_text): do not use the
+	buffer size as string length.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_image_formatted_text): add warning message.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_format_image_element), tta/C/convert/converter.c
+	(converter_txt_image_text): free strings.
+
+2026-08-01 Patrice Dumas  <pertusus@free.fr>
+
 	Info and plaintext C converter @image formatting
 
 	* tta/C/convert/converter.c (converter_txt_image_text): add.

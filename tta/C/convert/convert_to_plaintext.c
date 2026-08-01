@@ -1666,7 +1666,19 @@ plaintext_image_formatted_text (CONVERTER *self, const ELEMENT *element,
       free (alt);
     }
   else
-    text_append (&result, basefile);
+    {
+      PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+      if (!self_plaintext->silent)
+        {
+          message_list_command_warn (&self->error_messages,
+                            (self->conf && self->conf->DEBUG.o.integer > 0),
+                            element, 0,
+                    "could not find @image file `%s.txt' nor alternate text",
+                           basefile);
+        }
+
+      text_append (&result, basefile);
+    }
   text_append_n (&result, "]", 1);
 
   return result.text;
@@ -1702,6 +1714,7 @@ plaintext_format_image_element (CONVERTER *self, const ELEMENT *element,
 
       result->string = plaintext_image_formatted_text (self, element,
                                                        basefile, text);
+      free (text);
 
       if (width == -1)
         width = string_width_multibyte (result->string);

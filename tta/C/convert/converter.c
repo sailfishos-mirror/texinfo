@@ -1552,7 +1552,7 @@ converter_txt_image_text (CONVERTER *self, const ELEMENT *element,
                   int width = string_width_multibyte (line);
                   if (width > max_width)
                     max_width = width;
-                  text_append_n (&result, line, n);
+                  text_append (&result, line);
                   free (line);
                   line = 0;
                 }
@@ -1570,7 +1570,10 @@ converter_txt_image_text (CONVERTER *self, const ELEMENT *element,
                          image_text_file, strerror (errno));
             }
           *width_out = max_width;
+
           free (image_text_file);
+          free (txt_file);
+
           return result.text;
         }
       else
@@ -1581,8 +1584,12 @@ converter_txt_image_text (CONVERTER *self, const ELEMENT *element,
                          "@image file `%s' unreadable: %s",
                          image_text_file, strerror (errno));
         }
+
+      free (txt_file);
     }
+
   free (image_text_file);
+
   *width_out = -1;
   return 0;
 }
