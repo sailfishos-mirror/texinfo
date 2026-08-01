@@ -323,12 +323,6 @@ foreach my $type (
   $ignored_types{$type} = 1;
 }
 
-# All those commands run with the text.
-my %command_style_map = (
-  'strong' => '*',
-  'emph'   => '_',
-);
-
 my %style_map = (
   'strong' => ['*', '*'],
   'emph'   => ['_', '_'],
