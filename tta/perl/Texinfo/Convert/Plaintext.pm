@@ -332,13 +332,11 @@ my %style_map = (
 );
 
 # math is special
-my @asis_commands = ('asis', 'w', 'b', 'i', 't', 'r', 'slanted', 'sansserif',
-                     'verb', 'clicksequence', 'headitemfont', 'dmn');
-
-foreach my $asis_command (@asis_commands) {
-  $style_map{$asis_command} = ['', ''];
+my %asis_commands;
+for my $asis_command ('asis', 'w', 'b', 'i', 't', 'r', 'slanted', 'sansserif',
+                     'verb', 'clicksequence', 'headitemfont', 'dmn') {
+  $asis_commands{$asis_command} = 1;
 }
-
 
 my %quoted_commands;
 # %non_quoted_commands_when_nested have no quote when in code command contexts
@@ -3092,11 +3090,12 @@ sub _convert($$) {
                                 $element->{'extra'}->{'end'}, 1));
       return;
     } elsif (exists($brace_commands{$cmdname})) {
-      my ($is_quoted_command, $is_double_quoted_command);
+      my ($is_quoted_command, $is_double_quoted_command, $is_asis_command);
       if (exists($style_map{$cmdname})
             or ($is_quoted_command = exists($quoted_commands{$cmdname}))
             or ($is_double_quoted_command
-                = exists($double_quoted_commands{$cmdname}))) {
+                = exists($double_quoted_commands{$cmdname}))
+            or ($is_asis_command = exists($asis_commands{$cmdname}))) {
         if (exists($brace_code_commands{$cmdname})) {
           if (!$formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
             push @{$formatter->{'font_type_stack'}}, {'monospace' => 1};
@@ -3138,6 +3137,9 @@ sub _convert($$) {
         } elsif ($is_double_quoted_command) {
           $text_before = $self->{'open_double_quote'};
           $text_after = $self->{'close_double_quote'};
+        } elsif ($is_asis_command) {
+          $text_before = '';
+          $text_after = '';
         } else {
           # bug
           $text_before = '';

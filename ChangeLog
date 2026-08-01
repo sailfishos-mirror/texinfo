@@ -1,5 +1,14 @@
 2026-08-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Separate asis_commands from style_map
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm
+	(@asis_commands, %asis_commands): Change from array to hash.
+	(%style_map): Do not include asis_commands.
+	(_convert) <style map>: Update.
+
+2026-08-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/Texinfo/Convert/Plaintext.pm (%command_style_map):
 	Remove unused hash.
 
