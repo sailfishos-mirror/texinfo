@@ -1047,7 +1047,7 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
       enum command_id cmd = fulltitle_cmds[i];
       const ELEMENT *command
         = get_cmd_global_uniq_command (&self->document->global_commands, cmd);
-      if (command && command->e.c->contents.list[0]->e.c->contents.number > 0)
+      if (command && !empty_spaces_argument (command->e.c->contents.list[0]))
         {
           fulltitle_tree = command->e.c->contents.list[0];
           break;
@@ -1062,7 +1062,7 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
        = self->document->global_commands.top->e.c->contents.list[0];
       ELEMENT *line_arg = arguments_line->e.c->contents.list[0];
 
-      if (line_arg->e.c->contents.number > 0)
+      if (!empty_spaces_argument (line_arg))
         fulltitle_tree = line_arg;
     }
 
@@ -1070,8 +1070,9 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
       && self->document->global_commands.titlefont.number > 0
       && self->document->global_commands.titlefont.list[0]
                                            ->e.c->contents.number > 0
-      && self->document->global_commands.titlefont.list[0]
-                  ->e.c->contents.list[0]->e.c->contents.number > 0)
+      && !empty_spaces_argument (
+           self->document->global_commands.titlefont.list[0]
+                  ->e.c->contents.list[0]))
     {
       fulltitle_tree = self->document->global_commands.titlefont.list[0];
     }

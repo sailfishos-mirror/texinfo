@@ -4551,7 +4551,8 @@ sub _prepare_converted_output_info($$$$) {
                                    'shorttitlepage') {
       if (exists($global_commands->{$fulltitle_command})) {
         my $command = $global_commands->{$fulltitle_command};
-        next if (!exists($command->{'contents'}->[0]->{'contents'}));
+        next if (Texinfo::Common::empty_spaces_argument(
+                                     $command->{'contents'}->[0]));
         $fulltitle_tree = $command->{'contents'}->[0];
         last;
       }
@@ -4560,14 +4561,14 @@ sub _prepare_converted_output_info($$$$) {
       # arguments_line type element
       my $arguments_line = $global_commands->{'top'}->{'contents'}->[0];
       my $line_arg = $arguments_line->{'contents'}->[0];
-      if (exists($line_arg->{'contents'})) {
+      if (!Texinfo::Common::empty_spaces_argument($line_arg)) {
         $fulltitle_tree = $line_arg;
       }
     }
     if (!defined($fulltitle_tree) and exists($global_commands->{'titlefont'})
         and exists($global_commands->{'titlefont'}->[0]->{'contents'})
-        and exists($global_commands->{'titlefont'}->[0]->{'contents'}->[0]
-                                                        ->{'contents'})) {
+        and (!Texinfo::Common::empty_spaces_argument(
+                 $global_commands->{'titlefont'}->[0]->{'contents'}->[0]))) {
       $fulltitle_tree = $global_commands->{'titlefont'}->[0];
     }
   }

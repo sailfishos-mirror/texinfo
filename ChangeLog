@@ -1,5 +1,12 @@
 2026-08-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c (html_prepare_converted_output_info),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm
+	(_prepare_converted_output_info): use empty_spaces_argument to
+	determine if candidates for fulltitle_tree are selected.
+
+2026-08-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/texi2any.c (main): for conversion to Info, if INFO_MATH_IMAGES
 	is set, use Perl module for conversion, as it requires conversion to
 	LaTeX, which is only availble in Perl.

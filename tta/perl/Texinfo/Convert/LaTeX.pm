@@ -1436,6 +1436,9 @@ sub _latex_header($) {
   } else {
     $settitle = $default_title;
   }
+
+  # TODO setup pdftitle here
+
   $header_code .= "\\makeatletter\n";
 
   # this command is redefined for headings to include the "Chapter" name
