@@ -77,11 +77,13 @@ check_sequence_rearranging (char32_t *const string,
                             const struct trie_node **node_out)
 {
   char32_t *pchar;
-  char32_t *seq_end = 0;
+  char32_t *seq_end = 0; /* end of a complete sequence with data */
   int max_combining_class = 0;
   const struct trie_node *node = &collation_data.trie_array[0];
 
   size_t n_codepoints;
+
+  int non_contig = 0;
 
   /* Starting at the beginning of the string, try to match the longest
      sequence possible. */
@@ -90,9 +92,9 @@ check_sequence_rearranging (char32_t *const string,
        pchar++)
     {
       int combining_class = 0;
-      if (seq_end)
+      if (non_contig)
         {
-          /* We are trying to find a non-continguous match. */
+          /* We are trying to find a non-contiguous match. */
 
           combining_class = uc_combining_class (*pchar);
           if (combining_class == UC_CCC_NR) /* UC_CCC_NR == 0 */
@@ -106,6 +108,8 @@ check_sequence_rearranging (char32_t *const string,
             {
               /* This codepoint is blocked from being part of a non-contiguous
                  match by earlier non-starters. */
+              /* Note: if input is in NFD, the case
+                 combining_class < max_combining_class will not occur. */
               continue;
             }
         }
@@ -123,27 +127,49 @@ check_sequence_rearranging (char32_t *const string,
           sizeof(collation_data.trie_array[first_child]),
           compare_trie_node_children);
 
-      /* For non-contiguous matches, we require each extra
-         character to lead to a sequence with collation data.
-         Hence 0FB2 0334 0F71 0F80 will not match with 0FB2 0F71 0F80,
-         unless there is data for 0FB2 0F71.
-             The UCA#10 document discusses this sequence for Tibetan but I
-         don't really understand it, e.g. why 0FB2 0F71 was missing.
-             According to "UTC #187 properties feedback & recommendations",
-         2026-04-16 [*], this was an anomaly that will be
-         eliminated in the future.
-             See also documentation for Perl module Unicode::Collate.
-         [*] https://www.unicode.org/L2/L2026/26096-pag-report-utc187.pdf
-         */
-      if (found && (!seq_end || found->data_index))
+      if (!found)
+        {
+          if (!non_contig && pchar > string)
+            {
+              /* Start looking for a non-contiguous match. */
+              if (seq_end)
+                pchar = seq_end;
+              else
+                {
+                  /* Note: according to UTS#10, we should only
+                     extend a sequence of length 1 if it has an entry
+                     in the collation table.  We assume that it does
+                     ("well-formedness criterion 5") so we don't have
+                     to call lookup_codepoint_data or similar. */
+                  seq_end = string;
+                  pchar = seq_end;
+                }
+              n_codepoints = seq_end - string + 1;
+              non_contig = 1;
+              continue;
+            }
+          else if (non_contig)
+            {
+              max_combining_class = combining_class;
+              /* Continue looking for a non-contiguous match. */
+              continue;
+            }
+          else
+            {
+              /* Cannot extend a match - at start of string. */
+              break;
+            }
+        }
+
+      if (found->data_index)
         {
           node = found;
           n_codepoints++;
-        }
-
-      if (seq_end)
-        {
-          if (found)
+          if (!non_contig)
+            {
+              seq_end = pchar;
+            }
+          else
             {
               /* This is part of a non-contiguous match.  Move matched
                  character right after the contiguous part of the match. */
@@ -155,29 +181,32 @@ check_sequence_rearranging (char32_t *const string,
 
               break;
             }
-          else
-            max_combining_class = combining_class;
         }
-
-      if (!found)
+      else
         {
-          if (!seq_end && pchar > string)
-            {
-              /* Start looking for a non-contiguous match. */
-              pchar--;
-              seq_end = pchar;
-              continue;
-            }
-          else if (seq_end)
-            {
-              /* Continue looking for a non-contiguous match. */
-              continue;
-            }
-          else
-            {
-              /* Cannot extend a match. */
-              break;
-            }
+           if (!non_contig)
+             {
+               node = found;
+               n_codepoints++;
+             }
+           else
+             {
+               /* We can't use this character to extend the match.
+                      For non-contiguous matches, we require each extra
+                  character to lead to a sequence with collation data.
+                  Hence 0FB2 0334 0F71 0F80 will not match with 0FB2 0F71 0F80,
+                  unless there is data for 0FB2 0F71.
+                      The UCA#10 document discusses this sequence for Tibetan
+                  but I don't really understand it, e.g. why 0FB2 0F71 was
+                  missing.
+                      According to "UTC #187 properties feedback &
+                  recommendations", 2026-04-16 [*], this was an anomaly that
+                  will be eliminated in the future.
+                      See also documentation for Perl module Unicode::Collate.
+                  [*] https://www.unicode.org/L2/L2026/26096-pag-report-utc187.pdf
+                  */
+               continue;
+             }
         }
     }
   if (n_codepoints >= 2)
@@ -297,6 +326,18 @@ lookup_collation_data_at_char (char32_t *const string,
               return;
             }
         }
+    }
+
+  if (string_const && (data.num_elements & CHECK_SEQUENCE_BIT))
+    {
+      /* If a sequence record exists, do not return the single codepoint
+         record, as it is possible that we were unable to find a
+         discontiguous match.  The calling code should try again with the
+         STRING argument. */
+      errno = EINVAL;
+      (*n_codepoints_out) = 0;
+      (*n_collation_units) = 0;
+      return;
     }
 
   (*n_codepoints_out) = data.array ? 1 : 0;
