@@ -1282,10 +1282,8 @@ rm -rf ../res_iwyu_xs
 mkdir ../res_iwyu_xs
 for file in ../perl/XSTexinfo/*.c ../perl/XSTexinfo/*/*.c ; do bfile=`basename $file .c`; include-what-you-use -I . -I main -I convert -I structuring_transfo -I parsetexi -D_LARGEFILE64_SOURCE -I /usr/lib/x86_64-linux-gnu/perl/5.42.2/CORE/ $file 2>../res_iwyu_xs/$bfile.2 ; done
 
+include-what-you-use -I main ../perl/XSTexinfo/xsmisc.c
 
-include-what-you-use -I . -D_LARGEFILE64_SOURCE -I /usr/lib/x86_64-linux-gnu/perl/5.42.2/CORE/ main/api_to_perl.c
-
-include-what-you-use -DDATADIR='"/usr"' -I ../ main/utils.c
 
 To generate valgrind .supp rules: --gen-suppressions=all --log-file=gen_supp_rules.log
 
