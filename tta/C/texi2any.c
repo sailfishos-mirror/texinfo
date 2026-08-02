@@ -2722,10 +2722,20 @@ main (int argc, char *argv[], char *env[])
         {
           const char *env_var = getenv ("TEXINFO_XS_INCOMPLETE");
           if (env_var && strcmp (env_var, "0") != 0)
-            external_module = NULL;
+            {
+              external_module = NULL;
+              if (!strcmp (converted_format, "info"))
+                {
+                  /* requires conversion to LaTeX, which means Perl for now */
+                  OPTION *info_math_images
+                    = GNUT_get_conf (
+                     program_options.options->INFO_MATH_IMAGES.number);
+                  if (info_math_images->o.integer > 0)
+                    external_module = converted_format_specification->module;
+                }
+            }
           else
             external_module = converted_format_specification->module;
-
         }
       else
         external_module = converted_format_specification->module;

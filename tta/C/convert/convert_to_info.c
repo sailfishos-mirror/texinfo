@@ -380,12 +380,9 @@ info_output (CONVERTER *self, DOCUMENT *document)
                               TXI_CONVERT_STRINGS_NR);
     }
 
-  /* TODO?  Or need Perl?
-  my $elements_images;
-  if ($self->get_conf('INFO_MATH_IMAGES')) {
-    require Texinfo::Convert::LaTeX;
-
-  }
+  /* In Perl INFO_MATH_IMAGES related information is initialized, but
+     this requires conversion to LaTeX, which is ony available with
+     Perl for now.
    */
 
   if (self->conf->DEBUG.o.integer > 0)

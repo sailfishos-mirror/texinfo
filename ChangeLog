@@ -1,3 +1,9 @@
+2026-08-02 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/texi2any.c (main): for conversion to Info, if INFO_MATH_IMAGES
+	is set, use Perl module for conversion, as it requires conversion to
+	LaTeX, which is only availble in Perl.
+
 2026-08-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/main/unicode-collation/: Sync
@@ -10,7 +16,7 @@
 
 	For C collation code.
 
-2026-08-03 Patrice Dumas  <pertusus@free.fr>
+2026-08-02 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/parsetexi/parser.c (add_preamble_lang_cmd): fix type name in
 	sizeof.
