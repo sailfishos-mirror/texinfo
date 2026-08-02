@@ -996,16 +996,12 @@ html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
   memset (&self_html->current_filename, 0, sizeof (FILE_NUMBER_NAME));
 }
 
-static const enum command_id fulltitle_cmds[] =
- {CM_settitle, CM_title, CM_shorttitlepage, 0};
-
 int
 html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
                                     const char *output_filename)
 {
   HTML_CONVERTER_STATE *self_html = self->html_converter;
 
-  int i;
   ELEMENT *fulltitle_tree = 0;
   char *html_title_string = 0;
   const char *default_bcp47_locale;
@@ -1042,40 +1038,7 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
 
   html_prepare_simpletitle (self);
 
-  for (i = 0; fulltitle_cmds[i]; i++)
-    {
-      enum command_id cmd = fulltitle_cmds[i];
-      const ELEMENT *command
-        = get_cmd_global_uniq_command (&self->document->global_commands, cmd);
-      if (command && !empty_spaces_argument (command->e.c->contents.list[0]))
-        {
-          fulltitle_tree = command->e.c->contents.list[0];
-          break;
-        }
-    }
-
-  if (!fulltitle_tree
-      && self->document->global_commands.top)
-    {
-      /* arguments_line type element */
-      const ELEMENT *arguments_line
-       = self->document->global_commands.top->e.c->contents.list[0];
-      ELEMENT *line_arg = arguments_line->e.c->contents.list[0];
-
-      if (!empty_spaces_argument (line_arg))
-        fulltitle_tree = line_arg;
-    }
-
-  if (!fulltitle_tree
-      && self->document->global_commands.titlefont.number > 0
-      && self->document->global_commands.titlefont.list[0]
-                                           ->e.c->contents.number > 0
-      && !empty_spaces_argument (
-           self->document->global_commands.titlefont.list[0]
-                  ->e.c->contents.list[0]))
-    {
-      fulltitle_tree = self->document->global_commands.titlefont.list[0];
-    }
+  fulltitle_tree = converter_get_fulltitle_tree (self);
 
   if (fulltitle_tree)
     {

@@ -4545,33 +4545,7 @@ sub _prepare_converted_output_info($$$$) {
 
   _prepare_simpletitle($self);
 
-  my $fulltitle_tree;
-  if (defined($global_commands)) {
-    foreach my $fulltitle_command ('settitle', 'title',
-                                   'shorttitlepage') {
-      if (exists($global_commands->{$fulltitle_command})) {
-        my $command = $global_commands->{$fulltitle_command};
-        next if (Texinfo::Common::empty_spaces_argument(
-                                     $command->{'contents'}->[0]));
-        $fulltitle_tree = $command->{'contents'}->[0];
-        last;
-      }
-    }
-    if (!defined($fulltitle_tree) and exists($global_commands->{'top'})) {
-      # arguments_line type element
-      my $arguments_line = $global_commands->{'top'}->{'contents'}->[0];
-      my $line_arg = $arguments_line->{'contents'}->[0];
-      if (!Texinfo::Common::empty_spaces_argument($line_arg)) {
-        $fulltitle_tree = $line_arg;
-      }
-    }
-    if (!defined($fulltitle_tree) and exists($global_commands->{'titlefont'})
-        and exists($global_commands->{'titlefont'}->[0]->{'contents'})
-        and (!Texinfo::Common::empty_spaces_argument(
-                 $global_commands->{'titlefont'}->[0]->{'contents'}->[0]))) {
-      $fulltitle_tree = $global_commands->{'titlefont'}->[0];
-    }
-  }
+  my $fulltitle_tree = $self->get_fulltitle_tree();
 
   my $html_title_string;
   my $title_tree;

@@ -162,6 +162,7 @@ void set_converter_preamble_language_commands (CONVERTER *self);
 ELEMENT *converter_expand_today (CONVERTER *converter);
 ELEMENT *converter_translated_command_tree (CONVERTER *self,
                                             enum command_id cmd);
+ELEMENT *converter_get_fulltitle_tree (CONVERTER *self);
 
 void set_global_document_commands (CONVERTER *converter,
                                   const enum command_location location,

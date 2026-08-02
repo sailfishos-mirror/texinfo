@@ -1476,6 +1476,44 @@ sub comment_or_end_line($$) {
   return (undef, '');
 }
 
+sub get_fulltitle_tree($) {
+  my $self = shift;
+
+  my $global_commands;
+  if (exists($self->{'document'})) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+
+  return undef if (!defined($global_commands));
+
+  my $fulltitle_tree;
+  foreach my $fulltitle_command ('settitle', 'title',
+                                 'shorttitlepage') {
+    if (exists($global_commands->{$fulltitle_command})) {
+      my $command = $global_commands->{$fulltitle_command};
+      next if (Texinfo::Common::empty_spaces_argument(
+                                   $command->{'contents'}->[0]));
+      $fulltitle_tree = $command->{'contents'}->[0];
+      last;
+    }
+  }
+  if (!defined($fulltitle_tree) and exists($global_commands->{'top'})) {
+    # arguments_line type element
+    my $arguments_line = $global_commands->{'top'}->{'contents'}->[0];
+    my $line_arg = $arguments_line->{'contents'}->[0];
+    if (!Texinfo::Common::empty_spaces_argument($line_arg)) {
+      $fulltitle_tree = $line_arg;
+    }
+  }
+  if (!defined($fulltitle_tree) and exists($global_commands->{'titlefont'})
+      and exists($global_commands->{'titlefont'}->[0]->{'contents'})
+      and (!Texinfo::Common::empty_spaces_argument(
+               $global_commands->{'titlefont'}->[0]->{'contents'}->[0]))) {
+    $fulltitle_tree = $global_commands->{'titlefont'}->[0];
+  }
+  return $fulltitle_tree;
+}
+
 sub comment_end_line_end_space($$) {
   my ($self, $element) = @_;
 
