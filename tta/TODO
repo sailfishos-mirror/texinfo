@@ -10,6 +10,76 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+Revisit
+Date: Sun, 19 Jul 2026 19:10:03 +0200
+Subject: Re: Vertical spacing between @deffn output and preceding text
+make
+ @fonttextsize 12
+not an error?
+
+ModulePath.pm.in is used for 2 purposes, one is the long-time purpose
+of finding modules and XS interface files and libraries to dlopen.
+The other is to get configured information.  The way the module is
+loaded fits well with one objective, but not the other, cf XSLoader.pm,
+it could make sense to separate ModulePath.pm in two, maybe add
+Configure.pm to get configured information, loaded as a usual module
+by both modules and scripts, the specific loading being reserved to 
+scripts.
+
+Change disambiguated added node names postfix to be like [+1+]
+instead of 1.
+
+Add "shadow targets" or nodes to sectioning commands without nodes
+and change USE_NODES to have 3 possible meaning
+[no] output units are split at sections, and lone nodes are associated to
+   the section.  A book-like setup, currently corresponding to USE_NODES=0.
+   Sections have a "shadow" target added.
+[nodes] output units are split at nodes, and lone sections do not have an
+   associated node added.  They have a "shadow" target added.  Currently
+   corresponds to USE_NODES=1.
+[add] output units are split at nodes, but lone sections have an associated
+   node automatically added.  Same as the tree transformation
+   insert_nodes_for_sectioning_commands.  No shadow targets added.
+
+In all those cases, if there is already a node with a name, it has
+precedence.  If there is an ambiguity because different sectioning commands
+have the same name, and no node with the name initially,
+there is a warning.   A postfix is added like [+1+] in case of ambiguity.
+
+No "shadow targets" nor nodes added when a node is associated to
+a @*heading*, we should keep a track of this, such that users relying on
+@heading know that it is different for heading and keep this in a TODO.
+
+
+Add \hypersetup{pdftitle={}}, with % { and } protected.
+
+
+Add alt= in @image output for LaTeX
+
+In the preamble add:
+% This is used to provide a default no-operation definition of the alt key,
+% so that it does not generate an error in older versions of graphicx
+\makeatletter
+\providecommand\KV@Gin@alt{}
+\makeatother
+
+For includegraphics call, use {} and explicitely protect % { and }.
+\includegraphics[alt={alt value}]{some image}
+
+Add a customization variable to get accessible PDF.  This adds
+\DocumentMetadata{tagging=on,
+ <value of the customization variable>
+}
+with default for the value being
+ lang=<BCP47 document-language-from-texinfo>,
+ pdfstandard=ua-2,
+
+and replace
+\usepackage{amsmath}
+\usepackage{amsfonts}
+by
+\usepackage{unicode-math}
+
 Bugs
 ====
 
@@ -456,6 +526,48 @@ https://lists.gnu.org/archive/html/bug-texinfo/2026-07/msg00050.html
 https://lists.gnu.org/archive/html/bug-texinfo/2026-07/msg00051.html
 https://lists.gnu.org/archive/html/bug-texinfo/2026-07/msg00052.html
 
+Manual name:
+
+The recommendation for translated manual Texinfo name is to use the
+untranslated manual name and postpend a language code LL taking into account
+@documentlanguage, @documentscript and @documentlanguagevariants, with
+a -, for example between the untranslated manual name and the LL postfix, for
+example manualname-LL.texi.  That way it is easy to make cross-references to
+the translated manual name and register independent information in htmlxref for
+cross-references to external translated HTML manuals.
+
+Anchors and node names in translated manuals:
+
+When starting from an untranslated manual, nodes, anchor and float names
+(hereafter called targets) would be in the untranslated language (English).
+Then the targets and the associated commands should be translated as the
+manual is translated.  In the short term, it is recommended to keep
+anchors with the untranslated target names such that cross-references
+from external manuals can be either to translated or untranslated target
+names.  In the longer term, it is recommended to keep a mention of the
+untranslated targets, such that it is possible for persons not
+understanding the translation language to move sections around, but
+explicit anchors could be removed, and it is even recommended to remove
+them in the long term.
+
+Example of macros that could help the transition and remain in the final
+translated manual.  "name" would be the translated name, and "en" the
+untranslated name.
+
+@c to be used to have an anchor added, for the short term
+@macro nodetranslatedanchor {name, en}
+@node \name\
+@anchor{\en\}
+@end macro
+
+@c to be used to have a mention to the untranslated node, but no anchor
+@c for the long term
+@macro nodetranslatedmention {name, en}
+@node \name\
+@end macro
+
+@c use in document
+@nodetranslatedanchor{Mon noeud, My node}
 
 Past discussions on that subject
 --------------------------------

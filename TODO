@@ -66,6 +66,23 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
       scale to be used by Emacs.
      https://lists.gnu.org/archive/html/emacs-devel/2025-01/msg00339.html
      https://lists.gnu.org/archive/html/emacs-devel/2025-02/msg00089.html
+  - images locations and HTML
+    https://lists.gnu.org/archive/html/help-texinfo/2020-11/msg00088.html
+    https://lists.gnu.org/archive/html/help-texinfo/2020-11/msg00091.html
+     copy of images for HTML
+    https://lists.gnu.org/archive/html/help-texinfo/2020-11/msg00120.html
+     the proposition that should be implemented and additional considerations
+    https://lists.gnu.org/archive/html/help-texinfo/2020-11/msg00146.html
+    https://lists.gnu.org/archive/html/help-texinfo/2020-11/msg00153.html
+    https://lists.gnu.org/archive/html/help-texinfo/2020-11/msg00155.html
+    https://lists.gnu.org/archive/html/help-texinfo/2020-11/msg00187.html
+     probably unneeded
+     https://lists.gnu.org/archive/html/help-texinfo/2020-11/msg00150.html
+     https://lists.gnu.org/archive/html/help-texinfo/2020-11/msg00151.html
+    Some more, to check if needs to be consideered for the implementation
+    https://lists.gnu.org/archive/html/help-texinfo/2020-11/msg00157.html
+   - adding image for the Texinfo manual
+    https://lists.gnu.org/archive/html/help-texinfo/2020-11/msg00154.html
 
 * TeX:
   - Index above @item allows page break.
@@ -81,6 +98,8 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - Include hyperlink \special's in the DVI output for xdvi, etc.
   - clear out support for \ as the index file escape character (instead
     of @).
+  - some issue with image file set with @value?
+   https://lists.gnu.org/archive/html/help-texinfo/2020-11/msg00116.html
 
 * texindex:
   - check if messages are translated via po/POTFILES.in.
