@@ -27,8 +27,6 @@
 #include "tree_types.h"
  */
 #include "document_types.h"
-/* non_perl_* */
-#include "xs_utils.h"
 #include "call_document_perl_functions.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to

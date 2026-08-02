@@ -17,14 +17,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <stddef.h>
 
 #include "tree_types.h"
 #include "document_types.h"
+#include "option_types.h"
+#include "options_data.h"
 /* fatal */
 #include "base_utils.h"
-#include "tree.h"
 #include "errors.h"
 #include "debug.h"
 #include "builtin_commands.h"
@@ -33,8 +33,6 @@
 /* for get_label_element */
 #include "utils.h"
 #include "convert_to_texinfo.h"
-/* for retrieve_document */
-#include "document.h"
 #include "targets.h"
 
 size_t

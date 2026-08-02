@@ -26,6 +26,7 @@
 #include "command_ids.h"
 #include "types_data.h"
 #include "element_types.h"
+#include "option_types.h"
 #include "document_types.h"
 #include "converter_types.h"
 #include "plaintext_converter_state.h"

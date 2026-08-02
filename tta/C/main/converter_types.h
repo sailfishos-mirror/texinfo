@@ -20,8 +20,6 @@
 /* for FILE */
 #include <stdio.h>
 #include <stddef.h>
-/* for iconv_t */
-#include <iconv.h>
 
 #include "text.h"
 #include "element_types.h"
@@ -246,11 +244,6 @@ typedef struct TARGET_DIRECTORY_FILENAME {
     char *directory;
     char *target;
 } TARGET_DIRECTORY_FILENAME;
-
-typedef struct ENCODING_CONVERSION {
-    char *encoding_name;
-    iconv_t iconv;
-} ENCODING_CONVERSION;
 
 typedef struct OUTPUT_TEXT_FILES_INFO {
     OUTPUT_FILES_INFORMATION *output_files_information;

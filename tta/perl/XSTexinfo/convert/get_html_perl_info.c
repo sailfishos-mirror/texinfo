@@ -26,10 +26,13 @@
 
 #undef context
 
-#include "html_conversion_data.h"
+#include "element_types.h"
 #include "command_ids.h"
+#include "document_types.h"
 #include "converter_types.h"
+#include "html_converter_state.h"
 #include "types_data.h"
+#include "option_types.h"
 /* non_perl_* */
 #include "xs_utils.h"
 /* fatal */

@@ -16,6 +16,8 @@
 /* includes config.h */
 #include "system.h"
 
+/* for uintptr_t */
+#include <stdint.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -23,7 +25,6 @@
 /* for _O_BINARY */
 #include <fcntl.h>
 
-#include "html_conversion_data.h"
 #include "text.h"
 #include "element_types.h"
 #include "tree_types.h"
@@ -32,7 +33,6 @@
 #include "document_types.h"
 #include "converter_types.h"
 #include "html_converter_state.h"
-#include "option_types.h"
 #include "types_data.h"
 #include "html_converter_types.h"
 /* fatal isascii_alpha */
@@ -46,8 +46,6 @@
    encode_with_iconv output_unit_type_names get_cmd_global_uniq_command
    */
 #include "utils.h"
-#include "manipulate_tree.h"
-#include "customization_options.h"
 #include "extra.h"
 #include "debug.h"
 /* retrieve_output_units output_unit_texi */
@@ -67,7 +65,6 @@
  */
 #include "convert_utils.h"
 /* call_latex_convert_to_latex_math */
-#include "call_perl_function.h"
 #include "call_html_perl_function.h"
 /* for unregister_document_merge_with_document */
 #include "document.h"

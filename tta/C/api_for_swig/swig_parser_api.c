@@ -21,7 +21,6 @@
 
 #include "document_types.h"
 #include "parser_conf.h"
-#include "utils.h"
 #include "parser_api.h"
 #include "set_parser_conf.h"
 #include "swig_parser_api.h"

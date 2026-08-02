@@ -17,6 +17,7 @@
 
 #include <config.h>
 #include <stddef.h>
+#include <stdint.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -24,11 +25,11 @@
 #include "unistr.h"
 
 #include "source_mark_types.h"
-#include "tree_types.h"
 #include "command_ids.h"
-#include "types_data.h"
-#include "document_types.h"
 #include "text.h"
+#include "tree_types.h"
+#include "document_types.h"
+#include "types_data.h"
 /* fatal */
 #include "base_utils.h"
 #include "tree.h"
@@ -43,6 +44,7 @@
 #include "errors.h"
 #include "convert_to_texinfo.h"
 #include "unicode.h"
+#include "list_macros.h"
 #include "manipulate_tree.h"
 
 /* To do the copy, we do two pass.  First with copy_tree_internal, the tree is

@@ -3,10 +3,17 @@
 
 #include <config.h>
 
+#include <stddef.h>
+
+#include "element_types.h"
+#include "command_ids.h"
+#include "text.h"
 #include "tree_types.h"
+#include "document_types.h"
+#include "converter_types.h"
+#include "html_converter_state.h"
 /* *BUTTON* */
 #include "option_types.h"
-#include "converter_types.h"
 #include "call_html_perl_function.h"
 
 TARGET_FILENAME *

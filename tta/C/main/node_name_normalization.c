@@ -19,7 +19,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
 #include <ctype.h>
+#include <unitypes.h>
 #include "unistr.h"
 
 /* also for xvasprintf */
@@ -31,16 +33,13 @@
 /* isascii_alnum bug */
 #include "base_utils.h"
 #include "tree.h"
-#include "extra.h"
 #include "builtin_commands.h"
 /* for xasprintf whitespace_chars find_innermost_accent_contents */
 #include "utils.h"
 #include "debug.h"
-#include "call_perl_function.h"
 #include "unicode.h"
 /* nobrace_symbol_text */
 #include "convert_to_text.h"
-#include "convert_utils.h"
 #include "node_name_normalization.h"
 
 static const char *command_normalization_text[BUILTIN_CMD_NUMBER];

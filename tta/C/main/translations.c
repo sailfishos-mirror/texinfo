@@ -24,6 +24,8 @@
 #include <errno.h>
 #include <stddef.h>
 #include <stdint.h>
+/* for ssize_t */
+#include <sys/types.h>
 #include <sys/stat.h>
 
 #ifdef ENABLE_NLS
@@ -40,13 +42,12 @@
 #include "document_types.h"
 /* for CONVERTER_CACHE_TRANSLATE */
 #include "converter_types.h"
-#include "options_data.h"
 #include "types_data.h"
-/* isascii_lower isascii_upper fatal */
-#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 #include "hashmap.h"
+/* for fatal called from def_list_fns */
+#include "base_utils.h"
 /* read_flag_len */
 #include "utils.h"
 #include "manipulate_tree.h"
@@ -58,6 +59,7 @@
 #include "call_perl_function.h"
 /* for debugging */
 #include "convert_to_texinfo.h"
+#include "list_macros.h"
 #include "translations.h"
 
 #define _(String) gettext (String)

@@ -16,7 +16,7 @@
 /* for abort */
 #include <stdlib.h>
 #include <stdio.h>
-#include <stddef.h>
+#include <string.h>
 
 /* Avoid namespace conflicts. */
 #define context perl_context
@@ -40,6 +40,7 @@
 #undef context
 
 #include "parser_api.h"
+#include "document_types.h"
 #include "set_parser_conf.h"
 /* register_conf */
 #include "parser_conf.h"

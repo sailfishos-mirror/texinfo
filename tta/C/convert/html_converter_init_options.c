@@ -17,18 +17,16 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <stddef.h>
 
-#include "tree_types.h"
 #include "option_types.h"
+#include "options_data.h"
 #include "converter_types.h"
 #include "converters_options.h"
 /* html_get_direction_index */
 #include "utils.h"
-/* add_new_button_option html_free_button_specification_list */
+/* add_new_button_option html_free_button_specification_list
+   new_converter_initialization_info */
 #include "customization_options.h"
-/* new_converter_initialization_info */
-#include "converter.h"
 #include "html_converter_api.h"
 
 /* HTML converter options setting and initialization -- converter_defaults. */

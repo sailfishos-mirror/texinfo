@@ -18,12 +18,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <errno.h>
-#include <stddef.h>
 
-#include "global_commands_types.h"
+#include "element_types.h"
 #include "tree_types.h"
 #include "document_types.h"
+#include "options_data.h"
 #include "option_types.h"
 /* new_element */
 #include "tree.h"

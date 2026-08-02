@@ -14,13 +14,13 @@
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 #include <config.h>
-#include <string.h>
+
+#include <stdarg.h>
 #include <stdlib.h>
 #include <stdio.h>
 
 #include "text.h"
 #include "command_ids.h"
-#include "element_types.h"
 #include "tree_types.h"
 #include "types_data.h"
 #include "debug.h"

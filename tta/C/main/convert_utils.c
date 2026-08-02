@@ -22,12 +22,15 @@
 #include <stdio.h>
 #include <errno.h>
 #include <time.h>
+/* for time_t, ssize_t */
+#include <sys/types.h>
 
 #include "text.h"
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
 #include "options_data.h"
+#include "option_types.h"
 #include "types_data.h"
 #include "builtin_commands.h"
 #include "tree.h"

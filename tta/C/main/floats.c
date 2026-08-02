@@ -20,14 +20,15 @@
 
 #include "text.h"
 #include "tree_types.h"
-#include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
+/* for fatal called from def_list_fns */
+#include "base_utils.h"
 #include "utils.h"
 #include "node_name_normalization.h"
 #include "convert_to_texinfo.h"
 #include "floats.h"
-#include "base_utils.h"
+#include "list_macros.h"
 
 char *
 parse_float_type (ELEMENT *current, ELEMENT *element)

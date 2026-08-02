@@ -18,10 +18,10 @@
 #include <config.h>
 
 #include <stddef.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <iconv.h>
 #include "unistr.h"
 
 #include "text.h"
@@ -30,6 +30,8 @@
 #include "tree_types.h"
 #include "document_types.h"
 #include "types_data.h"
+#include "option_types.h"
+#include "options_data.h"
 /* fatal */
 #include "base_utils.h"
 #include "tree.h"

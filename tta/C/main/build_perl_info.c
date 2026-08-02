@@ -34,6 +34,8 @@
    reason to overflow.
  */
 
+/* for intptr_t */
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -53,6 +55,7 @@
 #include "element_types.h"
 #include "types_data.h"
 #include "source_mark_types.h"
+#include "text.h"
 #include "tree_types.h"
 #include "global_commands_types.h"
 #include "option_types.h"
@@ -70,8 +73,6 @@
 /* for associated_info_table elt_info_names
    add_to_element_list */
 #include "tree.h"
-/* for lookup_extra */
-#include "extra.h"
 /* for element_command_name */
 #include "builtin_commands.h"
 /* for c_hashmap_iterator_next_value */
@@ -85,8 +86,6 @@
 #include "customization_options.h"
 /* for debugging */
 #include "debug.h"
-/* for clear_error_message_list */
-#include "errors.h"
 #include "convert_to_texinfo.h"
 #include "document.h"
 #include "output_unit.h"

@@ -1,6 +1,7 @@
 /* Automatically generated from generate_code_commands_values.pl */
 /* Generated from commands_values.txt */
 
+/* To include before substituted headers in convert_to_text.h */
 #include <config.h>
 
 #include "convert_to_text.h"

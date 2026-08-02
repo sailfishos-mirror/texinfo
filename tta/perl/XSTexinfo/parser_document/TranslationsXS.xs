@@ -26,7 +26,9 @@
 #undef context
 
 #include "tree_types.h"
+/*
 #include "xs_utils.h"
+ */
 #include "translations.h"
 /* for newSVpv_utf8 */
 #include "build_perl_info.h"

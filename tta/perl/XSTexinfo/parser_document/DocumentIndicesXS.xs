@@ -15,8 +15,6 @@
 
 /* ALTIMP perl/Texinfo/Document/IndicesNonXS.pm */
 
-#include <stddef.h>
-
 /* Avoid namespace conflicts. */
 #define context perl_context
 
@@ -27,7 +25,6 @@
 
 #undef context
 
-#include "tree_types.h"
 #include "document_types.h"
 /* non_perl_* */
 #include "xs_utils.h"
@@ -57,7 +54,7 @@ print_document_indices_information (SV *document_in)
             if (indices_information_str)
               {
                 RETVAL = newSVpv_utf8 (indices_information_str, 0);
-                free (indices_information_str);
+                non_perl_free (indices_information_str);
               }
             else
               RETVAL = newSV (0);

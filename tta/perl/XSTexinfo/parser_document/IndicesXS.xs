@@ -38,6 +38,8 @@
 #include "get_converter_perl_info.h"
 /* for wrap_converter_index_content_element */
 #include "convert_indices.h"
+/* for destroy_text_options, TEXT_OPTIONS */
+#include "convert_to_text.h"
 /* for newSVpv_utf8 */
 #include "build_perl_info.h"
 

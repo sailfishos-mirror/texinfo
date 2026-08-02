@@ -13,6 +13,9 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
+/* for realloc.  Not sure whether the Perl one is used or the system one
+   is used.  So far there has not been reports of memory issues, so both
+   should be ok. */
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

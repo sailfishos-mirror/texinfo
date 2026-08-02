@@ -30,8 +30,6 @@
 #include "document_types.h"
 /* for CONVERTER_CACHE_TRANSLATE */
 #include "converter_types.h"
-/* fatal */
-#include "base_utils.h"
 #include "types_data.h"
 #include "tree.h"
 #include "extra.h"

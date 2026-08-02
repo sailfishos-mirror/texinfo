@@ -18,6 +18,10 @@
 #include "perl.h"
 #include "XSUB.h"
 
+#include <stdio.h>
+#include <string.h>
+
+#include "text.h"
 #include "plaintext_paragraph.h"
 
 MODULE = Texinfo::Convert::Paragraph PACKAGE = Texinfo::Convert::Paragraph PREFIX = para_

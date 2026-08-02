@@ -18,15 +18,17 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdint.h>
+/* for locale_t */
 #include <locale.h>
 #include <ctype.h>
+#include <unitypes.h>
 #include "unictype.h"
 #include "unistr.h"
 
 #include "text.h"
 #include "command_ids.h"
 #include "element_types.h"
-#include "types_data.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
@@ -41,13 +43,12 @@
 #include "manipulate_tree.h"
 #include "errors.h"
 #include "debug.h"
-#include "unicode.h"
-#include "document.h"
 #include "convert_to_text.h"
 #include "convert_to_texinfo.h"
 #include "call_perl_function.h"
 #include "api_to_perl.h"
 #include "unicode-collation/collation_key.h"
+#include "unicode.h"
 #include "manipulate_indices.h"
 
 /* corresponding perl code in Texinfo::Indices */

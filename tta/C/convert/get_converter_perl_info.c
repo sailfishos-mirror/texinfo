@@ -13,8 +13,9 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#include <stdlib.h>
+#include <stddef.h>
 #include <stdio.h>
+#include <string.h>
 
 /* Avoid namespace conflicts. */
 #define context perl_context
@@ -26,18 +27,14 @@
 
 #undef context
 
-#include "command_ids.h"
-#include "option_types.h"
-#include "options_data.h"
+#include "tree_types.h"
+#include "document_types.h"
 #include "converter_types.h"
 /* non_perl_* */
 #include "xs_utils.h"
-#include "builtin_commands.h"
 #include "utils.h"
 /* wipe_error_message_list */
 #include "errors.h"
-#include "translations.h"
-#include "customization_options.h"
 #include "convert_to_text.h"
 #include "get_perl_info.h"
 /* retrieve_converter find_perl_converter_class_converter_format

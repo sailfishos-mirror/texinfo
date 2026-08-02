@@ -13,8 +13,6 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
-#include <stddef.h>
-
 /* Avoid namespace conflicts. */
 #define context perl_context
 
@@ -27,7 +25,6 @@
 
 #include "option_types.h"
 #include "txi_config.h"
-#include "customization_options.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"
 

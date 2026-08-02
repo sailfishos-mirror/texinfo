@@ -19,6 +19,7 @@
 #include <string.h>
 
 #include "element_types.h"
+#include "command_ids.h"
 #include "tree_types.h"
 #include "text.h"
 #include "types_data.h"
@@ -33,7 +34,6 @@
 #include "convert_to_texinfo.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
-#include "input.h"
 #include "debug_parser.h"
 #include "errors_parser.h"
 #include "source_marks.h"

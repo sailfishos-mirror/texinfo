@@ -19,13 +19,13 @@
 #include <string.h>
 #include <stddef.h>
 
-#include "text.h"
+#include "element_types.h"
 #include "command_ids.h"
+#include "text.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "base_utils.h"
 #include "tree.h"
-#include "extra.h"
 #include "builtin_commands.h"
 /* xasprintf */
 #include "utils.h"

@@ -2,10 +2,10 @@
 
 #include <config.h>
 
-#include "converter_types.h"
 #include "document_types.h"
+#include "converter_types.h"
+#include "option_types.h"
 #include "call_conversion_perl.h"
-#include "call_document_perl_functions.h"
 
 int
 call_config_GNUT_load_init_file (const char *file_path)

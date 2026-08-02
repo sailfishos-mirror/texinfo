@@ -15,7 +15,8 @@
 
 /* ALTIMP perl/Texinfo/DocumentNonXS.pm */
 
-#include <stddef.h>
+#include <stdio.h>
+#include <string.h>
 
 /* Avoid namespace conflicts. */
 #define context perl_context
@@ -28,7 +29,7 @@
 #undef context
 
 #include "options_data.h"
-#include "tree_types.h"
+#include "option_types.h"
 #include "document_types.h"
 /* non_perl_* */
 #include "xs_utils.h"

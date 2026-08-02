@@ -23,6 +23,9 @@
 
 #undef context
 
+#include <stddef.h>
+#include <string.h>
+
 /* for BYTES_STRING */
 #include "document_types.h"
 /*

@@ -220,13 +220,9 @@ print CODE "/* Automatically generated from $program_name */\n\n";
 
 print CODE '#include <config.h>'."\n\n";
 
-print CODE '#include <stdlib.h>'."\n";
-print CODE '#include <string.h>'."\n\n";
-
 print CODE '#include "option_types.h"'."\n";
 print CODE '#include "options_data.h"'."\n";
-print CODE '#include "converter_types.h"'."\n";
-print CODE '#include "customization_options.h"'."\n";
+print CODE '#include "customization_options.h"'."\n\n";
 
 print CODE "void\ninitialize_options (OPTIONS *options)\n{\n";
 print CODE "  options->BIT_user_function_number = 0;\n";
@@ -419,10 +415,12 @@ open(CDCF, ">$converter_defaults_code_file")
 
 print CDCF "/* Automatically generated from $program_name */\n\n";
 
+print CDCF "/*  To include before substituted headers in included files */\n";
 print CDCF '#include <config.h>'."\n\n";
 
 print CDCF '#include "option_types.h"'."\n";
 print CDCF '#include "options_data.h"'."\n";
+print CDCF '#include "converter_types.h"'."\n";
 print CDCF '#include "converters_options.h"'."\n\n";
 print CDCF '/* for html_fill_button_directions_specification_list */'."\n";
 print CDCF '#include "utils.h"'."\n";

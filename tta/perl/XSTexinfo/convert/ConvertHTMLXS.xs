@@ -15,8 +15,10 @@
 
 /* ALTIMP perl/Texinfo/Convert/HTML.pm */
 
+/* used for malloc and free in the same function (2 functions) */
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 /* Avoid namespace conflicts. */
 #define context perl_context
@@ -30,10 +32,14 @@
 
 #undef context
 
-#include "command_ids.h"
 #include "element_types.h"
+#include "command_ids.h"
 #include "tree_types.h"
+#include "document_types.h"
 #include "converter_types.h"
+#include "html_converter_state.h"
+#include "html_converter_types.h"
+#include "option_types.h"
 /* non_perl_free */
 #include "xs_utils.h"
 #include "builtin_commands.h"
@@ -45,7 +51,6 @@
 /* for command_location_names new_string_list ... */
 #include "utils.h"
 #include "command_stack.h"
-#include "customization_options.h"
 /*
 #include "document.h"
  */
@@ -56,9 +61,6 @@
 #include "build_perl_info.h"
 #include "build_html_perl_state.h"
 #include "get_converter_perl_info.h"
-/* call_object_perl_converter_remove_output_units
-   call_object_converter_perl_release */
-#include "call_conversion_perl.h"
 #include "build_html_perl_info.h"
 #include "html_conversion_state.h"
 #include "convert_html.h"

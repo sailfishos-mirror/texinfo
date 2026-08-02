@@ -87,7 +87,7 @@ if ($perl_format) {
   print OUT "#include <config.h>\n\n";
   print OUT "#include \"html_conversion_data.h\"\n";
   print OUT "#include \"tree_types.h\"\n";
-  print OUT "#include \"converter_types.h\"\n\n";
+  print OUT "#include \"document_types.h\"\n\n";
 }
 
 my $C_header_string = 'HTML_CONVERSION_DATA_H';

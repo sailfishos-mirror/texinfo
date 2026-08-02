@@ -17,16 +17,9 @@
 
 #include <config.h>
 
-#ifdef ENABLE_NLS
-#include <locale.h>
-#include <gettext.h>
-#include <libintl.h>
-#endif
-
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include <string.h>
 
 #include "tree_types.h"
 #include "document_types.h"

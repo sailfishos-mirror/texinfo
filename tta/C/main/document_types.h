@@ -18,6 +18,8 @@
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 #include <stddef.h>
+/* for iconv_t */
+#include <iconv.h>
 
 #include "command_ids.h"
 #include "tree_types.h"
@@ -152,6 +154,11 @@ typedef struct DOCUMENT_INFO {
     const ELEMENT *copying;
     const ELEMENT *publication;
 } DOCUMENT_INFO;
+
+typedef struct ENCODING_CONVERSION {
+    char *encoding_name;
+    iconv_t iconv;
+} ENCODING_CONVERSION;
 
 /* not used in document, but used for indices for sort keys that can
    contain NUL */

@@ -25,10 +25,11 @@
 
 #undef context
 
+#include <string.h>
+
 #include "tree_types.h"
 #include "document_types.h"
-/* new_list destroy_list */
-#include "tree.h"
+#include "xs_utils.h"
 /* new_document */
 #include "document.h"
 /* relate_index_entries_to_table_items_in_document
@@ -152,7 +153,7 @@ tree_print_details (SV *tree_in, SV *fname_encoding_in=0, SV *use_filename_in=0)
             result = tree_print_details (document->tree,
                                 fname_encoding, use_filename);
             result_sv = newSVpv_utf8 (result, 0);
-            free (result);
+            non_perl_free (result);
           }
 
         if (result_sv)

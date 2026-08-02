@@ -17,9 +17,10 @@
 
 #include <string.h>
 #include <stdlib.h>
-#include <iconv.h>
+#include <stdint.h>
 #include "unistr.h"
 
+#include "element_types.h"
 #include "command_ids.h"
 #include "tree_types.h"
 #include "text.h"
@@ -36,7 +37,6 @@
 #include "unicode.h"
 #include "debug_parser.h"
 #include "commands.h"
-#include "source_marks.h"
 /* for isolate_last_space global_documentlanguage and
    global_documentscript */
 #include "parser.h"

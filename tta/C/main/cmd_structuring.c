@@ -1,8 +1,6 @@
 /* Automatically generated from generate_code_commands_values.pl */
 /* Generated from commands_values.txt */
 
-#include "command_ids.h"
-
 int const command_structuring_level[] = {
 -1,
 -1,

@@ -18,7 +18,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stddef.h>
+/* for ssize_t */
+#include <sys/types.h>
 #include <string.h>
+/* for strcasecmp */
+#include <strings.h>
 #include <errno.h>
 #include <inttypes.h>
 #include <sys/stat.h>
@@ -26,11 +30,16 @@
 /* for euidaccess.  Not portable, use gnulib */
 #include <unistd.h>
 
-#include "text.h"
 #include "command_ids.h"
 #include "element_types.h"
+#include "option_types.h"
+#include "options_data.h"
+#include "text.h"
 #include "tree_types.h"
+#include "document_types.h"
 #include "converter_types.h"
+#include "html_converter_state.h"
+#include "html_converter_types.h"
 #include "html_conversion_data.h"
 #include "html_css_data.h"
 /* bug fatal isascii_alnum isascii_alpha read_var_len */
@@ -51,7 +60,6 @@
 #include "unicode.h"
 #include "convert_to_texinfo.h"
 #include "node_name_normalization.h"
-#include "manipulate_indices.h"
 /* nobrace_symbol_text text_brace_no_arg_commands */
 #include "convert_to_text.h"
 /* free_translation_cache */

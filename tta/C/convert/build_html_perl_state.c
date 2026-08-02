@@ -15,6 +15,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /* Avoid namespace conflicts. */
 #define context perl_context
@@ -26,9 +27,9 @@
 
 #undef context
 
-#include "html_conversion_data.h"
 #include "tree_types.h"
 #include "converter_types.h"
+#include "html_converter_state.h"
 /* for command_data */
 #include "builtin_commands.h"
 /* for HMSF_* */
@@ -38,14 +39,11 @@
 #include "debug.h"
 #include "convert_to_texinfo.h"
  */
-/* new_documentlanguage_translation */
-#include "translations.h"
 /* newSVpv_utf8 element_to_perl_hash */
 #include "build_perl_info.h"
 /* for html_conversion_context_type_names */
 #include "convert_html.h"
 #include "build_html_perl_state.h"
-#include "xs_utils.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */

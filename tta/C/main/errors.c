@@ -18,7 +18,6 @@
 #include <config.h>
 
 #ifdef ENABLE_NLS
-#include <locale.h>
 #include <gettext.h>
 #include <libintl.h>
 #endif
@@ -34,6 +33,7 @@
 #include "document_types.h"
 /* ENCODING_CONVERSION */
 #include "converter_types.h"
+#include "option_types.h"
 /* for fatal */
 #include "base_utils.h"
 /* for output_conversions get_encoding_conversion */

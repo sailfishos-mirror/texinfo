@@ -22,22 +22,23 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <inttypes.h>
+#include <sys/types.h>
+#include <unitypes.h>
 #include <unistr.h>
 #include <unictype.h>
 #include <errno.h>
 /* mkdir stat */
 #include <sys/stat.h>
 
-#include "html_conversion_data.h"
 #include "text.h"
 #include "command_ids.h"
 #include "element_types.h"
-#include "types_data.h"
 #include "tree_types.h"
 #include "option_types.h"
 #include "options_data.h"
 #include "document_types.h"
 #include "converter_types.h"
+#include "global_commands_types.h"
 /* for HTML_CONVERTER_STATE */
 #include "html_converter_state.h"
 #include "options_defaults.h"

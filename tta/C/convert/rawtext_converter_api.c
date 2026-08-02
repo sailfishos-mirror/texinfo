@@ -18,10 +18,15 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include <errno.h>
 
+#include "command_ids.h"
+#include "global_commands_types.h"
 #include "document_types.h"
 #include "converter_types.h"
+#include "option_types.h"
+#include "options_data.h"
 #include "customization_options.h"
 /* decode_string parse_file_path texinfo_input_file_basename */
 #include "utils.h"

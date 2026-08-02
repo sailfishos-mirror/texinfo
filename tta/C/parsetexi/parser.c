@@ -18,7 +18,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <ctype.h>
 
 #include "text.h"
 #include "element_types.h"
@@ -39,8 +38,6 @@
 #include "floats.h"
 /* for relocate_source_marks */
 #include "manipulate_tree.h"
-/* for retrieve_document */
-#include "document.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
 #include "counter.h"
@@ -414,7 +411,7 @@ register_global_command (ELEMENT *current, enum command_id cmd_in)
           where = &global_commands->cmd; \
           break
 
-#include "main/global_unique_commands_case.c"
+#include "global_unique_commands_case.c"
 
 #undef GLOBAL_UNIQUE_CASE
         default:
@@ -550,7 +547,7 @@ add_preamble_lang_cmd (PREAMBLE_LANG_CMD_LIST *preamble_lang,
       preamble_lang->space += 3;
       preamble_lang->list
          = realloc (preamble_lang->list,
-                    preamble_lang->space * sizeof (TRANSLATED_COMMAND));
+                    preamble_lang->space * sizeof (PREAMBLE_LANG_CMD));
       if (!preamble_lang->list)
         fatal ("realloc failed");
     }

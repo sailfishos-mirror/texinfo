@@ -17,13 +17,11 @@
 #include <config.h>
 
 #include <stdlib.h>
-#include <stddef.h>
 #include <string.h>
 #include <stdio.h>
 
 #include "document_types.h"
-/* converter_set_document */
-#include "converter.h"
+#include "option_types.h"
 #include "html_conversion_api.h"
 #include "html_converter_api.h"
 

@@ -20,9 +20,9 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "document_types.h"
-#include "utils.h"
 #include "api_to_perl.h"
 #include "call_perl_function.h"
 

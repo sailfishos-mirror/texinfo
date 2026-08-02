@@ -19,27 +19,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "text.h"
+#include "element_types.h"
 #include "command_ids.h"
+#include "text.h"
 #include "tree_types.h"
 #include "types_data.h"
 /* fatal */
 #include "base_utils.h"
-#include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
 /* for ultimate_index xasprintf */
 #include "utils.h"
 #include "command_stack.h"
-/* for copy_element_tree */
-#include "manipulate_tree.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
 /*
 #include "convert_to_texinfo.h"
 */
-#include "document.h"
-#include "translations.h"
 #include "commands.h"
 #include "errors_parser.h"
 #include "context_stack.h"

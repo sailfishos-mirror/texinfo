@@ -31,12 +31,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "element_types.h"
 #include "types_data.h"
 #include "source_mark_types.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "swig_error_messages_types.h"
-#include "converter_types.h"
 #include "text.h"
 #include "tree.h"
 #include "extra.h"

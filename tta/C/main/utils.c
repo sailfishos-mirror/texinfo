@@ -30,6 +30,7 @@
 #include <stdarg.h>
 #include <iconv.h>
 #include <errno.h>
+#include <fcntl.h>
 #include "unistr.h"
 #include "unicase.h"
 #include "uniwidth.h"

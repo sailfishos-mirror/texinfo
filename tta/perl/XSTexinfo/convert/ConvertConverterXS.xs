@@ -15,8 +15,10 @@
 
 /* ALTIMP perl/Texinfo/Convert/Converter.pm */
 
+/* used for malloc and free in the same function */
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 /* Avoid namespace conflicts. */
 #define context perl_context
@@ -32,6 +34,7 @@
 
 #include "command_ids.h"
 #include "option_types.h"
+#include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
 /* for HTML_CONVERTER_STATE */

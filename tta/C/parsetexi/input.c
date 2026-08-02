@@ -18,12 +18,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <iconv.h>
+/* for ssize_t */
+#include <sys/types.h>
 #include <errno.h>
 
-#include "text.h"
 #include "source_mark_types.h"
 #include "tree_types.h"
+#include "document_types.h"
 /* for fatal */
 #include "base_utils.h"
 /* for xasprintf and other */
@@ -32,7 +33,6 @@
 #include "parser_conf.h"
 #include "errors_parser.h"
 #include "debug_parser.h"
-#include "commands.h"
 #include "source_marks.h"
 /* for parsed_document */
 #include "parser.h"

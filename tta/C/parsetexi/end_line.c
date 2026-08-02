@@ -21,12 +21,15 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <unistd.h>
+/* for strcasecmp */
+#include <strings.h>
 
 #include "command_ids.h"
 #include "element_types.h"
 #include "source_mark_types.h"
-#include "tree_types.h"
 #include "text.h"
+#include "tree_types.h"
+#include "document_types.h"
 #include "types_data.h"
 /* for isascii_alnum fatal */
 #include "base_utils.h"

@@ -1,9 +1,11 @@
 /* Automatically generated from regenerate_C_options_info.pl */
 
+/*  To include before substituted headers in included files */
 #include <config.h>
 
 #include "option_types.h"
 #include "options_data.h"
+#include "converter_types.h"
 #include "converters_options.h"
 
 /* for html_fill_button_directions_specification_list */

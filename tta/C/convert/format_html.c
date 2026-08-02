@@ -18,10 +18,10 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <errno.h>
+/* for uint8_t, uintptr_t */
+#include <stdint.h>
 #include <ctype.h>
-#include <stdarg.h>
-#include <iconv.h>
+#include <unitypes.h>
 #include <unistr.h>
 #include <unictype.h>
 
@@ -29,7 +29,6 @@
 #include "text.h"
 #include "element_types.h"
 #include "tree_types.h"
-#include "option_types.h"
 #include "options_data.h"
 #include "document_types.h"
 #include "converter_types.h"
@@ -53,7 +52,6 @@
 #include "translations.h"
 #include "output_unit.h"
 #include "node_name_normalization.h"
-#include "manipulate_indices.h"
 #include "convert_to_texinfo.h"
 /* for OTXI_UNICODE_TEXT_CASES utf8_from_string string_from_utf8 */
 #include "unicode.h"

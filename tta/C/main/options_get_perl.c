@@ -1,6 +1,7 @@
 /* Automatically generated from regenerate_C_options_info.pl */
 
 #include "options_data.h"
+#include "option_types.h"
 #include "converter_types.h"
 #include "get_perl_info.h"
 

@@ -20,8 +20,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include <stddef.h>
+#include <unitypes.h>
 #include "unictype.h"
 #include "uninorm.h"
 #include "unistr.h"

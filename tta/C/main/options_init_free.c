@@ -2,13 +2,10 @@
 
 #include <config.h>
 
-#include <stdlib.h>
-#include <string.h>
-
 #include "option_types.h"
 #include "options_data.h"
-#include "converter_types.h"
 #include "customization_options.h"
+
 void
 initialize_options (OPTIONS *options)
 {

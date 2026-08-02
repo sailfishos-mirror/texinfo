@@ -20,9 +20,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
-#include <unitypes.h>
 #include <uniwidth.h>
 #include <unictype.h>
 #include <unistr.h>

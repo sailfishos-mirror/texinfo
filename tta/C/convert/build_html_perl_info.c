@@ -26,9 +26,10 @@
 
 #undef context
 
-#include "html_conversion_data.h"
 #include "tree_types.h"
+#include "document_types.h"
 #include "converter_types.h"
+#include "option_types.h"
 /* bug */
 #include "base_utils.h"
 /* non_perl_free */
@@ -42,13 +43,10 @@
 #include "debug.h"
 #include "convert_to_texinfo.h"
  */
-#include "command_stack.h"
 /* also for perl_only_* wrappers */
 #include "build_perl_info.h"
-/* for NAMED_STRING_ELEMENT_LIST */
-#include "translations.h"
 /* for no_arg_formatted_cmd */
-#include "html_converter_types.h"
+#include "html_prepare_converter.h"
 /* for html_conversion_context_type_names */
 #include "convert_html.h"
 /* for htmlxref_split_type_names

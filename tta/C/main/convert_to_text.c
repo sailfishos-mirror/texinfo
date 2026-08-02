@@ -19,21 +19,21 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
-#include <time.h>
 #include <stdio.h>
+/* for strcasecmp */
+#include <strings.h>
 
 #include "text.h"
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
-#include "options_data.h"
 #include "converter_types.h"
+#include "options_data.h"
+#include "option_types.h"
 #include "types_data.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
-#include "customization_options.h"
 /* for find_innermost_accent_contents ... */
 #include "utils.h"
 #include "unicode.h"
@@ -42,7 +42,6 @@
 /* for PARSED_DEF add_heading_number
    translated_command_tree ... */
 #include "convert_utils.h"
-#include "document.h"
 /*
 #include "convert_to_texinfo.h"
 */

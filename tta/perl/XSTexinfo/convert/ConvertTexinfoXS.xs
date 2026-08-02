@@ -15,11 +15,6 @@
 
 /* ALTIMP perl/Texinfo/Convert/TexinfoNonXS.pm */
 
-/*
-#include <stdlib.h>
-#include <stdio.h>
- */
-
 /* Avoid namespace conflicts. */
 #define context perl_context
 

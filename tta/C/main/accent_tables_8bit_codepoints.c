@@ -1,5 +1,7 @@
 /* Automatically generated from setup_accent_tables.pl */
 
+/* NOTE included in unicode.c after unicode.h, which has types definitions */
+
 /* NOTE encodings codepoints are sorted as strings */
 const struct ENCODING_CODEPOINTS unicode_to_eight_bit[] = {
 {"iso-8859-1", 96, {

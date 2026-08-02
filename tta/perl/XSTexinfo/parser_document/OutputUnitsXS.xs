@@ -25,8 +25,10 @@
 
 #undef context
 
-#include "tree_types.h"
+#include <stddef.h>
+
 #include "document_types.h"
+#include "xs_utils.h"
 #include "output_unit.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"
@@ -177,7 +179,7 @@ print_output_units_tree_details (SV *output_units_in, SV *tree_in, SV *fname_enc
                 char *result = print_output_units_tree_details (output_units,
                                 document->tree, fname_encoding, use_filename);
                 result_sv = newSVpv_utf8 (result, 0);
-                free (result);
+                non_perl_free (result);
               }
           }
 

@@ -4,7 +4,7 @@
 
 #include "html_conversion_data.h"
 #include "tree_types.h"
-#include "converter_types.h"
+#include "document_types.h"
 
 /* Generated from default_special_unit_info.csv */
 const char *special_unit_info_type_names[] = {

@@ -20,6 +20,7 @@
 #include <stddef.h>
 
 #include "tree_types.h"
+#include "document_types.h"
 /* fatal */
 #include "base_utils.h"
 #include "tree.h"
@@ -36,7 +37,6 @@
 #include "convert_to_texinfo.h"
 #include "node_name_normalization.h"
 #include "errors_parser.h"
-#include "source_marks.h"
 /* for parsed_document */
 #include "parser.h"
 #include "labels.h"

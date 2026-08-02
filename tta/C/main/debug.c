@@ -14,22 +14,16 @@
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 #include <config.h>
-#include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
 #include "text.h"
 #include "command_ids.h"
-#include "element_types.h"
 #include "tree_types.h"
 #include "types_data.h"
 /* element_command_name */
 #include "builtin_commands.h"
-/* associated_info_table */
-#include "tree.h"
-/* for directions_length and direction_names */
-#include "utils.h"
 #include "debug.h"
 
 /* Detailed information on elements using a compact format also used for

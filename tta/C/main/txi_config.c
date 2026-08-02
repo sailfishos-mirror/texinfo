@@ -27,7 +27,6 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <stdarg.h>
-#include <locale.h>
 #ifdef ENABLE_NLS
 #include <libintl.h>
 #endif
@@ -35,8 +34,10 @@
    is not set */
 #include "gettext.h"
 
+#include "options_data.h"
 #include "option_types.h"
-#include "tree.h"
+#include "text.h"
+#include "tree_types.h"
 /* fatal */
 #include "base_utils.h"
 /* xasprintf decode_string encode_string */

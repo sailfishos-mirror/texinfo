@@ -16,11 +16,16 @@
 /* In sync with Texinfo::Convert::Plaintext.  Very little written yet. */
 
 #include <config.h>
+
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+/* for uintptr_t */
 #include <stdint.h>
+/* for PRIuPTR */
+#include <inttypes.h>
 
 #include "list_macros.h"
 #include "text.h"
@@ -31,6 +36,7 @@
 #include "converter_types.h"
 #include "plaintext_converter_state.h"
 #include "types_data.h"
+#include "option_types.h"
 #include "base_utils.h"
 #include "hashmap.h"
 #include "tree.h"

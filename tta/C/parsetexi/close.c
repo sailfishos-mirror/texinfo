@@ -17,17 +17,18 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "command_ids.h"
 #include "element_types.h"
 #include "source_mark_types.h"
 #include "tree_types.h"
+#include "document_types.h"
 #include "types_data.h"
 #include "text.h"
 /* for fatal */
 #include "base_utils.h"
 #include "tree.h"
-#include "extra.h"
 #include "builtin_commands.h"
 /* non_leading_trailing_indices count_multibyte */
 #include "utils.h"
