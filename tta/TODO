@@ -51,9 +51,6 @@ a @*heading*, we should keep a track of this, such that users relying on
 @heading know that it is different for heading and keep this in a TODO.
 
 
-Add \hypersetup{pdftitle={}}, with % { and } protected.
-
-
 Add alt= in @image output for LaTeX
 
 In the preamble add:

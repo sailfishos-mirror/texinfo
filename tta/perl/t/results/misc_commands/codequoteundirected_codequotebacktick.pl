@@ -1351,6 +1351,8 @@ $result_converted{'latex'}->{'codequoteundirected_codequotebacktick'} = '\\docum
 % use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \\usepackage[hidelinks]{hyperref}
 
+\\hypersetup{pdftitle={test quotes}}
+
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
 \\newtitlemark{\\Texinfothechapterheading}%

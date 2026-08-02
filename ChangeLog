@@ -1,5 +1,13 @@
 2026-08-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header): add pdftitle.
+
+	* tta/perl/Makefile.tres, tta/perl/t/latex_tests.t
+	(protection_in_pdftitle): add test with special characters protection
+	of pdftitle.
+
+2026-08-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c (html_prepare_converted_output_info),
 	tta/C/convert/converter.c (converter_get_fulltitle_tree),
 	tta/perl/Texinfo/Convert/Converter.pm (get_fulltitle_tree),

@@ -659,6 +659,8 @@ $result_converted{'latex'}->{'documentlanguagevariant_conversion'} = '\\document
 % use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \\usepackage[hidelinks]{hyperref}
 
+\\hypersetup{pdftitle={top}}
+
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
 \\newtitlemark{\\Texinfothechapterheading}%

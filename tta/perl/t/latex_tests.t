@@ -524,6 +524,13 @@ Something about the life.
 In chapter
 
 '],
+['protection_in_pdftitle',
+'@node Top
+@top top @{but really ? protected@} and percent %
+
+@node chap
+@chapter Chap
+'],
 ['float_and_refs',
 '@node Top
 @top top

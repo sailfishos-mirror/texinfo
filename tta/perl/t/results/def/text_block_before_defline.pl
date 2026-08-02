@@ -333,6 +333,8 @@ $result_converted{'latex'}->{'text_block_before_defline'} = '\\documentclass{boo
 % use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \\usepackage[hidelinks]{hyperref}
 
+\\hypersetup{pdftitle={top}}
+
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
 \\newtitlemark{\\Texinfothechapterheading}%

@@ -325,6 +325,8 @@ $result_converted{'latex'}->{'multiple_captions'} = '\\documentclass{book}
 % use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \\usepackage[hidelinks]{hyperref}
 
+\\hypersetup{pdftitle={top}}
+
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
 \\newtitlemark{\\Texinfothechapterheading}%

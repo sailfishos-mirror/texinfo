@@ -144,6 +144,8 @@ $result_converted{'latex'}->{'no_empty_line_between_headings'} = '\\documentclas
 % use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \\usepackage[hidelinks]{hyperref}
 
+\\hypersetup{pdftitle={Top}}
+
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
 \\newtitlemark{\\Texinfothechapterheading}%

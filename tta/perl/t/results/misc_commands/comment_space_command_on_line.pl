@@ -385,6 +385,8 @@ $result_converted{'latex'}->{'comment_space_command_on_line'} = '\\documentclass
 % use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \\usepackage[hidelinks]{hyperref}
 
+\\hypersetup{pdftitle={Settitle  }}
+
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
 \\newtitlemark{\\Texinfothechapterheading}%

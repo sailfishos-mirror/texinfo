@@ -1437,7 +1437,22 @@ sub _latex_header($) {
     $settitle = $default_title;
   }
 
-  # TODO setup pdftitle here
+  # setup pdftitle
+  my $fulltitle_tree = $self->get_fulltitle_tree();
+
+  if (defined($fulltitle_tree)) {
+    my $fulltitle = Texinfo::Convert::Text::convert_to_text(
+                                      $fulltitle_tree,
+                                    $self->{'convert_text_options'});
+    if ($fulltitle =~ /\S/) {
+      # in {} in PDF attributes, [] do not need to be escaped, and the
+      # processor tries to consider input text as pllain text, therefore
+      # only {, } and % need to be escaped.
+      $fulltitle =~ s/([{}%])/\\$1/g;
+      $header_code .= "\\hypersetup{pdftitle={$fulltitle}}\n\n";
+    }
+  }
+
 
   $header_code .= "\\makeatletter\n";
 
