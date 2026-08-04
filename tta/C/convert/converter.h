@@ -98,6 +98,8 @@ void setup_converter_generic (void);
 enum converter_format find_format_name_converter_format (const char *format);
 enum converter_format find_perl_converter_class_converter_format (
                                                  const char *class_name);
+const char *converter_format_name (enum converter_format format);
+const char *converter_format_perl_class_name (enum converter_format format);
 
 CONVERTER *retrieve_converter (size_t converter_descriptor);
 void setup_converter_format (enum converter_format converter_format);

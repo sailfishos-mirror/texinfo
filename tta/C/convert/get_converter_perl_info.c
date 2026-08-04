@@ -44,7 +44,6 @@
 #include "build_perl_info.h"
 #include "get_converter_perl_info.h"
 
-
 CONVERTER *
 get_or_create_sv_converter (SV *converter_in, const char *input_class)
 {

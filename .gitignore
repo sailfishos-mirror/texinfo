@@ -361,7 +361,9 @@ tta/perl/XSTexinfo/parser_document/.libs
 tta/perl/XSTexinfo/parser_document/*.lo
 
 tta/perl/XSTexinfo/convert/ConvertConverterXS.c
+tta/perl/XSTexinfo/convert/ConvertInfoXS.c
 tta/perl/XSTexinfo/convert/ConvertHTMLXS.c
+tta/perl/XSTexinfo/convert/ConvertPlaintextXS.c
 tta/perl/XSTexinfo/convert/ConvertTextXS.c
 tta/perl/XSTexinfo/convert/ConvertTexinfoXS.c
 tta/perl/XSTexinfo/convert/.libs

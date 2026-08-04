@@ -1297,7 +1297,7 @@ plaintext_process_printindex (CONVERTER *self,
             {
               char *entry_unique_string;
 
-              xasprintf (&entry_unique_string, "%s-%s",
+              xasprintf (&entry_unique_string, "%s-%d",
                          index_entry->index_name, index_entry->number);
 
               if (! is_c_hashmap_registered (
@@ -1511,7 +1511,11 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
           target_element = find_identifier_target (
                                   &self->document->identifiers_target,
                                   normalized);
-          label_element = get_label_element (target_element);
+          /* TODO normalized defined and no target_element happens in
+             t/converters_tests.t ref_error_formatting with reference to non
+             existing node.  Check difference with Perl, if any */
+          if (target_element)
+            label_element = get_label_element (target_element);
         }
     }
   if (!label_element)
@@ -2328,6 +2332,15 @@ plaintext_free_converter (CONVERTER *self)
   free (self_plaintext->output_filename);
 
   clear_count_context_stack (&self_plaintext->count_context);
+
+  free (self_plaintext->formatters.list);
+  free (self_plaintext->format_context.list);
+  free (self_plaintext->count_context.list);
+
+  free (self_plaintext->node_names_cache);
+
+  free (self_plaintext);
+  self->plaintext_converter = 0;
 }
 
 void
@@ -2441,7 +2454,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
   int succeeded;
   const ENCODING_CONVERSION *conversion = 0;
   TEXT result;
-  size_t output_units_descriptor;
+  size_t output_units_descriptor = 0;
   OUTPUT_UNIT_LIST *output_units;
   const NODE_RELATIONS_LIST *nodes_list;
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
@@ -2517,6 +2530,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
       goto finalization;
     }
 
+  /* TODO no need to register in the document */
   if (self->conf->USE_NODES.o.integer > 0)
     output_units_descriptor = split_by_node (document);
   else
@@ -2762,6 +2776,13 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
 
  finalization:
 
+  if (output_units_descriptor > 0)
+    {
+      free_output_unit_list (output_units);
+      document->output_units_lists
+          .output_units_lists[output_units_descriptor -1].list = 0;
+    }
+
   plaintext_conversion_finalization (self);
 
   for (i = 0; i < 5; i++)
@@ -2805,6 +2826,10 @@ plaintext_convert (CONVERTER *self, DOCUMENT *document)
       text_append (&result, node_text);
       free (node_text);
     }
+
+  free_output_unit_list (output_units);
+  document->output_units_lists
+      .output_units_lists[output_units_descriptor -1].list = 0;
 
   plaintext_conversion_finalization (self);
 

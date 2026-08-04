@@ -252,6 +252,28 @@ find_perl_converter_class_converter_format (const char *class_name)
   return COF_none;
 }
 
+const char *
+converter_format_name (enum converter_format format)
+{
+  if (format == COF_unknown)
+    return "unknown";
+  else if (format == COF_none)
+    return "generic";
+  else
+    return converter_format_data[format].default_format;
+}
+
+const char *
+converter_format_perl_class_name (enum converter_format format)
+{
+  if (format == COF_unknown)
+    return "unknown";
+  else if (format == COF_none)
+    return "generic";
+  else
+    return converter_format_data[format].perl_converter_class;
+}
+
 /* Initialize converter data (independent of customization) */
 /* Corresponds to code run directly in the module namespace when doing
    use/require $module in Perl */

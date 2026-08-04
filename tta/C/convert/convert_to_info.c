@@ -243,7 +243,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
   int succeeded;
   const ENCODING_CONVERSION *conversion = 0;
   TEXT result;
-  size_t output_units_descriptor;
+  size_t output_units_descriptor = 0;
   OUTPUT_UNIT_LIST *output_units;
   int need_unsplit = 0;
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
@@ -729,6 +729,13 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
  finalization:
 
+  if (output_units_descriptor > 0)
+    {
+      free_output_unit_list (output_units);
+      document->output_units_lists
+        .output_units_lists[output_units_descriptor -1].list = 0;
+    }
+
   plaintext_conversion_finalization (self);
 
   free (complete_header.text);
@@ -839,7 +846,10 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
           target_element = find_identifier_target (
                                   &self->document->identifiers_target,
                                   normalized);
-          label_element = get_label_element (target_element);
+          /* TODO target_element not set happens in tests in t/info_tests.t
+             novalidate_empty_refs with @xref{@asis{ }}. */
+          if (target_element)
+            label_element = get_label_element (target_element);
         }
     }
   if (!label_element)
@@ -925,6 +935,8 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
               if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
                 quoting_required = 1;
             }
+
+          free (name_text_checked.string);
         }
 
     /* do the actual output of name */
@@ -1014,6 +1026,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
       self_plaintext->silent--;
       destroy_element (node_code_element);
       node_name = node_text_checked.string;
+      need_free_node_name = 1;
     }
   else
     node_name = "";
@@ -1073,7 +1086,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
       ELEMENT *node_code_element = new_element (ET__code);
       if (label_element)
         /* cast to drop const */
-        add_to_element_contents (node_code_element, (ELEMENT *)label_element);
+        add_to_contents_as_array (node_code_element, (ELEMENT *)label_element);
       else
         add_element_to_element_contents (node_code_element, node_element);
       add_to_element_contents (node_stop_upper_case_element,

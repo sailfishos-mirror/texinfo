@@ -290,6 +290,42 @@ ConvertTextXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/conve
 ConvertTextXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 ConvertTextXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(EUIDACCESS_LIBGEN)
 
+########################## ConvertPlaintextXS
+
+if USE_SHARED_TXI_LIBRARIES
+xs_LTLIBRARIES += ConvertPlaintextXS.la
+endif
+
+nodist_ConvertPlaintextXS_la_SOURCES = convert/ConvertPlaintextXS.c
+CLEANFILES += convert/ConvertPlaintextXS.c
+
+ConvertPlaintextXS_la_SOURCES =
+
+EXTRA_DIST += convert/ConvertPlaintextXS.xs
+
+# To locate include files under out-of-source builds.
+ConvertPlaintextXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
+ConvertPlaintextXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
+ConvertPlaintextXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(EUIDACCESS_LIBGEN)
+
+########################## ConvertInfoXS
+
+if USE_SHARED_TXI_LIBRARIES
+xs_LTLIBRARIES += ConvertInfoXS.la
+endif
+
+nodist_ConvertInfoXS_la_SOURCES = convert/ConvertInfoXS.c
+CLEANFILES += convert/ConvertInfoXS.c
+
+ConvertInfoXS_la_SOURCES =
+
+EXTRA_DIST += convert/ConvertInfoXS.xs
+
+# To locate include files under out-of-source builds.
+ConvertInfoXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
+ConvertInfoXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
+ConvertInfoXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(EUIDACCESS_LIBGEN)
+
 ########################## ConvertHTMLXS
 
 if USE_SHARED_TXI_LIBRARIES

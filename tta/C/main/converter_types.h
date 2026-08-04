@@ -74,7 +74,8 @@ typedef struct CONVERTER_INITIALIZATION_INFO {
    the value of the enum should match the index in the converter_format_data
    table that dispatches the functions used for conversion */
 enum converter_format {
-   COF_none = -1,
+   COF_unknown = -2,
+   COF_none, /* -1 */
    COF_plaintext,
    COF_info,
    COF_html,

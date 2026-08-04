@@ -125,12 +125,14 @@ dist_convertmodules_DATA = \
  Texinfo/Convert/HTML.pm \
  Texinfo/Convert/HTMLNonXS.pm \
  Texinfo/Convert/Info.pm \
+ Texinfo/Convert/InfoNonXS.pm \
  Texinfo/Convert/LaTeX.pm \
  Texinfo/Convert/NodeNameNormalization.pm \
  Texinfo/Convert/Paragraph.pm \
  Texinfo/Convert/ParagraphNonXS.pm \
  Texinfo/Convert/PlainTexinfo.pm \
  Texinfo/Convert/Plaintext.pm \
+ Texinfo/Convert/PlaintextNonXS.pm \
  Texinfo/Convert/Texinfo.pm \
  Texinfo/Convert/TexinfoNonXS.pm \
  Texinfo/Convert/Text.pm \
