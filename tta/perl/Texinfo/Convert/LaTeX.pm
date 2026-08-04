@@ -1446,7 +1446,7 @@ sub _latex_header($) {
                                     $self->{'convert_text_options'});
     if ($fulltitle =~ /\S/) {
       # in {} in PDF attributes, [] do not need to be escaped, and the
-      # processor tries to consider input text as pllain text, therefore
+      # processor tries to consider input text as plain text, therefore
       # only {, } and % need to be escaped.
       $fulltitle =~ s/([{}%])/\\$1/g;
       $header_code .= "\\hypersetup{pdftitle={$fulltitle}}\n\n";
@@ -1743,6 +1743,11 @@ roundcorner=10pt}
 \usepackage{amsmath}
 \usepackage[gen]{eurosym}
 \usepackage{textcomp}
+% This is used to provide a default no-operation definition of the alt key,
+% so that it does not generate an error in older versions of graphicx
+\makeatletter
+\providecommand\KV@Gin@alt{}
+\makeatother
 \usepackage{graphicx}
 \usepackage{etoolbox}
 \usepackage{titleps}
@@ -3488,42 +3493,49 @@ sub _convert($$) {
         # for now minimal protection.  Not sure that % is problematic
         $converted_basefile =~ s/([%{}\\])/\\$1/g;
         my $image_file = $converted_basefile;
-        my $width;
+
+        my @image_options;
         if (scalar(@{$element->{'contents'}}) >= 2) {
           push @{$self->{'formatting_context'}->[-1]->{'text_context'}},
                'ctx_raw';
-          $width = _convert($self, $element->{'contents'}->[1]);
+          my $width = _convert($self, $element->{'contents'}->[1]);
           my $old_context
             = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           die if ($old_context ne 'ctx_raw');
-          if ($width !~ /\S/) {
-            $width = undef;
+          if ($width =~ /\S/) {
+            push @image_options, "width=$width";
           }
         }
-        my $height;
         if (scalar(@{$element->{'contents'}}) >= 3) {
           push @{$self->{'formatting_context'}->[-1]->{'text_context'}},
                'ctx_raw';
-          $height = _convert($self, $element->{'contents'}->[2]);
+          my $height = _convert($self, $element->{'contents'}->[2]);
           my $old_context
              = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           die if ($old_context ne 'ctx_raw');
-          if ($height !~ /\S/) {
-            $height = undef;
+          if ($height =~ /\S/) {
+            push @image_options, "height=$height";
           }
         }
+        if (scalar(@{$element->{'contents'}}) >= 4
+            and !Texinfo::Common::empty_spaces_argument(
+                                 $element->{'contents'}->[3])) {
+          my $alt_text = Texinfo::Convert::Text::convert_to_text(
+                                  $element->{'contents'}->[3],
+                                    $self->{'convert_text_options'});
+          if ($alt_text =~ /\S/) {
+            # in {} in PDF attributes, [] do not need to be escaped, and the
+            # processor tries to consider input text as plain text, therefore
+            # only {, } and % need to be escaped.
+            $alt_text =~ s/([{}%])/\\$1/g;
+            push @image_options, "alt={$alt_text}";
+          }
+        }
+
         $result .= "\\includegraphics";
-        if (defined($width) or defined($height)) {
+        if (scalar(@image_options) > 0) {
           $result .= "[";
-          if (defined($width)) {
-            $result .= "width=$width";
-            if (defined($height)) {
-              $result .= ",";
-            }
-          }
-          if (defined($height)) {
-            $result .= "height=$height";
-          }
+          $result .= join(',', @image_options);
           $result .= "]";
         }
         $result .= "{$image_file}";

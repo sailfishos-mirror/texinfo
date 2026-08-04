@@ -10,6 +10,9 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+Make sure that Info and Plaintext XS modules are not used from texi2any.pl when
+INFO_MATH_IMAGES is set (and TEXINFO_XS_INCOMPLETE=2).
+
 Have a look at texi2pod.pl in GCC
 
 Revisit
@@ -53,19 +56,7 @@ a @*heading*, we should keep a track of this, such that users relying on
 @heading know that it is different for heading and keep this in a TODO.
 
 
-Add alt= in @image output for LaTeX
-
-In the preamble add:
-% This is used to provide a default no-operation definition of the alt key,
-% so that it does not generate an error in older versions of graphicx
-\makeatletter
-\providecommand\KV@Gin@alt{}
-\makeatother
-
-For includegraphics call, use {} and explicitely protect % { and }.
-\includegraphics[alt={alt value}]{some image}
-
-Add a customization variable to get accessible PDF.  This adds
+Add a LaTeX customization variable to get accessible PDF.  This adds
 \DocumentMetadata{tagging=on,
  <value of the customization variable>
 }

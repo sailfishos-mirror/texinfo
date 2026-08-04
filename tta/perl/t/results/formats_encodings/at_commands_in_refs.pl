@@ -5054,7 +5054,7 @@ $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 \\Texinfochapter{{\\href{mailto:someone@somewher}{the someone} \\href{mailto:no_explain@there}{\\nolinkurl{no_explain@there}}}}
 \\label{anchor:someone_0040somewher-no_005fexplain_0040there}%
 
-\\Texinfochapter{{\\includegraphics{f--ile1}  \\includegraphics[width=aze,height=az]{f--ile}}}
+\\Texinfochapter{{\\includegraphics{f--ile1}  \\includegraphics[width=aze,height=az,alt={alt}]{f--ile}}}
 \\label{anchor:f_002d_002dile1-f_002d_002dile}%
 
 \\Texinfochapter{{\\verb| @ {} . |}}
@@ -5115,7 +5115,7 @@ $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 
 \\hyperref[anchor:someone_0040somewher-no_005fexplain_0040there]{\\chaptername~\\ref*{anchor:someone_0040somewher-no_005fexplain_0040there} [\\href{mailto:someone@somewher}{the someone} \\href{mailto:no_explain@there}{\\nolinkurl{no_explain@there}}], page~\\pageref*{anchor:someone_0040somewher-no_005fexplain_0040there}}
 
-\\hyperref[anchor:f_002d_002dile1-f_002d_002dile]{\\chaptername~\\ref*{anchor:f_002d_002dile1-f_002d_002dile} [\\includegraphics{f--ile1}  \\includegraphics[width=aze,height=az]{f--ile}], page~\\pageref*{anchor:f_002d_002dile1-f_002d_002dile}}
+\\hyperref[anchor:f_002d_002dile1-f_002d_002dile]{\\chaptername~\\ref*{anchor:f_002d_002dile1-f_002d_002dile} [\\includegraphics{f--ile1}  \\includegraphics[width=aze,height=az,alt={alt}]{f--ile}], page~\\pageref*{anchor:f_002d_002dile1-f_002d_002dile}}
 
 \\hyperref[anchor:-_0040-_007b_007d-_002e-]{\\chaptername~\\ref*{anchor:-_0040-_007b_007d-_002e-} [\\verb| @ {} . |], page~\\pageref*{anchor:-_0040-_007b_007d-_002e-}}
 

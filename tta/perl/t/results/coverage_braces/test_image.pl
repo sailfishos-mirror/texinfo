@@ -1045,30 +1045,35 @@ $result_converted{'latex_text'}->{'test_image'} = '
 
 \\includegraphics{f@i--le..  a@<"\\%@  < & @ \\% " }
 
-In text \\includegraphics[width=1in,height=1cm]{f@i--le..  a@<"\\%@  < & @ \\% " }.
+In text \\includegraphics[width=1in,height=1cm,alt={alt î-le..  a
+<"\\%@  < & @ \\% " }]{f@i--le..  a@<"\\%@  < & @ \\% " }.
 
 Insertcopying
 Text in copying.
 \\includegraphics{f@i--le..  a@<"\\%@  < & @ \\% " }
 
-In text \\includegraphics[width=1in,height=1cm]{f@i--le..  a@<"\\%@  < & @ \\% " }.
+In text \\includegraphics[width=1in,height=1cm,alt={alt î-le..  a
+<"\\%@  < & @ \\% " }]{f@i--le..  a@<"\\%@  < & @ \\% " }.
 
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
 \\ttfamily \\includegraphics{f@i--le..  a@<"\\%@  < & @ \\% " }
 
-In text \\includegraphics[width=1in,height=1cm]{f@i--le..  a@<"\\%@  < & @ \\% " }.
+In text \\includegraphics[width=1in,height=1cm,alt={alt î-le..  a
+<"\\%@  < & @ \\% " }]{f@i--le..  a@<"\\%@  < & @ \\% " }.
 \\end{Texinfopreformatted}
 \\end{Texinfoindented}
 
 \\begin{TexinfoFloatImage}
 \\includegraphics{f@i--le..  a@<"\\%@  < & @ \\% " }
 
-In text \\includegraphics[width=1in,height=1cm]{f@i--le..  a@<"\\%@  < & @ \\% " }.
+In text \\includegraphics[width=1in,height=1cm,alt={alt î-le..  a
+<"\\%@  < & @ \\% " }]{f@i--le..  a@<"\\%@  < & @ \\% " }.
 
 \\caption{\\includegraphics{f@i--le..  a@<"\\%@  < & @ \\% " }
 
-In text \\includegraphics[width=1in,height=1cm]{f@i--le..  a@<"\\%@  < & @ \\% " }.}
+In text \\includegraphics[width=1in,height=1cm,alt={alt î-le..  a
+<"\\%@  < & @ \\% " }]{f@i--le..  a@<"\\%@  < & @ \\% " }.}
 \\label{anchor:Image-with-commands}%
 \\end{TexinfoFloatImage}
 

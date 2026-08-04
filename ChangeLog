@@ -1,5 +1,15 @@
 2026-08-04 Patrice Dumas  <pertusus@free.fr>
 
+	alt @image formatting argument for LaTeX
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header, _convert): add
+	alt= argument to \includegraphics.  Reorganize image options setting
+	code.  Add a providecommand for the case of alt not being defined as
+	\includegraphics argument for pre 2021 graphicx.  Report from Charles
+	Staats and final definition of alt for old LaTeX by David Carlisle.
+
+2026-08-04 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/InfoNonXS.pm (output): avoid comparing
 	undef value.
 

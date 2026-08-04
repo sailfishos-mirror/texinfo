@@ -70,7 +70,7 @@ $result_converted_errors{'html_text'}->{'space_in_image'} = '* W l1|@image file 
 ';
 
 
-$result_converted{'latex_text'}->{'space_in_image'} = '\\includegraphics[width=bb,height=cc]{a}. \\includegraphics{f}.';
+$result_converted{'latex_text'}->{'space_in_image'} = '\\includegraphics[width=bb,height=cc,alt={dd}]{a}. \\includegraphics{f}.';
 
 $result_converted_errors{'latex_text'}->{'space_in_image'} = '* W l1|@image file `a\' (for LaTeX) not found
  warning: @image file `a\' (for LaTeX) not found

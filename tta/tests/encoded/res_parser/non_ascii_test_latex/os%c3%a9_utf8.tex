@@ -3,6 +3,11 @@
 \usepackage{amsmath}
 \usepackage[gen]{eurosym}
 \usepackage{textcomp}
+% This is used to provide a default no-operation definition of the alt key,
+% so that it does not generate an error in older versions of graphicx
+\makeatletter
+\providecommand\KV@Gin@alt{}
+\makeatother
 \usepackage{graphicx}
 \usepackage{etoolbox}
 \usepackage{titleps}
@@ -86,12 +91,12 @@ value vùr \{No value for `vùr'\}.
 
 In included téxt.
 
-\includegraphics{an_ïmage}
-\includegraphics{an_ïmage}
+\includegraphics[alt={öld}]{an_ïmage}
+\includegraphics[alt={öld}]{an_ïmage}
 
 \includegraphics{txt_çimage}
 
-\includegraphics{dîrectory/imàge}
+\includegraphics[alt={âlt}]{dîrectory/imàge}
 
 
 \begin{verbatim}

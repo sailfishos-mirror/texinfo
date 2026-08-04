@@ -88,6 +88,11 @@ $result_converted{'latex'}->{'listoffloats_with_commands'} = '\\documentclass{bo
 \\usepackage{amsmath}
 \\usepackage[gen]{eurosym}
 \\usepackage{textcomp}
+% This is used to provide a default no-operation definition of the alt key,
+% so that it does not generate an error in older versions of graphicx
+\\makeatletter
+\\providecommand\\KV@Gin@alt{}
+\\makeatother
 \\usepackage{graphicx}
 \\usepackage{etoolbox}
 \\usepackage{titleps}

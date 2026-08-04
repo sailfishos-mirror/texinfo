@@ -3,6 +3,11 @@
 \usepackage{amsmath}
 \usepackage[gen]{eurosym}
 \usepackage{textcomp}
+% This is used to provide a default no-operation definition of the alt key,
+% so that it does not generate an error in older versions of graphicx
+\makeatletter
+\providecommand\KV@Gin@alt{}
+\makeatother
 \usepackage{graphicx}
 \usepackage{etoolbox}
 \usepackage{titleps}
@@ -1706,20 +1711,20 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{{,}{,}2{-}{-}xt\}} 
 \texttt{@image\{{,}{,},3{-}{-}xt\}} 
 
-\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
-\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}} \includegraphics[width=aze,alt={a-lt}]{f-ile}
+\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}} \includegraphics[alt={altjk _" \%@}]{f-ile}
 
 \texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile{,}{,},alt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,},alt\}} \includegraphics[alt={alt}]{f--ile}
 \texttt{@image\{f{-}{-}ile{,}{,}{,}{,}.e-d-xt\}} \includegraphics{f--ile}
 \texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
 \texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\}\ e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az,alt={alt}]{f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,} \includegraphics[width=aze,height=az,alt={alt}]{f--ile}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\}\ e{-}{-}xt@\}} \includegraphics[width=aze,height=az,alt={alt}]{f--ile@.}
 
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\}\ @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\}\ @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az,alt={jk _" \%@ in b "}]{f--ile}
+\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics[alt={altjk _" \%@}]{filejk _" \%@}
 
 \vskip \baselineskip %
 
@@ -3461,20 +3466,20 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{{,}{,}2{-}{-}xt\}} 
 \texttt{@image\{{,}{,},3{-}{-}xt\}} 
 
-\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
-\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}} \includegraphics[width=aze,alt={a-lt}]{f-ile}
+\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}} \includegraphics[alt={altjk _" \%@}]{f-ile}
 
 \texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile{,}{,},alt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,},alt\}} \includegraphics[alt={alt}]{f--ile}
 \texttt{@image\{f{-}{-}ile{,}{,}{,}{,}.e-d-xt\}} \includegraphics{f--ile}
 \texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
 \texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\}\ e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az,alt={alt}]{f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,} \includegraphics[width=aze,height=az,alt={alt}]{f--ile}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\}\ e{-}{-}xt@\}} \includegraphics[width=aze,height=az,alt={alt}]{f--ile@.}
 
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\}\ @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\}\ @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az,alt={jk _" \%@ in b "}]{f--ile}
+\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics[alt={altjk _" \%@}]{filejk _" \%@}
 
 \vskip \baselineskip %
 
@@ -5233,20 +5238,20 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{{,}{,}2{-}{-}xt\}} 
 \texttt{@image\{{,}{,},3{-}{-}xt\}} 
 
-\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
-\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}} \includegraphics[width=aze,alt={a-lt}]{f-ile}
+\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}} \includegraphics[alt={altjk _" \%@}]{f-ile}
 
 \texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile{,}{,},alt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,},alt\}} \includegraphics[alt={alt}]{f--ile}
 \texttt{@image\{f{-}{-}ile{,}{,}{,}{,}.e-d-xt\}} \includegraphics{f--ile}
 \texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
 \texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\}\ e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az,alt={alt}]{f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,} \includegraphics[width=aze,height=az,alt={alt}]{f--ile}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\}\ e{-}{-}xt@\}} \includegraphics[width=aze,height=az,alt={alt}]{f--ile@.}
 
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\}\ @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\}\ @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az,alt={jk _" \%@ in b "}]{f--ile}
+\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics[alt={altjk _" \%@}]{filejk _" \%@}
 
 \vskip \baselineskip %
 
@@ -6987,20 +6992,20 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{{,}{,}2{-}{-}xt\}} 
 \texttt{@image\{{,}{,},3{-}{-}xt\}} 
 
-\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
-\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}} \includegraphics[width=aze,alt={a-lt}]{f-ile}
+\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}} \includegraphics[alt={altjk _" \%@}]{f-ile}
 
 \texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile{,}{,},alt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,},alt\}} \includegraphics[alt={alt}]{f--ile}
 \texttt{@image\{f{-}{-}ile{,}{,}{,}{,}.e-d-xt\}} \includegraphics{f--ile}
 \texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
 \texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\}\ e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az,alt={alt}]{f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,} \includegraphics[width=aze,height=az,alt={alt}]{f--ile}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\}\ e{-}{-}xt@\}} \includegraphics[width=aze,height=az,alt={alt}]{f--ile@.}
 
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\}\ @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\}\ @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az,alt={jk _" \%@ in b "}]{f--ile}
+\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics[alt={altjk _" \%@}]{filejk _" \%@}
 
 \vskip \baselineskip %
 
@@ -9212,20 +9217,20 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{{,}{,}2{-}{-}xt\}}\ 
 \texttt{@image\{{,}{,},3{-}{-}xt\}}\ 
 
-\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}}\ \includegraphics[width=aze]{f-ile}
-\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}}\ \includegraphics{f-ile}
+\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}}\ \includegraphics[width=aze,alt={a-lt}]{f-ile}
+\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}}\ \includegraphics[alt={altjk _" \%@}]{f-ile}
 
 \texttt{@image\{f{-}{-}ile\}}\ \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile{,}{,},alt\}}\ \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,},alt\}}\ \includegraphics[alt={alt}]{f--ile}
 \texttt{@image\{f{-}{-}ile{,}{,}{,}{,}.e-d-xt\}}\ \includegraphics{f--ile}
 \texttt{@image\{f{-}{-}ile,l{-}{-}i\}}\ \includegraphics[width=l--i]{f--ile}
 \texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}}\ \includegraphics[height=l--e]{f--ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}}\ \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,}\ \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\}\ e{-}{-}xt@\}}\ \includegraphics[width=aze,height=az]{f--ile@.}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}}\ \includegraphics[width=aze,height=az,alt={alt}]{f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,}\ \includegraphics[width=aze,height=az,alt={alt}]{f--ile}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\}\ e{-}{-}xt@\}}\ \includegraphics[width=aze,height=az,alt={alt}]{f--ile@.}
 
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\}\ @b\{in b "\},e{-}{-}xt\}}\ \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}}\ \includegraphics{filejk _" \%@}
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\}\ @b\{in b "\},e{-}{-}xt\}}\ \includegraphics[width=aze,height=az,alt={jk _" \%@ in b "}]{f--ile}
+\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}}\ \includegraphics[alt={altjk _" \%@}]{filejk _" \%@}
 
 \vskip \baselineskip %
 
