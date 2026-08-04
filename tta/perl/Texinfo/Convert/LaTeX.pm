@@ -1738,10 +1738,37 @@ roundcorner=10pt}
   # the section or chapter title
   my $class_and_usepackage_begin = $self->get_conf('CLASS_BEGIN_USEPACKAGE');
   if (!defined($class_and_usepackage_begin)) {
-    $class_and_usepackage_begin = "\\documentclass{$documentclass}\n";
-    $class_and_usepackage_begin .= '\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage[gen]{eurosym}
+    $class_and_usepackage_begin = '';
+    my $math_usepackage;
+    my $latex_tagged_pdf_var = $self->get_conf('LATEX_TAGGED_PDF');
+    if (defined($latex_tagged_pdf_var)) {
+      $class_and_usepackage_begin .= "\\DocumentMetadata{tagging=on,\n";
+      if ($latex_tagged_pdf_var !~ /\S/) {
+        # set default value for tagged PDF options
+        my $default_bcp47_locale = $self->current_bcp47_locale();
+        $self->set_converter_preamble_language_commands();
+        my $preamble_bcp47_locale = $self->current_bcp47_locale();
+        if ($preamble_bcp47_locale ne '') {
+          $class_and_usepackage_begin .= "lang=$preamble_bcp47_locale,\n";
+        }
+        $class_and_usepackage_begin .= "pdfstandard=ua-2\n";
+
+        if ($default_bcp47_locale ne $preamble_bcp47_locale) {
+          $self->reset_lang_translation_from_customization(
+                           $self->get_conf('documentlanguage'),
+                           $self->get_conf('documentscript'));
+        }
+      } else {
+        $class_and_usepackage_begin .= $latex_tagged_pdf_var;
+      }
+      $class_and_usepackage_begin .= "}\n";
+      $math_usepackage = "\\usepackage{unicode-math}\n";
+    } else {
+      $math_usepackage = "\\usepackage{amsfonts}\n\\usepackage{amsmath}\n";
+    }
+    $class_and_usepackage_begin .= "\\documentclass{$documentclass}\n";
+    $class_and_usepackage_begin .= $math_usepackage;
+    $class_and_usepackage_begin .= '\usepackage[gen]{eurosym}
 \usepackage{textcomp}
 % This is used to provide a default no-operation definition of the alt key,
 % so that it does not generate an error in older versions of graphicx

@@ -841,7 +841,33 @@ CCC
 ['vbar_in_index',
 '@findex A|B
 @cindex C|D
-']
+'],
+['latex_tagged_pdf_default',
+'@documentlanguage sr
+@documentscript Latn
+
+@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+',{},{'LATEX_TAGGED_PDF' => ''},
+],
+['latex_tagged_pdf_customized',
+'@documentlanguage sr
+@documentscript Latn
+
+@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+',{},{'LATEX_TAGGED_PDF' => 'pdfstandard={UA-2,A-4f}, 
+ tagging-setup={math/setup=mathml-SE}'},
+],
+
 );
 
 foreach my $test (@test_cases) {

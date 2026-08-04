@@ -157,6 +157,7 @@ set_converter_customization_options_defaults (OPTIONS *options)
   option_set_conf (&options->JS_WEBLABELS, -2, 0);
   option_set_conf (&options->JS_WEBLABELS_FILE, -2, 0);
   option_set_conf (&options->LATEX_FLOATS_FILE_EXTENSION, -2, "tfl");
+  option_set_conf (&options->LATEX_TAGGED_PDF, -2, 0);
   option_set_conf (&options->LOCALE_ENCODING, -2, 0);
   option_set_conf (&options->L2H_CLEAN, -1, 0);
   option_set_conf (&options->L2H_FILE, -2, 0);
@@ -300,6 +301,7 @@ add_converter_customization_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "JS_WEBLABELS", -2, 0);
   add_option_value (options_list, "JS_WEBLABELS_FILE", -2, 0);
   add_option_value (options_list, "LATEX_FLOATS_FILE_EXTENSION", -2, "tfl");
+  add_option_value (options_list, "LATEX_TAGGED_PDF", -2, 0);
   add_option_value (options_list, "LOCALE_ENCODING", -2, 0);
   add_option_value (options_list, "L2H_CLEAN", -1, 0);
   add_option_value (options_list, "L2H_FILE", -2, 0);

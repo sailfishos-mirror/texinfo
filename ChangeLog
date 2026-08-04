@@ -1,5 +1,16 @@
 2026-08-04 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/data/options_data.txt (LATEX_TAGGED_PDF),
+	tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header): add
+	LATEX_TAGGED_PDF customization variable for LaTeX tagged PDF.  Report
+	form Charles Staats, David Carlisle example.
+
+	* tta/perl/Makefile.tres, tta/perl/t/latex_tests.t
+	(latex_tagged_pdf_default, latex_tagged_pdf_customized): add tests of
+	LaTeX tagged PDF.
+
+2026-08-04 Patrice Dumas  <pertusus@free.fr>
+
 	alt @image formatting argument for LaTeX
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header, _convert): add

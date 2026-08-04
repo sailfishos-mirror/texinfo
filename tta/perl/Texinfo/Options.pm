@@ -98,6 +98,7 @@ our %converter_customization_options = (
   'JS_WEBLABELS'                     => undef,
   'JS_WEBLABELS_FILE'                => undef,
   'LATEX_FLOATS_FILE_EXTENSION'      => 'tfl',
+  'LATEX_TAGGED_PDF'                 => undef,
   'LOCALE_ENCODING'                  => undef,
   'L2H_CLEAN'                        => undef,
   'L2H_FILE'                         => undef,
