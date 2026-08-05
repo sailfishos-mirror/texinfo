@@ -107,13 +107,13 @@ $result_converted{'xml'}->{'comment_on_cartouche_line'} = '<cartouche endspaces=
 ';
 
 
-$result_converted{'latex_text'}->{'comment_on_cartouche_line'} = '\\begin{mdframed}[style=Texinfocartouche]
+$result_converted{'latex_text'}->{'comment_on_cartouche_line'} = '\\begin{Texinfocartouche}
 in cartouche.
-\\end{mdframed}
+\\end{Texinfocartouche}
 
-\\begin{mdframed}[style=Texinfocartouche, frametitle={\\emph{Title of box}}]
+\\begin{Texinfocartouche}[title={\\emph{Title of box}}]
 Out of main text
-\\end{mdframed}
+\\end{Texinfocartouche}
 ';
 
 

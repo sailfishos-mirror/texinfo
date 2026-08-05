@@ -13,7 +13,7 @@
 \usepackage{titleps}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[framemethod=tikz]{mdframed}
+\usepackage{tcolorbox}
 \usepackage{float}
 % use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \usepackage[hidelinks]{hyperref}
@@ -67,10 +67,8 @@
 \newpagestyle{single}{\sethead[\Texinfothechapterheading{}\chaptertitle{}][][\thepage]
                               {\Texinfothechapterheading{}\chaptertitle{}}{}{\thepage}}
 
-% the mdframed style for @cartouche
-\mdfdefinestyle{Texinfocartouche}{
-innertopmargin=10pt, innerbottommargin=10pt,%
-roundcorner=10pt}
+% the tcolorbox environment for @cartouche
+\newtcolorbox{Texinfocartouche}[1][]{arc=10pt,#1}
 
 % allow line breaking at underscore
 \let\Texinfounderscore\_
@@ -85,18 +83,18 @@ roundcorner=10pt}
 \pagestyle{single}%
 
 \begin{document}
-\begin{mdframed}[style=Texinfocartouche]
+\begin{Texinfocartouche}
 Normal cartouche
 
 New para
-\end{mdframed}
+\end{Texinfocartouche}
 
-\begin{mdframed}[style=Texinfocartouche]
+\begin{Texinfocartouche}
 \begin{Texinfoindented}
 \begin{Texinfopreformatted}%
 \ttfamily \% pwd
 /usr/local/share/emacs
 \end{Texinfopreformatted}
 \end{Texinfoindented}
-\end{mdframed}
+\end{Texinfocartouche}
 \end{document}

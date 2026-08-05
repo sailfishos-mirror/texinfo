@@ -89,20 +89,20 @@ $result_headings_list{'example_in_cartouche'} = '';
 
 
 $result_converted{'latex_text'}->{'example_in_cartouche'} = '\\begin{document}
-\\begin{mdframed}[style=Texinfocartouche]
+\\begin{Texinfocartouche}
 Normal cartouche
 
 New para
-\\end{mdframed}
+\\end{Texinfocartouche}
 
-\\begin{mdframed}[style=Texinfocartouche]
+\\begin{Texinfocartouche}
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
 \\ttfamily \\% pwd
 /usr/local/share/emacs
 \\end{Texinfopreformatted}
 \\end{Texinfoindented}
-\\end{mdframed}
+\\end{Texinfocartouche}
 ';
 
 1;

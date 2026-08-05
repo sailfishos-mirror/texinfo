@@ -1,3 +1,19 @@
+2026-08-05 Patrice Dumas  <pertusus@free.fr>
+
+	Use tcolorbox instead of mdframed for cartouche
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (%LaTeX_environment_commands)
+	(%LaTeX_environment_options, %LaTeX_environment_packages)
+	(_latex_header, _set_environment_options): replace mdframed, which is
+	not maintained, by tcolorbox for @cartouche formatting, by defining a
+	tcolorbox environment.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header): load amsfonts for
+	\circledR even when unicode-math is used.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header): with tagging, do
+	not load fontenc and load inputenc only if not utf-8.
+
 2026-08-04 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/data/options_data.txt (LATEX_TAGGED_PDF),

@@ -93,9 +93,9 @@ $result_converted{'xml'}->{'cartouche_in_quotation'} = '<quotation endspaces=" "
 
 $result_converted{'latex_text'}->{'cartouche_in_quotation'} = '\\begin{quote}
 In quotation
-\\begin{mdframed}[style=Texinfocartouche]
+\\begin{Texinfocartouche}
 In cartouche in quotation
-\\end{mdframed}
+\\end{Texinfocartouche}
 end quotation
 \\end{quote}
 ';

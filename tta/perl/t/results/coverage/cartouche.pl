@@ -97,13 +97,13 @@ $result_converted{'xml'}->{'cartouche'} = '<cartouche endspaces=" ">
 ';
 
 
-$result_converted{'latex_text'}->{'cartouche'} = '\\begin{mdframed}[style=Texinfocartouche]
+$result_converted{'latex_text'}->{'cartouche'} = '\\begin{Texinfocartouche}
 in cartouche.
-\\end{mdframed}
+\\end{Texinfocartouche}
 
-\\begin{mdframed}[style=Texinfocartouche, frametitle={\\emph{Title of box}}]
+\\begin{Texinfocartouche}[title={\\emph{Title of box}}]
 Out of main text
-\\end{mdframed}
+\\end{Texinfocartouche}
 ';
 
 

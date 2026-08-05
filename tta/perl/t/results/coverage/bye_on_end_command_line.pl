@@ -68,9 +68,9 @@ $result_converted{'xml'}->{'bye_on_end_command_line'} = '<cartouche endspaces=" 
 ';
 
 
-$result_converted{'latex_text'}->{'bye_on_end_command_line'} = '\\begin{mdframed}[style=Texinfocartouche]
+$result_converted{'latex_text'}->{'bye_on_end_command_line'} = '\\begin{Texinfocartouche}
 in cartouche.
-\\end{mdframed}
+\\end{Texinfocartouche}
 ';
 
 

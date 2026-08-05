@@ -19,7 +19,7 @@
 \usepackage{embrac}
 \usepackage{expl3}
 \usepackage{tabularx}
-\usepackage[framemethod=tikz]{mdframed}
+\usepackage{tcolorbox}
 \usepackage{enumitem}
 \usepackage{float}
 % use hidelinks to remove boxes around links to be similar to Texinfo TeX
@@ -107,10 +107,8 @@
 % avoid pagebreak and headings setting for a sectioning command
 \newcommand{\Texinfonopagebreakheading}[2]{{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\Texinfoplaceholder #1{#2}}}
 
-% the mdframed style for @cartouche
-\mdfdefinestyle{Texinfocartouche}{
-innertopmargin=10pt, innerbottommargin=10pt,%
-roundcorner=10pt}
+% the tcolorbox environment for @cartouche
+\newtcolorbox{Texinfocartouche}[1][]{arc=10pt,#1}
 
 % braces are upright in italic and slanted only in @def*
 % so it is turned off here, and turned on @def* lines
@@ -1607,13 +1605,13 @@ Value--table code
 Value--table samp
 \end{description}
 
-\begin{mdframed}[style=Texinfocartouche]
+\begin{Texinfocartouche}
 c--artouche
-\end{mdframed}
+\end{Texinfocartouche}
 
-\begin{mdframed}[style=Texinfocartouche, frametitle={Tit--le \emph{of box}}]
+\begin{Texinfocartouche}[title={Tit--le \emph{of box}}]
 With title c--artouche
-\end{mdframed}
+\end{Texinfocartouche}
 
 \begin{flushleft}
 \begin{Texinfopreformatted}%
@@ -3362,13 +3360,13 @@ Value--table code
 Value--table samp
 \end{description}
 
-\begin{mdframed}[style=Texinfocartouche]
+\begin{Texinfocartouche}
 c--artouche
-\end{mdframed}
+\end{Texinfocartouche}
 
-\begin{mdframed}[style=Texinfocartouche, frametitle={Tit--le \emph{of box}}]
+\begin{Texinfocartouche}[title={Tit--le \emph{of box}}]
 With title c--artouche
-\end{mdframed}
+\end{Texinfocartouche}
 
 \begin{flushleft}
 \begin{Texinfopreformatted}%
@@ -5134,13 +5132,13 @@ Value--table code
 Value--table samp
 \end{description}
 
-\begin{mdframed}[style=Texinfocartouche]
+\begin{Texinfocartouche}
 c--artouche
-\end{mdframed}
+\end{Texinfocartouche}
 
-\begin{mdframed}[style=Texinfocartouche, frametitle={Tit--le \emph{of box}}]
+\begin{Texinfocartouche}[title={Tit--le \emph{of box}}]
 With title c--artouche
-\end{mdframed}
+\end{Texinfocartouche}
 
 \begin{flushleft}
 \begin{Texinfopreformatted}%
@@ -6888,13 +6886,13 @@ Value--table code
 Value--table samp
 \end{description}
 
-\begin{mdframed}[style=Texinfocartouche]
+\begin{Texinfocartouche}
 c--artouche
-\end{mdframed}
+\end{Texinfocartouche}
 
-\begin{mdframed}[style=Texinfocartouche, frametitle={Tit--le \emph{of box}}]
+\begin{Texinfocartouche}[title={Tit--le \emph{of box}}]
 With title c--artouche
-\end{mdframed}
+\end{Texinfocartouche}
 
 \begin{flushleft}
 \begin{Texinfopreformatted}%
@@ -9078,19 +9076,19 @@ b
 \begin{Texinfopreformatted}%
 \ttfamily 
 \end{Texinfopreformatted}
-\begin{mdframed}[style=Texinfocartouche]
+\begin{Texinfocartouche}
 \begin{Texinfopreformatted}%
 \ttfamily c{-}{-}artouche
 \end{Texinfopreformatted}
-\end{mdframed}
+\end{Texinfocartouche}
 \begin{Texinfopreformatted}%
 \ttfamily 
 \end{Texinfopreformatted}
-\begin{mdframed}[style=Texinfocartouche, frametitle={Tit--le \emph{of box}}]
+\begin{Texinfocartouche}[title={Tit--le \emph{of box}}]
 \begin{Texinfopreformatted}%
 \ttfamily With title c{-}{-}artouche
 \end{Texinfopreformatted}
-\end{mdframed}
+\end{Texinfocartouche}
 \begin{Texinfopreformatted}%
 \ttfamily 
 \end{Texinfopreformatted}

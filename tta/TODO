@@ -56,7 +56,9 @@ a @*heading*, we should keep a track of this, such that users relying on
 @heading know that it is different for heading and keep this in a TODO.
 
 
-Add a LaTeX customization variable to get accessible PDF.  This adds
+Document LATEX_TAGGED_PDF, change variable name if needed in code
+and tests.
+To document LaTeX customization variable to get accessible PDF.  This adds
 \DocumentMetadata{tagging=on,
  <value of the customization variable>
 }

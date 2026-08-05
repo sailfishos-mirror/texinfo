@@ -95,11 +95,11 @@ $result_converted{'latex_text'}->{'cartouche_in_example'} = '\\begin{Texinfoinde
 \\begin{Texinfopreformatted}%
 \\ttfamily In example
 \\end{Texinfopreformatted}
-\\begin{mdframed}[style=Texinfocartouche]
+\\begin{Texinfocartouche}
 \\begin{Texinfopreformatted}%
 \\ttfamily In cartouche in example
 \\end{Texinfopreformatted}
-\\end{mdframed}
+\\end{Texinfocartouche}
 \\begin{Texinfopreformatted}%
 \\ttfamily end example
 \\end{Texinfopreformatted}

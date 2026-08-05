@@ -550,7 +550,7 @@ my %LaTeX_environment_commands = (
   'smallquotation' => ['quote', $small_font_size],
   'indentedblock' => ['Texinfoindented'],
   'smallindentedblock' => ['Texinfoindented', $small_font_size],
-  'cartouche' => ['mdframed'],
+  'cartouche' => ['Texinfocartouche'],
   'itemize' => ['itemize'],
   'enumerate' => ['enumerate'],
   'table' => ['description'],
@@ -562,11 +562,12 @@ my %LaTeX_environment_commands = (
 );
 
 my %LaTeX_environment_options = (
-  'cartouche' => {'mdframed' => 'style=Texinfocartouche'},
+  'cartouche' => {'Texinfocartouche' => undef},
+  #'cartouche' => {'Texinfocartouche' => 'style=Texinfocartouche'},
 );
 
 my %LaTeX_environment_packages = (
-  'cartouche' => ['mdframed'],
+  'cartouche' => ['tcolorbox'],
 );
 
 my %LaTeX_fixed_width_environments = (
@@ -587,7 +588,8 @@ foreach my $environment_command (@LaTeX_same_block_commands) {
   $LaTeX_environment_commands{$environment_command} = [$environment_command];
 }
 
-# no floating material in the corresponding environment (mdframed)
+# TODO there was no floating material in the corresponding environment
+# (mdframed), but now tcolorbox is used, could be different
 my %LaTeX_non_floating_environment_commands = (
   'cartouche' => 1,
 );
@@ -1680,11 +1682,11 @@ sub _latex_header($) {
 ';
   }
 
-  if (exists($self->{'packages'}->{'mdframed'})) {
-   $header_code .= '% the mdframed style for @cartouche
-\mdfdefinestyle{Texinfocartouche}{
-innertopmargin=10pt, innerbottommargin=10pt,%
-roundcorner=10pt}
+  if (exists($self->{'packages'}->{'tcolorbox'})) {
+   # top and bottom margin could be added, with top=10pt and bottom=,
+   # but the default margins seem to be right.
+   $header_code .= '% the tcolorbox environment for @cartouche
+\newtcolorbox{Texinfocartouche}[1][]{arc=10pt,#1}
 
 ';
   }
@@ -1726,8 +1728,8 @@ roundcorner=10pt}
   # etoolbox for \patchcmd, \ifstrempty and \AtBeginEnvironment.
   # In texlive-latex-recommended in debian
   # fontsize for \changefontsize. In texlive-latex-extra in debian
-  # mdframed is used for the formatting of @cartouche,
-  # caption for float in non floating environment, namely cartouche (mdframed)
+  # tcolorbox is used for the formatting of @cartouche,
+  # caption for float in non floating environment, namely cartouche
   # microtype is used for @microtype
   # microtype requires cm-super installed, or to use lmodern package.
   # In texlive-latex-recommended in debian.
@@ -1762,7 +1764,9 @@ roundcorner=10pt}
         $class_and_usepackage_begin .= $latex_tagged_pdf_var;
       }
       $class_and_usepackage_begin .= "}\n";
-      $math_usepackage = "\\usepackage{unicode-math}\n";
+      # amsfonts is supposed not to be needed with unicode-math, but it is
+      # needed for circledR.
+      $math_usepackage = "\\usepackage{amsfonts}\n\\usepackage{unicode-math}\n";
     } else {
       $math_usepackage = "\\usepackage{amsfonts}\n\\usepackage{amsmath}\n";
     }
@@ -1779,8 +1783,21 @@ roundcorner=10pt}
 \usepackage{etoolbox}
 \usepackage{titleps}
 ';
-    my $enc_usepackages = _enc_usepackage($self->{'output_encoding_name'});
-    $class_and_usepackage_begin .= $enc_usepackages;
+    if (!defined($latex_tagged_pdf_var)) {
+      my $enc_usepackages = _enc_usepackage($self->{'output_encoding_name'});
+      $class_and_usepackage_begin .= $enc_usepackages;
+    } else {
+      my $output_encoding = $self->{'output_encoding_name'};
+      if (defined($output_encoding) and $output_encoding ne ''
+          and lc($output_encoding) ne 'utf-8') {
+        my $encoding = $output_encoding;
+        if (exists($LaTeX_encoding_names_map{$output_encoding})) {
+          ($encoding, undef)
+            = @{$LaTeX_encoding_names_map{$output_encoding}};
+        }
+        $class_and_usepackage_begin .= "\\usepackage[$encoding]{inputenc}\n";
+      }
+    }
   }
   my $usepackage_end = $self->get_conf('END_USEPACKAGE');
   if (!defined($usepackage_end)) {
@@ -1807,9 +1824,8 @@ roundcorner=10pt}
     if (exists($self->{'packages'}->{'tabularx'})) {
       $usepackage_end .= "\\usepackage{tabularx}\n";
     }
-    if (exists($self->{'packages'}->{'mdframed'})) {
-      # framemethod=tikz needed for roundcorners for @cartouche
-      $usepackage_end .= "\\usepackage[framemethod=tikz]{mdframed}\n";
+    if (exists($self->{'packages'}->{'tcolorbox'})) {
+      $usepackage_end .= "\\usepackage{tcolorbox}\n";
     }
     if (exists($self->{'packages'}->{'caption'})) {
       # capt-of gives an error for float.t float_in_block_commands test
@@ -2523,12 +2539,21 @@ sub _set_environment_options($$$) {
   if (exists($LaTeX_environment_options{$command})) {
     my $option = $LaTeX_environment_options{$command};
     if ($command eq 'cartouche') {
+      my @environment_options;
+      if (defined($option->{'Texinfocartouche'})) {
+        push @environment_options, $option->{'Texinfocartouche'};
+      }
       # arguments_line type element
       my $arguments_line = $element->{'contents'}->[0];
       my $block_line_arg = $arguments_line->{'contents'}->[0];
       if (!Texinfo::Common::empty_spaces_argument($block_line_arg)) {
-        $option = {'mdframed' => $option->{'mdframed'} . ', frametitle={'
-                       . _convert($self, $block_line_arg) .'}'};
+        push @environment_options, 'title={'
+                     . _convert($self, $block_line_arg) .'}';
+      }
+      if (scalar(@environment_options) > 0) {
+        return {'Texinfocartouche' => join(',', @environment_options)};
+      } else {
+        return undef;
       }
     }
     return $option;

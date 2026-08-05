@@ -74,10 +74,10 @@ flow of the text.
 ';
 
 
-$result_converted{'latex_text'}->{'cartouche_title_and_content'} = '\\begin{mdframed}[style=Texinfocartouche, frametitle={Box title on \\emph{documentation}}]
+$result_converted{'latex_text'}->{'cartouche_title_and_content'} = '\\begin{Texinfocartouche}[title={Box title on \\emph{documentation}}]
 Text on documentation explaining something important out of the main
 flow of the text.
-\\end{mdframed}
+\\end{Texinfocartouche}
 ';
 
 
