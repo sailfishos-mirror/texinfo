@@ -26,7 +26,7 @@ use DynaLoader;
 our $VERSION = '7.3dev';
 
 # disable_XS is set in CheckXS TestXS.pm to override the
-# Texinfo::ModulePath::enable_xs based on the previous configure+make
+# Texinfo::Configure::enable_xs based on the previous configure+make
 our $disable_XS;
 
 # it is better to use $core_modules_built in other modules.
@@ -40,13 +40,11 @@ BEGIN {
     $Texinfo::ModulePath::texinfo_uninstalled = 1;
     $Texinfo::ModulePath::t2a_builddir = '';
   } else {
-    # TODO no import with empty args, as this calls init without paths, which
-    # is wrong.
-    #Texinfo::ModulePath->import();
-    if ($Texinfo::ModulePath::enable_xs eq 'no') {
+    require Texinfo::Configure;
+    if ($Texinfo::Configure::enable_xs eq 'no') {
       $disable_XS = 1;
     }
-    if ($Texinfo::ModulePath::use_shared_txi_libraries eq 'no') {
+    if ($Texinfo::Configure::use_shared_txi_libraries eq 'no') {
       $disable_C_libraries = 1;
     }
   }

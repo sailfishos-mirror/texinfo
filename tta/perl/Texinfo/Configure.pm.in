@@ -1,0 +1,23 @@
+# @configure_input@
+#
+# Pass information from configure to modules and unconfigured scripts.
+
+package Texinfo::Configure;
+
+use strict;
+
+use vars qw($VERSION);
+
+$VERSION = '7.3dev';
+
+# Information passed to modules from configure
+our $conversion_from_euc_cn = '@ICONV_CONVERTS_EUC_CN@';
+our $default_test_level = '@DEFAULT_TEST_LEVEL@';
+our $use_libintl_perl_in_xs = '@use_libintl_perl_in_xs@';
+
+# Passed to texi2any.pl, which is not configured, to t/test_utils.pl
+# and to modules.
+our $enable_xs = '@enable_xs@';
+our $use_shared_txi_libraries = '@use_shared_txi_libraries@';
+
+1;

@@ -29,8 +29,6 @@ BEGIN {
 require Texinfo::ModulePath;
 Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 2);
 
-use Texinfo::XSLoader;
-
 # NOTE in general file names and directory names are not encoded,
 # there will be problems if there are non ascii characters in those
 # strings.
@@ -63,6 +61,10 @@ use Locale::Messages ();
 #};
 
 #my $test_differences_loading_error = $@;
+
+use Texinfo::Configure;
+
+use Texinfo::XSLoader;
 
 use Texinfo::Tests qw(compare_dirs_files is_diff unlink_dir_files);
 
@@ -141,10 +143,10 @@ Texinfo::Translations::setup_output_strings($locales_dir);
 Locale::Messages::bindtextdomain('texinfo', $locales_dir);
 
 my $default_test_level = 1;
-if (defined($Texinfo::ModulePath::default_test_level)
-    and ($Texinfo::ModulePath::default_test_level == 1
-         or $Texinfo::ModulePath::default_test_level == 2)) {
-  $default_test_level = $Texinfo::ModulePath::default_test_level;
+if (defined($Texinfo::Configure::default_test_level)
+    and ($Texinfo::Configure::default_test_level == 1
+         or $Texinfo::Configure::default_test_level == 2)) {
+  $default_test_level = $Texinfo::Configure::default_test_level;
 }
 
 my $generated_texis_dir = 't_texis';

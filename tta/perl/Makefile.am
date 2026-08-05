@@ -107,10 +107,12 @@ dist_modules_DATA = \
  Texinfo/XSLoader.pm
 
 dist_noinst_DATA = \
- Texinfo/ModulePath.pm.in
+ Texinfo/ModulePath.pm.in \
+ Texinfo/Configure.pm.in
 
 modules_DATA = \
- Texinfo/ModulePath.pm
+ Texinfo/ModulePath.pm \
+ Texinfo/Configure.pm
 
 documentmodulesdir = $(converterdatadir)/Texinfo/Document
 dist_documentmodules_DATA = \
@@ -368,13 +370,17 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 	sed -e 's|[@]USE_EXTERNAL_LIBINTL[@]|$(USE_EXTERNAL_LIBINTL)|' \
 	    -e 's|[@]USE_EXTERNAL_EASTASIANWIDTH[@]|$(USE_EXTERNAL_EASTASIANWIDTH)|' \
 	    -e 's|[@]USE_EXTERNAL_UNIDECODE[@]|$(USE_EXTERNAL_UNIDECODE)|' \
-	    -e 's|[@]ICONV_CONVERTS_EUC_CN[@]|$(ICONV_CONVERTS_EUC_CN)|' \
-	    -e 's|[@]DEFAULT_TEST_LEVEL[@]|$(DEFAULT_TEST_LEVEL)|' \
 	    -e 's|[@]CONVERTER[@]|$(CONVERTER)|' \
+	  $(srcdir)/Texinfo/ModulePath.pm.in >$@
+
+Texinfo/Configure.pm: Texinfo/Configure.pm.in Makefile
+	$(MKDIR_P) Texinfo
+	sed -e 's|[@]ICONV_CONVERTS_EUC_CN[@]|$(ICONV_CONVERTS_EUC_CN)|' \
+	    -e 's|[@]DEFAULT_TEST_LEVEL[@]|$(DEFAULT_TEST_LEVEL)|' \
 	    -e 's|[@]enable_xs[@]|$(enable_xs)|' \
 	    -e 's|[@]use_shared_txi_libraries[@]|$(use_shared_txi_libraries)|' \
 	    -e 's|[@]use_libintl_perl_in_xs[@]|$(use_libintl_perl_in_xs)|' \
-	  $(srcdir)/Texinfo/ModulePath.pm.in >$@
+	  $(srcdir)/Texinfo/Configure.pm.in >$@
 
 # target that can be built upon cd'ing to the build directory, as needed
 # for the documentation
@@ -433,7 +439,8 @@ distclean-local:
 	rm -f t/results/*/*.pl.new
 	rm -rf t/results/*/*/out_*/
 
-CLEANFILES = texi2any makeinfo load_txi_modules Texinfo/ModulePath.pm
+CLEANFILES = texi2any makeinfo load_txi_modules Texinfo/ModulePath.pm \
+             Texinfo/Configure.pm
 MAINTAINERCLEANFILES = Texinfo/Commands.pm Texinfo/CommandsValues.pm \
                        Texinfo/HTMLData.pm Texinfo/HTMLDataCSS.pm \
                        Texinfo/Options.pm

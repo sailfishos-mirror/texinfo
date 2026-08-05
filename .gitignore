@@ -332,6 +332,7 @@ tta/perl/t_texis
 tta/perl/texi2any
 
 tta/perl/Texinfo/ModulePath.pm
+tta/perl/Texinfo/Configure.pm
 
 tta/perl/t/output_files
 tta/perl/t/results/**/out_*

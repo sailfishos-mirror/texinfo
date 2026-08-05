@@ -22,15 +22,6 @@ make
  @fonttextsize 12
 not an error?
 
-ModulePath.pm.in is used for 2 purposes, one is the long-time purpose
-of finding modules and XS interface files and libraries to dlopen.
-The other is to get configured information.  The way the module is
-loaded fits well with one objective, but not the other, cf XSLoader.pm,
-it could make sense to separate ModulePath.pm in two, maybe add
-Configure.pm to get configured information, loaded as a usual module
-by both modules and scripts, the specific loading being reserved to 
-scripts.
-
 Change disambiguated added node names postfix to be like [+1+]
 instead of 1.
 

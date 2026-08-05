@@ -3,6 +3,8 @@ use strict;
 use lib '.';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
+use Texinfo::Configure;
+
 require 't/test_utils.pl';
 
 my $invalid_node_name_text = '
@@ -1141,7 +1143,7 @@ text @* f     nl Something? @* After punct
 '],
 ['chinese_mixed_with_en_EUC_CN',
 undef, {'test_file' => 'chinese_mixed_with_en_EUC_CN.texi',
-        'skip' => $Texinfo::ModulePath::conversion_from_euc_cn ne 'yes'
+        'skip' => $Texinfo::Configure::conversion_from_euc_cn ne 'yes'
                    ? 'No conversion from EUC-CN' : undef, }
 ],
 );

@@ -26,12 +26,16 @@ EXTRA_DIST = ChangeLog.46 ChangeLog.65 ChangeLog.70 ChangeLog.72 \
 # distribution directory.
 TEXINFO_TEX = doc/texinfo.tex
 
-# Ensure that this file is built early, as it is needed to run texi2any
-# and pod2texi in rules under "man" and "doc".  This helps in running
-# "make dist" without running "make" first.
+# Ensure that the next two files is built early, as they are needed to
+# run texi2any and pod2texi in rules under "man" and "doc".  This helps
+# in running "make dist" without running "make" first.
 BUILT_SOURCES = tta/perl/Texinfo/ModulePath.pm
 tta/perl/Texinfo/ModulePath.pm:
 	cd tta/perl && $(MAKE) $(AM_MAKEFLAGS) Texinfo/ModulePath.pm
+
+BUILT_SOURCES += tta/perl/Texinfo/Configure.pm
+tta/perl/Texinfo/Configure.pm:
+	cd tta/perl && $(MAKE) $(AM_MAKEFLAGS) Texinfo/Configure.pm
 
 # Ensure that those files are built early, as they are needed in po*
 # directories.  This allows to run configure and make after make distclean

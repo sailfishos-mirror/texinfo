@@ -39,6 +39,8 @@ use Locale::Messages;
 
 use Storable qw(dclone);
 
+use Texinfo::Configure;
+
 use Texinfo::XSLoader;
 
 use Texinfo::Documentlanguages;
@@ -67,7 +69,7 @@ BEGIN {
   ## called if use_libintl_perl_in_xs.  Also avoids the complication of going
   ## through XS and then back to Perl through a call of Perl function
   ## from C.
-  if ($Texinfo::ModulePath::use_libintl_perl_in_xs eq 'yes'
+  if ($Texinfo::Configure::use_libintl_perl_in_xs eq 'yes'
       # Before Perl 5.38.0 getenv/setenv and similar cannot be reliably used in
       # XS and could lead to memory corruption, depending on the platform.
       # (also determined in configure).

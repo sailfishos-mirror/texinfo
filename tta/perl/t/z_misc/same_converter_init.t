@@ -16,6 +16,8 @@ $ENV{LANGUAGE} = 'en';
 
 use File::Spec;
 
+use Texinfo::Configure;
+
 use Texinfo::Parser;
 use Texinfo::Convert::HTML;
 use Texinfo::Config;
@@ -30,10 +32,10 @@ my ($t2a_srcdir, $t2a_builddir, $srcdir)
 configure_document_locales($t2a_builddir);
 
 my $default_test_level = 1;
-if (defined($Texinfo::ModulePath::default_test_level)
-    and ($Texinfo::ModulePath::default_test_level == 1
-         or $Texinfo::ModulePath::default_test_level == 2)) {
-  $default_test_level = $Texinfo::ModulePath::default_test_level;
+if (defined($Texinfo::Configure::default_test_level)
+    and ($Texinfo::Configure::default_test_level == 1
+         or $Texinfo::Configure::default_test_level == 2)) {
+  $default_test_level = $Texinfo::Configure::default_test_level;
 }
 
 my $manual_file = join('/', ($t2a_srcdir, $updir, 'doc', 'texinfo.texi'));

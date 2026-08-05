@@ -5,6 +5,8 @@ use Encode;
 use lib '.';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
+use Texinfo::Configure;
+
 require 't/test_utils.pl';
 
 my $XS_convert = Texinfo::XSLoader::XS_modules_enabled();
@@ -440,7 +442,7 @@ undef, {'test_file' => 'char_latin2_latin2_in_refs.texi'},
 # No test of transliteration, even though it could have been nice
 # because of differences between C and Perl transliterations.
 undef, {'test_file' => 'japanese_shift_jis.texi',
-        'skip' => $Texinfo::ModulePath::conversion_from_euc_cn ne 'yes'
+        'skip' => $Texinfo::Configure::conversion_from_euc_cn ne 'yes'
          ? 'No conversion from EUC-CN assuming errors with shift_jis' : undef,},
 #{'TRANSLITERATE_FILE_NAMES' => 1},
 ],
@@ -458,7 +460,7 @@ undef, {'test_file' => 'manual_simple_latin1_with_error.texi'}
 ],
 ['multiple_include_encodings',
 undef, {'test_file' => 'multiple_include_encodings.texi',
-        'skip' => $Texinfo::ModulePath::conversion_from_euc_cn ne 'yes'
+        'skip' => $Texinfo::Configure::conversion_from_euc_cn ne 'yes'
                    ? 'No conversion from EUC-CN' : undef, }
 ],
 ['at_commands_in_refs_utf8',
