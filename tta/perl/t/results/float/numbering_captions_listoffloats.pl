@@ -2290,8 +2290,10 @@ $result_converted{'latex'}->{'numbering_captions_listoffloats'} = '\\documentcla
 \\usepackage{amsmath}
 \\usepackage[gen]{eurosym}
 \\usepackage{textcomp}
-% This is used to provide a default no-operation definition of the alt key,
-% so that it does not generate an error in older versions of graphicx
+% This is used to provide a default no-operation \'keyval\' definition
+% of the "alt" key in the "Gin" ("Graphics Inclusion") family used
+% by graphicx.  This prevents an "alt" attribute generating an error in
+% older versions of graphicx.
 \\makeatletter
 \\providecommand\\KV@Gin@alt{}
 \\makeatother
