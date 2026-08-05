@@ -1,5 +1,10 @@
 2026-08-05 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (plaintext_process_printindex):
+	fix strings for outside_of_any_node_text.
+
+2026-08-05 Patrice Dumas  <pertusus@free.fr>
+
 	* po/POTFILES.in, po_document/POTFILES.in: udpate.
 
 2026-08-05 Patrice Dumas  <pertusus@free.fr>

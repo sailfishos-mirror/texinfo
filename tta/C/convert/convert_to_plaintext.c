@@ -1277,7 +1277,7 @@ plaintext_process_printindex (CONVERTER *self,
              it is likely that there is more than one such entry */
           if (!self_plaintext->outside_of_any_node_text)
             {
-              ELEMENT *tree = cdt_tree ("outside_of_any_node_text",
+              ELEMENT *tree = cdt_tree ("(outside of any node)",
                                         self, 0 ,0);
               STRING_COUNT_LINE_COUNT node_text;
               plaintext_convert_line_new_context (self, tree,
