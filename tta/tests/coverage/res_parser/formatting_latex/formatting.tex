@@ -110,7 +110,7 @@
 \newcommand{\Texinfonopagebreakheading}[2]{{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\Texinfoplaceholder #1{#2}}}
 
 % the tcolorbox environment for @cartouche
-\newtcolorbox{Texinfocartouche}[1][]{arc=10pt,#1}
+\newtcolorbox{Texinfocartouche}[1][]{#1}
 
 % braces are upright in italic and slanted only in @def*
 % so it is turned off here, and turned on @def* lines

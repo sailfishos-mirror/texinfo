@@ -342,7 +342,7 @@ $result_converted{'latex'}->{'float_in_block_commands'} = '\\documentclass{book}
                               {\\Texinfothechapterheading{}\\chaptertitle{}}{}{\\thepage}}
 
 % the tcolorbox environment for @cartouche
-\\newtcolorbox{Texinfocartouche}[1][]{arc=10pt,#1}
+\\newtcolorbox{Texinfocartouche}[1][]{#1}
 
 % allow line breaking at underscore
 \\let\\Texinfounderscore\\_

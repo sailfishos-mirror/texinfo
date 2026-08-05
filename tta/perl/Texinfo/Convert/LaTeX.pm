@@ -1713,7 +1713,7 @@ sub _latex_header($) {
    # top and bottom margin could be added, with top=10pt and bottom=,
    # but the default margins seem to be right.
    $header_code .= '% the tcolorbox environment for @cartouche
-\newtcolorbox{Texinfocartouche}[1][]{arc=10pt,#1}
+\newtcolorbox{Texinfocartouche}[1][]{#1}
 
 ';
   }

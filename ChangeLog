@@ -1,3 +1,13 @@
+2026-08-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header):
+	Remove "arc=10pt" from tcolorbox argument.
+
+2026-08-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header):
+	Elaborate on comment re "alt" key with graphicx package slightly.
+
 2026-08-05 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/Makefile.am (pod2texi.texi), doc/tta_api/Makefile.am
