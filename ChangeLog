@@ -1,5 +1,16 @@
 2026-08-05 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_protect_latex_text)
+	(_protect_text): split _protect_text in two, by adding
+	_protect_latex_text that does only the protection and gets context
+	information as arguments.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert): protect in alt=
+	argument, although it is not required it may help if the LaTeX macro
+	is redefined.
+
+2026-08-05 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/LaTeX.pm
 	(%LaTeX_no_arg_brace_commands_ascii_replacement, _convert): use
 	\texorpdfstring when in sectioning command argument for no arg

@@ -1476,6 +1476,7 @@ sub _latex_header($) {
       # in {} in PDF attributes, [] do not need to be escaped, and the
       # processor tries to consider input text as plain text, therefore
       # only {, } and % need to be escaped.
+      #$fulltitle = _protect_latex_text($fulltitle);
       $fulltitle =~ s/([{}%])/\\$1/g;
       $header_code .= "\\hypersetup{pdftitle={$fulltitle}}\n\n";
     }
@@ -2226,14 +2227,13 @@ sub _protect_index_text($) {
 }
 
 # Protect LaTeX special characters.
-sub _protect_text($$) {
-  my ($self, $text) = @_;
+sub _protect_latex_text($;$$$$$) {
+  my ($text, $in_math, $in_raw, $in_code, $dot_not_end_sentence) = @_;
 
-  if ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] eq 'ctx_math') {
+  if ($in_math) {
     # FIXME are there any special characters to protect in math mode,
     # for instance # and ~?
-  } elsif ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1]
-             ne 'ctx_raw') {
+  } elsif (!$in_raw) {
     # temporarily replace \ with a control character
     $text =~ s/\\/\x08/g;
 
@@ -2244,7 +2244,7 @@ sub _protect_text($$) {
 
     $text =~ s/\x08/\\textbackslash{}/g;
 
-    if ($self->{'formatting_context'}->[-1]->{'code'}->[-1]) {
+    if ($in_code) {
       # Prevent extra space after punctuation.  (We could use \frenchspacing
       # in the output, but this can break in section titles with hyperref.)
       $text =~ s/([.?!:;,]) /$1\\ /g;
@@ -2266,11 +2266,21 @@ sub _protect_text($$) {
     $text =~ s/\?`/{?}{`}/g;
     $text =~ s/!`/{!}{`}/g;
 
-    if ($self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'}) {
+    if ($dot_not_end_sentence) {
       $text =~ s/\./\.\\@/g;
     }
   }
   return $text;
+}
+
+sub _protect_text($$) {
+  my ($self, $text) = @_;
+
+  return _protect_latex_text($text,
+    ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] eq 'ctx_math'),
+    ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] eq 'ctx_raw'),
+    $self->{'formatting_context'}->[-1]->{'code'}->[-1],
+    $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'})
 }
 
 # pagenum heading is not in Texinfo, it is used for the Table of Contents,
@@ -3615,7 +3625,11 @@ sub _convert($$) {
             # in {} in PDF attributes, [] do not need to be escaped, and the
             # processor tries to consider input text as plain text, therefore
             # only {, } and % need to be escaped.
-            $alt_text =~ s/([{}%])/\\$1/g;
+            #$alt_text =~ s/([{}%])/\\$1/g;
+            # However, if includegraphics is redefined, as in tests as
+            # \renewcommand{\includegraphics}[1]{\fbox{FIG \detokenize{#1}}}
+            # it may be more robust to protect more
+            $alt_text = _protect_latex_text($alt_text);
             push @image_options, "alt={$alt_text}";
           }
         }
