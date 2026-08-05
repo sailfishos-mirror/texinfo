@@ -17,11 +17,13 @@ tta/perl/Texinfo/Translations.pm
 tta/perl/Texinfo/Convert/Converter.pm
 tta/perl/Texinfo/Convert/DocBook.pm
 tta/perl/Texinfo/Convert/LaTeX.pm
-tta/perl/Texinfo/Convert/Plaintext.pm
+tta/perl/Texinfo/Convert/PlaintextNonXS.pm
 tta/perl/Texinfo/Convert/HTMLNonXS.pm
 tta/perl/Texinfo/Convert/HTML.pm
 tta/perl/Texinfo/Convert/Utils.pm
 tta/C/convert/converter.c
+tta/C/convert/convert_indices.c
+tta/C/convert/convert_to_plaintext.c
 tta/C/convert/convert_html.c
 tta/C/convert/format_html.c
 tta/C/main/html_conversion_data.c

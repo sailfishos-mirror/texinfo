@@ -1,5 +1,9 @@
 2026-08-05 Patrice Dumas  <pertusus@free.fr>
 
+	* po/POTFILES.in, po_document/POTFILES.in: udpate.
+
+2026-08-05 Patrice Dumas  <pertusus@free.fr>
+
 	Separate Perl module for information passed from configure
 
 	* Makefile.am (BUILT_SOURCES, tta/perl/Texinfo/Configure.pm),
