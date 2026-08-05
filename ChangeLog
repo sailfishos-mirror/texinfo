@@ -1,5 +1,10 @@
 2026-08-05 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert): do not escape any
+	character in image file name.
+
+2026-08-05 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/LaTeX.pm (_protect_latex_text)
 	(_protect_text): split _protect_text in two, by adding
 	_protect_latex_text that does only the protection and gets context

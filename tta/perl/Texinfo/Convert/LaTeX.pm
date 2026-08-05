@@ -3585,11 +3585,13 @@ sub _convert($$) {
         # codepoints too.
         # using basefile with escaped characters, no extension to let LaTeX
         # choose the extension
-        # FIXME not clear at all what can be in filenames here,
-        # what should be escaped and how
+        # for LaTeX > 2020 (approximately) the file name does not need any
+        # protection, and cannot have anything protected as \ is left as
+        # is and does not protect the next character.  % and \% cannot
+        # appear in file name.
         my $converted_basefile = $basefile;
-        # for now minimal protection.  Not sure that % is problematic
-        $converted_basefile =~ s/([%{}\\])/\\$1/g;
+        # no need nor possibility of escaping
+        #$converted_basefile =~ s/([%{}\\])/\\$1/g;
         my $image_file = $converted_basefile;
 
         my @image_options;
