@@ -87,19 +87,30 @@ sub init {
       }
     }
 
-    if (defined($t2a_srcdir)) {
-      # For Texinfo::Parser and the rest.
-      unshift @INC, join('/', ($t2a_srcdir, 'perl'));
-      $perl_modules_dir = join('/', ($t2a_srcdir, 'maintain'));
-    }
-
-    # Find XS modules and C libraries in the build directory
     if (defined($ENV{'t2a_builddir'})) {
       $t2a_builddir = $ENV{'t2a_builddir'};
     } else {
       # this is correct for in-source builds only.
       $t2a_builddir = $t2a_srcdir;
     }
+
+    my $modules_source_dir;
+    if (defined($t2a_srcdir)) {
+      # For Texinfo::Parser and the rest.
+      $modules_source_dir = join('/', ($t2a_srcdir, 'perl'));
+      unshift @INC, $modules_source_dir;
+      $perl_modules_dir = join('/', ($t2a_srcdir, 'maintain'));
+    }
+    # find generated module(s) in the build directory
+    if (defined($t2a_builddir)) {
+      my $modules_build_dir = join('/',  ($t2a_builddir, 'perl'));
+      if (!defined($modules_source_dir)
+          or $modules_source_dir ne $modules_build_dir) {
+        unshift @INC, $modules_build_dir;
+      }
+    }
+
+    # Find XS modules and C libraries in the build directory
     if (defined($t2a_builddir)) {
       # For XS Modules
       $XS_modules_dir = join('/', ($t2a_builddir, 'perl', 'XSTexinfo'));

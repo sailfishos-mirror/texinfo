@@ -48,6 +48,8 @@ BEGIN
 
   # find Perl Texinfo modules in srcdir
   unshift @INC, join('/', ($t2a_srcdir, 'perl'));
+  # find Perl Texinfo generated module(s) in builddir
+  unshift @INC, join('/', ($updir, 'tta', 'perl'));
 
   my $lib_dir = join('/', ($t2a_srcdir, 'maintain'));
   # we ignore --with-external-*

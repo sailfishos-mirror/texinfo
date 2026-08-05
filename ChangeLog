@@ -1,5 +1,12 @@
 2026-08-05 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/generate_html_doc_texi.pl (BEGIN),
+	tta/perl/Texinfo/ModulePath.pm.in (init): add tta/perl from build
+	directory to @INC to find generated modules, for now
+	Texinfo::Configure.
+
+2026-08-05 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header): set language= in
 	\DocumentMetadata instead of lang=, as lang can derive from language
 	according to the documentation.
