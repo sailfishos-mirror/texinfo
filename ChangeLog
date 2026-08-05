@@ -1,5 +1,14 @@
 2026-08-05 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/LaTeX.pm
+	(%LaTeX_no_arg_brace_commands_ascii_replacement, _convert): use
+	\texorpdfstring when in sectioning command argument for no arg
+	commands using math mode for their formatting, euro and error.
+	Try converting an encoded character, and use ASCII transliteration if
+	this is not possible.
+
+2026-08-05 Patrice Dumas  <pertusus@free.fr>
+
 	Use tcolorbox instead of mdframed for cartouche
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (%LaTeX_environment_commands)

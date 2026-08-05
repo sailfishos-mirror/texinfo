@@ -5015,7 +5015,7 @@ $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 \\Texinfochapter{{\\LaTeX{} \\TeX{} , \\dots{}\\@ \\dots{}}}
 \\label{anchor:LaTeX-TeX-_002c-_2026-_002e_002e_002e}%
 
-\\Texinfochapter{{\\texorpdfstring{\\fbox{error}}{error} \\euro{} \\textexclamdown{}}}
+\\Texinfochapter{{\\texorpdfstring{\\fbox{error}}{error} \\texorpdfstring{\\euro{}}{€} \\textexclamdown{}}}
 \\label{anchor:error_002d_002d_003e-_20ac-_00a1}%
 
 \\Texinfochapter{{\\textordfeminine{} \\textordmasculine{} \\textquestiondown{}}}
@@ -5143,13 +5143,13 @@ $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 
 
 
-\\section{{\\textbullet{} \\copyright{} $\\equiv{}$}}
+\\section{{\\textbullet{} \\copyright{} \\texorpdfstring{$\\equiv{}$}{≡}}}
 \\label{anchor:_2022-_00a9-_2261}%
 
-\\section{{$\\geq{}$ $\\leq{}$ $\\rightarrow{}$ $\\mapsto{}$ -}}
+\\section{{\\texorpdfstring{$\\geq{}$}{≥} \\texorpdfstring{$\\leq{}$}{≤} \\texorpdfstring{$\\rightarrow{}$}{→} \\texorpdfstring{$\\mapsto{}$}{↦} -}}
 \\label{anchor:_2265-_2264-_2192-_21a6-_2212}%
 
-\\section{{$\\star{}$ \\textsterling{} $\\dashv{}$ \\circledR{} $\\Rightarrow{}$}}
+\\section{{\\texorpdfstring{$\\star{}$}{⋆} \\textsterling{} \\texorpdfstring{$\\dashv{}$}{⊣} \\circledR{} \\texorpdfstring{$\\Rightarrow{}$}{⇒}}}
 \\label{anchor:_22c6-_00a3-_22a3-_00ae-_21d2}%
 
 \\section{{\\textdegree{} \\TH{}}}

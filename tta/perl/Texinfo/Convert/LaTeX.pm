@@ -253,6 +253,8 @@ my %brace_code_commands       = %Texinfo::Commands::brace_code_commands;
 my %non_formatted_brace_command = %Texinfo::Commands::non_formatted_brace_command;
 
 my %nobrace_symbol_text = %Texinfo::CommandsValues::nobrace_symbol_text;
+my %text_brace_no_arg_commands
+  = %Texinfo::CommandsValues::text_brace_no_arg_commands;
 
 foreach my $kept_command (keys(%informative_commands),
    'documentlanguagevariant',
@@ -467,6 +469,30 @@ foreach my $text_only_no_arg_brace_command
   $LaTeX_no_arg_brace_commands{'cmd_math'}->{$text_only_no_arg_brace_command}
     = '\mathord{\text{'.$LaTeX_command.'}}';
 }
+
+# commands with math mode used for their formatting and some other commands,
+# @error because of \fbox and \euro are not fit for PDF bookmark, therefore
+# a special command is used to allowed to replace their output in that context.
+# Here we prepare one hash with transliteration to ASCII, for cases where
+# there is no corresponding encoded character.  It is also used to
+# determine which command needs some replacement.  Unless UTF-8 is not used
+# as output encoding, which should be extremely rare, the value is not
+# used, 'error' value being an exception, as the encoded character is used.
+my %LaTeX_no_arg_brace_commands_ascii_replacement;
+foreach my $no_arg_command (keys(%{$LaTeX_no_arg_brace_commands{'cmd_text'}})) {
+  my $latex_code = $LaTeX_no_arg_brace_commands{'cmd_text'}->{$no_arg_command};
+  if ($latex_code =~ /^\$/) {
+    if (!exists($text_brace_no_arg_commands{$no_arg_command})) {
+      die "No ASCII text for $no_arg_command\n";
+    }
+    $LaTeX_no_arg_brace_commands_ascii_replacement{$no_arg_command}
+       = $text_brace_no_arg_commands{$no_arg_command};
+  }
+}
+# TODO translation
+$LaTeX_no_arg_brace_commands_ascii_replacement{'error'} = 'error';
+$LaTeX_no_arg_brace_commands_ascii_replacement{'euro'}
+   = $text_brace_no_arg_commands{'euro'};
 
 # dotless is special
 my %LaTeX_accent_commands = (
@@ -3296,28 +3322,38 @@ sub _convert($$) {
       }
       if (exists($LaTeX_no_arg_brace_commands{$command_format_context}
                                                      ->{$converted_command})) {
-        if ($converted_command eq 'error'
-            and $self->{'formatting_context'}->[-1]
-                                         ->{'in_sectioning_command_heading'}) {
+        if ($self->{'formatting_context'}->[-1]
+                                         ->{'in_sectioning_command_heading'}
+            and exists($LaTeX_no_arg_brace_commands_ascii_replacement{
+                                                    $converted_command})) {
           # in a sectioning command, the contents bookmark is also generated,
           # and some commands do not play well with the contents bookmark.
           # In particular \fbox.
           # \texorpdfstring allows to specify a different output for
           # the string in contents bookmark.
           #
-          # TODO Note that other commands than @error are not perfect in
-          # contents bookmarks, in particular all the commands formatted
-          # in math disappear.  However the other commands have no clear
-          # string representations, being removed in the contents bookmark
-          # strings is not so bad until a better solution is found
-          #
           # See also
           # https://github.com/latex3/hyperref/issues/207#issuecomment-920712424
+
+          # In general PDF bookmarks accepts encoded characters, so try that
+          # first
+          my $encoding = $self->{'output_encoding_name'};
+          my $conversion
+           = Texinfo::Convert::Unicode::brace_no_arg_command($converted_command,
+                                                             $encoding);
+          my $replacement_for_bookmark;
+          if (defined($conversion)) {
+            $replacement_for_bookmark = $conversion;
+          } else {
+            $replacement_for_bookmark
+                = $LaTeX_no_arg_brace_commands_ascii_replacement{
+                                                    $converted_command}
+          }
+
           $result .= '\texorpdfstring{'.
             $LaTeX_no_arg_brace_commands{$command_format_context}
                                                           ->{$converted_command}
-            # TODO translation
-            .'}{error}'
+            ."}{$replacement_for_bookmark}"
         } elsif ($converted_command eq 'lbracechar'
                    or $converted_command eq 'rbracechar') {
           $result .= _format_brace_command($self, $converted_command);
