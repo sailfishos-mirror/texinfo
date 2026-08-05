@@ -1778,7 +1778,9 @@ sub _latex_header($) {
         $self->set_converter_preamble_language_commands();
         my $preamble_bcp47_locale = $self->current_bcp47_locale();
         if ($preamble_bcp47_locale ne '') {
-          $class_and_usepackage_begin .= "lang=$preamble_bcp47_locale,\n";
+          # both lang and language exist, but accoding to the documentation,
+          # lang can be derived from language.
+          $class_and_usepackage_begin .= "language=$preamble_bcp47_locale,\n";
         }
         $class_and_usepackage_begin .= "pdfstandard=ua-2\n";
 
