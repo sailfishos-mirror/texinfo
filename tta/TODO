@@ -22,9 +22,6 @@ make
  @fonttextsize 12
 not an error?
 
-Change disambiguated added node names postfix to be like [+1+]
-instead of 1.
-
 Add "shadow targets" or nodes to sectioning commands without nodes
 and change USE_NODES to have 3 possible meaning
 [no] output units are split at sections, and lone nodes are associated to

@@ -74,13 +74,13 @@ Text.
 @node section
 @section section
 
-@node section 1
+@node section [+1+]
 @section section
 
-@node  1
+@node  [+1+]
 @unnumbered
 
-@node @asis{} 2
+@node @asis{} [+2+]
 @section @asis{}
 
 @bye';

@@ -181,16 +181,16 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C23
     {section}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {section 1}
+ *@node C1 {section [+1+]}
  |EXTRA
- |identifier:{section-1}
+ |identifier:{section-_005b_002b1_002b_005d}
  |is_target:{1}
  |node_number:{8}
   *arguments_line C1
    *line_arg C4
     {spaces_before_argument: }
     {section}
-    { 1}
+    { [+1+]}
     {spaces_after_argument:\\n}
  *@section C2 l19 {section}
  |EXTRA
@@ -203,16 +203,16 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C23
     {section}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 { 1}
+ *@node C1 { [+1+]}
  |EXTRA
- |identifier:{-1}
+ |identifier:{-_005b_002b1_002b_005d}
  |is_target:{1}
  |node_number:{9}
   *arguments_line C1
    *line_arg C4
     {spaces_before_argument: }
     {}
-    { 1}
+    { [+1+]}
     {spaces_after_argument:\\n}
  *@unnumbered C2 l21
  |EXTRA
@@ -222,9 +222,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C23
    *line_arg C1
     {spaces_before_argument:\\n}
   {empty_line:\\n}
- *@node C1 {@asis{} 2}
+ *@node C1 {@asis{} [+2+]}
  |EXTRA
- |identifier:{-2}
+ |identifier:{-_005b_002b2_002b_005d}
  |is_target:{1}
  |node_number:{10}
   *arguments_line C1
@@ -232,7 +232,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C23
     {spaces_before_argument: }
     *@asis C1
      *brace_container
-    { 2}
+    { [+2+]}
     {spaces_after_argument:\\n}
  *@section C2 l23 {@asis{}}
  |EXTRA
@@ -275,13 +275,13 @@ Text.
 @node section
 @section section
 
-@node section 1
+@node section [+1+]
 @section section
 
-@node  1
+@node  [+1+]
 @unnumbered
 
-@node @asis{} 2
+@node @asis{} [+2+]
 @section @asis{}
 
 @bye';
@@ -331,7 +331,7 @@ $result_nodes_list{'insert_nodes_for_sectioning_commands'} = '1|Top
 2|chap@comma{} @code{a chap}
  associated_section: 1 chap, @code{a chap}
  node_directions:
-  next-> 1
+  next-> [+1+]
   prev->Top
   up->Top
 3|a node
@@ -359,23 +359,23 @@ $result_nodes_list{'insert_nodes_for_sectioning_commands'} = '1|Top
 7|section
  associated_section: 1.3 section
  node_directions:
-  next->section 1
+  next->section [+1+]
   prev->truc
   up->chap@comma{} @code{a chap}
-8|section 1
+8|section [+1+]
  associated_section: 1.4 section
  node_directions:
   prev->section
   up->chap@comma{} @code{a chap}
-9| 1
+9| [+1+]
  associated_section
  node_directions:
   prev->chap@comma{} @code{a chap}
   up->Top
-10|@asis{} 2
+10|@asis{} [+2+]
  associated_section: @asis{}
  node_directions:
-  up-> 1
+  up-> [+1+]
 ';
 
 $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
@@ -438,12 +438,12 @@ $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
   prev->truc
   up->chap, @code{a chap}
 9|section
- associated_node: section 1
+ associated_node: section [+1+]
  section_directions:
   prev->section
   up->chap, @code{a chap}
 10
- associated_node:  1
+ associated_node:  [+1+]
  section_directions:
   prev->chap, @code{a chap}
   up->part
@@ -453,7 +453,7 @@ $result_sections_list{'insert_nodes_for_sectioning_commands'} = '1|top section
  section_children:
   1|@asis{}
 11|@asis{}
- associated_node: @asis{} 2
+ associated_node: @asis{} [+2+]
  section_directions:
   up->
 ';

@@ -384,7 +384,7 @@ sub _new_node($$) {
 
     if ($appended_number) {
       push @{$node_line_arg->{'contents'}},
-            Texinfo::TreeElement::new({'text' => " $appended_number"});
+            Texinfo::TreeElement::new({'text' => " [+$appended_number+]"});
     }
     foreach my $content (@{$node_line_arg->{'contents'}}) {
       $content->{'parent'} = $node_line_arg if (exists($content->{'parent'}));
@@ -400,7 +400,7 @@ sub _new_node($$) {
 
     if ($normalized !~ /[^-]/) {
       if ($appended_number) {
-        warn "BUG: spaces only node name despite appending $appended_number\n";
+        warn "BUG: spaces only node name even with [+$appended_number+]\n";
         return undef;
       } else {
         # remove cycles to release this empty node, which is discarded

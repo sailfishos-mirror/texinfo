@@ -715,7 +715,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
       if (appended_number)
         {
           appended_text = new_text_element (ET_normal_text);
-          text_printf (appended_text->e.text, " %d", appended_number);
+          text_printf (appended_text->e.text, " [+%d+]", appended_number);
           add_to_contents_as_array (node_line_arg, appended_text);
         }
 

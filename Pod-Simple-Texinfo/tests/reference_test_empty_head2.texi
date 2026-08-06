@@ -9,14 +9,14 @@
 @node empty head2
 @chapter empty head2
 
-@node  1
+@node  [+1+]
 @section 
 
-@node  2
+@node  [+2+]
 @section 
 
 @node @strong{}
-@node @strong{} 3
+@node @strong{} [+3+]
 @section @strong{}
 
 @bye

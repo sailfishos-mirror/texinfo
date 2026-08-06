@@ -22,7 +22,7 @@ Module1
 
 Module1 DESCRIPTION
 
-* Module1 1::
+* Module1 [+1+]::
 
 Module1
 
@@ -35,7 +35,7 @@ Module2
 
 Module2 DESCRIPTION
 
-* Module2 1::
+* Module2 [+1+]::
 
 Module2
 

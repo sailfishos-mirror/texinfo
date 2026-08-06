@@ -70,9 +70,9 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
     {Section}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {@asis{} 1}
+ *@node C1 {@asis{} [+1+]}
  |EXTRA
- |identifier:{-1}
+ |identifier:{-_005b_002b1_002b_005d}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
@@ -80,7 +80,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
     {spaces_before_argument: }
     *@asis C1
      *brace_container
-    { 1}
+    { [+1+]}
     {spaces_after_argument:\\n}
  *@unnumberedsubsec C2 {@asis{}}
  |EXTRA
@@ -124,7 +124,7 @@ $result_texis{'test_fill_gaps_in_sectioning_insert_nodes'} = '@node Top
 @node Section
 @section Section
 
-@node @asis{} 1
+@node @asis{} [+1+]
 @unnumberedsubsec @asis{}
 
 @node There
@@ -161,14 +161,14 @@ $result_nodes_list{'test_fill_gaps_in_sectioning_insert_nodes'} = '1|Top
  associated_section: 1.1 Section
  node_directions:
   up->Chap
-4|@asis{} 1
+4|@asis{} [+1+]
  associated_section: @asis{}
  node_directions:
   up->Section
 5|There
  associated_section: There
  node_directions:
-  up->@asis{} 1
+  up->@asis{} [+1+]
 ';
 
 $result_sections_list{'test_fill_gaps_in_sectioning_insert_nodes'} = '1|top
@@ -193,7 +193,7 @@ $result_sections_list{'test_fill_gaps_in_sectioning_insert_nodes'} = '1|top
  section_children:
   1|@asis{}
 4|@asis{}
- associated_node: @asis{} 1
+ associated_node: @asis{} [+1+]
  section_directions:
   up->Section
  section_children:

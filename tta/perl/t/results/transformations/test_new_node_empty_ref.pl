@@ -83,16 +83,16 @@ $result_tree_text{'test_new_node_empty_ref'} = '*document_root C9
      *brace_arg
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 { 1}
+ *@node C1 { [+1+]}
  |EXTRA
- |identifier:{-1}
+ |identifier:{-_005b_002b1_002b_005d}
  |is_target:{1}
  |node_number:{4}
   *arguments_line C1
    *line_arg C4
     {spaces_before_argument: }
     {}
-    { 1}
+    { [+1+]}
     {spaces_after_argument:\\n}
  *@subsection C2 l7 {@ref}
  |EXTRA
@@ -117,7 +117,7 @@ $result_texis{'test_new_node_empty_ref'} = '@node Top
 @node b 
 @section b @ref{}
 
-@node  1
+@node  [+1+]
 @subsection @ref
 
 ';
@@ -161,7 +161,7 @@ $result_nodes_list{'test_new_node_empty_ref'} = '1|Top
  associated_section: 1.1 b @ref{}
  node_directions:
   up->aa  g
-4| 1
+4| [+1+]
  associated_section: 1.1.1 @ref
  node_directions:
   up->b
@@ -189,7 +189,7 @@ $result_sections_list{'test_new_node_empty_ref'} = '1|top
  section_children:
   1|@ref
 4|@ref
- associated_node:  1
+ associated_node:  [+1+]
  section_directions:
   up->b @ref{}
 ';

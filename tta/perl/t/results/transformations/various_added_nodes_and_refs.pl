@@ -195,9 +195,9 @@ $result_tree_text{'various_added_nodes_and_refs'} = '*document_root C19
     {)}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {@asis{} 1}
+ *@node C1 {@asis{} [+1+]}
  |EXTRA
- |identifier:{-1}
+ |identifier:{-_005b_002b1_002b_005d}
  |is_target:{1}
  |node_number:{7}
   *arguments_line C1
@@ -205,7 +205,7 @@ $result_tree_text{'various_added_nodes_and_refs'} = '*document_root C19
     {spaces_before_argument: }
     *@asis C1
      *brace_container
-    { 1}
+    { [+1+]}
     {spaces_after_argument:\\n}
  *@subsection C2 l13 {@asis{}}
  |EXTRA
@@ -248,16 +248,16 @@ $result_tree_text{'various_added_nodes_and_refs'} = '*document_root C19
     {a::b\\t c}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {a node 1}
+ *@node C1 {a node [+1+]}
  |EXTRA
- |identifier:{a-node-1}
+ |identifier:{a-node-_005b_002b1_002b_005d}
  |is_target:{1}
  |node_number:{9}
   *arguments_line C1
    *line_arg C4
     {spaces_before_argument: }
     {a node}
-    { 1}
+    { [+1+]}
     {spaces_after_argument:\\n}
  *@section C6 l17 {a node}
  |EXTRA
@@ -383,13 +383,13 @@ $result_texis{'various_added_nodes_and_refs'} = '@node Top
 @node changed @code{node} and (@samp{file})
 @subsection changed @ref{ @code{node}} and (@pxref{ ,, , @samp{file}})
 
-@node @asis{} 1
+@node @asis{} [+1+]
 @subsection @asis{}
 
 @node a@asis{::}b@asis{	} c
 @chapter a::b	 c
 
-@node a node 1
+@node a node [+1+]
 @section a node
 
 
@@ -503,9 +503,9 @@ $result_nodes_list{'various_added_nodes_and_refs'} = '1|Top
 6|changed @code{node} and (@samp{file})
  associated_section: 2.2.1 changed @ref{ @code{node}} and (@pxref{ ,, , @samp{file}})
  node_directions:
-  next->@asis{} 1
+  next->@asis{} [+1+]
   up->@asis{(}in paren(too  aaa
-7|@asis{} 1
+7|@asis{} [+1+]
  associated_section: 2.2.2 @asis{}
  node_directions:
   prev->changed @code{node} and (@samp{file})
@@ -515,7 +515,7 @@ $result_nodes_list{'various_added_nodes_and_refs'} = '1|Top
  node_directions:
   prev->a node @code{in code}
   up->Top
-9|a node 1
+9|a node [+1+]
  associated_section: 3.1 a node
  node_directions:
   up->a@asis{::}b@asis{	} c
@@ -570,7 +570,7 @@ $result_sections_list{'various_added_nodes_and_refs'} = '1|otp
   next->@asis{}
   up->(in paren(too  aaa
 7|@asis{}
- associated_node: @asis{} 1
+ associated_node: @asis{} [+1+]
  section_directions:
   prev->changed @ref{ @code{node}} and (@pxref{ ,, , @samp{file}})
   up->(in paren(too  aaa
@@ -585,7 +585,7 @@ $result_sections_list{'various_added_nodes_and_refs'} = '1|otp
  section_children:
   1|a node
 9|a node
- associated_node: a node 1
+ associated_node: a node [+1+]
  section_directions:
   up->a::b	 c
 ';

@@ -9,7 +9,7 @@ Module1 - The one
 @node Module1 DESCRIPTION
 @section Module1 DESCRIPTION
 
-@node Module1 1
+@node Module1 [+1+]
 @unnumberedsubsec Module1
 
 @node Module1 Mod

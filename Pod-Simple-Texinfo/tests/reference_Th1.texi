@@ -4,7 +4,7 @@
 @node Th1 Th1
 @section Th1
 
-@node Th1 1
+@node Th1 [+1+]
 @unnumberedsubsec Th1
 
 @node Th1 Th3
