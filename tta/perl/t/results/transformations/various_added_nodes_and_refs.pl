@@ -8,8 +8,9 @@ use utf8;
 
 $result_tree_text{'various_added_nodes_and_refs'} = '*document_root C19
  *before_node_section
- *@node C1 {Top}
+ *@node C1 l1 {Top}
  |EXTRA
+ |added:{1}
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
@@ -28,8 +29,9 @@ $result_tree_text{'various_added_nodes_and_refs'} = '*document_root C19
     {otp}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {a node}
+ *@node C1 l3 {a node}
  |EXTRA
+ |added:{1}
  |identifier:{a-node}
  |is_target:{1}
  |node_number:{2}
@@ -49,8 +51,9 @@ $result_tree_text{'various_added_nodes_and_refs'} = '*document_root C19
     {a node}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {a node @code{in code}}
+ *@node C1 l5 {a node @code{in code}}
  |EXTRA
+ |added:{1}
  |identifier:{a-node-in-code}
  |is_target:{1}
  |node_number:{3}
@@ -81,8 +84,9 @@ $result_tree_text{'various_added_nodes_and_refs'} = '*document_root C19
       {rawline_text:comment}
       {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {a @comma{}@comma{} node @code{a@comma{}b@comma{}}}
+ *@node C1 l7 {a @comma{}@comma{} node @code{a@comma{}b@comma{}}}
  |EXTRA
+ |added:{1}
  |identifier:{a-_002c_002c-node-a_002cb_002c}
  |is_target:{1}
  |node_number:{4}
@@ -118,8 +122,9 @@ $result_tree_text{'various_added_nodes_and_refs'} = '*document_root C19
       {a,b,}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {@asis{(}in paren(too  aaa}
+ *@node C1 l9 {@asis{(}in paren(too  aaa}
  |EXTRA
+ |added:{1}
  |identifier:{_0028in-paren_0028too-aaa}
  |is_target:{1}
  |node_number:{5}
@@ -142,8 +147,9 @@ $result_tree_text{'various_added_nodes_and_refs'} = '*document_root C19
     {(in paren(too  aaa}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {changed @code{node} and (@samp{file})}
+ *@node C1 l11 {changed @code{node} and (@samp{file})}
  |EXTRA
+ |added:{1}
  |identifier:{changed-node-and-_0028file_0029}
  |is_target:{1}
  |node_number:{6}
@@ -195,8 +201,9 @@ $result_tree_text{'various_added_nodes_and_refs'} = '*document_root C19
     {)}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {@asis{} [+1+]}
+ *@node C1 l13 {@asis{} [+1+]}
  |EXTRA
+ |added:{1}
  |identifier:{-_005b_002b1_002b_005d}
  |is_target:{1}
  |node_number:{7}
@@ -219,8 +226,9 @@ $result_tree_text{'various_added_nodes_and_refs'} = '*document_root C19
      *brace_container
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {a@asis{::}b@asis{	} c}
+ *@node C1 l15 {a@asis{::}b@asis{	} c}
  |EXTRA
+ |added:{1}
  |identifier:{a_003a_003ab-c}
  |is_target:{1}
  |node_number:{8}
@@ -248,8 +256,9 @@ $result_tree_text{'various_added_nodes_and_refs'} = '*document_root C19
     {a::b\\t c}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {a node [+1+]}
+ *@node C1 l17 {a node [+1+]}
  |EXTRA
+ |added:{1}
  |identifier:{a-node-_005b_002b1_002b_005d}
  |is_target:{1}
  |node_number:{9}
@@ -450,6 +459,12 @@ $result_errors{'various_added_nodes_and_refs'} = '* W l25|@ref should not appear
 
 * W l25|@pxref should not appear anywhere inside @ref
  warning: @pxref should not appear anywhere inside @ref
+
+* W l17|@section `a node\' already added node
+ warning: @section `a node\' already added node
+
+* WC l3|added for @chapter
+ warning: added for @chapter
 
 * E l11|@ref reference to nonexistent node `@code{node}\'
  @ref reference to nonexistent node `@code{node}\'

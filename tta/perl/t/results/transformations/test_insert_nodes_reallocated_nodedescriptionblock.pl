@@ -50,8 +50,9 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
     {Chap}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {Sec}
+ *@node C1 l7 {Sec}
  |EXTRA
+ |added:{1}
  |identifier:{Sec}
  |is_target:{1}
  |node_number:{3}
@@ -98,8 +99,9 @@ $result_tree_text{'test_insert_nodes_reallocated_nodedescriptionblock'} = '*docu
      {nodedescriptionblock}
      {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {Subsec}
+ *@node C1 l16 {Subsec}
  |EXTRA
+ |added:{1}
  |identifier:{Subsec}
  |is_target:{1}
  |node_number:{4}

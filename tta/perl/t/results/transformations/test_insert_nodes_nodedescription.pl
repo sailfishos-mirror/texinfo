@@ -9,8 +9,9 @@ use utf8;
 $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
  *before_node_section C1
   *preamble_before_content
- *@node C1 {Top}
+ *@node C1 l1 {Top}
  |EXTRA
+ |added:{1}
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
@@ -34,8 +35,9 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
     {D1}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {Chap}
+ *@node C1 l4 {Chap}
  |EXTRA
+ |added:{1}
  |identifier:{Chap}
  |is_target:{1}
  |node_number:{2}
@@ -55,8 +57,9 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
     {Chap}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {Sec}
+ *@node C1 l6 {Sec}
  |EXTRA
+ |added:{1}
  |identifier:{Sec}
  |is_target:{1}
  |node_number:{3}
@@ -86,8 +89,9 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
     {D3}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {Subsec}
+ *@node C1 l10 {Subsec}
  |EXTRA
+ |added:{1}
  |identifier:{Subsec}
  |is_target:{1}
  |node_number:{4}

@@ -8,8 +8,9 @@ use utf8;
 
 $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  *before_node_section
- *@node C1 {Top}
+ *@node C1 l1 {Top}
  |EXTRA
+ |added:{1}
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
@@ -28,8 +29,9 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
     {top}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {Chap}
+ *@node C1 l3 {Chap}
  |EXTRA
+ |added:{1}
  |identifier:{Chap}
  |is_target:{1}
  |node_number:{2}
@@ -49,8 +51,9 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
     {Chap}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 { [+1+]}
+ *@node C1 l5 { [+1+]}
  |EXTRA
+ |added:{1}
  |identifier:{-_005b_002b1_002b_005d}
  |is_target:{1}
  |node_number:{3}
@@ -69,8 +72,9 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
    *line_arg C1
     {spaces_before_argument:\\n}
   {empty_line:\\n}
- *@node C1 { [+2+]}
+ *@node C1 l7 { [+2+]}
  |EXTRA
+ |added:{1}
  |identifier:{-_005b_002b2_002b_005d}
  |is_target:{1}
  |node_number:{4}
@@ -96,8 +100,9 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
     *@strong C1 l9
      *brace_container
     {spaces_after_argument:\\n}
- *@node C1 {@strong{} [+3+]}
+ *@node C1 l10 {@strong{} [+3+]}
  |EXTRA
+ |added:{1}
  |identifier:{-_005b_002b3_002b_005d}
  |is_target:{1}
  |node_number:{5}

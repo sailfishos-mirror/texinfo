@@ -1048,7 +1048,7 @@ item_line_parent (ELEMENT *current)
 ELEMENT *
 get_label_element (const ELEMENT *e)
 {
-  if (e->e.c->cmd == CM_node)
+  if (command_data[e->e.c->cmd].flags & CF_root)
     /* first content of arguments_line type element */
     return e->e.c->contents.list[0]->e.c->contents.list[0];
   else if ((e->e.c->cmd == CM_anchor || e->e.c->cmd == CM_namedanchor)

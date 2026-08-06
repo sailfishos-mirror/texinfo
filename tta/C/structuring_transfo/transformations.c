@@ -591,7 +591,7 @@ move_index_entries_after_items_in_document (DOCUMENT *document)
  */
 ELEMENT *
 new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
-          DOCUMENT *document)
+          DOCUMENT *document, const ELEMENT *associated_command)
 {
   const C_HASHMAP *identifiers_target = &document->identifiers_target;
   int empty_node = 0;
@@ -604,6 +604,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
   ELEMENT *tree_spaces_before = 0;
   ELEMENT *node = 0;
   char *normalized;
+  char *normalized_reference = 0;
   /*
    We protect for all the contexts, as the node name should be
    the same in the different contexts, even if some protections
@@ -725,6 +726,9 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
 
       normalized = convert_contents_to_node_identifier (node_line_arg);
 
+      if (!appended_number)
+        normalized_reference = strdup (normalized);
+
       non_hyphen_char = normalized + strspn (normalized, "-");
       if (*non_hyphen_char)
         {
@@ -751,6 +755,50 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
     }
 
   add_extra_string (node, AI_key_identifier, normalized);
+  node->flags |= EF_added;
+
+  if (associated_command)
+    node->e.c->source_info = associated_command->e.c->source_info;
+
+  if (associated_command && normalized_reference
+      && strcmp (normalized_reference, normalized)
+      && identifiers_target_number (identifiers_target))
+    {
+      const ELEMENT *existing_target
+        = find_identifier_target (identifiers_target, normalized_reference);
+      if (existing_target && (existing_target->flags & EF_added))
+        {
+          int status;
+          const NODE_RELATIONS_LIST *nodes_list = &document->nodes_list;
+          size_t existing_node_number
+            = lookup_extra_integer (existing_target,
+                                    AI_key_node_number, &status);
+          const NODE_RELATIONS *existing_node_relations
+             = nodes_list->list[existing_node_number -1];
+          const ELEMENT *existing_section
+             = existing_node_relations->associated_section->element;
+          const ELEMENT *registered_section_label
+             = get_label_element (associated_command);
+          char *registered_section_texinfo
+             = convert_contents_to_texinfo (registered_section_label);
+
+          message_list_command_warn (error_messages,
+            (document->options && document->options->DEBUG.o.integer > 0),
+            associated_command, 0,
+            "@%s `%s' already added node",
+            builtin_command_name (associated_command->e.c->cmd),
+            registered_section_texinfo);
+          message_list_command_warn (error_messages,
+            (document->options && document->options->DEBUG.o.integer > 0),
+                      existing_section, 1,
+                     "added for @%s",
+                      builtin_command_name (existing_section->e.c->cmd));
+
+          free (registered_section_texinfo);
+        }
+    }
+
+  free (normalized_reference);
 
   register_label_element (document, node, error_messages);
 
@@ -916,7 +964,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                   new_node_tree = copy_contents (line_arg, 0, ET_NONE);
                 }
               added_node = new_node (&document->error_messages, new_node_tree,
-                                     document);
+                                     document, content);
               destroy_element (new_node_tree);
               if (added_node)
                 {

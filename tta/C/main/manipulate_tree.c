@@ -1506,6 +1506,7 @@ print_element_extra (ELEMENT *element, int level,
 
   /* node */
   store_flag(isindex)
+  store_flag(added)
   /* node, anchor, float */
   store_flag(is_target)
   /* def_line for block/line for @def*x */

@@ -1,5 +1,30 @@
 2026-08-06 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (element_to_perl_hash)
+	(print_element_extra), tta/C/main/tree_types.h (EF_added),
+	tta/C/structuring_transfo/transformations.c (new_node),
+	tta/perl/Texinfo/TransformationsNonXS.pm (_new_node): add added flag
+	to added elements, when needed.  Add for added nodes, such that they
+	can be distinguished from original Texinfo manual nodes.
+
+	* tta/C/structuring_transfo/transformations.c (new_node),
+	tta/perl/Texinfo/TransformationsNonXS.pm (_new_node): pass
+	associated sectioning command.  Warn if a new node has already been
+	added.
+
+	* tta/perl/Texinfo/Structuring.pm (_insert_menu_comment_content):
+	handle a sectioning command with a missing argument.
+
+	* tta/C/structuring_transfo/transformations.c (new_node),
+	tta/perl/Texinfo/TransformationsNonXS.pm (_new_node): use the
+	associated command as source info for a new node.
+
+	* tta/C/main/utils.c (get_label_element), tta/perl/Texinfo/Common.pm
+	(get_label_element): handle root command more generally, not only
+	node.
+
+2026-08-06 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/TransformationsNonXS.pm (_new_node),
 	tta/C/structuring_transfo/transformations.c (new_node): decorate
 	appended disambiguating prefix based on a number as [+1+] to make

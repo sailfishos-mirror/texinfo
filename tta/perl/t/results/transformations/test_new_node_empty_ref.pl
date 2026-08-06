@@ -8,8 +8,9 @@ use utf8;
 
 $result_tree_text{'test_new_node_empty_ref'} = '*document_root C9
  *before_node_section
- *@node C1 {Top}
+ *@node C1 l1 {Top}
  |EXTRA
+ |added:{1}
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
@@ -28,8 +29,9 @@ $result_tree_text{'test_new_node_empty_ref'} = '*document_root C9
     {top}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {aa  g}
+ *@node C1 l3 {aa  g}
  |EXTRA
+ |added:{1}
  |identifier:{aa-g}
  |is_target:{1}
  |node_number:{2}
@@ -60,8 +62,9 @@ $result_tree_text{'test_new_node_empty_ref'} = '*document_root C9
     { g}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {b}
+ *@node C1 l5 {b}
  |EXTRA
+ |added:{1}
  |identifier:{b}
  |is_target:{1}
  |node_number:{3}
@@ -83,8 +86,9 @@ $result_tree_text{'test_new_node_empty_ref'} = '*document_root C9
      *brace_arg
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 { [+1+]}
+ *@node C1 l7 { [+1+]}
  |EXTRA
+ |added:{1}
  |identifier:{-_005b_002b1_002b_005d}
  |is_target:{1}
  |node_number:{4}

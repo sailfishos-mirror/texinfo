@@ -283,8 +283,8 @@ sub _reassociate_to_node($$$) {
 # The $DOCUMENT error_messages is used to register error messages.
 # Does not matter much, as the code checks that the new node target label does
 # not exist already, therefore there cannot be any error.
-sub _new_node($$) {
-  my ($node_tree, $document) = @_;
+sub _new_node($$;$) {
+  my ($node_tree, $document, $associated_command) = @_;
 
   # We protect for all the contexts, as the node name should be
   # the same in the different contexts, even if some protections
@@ -337,7 +337,7 @@ sub _new_node($$) {
                                          or $comment_at_end);
 
   my $appended_number = 0 +$empty_node;
-  my ($node, $normalized);
+  my ($node, $normalized, $normalized_reference);
 
   my $identifier_target = $document->labels_information();
   while (!defined($node)
@@ -351,6 +351,15 @@ sub _new_node($$) {
     }
 
     $node = Texinfo::TreeElement::new({'cmdname' => 'node', 'extra' => {}});
+
+    # In general there is a source info for the associated command, there
+    # may be none for generated sectioning commands, for example for fill
+    # gaps in sectioning.
+    # Using the source information of the associated command for the node
+    # is not perfect, but it is better than no source info.
+    if (defined($associated_command->{'source_info'})) {
+      $node->{'source_info'} = { %{$associated_command->{'source_info'}} };
+    }
 
     my $arguments_line
       = Texinfo::TreeElement::new({'type' => 'arguments_line',
@@ -397,6 +406,9 @@ sub _new_node($$) {
        = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
            Texinfo::TreeElement::new(
                        { 'contents' => $node_line_arg->{'contents'} }));
+    if (!$appended_number) {
+      $normalized_reference = $normalized;
+    }
 
     if ($normalized !~ /[^-]/) {
       if ($appended_number) {
@@ -412,6 +424,37 @@ sub _new_node($$) {
     $appended_number++;
   }
   $node->{'extra'}->{'identifier'} = $normalized;
+  $node->{'extra'}->{'added'} = 1;
+
+  if (defined($associated_command) and defined($normalized_reference)
+      and $normalized_reference ne $normalized
+      and defined($identifier_target)) {
+    my $existing_target = $identifier_target->{$normalized_reference};
+    if ($existing_target and $existing_target->{'extra'}->{'added'}) {
+      my $nodes_list = $document->nodes_list();
+      my $existing_node_relations
+         = $nodes_list->[$existing_target->{'extra'}->{'node_number'} -1];
+      my $existing_section
+         = $existing_node_relations->{'associated_section'}->{'element'};
+      my $debug = $document->get_conf('DEBUG');
+      my $error_messages = $document->{'error_messages'};
+      my $registered_section_label
+       = Texinfo::Common::get_label_element($associated_command);
+      my $registered_section_texinfo
+        = Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
+                                                  $registered_section_label);
+      push @$error_messages, Texinfo::Report::line_warn(
+                        sprintf(__("\@%s `%s' already added node"),
+                                $associated_command->{'cmdname'},
+                                $registered_section_texinfo),
+                          $associated_command->{'source_info'}, 0, 
+                                       $debug);
+      push @$error_messages, Texinfo::Report::line_warn(
+                         sprintf(__("added for \@%s"),
+                            $existing_section->{'cmdname'}),
+                             $existing_section->{'source_info'}, 1, $debug);
+    }
+  }
 
   Texinfo::Document::register_label_element($document, $node,
                                             $document->{'error_messages'},
@@ -458,7 +501,7 @@ sub insert_nodes_for_sectioning_commands($) {
         $new_node_tree
          = Texinfo::ManipulateTree::copy_contents($line_arg);
       }
-      my $new_node = _new_node($new_node_tree, $document);
+      my $new_node = _new_node($new_node_tree, $document, $content);
       if (defined($new_node)) {
         # insert before $content
         splice(@{$root->{'contents'}}, $idx, 0, $new_node);

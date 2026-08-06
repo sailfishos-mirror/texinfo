@@ -952,6 +952,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   /* node */
   store_flag(isindex)
+  store_flag(added)
   /* node, anchor, float */
   store_flag(is_target)
   /* def_line for block/line for @def*x */

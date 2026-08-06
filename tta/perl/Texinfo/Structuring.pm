@@ -22,6 +22,8 @@ use 5.006;
 use strict;
 use warnings;
 
+use Carp qw(cluck);
+
 use Texinfo::XSLoader;
 
 use Texinfo::Commands;
@@ -373,13 +375,16 @@ sub _insert_menu_comment_content($$$;$) {
      Texinfo::TreeElement::new({'text' => "\n", 'type' => 'empty_line'});
   }
 
-  push @{$preformatted->{'contents'}},
-    @{$inserted_element->{'contents'}},
-    Texinfo::TreeElement::new({'text' => "\n", 'type' => 'empty_line'}),
-    Texinfo::TreeElement::new({'text' => "\n", 'type' => 'empty_line'});
+  # no contents if a section has a missing argument
+  if (exists($inserted_element->{'contents'})) {
+    push @{$preformatted->{'contents'}},
+      @{$inserted_element->{'contents'}},
+      Texinfo::TreeElement::new({'text' => "\n", 'type' => 'empty_line'}),
+      Texinfo::TreeElement::new({'text' => "\n", 'type' => 'empty_line'});
 
-  foreach my $content (@{$inserted_element->{'contents'}}) {
-    $content->{'parent'} = $preformatted unless(exists($content->{'text'}));
+    foreach my $content (@{$inserted_element->{'contents'}}) {
+      $content->{'parent'} = $preformatted unless(exists($content->{'text'}));
+    }
   }
   splice (@$menu_contents, $position, 0, $menu_comment);
 }

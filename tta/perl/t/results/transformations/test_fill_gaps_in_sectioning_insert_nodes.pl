@@ -8,8 +8,9 @@ use utf8;
 
 $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root C11
  *before_node_section
- *@node C1 {Top}
+ *@node C1 l1 {Top}
  |EXTRA
+ |added:{1}
  |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
@@ -28,8 +29,9 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
     {top}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {Chap}
+ *@node C1 l3 {Chap}
  |EXTRA
+ |added:{1}
  |identifier:{Chap}
  |is_target:{1}
  |node_number:{2}
@@ -49,8 +51,9 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
     {Chap}
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {Section}
+ *@node C1 l5 {Section}
  |EXTRA
+ |added:{1}
  |identifier:{Section}
  |is_target:{1}
  |node_number:{3}
@@ -72,6 +75,7 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
   {empty_line:\\n}
  *@node C1 {@asis{} [+1+]}
  |EXTRA
+ |added:{1}
  |identifier:{-_005b_002b1_002b_005d}
  |is_target:{1}
  |node_number:{4}
@@ -93,8 +97,9 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
      *brace_container
     {spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 {There}
+ *@node C1 l7 {There}
  |EXTRA
+ |added:{1}
  |identifier:{There}
  |is_target:{1}
  |node_number:{5}

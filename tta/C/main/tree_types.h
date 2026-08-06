@@ -79,6 +79,9 @@ enum extra_type {
 /* transiently used for numbering of the elements for the representation
    of the tree.  Not currently used. */
 #define EF_numbered                      0x1000
+/* and added element, not in the initial tree.  Not systematically set,
+   only when useful */
+#define EF_added                         0x2000
 
 /* indices in ELEMENT elt_info */
 /* to be kept in sync with elt_info_names in main/tree.c */

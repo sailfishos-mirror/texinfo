@@ -2084,7 +2084,7 @@ sub get_label_element($) {
 
   return undef if (!exists($current->{'cmdname'}));
 
-  if ($current->{'cmdname'} eq 'node') {
+  if (exists($Texinfo::Commands::root_commands{$current->{'cmdname'}})) {
     # first content of arguments_line type element
     return $current->{'contents'}->[0]->{'contents'}->[0];
   } elsif (($current->{'cmdname'} eq 'anchor'

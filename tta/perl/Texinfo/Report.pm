@@ -118,8 +118,7 @@ sub line_error($$;$$$) {
   my ($text, $error_location_info, $continuation, $debug, $silent) = @_;
 
   if (!defined($error_location_info)) {
-    cluck("BUG: line_error: error_location_info undef");
-    return;
+    confess("BUG: line_error: error_location_info undef");
   }
 
   my $warn = ($debug and not $silent);
