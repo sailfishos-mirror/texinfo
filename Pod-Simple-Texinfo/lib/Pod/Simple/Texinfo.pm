@@ -440,7 +440,7 @@ sub _reference_to_text_in_texi($) {
   # Remove the link to C data, such that convert_to_texinfo converts
   # the modified Perl tree.
   $tree = Texinfo::Document::build_tree($tree, 1);
-  Texinfo::Transformations::reference_to_arg_in_tree($tree);
+  Texinfo::ManipulateTree::reference_to_arg_in_tree($tree);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 

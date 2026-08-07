@@ -49,9 +49,6 @@ use Texinfo::Common;
 
 use Texinfo::ManipulateTree qw(normalized_entry_associated_internal_node);
 
-# TODO avoid this dependence, move to ManipulateTree or this here module
-use Texinfo::Transformations;
-
 # for error messages
 use Texinfo::Convert::Texinfo qw(target_element_to_texi_label
                                  link_element_to_texi);
@@ -332,8 +329,8 @@ sub sectioning_targets($) {
     $node_tree
       = Texinfo::ManipulateTree::protect_node_after_label_in_tree($node_tree);
     $node_tree
-      = Texinfo::Transformations::reference_to_arg_in_tree($node_tree,
-                                                           $document);
+      = Texinfo::ManipulateTree::reference_to_arg_in_tree($node_tree,
+                                                          $document);
 
     my $appended_number = 0;
     my ($normalized, $normalized_reference);
@@ -852,7 +849,7 @@ sub check_node_tree_menu_structure($) {
           next if (!exists($menu_content->{'type'})
                    or $menu_content->{'type'} ne 'menu_entry');
           my $menu_node
-            = Texinfo::ManipulateTree::normalized_entry_associated_internal_node
+            = normalized_entry_associated_internal_node
                 ($menu_content, $identifier_target);
           # no node_number happens for @anchor and @namedanchor labels in
           # menu entry nodes

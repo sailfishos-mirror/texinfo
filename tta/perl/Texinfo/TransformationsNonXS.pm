@@ -214,7 +214,8 @@ sub fill_gaps_in_sectioning_in_document($;$) {
 sub reference_to_arg_in_document($) {
   my $document = shift;
 
-  reference_to_arg_in_tree($document->tree(), $document);
+  Texinfo::ManipulateTree::reference_to_arg_in_tree($document->tree(),
+                                                    $document);
 }
 
 # reassociate a tree element to the new node, from previous node
@@ -302,7 +303,8 @@ sub _new_node($$;$) {
   # in menu entry with label
   $node_tree
     = Texinfo::ManipulateTree::protect_node_after_label_in_tree($node_tree);
-  $node_tree = reference_to_arg_in_tree($node_tree, $document);
+  $node_tree
+    = Texinfo::ManipulateTree::reference_to_arg_in_tree($node_tree, $document);
 
   my $tree_space_before;
 

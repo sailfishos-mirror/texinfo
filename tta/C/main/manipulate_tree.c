@@ -2125,6 +2125,116 @@ protect_node_after_label_in_document (DOCUMENT *document)
   document->modified_information |= F_DOCM_tree;
 }
 
+/*
+ This converts a reference @-command to simple text using one of the
+ arguments.  This is used to remove reference @-command from
+ constructed node names trees, as node names cannot contain
+ reference @-command while there could be some in the tree used in
+ input for the node name tree.
+ */
+static ELEMENT_LIST *
+reference_to_arg_internal (const char *type,
+                           ELEMENT *e,
+                           void *argument)
+{
+  if (!(type_data[e->type].flags & TF_text) && e->e.c->cmd
+      && command_data[e->e.c->cmd].flags & CF_ref)
+    {
+      DOCUMENT *document = (DOCUMENT *) argument;
+      int order_index = 0;
+      int *arguments_order = ref_5_args_order;
+      /* container for the new elements to insert, will be destroyed
+         by the caller */
+      ELEMENT_LIST *container = new_list ();
+
+      if (e->e.c->cmd == CM_inforef || e->e.c->cmd == CM_link)
+        arguments_order = ref_3_args_order;
+
+      while (arguments_order[order_index] >= 0)
+        {
+          size_t idx = (size_t) arguments_order[order_index];
+          if (e->e.c->contents.number > idx)
+            {
+              ELEMENT *arg = e->e.c->contents.list[idx];
+            /*
+             this will not detect if the content expands as spaces only, like
+             @asis{ }, @ , but it is not an issue or could even be considered
+             as a feature.
+             */
+              if (!is_content_empty (arg, 0))
+                {
+                  ELEMENT *removed = remove_from_contents (e, idx);
+                  size_t i;
+                  ARG_INDICES arg_indices;
+                  int non_empty;
+                  ELEMENT *new = new_element (ET_NONE);
+
+                  if (removed != arg)
+                    fatal ("BUG: reference_to_arg_internal removed != arg");
+
+                  /* avoid the type and spaces by getting only the contents */
+                  non_empty = non_leading_trailing_indices (removed,
+                                                            &arg_indices);
+                  if (!non_empty)
+                    fatal ("BUG: reference_to_arg_internal removed empty");
+
+                  new->e.c->parent = e->e.c->parent;
+                  add_to_element_list (container, new);
+                  insert_slice_into_contents (new, 0,
+                                              removed, arg_indices.start,
+                                              arg_indices.end +1);
+                  if (arg_indices.start > 0)
+                    {
+                      for (i = 0; i < arg_indices.start; i++)
+                        {
+                          ELEMENT *content = removed->e.c->contents.list[i];
+                          destroy_element (content);
+                        }
+                    }
+                  if (arg_indices.end +1 < removed->e.c->contents.number)
+                    {
+                      for (i = arg_indices.end +1;
+                           i < removed->e.c->contents.number; i++)
+                        {
+                          ELEMENT *content = removed->e.c->contents.list[i];
+                          destroy_element (content);
+                        }
+                    }
+                  for (i = 0; i < new->e.c->contents.number; i++)
+                    {
+                      ELEMENT *content = new->e.c->contents.list[i];
+                      if (!(type_data[content->type].flags & TF_text))
+                        content->e.c->parent = new;
+                    }
+                  destroy_element (removed);
+                  break;
+                }
+            }
+          order_index++;
+        }
+
+      if (document && document->internal_references.number > 0)
+        {
+          const ELEMENT *removed_internal_ref =
+            replace_remove_list_element (&document->internal_references, e, 0);
+          if (removed_internal_ref)
+            document->modified_information |= F_DOCM_internal_references;
+        }
+      if (document)
+        document->modified_information |= F_DOCM_tree;
+      destroy_element_and_children (e);
+      return container;
+    }
+  else
+   return 0;
+}
+
+ELEMENT *
+reference_to_arg_in_tree (ELEMENT *tree, DOCUMENT *document)
+{
+  return modify_tree (tree, &reference_to_arg_internal, (void *) document);
+}
+
 
 
 /* Methods used to get information on menu entries and nodes.  Used in

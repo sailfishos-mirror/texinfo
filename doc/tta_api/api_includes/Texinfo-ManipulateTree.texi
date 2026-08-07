@@ -80,6 +80,21 @@ In tables, relate index entries preceding and following an
 entry with said item.  Reference one of them in the entry's
 @code{entry_associated_element}.
 
+@item $modified_tree = reference_to_arg_in_tree($tree, $document)
+@anchor{Texinfo@asis{::}ManipulateTree $modified_tree = reference_to_arg_in_tree($tree@comma{} $document)}
+@cindex @code{reference_to_arg_in_tree}
+
+Modify @emph{$tree} by converting reference @@-commands to simple text using one of
+the arguments.  This transformation can be used, for example, to remove
+reference @@-command from constructed node names trees, as node names cannot
+contain reference @@-command while there could be some in the tree used in input
+for the node name tree.  The @emph{$document} argument is optional.  If given,
+the converted reference @@-command is removed from the @emph{$document} internal
+references list.
+
+A @emph{$modified_tree} is not systematically returned, if the @emph{$tree} in argument
+is not replaced, undef may also be returned.
+
 @end table
 
 @node Texinfo@asis{::}ManipulateTree SEE ALSO

@@ -1,5 +1,15 @@
 2026-08-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_tree.c (reference_to_arg_internal)
+	(reference_to_arg_in_tree),
+	tta/C/structuring_transfo/transformations.c,
+	tta/perl/Texinfo/ManipulateTree.pm (_reference_to_arg)
+	(reference_to_arg_in_tree), tta/perl/Texinfo/Transformations.pm:
+	move reference_to_arg_in_tree to ManipulateTree, as it is now used by
+	structuring code.  Update callers.
+
+2026-08-07 Patrice Dumas  <pertusus@free.fr>
+
 	Add target to sectioning commands without node
 
 	* tta/C/convert/format_html.c (compare_element_target)

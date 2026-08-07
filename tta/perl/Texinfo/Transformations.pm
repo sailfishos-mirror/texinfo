@@ -50,7 +50,6 @@ our $VERSION = '7.3dev';
 
 our @EXPORT_OK = qw(
 protect_hashchar_at_line_beginning
-reference_to_arg_in_tree
 );
 
 BEGIN {
@@ -62,79 +61,6 @@ BEGIN {
     ['texinfo', 'texinfoxs'],
   );
 }
-
-# This converts a reference @-command to simple text using one of the
-# arguments.  This is used to remove reference @-command from
-# constructed node names trees, as node names cannot contain
-# reference @-command while there could be some in the tree used in
-# input for the node name tree.
-sub _reference_to_arg($$$) {
-  my ($type, $current, $document) = @_;
-
-  if (exists($current->{'cmdname'}) and
-      exists($Texinfo::Commands::ref_commands{$current->{'cmdname'}})) {
-
-    if (!exists($current->{'contents'})) {
-      $current = undef;
-      return [];
-    }
-
-    # remove from internal references
-    if (defined($document)) {
-      my $internal_references = $document->internal_references_information();
-      Texinfo::Common::replace_remove_list_element($internal_references,
-                                                   $current);
-    }
-
-    my @args_try_order;
-    if ($current->{'cmdname'} eq 'inforef'
-        or $current->{'cmdname'} eq 'link') {
-      @args_try_order = (0, 1, 2);
-    } else {
-      @args_try_order = (0, 1, 2, 4, 3);
-    }
-    foreach my $index (@args_try_order) {
-      if (defined($current->{'contents'}->[$index])) {
-        my $arg = $current->{'contents'}->[$index];
-        # this will not detect if the arg expands as spaces only, like
-        # @asis{ }, @ , but it is not an issue or could even be considered
-        # as a feature.
-        if (!Texinfo::Common::is_content_empty($arg)) {
-          my $new
-            = Texinfo::TreeElement::new({'parent' => $current->{'parent'}});
-          foreach my $content (@{$arg->{'contents'}}) {
-            if (!exists($content->{'type'})
-                or ($content->{'type'} ne 'spaces_before_argument'
-                    and $content->{'type'} ne 'spaces_after_argument')) {
-              $content->{'parent'} = $new if (exists($content->{'parent'}));
-              push @{$new->{'contents'}}, $content;
-            }
-          }
-          $arg->{'contents'} = undef;
-          $current->{'contents'} = undef;
-          # may not actually be needed, but should not hurt either.
-          $arg = undef;
-          $current = undef;
-          return [$new];
-        }
-      }
-    }
-    # ref command without non-empty argument
-    $current->{'contents'} = undef;
-    $current = undef;
-    return [];
-  } else {
-    return undef;
-  }
-}
-
-sub reference_to_arg_in_tree($;$) {
-  my ($tree, $document) = @_;
-
-  return Texinfo::ManipulateTree::modify_tree($tree, \&_reference_to_arg,
-                                              $document);
-}
-
 
 # modify the menu tree to put description and menu comment content
 # together directly in the menu.  Put the menu_entry in a preformatted.
@@ -399,20 +325,6 @@ considered as lines to be processed by the CPP processor.  The I<$document>
 argument is optional.  If defined, the I<$document> is used for error reporting
 in case an hash character could not be protected because it appeared in a raw
 formatted environment (C<@tex>, C<@html>...).
-
-=item $modified_tree = reference_to_arg_in_tree($tree, $document)
-X<C<reference_to_arg_in_tree>>
-
-Modify I<$tree> by converting reference @-commands to simple text using one of
-the arguments.  This transformation can be used, for example, to remove
-reference @-command from constructed node names trees, as node names cannot
-contain reference @-command while there could be some in the tree used in input
-for the node name tree.  The I<$document> argument is optional.  If given,
-the converted reference @-command is removed from the I<$document> internal
-references list.
-
-A I<$modified_tree> is not systematically returned, if the I<$tree> in argument
-is not replaced, undef may also be returned.
 
 =item regenerate_master_menu($document, $use_sections)
 X<C<regenerate_master_menu>>

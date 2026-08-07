@@ -40,7 +40,7 @@
    xasprintf */
 #include "utils.h"
 /* for copy_element_tree copy_contents parse_node_manual
-   protect_colon_in_tree */
+   protect_colon_in_tree reference_to_arg_in_tree */
 #include "manipulate_tree.h"
 #include "command_stack.h"
 #include "node_name_normalization.h"
@@ -48,7 +48,7 @@
 #include "structure_list.h"
 #include "targets.h"
 #include "translations.h"
-/* for protect_first_parenthesis reference_to_arg_in_tree */
+/* for protect_first_parenthesis */
 #include "transformations.h"
 #include "structuring.h"
 
