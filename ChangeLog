@@ -1,5 +1,13 @@
 2026-08-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/init/translation_in_parser_in_translation.pm: add braced
+	substrings in translation, such that the elements are destroyed when
+	the translated tree is destroyed, avoiding a memory leak.  Avoiding
+	the memory leak is not important, as it is small and unlikely in real
+	cases, but it make checking for memory leaks more tedious.
+
+2026-08-07 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_indices.c
 	(index_entry_first_letter_text_or_command): always destroy
 	parsed_element.

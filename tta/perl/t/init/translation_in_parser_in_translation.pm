@@ -44,15 +44,18 @@ a quotation
 # translations are parsed with NO_INDEX and similar set, therefore printindex
 # argument is not set in misc_args and therefore there is no conversion,
 # and no actual test of translation of '{name} on {class}'.
+# We use {name} and {class} as otherwise the elements do not appear in the
+# resulting tree and are not destroyed.  The memory leak is not an issue,
+# but it obscures the determination of memory leaks.
             '{name} on {class}' => {''
                => '@deftypeop m n o p q r
-CC
+CC {name}
 @end deftypeop
 
 @documentlanguage de
 
 @deftypemethod s t u v w x
-DD
+DD {class}
 @end deftypemethod
 
 @defcodeindex xx
