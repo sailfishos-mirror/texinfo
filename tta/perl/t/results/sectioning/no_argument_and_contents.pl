@@ -29,8 +29,6 @@ $result_tree_text{'no_argument_and_contents'} = '*document_root C3
   {empty_line:\\n}
  *@chapter C2 l5 {@asis{}}
  |EXTRA
- |identifier:{-_005b_002b1_002b_005d}
- |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -133,12 +131,12 @@ ul.toc-numbered-mark {list-style: none}
 <div class="contents">
 
 <ul class="toc-numbered-mark">
-  <li><a id="toc--_005b_002b1_002b_005d" href="#-_005b_002b1_002b_005d">1 </a></li>
+  <li>1 </li>
 </ul>
 </div>
 </div>
-<div class="chapter-level-extent" id="-_005b_002b1_002b_005d">
-<h2 class="chapter"><span>1 <a class="copiable-link" href="#-_005b_002b1_002b_005d"> &para;</a></span></h2>
+<div class="chapter-level-extent">
+<h2 class="chapter">1 </h2>
 
 </div>
 </div>

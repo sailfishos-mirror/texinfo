@@ -312,63 +312,23 @@ sub sectioning_targets($) {
 
     next if (!exists($node_tree->{'contents'}));
 
-    # We protect for all the contexts, as the node name should be
-    # the same in the different contexts, even if some protections
-    # are not needed for the parsing.  Also, this way the node tree
-    # can be directly reused in the menus for example, without
-    # additional protection, some parts could be double protected
-    # otherwise, those that are protected with @asis.
-    #
-    # needed in nodes lines, @*ref and in menus with a label
-    $node_tree = Texinfo::ManipulateTree::protect_comma_in_tree($node_tree);
-    # always
-    Texinfo::ManipulateTree::protect_first_parenthesis($node_tree);
-    # in menu entry without label
-    $node_tree = Texinfo::ManipulateTree::protect_colon_in_tree($node_tree);
-    # in menu entry with label
-    $node_tree
-      = Texinfo::ManipulateTree::protect_node_after_label_in_tree($node_tree);
+    # No @xref in target
     $node_tree
       = Texinfo::ManipulateTree::reference_to_arg_in_tree($node_tree,
                                                           $document);
 
-    my $appended_number = 0;
-    my ($normalized, $normalized_reference);
-    while (!defined($normalized)
-           or (defined($identifier_target)
-               and $identifier_target->{$normalized})) {
-
-      my $id_label_tree;
-      if ($appended_number) {
-        $id_label_tree = Texinfo::TreeElement::new({
-                 'contents' => [$node_tree,
-               Texinfo::TreeElement::new({'text' => " [+$appended_number+]"})]
-          });
-      } else {
-        $id_label_tree = $node_tree;
-      }
-      $normalized
+    my $normalized
        = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
-          $id_label_tree);
+          $node_tree);
 
-      if (!$appended_number) {
-        $normalized_reference = $normalized;
-      }
-
-      if ($normalized !~ /[^-]/) {
-        $normalized = undef;
-      }
-
-      $appended_number++;
+    if ($normalized !~ /[^-]/) {
+      next;
     }
-    $content->{'extra'}->{'identifier'} = $normalized;
 
-    if (defined($normalized_reference)
-        and $normalized_reference ne $normalized
-        and defined($identifier_target)) {
-      my $existing_target = $identifier_target->{$normalized_reference};
-      if (defined($existing_target)
-          and exists($Texinfo::Commands::sectioning_heading_commands{
+    if (defined($identifier_target)
+        and $identifier_target->{$normalized}) {
+      my $existing_target = $identifier_target->{$normalized};
+      if (exists($Texinfo::Commands::sectioning_heading_commands{
                                         $existing_target->{'cmdname'}})) {
         my $debug = $document->get_conf('DEBUG');
         my $error_messages = $document->{'error_messages'};
@@ -384,7 +344,11 @@ sub sectioning_targets($) {
                                   $existing_target->{'cmdname'}),
                           $existing_target->{'source_info'}, 1, $debug);
       }
+
+      next;
     }
+
+    $content->{'extra'}->{'identifier'} = $normalized;
 
     Texinfo::Document::register_label_element($document, $content,
                                               $document->{'error_messages'},

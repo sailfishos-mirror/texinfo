@@ -48,8 +48,6 @@ $result_tree_text{'test_fill_gaps_in_sectioning'} = '*document_root C6
   {empty_line:\\n}
  *@unnumberedsubsec C2 {@asis{}}
  |EXTRA
- |identifier:{-_005b_002b1_002b_005d}
- |is_target:{1}
  |section_level:{3}
  |section_number:{4}
   *arguments_line C1

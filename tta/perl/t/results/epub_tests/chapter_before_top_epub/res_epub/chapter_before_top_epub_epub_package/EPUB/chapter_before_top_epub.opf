@@ -9,7 +9,7 @@
    <manifest>
       <item id="nav" properties="nav" media-type="application/xhtml+xml" href="xhtml/nav_toc.xhtml"/>
       <item id="unit1" media-type="application/xhtml+xml" href="xhtml/chapter_before_top_epub.xhtml"/>
-      <item id="unit2" media-type="application/xhtml+xml" href="xhtml/top-_005b_002b1_002b_005d.xhtml"/>
+      <item id="unit2" media-type="application/xhtml+xml" href="xhtml/top.xhtml"/>
    </manifest>
    <spine>
       <itemref idref="unit1"/>

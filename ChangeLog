@@ -1,5 +1,14 @@
 2026-08-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/structuring_transfo/structuring.c (sectioning_targets),
+	tta/perl/Texinfo/StructuringNonXS.pm (sectioning_targets): do not set
+	an identifier with postpended disambiguation string for sectioning
+	commands, instead do not add any identifier at all.  Also remove
+	most of protection in target tree, as it is only used to generate an
+	identifier.
+
+2026-08-07 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/init/translation_in_parser_in_translation.pm: add braced
 	substrings in translation, such that the elements are destroyed when
 	the translated tree is destroyed, avoiding a memory leak.  Avoiding

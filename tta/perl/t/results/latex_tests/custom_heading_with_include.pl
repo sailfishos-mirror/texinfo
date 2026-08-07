@@ -285,8 +285,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   {empty_line:\\n}
  *@chapter C2 section_file_no_node.texi:l2 {Chapter in included file}
  |EXTRA
- |identifier:{Chapter-in-included-file-_005b_002b1_002b_005d}
- |is_target:{1}
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{6}
@@ -298,8 +296,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   {empty_line:\\n}
  *@section C2 section_file_no_node.texi:l4 {Section}
  |EXTRA
- |identifier:{Section-_005b_002b1_002b_005d}
- |is_target:{1}
  |section_heading_number:{3.1}
  |section_level:{2}
  |section_number:{7}
@@ -311,8 +307,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   {empty_line:\\n}
  *@subsection C5 section_file_no_node.texi:l6 {Subsection}
  |EXTRA
- |identifier:{Subsection-_005b_002b1_002b_005d}
- |is_target:{1}
  |section_heading_number:{3.1.1}
  |section_level:{3}
  |section_number:{8}
@@ -423,8 +417,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   {empty_line:\\n}
  *@chapter C2 section_file_no_node.texi:l2 {Chapter in included file}
  |EXTRA
- |identifier:{Chapter-in-included-file-_005b_002b2_002b_005d}
- |is_target:{1}
  |section_heading_number:{5}
  |section_level:{1}
  |section_number:{12}
@@ -436,8 +428,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   {empty_line:\\n}
  *@section C2 section_file_no_node.texi:l4 {Section}
  |EXTRA
- |identifier:{Section-_005b_002b2_002b_005d}
- |is_target:{1}
  |section_heading_number:{5.1}
  |section_level:{2}
  |section_number:{13}
@@ -449,8 +439,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   {empty_line:\\n}
  *@subsection C6 section_file_no_node.texi:l6 {Subsection}
  |EXTRA
- |identifier:{Subsection-_005b_002b2_002b_005d}
- |is_target:{1}
  |section_heading_number:{5.1.1}
  |section_level:{3}
  |section_number:{14}
@@ -495,8 +483,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   {empty_line:\\n}
  *@chapter C2 section_file_no_node.texi:l2 {Chapter in included file}
  |EXTRA
- |identifier:{Chapter-in-included-file-_005b_002b3_002b_005d}
- |is_target:{1}
  |section_heading_number:{6}
  |section_level:{1}
  |section_number:{15}
@@ -508,8 +494,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   {empty_line:\\n}
  *@section C2 section_file_no_node.texi:l4 {Section}
  |EXTRA
- |identifier:{Section-_005b_002b3_002b_005d}
- |is_target:{1}
  |section_heading_number:{6.1}
  |section_level:{2}
  |section_number:{16}
@@ -521,8 +505,6 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   {empty_line:\\n}
  *@subsection C4 section_file_no_node.texi:l6 {Subsection}
  |EXTRA
- |identifier:{Subsection-_005b_002b3_002b_005d}
- |is_target:{1}
  |section_heading_number:{6.1.1}
  |section_level:{3}
  |section_number:{17}

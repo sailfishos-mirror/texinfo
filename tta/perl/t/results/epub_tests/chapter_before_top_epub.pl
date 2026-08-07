@@ -54,8 +54,6 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
   {empty_line:\\n}
  *@top C1 l8 {top}
  |EXTRA
- |identifier:{top-_005b_002b1_002b_005d}
- |is_target:{1}
  |section_level:{0}
  |section_number:{3}
   *arguments_line C1

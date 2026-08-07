@@ -38,8 +38,6 @@ $result_tree_text{'file_name_conflict_with_section'} = '*document_root C4
   {empty_line:\\n}
  *@chapter C1 l5 {Chap}
  |EXTRA
- |identifier:{Chap-_005b_002b1_002b_005d}
- |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -94,5 +92,13 @@ list:
 ';
 
 $result_headings_list{'file_name_conflict_with_section'} = '';
+
+$result_converted_errors{'file_html'}->{'file_name_conflict_with_section'} = '* W l3|@anchor `Chap\' file Chap.html for redirection exists
+ warning: @anchor `Chap\' file Chap.html for redirection exists
+
+* WC l5|conflict with @chapter `Chap\' file
+ warning: conflict with @chapter `Chap\' file
+
+';
 
 1;
