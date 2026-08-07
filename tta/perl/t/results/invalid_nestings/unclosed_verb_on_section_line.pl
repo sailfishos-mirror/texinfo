@@ -13,6 +13,8 @@ $result_tree_text{'unclosed_verb_on_section_line'} = '*document_root C2
 Now text.
 T}}
  |EXTRA
+ |identifier:{in-section-ruc-Now-text_002e-}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}

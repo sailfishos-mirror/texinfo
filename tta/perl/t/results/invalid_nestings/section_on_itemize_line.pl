@@ -17,6 +17,8 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
      {spaces_after_argument: }
  *@section C3 l1 {first}
  |EXTRA
+ |identifier:{first}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
@@ -36,6 +38,8 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
      {spaces_after_argument: }
  *@section C3 l3 {second}
  |EXTRA
+ |identifier:{second}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}
@@ -51,6 +55,8 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
      {spaces_before_argument: }
  *@section C3 l5 {third}
  |EXTRA
+ |identifier:{third}
+ |is_target:{1}
  |section_heading_number:{3}
  |section_level:{2}
  |section_number:{3}
@@ -70,6 +76,8 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
       |{spaces_after_cmd_before_arg: }
  *@section C1 l7 {fourth}
  |EXTRA
+ |identifier:{fourth}
+ |is_target:{1}
  |section_heading_number:{4}
  |section_level:{2}
  |section_number:{4}

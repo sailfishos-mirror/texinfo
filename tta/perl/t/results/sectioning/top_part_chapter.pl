@@ -16,6 +16,8 @@ Next: [U1]
  *before_node_section
  *@top C2 l1 {top}
  |EXTRA
+ |identifier:{Top}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
@@ -43,6 +45,8 @@ FastBack: [U0]
   {empty_line:\\n}
  *@chapter C1 l5 {chapter}
  |EXTRA
+ |identifier:{chapter}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{3}

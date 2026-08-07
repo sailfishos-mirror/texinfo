@@ -59,6 +59,8 @@ Next: [U2]
 Prev: [U0]
  *@top C3 l6 {top section}
  |EXTRA
+ |identifier:{top-section}
+ |is_target:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1

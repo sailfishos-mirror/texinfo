@@ -24,6 +24,8 @@ This: [U0]
   {empty_line:\\n}
  *@chapter C1 l3 {chapter}
  |EXTRA
+ |identifier:{chapter}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}

@@ -1992,12 +1992,14 @@ while (@input_files) {
     Texinfo::Transformations::insert_nodes_for_sectioning_commands($document);
   }
 
-  Texinfo::Structuring::associate_internal_references($document);
-
   # information obtained through Texinfo::Structuring
   # and useful in converters.
   # every format needs the sectioning structure
   Texinfo::Structuring::sectioning_structure($document);
+
+  Texinfo::Structuring::sectioning_targets($document);
+
+  Texinfo::Structuring::associate_internal_references($document);
 
   if (!exists($formats_table{$converted_format}->{'no_warn_non_empty_parts'})) {
     Texinfo::Structuring::warn_non_empty_parts($document);

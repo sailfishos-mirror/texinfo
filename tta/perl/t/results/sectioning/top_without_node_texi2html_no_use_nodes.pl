@@ -11,6 +11,8 @@ $result_tree_text{'top_without_node_texi2html_no_use_nodes'} = '*document_root C
   *preamble_before_content
  *@top C3 l1 {top section}
  |EXTRA
+ |identifier:{top-section}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1

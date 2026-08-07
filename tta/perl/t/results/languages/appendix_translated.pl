@@ -40,6 +40,8 @@ $result_tree_text{'appendix_translated'} = '*document_root C4
   {empty_line:\\n}
  *@appendix C3 l6 {dernier}
  |EXTRA
+ |identifier:{dernier}
+ |is_target:{1}
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{2}

@@ -13,6 +13,8 @@ $result_tree_text{'section_on_cartouche_line'} = '*document_root C3
     *block_line_arg
  *@section C3 l1 {first}
  |EXTRA
+ |identifier:{first}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
@@ -28,6 +30,8 @@ $result_tree_text{'section_on_cartouche_line'} = '*document_root C3
      {spaces_before_argument: }
  *@section C1 l3 {second spaces}
  |EXTRA
+ |identifier:{second-spaces}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}

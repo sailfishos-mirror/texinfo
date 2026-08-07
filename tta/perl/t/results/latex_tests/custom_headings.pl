@@ -105,6 +105,8 @@ $result_tree_text{'custom_headings'} = '*document_root C8
   {empty_line:\\n}
  *@section C2 l19 {sec1}
  |EXTRA
+ |identifier:{sec1}
+ |is_target:{1}
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -116,6 +118,8 @@ $result_tree_text{'custom_headings'} = '*document_root C8
   {empty_line:\\n}
  *@chapter C12 l21 {chap 2}
  |EXTRA
+ |identifier:{chap-2}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}
@@ -149,6 +153,8 @@ $result_tree_text{'custom_headings'} = '*document_root C8
   {empty_line:\\n}
  *@chapter C6 l33 {chap 3}
  |EXTRA
+ |identifier:{chap-3}
+ |is_target:{1}
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{5}

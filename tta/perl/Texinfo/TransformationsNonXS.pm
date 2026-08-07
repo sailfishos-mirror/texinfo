@@ -430,7 +430,8 @@ sub _new_node($$;$) {
       and $normalized_reference ne $normalized
       and defined($identifier_target)) {
     my $existing_target = $identifier_target->{$normalized_reference};
-    if ($existing_target and $existing_target->{'extra'}->{'added'}) {
+    if (defined($existing_target)
+        and $existing_target->{'extra'}->{'added'}) {
       my $nodes_list = $document->nodes_list();
       my $existing_node_relations
          = $nodes_list->[$existing_target->{'extra'}->{'node_number'} -1];

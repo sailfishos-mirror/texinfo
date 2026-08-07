@@ -11,6 +11,8 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
   *preamble_before_content
  *@unnumbered C2 l1 {before}
  |EXTRA
+ |identifier:{before}
+ |is_target:{1}
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
@@ -41,6 +43,8 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
   {empty_line:\\n}
  *@chapter C4 l6 {Chapter}
  |EXTRA
+ |identifier:{Chapter}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{3}

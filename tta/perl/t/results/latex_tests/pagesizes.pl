@@ -64,6 +64,8 @@ $result_tree_text{'pagesizes'} = '*document_root C6
   {empty_line:\\n}
  *@chapter C5 l11 {other pagesizes}
  |EXTRA
+ |identifier:{other-pagesizes}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}

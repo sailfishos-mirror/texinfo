@@ -87,6 +87,8 @@ Prev: [U1]
 Up: [U0]
  *@chapter C2 simple_only_special_spaces_node.texi:l8 {CARRIAGE RETURN|'."\r".'|}
  |EXTRA
+ |identifier:{CARRIAGE-RETURN_007c-_007c}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}

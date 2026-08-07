@@ -89,7 +89,8 @@ void reset_html_targets (CONVERTER *self);
 
 
 int html_id_is_registered (CONVERTER *self, const char *string);
-void html_register_id (CONVERTER *self, const char *string);
+void html_register_id (CONVERTER *self, const char *string,
+                       const void *element_target);
 
 /* void html_prepare_conversion_units_targets (CONVERTER *self,
                                      const char *document_name); */

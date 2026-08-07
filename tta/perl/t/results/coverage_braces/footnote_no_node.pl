@@ -10,6 +10,8 @@ $result_tree_text{'footnote_no_node'} = '*document_root C2
  *before_node_section
  *@top C3 l1 {top}
  |EXTRA
+ |identifier:{Top}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
@@ -69,8 +71,8 @@ F(1).
 ';
 
 
-$result_converted{'html_text'}->{'footnote_no_node'} = '<div class="top-level-extent" id="top">
-<h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
+$result_converted{'html_text'}->{'footnote_no_node'} = '<div class="top-level-extent" id="Top">
+<h1 class="top"><span>top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <p>F<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
 </p><div class="footnotes-segment">

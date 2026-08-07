@@ -108,6 +108,8 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
   {empty_line:\\n}
  *@section C2 l18 {sec1}
  |EXTRA
+ |identifier:{sec1}
+ |is_target:{1}
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -119,6 +121,8 @@ $result_tree_text{'custom_headings_and_comments'} = '*document_root C7
   {empty_line:\\n}
  *@chapter C2 l20 {chap 2}
  |EXTRA
+ |identifier:{chap-2}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{4}

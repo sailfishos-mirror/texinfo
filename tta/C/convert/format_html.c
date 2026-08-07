@@ -528,13 +528,13 @@ url_protect_file_text (CONVERTER *self, const char *input_string)
 static int
 compare_element_target (const void *a, const void *b)
 {
-  const HTML_TARGET *ete_a = (const HTML_TARGET *) a;
-  const HTML_TARGET *ete_b = (const HTML_TARGET *) b;
+  const HTML_TARGET **ete_a = (const HTML_TARGET **) a;
+  const HTML_TARGET **ete_b = (const HTML_TARGET **) b;
   /* we cast to uintptr_t because comparison of pointers from different
      objects is undefined behaviour in C.  In practice it is probably
      not an issue */
-  uintptr_t a_element_addr = (uintptr_t)ete_a->element;
-  uintptr_t b_element_addr = (uintptr_t)ete_b->element;
+  uintptr_t a_element_addr = (uintptr_t)(*ete_a)->element;
+  uintptr_t b_element_addr = (uintptr_t)(*ete_b)->element;
 
   return (a_element_addr > b_element_addr) - (a_element_addr < b_element_addr);
 }
@@ -543,17 +543,20 @@ HTML_TARGET *
 find_element_target_search (const HTML_TARGET_LIST *targets,
                                           const ELEMENT *element)
 {
-  HTML_TARGET *result;
+  HTML_TARGET **result;
   static HTML_TARGET searched_element;
+  static HTML_TARGET *searched_pointer = &searched_element;
 
   if (targets->number == 0)
     return 0;
 
   searched_element.element = element;
-  result = (HTML_TARGET *) bsearch (&searched_element,
-               targets->list, targets->number, sizeof (HTML_TARGET),
+  result = (HTML_TARGET **) bsearch (&searched_pointer,
+               targets->list, targets->number, sizeof (HTML_TARGET *),
                compare_element_target);
-  return result;
+  if (!result)
+    return 0;
+  return *result;
 }
 
 /* note that the returned pointer may be invalidated if the targets list

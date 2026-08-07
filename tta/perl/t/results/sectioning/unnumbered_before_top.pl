@@ -10,6 +10,8 @@ $result_tree_text{'unnumbered_before_top'} = '*document_root C3
  *before_node_section
  *@unnumbered C2 l1 {before top}
  |EXTRA
+ |identifier:{before-top}
+ |is_target:{1}
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
@@ -20,6 +22,8 @@ $result_tree_text{'unnumbered_before_top'} = '*document_root C3
   {empty_line:\\n}
  *@top C1 l3 {top}
  |EXTRA
+ |identifier:{Top}
+ |is_target:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1

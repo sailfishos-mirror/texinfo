@@ -75,6 +75,8 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   {empty_line:\\n}
  *@chapter C2 l10 {c1}
  |EXTRA
+ |identifier:{c1}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -107,6 +109,8 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   {empty_line:\\n}
  *@section C2 l15 {s1}
  |EXTRA
+ |identifier:{s1}
+ |is_target:{1}
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{4}
@@ -180,6 +184,8 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   {empty_line:\\n}
  *@section C2 l24 {C3 s1}
  |EXTRA
+ |identifier:{C3-s1}
+ |is_target:{1}
  |section_heading_number:{3.1}
  |section_level:{2}
  |section_number:{6}
@@ -212,6 +218,8 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   {empty_line:\\n}
  *@section C2 l29 {c3 s3}
  |EXTRA
+ |identifier:{c3-s3}
+ |is_target:{1}
  |section_heading_number:{3.3}
  |section_level:{2}
  |section_number:{8}
@@ -223,6 +231,8 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   {empty_line:\\n}
  *@chapter C2 l31 {c4}
  |EXTRA
+ |identifier:{c4}
+ |is_target:{1}
  |section_heading_number:{4}
  |section_level:{1}
  |section_number:{9}
@@ -234,6 +244,8 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   {empty_line:\\n}
  *@section C2 l33 {c3 s1}
  |EXTRA
+ |identifier:{c3-s1}
+ |is_target:{1}
  |section_heading_number:{4.1}
  |section_level:{2}
  |section_number:{10}
@@ -245,6 +257,8 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   {empty_line:\\n}
  *@subsection C2 l35 {c3 s1 s1}
  |EXTRA
+ |identifier:{c3-s1-s1}
+ |is_target:{1}
  |section_heading_number:{4.1.1}
  |section_level:{3}
  |section_number:{11}
@@ -288,6 +302,8 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
   {empty_line:\\n}
  *@appendix C1 l40 {appendix}
  |EXTRA
+ |identifier:{appendix}
+ |is_target:{1}
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{13}

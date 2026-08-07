@@ -184,6 +184,8 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
     {spaces_after_argument:\\n}
  *@chapter C15 index_special_region_no_insertcopying.texi:l38 {Chapter}
  |EXTRA
+ |identifier:{Chapter}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}

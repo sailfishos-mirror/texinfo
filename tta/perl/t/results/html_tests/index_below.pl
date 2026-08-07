@@ -15,6 +15,8 @@ FastForward: [U1]
  *before_node_section
  *@top C2 l1 {top}
  |EXTRA
+ |identifier:{Top}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
@@ -33,6 +35,8 @@ FastBack: [U0]
 Up: [U0]
  *@chapter C2 l3 {chap}
  |EXTRA
+ |identifier:{chap}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -51,6 +55,8 @@ FastBack: [U1]
 Up: [U1]
  *@section C4 l5 {sec}
  |EXTRA
+ |identifier:{sec}
+ |is_target:{1}
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -147,7 +153,7 @@ $result_converted{'html'}->{'index_below'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link href="#top" rel="start" title="top">
+<link href="#Top" rel="start" title="top">
 <link href="#chap" rel="index" title="1 chap">
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -162,10 +168,10 @@ th.index-letter-header-printindex {text-align: left}
 </head>
 
 <body>
-<div class="top-level-extent" id="top">
+<div class="top-level-extent" id="Top">
 <p class="nav-panel">
 <span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
-<h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
+<h1 class="top"><span>top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
 <li><a href="#chap" accesskey="1">chap</a></li>
@@ -173,7 +179,7 @@ th.index-letter-header-printindex {text-align: left}
 <hr>
 <div class="chapter-level-extent" id="chap">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label"> Up : </span><span class="nav-link"><a href="#top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
+<span class="nav-button"><span class="nav-label"> Up : </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
 <h2 class="chapter"><span>1 chap<a class="copiable-link" href="#chap"> &para;</a></span></h2>
 
 <ul class="mini-toc">

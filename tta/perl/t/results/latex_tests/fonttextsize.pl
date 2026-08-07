@@ -60,6 +60,8 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
   {empty_line:\\n}
  *@section C2 l9 {section}
  |EXTRA
+ |identifier:{section}
+ |is_target:{1}
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -71,6 +73,8 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
   {empty_line:\\n}
  *@subsection C4 l11 {Subsection 10pts}
  |EXTRA
+ |identifier:{Subsection-10pts}
+ |is_target:{1}
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -91,6 +95,8 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
     {spaces_after_argument:\\n}
  *@subsection C5 l15 {Subsection 11pts}
  |EXTRA
+ |identifier:{Subsection-11pts}
+ |is_target:{1}
  |section_heading_number:{1.1.2}
  |section_level:{3}
  |section_number:{5}
@@ -110,6 +116,8 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
     {spaces_after_argument:\\n}
  *@subsection C5 l20 {Subsection 8pts}
  |EXTRA
+ |identifier:{Subsection-8pts}
+ |is_target:{1}
  |section_heading_number:{1.1.3}
  |section_level:{3}
  |section_number:{6}
@@ -129,6 +137,8 @@ $result_tree_text{'fonttextsize'} = '*document_root C10
     {spaces_after_argument:\\n}
  *@subsection C3 l25 {Subsection 15pts}
  |EXTRA
+ |identifier:{Subsection-15pts}
+ |is_target:{1}
  |section_heading_number:{1.1.4}
  |section_level:{3}
  |section_number:{7}

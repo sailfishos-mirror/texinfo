@@ -56,6 +56,8 @@ $result_tree_text{'documentdescription'} = '*document_root C2
   {empty_line:\\n}
  *@top C1 l5 {top}
  |EXTRA
+ |identifier:{Top}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
@@ -117,8 +119,8 @@ span:hover a.copiable-link {visibility: visible}
 
 <body>
 
-<div class="top-level-extent" id="top">
-<h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
+<div class="top-level-extent" id="Top">
+<h1 class="top"><span>top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 </div>
 
 

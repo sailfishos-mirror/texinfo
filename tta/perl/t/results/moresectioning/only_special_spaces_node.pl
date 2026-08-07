@@ -58,6 +58,8 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
     {spaces_before_argument: \\t\\f\\n}
  *@chapter C2 only_special_spaces_node.texi:l9 {CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||}
  |EXTRA
+ |identifier:{CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
@@ -73,6 +75,8 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
     {spaces_before_argument: '."\r".'\\n}
  *@chapter C2 only_special_spaces_node.texi:l12 {CARRIAGE RETURN|'."\r".'|}
  |EXTRA
+ |identifier:{CARRIAGE-RETURN_007c-_007c}
+ |is_target:{1}
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}

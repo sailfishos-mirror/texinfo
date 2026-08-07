@@ -31,6 +31,8 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
   {empty_line:\\n}
  *@chapter C7 l4 {Chapter}
  |EXTRA
+ |identifier:{Chapter}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}

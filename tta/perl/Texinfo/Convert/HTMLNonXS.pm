@@ -3448,21 +3448,33 @@ sub _prepare_special_units($$) {
 sub _new_sectioning_command_target($$) {
   my ($self, $command) = @_;
 
-  my ($normalized_name, $filename)
-    = $self->normalized_sectioning_command_filename($command);
+  my ($normalized_name, $filename, $target);
 
-  my $target_base = _normalized_to_id($normalized_name);
-  if ($target_base !~ /\S/ and $command->{'cmdname'} eq 'top') {
-    # @top is allowed to be empty.  In that case it gets this target name
-    $target_base = 'SEC_Top';
-    $normalized_name = $target_base;
-  }
-  my $nr=1;
-  my $target = $target_base;
-  if ($target_base ne '') {
-    $target = _unique_target($self, $target_base);
+  my $registered_target;
+  if (exists($command->{'extra'})
+      and exists($command->{'extra'}->{'identifier'})) {
+    # case of a sectioning command that is also a target for cross-references.
+    $registered_target = $self->{'targets'}->{$command};
+    $target = $registered_target->{'target'};
+    $filename = $registered_target->{'node_filename'};
+    $normalized_name = $command->{'extra'}->{'identifier'};
   } else {
-    $target = '';
+    ($normalized_name, $filename)
+     = $self->normalized_sectioning_command_filename($command);
+
+    my $target_base = _normalized_to_id($normalized_name);
+    if ($target_base !~ /\S/ and $command->{'cmdname'} eq 'top') {
+      # @top is allowed to be empty.  In that case it gets this target name
+      $target_base = 'SEC_Top';
+      $normalized_name = $target_base;
+    }
+    my $nr=1;
+    $target = $target_base;
+    if ($target_base ne '') {
+      $target = _unique_target($self, $target_base);
+    } else {
+      $target = '';
+    }
   }
 
   # These are undefined if the $target is set to ''.
@@ -3488,14 +3500,21 @@ sub _new_sectioning_command_target($$) {
                                      $target_shortcontents,
                                      $filename);
   }
-  if ($self->get_conf('DEBUG')) {
-    print STDERR "Register $command->{'cmdname'} $target\n";
+
+  if (!defined($registered_target)) {
+    if ($self->get_conf('DEBUG')) {
+      print STDERR "Register $command->{'cmdname'} $target\n";
+    }
+    $self->{'targets'}->{$command} = {'target' => $target};
+    _register_id($self, $target);
+  } else {
+    # reset in case they were modified by the user.
+    $self->{'targets'}->{$command}->{'node_filename'} = $filename;
+    $self->{'targets'}->{$command}->{'target'} = $target;
   }
-  $self->{'targets'}->{$command} = {
-                           'target' => $target,
-                           'section_filename' => $filename,
-                          };
-  _register_id($self, $target);
+
+  $self->{'targets'}->{$command}->{'section_filename'} = $filename;
+
   if (defined($target_contents)) {
     $self->{'targets'}->{$command}->{'contents_target'} = $target_contents;
     _register_id($self, $target_contents);
@@ -3622,8 +3641,10 @@ sub _prepare_associated_special_units_targets($$) {
 # This set with two different codes
 #  * the target information, id and normalized filename of 'identifiers_target',
 #    ie everything that may be the target of a ref: @node, @float label,
-#    @anchor, @namedanchor.
-#  * The target information of sectioning elements
+#    @anchor, @namedanchor and sectioning commands without associated node.
+#  * The target information of sectioning elements.  Sectioning commands
+#    without associated node are processed a second time, to set specific
+#    sectioning command information.
 # @node and section commands targets are therefore both set.
 #
 # conversion to HTML is done on-demand, upon call to command_text

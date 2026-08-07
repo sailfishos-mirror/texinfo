@@ -673,8 +673,8 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
   while (1)
     {
       size_t i;
-      char *non_hyphen_char;
-      ELEMENT *target = 0;
+      const char *non_hyphen_char;
+      const ELEMENT *target = 0;
       ELEMENT *appended_text = 0;
       ELEMENT *arguments_line = new_element (ET_arguments_line);
       ELEMENT *node_line_arg = new_element (ET_line_arg);
@@ -1807,9 +1807,10 @@ complete_transform_document (DOCUMENT *document, unsigned long flags,
   if (flags & STTF_insert_nodes_for_sectioning_commands)
     insert_nodes_for_sectioning_commands (document);
 
-  associate_internal_references (document);
-
   sectioning_structure (document);
+  sectioning_targets (document);
+
+  associate_internal_references (document);
 
   if (!(flags & STTF_no_warn_non_empty_parts))
     warn_non_empty_parts (document);

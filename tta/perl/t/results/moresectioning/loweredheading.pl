@@ -13,6 +13,8 @@ $result_tree_text{'loweredheading'} = '*document_root C3
     {spaces_before_argument:\\n}
  *@section C2 l2 {Foo}
  |EXTRA
+ |identifier:{Foo}
+ |is_target:{1}
  |level_modifier:{-1}
  |section_heading_number:{1}
  |section_level:{3}

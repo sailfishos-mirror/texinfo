@@ -130,6 +130,8 @@ $result_tree_text{'placed_things_before_element'} = '*document_root C2
   {empty_line:\\n}
  *@section C5 l30 {section}
  |EXTRA
+ |identifier:{section}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}

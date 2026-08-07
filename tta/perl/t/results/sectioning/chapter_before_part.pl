@@ -15,6 +15,8 @@ Forward: [U1]
   *preamble_before_content
  *@chapter C2 l1 {chapter}
  |EXTRA
+ |identifier:{chapter}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}

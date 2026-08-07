@@ -1473,7 +1473,13 @@ sub process_footnotes($;$) {
     my $label_element;
     if (defined($output_unit) and exists($output_unit->{'unit_command'})) {
       $node_element = $output_unit->{'unit_command'};
-      if (exists($node_element->{'extra'})
+      # We only do new nodes with nodes, not with sectioning command
+      # without node that can be a target to cross-references.
+      # TODO if doing plaintext, and not Info shouldn't all the
+      # footnote be formatted without a separate node and with the
+      # --- footnotes --- separater?
+      if ($node_element->{'cmdname'} eq 'node'
+          and exists($node_element->{'extra'})
           and exists($node_element->{'extra'}->{'identifier'})) {
         # arguments_line type element
         my $arguments_line = $node_element->{'contents'}->[0];

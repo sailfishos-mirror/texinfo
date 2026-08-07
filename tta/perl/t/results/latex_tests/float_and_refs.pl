@@ -156,6 +156,8 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
   {empty_line:\\n}
  *@chapter C8 l25 {refs}
  |EXTRA
+ |identifier:{refs}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}
@@ -362,6 +364,8 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
   {empty_line:\\n}
  *@chapter C6 l45 {lists}
  |EXTRA
+ |identifier:{lists}
+ |is_target:{1}
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{4}

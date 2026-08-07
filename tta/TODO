@@ -22,8 +22,8 @@ make
  @fonttextsize 12
 not an error?
 
-Add "shadow targets" or nodes to sectioning commands without nodes
-and change USE_NODES to have 3 possible meaning
+Add "shadow targets" or nodes to sectioning commands without nodes <- DONE
+(and change USE_NODES to have 3 possible meaning?)
 [no] output units are split at sections, and lone nodes are associated to
    the section.  A book-like setup, currently corresponding to USE_NODES=0.
    Sections have a "shadow" target added.
@@ -33,11 +33,6 @@ and change USE_NODES to have 3 possible meaning
 [add] output units are split at nodes, but lone sections have an associated
    node automatically added.  Same as the tree transformation
    insert_nodes_for_sectioning_commands.  No shadow targets added.
-
-In all those cases, if there is already a node with a name, it has
-precedence.  If there is an ambiguity because different sectioning commands
-have the same name, and no node with the name initially,
-there is a warning.   A postfix is added like [+1+] in case of ambiguity.
 
 No "shadow targets" nor nodes added when a node is associated to
 a @*heading*, we should keep a track of this, such that users relying on

@@ -21,6 +21,8 @@ $result_tree_text{'part_section_part'} = '*document_root C4
   {empty_line:\\n}
  *@section C2 l3 {section 1}
  |EXTRA
+ |identifier:{section-1}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}

@@ -126,6 +126,8 @@ $result_tree_text{'thispart'} = '*document_root C11
   {empty_line:\\n}
  *@appendix C3 l20 {Appendix}
  |EXTRA
+ |identifier:{Appendix}
+ |is_target:{1}
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{7}

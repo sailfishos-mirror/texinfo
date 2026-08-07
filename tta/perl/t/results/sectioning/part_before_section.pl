@@ -23,6 +23,8 @@ This: [U0]
   {empty_line:\\n}
  *@section C1 l3 {section}
  |EXTRA
+ |identifier:{section}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}

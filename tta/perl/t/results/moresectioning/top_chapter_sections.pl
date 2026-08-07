@@ -15,6 +15,8 @@ FastForward: [U1]
  *before_node_section
  *@top C2 l1 {top}
  |EXTRA
+ |identifier:{Top}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
@@ -35,6 +37,8 @@ Next: [U2]
 Up: [U0]
  *@unnumbered C2 l3 {unnumbered}
  |EXTRA
+ |identifier:{unnumbered}
+ |is_target:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
@@ -56,6 +60,8 @@ Prev: [U1]
 Up: [U0]
  *@chapter C2 l5 {First chapter}
  |EXTRA
+ |identifier:{First-chapter}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{3}
@@ -76,6 +82,8 @@ FastBack: [U2]
 Up: [U2]
  *@section C2 l7 {second}
  |EXTRA
+ |identifier:{second}
+ |is_target:{1}
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{4}
@@ -98,6 +106,8 @@ Prev: [U2]
 Up: [U0]
  *@chapter C2 l9 {Chapter}
  |EXTRA
+ |identifier:{Chapter}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{5}
@@ -118,6 +128,8 @@ FastBack: [U4]
 Up: [U4]
  *@section C2 l11 {Section of chapter}
  |EXTRA
+ |identifier:{Section-of-chapter}
+ |is_target:{1}
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{6}
@@ -139,6 +151,8 @@ Next: [U7]
 Up: [U5]
  *@subsection C2 l13 {subsection 1}
  |EXTRA
+ |identifier:{subsection-1}
+ |is_target:{1}
  |section_heading_number:{2.1.1}
  |section_level:{3}
  |section_number:{7}
@@ -160,6 +174,8 @@ Prev: [U6]
 Up: [U5]
  *@subsection C2 l15 {subsection 2}
  |EXTRA
+ |identifier:{subsection-2}
+ |is_target:{1}
  |section_heading_number:{2.1.2}
  |section_level:{3}
  |section_number:{8}
@@ -179,6 +195,8 @@ Prev: [U4]
 Up: [U0]
  *@chapter C1 l17 {Chapter 2}
  |EXTRA
+ |identifier:{Chapter-2}
+ |is_target:{1}
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{9}

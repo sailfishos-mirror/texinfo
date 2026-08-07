@@ -3564,7 +3564,7 @@ reset_html_targets_list (CONVERTER *self, HTML_TARGET_LIST *targets)
       for (i = 0; i < targets->number; i++)
         {
           int j;
-          HTML_TARGET *html_target = &targets->list[i];
+          HTML_TARGET *html_target = targets->list[i];
           /* setup before conversion */
           free (html_target->target);
           free (html_target->special_unit_filename);
@@ -3586,6 +3586,8 @@ reset_html_targets_list (CONVERTER *self, HTML_TARGET_LIST *targets)
 
           for (j = 0; j < HTT_string_nonumber+1; j++)
             free (html_target->command_name[j]);
+          free (html_target);
+          /* targets->list[i] = 0; */
         }
       targets->number = 0;
     }
@@ -4550,10 +4552,12 @@ html_id_is_registered (CONVERTER *self, const char *string)
 }
 
 void
-html_register_id (CONVERTER *self, const char *string)
+html_register_id (CONVERTER *self, const char *string,
+                  const void *element_target)
 {
   HTML_CONVERTER_STATE *self_html = self->html_converter;
-  c_hashmap_register (self_html->registered_ids_c_hashmap, string, 0);
+  c_hashmap_register (self_html->registered_ids_c_hashmap, string,
+                      element_target);
 }
 
 /* used for diverse elements: tree units, indices, footnotes, special
@@ -4567,9 +4571,10 @@ add_element_target_to_list (HTML_TARGET_LIST *targets,
   if (targets->number == targets->space)
     {
       targets->list = realloc (targets->list,
-                   sizeof (HTML_TARGET) * (targets->space += 5));
+                   sizeof (HTML_TARGET *) * (targets->space += 5));
     }
-  element_target = &targets->list[targets->number];
+  element_target = (HTML_TARGET *) malloc (sizeof (HTML_TARGET));
+  targets->list[targets->number] = element_target;
   memset (element_target, 0, sizeof (HTML_TARGET));
   element_target->element = element;
   if (target)
@@ -4703,7 +4708,7 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
         = add_element_target (self, special_unit->uc.special_unit_command,
                               target);
       element_target->special_unit_filename = filename;
-      html_register_id (self, target);
+      html_register_id (self, target, element_target);
 
       if (target_filename)
         {
@@ -4770,7 +4775,7 @@ prepare_associated_special_units_targets (CONVERTER *self)
            = add_element_target (self, special_unit->uc.special_unit_command,
              target);
           if (target)
-            html_register_id (self, target);
+            html_register_id (self, target, element_target);
           if (filename)
             element_target->special_unit_filename = filename;
 
@@ -4798,38 +4803,63 @@ new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
   char *target_contents = 0;
   char *target_shortcontents = 0;
   TARGET_CONTENTS_FILENAME *target_contents_filename;
-
-  TARGET_FILENAME *target_filename
-    = normalized_sectioning_command_filename (self, command);
-
   /* should not be needed for a sectioning command, as it should not
      be possible for that command to be a user-defined command,
      but it is better to be consistent, and it may change in the future */
   enum command_id data_cmd = element_builtin_data_cmd (command);
   unsigned long flags = command_data[data_cmd].flags;
+  HTML_TARGET *element_target = 0;
 
-  normalized_name = target_filename->target;
-  filename = target_filename->filename;
+  const char *identifier = lookup_extra_string (command, AI_key_identifier);
 
-  free (target_filename);
-
-  target_base = html_normalized_to_id (normalized_name);
-
-  if (!strlen (target_base) && command->e.c->cmd == CM_top)
+  if (identifier)
     {
-      /* @top is allowed to be empty.  In that case it gets this target name */
-      free (target_base);
-      target_base = strdup ("SEC_Top");
-      free (normalized_name);
-      normalized_name = strdup (target_base);
+ /* case of a sectioning command that is also a target for cross-references. */
+      int found;
+      HTML_CONVERTER_STATE *self_html = self->html_converter;
+      /* target are in the registered_ids_c_hashmap, not identifiers */
+      char *target_str = html_normalized_to_id (identifier);
+
+      /* cast to drop const */
+      element_target
+        = (HTML_TARGET *) c_hashmap_value (self_html->registered_ids_c_hashmap,
+                                           target_str, &found);
+      free (target_str);
+      /*
+      fprintf (stderr, "HHHH %s %s\n", identifier, tree_print_details (command, 0, 0));
+       */
+      target = strdup (element_target->target);
+      filename = strdup (element_target->node_filename);
+      normalized_name = strdup (identifier);
     }
-
-  if (strlen (target_base))
-    target = unique_target (self, target_base);
   else
-    target = strdup ("");
+    {
+      TARGET_FILENAME *target_filename
+        = normalized_sectioning_command_filename (self, command);
 
-  free (target_base);
+      normalized_name = target_filename->target;
+      filename = target_filename->filename;
+
+      free (target_filename);
+
+      target_base = html_normalized_to_id (normalized_name);
+
+      if (!strlen (target_base) && command->e.c->cmd == CM_top)
+        {
+    /* @top is allowed to be empty.  In that case it gets this target name */
+          free (target_base);
+          target_base = strdup ("SEC_Top");
+          free (normalized_name);
+          normalized_name = strdup (target_base);
+        }
+
+      if (strlen (target_base))
+        target = unique_target (self, target_base);
+      else
+        target = strdup ("");
+
+      free (target_base);
+    }
 
   if (strlen (target)
       && (flags & CF_sectioning_heading))
@@ -4864,23 +4894,33 @@ new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
       free (target_contents_filename);
     }
 
-  if (self->conf->DEBUG.o.integer > 0)
+  if (!element_target)
     {
-      const char *command_name = element_command_name (command);
-      fprintf (stderr, "C|Register %s %s\n", command_name, target);
+      if (self->conf->DEBUG.o.integer > 0)
+        {
+          const char *command_name = element_command_name (command);
+          fprintf (stderr, "C|Register %s %s\n", command_name, target);
+        }
+      element_target = add_element_target (self, command, target);
+      html_register_id (self, target, element_target);
+    }
+  else
+    {
+    /* reset in case they were modified by the user. */
+      free (element_target->target);
+      element_target->target = strdup (target);
+      free (element_target->node_filename);
+      element_target->node_filename = strdup (filename);
     }
 
-  HTML_TARGET *element_target
-    = add_element_target (self, command, target);
   element_target->section_filename = filename;
-  html_register_id (self, target);
 
   free (target);
 
   if (target_contents)
     {
       element_target->contents_target = target_contents;
-      html_register_id (self, target_contents);
+      html_register_id (self, target_contents, 0);
     }
   else
     element_target->contents_target = strdup ("");
@@ -4888,7 +4928,7 @@ new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
   if (target_shortcontents)
     {
       element_target->shortcontents_target = target_shortcontents;
-      html_register_id (self, target_shortcontents);
+      html_register_id (self, target_shortcontents, 0);
     }
   else
     element_target->shortcontents_target = strdup ("");
@@ -4899,8 +4939,10 @@ new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
  This set with two different codes
   * the target information, id and normalized filename of 'identifiers_target',
     ie everything that may be the target of a ref, @node, @float label,
-    @anchor.
-  * The target information of sectioning elements
+    @anchor, @namedanchor and sectioning commands without associated node.
+  * The target information of sectioning elements.  Sectioning commands
+    without associated node are processed a second time, to set specific
+    sectioning command information.
  @node and section commands targets are therefore both set.
 
  conversion to HTML is done on-demand, upon call to command_text
@@ -4990,7 +5032,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
           HTML_TARGET *element_target
             = add_element_target (self, target_element, target);
           element_target->node_filename = node_filename;
-          html_register_id (self, target);
+          html_register_id (self, target, element_target);
 
           free (target);
         }
@@ -5102,7 +5144,7 @@ prepare_index_entries_targets (CONVERTER *self)
                 target_element = main_entry_element;
 
               add_element_target (self, target_element, target);
-              html_register_id (self, target);
+              html_register_id (self, target, 0);
 
               free (target);
             }
@@ -5168,8 +5210,8 @@ prepare_footnotes_targets (CONVERTER *self)
               else
                 break;
             }
-          html_register_id (self, footid.text);
-          html_register_id (self, docid.text);
+          html_register_id (self, footid.text, 0);
+          html_register_id (self, docid.text, 0);
 
           element_target = add_element_target (self, footnote, footid.text);
           add_special_target (self, ST_footnote_location, footnote,
@@ -5229,13 +5271,13 @@ set_heading_commands_targets (CONVERTER *self)
 static int
 compare_element_target (const void *a, const void *b)
 {
-  const HTML_TARGET *ete_a = (const HTML_TARGET *) a;
-  const HTML_TARGET *ete_b = (const HTML_TARGET *) b;
+  const HTML_TARGET **ete_a = (const HTML_TARGET **) a;
+  const HTML_TARGET **ete_b = (const HTML_TARGET **) b;
   /* we cast to uintptr_t because comparison of pointers from different
      objects is undefined behaviour in C.  In practice it is probably
      not an issue */
-  uintptr_t a_element_addr = (uintptr_t)ete_a->element;
-  uintptr_t b_element_addr = (uintptr_t)ete_b->element;
+  uintptr_t a_element_addr = (uintptr_t)(*ete_a)->element;
+  uintptr_t b_element_addr = (uintptr_t)(*ete_b)->element;
 
   return (a_element_addr > b_element_addr) - (a_element_addr < b_element_addr);
 }
@@ -5254,15 +5296,16 @@ check_targets_order (enum command_id cmd, HTML_TARGET_LIST *element_targets)
     return result;
   for (i = 1; i < element_targets->number; i++)
     {
-      if (compare_element_target (&element_targets->list[i-1],
-                                  &element_targets->list[i]) > 0)
+      if (compare_element_target (element_targets->list[i-1],
+                                  element_targets->list[i]) > 0)
         {
           fprintf (stderr, "no %s %zu %"PRIuPTR" %p %s %zu %"PRIuPTR" %p %s\n",
            builtin_command_name (cmd), i-1,
-           (uintptr_t)element_targets->list[i-1].element,
-           element_targets->list[i-1].element, element_targets->list[i-1].target,
-           i, (uintptr_t)element_targets->list[i].element,
-           element_targets->list[i].element, element_targets->list[i].target);
+           (uintptr_t)element_targets->list[i-1]->element,
+           element_targets->list[i-1]->element,
+           element_targets->list[i-1]->target,
+           i, (uintptr_t)element_targets->list[i]->element,
+           element_targets->list[i]->element, element_targets->list[i]->target);
         }
       else
         result++;
@@ -5308,7 +5351,7 @@ sort_cmd_targets (CONVERTER *self)
             */
           qsort (element_targets->list,
                  element_targets->number,
-                 sizeof (HTML_TARGET), compare_element_target);
+                 sizeof (HTML_TARGET *), compare_element_target);
           push_command (&self_html->html_target_cmds, cmd);
         }
       else if (self_html->html_targets[cmd].space > 0)
@@ -5322,7 +5365,7 @@ sort_cmd_targets (CONVERTER *self)
             = &self_html->html_special_targets[type];
           qsort (element_targets->list,
                  element_targets->number,
-                 sizeof (HTML_TARGET), compare_element_target);
+                 sizeof (HTML_TARGET *), compare_element_target);
         }
     }
 }

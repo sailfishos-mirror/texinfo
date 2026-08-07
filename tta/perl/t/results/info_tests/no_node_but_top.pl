@@ -10,6 +10,8 @@ $result_tree_text{'no_node_but_top'} = '*document_root C2
  *before_node_section
  *@top C1 l1 {top}
  |EXTRA
+ |identifier:{Top}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1

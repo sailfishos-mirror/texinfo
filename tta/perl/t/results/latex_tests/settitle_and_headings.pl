@@ -28,6 +28,8 @@ $result_tree_text{'settitle_and_headings'} = '*document_root C2
    {empty_line:\\n}
  *@chapter C9 l5 {chap}
  |EXTRA
+ |identifier:{chap}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}

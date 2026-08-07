@@ -11,6 +11,8 @@ $result_tree_text{'on_section_line'} = '*document_root C2
  *@section C1 l1 {@noindent Text @titlefont{in titlefont} @anchor{in anchor}@footnote{footnote} @exdent exdent
 }
  |EXTRA
+ |identifier:{Text-in-titlefont-}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}

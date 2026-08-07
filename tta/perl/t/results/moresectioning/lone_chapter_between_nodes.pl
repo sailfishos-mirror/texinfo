@@ -85,6 +85,8 @@ $result_tree_text{'lone_chapter_between_nodes'} = '*document_root C8
   {empty_line:\\n}
  *@chapter C2 l12 {2}
  |EXTRA
+ |identifier:{2}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}

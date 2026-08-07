@@ -167,6 +167,8 @@ $result_tree_text{'index_special_region_titlepage_no_nodes_footnotes_default'} =
     {spaces_after_argument:\\n}
  *@chapter C15 index_special_region.texi:l35 {Chapter}
  |EXTRA
+ |identifier:{Chapter}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}

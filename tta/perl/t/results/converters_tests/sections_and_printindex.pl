@@ -89,6 +89,8 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
     {spaces_after_argument:\\n}
  *@appendix C4 l12 {App}
  |EXTRA
+ |identifier:{App}
+ |is_target:{1}
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{4}

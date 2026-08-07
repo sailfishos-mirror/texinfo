@@ -48,6 +48,8 @@
 #include "structure_list.h"
 #include "targets.h"
 #include "translations.h"
+/* for protect_first_parenthesis reference_to_arg_in_tree */
+#include "transformations.h"
 #include "structuring.h"
 
 void
@@ -418,6 +420,144 @@ sectioning_structure (DOCUMENT *document)
   free (section_number.text);
 
   document->modified_information |= F_DOCM_sections_list;
+}
+
+void
+sectioning_targets (DOCUMENT *document)
+{
+  const C_HASHMAP *identifiers_target = &document->identifiers_target;
+  ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
+  OPTIONS *options = document->options;
+  int warn_debug = (options && options->DEBUG.o.integer > 0);
+  size_t i;
+
+  const SECTION_RELATIONS_LIST *sections_list = &document->sections_list;
+  for (i = 0; i < sections_list->number; i++)
+    {
+      SECTION_RELATIONS *section_relations = sections_list->list[i];
+      /* cast to remove const */
+      ELEMENT *content = (ELEMENT *)section_relations->element;
+      const ELEMENT *arguments_line;
+      const ELEMENT *line_arg;
+      ELEMENT *node_tree;
+      char *normalized;
+      char *normalized_reference = 0;
+      int appended_number;
+
+      if (section_relations->associated_node)
+        continue;
+
+      if (content->e.c->cmd == CM_part)
+        continue;
+
+      arguments_line = content->e.c->contents.list[0];
+      line_arg = arguments_line->e.c->contents.list[0];
+
+      node_tree = copy_contents (line_arg, 0, ET_NONE);
+
+      if (node_tree->e.c->contents.number == 0)
+        {
+          destroy_element_and_children (node_tree);
+          continue;
+        }
+
+      document->modified_information |= F_DOCM_tree;
+
+      /*
+       We protect for all the contexts, as the node name should be
+       the same in the different contexts, even if some protections
+       are not needed for the parsing.  Also, this way the node tree
+       can be directly reused in the menus for example, without
+       additional protection, some parts could be double protected
+       otherwise, those that are protected with @asis.
+
+       needed in nodes lines, @*ref and in menus with a label
+       */
+      node_tree = protect_comma_in_tree (node_tree);
+      /* always */
+      protect_first_parenthesis_in_targets (node_tree);
+      /* in menu entry without label */
+      node_tree = protect_colon_in_tree (node_tree);
+      /* in menu entry with label */
+      node_tree = protect_node_after_label_in_tree (node_tree);
+      node_tree = reference_to_arg_in_tree (node_tree, document);
+
+      appended_number = 0;
+
+      while (1)
+        {
+          const char *non_hyphen_char;
+          ELEMENT *id_label_tree;
+          ELEMENT *appended_text = 0;
+          const ELEMENT *target = 0;
+
+          if (appended_number)
+            {
+              id_label_tree = new_element (ET_NONE);
+              appended_text = new_text_element (ET_normal_text);
+              add_to_contents_as_array (id_label_tree, node_tree);
+              text_printf (appended_text->e.text, " [+%d+]", appended_number);
+              add_to_contents_as_array (id_label_tree, appended_text);
+            }
+          else
+           id_label_tree = node_tree;
+
+          normalized = convert_contents_to_node_identifier (id_label_tree);
+
+          if (appended_text)
+            {
+              destroy_element (appended_text);
+              destroy_element (id_label_tree);
+            }
+
+          if (!appended_number)
+            normalized_reference = strdup (normalized);
+
+          non_hyphen_char = normalized + strspn (normalized, "-");
+          if (*non_hyphen_char)
+            {
+              if (identifiers_target_number (identifiers_target))
+                {
+                  target = find_identifier_target (identifiers_target,
+                                                   normalized);
+                }
+              if (!target)
+                break;
+            }
+
+          free (normalized);
+
+          appended_number++;
+        }
+      add_extra_string (content, AI_key_identifier, normalized);
+
+      if (normalized_reference
+          && strcmp (normalized_reference, normalized)
+          && identifiers_target_number (identifiers_target))
+        {
+          const ELEMENT *existing_target
+            = find_identifier_target (identifiers_target,
+                                      normalized_reference);
+          if (existing_target
+              && (command_data[existing_target->e.c->cmd].flags
+                     & CF_sectioning_heading))
+            {
+              char *section_texinfo = convert_contents_to_texinfo (line_arg);
+
+              message_list_command_warn (error_messages, warn_debug,
+                                  content, 0, "@%s `%s' already added target",
+                                  builtin_command_name (content->e.c->cmd),
+                                  section_texinfo);
+              free (section_texinfo);
+              message_list_command_warn (error_messages, warn_debug,
+                                  existing_target, 1, "added for @%s",
+                       builtin_command_name (existing_target->e.c->cmd));
+            }
+        }
+      free (normalized_reference);
+
+      register_label_element (document, content, error_messages);
+    }
 }
 
 void

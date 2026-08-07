@@ -31,6 +31,8 @@ $result_tree_text{'node_sectop_before_chapter_no_node'} = '*document_root C4
   {empty_line:\\n}
  *@chapter C1 l4 {chap}
  |EXTRA
+ |identifier:{chap}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}

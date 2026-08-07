@@ -49,6 +49,9 @@ use Texinfo::Common;
 
 use Texinfo::ManipulateTree qw(normalized_entry_associated_internal_node);
 
+# TODO avoid this dependence, move to ManipulateTree or this here module
+use Texinfo::Transformations;
+
 # for error messages
 use Texinfo::Convert::Texinfo qw(target_element_to_texi_label
                                  link_element_to_texi);
@@ -290,6 +293,105 @@ sub sectioning_structure($) {
         sprintf(__("no sectioning command associated with \@%s"),
                 $content->{'cmdname'}), $content->{'source_info'});
     }
+  }
+}
+
+sub sectioning_targets($) {
+  my $document = shift;
+
+  my $sections_list = $document->sections_list();
+  my $identifier_target = $document->labels_information();
+
+  foreach my $section_relations (@{$sections_list}) {
+    next if (exists($section_relations->{'associated_node'}));
+
+    my $content = $section_relations->{'element'};
+    next if ($content->{'cmdname'} eq 'part');
+
+    my $arguments_line = $content->{'contents'}->[0];
+    my $line_arg = $arguments_line->{'contents'}->[0];
+
+    my $node_tree = Texinfo::ManipulateTree::copy_contents($line_arg);
+
+    next if (!exists($node_tree->{'contents'}));
+
+    # We protect for all the contexts, as the node name should be
+    # the same in the different contexts, even if some protections
+    # are not needed for the parsing.  Also, this way the node tree
+    # can be directly reused in the menus for example, without
+    # additional protection, some parts could be double protected
+    # otherwise, those that are protected with @asis.
+    #
+    # needed in nodes lines, @*ref and in menus with a label
+    $node_tree = Texinfo::ManipulateTree::protect_comma_in_tree($node_tree);
+    # always
+    Texinfo::ManipulateTree::protect_first_parenthesis($node_tree);
+    # in menu entry without label
+    $node_tree = Texinfo::ManipulateTree::protect_colon_in_tree($node_tree);
+    # in menu entry with label
+    $node_tree
+      = Texinfo::ManipulateTree::protect_node_after_label_in_tree($node_tree);
+    $node_tree
+      = Texinfo::Transformations::reference_to_arg_in_tree($node_tree,
+                                                           $document);
+
+    my $appended_number = 0;
+    my ($normalized, $normalized_reference);
+    while (!defined($normalized)
+           or (defined($identifier_target)
+               and $identifier_target->{$normalized})) {
+
+      my $id_label_tree;
+      if ($appended_number) {
+        $id_label_tree = Texinfo::TreeElement::new({
+                 'contents' => [$node_tree,
+               Texinfo::TreeElement::new({'text' => " [+$appended_number+]"})]
+          });
+      } else {
+        $id_label_tree = $node_tree;
+      }
+      $normalized
+       = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
+          $id_label_tree);
+
+      if (!$appended_number) {
+        $normalized_reference = $normalized;
+      }
+
+      if ($normalized !~ /[^-]/) {
+        $normalized = undef;
+      }
+
+      $appended_number++;
+    }
+    $content->{'extra'}->{'identifier'} = $normalized;
+
+    if (defined($normalized_reference)
+        and $normalized_reference ne $normalized
+        and defined($identifier_target)) {
+      my $existing_target = $identifier_target->{$normalized_reference};
+      if (defined($existing_target)
+          and exists($Texinfo::Commands::sectioning_heading_commands{
+                                        $existing_target->{'cmdname'}})) {
+        my $debug = $document->get_conf('DEBUG');
+        my $error_messages = $document->{'error_messages'};
+
+        my $section_texinfo
+          = Texinfo::Convert::Texinfo::convert_contents_to_texinfo($line_arg);
+        push @$error_messages, Texinfo::Report::line_warn(
+                        sprintf(__("\@%s `%s' already added target"),
+                           $content->{'cmdname'}, $section_texinfo),
+                           $content->{'source_info'}, 0, $debug);
+        push @$error_messages, Texinfo::Report::line_warn(
+                               sprintf(__("added for \@%s"),
+                                  $existing_target->{'cmdname'}),
+                          $existing_target->{'source_info'}, 1, $debug);
+      }
+    }
+
+    Texinfo::Document::register_label_element($document, $content,
+                                              $document->{'error_messages'},
+                                              $document->get_conf('DEBUG'));
   }
 }
 

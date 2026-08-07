@@ -33,6 +33,8 @@ $result_tree_text{'anchor_in_titlepage_titlepage'} = '*document_root C5
    {empty_line:\\n}
  *@top C1 l6 {top}
  |EXTRA
+ |identifier:{top-_005b_002b1_002b_005d}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
@@ -202,10 +204,10 @@ span:hover a.copiable-link {visibility: visible}
 
 <a class="anchor" id="in-titlepage"></a><hr>
 
-<div class="top-level-extent" id="top">
+<div class="top-level-extent" id="top-_005b_002b1_002b_005d">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#nchap" accesskey="n" rel="next">nchap</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
+<h1 class="top"><span>top<a class="copiable-link" href="#top-_005b_002b1_002b_005d"> &para;</a></span></h1>
 <ul class="mini-toc">
 <li><a href="#Top" accesskey="1">Chapter</a></li>
 </ul>

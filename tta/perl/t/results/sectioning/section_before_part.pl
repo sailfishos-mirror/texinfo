@@ -11,6 +11,8 @@ $result_tree_text{'section_before_part'} = '*document_root C3
   *preamble_before_content
  *@section C2 l1 {section}
  |EXTRA
+ |identifier:{section}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}

@@ -10,6 +10,8 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
  *before_node_section
  *@top C1 l1 {top}
  |EXTRA
+ |identifier:{Top}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
@@ -19,6 +21,8 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
     {spaces_after_argument:\\n}
  *@chapter C1 l2 {0}
  |EXTRA
+ |identifier:{0}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -29,6 +33,8 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
     {spaces_after_argument:\\n}
  *@unnumbered C1 l3 {_}
  |EXTRA
+ |identifier:{_005f}
+ |is_target:{1}
  |section_level:{1}
  |section_number:{3}
   *arguments_line C1
@@ -38,6 +44,8 @@ $result_tree_text{'character_number_leading_toc_stoc'} = '*document_root C5
     {spaces_after_argument:\\n}
  *@section C6 l4 {?}
  |EXTRA
+ |identifier:{_003f}
+ |is_target:{1}
  |section_level:{2}
  |section_number:{4}
   *arguments_line C1
@@ -150,8 +158,8 @@ ul.toc-numbered-mark {list-style: none}
 </head>
 
 <body>
-<div class="top-level-extent" id="top">
-<h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
+<div class="top-level-extent" id="Top">
+<h1 class="top"><span>top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 <div class="region-shortcontents" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 

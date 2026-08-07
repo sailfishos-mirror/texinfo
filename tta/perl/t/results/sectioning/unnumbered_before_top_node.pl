@@ -12,6 +12,8 @@ This: [U0]
  *before_node_section
  *@unnumbered C2 l1 {before nodes}
  |EXTRA
+ |identifier:{before-nodes}
+ |is_target:{1}
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1

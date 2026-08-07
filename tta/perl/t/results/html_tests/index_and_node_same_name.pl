@@ -10,6 +10,8 @@ $result_tree_text{'index_and_node_same_name'} = '*document_root C3
  *before_node_section
  *@top C1 l1 {top}
  |EXTRA
+ |identifier:{Top}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
@@ -112,8 +114,8 @@ th.index-letter-header-printindex {text-align: left}
 </head>
 
 <body>
-<div class="top-level-extent" id="top">
-<h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
+<div class="top-level-extent" id="Top">
+<h1 class="top"><span>top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 <h4 class="node" id="index-node"><span>index node<a class="copiable-link" href="#index-node"> &para;</a></span></h4>
 
 <a class="index-entry-id" id="index-node-1"></a>

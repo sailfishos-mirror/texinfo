@@ -16,6 +16,8 @@ Next: [U5]
  *before_node_section
  *@top C2 l1 {top}
  |EXTRA
+ |identifier:{Top}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
@@ -35,6 +37,8 @@ FastBack: [U0]
 Up: [U0]
  *@chapter C2 l3 {chapter}
  |EXTRA
+ |identifier:{chapter}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -55,6 +59,8 @@ FastBack: [U1]
 Up: [U1]
  *@section C2 l5 {section}
  |EXTRA
+ |identifier:{section}
+ |is_target:{1}
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -75,6 +81,8 @@ FastBack: [U1]
 Up: [U2]
  *@subsection C2 l7 {subsection}
  |EXTRA
+ |identifier:{subsection}
+ |is_target:{1}
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -95,6 +103,8 @@ FastBack: [U1]
 Up: [U3]
  *@subsubsection C2 l9 {subsubsection}
  |EXTRA
+ |identifier:{subsubsection}
+ |is_target:{1}
  |section_heading_number:{1.1.1.1}
  |section_level:{4}
  |section_number:{5}
@@ -126,6 +136,8 @@ Next: [U6]
   {empty_line:\\n}
  *@chapter C2 l13 {chapter in part}
  |EXTRA
+ |identifier:{chapter-in-part}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{7}
@@ -148,6 +160,8 @@ Prev: [U5]
 Up: [U5]
  *@chapter C2 l15 {second chapter in part}
  |EXTRA
+ |identifier:{second-chapter-in-part}
+ |is_target:{1}
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{8}
@@ -169,6 +183,8 @@ Prev: [U6]
 Up: [U5]
  *@unnumbered C2 l17 {unnumbered}
  |EXTRA
+ |identifier:{unnumbered}
+ |is_target:{1}
  |section_level:{1}
  |section_number:{9}
   *arguments_line C1
@@ -187,6 +203,8 @@ FastBack: [U7]
 Prev: [U5]
  *@appendix C2 l19 {appendix}
  |EXTRA
+ |identifier:{appendix}
+ |is_target:{1}
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{10}
@@ -205,6 +223,8 @@ FastBack: [U8]
 Up: [U8]
  *@appendixsec C1 l21 {appendixsec}
  |EXTRA
+ |identifier:{appendixsec}
+ |is_target:{1}
  |section_heading_number:{A.1}
  |section_level:{2}
  |section_number:{11}

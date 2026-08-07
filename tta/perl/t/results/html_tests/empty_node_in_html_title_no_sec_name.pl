@@ -35,6 +35,8 @@ $result_tree_text{'empty_node_in_html_title_no_sec_name'} = '*document_root C5
     {spaces_before_argument:\\n}
  *@chapter C1 l5 {chap}
  |EXTRA
+ |identifier:{chap}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}

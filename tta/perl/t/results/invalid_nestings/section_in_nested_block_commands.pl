@@ -35,6 +35,8 @@ $result_tree_text{'section_in_nested_block_commands'} = '*document_root C2
       {empty_line:\\n}
  *@section C1 l9 {a section}
  |EXTRA
+ |identifier:{a-section}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}

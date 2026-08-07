@@ -66,6 +66,18 @@ sectioning_structure (SV *document_in)
           }
 
 void
+sectioning_targets (SV *document_in)
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        document = get_sv_document_document (document_in,
+                                             "sectioning_targets");
+        if (document)
+          {
+            sectioning_targets (document);
+          }
+
+void
 warn_non_empty_parts (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;

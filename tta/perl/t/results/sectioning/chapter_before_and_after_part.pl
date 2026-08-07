@@ -16,6 +16,8 @@ FastForward: [U1]
   *preamble_before_content
  *@chapter C2 l1 {chapter}
  |EXTRA
+ |identifier:{chapter}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}
@@ -44,6 +46,8 @@ FastBack: [U0]
   {empty_line:\\n}
  *@chapter C3 l5 {chapter 2}
  |EXTRA
+ |identifier:{chapter-2}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}

@@ -56,6 +56,8 @@ $result_tree_text{'simple_only_special_spaces_node'} = '*document_root C9
     {spaces_before_argument: '."\r".'\\n}
  *@chapter C2 simple_only_special_spaces_node.texi:l8 {CARRIAGE RETURN|'."\r".'|}
  |EXTRA
+ |identifier:{CARRIAGE-RETURN_007c-_007c}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}

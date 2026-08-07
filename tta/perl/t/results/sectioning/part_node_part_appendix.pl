@@ -121,6 +121,8 @@ FastBack: [U1]
   {empty_line:\\n}
  *@appendix C1 l15 {Appendix}
  |EXTRA
+ |identifier:{Appendix}
+ |is_target:{1}
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{5}

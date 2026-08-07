@@ -13,6 +13,8 @@ NodeUp: (dir)
  *before_node_section
  *@top C3 l1 {top section}
  |EXTRA
+ |identifier:{top-section}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1

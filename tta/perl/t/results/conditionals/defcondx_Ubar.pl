@@ -31,6 +31,8 @@ $result_tree_text{'defcondx_Ubar'} = '*document_root C3
    {empty_line:\\n}
  *@top C4 defxcond.texi:l8 {deffnx inside conditional}
  |EXTRA
+ |identifier:{deffnx-inside-conditional}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1

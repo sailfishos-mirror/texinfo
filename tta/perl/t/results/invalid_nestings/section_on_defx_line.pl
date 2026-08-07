@@ -49,6 +49,8 @@ $result_tree_text{'section_on_defx_line'} = '*document_root C2
      {spaces_after_argument: }
  *@section C4 l2 {s}
  |EXTRA
+ |identifier:{s}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}

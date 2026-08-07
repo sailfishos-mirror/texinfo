@@ -20,6 +20,8 @@ $result_tree_text{'section_in_math'} = '*document_root C3
       {}}
  *@section C3 l4 {sec1}
  |EXTRA
+ |identifier:{sec1}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{2}
  |section_number:{1}
@@ -39,6 +41,8 @@ $result_tree_text{'section_in_math'} = '*document_root C3
      {empty_line:\\n}
  *@section C1 l8 {sec2}
  |EXTRA
+ |identifier:{sec2}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{2}
  |section_number:{2}

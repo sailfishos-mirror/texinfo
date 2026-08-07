@@ -11,6 +11,8 @@ $result_tree_text{'one_subsection'} = '*document_root C2
   *preamble_before_content
  *@subsection C1 l1 {The subsection}
  |EXTRA
+ |identifier:{The-subsection}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{3}
  |section_number:{1}

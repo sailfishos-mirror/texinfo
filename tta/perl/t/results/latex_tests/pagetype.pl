@@ -77,6 +77,8 @@ $result_tree_text{'pagetype'} = '*document_root C6
   {empty_line:\\n}
  *@chapter C3 l20 {afourpaper reset}
  |EXTRA
+ |identifier:{afourpaper-reset}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}

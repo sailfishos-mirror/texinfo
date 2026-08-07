@@ -10,6 +10,8 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
  *before_node_section
  *@top C2 l1 {Top}
  |EXTRA
+ |identifier:{Top}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
@@ -20,6 +22,8 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
   {empty_line:\\n}
  *@chapter C2 l3 {Chapter}
  |EXTRA
+ |identifier:{Chapter}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -31,6 +35,8 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
   {empty_line:\\n}
  *@section C2 l5 {section}
  |EXTRA
+ |identifier:{section}
+ |is_target:{1}
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -42,6 +48,8 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
   {empty_line:\\n}
  *@subsubsection C2 l7 {subsubsection with no subsection above}
  |EXTRA
+ |identifier:{subsubsection-with-no-subsection-above}
+ |is_target:{1}
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -53,6 +61,8 @@ $result_tree_text{'hole_in_sectioning'} = '*document_root C6
   {empty_line:\\n}
  *@subsection C1 l9 {the subsection}
  |EXTRA
+ |identifier:{the-subsection}
+ |is_target:{1}
  |section_heading_number:{1.1.2}
  |section_level:{3}
  |section_number:{5}

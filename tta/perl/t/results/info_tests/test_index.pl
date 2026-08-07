@@ -590,6 +590,8 @@ $result_tree_text{'test_index'} = '*document_root C13
   {empty_line:\\n}
  *@appendixsec C2 l219 {appendixsec}
  |EXTRA
+ |identifier:{appendixsec}
+ |is_target:{1}
  |section_heading_number:{A.1}
  |section_level:{2}
  |section_number:{4}
@@ -601,6 +603,8 @@ $result_tree_text{'test_index'} = '*document_root C13
   {empty_line:\\n}
  *@appendixsubsec C2 l221 {appendixsubsec}
  |EXTRA
+ |identifier:{appendixsubsec}
+ |is_target:{1}
  |section_heading_number:{A.1.1}
  |section_level:{3}
  |section_number:{5}
@@ -612,6 +616,8 @@ $result_tree_text{'test_index'} = '*document_root C13
   {empty_line:\\n}
  *@appendixsubsubsec C4 l223 {appendixsubsubsec}
  |EXTRA
+ |identifier:{appendixsubsubsec}
+ |is_target:{1}
  |section_heading_number:{A.1.1.1}
  |section_level:{4}
  |section_number:{6}
@@ -632,6 +638,8 @@ $result_tree_text{'test_index'} = '*document_root C13
   {empty_line:\\n}
  *@centerchap C2 l227 {centerchap}
  |EXTRA
+ |identifier:{centerchap}
+ |is_target:{1}
  |section_level:{1}
  |section_number:{7}
   *arguments_line C1
@@ -642,6 +650,8 @@ $result_tree_text{'test_index'} = '*document_root C13
   {empty_line:\\n}
  *@chapter C7 l229 {chapter end}
  |EXTRA
+ |identifier:{chapter-end}
+ |is_target:{1}
  |section_heading_number:{B}
  |section_level:{1}
  |section_number:{8}

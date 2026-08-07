@@ -37,6 +37,8 @@ $result_tree_text{'text_before_top_and_contents_after_title'} = '*document_root 
   {empty_line:\\n}
  *@chapter C4 l9 {the chap}
  |EXTRA
+ |identifier:{the-chap}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}

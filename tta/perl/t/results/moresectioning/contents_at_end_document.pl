@@ -30,6 +30,8 @@ $result_tree_text{'contents_at_end_document'} = '*document_root C4
   {empty_line:\\n}
  *@chapter C3 l4 {chap}
  |EXTRA
+ |identifier:{chap}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}

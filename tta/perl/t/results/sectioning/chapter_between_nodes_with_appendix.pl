@@ -29,6 +29,8 @@ $result_tree_text{'chapter_between_nodes_with_appendix'} = '*document_root C6
     {spaces_after_argument:\\n}
  *@chapter C5 l3 {Main}
  |EXTRA
+ |identifier:{Main}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}

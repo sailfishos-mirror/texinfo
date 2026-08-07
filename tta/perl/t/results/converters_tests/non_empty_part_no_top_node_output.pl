@@ -92,6 +92,8 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   {empty_line:\\n}
  *@chapter C2 l17 {chap in Top node}
  |EXTRA
+ |identifier:{chap-in-Top-node}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{4}
@@ -180,6 +182,8 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   {empty_line:\\n}
  *@chapter C2 l38 {with part no node}
  |EXTRA
+ |identifier:{with-part-no-node}
+ |is_target:{1}
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{10}

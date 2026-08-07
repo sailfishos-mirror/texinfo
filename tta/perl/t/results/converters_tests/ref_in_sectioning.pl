@@ -160,6 +160,8 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   {empty_line:\\n}
  *@section C2 l17 {for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})}
  |EXTRA
+ |identifier:{for-example-node-_0028node_0029-_0028Top_0029}
+ |is_target:{1}
  |section_heading_number:{2.1}
  |section_level:{2}
  |section_number:{4}
@@ -199,6 +201,8 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   {empty_line:\\n}
  *@section C2 l19 {@ref{node, cross ref name}  node, crossref arg2}
  |EXTRA
+ |identifier:{node-node_002c-crossref-arg2}
+ |is_target:{1}
  |section_heading_number:{2.2}
  |section_level:{2}
  |section_number:{5}
@@ -219,6 +223,8 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   {empty_line:\\n}
  *@section C2 l21 {@ref{@code{node},, @samp{title}}  code node, samptitle arg3}
  |EXTRA
+ |identifier:{node-code-node_002c-samptitle-arg3}
+ |is_target:{1}
  |section_heading_number:{2.3}
  |section_level:{2}
  |section_number:{6}
@@ -244,6 +250,8 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   {empty_line:\\n}
  *@section C2 l23 {@ref{@code{node},,, file name} code node, file name}
  |EXTRA
+ |identifier:{node-code-node_002c-file-name}
+ |is_target:{1}
  |section_heading_number:{2.4}
  |section_level:{2}
  |section_number:{7}
@@ -267,6 +275,8 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   {empty_line:\\n}
  *@section C2 l25 {@ref{node,,,, Manual } node and manual}
  |EXTRA
+ |identifier:{node-node-and-manual}
+ |is_target:{1}
  |section_heading_number:{2.5}
  |section_level:{2}
  |section_number:{8}
@@ -290,6 +300,8 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   {empty_line:\\n}
  *@section C2 l27 {@ref{Top,,,, Manual } Top and manual}
  |EXTRA
+ |identifier:{Top-Top-and-manual}
+ |is_target:{1}
  |section_heading_number:{2.6}
  |section_level:{2}
  |section_number:{9}
@@ -313,6 +325,8 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   {empty_line:\\n}
  *@section C2 l29 {@ref{,,,, Manual } no node just manual}
  |EXTRA
+ |identifier:{Manual-no-node-just-manual}
+ |is_target:{1}
  |section_heading_number:{2.7}
  |section_level:{2}
  |section_number:{10}
@@ -333,6 +347,8 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   {empty_line:\\n}
  *@section C2 l31 {@ref{,,, file name} no node just file name}
  |EXTRA
+ |identifier:{file-name-no-node-just-file-name}
+ |is_target:{1}
  |section_heading_number:{2.8}
  |section_level:{2}
  |section_number:{11}
@@ -351,6 +367,8 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   {empty_line:\\n}
  *@section C2 l33 {@inforef{a, b, c} inforef a b c}
  |EXTRA
+ |identifier:{a-inforef-a-b-c}
+ |is_target:{1}
  |section_heading_number:{2.9}
  |section_level:{2}
  |section_number:{12}
@@ -373,6 +391,8 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   {empty_line:\\n}
  *@section C2 l35 {(@pxref{ Top ,,, file name }) pxref Top file name, spaces}
  |EXTRA
+ |identifier:{_0028Top_0029-pxref-Top-file-name_002c-spaces}
+ |is_target:{1}
  |section_heading_number:{2.10}
  |section_level:{2}
  |section_number:{13}
@@ -398,6 +418,8 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   {empty_line:\\n}
  *@section C2 l37 {(@pxref{,,, file name }) pxref file name only, spaces}
  |EXTRA
+ |identifier:{_0028file-name_0029-pxref-file-name-only_002c-spaces}
+ |is_target:{1}
  |section_heading_number:{2.11}
  |section_level:{2}
  |section_number:{14}
@@ -418,6 +440,8 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   {empty_line:\\n}
  *@section C2 l39 {@xref{Top,,,filename}, xref Top filename only, no spaces}
  |EXTRA
+ |identifier:{Top_002c-xref-Top-filename-only_002c-no-spaces}
+ |is_target:{1}
  |section_heading_number:{2.12}
  |section_level:{2}
  |section_number:{15}
@@ -438,6 +462,8 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   {empty_line:\\n}
  *@section C2 l41 {@xref{,,,filename}. xref filename only, no spaces}
  |EXTRA
+ |identifier:{filename_002e-xref-filename-only_002c-no-spaces}
+ |is_target:{1}
  |section_heading_number:{2.13}
  |section_level:{2}
  |section_number:{16}
@@ -772,7 +798,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
 <span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
-<h1 class="top" id="for-example-node-_0028node_0029-_0028Top_0029"><span>for example <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)<a class="copiable-link" href="#for-example-node-_0028node_0029-_0028Top_0029"> &para;</a></span></h1>
+<h1 class="top" id="for-example-node-_0028node_0029-_0028Top_0029-1"><span>for example <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)<a class="copiable-link" href="#for-example-node-_0028node_0029-_0028Top_0029-1"> &para;</a></span></h1>
 
 
 <div class="region-contents" id="SEC_Contents">
@@ -784,7 +810,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
   <li><a id="toc-node_002e" href="#node">1 See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a></li>
   <li><a id="toc-node-just-node" href="#chap">2 <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> just node</a>
   <ul class="toc-numbered-mark">
-    <li><a id="toc-for-example-node-_0028node_0029-_0028Top_0029-1" href="#for-example-node-_0028node_0029-_0028Top_0029-1">2.1 for example <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)</a></li>
+    <li><a id="toc-for-example-node-_0028node_0029-_0028Top_0029-1" href="#for-example-node-_0028node_0029-_0028Top_0029">2.1 for example <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)</a></li>
     <li><a id="toc-node-node_002c-crossref-arg2" href="#node-node_002c-crossref-arg2">2.2 <a class="ref" href="#node">cross ref name</a>  node, crossref arg2</a></li>
     <li><a id="toc-node-code-node_002c-samptitle-arg3" href="#node-code-node_002c-samptitle-arg3">2.3 <a class="ref" href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
     <li><a id="toc-node-code-node_002c-file-name" href="#node-code-node_002c-file-name">2.4 <a data-manual="file name" href="file%20name.html#node">(file name)<code class="code">node</code></a> code node, file name</a></li>
@@ -815,7 +841,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <h2 class="chapter" id="node-just-node"><span>2 <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> just node<a class="copiable-link" href="#node-just-node"> &para;</a></span></h2>
 
 <ul class="mini-toc">
-<li><a href="#for-example-node-_0028node_0029-_0028Top_0029-1">for example <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)</a></li>
+<li><a href="#for-example-node-_0028node_0029-_0028Top_0029">for example <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)</a></li>
 <li><a href="#node-node_002c-crossref-arg2"><a class="ref" href="#node">cross ref name</a>  node, crossref arg2</a></li>
 <li><a href="#node-code-node_002c-samptitle-arg3"><a class="ref" href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
 <li><a href="#node-code-node_002c-file-name"><a data-manual="file name" href="file%20name.html#node">(file name)<code class="code">node</code></a> code node, file name</a></li>
@@ -829,8 +855,8 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <li><a href="#Top_002c-xref-Top-filename-only_002c-no-spaces">See <a data-manual="filename" href="filename.html#Top">(filename)Top</a>, xref Top filename only, no spaces</a></li>
 <li><a href="#filename_002e-xref-filename-only_002c-no-spaces">See <a data-manual="filename" href="filename.html#Top">(filename)</a>. xref filename only, no spaces</a></li>
 </ul>
-<div class="section-level-extent" id="for-example-node-_0028node_0029-_0028Top_0029-1">
-<h3 class="section"><span>2.1 for example <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)<a class="copiable-link" href="#for-example-node-_0028node_0029-_0028Top_0029-1"> &para;</a></span></h3>
+<div class="section-level-extent" id="for-example-node-_0028node_0029-_0028Top_0029">
+<h3 class="section"><span>2.1 for example <a class="ref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file%20name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)<a class="copiable-link" href="#for-example-node-_0028node_0029-_0028Top_0029"> &para;</a></span></h3>
 
 </div>
 <div class="section-level-extent" id="node-node_002c-crossref-arg2">

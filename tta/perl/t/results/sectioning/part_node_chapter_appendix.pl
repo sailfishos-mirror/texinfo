@@ -111,6 +111,8 @@ FastBack: [U1]
 Prev: [U1]
  *@appendix C1 l13 {Appendix}
  |EXTRA
+ |identifier:{Appendix}
+ |is_target:{1}
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{4}

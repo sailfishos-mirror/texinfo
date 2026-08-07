@@ -13,6 +13,8 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
    {node Top\\n}
  *@top C2 l2 {top}
  |EXTRA
+ |identifier:{Top}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1

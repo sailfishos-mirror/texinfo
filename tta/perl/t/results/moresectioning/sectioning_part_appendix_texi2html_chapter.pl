@@ -11,6 +11,8 @@ $result_tree_text{'sectioning_part_appendix_texi2html_chapter'} = '*document_roo
   *preamble_before_content
  *@top C2 l1 {top}
  |EXTRA
+ |identifier:{Top}
+ |is_target:{1}
  |section_level:{0}
  |section_number:{1}
   *arguments_line C1
@@ -21,6 +23,8 @@ $result_tree_text{'sectioning_part_appendix_texi2html_chapter'} = '*document_roo
   {empty_line:\\n}
  *@chapter C2 l3 {chapter}
  |EXTRA
+ |identifier:{chapter}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -32,6 +36,8 @@ $result_tree_text{'sectioning_part_appendix_texi2html_chapter'} = '*document_roo
   {empty_line:\\n}
  *@section C2 l5 {section}
  |EXTRA
+ |identifier:{section}
+ |is_target:{1}
  |section_heading_number:{1.1}
  |section_level:{2}
  |section_number:{3}
@@ -43,6 +49,8 @@ $result_tree_text{'sectioning_part_appendix_texi2html_chapter'} = '*document_roo
   {empty_line:\\n}
  *@subsection C2 l7 {subsection}
  |EXTRA
+ |identifier:{subsection}
+ |is_target:{1}
  |section_heading_number:{1.1.1}
  |section_level:{3}
  |section_number:{4}
@@ -54,6 +62,8 @@ $result_tree_text{'sectioning_part_appendix_texi2html_chapter'} = '*document_roo
   {empty_line:\\n}
  *@subsubsection C2 l9 {subsubsection}
  |EXTRA
+ |identifier:{subsubsection}
+ |is_target:{1}
  |section_heading_number:{1.1.1.1}
  |section_level:{4}
  |section_number:{5}
@@ -76,6 +86,8 @@ $result_tree_text{'sectioning_part_appendix_texi2html_chapter'} = '*document_roo
   {empty_line:\\n}
  *@chapter C2 l13 {chapter in part}
  |EXTRA
+ |identifier:{chapter-in-part}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{7}
@@ -87,6 +99,8 @@ $result_tree_text{'sectioning_part_appendix_texi2html_chapter'} = '*document_roo
   {empty_line:\\n}
  *@chapter C2 l15 {second chapter in part}
  |EXTRA
+ |identifier:{second-chapter-in-part}
+ |is_target:{1}
  |section_heading_number:{3}
  |section_level:{1}
  |section_number:{8}
@@ -98,6 +112,8 @@ $result_tree_text{'sectioning_part_appendix_texi2html_chapter'} = '*document_roo
   {empty_line:\\n}
  *@unnumbered C2 l17 {unnumbered}
  |EXTRA
+ |identifier:{unnumbered}
+ |is_target:{1}
  |section_level:{1}
  |section_number:{9}
   *arguments_line C1
@@ -108,6 +124,8 @@ $result_tree_text{'sectioning_part_appendix_texi2html_chapter'} = '*document_roo
   {empty_line:\\n}
  *@appendix C2 l19 {appendix}
  |EXTRA
+ |identifier:{appendix}
+ |is_target:{1}
  |section_heading_number:{A}
  |section_level:{1}
  |section_number:{10}
@@ -119,6 +137,8 @@ $result_tree_text{'sectioning_part_appendix_texi2html_chapter'} = '*document_roo
   {empty_line:\\n}
  *@appendixsec C1 l21 {appendixsec}
  |EXTRA
+ |identifier:{appendixsec}
+ |is_target:{1}
  |section_heading_number:{A.1}
  |section_level:{2}
  |section_number:{11}

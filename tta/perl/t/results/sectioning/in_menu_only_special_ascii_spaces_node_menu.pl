@@ -61,6 +61,8 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_ro
     {spaces_before_argument: '."\r".'\\n}
  *@chapter C2 in_menu_only_special_ascii_spaces_node.texi:l10 {CARRIAGE RETURN|'."\r".'|}
  |EXTRA
+ |identifier:{CARRIAGE-RETURN_007c-_007c}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{2}
@@ -76,6 +78,8 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_ro
     {spaces_before_argument: \\t\\f\\n}
  *@chapter C2 in_menu_only_special_ascii_spaces_node.texi:l13 {CHARACTER TABULATION|	| FORM FEED||}
  |EXTRA
+ |identifier:{CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{3}

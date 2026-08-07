@@ -33,6 +33,8 @@ $result_tree_text{'index_no_node_no_top'} = '*document_root C7
   {empty_line:\\n}
  *@unnumbered C8 index_no_node_no_top.texi:l8 {unnumbered}
  |EXTRA
+ |identifier:{unnumbered}
+ |is_target:{1}
  |section_level:{1}
  |section_number:{1}
   *arguments_line C1
@@ -76,6 +78,8 @@ $result_tree_text{'index_no_node_no_top'} = '*document_root C7
   {empty_line:\\n}
  *@unnumbered C15 index_no_node_no_top.texi:l17 {top (chapter) section}
  |EXTRA
+ |identifier:{top-_0028chapter_0029-section}
+ |is_target:{1}
  |section_level:{1}
  |section_number:{2}
   *arguments_line C1
@@ -149,6 +153,8 @@ $result_tree_text{'index_no_node_no_top'} = '*document_root C7
   {empty_line:\\n}
  *@section C7 index_no_node_no_top.texi:l32 {second}
  |EXTRA
+ |identifier:{second}
+ |is_target:{1}
  |section_level:{2}
  |section_number:{3}
   *arguments_line C1
@@ -192,6 +198,8 @@ $result_tree_text{'index_no_node_no_top'} = '*document_root C7
     {spaces_after_argument:\\n}
  *@chapter C6 index_no_node_no_top.texi:l40 {Chapter}
  |EXTRA
+ |identifier:{Chapter}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{4}
@@ -228,6 +236,8 @@ $result_tree_text{'index_no_node_no_top'} = '*document_root C7
   {empty_line:\\n}
  *@chapter C4 index_no_node_no_top.texi:l47 {Chapter 2}
  |EXTRA
+ |identifier:{Chapter-2}
+ |is_target:{1}
  |section_heading_number:{2}
  |section_level:{1}
  |section_number:{5}

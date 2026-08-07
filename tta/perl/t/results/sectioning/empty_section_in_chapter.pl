@@ -11,6 +11,8 @@ $result_tree_text{'empty_section_in_chapter'} = '*document_root C3
   *preamble_before_content
  *@chapter C2 l1 {chap}
  |EXTRA
+ |identifier:{chap}
+ |is_target:{1}
  |section_heading_number:{1}
  |section_level:{1}
  |section_number:{1}

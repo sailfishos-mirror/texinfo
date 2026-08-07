@@ -1050,9 +1050,10 @@ sub test($$)
                                                              $document);
   }
 
-  Texinfo::Structuring::associate_internal_references($document);
-
   Texinfo::Structuring::sectioning_structure($document);
+  Texinfo::Structuring::sectioning_targets($document);
+
+  Texinfo::Structuring::associate_internal_references($document);
 
   Texinfo::Structuring::warn_non_empty_parts($document);
 

@@ -222,7 +222,7 @@ typedef struct HTML_TARGET {
     int formatted_nodedescription_nr;
 } HTML_TARGET;
 
-def_list_type(HTML_TARGET_LIST, HTML_TARGET);
+def_list_type(HTML_TARGET_LIST, HTML_TARGET *);
 
 typedef struct EXPLAINED_COMMAND_TYPE {
     enum command_id cmd;
