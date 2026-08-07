@@ -258,8 +258,7 @@ index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry,
 
       result = idx_leading_text_or_command (parsed_element, index_ignore_chars);
 
-      if (parsed_element != entry_tree_element)
-        destroy_element (parsed_element);
+      destroy_element_and_children (parsed_element);
 
       return result;
     }

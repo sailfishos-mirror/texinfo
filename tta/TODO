@@ -55,6 +55,19 @@ and replace
 by
 \usepackage{unicode-math}
 
+Not sure that it can be solved easily.  When braced substrings in translated
+strings are not in the translation result, they are not part of the returned
+tree and are therefore never destroyed.  This happens in tests in the
+translation_in_parser_in_translation test where '{name} on {class}'
+translation does not contain {name} nor {class}.  It the translated strings
+are not user-defined (for HTML), it is unlikely that the translations do
+not contain the braced substrings.  For user-defined translated strings, it
+could be possible.
+It could be theoretically possible to determine if the braced substrings
+are not all in the translated strings and destroy the non-substituted
+element in the code perfoming the substrings substitution.  However, the
+situation is not likely enough to warrant doing special code.
+
 Bugs
 ====
 

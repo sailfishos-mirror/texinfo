@@ -1129,7 +1129,8 @@ unused_set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
 static uintptr_t
 print_source_marks (ELEMENT *element, int level, const char *prepended,
                     uintptr_t current_nr, TEXT *result,
-                    const char *fname_encoding, int use_filename)
+                    const char *fname_encoding, int use_filename,
+                    int show_element_pointer)
 {
   char *s_mark_prepended;
   size_t i;
@@ -1190,7 +1191,7 @@ print_source_marks (ELEMENT *element, int level, const char *prepended,
         {
           current_nr = print_tree_details (s_mark->element, level+1,
                         s_mark_prepended, current_nr, result,
-                        fname_encoding, use_filename);
+                        fname_encoding, use_filename, show_element_pointer);
         }
     }
 
@@ -1223,7 +1224,7 @@ print_text_element (ELEMENT *element, int level, const char *prepended,
 
   current_nr = print_source_marks (element, level, prepended,
                                    current_nr, result, fname_encoding,
-                                   use_filename);
+                                   use_filename, 0);
 
   return current_nr;
 }
@@ -1345,7 +1346,7 @@ static uintptr_t
 print_element_add_prepend_info (ELEMENT *element, int level,
                                 const char *prepended, uintptr_t current_nr,
                                 TEXT *result, const char *fname_encoding,
-                                int use_filename)
+                                int use_filename, int show_element_pointer)
 {
   char *info_prepended;
   if (prepended)
@@ -1355,7 +1356,8 @@ print_element_add_prepend_info (ELEMENT *element, int level,
     info_prepended = ADDITIONAL_INFO_PREPEND;
 
   current_nr = print_tree_details (element, level, info_prepended,
-                          current_nr, result, fname_encoding, use_filename);
+                          current_nr, result, fname_encoding, use_filename,
+                          show_element_pointer);
 
   if (prepended)
     free (info_prepended);
@@ -1367,7 +1369,8 @@ print_element_add_prepend_info (ELEMENT *element, int level,
 static uintptr_t
 print_element_info (ELEMENT *element, int level,
                     const char *prepended, uintptr_t current_nr,
-                    TEXT *result, const char *fname_encoding, int use_filename)
+                    TEXT *result, const char *fname_encoding,
+                    int use_filename, int show_element_pointer)
 {
   int i;
   TEXT info_e_text;
@@ -1391,7 +1394,8 @@ print_element_info (ELEMENT *element, int level,
 
           current_nr = print_element_add_prepend_info (info_element,
                               level+1, prepended, current_nr, &info_e_text,
-                              fname_encoding, use_filename);
+                              fname_encoding, use_filename,
+                              show_element_pointer);
 
           add_info_name_value (&info_strings, elt_info_names[i],
                                info_e_text.text, 1);
@@ -1486,7 +1490,8 @@ root_command_element_string (const ELEMENT *element)
 static uintptr_t
 print_element_extra (ELEMENT *element, int level,
                     const char *prepended, uintptr_t current_nr,
-                    TEXT *result, const char *fname_encoding, int use_filename)
+                    TEXT *result, const char *fname_encoding,
+                    int use_filename, int show_element_pointer)
 {
   size_t i;
 
@@ -1559,7 +1564,8 @@ print_element_extra (ELEMENT *element, int level,
             current_nr
               = print_element_add_prepend_info (k_pair->k.element, level+1,
                                        prepended, current_nr, &info_e_text,
-                                       fname_encoding, use_filename);
+                                       fname_encoding, use_filename,
+                                       show_element_pointer);
             value = info_e_text.text;
             need_eol = 1;
             break;
@@ -1669,7 +1675,8 @@ print_element_extra (ELEMENT *element, int level,
 uintptr_t
 print_element_details (ELEMENT *element, int level, const char *prepended,
                               uintptr_t current_nr, TEXT *result,
-                              const char *fname_encoding, int use_filename)
+                              const char *fname_encoding, int use_filename,
+                              int show_element_pointer)
 {
   int j;
   enum command_id data_cmd = 0;
@@ -1746,25 +1753,31 @@ print_element_details (ELEMENT *element, int level, const char *prepended,
 
   current_nr = print_element_info (element, level, prepended,
                                    current_nr, result, fname_encoding,
-                                   use_filename);
+                                   use_filename, show_element_pointer);
 
   current_nr = print_element_extra (element, level, prepended,
                                     current_nr, result, fname_encoding,
-                                    use_filename);
+                                    use_filename, show_element_pointer);
 
   current_nr = print_source_marks (element, level, prepended,
                                    current_nr, result, fname_encoding,
-                                   use_filename);
+                                   use_filename, show_element_pointer);
   return current_nr;
 }
 
+/* if SHOW_ELEMENT_POINTER is set, show the element pointer address too.
+   Should only be set for debugging when called from tree_print_details */
 uintptr_t
 print_tree_details (ELEMENT *element, int level, const char *prepended,
                               uintptr_t current_nr, TEXT *result,
-                              const char *fname_encoding, int use_filename)
+                              const char *fname_encoding, int use_filename,
+                              int show_element_pointer)
 {
+  if (show_element_pointer)
+    text_printf (result, "EE %p\n", element);
   current_nr = print_element_details (element, level, prepended,
-                      current_nr, result, fname_encoding, use_filename);
+                      current_nr, result, fname_encoding, use_filename,
+                      show_element_pointer);
 
   if (!(type_data[element->type].flags & TF_text))
     {
@@ -1774,7 +1787,8 @@ print_tree_details (ELEMENT *element, int level, const char *prepended,
         current_nr
           = print_tree_details (element->e.c->contents.list[i], level +1,
                                 prepended, current_nr, result,
-                                fname_encoding, use_filename);
+                                fname_encoding, use_filename,
+                                show_element_pointer);
     }
 
   return current_nr;
@@ -1833,10 +1847,12 @@ remove_element_tree_numbers (ELEMENT *element)
    element numbers to refer to.
    The calls to set_element_tree_numbers and remove_element_tree_numbers
    are thus commented out.
+   If SHOW_ELEMENT_POINTER is set, show the element pointer address too.
+   Should only be set manually for debugging.
  */
 char *
 tree_print_details (ELEMENT *tree, const char *fname_encoding,
-                    int use_filename)
+                    int use_filename, int show_element_pointer)
 {
   TEXT result;
   uintptr_t current_nr = 0;
@@ -1849,7 +1865,7 @@ tree_print_details (ELEMENT *tree, const char *fname_encoding,
    */
 
   print_tree_details (tree, 0, 0, current_nr, &result, fname_encoding,
-                         use_filename);
+                         use_filename, show_element_pointer);
 
   /*
   remove_element_tree_numbers (tree);
@@ -1869,7 +1885,7 @@ element_print_details (ELEMENT *element, const char *fname_encoding,
   text_append (&result, "");
 
   print_element_details (element, 0, 0, 0, &result, fname_encoding,
-                         use_filename);
+                         use_filename, 1);
 
   return result.text;
 }

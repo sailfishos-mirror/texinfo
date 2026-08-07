@@ -151,7 +151,7 @@ tree_print_details (SV *tree_in, SV *fname_encoding_in=0, SV *use_filename_in=0)
               use_filename = SvIV (use_filename_in);
 
             result = tree_print_details (document->tree,
-                                fname_encoding, use_filename);
+                                fname_encoding, use_filename, 0);
             result_sv = newSVpv_utf8 (result, 0);
             non_perl_free (result);
           }

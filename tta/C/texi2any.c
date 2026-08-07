@@ -3055,7 +3055,7 @@ main (int argc, char *argv[], char *env[])
                   && doc_encoding_for_input_file_name_option->o.integer == 0)),
                     locale_encoding, &document->global_info, 0);
           char *debug_tree = tree_print_details (document->tree,
-                               input_file_names_encoding, test_mode_set);
+                               input_file_names_encoding, test_mode_set, 0);
           const char *output_encoding = 0;
           OPTION *out_encoding_option
             = GNUT_get_conf (
@@ -3258,7 +3258,7 @@ main (int argc, char *argv[], char *env[])
                   && doc_encoding_for_input_file_name_option->o.integer == 0)),
                     locale_encoding, &document->global_info, 0);
           char *debug_tree = tree_print_details (document->tree,
-                               input_file_names_encoding, test_mode_set);
+                               input_file_names_encoding, test_mode_set, 0);
           const char *output_encoding = 0;
           OPTION *out_encoding_option
             = GNUT_get_conf (

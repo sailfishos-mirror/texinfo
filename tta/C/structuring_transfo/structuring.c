@@ -529,6 +529,8 @@ sectioning_targets (DOCUMENT *document)
 
           appended_number++;
         }
+      destroy_element_and_children (node_tree);
+
       add_extra_string (content, AI_key_identifier, normalized);
 
       if (normalized_reference

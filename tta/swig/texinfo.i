@@ -714,7 +714,7 @@ char *convert_to_text (const ELEMENT *root, TEXT_OPTIONS *text_options);
 // manipulate_tree.h
 %newobject tree_print_details;
 char *tree_print_details (ELEMENT *tree, const char *fname_encoding=0,
-                          int use_filename=0);
+                          int use_filename=0, int show_element_pointer=0);
 
 %newobject element_print_details;
 char *element_print_details (ELEMENT *element, const char *fname_encoding=0,

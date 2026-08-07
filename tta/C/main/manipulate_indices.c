@@ -202,6 +202,10 @@ get_index_content_info_element (const ELEMENT *element,
   const char *def_cmdname = lookup_extra_string (element, AI_key_def_command);
   ELEMENT *def_l_e;
 
+  /* Not strictly needed, but cound be helpful to debug */
+  *name_copy_out = 0;
+  *class_copy_out = 0;
+
   if (!def_cmdname)
     {
       ELEMENT *element_copy
@@ -274,8 +278,10 @@ get_index_content_info_element (const ELEMENT *element,
             }
         }
     }
+  /*
   *name_copy_out = 0;
   *class_copy_out = 0;
+   */
   *def_command_out = CM_NONE;
   return 0;
 }
