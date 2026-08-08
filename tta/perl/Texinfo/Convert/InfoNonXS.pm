@@ -35,6 +35,7 @@ use Carp qw(cluck confess);
 
 use File::Spec;
 
+use Texinfo::Documentlanguages;
 use Texinfo::Common;
 
 use Texinfo::TreeElement;
@@ -242,9 +243,15 @@ sub output($$) {
         $preamble_documentlanguage .= '_' .$lang_info->{'region'};
       }
       if (exists($lang_info->{'script'})) {
-        # FIXME this is the ISO 4 letter lang tag, not the @documentscript
-        # argument
+        # ISO 4 letter lang tag
         $preamble_documentscript = $lang_info->{'script'};
+        # if possible, convert to value used in XPG locales
+        if (exists($Texinfo::Documentlanguages::documentscript_XPG_script{
+             $preamble_documentscript})) {
+          $preamble_documentscript
+            = $Texinfo::Documentlanguages::documentscript_XPG_script{
+                                            $preamble_documentscript};
+        }
       }
       if (exists($lang_info->{'variants'})) {
         # FIXME use - or ', ' as delimiter?

@@ -509,7 +509,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 Info-documentlanguage: qaa
-Info-documentscript: Latn
+Info-documentscript: latin
 End:
 ';
 
