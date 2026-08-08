@@ -1,6 +1,8 @@
 \input texinfo   @c -*-texinfo-*-
 
 @documentlanguage sr
+@c test having an alias and not an ISO 4 letter script tag
+@documentscript latin
 
 @node Top
 @top top

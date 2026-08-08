@@ -512,6 +512,7 @@ End Tag Table
 Local Variables:
 coding: utf-8
 Info-documentlanguage: qaa
+Info-documentlanguagevariant: 1234
 End:
 ';
 

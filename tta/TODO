@@ -10,9 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-add Info-* language related local variables in Info files for documentscript
-and documentlanguagevariant.
-
 Make sure that Info and Plaintext XS modules are not used from texi2any.pl when
 INFO_MATH_IMAGES is set (and TEXINFO_XS_INCOMPLETE=2).
 

@@ -222,11 +222,37 @@ sub output($$) {
   # This also sets the language related options to their pre-conversion
   # values.
   $self->set_converter_preamble_language_commands();
+
   # format the Info header and cached node names using the last value
   # of the preamble.
   my @informative_global_commands = $self->get_informative_global_commands();
-  $self->set_global_document_commands('preamble', \@informative_global_commands);
+  $self->set_global_document_commands('preamble',
+                                      \@informative_global_commands);
+
   my $preamble_bcp47_locale = $self->current_bcp47_locale();
+
+  my $preamble_documentlanguage;
+  my $preamble_documentscript;
+  my $preamble_documentlanguagevariant;
+  if (exists($self->{'current_lang_translations'})) {
+    my $lang_info = $self->{'current_lang_translations'}->[0];
+    if (exists($lang_info->{'lang'})) {
+      $preamble_documentlanguage = $lang_info->{'lang'};
+      if (exists($lang_info->{'region'})) {
+        $preamble_documentlanguage .= '_' .$lang_info->{'region'};
+      }
+      if (exists($lang_info->{'script'})) {
+        # FIXME this is the ISO 4 letter lang tag, not the @documentscript
+        # argument
+        $preamble_documentscript = $lang_info->{'script'};
+      }
+      if (exists($lang_info->{'variants'})) {
+        # FIXME use - or ', ' as delimiter?
+        $preamble_documentlanguagevariant
+          = join('-', @{$lang_info->{'variants'}});
+      }
+    }
+  }
 
   my $header = $self->_info_header($input_basefile, $output_filename);
   my $header_bytes = length($header);
@@ -514,15 +540,20 @@ sub output($$) {
 
   my $coding = $self->get_conf('OUTPUT_ENCODING_NAME');
   $coding = undef if (defined($coding) and $coding eq '');
-  my $documentlanguage = $self->get_conf('documentlanguage');
 
-  if (defined($coding) or defined($documentlanguage)) {
+  if (defined($coding) or defined($preamble_documentlanguage)) {
     # Note: Info readers expect the Local Variables section to be
     # under 1000 bytes in length so not many variables can be added here.
     $tag_text .= "\n\x{1F}\nLocal Variables:\n";
     $tag_text .= "coding: $coding\n" if (defined($coding));
-    $tag_text .= "Info-documentlanguage: $documentlanguage\n"
-      if (defined($documentlanguage));
+    if (defined($preamble_documentlanguage)) {
+      $tag_text .= "Info-documentlanguage: $preamble_documentlanguage\n";
+      $tag_text .= "Info-documentscript: $preamble_documentscript\n"
+        if (defined($preamble_documentscript));
+      $tag_text
+       .= "Info-documentlanguagevariant: $preamble_documentlanguagevariant\n"
+        if (defined($preamble_documentlanguagevariant));
+    }
     $tag_text .= "End:\n";
   }
   if (defined($fh)) {

@@ -75,7 +75,7 @@ my @test_cases = (
 @printindex vr
 '],
 ['multiple_in_preamble',
-'@documentlanguage fr
+'@documentlanguage hr
 
 @copying
 @defivar copying a b
@@ -83,7 +83,7 @@ my @test_cases = (
 @end defivar
 @end copying
 
-@documentlanguage hr
+@documentlanguage fr_BE
 
 @node Top
 @top top section

@@ -307,12 +307,11 @@ sub _set_lang_info_translation($$) {
   my ($translations_cache, $lang_info) = @_;
 
   my $bcp47_locale = _lang_info_bcp47_locale($lang_info);
+  $lang_info->{'bcp47_locale'} = $bcp47_locale;
 
   if (exists($translations_cache->{$bcp47_locale})) {
     return $translations_cache->{$bcp47_locale};
   }
-
-  $lang_info->{'bcp47_locale'} = $bcp47_locale;
 
   my $new_lang_translations = _init_lang_translation($lang_info);
   $translations_cache->{$bcp47_locale} = $new_lang_translations;
@@ -429,6 +428,11 @@ sub set_translations_documentlanguagevariant($$$) {
   return _set_lang_info_translation($translations_cache, \%lang_info);
 }
 
+# The aim of this function is to redo the succession of language related
+# commands set in the preamble, starting from the situation before manual
+# conversion.  This is needed because some command reset other commands.
+# SET_DOCUMENTLANGUAGE and SET_DOCUMENTSCRIPT are used to set initial values.
+# Commands in LANGUAGE_COMMAND_ELEMENTS array are rerun.
 sub set_preamble_language_commands($$$$) {
   my ($language_command_elements, $translations_cache,
       $set_documentlanguage, $set_documentscript) = @_;

@@ -261,6 +261,9 @@ info_output (CONVERTER *self, DOCUMENT *document)
   char *new_output_file = 0;
   INDIRECT_FILE_OFFSET_LIST indirect_files;
   TEXT tag_text;
+  char *preamble_documentlanguage = 0;
+  char *preamble_documentscript = 0;
+  char *preamble_documentlanguagevariant = 0;
 
   plaintext_conversion_initialization (self, document);
 
@@ -357,6 +360,31 @@ info_output (CONVERTER *self, DOCUMENT *document)
   set_global_document_commands (self, CL_before, informative_global_commands);
 
   preamble_bcp47_locale = current_bcp47_locale (self);
+
+  if (self->current_lang_translations
+      && self->current_lang_translations->info->lang)
+    {
+      TEXT lang_text;
+      text_init (&lang_text);
+      text_append (&lang_text, self->current_lang_translations->info->lang);
+      if (self->current_lang_translations->info->region)
+        {
+          text_append_n (&lang_text, "_", 1);
+          text_append (&lang_text,
+                       self->current_lang_translations->info->region);
+        }
+      preamble_documentlanguage = lang_text.text;
+      if (self->current_lang_translations->info->script)
+        preamble_documentscript
+          = strdup (self->current_lang_translations->info->script);
+
+      if (self->current_lang_translations->info->variants.number > 0)
+        {
+          preamble_documentlanguagevariant
+            = join_strings_list (
+               &self->current_lang_translations->info->variants, "-");
+        }
+    }
 
   header = info_header (self, input_basefile, output_filename);
   header_bytes = strlen (header);
@@ -694,18 +722,22 @@ info_output (CONVERTER *self, DOCUMENT *document)
       && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, ""))
     coding = self->conf->OUTPUT_ENCODING_NAME.o.string;
 
-  const char *documentlanguage = 0;
-  if (self->conf->documentlanguage.o.string)
-    documentlanguage = self->conf->documentlanguage.o.string;
-
-  if (coding || documentlanguage)
+  if (coding || preamble_documentlanguage)
     {
       text_append_n (&tag_text, "\n\x1F\nLocal Variables:\n", 20);
       if (coding)
         text_printf (&tag_text, "coding: %s\n", coding);
-      if (documentlanguage)
-        text_printf (&tag_text, "Info-documentlanguage: %s\n",
-                     documentlanguage);
+      if (preamble_documentlanguage)
+        {
+          text_printf (&tag_text, "Info-documentlanguage: %s\n",
+                       preamble_documentlanguage);
+          if (preamble_documentscript)
+            text_printf (&tag_text, "Info-documentscript: %s\n",
+                         preamble_documentscript);
+          if (preamble_documentlanguagevariant)
+          text_printf (&tag_text, "Info-documentlanguagevariant: %s\n",
+                       preamble_documentlanguagevariant);
+        }
       text_append_n (&tag_text, "End:\n", 5);
     }
 
@@ -735,6 +767,10 @@ info_output (CONVERTER *self, DOCUMENT *document)
       document->output_units_lists
         .output_units_lists[output_units_descriptor -1].list = 0;
     }
+
+  free (preamble_documentlanguage);
+  free (preamble_documentscript);
+  free (preamble_documentlanguagevariant);
 
   plaintext_conversion_finalization (self);
 
