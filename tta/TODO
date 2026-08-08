@@ -21,6 +21,8 @@ Subject: Re: Vertical spacing between @deffn output and preceding text
 make
  @fonttextsize 12
 not an error?
+(Also need to review documentation to make it more fuzzy as @fonttextsize
+does something in LaTeX).
 
 Add "shadow targets" or nodes to sectioning commands without nodes <- DONE
 (and change USE_NODES to have 3 possible meaning?)

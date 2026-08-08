@@ -328,7 +328,6 @@ info_output (CONVERTER *self, DOCUMENT *document)
   if (need_unsplit)
     option_force_conf (&self->conf->SPLIT_SIZE, -2, 0);
 
-
   if (strcmp (output_file, ""))
     {
       if (self->conf->VERBOSE.o.integer > 0)

@@ -118,6 +118,13 @@ my $scripts_declarations = "%{\n#include <config.h>\n%}\n"
 open(SCRIPTS, ">$dir/scripts.gperf") or die "Open $dir/scripts.gperf: $!\n";
 print SCRIPTS $scripts_declarations;
 
+my $script_names_declarations = "%{\n#include <config.h>\n%}\n"
+ ."struct TXI_DOCUMENT_SCRIPT_NAME { char const *code; const char *name; };\n"
+                   ."%includes\n%%\n";
+open(SCRIPT_NAMES, ">$dir/script_names.gperf")
+   or die "Open $dir/script_names.gperf: $!\n";
+print SCRIPT_NAMES $script_names_declarations;
+
 open(VARIANTS, ">$dir/variants.gperf") or die "Open $dir/variants.gperf: $!\n";
 print VARIANTS $declarations;
 
@@ -159,6 +166,7 @@ print OUT ");\n\n";
 print OUT 'our %documentscript_XPG_script = ('."\n";
 foreach my $alias (sort(keys(%alias_ISO_script))) {
   print OUT "'$alias_ISO_script{$alias}' => '$alias',\n";
+  print SCRIPT_NAMES "$alias_ISO_script{$alias}, \"$alias\"\n";
 }
 print OUT ");\n\n";
 
@@ -174,4 +182,5 @@ print OUT "1;\n";
 system ("gperf --output-file=C/main/txi_documentlanguage_languages.c -N txi_in_language_codes $dir/languages.gperf");
 system ("gperf --output-file=C/main/txi_documentlanguage_regions.c -N txi_in_language_regions $dir/regions.gperf");
 system ("gperf -t --output-file=C/main/txi_documentlanguage_scripts.c -N txi_in_language_scripts $dir/scripts.gperf");
+system ("gperf -t --output-file=C/main/txi_documentlanguage_script_names.c -N txi_in_language_script_names $dir/script_names.gperf");
 system ("gperf --output-file=C/main/txi_documentlanguage_variants.c -N txi_in_language_variants $dir/variants.gperf");

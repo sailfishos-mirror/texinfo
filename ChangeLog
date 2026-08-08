@@ -1,5 +1,11 @@
 2026-08-08 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/Makefile.am (C_libtexinfo_sources),
+	tta/maintain/regenerate_documentlanguages-iana.pl: add a gperf hash
+	associating an ISO 15924 tag to an alias as used in XPG locales.
+
+2026-08-08 Patrice Dumas  <pertusus@free.fr>
+
 	Update IANA language data
 
 2026-08-08 Patrice Dumas  <pertusus@free.fr>

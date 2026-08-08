@@ -1,0 +1,13 @@
+%{
+#include <config.h>
+%}
+struct TXI_DOCUMENT_SCRIPT_NAME { char const *code; const char *name; };
+%includes
+%%
+Arab, "arabic"
+Cyrl, "cyrillic"
+Deva, "devanagari"
+Guru, "gurmukhi"
+Hebr, "hebrew"
+Latn, "latin"
+Mong, "mongolian"
