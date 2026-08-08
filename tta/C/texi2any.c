@@ -2692,7 +2692,7 @@ main (int argc, char *argv[], char *env[])
                  program_options.options->XS_EXTERNAL_CONVERSION.number);
 
           /* setup of need_latex to be kept in sync with setup of
-             CONVERT_TO_LATEX_IN_MATH in html_initialize_output_state
+             CONVERT_TO_LATEX_IN_MATH in html_conversion_initialization
              based on HTML_MATH */
           int need_latex = 0;
           OPTION *convert_to_latex_in_math_option
@@ -2707,6 +2707,9 @@ main (int argc, char *argv[], char *env[])
               if (option_html_math && option_html_math->o.string)
                 need_latex = 1;
             }
+          else if (convert_to_latex_in_math_option
+                   && convert_to_latex_in_math_option->o.integer > 0)
+            need_latex = 1;
 
           /* to be kept in sync with build_html_perl_info.c
               html_pass_conversion_initialization */

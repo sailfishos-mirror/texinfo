@@ -14,7 +14,7 @@
 
 set -e
 
-TEXINFO_XS_CONVERT=0
-export TEXINFO_XS_CONVERT
+TEXINFO_XS=omit
+export TEXINFO_XS
 
 ./generate_perlVSC.sh perl_HTML_refs $1

@@ -14,8 +14,6 @@
 
 set -e
 
-# Note that it is the default nowadays
-TEXINFO_XS_CONVERT=1
-export TEXINFO_XS_CONVERT
+unset TEXINFO_XS
 
 ./generate_perlVSC.sh compare_C_HTML $1

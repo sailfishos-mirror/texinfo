@@ -10,6 +10,9 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+add Info-* language related local variables in Info files for documentscript
+and documentlanguagevariant.
+
 Make sure that Info and Plaintext XS modules are not used from texi2any.pl when
 INFO_MATH_IMAGES is set (and TEXINFO_XS_INCOMPLETE=2).
 
@@ -1416,7 +1419,7 @@ dlclosed object.  In that case adding --keep-debuginfo=yes showed the
 missing symbols as seen in the valgrind documentation.
 
 To complement the "check that the debug output of pure Perl modules and XS/C
-are the same" desribed in README-hacking, an additional check with memory leaks
+are the same" described in README-hacking, an additional check with memory leaks
 in debug:
 PERL_DESTRUCT_LEVEL=2
 export PERL_DESTRUCT_LEVEL

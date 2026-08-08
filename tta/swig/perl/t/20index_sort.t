@@ -42,13 +42,7 @@ BEGIN {
 use Texinfo_SWIG_Interface_Tests;
 use Texinfo;
 
-# Need to do that before loading texi2any Perl modules, to make sure
-# that set_XS_mandatory is called before loading any module that would
-# read TEXINFO_XS_* environment variables.  This is important only
-# if the SWIG interface loads texi2any Perl modules.
-BEGIN {
 Texinfo::setup(1);
-}
 
 # Load texi2any Perl modules
 # to find Texinfo::ModulePath in build directory

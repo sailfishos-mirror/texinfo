@@ -202,7 +202,7 @@ get_index_content_info_element (const ELEMENT *element,
   const char *def_cmdname = lookup_extra_string (element, AI_key_def_command);
   ELEMENT *def_l_e;
 
-  /* Not strictly needed, but cound be helpful to debug */
+  /* Not strictly needed here, but could be helpful to debug */
   *name_copy_out = 0;
   *class_copy_out = 0;
 

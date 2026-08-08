@@ -474,7 +474,6 @@ sectioning_targets (DOCUMENT *document)
            continue;
         }
 
-
       if (identifiers_target_number (identifiers_target))
         {
           const ELEMENT *existing_target
