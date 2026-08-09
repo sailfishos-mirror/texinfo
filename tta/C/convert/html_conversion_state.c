@@ -613,7 +613,7 @@ html_multi_expanded_region (CONVERTER *self)
 {
   HTML_CONVERTER_STATE *self_html = self->html_converter;
   if (self_html->multiple_pass.number > 0)
-    return top_string_stack (&self_html->multiple_pass);
+    return *top_(string) (&self_html->multiple_pass);
 
   return 0;
 }
@@ -629,7 +629,7 @@ void
 html_unset_multiple_conversions (CONVERTER *self)
 {
   HTML_CONVERTER_STATE *self_html = self->html_converter;
-  pop_string_stack (&self_html->multiple_pass);
+  pop_(string) (&self_html->multiple_pass);
 }
 
 size_t
@@ -1030,12 +1030,12 @@ html_close_registered_sections_level (CONVERTER *self, size_t file_number,
 
   while ((int) file_pending_closes->number > level)
     {
-      const char *close_string = top_string_stack (file_pending_closes);
+      const char *close_string = *top_(string) (file_pending_closes);
       if (strlen (close_string))
         {
           add_string (close_string, closed_elements);
         }
-      pop_string_stack (file_pending_closes);
+      pop_(string) (file_pending_closes);
     }
 
   return closed_elements;

@@ -23,9 +23,11 @@
 #include "converter_types.h"
 /* HTML_FORMATTING_CONTEXT HTML_DOCUMENT_CONTEXT */
 #include "html_converter_state.h"
+#include "list_macros.h"
 /* fatal */
 #include "base_utils.h"
-#include "list_macros.h"
+/* for strings lists definitions */
+#include "utils.h"
 #include "command_stack.h"
 
 /* Generic stack functions */
@@ -94,41 +96,17 @@ top_command_or_type (const COMMAND_OR_TYPE_STACK *stack)
 
 
 /* stack of strings */
+
+def_stack_fns(STRING_LIST, string, char *);
+
+/* very similar to add_string, but allow a NULL string argument */
 void
 push_string_stack_string (STRING_LIST *stack, const char *string)
 {
-  if (stack->number >= stack->space)
-    {
-      stack->list
-        = realloc (stack->list,
-                   (stack->space += 5) * sizeof (char *));
-    }
-
+  char *new_string = 0;
   if (string)
-    stack->list[stack->number] = strdup (string);
-  else
-    stack->list[stack->number] = 0;
-
-  stack->number++;
-}
-
-void
-pop_string_stack (STRING_LIST *stack)
-{
-  if (stack->number == 0)
-    fatal ("string stack empty");
-
-  free (stack->list[stack->number - 1]);
-  stack->number--;
-}
-
-const char *
-top_string_stack (const STRING_LIST *stack)
-{
-  if (stack->number == 0)
-    fatal ("string stack empty for top");
-
-  return stack->list[stack->number - 1];
+    new_string = strdup (string);
+  add_(string) (stack, new_string);
 }
 
 
