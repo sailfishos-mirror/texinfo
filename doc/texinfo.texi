@@ -5892,10 +5892,15 @@ wherever possible.
 @cindex Reducing font size
 @cindex Smaller fonts
 Texinfo provides one command to change the size of the main body font
-in printed output for a document: @code{@@fonttextsize}.  It has no
-effect in other output.  It takes a single argument on the remainder
-of the line, which must be either @samp{10} or @samp{11}.  For
-example:
+in printed output (with @file{texinfo.tex}) for a document:
+@code{@@fonttextsize}.  (This command is not a good way for setting the
+font size in other output formats, where it may be ignored by
+@command{texi2any}---in formats such as HTML or @LaTeX{},
+we recommend using format-specific features to control such details of
+formatting, e.g.@: CSS or @LaTeX{} package options respectively.)
+
+@code{@@fonttextsize} takes a single argument on the remainder of the line,
+which must be either @samp{10} or @samp{11}.  For example:
 
 @example
 @@fonttextsize 10
