@@ -429,7 +429,7 @@ html_free_converter (CONVERTER *self)
      emptied after the conversion (with an error message) */
   for (j = 0; j < self_html->pending_closes.space; j++)
     {
-      STRING_STACK *file_pending_closes = &self_html->pending_closes.list[j];
+      STRING_LIST *file_pending_closes = &self_html->pending_closes.list[j];
       free (file_pending_closes->list);
     }
   free (self_html->pending_closes.list);

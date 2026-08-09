@@ -5903,8 +5903,8 @@ html_initialize_pending_closes (CONVERTER *self, size_t number)
 
   if (self_html->pending_closes.space < number)
     {
-      self_html->pending_closes.list = (STRING_STACK *)
-        realloc (self_html->pending_closes.list, number * sizeof (STRING_STACK));
+      self_html->pending_closes.list = (STRING_LIST *)
+        realloc (self_html->pending_closes.list, number * sizeof (STRING_LIST));
   /* The existing string stacks per file should already be empty, either because
      the code is consistent for opening and closing, or because they are
      emptied after the conversion (with an error message).
@@ -5914,7 +5914,7 @@ html_initialize_pending_closes (CONVERTER *self, size_t number)
    */
       memset (&self_html->pending_closes.list[self_html->pending_closes.space],
               0, (number - self_html->pending_closes.space)
-                 * sizeof (STRING_STACK));
+                 * sizeof (STRING_LIST));
       self_html->pending_closes.space = number;
     }
   self_html->pending_closes.number = number;

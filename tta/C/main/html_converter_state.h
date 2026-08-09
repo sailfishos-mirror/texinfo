@@ -531,7 +531,7 @@ typedef struct ASSOCIATED_INFO_LIST {
     ASSOCIATED_INFO *list;
 } ASSOCIATED_INFO_LIST;
 
-def_list_type(STRING_STACK_LIST, STRING_STACK);
+def_list_type(STRING_STACK_LIST, STRING_LIST);
 
 typedef struct JSLICENSE_FILE_INFO {
     char *filename;
@@ -753,7 +753,7 @@ typedef struct HTML_CONVERTER_STATE {
     /* unset right after an output unit conversion */
     const OUTPUT_UNIT *current_output_unit;
     HTML_DOCUMENT_CONTEXT_STACK html_document_context;
-    STRING_STACK multiple_pass;
+    STRING_LIST multiple_pass;
     /* allocated or resized if needed when setting up page files.
        should be empty at the end of conversion, if not there is an
        error message output and it is cleared */

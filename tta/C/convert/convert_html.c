@@ -2457,7 +2457,7 @@ html_conversion_finalization (CONVERTER *self)
    */
   for (i = 0; i < self_html->pending_closes.number; i++)
     {
-      STRING_STACK *file_pending_closes = &self_html->pending_closes.list[i];
+      STRING_LIST *file_pending_closes = &self_html->pending_closes.list[i];
       if (file_pending_closes->number > 0)
         {
           FILE_NAME_PATH_COUNTER *file_counter
@@ -2467,7 +2467,7 @@ html_conversion_finalization (CONVERTER *self)
           message_list_document_warn (&self->error_messages, self->conf, 0,
              "%s: %zu registered opened sections not closed",
               page_name, file_pending_closes->number);
-          clear_string_stack (file_pending_closes);
+          clear_strings_list (file_pending_closes);
         }
     }
 

@@ -19,7 +19,7 @@
 
 #include "command_ids.h"
 #include "tree_types.h"
-/* COMMAND_OR_TYPE_STACK STRING_STACK ... */
+/* COMMAND_OR_TYPE_STACK */
 #include "converter_types.h"
 /* HTML_FORMATTING_CONTEXT HTML_DOCUMENT_CONTEXT */
 #include "html_converter_state.h"
@@ -95,7 +95,7 @@ top_command_or_type (const COMMAND_OR_TYPE_STACK *stack)
 
 /* stack of strings */
 void
-push_string_stack_string (STRING_STACK *stack, const char *string)
+push_string_stack_string (STRING_LIST *stack, const char *string)
 {
   if (stack->number >= stack->space)
     {
@@ -113,7 +113,7 @@ push_string_stack_string (STRING_STACK *stack, const char *string)
 }
 
 void
-pop_string_stack (STRING_STACK *stack)
+pop_string_stack (STRING_LIST *stack)
 {
   if (stack->number == 0)
     fatal ("string stack empty");
@@ -123,19 +123,12 @@ pop_string_stack (STRING_STACK *stack)
 }
 
 const char *
-top_string_stack (const STRING_STACK *stack)
+top_string_stack (const STRING_LIST *stack)
 {
   if (stack->number == 0)
     fatal ("string stack empty for top");
 
   return stack->list[stack->number - 1];
-}
-
-void
-clear_string_stack (STRING_STACK *stack)
-{
-  while (stack->number > 0)
-    pop_string_stack (stack);
 }
 
 

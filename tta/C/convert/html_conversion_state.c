@@ -994,7 +994,7 @@ html_register_opened_section_level (CONVERTER *self, size_t file_number,
                                     int level, const char *close_string)
 {
   HTML_CONVERTER_STATE *self_html = self->html_converter;
-  STRING_STACK *file_pending_closes 
+  STRING_LIST *file_pending_closes
     = &self_html->pending_closes.list[file_number -1];
 
   while ((int) file_pending_closes->number < level)
@@ -1002,7 +1002,7 @@ html_register_opened_section_level (CONVERTER *self, size_t file_number,
       push_string_stack_string (file_pending_closes, "");
     }
   push_string_stack_string (file_pending_closes, close_string);
-}  
+}
 
 /* called from Perl */
 void
@@ -1024,7 +1024,7 @@ html_close_registered_sections_level (CONVERTER *self, size_t file_number,
                                       int level)
 {
   HTML_CONVERTER_STATE *self_html = self->html_converter;
-  STRING_STACK *file_pending_closes
+  STRING_LIST *file_pending_closes
     = &self_html->pending_closes.list[file_number -1];
   STRING_LIST *closed_elements = new_string_list ();
 

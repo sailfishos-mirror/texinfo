@@ -35,10 +35,9 @@ void push_command_or_type (COMMAND_OR_TYPE_STACK *stack, enum command_id cmd,
 void pop_command_or_type (COMMAND_OR_TYPE_STACK *stack);
 COMMAND_OR_TYPE *top_command_or_type (const COMMAND_OR_TYPE_STACK *stack);
 
-void push_string_stack_string (STRING_STACK *stack, const char *string);
-void pop_string_stack (STRING_STACK *stack);
-const char *top_string_stack (const STRING_STACK *stack);
-void clear_string_stack (STRING_STACK *stack);
+void push_string_stack_string (STRING_LIST *stack, const char *string);
+void pop_string_stack (STRING_LIST *stack);
+const char *top_string_stack (const STRING_LIST *stack);
 
 decl_list_fns(INTEGER_STACK, integer, int);
 decl_stack_fns(INTEGER_STACK, integer, int);
