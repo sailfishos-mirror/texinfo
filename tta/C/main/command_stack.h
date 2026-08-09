@@ -42,9 +42,8 @@ void pop_string_stack (STRING_STACK *stack);
 const char *top_string_stack (const STRING_STACK *stack);
 void clear_string_stack (STRING_STACK *stack);
 
-void push_integer_stack_integer (INTEGER_STACK *stack, int value);
-int pop_integer_stack (INTEGER_STACK *stack);
-int top_integer_stack (const INTEGER_STACK *stack);
+decl_list_fns(INTEGER_STACK, integer, int);
+decl_stack_fns(INTEGER_STACK, integer, int);
 
 void push_stack_element (ELEMENT_STACK *stack, const ELEMENT *e);
 const ELEMENT *pop_stack_element (ELEMENT_STACK *stack);

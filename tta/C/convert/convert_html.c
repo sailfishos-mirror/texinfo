@@ -35,6 +35,7 @@
 #include "html_converter_state.h"
 #include "types_data.h"
 #include "html_converter_types.h"
+#include "list_macros.h"
 /* fatal isascii_alpha */
 #include "base_utils.h"
 #include "tree.h"
@@ -1601,12 +1602,11 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                       text_reset (&formatted_arg);
                       xasprintf (&explanation, "%s A[%zu]monospace",
                                                command_type.text, arg_idx);
-                      push_integer_stack_integer (
-                                      &top_document_ctx->monospace, 1);
+                      add_(integer) (&top_document_ctx->monospace, 1);
 
                       html_convert_tree_append (self, arg, &formatted_arg,
                                                 explanation);
-                      pop_integer_stack
+                      pop_(integer)
                           (&top_document_ctx->monospace);
 
                       free (explanation);

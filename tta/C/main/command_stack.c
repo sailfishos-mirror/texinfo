@@ -142,37 +142,9 @@ clear_string_stack (STRING_STACK *stack)
 
 
 /* stack of integers */
-void
-push_integer_stack_integer (INTEGER_STACK *stack, int value)
-{
-  if (stack->number >= stack->space)
-    {
-      stack->list
-        = realloc (stack->list,
-                   (stack->space += 5) * sizeof (int));
-    }
 
-  stack->list[stack->number] = value;
-  stack->number++;
-}
-
-int
-pop_integer_stack (INTEGER_STACK *stack)
-{
-  if (stack->number == 0)
-    fatal ("integer stack empty for top");
-
-  return stack->list[--stack->number];
-}
-
-int
-top_integer_stack (const INTEGER_STACK *stack)
-{
-  if (stack->number == 0)
-    fatal ("integer stack empty for top");
-
-  return stack->list[stack->number - 1];
-}
+def_list_fns(INTEGER_STACK, integer, int, 5);
+def_stack_fns(INTEGER_STACK, integer, int);
 
 
 /* accents/elements stacks */
