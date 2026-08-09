@@ -2112,7 +2112,7 @@ html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
 
   remove_tree_to_build (self, selected_tree);
 
-  pop_element_reference_stack (&self_html->referred_command_stack);
+  pop_(element_reference) (&self_html->referred_command_stack);
 
   html_unset_multiple_conversions (self);
 

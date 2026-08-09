@@ -152,34 +152,16 @@ def_stack_fns(CONST_ELEMENT_LIST, const_element, const ELEMENT *);
 
 /* elements stack that can also be called from an external language (Perl)
    where there is no reference to C elements */
+
+def_list_fns(ELEMENT_REFERENCE_STACK, element_reference, ELEMENT_REFERENCE, 5);
+def_stack_fns(ELEMENT_REFERENCE_STACK, element_reference, ELEMENT_REFERENCE);
+
 void
 push_element_reference_stack_element (ELEMENT_REFERENCE_STACK *stack,
                                       const ELEMENT *e, const void *hv)
 {
-  if (stack->number >= stack->space)
-  {
-    stack->list
-      = realloc (stack->list,
-                 (stack->space += 5) * sizeof (ELEMENT_REFERENCE));
-  }
-
-  memset (&stack->list[stack->number], 0, sizeof (ELEMENT_REFERENCE));
-
-  if (e)
-    stack->list[stack->number].element = e;
-  if (hv)
-    stack->list[stack->number].hv = hv;
-
-  stack->number++;
-}
-
-void
-pop_element_reference_stack (ELEMENT_REFERENCE_STACK *stack)
-{
-  if (stack->number == 0)
-    fatal ("element reference stack empty for top");
-
-  stack->number--;
+  ELEMENT_REFERENCE new_element_reference = { e, hv };
+  add_(element_reference) (stack, new_element_reference);
 }
 
 int

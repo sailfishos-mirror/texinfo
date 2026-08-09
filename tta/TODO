@@ -12,15 +12,6 @@ Before next release
 
 Have a look at texi2pod.pl in GCC
 
-Revisit
-Date: Sun, 19 Jul 2026 19:10:03 +0200
-Subject: Re: Vertical spacing between @deffn output and preceding text
-make
- @fonttextsize 12
-not an error?
-(Also need to review documentation to make it more fuzzy as @fonttextsize
-does something in LaTeX).
-
 Add "shadow targets" or nodes to sectioning commands without nodes <- DONE
 (and change USE_NODES to have 3 possible meaning?)
 [no] output units are split at sections, and lone nodes are associated to
