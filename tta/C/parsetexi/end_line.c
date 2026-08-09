@@ -31,6 +31,7 @@
 #include "tree_types.h"
 #include "document_types.h"
 #include "types_data.h"
+#include "list_macros.h"
 /* for isascii_alnum fatal */
 #include "base_utils.h"
 #include "tree.h"
@@ -834,7 +835,7 @@ end_line_starting_block (ELEMENT *current)
     fatal ("end_line_starting_block: parent command not found");
 
   if (parsed_command_data(command).flags & CF_contain_basic_inline)
-      (void) pop_command (&nesting_context.basic_inline_stack_block);
+      (void) pop_command_list (&nesting_context.basic_inline_stack_block);
 
   if (current->e.c->parent->flags & EF_def_line)
     return end_line_def_line (current);
@@ -1256,7 +1257,7 @@ end_line_misc_line (ELEMENT *current)
     data_cmd = CM_item_LINE;
 
   if (parsed_command_data(data_cmd).flags & CF_contain_basic_inline)
-    (void) pop_command (&nesting_context.basic_inline_stack_on_line);
+    (void) pop_(command) (&nesting_context.basic_inline_stack_on_line);
 
   arg_spec = parsed_command_data(data_cmd).data;
 

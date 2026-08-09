@@ -26,6 +26,7 @@
 #include "tree_types.h"
 #include "types_data.h"
 #include "text.h"
+#include "list_macros.h"
 /* isascii_alnum fatal */
 #include "base_utils.h"
 #include "tree.h"
@@ -355,7 +356,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
       if (parsed_command_data(cmd).flags & CF_in_heading_spec
           && (nesting_context.basic_inline_stack_on_line.number <= 0
               || !(parsed_command_data(
-          top_command (&nesting_context.basic_inline_stack_on_line)).flags
+          *top_(command) (&nesting_context.basic_inline_stack_on_line)).flags
                     & CF_heading_spec)))
 
         {
@@ -1094,7 +1095,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
         add_to_element_contents (current, arg);
 
       if (parsed_command_data(data_cmd).flags & CF_contain_basic_inline)
-        push_command (&nesting_context.basic_inline_stack_on_line, cmd);
+        add_(command) (&nesting_context.basic_inline_stack_on_line, cmd);
 
       /* LINE_specific commands arguments are handled in a specific way.
          The only other line commands that have a fixed number of arguments
@@ -1257,7 +1258,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
         }
       else if (parsed_command_data(cmd).data == BLOCK_region)
         {
-          push_command (&nesting_context.regions_stack, cmd);
+          add_(command) (&nesting_context.regions_stack, cmd);
         }
       else if (parsed_command_data(cmd).data == BLOCK_menu)
         {
@@ -1338,7 +1339,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
 
 
   if (parsed_command_data(cmd).flags & CF_contain_basic_inline)
-    push_command (&nesting_context.basic_inline_stack_block, cmd);
+    add_(command) (&nesting_context.basic_inline_stack_block, cmd);
 
   register_global_command (block, 0);
 

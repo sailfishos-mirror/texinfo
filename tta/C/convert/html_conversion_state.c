@@ -26,6 +26,7 @@
 #include "converter_types.h"
 #include "html_converter_types.h"
 #include "html_prepare_converter.h"
+#include "list_macros.h"
 /* fatal */
 #include "base_utils.h"
 #include "command_stack.h"
@@ -111,7 +112,7 @@ html_new_document_context (CONVERTER *self,
     push_integer_stack_integer (&doc_context->monospace, 0);
 
   if (block_command)
-    push_command (&doc_context->block_commands, block_command);
+    add_(command) (&doc_context->block_commands, block_command);
 
   stack->number++;
 
@@ -139,7 +140,7 @@ html_pop_document_context (CONVERTER *self)
   free (document_ctx->composition_context.list);
   free (document_ctx->preformatted_classes.list);
   if (document_ctx->block_commands.number > 0)
-    pop_command (&document_ctx->block_commands);
+    pop_(command) (&document_ctx->block_commands);
   free (document_ctx->block_commands.list);
   pop_html_formatting_context (&document_ctx->formatting_context);
   free (document_ctx->formatting_context.list);
@@ -188,7 +189,7 @@ html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
 
   if (command_data[data_cmd].flags & CF_block)
     {
-      push_command (&top_document_ctx->block_commands, data_cmd);
+      add_(command) (&top_document_ctx->block_commands, data_cmd);
     }
 
   if (html_commands_data[data_cmd].flags & HF_pre_class)
@@ -313,7 +314,7 @@ html_convert_command_update_context (CONVERTER *self, enum command_id data_cmd)
 
   if (command_data[data_cmd].flags & CF_block)
     {
-      pop_command (&top_document_ctx->block_commands);
+      pop_(command) (&top_document_ctx->block_commands);
     }
 
   if (html_commands_data[data_cmd].flags & HF_format_context)
@@ -532,7 +533,7 @@ html_top_block_command (const CONVERTER *self)
   top_document_ctx = html_top_document_context (self);
   if (top_document_ctx->block_commands.number <= 0)
     return 0;
-  return top_command (&top_document_ctx->block_commands);
+  return *top_(command) (&top_document_ctx->block_commands);
 }
 
 const COMMAND_OR_TYPE_STACK *

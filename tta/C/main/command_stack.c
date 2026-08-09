@@ -27,6 +27,7 @@
 #include "html_converter_state.h"
 /* fatal */
 #include "base_utils.h"
+#include "list_macros.h"
 #include "command_stack.h"
 
 /* Generic stack functions */
@@ -40,45 +41,8 @@ reset_command_stack (COMMAND_STACK *stack)
   stack->list = 0;
 }
 
-void
-push_command (COMMAND_STACK *stack, enum command_id cmd)
-{
-  if (stack->number >= stack->space)
-    {
-      stack->list
-        = realloc (stack->list,
-                   (stack->space += 5) * sizeof (enum command_id));
-    }
-
-  /*
-  fprintf (stderr, "---STPUSH %p (%ld) %d %s\n", stack, stack->number,
-                                            cmd, command_name(cmd));
-   */
-  stack->list[stack->number] = cmd;
-  stack->number++;
-}
-
-enum command_id
-pop_command (COMMAND_STACK *stack)
-{
-  if (stack->number == 0)
-    fatal ("command stack empty");
-
-  /*
-  fprintf (stderr, "---STPOP %p (%ld) %d %s\n", stack, stack->number,
-   stack->list[stack->number-1], command_name(stack->list[stack->number-1]));
-   */
-  return stack->list[--stack->number];
-}
-
-enum command_id
-top_command (const COMMAND_STACK *stack)
-{
-  if (stack->number == 0)
-    fatal ("command stack empty for top");
-
-  return stack->list[stack->number - 1];
-}
+def_list_fns(COMMAND_STACK, command, enum command_id, 5);
+def_stack_fns(COMMAND_STACK, command, enum command_id);
 
 
 /* stack of command or type ids */

@@ -26,6 +26,7 @@
 #include "document_types.h"
 #include "types_data.h"
 #include "text.h"
+#include "list_macros.h"
 /* for fatal */
 #include "base_utils.h"
 #include "tree.h"
@@ -76,7 +77,7 @@ close_brace_command (ELEMENT *current,
     }
 
   if (command_flags(current) & CF_contain_basic_inline)
-    (void) pop_command (&nesting_context.basic_inline_stack);
+    (void) pop_(command) (&nesting_context.basic_inline_stack);
 
   if (current->e.c->cmd != CM_verb)
     goto yes;
@@ -403,7 +404,7 @@ pop_block_command_contexts (enum command_id cmd)
     }
   else if (parsed_command_data(cmd).data == BLOCK_region)
     {
-      (void) pop_command (&nesting_context.regions_stack);
+      (void) pop_(command) (&nesting_context.regions_stack);
     }
 }
 

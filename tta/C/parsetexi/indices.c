@@ -24,6 +24,7 @@
 #include "text.h"
 #include "tree_types.h"
 #include "types_data.h"
+#include "list_macros.h"
 /* fatal */
 #include "base_utils.h"
 #include "extra.h"
@@ -298,7 +299,7 @@ enter_index_entry (enum command_id index_type_cmd,
 
   if (nesting_context.regions_stack.number > 0)
     {
-      enum command_id region = top_command (&nesting_context.regions_stack);
+      enum command_id region = *top_(command) (&nesting_context.regions_stack);
       add_extra_string_dup (element, AI_key_element_region, command_name (region));
     }
   else if (current_node)

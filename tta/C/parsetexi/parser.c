@@ -25,6 +25,7 @@
 #include "tree_types.h"
 #include "global_commands_types.h"
 #include "types_data.h"
+#include "list_macros.h"
 /* isascii_alnum fatal */
 #include "base_utils.h"
 #include "tree.h"
@@ -1521,13 +1522,13 @@ check_valid_nesting_context (enum command_id cmd)
           || cmd == CM_verb)
         {
           if (nesting_context.basic_inline_stack.number > 0)
-            invalid_context = top_command
+            invalid_context = *top_(command)
                                 (&nesting_context.basic_inline_stack);
           else if (nesting_context.basic_inline_stack_on_line.number > 0)
-            invalid_line = top_command
+            invalid_line = *top_(command)
                                 (&nesting_context.basic_inline_stack_on_line);
           else if (nesting_context.basic_inline_stack_block.number > 0)
-            invalid_line = top_command
+            invalid_line = *top_(command)
                                 (&nesting_context.basic_inline_stack_block);
         }
     }
@@ -1558,7 +1559,8 @@ check_valid_nesting_context (enum command_id cmd)
     {
       if ((parsed_command_data(cmd).flags & CF_block)
            && (parsed_command_data(cmd).data == BLOCK_region))
-        invalid_context = top_command (&nesting_context.regions_stack);
+        invalid_context
+          = *top_(command) (&nesting_context.regions_stack);
     }
 
   if (invalid_context)

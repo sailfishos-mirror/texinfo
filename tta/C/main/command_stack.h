@@ -22,14 +22,15 @@
 /* ELEMENT_STACK */
 #include "document_types.h"
 #include "converter_types.h"
+#include "list_macros.h"
 /* ELEMENT_REFERENCE_STACK HTML_DOCUMENT_CONTEXT HTML_FORMATTING_CONTEXT
    HTML_FORMATTING_CONTEXT_STACK */
 #include "html_converter_state.h"
 
+decl_list_fns(COMMAND_STACK, command, enum command_id);
+decl_stack_fns(COMMAND_STACK, command, enum command_id);
+
 void reset_command_stack (COMMAND_STACK *stack);
-void push_command (COMMAND_STACK *stack, enum command_id cmd);
-enum command_id pop_command (COMMAND_STACK *stack);
-enum command_id top_command (const COMMAND_STACK *stack);
 
 void push_command_or_type (COMMAND_OR_TYPE_STACK *stack, enum command_id cmd,
                            enum element_type type);

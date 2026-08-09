@@ -452,11 +452,11 @@ html_format_setup (enum converter_format format)
         {
           if (!(html_commands_data[i].flags & HF_pre_class))
             register_pre_class_command (i, 0);
-          push_command (&preformatted_cmd_list, i);
+          add_(command) (&preformatted_cmd_list, i);
         }
 
       if (command_data[i].flags & CF_def)
-        push_command (&def_cmd_list, i);
+        add_(command) (&def_cmd_list, i);
     }
   register_pre_class_command (CM_verbatim, 0);
   register_pre_class_command (CM_menu, 0);
@@ -5352,10 +5352,10 @@ sort_cmd_targets (CONVERTER *self)
           qsort (element_targets->list,
                  element_targets->number,
                  sizeof (HTML_TARGET *), compare_element_target);
-          push_command (&self_html->html_target_cmds, cmd);
+          add_(command) (&self_html->html_target_cmds, cmd);
         }
       else if (self_html->html_targets[cmd].space > 0)
-        push_command (&self_html->html_target_cmds, cmd);
+        add_(command) (&self_html->html_target_cmds, cmd);
     }
   for (type = 0; type < ST_footnote_location+1; type++)
     {

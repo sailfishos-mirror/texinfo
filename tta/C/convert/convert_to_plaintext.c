@@ -47,7 +47,7 @@
 #include "debug.h"
 /* for format_expanded_p */
 #include "utils.h"
-/* for push_command ... */
+/* for add_(command) ... */
 #include "command_stack.h"
 #include "manipulate_tree.h"
 #include "translations.h"
@@ -2391,7 +2391,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   const char *pending_word = para_add_pending_word (1);
                   stream_output_count_nl (self, pending_word);
                 }
-              push_command (&self_plaintext->context, cmd);
+              add_(command) (&self_plaintext->context, cmd);
             }
           /* TODO
             elsif ...
@@ -2569,7 +2569,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   else if (preformatted)
     {
       const char *end_line = para_end ();
-      enum command_id context_cmd = top_command (&self_plaintext->context);
+      enum command_id context_cmd = *top_(command) (&self_plaintext->context);
 
       stream_output_count_nl (self, end_line);
       /* TODO

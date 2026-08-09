@@ -19,6 +19,7 @@
 
 #include "command_ids.h"
 #include "tree_types.h"
+#include "list_macros.h"
 /* for fatal */
 #include "base_utils.h"
 #include "command_stack.h"
@@ -51,7 +52,7 @@ current_context_command (void)
 enum command_id
 top_context_command (void)
 {
-  return top_command (&command_stack);
+  return *top_(command) (&command_stack);
 }
 
 /* Context stacks */
@@ -90,7 +91,7 @@ push_context (enum context c, enum command_id cmd)
   context_stack[top] = c;
   top++;
 
-  push_command (&command_stack, cmd);
+  add_(command) (&command_stack, cmd);
 }
 
 enum context
@@ -99,7 +100,7 @@ pop_context (void)
   if (top == 0)
     fatal ("context stack empty");
 
-  (void) pop_command (&command_stack);
+  (void) pop_(command) (&command_stack);
 
   /* not in perl parser
   debug ("C|>>>>>>>>>>>>>POPPING STACK AT %d", top - 1);

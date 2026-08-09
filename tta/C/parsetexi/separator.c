@@ -24,6 +24,7 @@
 #include "tree_types.h"
 #include "text.h"
 #include "types_data.h"
+#include "list_macros.h"
 /* for bug */
 #include "base_utils.h"
 #include "tree.h"
@@ -61,7 +62,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
       ELEMENT *arg;
 
       if (parsed_command_data(cmd).flags & CF_contain_basic_inline)
-        push_command (&nesting_context.basic_inline_stack, cmd);
+        add_(command) (&nesting_context.basic_inline_stack, cmd);
 
       counter_push (&count_remaining_args, current,
                     parsed_command_data(cmd).args_number);
@@ -304,7 +305,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                 {
                   add_extra_string_dup (anchor_id_element,
                                         AI_key_element_region,
-                   command_name(top_command (&nesting_context.regions_stack)));
+                   command_name(*top_(command) (&nesting_context.regions_stack)));
                 }
             }
         }
