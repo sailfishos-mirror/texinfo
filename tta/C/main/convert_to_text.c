@@ -253,7 +253,7 @@ text_reset_options_encoding (TEXT_OPTIONS *text_options)
 static char *
 ascii_accent (CONVERTER *self, const char *text,
               const ELEMENT *command, int index_in_stack,
-              const ELEMENT_STACK *stack, int set_case)
+              const CONST_ELEMENT_LIST *stack, int set_case)
 {
   const enum command_id cmd = command->e.c->cmd;
   TEXT accent_text;
@@ -291,7 +291,7 @@ ascii_accent (CONVERTER *self, const char *text,
 }
 
 static char *
-ascii_accents_internal (const char *text, const ELEMENT_STACK *stack,
+ascii_accents_internal (const char *text, const CONST_ELEMENT_LIST *stack,
                         int set_case)
 {
   char *result;

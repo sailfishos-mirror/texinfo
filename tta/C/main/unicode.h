@@ -7,8 +7,6 @@
 
 #include "command_ids.h"
 #include "tree_types.h"
-/* ELEMENT_STACK */
-#include "document_types.h"
 #include "converter_types.h"
 
 typedef struct ENCODING_CODEPOINTS {
@@ -105,10 +103,10 @@ char *normalize_NFC (const char *text);
 char *normalize_NFKD (const char *text);
 
 char *encoded_accents (CONVERTER *self, const char *text,
-  const ELEMENT_STACK *stack, const char *encoding,
+  const CONST_ELEMENT_LIST *stack, const char *encoding,
   char *(*format_accent)(CONVERTER *self, const char *text,
                          const ELEMENT *element, int index_in_stack,
-                         const ELEMENT_STACK *stack, int set_case),
+                         const CONST_ELEMENT_LIST *stack, int set_case),
   int set_case);
 const char *unicode_brace_no_arg_command (enum command_id cmd,
                                           const char *encoding);

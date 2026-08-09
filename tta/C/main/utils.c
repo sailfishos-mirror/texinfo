@@ -67,7 +67,7 @@
 #include "extra.h"
 #include "builtin_commands.h"
 #include "debug.h"
-/* push_stack_element */
+/* add_(const_element) */
 #include "command_stack.h"
 #include "unicode.h"
 #include "list_macros.h"
@@ -2857,7 +2857,7 @@ find_innermost_accent_contents (const ELEMENT *element)
                && command_data[data_cmd].data == BRACE_accent))
         return accent_stack;
 
-      push_stack_element (&accent_stack->stack, current);
+      add_(const_element) (&accent_stack->stack, current);
       /* A bogus accent, that may happen */
       if (current->e.c->contents.number <= 0)
         return accent_stack;

@@ -128,7 +128,7 @@ normalize_NFKD (const char *text)
 
 char *
 unicode_accent (const char *text, const ELEMENT *e, int index_in_stack,
-                const ELEMENT_STACK *stack)
+                const CONST_ELEMENT_LIST *stack)
 {
   char *result = 0;
 
@@ -223,10 +223,10 @@ compare_strings (const void *a, const void *b)
 
 char *
 format_eight_bit_accents_stack (CONVERTER *self, const char *text,
-                      const ELEMENT_STACK *stack, int encoding_index,
+                      const CONST_ELEMENT_LIST *stack, int encoding_index,
   char *(*format_accent)(CONVERTER *self, const char *text,
                          const ELEMENT *element, int index_in_stack,
-                         const ELEMENT_STACK *stack, int set_case),
+                         const CONST_ELEMENT_LIST *stack, int set_case),
   int set_case)
 {
   int i, j, k;
@@ -362,10 +362,10 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
 
 char *
 format_unicode_accents_stack_internal (CONVERTER *self, const char *text,
-  const ELEMENT_STACK *stack,
+  const CONST_ELEMENT_LIST *stack,
   char *(*format_accent)(CONVERTER *self, const char *text,
                          const ELEMENT *element, int index_in_stack,
-                         const ELEMENT_STACK *stack, int set_case),
+                         const CONST_ELEMENT_LIST *stack, int set_case),
   int set_case)
 {
   int i;
@@ -404,11 +404,12 @@ format_unicode_accents_stack_internal (CONVERTER *self, const char *text,
 }
 
 char *
-encoded_accents (CONVERTER *self, const char *text, const ELEMENT_STACK *stack,
+encoded_accents (CONVERTER *self, const char *text,
+  const CONST_ELEMENT_LIST *stack,
   const char *encoding,
   char *(*format_accent)(CONVERTER *self, const char *text,
                          const ELEMENT *element, int index_in_stack,
-                         const ELEMENT_STACK *stack, int set_case),
+                         const CONST_ELEMENT_LIST *stack, int set_case),
   int set_case)
 {
   if (encoding)

@@ -28,6 +28,7 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "document_types.h"
+#include "list_macros.h"
 /* for fatal */
 #include "base_utils.h"
 #include "tree.h"
@@ -623,14 +624,14 @@ units_directions (const C_HASHMAP *identifiers_target,
                   int print_debug)
 {
   size_t i;
-  ELEMENT_STACK up_list;
+  CONST_ELEMENT_LIST up_list;
   const ELEMENT *top_node = 0;
   const ELEMENT *top_target_element;
 
   if (!output_units || !output_units->number)
     return;
 
-  memset (&up_list, 0, sizeof (ELEMENT_STACK));
+  memset (&up_list, 0, sizeof (CONST_ELEMENT_LIST));
 
   top_target_element = find_identifier_target (identifiers_target, "Top");
   if (top_target_element && top_target_element->e.c->cmd == CM_node)
@@ -705,7 +706,7 @@ units_directions (const C_HASHMAP *identifiers_target,
               else if (node_directions && node_directions[D_up])
                 {
                   const ELEMENT *up = node_directions[D_up];
-                  push_stack_element (&up_list, node);
+                  add_(const_element) (&up_list, node);
                   while (1)
                     {
                       size_t i;
@@ -742,7 +743,7 @@ units_directions (const C_HASHMAP *identifiers_target,
                                    external_node_target_units);
                            break;
                         }
-                      push_stack_element (&up_list, up);
+                      add_(const_element) (&up_list, up);
                       if (up_node_relations
                           && up_node_relations->node_directions
                           && up_node_relations->node_directions[D_up])

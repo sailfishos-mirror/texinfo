@@ -19,8 +19,6 @@
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
-/* ELEMENT_STACK */
-#include "document_types.h"
 #include "converter_types.h"
 #include "list_macros.h"
 /* ELEMENT_REFERENCE_STACK HTML_DOCUMENT_CONTEXT HTML_FORMATTING_CONTEXT
@@ -45,8 +43,7 @@ void clear_string_stack (STRING_STACK *stack);
 decl_list_fns(INTEGER_STACK, integer, int);
 decl_stack_fns(INTEGER_STACK, integer, int);
 
-void push_stack_element (ELEMENT_STACK *stack, const ELEMENT *e);
-const ELEMENT *pop_stack_element (ELEMENT_STACK *stack);
+decl_stack_fns(CONST_ELEMENT_LIST, const_element, const ELEMENT *);
 
 void push_element_reference_stack_element (ELEMENT_REFERENCE_STACK *stack,
                                       const ELEMENT *e, const void *hv);

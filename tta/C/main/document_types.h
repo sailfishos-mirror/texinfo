@@ -393,9 +393,6 @@ enum command_location {
    CL_preamble_or_first,
 };
 
-/* in output units and converter */
-def_list_type(ELEMENT_STACK, const ELEMENT *);
-
 /* in SWIG interface, but we do not want to have the type defined in the
    header file used in the definition of the interface */
 typedef struct PARSER {

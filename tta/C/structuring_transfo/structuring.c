@@ -28,6 +28,7 @@
 #include "global_commands_types.h"
 #include "options_data.h"
 #include "document_types.h"
+#include "list_macros.h"
 /* for CONVERTER_CACHE_TRANSLATE */
 #include "converter_types.h"
 #include "types_data.h"
@@ -2502,7 +2503,7 @@ new_complete_node_menu (const NODE_RELATIONS *node_relations,
 }
 
 static ELEMENT_LIST *
-print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
+print_down_menus (const ELEMENT *node, CONST_ELEMENT_LIST *up_nodes,
                   ERROR_MESSAGE_LIST *error_messages,
                   const OPTIONS *options,
                   const C_HASHMAP *identifiers_target,
@@ -2646,11 +2647,11 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
       if (!up_nodes)
         {
           new_up_nodes = 1;
-          up_nodes = (ELEMENT_STACK *) malloc (sizeof (ELEMENT_STACK));
-          memset (up_nodes, 0, sizeof (ELEMENT_STACK));
+          up_nodes = (CONST_ELEMENT_LIST *) malloc (sizeof (CONST_ELEMENT_LIST));
+          memset (up_nodes, 0, sizeof (CONST_ELEMENT_LIST));
         }
 
-      push_stack_element (up_nodes, node);
+      add_(const_element) (up_nodes, node);
 
       /* now recurse in the children */
       for (i = 0; i < node_children->number; i++)
@@ -2698,7 +2699,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
             }
         }
 
-      pop_stack_element (up_nodes);
+      pop_(const_element) (up_nodes);
 
       if (new_up_nodes)
         {

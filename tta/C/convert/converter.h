@@ -184,7 +184,7 @@ TARGET_FILENAME *normalized_sectioning_command_filename (CONVERTER *self,
 char *convert_accents (CONVERTER *self, const ELEMENT *accent,
  char *(*convert_tree)(CONVERTER *self, const ELEMENT *tree),
  char *(*format_accent)(CONVERTER *self, const char *text, const ELEMENT *element,
-                        int index_in_stack, const ELEMENT_STACK *stack,
+                        int index_in_stack, const CONST_ELEMENT_LIST *stack,
                         int set_case),
   int output_encoded_characters,
   int set_case);

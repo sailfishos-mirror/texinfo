@@ -19,8 +19,6 @@
 
 #include "command_ids.h"
 #include "tree_types.h"
-/* ELEMENT_STACK */
-#include "document_types.h"
 /* COMMAND_OR_TYPE_STACK STRING_STACK ... */
 #include "converter_types.h"
 /* HTML_FORMATTING_CONTEXT HTML_DOCUMENT_CONTEXT */
@@ -148,29 +146,8 @@ def_stack_fns(INTEGER_STACK, integer, int);
 
 
 /* accents/elements stacks */
-void
-push_stack_element (ELEMENT_STACK *stack, const ELEMENT *e)
-{
-  if (stack->number >= stack->space)
-    {
-      stack->list
-        = realloc (stack->list,
-                   (stack->space += 5) * sizeof (ELEMENT *));
-    }
 
-  stack->list[stack->number] = e;
-  stack->number++;
-}
-
-const ELEMENT *
-pop_stack_element (ELEMENT_STACK *stack)
-{
-  if (stack->number == 0)
-    fatal ("element stack empty");
-
-  stack->number--;
-  return stack->list[stack->number + 1];
-}
+def_stack_fns(CONST_ELEMENT_LIST, const_element, const ELEMENT *);
 
 
 /* elements stack that can also be called from an external language (Perl)
@@ -183,10 +160,10 @@ push_element_reference_stack_element (ELEMENT_REFERENCE_STACK *stack,
   {
     stack->list
       = realloc (stack->list,
-                 (stack->space += 5) * sizeof (ELEMENT_STACK));
+                 (stack->space += 5) * sizeof (ELEMENT_REFERENCE));
   }
 
-  memset (&stack->list[stack->number], 0, sizeof (ELEMENT_STACK));
+  memset (&stack->list[stack->number], 0, sizeof (ELEMENT_REFERENCE));
 
   if (e)
     stack->list[stack->number].element = e;

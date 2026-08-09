@@ -119,7 +119,7 @@ extern const enum command_id small_block_associated_command[][2];
 #define HMSF_translations            0x0004
 
 typedef struct ACCENTS_STACK {
-    ELEMENT_STACK stack;
+    CONST_ELEMENT_LIST stack;
     ELEMENT *argument;
 } ACCENTS_STACK;
 
