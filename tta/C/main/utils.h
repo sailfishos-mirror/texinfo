@@ -206,6 +206,8 @@ const char *analyze_documentlanguagevariant_argument_e (const ELEMENT *element,
                                             int *surplus_arg);
 STRING_LIST *documentlanguagevariant_variants (const ELEMENT *element);
 int is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries);
+CONST_ELEMENT_LIST *collect_commands_in_tree (const ELEMENT *root,
+                                    const enum command_id *commands_list);
 
 void allocate_name_number_list (NAME_NUMBER_LIST *name_number_list,
                                 size_t number);

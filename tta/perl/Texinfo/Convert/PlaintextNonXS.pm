@@ -172,10 +172,10 @@ foreach my $block_command (keys(%block_commands)) {
     if ($block_commands{$block_command} eq 'format_raw');
 }
 
-my %default_preformatted_context_commands = (%preformatted_commands,
-                                             %format_raw_commands);
+my %preformatted_context_commands = (%preformatted_commands,
+                                     %format_raw_commands);
 foreach my $preformatted_command ('verbatim', keys(%menu_commands)) {
-  $default_preformatted_context_commands{$preformatted_command} = 1;
+  $preformatted_context_commands{$preformatted_command} = 1;
 }
 
 my %ignored_line_commands;
@@ -224,19 +224,17 @@ foreach my $indented_command (keys(%item_indent_format_length),
     if (exists($block_commands{$indented_command}));
 }
 
-my %default_format_context_commands = %indented_commands;
+my %format_context_commands = %indented_commands;
 
 foreach my $format_context_command (keys(%menu_commands), 'verbatim',
  'flushleft', 'flushright', 'multitable', 'float') {
-  $default_format_context_commands{$format_context_command} = 1;
+  $format_context_commands{$format_context_command} = 1;
 }
 
-my %block_math_commands;
 foreach my $block_math_command (keys(%math_commands)) {
   if (exists($block_commands{$block_math_command})) {
-    $block_math_commands{$block_math_command} = 1;
-    $default_preformatted_context_commands{$block_math_command} = 1;
-    $default_format_context_commands{$block_math_command} = 1;
+    $preformatted_context_commands{$block_math_command} = 1;
+    $format_context_commands{$block_math_command} = 1;
   }
 }
 
@@ -2489,7 +2487,7 @@ sub _insert_image($$$;$$) {
     die "BUG? open on a reference for image test failed: $error_message\n";
   }
 
-  my $lines_count = -1;
+  my $line_count = -1;
   my $width = 0;
   while (1) {
     my $next_line = <$texthandle>;
@@ -2497,7 +2495,7 @@ sub _insert_image($$$;$$) {
     last if (!defined($next_line));
 
     $next_line = Encode::decode('utf-8', $next_line);
-    $lines_count++;
+    $line_count++;
     my $line_width = Texinfo::Convert::Unicode::string_width($next_line);
     $width = $line_width
       if ($line_width > $width);
@@ -2508,13 +2506,13 @@ sub _insert_image($$$;$$) {
                                    $dpi, $depth);
 
   # the last line is part of the image but do not have a new line,
-  # so 1 is added to $lines_count to have the number of lines of
+  # so 1 is added to $line_count to have the number of lines of
   # the image
-  $self->add_image(undef, $lines_count+1, $width);
+  $self->add_image(undef, $line_count+1, $width);
 
-  $lines_count = 0 if ($lines_count < 0);
+  $line_count = 0 if ($line_count < 0);
 
-  return ($result, $lines_count);
+  return ($result, $line_count);
 }
 
 my %underline_symbol = (
@@ -2883,7 +2881,7 @@ sub _convert($$) {
           _stream_output($self, $result);
         }
         if (exists(
-             $default_preformatted_context_commands{$self->{'context'}->[-1]})) {
+             $preformatted_context_commands{$self->{'context'}->[-1]})) {
           _stream_output_add_text($self, "\n");
         } else {
           # inlined below for efficiency
@@ -3607,7 +3605,7 @@ sub _convert($$) {
         return;
       }
       # includes @verbatim raw block_commands and block_math_commands
-      if (exists($default_preformatted_context_commands{$cmdname})
+      if (exists($preformatted_context_commands{$cmdname})
           or $cmdname eq 'float') {
         if (exists($format_raw_commands{$cmdname})) {
           _stream_output_count_nl($self,
@@ -3618,7 +3616,7 @@ sub _convert($$) {
         push @{$self->{'context'}}, $cmdname;
       }
 
-      if (exists($default_format_context_commands{$cmdname})) {
+      if (exists($format_context_commands{$cmdname})) {
         push @{$self->{'format_context'}},
              { 'cmdname' => $cmdname,
                'paragraph_count' => 0,
@@ -3642,7 +3640,7 @@ sub _convert($$) {
         # preformatted context is not a classical preformatted
         # command (ie if it is menu or verbatim, and not example or
         # similar)
-        if (exists($default_preformatted_context_commands{$cmdname})
+        if (exists($preformatted_context_commands{$cmdname})
             and !exists($preformatted_commands{$cmdname})
             and !exists($format_raw_commands{$cmdname})) {
           $preformatted = new_formatter($self, 'unfilled');
@@ -3879,7 +3877,7 @@ sub _convert($$) {
       if (!Texinfo::Common::empty_spaces_argument(
                          $element->{'contents'}->[0])) {
         if (exists(
-            $default_preformatted_context_commands{$self->{'context'}->[-1]})) {
+            $preformatted_context_commands{$self->{'context'}->[-1]})) {
           my $formatter = new_formatter($self, 'unfilled',
               $self->{'format_context'}->[-2]->{'context_indent_len'});
           $formatter->{'font_type_stack'}->[-1]->{'monospace'} = 1;
@@ -4643,18 +4641,18 @@ sub _convert($$) {
     }
 
     # close the contexts and register the cells
-    if (exists($default_preformatted_context_commands{$cmdname})
+    if (exists($preformatted_context_commands{$cmdname})
         or $cmdname eq 'float') {
       my $old_context = pop @{$self->{'context'}};
       die "Not a preformatted context: $old_context"
-        if (!exists($default_preformatted_context_commands{$old_context})
+        if (!exists($preformatted_context_commands{$old_context})
             and $old_context ne 'float');
     } elsif (exists($flush_commands{$cmdname})) {
       my $old_context = pop @{$self->{'context'}};
       die if (! exists($flush_commands{$old_context}));
     }
 
-    if (exists($default_format_context_commands{$cmdname})) {
+    if (exists($format_context_commands{$cmdname})) {
       pop @{$self->{'format_context'}};
     } elsif ($cell) {
       my $result = _stream_result($self);

@@ -525,16 +525,19 @@ noinst_LTLIBRARIES += libcallperl_libtexinfo_convert.la
 
 libcallperl_libtexinfo_convert_la_SOURCES = \
                        convert/call_html_perl_function.h \
+                       convert/call_plaintext_perl_function.h \
                        convert/call_conversion_perl.h
 if ! DISABLE_XS
 libcallperl_libtexinfo_convert_la_SOURCES += \
                        convert/build_html_perl_state.h \
                        convert/build_html_perl_state.c \
                        convert/call_html_perl_function.c \
+                       convert/call_plaintext_perl_function.c \
                        convert/call_conversion_perl.c
 else
 libcallperl_libtexinfo_convert_la_SOURCES += \
                        convert/replace_perl_call_html_function.c \
+                       convert/replace_perl_call_plaintext_function.c \
                        convert/replace_call_conversion_perl.c
 endif
 
@@ -556,6 +559,7 @@ libtexinfo_convert_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(E
 libtexinfo_convert_static_la_SOURCES = $(libtexinfo_convert_la_SOURCES)
 libtexinfo_convert_static_la_SOURCES +=  \
                        convert/replace_perl_call_html_function.c \
+                       convert/replace_perl_call_plaintext_function.c \
                        convert/replace_call_conversion_perl.c
 libtexinfo_convert_static_la_CPPFLAGS = $(libtexinfo_convert_la_CPPFLAGS)
 libtexinfo_convert_static_la_LIBADD = libtexinfo-static.la
@@ -749,6 +753,7 @@ texistatic_SOURCES = \
                        main/replace_set_perl_interpreter.c \
                        main/replace_perl_api_call.c \
                        convert/replace_perl_call_html_function.c \
+                       convert/replace_perl_call_plaintext_function.c \
                        convert/replace_call_conversion_perl.c \
                        convert/replace_call_embed_perl.c
 

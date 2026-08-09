@@ -47,6 +47,8 @@
 #include "debug.h"
 /* for format_expanded_p */
 #include "utils.h"
+/* for push_command ... */
+#include "command_stack.h"
 #include "manipulate_tree.h"
 #include "translations.h"
 #include "targets.h"
@@ -92,6 +94,19 @@ static struct style_map style_map[] =
   {CM_sup, "^{", "}"},
 };
 
+struct item_indent_format_length {
+  enum command_id cmd;
+  int indent_format_length;
+};
+
+static struct item_indent_format_length item_indent_format_length[] = {
+  {CM_enumerate, 2},
+  {CM_itemize, 3},
+  {CM_table, 0},
+  {CM_vtable, 0},
+  {CM_ftable, 0},
+  {CM_NONE, -1},
+};
 
 static PLAINTEXT_COMMAND_STRUCT plaintext_commands_data[BUILTIN_CMD_NUMBER];
 
@@ -103,6 +118,9 @@ typedef struct PLAINTEXT_FORMAT_FUNCTIONS {
                                enum command_id contents_or_shortcontents_cmd);
     void (* format_error_outside_of_any_node) (CONVERTER *self,
                                                const ELEMENT *element);
+    char * (* format_image) (CONVERTER *self, const char *image_file,
+                   const char *text, const char *alt,
+                   int dpi, int depth);
     void (* format_image_element) (CONVERTER *self, const ELEMENT *element,
                                    STRING_LINE_COUNT *result);
     void (* format_node) (CONVERTER *self, const ELEMENT *element,
@@ -209,7 +227,7 @@ def_list_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT, 2);
 def_stack_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
 
 void
-push_formatter (CONVERTER *self, FORMATTER *formatter)
+push_formatter (CONVERTER *self, const FORMATTER *formatter)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
 
@@ -284,6 +302,13 @@ plaintext_format_setup (enum converter_format format)
     CM_page, CM_need, CM_vskip, CM_title, CM_subtitle, CM_title,
     CM_maketitle, 0};
 
+  static enum command_id indented_commands[] = {
+    CM_quotation, CM_smallquotation, CM_indentedblock, CM_smallindentedblock,
+    CM_defblock, 0};
+
+  static enum command_id format_context_commands[] = {
+    CM_verbatim, CM_flushleft, CM_flushright, CM_multitable, CM_float, 0};
+
   for (i = 0; ignored_brace_commands[i]; i++)
     plaintext_commands_data[ignored_brace_commands[i]].flags |= PF_ignored;
 
@@ -293,6 +318,7 @@ plaintext_format_setup (enum converter_format format)
   /* count commands in some categories and set categories */
   for (i = 1; i < BUILTIN_CMD_NUMBER; i++)
     {
+      plaintext_commands_data[i].indent_format_length = -1;
       if (command_data[i].flags & CF_nobrace)
         {
           if (command_data[i].other_flags & CF_formatted_nobrace)
@@ -313,16 +339,60 @@ plaintext_format_setup (enum converter_format format)
       else if (command_data[i].flags & CF_block)
         {
           if (command_data[i].data == BLOCK_menu)
-            {}
-          /*
-            plaintext_command_data[i].flags |= PF_menu
-           */
+            {
+              plaintext_commands_data[i].flags |= PF_menu;
+              plaintext_commands_data[i].flags |= PF_preformatted_context;
+              plaintext_commands_data[i].flags |= PF_format_context;
+            }
           else if (command_data[i].data == BLOCK_format_raw)
             {
               plaintext_commands_data[i].flags |= PF_format_raw;
+              plaintext_commands_data[i].flags |= PF_preformatted_context;
               format_raw_cmd_nr++;
             }
+          else if (command_data[i].flags & CF_math)
+            {
+              plaintext_commands_data[i].flags |= PF_preformatted_context;
+              plaintext_commands_data[i].flags |= PF_format_context;
+            }
+          else if (command_data[i].flags & CF_def)
+            {
+              plaintext_commands_data[i].flags |= PF_indented;
+              plaintext_commands_data[i].flags |= PF_format_context;
+            }
+          else if (command_data[i].flags & CF_preformatted)
+            {
+              plaintext_commands_data[i].flags |= PF_preformatted_context;
+              if (i != CM_format && i != CM_smallformat)
+                {
+                  plaintext_commands_data[i].flags |= PF_example_indented;
+                  plaintext_commands_data[i].flags |= PF_indented;
+                  plaintext_commands_data[i].flags |= PF_format_context;
+                }
+            }
         }
+    }
+
+  for (i = 0; indented_commands[i]; i++)
+    {
+      enum command_id cmd = indented_commands[i];
+      plaintext_commands_data[cmd].flags |= PF_indented;
+      plaintext_commands_data[cmd].flags |= PF_format_context;
+    }
+
+  for (i = 0; format_context_commands[i]; i++)
+    plaintext_commands_data[format_context_commands[i]].flags
+           |= PF_format_context;
+
+  plaintext_commands_data[CM_verbatim].flags |= PF_preformatted_context;
+
+  for (i = 0; item_indent_format_length[i].cmd != CM_NONE; i++)
+    {
+      enum command_id cmd = item_indent_format_length[i].cmd;
+      plaintext_commands_data[cmd].flags |= PF_indented;
+      plaintext_commands_data[cmd].flags |= PF_format_context;
+      plaintext_commands_data[cmd].indent_format_length
+        = item_indent_format_length[i].indent_format_length;
     }
 
   /* ignored formatted/formattable line commands */
@@ -1917,6 +1987,18 @@ plaintext_format_image_element (CONVERTER *self, const ELEMENT *element,
   memset (result, 0, sizeof (STRING_LINE_COUNT));
 }
 
+/*
+  should not be called, only the Info format counterpart should be called
+  since it is not called by Plaintext format_image_element and is only
+  called for INFO_MATH_IMAGES, which should do nothing in Plaintext.
+ */
+char *
+plaintext_format_image (CONVERTER *self, const char *image_file,
+                   const char *text, const char *alt,
+                   int dpi, int depth)
+{
+  return 0;
+}
 
 /* format_* dispatch table between plaintext and info.  Should be in sync with
    enum converter_format */
@@ -1924,6 +2006,7 @@ static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
   {
    &plaintext_format_contents,
    &plaintext_format_error_outside_of_any_node,
+   &plaintext_format_image,
    &plaintext_format_image_element,
    &plaintext_format_node,
    &plaintext_format_printindex,
@@ -1932,6 +2015,7 @@ static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
   {
    &info_format_contents,
    &info_format_error_outside_of_any_node,
+   &info_format_image,
    &info_format_image_element,
    &info_format_node,
    &info_format_printindex,
@@ -1939,6 +2023,59 @@ static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[] = {
   }
 };
 
+void
+plaintext_insert_image (CONVERTER *self, const char *image_file,
+                        const char *image_text, int dpi, int depth,
+                        STRING_LINE_COUNT *result)
+{
+  char *result_text = strdup (image_text);
+  int line_count = 0;
+  int width = 0;
+  const char *p;
+  char *q;
+
+  size_t len = strlen (result_text);
+
+  if (len != 0)
+    {
+      if (result_text[len -1] == '\n')
+        result_text[len -1] = '\0';
+
+      /* We assume that there are only NL, no CR */
+      p = result_text;
+      while (1)
+        {
+          int new_width;
+
+          line_count++;
+          q = strpbrk (p, "\n");
+          if (q)
+            *q = '\0';
+          new_width = string_width_multibyte (p);
+          if (new_width > width)
+            width = new_width;
+          if (!q)
+            break;
+          *q = '\n';
+          p = q+1;
+          if (!*p)
+            break;
+        }
+    }
+
+  result->string
+    = plaintext_functions[self->format].format_image (self, image_file,
+                                             result_text, 0, dpi, depth);
+
+  result->line_count = line_count;
+
+   /* the last line is part of the image but do not have a new line,
+      so 1 is added to $lines_count to have the number of lines of
+      the image */
+    /* TODO
+    $self->add_image(undef, $line_count+1, $width);
+     */
+}
 
 void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 
@@ -2152,7 +2289,82 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           else if (cmd_data->data == BRACE_inline)
             return;
           else if (cmd_data->flags & CF_math)
-            return;
+            {
+              ELEMENT *math_frenchspacing_element
+                = new_element (ET__frenchspacing);
+              ELEMENT *math_code_element = new_element (ET__code);
+              MATH_ELEMENT_IMAGE *element_image = 0;
+             /* TODO
+              push @{$self->{'context'}}, $cmdname;
+              */
+              if (self_plaintext->element_images)
+                {
+                  element_image
+                 = &self_plaintext->element_images->math_images.list[
+                          self_plaintext->element_images->math_index];
+                  if (element_image->element != element)
+                    {
+                      char *msg;
+                      xasprintf (&msg, "BUG: %zu: out of sync math element"
+                                       " image and tree\n");
+                      bug (msg);
+                      free (msg);
+                    }
+
+                  self_plaintext->element_images->math_index++;
+                  if (element_image->filename)
+                    {
+                      COUNT_CONTEXT count_context = { 0 };
+                      /* TODO 'encoding_disabled' => 1, */
+
+                      /* flush before @math, including spaces */
+                      const char *pending_word = para_add_pending_word (1);
+                      stream_output_count_nl (self, pending_word);
+           /* TODO same as @image code.  Does not seems to have any effect,
+              leading spaces in @math are lost anyway (which is not important).
+              add an empty word so that following spaces aren't lost */
+                      para_add_next ("", 0, 0);
+
+           /* math rendered as an image, push a count to capture content */
+                      add_(count_context) (&self_plaintext->count_context,
+                                           count_context);
+                    }
+                }
+
+              add_to_contents_as_array (math_code_element,
+                                        element->e.c->contents.list[0]);
+              add_to_element_contents (math_frenchspacing_element,
+                                       math_code_element);
+
+              convert_to_plaintext_internal (self,
+                                            math_frenchspacing_element);
+
+              destroy_element (math_code_element);
+              destroy_element (math_frenchspacing_element);
+
+              if (element_image && element_image->filename)
+                {
+                  STRING_LINE_COUNT image_result;
+                  char *result;
+                   /* flush @math, including spaces */
+                  const char *pending_word = para_add_pending_word (1);
+                  stream_output_count_nl (self, pending_word);
+
+                  result = stream_yield_result (self);
+
+                  pop_count_context (&self_plaintext->count_context);
+
+                  plaintext_insert_image (self, element_image->filename,
+                             result,
+                             element_image->dpi, element_image->depth,
+                             &image_result);
+                  free (result);
+                  add_lines_count (self, image_result.line_count);
+                  stream_output (self, image_result.string);
+                  free (image_result.string);
+                }
+              return;
+            }
           else if (cmd == CM_titlefont)
             return;
           else if (cmd == CM_U)
@@ -2165,12 +2377,77 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         {
           if (cmd_data->data == BLOCK_menu)
             {
-              /* const char *format_menu = self->conf->FORMAT_MENU; */
               const char *format_menu = self->conf->FORMAT_MENU.o.string;
               if (!format_menu || !*format_menu
                   || !strcmp (format_menu, "nomenu"))
                 return;
             }
+          /* includes @verbatim raw block_commands and block_math_commands */
+          if (plaintext_commands_data[cmd].flags & PF_preformatted_context
+              || cmd == CM_float)
+            {
+              if (plaintext_commands_data[cmd].flags & PF_format_raw)
+                {
+                  const char *pending_word = para_add_pending_word (1);
+                  stream_output_count_nl (self, pending_word);
+                }
+              push_command (&self_plaintext->context, cmd);
+            }
+          /* TODO
+            elsif ...
+           */
+
+          if (plaintext_commands_data[cmd].flags & PF_format_context)
+            {
+              /* TODO */
+
+        /*
+          open a preformatted container, if the command opening the
+          preformatted context is not a classical preformatted
+          command (ie if it is menu or verbatim, and not example or
+          similar)
+         */
+              if (plaintext_commands_data[cmd].flags & PF_preformatted_context
+                  && !(cmd_data->flags & CF_preformatted)
+                  && !(plaintext_commands_data[cmd].flags & PF_format_raw))
+                {
+                  FORMATTER new_preformatted
+                    = new_formatter (self, formatter_unfilled, -1, -1);
+                  preformatted = &new_preformatted;
+
+                  push_formatter (self, preformatted);
+          /* displaymath rendered as an image, push a count to capture
+             formatted content
+           */
+                  if (cmd_data->flags & CF_math
+                      && self_plaintext->element_images)
+                    {
+                      MATH_ELEMENT_IMAGE *element_image
+                = &self_plaintext->element_images->displaymath_images.list[
+                          self_plaintext->element_images->displaymath_index];
+                      if (element_image->element != element)
+                        {
+                          char *msg;
+                          xasprintf (&msg, "BUG: %zu: out of sync displaymath"
+                                           " element image and tree\n");
+                          bug (msg);
+                          free (msg);
+                        }
+
+                      if (element_image->filename)
+                        {
+                          COUNT_CONTEXT count_context = { 0 };
+                          /* TODO 'encoding_disabled' => 1, */
+
+          /* displaymath rendered as an image, push a count to capture
+             formatted content */
+                         add_(count_context) (&self_plaintext->count_context,
+                                                        count_context);
+                        }
+                    }
+                }
+            }
+          /* TODO */
         }
       else if (cmd == CM_node)
         {
@@ -2289,8 +2566,66 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       para_destroy ();
       pop_formatter (self);
     }
-  if (preformatted)
+  else if (preformatted)
     {
+      const char *end_line = para_end ();
+      enum command_id context_cmd = top_command (&self_plaintext->context);
+
+      stream_output_count_nl (self, end_line);
+      /* TODO
+        _ensure_end_of_line($self);
+       */
+
+      if (context_cmd == CM_flushright)
+        {
+          /* TODO */
+        }
+      else if (context_cmd == CM_displaymath
+               && self_plaintext->element_images)
+        {
+          char *result = stream_yield_result (self);
+          MATH_ELEMENT_IMAGE *element_image
+           = &self_plaintext->element_images->displaymath_images.list[
+                self_plaintext->element_images->displaymath_index];
+          if (element_image->element != element)
+            {
+              char *msg;
+              xasprintf (&msg, "BUG: %zu: out of sync close displaymath"
+                                           " element image and tree\n");
+              bug (msg);
+              free (msg);
+            }
+
+          if (element_image->filename)
+            {
+              STRING_LINE_COUNT image_result;
+
+              pop_count_context (&self_plaintext->count_context);
+
+              plaintext_insert_image (self, element_image->filename,
+                             result,
+                             element_image->dpi, element_image->depth,
+                             &image_result);
+
+     /* NB we don't output the below-baseline depth for @displaymath as
+        it does not need to be aligned with surrounding text. */
+              add_lines_count (self, image_result.line_count);
+              stream_output (self, image_result.string);
+              free (image_result.string);
+           }
+         free (result);
+
+         self_plaintext->element_images->displaymath_index++;
+       }
+
+      para_destroy ();
+      pop_formatter (self);
+
+    /* We assume that, upon closing the preformatted we are at the
+       beginning of a line. */
+     /* TODO
+    delete $self->{'text_element_context'}->[-1]->{'counter'};
+      */
     }
 
   /* Close commands */

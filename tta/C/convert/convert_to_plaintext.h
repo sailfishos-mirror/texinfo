@@ -16,6 +16,11 @@
 #define PF_style_map              0x0008
 #define PF_asis                   0x0010
 #define PF_quoted                 0x0020
+#define PF_example_indented       0x0040
+#define PF_indented               0x0080
+#define PF_format_context         0x0100
+#define PF_preformatted_context   0x0200
+#define PF_menu                   0x0400
 
 /*
 #define HF_pre_class            0x0008

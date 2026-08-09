@@ -3069,6 +3069,61 @@ is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries)
   return 1;
 }
 
+/* In the default case, global informative commands are collected
+    by the parsers.  The following functions allow to collect
+    any @-command.
+ */
+
+void collect_commands_in_tree_internal (const ELEMENT *element,
+                                  const enum command_id *commands_list,
+                                  CONST_ELEMENT_LIST *collected_commands_list);
+
+
+void
+collect_commands_in_tree_internal (const ELEMENT *element,
+                                  const enum command_id *commands_list,
+                                  CONST_ELEMENT_LIST *collected_commands_list)
+{
+  int i;
+  size_t j;
+  enum command_id cmd;
+
+  if (type_data[element->type].flags & TF_text)
+    return;
+
+  cmd = element_builtin_cmd (element);
+
+  if (cmd != CM_NONE)
+    {
+      for (i = 0; commands_list[i] != CM_NONE; i++)
+        {
+          if (cmd == commands_list[i])
+            {
+              add_to_const_element_list (collected_commands_list, element);
+              break;
+            }
+        }
+    }
+
+  for (j = 0; j < element->e.c->contents.number; j++)
+    collect_commands_in_tree_internal (element->e.c->contents.list[j],
+                                       commands_list,
+                                       collected_commands_list);
+}
+
+CONST_ELEMENT_LIST *
+collect_commands_in_tree (const ELEMENT *root,
+                          const enum command_id *commands_list)
+{
+  CONST_ELEMENT_LIST *collected_commands_list = new_const_element_list ();
+
+  collect_commands_in_tree_internal (root, commands_list,
+                                     collected_commands_list);
+
+  return collected_commands_list;
+}
+
+
 /*
   decompose a decimal number on a given base.  It is not the
   decomposition used for counting as we start at 0, not 1 for all

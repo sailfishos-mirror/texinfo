@@ -291,7 +291,7 @@ sub output($$) {
     } else {
       $math_images_dir = $destination_directory;
     }
-    my $elements_images
+    my ($elements_images, $collected_commands)
         = Texinfo::Convert::LaTeX::convert_math_to_images($self, $document,
                                                     $document_name.'_info',
                                                     $math_images_dir);

@@ -25,6 +25,7 @@
 
 typedef struct PLAINTEXT_COMMAND_STRUCT {
     unsigned long flags;
+    int indent_format_length;
     /*
     enum command_id pre_class_cmd;
     enum command_id upper_case_cmd;
@@ -77,9 +78,30 @@ typedef struct STRING_WITH_WIDTH {
     int width;
 } STRING_WITH_WIDTH;
 
+typedef struct MATH_ELEMENT_IMAGE {
+    /* the element is used to make sure that going through the tree
+       and through the MATH_ELEMENT_IMAGE_LIST list is done in sync.
+     */
+    const ELEMENT *element;
+    char *filename;
+    int dpi;
+    int depth;
+} MATH_ELEMENT_IMAGE;
+
+def_list_type(MATH_ELEMENT_IMAGE_LIST, MATH_ELEMENT_IMAGE);
+decl_list_fns(MATH_ELEMENT_IMAGE_LIST, math_element_image, MATH_ELEMENT_IMAGE);
+
+/* result of Texinfo::Convert::LaTeX::convert_math_to_images */
+typedef struct MATH_ELEMENTS_IMAGES {
+    MATH_ELEMENT_IMAGE_LIST math_images;
+    MATH_ELEMENT_IMAGE_LIST displaymath_images;
+    size_t math_index;
+    size_t displaymath_index;
+} MATH_ELEMENTS_IMAGES;
+
 /* see comment re "6 stacks" in Plaintext.pm */
 typedef struct PLAINTEXT_CONVERTER_STATE {
-    /* context */
+    COMMAND_STACK context;
     FORMAT_CONTEXT_STACK format_context;
     /* text_element_context */
     FORMATTER_STACK formatters;
@@ -110,6 +132,7 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     /* register node names already warned for characters that should
        not appear in printindex */
     C_HASHMAP index_entry_node_colon;
+    MATH_ELEMENTS_IMAGES *element_images;
 } PLAINTEXT_CONVERTER_STATE;
 
 #endif

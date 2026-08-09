@@ -6,6 +6,7 @@
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
+#include "list_macros.h"
 
 CONVERTER_INITIALIZATION_INFO *info_converter_defaults
                                 (enum converter_format format,
@@ -22,6 +23,9 @@ void info_format_error_outside_of_any_node (CONVERTER *self,
                                        const ELEMENT *element);
 void info_format_node (CONVERTER *self, const ELEMENT *node,
                        const NODE_RELATIONS *node_relations);
+char *info_format_image (CONVERTER *self, const char *image_file,
+                   const char *text, const char *alt,
+                   int dpi, int depth);
 void info_format_image_element (CONVERTER *self, const ELEMENT *element,
                            STRING_LINE_COUNT *result);
 #endif

@@ -5070,7 +5070,7 @@ sub convert_math_to_images($$$;$) {
                                         $document_root, \@math_at_commands);
 
   if (scalar(@$collected_commands) == 0) {
-    return undef;
+    return (undef, undef);
   }
 
   my $math2img_latex_basefile = $math2img_basename.'.tex';
@@ -5128,7 +5128,7 @@ sub convert_math_to_images($$$;$) {
         $self->converter_document_error(
                 sprintf(__("math to images: could not open %s: %s"),
                                    $math2img_latex_file_path_name, $!));
-        return undef;
+        return (undef, undef);
       }
       $fh = *MATH2IMG_TEXFILE;
 
@@ -5205,7 +5205,7 @@ sub convert_math_to_images($$$;$) {
     # FIXME check close error
     close ($fh);
   } else {
-    return undef;
+    return (undef, undef);
   }
 
   # run LaTeX
@@ -5217,7 +5217,7 @@ sub convert_math_to_images($$$;$) {
     $self->converter_document_warn(
             sprintf(__("math to images: chdir %s failed: %s"),
                          $math2img_out_dir, $!));
-    return undef;
+    return (undef, undef);
   }
   print STDERR "cwd($encoded_math2img_out_dir): " . Cwd::cwd() ."\n"
     if ($self->get_conf('VERBOSE'));
@@ -5245,18 +5245,18 @@ sub convert_math_to_images($$$;$) {
 
   # do not use system in order to be sure that STDIN is not
   # mixed up with the main script STDIN.  It is important because
-  # if latex fails, it will may from STDIN and the input may trigger
+  # if latex fails, it may read from STDIN and the input may trigger
   # diverse actions.
   if (not(open(MATH2IMG, "|-", $encoded_cmd))) {
     $self->converter_document_error(sprintf(__(
                          "math to images: command failed: %s"), $cmd));
-    return undef;
+    return (undef, undef);
   }
   if (!close(MATH2IMG)) {
     $self->converter_document_warn(sprintf(__(
                      "math to images: closing communication failed: %s: %s"),
                          $cmd, $!));
-    return undef;
+    return (undef, undef);
   }
 
   my $math2img_dvi_basefile = $math2img_basename.'.dvi';
@@ -5287,13 +5287,13 @@ sub convert_math_to_images($$$;$) {
     $self->converter_document_warn(sprintf(__(
      "math to images: system `%s' failed: %d\n"), $to_image_exec . ' ' .
          join(' ', @to_images_options). ' '.$math2img_dvi_basefile, $?));
-    return undef;
+    return (undef, undef);
   }
 
   unless (chdir $math2img_initial_dir) {
     $self->converter_document_warn(sprintf(__(
           "math to images: unable to return to initial directory: %s"), $!));
-    return undef;
+    return (undef, undef);
   }
 
   # Now extract depth information from output of dvipng, which looks like
@@ -5312,7 +5312,7 @@ sub convert_math_to_images($$$;$) {
     $result->{$element}->{'depth'} = shift @depths;
   }
 
-  return $result;
+  return ($result, $collected_commands);
 }
 
 

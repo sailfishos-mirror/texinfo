@@ -2733,7 +2733,7 @@ main (int argc, char *argv[], char *env[])
                   OPTION *info_math_images
                     = GNUT_get_conf (
                      program_options.options->INFO_MATH_IMAGES.number);
-                  if (info_math_images->o.integer > 0)
+                  if (info_math_images && info_math_images->o.integer > 0)
                     external_module = converted_format_specification->module;
                 }
             }

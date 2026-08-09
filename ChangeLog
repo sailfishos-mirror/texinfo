@@ -1,3 +1,68 @@
+2026-08-09 Patrice Dumas  <pertusus@free.fr>
+
+	INFO_MATH_IMAGES, C plaintext block command flags, math displaymath
+
+	* tta/C/convert/convert_to_info.c (info_format_image): have dpi and
+	depth arguments be integers.
+
+	* tta/C/main/utils.c (collect_commands_in_tree_internal)
+	(collect_commands_in_tree): implement collect_commands_in_tree.
+
+	* tta/perl/Texinfo/Convert/InfoNonXS.pm (convert_math_to_images):
+	return the collected_commands too, to simplify passing information to
+	C.
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm
+	(%preformatted_context_commands, %format_context_commands): rename
+	default_preformatted_context_commands as preformatted_context_commands
+	and default_format_context_commands as format_context_commands.
+	Remove unused %block_math_commands.
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_insert_image): rename
+	$lines_count as $line_count.
+
+	* tta/C/convert/convert_to_plaintext.h (MATH_ELEMENT_IMAGE)
+	(MATH_ELEMENTS_IMAGES, PLAINTEXT_CONVERTER_STATE): add types related
+	to INFO_MATH_IMAGES.  add element_images field in
+	PLAINTEXT_CONVERTER_STATE.
+
+	* tta/C/Makefile.am (libcallperl_libtexinfo_convert_la_SOURCES)
+	(libtexinfo_convert_static_la_SOURCES, texistatic_SOURCES),
+	tta/C/convert/call_plaintext_perl_function.c
+	(call_latex_convert_math_to_images): add
+	call_plaintext_perl_function.c for call_latex_convert_math_to_images
+	that calls convert_math_to_images in Perl and get the information
+	in MATH_ELEMENTS_IMAGES from Perl.
+
+	* tta/C/convert/convert_to_info.c (info_output): if INFO_MATH_IMAGES,
+	call call_latex_convert_math_to_images to set element_images in
+	converter.
+
+	* tta/C/convert/convert_to_plaintext.c (item_indent_format_length)
+	(plaintext_format_setup), tta/C/convert/convert_to_plaintext.h (PF_*)
+	(PLAINTEXT_COMMAND_STRUCT): set flags in plaintext_format_setup for
+	block commands.  Add indent_format_length field in
+	PLAINTEXT_COMMAND_STRUCT for item_indent_format_length commands
+	indent length.
+
+	* tta/C/convert/convert_to_plaintext.c (PLAINTEXT_FORMAT_FUNCTIONS)
+	(plaintext_format_image, plaintext_functions): add format_image field
+	in PLAINTEXT_FORMAT_FUNCTIONS to dispatch *_format_image.  Add
+	plaintext_format_image as a no-op.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_insert_image)
+	(convert_to_plaintext_internal),
+	tta/C/main/plaintext_converter_state.h (PLAINTEXT_CONVERTER_STATE):
+	add context field in PLAINTEXT_CONVERTER_STATE.  Implement @math
+	formatting in plaintext and partial formatting of block commands
+	for @displaymath formatting with INFO_MATH_IMAGES.
+
+	* tta/C/texi2any.c (main): handle INFO_MATH_IMAGES not set at all.
+
+	* tta/C/convert/convert_to_info.c (info_format_image): use
+	temporarily \x01 instead of \x00 NUL for image quoting in Info to
+	have a visible output.
+
 2026-08-08 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_to_info.c (info_output),
