@@ -2485,11 +2485,54 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         }
       else if (cmd == CM_author)
         return;
+
+   /* all the @-commands that have an information for the formatting, like
+      @paragraphindent, @frenchspacing... */
       else if (self_plaintext->commands_data[cmd].flags & PF_informative)
-        return;
+        {
+          set_informative_command_value (self->sorted_options, element);
+
+          if (cmd == CM_documentlanguage)
+            {
+              self->current_lang_translations =
+                 set_translations_documentlanguage (
+                              &converters_translation_cache,
+                              self->conf->documentlanguage.o.string,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+            }
+          else if (cmd == CM_documentscript)
+            {
+              self->current_lang_translations =
+                 set_translations_documentscript (
+                              &converters_translation_cache,
+                              self->conf->documentscript.o.string,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+            }
+          return;
+        }
       else if (cmd == CM_documentlanguagevariant)
-        return;
-      /* TODO else unknown_command - possibly not relevant for C code */
+        {/* special case, array argument */
+          STRING_LIST *language_variants
+            = documentlanguagevariant_variants (element);
+          self->current_lang_translations =
+               set_translations_documentlanguagevariant (
+                              &converters_translation_cache,
+                              language_variants,
+                              self->current_lang_translations,
+                              TXI_CONVERT_STRINGS_NR);
+
+          destroy_strings_list (language_variants);
+          return;
+        }
+      else
+        { /* unknown command */
+          char *unknown_cmd_str;
+          xasprintf (&unknown_cmd_str, "!!!!!!!!! Unhandled %s !!!!!!!!!\n",
+                     element_command_name (element));
+          add_lines_count (self, 1);
+        }
     }
 
   if (type != ET_NONE)
@@ -2566,6 +2609,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       para_destroy ();
       pop_formatter (self);
     }
+ /* may have been opened for a block commands, @menu, raw output
+    format, @verbatim..., or for (raw)preformatted type */
   else if (preformatted)
     {
       const char *end_line = para_end ();

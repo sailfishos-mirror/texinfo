@@ -10,6 +10,9 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+add an init file for breadcrumbs navigation
+https://gitlab.com/lilypond/lilypond/-/merge_requests/3097/diffs?commit_id=3a70b019d6ba0fef73c331ca4c727d3c85d49810
+
 Have a look at texi2pod.pl in GCC
 
 Add "shadow targets" or nodes to sectioning commands without nodes <- DONE

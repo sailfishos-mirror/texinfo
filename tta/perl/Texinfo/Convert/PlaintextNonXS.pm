@@ -3039,7 +3039,6 @@ sub _convert($$) {
   my $cell;
   my $preformatted;
   if (defined($cmdname)) {
-    my $unknown_command;
     if (exists($brace_commands{$cmdname})
         and $brace_commands{$cmdname} eq 'accent') {
       my $encoding = $self->{'enabled_encoding'};
@@ -4073,10 +4072,7 @@ sub _convert($$) {
         = Texinfo::Common::documentlanguagevariant_variants($element);
       $self->converter_set_documentlanguagevariant($variants);
       return;
-    } else {
-      $unknown_command = 1;
-    }
-    if ($unknown_command) {
+    } else { # unknown command
       _stream_output($self, "!!!!!!!!! Unhandled $cmdname !!!!!!!!!\n");
       _add_lines_count($self, 1)
     }
