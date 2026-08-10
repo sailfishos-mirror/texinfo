@@ -726,8 +726,6 @@ ensure_end_of_line (CONVERTER *self)
     }
 }
 
-/* TODO ... */
-
 static FORMATTER *node_names_formatter;
 
 static void
@@ -813,6 +811,61 @@ plaintext_node_name (CONVERTER *self, const ELEMENT *element,
         }
     }
   plaintext_convert_node_name (self, element, string_result);
+}
+
+/* the advantage of using that function is that we know that nodes only
+   are processed and the $label_element can be obtained more simply
+   than when the node is setup by a call to node_name(). */
+void
+plaintext_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
+{
+  size_t i;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  ELEMENT *node_text = new_element (ET__code);
+
+  if (!node_names_formatter)
+    {
+      node_names_formatter = (FORMATTER *) malloc (sizeof (FORMATTER));
+      memset (node_names_formatter, 0, sizeof (FORMATTER));
+      /* TODO {'suppress_styles' => 1, 'no_added_eol' => 1,} */
+      fill_formatter (node_names_formatter, self, formatter_line, 0, -1);
+    }
+
+  push_formatter (self, node_names_formatter);
+
+  for (i = 0; i < self->document->nodes_list.number; i++)
+    {
+      const char *pending_word;
+      char *result;
+      COUNT_CONTEXT count_context = { 0 };
+      const ELEMENT *node = self->document->nodes_list.list[i]->element;
+      const ELEMENT *label_element = node->e.c->contents.list[0]
+                                                 ->e.c->contents.list[0];
+      
+      STRING_WITH_WIDTH *node_name = &self_plaintext->node_names_cache[i];
+      /* cast to drop const */
+      add_to_contents_as_array (node_text, (ELEMENT *)label_element);
+
+      add_(count_context) (&self_plaintext->count_context, count_context);
+
+      convert_to_plaintext_internal (self, node_text);
+      pending_word = para_add_pending_word (0);
+      stream_output_count_nl (self, pending_word);
+      result = stream_yield_result (self);
+      result = normalize_top_node_name (result);
+      node_name->width = para_counter ();
+      node_name->string = result;
+
+      /* reset counters */
+      para_end_line ();
+
+      pop_count_context (&self_plaintext->count_context);
+
+      pop_element_from_contents (node_text);
+    }
+  pop_formatter (self);
+
+  destroy_element (node_text);
 }
 
 void
@@ -2976,6 +3029,12 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
   output_units = retrieve_output_units (document, output_units_descriptor);
 
   nodes_list = &self->document->nodes_list;
+ /* Do not call _cache_node_names as only the node names used in index
+    formatting are needed, therefore we may generate names that are
+    not used if we call the function.
+
+  plaintext_cache_node_names (self, nodes_list);
+  */
 
   split_pages (output_units, nodes_list, self->conf->SPLIT.o.string);
 
