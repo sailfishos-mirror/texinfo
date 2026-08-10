@@ -2475,7 +2475,7 @@ main (int argc, char *argv[], char *env[])
   collation_language_option
    = GNUT_get_conf (program_options.options->COLLATION_LANGUAGE.number);
   if ((documentlanguage_collation_option
-       &&documentlanguage_collation_option->o.integer > 0)
+       && documentlanguage_collation_option->o.integer > 0)
       || (collation_language_option && collation_language_option->o.string)
  #ifdef USE_LIBINTL_PERL_IN_XS
       || 1

@@ -119,6 +119,7 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
 
     /* conversion state */
     char *output_filename;
+    char *text_before_first_node;
     const ELEMENT *current_node;
     /* cache node names */
     STRING_WITH_WIDTH *node_names_cache;

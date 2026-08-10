@@ -1,5 +1,29 @@
 2026-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): do not call return on format_contents
+	dispatched function, it is a function returning void and is called in
+	a void function.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): set text_before and text_after to
+	empty string in case of bug.
+
+	* tta/C/convert/convert_to_plaintext.c (ensure_end_of_line): add.
+
+	* tta/C/convert/convert_to_info.c (info_output),
+	tta/C/convert/convert_to_plaintext.c
+	(plaintext_conversion_finalization, convert_to_plaintext_internal),
+	tta/C/main/plaintext_converter_state.h (PLAINTEXT_CONVERTER_STATE):
+	add text_before_first_node field in PLAINTEXT_CONVERTER_STATE, set and
+	use text_before_first_node.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): add some conditions for now existing
+	elements, and use braces instead of ; when there is no code yet.
+
+2026-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/call_embed_perl.c, tta/C/main/call_perl_function.c
 	(call_eval_use_module): move call_eval_use_module call_perl_function.c
 	such that it can be called from converters.

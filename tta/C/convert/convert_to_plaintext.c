@@ -517,6 +517,9 @@ plaintext_conversion_finalization (CONVERTER *self)
   self_plaintext->outside_of_any_node_text_width = 0;
   self_plaintext->current_node = 0;
 
+  free (self_plaintext->text_before_first_node);
+  self_plaintext->text_before_first_node = 0;
+
   self_plaintext->encoding_disabled = 0;
 }
 
@@ -595,7 +598,7 @@ stream_output_encoded (CONVERTER *self, const char *encoded)
 }
 
 /* NOTE the returned string changes with new text streamed and is destroyed
-   after poping the count context.  Therefore this function should only
+   after popping the count context.  Therefore this function should only
    be used if the result is handled shortly after calling.  Otherwise
    stream_yield_result should be used.
  */
@@ -697,6 +700,30 @@ add_newline_if_needed (CONVERTER *self)
 {
   /* TODO check pending_text */
   stream_output (self, "\n");
+}
+
+static void
+ensure_end_of_line (CONVERTER *self)
+{
+  const char *result = stream_result (self);
+  size_t len;
+
+  if (!result)
+    return;
+
+  len = strlen (result);
+
+  if (!len)
+    return;
+
+  if (result[len -1] != '\n')
+    {
+      stream_output (self, "\n");
+      add_lines_count (self, 1);
+     /* TODO
+      $self->{'text_element_context'}->[-1]->{'counter'} = 0;
+      */
+    }
 }
 
 /* TODO ... */
@@ -2187,7 +2214,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                       text_after = style_map[i].post;
                     }
                   else
-                    ; /* bug */
+                    { /* bug */
+                      text_before = "";
+                      text_after = "";
+                    }
                 }
               else if (plaintext_commands_data[cmd].flags & PF_quoted)
                 {
@@ -2207,7 +2237,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   text_after = "";
                 }
               else
-                ; /* bug */
+                { /* bug */
+                  text_before = "";
+                  text_after = "";
+                }
 
               TEXT added = para_add_next (text_before,
                                           strlen (text_before), 1);
@@ -2480,8 +2513,11 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                || cmd == CM_shortcontents || cmd == CM_summarycontents)
         {
           if (self->document->sections_list.number > 1)
-            return plaintext_functions[self->format].format_contents (self,
+            {
+              plaintext_functions[self->format].format_contents (self,
                                      self->document->sectioning_root, cmd);
+              return;
+            }
         }
       else if (cmd == CM_author)
         return;
@@ -2591,14 +2627,27 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   if (type != ET_NONE)
     {
       /* TODO ficititious types */
-      /* if (type == ET_frenchspacing) */
-      /* else if type == ET__code  */
-      /* else if type == ET__stop_upper_case  */
-      /* else if type == ET__suppress_style  */
-      /* else */ if (type == ET_row)
-        ;
+      if (type == ET__frenchspacing)
+        {
+        }
+      else if (type == ET__code)
+        {}
+      else if (type == ET__stop_upper_case)
+        {}
+      else if (type == ET__suppress_styles)
+        {}
+      else if (type == ET_row)
+        {
+        }
       else if (type == ET_before_node_section)
-        ;
+        {
+          const char *result;
+
+          ensure_end_of_line (self);
+          result = stream_result (self);
+
+          self_plaintext->text_before_first_node = strdup (result);
+        }
     }
 
   /* Close paragraphs and preformatted. */
@@ -2617,9 +2666,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       enum command_id context_cmd = *top_(command) (&self_plaintext->context);
 
       stream_output_count_nl (self, end_line);
-      /* TODO
-        _ensure_end_of_line($self);
-       */
+
+      ensure_end_of_line (self);
 
       if (context_cmd == CM_flushright)
         {
@@ -2677,11 +2725,14 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   if (cmd != CM_NONE)
     {
       if (cmd == CM_float)
-        ;
+        {
+        }
       else if (cmd == CM_quotation || cmd == CM_smallquotation)
-        ;
+        {
+        }
       else if (cmd == CM_multitable)
-        ;
+        {
+        }
       /* else if root_commands etc. */
     }
   return;

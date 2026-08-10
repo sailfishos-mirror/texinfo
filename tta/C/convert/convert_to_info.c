@@ -700,12 +700,10 @@ info_output (CONVERTER *self, DOCUMENT *document)
         text before the first node (type 'before_node_section') was saved in
         'text_before_first_node'.  Save this text for subsequent use in
          case of split Info output. */
-                /* TODO
-         if (defined($self->{'text_before_first_node'})) {
-          $complete_header .= $self->{'text_before_first_node'};
-          $complete_header_bytes += length($self->{'text_before_first_node'});
-         }
-                 */
+
+              if (self_plaintext->text_before_first_node)
+                text_append (&complete_header,
+                             self_plaintext->text_before_first_node);
             }
 
           write_or_return (conversion, encoded_new_filename, file_fh,
