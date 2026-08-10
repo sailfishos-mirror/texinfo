@@ -46,7 +46,8 @@
 #include "convert_to_text.h"
 #include "convert_to_plaintext.h"
 #include "plaintext_paragraph.h"
-#include "call_embed_perl.h"
+/* for call_eval_use_module */
+#include "call_perl_function.h"
 #include "call_plaintext_perl_function.h"
 #include "convert_to_info.h"
 

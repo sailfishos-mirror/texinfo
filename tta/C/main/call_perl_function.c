@@ -64,6 +64,21 @@ newSVpv_byte (const char *str, STRLEN len)
   return sv;
 }
 
+/* load a module */
+void
+call_eval_use_module (const char *module_name)
+{
+  SV *sv_str;
+  char *str;
+
+  dTHX;
+
+  sv_str = newSVpvf("use %s;", module_name);
+  str = SvPV_nolen(sv_str);
+
+  eval_pv (str, TRUE);
+}
+
 char *
 call_translations_translate_string (const char *string,
                                     const char *language_env,

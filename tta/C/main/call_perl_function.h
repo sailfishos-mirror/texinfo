@@ -5,6 +5,8 @@
 /* for BYTES_STRING */
 #include "document_types.h"
 
+void call_eval_use_module (const char *module_name);
+
 char *call_translations_translate_string (const char *string,
                                           const char *language_env,
                                           const char *translation_context);

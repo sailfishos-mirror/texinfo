@@ -1,5 +1,11 @@
 2026-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/call_embed_perl.c, tta/C/main/call_perl_function.c
+	(call_eval_use_module): move call_eval_use_module call_perl_function.c
+	such that it can be called from converters.
+
+2026-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	informative and unknown commands in plaintext C converter
 
 	* tta/C/convert/convert_to_plaintext.c

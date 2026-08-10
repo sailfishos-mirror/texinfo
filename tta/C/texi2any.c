@@ -93,7 +93,9 @@
    release_converter_output_units_remove_perl_output_units
    call_object_converter_perl_release call_sort_element_counts */
 #include "call_conversion_perl.h"
-/* for call_finish_perl call_eval_use_module */
+/* for call_eval_use_module */
+#include "call_perl_function.h"
+/* for call_finish_perl */
 #include "call_embed_perl.h"
 /* for html_builtin_default_css_text */
 #include "html_prepare_converter.h"

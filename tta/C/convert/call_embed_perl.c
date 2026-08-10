@@ -29,21 +29,6 @@ Uses pTHX_
 
 #include <stdio.h>
 
-/* could also be in other libraries */
-void
-call_eval_use_module (const char *module_name)
-{
-  SV *sv_str;
-  char *str;
-
-  dTHX;
-
-  sv_str = newSVpvf("use %s;", module_name);
-  str = SvPV_nolen(sv_str);
-
-  eval_pv (str, TRUE);
-}
-
 /* following is used to embed a Perl interpreter */
 static PerlInterpreter *my_perl;
 
