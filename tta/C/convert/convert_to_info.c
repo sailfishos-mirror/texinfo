@@ -395,7 +395,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
             = txi_in_language_script_names (
                      self->current_lang_translations->info->script,
                      strlen (self->current_lang_translations->info->script));
-          if (document_script->name)
+          if (document_script && document_script->name)
             preamble_documentscript = strdup (document_script->name);
           else
             preamble_documentscript

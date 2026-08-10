@@ -109,6 +109,14 @@ push_string_stack_string (STRING_LIST *stack, const char *string)
   add_(string) (stack, new_string);
 }
 
+void
+pop_string_stack (STRING_LIST *stack)
+{
+  char **string = top_(string) (stack);
+  free (*string);
+  pop_(string) (stack);
+}
+
 
 /* stack of integers */
 

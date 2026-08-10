@@ -1,5 +1,25 @@
 2026-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_info.c (info_output): handle invalid
+	documentscript.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_process_printindex):
+	unallocate "(outside of any node)" translated tree.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): handle @math without argument.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): stream and free the prepared text.
+
+	* tta/C/convert/html_conversion_state.c
+	(html_unset_multiple_conversions)
+	(html_close_registered_sections_level), tta/C/main/command_stack.c
+	(pop_string_stack): add pop_string_stack that frees the top string
+	before calling pop_(string).  Use it instead of pop_(string).
+
+2026-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c
 	(convert_to_plaintext_internal): do not call return on format_contents
 	dispatched function, it is a function returning void and is called in

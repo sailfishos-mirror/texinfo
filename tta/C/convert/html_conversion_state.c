@@ -629,7 +629,7 @@ void
 html_unset_multiple_conversions (CONVERTER *self)
 {
   HTML_CONVERTER_STATE *self_html = self->html_converter;
-  pop_(string) (&self_html->multiple_pass);
+  pop_string_stack (&self_html->multiple_pass);
 }
 
 size_t
@@ -1035,7 +1035,7 @@ html_close_registered_sections_level (CONVERTER *self, size_t file_number,
         {
           add_string (close_string, closed_elements);
         }
-      pop_(string) (file_pending_closes);
+      pop_string_stack (file_pending_closes);
     }
 
   return closed_elements;

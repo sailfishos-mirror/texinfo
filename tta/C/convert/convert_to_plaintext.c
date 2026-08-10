@@ -1384,6 +1384,8 @@ plaintext_process_printindex (CONVERTER *self,
               self_plaintext->outside_of_any_node_text = node_text.string;
               self_plaintext->outside_of_any_node_text_width
                  = node_text.count;
+
+              destroy_element_and_children (tree);
             }
           stream_output (self, self_plaintext->outside_of_any_node_text);
           line_width += self_plaintext->outside_of_any_node_text_width;
@@ -2364,16 +2366,19 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                     }
                 }
 
-              add_to_contents_as_array (math_code_element,
-                                        element->e.c->contents.list[0]);
-              add_to_element_contents (math_frenchspacing_element,
-                                       math_code_element);
+              if (element->e.c->contents.number > 0)
+                {
+                  add_to_contents_as_array (math_code_element,
+                                            element->e.c->contents.list[0]);
+                  add_to_element_contents (math_frenchspacing_element,
+                                           math_code_element);
 
-              convert_to_plaintext_internal (self,
-                                            math_frenchspacing_element);
+                  convert_to_plaintext_internal (self,
+                                                math_frenchspacing_element);
 
-              destroy_element (math_code_element);
-              destroy_element (math_frenchspacing_element);
+                  destroy_element (math_code_element);
+                  destroy_element (math_frenchspacing_element);
+               }
 
               if (element_image && element_image->filename)
                 {
@@ -2567,6 +2572,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           char *unknown_cmd_str;
           xasprintf (&unknown_cmd_str, "!!!!!!!!! Unhandled %s !!!!!!!!!\n",
                      element_command_name (element));
+          stream_output (self, unknown_cmd_str);
+          free (unknown_cmd_str);
           add_lines_count (self, 1);
         }
     }

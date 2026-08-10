@@ -37,6 +37,7 @@ COMMAND_OR_TYPE *top_command_or_type (const COMMAND_OR_TYPE_STACK *stack);
 
 void push_string_stack_string (STRING_LIST *stack, const char *string);
 decl_stack_fns(STRING_LIST, string, char *);
+void pop_string_stack (STRING_LIST *stack);
 
 decl_list_fns(INTEGER_STACK, integer, int);
 decl_stack_fns(INTEGER_STACK, integer, int);
