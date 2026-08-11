@@ -18,93 +18,90 @@ unicoll_default (void)
   return (Collation_choice) UNICOLL_VARIABLE_NONIGNORABLE;
 }
 
-Collation_choice
-unicoll_set_variable (Collation_choice collation,
-                                       int variable)
+void
+unicoll_set_variable (Collation_choice *collation, int variable)
 {
   if (variable != UNICOLL_VARIABLE_NONIGNORABLE
       && variable != UNICOLL_VARIABLE_SHIFTED
       && variable != UNICOLL_VARIABLE_BLANKED)
     {
       errno = EINVAL;
-      return collation;
+      return;
     }
-  return (Collation_choice) (collation & ~UNICOLL_VARIABLE_MASK) | variable;
+  *collation = (*collation & ~UNICOLL_VARIABLE_MASK) | variable;
 }
 
 /* Set bit to disable output of a collation level. */
-Collation_choice
-unicoll_disable_level (Collation_choice collation, int level)
+void
+unicoll_disable_level (Collation_choice *collation, int level)
 {
   switch (level)
   {
     case 1:
-      return (collation | UNICOLL_LEVEL1_BIT);
+      *collation |= UNICOLL_LEVEL1_BIT;
     case 2:
-      return (collation | UNICOLL_LEVEL2_BIT);
+      *collation |= UNICOLL_LEVEL2_BIT;
     case 3:
-      return (collation | UNICOLL_LEVEL3_BIT);
+      *collation |= UNICOLL_LEVEL3_BIT;
     case 4:
-      return (collation | UNICOLL_LEVEL4_BIT);
+      *collation |= UNICOLL_LEVEL4_BIT;
     default:
       errno = EINVAL;
-      return collation;
   }
 }
 
 /* Clear bit to enable output of a collation level. */
-Collation_choice
-unicoll_enable_level (Collation_choice collation, int level)
+void
+unicoll_enable_level (Collation_choice *collation, int level)
 {
   switch (level)
   {
     case 1:
-      return (collation & ~UNICOLL_LEVEL1_BIT);
+      *collation &= ~UNICOLL_LEVEL1_BIT;
     case 2:
-      return (collation & ~UNICOLL_LEVEL2_BIT);
+      *collation &= ~UNICOLL_LEVEL2_BIT;
     case 3:
-      return (collation & ~UNICOLL_LEVEL3_BIT);
+      *collation &= ~UNICOLL_LEVEL3_BIT;
     case 4:
-      return (collation & ~UNICOLL_LEVEL4_BIT);
+      *collation &= ~UNICOLL_LEVEL4_BIT;
     default:
       errno = EINVAL;
-      return collation;
   }
 }
 
 
-Collation_choice
-unicoll_set_normalization (Collation_choice collation, int normalization_on)
+void
+unicoll_set_normalization (Collation_choice *collation, int normalization_on)
 {
   /* Set bit to disable normalization. */
   if (normalization_on)
-    return (collation & ~UNICOLL_NORMALIZATION_MASK);
+    *collation &= ~UNICOLL_NORMALIZATION_MASK;
   else
-    return (collation | UNICOLL_NORMALIZATION_MASK);
+    *collation |= UNICOLL_NORMALIZATION_MASK;
 }
 
 /* If CONTRACTIONS_ON is 0, disable use of contractions, i.e. sequence
    lookup. */
-Collation_choice
-unicoll_set_contractions (Collation_choice collation, int contractions_on)
+void
+unicoll_set_contractions (Collation_choice *collation, int contractions_on)
 {
   if (contractions_on)
-    return (collation & ~UNICOLL_CONTRACTIONS_MASK);
+    *collation &= ~UNICOLL_CONTRACTIONS_MASK;
   else
-    return (collation | UNICOLL_CONTRACTIONS_MASK);
+    *collation |= UNICOLL_CONTRACTIONS_MASK;
 }
 
 /* If PARTIAL_KEY_ENABLED is non-zero, u*_make_collation_key does not
    re-allocate RESULTBUF and will return a partial key (null-terminated)
    if the full result would be longer than *LENGTHP bytes. */
-Collation_choice
-unicoll_enable_partial (Collation_choice collation,
-                                         int partial_key_enabled)
+void
+unicoll_enable_partial (Collation_choice *collation,
+                        int partial_key_enabled)
 {
   if (!partial_key_enabled)
-    return (collation & ~UNICOLL_PARTIAL_MASK);
+    *collation &= ~UNICOLL_PARTIAL_MASK;
   else
-    return (collation | UNICOLL_PARTIAL_MASK);
+    *collation |= UNICOLL_PARTIAL_MASK;
 }
 
 #define BITS 32

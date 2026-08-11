@@ -22,19 +22,19 @@
 typedef uint_fast32_t Collation_choice;
 
 Collation_choice unicoll_default (void);
-Collation_choice unicoll_set_variable (Collation_choice collation,
+void unicoll_set_variable (Collation_choice *collation,
                                        int variable);
 
-Collation_choice unicoll_disable_level (Collation_choice collation,
+void unicoll_disable_level (Collation_choice *collation,
                                         int level);
-Collation_choice unicoll_enable_level  (Collation_choice collation,
+void unicoll_enable_level  (Collation_choice *collation,
                                         int level);
 
-Collation_choice unicoll_set_normalization (Collation_choice collation,
+void unicoll_set_normalization (Collation_choice *collation,
                                             int normalization_on);
-Collation_choice unicoll_set_contractions (Collation_choice collation,
+void unicoll_set_contractions (Collation_choice *collation,
                                             int use_contractions);
-Collation_choice unicoll_enable_partial (Collation_choice collation,
+void unicoll_enable_partial (Collation_choice *collation,
                                          int partial_key_enabled);
 
 

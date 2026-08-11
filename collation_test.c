@@ -112,10 +112,10 @@ main (int argc, char *argv[])
   long int skip_count = 0;
 
   Collation_choice collation = unicoll_default ();
-  collation = unicoll_set_variable (collation,
+  unicoll_set_variable (&collation,
                     variable_shifted ? UNICOLL_VARIABLE_SHIFTED
                                      : UNICOLL_VARIABLE_NONIGNORABLE);
-  /* collation = unicoll_set_normalization (collation, 0); */
+  /* unicoll_set_normalization (&collation, 0); */
 
   while (1)
     {
