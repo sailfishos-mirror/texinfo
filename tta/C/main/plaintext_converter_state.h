@@ -124,6 +124,14 @@ typedef struct PENDING_FOOTNOTE {
 def_list_type(PENDING_FOOTNOTE_LIST, PENDING_FOOTNOTE);
 decl_list_fns(PENDING_FOOTNOTE_LIST, pending_footnote, PENDING_FOOTNOTE);
 
+typedef struct INDEX_ENTRY_INFO {
+    const ELEMENT *node;
+    LOCATION *location;
+    int ignored;
+    /* to be removed */
+    int line_nr;
+} INDEX_ENTRY_INFO;
+
 /* see comment re "6 stacks" in Plaintext.pm */
 typedef struct PLAINTEXT_CONVERTER_STATE {
     COMMAND_STACK context;
@@ -162,6 +170,7 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     /* register node names already warned for characters that should
        not appear in printindex */
     C_HASHMAP index_entry_node_colon;
+    INDEX_ENTRY_INFO **index_entry_conversion_info;
     MATH_ELEMENTS_IMAGES *element_images;
 } PLAINTEXT_CONVERTER_STATE;
 

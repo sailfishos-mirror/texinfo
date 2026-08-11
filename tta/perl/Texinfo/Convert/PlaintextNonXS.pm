@@ -423,7 +423,7 @@ sub conversion_initialization($;$) {
   };
 
   $self->{'seenmenus'} = {};
-  $self->{'index_entries_line_location'} = {};
+  $self->{'index_entry_info'} = {};
 
   $self->{'footnote_index'} = 0;
   $self->{'pending_footnotes'} = [];
@@ -547,7 +547,7 @@ sub converter_initialize($) {
 sub converter_destroy($) {
   my $self = shift;
 
-  delete $self->{'index_entries_line_location'};
+  delete $self->{'index_entry_info'};
   delete $self->{'current_node'};
   delete $self->{'elements_images'};
 }
@@ -999,18 +999,17 @@ sub _add_lines_count($$) {
 # For index entries, this is mainly useful for the readjustement of
 # line numbers, that would not be performed otherwise.
 sub add_location($$) {
-
   my ($self, $element) = @_;
 
-  my $location = { 'lines' => $self->{'count_context'}->[-1]->{'lines'} };
+  my $location = {
+        'lines' => $self->{'count_context'}->[-1]->{'lines'},
+        # not actually useful for index elements
+        'location_element' => $element
+      };
   push @{$self->{'count_context'}->[-1]->{'locations'}}, $location;
   if (!(exists($element->{'extra'})
         and exists($element->{'extra'}->{'index_entry'}))) {
     $location->{'bytes'} = _stream_byte_count($self);
-    $location->{'root'} = $element;
-  } else {
-    # the location is used, but not this field
-    #$location->{'index_entry'} = $element;
   }
   return $location;
 }
@@ -1892,13 +1891,12 @@ sub process_printindex($$;$) {
 
     my $line_nr;
 
-    if (exists($self->{'index_entries_line_location'})
-        and defined($self->{'index_entries_line_location'}
-                                              ->{$main_entry_element})) {
-      $line_nr = $self->{'index_entries_line_location'}
-                                     ->{$main_entry_element}->{'lines'};
-      # ignore index entries in special regions that haven't been seen
+    my $index_entry_info;
+    if (exists($self->{'index_entry_info'}->{$main_entry_element})) {
+      $index_entry_info = $self->{'index_entry_info'}->{$main_entry_element};
+      $line_nr = $index_entry_info->{'location'}->{'lines'};
     } elsif ($main_entry_element->{'extra'}->{'element_region'}) {
+      # ignore index entries in special regions that haven't been seen
       $ignored_entries{$entry} = 1;
       next;
     }
@@ -1906,13 +1904,9 @@ sub process_printindex($$;$) {
     my $node;
     # priority given to the location determined dynamically as the
     # index entry may be in footnote.
-    if (exists($self->{'index_entries_line_location'})
-        and exists($self->{'index_entries_line_location'}
-                                             ->{$main_entry_element})
-        and defined($self->{'index_entries_line_location'}
-                                    ->{$main_entry_element}->{'node'})) {
-      $node = $self->{'index_entries_line_location'}
-                                    ->{$main_entry_element}->{'node'};
+    if (defined($index_entry_info)
+        and exists($index_entry_info->{'node'})) {
+      $node = $index_entry_info->{'node'};
     } elsif (exists($main_entry_element->{'extra'}->{'element_node'})) {
       $node = $identifiers_target->{
                         $main_entry_element->{'extra'}->{'element_node'}};
@@ -3023,17 +3017,17 @@ sub _convert($$) {
       and !$self->{'multiple_pass'} and !$self->{'in_copying_header'}) {
     my $location = $self->add_location($element);
 
+    my $index_entry_info = {'location' => $location};
+
     # this covers the special case for index entry not associated with a
     # node but seen.  this will be an index entry in @copying,
     # in @insertcopying.
     # This also covers the case of an index entry in a node added by a
     # @footnote with footnotestyle separate.
     if (exists($self->{'current_node'})) {
-      $location->{'node'} = $self->{'current_node'};
+      $index_entry_info->{'node'} = $self->{'current_node'};
     }
-    $self->{'index_entries_line_location'} = {}
-      unless exists($self->{'index_entries_line_location'});
-    $self->{'index_entries_line_location'}->{$element} = $location;
+    $self->{'index_entry_info'}->{$element} = $index_entry_info;
   }
 
   if (defined($type) and $type eq 'index_entry_command') {
@@ -4408,10 +4402,15 @@ sub _convert($$) {
     } elsif ($type eq '_suppress_styles') {
       delete $self->{'formatters'}->[-1]->{'suppress_styles'};
     } elsif ($type eq 'row') {
+      # beginning of cell in character width based on column sizes given
+      # in the specification of the table.
       my @cell_beginnings;
+      # array of lines in each cell, already formatted using the max limit
+      # on line length per column, for each cell.
       my @cell_lines;
       my $cell_beginning = 0;
       my $cell_idx = 0;
+      # number maximum of line for the cells in this row
       my $max_lines = 0;
       my $indent_len
            = $self->{'format_context'}->[-1]->{'context_indent_len'};
@@ -4448,6 +4447,7 @@ sub _convert($$) {
 
       # this is used to keep track of the last cell with content.
       my $max_cell = scalar(@{$self->{'format_context'}->[-1]->{'row'}});
+      # bytes added because of the addition of spaces when formatting cells
       my $bytes_count = 0;
       my $result = '';
       my $line;
@@ -4504,7 +4504,8 @@ sub _convert($$) {
         # at this point cell_beginning is at the beginning of
         # the cell following the end of the table -> full width
         my $line = (' ' x $indent_len) . ('-' x $cell_beginning) . "\n";
-        $bytes_count += length($line);
+        # correct, but unneeded as not used for correction of locations
+        #$bytes_count += length($line);
         $result .= $line;
         $max_lines++;
       }

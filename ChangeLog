@@ -1,5 +1,31 @@
 2026-08-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (add_location): rename
+	root field as location_element and set for index entry elements too,
+	even though it is not used in that case.  Update user.
+
+	* tta/perl/Texinfo/Convert/InfoNonXS.pm (output): use variable for
+	$location->{'location_element'}, rename $label as $location.
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (process_printindex)
+	(_convert): rename index_entries_line_location field as
+	index_entry_info.  Put 'node' in {'index_entry_info'}->{$element},
+	not in location.  Do not set {'index_entry_info'}->{$element}
+	to the location, but instead add a 'location' field pointing to
+	the location.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_conversion_initialization, plaintext_process_printindex),
+	(plaintext_conversion_finalization),
+	tta/C/main/plaintext_converter_state.h (INDEX_ENTRY_INFO)
+	(PLAINTEXT_CONVERTER_STATE): allocate in
+	plaintext_conversion_initialization a structure holding conversion
+	information of index entries, by sorted index name index and index
+	entry number in original index.  Use it in
+	plaintext_process_printindex instead of local array.
+
+2026-08-11 Patrice Dumas  <pertusus@free.fr>
+
 	Implement footnotes and output encoding in plaintext C converter
 
 	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm: move code around.

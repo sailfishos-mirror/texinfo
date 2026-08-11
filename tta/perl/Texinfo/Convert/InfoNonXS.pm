@@ -515,33 +515,33 @@ sub output($$) {
   }
   # This may happen for anchors in @insertcopying
   my %seen_anchors;
-  foreach my $label (@{$self->{'count_context'}->[-1]->{'locations'}}) {
-    next unless (exists($label->{'root'})
-                 and exists($label->{'root'}->{'extra'})
-                 and $label->{'root'}->{'extra'}->{'is_target'});
-    my $label_element = Texinfo::Common::get_label_element($label->{'root'});
+  foreach my $location (@{$self->{'count_context'}->[-1]->{'locations'}}) {
+    my $element = $location->{'location_element'};
+    next unless (exists($element->{'extra'})
+                 and $element->{'extra'}->{'is_target'});
+    my $label_element = Texinfo::Common::get_label_element($element);
     my $prefix;
 
-    if ($label->{'root'}->{'cmdname'} eq 'node') {
+    if ($element->{'cmdname'} eq 'node') {
       $prefix = 'Node';
     } else { # anchor and namedanchor
       $prefix = 'Ref';
     }
-    my ($label_text, undef) = $self->node_name($label->{'root'});
+    my ($label_text, undef) = $self->node_name($element);
 
     if (exists($seen_anchors{$label_text})) {
       $self->plaintext_line_error($self,
                                   sprintf(__("\@%s output more than once: %s"),
-          $label->{'root'}->{'cmdname'},
+          $element->{'cmdname'},
           Texinfo::Convert::Texinfo::convert_contents_to_texinfo(
                                                           $label_element)),
-        $label->{'root'}->{'source_info'});
+        $element->{'source_info'});
       next;
     } else {
       $seen_anchors{$label_text} = 1;
     }
 
-    $tag_text .=  "$prefix: $label_text\x{7F}$label->{'bytes'}\n";
+    $tag_text .=  "$prefix: $label_text\x{7F}$location->{'bytes'}\n";
   }
   $tag_text .=  "\x{1F}\nEnd Tag Table\n";
 

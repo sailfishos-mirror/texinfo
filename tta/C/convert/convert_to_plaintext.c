@@ -512,7 +512,28 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
   converter_set_document (self, document);
 
   if (document->indices_info.number > 0)
-    converter_sort_index_names (self);
+    {
+      converter_sort_index_names (self);
+
+      if (self->sorted_index_names.number > 0)
+        {
+          size_t i;
+
+          self_plaintext->index_entry_conversion_info = (INDEX_ENTRY_INFO **)
+            malloc (sizeof (INDEX_ENTRY_INFO *)
+                                    * self->sorted_index_names.number);
+
+          for (i = 0; i < self->sorted_index_names.number; i++)
+            {
+              self_plaintext->index_entry_conversion_info[i]
+               = (INDEX_ENTRY_INFO *) malloc (sizeof (INDEX_ENTRY_INFO)
+                    * self->sorted_index_names.list[i]->entries_number);
+              memset (self_plaintext->index_entry_conversion_info[i], 0,
+                      sizeof (INDEX_ENTRY_INFO)
+                        * self->sorted_index_names.list[i]->entries_number);
+            }
+        }
+    }
 
   self_plaintext->node_names_cache
     = realloc (self_plaintext->node_names_cache,
@@ -574,6 +595,14 @@ plaintext_conversion_finalization (CONVERTER *self)
   self_plaintext->text_before_first_node = 0;
 
   self_plaintext->encoding_disabled = 0;
+
+  if (self->sorted_index_names.number > 0)
+    {
+      for (i = 0; i < self->sorted_index_names.number; i++)
+        free (self_plaintext->index_entry_conversion_info[i]);
+      free (self_plaintext->index_entry_conversion_info);
+    }
+  self_plaintext->index_entry_conversion_info = 0;
 }
 
 /* TODO
@@ -1421,22 +1450,26 @@ plaintext_process_printindex (CONVERTER *self,
           break;
         }
     }
+  /* no entries should not be possible, as only indices with entries are
+     left in sorted index names array */
   if (!index_sorted || !index_sorted->entries_number)
     return;
 
-  CONVERT_PRINTINDEX_ENTRIES_INFO *entries_info
-    = (CONVERT_PRINTINDEX_ENTRIES_INFO *) malloc (
-    index_sorted->entries_number * sizeof (CONVERT_PRINTINDEX_ENTRIES_INFO));
-  memset (entries_info, 0,
-    index_sorted->entries_number * sizeof (CONVERT_PRINTINDEX_ENTRIES_INFO));
+  /* TODO could cache entry_index_nr index_entry_info->number in an
+     array per sorted index entry to reuse in the second loop.
+     Not sure it is worth it.
+   */
 
   for (i = 0; i < index_sorted->entries_number; i++)
     {
+      INDEX_ENTRY_INFO *entry_info;
       const INDEX_ENTRY *index_entry = index_sorted->entries[i];
       const ELEMENT *main_entry_element = index_entry->entry_element;
       const ELEMENT *node = 0;
       char *line_nr_string;
       int index_line_nr_string_length;
+      size_t entry_index_nr;
+      const INDEX_ENTRY_LOCATION *index_entry_info;
 
       const ELEMENT *seealso;
       const ELEMENT *seeentry = index_entry_referred_entry (main_entry_element,
@@ -1455,6 +1488,14 @@ plaintext_process_printindex (CONVERTER *self,
           reference_entries_nr++;
           continue;
         }
+
+      entry_index_nr
+       = index_number_index_by_name (&self->sorted_index_names,
+                                    index_entry->index_name);
+      index_entry_info
+        = lookup_extra_index_entry (main_entry_element, AI_key_index_entry);
+      entry_info = &self_plaintext->index_entry_conversion_info
+         [entry_index_nr -1][index_entry_info->number -1];
 
      if (1)
        {
@@ -1475,7 +1516,7 @@ plaintext_process_printindex (CONVERTER *self,
             = lookup_extra_string (main_entry_element, AI_key_element_region);
           if (element_region)
             {
-              entries_info[i].ignored = 1;
+              entry_info->ignored = 1;
               break;
             }
         }
@@ -1508,8 +1549,8 @@ plaintext_process_printindex (CONVERTER *self,
             }
         }
 
-      entries_info[i].node = node;
-      /* TODO in Perl !defined is used not 0, it may be beeded to do something
+      entry_info->node = node;
+      /* TODO in Perl !defined is used not 0, it may be needed to do something
          similar here */
       if (!node)
         line_nr = 0;
@@ -1525,15 +1566,12 @@ plaintext_process_printindex (CONVERTER *self,
       free (line_nr_string);
       if (max_index_line_nr_string_length < index_line_nr_string_length)
         max_index_line_nr_string_length = index_line_nr_string_length;
-      entries_info[i].line_nr = line_nr;
+      entry_info->line_nr = line_nr;
       other_entries_nr++;
     }
 
   if (other_entries_nr + reference_entries_nr == 0)
-    {
-      free (entries_info);
-      return;
-    }
+    return;
 
   add_newline_if_needed (self);
 
@@ -1587,8 +1625,18 @@ plaintext_process_printindex (CONVERTER *self,
       int line_part_width;
       int spaces_nr;
       int j;
+      const INDEX_ENTRY_LOCATION *index_entry_info;
+      INDEX_ENTRY_INFO *entry_info;
 
-      if (entries_info[i].ignored)
+      entry_index_nr
+       = index_number_index_by_name (&self->sorted_index_names,
+                                    index_entry->index_name);
+      index_entry_info
+        = lookup_extra_index_entry (main_entry_element, AI_key_index_entry);
+      entry_info = &self_plaintext->index_entry_conversion_info
+         [entry_index_nr -1][index_entry_info->number -1];
+
+      if (entry_info->ignored)
         continue;
 
       COUNT_CONTEXT new_count_context = { 0 };
@@ -1598,9 +1646,6 @@ plaintext_process_printindex (CONVERTER *self,
 
       subentries_tree = comma_index_subentries_tree (main_entry_element, 0);
 
-      entry_index_nr
-       = index_number_index_by_name (&self->sorted_index_names,
-                                    index_entry->index_name);
       entry_index = self->sorted_index_names.list[entry_index_nr-1];
       in_code = entry_index->in_code;
 
@@ -1767,7 +1812,7 @@ plaintext_process_printindex (CONVERTER *self,
           line_width = index_length_to_node;
         }
 
-      node = entries_info[i].node;
+      node = entry_info->node;
 
       if (!node)
         {
@@ -1894,7 +1939,7 @@ plaintext_process_printindex (CONVERTER *self,
       stream_output (self, ".");
       line_width++;
 
-      line_nr = entries_info[i].line_nr;
+      line_nr = entry_info->line_nr;
       text_append_n (&line_part, "(line ", 6);
       /* line_nr_with_max_format is "%" max_index_line_nr_string_length "d" */
       text_printf (&line_part, line_nr_with_max_format, line_nr);
@@ -1942,8 +1987,6 @@ plaintext_process_printindex (CONVERTER *self,
   free (line_part.text);
 
   free (line_nr_with_max_format);
-
-  free (entries_info);
 }
 
 void
