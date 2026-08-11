@@ -1,3 +1,65 @@
+2026-08-11 Patrice Dumas  <pertusus@free.fr>
+
+	Implement footnotes and output encoding in plaintext C converter
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm: move code around.
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (add_location): comment
+	out setting index_entry as it is never used.
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (process_footnotes): fix
+	field name.
+
+	* tta/C/convert/convert_to_plaintext.c (push_top_formatter): add top
+	context command argument, push it to the context stack.  Update
+	callers.
+
+	* tta/C/convert/convert_to_plaintext.c (pop_context): add as a wrapper
+	for pop_(command) that returns the popped cmd.
+
+	* tta/C/convert/convert_to_plaintext.c (pop_top_formatter)
+	(plaintext_conversion_finalization): add pop_top_formatter and call
+	it in plaintext_conversion_finalization.  In pop_top_formatter use
+	pop_(formatter) instead of pop_formatter if the last context is
+	popped, as there is no formatter left when the last formatter is
+	popped.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): push and pop @math command on
+	context stack.  Pop context stack for PF_preformatted_context and
+	float commands.
+
+	* tta/C/convert/convert_to_plaintext.c (destroy_count_context)
+	(stream_reset, stream_output, stream_output_add_text),
+	tta/C/main/plaintext_converter_state.h (COUNT_CONTEXT): distinguish
+	pending_text, which is utf-8, and result text, which is encoded in the
+	output encoding.  Add pending_text and encoding_disabled fields in
+	COUNT_CONTEXT.  Use pending_text where if should be.
+
+	* tta/C/convert/convert_to_plaintext.c (stream_encode)
+	(stream_byte_count, stream_output_encoded, stream_result)
+	(stream_yield_result), tta/C/main/plaintext_converter_state.h
+	(PLAINTEXT_CONVERTER_STATE): add encoding_object field in
+	PLAINTEXT_CONVERTER_STATE.  Add stream_encode,
+	stream_byte_count and implement stream_output_encoded.  Call
+	stream_byte_count where it should be.
+
+	* tta/C/convert/convert_to_plaintext.c (add_location),
+	tta/C/main/plaintext_converter_state.h (LOCATION, LOCATION_LIST)
+	(COUNT_CONTEXT): locations lists types and list functions, add to
+	COUNT_CONTEXT.
+
+	* tta/C/convert/convert_to_info.c (info_header, info_output),
+	tta/C/convert/convert_to_plaintext.c (pending_footnote)
+	(plaintext_process_footnotes, convert_to_plaintext_internal)
+	(plaintext_convert_output_unit),
+	tta/C/main/plaintext_converter_state.h (PENDING_FOOTNOTE)
+	(PENDING_FOOTNOTE_LIST, PLAINTEXT_CONVERTER_STATE): Add
+	PENDING_FOOTNOTE and related types and functions.  Add multiple_pass,
+	footnote_index and pending_footnotes fields to
+	PLAINTEXT_CONVERTER_STATE.  Implement plaintext_process_footnotes and
+	conversion of footnotes.  Call plaintext_process_footnotes.
+
 2026-08-10 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_to_info.c (info_output),

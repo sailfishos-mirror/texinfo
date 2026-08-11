@@ -63,6 +63,8 @@ void plaintext_node_name (CONVERTER *self, const ELEMENT *element,
                           STRING_WITH_WIDTH *string_result);
 void plaintext_cache_node_names (CONVERTER *self,
                                  NODE_RELATIONS_LIST *nodes_list);
+void plaintext_process_footnotes (CONVERTER *self,
+                                  const OUTPUT_UNIT *output_unit);
 void plaintext_process_printindex (CONVERTER *self,
                                    const ELEMENT *printindex, int in_info);
 char *plaintext_image_formatted_text (CONVERTER *self, const ELEMENT *element,

@@ -62,11 +62,28 @@ typedef struct FORMAT_CONTEXT {
 def_list_type(FORMAT_CONTEXT_STACK, FORMAT_CONTEXT);
 decl_list_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
 
+typedef struct LOCATION {
+    int lines;
+    /* anchor and node */
+    const ELEMENT *root;
+    size_t bytes;
+    /* index entry */
+    const ELEMENT *node;
+} LOCATION;
+
+def_list_type(LOCATION_LIST, LOCATION *);
+/* TODO or in convert_to_plaintext.h */
+decl_list_fns(LOCATION_LIST, location, LOCATION *);
+
 typedef struct COUNT_CONTEXT {
   size_t lines;
   size_t bytes;
+  /* converted text in internal encoding (utf-8) */
+  TEXT pending_text;
+  /* converted text converted to output encoding */
   TEXT result;
-  /* TEXT pending_text; */
+  LOCATION_LIST locations;
+  int encoding_disabled;
 } COUNT_CONTEXT;
 
 def_list_type(COUNT_CONTEXT_STACK, COUNT_CONTEXT);
@@ -99,6 +116,14 @@ typedef struct MATH_ELEMENTS_IMAGES {
     size_t displaymath_index;
 } MATH_ELEMENTS_IMAGES;
 
+typedef struct PENDING_FOOTNOTE {
+    const ELEMENT *element;
+    int number;
+} PENDING_FOOTNOTE;
+
+def_list_type(PENDING_FOOTNOTE_LIST, PENDING_FOOTNOTE);
+decl_list_fns(PENDING_FOOTNOTE_LIST, pending_footnote, PENDING_FOOTNOTE);
+
 /* see comment re "6 stacks" in Plaintext.pm */
 typedef struct PLAINTEXT_CONVERTER_STATE {
     COMMAND_STACK context;
@@ -113,16 +138,20 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     int to_utf8;
     /* */
     PLAINTEXT_COMMAND_STRUCT commands_data[BUILTIN_CMD_NUMBER];
-    int encoding_disabled;
+    int encoding_disabled; /* if set, do not try to use an encoding object */
     int in_copying_header;
     int silent;
 
     /* conversion state */
+    const ENCODING_CONVERSION *encoding_object;
     char *output_filename;
     char *text_before_first_node;
     const ELEMENT *current_node;
+    int multiple_pass;
+    int footnote_index;
     /* cache node names */
     STRING_WITH_WIDTH *node_names_cache;
+    PENDING_FOOTNOTE_LIST pending_footnotes;
     /* cache "outside of any node" translated string for use in
        printindex formatting */
     char *outside_of_any_node_text;

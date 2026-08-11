@@ -996,6 +996,8 @@ sub _add_lines_count($$) {
 }
 
 # Save the line and byte offset of $ELEMENT.
+# For index entries, this is mainly useful for the readjustement of
+# line numbers, that would not be performed otherwise.
 sub add_location($$) {
 
   my ($self, $element) = @_;
@@ -1007,7 +1009,8 @@ sub add_location($$) {
     $location->{'bytes'} = _stream_byte_count($self);
     $location->{'root'} = $element;
   } else {
-    $location->{'index_entry'} = $element;
+    # the location is used, but not this field
+    #$location->{'index_entry'} = $element;
   }
   return $location;
 }
@@ -1133,6 +1136,60 @@ sub _stream_output_add_next($$) {
 }
 
 
+sub _stream_encode($$) {
+  my ($self, $string) = @_;
+
+  if ($self->{'encoding_disabled'}) {
+    return $string;
+  }
+
+  if (!defined($self->{'encoding_object'})) {
+    my $encoding
+      = Texinfo::Common::processing_output_encoding(
+                               $self->{'output_encoding_name'});
+    # TODO currently encoding cannot be ascii unless directly
+    # specified as OUTPUT_ENCODING_NAME customization variable as
+    # ascii documentencoding is mapped to us-ascii as input encoding
+    # (either explicitly in C or through Encode mime_name in Perl)
+    # and then us-ascii is mapped to iso-8859-1 output perl encoding
+    # through Texinfo::Common::encoding_name_conversion_map.
+    if (!defined($encoding) or $encoding eq 'ascii') {
+      $self->{'encoding_disabled'} = 1;
+      return $string;
+    }
+    my $Encode_encoding_object = Encode::find_encoding($encoding);
+    if (!defined($Encode_encoding_object)) {
+      Carp::croak "Unknown encoding '$encoding'";
+    }
+    $self->{'encoding_object'} = $Encode_encoding_object;
+  }
+
+  return $self->{'encoding_object'}->encode($string);
+}
+
+sub _stream_byte_count($) {
+  my $self = shift;
+
+  my $count_context = $self->{'count_context'}->[-1];
+
+  if (defined($count_context->{'pending_text'})
+        and $count_context->{'pending_text'} ne '') {
+    if (!$count_context->{'encoding_disabled'}) {
+      my $new_encoded
+        = _stream_encode($self, $count_context->{'pending_text'});
+      $count_context->{'pending_text'} = '';
+      $count_context->{'result'} .= $new_encoded;
+      $count_context->{'bytes'} += length($new_encoded);
+    } else {
+      $count_context->{'result'} .= $count_context->{'pending_text'};
+      $count_context->{'pending_text'} = '';
+      $count_context->{'bytes'} = -1;
+    }
+  }
+  return $count_context->{'bytes'};
+}
+
+
 # Add an already-encoded string to the output.
 sub _stream_output_encoded($$) {
   my ($self, $encoded) = @_;
@@ -1165,60 +1222,6 @@ sub _stream_yield_result($) {
   my $result = $self->{'count_context'}->[-1]->{'result'};
   undef $self->{'count_context'}->[-1]->{'result'};
   return defined($result) ? $result : '';
-}
-
-sub _stream_encode($$) {
-  my ($self, $string) = @_;
-
-  if ($self->{'encoding_disabled'}) {
-    return $string;
-  }
-
-  if (!defined($self->{'encoding_object'})) {
-    my $encoding
-      = Texinfo::Common::processing_output_encoding(
-                               $self->{'output_encoding_name'});
-    # TODO currently encoding cannot be ascii unless directly
-    # specified as OUTPUT_ENCODING_NAME customization variable as
-    # ascii documentencoding is mapped to us-ascii as input encoding
-    # (either explicitly in C or through Encode mime_name in Perl)
-    # and then us-ascii is mapped to iso-8859-1 output perl encoding
-    # through Texinfo::Common::encoding_name_conversion_map.
-    if (!defined($encoding) or $encoding eq 'ascii') {
-      $self->{'encoding_disabled'} = 1;
-      return $string;
-    }
-    my $Encode_encoding_object = Encode::find_encoding($encoding);
-    if (!defined($Encode_encoding_object)) {
-      Carp::croak "Unknown encoding '$encoding'";
-    }
-    $self->{'encoding_object'} = $Encode_encoding_object;
-  }
-
-  return $self->{'encoding_object'}->encode($string);
-}
-
-
-sub _stream_byte_count($) {
-  my $self = shift;
-
-  my $count_context = $self->{'count_context'}->[-1];
-
-  if (defined($count_context->{'pending_text'})
-        and $count_context->{'pending_text'} ne '') {
-    if (!$count_context->{'encoding_disabled'}) {
-      my $new_encoded
-        = _stream_encode($self, $count_context->{'pending_text'});
-      $count_context->{'pending_text'} = '';
-      $count_context->{'result'} .= $new_encoded;
-      $count_context->{'bytes'} += length($new_encoded);
-    } else {
-      $count_context->{'result'} .= $count_context->{'pending_text'};
-      $count_context->{'pending_text'} = '';
-      $count_context->{'bytes'} = -1;
-    }
-  }
-  return $count_context->{'bytes'};
 }
 
 sub convert_line($$;$$) {
@@ -1475,7 +1478,7 @@ sub process_footnotes($;$) {
       # without node that can be a target to cross-references.
       # TODO if doing plaintext, and not Info shouldn't all the
       # footnote be formatted without a separate node and with the
-      # --- footnotes --- separater?
+      # --- footnotes --- separator?
       if ($node_element->{'cmdname'} eq 'node'
           and exists($node_element->{'extra'})
           and exists($node_element->{'extra'}->{'identifier'})) {
@@ -1515,6 +1518,7 @@ sub process_footnotes($;$) {
       $self->format_node($footnotes_node, $footnotes_node_relations);
       $self->{'current_node'} = $footnotes_node;
     }
+
     while (@{$self->{'pending_footnotes'}}) {
       my $footnote_info = shift @{$self->{'pending_footnotes'}};
       my $footnote_number = $footnote_info->{'number'};
@@ -1534,7 +1538,7 @@ sub process_footnotes($;$) {
          Texinfo::TreeElement::new({'cmdname' => 'anchor',
                                     'contents' => [$footnote_anchor_arg],
                                     'extra' => {'is_target' => 1,
-                                   '            normalized'
+                                                'identifier'
        => $node_element->{'extra'}->{'identifier'}.$footnote_anchor_postfix},
                             }));
       }

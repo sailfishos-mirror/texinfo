@@ -192,7 +192,7 @@ info_header (CONVERTER *self, const char *input_basefile,
 
       tmp->e.c->contents.list = 0;
       destroy_element (tmp);
-      /* $self->process_footnotes(); */
+      plaintext_process_footnotes (self, 0);
       self_plaintext->in_copying_header = 0;
     }
   if (self->document->global_commands.dircategory_direntry.number)
@@ -496,9 +496,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
       new_context.lines = old_context->lines;
         */
       convert_to_plaintext_internal (self, root);
-      /* TODO
-      $self->process_footnotes();
-       */
+      plaintext_process_footnotes (self, 0);
       root_output = stream_result (self);
 
       write_or_return (conversion, encoded_outfile_name, file_fh, &result,

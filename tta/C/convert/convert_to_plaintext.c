@@ -142,11 +142,15 @@ reset_count_context_stack (COUNT_CONTEXT_STACK *stack)
 def_list_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT, 2);
 def_stack_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
 
+def_list_fns(LOCATION_LIST, location, LOCATION *, 5);
 
 static void
 destroy_count_context (COUNT_CONTEXT *ctxt)
 {
+  text_destroy (&ctxt->pending_text);
   text_destroy (&ctxt->result);
+  /* TODO destroy LOCATION_LIST locations.
+     And remaining locations within? */
 }
 
 void
@@ -237,15 +241,33 @@ push_formatter (CONVERTER *self, const FORMATTER *formatter)
 }
 
 void
-push_top_formatter (CONVERTER *self) /* , CONTEXT top_context) */
+push_top_formatter (CONVERTER *self, enum command_id cmd)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
 
-  FORMAT_CONTEXT top_format = { 0 };
   /* top_format 'cmdname' is '_top_format' in Perl.  Use 0 in C. */
+  FORMAT_CONTEXT top_format = { 0 };
+
+  add_(command) (&self_plaintext->context, cmd);
 
   add_(format_context) (&self_plaintext->format_context, top_format);
 
+  /* TODO
+  push @{$self->{'text_element_context'}}, {
+                                     'max' => $self->{'fillcolumn'}
+                                   };
+   */
+
+  /* TODO
+  push @{$self->{'document_context'}}, {
+                                     'in_multitable' => 0,
+                                     'quotations_authors' => []
+                                   };
+   */
+
+ /* This is not really meant to be used, as contents should open
+    their own formatters, however it happens that there is some text
+    outside any content that needs to be formatted, as @sp for example. */
   FORMATTER top_formatter = new_formatter(self, formatter_line, -1, -1);
   push_formatter (self, &top_formatter);
 }
@@ -260,6 +282,37 @@ pop_formatter (CONVERTER *self)
 
   para_set_state (top_(formatter) (stack)->container.paragraph);
   /* Note: no memory needs to be freed here. */
+}
+
+static enum command_id
+pop_context (COMMAND_STACK *stack)
+{
+  enum command_id popped_cmd = *top_(command) (stack);
+  pop_(command) (stack);
+  return popped_cmd;
+}
+
+enum command_id
+pop_top_formatter (CONVERTER *self)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  enum command_id popped_cmd = pop_context (&self_plaintext->context);
+
+  pop_(format_context) (&self_plaintext->format_context);
+  para_destroy ();
+
+  if (popped_cmd == CM_NONE)
+    /* should be removing the last format, do not set the paragraph */
+    pop_(formatter) (&self_plaintext->formatters);
+  else
+    pop_formatter (self);
+
+  /* TODO
+  pop @{$self->{'text_element_context'}};
+  pop @{$self->{'document_context'}};
+   */
+
+  return popped_cmd;
 }
 
 
@@ -493,7 +546,8 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
   init_c_hashmap (&self_plaintext->index_entry_node_colon,
                   document->nodes_list.number);
 
-  push_top_formatter (self);
+  /* _Root_context in Perl, in C use CM_NONE */
+  push_top_formatter (self, CM_NONE);
 }
 
 void
@@ -505,9 +559,8 @@ plaintext_conversion_finalization (CONVERTER *self)
 
   for (i = 0; i < self->document->nodes_list.number; i++)
     free (self_plaintext->node_names_cache[i].string);
-  /*
+
   pop_top_formatter (self);
-   */
 
   clear_c_hashmap (&self_plaintext->index_entries_no_node);
   clear_c_hashmap (&self_plaintext->index_entry_node_colon);
@@ -547,6 +600,7 @@ stream_reset (CONVERTER *self)
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
 
+  text_reset (&count_context->pending_text);
   text_reset (&count_context->result);
 }
 
@@ -557,7 +611,7 @@ stream_output (CONVERTER *self, const char *text)
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
 
-  text_append (&count_context->result, text);
+  text_append (&count_context->pending_text, text);
 }
 
 static void
@@ -580,7 +634,7 @@ stream_output_add_text (CONVERTER *self, const char *text)
   count_context->lines += count;
 
   if (result.text)
-    text_append (&count_context->result, result.text);
+    text_append (&count_context->pending_text, result.text);
 }
 
 void
@@ -590,11 +644,89 @@ stream_output_add_next (CONVERTER *self, const char *text)
   stream_output (self, text);
 }
 
+static size_t
+stream_encode (CONVERTER *self, const char *text, TEXT *result)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  char *converted_text;
+  size_t len;
+
+  if (self_plaintext->encoding_disabled)
+    {
+      len = strlen (text);
+      text_append_n (result, text, len);
+      return len;
+    }
+
+  if (!self_plaintext->encoding_object)
+    {
+      if (self->conf->OUTPUT_ENCODING_NAME.o.string
+          && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "utf-8")
+          && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "ascii"))
+        {
+          self_plaintext->encoding_object
+           = get_encoding_conversion (
+                            self->conf->OUTPUT_ENCODING_NAME.o.string,
+                                            &output_conversions);
+        }
+      else
+        {
+          self_plaintext->encoding_disabled = 1;
+          len = strlen (text);
+          text_append_n (result, text, len);
+          return len;
+        }
+    }
+  converted_text = encode_with_iconv (self_plaintext->encoding_object->iconv,
+                                      (char *)text, 0, ieh_error, 0);
+  len = strlen (converted_text);
+  text_append_n (result, converted_text, len);
+  free (converted_text);
+  return len;
+}
+
+static size_t
+stream_byte_count (CONVERTER *self)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+    = top_(count_context) (&self_plaintext->count_context);
+
+  /* TODO need pending_text */
+  if (count_context->pending_text.end > 0)
+    {
+      if (!count_context->encoding_disabled)
+        {
+          size_t len = stream_encode (self, count_context->pending_text.text,
+                                      &count_context->result);
+          /* TODO use count_context->result.end? */
+          count_context->bytes += len;
+        }
+      else
+        {
+          text_append_n (&count_context->result,
+                         count_context->pending_text.text,
+                         count_context->pending_text.end);
+          count_context->bytes = -1;
+        }
+      text_reset (&count_context->pending_text);
+    }
+
+  return count_context->bytes;
+}
+
 void
 stream_output_encoded (CONVERTER *self, const char *encoded)
 {
-  /* TODO */
-  stream_output (self, encoded);
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+    = top_(count_context) (&self_plaintext->count_context);
+
+  /* flush pending */
+  stream_byte_count (self);
+
+  text_append (&count_context->result, encoded);
+  count_context->bytes += strlen (encoded);
 }
 
 /* NOTE the returned string changes with new text streamed and is destroyed
@@ -609,6 +741,9 @@ stream_result (CONVERTER *self)
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
 
+  /* flush pending */
+  stream_byte_count (self);
+
   const char *result = count_context->result.text;
   return result ? result : "";
 }
@@ -622,20 +757,33 @@ stream_yield_result (CONVERTER *self)
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
 
+  /* flush pending */
+  stream_byte_count (self);
+
   char *result = text_yield (&count_context->result);
   return result ? result : strdup ("");
 }
 
+/* Save the line and byte offset of $ELEMENT. */
 static void
-stream_encode (CONVERTER *self, const char *text)
+add_location (CONVERTER *self, const ELEMENT *element)
 {
-  /* TODO */
-}
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+    = top_(count_context) (&self_plaintext->count_context);
+  const INDEX_ENTRY_LOCATION *index_entry_info
+   = lookup_extra_index_entry (element, AI_key_index_entry);
 
-static int
-stream_byte_count (void)
-{
-  /* TODO */
+  LOCATION *location = (LOCATION *) malloc (sizeof (LOCATION));
+
+  location->lines = count_context->lines;
+  if (!index_entry_info)
+    {
+      location->bytes = stream_byte_count (self);
+      location->root = element;
+    }
+
+  add_(location) (&count_context->locations, location);
 }
 
 void
@@ -838,11 +986,13 @@ plaintext_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
       const char *pending_word;
       char *result;
       COUNT_CONTEXT count_context = { 0 };
+
+      STRING_WITH_WIDTH *node_name = &self_plaintext->node_names_cache[i];
+
       const ELEMENT *node = self->document->nodes_list.list[i]->element;
       const ELEMENT *label_element = node->e.c->contents.list[0]
                                                  ->e.c->contents.list[0];
-      
-      STRING_WITH_WIDTH *node_name = &self_plaintext->node_names_cache[i];
+
       /* cast to drop const */
       add_to_contents_as_array (node_text, (ELEMENT *)label_element);
 
@@ -866,6 +1016,204 @@ plaintext_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
   pop_formatter (self);
 
   destroy_element (node_text);
+}
+
+/*
+sub _open_code($) {
+ */
+
+/*
+sub _close_code($) {
+ */
+
+static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[];
+
+def_list_fns(PENDING_FOOTNOTE_LIST, pending_footnote, PENDING_FOOTNOTE, 3);
+
+static int footnote_indent = 3;
+#define NO_NUMBER_FOOTNOTE_SYMBOL "*"
+
+void
+plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  /* may not be used */
+  FORMATTER formatter = new_formatter (self, formatter_line, -1, -1);
+  const char *end_result;
+
+  push_formatter (self, &formatter);
+
+  if (self_plaintext->pending_footnotes.number > 0)
+    {
+      ELEMENT *label_element = 0;
+      const ELEMENT *node_element;
+      const char *identifier;
+      ELEMENT *footnotes_node = 0;
+      size_t i;
+
+      if (output_unit && output_unit->uc.unit_command)
+        {
+          node_element = output_unit->uc.unit_command;
+
+          if (node_element->e.c->cmd == CM_node)
+            {
+              identifier
+                = lookup_extra_string (node_element, AI_key_identifier);
+              if (identifier)
+                {
+                  const ELEMENT *arguments_line
+                    = node_element->e.c->contents.list[0];
+                  label_element = arguments_line->e.c->contents.list[0];
+                }
+            }
+        }
+
+      add_newline_if_needed (self);
+
+      if (!self->conf->footnotestyle.o.string
+          || strcmp (self->conf->footnotestyle.o.string, "separate")
+        /* no node label happens only in very special cases, such as
+           a @footnote in @copying and @insertcopying (and USE_NODES=0?) */
+          || !label_element)
+        {
+          stream_output (self, "   ---------- Footnotes ----------\n\n");
+          add_lines_count (self, 2);
+        }
+      else
+        { /* TODO local variables?  current_node is used for an index entry
+             appearing in footnote.  When/how can the elements be destroyed? */
+          ELEMENT *footnotes_node_arg = new_element (ET_line_arg);
+          ELEMENT *footnotes_suffix = new_element (ET_other_text);
+          footnotes_node
+            = new_command_element (ET_line_command, CM_node);
+          ELEMENT *footnote_arguments_line
+            = new_element (ET_arguments_line);
+          char *footnote_node_id;
+          NODE_RELATIONS footnotes_node_relations = { 0 };
+
+          text_append_n (footnotes_suffix->e.text, "-Footnotes", 10);
+          xasprintf (&footnote_node_id, "%s-Footnotes", identifier);
+
+          /* TODO the label_element could be copied if it is simpler
+             to register footnotes_node to be destroyed instead of
+             each of the element except for label_element */
+          add_to_contents_as_array (footnotes_node_arg, label_element);
+          add_element_to_element_contents (footnotes_node_arg,
+                                           footnotes_suffix);
+          add_element_to_element_contents (footnote_arguments_line,
+                                           footnotes_node_arg);
+          add_element_to_element_contents (footnotes_node,
+                                           footnote_arguments_line);
+          footnotes_node->flags |= EF_is_target;
+          add_extra_string (footnotes_node, AI_key_identifier,
+                            footnote_node_id);
+
+          footnotes_node_relations.element = footnotes_node;
+          footnotes_node_relations.node_directions = new_directions ();
+          footnotes_node_relations.node_directions[D_up] = node_element;
+
+          plaintext_functions[self->format].format_node (self, footnotes_node,
+                                                   &footnotes_node_relations);
+          self_plaintext->current_node = footnotes_node;
+
+          free (footnote_node_id);
+        }
+
+      for (i = 0; i < self_plaintext->pending_footnotes.number; i++)
+        {
+          enum command_id old_context_cmd;
+          const PENDING_FOOTNOTE *footnote_info
+            = &self_plaintext->pending_footnotes.list[i];
+          int j;
+
+     /* If nested within another footnote and footnotestyle is separate,
+        the element here will be the parent element and not the footnote
+        element, while the pxref will point to the name with the
+        footnote node taken into account.  Not really problematic as
+        nested footnotes are not right. */
+
+          if (label_element)
+            {
+              char *footnote_anchor_id;
+              ELEMENT *footnote_anchor_arg = new_element (ET_brace_arg);
+              ELEMENT *footnote_anchor = new_command_element (ET_brace_command,
+                                                              CM_anchor);
+              ELEMENT *footnote_anchor_postfix_e
+                = new_text_element (ET_other_text);
+              text_printf (footnote_anchor_postfix_e->e.text, "-Footnote-%d",
+                           footnote_info->number);
+
+          /* TODO the label_element could be copied if it is simpler
+             to register footnotes_anchor to be destroyed instead of
+             each of the element except for label_element */
+              add_to_contents_as_array (footnote_anchor_arg, label_element);
+              add_element_to_element_contents (footnote_anchor_arg,
+                                               footnote_anchor_postfix_e);
+
+              xasprintf (&footnote_anchor_id, "%s%s", identifier,
+                         footnote_anchor_postfix_e->e.text);
+
+              footnote_anchor->flags |= EF_is_target;
+              add_extra_string (footnote_anchor, AI_key_identifier,
+                                footnote_anchor_id);
+              add_to_element_contents (footnote_anchor, footnote_anchor_arg);
+
+              /* FIXME the footnote_anchor element is not registered anywhere
+                 for destruction */
+              add_location (self, footnote_anchor);
+            }
+
+          push_top_formatter (self, CM_footnote);
+
+          for (j = 0; j < footnote_indent; j++)
+            {
+              /* TODO
+              $self->{'text_element_context'}->[-1]->{'counter'} += 1
+               */
+              stream_output (self, " ");
+            }
+
+          if (self->conf->NUMBER_FOOTNOTES.o.integer > 0)
+            {
+              char *formatted_footnote_number_str;
+              xasprintf (&formatted_footnote_number_str, "(%d)",
+                         footnote_info->number);
+
+              stream_output (self, formatted_footnote_number_str);
+            /*
+              $self->{'text_element_context'}->[-1]->{'counter'} +=
+                Texinfo::Convert::Unicode::string_width($footnote_text);
+             */
+              free (formatted_footnote_number_str);
+            }
+          else
+            {
+              stream_output (self, "(" NO_NUMBER_FOOTNOTE_SYMBOL ")");
+              /*
+             $self->{'text_element_context'}->[-1]->{'counter'} +=
+               3 */
+            }
+
+          if (footnote_info->element->e.c->contents.number > 0)
+            convert_to_plaintext_internal (self,
+                        footnote_info->element->e.c->contents.list[0]);
+
+          add_newline_if_needed (self);
+
+          old_context_cmd = pop_top_formatter (self);
+          if (old_context_cmd != CM_footnote)
+            abort ();
+        }
+      self_plaintext->pending_footnotes.number = 0;
+    }
+
+  self_plaintext->footnote_index = 0;
+
+  end_result = para_end ();
+  stream_output_count_nl (self, end_result);
+
+  para_destroy ();
+  pop_formatter (self);
 }
 
 void
@@ -2367,10 +2715,84 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           else if (cmd == CM_uref || cmd == CM_url)
             return;
           else if (cmd == CM_footnote)
-            return;
+            {
+              TEXT added;
+
+              if (!self_plaintext->multiple_pass)
+                self_plaintext->footnote_index++;
+
+              if (!self_plaintext->in_copying_header)
+                plaintext_functions[self->format]
+                  .format_error_outside_of_any_node (self, element);
+
+              if (!self_plaintext->multiple_pass)
+                {
+                  PENDING_FOOTNOTE footnote_and_number = {
+                         element, self_plaintext->footnote_index
+                  };
+                  add_(pending_footnote) (&self_plaintext->pending_footnotes,
+                                          footnote_and_number);
+                }
+
+              if (self->conf->NUMBER_FOOTNOTES.o.integer > 0)
+                {
+                  char *formatted_footnote_number_str;
+                  xasprintf (&formatted_footnote_number_str, "(%d)",
+                             self_plaintext->footnote_index);
+                  added = para_add_next (formatted_footnote_number_str,
+                                   strlen (formatted_footnote_number_str), 1);
+                  free (formatted_footnote_number_str);
+                }
+              else
+                added = para_add_next ("(" NO_NUMBER_FOOTNOTE_SYMBOL ")", 3, 1);
+
+              if (added.text)
+                stream_output_count_nl (self, added.text);
+
+              if (self->conf->footnotestyle.o.string
+                  && !strcmp (self->conf->footnotestyle.o.string, "separate")
+                  && self_plaintext->current_node)
+                {
+                  /* arguments_line type element */
+                  const ELEMENT *arguments_line
+                    = self_plaintext->current_node->e.c->contents.list[0];
+                  ELEMENT *line_arg = arguments_line->e.c->contents.list[0];
+
+                  ELEMENT *footnote_ref = new_element (ET_NONE);
+                  ELEMENT *open_parenthese = new_text_element (ET_other_text);
+                  text_append_n (open_parenthese->e.text, " (", 2);
+                  ELEMENT *close_parenthese = new_text_element (ET_other_text);
+                  text_append_n (close_parenthese->e.text, ")", 1);
+                  ELEMENT *footnote_pxref
+                                 = new_command_element (ET_brace_command,
+                                                        CM_pxref);
+                  ELEMENT *footnote_brace_arg = new_element (ET_brace_arg);
+                  ELEMENT *footnote_name = new_text_element (ET_other_text);
+                  text_printf (footnote_name->e.text, "-Footnote-%s",
+                               self_plaintext->footnote_index);
+
+                  add_element_to_element_contents (footnote_ref,
+                                                   open_parenthese);
+                  add_to_element_contents (footnote_ref, footnote_pxref);
+                  add_element_to_element_contents (footnote_ref,
+                                                   close_parenthese);
+                  add_to_element_contents (footnote_pxref, footnote_brace_arg);
+                  add_to_contents_as_array (footnote_brace_arg, line_arg);
+                  add_element_to_element_contents (footnote_brace_arg,
+                                                   footnote_name);
+
+                  convert_to_plaintext_internal (self, footnote_ref);
+
+                  destroy_element (footnote_name);
+                  destroy_element (footnote_brace_arg);
+                  destroy_element (footnote_pxref);
+                  destroy_element (open_parenthese);
+                  destroy_element (close_parenthese);
+                  destroy_element (footnote_ref);
+                }
+              return;
+            }
           else if (cmd == CM_anchor || cmd == CM_namedanchor)
-            return;
-          else if (cmd == CM_footnote)
             return;
           else if (cmd_data->flags & CF_explained)
             return;
@@ -2382,9 +2804,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 = new_element (ET__frenchspacing);
               ELEMENT *math_code_element = new_element (ET__code);
               MATH_ELEMENT_IMAGE *element_image = 0;
-             /* TODO
-              push @{$self->{'context'}}, $cmdname;
-              */
+              add_(command) (&self_plaintext->context, cmd);
+              enum command_id popped_cmd;
+
               if (self_plaintext->element_images)
                 {
                   element_image
@@ -2454,6 +2876,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   stream_output (self, image_result.string);
                   free (image_result.string);
                 }
+              popped_cmd = pop_context (&self_plaintext->context);
+              if (popped_cmd != cmd)
+                abort ();
               return;
             }
           else if (cmd == CM_titlefont)
@@ -2794,6 +3219,30 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         {
         }
       /* else if root_commands etc. */
+
+       /* close the contexts and register the cells */
+       if (plaintext_commands_data[cmd].flags & PF_preformatted_context
+           || cmd == CM_float)
+         {
+           enum command_id popped_cmd
+             = pop_context (&self_plaintext->context);
+
+           if (popped_cmd != CM_float
+               && !(plaintext_commands_data[popped_cmd].flags
+                                         & PF_preformatted_context))
+             {
+               char *msg;
+               xasprintf (&msg, "Not a preformatted context (%d): %s",
+                          popped_cmd, builtin_command_name (popped_cmd));
+               bug (msg);
+               free (msg);
+             }
+         }
+         /* TODO
+       else if
+          */
+
+       /* TODO */
     }
   return;
 }
@@ -2924,7 +3373,10 @@ plaintext_convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
         }
     }
 
-  /* TODO */
+  plaintext_process_footnotes (self, output_unit);
+  /* TODO
+  _adjust_final_locations
+   */
 
   return stream_yield_result (self);
 }
