@@ -146,6 +146,8 @@ def_stack_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
 
 def_list_fns(TARGET_LOCATION_LIST, target_location, TARGET_LOCATION *, 5);
 
+def_list_fns(INDEX_ENTRY_LINE_COUNT_LIST, index_entry_location, int *, 5);
+
 static void
 destroy_count_context (COUNT_CONTEXT *ctxt)
 {
@@ -1525,18 +1527,8 @@ plaintext_process_printindex (CONVERTER *self,
       entry_info = &self_plaintext->index_entry_conversion_info
          [entry_index_nr -1][index_entry_info->number -1];
 
-     if (1)
-       {
-    /* TODO
-    if (exists($self->{'index_entries_line_location'})
-        and defined($self->{'index_entries_line_location'}
-                                              ->{$main_entry_element})) {
-      $line_nr = $self->{'index_entries_line_location'}
-                                     ->{$main_entry_element}->{'lines'};
-    }
-      */
-         line_nr = i+1;
-       }
+      if (entry_info->location)
+        line_nr = *entry_info->location;
       else
        {
       /* ignore index entries in special regions that haven't been seen */
@@ -1548,24 +1540,11 @@ plaintext_process_printindex (CONVERTER *self,
               break;
             }
         }
+
     /* priority given to the location determined dynamically as the
        index entry may be in footnote. */
-      if (0)
-        {
-     /* TODO
-    if (exists($self->{'index_entries_line_location'})
-        and exists($self->{'index_entries_line_location'}
-                                             ->{$main_entry_element})
-        and defined($self->{'index_entries_line_location'}
-                                    ->{$main_entry_element}->{'node'})) {
-      $node = $self->{'index_entries_line_location'}
-                                    ->{$main_entry_element}->{'node'};
-    } elsif (exists($main_entry_element->{'extra'}->{'element_node'})) {
-      $node = $identifiers_target->{
-                        $main_entry_element->{'extra'}->{'element_node'}};
-    }
-       */
-        }
+      if (entry_info->node)
+        node = entry_info->node;
       else
         {
           const char *element_node
@@ -1574,12 +1553,10 @@ plaintext_process_printindex (CONVERTER *self,
             {
               C_HASHMAP *identifiers_target = &self->document->identifiers_target;
               node = find_identifier_target (identifiers_target, element_node);
+              entry_info->node = node;
             }
         }
 
-      entry_info->node = node;
-      /* TODO in Perl !defined is used not 0, it may be needed to do something
-         similar here */
       if (!node)
         line_nr = 0;
       else if (in_info)
@@ -2599,6 +2576,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   enum element_type type = element->type;
+  const INDEX_ENTRY_LOCATION *index_entry_info;
 
   /* TODO check right way to check text in union field */
   if (type_data[type].flags & TF_text)
@@ -2653,9 +2631,63 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
     {
       if (self_plaintext->commands_data[cmd].flags & PF_ignored)
         return;
+
+      const COMMAND *cmd_data = &command_data[cmd];
+
+      if (cmd_data->flags & CF_brace
+          && cmd_data->data == BRACE_inline
+          && cmd != CM_inlinefmtifelse)
+        {
+          if (command_other_flags (element) & CF_inline_format)
+            {
+              const char *format
+                = lookup_extra_string (element, AI_key_format);
+              if (!format
+                  || !format_expanded_p (self->expanded_formats, format))
+                return;
+            }
+          else
+            {
+              int status;
+              int expand_index
+               = lookup_extra_integer (element, AI_key_expand_index, &status);
+
+              if (!expand_index)
+                return;
+            }
+        }
     }
 
-  /* TODO: Index entry check */
+  index_entry_info
+    = lookup_extra_index_entry (element, AI_key_index_entry);
+  if (index_entry_info && !self_plaintext->multiple_pass
+      && !self_plaintext->in_copying_header)
+    {
+      size_t entry_index_nr
+       = index_number_index_by_name (&self->sorted_index_names,
+                                     index_entry_info->index_name);
+
+      INDEX_ENTRY_INFO *entry_info
+         = &self_plaintext->index_entry_conversion_info
+           [entry_index_nr -1][index_entry_info->number -1];
+
+      COUNT_CONTEXT *count_context
+        = top_(count_context) (&self_plaintext->count_context);
+      int *line_location = (int *) malloc (sizeof (int));
+      *line_location = count_context->lines;
+
+      add_(index_entry_location) (&count_context->index_entry_locations,
+                                  line_location);
+      entry_info->location = line_location;
+
+   /* this covers the special case for index entry not associated with a
+      node but seen.  This will be an index entry in @copying,
+      in @insertcopying.
+      This also covers the case of an index entry in a node added by a
+      @footnote with footnotestyle separate. */
+      if (self_plaintext->current_node)
+        entry_info->node = self_plaintext->current_node;
+    }
 
   if (type == ET_index_entry_command)
     return;

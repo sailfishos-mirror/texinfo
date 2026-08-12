@@ -1524,7 +1524,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
         }
     }
   stream_output (self, "\n\n");
-  count_context->lines += 3;
+  count_context->lines = 3;
 }
 
 #define QUOTE_SLASH "\\\""

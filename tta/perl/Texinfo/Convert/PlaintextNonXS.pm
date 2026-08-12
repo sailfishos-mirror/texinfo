@@ -1012,17 +1012,6 @@ sub add_target_location($$) {
   return $location;
 }
 
-# Save the line offset of $ELEMENT.
-sub add_index_entry_location($$) {
-  my ($self, $element) = @_;
-
-  my $location = {
-        'lines' => $self->{'count_context'}->[-1]->{'lines'},
-      };
-  push @{$self->{'count_context'}->[-1]->{'index_entry_locations'}}, $location;
-  return $location;
-}
-
 # Used at the end of an output unit.  Decrement any location line counters
 # if equal to the current line count, as this could be past the end of a
 # node.
@@ -3035,12 +3024,19 @@ sub _convert($$) {
   if (exists($element->{'extra'})
       and exists($element->{'extra'}->{'index_entry'})
       and !$self->{'multiple_pass'} and !$self->{'in_copying_header'}) {
-    my $location = $self->add_index_entry_location($element);
+
+    # Save the line offset.
+
+    my $location = {
+        'lines' => $self->{'count_context'}->[-1]->{'lines'},
+      };
+    push @{$self->{'count_context'}->[-1]->{'index_entry_locations'}},
+      $location;
 
     my $index_entry_info = {'location' => $location};
 
     # this covers the special case for index entry not associated with a
-    # node but seen.  this will be an index entry in @copying,
+    # node but seen.  This will be an index entry in @copying,
     # in @insertcopying.
     # This also covers the case of an index entry in a node added by a
     # @footnote with footnotestyle separate.
@@ -3590,7 +3586,6 @@ sub _convert($$) {
     } elsif (defined($nobrace_symbol_text{$cmdname})) {
       if ($cmdname eq ':') {
         remove_end_sentence($formatter->{'container'});
-        return;
       } elsif ($cmdname eq '*') {
         _stream_output_count_nl($self,
                        add_pending_word($formatter->{'container'}));
@@ -3598,7 +3593,7 @@ sub _convert($$) {
         # entry and therefore index entry would lead to end of line on
         # node pointers line, in tag table, or on menu, all being invalid.
         if ($formatter->{'no_added_eol'}) {
-          _stream_output_add_text ($self, ' ');
+          _stream_output_add_text($self, ' ');
         } else {
           _stream_output_count_nl($self,
                          end_line($formatter->{'container'}));
