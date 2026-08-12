@@ -1046,7 +1046,6 @@ itemize_line_prepended_element (const ELEMENT *block_line_arg)
 }
 
 /* in Texinfo::Common */
-/* Unused
 const ELEMENT *
 item_itemize_prepended (const ELEMENT *element)
 {
@@ -1055,7 +1054,6 @@ item_itemize_prepended (const ELEMENT *element)
   return itemize_line_prepended_element (
                       arguments_line->e.c->contents.list[0]);
 }
- */
 
 const ELEMENT *
 item_line_block_line_argument_command (const ELEMENT *block_line_arg)

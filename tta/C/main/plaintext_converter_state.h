@@ -52,7 +52,7 @@ decl_list_fns(FORMATTER_STACK, formatter, FORMATTER);
 typedef struct FORMAT_CONTEXT {
     enum command_id cmd;
     int paragraph_count;
-    int context_index_len;
+    int context_indent_len;
     int row;
     int row_cell_counts;
     int paragraph_counts;

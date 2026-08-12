@@ -54,7 +54,7 @@
 #include "targets.h"
 #include "customization_options.h"
 #include "output_unit.h"
-/* for converter_encoded_output_file_name */
+/* for converter_encoded_output_file_name item_itemize_prepended */
 #include "convert_utils.h"
 #include "convert_to_texinfo.h"
 #include "plaintext_paragraph.h"
@@ -107,6 +107,8 @@ static struct item_indent_format_length item_indent_format_length[] = {
   {CM_ftable, 0},
   {CM_NONE, -1},
 };
+
+static int default_indent_length = 5;
 
 static PLAINTEXT_COMMAND_STRUCT plaintext_commands_data[BUILTIN_CMD_NUMBER];
 
@@ -174,6 +176,9 @@ clear_count_context_stack (COUNT_CONTEXT_STACK *stack)
 
 
 
+def_list_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT, 2);
+def_stack_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
+
 def_list_fns(FORMATTER_STACK, formatter, FORMATTER, 1);
 def_stack_fns(FORMATTER_STACK, formatter, FORMATTER);
 
@@ -187,10 +192,17 @@ static void
 fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
                int indent_length, int indent_length_next)
 {
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   formatter->container.paragraph = para_new ();
 
   if (indent_length != -1)
     para_set_conf_indent_length (indent_length);
+  else
+    {
+      FORMAT_CONTEXT *top_format_context
+        = top_(format_context) (&self_plaintext->format_context);
+      para_set_conf_indent_length (top_format_context->context_indent_len);
+    }
   if (indent_length_next != -1)
     para_set_conf_indent_length_next (indent_length_next);
 
@@ -226,9 +238,6 @@ new_formatter (CONVERTER *self, enum formatter_type type,
   fill_formatter (&formatter, self, type, indent_length, indent_length_next);
   return formatter;
 }
-
-def_list_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT, 2);
-def_stack_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
 
 void
 push_formatter (CONVERTER *self, const FORMATTER *formatter)
@@ -3096,7 +3105,38 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
           if (plaintext_commands_data[cmd].flags & PF_format_context)
             {
-              /* TODO */
+              FORMAT_CONTEXT *top_format_context
+                = top_(format_context) (&self_plaintext->format_context);
+              FORMAT_CONTEXT format_context = { 0 };
+              format_context.cmd = cmd;
+              format_context.context_indent_len
+                  = top_format_context->context_indent_len;
+
+              if (plaintext_commands_data[cmd].flags & PF_indented)
+                {
+                  int indent_len;
+                  if (plaintext_commands_data[cmd].flags & PF_example_indented)
+                    {
+                      const char *indent_len_str
+                         = self->conf->exampleindent.o.string;
+                      if (!indent_len_str)
+                        indent_len = default_indent_length;
+                      else if (!strcmp ("asis", indent_len_str))
+                        indent_len = 0;
+                      else
+                        {
+                          indent_len = atoi (indent_len_str);
+                          if (indent_len < 0)
+                            indent_len = 0;
+                        }
+                    }
+                  else
+                    indent_len = default_indent_length;
+
+                  format_context.context_indent_len += indent_len;
+                }
+              add_(format_context) (&self_plaintext->format_context,
+                                    format_context);
 
         /*
           open a preformatted container, if the command opening the
@@ -3169,8 +3209,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 }
               else
                 {
-                  int indent_len = 0;
-           /* TODO $self->{'format_context'}->[-2]->{'context_indent_len'} */
+                  int indent_len = self_plaintext->format_context.list[
+              self_plaintext->format_context.number -2].context_indent_len;
                   ELEMENT *frenchspacing_element
                     = new_element (ET__frenchspacing);
                   add_to_contents_as_array (frenchspacing_element,
@@ -3184,6 +3224,52 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 }
             }
           return;
+        }
+      else if (cmd == CM_item && element->e.c->parent
+               && command_data[element->e.c->parent->e.c->cmd].flags & CF_block
+               && command_data[element->e.c->parent->e.c->cmd].data
+                                                       == BLOCK_item_container)
+        {
+          FORMAT_CONTEXT *top_format_context
+            = top_(format_context) (&self_plaintext->format_context);
+          enum command_id parent_cmd = element->e.c->parent->e.c->cmd;
+          FORMATTER formatter;
+
+          top_format_context->paragraph_count = 0;
+
+          int indent_len
+            = self_plaintext->format_context.list[
+                 self_plaintext->format_context.number -2].context_indent_len
+              + plaintext_commands_data[element->e.c->parent->e.c->cmd]
+                                        .indent_format_length;
+          formatter = new_formatter (self, formatter_line, indent_len, -1);
+          push_formatter (self, &formatter);
+
+          if (parent_cmd == CM_enumerate)
+            {
+              char *item_representation
+                = enumerate_item_representation (element);
+              stream_output_add_next (self, item_representation);
+              stream_output_add_next (self, ". ");
+            }
+          else
+            {
+              ELEMENT *space_element = new_text_element (ET_other_text);
+              text_append_n (space_element->e.text, " ", 1);
+              const ELEMENT *prepended_element
+                = item_itemize_prepended (element);
+              convert_to_plaintext_internal (self, prepended_element);
+              convert_to_plaintext_internal (self, space_element);
+              destroy_element (space_element);
+            }
+          const char *result = para_end ();
+          stream_output_count_nl (self, result);
+          /* TODO
+             $self->{'text_element_context'}->[-1]->{'counter'} +=
+         Texinfo::Convert::Paragraph::counter($line->{'container'});
+           */
+          para_destroy ();
+          pop_formatter (self);
         }
       else if (cmd == CM_headitem || cmd == CM_item || cmd == CM_tab)
         ;
@@ -3472,6 +3558,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                free (msg);
              }
          }
+
+       if (plaintext_commands_data[cmd].flags & PF_format_context)
+         pop_(format_context) (&self_plaintext->format_context);
+
          /* TODO
        else if
           */
