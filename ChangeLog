@@ -1,5 +1,13 @@
 2026-08-12 Patrice Dumas  <pertusus@free.fr>
 
+	C plaintext @today, @email, @url/@uref
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): implement conversion of @today,
+	@email, and @url/@uref.
+
+2026-08-12 Patrice Dumas  <pertusus@free.fr>
+
 	C plaintext partial accents implementation, definfoenclose and @link
 
 	* tta/C/convert/convert_to_plaintext.c

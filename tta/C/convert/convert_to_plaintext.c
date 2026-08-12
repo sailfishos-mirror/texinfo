@@ -2886,7 +2886,12 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               return;
             }
           else if (cmd == CM_today)
-            return;
+            {
+              ELEMENT *today_element = converter_expand_today (self);
+              convert_to_plaintext_internal (self, today_element);
+              destroy_element_and_children (today_element);
+              return;
+            }
           else if (cmd_data->data == BRACE_noarg)
             {
               ELEMENT *translated_tree
@@ -2957,9 +2962,115 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               return;
             }
           else if (cmd == CM_email)
-            return;
+            {
+              if (element->e.c->contents.number > 0)
+                {
+       /* next elements are temporarily modified during copy, so cannot be
+          const, but they are conceptually const */
+                  ELEMENT *name = 0;
+                  ELEMENT *email = 0;
+
+                  ELEMENT *email_tree;
+
+                  if (element->e.c->contents.number >= 2
+                   && !empty_spaces_argument (element->e.c->contents.list[1]))
+                    name = element->e.c->contents.list[1];
+                  if (!empty_spaces_argument (element->e.c->contents.list[0]))
+                    email = element->e.c->contents.list[0];
+
+                  if (email)
+                    {
+                      NAMED_STRING_ELEMENT_LIST *substrings
+                                 = new_named_string_element_list ();
+                      ELEMENT *email_copy = copy_element_tree (email, 0);
+                      add_element_to_named_string_element_list (substrings,
+                                                         "email", email_copy);
+
+                      if (name)
+                        {
+                           ELEMENT *name_copy = copy_element_tree (name, 0);
+                           add_element_to_named_string_element_list (substrings,
+                                                            "name", name_copy);
+                           email_tree = cdt_tree ("{name}: @url{{email}}", self,
+                                                  substrings, 0);
+                        }
+                      else
+                        {
+                          email_tree = cdt_tree ("@url{{email}}", self,
+                                                 substrings, 0);
+                        }
+                      convert_to_plaintext_internal (self, email_tree);
+
+                      destroy_element_and_children (email_tree);
+
+                      destroy_named_string_element_list (substrings);
+                    }
+                  else if (name)
+                    convert_to_plaintext_internal (self, name);
+                }
+              return;
+            }
           else if (cmd == CM_uref || cmd == CM_url)
-            return;
+            {
+              if (element->e.c->contents.number > 0)
+                {
+                  if (element->e.c->contents.number == 3
+                   && !empty_spaces_argument (element->e.c->contents.list[2]))
+                    {
+                      ELEMENT *inserted = new_element (ET__stop_upper_case);
+                      add_to_contents_as_array (inserted,
+                                                element->e.c->contents.list[2]);
+                      convert_to_plaintext_internal (self, inserted);
+                      destroy_element (inserted);
+                    }
+                  else if (!empty_spaces_argument (
+                                           element->e.c->contents.list[0]))
+                    {
+                      ELEMENT *inserted;
+                      NAMED_STRING_ELEMENT_LIST *substrings
+                                 = new_named_string_element_list ();
+
+                     /* no mangling of --- and similar in url. */
+                      ELEMENT *url = new_element (ET__stop_upper_case);
+                      ELEMENT *url_code = new_element (ET__code);
+                      add_to_element_contents (url, url_code);
+                      ELEMENT *url_arg_copy
+                        = copy_element_tree (element->e.c->contents.list[0], 0);
+                      add_to_element_contents (url_code, url_arg_copy);
+
+                      add_element_to_named_string_element_list (substrings,
+                                                                "url", url);
+
+                      if (element->e.c->contents.number == 2
+                          && !empty_spaces_argument (
+                                               element->e.c->contents.list[1]))
+                        {
+                          ELEMENT *text_copy
+                            = copy_element_tree (
+                                         element->e.c->contents.list[1], 0);
+                          add_element_to_named_string_element_list (substrings,
+                                                            "text", text_copy);
+                          inserted = cdt_tree ("{text} ({url})", self,
+                                                substrings, 0);
+                        }
+                      else
+                        {
+                          inserted = cdt_tree ("@t{<{url}>}", self,
+                                               substrings, 0);
+                        }
+                      convert_to_plaintext_internal (self, inserted);
+                      destroy_element_and_children (inserted);
+                    }
+                  else if (element->e.c->contents.number == 2
+                          && !empty_spaces_argument (
+                                            element->e.c->contents.list[1]))
+                    {
+                      convert_to_plaintext_internal (self,
+                                          element->e.c->contents.list[1]);
+                    }
+                }
+              return;
+            }
           else if (cmd == CM_footnote)
             {
               TEXT added;
