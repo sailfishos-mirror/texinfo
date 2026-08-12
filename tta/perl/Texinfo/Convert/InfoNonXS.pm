@@ -109,7 +109,8 @@ sub _info_header($$$) {
   my ($self, $input_basefile, $output_filename) = @_;
 
   push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                     'locations' => []};
+                                     'index_entry_locations' => [],
+                                     'target_locations' => []};
 
   my $paragraph = Texinfo::Convert::Paragraph::new();
   my $result = add_text($paragraph, "This is ");
@@ -515,8 +516,9 @@ sub output($$) {
   }
   # This may happen for anchors in @insertcopying
   my %seen_anchors;
-  foreach my $location (@{$self->{'count_context'}->[-1]->{'locations'}}) {
-    my $element = $location->{'location_element'};
+  foreach my $location
+         (@{$self->{'count_context'}->[-1]->{'target_locations'}}) {
+    my $element = $location->{'target_element'};
     next unless (exists($element->{'extra'})
                  and $element->{'extra'}->{'is_target'});
     my $label_element = Texinfo::Common::get_label_element($element);
@@ -937,7 +939,7 @@ sub format_node($$;$) {
     $output_filename = '';
   }
 
-  $self->add_location($node);
+  $self->add_target_location($node);
   my $node_begin = "\x{1F}\nFile: $output_filename,  Node: ";
   $self->_stream_output($node_begin);
 

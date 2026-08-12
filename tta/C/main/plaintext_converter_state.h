@@ -62,18 +62,19 @@ typedef struct FORMAT_CONTEXT {
 def_list_type(FORMAT_CONTEXT_STACK, FORMAT_CONTEXT);
 decl_list_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
 
-typedef struct LOCATION {
+typedef struct TARGET_LOCATION {
     int lines;
-    /* anchor and node */
-    const ELEMENT *root;
+    const ELEMENT *target_element;
     size_t bytes;
-    /* index entry */
-    const ELEMENT *node;
-} LOCATION;
+} TARGET_LOCATION;
 
-def_list_type(LOCATION_LIST, LOCATION *);
+def_list_type(TARGET_LOCATION_LIST, TARGET_LOCATION *);
 /* TODO or in convert_to_plaintext.h */
-decl_list_fns(LOCATION_LIST, location, LOCATION *);
+decl_list_fns(TARGET_LOCATION_LIST, target_location, TARGET_LOCATION *);
+
+/* better not base on INDEX_ENTRY_LOCATION as it is another type */
+def_list_type(INDEX_ENTRY_LINE_COUNT_LIST, int *);
+decl_list_fns(INDEX_ENTRY_LINE_COUNT_LIST, index_entry_location, int *);
 
 typedef struct COUNT_CONTEXT {
   size_t lines;
@@ -82,7 +83,8 @@ typedef struct COUNT_CONTEXT {
   TEXT pending_text;
   /* converted text converted to output encoding */
   TEXT result;
-  LOCATION_LIST locations;
+  TARGET_LOCATION_LIST target_locations;
+  INDEX_ENTRY_LINE_COUNT_LIST index_entry_locations;
   int encoding_disabled;
 } COUNT_CONTEXT;
 
@@ -126,7 +128,7 @@ decl_list_fns(PENDING_FOOTNOTE_LIST, pending_footnote, PENDING_FOOTNOTE);
 
 typedef struct INDEX_ENTRY_INFO {
     const ELEMENT *node;
-    LOCATION *location;
+    int *location;
     int ignored;
     /* to be removed */
     int line_nr;

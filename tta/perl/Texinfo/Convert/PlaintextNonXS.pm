@@ -418,7 +418,8 @@ sub conversion_initialization($;$) {
   $self->{'context'} = [];
   $self->{'format_context'} = [];
   push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                     'locations' => [],
+                                     'target_locations' => [],
+                                     'index_entry_locations' => [],
                                      'result' => ''
   };
 
@@ -597,7 +598,8 @@ sub convert_tree($$) {
   my $new_context =
     {'lines' => $old_context ? $old_context->{'lines'} : 0,
      'bytes' => $old_context ? $old_context->{'bytes'} : 0,
-     'locations' => [],
+     'target_locations' => [],
+     'index_entry_locations' => [],
      'result' => '' };
   push @{$self->{'count_context'}}, $new_context;
 
@@ -607,8 +609,10 @@ sub convert_tree($$) {
 
   if (defined($old_context)) {
     # Append new locations to the list
-    @{$old_context->{'locations'}}
-      = ( @{$old_context->{'locations'}}, @{$new_context->{'locations'}} );
+    push @{$old_context->{'target_locations'}},
+         @{$new_context->{'target_locations'}};
+    push @{$old_context->{'index_entry_locations'}},
+         @{$new_context->{'index_entry_locations'}};
     $old_context->{'lines'} += $new_context->{'lines'};
     # NB byte count is updated in caller if return value is passed
     # to _stream_output_encoded
@@ -619,7 +623,7 @@ sub convert_tree($$) {
 sub convert_output_unit($$) {
   my ($self, $output_unit) = @_;
 
-  _stream_reset ($self);
+  _stream_reset($self);
 
   if (exists($output_unit->{'unit_contents'})) {
     foreach my $content (@{$output_unit->{'unit_contents'}}) {
@@ -996,21 +1000,26 @@ sub _add_lines_count($$) {
 }
 
 # Save the line and byte offset of $ELEMENT.
-# For index entries, this is mainly useful for the readjustement of
-# line numbers, that would not be performed otherwise.
-sub add_location($$) {
+sub add_target_location($$) {
   my ($self, $element) = @_;
 
   my $location = {
         'lines' => $self->{'count_context'}->[-1]->{'lines'},
-        # not actually useful for index elements
-        'location_element' => $element
+        'bytes' => _stream_byte_count($self),
+        'target_element' => $element
+  };
+  push @{$self->{'count_context'}->[-1]->{'target_locations'}}, $location;
+  return $location;
+}
+
+# Save the line offset of $ELEMENT.
+sub add_index_entry_location($$) {
+  my ($self, $element) = @_;
+
+  my $location = {
+        'lines' => $self->{'count_context'}->[-1]->{'lines'},
       };
-  push @{$self->{'count_context'}->[-1]->{'locations'}}, $location;
-  if (!(exists($element->{'extra'})
-        and exists($element->{'extra'}->{'index_entry'}))) {
-    $location->{'bytes'} = _stream_byte_count($self);
-  }
+  push @{$self->{'count_context'}->[-1]->{'index_entry_locations'}}, $location;
   return $location;
 }
 
@@ -1020,15 +1029,16 @@ sub add_location($$) {
 sub _adjust_final_locations($) {
   my $self = shift;
 
-  my $locations = $self->{'count_context'}->[-1]->{'locations'};
-  if (scalar(@$locations) > 0) {
-    my $i = scalar(@$locations) - 1;
+  my $index_entry_locations
+    = $self->{'count_context'}->[-1]->{'index_entry_locations'};
+  if (scalar(@$index_entry_locations) > 0) {
+    my $i = scalar(@$index_entry_locations) - 1;
     my $final_lines = $self->{'count_context'}->[-1]->{'lines'};
     # return if $final_lines == 0;
     my $last_location;
     while ($i >= 0) {
-      if ($locations->[$i]->{'lines'} == $final_lines) {
-        $locations->[$i]->{'lines'}--;
+      if ($index_entry_locations->[$i]->{'lines'} == $final_lines) {
+        $index_entry_locations->[$i]->{'lines'}--;
         $i--;
       } else {
         last;
@@ -1289,18 +1299,25 @@ sub _string_width_encoded($$) {
   }
 }
 
-sub _update_locations_counts($$) {
-  my ($self, $locations) = @_;
+sub _update_locations_counts($$$) {
+  my ($self, $parent_counts, $counts) = @_;
 
   my $bytes = _stream_byte_count($self);
-  my $lines = $self->{'count_context'}->[-1]->{'lines'};
+  my $lines = $parent_counts->{'lines'};
 
-  foreach my $location (@$locations) {
-    $location->{'bytes'} += $bytes
-       if (defined($location->{'bytes'}));
-    $location->{'lines'} += $lines
-      if (defined($location->{'lines'}));
+  foreach my $location (@{$counts->{'target_locations'}}) {
+    $location->{'bytes'} += $bytes;
+    $location->{'lines'} += $lines;
   }
+  push @{$parent_counts->{'target_locations'}},
+       @{$counts->{'target_locations'}};
+
+  foreach my $location (@{$counts->{'index_entry_locations'}}) {
+    $location->{'lines'} += $lines;
+  }
+
+  push @{$parent_counts->{'index_entry_locations'}},
+       @{$counts->{'index_entry_locations'}};
 }
 
 # Called at the beginning of a line.  Add a blank line if the output does
@@ -1533,7 +1550,7 @@ sub process_footnotes($;$) {
          = Texinfo::TreeElement::new({'type' => 'brace_arg',
                   'contents' => [$label_element,
             Texinfo::TreeElement::new({'text' => $footnote_anchor_postfix})]});
-        $self->add_location(
+        $self->add_target_location(
          Texinfo::TreeElement::new({'cmdname' => 'anchor',
                                     'contents' => [$footnote_anchor_arg],
                                     'extra' => {'is_target' => 1,
@@ -1590,16 +1607,17 @@ sub _compute_spaces_align_line($$$;$) {
   return $spaces_prepended;
 }
 
+# readjustment only needed for bytes, ie for anchors and floats
 sub _align_lines($$$$$$) {
   my ($self, $text_encoded, $max_column, $direction,
-      $locations, $images) = @_;
+      $target_locations, $images) = @_;
 
   my $result = '';
 
   my $updated_locations = {};
-  if (defined($locations) and scalar(@$locations)) {
-    foreach my $location (@$locations) {
-      next unless (defined($location->{'bytes'}));
+  if (defined($target_locations) and scalar(@$target_locations)) {
+    # gather lines where there are locations.
+    foreach my $location (@$target_locations) {
       push @{$updated_locations->{$location->{'lines'}}}, $location;
     }
   }
@@ -1705,11 +1723,12 @@ sub _align_environment($$$$) {
 
   my $counts = pop @{$self->{'count_context'}};
   $result = _align_lines($self, $result, $max,
-                      $align, $counts->{'locations'}, $counts->{'images'});
-  _update_locations_counts($self, $counts->{'locations'});
+              $align, $counts->{'target_locations'}, $counts->{'images'});
+
+  _update_locations_counts($self, $self->{'count_context'}->[-1],
+                           $counts);
+
   $self->{'count_context'}->[-1]->{'lines'} += $counts->{'lines'};
-  push @{$self->{'count_context'}->[-1]->{'locations'}},
-                       @{$counts->{'locations'}};
   return $result;
 }
 
@@ -2395,7 +2414,7 @@ sub _anchor($$) {
   my ($self, $anchor) = @_;
 
   if (!($self->{'multiple_pass'} or $self->{'in_copying_header'})) {
-    $self->add_location($anchor);
+    $self->add_target_location($anchor);
     $self->format_error_outside_of_any_node($anchor);
   }
 }
@@ -3015,7 +3034,7 @@ sub _convert($$) {
   if (exists($element->{'extra'})
       and exists($element->{'extra'}->{'index_entry'})
       and !$self->{'multiple_pass'} and !$self->{'in_copying_header'}) {
-    my $location = $self->add_location($element);
+    my $location = $self->add_index_entry_location($element);
 
     my $index_entry_info = {'location' => $location};
 
@@ -3487,7 +3506,8 @@ sub _convert($$) {
             # math rendered as an image, push a count to capture content
             push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                                'encoding_disabled' => 1,
-                                                   'locations' => []};
+                                               'index_entry_locations' => [],
+                                               'target_locations' => []};
           }
           _convert($self, Texinfo::TreeElement::new({'type' => '_frenchspacing',
            'contents' => [Texinfo::TreeElement::new({'type' => '_code',
@@ -3648,7 +3668,8 @@ sub _convert($$) {
               and exists($self->{'elements_images'}->{$element})) {
             push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                                'encoding_disabled' => 1,
-                                                   'locations' => []};
+                                               'index_entry_locations' => [],
+                                                   'target_locations' => []};
           }
         }
       }
@@ -3842,16 +3863,17 @@ sub _convert($$) {
              'context_indent_len' => 0 };
       push @{$self->{'text_element_context'}}, {'max' => $cell_width - 2 };
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                                   'locations' => []};
+                                               'index_entry_locations' => [],
+                                                   'target_locations' => []};
       $cell = 1;
     # not block commands and not brace commands
     } elsif (exists($def_commands{$cmdname})) {
       _convert_def_line($self, $element);
       return;
     } elsif ($cmdname eq 'center') {
-      #my ($counts, $new_locations);
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                                   'locations' => []};
+                                         'index_entry_locations' => [],
+                                         'target_locations' => []};
       if (exists($element->{'contents'}->[0]->{'contents'})) {
         $self->convert_line(
              {'type' => '_frenchspacing',
@@ -4101,7 +4123,8 @@ sub _convert($$) {
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
       if ($self->{'context'}->[-1] eq 'flushright') {
         push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                                   'locations' => []};
+                                           'index_entry_locations' => [],
+                                           'target_locations' => []};
       }
     } elsif ($type eq 'preformatted'
              or $type eq 'rawpreformatted') {
@@ -4114,7 +4137,8 @@ sub _convert($$) {
         push @{$self->{'formatters'}}, $preformatted;
         if ($self->{'context'}->[-1] eq 'flushright') {
           push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
-                                                     'locations' => []};
+                                           'index_entry_locations' => [],
+                                             'target_locations' => []};
         }
       }
     } elsif ($type eq 'def_line') {
@@ -4428,12 +4452,13 @@ sub _convert($$) {
 
       $cell_idx = 0;
       my $cell_updated_locations = [];
-      my @row_locations;
+      my $row_counts = {'target_locations' => [],
+                        'index_entry_locations' => []};
       foreach my $cell_locations (@{$self->{'format_context'}->[-1]
-                                                           ->{'row_counts'}}) {
-        foreach my $location (@{$cell_locations->{'locations'}}) {
-          next unless (defined($location->{'bytes'})
-                       and defined($location->{'lines'}));
+                                                  ->{'row_cell_counts'}}) {
+        foreach my $location (@{$cell_locations->{'target_locations'}}) {
+          # only need to update bytes at this point
+          next unless (defined($location->{'target_element'}));
           $cell_updated_locations->[$cell_idx] = {}
             if (!$cell_updated_locations->[$cell_idx]);
           push @{$cell_updated_locations->[$cell_idx]->{$location->{'lines'}}},
@@ -4441,7 +4466,10 @@ sub _convert($$) {
           $max_lines = $location->{'lines'}+1
                             if ($location->{'lines'}+1 > $max_lines);
         }
-        push @row_locations, @{$cell_locations->{'locations'}};
+        push @{$row_counts->{'target_locations'}},
+             @{$cell_locations->{'target_locations'}};
+        push @{$row_counts->{'index_entry_locations'}},
+             @{$cell_locations->{'index_entry_locations'}};
         $cell_idx++;
       }
 
@@ -4509,11 +4537,13 @@ sub _convert($$) {
         $result .= $line;
         $max_lines++;
       }
-      _update_locations_counts($self, \@row_locations);
-      push @{$self->{'count_context'}->[-1]->{'locations'}}, @row_locations;
+
+      _update_locations_counts($self, $self->{'count_context'}->[-1],
+                               $row_counts);
+
       $self->{'count_context'}->[-1]->{'lines'} += $max_lines;
       $self->{'format_context'}->[-1]->{'row'} = [];
-      $self->{'format_context'}->[-1]->{'row_counts'} = [];
+      $self->{'format_context'}->[-1]->{'row_cell_counts'} = [];
       _stream_output_encoded($self, $result);
     } elsif ($type eq 'before_node_section') {
       _ensure_end_of_line($self);
@@ -4662,7 +4692,8 @@ sub _convert($$) {
       pop @{$self->{'text_element_context'}};
       push @{$self->{'format_context'}->[-1]->{'row'}}, $result;
       my $cell_counts = pop @{$self->{'count_context'}};
-      push @{$self->{'format_context'}->[-1]->{'row_counts'}}, $cell_counts;
+      push @{$self->{'format_context'}->[-1]->{'row_cell_counts'}},
+           $cell_counts;
     }
     if (exists $advance_paragraph_count_commands{$cmdname}) {
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;

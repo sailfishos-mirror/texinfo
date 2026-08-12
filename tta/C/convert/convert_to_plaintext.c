@@ -142,14 +142,14 @@ reset_count_context_stack (COUNT_CONTEXT_STACK *stack)
 def_list_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT, 2);
 def_stack_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
 
-def_list_fns(LOCATION_LIST, location, LOCATION *, 5);
+def_list_fns(TARGET_LOCATION_LIST, target_location, TARGET_LOCATION *, 5);
 
 static void
 destroy_count_context (COUNT_CONTEXT *ctxt)
 {
   text_destroy (&ctxt->pending_text);
   text_destroy (&ctxt->result);
-  /* TODO destroy LOCATION_LIST locations.
+  /* TODO destroy TARGET_LOCATION_LIST locations.
      And remaining locations within? */
 }
 
@@ -795,24 +795,20 @@ stream_yield_result (CONVERTER *self)
 
 /* Save the line and byte offset of $ELEMENT. */
 static void
-add_location (CONVERTER *self, const ELEMENT *element)
+add_target_location (CONVERTER *self, const ELEMENT *element)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
-  const INDEX_ENTRY_LOCATION *index_entry_info
-   = lookup_extra_index_entry (element, AI_key_index_entry);
 
-  LOCATION *location = (LOCATION *) malloc (sizeof (LOCATION));
+  TARGET_LOCATION *location = (TARGET_LOCATION *)
+        malloc (sizeof (TARGET_LOCATION));
 
   location->lines = count_context->lines;
-  if (!index_entry_info)
-    {
-      location->bytes = stream_byte_count (self);
-      location->root = element;
-    }
+  location->target_element = element;
+  location->bytes = stream_byte_count (self);
 
-  add_(location) (&count_context->locations, location);
+  add_(target_location) (&count_context->target_locations, location);
 }
 
 void
@@ -1189,7 +1185,7 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 
               /* FIXME the footnote_anchor element is not registered anywhere
                  for destruction */
-              add_location (self, footnote_anchor);
+              add_target_location (self, footnote_anchor);
             }
 
           push_top_formatter (self, CM_footnote);

@@ -1,3 +1,29 @@
+2026-08-12 Patrice Dumas  <pertusus@free.fr>
+
+	Separate plaintext target locations from index entries locations
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): use
+	a counts hash for row.
+
+	* tta/C/convert/convert_to_plaintext.c (TARGET_LOCATION_LIST)
+	(add_target_location, plaintext_process_footnotes),
+	tta/C/main/plaintext_converter_state.h (TARGET_LOCATION)
+	(TARGET_LOCATION_LIST, INDEX_ENTRY_LINE_COUNT_LIST, COUNT_CONTEXT)
+	(INDEX_ENTRY_INFO), tta/perl/Texinfo/Convert/InfoNonXS.pm
+	(_info_header, format_node),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (convert_tree)
+	(add_target_location, add_index_entry_location)
+	(_adjust_final_locations, _update_locations_counts)
+	(process_footnotes, _align_lines, _align_environment, _anchor)
+	(_convert): separate target_locations from index_entry_locations,
+	adding add_target_location to add a target location and
+	add_index_entry_location to add an index entry location.  pass parent
+	count context to _update_locations_counts and merge locations with
+	parent locations there.  Remove add_location.
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): rename
+	'row_counts' format_context field as 'row_cell_counts'.
+
 2026-08-11 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (add_location): rename
