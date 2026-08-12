@@ -2699,9 +2699,55 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       const COMMAND *cmd_data = &command_data[cmd];
       if (cmd_data->flags & CF_brace
           && cmd_data->data == BRACE_accent)
-        return;
+        {
+          char *accented_text;
+          int sc = 0;
+          /* TODO
+      if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
+        $sc = 1;
+      }
+           */
+          accented_text = text_accents (element,
+                                        self_plaintext->enabled_encoding, sc);
+          stream_output_add_text (self, accented_text);
+
+          /* TODO
+      my $accented_text_original;
+      if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
+        $accented_text_original
+         = Texinfo::Convert::Text::text_accents($element, $encoding);
+      }
+
+      if (($accented_text_original
+           and $accented_text_original !~ /\p{Upper}/)
+          or $formatter->{'upper_case_stack'}->[-1]->{'var'}
+          or $formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
+        allow_end_sentence($formatter->{'container'});
+      }
+           */
+
+     /* in case the text added ends with punctuation.
+        If the text is empty (likely because of an error) previous
+        punctuation will be cancelled, we don't want that. */
+          if (strcmp (accented_text, ""))
+            para_remove_end_sentence ();
+
+          return;
+        }
       else if (type == ET_definfoenclose_command)
-        return;
+        {
+          const char *begin = lookup_extra_string (element, AI_key_begin);
+          const char *end = lookup_extra_string (element, AI_key_end);
+          TEXT added = para_add_next (begin, strlen (begin), 1);
+          stream_output_count_nl (self, added.text);
+          if (element->e.c->contents.number > 0)
+            convert_to_plaintext_internal (self,
+                                           element->e.c->contents.list[0]);
+          added = para_add_next (end, strlen (end), 1);
+          stream_output_count_nl (self, added.text);
+
+          return;
+        }
       else if (cmd_data->flags & CF_brace)
         {
           if ((plaintext_commands_data[cmd].flags
@@ -2783,7 +2829,25 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             }
           /* TODO upper_case_commands */
           else if (cmd == CM_link)
-            return;
+            {
+              if (element->e.c->contents.number > 0)
+                {
+                  const ELEMENT *text_arg;
+         /* Use arg 2 if present, otherwise use arg 1.  Do not produce
+            functional link in Info/plaintext output. */
+                  if (element->e.c->contents.number >= 2
+                      && !empty_spaces_argument (
+                                      element->e.c->contents.list[1]))
+                    text_arg = element->e.c->contents.list[1];
+                  else if (!empty_spaces_argument (
+                                      element->e.c->contents.list[0]))
+                    text_arg = element->e.c->contents.list[0];
+
+                  if (text_arg)
+                    convert_to_plaintext_internal (self, text_arg);
+                }
+              return;
+            }
           else if (cmd_data->flags & CF_ref)
             {
               plaintext_functions[self->format].format_ref (self, cmd, element);
