@@ -3452,14 +3452,12 @@ sub _convert($$) {
                    {'abbr_or_acronym' => $argument,
                     'explanation' => $element->{'contents'}->[1]});
             _convert($self, $inserted);
-            return;
           } else {
             _convert($self, $argument);
 
             # We want to permit an end of sentence, but not force it
             # as @. does.
             allow_end_sentence($formatter->{'container'});
-            return;
           }
         }
         return;

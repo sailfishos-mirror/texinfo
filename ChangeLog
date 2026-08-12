@@ -1,5 +1,13 @@
 2026-08-12 Patrice Dumas  <pertusus@free.fr>
 
+	C plaintext @abbr and @acronym and @inline*
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): convert explained commands @abbr and
+	@acronym and non-ignored @inline*.
+
+2026-08-12 Patrice Dumas  <pertusus@free.fr>
+
 	C plaintext @today, @email, @url/@uref
 
 	* tta/C/convert/convert_to_plaintext.c

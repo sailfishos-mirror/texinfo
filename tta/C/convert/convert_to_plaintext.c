@@ -3060,6 +3060,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                         }
                       convert_to_plaintext_internal (self, inserted);
                       destroy_element_and_children (inserted);
+                      destroy_named_string_element_list (substrings);
                     }
                   else if (element->e.c->contents.number == 2
                           && !empty_spaces_argument (
@@ -3157,9 +3158,104 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               return;
             }
           else if (cmd_data->flags & CF_explained)
-            return;
+            {
+              if (element->e.c->contents.number > 0
+                  && !empty_spaces_argument (element->e.c->contents.list[0]))
+                {
+                  ELEMENT *abbr_frenchspacing = 0;
+                  if (cmd == CM_abbr)
+                    /* in abbr spaces never end a sentence. */
+                    abbr_frenchspacing = new_element (ET__frenchspacing);
+                  if (element->e.c->contents.number >= 2
+                      && !empty_spaces_argument (element->e.c->contents.list[1]))
+                    {
+                      ELEMENT *inserted;
+                      NAMED_STRING_ELEMENT_LIST *substrings
+                                 = new_named_string_element_list ();
+
+                      ELEMENT *explanation_copy
+                        = copy_element_tree (element->e.c->contents.list[1], 0);
+                      ELEMENT *first_arg_copy
+                        = copy_element_tree (element->e.c->contents.list[0], 0);
+                      if (abbr_frenchspacing)
+                        {
+                          add_to_element_contents (abbr_frenchspacing,
+                                                   first_arg_copy);
+                          add_element_to_named_string_element_list (substrings,
+                                          "abbr_or_acronym", abbr_frenchspacing);
+                        }
+                      else
+                        add_element_to_named_string_element_list (substrings,
+                                          "abbr_or_acronym", first_arg_copy);
+
+                      add_element_to_named_string_element_list (substrings,
+                                            "explanation", explanation_copy);
+                      inserted = cdt_tree ("{abbr_or_acronym} ({explanation})",
+                                           self, substrings, 0);
+
+                      convert_to_plaintext_internal (self, inserted);
+                      destroy_element_and_children (inserted);
+                      destroy_named_string_element_list (substrings);
+                    }
+                  else
+                    {
+                      if (abbr_frenchspacing)
+                        {
+                          add_to_element_contents (abbr_frenchspacing,
+                                         element->e.c->contents.list[0]);
+
+                          convert_to_plaintext_internal (self,
+                                                         abbr_frenchspacing);
+                          destroy_element (abbr_frenchspacing);
+                        }
+                      else
+                        convert_to_plaintext_internal (self,
+                                             element->e.c->contents.list[0]);
+
+           /* We want to permit an end of sentence, but not force it
+              as @. does. */
+                      para_allow_end_sentence ();
+                    }
+                }
+              return;
+            }
           else if (cmd_data->data == BRACE_inline)
-            return;
+            {
+              unsigned int arg_index = 1;
+              if (cmd == CM_inlinefmtifelse)
+                {
+                  const char *format
+                    = lookup_extra_string (element, AI_key_format);
+                  if (!format
+                      || !format_expanded_p (self->expanded_formats, format))
+                    arg_index = 2;
+                }
+
+              if (element->e.c->contents.number > arg_index
+                  && element->e.c->contents.list[arg_index]
+                              ->e.c->contents.number > 0)
+                {
+                  if (cmd == CM_inlineraw)
+                    {
+                      ELEMENT *inline_stop_upper
+                        = new_element (ET__stop_upper_case);
+                      ELEMENT *inline_code
+                        = new_element (ET__code);
+                      add_to_element_contents (inline_stop_upper, inline_code);
+                      add_to_contents_as_array (inline_code,
+                                 element->e.c->contents.list[arg_index]);
+
+                      convert_to_plaintext_internal (self,
+                                                     inline_stop_upper);
+                      destroy_element (inline_code);
+                      destroy_element (inline_stop_upper);
+                    }
+                  else
+                    convert_to_plaintext_internal (self,
+                                  element->e.c->contents.list[arg_index]);
+                }
+              return;
+            }
           else if (cmd_data->flags & CF_math)
             {
               ELEMENT *math_frenchspacing_element
