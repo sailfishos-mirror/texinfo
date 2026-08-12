@@ -3153,6 +3153,38 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         }
       /* else if sectioning_heading_commands */
       /* else if item or itemx */
+      else if ((cmd == CM_item || cmd == CM_itemx)
+               && element->e.c->contents.number > 0
+               && element->e.c->contents.list[0]->type == ET_line_arg)
+        {
+          if (!empty_spaces_argument (element->e.c->contents.list[0]))
+            {
+              TREE_ADDED_ELEMENTS *table_item_tree
+                = table_item_content_tree (self, element);
+              if (!table_item_tree)
+                {
+         /* Right now, this can only happen with @itemx in @itemize
+            or @enumerate in @*table, which is erroneous */
+                  return;
+                }
+              else
+                {
+                  int indent_len = 0;
+           /* TODO $self->{'format_context'}->[-2]->{'context_indent_len'} */
+                  ELEMENT *frenchspacing_element
+                    = new_element (ET__frenchspacing);
+                  add_to_contents_as_array (frenchspacing_element,
+                                            table_item_tree->tree);
+
+                  plaintext_convert_line (self, frenchspacing_element,
+                                          indent_len, -1);
+                  ensure_end_of_line (self);
+                  destroy_element (frenchspacing_element);
+                  destroy_tree_added_elements (table_item_tree);
+                }
+            }
+          return;
+        }
       else if (cmd == CM_headitem || cmd == CM_item || cmd == CM_tab)
         ;
       /* else if def_commands */
@@ -3277,10 +3309,27 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       /* else if (type == ET_frenchspacing) */
       /* else if (type == ET__code) */
       /* else if (type == ET__stop_upper_case) */
-      /* else if (type == ET__suppress_styles) */
+      else if (type == ET__suppress_styles)
+        {
+          FORMATTER *formatter
+                = top_(formatter) (&self_plaintext->formatters);
+          formatter->suppress_styles = 1;
+        }
       else if (type == ET_untranslated_def_line_arg)
         {
-          /* TODO */
+          const char *category_text
+            = element->e.c->contents.list[0]->e.text->text;
+          const char *translation_context
+            = lookup_extra_string (element, AI_key_translation_context);
+
+          ELEMENT *tree = cdt_tree (category_text, self, 0,
+                                    translation_context);
+
+          convert_to_plaintext_internal (self, tree);
+
+          destroy_element_and_children (tree);
+
+          return;
         }
     }
 
@@ -3301,7 +3350,11 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       else if (type == ET__stop_upper_case)
         {}
       else if (type == ET__suppress_styles)
-        {}
+        {
+          FORMATTER *formatter
+                = top_(formatter) (&self_plaintext->formatters);
+          formatter->suppress_styles = 0;
+        }
       else if (type == ET_row)
         {
         }

@@ -1,5 +1,11 @@
 2026-08-12 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): handle item and itemx in @table,
+	_suppress_styles and untranslated_def_line_arg types.
+
+2026-08-12 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/plaintext_converter_state.h (FORMATTER): add
 	suppress_styles field.
 
