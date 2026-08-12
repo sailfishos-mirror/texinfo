@@ -50,13 +50,13 @@ def_list_type(FORMATTER_STACK, FORMATTER);
 decl_list_fns(FORMATTER_STACK, formatter, FORMATTER);
 
 typedef struct FORMAT_CONTEXT {
-  enum command_id cmd;
-  int paragraph_count;
-  int context_index_len;
-  int row;
-  int row_cell_counts;
-  int paragraph_counts;
-  int columns_size;
+    enum command_id cmd;
+    int paragraph_count;
+    int context_index_len;
+    int row;
+    int row_cell_counts;
+    int paragraph_counts;
+    int columns_size;
 } FORMAT_CONTEXT;
 
 def_list_type(FORMAT_CONTEXT_STACK, FORMAT_CONTEXT);
@@ -77,15 +77,15 @@ def_list_type(INDEX_ENTRY_LINE_COUNT_LIST, int *);
 decl_list_fns(INDEX_ENTRY_LINE_COUNT_LIST, index_entry_location, int *);
 
 typedef struct COUNT_CONTEXT {
-  size_t lines;
-  size_t bytes;
-  /* converted text in internal encoding (utf-8) */
-  TEXT pending_text;
-  /* converted text converted to output encoding */
-  TEXT result;
-  TARGET_LOCATION_LIST target_locations;
-  INDEX_ENTRY_LINE_COUNT_LIST index_entry_locations;
-  int encoding_disabled;
+    size_t lines;
+    size_t bytes;
+    /* converted text in internal encoding (utf-8) */
+    TEXT pending_text;
+    /* converted text converted to output encoding */
+    TEXT result;
+    TARGET_LOCATION_LIST target_locations;
+    INDEX_ENTRY_LINE_COUNT_LIST index_entry_locations;
+    int encoding_disabled;
 } COUNT_CONTEXT;
 
 def_list_type(COUNT_CONTEXT_STACK, COUNT_CONTEXT);
