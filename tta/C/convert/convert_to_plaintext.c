@@ -794,8 +794,8 @@ stream_yield_result (CONVERTER *self)
 }
 
 /* Save the line and byte offset of $ELEMENT. */
-static void
-add_target_location (CONVERTER *self, const ELEMENT *element)
+void
+plaintext_add_target_location (CONVERTER *self, const ELEMENT *element)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   COUNT_CONTEXT *count_context
@@ -972,6 +972,7 @@ plaintext_node_name (CONVERTER *self, const ELEMENT *element,
               = self->plaintext_converter;
           STRING_WITH_WIDTH *node_name
             = &self_plaintext->node_names_cache[node_number -1];
+
           if (!node_name->string)
             {
               plaintext_convert_node_name (self, element,
@@ -1160,6 +1161,9 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
           if (label_element)
             {
               char *footnote_anchor_id;
+              int non_empty;
+              ARG_INDICES arg_indices;
+
               ELEMENT *footnote_anchor_arg = new_element (ET_brace_arg);
               ELEMENT *footnote_anchor = new_command_element (ET_brace_command,
                                                               CM_anchor);
@@ -1171,12 +1175,18 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
           /* TODO the label_element could be copied if it is simpler
              to register footnotes_anchor to be destroyed instead of
              each of the element except for label_element */
-              add_to_contents_as_array (footnote_anchor_arg, label_element);
+              non_empty = non_leading_trailing_indices (label_element,
+                                                        &arg_indices);
+              if (non_empty)
+                insert_slice_into_contents (footnote_anchor_arg, 0,
+                                            label_element, arg_indices.start,
+                                            arg_indices.end +1);
+
               add_element_to_element_contents (footnote_anchor_arg,
                                                footnote_anchor_postfix_e);
 
               xasprintf (&footnote_anchor_id, "%s%s", identifier,
-                         footnote_anchor_postfix_e->e.text);
+                         footnote_anchor_postfix_e->e.text->text);
 
               footnote_anchor->flags |= EF_is_target;
               add_extra_string (footnote_anchor, AI_key_identifier,
@@ -1185,7 +1195,7 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 
               /* FIXME the footnote_anchor element is not registered anywhere
                  for destruction */
-              add_target_location (self, footnote_anchor);
+              plaintext_add_target_location (self, footnote_anchor);
             }
 
           push_top_formatter (self, CM_footnote);
@@ -2351,6 +2361,19 @@ plaintext_format_error_outside_of_any_node (CONVERTER *self,
 {
 }
 
+static void
+anchor (CONVERTER *self, const ELEMENT *anchor)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+
+  if (! (self_plaintext->multiple_pass || self_plaintext->in_copying_header))
+    {
+      plaintext_add_target_location (self, anchor);
+      plaintext_functions[self->format]
+                  .format_error_outside_of_any_node (self, anchor);
+    }
+}
+
 char *
 plaintext_image_formatted_text (CONVERTER *self, const ELEMENT *element,
                                 const char *basefile, const char *text)
@@ -2832,7 +2855,12 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               return;
             }
           else if (cmd == CM_anchor || cmd == CM_namedanchor)
-            return;
+            {
+              const char *pending_word = para_add_pending_word (0);
+              stream_output_count_nl (self, pending_word);
+              anchor (self, element);
+              return;
+            }
           else if (cmd_data->flags & CF_explained)
             return;
           else if (cmd_data->data == BRACE_inline)

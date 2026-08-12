@@ -33,16 +33,20 @@
 /* for fatal */
 #include "base_utils.h"
 #include "builtin_commands.h"
+#include "hashmap.h"
 #include "tree.h"
 #include "extra.h"
 #include "errors.h"
 #include "utils.h"
 #include "translations.h"
 #include "targets.h"
+/* debugging */
+#include "manipulate_tree.h"
 #include "customization_options.h"
 #include "output_unit.h"
 #include "convert_utils.h"
 #include "converter.h"
+#include "convert_to_texinfo.h"
 #include "convert_to_text.h"
 #include "convert_to_plaintext.h"
 #include "plaintext_paragraph.h"
@@ -245,6 +249,7 @@ char *
 info_output (CONVERTER *self, DOCUMENT *document)
 {
   int i;
+  size_t j;
   int status = 1;
   char *paths[5];
   char *dir_encoding;
@@ -279,6 +284,8 @@ info_output (CONVERTER *self, DOCUMENT *document)
   char *preamble_documentlanguage = 0;
   char *preamble_documentscript = 0;
   char *preamble_documentlanguagevariant = 0;
+  COUNT_CONTEXT *count_context;
+  C_HASHMAP *seen_anchors;
 
   plaintext_conversion_initialization (self, document);
 
@@ -749,19 +756,59 @@ info_output (CONVERTER *self, DOCUMENT *document)
   if (out_file_nr > 1)
     text_append_n (&tag_text, "(Indirect)\n", 11);
 
-  /* TODO when locations are ready
-   # This may happen for anchors in @insertcopying
-  my %seen_anchors;
-  foreach my $label (@{$self->{'count_context'}->[-1]->{'locations'}}) {
-    next unless (exists($label->{'root'})
-                 and exists($label->{'root'}->{'extra'})
-                 and $label->{'root'}->{'extra'}->{'is_target'});
-    my $label_element = Texinfo::Common::get_label_element($label->{'root'});
-    my $prefix;
+  count_context = top_(count_context) (&self_plaintext->count_context);
 
-   ....
+  seen_anchors = new_c_hashmap (count_context->target_locations.number);
+
+  for (j = 0; j < count_context->target_locations.number; j++)
+    {
+      const ELEMENT *element
+        = count_context->target_locations.list[j]->target_element;
+      STRING_WITH_WIDTH node_name_width;
+      const char *prefix;
+      const char *label_text;
+
+      if (!(element->flags & EF_is_target))
+        continue;
+
+      plaintext_node_name (self, element, &node_name_width);
+      label_text = node_name_width.string;
+
+      if (is_c_hashmap_registered (seen_anchors, label_text))
+        {
+          if (!self_plaintext->silent)
+            {
+              const ELEMENT *label_element = get_label_element (element);
+              char *texinfo_string
+                = convert_contents_to_texinfo (label_element);
+
+              message_list_command_error (&self->error_messages,
+                      (self->conf && self->conf->DEBUG.o.integer > 0),
+                       element, "@%s output more than once: %s",
+                        element_command_name (element), texinfo_string);
+              free (texinfo_string);
+            }
+          free (node_name_width.string);
+          continue;
+        }
+
+      c_hashmap_register (seen_anchors, label_text, 0);
+
+      if (element->e.c->cmd == CM_node)
+        prefix = "Node";
+      else
+        prefix = "Ref";
+
+      text_printf (&tag_text, "%s: %s\x7F%zu\n", prefix,
+                   label_text,
+                   count_context->target_locations.list[j]->bytes);
+
+      free (node_name_width.string);
    }
-   */
+
+  clear_c_hashmap (seen_anchors);
+  free (seen_anchors);
+
 
   const char *coding = 0;
   if (self->conf->OUTPUT_ENCODING_NAME.o.string
@@ -1341,9 +1388,8 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
     /* May happen when only converting a fragment */
     output_filename = "";
 
-  /* TODO
-    $self->add_location($node);
-   */
+  plaintext_add_target_location (self, node);
+
   xasprintf (&node_begin, "\x1f\nFile: %s, Node: ", output_filename);
   stream_output (self, node_begin);
   free (node_begin);

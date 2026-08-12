@@ -521,17 +521,13 @@ sub output($$) {
     my $element = $location->{'target_element'};
     next unless (exists($element->{'extra'})
                  and $element->{'extra'}->{'is_target'});
-    my $label_element = Texinfo::Common::get_label_element($element);
     my $prefix;
 
-    if ($element->{'cmdname'} eq 'node') {
-      $prefix = 'Node';
-    } else { # anchor and namedanchor
-      $prefix = 'Ref';
-    }
     my ($label_text, undef) = $self->node_name($element);
 
     if (exists($seen_anchors{$label_text})) {
+      my $label_element = Texinfo::Common::get_label_element($element);
+
       $self->plaintext_line_error($self,
                                   sprintf(__("\@%s output more than once: %s"),
           $element->{'cmdname'},
@@ -541,6 +537,12 @@ sub output($$) {
       next;
     } else {
       $seen_anchors{$label_text} = 1;
+    }
+
+    if ($element->{'cmdname'} eq 'node') {
+      $prefix = 'Node';
+    } else { # anchor and namedanchor
+      $prefix = 'Ref';
     }
 
     $tag_text .=  "$prefix: $label_text\x{7F}$location->{'bytes'}\n";

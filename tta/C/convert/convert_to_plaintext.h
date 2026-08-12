@@ -79,13 +79,14 @@ void stream_output_add_next (CONVERTER *self, const char *text);
 const char *stream_result (CONVERTER *self);
 char *stream_yield_result (CONVERTER *self);
 
+void plaintext_add_target_location (CONVERTER *self, const ELEMENT *element);
+void plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
+                             int indent_length, int indent_length_next);
 void plaintext_convert_line_new_context (CONVERTER *self,
                           const ELEMENT *converted,
                           int indent_length, int indent_length_next,
                            /* TODO $formatter_conf, */
                           STRING_COUNT_LINE_COUNT *output);
-void plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
-                             int indent_length, int indent_length_next);
 
 void pop_count_context (COUNT_CONTEXT_STACK *stack);
 void add_newline_if_needed (CONVERTER *self);

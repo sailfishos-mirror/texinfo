@@ -1547,16 +1547,17 @@ sub process_footnotes($;$) {
       if (defined($label_element)) {
         my $footnote_anchor_postfix = "-Footnote-$footnote_number";
         my $footnote_anchor_arg
-         = Texinfo::TreeElement::new({'type' => 'brace_arg',
-                  'contents' => [$label_element,
-            Texinfo::TreeElement::new({'text' => $footnote_anchor_postfix})]});
-        $self->add_target_location(
-         Texinfo::TreeElement::new({'cmdname' => 'anchor',
+          = Texinfo::Common::non_leading_trailing_tree($label_element);
+        $footnote_anchor_arg->{'type'} = 'brace_arg';
+        push @{$footnote_anchor_arg->{'contents'}},
+               Texinfo::TreeElement::new({'text' => $footnote_anchor_postfix});
+        my $footnote_anchor = Texinfo::TreeElement::new({'cmdname' => 'anchor',
                                     'contents' => [$footnote_anchor_arg],
                                     'extra' => {'is_target' => 1,
                                                 'identifier'
        => $node_element->{'extra'}->{'identifier'}.$footnote_anchor_postfix},
-                            }));
+                            });
+        $self->add_target_location($footnote_anchor);
       }
       # this pushes on 'context', 'formatters', 'format_context',
       # 'text_element_context' and 'document_context'
