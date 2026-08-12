@@ -1,5 +1,17 @@
 2026-08-12 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/plaintext_converter_state.h (FORMATTER): add
+	suppress_styles field.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_convert_line_new_context, plaintext_convert_node_name)
+	(plaintext_cache_node_names, plaintext_process_printindex): add
+	suppress_styles and no_added_eol arguments to
+	plaintext_convert_line_new_context.  Set no_added_eol and
+	suppress_styles.  Update callers.
+
+2026-08-12 Patrice Dumas  <pertusus@free.fr>
+
 	commands with empty braces argument and symbol commands in plaintext C
 
 	* tta/C/convert/convert_to_plaintext.c (plaintext_format_setup)

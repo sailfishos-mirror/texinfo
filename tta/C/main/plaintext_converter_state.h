@@ -42,7 +42,7 @@ typedef struct FORMATTER {
   /* font_type_stack */
   /* w */
   /* frenchspacing_stack */
-  /* suppress_styles */
+    int suppress_styles;
     int no_added_eol;
 } FORMATTER;
 

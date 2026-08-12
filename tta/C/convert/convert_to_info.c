@@ -1050,7 +1050,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
      a colon.  Output may differ slightly from the current formatting
      context (e.g if inside @sc) but this should not make a difference. */
           STRING_COUNT_LINE_COUNT name_text_checked;
-          plaintext_convert_line_new_context (self, name, -1, -1,
+          plaintext_convert_line_new_context (self, name, -1, -1, -1, -1,
                                               &name_text_checked);
           if (strpbrk (name_text_checked.string, ":"))
             {
@@ -1146,11 +1146,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
 
       self_plaintext->silent++;
       plaintext_convert_line_new_context (self, node_code_element,
-                                           -1, -1,
-               /* TODO
-                                  {'suppress_styles' => 1,
-                                    'no_added_eol' => 1});
-                */
+                                           -1, -1, 1, 1,
                                           &node_text_checked);
       self_plaintext->silent--;
       destroy_element (node_code_element);

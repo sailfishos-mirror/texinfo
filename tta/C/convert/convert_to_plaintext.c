@@ -841,7 +841,7 @@ void
 plaintext_convert_line_new_context (CONVERTER *self,
                           const ELEMENT *converted,
                           int indent_length, int indent_length_next,
-                           /* TODO $formatter_conf, */
+                          int suppress_styles, int no_added_eol,
                           STRING_COUNT_LINE_COUNT *output)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
@@ -849,6 +849,10 @@ plaintext_convert_line_new_context (CONVERTER *self,
   COUNT_CONTEXT new_count_context = { 0 };
   FORMATTER formatter = new_formatter(self, formatter_line, indent_length,
                                       indent_length_next);
+  if (suppress_styles >= 0)
+    formatter.suppress_styles = suppress_styles;
+  if (no_added_eol >= 0)
+    formatter.no_added_eol = no_added_eol;
   const char *end_line;
 
   add_(count_context) (&self_plaintext->count_context, new_count_context);
@@ -934,8 +938,9 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
     {
       node_names_formatter = (FORMATTER *) malloc (sizeof (FORMATTER));
       memset (node_names_formatter, 0, sizeof (FORMATTER));
-      /* TODO {'suppress_styles' => 1, 'no_added_eol' => 1,} */
       fill_formatter (node_names_formatter, self, formatter_line, 0, -1);
+      node_names_formatter->suppress_styles = 1;
+      node_names_formatter->no_added_eol = 1;
     }
 
   add_(count_context) (&self_plaintext->count_context, new_count_context);
@@ -1008,8 +1013,9 @@ plaintext_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
     {
       node_names_formatter = (FORMATTER *) malloc (sizeof (FORMATTER));
       memset (node_names_formatter, 0, sizeof (FORMATTER));
-      /* TODO {'suppress_styles' => 1, 'no_added_eol' => 1,} */
       fill_formatter (node_names_formatter, self, formatter_line, 0, -1);
+      node_names_formatter->suppress_styles = 1;
+      node_names_formatter->no_added_eol = 1;
     }
 
   push_formatter (self, node_names_formatter);
@@ -1349,7 +1355,7 @@ plaintext_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
                                     section_title_tree);
 
           plaintext_convert_line_new_context (self, section_title_element,
-                                                  -1, -1,
+                                                  -1, -1, -1, -1,
                                                   &section_text);
           if (numbered_section)
             destroy_element_and_children (section_title_element);
@@ -1605,9 +1611,8 @@ plaintext_process_printindex (CONVERTER *self,
   /* Use the same line formatter for all the index entries.  This is
      slightly faster than making a new one for each entry. */
   fill_formatter (&formatter, self, formatter_line, 0, -1);
-  /* TODO
-     { 'suppress_styles' => 1, 'no_added_eol' => 1 } );
-   */
+  formatter.suppress_styles = 1;
+  formatter.no_added_eol = 1;
   push_formatter (self, &formatter);
 
   text_init (&entry_line);
@@ -1837,7 +1842,7 @@ plaintext_process_printindex (CONVERTER *self,
                                         self, 0 ,0);
               STRING_COUNT_LINE_COUNT node_text;
               plaintext_convert_line_new_context (self, tree,
-                                                  -1, -1,
+                                                  -1, -1, -1, -1,
                                                   &node_text);
 
               self_plaintext->outside_of_any_node_text = node_text.string;

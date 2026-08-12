@@ -86,7 +86,7 @@ void plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
 void plaintext_convert_line_new_context (CONVERTER *self,
                           const ELEMENT *converted,
                           int indent_length, int indent_length_next,
-                           /* TODO $formatter_conf, */
+                          int suppress_styles, int no_added_eol,
                           STRING_COUNT_LINE_COUNT *output);
 
 void pop_count_context (COUNT_CONTEXT_STACK *stack);
