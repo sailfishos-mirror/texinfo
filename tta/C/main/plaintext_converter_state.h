@@ -33,17 +33,17 @@ typedef struct PLAINTEXT_COMMAND_STRUCT {
 } PLAINTEXT_COMMAND_STRUCT;
 
 typedef struct FORMATTER_CONTAINER {
-  int paragraph; /* Paragaph ID */
+    int paragraph; /* Paragaph ID */
 } FORMATTER_CONTAINER;
 
 typedef struct FORMATTER {
-  FORMATTER_CONTAINER container;
+    FORMATTER_CONTAINER container;
   /* upper_case_stack */
   /* font_type_stack */
   /* w */
   /* frenchspacing_stack */
   /* suppress_styles */
-  /* no_added_eol */
+    int no_added_eol;
 } FORMATTER;
 
 def_list_type(FORMATTER_STACK, FORMATTER);
@@ -54,7 +54,7 @@ typedef struct FORMAT_CONTEXT {
   int paragraph_count;
   int context_index_len;
   int row;
-  int row_counts;
+  int row_cell_counts;
   int paragraph_counts;
   int columns_size;
 } FORMAT_CONTEXT;

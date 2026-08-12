@@ -21,6 +21,7 @@
 #define PF_format_context         0x0100
 #define PF_preformatted_context   0x0200
 #define PF_menu                   0x0400
+#define PF_punctuation_no_arg     0x0800
 
 /*
 #define HF_pre_class            0x0008

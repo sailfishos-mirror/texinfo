@@ -1,5 +1,15 @@
 2026-08-12 Patrice Dumas  <pertusus@free.fr>
 
+	commands with empty braces argument and symbol commands in plaintext C
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_format_setup)
+	(convert_to_plaintext_internal),
+	tta/C/main/plaintext_converter_state.h (FORMATTER): add no_added_eol
+	FORMATTER field.  Convert commands with empty braces argument and
+	symbol commands in plaintext C converter.
+
+2026-08-12 Patrice Dumas  <pertusus@free.fr>
+
 	Info tags table, @anchor and @namedanchor in C
 
 	* tta/perl/Texinfo/Convert/InfoNonXS.pm (output): rearrange code.

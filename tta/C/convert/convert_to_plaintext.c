@@ -362,11 +362,18 @@ plaintext_format_setup (enum converter_format format)
   static enum command_id format_context_commands[] = {
     CM_verbatim, CM_flushleft, CM_flushright, CM_multitable, CM_float, 0};
 
+  static enum command_id punctuation_no_arg_commands[] = {
+    CM_enddots, CM_exclamdown, CM_questiondown, 0};
+
   for (i = 0; ignored_brace_commands[i]; i++)
     plaintext_commands_data[ignored_brace_commands[i]].flags |= PF_ignored;
 
   for (i = 0; ignored_block_commands[i]; i++)
     plaintext_commands_data[ignored_block_commands[i]].flags |= PF_ignored;
+
+  for (i = 0; punctuation_no_arg_commands[i]; i++)
+    plaintext_commands_data[punctuation_no_arg_commands[i]].flags
+                                               |= PF_punctuation_no_arg;
 
   /* count commands in some categories and set categories */
   for (i = 1; i < BUILTIN_CMD_NUMBER; i++)
@@ -2771,7 +2778,74 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           else if (cmd == CM_today)
             return;
           else if (cmd_data->data == BRACE_noarg)
-            return;
+            {
+              ELEMENT *translated_tree
+                = converter_translated_command_tree (self, cmd);
+              if (translated_tree)
+                {
+                  convert_to_plaintext_internal (self, translated_tree);
+                  destroy_element_and_children (translated_tree);
+                }
+              else
+                {
+                  char *text;
+                  int text_need_free = 0;
+
+                  if (cmd == CM_dots || cmd == CM_enddots)
+                    text = "...";
+                  else
+                    {
+           /* Note that we set set_case to 0 irrespective of upper case
+              context, as we want the call to _protect_sentence_ends
+              to be on a text not already upper cased */
+                      text = text_brace_no_arg_command (element,
+                                   self_plaintext->enabled_encoding,
+                             (self->conf->ASCII_GLYPH.o.integer > 0), 0, 0);
+                      text_need_free = 1;
+                    }
+
+                  if (plaintext_commands_data[cmd].flags & PF_punctuation_no_arg)
+                    {
+                      stream_output_add_next (self, text);
+                      para_add_end_sentence ();
+                    }
+                  else if (cmd == CM_tie)
+                    stream_output_add_next (self, text);
+                  else
+                    {
+           /* @AA{} should suppress an end sentence, @aa{} shouldn't.  This
+              is the case whether we are in @sc or not. */
+                      /* TODO
+            if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}
+                and $letter_no_arg_commands{$cmdname}) {
+              $text = _protect_sentence_ends($text);
+              $text = uc($text);
+            }
+                       */
+
+                      stream_output_add_text (self, text);
+
+      /* This is to have @TeX{}, for example, not to prevent end sentences. */
+                      if (!(command_other_flags (element) & CF_letter_no_arg))
+                        para_allow_end_sentence ();
+
+                      if (cmd == CM_dots)
+                        para_remove_end_sentence ();
+                    }
+
+                  if (text_need_free)
+                    free (text);
+                }
+
+            /* TODO
+          if ($formatter->{'upper_case_stack'}->[-1]->{'var'}
+              or $formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
+            allow_end_sentence($formatter->{'container'});
+          }
+             */
+
+              return;
+            }
           else if (cmd == CM_email)
             return;
           else if (cmd == CM_uref || cmd == CM_url)
@@ -2955,7 +3029,42 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           else if (cmd == CM_value)
             return;
         }
-      /* else if (nobrace_symbol_text) */
+      else if (nobrace_symbol_text[cmd])
+        {
+          if (cmd == CM_COLON)
+            para_remove_end_sentence ();
+          else if (cmd == CM_ASTERISK)
+            {
+              FORMATTER *formatter
+                = top_(formatter) (&self_plaintext->formatters);
+              const char *pending_word = para_add_pending_word (0);
+
+              stream_output_count_nl (self, pending_word);
+
+       /* added eol in some line oriented constructs, such as @node, menu
+          entry and therefore index entry would lead to end of line on
+          node pointers line, in tag table, or on menu, all being invalid. */
+              if (formatter->no_added_eol)
+                stream_output_add_text (self, " ");
+              else
+                {
+                  const char *end_line = para_end_line ();
+                  stream_output_count_nl (self, end_line);
+                }
+            }
+          else if (cmd == CM_FULL_STOP || cmd == CM_QUESTION_MARK
+                       || cmd == CM_EXCLAMATION_MARK)
+            {
+              stream_output_add_next (self, nobrace_symbol_text[cmd]);
+              para_add_end_sentence ();
+            }
+          else if (cmd == CM_SPACE || cmd == CM_NEWLINE || cmd == CM_TAB)
+            stream_output_add_next (self, nobrace_symbol_text[cmd]);
+          else
+            stream_output_add_text (self, nobrace_symbol_text[cmd]);
+
+          return;
+        }
       else if (cmd_data->flags & CF_block)
         {
           if (cmd_data->data == BLOCK_menu)
