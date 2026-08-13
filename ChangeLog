@@ -1,5 +1,42 @@
 2026-08-12 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (plaintext_format_setup),
+	tta/perl/XSTexinfo/convert/ConvertInfoXS.xs (init),
+	tta/perl/XSTexinfo/convert/ConvertPlaintextXS.xs (init): call
+	plaintext_format_setup in XS modules init, unless the C command is
+	used.  Avoid calling plaintext_format_setup twice, once for Plaintext,
+	once for Info and verify that it is not called twice for the same
+	initial format.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_process_footnotes)
+	(plaintext_conversion_finalization),
+	tta/C/main/plaintext_converter_state.h (PLAINTEXT_CONVERTER_STATE):
+	use copy for element labels.  Register new elements in converter
+	added_element new field and destroy them in
+	plaintext_conversion_finalization.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_process_footnotes)
+	(convert_to_plaintext_internal),
+	tta/C/main/plaintext_converter_state.h (PENDING_FOOTNOTE): add
+	TREE_ADDED_ELEMENTS added element field in PENDING_FOOTNOTE, put added
+	element generated when a footnote is used as item formatter in there
+	and destroy the tree added elements in plaintext_process_footnotes.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_free_converter):
+	free lists.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): check if added text is not NULL
+	before streaming, for definfoenclose command.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): fix format for footnote number.
+
+	* tta/C/convert/convert_to_plaintext.c (destroy_count_context): free
+	locations lists.
+
+2026-08-12 Patrice Dumas  <pertusus@free.fr>
+
 	C plaintext @abbr and @acronym and @inline*
 
 	* tta/C/convert/convert_to_plaintext.c

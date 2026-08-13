@@ -67,6 +67,8 @@
 #include "convert_to_info.h"
 #include "convert_to_plaintext.h"
 
+static enum converter_format setup_for_format = COF_none;
+
 static const enum command_id informative_global_commands[]
              = {CM_paragraphindent, CM_firstparagraphindent,
                 CM_exampleindent,
@@ -151,10 +153,19 @@ def_list_fns(INDEX_ENTRY_LINE_COUNT_LIST, index_entry_location, int *, 5);
 static void
 destroy_count_context (COUNT_CONTEXT *ctxt)
 {
+  size_t i;
   text_destroy (&ctxt->pending_text);
   text_destroy (&ctxt->result);
-  /* TODO destroy TARGET_LOCATION_LIST locations.
-     And remaining locations within? */
+
+  /* this should only happen for the main document count context
+     as locations inside should have been transferred */
+  for (i = 0; i < ctxt->target_locations.number; i++)
+    free (ctxt->target_locations.list[i]);
+  free (ctxt->target_locations.list);
+
+  for (i = 0; i < ctxt->index_entry_locations.number; i++)
+    free (ctxt->index_entry_locations.list[i]);
+  free (ctxt->index_entry_locations.list);
 }
 
 void
@@ -347,11 +358,31 @@ compare_cmd_id_fn (const void *a, const void *b)
 }
 
 /* set information that is independent of customization, only called once */
+/* if called from XS, can be called twice, once when loading Info, once
+   when loading Plaintext */
 void
 plaintext_format_setup (enum converter_format format)
 {
   int i;
   int format_raw_cmd_nr = 0;
+
+  /* record for which format it was setup, to calling twice and to
+     abort if called twice for the same format */
+  if (setup_for_format == COF_none)
+    setup_for_format = format;
+  else
+    {
+      if (setup_for_format == format)
+        {
+          char *msg;
+          xasprintf (&msg, "plaintext_format_setup called twice"
+                           "for: %d %s\n",
+                           format, converter_format_name (format));
+          bug (msg);
+          free (msg);
+        }
+      return;
+    }
 
   static enum command_id ignored_brace_commands[] = {
       CM_caption, CM_shortcaption, CM_hyphenation, CM_sortas, CM_errormsg,
@@ -621,6 +652,10 @@ plaintext_conversion_finalization (CONVERTER *self)
       free (self_plaintext->index_entry_conversion_info);
     }
   self_plaintext->index_entry_conversion_info = 0;
+
+  for (i = 0; i < self_plaintext->added_element.number; i++)
+    destroy_element_and_children (self_plaintext->added_element.list[i]);
+  self_plaintext->added_element.number = 0;
 }
 
 /* TODO
@@ -1079,6 +1114,7 @@ sub _close_code($) {
 static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[];
 
 def_list_fns(PENDING_FOOTNOTE_LIST, pending_footnote, PENDING_FOOTNOTE, 3);
+def_stack_fns(PENDING_FOOTNOTE_LIST, pending_footnote, PENDING_FOOTNOTE);
 
 static int footnote_indent = 3;
 #define NO_NUMBER_FOOTNOTE_SYMBOL "*"
@@ -1130,24 +1166,22 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
           add_lines_count (self, 2);
         }
       else
-        { /* TODO local variables?  current_node is used for an index entry
-             appearing in footnote.  When/how can the elements be destroyed? */
+        {
           ELEMENT *footnotes_node_arg = new_element (ET_line_arg);
           ELEMENT *footnotes_suffix = new_element (ET_other_text);
           footnotes_node
             = new_command_element (ET_line_command, CM_node);
           ELEMENT *footnote_arguments_line
             = new_element (ET_arguments_line);
+          ELEMENT *label_element_copy = copy_contents (label_element, 0,
+                                                       ET_NONE);
           char *footnote_node_id;
           NODE_RELATIONS footnotes_node_relations = { 0 };
 
           text_append_n (footnotes_suffix->e.text, "-Footnotes", 10);
           xasprintf (&footnote_node_id, "%s-Footnotes", identifier);
 
-          /* TODO the label_element could be copied if it is simpler
-             to register footnotes_node to be destroyed instead of
-             each of the element except for label_element */
-          add_to_contents_as_array (footnotes_node_arg, label_element);
+          add_to_element_contents (footnotes_node_arg, label_element_copy);
           add_element_to_element_contents (footnotes_node_arg,
                                            footnotes_suffix);
           add_element_to_element_contents (footnote_arguments_line,
@@ -1164,9 +1198,11 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 
           plaintext_functions[self->format].format_node (self, footnotes_node,
                                                    &footnotes_node_relations);
-          self_plaintext->current_node = footnotes_node;
 
-          free (footnote_node_id);
+          free (footnotes_node_relations.node_directions);
+
+          self_plaintext->current_node = footnotes_node;
+          add_(element) (&self_plaintext->added_element, footnotes_node);
         }
 
       for (i = 0; i < self_plaintext->pending_footnotes.number; i++)
@@ -1191,21 +1227,14 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
               ELEMENT *footnote_anchor_arg = new_element (ET_brace_arg);
               ELEMENT *footnote_anchor = new_command_element (ET_brace_command,
                                                               CM_anchor);
+              ELEMENT *label_element_copy = copy_contents (label_element, 0,
+                                                           ET_NONE);
               ELEMENT *footnote_anchor_postfix_e
                 = new_text_element (ET_other_text);
               text_printf (footnote_anchor_postfix_e->e.text, "-Footnote-%d",
                            footnote_info->number);
 
-          /* TODO the label_element could be copied if it is simpler
-             to register footnotes_anchor to be destroyed instead of
-             each of the element except for label_element */
-              non_empty = non_leading_trailing_indices (label_element,
-                                                        &arg_indices);
-              if (non_empty)
-                insert_slice_into_contents (footnote_anchor_arg, 0,
-                                            label_element, arg_indices.start,
-                                            arg_indices.end +1);
-
+              add_to_element_contents (footnote_anchor_arg, label_element_copy);
               add_element_to_element_contents (footnote_anchor_arg,
                                                footnote_anchor_postfix_e);
 
@@ -1217,9 +1246,8 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
                                 footnote_anchor_id);
               add_to_element_contents (footnote_anchor, footnote_anchor_arg);
 
-              /* FIXME the footnote_anchor element is not registered anywhere
-                 for destruction */
               plaintext_add_target_location (self, footnote_anchor);
+              add_(element) (&self_plaintext->added_element, footnote_anchor);
             }
 
           push_top_formatter (self, CM_footnote);
@@ -1258,6 +1286,9 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
                         footnote_info->element->e.c->contents.list[0]);
 
           add_newline_if_needed (self);
+
+          if (footnote_info->added)
+            destroy_tree_added_elements (footnote_info->added);
 
           old_context_cmd = pop_top_formatter (self);
           if (old_context_cmd != CM_footnote)
@@ -2739,12 +2770,14 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           const char *begin = lookup_extra_string (element, AI_key_begin);
           const char *end = lookup_extra_string (element, AI_key_end);
           TEXT added = para_add_next (begin, strlen (begin), 1);
-          stream_output_count_nl (self, added.text);
+          if (added.text)
+            stream_output_count_nl (self, added.text);
           if (element->e.c->contents.number > 0)
             convert_to_plaintext_internal (self,
                                            element->e.c->contents.list[0]);
           added = para_add_next (end, strlen (end), 1);
-          stream_output_count_nl (self, added.text);
+          if (added.text)
+            stream_output_count_nl (self, added.text);
 
           return;
         }
@@ -3086,7 +3119,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               if (!self_plaintext->multiple_pass)
                 {
                   PENDING_FOOTNOTE footnote_and_number = {
-                         element, self_plaintext->footnote_index
+                         element, self_plaintext->footnote_index, 0
                   };
                   add_(pending_footnote) (&self_plaintext->pending_footnotes,
                                           footnote_and_number);
@@ -3126,7 +3159,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                                         CM_pxref);
                   ELEMENT *footnote_brace_arg = new_element (ET_brace_arg);
                   ELEMENT *footnote_name = new_text_element (ET_other_text);
-                  text_printf (footnote_name->e.text, "-Footnote-%s",
+                  text_printf (footnote_name->e.text, "-Footnote-%d",
                                self_plaintext->footnote_index);
 
                   add_element_to_element_contents (footnote_ref,
@@ -3523,7 +3556,19 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                           indent_len, -1);
                   ensure_end_of_line (self);
                   destroy_element (frenchspacing_element);
-                  destroy_tree_added_elements (table_item_tree);
+                  /* if the added command is a footnote, it has been
+                     registered in pending footnotes and will be converted
+                     later on, so we keep the added trees with the footnote
+                     instead of destroying then now */
+                  if (table_item_tree->tree->e.c->cmd == CM_footnote)
+                    {
+                      PENDING_FOOTNOTE *footnote_and_number
+                        = top_(pending_footnote) (
+                            &self_plaintext->pending_footnotes);
+                      footnote_and_number->added = table_item_tree;
+                    }
+                  else
+                    destroy_tree_added_elements (table_item_tree);
                 }
             }
           return;
@@ -3898,13 +3943,17 @@ plaintext_free_converter (CONVERTER *self)
   free (self_plaintext->enabled_encoding);
   free (self_plaintext->output_filename);
 
+  free (self_plaintext->pending_footnotes.list);
+
   clear_count_context_stack (&self_plaintext->count_context);
 
   free (self_plaintext->formatters.list);
   free (self_plaintext->format_context.list);
   free (self_plaintext->count_context.list);
+  free (self_plaintext->context.list);
 
   free (self_plaintext->node_names_cache);
+  free (self_plaintext->added_element.list);
 
   free (self_plaintext);
   self->plaintext_converter = 0;

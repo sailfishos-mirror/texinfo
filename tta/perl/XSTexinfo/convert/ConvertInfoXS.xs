@@ -44,6 +44,18 @@ MODULE = Texinfo::Convert::Info	PACKAGE = Texinfo::Convert::Info
 # they are enabled, and they can/may need to be overriden in a declaration
 PROTOTYPES: ENABLE
 
+# C data initialization independent of customization and of Perl
+# default variables.
+# Let C code initialize the library if called from C (mandatory_xs_sv set).
+int
+init (SV *, SV *, SV *, SV *, SV *mandatory_xs_sv)
+      CODE:
+        if (!SvOK (mandatory_xs_sv) || !SvIV (mandatory_xs_sv))
+          plaintext_format_setup (COF_info);
+        RETVAL = 1;
+    OUTPUT:
+        RETVAL
+
 SV *        
 converter (SV *class, SV *conf_sv=0)
       PREINIT:

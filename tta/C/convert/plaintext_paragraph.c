@@ -407,11 +407,11 @@ para_destroy (void)
 /* characters triggering an end of sentence */
 #define end_sentence_characters ".?!"
 
-/* Add WORD to paragraph in RESULT, not refilling WORD.  If we go past the end
-   of the line start a new one.  TRANSPARENT means that the letters in WORD
-   are ignored for the purpose of deciding whether a full stop ends a sentence
-   or not.  If COL_COUNT is non-negative, it is the number of screen columns
-   taken up by the word. */
+/* Add WORD to paragraph, not refilling WORD.  If we go past the end
+   of the line, fill RESULT and start a new one.  TRANSPARENT means that
+   the letters in WORD are ignored for the purpose of deciding whether a
+   full stop ends a sentence or not.  If COL_COUNT is non-negative, it is
+   the number of screen columns taken up by the word. */
 void
 para__add_next (TEXT *result, const char *word, int word_len,
                   int transparent, int col_count)
@@ -516,6 +516,8 @@ para__add_next (TEXT *result, const char *word, int word_len,
 }
 
 /* Like _add_next but zero end_line_count at beginning. */
+/* Note that t.text can be NULL if the text added does not start
+   a new line and accumulate in the paragraphe word. */
 TEXT
 para_add_next (const char *text, int text_len, int transparent)
 {

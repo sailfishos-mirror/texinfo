@@ -121,10 +121,16 @@ typedef struct MATH_ELEMENTS_IMAGES {
 typedef struct PENDING_FOOTNOTE {
     const ELEMENT *element;
     int number;
+    /* in case added elements are needed for the footnote tree to be
+       be converted when processing the footnotes text */
+    /* currently for a case of invalid Texinfo construct, but could be
+       relevant */
+    TREE_ADDED_ELEMENTS *added;
 } PENDING_FOOTNOTE;
 
 def_list_type(PENDING_FOOTNOTE_LIST, PENDING_FOOTNOTE);
 decl_list_fns(PENDING_FOOTNOTE_LIST, pending_footnote, PENDING_FOOTNOTE);
+decl_stack_fns(PENDING_FOOTNOTE_LIST, pending_footnote, PENDING_FOOTNOTE);
 
 typedef struct INDEX_ENTRY_INFO {
     const ELEMENT *node;
@@ -174,6 +180,11 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     C_HASHMAP index_entry_node_colon;
     INDEX_ENTRY_INFO **index_entry_conversion_info;
     MATH_ELEMENTS_IMAGES *element_images;
+    /* added elements during conversion that either are needed until the
+       end because they are in tag table or are needed for some time, as
+       is the case for footnote added node in case footnotestyle is separate
+     */
+    ELEMENT_LIST added_element;
 } PLAINTEXT_CONVERTER_STATE;
 
 #endif
