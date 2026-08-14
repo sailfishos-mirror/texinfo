@@ -1009,8 +1009,32 @@ update_locations_counts (CONVERTER *self, COUNT_CONTEXT *parent_counts,
 void
 add_newline_if_needed (CONVERTER *self)
 {
-  /* TODO check pending_text */
-  stream_output (self, "\n");
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+        = top_(count_context) (&self_plaintext->count_context);
+
+  TEXT *pending = &count_context->pending_text;
+
+  if (pending->end >=2
+      && (pending->text[pending->end -1] != '\n'
+          || pending->text[pending->end -2] != '\n'))
+    {
+      stream_output (self, "\n");
+      add_lines_count (self, 1);
+    }
+  else
+    {
+      const char *result = stream_result (self);
+      if (strcmp (result, "") && strcmp (result, "\n"))
+        {
+          size_t len = strlen (result);
+          if (len < 2 || result[len -1] != '\n' || result[len -2] != '\n')
+            {
+              stream_output (self, "\n");
+              add_lines_count (self, 1);
+            }
+        }
+    }
 }
 
 static void
