@@ -2618,7 +2618,7 @@ sub _convert_def_line($$) {
                                                 'contents' => [$arguments]});
     }
 
-    my $omit_def_space = $element->{'extra'}->{'omit_def_name_space'};
+    my $omit_def_name_space = $element->{'extra'}->{'omit_def_name_space'};
 
     if ($cmdname eq 'defline'
         or $cmdname eq 'deffn'
@@ -2632,7 +2632,7 @@ sub _convert_def_line($$) {
          'category' => $category,
          'name' => $formatted_name,
          'arguments' => $formatted_arguments};
-        if ($omit_def_space) {
+        if ($omit_def_name_space) {
           $tree = $self->cdt('@tie{}--- {category}: {name}{arguments}',
                              $strings);
         } else {
@@ -2657,7 +2657,7 @@ sub _convert_def_line($$) {
         if ($self->get_conf('deftypefnnewline')
             and $self->get_conf('deftypefnnewline') eq 'on'
             and $cmdname eq 'deftypefn') {
-          if ($omit_def_space) {
+          if ($omit_def_name_space) {
             $tree
               = $self->cdt('@tie{}--- {category}:@*{type}@*{name}{arguments}',
                            $strings);
@@ -2667,7 +2667,7 @@ sub _convert_def_line($$) {
                            $strings);
           }
         } else {
-          if ($omit_def_space) {
+          if ($omit_def_name_space) {
             $tree
               = $self->cdt('@tie{}--- {category}: {type} {name}{arguments}',
                            $strings);
@@ -2703,7 +2703,7 @@ sub _convert_def_line($$) {
          'class' => Texinfo::TreeElement::new({'type' => '_code',
                                                'contents' => [$class]}),
          'arguments' => $formatted_arguments};
-        if ($omit_def_space) {
+        if ($omit_def_name_space) {
           $tree
            = $self->cdt('@tie{}--- {category} of {class}: {name}{arguments}',
                         $strings);
@@ -2729,7 +2729,7 @@ sub _convert_def_line($$) {
          'class' => Texinfo::TreeElement::new({'type' => '_code',
                                                'contents' => [$class]}),
          'arguments' => $formatted_arguments};
-        if ($omit_def_space) {
+        if ($omit_def_name_space) {
           $tree
             = $self->cdt('@tie{}--- {category} on {class}: {name}{arguments}',
                          $strings);
@@ -2757,7 +2757,7 @@ sub _convert_def_line($$) {
          'arguments' => $formatted_arguments};
         if ($self->get_conf('deftypefnnewline')
             and $self->get_conf('deftypefnnewline') eq 'on') {
-          if ($omit_def_space) {
+          if ($omit_def_name_space) {
             $tree
               = $self->cdt(
                '@tie{}--- {category} on {class}:@*{type}@*{name}{arguments}',
@@ -2769,7 +2769,7 @@ sub _convert_def_line($$) {
                            $strings);
           }
         } else {
-          if ($omit_def_space) {
+          if ($omit_def_name_space) {
             $tree
               = $self->cdt(
              '@tie{}--- {category} on {class}: {type} {name}{arguments}',
@@ -2810,7 +2810,7 @@ sub _convert_def_line($$) {
          'type' => Texinfo::TreeElement::new({'type' => '_code',
                                               'contents' => [$type]}),
          'arguments' => $formatted_arguments};
-        if ($omit_def_space) {
+        if ($omit_def_name_space) {
           $tree
             = $self->cdt(
                  '@tie{}--- {category} of {class}: {type} {name}{arguments}',

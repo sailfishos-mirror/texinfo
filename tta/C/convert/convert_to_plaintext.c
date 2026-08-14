@@ -3007,6 +3007,7 @@ text_heading (CONVERTER *self, const ELEMENT *current,
   plaintext_convert_line_new_context (self, heading_element,
                                                   -1, -1, -1, -1,
                                                   &section_text);
+  destroy_element (frenchspacing_e);
   return section_text.string;
   /* TODO */
 }
@@ -3042,10 +3043,14 @@ convert_def_line (CONVERTER *self, const ELEMENT *element)
       || parsed_def->type || parsed_def->name)
     {
       PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-      ELEMENT *tree;
+      NAMED_STRING_ELEMENT_LIST *substrings
+                                 = new_named_string_element_list ();
+      ELEMENT *tree = 0;
       ELEMENT *formatted_arguments = 0;
-      enum command_id original_cmd = 0;
-      enum command_id original_def_cmd;
+      ELEMENT *formatted_name;
+      enum command_id base_cmd = 0;
+      enum command_id def_cmd;
+      int omit_def_name_space = (element->flags & EF_omit_def_name_space);
       FORMAT_CONTEXT *top_format_context
           = top_(format_context) (&self_plaintext->format_context);
 
@@ -3061,56 +3066,282 @@ convert_def_line (CONVERTER *self, const ELEMENT *element)
       def_paragraph.suppress_styles = 1;
       push_formatter (self, &def_paragraph);
 
-      if (element->e.c->cmd)
-        original_def_cmd = element->e.c->cmd;
+      /* parent is defblock */
+      if (element->e.c->cmd == CM_defline || element->e.c->cmd == CM_deftypeline)
+        def_cmd = element->e.c->cmd;
       else
+      /* the parent is the def both for def* def_line and def*x */
         {
           if (element->e.c->parent)
-            original_def_cmd = element->e.c->parent->e.c->cmd;
+            def_cmd = element->e.c->parent->e.c->cmd;
           else
             {
-          /* If the tree is a copy, there is no parent, for instance in
-             user-defined translations with @def* commands, which would
-             be quite unusual, but is tested in tests.
-           */
-              const char *original_def_cmdname
-                = lookup_extra_string (element, AI_key_original_def_cmdname);
-              original_def_cmd = lookup_builtin_command (original_def_cmdname);
+              /* If the tree is a copy, there is no parent, for instance in
+                 user-defined translations with @def* commands, which would
+                 be quite unusual, but is tested in tests.
+                 TODO cannot happen in Info/plaintext?
+               */
+              const char *def_command
+                = lookup_extra_string (element, AI_key_def_command);
+              def_cmd = lookup_builtin_command (def_command);
             }
         }
-      if (command_data[original_def_cmd].flags & CF_def_alias)
+
+      if (command_data[def_cmd].flags & CF_def_alias)
         {
           int i;
           for (i = 0; def_aliases[i].alias ; i++)
             {
-              if (def_aliases[i].alias == original_def_cmd)
+              if (def_aliases[i].alias == def_cmd)
                 {
-                  original_cmd = def_aliases[i].command;
+                  base_cmd = def_aliases[i].command;
                   break;
                 }
             }
         }
       else
-        original_cmd = original_def_cmd;
+        base_cmd = def_cmd;
+
+
+      if (parsed_def->name)
+        {
+          formatted_name = new_element (ET__code);
+          ELEMENT *name_copy = copy_element_tree (parsed_def->name, 0);
+          add_to_element_contents (formatted_name, name_copy);
+        }
+      else
+        formatted_name = new_text_element (ET_other_text);
 
       if (parsed_def->args)
         {
           ELEMENT *arguments_copy = copy_element_tree (parsed_def->args, 0);
           formatted_arguments = new_element (ET__code);
           add_to_element_contents (formatted_arguments, arguments_copy);
-          tree = formatted_arguments;
-        }
-      else
-        {
-          tree = new_element (ET_NONE);
-          ELEMENT *tree_text = new_text_element (ET_other_text);
-          text_append (tree_text->e.text, "DEF");
-          add_element_to_element_contents (tree, tree_text);
         }
 
-      /* TODO */
+      ELEMENT *category_copy = copy_element_tree (parsed_def->category, 0);
+      add_element_to_named_string_element_list (substrings, "category",
+                                                category_copy);
+      add_element_to_named_string_element_list (substrings, "name",
+                                                formatted_name);
+      if (base_cmd == CM_defline
+          || base_cmd == CM_deffn
+          || base_cmd == CM_defvr
+          || base_cmd == CM_deftp
+          || ((base_cmd == CM_deftypefn
+               || base_cmd == CM_deftypevr)
+               && !parsed_def->type))
+        {
+          if (parsed_def->args)
+            {
+              add_element_to_named_string_element_list (substrings,
+                                        "arguments", formatted_arguments);
+              if (omit_def_name_space)
+                tree = cdt_tree ("@tie{}--- {category}: {name}{arguments}",
+                                 self, substrings, 0);
+              else
+                tree = cdt_tree ("@tie{}--- {category}: {name} {arguments}",
+                                 self, substrings, 0);
+            }
+          else
+            tree = cdt_tree ("@tie{}--- {category}: {name}",
+                             self, substrings, 0);
+        }
+      else if (base_cmd == CM_deftypeline
+               || base_cmd == CM_deftypefn
+               || base_cmd == CM_deftypevr)
+        {
+          ELEMENT *type_copy = copy_element_tree (parsed_def->type, 0);
+          ELEMENT *formatted_type = new_element (ET__code);
+          add_to_element_contents (formatted_type, type_copy);
+          add_element_to_named_string_element_list (substrings, "type",
+                                                    formatted_type);
+
+          if (parsed_def->args)
+            {
+              add_element_to_named_string_element_list (substrings,
+                                        "arguments", formatted_arguments);
+              if (self->conf->deftypefnnewline.o.string
+                  && !strcmp (self->conf->deftypefnnewline.o.string, "on")
+                  && base_cmd == CM_deftypefn)
+                {
+                  if (omit_def_name_space)
+                    tree
+             = cdt_tree ("@tie{}--- {category}:@*{type}@*{name}{arguments}",
+                                 self, substrings, 0);
+                  else
+                    tree
+              = cdt_tree ("@tie{}--- {category}:@*{type}@*{name} {arguments}",
+                                 self, substrings, 0);
+                }
+              else
+                {
+                  if (omit_def_name_space)
+                    tree
+             = cdt_tree ("@tie{}--- {category}: {type} {name}{arguments}",
+                                 self, substrings, 0);
+                  else
+                    tree
+              = cdt_tree ("@tie{}--- {category}: {type} {name} {arguments}",
+                                 self, substrings, 0);
+                }
+            }
+          else
+            {
+              if (self->conf->deftypefnnewline.o.string
+                  && !strcmp (self->conf->deftypefnnewline.o.string, "on")
+                  && base_cmd == CM_deftypefn)
+                tree = cdt_tree ("@tie{}--- {category}:@*{type}@*{name}",
+                                  self, substrings, 0);
+              else
+                tree = cdt_tree ("@tie{}--- {category}: {type} {name}",
+                                  self, substrings, 0);
+            }
+        }
+      else if (base_cmd == CM_defcv
+               || (base_cmd == CM_deftypecv
+                   && !parsed_def->type))
+        {
+          ELEMENT *class_copy = copy_element_tree (parsed_def->class, 0);
+          ELEMENT *formatted_class = new_element (ET__code);
+          add_to_element_contents (formatted_class, class_copy);
+          add_element_to_named_string_element_list (substrings, "class",
+                                                    formatted_class);
+          if (parsed_def->args)
+            {
+              add_element_to_named_string_element_list (substrings,
+                                        "arguments", formatted_arguments);
+              if (omit_def_name_space)
+                tree
+          = cdt_tree ("@tie{}--- {category} of {class}: {name}{arguments}",
+                                 self, substrings, 0);
+              else
+                tree
+          = cdt_tree ("@tie{}--- {category} of {class}: {name} {arguments}",
+                                 self, substrings, 0);
+            }
+          else
+            tree = cdt_tree ("@tie{}--- {category} of {class}: {name}",
+                             self, substrings, 0);
+        }
+      else if (base_cmd == CM_defop
+               || (base_cmd == CM_deftypeop
+                   && !parsed_def->type))
+        {
+          ELEMENT *class_copy = copy_element_tree (parsed_def->class, 0);
+          ELEMENT *formatted_class = new_element (ET__code);
+          add_to_element_contents (formatted_class, class_copy);
+          add_element_to_named_string_element_list (substrings, "class",
+                                                    formatted_class);
+          if (parsed_def->args)
+            {
+              add_element_to_named_string_element_list (substrings,
+                                        "arguments", formatted_arguments);
+              if (omit_def_name_space)
+                tree
+          = cdt_tree ("@tie{}--- {category} on {class}: {name}{arguments}",
+                                 self, substrings, 0);
+              else
+                tree
+          = cdt_tree ("@tie{}--- {category} on {class}: {name} {arguments}",
+                                 self, substrings, 0);
+            }
+          else
+            tree = cdt_tree ("@tie{}--- {category} on {class}: {name}",
+                             self, substrings, 0);
+        }
+      else if (base_cmd == CM_deftypeop)
+        {
+          ELEMENT *class_copy = copy_element_tree (parsed_def->class, 0);
+          ELEMENT *formatted_class = new_element (ET__code);
+          add_to_element_contents (formatted_class, class_copy);
+          add_element_to_named_string_element_list (substrings, "class",
+                                                    formatted_class);
+          ELEMENT *type_copy = copy_element_tree (parsed_def->type, 0);
+          ELEMENT *formatted_type = new_element (ET__code);
+          add_to_element_contents (formatted_type, type_copy);
+          add_element_to_named_string_element_list (substrings, "type",
+                                                    formatted_type);
+          if (parsed_def->args)
+            {
+              add_element_to_named_string_element_list (substrings,
+                                        "arguments", formatted_arguments);
+              if (self->conf->deftypefnnewline.o.string
+                  && !strcmp (self->conf->deftypefnnewline.o.string, "on"))
+                {
+                  if (omit_def_name_space)
+                    tree = cdt_tree (
+              "@tie{}--- {category} on {class}:@*{type}@*{name}{arguments}",
+                                 self, substrings, 0);
+                  else
+                    tree = cdt_tree (
+              "@tie{}--- {category} on {class}:@*{type}@*{name} {arguments}",
+                                 self, substrings, 0);
+                }
+              else
+                {
+                  if (omit_def_name_space)
+                    tree = cdt_tree (
+              "@tie{}--- {category} on {class}: {type} {name}{arguments}",
+                                 self, substrings, 0);
+                  else
+                    tree = cdt_tree (
+              "@tie{}--- {category} on {class}: {type} {name} {arguments}",
+                                 self, substrings, 0);
+                }
+            }
+          else
+            {
+              if (self->conf->deftypefnnewline.o.string
+                  && !strcmp (self->conf->deftypefnnewline.o.string, "on"))
+                tree = cdt_tree (
+                   "@tie{}--- {category} on {class}:@*{type}@*{name}",
+                                 self, substrings, 0);
+              else
+                tree = cdt_tree (
+                   "@tie{}--- {category} on {class}: {type} {name}",
+                                 self, substrings, 0);
+            }
+        }
+      else if (base_cmd == CM_deftypecv)
+        {
+          ELEMENT *class_copy = copy_element_tree (parsed_def->class, 0);
+          ELEMENT *formatted_class = new_element (ET__code);
+          add_to_element_contents (formatted_class, class_copy);
+          add_element_to_named_string_element_list (substrings, "class",
+                                                    formatted_class);
+          ELEMENT *type_copy = copy_element_tree (parsed_def->type, 0);
+          ELEMENT *formatted_type = new_element (ET__code);
+          add_to_element_contents (formatted_type, type_copy);
+          add_element_to_named_string_element_list (substrings, "type",
+                                                    formatted_type);
+          if (parsed_def->args)
+            {
+              add_element_to_named_string_element_list (substrings,
+                                        "arguments", formatted_arguments);
+              if (omit_def_name_space)
+                tree = cdt_tree (
+              "@tie{}--- {category} of {class}: {type} {name}{arguments}",
+                                 self, substrings, 0);
+              else
+                tree = cdt_tree (
+              "@tie{}--- {category} of {class}: {type} {name} {arguments}",
+                                 self, substrings, 0);
+            }
+          else
+            tree = cdt_tree (
+              "@tie{}--- {category} of {class}: {type} {name}",
+                                 self, substrings, 0);
+        }
+
+      destroy_named_string_element_list (substrings);
 
       convert_to_plaintext_internal (self, tree);
+
+      destroy_element_and_children (tree);
+
+      destroy_parsed_def (parsed_def);
+
       const char *end_line = para_end_line ();
       stream_output_count_nl (self, end_line);
 
@@ -4322,6 +4553,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   add_lines_count (self, 2);
                   add_newline_if_needed (self);
                 }
+              free (heading_underlined);
             }
             /* TODO
       $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
