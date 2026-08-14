@@ -1373,15 +1373,15 @@ compute_spaces_align_line (int line_width, int max_column,
                            enum align_directions direction,
                            int no_align)
 {
-  int spaces_prepended;
+  int prepended_spaces;
   if (line_width > max_column || no_align)
-    spaces_prepended = 0;
+    prepended_spaces = 0;
   else if (direction == AD_center)
-    spaces_prepended = (max_column -1 - line_width) / 2;
+    prepended_spaces = (max_column -1 - line_width) / 2;
   else
-    spaces_prepended = max_column -1 - line_width;
+    prepended_spaces = max_column -1 - line_width;
 
-  return spaces_prepended;
+  return prepended_spaces;
 }
 
 def_list_type(IMAGE_LOCATION_POINTER_LIST, IMAGE_LOCATION_INFO *);
@@ -1425,27 +1425,21 @@ align_lines (CONVERTER *self, const char *text_encoded, int max_column,
              IMAGE_LOCATION_INFO_LIST *images)
 {
   size_t i;
-  int delta_bytes = 0;
-  int line_index = 0;
-  IMAGE_LOCATION_INFO *image = 0;
-  int image_lines_count;
-  int image_prepended_spaces;
-  const char *p = text_encoded;
   TEXT result;
   text_init (&result);
   text_append (&result, "");
 
   static LINE_TARGET_IMAGE_LIST line_info;
 
-  int max_line = 0;
+  int max_lines = 0;
 
   for (i = 0; i < target_locations->number; i++)
     {
       TARGET_LOCATION *location = target_locations->list[i];
       int lines = location->lines;
       reallocate_line_target_image_for (&line_info, lines+1);
-      if (lines > max_line)
-        max_line = lines;
+      if (lines > max_lines)
+        max_lines = lines;
       add_(target_location) (&line_info.list[lines].locations, location);
     }
 
@@ -1456,21 +1450,30 @@ align_lines (CONVERTER *self, const char *text_encoded, int max_column,
         {
           int lines = image_info->lines;
           reallocate_line_target_image_for (&line_info, lines+1);
-          if (lines > max_line)
-            max_line = lines;
+          if (lines > max_lines)
+            max_lines = lines;
           add_(image_location_ptr) (&line_info.list[lines].images, image_info);
         }
     }
 
+  int delta_bytes = 0;
+  int line_index = 0;
+  IMAGE_LOCATION_INFO *image = 0;
+  int image_lines_count;
+  int image_prepended_spaces;
+  const char *p = text_encoded;
   while (1)
     {
-      size_t line_len = strcspn (p, "\n");
+      int j;
+      int line_len = strcspn (p, "\n");
       int line_bytes_begin = 0;
       int line_bytes_end = 0;
       int removed_line_bytes_end = 0;
       int removed_line_bytes_begin = 0;
       IMAGE_LOCATION_INFO *new_image;
       int new_image_prepended_spaces;
+
+      reallocate_line_target_image_for (&line_info, line_index+1);
 
       if (line_info.list[line_index].images.number)
         {
@@ -1484,6 +1487,7 @@ align_lines (CONVERTER *self, const char *text_encoded, int max_column,
               image_prepended_spaces = new_image_prepended_spaces;
               new_image = 0;
             }
+          line_info.list[line_index].images.number = 0;
         }
 
       if (!image)
@@ -1522,15 +1526,101 @@ align_lines (CONVERTER *self, const char *text_encoded, int max_column,
           else
             {
               const char *q = p + removed_line_bytes_begin;
-              char *string = strndup (q, line_len - removed_line_bytes_begin
-                                                  - removed_line_bytes_end);
+              int string_len = line_len - removed_line_bytes_begin
+                                                  - removed_line_bytes_end;
+              char *string = strndup (q, string_len);
               line_width = string_width_multibyte (string);
-              /* TODO */
+              free (string);
+              int prepended_spaces
+               = compute_spaces_align_line (line_width, max_column,
+                                            direction, 0);
+              for (j = 0; j < prepended_spaces; j++)
+                text_append_n (&result, " ", 1);
+              text_append_n (&result, q, string_len);
+              text_append_n (&result, "\n", 1);
+              line_bytes_begin += prepended_spaces;
+              line_bytes_end += 1;
             }
         }
       else
         {
-          /* TODO */
+          char *line_str = 0;
+          int line_width;
+          const char *line_for_width;
+
+          if (*(p + line_len) == '\n')
+            {
+              line_len++;
+              line_str = strndup (p, line_len);
+              line_for_width = line_str;
+            }
+          else
+            line_for_width = p;
+
+          line_width = string_width_multibyte (line_for_width);
+
+          free (line_str);
+
+          image_lines_count++;
+          int prepended_spaces = image_prepended_spaces;
+     /* adjust if there is something else that the image on the first or
+        last line.  The adjustment is approximate. */
+          if ((image_lines_count == 1
+               || image_lines_count == image->lines_count)
+              && line_width > image->image_width)
+            {
+              prepended_spaces -= line_width - image->image_width;
+              if (prepended_spaces < 0)
+                prepended_spaces = 0;
+              for (j = 0; j < prepended_spaces; j++)
+                text_append_n (&result, " ", 1);
+              text_append_n (&result, p, line_len);
+              line_bytes_begin += prepended_spaces;
+            }
+          if (new_image)
+            {
+              image = new_image;
+              image_prepended_spaces = new_image_prepended_spaces;
+            }
+          else if (image_lines_count == image->lines_count)
+            {
+              image = 0;
+              image_lines_count = -1;
+              image_prepended_spaces = -1;
+            }
+        }
+      if (line_info.list[line_index].locations.number)
+        {
+          size_t i;
+          for (i = 0; i < line_info.list[line_index].locations.number; i++)
+            {
+              TARGET_LOCATION *location
+                = line_info.list[line_index].locations.list[i];
+              location->bytes += line_bytes_begin - removed_line_bytes_begin
+                                 + delta_bytes;
+            }
+          line_info.list[line_index].locations.number = 0;
+        }
+      delta_bytes += line_bytes_begin + line_bytes_end
+                     - removed_line_bytes_begin - removed_line_bytes_end;
+
+      p += line_len;
+      if (!*p)
+        break;
+      line_index++;
+    }
+
+  /* not sure that it can happen as the lines should have been collected
+     in the same count context, but be safe */
+  if (line_index < max_lines)
+    {
+      for (; line_index <= max_lines; line_index++)
+        {
+          if (line_info.list[line_index].locations.number)
+            line_info.list[line_index].locations.number = 0;
+
+          if (line_info.list[line_index].images.number)
+            line_info.list[line_index].images.number = 0;
         }
     }
 
@@ -1557,6 +1647,7 @@ align_environment (CONVERTER *self, const char *text_encoded, int max,
   parent_count_context->lines += count_context->lines;
 
   pop_count_context (&self_plaintext->count_context);
+  return result;
 }
 
 void
@@ -3016,6 +3107,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           if (strcmp (accented_text, ""))
             para_remove_end_sentence ();
 
+          free (accented_text);
+
           return;
         }
       else if (type == ET_definfoenclose_command)
@@ -3933,6 +4026,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 = enumerate_item_representation (element);
               stream_output_add_next (self, item_representation);
               stream_output_add_next (self, ". ");
+              free (item_representation);
             }
           else
             {
@@ -4042,7 +4136,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       if (type == ET_paragraph)
         {
           int paragraphindent = self->conf->paragraphindent.o.integer;
-
+          enum command_id context_cmd
+             = *top_(command) (&self_plaintext->context);
           FORMAT_CONTEXT *top_format
             = top_(format_context) (&self_plaintext->format_context);
 
@@ -4060,10 +4155,36 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           push_formatter (self, &new_paragraph);
 
           top_format->paragraph_count++;
+
+          if (context_cmd == CM_flushright)
+            {
+              COUNT_CONTEXT count_context = { 0 };
+              add_(count_context) (&self_plaintext->count_context,
+                                   count_context);
+            }
         }
       else if (type == ET_preformatted || type == ET_rawpreformatted)
         {
-          /* TODO */
+          enum command_id context_cmd
+             = *top_(command) (&self_plaintext->context);
+     /* if in a description reuse the main menu unfilled, to keep things
+        simpler and avoid having to do a separate count. */
+          if (type == ET_rawpreformatted
+              || !element->e.c->parent
+              || element->e.c->parent->type != ET_menu_entry_description)
+            {
+              FORMATTER new_preformatted
+                = new_formatter (self, formatter_unfilled, -1, -1);
+              preformatted = &new_preformatted;
+              push_formatter (self, preformatted);
+
+              if (context_cmd == CM_flushright)
+                {
+                  COUNT_CONTEXT count_context = { 0 };
+                  add_(count_context) (&self_plaintext->count_context,
+                                       count_context);
+                }
+            }
         }
       else if (type == ET_def_line)
         {
@@ -4146,6 +4267,14 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
       if (context_cmd == CM_flushright)
         {
+          const char *initial_result = stream_result (self);
+          char *result = align_environment (self, initial_result,
+           /* TODO
+              $self->{'text_element_context'}->[-1]->{'max'},
+            */
+                                            80, AD_right);
+          stream_output_encoded (self, result);
+          free (result);
         }
 
       para_destroy ();
@@ -4164,7 +4293,14 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
       if (context_cmd == CM_flushright)
         {
-          /* TODO */
+          const char *initial_result = stream_result (self);
+          char *result = align_environment (self, initial_result,
+           /* TODO
+              $self->{'text_element_context'}->[-1]->{'max'},
+            */
+                                            80, AD_right);
+          stream_output_encoded (self, result);
+          free (result);
         }
       else if (context_cmd == CM_displaymath
                && self_plaintext->element_images)

@@ -1585,16 +1585,16 @@ sub process_footnotes($;$) {
 sub _compute_spaces_align_line($$$;$) {
   my ($line_width, $max_column, $direction, $no_align) = @_;
 
-  my $spaces_prepended;
+  my $prepended_spaces;
   if ($line_width >= $max_column or $no_align) {
-    $spaces_prepended = 0;
+    $prepended_spaces = 0;
   } elsif ($direction eq 'center') {
     # if no int we may end up with floats...
-    $spaces_prepended = int(($max_column -1 - $line_width) /2);
+    $prepended_spaces = int(($max_column -1 - $line_width) /2);
   } else {
-    $spaces_prepended = ($max_column -1 - $line_width);
+    $prepended_spaces = ($max_column -1 - $line_width);
   }
-  return $spaces_prepended;
+  return $prepended_spaces;
 }
 
 # readjustment only needed for bytes, ie for anchors and floats
@@ -1665,10 +1665,10 @@ sub _align_lines($$$$$$) {
         $result .= "\n";
         $line_bytes_end += length("\n");
       } else {
-        my $spaces_prepended
+        my $prepended_spaces
          = _compute_spaces_align_line($line_width, $max_column, $direction);
-        $result .= ' ' x $spaces_prepended . $line ."\n";
-        $line_bytes_begin += length(' ' x $spaces_prepended);
+        $result .= ' ' x $prepended_spaces . $line ."\n";
+        $line_bytes_begin += length(' ' x $prepended_spaces);
         $line_bytes_end += length("\n");
       }
     } else {
