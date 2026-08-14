@@ -27,6 +27,8 @@
 /* for PRIuPTR */
 #include <inttypes.h>
 
+#include "unistr.h"
+
 #include "list_macros.h"
 #include "text.h"
 #include "command_ids.h"
@@ -54,6 +56,7 @@
 #include "targets.h"
 #include "customization_options.h"
 #include "output_unit.h"
+#include "unicode.h"
 /* for converter_encoded_output_file_name item_itemize_prepended */
 #include "convert_utils.h"
 #include "convert_to_texinfo.h"
@@ -150,6 +153,8 @@ def_list_fns(TARGET_LOCATION_LIST, target_location, TARGET_LOCATION *, 5);
 
 def_list_fns(INDEX_ENTRY_LINE_COUNT_LIST, index_entry_location, int *, 5);
 
+def_list_fns(IMAGE_LOCATION_INFO_LIST, image_location, IMAGE_LOCATION_INFO, 3);
+
 static void
 destroy_count_context (COUNT_CONTEXT *ctxt)
 {
@@ -166,6 +171,8 @@ destroy_count_context (COUNT_CONTEXT *ctxt)
   for (i = 0; i < ctxt->index_entry_locations.number; i++)
     free (ctxt->index_entry_locations.list[i]);
   free (ctxt->index_entry_locations.list);
+
+  free (ctxt->images.list);
 }
 
 void
@@ -207,6 +214,7 @@ fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   formatter->container.paragraph = para_new ();
+  enum command_id context_cmd = *top_(command) (&self_plaintext->context);
 
   if (indent_length != -1)
     para_set_conf_indent_length (indent_length);
@@ -240,6 +248,12 @@ fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
       break;
     default:
       fatal ("unknown container type\n");
+    }
+
+  if (plaintext_commands_data[context_cmd].flags & PF_flush)
+    {
+      para_set_conf_ignore_columns (1);
+      para_set_conf_keep_end_lines (1);
     }
 }
 
@@ -407,6 +421,9 @@ plaintext_format_setup (enum converter_format format)
   static enum command_id punctuation_no_arg_commands[] = {
     CM_enddots, CM_exclamdown, CM_questiondown, 0};
 
+  static enum command_id flush_commands[] = {
+    CM_flushleft, CM_flushright, 0};
+
   for (i = 0; ignored_brace_commands[i]; i++)
     plaintext_commands_data[ignored_brace_commands[i]].flags |= PF_ignored;
 
@@ -416,6 +433,9 @@ plaintext_format_setup (enum converter_format format)
   for (i = 0; punctuation_no_arg_commands[i]; i++)
     plaintext_commands_data[punctuation_no_arg_commands[i]].flags
                                                |= PF_punctuation_no_arg;
+
+  for (i = 0; flush_commands[i]; i++)
+    plaintext_commands_data[flush_commands[i]].flags |= PF_flush;
 
   /* count commands in some categories and set categories */
   for (i = 1; i < BUILTIN_CMD_NUMBER; i++)
@@ -674,6 +694,19 @@ add_lines_count (CONVERTER *self, int lines_count)
   count_context->lines += lines_count;
 }
 
+void
+plaintext_add_image (CONVERTER *self, const ELEMENT *element,
+                     int lines_count, int image_width, int no_align)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+    = top_(count_context) (&self_plaintext->count_context);
+
+  IMAGE_LOCATION_INFO image_location
+      = {count_context->lines, lines_count, image_width, no_align};
+  add_(image_location) (&count_context->images, image_location);
+}
+
 /* TODO: reset more than just 'result'? */
 static void
 stream_reset (CONVERTER *self)
@@ -919,9 +952,34 @@ plaintext_convert_line_new_context (CONVERTER *self,
 
 /* TODO decode */
 
-/* TODO string_width_encoded */
+static void
+update_locations_counts (CONVERTER *self, COUNT_CONTEXT *parent_counts,
+                         COUNT_CONTEXT *counts)
+{
+  size_t bytes = stream_byte_count (self);
+  int lines = parent_counts->lines;
+  size_t i;
 
-/* TODO update_locations_counts */
+  for (i = 0; i < counts->target_locations.number; i++)
+    {
+      TARGET_LOCATION *location = counts->target_locations.list[i];
+      location->bytes += bytes;
+      location->lines += lines;
+
+      add_(target_location) (&parent_counts->target_locations, location);
+    }
+  counts->target_locations.number = 0;
+
+  for (i = 0; i < counts->index_entry_locations.number; i++)
+    {
+      int *location = counts->index_entry_locations.list[i];
+      *location += lines;
+
+      add_(index_entry_location) (
+            &parent_counts->index_entry_locations, location);
+    }
+  counts->index_entry_locations.number = 0;
+}
 
 /* Called at the beginning of a line.  Add a blank line if the output does
    not already end in one. */
@@ -1221,8 +1279,6 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
           if (label_element)
             {
               char *footnote_anchor_id;
-              int non_empty;
-              ARG_INDICES arg_indices;
 
               ELEMENT *footnote_anchor_arg = new_element (ET_brace_arg);
               ELEMENT *footnote_anchor = new_command_element (ET_brace_command,
@@ -1304,6 +1360,203 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 
   para_destroy ();
   pop_formatter (self);
+}
+
+enum align_directions {
+   AD_right,
+   AD_center,
+   AD_left, /* unused */
+};
+
+static int
+compute_spaces_align_line (int line_width, int max_column,
+                           enum align_directions direction,
+                           int no_align)
+{
+  int spaces_prepended;
+  if (line_width > max_column || no_align)
+    spaces_prepended = 0;
+  else if (direction == AD_center)
+    spaces_prepended = (max_column -1 - line_width) / 2;
+  else
+    spaces_prepended = max_column -1 - line_width;
+
+  return spaces_prepended;
+}
+
+def_list_type(IMAGE_LOCATION_POINTER_LIST, IMAGE_LOCATION_INFO *);
+decl_list_fns(IMAGE_LOCATION_POINTER_LIST, image_location_ptr,
+              IMAGE_LOCATION_INFO *);
+def_list_fns(IMAGE_LOCATION_POINTER_LIST, image_location_ptr,
+              IMAGE_LOCATION_INFO *, 5);
+
+typedef struct LINE_TARGET_IMAGE {
+    TARGET_LOCATION_LIST locations;
+    IMAGE_LOCATION_POINTER_LIST images;
+} LINE_TARGET_IMAGE;
+
+typedef struct LINE_TARGET_IMAGE_LIST {
+     size_t space;
+     LINE_TARGET_IMAGE *list;
+} LINE_TARGET_IMAGE_LIST;
+
+static void
+reallocate_line_target_image_for (LINE_TARGET_IMAGE_LIST *list,
+                                  size_t n)
+{
+  if (list->space < n)
+    {
+      size_t new_space = n + 5;
+      list->list = realloc (list->list, new_space * sizeof (LINE_TARGET_IMAGE));
+      if (!list->list)
+        fatal ("realloc failed");
+
+      memset (&list->list[list->space], 0, (new_space - list->space)
+                               * sizeof (LINE_TARGET_IMAGE));
+      list->space = new_space;
+    }
+}
+
+/* readjustment only needed for bytes, ie for anchors and floats */
+static char *
+align_lines (CONVERTER *self, const char *text_encoded, int max_column,
+             enum align_directions direction,
+             TARGET_LOCATION_LIST *target_locations,
+             IMAGE_LOCATION_INFO_LIST *images)
+{
+  size_t i;
+  int delta_bytes = 0;
+  int line_index = 0;
+  IMAGE_LOCATION_INFO *image = 0;
+  int image_lines_count;
+  int image_prepended_spaces;
+  const char *p = text_encoded;
+  TEXT result;
+  text_init (&result);
+  text_append (&result, "");
+
+  static LINE_TARGET_IMAGE_LIST line_info;
+
+  int max_line = 0;
+
+  for (i = 0; i < target_locations->number; i++)
+    {
+      TARGET_LOCATION *location = target_locations->list[i];
+      int lines = location->lines;
+      reallocate_line_target_image_for (&line_info, lines+1);
+      if (lines > max_line)
+        max_line = lines;
+      add_(target_location) (&line_info.list[lines].locations, location);
+    }
+
+  for (i = 0; i < images->number; i++)
+    {
+      IMAGE_LOCATION_INFO *image_info = &images->list[i];
+      if (image_info->lines_count > 1)
+        {
+          int lines = image_info->lines;
+          reallocate_line_target_image_for (&line_info, lines+1);
+          if (lines > max_line)
+            max_line = lines;
+          add_(image_location_ptr) (&line_info.list[lines].images, image_info);
+        }
+    }
+
+  while (1)
+    {
+      size_t line_len = strcspn (p, "\n");
+      int line_bytes_begin = 0;
+      int line_bytes_end = 0;
+      int removed_line_bytes_end = 0;
+      int removed_line_bytes_begin = 0;
+      IMAGE_LOCATION_INFO *new_image;
+      int new_image_prepended_spaces;
+
+      if (line_info.list[line_index].images.number)
+        {
+          new_image = line_info.list[line_index].images.list[0];
+          new_image_prepended_spaces
+            = compute_spaces_align_line (new_image->image_width, max_column,
+                                         direction, new_image->no_align);
+          if (!image)
+            {
+              image = new_image;
+              image_prepended_spaces = new_image_prepended_spaces;
+              new_image = 0;
+            }
+        }
+
+      if (!image)
+        {
+          int line_width = -1;
+          if (*(p + line_len) == '\n')
+            {
+              removed_line_bytes_end = 1;
+              line_len++;
+            }
+          removed_line_bytes_begin = strspn (p, whitespace_chars);
+          if (removed_line_bytes_begin >= line_len)
+            {
+              removed_line_bytes_begin = line_len;
+              line_width = 0;
+            }
+          else
+            {
+              while (strchr (whitespace_chars,
+                         *(p + line_len -1 - removed_line_bytes_end)))
+                {
+                  removed_line_bytes_end++;
+                  if (removed_line_bytes_end == line_len)
+                    {/* this cannot actually happen as it would have
+                        been handled when removing leading spaces */
+                      line_width = 0;
+                      break;
+                    }
+                }
+            }
+          if (line_width == 0)
+            {
+              text_append_n (&result, "\n", 1);
+              line_bytes_end += 1;
+            }
+          else
+            {
+              const char *q = p + removed_line_bytes_begin;
+              char *string = strndup (q, line_len - removed_line_bytes_begin
+                                                  - removed_line_bytes_end);
+              line_width = string_width_multibyte (string);
+              /* TODO */
+            }
+        }
+      else
+        {
+          /* TODO */
+        }
+    }
+
+  return result.text;
+}
+
+static char *
+align_environment (CONVERTER *self, const char *text_encoded, int max,
+                   enum align_directions direction)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+        = top_(count_context) (&self_plaintext->count_context);
+  COUNT_CONTEXT *parent_count_context
+    = &self_plaintext->count_context.list[
+                         self_plaintext->count_context.number -2];
+
+  char *result = align_lines (self, text_encoded, max, direction,
+                        &count_context->target_locations,
+                        &count_context->images);
+
+  update_locations_counts (self, parent_count_context, count_context);
+
+  parent_count_context->lines += count_context->lines;
+
+  pop_count_context (&self_plaintext->count_context);
 }
 
 void
@@ -2494,12 +2747,12 @@ plaintext_format_image_element (CONVERTER *self, const ELEMENT *element,
         }
 
       result->line_count = lines_count;
+
    /* the last line is part of the image but do not have a new line,
       so 1 is added to $lines_count to have the number of lines of
       the image */
-    /* TODO
-    $self->add_image($element, $lines_count+1, $width);
-     */
+      plaintext_add_image (self, element, lines_count +1, width, 0);
+
       free (basefile);
 
       return;
@@ -3373,11 +3626,93 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               return;
             }
           else if (cmd == CM_titlefont)
-            return;
+            {
+              /* TODO when _text_heading is implemented */
+              return;
+            }
           else if (cmd == CM_U)
-            return;
+            {
+              if (element->e.c->contents.number > 0)
+                {
+                  int surplus_arg;
+                  const TEXT *arg_text
+                    = simple_arg_text (element->e.c->contents.list[0],
+                                       &surplus_arg);
+                  if (arg_text && strcmp (arg_text->text, ""))
+                    {
+                      int conversion_done = 0;
+                      if (self_plaintext->to_utf8)
+                        {
+                          unsigned long int val;
+                          int ret;
+
+                          ret = sscanf (arg_text->text, "%lx", &val);
+                          if (ret != 1)
+                            {
+                              if (self->conf->DEBUG.o.integer > 0)
+                                fprintf (stderr,
+                                         "C|conversion hex sscanf failed %s",
+                                         arg_text->text);
+                            }
+                          else if (val <= 0x10FFFF)
+                            {
+                              uint32_t char_val[] = {'\0', '\0'};
+                              uint8_t *result_u8;
+                              size_t lengthp;
+
+                              char_val[0] = (uint32_t) val;
+                              result_u8 = u32_to_u8 (char_val, 2,
+                                                     NULL, &lengthp);
+                              if (result_u8)
+                                {
+                                  char *result = string_from_utf8 (result_u8);
+                                  free (result_u8);
+                                  stream_output_add_text (self, result);
+                                  free (result);
+                                  conversion_done = 1;
+                                }
+                            }
+                        }
+
+                      if (!conversion_done)
+                        {
+                          stream_output_add_text (self, "U+");
+                          stream_output_add_text (self, arg_text->text);
+                        }
+                    }
+                }
+              return;
+            }
           else if (cmd == CM_value)
-            return;
+            {
+              ELEMENT *expansion;
+              ELEMENT *value_arg_copy
+                = copy_element_tree (element->e.c->contents.list[0], 0);
+              NAMED_STRING_ELEMENT_LIST *substrings
+                                 = new_named_string_element_list ();
+              add_element_to_named_string_element_list (substrings,
+                                            "value", value_arg_copy);
+              expansion = cdt_tree ("@{No value for `{value}'@}",
+                                           self, substrings, 0);
+
+              /* In Perl $formatter->{'_top_formatter'} */
+              if (self_plaintext->formatters.number == 1)
+                {
+                  ELEMENT *value_paragraph = new_element (ET_paragraph);
+                  add_to_element_contents (value_paragraph, expansion);
+
+                  convert_to_plaintext_internal (self, value_paragraph);
+                  destroy_element_and_children (value_paragraph);
+                }
+              else
+                {
+                  convert_to_plaintext_internal (self, expansion);
+                  destroy_element_and_children (expansion);
+                }
+              destroy_named_string_element_list (substrings);
+
+              return;
+            }
         }
       else if (nobrace_symbol_text[cmd])
         {
@@ -3435,9 +3770,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 }
               add_(command) (&self_plaintext->context, cmd);
             }
-          /* TODO
-            elsif ...
-           */
+          else if (plaintext_commands_data[cmd].flags & PF_flush)
+            add_(command) (&self_plaintext->context, cmd);
 
           if (plaintext_commands_data[cmd].flags & PF_format_context)
             {
@@ -3808,6 +4142,12 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
     {
       const char *result = para_end ();
       stream_output_count_nl (self, result);
+      enum command_id context_cmd = *top_(command) (&self_plaintext->context);
+
+      if (context_cmd == CM_flushright)
+        {
+        }
+
       para_destroy ();
       pop_formatter (self);
     }
@@ -3906,6 +4246,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                free (msg);
              }
          }
+       else if (plaintext_commands_data[cmd].flags & PF_flush)
+         {
+           enum command_id popped_cmd
+             = pop_context (&self_plaintext->context);
+           if (!(plaintext_commands_data[popped_cmd].flags & PF_flush))
+             abort ();
+         }
 
        if (plaintext_commands_data[cmd].flags & PF_format_context)
          pop_(format_context) (&self_plaintext->format_context);
@@ -3918,7 +4265,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
     }
   return;
 }
-
 
 /* Return value to be freed by caller. */
 static char *

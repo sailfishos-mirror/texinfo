@@ -1745,9 +1745,7 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
 
       result->line_count = lines_count;
 
-       /* TODO
-      plaintext_add_image (element, lines_count +1, width, no_align);
-        */
+      plaintext_add_image (self, element, lines_count +1, width, no_align);
 
       free (text);
       free (alt);

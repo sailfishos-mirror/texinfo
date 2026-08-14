@@ -22,6 +22,7 @@
 #define PF_preformatted_context   0x0200
 #define PF_menu                   0x0400
 #define PF_punctuation_no_arg     0x0800
+#define PF_flush                  0x1000
 
 /*
 #define HF_pre_class            0x0008
@@ -71,6 +72,8 @@ void plaintext_process_printindex (CONVERTER *self,
 char *plaintext_image_formatted_text (CONVERTER *self, const ELEMENT *element,
                                       const char *basefile, const char *text);
 
+void plaintext_add_image (CONVERTER *self, const ELEMENT *element,
+                     int lines_count, int image_width, int no_align);
 void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 /* TODO add plaintext_ prefix for all the functions? */
 void stream_output (CONVERTER *self, const char *text);

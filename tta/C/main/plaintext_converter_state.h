@@ -26,10 +26,6 @@
 typedef struct PLAINTEXT_COMMAND_STRUCT {
     unsigned long flags;
     int indent_format_length;
-    /*
-    enum command_id pre_class_cmd;
-    enum command_id upper_case_cmd;
-     */
 } PLAINTEXT_COMMAND_STRUCT;
 
 typedef struct FORMATTER_CONTAINER {
@@ -76,6 +72,16 @@ decl_list_fns(TARGET_LOCATION_LIST, target_location, TARGET_LOCATION *);
 def_list_type(INDEX_ENTRY_LINE_COUNT_LIST, int *);
 decl_list_fns(INDEX_ENTRY_LINE_COUNT_LIST, index_entry_location, int *);
 
+typedef struct IMAGE_LOCATION_INFO {
+    int lines;
+    int lines_count;
+    int image_width;
+    int no_align;
+} IMAGE_LOCATION_INFO;
+
+def_list_type(IMAGE_LOCATION_INFO_LIST, IMAGE_LOCATION_INFO);
+decl_list_fns(IMAGE_LOCATION_INFO_LIST, image_location, IMAGE_LOCATION_INFO);
+
 typedef struct COUNT_CONTEXT {
     size_t lines;
     size_t bytes;
@@ -85,6 +91,7 @@ typedef struct COUNT_CONTEXT {
     TEXT result;
     TARGET_LOCATION_LIST target_locations;
     INDEX_ENTRY_LINE_COUNT_LIST index_entry_locations;
+    IMAGE_LOCATION_INFO_LIST images;
     int encoding_disabled;
 } COUNT_CONTEXT;
 

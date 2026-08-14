@@ -3558,7 +3558,7 @@ sub _convert($$) {
                                                   $arg_text, $self->{'debug'});
               if ($possible_conversion) {
                 $res = chr(hex($arg_text)); # ok to call chr
-             } else {
+              } else {
                 $res = "U+$arg_text";
               }
             } else {
