@@ -1,5 +1,34 @@
 2026-08-14 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (update_locations_counts)
+	(convert_to_plaintext_internal),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_update_locations_counts)
+	(_convert): do not call _stream_byte_count for the parent counts in
+	_update_locations_counts, as it is difficult to understand that it is
+	the parent counts that are modified here.  Instead, call
+	_stream_byte_count before pushing a count context in commands such as
+	center and flushright that need to flush parent before merging with
+	their counts.
+
+	* tta/C/convert/convert_to_plaintext.c (stream_output_add_next)
+	(stream_output_count_nl, adjust_final_locations): implement.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_convert_output_unit): call adjust_final_locations.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_conversion_finalization): warn if more than one count
+	context remain.
+
+	* tta/C/convert/convert_to_plaintext.c (convert_to_plaintext)
+	(plaintext_convert_tree): inline in plaintext_convert_tree and remove.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_convert_tree),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (convert_tree): update to
+	remove probable bugs, and use _update_locations_counts.
+
+2026-08-14 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm
 	(_compute_spaces_align_line, _align_lines),
 	tta/C/convert/convert_to_plaintext.c (compute_spaces_align_line)

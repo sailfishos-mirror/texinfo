@@ -591,32 +591,29 @@ sub count_context_bug_message($$$) {
   }
 }
 
+# Never called
 sub convert_tree($$) {
   my ($self, $root) = @_;
 
   my $old_context = $self->{'count_context'}->[-1];
-  my $new_context =
-    {'lines' => $old_context ? $old_context->{'lines'} : 0,
-     'bytes' => $old_context ? $old_context->{'bytes'} : 0,
-     'target_locations' => [],
-     'index_entry_locations' => [],
-     'result' => '' };
+
+  my $new_context = {'lines' => 0, 'bytes' => 0,
+                    'target_locations' => [],
+                    'index_entry_locations' => [],
+                    'result' => '' };
   push @{$self->{'count_context'}}, $new_context;
 
   _convert($self, $root);
   my $result = _stream_result($self);
+
   pop @{$self->{'count_context'}};
 
   if (defined($old_context)) {
-    # Append new locations to the list
-    push @{$old_context->{'target_locations'}},
-         @{$new_context->{'target_locations'}};
-    push @{$old_context->{'index_entry_locations'}},
-         @{$new_context->{'index_entry_locations'}};
+    _update_locations_counts($self, $old_context, $new_context);
+
     $old_context->{'lines'} += $new_context->{'lines'};
-    # NB byte count is updated in caller if return value is passed
-    # to _stream_output_encoded
   }
+
   return $result;
 }
 
@@ -1024,7 +1021,6 @@ sub _adjust_final_locations($) {
     my $i = scalar(@$index_entry_locations) - 1;
     my $final_lines = $self->{'count_context'}->[-1]->{'lines'};
     # return if $final_lines == 0;
-    my $last_location;
     while ($i >= 0) {
       if ($index_entry_locations->[$i]->{'lines'} == $final_lines) {
         $index_entry_locations->[$i]->{'lines'}--;
@@ -1291,7 +1287,7 @@ sub _string_width_encoded($$) {
 sub _update_locations_counts($$$) {
   my ($self, $parent_counts, $counts) = @_;
 
-  my $bytes = _stream_byte_count($self);
+  my $bytes = $parent_counts->{'bytes'};
   my $lines = $parent_counts->{'lines'};
 
   foreach my $location (@{$counts->{'target_locations'}}) {
@@ -3865,6 +3861,7 @@ sub _convert($$) {
       _convert_def_line($self, $element);
       return;
     } elsif ($cmdname eq 'center') {
+      _stream_byte_count($self);
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                          'index_entry_locations' => [],
                                          'target_locations' => []};
@@ -4116,6 +4113,7 @@ sub _convert($$) {
       push @{$self->{'formatters'}}, $paragraph;
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
       if ($self->{'context'}->[-1] eq 'flushright') {
+        _stream_byte_count($self);
         push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                            'index_entry_locations' => [],
                                            'target_locations' => []};
@@ -4130,6 +4128,7 @@ sub _convert($$) {
         $preformatted = new_formatter($self, 'unfilled');
         push @{$self->{'formatters'}}, $preformatted;
         if ($self->{'context'}->[-1] eq 'flushright') {
+          _stream_byte_count($self);
           push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                            'index_entry_locations' => [],
                                              'target_locations' => []};

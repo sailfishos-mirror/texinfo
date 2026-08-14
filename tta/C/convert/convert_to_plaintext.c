@@ -643,7 +643,6 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
 void
 plaintext_conversion_finalization (CONVERTER *self)
 {
-  /* TODO */
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
   size_t i;
 
@@ -651,6 +650,12 @@ plaintext_conversion_finalization (CONVERTER *self)
     free (self_plaintext->node_names_cache[i].string);
 
   pop_top_formatter (self);
+
+  if (self_plaintext->count_context.number != 1)
+    {
+      fprintf (stderr, "Remaining count_context at finalization (%zu)\n",
+                       self_plaintext->count_context.number);
+    }
 
   clear_c_hashmap (&self_plaintext->index_entries_no_node);
   clear_c_hashmap (&self_plaintext->index_entry_node_colon);
@@ -732,8 +737,15 @@ stream_output (CONVERTER *self, const char *text)
 static void
 stream_output_count_nl (CONVERTER *self, const char *text)
 {
-  /* TODO */
-  stream_output (self, text);
+  int count;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+    = top_(count_context) (&self_plaintext->count_context);
+
+  count = para_end_line_count ();
+  count_context->lines += count;
+
+  text_append (&count_context->pending_text, text);
 }
 
 void
@@ -752,11 +764,22 @@ stream_output_add_text (CONVERTER *self, const char *text)
     text_append (&count_context->pending_text, result.text);
 }
 
+/* Pass $TEXT to add_next and output the resulting text.  Used for
+   concision in calling code. */
 void
 stream_output_add_next (CONVERTER *self, const char *text)
 {
-  /* TODO */
-  stream_output (self, text);
+  int count;
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+    = top_(count_context) (&self_plaintext->count_context);
+
+  TEXT result = para_add_next (text, strlen (text), 0);
+  count = para_end_line_count ();
+  count_context->lines += count;
+
+  if (result.text)
+    text_append (&count_context->pending_text, result.text);
 }
 
 static size_t
@@ -956,7 +979,7 @@ static void
 update_locations_counts (CONVERTER *self, COUNT_CONTEXT *parent_counts,
                          COUNT_CONTEXT *counts)
 {
-  size_t bytes = stream_byte_count (self);
+  size_t bytes = parent_counts->bytes;
   int lines = parent_counts->lines;
   size_t i;
 
@@ -4158,6 +4181,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
           if (context_cmd == CM_flushright)
             {
+              stream_byte_count (self);
               COUNT_CONTEXT count_context = { 0 };
               add_(count_context) (&self_plaintext->count_context,
                                    count_context);
@@ -4180,6 +4204,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
               if (context_cmd == CM_flushright)
                 {
+                  stream_byte_count (self);
                   COUNT_CONTEXT count_context = { 0 };
                   add_(count_context) (&self_plaintext->count_context,
                                        count_context);
@@ -4402,17 +4427,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   return;
 }
 
-/* Return value to be freed by caller. */
-static char *
-convert_to_plaintext (CONVERTER *self, const ELEMENT *e)
-{
-  if (!e)
-    return strdup ("");
-  convert_to_plaintext_internal (self, e);
-
-  return stream_yield_result (self);
-}
-
 void
 plaintext_free_converter (CONVERTER *self)
 {
@@ -4461,8 +4475,6 @@ plaintext_converter_initialize (CONVERTER *self)
       if (!format_expanded_p (self->expanded_formats, format))
         self_plaintext->commands_data[cmd].flags |= PF_ignored;
     }
-
-  /* TODO */
 
   if (self->conf->ASCII_PUNCTUATION.o.integer > 0)
     {
@@ -4515,6 +4527,34 @@ plaintext_converter_defaults (enum converter_format format,
   return format_defaults;
 }
 
+static void
+adjust_final_locations (CONVERTER *self)
+{
+  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *count_context
+    = top_(count_context) (&self_plaintext->count_context);
+
+  if (count_context->index_entry_locations.number > 0)
+    {
+      size_t i = count_context->index_entry_locations.number -1;
+      int final_lines = count_context->lines;
+      while (1)
+        {
+          int *index_entry_location
+            = count_context->index_entry_locations.list[i];
+          if (*index_entry_location == final_lines)
+            {
+              (*index_entry_location)--;
+              if (i == 0)
+                break;
+              i--;
+            }
+          else
+            break;
+        }
+    }
+}
+
 char *
 plaintext_convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 {
@@ -4532,9 +4572,8 @@ plaintext_convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
     }
 
   plaintext_process_footnotes (self, output_unit);
-  /* TODO
-  _adjust_final_locations
-   */
+
+  adjust_final_locations (self);
 
   return stream_yield_result (self);
 }
@@ -4559,10 +4598,6 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
   OUTPUT_UNIT_LIST *output_units;
   const NODE_RELATIONS_LIST *nodes_list;
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-
-  /*
-  return converter_output_tree (self, document, 0, 0, 0, 0);
-   */
 
   plaintext_conversion_initialization (self, document);
 
@@ -4943,14 +4978,28 @@ plaintext_convert (CONVERTER *self, DOCUMENT *document)
   return result.text;
 }
 
+/* Never called */
+/* Return value to be freed by caller. */
 char *
 plaintext_convert_tree (CONVERTER *self, const ELEMENT *tree)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  COUNT_CONTEXT *parent_counts
+    = top_(count_context) (&self_plaintext->count_context);
+  COUNT_CONTEXT *counts;
+  char *result;
 
-  COUNT_CONTEXT new_count_context = { 0 };
-  add_(count_context) (&self_plaintext->count_context, new_count_context);
+  COUNT_CONTEXT count_context = { 0 };
+  add_(count_context) (&self_plaintext->count_context, count_context);
 
-  char *result = convert_to_plaintext (self, tree);
+  convert_to_plaintext_internal (self, tree);
+  result = stream_yield_result (self);
+
+  counts = top_(count_context) (&self_plaintext->count_context);
+
+  update_locations_counts (self, parent_counts, counts);
+
+  pop_count_context (&self_plaintext->count_context);
+
   return result;
 }
