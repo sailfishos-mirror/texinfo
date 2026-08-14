@@ -3189,7 +3189,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             {
        /* Convert ``, '', `, ', ---, -- in $COMMAND->{'text'} to their
           output, possibly coverting to upper case as well. */
-               const char *text = element->e.text->text;
+              const char *text = element->e.text->text;
 
           /* TODO
         if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
@@ -3197,24 +3197,94 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           $text = uc($text);
         }
            */
+              if (0)
              /* TODO
                if (! $formatter->{'font_type_stack'}->[-1]->{'monospace'})
-                 {
               */
-                 if (self->conf->ASCII_DASHES_AND_QUOTES.o.integer < 1)
-                   {
-                      /*
-                     while (*p)
-                       */
-                   }
-                 else
-                   {
-                   }
-                /*
-                 }
-                */
-
-               stream_output_add_text (self, element->e.text->text);
+                {}
+              else
+                {
+                  const char *p = text;
+                  static TEXT t;
+                  TEXT *result = &t;
+                  text_reset (result);
+                  if (self->conf->ASCII_DASHES_AND_QUOTES.o.integer < 1)
+                    {
+                      while (*p)
+                        {
+                          int before_sep_nr = strcspn (p, "-`'");
+                          if (before_sep_nr)
+                            {
+                               text_append_n (result, p, before_sep_nr);
+                               p += before_sep_nr;
+                            }
+                          if (!*p)
+                            break;
+                          switch (*p)
+                            {
+                              OTXI_UNICODE_TEXT_CASES(p)
+                            }
+                        }
+                    }
+                  else
+                    {
+                      while (*p)
+                        {
+                          int before_sep_nr = strcspn (p, "-`'");
+                          if (before_sep_nr)
+                            {
+                               text_append_n (result, p, before_sep_nr);
+                               p += before_sep_nr;
+                            }
+                          if (!*p)
+                            break;
+                          switch (*p)
+                            {
+                              case '-':
+                                if (*(p+1) && !memcmp (p, "---", 3))
+                                  {
+                                    text_append_n (result, "--", 2);
+                                    p += 3;
+                                  }
+                                else if (!memcmp (p, "--", 2))
+                                  {
+                                    text_append_n (result, "-", 1);
+                                    p += 2;
+                                  }
+                                else
+                                  {
+                                    text_append_n (result, "-", 1);
+                                    p++;
+                                  }
+                                break;
+                              case '`':
+                                if (!memcmp (p, "``", 2))
+                                  {
+                                    text_append_n (result, "\"", 1);
+                                    p += 2;
+                                  }
+                                else
+                                  {
+                                    text_append_n (result, "'", 1);
+                                    p++;
+                                  }
+                                break;
+                              case '\'':
+                                if (!memcmp (p, "''", 2))
+                                  {
+                                    text_append_n (result, "\"", 1);
+                                    p += 2;
+                                  }
+                                else
+                                  {
+                                    text_append_n (result, "'", 1);
+                                    p++;
+                                  }
+                            }
+                        }
+                    }
+                  stream_output_add_text (self, t.text);
+                }
             }
         }
       else if (type == ET_spaces_before_paragraph)
