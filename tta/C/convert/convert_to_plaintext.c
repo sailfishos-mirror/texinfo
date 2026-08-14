@@ -2941,7 +2941,7 @@ plaintext_insert_image (CONVERTER *self, const char *image_file,
                         STRING_LINE_COUNT *result)
 {
   char *result_text = strdup (image_text);
-  int line_count = 0;
+  int line_count = -1;
   int width = 0;
   const char *p;
   char *q;
@@ -2979,15 +2979,40 @@ plaintext_insert_image (CONVERTER *self, const char *image_file,
     = plaintext_functions[self->format].format_image (self, image_file,
                                              result_text, 0, dpi, depth);
 
-  result->line_count = line_count;
-
    /* the last line is part of the image but do not have a new line,
       so 1 is added to $lines_count to have the number of lines of
       the image */
-    /* TODO
-    $self->add_image(undef, $line_count+1, $width);
-     */
+  plaintext_add_image (self, 0, line_count+1, width, 0);
+
+  if (line_count < 0)
+    line_count = 0;
+
+  result->line_count = line_count;
 }
+
+static char *
+get_form_feeds (const char *form_feeds)
+{
+  const char *p = form_feeds;
+  int len;
+  int removed_end = 0;
+
+  p += strcspn (p, "\f");
+  if (!*p)
+    return 0;
+
+  len = strlen (p);
+
+  while (len >= 0)
+    {
+      if (p + len - 1 != '\f')
+        len--;
+      else
+        return strndup (p, len);
+    }
+  return 0;
+}
+
 
 void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
 
@@ -3005,13 +3030,27 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
     {
       if (type == ET_empty_line || type == ET_after_menu_description_line)
         {
-          if (0) /* TODO: default_preformatted_context_commands */
+          enum command_id context_cmd
+             = *top_(command) (&self_plaintext->context);
+       /* TDOD
+        delete $self->{'text_element_context'}->[-1]->{'counter'};
+        */
+          if (strchr (element->e.text->text, '\f'))
             {
+              char *result = get_form_feeds (element->e.text->text);
+              if (result)
+                {
+                  stream_output (self, result);
+                  free (result);
+                }
             }
+
+          if (plaintext_commands_data[context_cmd].flags
+                                            & PF_preformatted_context)
+            stream_output_add_text (self, "\n");
           else
-            {
-              add_newline_if_needed (self);
-            }
+            add_newline_if_needed (self);
+          return;
         }
       /* %ignorable_space_types in Plaintext.pm */
       else if (type == ET_ignorable_spaces_after_command
@@ -3022,7 +3061,16 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                || type == ET_spaces_before_argument
                || type == ET_spaces_after_argument)
         {
-          /* TODO ET_spaces_after_close_brace form feeds */
+          if (type == ET_spaces_after_close_brace
+              && strchr (element->e.text->text, '\f'))
+            {
+              char *result = get_form_feeds (element->e.text->text);
+              if (result)
+                {
+                  stream_output (self, result);
+                  free (result);
+                }
+            }
           return;
         }
 
