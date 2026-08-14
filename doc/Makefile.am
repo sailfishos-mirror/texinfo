@@ -42,9 +42,12 @@ if BUILD_PERL_API_TEXI
 # for the included section is therefore determined by the information
 # in the Pod file NAME section.
 # Since Pod::Simple::Texinfo is not in CPAN, the @url first argument
-# is post-processed by a sed one liner to point to the GNU web site. 
+# is post-processed by a sed one liner to point to the GNU web site.
+# Note: we need to build in tta/ first to make sure the texi2any XS
+# modules are built.
 $(srcdir)/pod2texi.texi: $(pod2texi_pl)
-	$(MAKEINFO_ENVIRONMENT) TEXINFO_XS=omit $(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=subsubsection --no-section-nodes --headings-as-sections --subdir=$(srcdir) $(pod2texi_pl) > /dev/null
+	cd $(top_builddir)/tta && $(MAKE) $(AM_MAKEFLAGS)
+	$(MAKEINFO_ENVIRONMENT) $(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=subsubsection --no-section-nodes --headings-as-sections --subdir=$(srcdir) $(pod2texi_pl) > /dev/null
 	mv $(srcdir)/pod2texi.texi $(srcdir)/pod2texi_tmp.texi
 	sed 's;https://metacpan.org/pod/Pod::Simple::Texinfo;https://www.gnu.org/software/texinfo/manual/Pod/Simple/Texinfo.html;' $(srcdir)/pod2texi_tmp.texi > $(srcdir)/pod2texi.texi
 	rm -f $(srcdir)/pod2texi_tmp.texi

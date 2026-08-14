@@ -84,9 +84,12 @@ texi2any_internals_dependencies = \
   $(top_srcdir)/tta/perl/Texinfo/TreeElement.pm \
   $(top_srcdir)/tta/perl/Texinfo/Reader.pm
 
+# Note: we need to build in tta/ first to make sure the texi2any XS
+# modules are built.
 $(srcdir)/texi2any_internals.texi: $(texi2any_internals_dependencies) $(srcdir)/texi2any_internals_indices.texi $(srcdir)/texi2any_internals_preamble.texi
+	cd $(top_builddir)/tta && $(MAKE) $(AM_MAKEFLAGS)
 	target=$(srcdir)/texi2any_internals.texi ; \
-	if $(MAKEINFO_ENVIRONMENT) TEXINFO_XS=omit $(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=section --preamble - --outdir=$(srcdir)/api_includes --subdir=api_includes $(texi2any_internals_dependencies) < $(srcdir)/texi2any_internals_preamble.texi >$${target}.tmp ; then \
+	if $(MAKEINFO_ENVIRONMENT) $(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=section --preamble - --outdir=$(srcdir)/api_includes --subdir=api_includes $(texi2any_internals_dependencies) < $(srcdir)/texi2any_internals_preamble.texi >$${target}.tmp ; then \
 	  cat $${target}.tmp  | sed -e 's/^@bye/@__bye/' | sed -e '/^@__bye/r $(srcdir)/texi2any_internals_indices.texi' | sed -e 's/^@__bye//' > $${target} ; \
 	fi ; rm -f $${target}.tmp
 

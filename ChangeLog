@@ -1,3 +1,15 @@
+2026-08-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Make sure XS modules are built before running pod2texi
+
+	* doc/Makefile.am (pod2texi.texi),
+	* doc/tta_api/Makefile.am (texi2any_internals.texi):
+	Do not force TEXINFO_XS=omit.  Build in tta/ so that the texi2any
+	XS modules will be built for the use of pod2texi.
+	
+	Reverses change on 2026-08-05.  This still allows the sequence "make \
+	maintainer-clean ; ./configure ; make dist" to work.
+
 2026-08-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Allow ragged bottom before @float
