@@ -1,5 +1,25 @@
 2026-08-14 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (text_heading)
+	(convert_def_line): add partial implementations to have formatters for
+	the texts inside of the sectioning and @def* commands.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): more cases for text formatting, still
+	very partial.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): handle sectioning and heading
+	commands, and def lines.
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm
+	(_stream_output_add_text): remove a useless intermediary variable.
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): update
+	comment about inlined function and replace code by recent code.
+
+2026-08-14 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c (get_form_feeds)
 	(convert_to_plaintext_internal): add get_form_feeds.  Handle better
 	empty line text and ignored text.

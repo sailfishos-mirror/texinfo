@@ -1092,9 +1092,8 @@ sub _stream_output_count_nl($$) {
 sub _stream_output_add_text($$) {
   my ($self, $text) = @_;
 
-  my $formatter = $self->{'formatters'}->[-1];
-  my $container = $formatter->{'container'};
-  my $output = add_text($formatter->{'container'}, $text);
+  my $container = $self->{'formatters'}->[-1]->{'container'};
+  my $output = add_text($container, $text);
 
   my $count_context = $self->{'count_context'}->[-1];
   my $count = Texinfo::Convert::Paragraph::end_line_count($container);
@@ -2944,27 +2943,19 @@ sub _convert($$) {
         }
 
         # inlined below for efficiency
-        #_stream_output_add_nl($self,
-        #                      add_text ($formatter->{'container'}, $text),
-        #                      $formatter->{'container'});
+        #_stream_output_add_text($self, $text));
 
-        my $added_text = add_text ($formatter->{'container'}, $text);
+        my $container = $formatter->{'container'};
+        my $output = add_text($container, $text);
 
         my $count_context = $self->{'count_context'}->[-1];
-
-        if (defined($formatter->{'container'})) {
-          # count number of newlines
-          #my $count = $added_text =~ tr/\n//;
-          my $count = Texinfo::Convert::Paragraph::end_line_count(
-                                             $formatter->{'container'});
-
-          $count_context->{'lines'} += $count;
-        }
+        my $count = Texinfo::Convert::Paragraph::end_line_count($container);
+        $count_context->{'lines'} += $count;
 
         if (!defined($count_context->{'pending_text'})) {
           $count_context->{'pending_text'} = '';
         }
-        $count_context->{'pending_text'} .= $added_text;
+        $count_context->{'pending_text'} .= $output;
       }
     } elsif (defined($type) and $type eq 'spaces_before_paragraph') {
       my $indent = $self->get_conf('paragraphindent');

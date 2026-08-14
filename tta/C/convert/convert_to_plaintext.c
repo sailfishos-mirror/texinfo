@@ -2991,11 +2991,31 @@ plaintext_insert_image (CONVERTER *self, const char *image_file,
 }
 
 static char *
+text_heading (CONVERTER *self, const ELEMENT *current,
+              const ELEMENT *heading_element, int numbered,
+              int indented_len)
+{
+  STRING_COUNT_LINE_COUNT section_text;
+  ELEMENT *frenchspacing_e = new_element (ET__frenchspacing);
+  char *number = 0;
+  if (numbered != 0)
+    number = lookup_extra_string (current, AI_key_section_heading_number);
+
+  /* cast to drop const */
+  add_to_contents_as_array (frenchspacing_e, (ELEMENT *)heading_element);
+
+  plaintext_convert_line_new_context (self, heading_element,
+                                                  -1, -1, -1, -1,
+                                                  &section_text);
+  return section_text.string;
+  /* TODO */
+}
+
+static char *
 get_form_feeds (const char *form_feeds)
 {
   const char *p = form_feeds;
   int len;
-  int removed_end = 0;
 
   p += strcspn (p, "\f");
   if (!*p)
@@ -3005,7 +3025,7 @@ get_form_feeds (const char *form_feeds)
 
   while (len >= 0)
     {
-      if (p + len - 1 != '\f')
+      if (*(p + len - 1) != '\f')
         len--;
       else
         return strndup (p, len);
@@ -3013,9 +3033,94 @@ get_form_feeds (const char *form_feeds)
   return 0;
 }
 
+static void
+convert_def_line (CONVERTER *self, const ELEMENT *element)
+{
+  PARSED_DEF *parsed_def = definition_arguments_content (element);
 
-void convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *e);
+  if (parsed_def->category || parsed_def->class
+      || parsed_def->type || parsed_def->name)
+    {
+      PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+      ELEMENT *tree;
+      ELEMENT *formatted_arguments = 0;
+      enum command_id original_cmd = 0;
+      enum command_id original_def_cmd;
+      FORMAT_CONTEXT *top_format_context
+          = top_(format_context) (&self_plaintext->format_context);
 
+      int indent_len
+         = self_plaintext->format_context.list[
+             self_plaintext->format_context.number -2].context_indent_len;
+      int next_indent_len = top_format_context->context_indent_len
+                          + default_indent_length;
+
+      FORMATTER def_paragraph
+        = new_formatter (self, formatter_paragraph, indent_len,
+                         next_indent_len);
+      def_paragraph.suppress_styles = 1;
+      push_formatter (self, &def_paragraph);
+
+      if (element->e.c->cmd)
+        original_def_cmd = element->e.c->cmd;
+      else
+        {
+          if (element->e.c->parent)
+            original_def_cmd = element->e.c->parent->e.c->cmd;
+          else
+            {
+          /* If the tree is a copy, there is no parent, for instance in
+             user-defined translations with @def* commands, which would
+             be quite unusual, but is tested in tests.
+           */
+              const char *original_def_cmdname
+                = lookup_extra_string (element, AI_key_original_def_cmdname);
+              original_def_cmd = lookup_builtin_command (original_def_cmdname);
+            }
+        }
+      if (command_data[original_def_cmd].flags & CF_def_alias)
+        {
+          int i;
+          for (i = 0; def_aliases[i].alias ; i++)
+            {
+              if (def_aliases[i].alias == original_def_cmd)
+                {
+                  original_cmd = def_aliases[i].command;
+                  break;
+                }
+            }
+        }
+      else
+        original_cmd = original_def_cmd;
+
+      if (parsed_def->args)
+        {
+          ELEMENT *arguments_copy = copy_element_tree (parsed_def->args, 0);
+          formatted_arguments = new_element (ET__code);
+          add_to_element_contents (formatted_arguments, arguments_copy);
+          tree = formatted_arguments;
+        }
+      else
+        {
+          tree = new_element (ET_NONE);
+          ELEMENT *tree_text = new_text_element (ET_other_text);
+          text_append (tree_text->e.text, "DEF");
+          add_element_to_element_contents (tree, tree_text);
+        }
+
+      /* TODO */
+
+      convert_to_plaintext_internal (self, tree);
+      const char *end_line = para_end_line ();
+      stream_output_count_nl (self, end_line);
+
+      para_destroy ();
+      pop_formatter (self);
+      /* TODO
+     delete $self->{'text_element_context'}->[-1]->{'counter'};
+       */
+    }
+}
 
 /* ALTIMP: _convert in Texinfo:Convert::Plaintext */
 void
@@ -3074,10 +3179,60 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           return;
         }
 
-      /* TODO */
-      if (element->e.text->end > 0)
+
+      /* In Perl !$formatter->{'_top_formatter'} */
+      if (self_plaintext->formatters.number > 1)
         {
-           stream_output_add_text (self, element->e.text->text);
+          if (type == ET_raw)
+            stream_output_add_next (self, element->e.text->text);
+          else
+            {
+       /* Convert ``, '', `, ', ---, -- in $COMMAND->{'text'} to their
+          output, possibly coverting to upper case as well. */
+               const char *text = element->e.text->text;
+
+          /* TODO
+        if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
+          $text = _protect_sentence_ends($text);
+          $text = uc($text);
+        }
+           */
+             /* TODO
+               if (! $formatter->{'font_type_stack'}->[-1]->{'monospace'})
+                 {
+              */
+                 if (self->conf->ASCII_DASHES_AND_QUOTES.o.integer < 1)
+                   {
+                      /*
+                     while (*p)
+                       */
+                   }
+                 else
+                   {
+                   }
+                /*
+                 }
+                */
+
+               stream_output_add_text (self, element->e.text->text);
+            }
+        }
+      else if (type == ET_spaces_before_paragraph)
+        {
+          int paragraphindent = self->conf->paragraphindent.o.integer;
+          if (paragraphindent == -2) /* asis */
+            stream_output (self, element->e.text->text);
+        }
+      else
+        {
+          const char *text = element->e.text->text;
+          if (type != ET_normal_text)
+            fprintf (stderr, "unexpected text element type: %s\n",
+                             type_data[type].name);
+          if (text[strspn (text, whitespace_chars)] == '\0')
+            stream_output_add_text (self, text);
+          else
+            fprintf (stderr, "ignored text not empty `%s'\n", text);
         }
 
       return;
@@ -4049,8 +4204,62 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           self_plaintext->current_node = element;
           plaintext_functions[self->format].format_node (self, element, 0);
         }
-      /* else if sectioning_heading_commands */
-      /* else if item or itemx */
+      else if (cmd_data->flags & CF_sectioning_heading)
+        {
+          const ELEMENT *heading_element = 0;
+          const ELEMENT *line_arg;
+          /* use settitle for empty @top
+             ignore @part */
+          if (cmd_data->flags & CF_root)
+            {
+              /* arguments_line type element */
+              const ELEMENT *arguments_line = element->e.c->contents.list[0];
+              line_arg = arguments_line->e.c->contents.list[0];
+            }
+          else
+            line_arg = element->e.c->contents.list[0];
+
+          if (cmd != CM_part && !empty_spaces_argument (line_arg))
+            heading_element = line_arg;
+          else if (cmd == CM_top)
+            {
+              const ELEMENT *settitle
+                = get_cmd_global_uniq_command (
+                     &self->document->global_commands, CM_settitle);
+              if (settitle && !empty_spaces_argument (
+                                     settitle->e.c->contents.list[0]))
+                {
+                  heading_element = settitle->e.c->contents.list[0];
+                }
+            }
+
+          if (heading_element)
+            {
+       /* @* leads to an end of line, underlying appears on the line below
+          over one line */
+              FORMAT_CONTEXT *top_format_context
+                = top_(format_context) (&self_plaintext->format_context);
+              char *heading_underlined
+                = text_heading (self, element, heading_element,
+                                self->conf->NUMBER_SECTIONS.o.integer,
+                                top_format_context->context_indent_len);
+
+              add_newline_if_needed (self);
+              stream_output (self, heading_underlined);
+
+              if (strcmp (heading_underlined, ""))
+                {
+                  add_lines_count (self, 2);
+                  add_newline_if_needed (self);
+                }
+            }
+            /* TODO
+      $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
+             */
+
+          if (!(cmd_data->flags & CF_root))
+            return;
+        }
       else if ((cmd == CM_item || cmd == CM_itemx)
                && element->e.c->contents.number > 0
                && element->e.c->contents.list[0]->type == ET_line_arg)
@@ -4144,7 +4353,11 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         }
       else if (cmd == CM_headitem || cmd == CM_item || cmd == CM_tab)
         ;
-      /* else if def_commands */
+      else if (cmd_data->flags & CF_def)
+        {
+          convert_def_line (self, element);
+          return;
+        }
       else if (cmd == CM_center)
         return;
       else if (cmd == CM_exdent)
@@ -4285,7 +4498,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         }
       else if (type == ET_def_line)
         {
-          /* TODO */
+          convert_def_line (self, element);
+          return;
         }
       else if (type == ET_menu_entry)
         {
