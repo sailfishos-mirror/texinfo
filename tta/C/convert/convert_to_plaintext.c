@@ -202,6 +202,12 @@ def_stack_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
 def_list_fns(FORMATTER_STACK, formatter, FORMATTER, 1);
 def_stack_fns(FORMATTER_STACK, formatter, FORMATTER);
 
+def_list_fns(DOCUMENT_CONTEXT_STACK, document_context, DOCUMENT_CONTEXT, 1);
+def_stack_fns(DOCUMENT_CONTEXT_STACK, document_context, DOCUMENT_CONTEXT);
+
+def_list_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST, 1);
+def_stack_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST);
+
 enum formatter_type {
   formatter_paragraph,
   formatter_line,
@@ -283,6 +289,7 @@ push_top_formatter (CONVERTER *self, enum command_id cmd)
 
   /* top_format 'cmdname' is '_top_format' in Perl.  Use 0 in C. */
   FORMAT_CONTEXT top_format = { 0 };
+  DOCUMENT_CONTEXT document_context = { 0 };
 
   add_(command) (&self_plaintext->context, cmd);
 
@@ -294,12 +301,8 @@ push_top_formatter (CONVERTER *self, enum command_id cmd)
                                    };
    */
 
-  /* TODO
-  push @{$self->{'document_context'}}, {
-                                     'in_multitable' => 0,
-                                     'quotations_authors' => []
-                                   };
-   */
+  add_(document_context) (&self_plaintext->document_context,
+                          document_context);
 
  /* This is not really meant to be used, as contents should open
     their own formatters, however it happens that there is some text
@@ -328,6 +331,14 @@ pop_context (COMMAND_STACK *stack)
   return popped_cmd;
 }
 
+void
+pop_document_context (DOCUMENT_CONTEXT_STACK *stack)
+{
+  DOCUMENT_CONTEXT *top_document_context = top_(document_context) (stack);
+  free (top_document_context->quotations_authors.list);
+  pop_(document_context) (stack);
+}
+
 enum command_id
 pop_top_formatter (CONVERTER *self)
 {
@@ -343,9 +354,9 @@ pop_top_formatter (CONVERTER *self)
   else
     pop_formatter (self);
 
+  pop_document_context (&self_plaintext->document_context);
   /* TODO
   pop @{$self->{'text_element_context'}};
-  pop @{$self->{'document_context'}};
    */
 
   return popped_cmd;
@@ -965,7 +976,7 @@ plaintext_convert_line_new_context (CONVERTER *self,
   stream_output (self, end_line);
 
   output->string = stream_yield_result (self);
-  output->count = para_counter ();
+  output->width = para_counter ();
   output->line_count = new_count_context.lines;
 
   para_destroy ();
@@ -2255,7 +2266,7 @@ plaintext_process_printindex (CONVERTER *self,
 
               self_plaintext->outside_of_any_node_text = node_text.string;
               self_plaintext->outside_of_any_node_text_width
-                 = node_text.count;
+                 = node_text.width;
 
               destroy_element_and_children (tree);
             }
@@ -4498,6 +4509,52 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                     }
                 }
             }
+
+          if (cmd == CM_quotation || cmd == CM_smallquotation)
+            {
+              DOCUMENT_CONTEXT *document_context
+                = top_(document_context) (&self_plaintext->document_context);
+              CONST_ELEMENT_LIST quotation_authors = { 0 };
+              add_(quotations_authors) (&document_context->quotations_authors,
+                                        quotation_authors);
+
+              const ELEMENT *arguments_line = element->e.c->contents.list[0];
+              ELEMENT *block_line_arg = arguments_line->e.c->contents.list[0];
+              if (!empty_spaces_argument (block_line_arg))
+                {
+                  COUNT_CONTEXT *count_context
+                    = top_(count_context) (&self_plaintext->count_context);
+                  ELEMENT *prepended;
+                  NAMED_STRING_ELEMENT_LIST *replaced_substrings
+                    = new_named_string_element_list ();
+                  ELEMENT *quotation_arg_copy
+                               = copy_element_tree (block_line_arg, 0);
+                  STRING_COUNT_LINE_COUNT quotation_arg_counts;
+
+                  add_element_to_named_string_element_list (
+                                   replaced_substrings, "quotation_arg",
+                                   quotation_arg_copy);
+
+                  prepended
+                      = cdt_tree ("@b{{quotation_arg}:} ",
+                                  self, replaced_substrings, 0);
+                  prepended->type = ET__frenchspacing;
+
+                  plaintext_convert_line_new_context (self, prepended,
+                                                  -1, -1, -1, -1,
+                                                  &quotation_arg_counts);
+                  stream_output (self, quotation_arg_counts.string);
+
+                  count_context->lines += quotation_arg_counts.line_count;
+
+              /* TODO
+          $self->{'text_element_context'}->[-1]->{'counter'} += width;
+               */
+                  free (quotation_arg_counts.string);
+                  destroy_element_and_children (prepended);
+                  destroy_named_string_element_list (replaced_substrings);
+                }
+            }
           /* TODO */
         }
       else if (cmd == CM_node)
@@ -4661,7 +4718,43 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           return;
         }
       else if (cmd == CM_center)
-        return;
+        {
+          FORMAT_CONTEXT *top_format
+            = top_(format_context) (&self_plaintext->format_context);
+          stream_byte_count (self);
+          COUNT_CONTEXT count_context = { 0 };
+          add_(count_context) (&self_plaintext->count_context,
+                               count_context);
+
+          ELEMENT *line_arg = element->e.c->contents.list[0];
+          if (line_arg->e.c->contents.number)
+            {
+              ELEMENT *formatted_center = new_element (ET__frenchspacing);
+              add_to_element_contents (formatted_center, line_arg);
+              plaintext_convert_line (self, formatted_center, 0, -1);
+              destroy_element (formatted_center);
+            }
+
+          ensure_end_of_line (self);
+          const char *initial_result = stream_result (self);
+
+          if (strcmp (initial_result, ""))
+            {
+              char *result = align_environment (self, initial_result,
+           /* TODO
+              $self->{'text_element_context'}->[-1]->{'max'},
+            */
+                                                80, AD_center);
+               stream_output_encoded (self, result);
+               free (result);
+            }
+          else
+     /* it has to be done here, as it is done in _align_environment above */
+            pop_count_context (&self_plaintext->count_context);
+
+          top_format->paragraph_count++;
+          return;
+        }
       else if (cmd == CM_exdent)
         return;
       else if (cmd == CM_verbatiminclude)
@@ -4688,7 +4781,19 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             }
         }
       else if (cmd == CM_author)
-        return;
+        {
+          DOCUMENT_CONTEXT *top_document_context
+            = top_(document_context) (&self_plaintext->document_context);
+
+          if (top_document_context->quotations_authors.number > 0)
+            {
+              CONST_ELEMENT_LIST *top_quotations_authors
+                = top_(quotations_authors) (
+                                 &top_document_context->quotations_authors);
+              add_(const_element) (top_quotations_authors, element);
+            }
+          return;
+        }
 
    /* all the @-commands that have an information for the formatting, like
       @paragraphindent, @frenchspacing... */
@@ -4971,6 +5076,39 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         }
       else if (cmd == CM_quotation || cmd == CM_smallquotation)
         {
+          DOCUMENT_CONTEXT *document_context
+           = top_(document_context) (&self_plaintext->document_context);
+          CONST_ELEMENT_LIST *authors = top_(quotations_authors) (
+            &document_context->quotations_authors);
+          size_t i;
+
+          for (i = 0; i < authors->number; i++)
+            {
+              const ELEMENT *author = authors->list[i];
+              ELEMENT *line_arg = author->e.c->contents.list[0];
+              if (line_arg->e.c->contents.number)
+                {
+                  NAMED_STRING_ELEMENT_LIST *replaced_substrings
+                    = new_named_string_element_list ();
+                  ELEMENT *author_copy = copy_element_tree (line_arg, 0);
+
+                  add_element_to_named_string_element_list (
+                                   replaced_substrings, "author",
+                                   author_copy);
+
+                  ELEMENT *author_tree
+                      = cdt_tree ("@center --- @emph{{author}}",
+                                  self, replaced_substrings, 0);
+
+                  convert_to_plaintext_internal (self, author_tree);
+
+                  destroy_element_and_children (author_tree);
+                  destroy_named_string_element_list (replaced_substrings);
+                }
+            }
+          free (authors->list);
+
+          pop_(quotations_authors) (&document_context->quotations_authors);
         }
       else if (cmd == CM_multitable)
         {
@@ -5035,6 +5173,7 @@ plaintext_free_converter (CONVERTER *self)
   free (self_plaintext->format_context.list);
   free (self_plaintext->count_context.list);
   free (self_plaintext->context.list);
+  free (self_plaintext->document_context.list);
 
   free (self_plaintext->node_names_cache);
   free (self_plaintext->added_element.list);

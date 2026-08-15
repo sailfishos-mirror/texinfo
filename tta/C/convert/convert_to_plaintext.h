@@ -35,7 +35,7 @@
 
 typedef struct STRING_COUNT_LINE_COUNT {
     char *string;
-    int count;
+    int width;
     int line_count;
 } STRING_COUNT_LINE_COUNT;
 

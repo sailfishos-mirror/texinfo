@@ -58,6 +58,19 @@ typedef struct FORMAT_CONTEXT {
 def_list_type(FORMAT_CONTEXT_STACK, FORMAT_CONTEXT);
 decl_list_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
 
+def_list_type(QUOTATION_AUTHORS_LIST, CONST_ELEMENT_LIST);
+decl_list_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST);
+decl_stack_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST);
+
+typedef struct DOCUMENT_CONTEXT {
+    int in_multitable;
+    QUOTATION_AUTHORS_LIST quotations_authors;
+} DOCUMENT_CONTEXT;
+
+def_list_type(DOCUMENT_CONTEXT_STACK, DOCUMENT_CONTEXT);
+decl_list_fns(DOCUMENT_CONTEXT_STACK, document_context, DOCUMENT_CONTEXT);
+decl_stack_fns(DOCUMENT_CONTEXT_STACK, document_context, DOCUMENT_CONTEXT);
+
 typedef struct TARGET_LOCATION {
     int lines;
     const ELEMENT *target_element;
@@ -155,6 +168,7 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     FORMATTER_STACK formatters;
     COUNT_CONTEXT_STACK count_context;
     /* document_context */
+    DOCUMENT_CONTEXT_STACK document_context;
 
     /* to cache values based on customization options */
     char *enabled_encoding;
