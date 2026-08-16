@@ -717,8 +717,6 @@ plaintext_conversion_finalization (CONVERTER *self)
 
 /* TODO
 protect_sentence_ends
-
-process_text_internal
 */
 
 static void
@@ -3418,17 +3416,30 @@ typedef struct CELLS_LINE_TARGET {
 } CELLS_LINE_TARGET;
 
 static void
-reallocate_cells_line_target_for (CELLS_LINE_TARGET *list, size_t n)
+reallocate_cells_line_target_for (CELLS_LINE_TARGET *list,
+                                  int **cell_beginnings,
+                                  STRING_LIST **cell_lines, size_t n)
 {
   if (list->space < n)
     {
-      size_t new_space = n + 5;
+      size_t new_space = n;
       list->list = realloc (list->list, new_space * sizeof (LINE_TARGET_LIST));
       if (!list->list)
         fatal ("realloc failed");
-
       memset (&list->list[list->space], 0, (new_space - list->space)
                                * sizeof (LINE_TARGET_LIST));
+
+      *cell_beginnings = (int *) realloc (*cell_beginnings, sizeof (int) * n);
+      if (!*cell_beginnings)
+        fatal ("realloc failed");
+
+      *cell_lines = (STRING_LIST *) realloc (*cell_lines,
+                                             sizeof (STRING_LIST) * n);
+      if (!*cell_lines)
+        fatal ("realloc failed");
+      memset (&(*cell_lines[list->space]), 0, (new_space - list->space)
+                             * sizeof (STRING_LIST));
+
       list->space = new_space;
     }
 }
@@ -5159,15 +5170,16 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           COUNT_CONTEXT row_count = { 0 };
      /* beginning of cell in character width based on column sizes given
         in the specification of the table. */
-          int *cell_beginnings = (int *)
-             malloc (sizeof (int) * top_format->row.number);
+          static int *cell_beginnings;
      /* array of lines in each cell, already formatted using the max limit
         on line length per column, for each cell. */
           /* TODO reuse static */
-          STRING_LIST *cell_lines = (STRING_LIST *)
-             malloc (sizeof (STRING_LIST) * top_format->row.number);
-          memset (cell_lines, 0,
-                  sizeof (STRING_LIST) * top_format->row.number);
+          static STRING_LIST *cell_lines;
+          /* reallocate all the static data */
+          reallocate_cells_line_target_for (&cell_updated_locations,
+                                            &cell_beginnings,
+                                            &cell_lines,
+                                            top_format->row.number);
           int cell_beginning = 0;
      /* number maximum of line for the cells in this row */
           int max_lines = 0;
@@ -5204,8 +5216,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 max_lines = cell_lines_nr;
             }
 
-          reallocate_cells_line_target_for (&cell_updated_locations,
-                                            top_format->row.number);
           for (i = 0; i < top_format->row.number; i++)
             {
               COUNT_CONTEXT *cell_locations
@@ -5316,6 +5326,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               bytes_count += 1;
               text_append_n (&row_result, result.text, result.end);
             }
+
+          for (i = 0; i < top_format->row.number; i++)
+            clear_strings_list (&cell_lines[i]);
+
           if (top_format->item_command == CM_headitem)
             {
               int k;
@@ -5488,6 +5502,12 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           DOCUMENT_CONTEXT *top_document_context
             = top_(document_context) (&self_plaintext->document_context);
           top_document_context->in_multitable--;
+
+          FORMAT_CONTEXT *top_format_context
+            = top_(format_context) (&self_plaintext->format_context);
+          free (top_format_context->columns_size);
+          free (top_format_context->row.list);
+          free (top_format_context->row_cell_counts.list);
         }
       /* else if root_commands etc. */
 
