@@ -205,6 +205,9 @@ def_stack_fns(FORMATTER_STACK, formatter, FORMATTER);
 def_list_fns(DOCUMENT_CONTEXT_STACK, document_context, DOCUMENT_CONTEXT, 1);
 def_stack_fns(DOCUMENT_CONTEXT_STACK, document_context, DOCUMENT_CONTEXT);
 
+def_list_fns(TEXT_CONTEXT_STACK, text_element_context, TEXT_CONTEXT, 1);
+def_stack_fns(TEXT_CONTEXT_STACK, text_element_context, TEXT_CONTEXT);
+
 def_list_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST, 1);
 def_stack_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST);
 
@@ -219,6 +222,8 @@ fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
                int indent_length, int indent_length_next)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+  TEXT_CONTEXT *text_element_context
+    = top_(text_element_context) (&self_plaintext->text_element_context);
   formatter->container.paragraph = para_new ();
   enum command_id context_cmd = *top_(command) (&self_plaintext->context);
 
@@ -233,10 +238,28 @@ fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
   if (indent_length_next != -1)
     para_set_conf_indent_length_next (indent_length_next);
 
+  if (self->conf->frenchspacing.o.string
+      && !strcmp (self->conf->frenchspacing.o.string, "on"))
+    para_set_conf_frenchspacing (1);
+
+  para_set_conf_counter (text_element_context->counter);
+  /* TODO check no need to verify undef for counter
+  $container_conf->{'counter'}
+    = $self->{'text_element_context'}->[-1]->{'counter'}
+      if (defined($self->{'text_element_context'}->[-1]->{'counter'}));
+  # There is no corresponding debugging output in the C code.
+  # need to be uncommented and only if debug > 1
+  #$container_conf->{'DEBUG'} = 1 if (defined($self->{'debug'})
+  #                                   and $self->{'debug'} > 1);
+  # need to be manually enabled by uncommenting.
+  #$container_conf->{'DEBUG'} = 1 if ($self->{'debug'});
+  */
+
   switch (type)
     {
     case formatter_paragraph:
-      /* nothing to change */
+      para_set_conf_max (text_element_context->max);
+      /* nothing to change/set */
       break;
     case formatter_line:
       para_set_conf_max (10000001);
@@ -290,16 +313,15 @@ push_top_formatter (CONVERTER *self, enum command_id cmd)
   /* top_format 'cmdname' is '_top_format' in Perl.  Use 0 in C. */
   FORMAT_CONTEXT top_format = { 0 };
   DOCUMENT_CONTEXT document_context = { 0 };
+  TEXT_CONTEXT text_element_context = { 0 };
+  text_element_context.max = self->conf->FILLCOLUMN.o.integer;
 
   add_(command) (&self_plaintext->context, cmd);
 
   add_(format_context) (&self_plaintext->format_context, top_format);
 
-  /* TODO
-  push @{$self->{'text_element_context'}}, {
-                                     'max' => $self->{'fillcolumn'}
-                                   };
-   */
+  add_(text_element_context) (&self_plaintext->text_element_context,
+                              text_element_context);
 
   add_(document_context) (&self_plaintext->document_context,
                           document_context);
@@ -355,9 +377,8 @@ pop_top_formatter (CONVERTER *self)
     pop_formatter (self);
 
   pop_document_context (&self_plaintext->document_context);
-  /* TODO
-  pop @{$self->{'text_element_context'}};
-   */
+
+  pop_(text_element_context) (&self_plaintext->text_element_context);
 
   return popped_cmd;
 }
@@ -1064,11 +1085,12 @@ ensure_end_of_line (CONVERTER *self)
 
   if (result[len -1] != '\n')
     {
+      PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+      TEXT_CONTEXT *text_element_context
+        = top_(text_element_context) (&self_plaintext->text_element_context);
       stream_output (self, "\n");
       add_lines_count (self, 1);
-     /* TODO
-      $self->{'text_element_context'}->[-1]->{'counter'} = 0;
-      */
+      text_element_context->counter = 0;
     }
 }
 
@@ -1366,33 +1388,31 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 
           push_top_formatter (self, CM_footnote);
 
+
+          TEXT_CONTEXT *text_element_context
+            = top_(text_element_context) (
+                               &self_plaintext->text_element_context);
           for (j = 0; j < footnote_indent; j++)
             {
-              /* TODO
-              $self->{'text_element_context'}->[-1]->{'counter'} += 1
-               */
               stream_output (self, " ");
             }
+          text_element_context->counter += footnote_indent;
 
           if (self->conf->NUMBER_FOOTNOTES.o.integer > 0)
             {
               char *formatted_footnote_number_str;
-              xasprintf (&formatted_footnote_number_str, "(%d)",
+              xasprintf (&formatted_footnote_number_str, "(%d) ",
                          footnote_info->number);
 
               stream_output (self, formatted_footnote_number_str);
-            /*
-              $self->{'text_element_context'}->[-1]->{'counter'} +=
-                Texinfo::Convert::Unicode::string_width($footnote_text);
-             */
+              text_element_context->counter
+                 += strlen (formatted_footnote_number_str);
               free (formatted_footnote_number_str);
             }
           else
             {
-              stream_output (self, "(" NO_NUMBER_FOOTNOTE_SYMBOL ")");
-              /*
-             $self->{'text_element_context'}->[-1]->{'counter'} +=
-               3 */
+              stream_output (self, "(" NO_NUMBER_FOOTNOTE_SYMBOL ") ");
+              text_element_context->counter += 4;
             }
 
           if (footnote_info->element->e.c->contents.number > 0)
@@ -3358,11 +3378,61 @@ convert_def_line (CONVERTER *self, const ELEMENT *element)
 
       para_destroy ();
       pop_formatter (self);
-      /* TODO
-     delete $self->{'text_element_context'}->[-1]->{'counter'};
-       */
+
+      TEXT_CONTEXT *text_element_context
+       = top_(text_element_context) (&self_plaintext->text_element_context);
+      text_element_context->counter = 0;
     }
 }
+
+typedef struct LINE_TARGET {
+    TARGET_LOCATION_LIST locations;
+} LINE_TARGET;
+
+typedef struct LINE_TARGET_LIST {
+     size_t space;
+     LINE_TARGET *list;
+} LINE_TARGET_LIST;
+
+static void
+reallocate_line_target_for (LINE_TARGET_LIST *list, size_t n)
+{
+  if (list->space < n)
+    {
+      size_t new_space = n + 5;
+      list->list = realloc (list->list, new_space * sizeof (LINE_TARGET));
+      if (!list->list)
+        fatal ("realloc failed");
+
+      memset (&list->list[list->space], 0, (new_space - list->space)
+                               * sizeof (LINE_TARGET));
+      list->space = new_space;
+    }
+}
+
+/* list (one per cell) of LINE_TARGET_LIST (one list per line) */
+typedef struct CELLS_LINE_TARGET {
+    /* index corresponds to cell index in rows */
+    LINE_TARGET_LIST *list;
+    size_t space;
+} CELLS_LINE_TARGET;
+
+static void
+reallocate_cells_line_target_for (CELLS_LINE_TARGET *list, size_t n)
+{
+  if (list->space < n)
+    {
+      size_t new_space = n + 5;
+      list->list = realloc (list->list, new_space * sizeof (LINE_TARGET_LIST));
+      if (!list->list)
+        fatal ("realloc failed");
+
+      memset (&list->list[list->space], 0, (new_space - list->space)
+                               * sizeof (LINE_TARGET_LIST));
+      list->space = new_space;
+    }
+}
+
 
 /* ALTIMP: _convert in Texinfo:Convert::Plaintext */
 void
@@ -3379,9 +3449,11 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         {
           enum command_id context_cmd
              = *top_(command) (&self_plaintext->context);
-       /* TDOD
-        delete $self->{'text_element_context'}->[-1]->{'counter'};
-        */
+          TEXT_CONTEXT *text_element_context
+            = top_(text_element_context) (
+                               &self_plaintext->text_element_context);
+          text_element_context->counter = 0;
+
           if (strchr (element->e.text->text, '\f'))
             {
               char *result = get_form_feeds (element->e.text->text);
@@ -4514,6 +4586,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             {
               DOCUMENT_CONTEXT *document_context
                 = top_(document_context) (&self_plaintext->document_context);
+              TEXT_CONTEXT *text_element_context
+                = top_(text_element_context) (
+                                 &self_plaintext->text_element_context);
+              text_element_context->counter = 0;
               CONST_ELEMENT_LIST quotation_authors = { 0 };
               add_(quotations_authors) (&document_context->quotations_authors,
                                         quotation_authors);
@@ -4524,6 +4600,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 {
                   COUNT_CONTEXT *count_context
                     = top_(count_context) (&self_plaintext->count_context);
+                  TEXT_CONTEXT *text_element_context
+                    = top_(text_element_context) (
+                                    &self_plaintext->text_element_context);
                   ELEMENT *prepended;
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings
                     = new_named_string_element_list ();
@@ -4546,14 +4625,82 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   stream_output (self, quotation_arg_counts.string);
 
                   count_context->lines += quotation_arg_counts.line_count;
+                  text_element_context->counter = quotation_arg_counts.width;
 
-              /* TODO
-          $self->{'text_element_context'}->[-1]->{'counter'} += width;
-               */
                   free (quotation_arg_counts.string);
                   destroy_element_and_children (prepended);
                   destroy_named_string_element_list (replaced_substrings);
                 }
+            }
+          else if (cmd == CM_multitable)
+            {
+              DOCUMENT_CONTEXT *top_document_context
+                = top_(document_context) (&self_plaintext->document_context);
+              size_t i;
+              FORMAT_CONTEXT *top_format_context
+                = top_(format_context) (&self_plaintext->format_context);
+              TEXT_CONTEXT *text_element_context
+              = top_(text_element_context) (
+                                 &self_plaintext->text_element_context);
+              const ELEMENT *columnfractions
+                  = multitable_columnfractions (element);
+              int columns_size_nr = 0;
+              if (columnfractions)
+                {
+                  int max = text_element_context->max;
+                  const STRING_LIST *cf_misc_args
+                    = lookup_extra_string_list (columnfractions,
+                                                AI_key_misc_args);
+                  columns_size_nr = cf_misc_args->number;
+                  top_format_context->columns_size
+                    = (int *) malloc (columns_size_nr * sizeof (int));
+                  for (i = 0; i < cf_misc_args->number; i++)
+                    {
+                      const char *fraction_str = cf_misc_args->list[i];
+                      double fraction = strtod (fraction_str, NULL);
+                      int column_size = ((fraction * max) + 0.5);
+                      top_format_context->columns_size[i] = column_size;
+                    }
+                }
+              else
+                {/* arguments_line type element */
+                  const ELEMENT *arguments_line
+                    = element->e.c->contents.list[0];
+                  const ELEMENT *block_line_arg
+                    = arguments_line->e.c->contents.list[0];
+                  if (block_line_arg->e.c->contents.number)
+                    {
+                      columns_size_nr = 0;
+                      top_format_context->columns_size
+                        = (int *) malloc (
+                             (block_line_arg->e.c->contents.number +0)
+                                                           * sizeof (int));
+                      for (i = 0; i < block_line_arg->e.c->contents.number;
+                           i++)
+                        {
+                          const ELEMENT *content
+                            = block_line_arg->e.c->contents.list[i];
+                          if (content->type == ET_bracketed_arg)
+                            {
+                              int column_size = 0;
+                              if (content->e.c->contents.number)
+                                {
+                                  STRING_COUNT_LINE_COUNT prototype;
+                                  plaintext_convert_line_new_context (self,
+                                                content, 0, -1, -1, -1,
+                                                  &prototype);
+                                  column_size = prototype.width;
+                                  free (prototype.string);
+                                }
+                              top_format_context->columns_size[columns_size_nr]
+                                = column_size +2;
+                              columns_size_nr += 1;
+                            }
+                        }
+                    }
+                }
+              top_format_context->columns_size_nr = columns_size_nr;
+              top_document_context->in_multitable++;
             }
           /* TODO */
         }
@@ -4670,6 +4817,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         {
           FORMAT_CONTEXT *top_format_context
             = top_(format_context) (&self_plaintext->format_context);
+          TEXT_CONTEXT *text_element_context
+          = top_(text_element_context) (&self_plaintext->text_element_context);
           enum command_id parent_cmd = element->e.c->parent->e.c->cmd;
           FORMATTER formatter;
 
@@ -4703,15 +4852,39 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             }
           const char *result = para_end ();
           stream_output_count_nl (self, result);
-          /* TODO
-             $self->{'text_element_context'}->[-1]->{'counter'} +=
-         Texinfo::Convert::Paragraph::counter($line->{'container'});
-           */
+          text_element_context->counter += para_counter ();
           para_destroy ();
           pop_formatter (self);
         }
       else if (cmd == CM_headitem || cmd == CM_item || cmd == CM_tab)
-        ;
+        {
+          int status;
+          int cell_width;
+          FORMAT_CONTEXT *top_format
+            = top_(format_context) (&self_plaintext->format_context);
+          FORMAT_CONTEXT format_context = { 0 };
+          COUNT_CONTEXT count_context = { 0 };
+          TEXT_CONTEXT text_element_context = { 0 };
+          int cell_nr
+            = lookup_extra_integer (element,
+                                    AI_key_cell_number, &status);
+          if (cell_nr > top_format->columns_size_nr)
+            cell_width = 2;
+          else
+            cell_width = top_format->columns_size[cell_nr -1];
+          if (cmd != CM_tab)
+            top_format->item_command = cmd;
+
+          format_context.cmd = cmd;
+          add_(format_context) (&self_plaintext->format_context,
+                                format_context);
+          text_element_context.max = cell_width - 2;
+          add_(text_element_context) (&self_plaintext->text_element_context,
+                                      text_element_context);
+          add_(count_context) (&self_plaintext->count_context,
+                               count_context);
+          cell = 1;
+        }
       else if (cmd_data->flags & CF_def)
         {
           convert_def_line (self, element);
@@ -4740,11 +4913,12 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
           if (strcmp (initial_result, ""))
             {
+              TEXT_CONTEXT *text_element_context
+                = top_(text_element_context) (
+                         &self_plaintext->text_element_context);
               char *result = align_environment (self, initial_result,
-           /* TODO
-              $self->{'text_element_context'}->[-1]->{'max'},
-            */
-                                                80, AD_center);
+                                                text_element_context->max,
+                                                AD_center);
                stream_output_encoded (self, result);
                free (result);
             }
@@ -4769,7 +4943,15 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       else if (cmd == CM_listoffloats)
         return;
       else if (cmd == CM_sp)
-        return;
+        {
+          TEXT_CONTEXT *text_element_context
+          = top_(text_element_context) (&self_plaintext->text_element_context);
+          /* TODO */
+
+
+          text_element_context->counter = 0;
+          return;
+        }
       else if (cmd == CM_contents
                || cmd == CM_shortcontents || cmd == CM_summarycontents)
         {
@@ -4850,6 +5032,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
     {
       if (type == ET_paragraph)
         {
+          TEXT_CONTEXT *text_element_context
+          = top_(text_element_context) (&self_plaintext->text_element_context);
           int paragraphindent = self->conf->paragraphindent.o.integer;
           enum command_id context_cmd
              = *top_(command) (&self_plaintext->context);
@@ -4857,6 +5041,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             = top_(format_context) (&self_plaintext->format_context);
 
           int paragraphindent_size = 0;
+          /* TODO and !$self->{'text_element_context'}->[-1]->{'counter'} */
           if (!top_format->cmd /* '_top_format' in Perl */
               && paragraphindent >= 0) /* 'asis' */
             {
@@ -4964,6 +5149,195 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         }
       else if (type == ET_row)
         {
+          COUNT_CONTEXT *count_context
+           = top_(count_context) (&self_plaintext->count_context);
+          static CELLS_LINE_TARGET cell_updated_locations;
+          size_t i;
+          static TEXT result;
+          FORMAT_CONTEXT *top_format
+            = top_(format_context) (&self_plaintext->format_context);
+          COUNT_CONTEXT row_count = { 0 };
+     /* beginning of cell in character width based on column sizes given
+        in the specification of the table. */
+          int *cell_beginnings = (int *)
+             malloc (sizeof (int) * top_format->row.number);
+     /* array of lines in each cell, already formatted using the max limit
+        on line length per column, for each cell. */
+          /* TODO reuse static */
+          STRING_LIST *cell_lines = (STRING_LIST *)
+             malloc (sizeof (STRING_LIST) * top_format->row.number);
+          memset (cell_lines, 0,
+                  sizeof (STRING_LIST) * top_format->row.number);
+          int cell_beginning = 0;
+     /* number maximum of line for the cells in this row */
+          int max_lines = 0;
+          int indent_len = top_format->context_indent_len;
+          static TEXT row_result;
+          text_reset (&row_result);
+
+          for (i = 0; i < top_format->row.number; i++)
+            {
+              const char *cell_text = top_format->row.list[i];
+              const char *p = cell_text;
+              cell_beginnings[i] = cell_beginning;
+              int cell_width;
+              int cell_idx = i;
+              if (cell_idx < top_format->columns_size_nr)
+                cell_width = top_format->columns_size[i];
+              else
+                cell_width = 2;
+              cell_beginning += cell_width + 1;
+              while (*p)
+                {
+                  size_t line_len = strcspn (p, "\n");
+                  int has_eol = 0;
+                  if (*(p + line_len) == '\n')
+                    has_eol = 1;
+                  text_reset (&result);
+                  text_append_n (&result, p, line_len);
+                  /* store without end of lines */
+                  add_string (result.text, &cell_lines[i]);
+                  p += line_len + has_eol;
+                }
+              int cell_lines_nr = cell_lines[i].number;
+              if (cell_lines_nr > max_lines)
+                max_lines = cell_lines_nr;
+            }
+
+          reallocate_cells_line_target_for (&cell_updated_locations,
+                                            top_format->row.number);
+          for (i = 0; i < top_format->row.number; i++)
+            {
+              COUNT_CONTEXT *cell_locations
+                = &top_format->row_cell_counts.list[i];
+              LINE_TARGET_LIST *cell_line_targets
+                = &cell_updated_locations.list[i];
+              reallocate_line_target_for (cell_line_targets, max_lines);
+              size_t j;
+              for (j = 0; j < cell_locations->target_locations.number; j++)
+                {
+                  TARGET_LOCATION *location
+                    = cell_locations->target_locations.list[j];
+                  if (location->lines + 1 > max_lines)
+                    {
+                      size_t l;
+                      max_lines = location->lines + 1;
+                      for (l = 0; l <= j; l++)
+                        reallocate_line_target_for (
+                         &cell_updated_locations.list[l], max_lines);
+                    }
+                  add_(target_location) (
+                     &cell_line_targets->list[location->lines].locations,
+                                         location);
+                  add_(target_location) (&row_count.target_locations, location);
+                }
+              for (j = 0; j < cell_locations->index_entry_locations.number;
+                          j++)
+                add_(index_entry_location) (&row_count.index_entry_locations,
+                          cell_locations->index_entry_locations.list[j]);
+              free (cell_locations->target_locations.list);
+              free (cell_locations->index_entry_locations.list);
+            }
+     /* this is used to keep track of the last cell with content. */
+          int max_cell_nr = top_format->row.number;
+          int bytes_count = 0;
+          int line_idx;
+          for (line_idx = 0; line_idx < max_lines; line_idx++)
+            {
+              int k;
+              text_reset (&result);
+              text_append (&result, "");
+              int line_width = indent_len;
+              int cell_idx;
+              /*
+               determine the last cell index in the line, to fill spaces in
+               cells preceding that cell on the line */
+              int last_cell = 0;
+              for (cell_idx = 0; cell_idx < max_cell_nr; cell_idx++)
+                {
+                  if (cell_lines[cell_idx].number >= (unsigned int)line_idx +1
+                      || cell_updated_locations.list[cell_idx]
+                                   .list[line_idx].locations.number > 0)
+                     last_cell = cell_idx+1;
+                }
+
+              for (cell_idx = 0; cell_idx < last_cell; cell_idx++)
+                {
+                  if (cell_lines[cell_idx].number >= (unsigned int)line_idx +1)
+                    {
+                      const char *cell_text
+                        = cell_lines[cell_idx].list[line_idx];
+                      int cell_len = strlen (cell_text);
+                      if (result.end == 0 && cell_len != 0)
+                        {
+                          for (k = 0; k < indent_len; k++)
+                            text_append_n (&result, " ", 1);
+                          bytes_count += indent_len;
+                        }
+                      text_append_n (&result, cell_text, cell_len);
+                      bytes_count += cell_len;
+                      line_width += string_width_multibyte (cell_text);
+                    }
+                  if (cell_updated_locations.list[cell_idx]
+                                   .list[line_idx].locations.number > 0)
+                    {
+                      TARGET_LOCATION_LIST *locations
+                        = &cell_updated_locations.list[cell_idx]
+                                   .list[line_idx].locations;
+                      for (i = 0; i < locations->number; i++)
+                        locations->list[i]->bytes = bytes_count;
+
+                      locations->number = 0;
+                    }
+                  if (cell_idx+1 < last_cell)
+                    {
+                      if (line_width < indent_len
+                                    + cell_beginnings[cell_idx+1])
+                        {
+                          int spaces_nr;
+                          if (result.end == 0)
+                            {
+                              for (k = 0; k < indent_len; k++)
+                                text_append_n (&result, " ", 1);
+                              bytes_count += indent_len;
+                            }
+                          spaces_nr = indent_len
+                                         + cell_beginnings[cell_idx+1]
+                                         - line_width;
+
+                          for (k = 0; k < spaces_nr; k++)
+                            text_append_n (&result, " ", 1);
+                          line_width += spaces_nr;
+                          bytes_count += spaces_nr;
+                        }
+                    }
+                }
+              text_append_n (&result, "\n", 1);
+              bytes_count += 1;
+              text_append_n (&row_result, result.text, result.end);
+            }
+          if (top_format->item_command == CM_headitem)
+            {
+              int k;
+        /* at this point cell_beginning is at the beginning of
+           the cell following the end of the table -> full width */
+              for (k = 0; k < indent_len; k++)
+                text_append_n (&row_result, " ", 1);
+              for (k = 0; k < cell_beginning; k++)
+                text_append_n (&row_result, "-", 1);
+              text_append_n (&row_result, "\n", 1);
+              max_lines++;
+            }
+          update_locations_counts (self, count_context, &row_count);
+          free (row_count.target_locations.list);
+          free (row_count.index_entry_locations.list);
+
+          count_context->lines += max_lines;
+
+          clear_strings_list (&top_format->row);
+          top_format->row_cell_counts.number = 0;
+
+          stream_output_encoded (self, row_result.text);
         }
       else if (type == ET_before_node_section)
         {
@@ -4979,6 +5353,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   /* Close paragraphs and preformatted. */
   if (type == ET_paragraph)
     {
+      TEXT_CONTEXT *text_element_context
+        = top_(text_element_context) (&self_plaintext->text_element_context);
       const char *result = para_end ();
       stream_output_count_nl (self, result);
       enum command_id context_cmd = *top_(command) (&self_plaintext->context);
@@ -4987,14 +5363,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         {
           const char *initial_result = stream_result (self);
           char *result = align_environment (self, initial_result,
-           /* TODO
-              $self->{'text_element_context'}->[-1]->{'max'},
-            */
-                                            80, AD_right);
+                                            text_element_context->max,
+                                            AD_right);
           stream_output_encoded (self, result);
           free (result);
         }
 
+      text_element_context->counter = 0;
       para_destroy ();
       pop_formatter (self);
     }
@@ -5002,6 +5377,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
     format, @verbatim..., or for (raw)preformatted type */
   else if (preformatted)
     {
+      TEXT_CONTEXT *text_element_context
+        = top_(text_element_context) (&self_plaintext->text_element_context);
       const char *end_line = para_end ();
       enum command_id context_cmd = *top_(command) (&self_plaintext->context);
 
@@ -5013,10 +5390,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         {
           const char *initial_result = stream_result (self);
           char *result = align_environment (self, initial_result,
-           /* TODO
-              $self->{'text_element_context'}->[-1]->{'max'},
-            */
-                                            80, AD_right);
+                                            text_element_context->max,
+                                            AD_right);
           stream_output_encoded (self, result);
           free (result);
         }
@@ -5063,9 +5438,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
     /* We assume that, upon closing the preformatted we are at the
        beginning of a line. */
-     /* TODO
-    delete $self->{'text_element_context'}->[-1]->{'counter'};
-      */
+      text_element_context->counter = 0;
     }
 
   /* Close commands */
@@ -5112,6 +5485,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         }
       else if (cmd == CM_multitable)
         {
+          DOCUMENT_CONTEXT *top_document_context
+            = top_(document_context) (&self_plaintext->document_context);
+          top_document_context->in_multitable--;
         }
       /* else if root_commands etc. */
 
@@ -5143,10 +5519,24 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
        if (plaintext_commands_data[cmd].flags & PF_format_context)
          pop_(format_context) (&self_plaintext->format_context);
-
-         /* TODO
-       else if
-          */
+       else if (cell)
+         {
+           COUNT_CONTEXT *count_context
+             = top_(count_context) (&self_plaintext->count_context);
+           const char *result = stream_result (self);
+           pop_(format_context) (&self_plaintext->format_context);
+           FORMAT_CONTEXT *top_format_context
+             = top_(format_context) (&self_plaintext->format_context);
+           add_string (result, &top_format_context->row);
+           add_(count_context) (&top_format_context->row_cell_counts,
+                                *count_context);
+           count_context->target_locations.number = 0;
+           count_context->target_locations.list = 0;
+           count_context->index_entry_locations.number = 0;
+           count_context->index_entry_locations.list = 0;
+           pop_count_context (&self_plaintext->count_context);
+           pop_(text_element_context) (&self_plaintext->text_element_context);
+         }
 
        /* TODO */
     }
@@ -5174,6 +5564,7 @@ plaintext_free_converter (CONVERTER *self)
   free (self_plaintext->count_context.list);
   free (self_plaintext->context.list);
   free (self_plaintext->document_context.list);
+  free (self_plaintext->text_element_context.list);
 
   free (self_plaintext->node_names_cache);
   free (self_plaintext->added_element.list);

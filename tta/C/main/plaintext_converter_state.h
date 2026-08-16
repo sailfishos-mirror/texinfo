@@ -45,19 +45,6 @@ typedef struct FORMATTER {
 def_list_type(FORMATTER_STACK, FORMATTER);
 decl_list_fns(FORMATTER_STACK, formatter, FORMATTER);
 
-typedef struct FORMAT_CONTEXT {
-    enum command_id cmd;
-    int paragraph_count;
-    int context_indent_len;
-    int row;
-    int row_cell_counts;
-    int paragraph_counts;
-    int columns_size;
-} FORMAT_CONTEXT;
-
-def_list_type(FORMAT_CONTEXT_STACK, FORMAT_CONTEXT);
-decl_list_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
-
 def_list_type(QUOTATION_AUTHORS_LIST, CONST_ELEMENT_LIST);
 decl_list_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST);
 decl_stack_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST);
@@ -110,6 +97,29 @@ typedef struct COUNT_CONTEXT {
 
 def_list_type(COUNT_CONTEXT_STACK, COUNT_CONTEXT);
 decl_list_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
+
+typedef struct FORMAT_CONTEXT {
+    enum command_id cmd;
+    int paragraph_count;
+    int context_indent_len;
+    STRING_LIST row;
+    COUNT_CONTEXT_STACK row_cell_counts;
+    int paragraph_counts;
+    int columns_size_nr;
+    int *columns_size;
+    enum command_id item_command;
+} FORMAT_CONTEXT;
+
+def_list_type(FORMAT_CONTEXT_STACK, FORMAT_CONTEXT);
+decl_list_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
+
+typedef struct TEXT_CONTEXT {
+    int counter;
+    int max;
+} TEXT_CONTEXT;
+
+def_list_type(TEXT_CONTEXT_STACK, TEXT_CONTEXT);
+decl_list_fns(TEXT_CONTEXT_STACK, text_element_context, TEXT_CONTEXT);
 
 typedef struct STRING_WITH_WIDTH {
     char *string;
@@ -165,6 +175,7 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     COMMAND_STACK context;
     FORMAT_CONTEXT_STACK format_context;
     /* text_element_context */
+    TEXT_CONTEXT_STACK text_element_context;
     FORMATTER_STACK formatters;
     COUNT_CONTEXT_STACK count_context;
     /* document_context */

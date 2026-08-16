@@ -4422,13 +4422,13 @@ sub _convert($$) {
       my $max_lines = 0;
       my $indent_len
            = $self->{'format_context'}->[-1]->{'context_indent_len'};
-      foreach my $cell (@{$self->{'format_context'}->[-1]->{'row'}}) {
+      foreach my $cell_text (@{$self->{'format_context'}->[-1]->{'row'}}) {
         $cell_beginnings[$cell_idx] = $cell_beginning;
         my $cell_width
            = $self->{'format_context'}->[-1]->{'columns_size'}->[$cell_idx];
         $cell_width = 2 if (!defined($cell_width));
         $cell_beginning += $cell_width +1;
-        $cell_lines[$cell_idx] = [ split /^/, $cell ];
+        $cell_lines[$cell_idx] = [ split /^/, $cell_text ];
         $max_lines = scalar(@{$cell_lines[$cell_idx]})
           if (scalar(@{$cell_lines[$cell_idx]}) > $max_lines);
         $cell_idx++;
@@ -4441,8 +4441,6 @@ sub _convert($$) {
       foreach my $cell_locations (@{$self->{'format_context'}->[-1]
                                                   ->{'row_cell_counts'}}) {
         foreach my $location (@{$cell_locations->{'target_locations'}}) {
-          # only need to update bytes at this point
-          next unless (defined($location->{'target_element'}));
           $cell_updated_locations->[$cell_idx] = {}
             if (!$cell_updated_locations->[$cell_idx]);
           push @{$cell_updated_locations->[$cell_idx]->{$location->{'lines'}}},
@@ -4458,7 +4456,7 @@ sub _convert($$) {
       }
 
       # this is used to keep track of the last cell with content.
-      my $max_cell = scalar(@{$self->{'format_context'}->[-1]->{'row'}});
+      my $max_cell_nr = scalar(@{$self->{'format_context'}->[-1]->{'row'}});
       # bytes added because of the addition of spaces when formatting cells
       my $bytes_count = 0;
       my $result = '';
@@ -4466,10 +4464,10 @@ sub _convert($$) {
       for (my $line_idx = 0; $line_idx < $max_lines; $line_idx++) {
         my $line_width = $indent_len;
         $line = '';
-        # determine the last cell in the line, to fill spaces in
+        # determine the last cell index in the line, to fill spaces in
         # cells preceding that cell on the line
         my $last_cell = 0;
-        for (my $cell_idx = 0; $cell_idx < $max_cell; $cell_idx++) {
+        for (my $cell_idx = 0; $cell_idx < $max_cell_nr; $cell_idx++) {
           $last_cell = $cell_idx+1
             if (defined($cell_lines[$cell_idx]->[$line_idx])
                 or ($cell_updated_locations->[$cell_idx]

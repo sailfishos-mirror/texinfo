@@ -1,3 +1,26 @@
+2026-08-16 Patrice Dumas  <pertusus@free.fr>
+
+	plaintext C @multitable
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): rename
+	$cell as $cell_text and max_cell as max_cell_nr in row formatting.
+
+	* tta/C/convert/convert_to_plaintext.c (fill_formatter)
+	(push_top_formatter, pop_top_formatter, ensure_end_of_line)
+	(plaintext_process_footnotes, convert_def_line)
+	(convert_to_plaintext_internal, plaintext_free_converter),
+	tta/C/main/plaintext_converter_state.h (FORMAT_CONTEXT_STACK)
+	(TEXT_CONTEXT, PLAINTEXT_CONVERTER_STATE):
+
+	* tta/C/convert/convert_to_plaintext.c (LINE_TARGET, LINE_TARGET_LIST)
+	(reallocate_line_target_for, CELLS_LINE_TARGET)
+	(reallocate_cells_line_target_for, convert_to_plaintext_internal),
+	tta/C/main/plaintext_converter_state.h (FORMAT_CONTEXT): add
+	types used for multitable formatting.  Modify FORMAT_CONTEXT row and
+	columns_size fields to be lists, add columns_size_nr.  Handle
+	@multitable, mutitable cell commands for cell opening and closing,
+	and row type.
+
 2026-08-14 Patrice Dumas  <pertusus@free.fr>
 
 	plaintext C @quotation, @author and @center
