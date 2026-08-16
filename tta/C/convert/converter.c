@@ -1677,8 +1677,8 @@ float_type_number (CONVERTER *self, const ELEMENT *float_e)
   ELEMENT *type_element = 0;
   NAMED_STRING_ELEMENT_LIST *replaced_substrings
      = new_named_string_element_list ();
-  char *float_type = lookup_extra_string (float_e, AI_key_float_type);
-  char *float_number = lookup_extra_string (float_e, AI_key_float_number);
+  const char *float_type = lookup_extra_string (float_e, AI_key_float_type);
+  const char *float_number = lookup_extra_string (float_e, AI_key_float_number);
 
   if (float_type && strlen (float_type))
     /* first content of arguments_line type element */

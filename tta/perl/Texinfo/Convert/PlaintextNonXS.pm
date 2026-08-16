@@ -3710,10 +3710,10 @@ sub _convert($$) {
         $self->{'document_context'}->[-1]->{'in_multitable'}++;
       } elsif ($cmdname eq 'float') {
         _add_newline_if_needed($self);
-        if (exists($element->{'contents'})
-            and exists($element->{'contents'}->[0]->{'contents'})
-            and scalar(@{$element->{'contents'}->[0]->{'contents'}}) >= 2
-   and exists($element->{'contents'}->[0]->{'contents'}->[1]->{'contents'})) {
+        my $argument_line = $element->{'contents'}->[0];
+        if (exists($argument_line->{'contents'})
+            and scalar(@{$argument_line->{'contents'}}) >= 2
+            and exists($argument_line->{'contents'}->[1]->{'contents'})) {
           _anchor($self, $element);
         }
       } elsif ($cmdname eq 'cartouche') {
@@ -3928,11 +3928,11 @@ sub _convert($$) {
         $lines_count += 2;
         foreach my $float_and_section (@{$floats->{$float_type}}) {
           my ($float, $float_section) = @$float_and_section;
-          next if (!exists($float->{'contents'})
-                   or !exists($float->{'contents'}->[0]->{'contents'})
-                   or scalar(@{$float->{'contents'}->[0]->{'contents'}}) < 2
+          my $argument_line = $float->{'contents'}->[0];
+          next if (!exists($argument_line->{'contents'})
+                   or scalar(@{$argument_line->{'contents'}}) < 2
                    or Texinfo::Common::empty_spaces_argument(
-                    $float->{'contents'}->[0]->{'contents'}->[1]));
+                    $argument_line->{'contents'}->[1]));
 
           my $float_entry = $self->float_type_number($float);
           next if !defined($float_entry);
@@ -3993,17 +3993,17 @@ sub _convert($$) {
             # we do not want to start a new paragraph formatter so
             # we iterate over the contents of a paragraph rather than
             # converting the paragraph itself.
-            foreach my $element (@{$caption_arg->{'contents'}}) {
-              if (exists($element->{'type'})
-                  and $element->{'type'} eq 'paragraph'
-                  and exists($element->{'contents'})) {
-                foreach my $subelement (@{$element->{'contents'}}) {
+            foreach my $content (@{$caption_arg->{'contents'}}) {
+              if (exists($content->{'type'})
+                  and $content->{'type'} eq 'paragraph'
+                  and exists($content->{'contents'})) {
+                foreach my $subelement (@{$content->{'contents'}}) {
                   _convert($self, $subelement);
                 }
                 last;
-              } elsif (!defined($element->{'type'})
-                       or $element->{'type'} ne 'spaces_before_argument') {
-                _convert($self, $element);
+              } elsif (!defined($content->{'type'})
+                       or $content->{'type'} ne 'spaces_before_argument') {
+                _convert($self, $content);
                 last;
               }
             }

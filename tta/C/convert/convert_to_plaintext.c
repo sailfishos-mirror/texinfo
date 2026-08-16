@@ -4735,7 +4735,52 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               top_format_context->columns_size_nr = columns_size_nr;
               top_document_context->in_multitable++;
             }
-          /* TODO */
+          else if (cmd == CM_float)
+            {
+              const ELEMENT *argument_line = element->e.c->contents.list[0];
+              add_newline_if_needed (self);
+              if (argument_line->e.c->contents.number >= 2
+          && argument_line->e.c->contents.list[0]->e.c->contents.number)
+                anchor (self, element);
+            }
+          else if (cmd == CM_cartouche)
+            {
+              /* arguments_line type element */
+              const ELEMENT *argument_line = element->e.c->contents.list[0];
+              ELEMENT *block_line_arg
+                = argument_line->e.c->contents.list[0];
+              if (!empty_spaces_argument (block_line_arg))
+                {
+                  NAMED_STRING_ELEMENT_LIST *replaced_substrings
+                    = new_named_string_element_list ();
+                  ELEMENT *arg_copy = copy_element_tree (block_line_arg, 0);
+
+                  add_element_to_named_string_element_list (
+                                   replaced_substrings, "cartouche_arg",
+                                   arg_copy);
+
+                  ELEMENT *prepended
+                      = cdt_tree ("@center @b{{cartouche_arg}}",
+                                  self, replaced_substrings, 0);
+                  prepended->type = ET__frenchspacing;
+
+                  /* Do not consider the title to be like a paragraph */
+                  FORMAT_CONTEXT *top_format_context
+                    = top_(format_context) (&self_plaintext->format_context);
+                  int previous_paragraph_count
+                    = top_format_context->paragraph_count;
+
+                  convert_to_plaintext_internal (self, prepended);
+
+                  top_format_context
+                    = top_(format_context) (&self_plaintext->format_context);
+                  top_format_context->paragraph_count
+                    = previous_paragraph_count;
+
+                  destroy_element_and_children (prepended);
+                  destroy_named_string_element_list (replaced_substrings);
+                }
+            }
         }
       else if (cmd == CM_node)
         {
@@ -4791,9 +4836,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 }
               free (heading_underlined);
             }
-            /* TODO
-      $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
-             */
+
+          FORMAT_CONTEXT *top_format_context
+            = top_(format_context) (&self_plaintext->format_context);
+          top_format_context->paragraph_count = 0;
 
           if (!(cmd_data->flags & CF_root))
             return;
@@ -5716,6 +5762,51 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
     {
       if (cmd == CM_float)
         {
+          const ELEMENT *caption_shortcaption[2];
+          find_float_caption_shortcaption (element, caption_shortcaption);
+          const ELEMENT *caption = caption_shortcaption[0];
+          const ELEMENT *shortcaption = caption_shortcaption[1];
+
+          const char *float_type
+            = lookup_extra_string (element, AI_key_float_type);
+          const char *float_number
+            = lookup_extra_string (element, AI_key_float_number);
+
+          if (float_type || float_number || caption || shortcaption)
+            {
+              FLOAT_CAPTION_PREPENDED_ELEMENT *caption_prepended
+                = float_name_caption (self, element);
+              const ELEMENT *caption_element = caption_prepended->caption;
+              ELEMENT *prepended = caption_prepended->prepended;
+
+              free (caption_prepended);
+
+              if (prepended)
+                {
+                  STRING_COUNT_LINE_COUNT float_result;
+                  prepended->type = ET__frenchspacing;
+                  plaintext_convert_line_new_context (self, prepended,
+                                                      -1, -1, -1, -1,
+                                                      &float_result);
+                  stream_output (self, float_result.string);
+                  TEXT_CONTEXT *text_element_context
+                    = top_(text_element_context) (
+                                  &self_plaintext->text_element_context);
+                  text_element_context->counter += float_result.line_count;
+                  free (float_result.string);
+                  destroy_element_and_children (prepended);
+                }
+              if (caption_element)
+                {
+                  FORMAT_CONTEXT *top_format_context
+                   = top_(format_context) (&self_plaintext->format_context);
+                  top_format_context->paragraph_count = 0;
+        /* no argument can only happen with bogus command without braces */
+                  if (caption_element->e.c->contents.number)
+                    convert_to_plaintext_internal (self,
+                                   caption_element->e.c->contents.list[0]);
+                }
+            }
         }
       else if (cmd == CM_quotation || cmd == CM_smallquotation)
         {
