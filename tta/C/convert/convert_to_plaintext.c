@@ -4761,8 +4761,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           else if (cmd == CM_top)
             {
               const ELEMENT *settitle
-                = get_cmd_global_uniq_command (
-                     &self->document->global_commands, CM_settitle);
+                = self->document->global_commands.settitle;
               if (settitle && !empty_spaces_argument (
                                      settitle->e.c->contents.list[0]))
                 {
@@ -4962,11 +4961,68 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           return;
         }
       else if (cmd == CM_exdent)
-        return;
+        {
+          const ELEMENT *exdent_line_arg = element->e.c->contents.list[0];
+          if (!empty_spaces_argument (exdent_line_arg))
+            {
+              enum command_id context_cmd
+                 = *top_(command) (&self_plaintext->context);
+              if (plaintext_commands_data[context_cmd].flags
+                                              & PF_preformatted_context)
+                {
+                  FORMATTER new_preformatted
+                    = new_formatter (self, formatter_unfilled,
+                       self_plaintext->format_context.list[
+          self_plaintext->format_context.number -2].context_indent_len, -1);
+                  /* TODO
+                 $formatter->{'font_type_stack'}->[-1]->{'monospace'} = 1;
+                   */
+                  push_formatter (self, &new_preformatted);
+                  convert_to_plaintext_internal (self, exdent_line_arg);
+                  const char *result = para_end ();
+                  stream_output_count_nl (self, result);
+                  para_destroy ();
+                  pop_formatter (self);
+                }
+              else
+                {
+                  FORMAT_CONTEXT *top_format
+                    = top_(format_context) (&self_plaintext->format_context);
+                  plaintext_convert_line (self, exdent_line_arg,
+                                      top_format->context_indent_len, -1);
+                }
+            }
+          ensure_end_of_line (self);
+          return;
+        }
       else if (cmd == CM_verbatiminclude)
-        return;
+        {
+          ELEMENT *verbatim_include_verbatim
+            = converter_expand_verbatiminclude (element,
+                              &self->error_messages, self->conf,
+                              &self->document->global_info);
+          if (verbatim_include_verbatim)
+            {
+              convert_to_plaintext_internal (self, verbatim_include_verbatim);
+              destroy_element_and_children (verbatim_include_verbatim);
+            }
+          return;
+        }
       else if (cmd == CM_insertcopying)
-        return;
+        {
+          const ELEMENT *copying = self->document->global_commands.copying;
+          if (copying)
+            {
+              ELEMENT *copying_content = new_element (ET_NONE);
+              insert_slice_into_contents (copying_content,
+                               copying_content->e.c->contents.number,
+                               copying, 1, copying->e.c->contents.number);
+
+              convert_to_plaintext_internal (self, copying_content);
+              destroy_element (copying_content);
+            }
+          return;
+        }
       else if (cmd == CM_printindex)
         {
           plaintext_functions[self->format].format_printindex (self, element);
@@ -4976,10 +5032,25 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         return;
       else if (cmd == CM_sp)
         {
+          int i;
           TEXT_CONTEXT *text_element_context
           = top_(text_element_context) (&self_plaintext->text_element_context);
-          /* TODO */
+          const char *pending_word;
+          int sp_nr = 1;
+          const STRING_LIST *misc_args
+             = lookup_extra_string_list (element, AI_key_misc_args);
 
+          pending_word = para_add_pending_word (0);
+          stream_output_count_nl (self, pending_word);
+
+          if (misc_args && misc_args->number > 0)
+            sp_nr = strtol (misc_args->list[0], NULL, 10);
+
+          for (i = 0; i < sp_nr; i++)
+            {
+              const char *end_line = para_end_line ();
+              stream_output_count_nl (self, end_line);
+            }
 
           text_element_context->counter = 0;
           return;

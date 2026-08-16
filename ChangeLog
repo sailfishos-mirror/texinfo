@@ -1,5 +1,17 @@
 2026-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	Handle @insertcopying, @sp and @exdent in C plaintext
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): access directly global_commands
+	settitle.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): convert exdent, verbatiminclude and
+	sp.
+
+2026-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c
 	(convert_to_plaintext_internal): use add_to_contents_as_array such as
 	not to modify initial tree element.
