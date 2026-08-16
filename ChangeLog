@@ -1,5 +1,12 @@
 2026-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (plaintext_format_setup)
+	(convert_to_plaintext_internal), tta/C/convert/convert_to_plaintext.h
+	(PF_advance_paragraph_count): set PF_advance_paragraph_count and use
+	to advance paragraph_count in PF_advance_paragraph_count.
+
+2026-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c
 	(reallocate_cells_line_target_for, convert_to_plaintext_internal): use
 	static storage for cell_beginnings and cell_lines, clear cell lines.

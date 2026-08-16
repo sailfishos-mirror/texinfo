@@ -456,6 +456,9 @@ plaintext_format_setup (enum converter_format format)
   static enum command_id flush_commands[] = {
     CM_flushleft, CM_flushright, 0};
 
+  static enum command_id advance_paragraph_count_commands[] = {
+    CM_center, CM_verbatim, CM_listoffloats, 0};
+
   for (i = 0; ignored_brace_commands[i]; i++)
     plaintext_commands_data[ignored_brace_commands[i]].flags |= PF_ignored;
 
@@ -468,6 +471,10 @@ plaintext_format_setup (enum converter_format format)
 
   for (i = 0; flush_commands[i]; i++)
     plaintext_commands_data[flush_commands[i]].flags |= PF_flush;
+
+  for (i = 0; advance_paragraph_count_commands[i]; i++)
+    plaintext_commands_data[advance_paragraph_count_commands[i]].flags
+                                           |= PF_advance_paragraph_count;
 
   /* count commands in some categories and set categories */
   for (i = 1; i < BUILTIN_CMD_NUMBER; i++)
@@ -504,24 +511,28 @@ plaintext_format_setup (enum converter_format format)
               plaintext_commands_data[i].flags |= PF_preformatted_context;
               format_raw_cmd_nr++;
             }
-          else if (command_data[i].flags & CF_math)
+          else
             {
-              plaintext_commands_data[i].flags |= PF_preformatted_context;
-              plaintext_commands_data[i].flags |= PF_format_context;
-            }
-          else if (command_data[i].flags & CF_def)
-            {
-              plaintext_commands_data[i].flags |= PF_indented;
-              plaintext_commands_data[i].flags |= PF_format_context;
-            }
-          else if (command_data[i].flags & CF_preformatted)
-            {
-              plaintext_commands_data[i].flags |= PF_preformatted_context;
-              if (i != CM_format && i != CM_smallformat)
+              plaintext_commands_data[i].flags |= PF_advance_paragraph_count;
+              if (command_data[i].flags & CF_math)
                 {
-                  plaintext_commands_data[i].flags |= PF_example_indented;
+                  plaintext_commands_data[i].flags |= PF_preformatted_context;
+                  plaintext_commands_data[i].flags |= PF_format_context;
+                }
+              else if (command_data[i].flags & CF_def)
+                {
                   plaintext_commands_data[i].flags |= PF_indented;
                   plaintext_commands_data[i].flags |= PF_format_context;
+                }
+              else if (command_data[i].flags & CF_preformatted)
+                {
+                  plaintext_commands_data[i].flags |= PF_preformatted_context;
+                  if (i != CM_format && i != CM_smallformat)
+                    {
+                      plaintext_commands_data[i].flags |= PF_example_indented;
+                      plaintext_commands_data[i].flags |= PF_indented;
+                      plaintext_commands_data[i].flags |= PF_format_context;
+                    }
                 }
             }
         }
@@ -565,6 +576,16 @@ plaintext_format_setup (enum converter_format format)
     plaintext_commands_data[contents_commands[i]].flags &= ~PF_ignored;
 
   plaintext_commands_data[CM_documentlanguagevariant].flags &= ~PF_ignored;
+
+ /* group and raggedright do more than not advancing para, they should also
+    be transparent with respect to paragraph number counting. */
+  static enum command_id not_advancing_para[] = {
+   CM_group, CM_raggedright, CM_titlepage, CM_copying,
+   CM_documentdescription, CM_documentinfo, CM_publication, CM_float, 0};
+
+  for (i = 0; not_advancing_para[i]; i++)
+    plaintext_commands_data[not_advancing_para[i]].flags
+                                     &= ~PF_advance_paragraph_count;
 
   initialize_cmd_list (&format_raw_cmd, format_raw_cmd_nr, 0);
 
@@ -5557,8 +5578,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
            pop_count_context (&self_plaintext->count_context);
            pop_(text_element_context) (&self_plaintext->text_element_context);
          }
-
-       /* TODO */
+       else if (self_plaintext->commands_data[cmd].flags
+                                      & PF_advance_paragraph_count)
+         {
+           FORMAT_CONTEXT *top_format_context
+             = top_(format_context) (&self_plaintext->format_context);
+           top_format_context->paragraph_count++;
+         }
     }
   return;
 }
