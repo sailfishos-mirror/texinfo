@@ -4924,8 +4924,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         }
       else if (cmd == CM_center)
         {
-          FORMAT_CONTEXT *top_format
-            = top_(format_context) (&self_plaintext->format_context);
           stream_byte_count (self);
           COUNT_CONTEXT count_context = { 0 };
           add_(count_context) (&self_plaintext->count_context,
@@ -4958,6 +4956,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
      /* it has to be done here, as it is done in _align_environment above */
             pop_count_context (&self_plaintext->count_context);
 
+          FORMAT_CONTEXT *top_format
+            = top_(format_context) (&self_plaintext->format_context);
           top_format->paragraph_count++;
           return;
         }
@@ -5080,13 +5080,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               paragraphindent_size = paragraphindent;
             }
 
+          top_format->paragraph_count++;
+
           FORMATTER new_paragraph
             = new_formatter (self, formatter_paragraph,
                              paragraphindent_size, 0);
 
           push_formatter (self, &new_paragraph);
-
-          top_format->paragraph_count++;
 
           if (context_cmd == CM_flushright)
             {

@@ -933,7 +933,6 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
   int need_free_node_name = 0;
   char *node_name;
   ELEMENT *node_element = 0;
-  int quoting_required = 0;
   int warn_special_char
     = (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer > 0
        && !self_plaintext->silent);
@@ -945,8 +944,6 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
     return;
   else if (element->e.c->contents.number > max_xref_args)
     fatal ("xref command with too many arguments");
-
-  FORMATTER *formatter = top_(formatter) (&self_plaintext->formatters);
 
   memset (args, 0, max_xref_args * sizeof (const ELEMENT *));
 
@@ -975,7 +972,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
           target_element = find_identifier_target (
                                   &self->document->identifiers_target,
                                   normalized);
-          /* TODO target_element not set happens in tests in t/info_tests.t
+          /* NOTE target_element not set happens in tests in t/info_tests.t
              novalidate_empty_refs with @xref{@asis{ }}. */
           if (target_element)
             label_element = get_label_element (target_element);
@@ -1004,25 +1001,28 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
   else if (args[2])
     name = args[2];
 
+  DOCUMENT_CONTEXT *document_context
+          = top_(document_context) (&self_plaintext->document_context);
   /* Treat cross-reference commands in a multitable cell as if they
      were surrounded by @w{ ... }, so not to split output across
      lines, leading text from other columns appearing to be part of the
      cross-reference. */
-  /* TODO not ready in convert_to_plaintext.c
-  if ($self->{'document_context'}->[-1]->{'in_multitable'}) {
-    $in_multitable = 1;
+  if (document_context->in_multitable)
+    {
+      FORMATTER *formatter = top_(formatter) (&self_plaintext->formatters);
+
+      in_multitable = 1;
+     /* TODO when formatter w
     $formatter->{'w'}++;
     set_space_protection($formatter->{'container'}, 1)
       if ($formatter->{'w'} == 1);
-  }
-  */
+     */
+    }
 
  /* Disallow breaks in runs of Chinese text in node names, because a
     break would be normalized to a single space by the Info reader, and
     the node wouldn't be found. */
-  /* TODO when set_double_width_no_break is implemented
-   set_double_width_no_break($formatter->{'container'}, 1);
-   */
+  para_set_conf_double_width_no_break (1);
 
   note_stop_upper_case_element = new_element (ET__stop_upper_case);
   note_element = new_text_element (ET_other_text);
@@ -1062,7 +1062,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
                           builtin_command_name(cmd));
 
               if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
-                quoting_required = 1;
+                name_quoting_required = 1;
             }
 
           free (name_text_checked.string);
@@ -1171,6 +1171,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
       label_element = 0;
     }
 
+  int quoting_required = 0;
   if (label_element
       && (warn_special_char
           || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0))
@@ -1209,6 +1210,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
       ELEMENT *node_stop_upper_case_element
         = new_element (ET__stop_upper_case);
       ELEMENT *node_code_element = new_element (ET__code);
+      FORMATTER *formatter = top_(formatter) (&self_plaintext->formatters);
       if (label_element)
         /* cast to drop const */
         add_to_contents_as_array (node_code_element, (ELEMENT *)label_element);
@@ -1217,15 +1219,13 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
       add_to_element_contents (node_stop_upper_case_element,
                                node_code_element);
 
-      /* TODO
       formatter->suppress_styles = 1;
-       */
 
       convert_to_plaintext_internal (self, node_stop_upper_case_element);
 
-      /* TODO
+      /* in case the formatter list was reallocated, get again */
+      formatter = top_(formatter) (&self_plaintext->formatters);
       formatter->suppress_styles = 0;
-       */
 
       /* remove label_element that should not be destroyed */
       if (label_element)
@@ -1324,14 +1324,17 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
         }
     }
 
+  if (in_multitable)
+    {
+      FORMATTER *formatter = top_(formatter) (&self_plaintext->formatters);
   /* TODO
-    if ($in_multitable) {
     $formatter->{'w'}--;
     set_space_protection($formatter->{'container'}, 0)
       if ($formatter->{'w'} == 0);
-  }
-  set_double_width_no_break($formatter->{'container'}, 0);
-  */
+   */
+     }
+
+  para_set_conf_double_width_no_break (0);
 
   if (float_type_number_element)
     destroy_element_and_children (float_type_number_element);
