@@ -763,7 +763,6 @@ plaintext_add_image (CONVERTER *self, const ELEMENT *element,
   add_(image_location) (&count_context->images, image_location);
 }
 
-/* TODO: reset more than just 'result'? */
 static void
 stream_reset (CONVERTER *self)
 {
@@ -881,7 +880,6 @@ stream_byte_count (CONVERTER *self)
   COUNT_CONTEXT *count_context
     = top_(count_context) (&self_plaintext->count_context);
 
-  /* TODO need pending_text */
   if (count_context->pending_text.end > 0)
     {
       if (!count_context->encoding_disabled)
@@ -1165,7 +1163,7 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
   string_result->string = result;
 }
 
-/* TODO do caching for nodes in nodes_list only, for two reasons.
+/* NOTE do caching for nodes in nodes_list only, for two reasons.
    First, it is easier, as nodes have the node_number which allows
    for an easy setup of an array for indexing, other elements would
    need something else, maybe an hash for integers based on pointers.
@@ -3475,7 +3473,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   enum element_type type = element->type;
   const INDEX_ENTRY_LOCATION *index_entry_info;
 
-  /* TODO check right way to check text in union field */
   if (type_data[type].flags & TF_text)
     {
       if (type == ET_empty_line || type == ET_after_menu_description_line)
