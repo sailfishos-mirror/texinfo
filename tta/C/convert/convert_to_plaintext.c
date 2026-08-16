@@ -5858,59 +5858,59 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         }
       /* else if root_commands etc. */
 
-       /* close the contexts and register the cells */
-       if (plaintext_commands_data[cmd].flags & PF_preformatted_context
-           || cmd == CM_float)
-         {
-           enum command_id popped_cmd
-             = pop_context (&self_plaintext->context);
+      /* close the contexts and register the cells */
+      if (plaintext_commands_data[cmd].flags & PF_preformatted_context
+          || cmd == CM_float)
+        {
+          enum command_id popped_cmd
+            = pop_context (&self_plaintext->context);
 
-           if (popped_cmd != CM_float
-               && !(plaintext_commands_data[popped_cmd].flags
-                                         & PF_preformatted_context))
-             {
-               char *msg;
-               xasprintf (&msg, "Not a preformatted context (%d): %s",
-                          popped_cmd, builtin_command_name (popped_cmd));
-               bug (msg);
-               free (msg);
-             }
-         }
-       else if (plaintext_commands_data[cmd].flags & PF_flush)
-         {
-           enum command_id popped_cmd
-             = pop_context (&self_plaintext->context);
-           if (!(plaintext_commands_data[popped_cmd].flags & PF_flush))
-             abort ();
-         }
+          if (popped_cmd != CM_float
+              && !(plaintext_commands_data[popped_cmd].flags
+                                        & PF_preformatted_context))
+            {
+              char *msg;
+              xasprintf (&msg, "Not a preformatted context (%d): %s",
+                         popped_cmd, builtin_command_name (popped_cmd));
+              bug (msg);
+              free (msg);
+            }
+        }
+      else if (plaintext_commands_data[cmd].flags & PF_flush)
+        {
+          enum command_id popped_cmd
+            = pop_context (&self_plaintext->context);
+          if (!(plaintext_commands_data[popped_cmd].flags & PF_flush))
+            abort ();
+        }
 
-       if (plaintext_commands_data[cmd].flags & PF_format_context)
-         pop_(format_context) (&self_plaintext->format_context);
-       else if (cell)
-         {
-           COUNT_CONTEXT *count_context
-             = top_(count_context) (&self_plaintext->count_context);
-           const char *result = stream_result (self);
-           pop_(format_context) (&self_plaintext->format_context);
-           FORMAT_CONTEXT *top_format_context
-             = top_(format_context) (&self_plaintext->format_context);
-           add_string (result, &top_format_context->row);
-           add_(count_context) (&top_format_context->row_cell_counts,
-                                *count_context);
-           count_context->target_locations.number = 0;
-           count_context->target_locations.list = 0;
-           count_context->index_entry_locations.number = 0;
-           count_context->index_entry_locations.list = 0;
-           pop_count_context (&self_plaintext->count_context);
-           pop_(text_element_context) (&self_plaintext->text_element_context);
-         }
-       else if (self_plaintext->commands_data[cmd].flags
+      if (plaintext_commands_data[cmd].flags & PF_format_context)
+        pop_(format_context) (&self_plaintext->format_context);
+      else if (cell)
+        {
+          COUNT_CONTEXT *count_context
+            = top_(count_context) (&self_plaintext->count_context);
+          const char *result = stream_result (self);
+          pop_(format_context) (&self_plaintext->format_context);
+          FORMAT_CONTEXT *top_format_context
+            = top_(format_context) (&self_plaintext->format_context);
+          add_string (result, &top_format_context->row);
+          add_(count_context) (&top_format_context->row_cell_counts,
+                               *count_context);
+          count_context->target_locations.number = 0;
+          count_context->target_locations.list = 0;
+          count_context->index_entry_locations.number = 0;
+          count_context->index_entry_locations.list = 0;
+          pop_count_context (&self_plaintext->count_context);
+          pop_(text_element_context) (&self_plaintext->text_element_context);
+        }
+      else if (self_plaintext->commands_data[cmd].flags
                                       & PF_advance_paragraph_count)
-         {
-           FORMAT_CONTEXT *top_format_context
-             = top_(format_context) (&self_plaintext->format_context);
-           top_format_context->paragraph_count++;
-         }
+        {
+          FORMAT_CONTEXT *top_format_context
+            = top_(format_context) (&self_plaintext->format_context);
+          top_format_context->paragraph_count++;
+        }
     }
   return;
 }
@@ -6432,8 +6432,7 @@ plaintext_output (CONVERTER *self, DOCUMENT *document)
 }
 
 /* ALTIMP: Texinfo:Convert::Plaintext::convert */
-/* never called from C, could be called from XS for t/?*.t tests if there
-   was an XS interface (which is not necessarily a good thing to do) */
+/* never called from C, called from XS for t/?*.t tests */
 char *
 plaintext_convert (CONVERTER *self, DOCUMENT *document)
 {
