@@ -9945,7 +9945,7 @@ html_convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
               free (float_text);
               free (float_href);
 
-              find_float_caption_shortcaption(float_elt, caption_shortcaption);
+              find_float_caption_shortcaption (float_elt, caption_shortcaption);
               caption_element = caption_shortcaption[1];
               if (caption_element)
                 caption_classes = &shortcaption_in_listoffloats_classes;
@@ -9982,6 +9982,8 @@ html_convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
             free (multiple_pass_str);
           free (attribute_class);
           destroy_strings_list (classes);
+
+          break;
         }
     }
 }

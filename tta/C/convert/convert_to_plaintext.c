@@ -3465,6 +3465,7 @@ reallocate_cells_line_target_for (CELLS_LINE_TARGET *list,
     }
 }
 
+static int listoffloat_entry_length = 41;
 
 /* ALTIMP: _convert in Texinfo:Convert::Plaintext */
 void
@@ -5029,7 +5030,170 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           return;
         }
       else if (cmd == CM_listoffloats)
-        return;
+        {
+          int lines_count = 0;
+          size_t i;
+          const char *listoffloats_name;
+          const LISTOFFLOATS_TYPE_LIST *listoffloats
+             = &self->document->listoffloats;
+
+          if (!listoffloats->number)
+            return;
+
+          listoffloats_name = lookup_extra_string (element, AI_key_float_type);
+          for (i = 0; i < listoffloats->number; i++)
+            {
+              const LISTOFFLOATS_TYPE *float_types = &listoffloats->list[i];
+              if (!strcmp (float_types->type, listoffloats_name))
+                {
+                  size_t j;
+
+                  if (float_types->float_list.number <= 0)
+                    return;
+
+                  add_newline_if_needed (self);
+                  stream_output (self, "* Menu:\n\n");
+                  lines_count += 2;
+
+                  for (j = 0; j < float_types->float_list.number; j++)
+                    {
+                      const FLOAT_INFORMATION *float_info
+                        = &float_types->float_list.list[j];
+                      const ELEMENT *float_elt = float_info->float_element;
+                      const ELEMENT *argument_line
+                        = float_elt->e.c->contents.list[0];
+                      ELEMENT *float_entry;
+                      ELEMENT *float_type_formatted;
+                      const ELEMENT *caption_shortcaption[2];
+                      const ELEMENT *caption_element;
+
+                      if (argument_line->e.c->contents.number < 2
+                          || empty_spaces_argument (
+                                argument_line->e.c->contents.list[1]))
+                        continue;
+
+                      float_entry = float_type_number (self, float_elt);
+                      if (!float_entry)
+                        continue;
+
+                      FORMATTER new_paragraph
+                         = new_formatter (self, formatter_paragraph,
+                                          0, listoffloat_entry_length);
+                      push_formatter (self, &new_paragraph);
+
+         /* Output in format "* $float_entry_text: $float_label_text.". */
+                      stream_output_add_next (self, " *");
+
+                      float_entry->type = ET__frenchspacing;
+                      convert_to_plaintext_internal (self, float_entry);
+                      destroy_element_and_children (float_entry);
+
+                      stream_output_add_next (self, ": ");
+
+                      float_type_formatted = new_element (ET__code);
+                      add_to_contents_as_array (float_type_formatted,
+                                 argument_line->e.c->contents.list[1]);
+
+                      convert_to_plaintext_internal (self,
+                                                     float_type_formatted);
+                      destroy_element (float_type_formatted);
+
+                      stream_output_add_next (self, ".");
+
+                      const char *pending_word = para_add_pending_word (0);
+                      stream_output_count_nl (self, pending_word);
+
+          /* NB we trust that only $container was used to format text
+             inside the call to convert_line so that all output text is
+             counted. */
+                      int line_width = para_counter ();
+                      if (line_width > listoffloat_entry_length)
+                        {
+                          const char *end_line = para_end_line ();
+                          stream_output_count_nl (self, end_line);
+                        }
+                      else
+                        {
+                          int k;
+                          int space_nr = listoffloat_entry_length - line_width;
+                          for (k = 0; k < space_nr; k++)
+                            stream_output_add_next (self, " ");
+                        }
+
+                      find_float_caption_shortcaption (float_elt,
+                                                       caption_shortcaption);
+                      caption_element = caption_shortcaption[1];
+                      if (!caption_element)
+                        caption_element = caption_shortcaption[0];
+
+                      if (caption_element
+                          && caption_element->e.c->contents.number > 0
+                          && !empty_spaces_argument (
+                                caption_element->e.c->contents.list[0]))
+                        {
+                          size_t j;
+                          const ELEMENT *caption_arg
+                            = caption_element->e.c->contents.list[0];
+                          add_(command) (&self_plaintext->context, cmd);
+                          self_plaintext->multiple_pass = 1;
+
+           /* we do not want to start a new paragraph formatter so
+              we iterate over the contents of a paragraph rather than
+              converting the paragraph itself. */
+                          for (j = 0; j < caption_arg->e.c->contents.number;
+                               j++)
+                            {
+                              const ELEMENT *content
+                                = caption_arg->e.c->contents.list[j];
+
+                              if (content->type == ET_paragraph
+                                  && content->e.c->contents.number)
+                                {
+                                  size_t l;
+                                  for (l = 0;
+                                       l < content->e.c->contents.number; l++)
+                                    {
+                                      const ELEMENT *subelement
+                                         = content->e.c->contents.list[l];
+                                      convert_to_plaintext_internal (self,
+                                                                 subelement);
+                                    }
+                                  break;
+                                }
+                              else if (content->type
+                                           != ET_spaces_before_argument)
+                                {
+                                  convert_to_plaintext_internal (self,
+                                                                 content);
+                                  break;
+                                }
+                            }
+
+                          self_plaintext->multiple_pass = 0;
+                          pop_context (&self_plaintext->context);
+                        }
+                      /* flush and add newline */
+                      const char *result = para_end ();
+                      stream_output_count_nl (self, result);
+
+                      para_destroy ();
+                      pop_formatter (self);
+                    }
+                  stream_output (self, "\n");
+                  lines_count++;
+
+                  break;
+                }
+            }
+
+          FORMAT_CONTEXT *top_format
+            = top_(format_context) (&self_plaintext->format_context);
+          top_format->paragraph_count++;
+
+          add_lines_count (self, lines_count);
+
+          return;
+        }
       else if (cmd == CM_sp)
         {
           int i;

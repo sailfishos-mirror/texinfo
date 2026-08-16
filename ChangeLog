@@ -1,5 +1,15 @@
 2026-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	Convert @listoffloats in C plaintext
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): convert listoffloats.
+
+	* tta/C/convert/format_html.c (html_convert_listoffloats_command):
+	break at the first matching listoffloats type.
+
+2026-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	Handle @insertcopying, @sp and @exdent in C plaintext
 
 	* tta/C/convert/convert_to_plaintext.c
