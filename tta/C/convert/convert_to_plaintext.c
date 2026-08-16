@@ -4933,7 +4933,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           if (line_arg->e.c->contents.number)
             {
               ELEMENT *formatted_center = new_element (ET__frenchspacing);
-              add_to_element_contents (formatted_center, line_arg);
+              add_to_contents_as_array (formatted_center, line_arg);
               plaintext_convert_line (self, formatted_center, 0, -1);
               destroy_element (formatted_center);
             }

@@ -931,9 +931,11 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
         {
           static TEXT message;
           char *debug_str = print_element_debug (e, 1);
+          char *element_texi = convert_to_texinfo (e);
           text_init (&message);
           text_printf (&message, "parent %p sv not set in %s '%s'\n",
-                            e->e.c->parent, debug_str, convert_to_texinfo (e));
+                            e->e.c->parent, debug_str, element_texi);
+          free (element_texi);
           fatal (message.text);
           non_perl_free (debug_str);
         }
