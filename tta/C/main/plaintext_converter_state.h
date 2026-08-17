@@ -211,6 +211,7 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
        not appear in printindex */
     C_HASHMAP index_entry_node_colon;
     INDEX_ENTRY_INFO **index_entry_conversion_info;
+    C_HASHMAP seen_node_descriptions;
     MATH_ELEMENTS_IMAGES *element_images;
     /* added elements during conversion that either are needed until the
        end because they are in tag table or are needed for some time, as

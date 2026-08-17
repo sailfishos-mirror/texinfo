@@ -1189,11 +1189,14 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
       if (p)
         {
           if (warn_special_char)
-            message_list_command_warn (&self->error_messages,
+            {
+              char shown_char[2] = {*p, '\0'};
+              message_list_command_warn (&self->error_messages,
                         (self->conf && self->conf->DEBUG.o.integer > 0),
                        element, 0,
-                     "@%s node name should not contain `%c'",
-                      builtin_command_name(cmd), *p);
+                     "@%s node name should not contain `%s'",
+                      builtin_command_name(cmd), shown_char);
+            }
           if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
             quoting_required = 1;
         }

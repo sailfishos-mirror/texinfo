@@ -4293,7 +4293,6 @@ sub _convert($$) {
             }
 
             my $text_element_context = {
-                     'max' => $self->{'text_element_context'}->[-1]->{'max'},
                      'counter' => $text_count
             };
 
@@ -4303,7 +4302,8 @@ sub _convert($$) {
             } else {
               # e.g. 72 -> 79
               $text_element_context->{'max'}
-                 = int($text_element_context->{'max'} * 1.1);
+                 = int($self->{'text_element_context'}->[-1]->{'max'}
+                       * 1.1);
             }
 
             push @{$self->{'text_element_context'}}, $text_element_context;

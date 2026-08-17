@@ -689,6 +689,9 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
   init_c_hashmap (&self_plaintext->index_entry_node_colon,
                   document->nodes_list.number);
 
+  init_c_hashmap (&self_plaintext->seen_node_descriptions,
+                  document->nodes_list.number);
+
   /* _Root_context in Perl, in C use CM_NONE */
   push_top_formatter (self, CM_NONE);
 }
@@ -712,6 +715,7 @@ plaintext_conversion_finalization (CONVERTER *self)
 
   clear_c_hashmap (&self_plaintext->index_entries_no_node);
   clear_c_hashmap (&self_plaintext->index_entry_node_colon);
+  clear_c_hashmap (&self_plaintext->seen_node_descriptions);
 
   free (self_plaintext->outside_of_any_node_text);
   self_plaintext->outside_of_any_node_text = 0;
@@ -3464,6 +3468,8 @@ reallocate_cells_line_target_for (CELLS_LINE_TARGET *list,
 }
 
 static int listoffloat_entry_length = 41;
+/* computed as 32/72, rounded up */
+static double description_align_column_factor = 0.45;
 
 /* ALTIMP: _convert in Texinfo:Convert::Plaintext */
 void
@@ -4565,6 +4571,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               add_(format_context) (&self_plaintext->format_context,
                                     format_context);
 
+
         /*
           open a preformatted container, if the command opening the
           preformatted context is not a classical preformatted
@@ -5405,7 +5412,354 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         }
       else if (type == ET_menu_entry)
         {
-          /* TODO */
+          int entry_name_seen = 0;
+          const ELEMENT *menu_entry_node;
+          size_t i;
+          int warn_special_char
+            = (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer > 0
+               && !self_plaintext->silent);
+
+          for (i = 0; i < element->e.c->contents.number; i++)
+            {
+              const ELEMENT *content = element->e.c->contents.list[i];
+              if (content->type == ET_menu_entry_leading_text)
+                stream_output_add_next (self, content->e.text->text);
+              else if (content->type == ET_menu_entry_node)
+                {
+                  ELEMENT *entry_node = new_element (ET__code);
+                  /* Flush output so not to include in node text. */
+                  const char *pending_word = para_add_pending_word (1);
+                  stream_output_count_nl (self, pending_word);
+                  char *node_text;
+                  int node_quoting_required = 0;
+
+                  /* TODO 'encoding_disabled' => 1 */
+                  COUNT_CONTEXT count_context = { 0 };
+
+                  menu_entry_node = content;
+
+                  FORMATTER *formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+                  formatter->suppress_styles = 1;
+                  formatter->no_added_eol = 1;
+                  
+                  add_(count_context) (&self_plaintext->count_context,
+                                       count_context);
+
+                  add_to_contents_as_array (entry_node, (ELEMENT *)content);
+                  convert_to_plaintext_internal (self, entry_node);
+
+                  destroy_element (entry_node);
+
+                  pending_word = para_add_pending_word (1);
+                  stream_output_count_nl (self, pending_word);
+
+                  node_text = stream_yield_result (self);
+                  pop_count_context (&self_plaintext->count_context);
+
+                  formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+                  formatter->suppress_styles = 0;
+                  formatter->no_added_eol = 0;
+
+                  if (warn_special_char
+                      || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+                    {
+                      const char *check_chars;
+                      const char *p;
+
+                      if (entry_name_seen)
+                        check_chars = ",\t.";
+                      else
+                        check_chars = ":";
+
+                      p = strpbrk (node_text, check_chars);
+
+                      if (p && (*p != '.' || *(p+1) == ' '))
+                        {
+                          if (warn_special_char)
+                            {
+                              char shown_char[3] = {*p, '\0', '\0'};
+                              if (*p == '.')
+                                shown_char[1] = *(p+1);
+
+                              message_list_command_warn (&self->error_messages,
+                               (self->conf && self->conf->DEBUG.o.integer > 0),
+                               element, 0,
+                             "menu entry node name should not contain `%s'",
+                               shown_char);
+                            }
+                          if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+                            node_quoting_required = 1;
+                        }
+                    }
+                  if (node_quoting_required)
+                    stream_output (self, node_quote);
+                  stream_output (self, node_text);
+                  if (node_quoting_required)
+                    stream_output (self, node_quote);
+
+                  free (node_text);
+                }
+              else if (content->type == ET_menu_entry_name)
+                {/* Flush output so not to include in name text */
+                  const char *pending_word = para_add_pending_word (1);
+                  stream_output_count_nl (self, pending_word);
+                  char *entry_name;
+                  int name_quoting_required = 0;
+
+                  /* TODO 'encoding_disabled' => 1 */
+                  COUNT_CONTEXT count_context = { 0 };
+
+                  FORMATTER *formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+                  formatter->no_added_eol = 1;
+                  
+                  add_(count_context) (&self_plaintext->count_context,
+                                       count_context);
+
+                  convert_to_plaintext_internal (self, content);
+
+                  pending_word = para_add_pending_word (1);
+                  stream_output_count_nl (self, pending_word);
+
+                  entry_name = stream_yield_result (self);
+                  pop_count_context (&self_plaintext->count_context);
+
+                  formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+                  formatter->no_added_eol = 0;
+
+                  if (warn_special_char
+                      || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+                    {
+                      const char *p;
+
+                      p = strpbrk (entry_name, ":");
+
+                      if (p)
+                        {
+                          if (warn_special_char)
+                            {
+                              message_list_command_warn (&self->error_messages,
+                               (self->conf && self->conf->DEBUG.o.integer > 0),
+                               element, 0,
+                             "menu entry name should not contain `:'");
+                            }
+                          if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+                            name_quoting_required = 1;
+                        }
+                    }
+                  if (name_quoting_required)
+                    stream_output (self, node_quote);
+                  stream_output (self, entry_name);
+                  if (name_quoting_required)
+                    stream_output (self, node_quote);
+
+                  free (entry_name);
+                }
+              /* empty description */
+              else if (content->type == ET_menu_entry_description
+                       && (content->e.c->contents.number == 0
+                           || (content->e.c->contents.number == 1
+                               && 
+            (content->e.c->contents.list[0]->e.c->contents.number == 0
+             || (content->e.c->contents.list[0]->e.c->contents.number == 1
+                 && type_data[
+   content->e.c->contents.list[0]->e.c->contents.list[0]->type].flags & TF_text
+                 &&
+       content->e.c->contents.list[0]->e.c->contents.list[0]->e.text->text[
+  strspn (content->e.c->contents.list[0]->e.c->contents.list[0]->e.text->text,
+          whitespace_chars)] == '\0')))))
+                {
+                  const ELEMENT *node_description = 0;
+                  int long_description = 0;
+                  const char *normalized;
+                  if (menu_entry_node)
+                   {
+                     normalized
+                      = lookup_extra_string (menu_entry_node,
+                                             AI_key_normalized);
+                     if (normalized)
+                       {
+                         const ELEMENT *node_element
+                           = find_identifier_target (
+                                  &self->document->identifiers_target,
+                                  normalized);
+                         if (node_element
+                             && node_element->e.c->cmd == CM_node)
+                           {
+                             const NODE_RELATIONS_LIST *nodes_list
+                               = &self->document->nodes_list;
+                             int status;
+                             size_t node_number
+                               = lookup_extra_integer (node_element,
+                                  AI_key_node_number, &status);
+                             if (status == 0)
+                               {
+                                 const NODE_RELATIONS *node_relations
+                                   = nodes_list->list[node_number -1];
+                                 if (node_relations->node_description)
+                                   node_description
+                                     = node_relations->node_description;
+                                 else if (node_relations->node_long_description)
+                                   {
+                                     node_description
+                                      = node_relations->node_long_description;
+                                     long_description = 1;
+                                   }
+                               }
+                           }
+                       }
+                    }
+                  if (node_description)
+                    {
+                      int description_align_column;
+                      int description_indent_length;
+                      uintptr_t seen_description_nr = 0;
+                      if (
+            self->conf->AUTO_MENU_DESCRIPTION_ALIGN_COLUMN.o.integer >= 0)
+                        description_align_column
+                 = self->conf->AUTO_MENU_DESCRIPTION_ALIGN_COLUMN.o.integer;
+                      else
+                        {
+                          TEXT_CONTEXT *text_element_context
+                             = top_(text_element_context)
+                                    (&self_plaintext->text_element_context);
+                          description_align_column
+                            = (int) (text_element_context->max
+                                  * description_align_column_factor);
+                        }
+                      description_indent_length = description_align_column-1;
+
+                      if (! is_c_hashmap_registered (
+                            &self_plaintext->seen_node_descriptions,
+                                         normalized))
+                        {
+                          c_hashmap_register (
+                                 &self_plaintext->seen_node_descriptions,
+                                         normalized, 0);
+                        }
+                      else
+                        {
+                          int found;
+                          seen_description_nr = (uintptr_t) c_hashmap_value (
+                             &self_plaintext->seen_node_descriptions,
+                             normalized, &found); 
+                        }
+                      seen_description_nr++;
+                      c_hashmap_set_value (
+                             &self_plaintext->seen_node_descriptions,
+                             normalized, (const void *)seen_description_nr);
+
+                      /* flush the current unfilled container */
+                      const char *pending_word = para_add_pending_word (1);
+                      stream_output_count_nl (self, pending_word);
+
+                      int text_count = para_counter ();
+
+                      if (text_count >= description_indent_length)
+                        {
+                          TEXT result = para_add_text ("  ", 2);
+                          if (result.text)
+                            stream_output_count_nl (self, result.text);
+                         
+                          const char *pending_word = para_add_pending_word (1);
+                          stream_output_count_nl (self, pending_word);
+                          text_count += 2;
+                        }
+
+                      
+                      TEXT_CONTEXT *top_text_element_context
+                        = top_(text_element_context)
+                                 (&self_plaintext->text_element_context);
+                      TEXT_CONTEXT text_element_context = { text_count, 0 };
+
+                      if (self->conf->AUTO_MENU_MAX_WIDTH.o.integer >= 0)
+                        text_element_context.max
+                          = self->conf->AUTO_MENU_MAX_WIDTH.o.integer;
+                      else
+                        { /* e.g. 72 -> 79 */
+                          text_element_context.max
+                            = (int) (top_text_element_context->max * 1.1);
+                        }
+                      add_(text_element_context) (
+                              &self_plaintext->text_element_context,
+                              text_element_context);
+
+      /* avoid messages if formatting the node description more than once */
+                      if (seen_description_nr > 1)
+                        self_plaintext->silent++;
+
+
+                      if (!long_description)
+                        {
+                 /* push a paragraph container to format the description. */
+                          FORMATTER description_para
+                            = new_formatter (self, formatter_paragraph,
+                                             description_indent_length, -1);
+                          push_formatter (self, &description_para);
+                          convert_to_plaintext_internal (self,
+                                    node_description->e.c->contents.list[0]);
+                          const char *result = para_end ();
+                          stream_output_count_nl (self, result);
+                          para_destroy ();
+                          pop_formatter (self);
+                        }
+                      else
+                        {
+                          FORMAT_CONTEXT format_context = { 0 };
+                          format_context.cmd = node_description->e.c->cmd;
+                          format_context.context_indent_len
+                                       = description_indent_length;
+                          format_context.paragraph_count = 0;
+
+                          add_(format_context) (&self_plaintext->format_context,
+                                        format_context);
+
+                          ELEMENT *formatted_elt = new_element (ET_NONE);
+                          insert_slice_into_contents (formatted_elt,
+                               formatted_elt->e.c->contents.number,
+                               node_description, 1,
+                               node_description->e.c->contents.number);
+
+                          convert_to_plaintext_internal (self, formatted_elt);
+                          destroy_element (formatted_elt);
+
+                          pop_(format_context)
+                                 (&self_plaintext->format_context);
+                        }
+
+                      pop_(text_element_context)
+                             (&self_plaintext->text_element_context);
+                      if (seen_description_nr > 1)
+                        self_plaintext->silent--;
+                    }
+                  else
+                    convert_to_plaintext_internal (self, content);
+                }
+              else
+                convert_to_plaintext_internal (self, content);
+            }
+
+  /* If we are nested inside an @example, a 'menu_entry_description' may not
+     have been processed yet, and we need to output any pending spaces
+     before 'end_line' throws them away.  The argument to 'add_pending_word'    
+     does this. */
+          if (element->e.c->parent
+              && element->e.c->parent->type == ET_preformatted)
+            {
+              const char *pending_word = para_add_pending_word (1);
+              stream_output_count_nl (self, pending_word);
+            }
+          else
+            {
+              const char *pending_word = para_add_pending_word (0);
+              stream_output_count_nl (self, pending_word);
+              para_end_line ();
+              ensure_end_of_line (self);
+            }
+          return;
         }
       /* TODO: Fake internal types used in Plaintext.pm */
       /* else if (type == ET_frenchspacing) */
