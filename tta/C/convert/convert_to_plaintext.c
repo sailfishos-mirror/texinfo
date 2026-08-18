@@ -60,9 +60,10 @@
 /* for converter_encoded_output_file_name item_itemize_prepended */
 #include "convert_utils.h"
 #include "convert_to_texinfo.h"
-#include "plaintext_paragraph.h"
 #include "converters_options.h"
 #include "convert_to_text.h"
+#include "structuring.h"
+#include "plaintext_paragraph.h"
 /* for write_or_return top_node_filename determine_files_and_directory
    create_destination_directory ... */
 #include "converter.h"
@@ -6233,7 +6234,49 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           free (top_format_context->row.list);
           free (top_format_context->row_cell_counts.list);
         }
-      /* else if root_commands etc. */
+      else if (command_data[cmd].flags & CF_root
+               && command_data[cmd].flags & CF_sectioning_heading
+               && cmd != CM_part
+               && self_plaintext->current_node)
+        {
+          const ELEMENT *node = self_plaintext->current_node;
+          /* add menu if missing */
+          const ELEMENT *arguments_line = node->e.c->contents.list[0];
+          int automatic_directions
+            = (arguments_line->e.c->contents.number <= 1);
+          int status;
+          size_t node_number = lookup_extra_integer (node,
+                                        AI_key_node_number, &status);
+          const char *identifier
+                = lookup_extra_string (node, AI_key_identifier);
+          if (node_number && automatic_directions
+              && ! is_c_hashmap_registered (&self_plaintext->seenmenus,
+                                            identifier))
+            {
+              const NODE_RELATIONS_LIST *nodes_list
+                    = &self->document->nodes_list;
+              const NODE_RELATIONS *node_relations
+                 = nodes_list->list[node_number -1];
+
+              ELEMENT *menu_node
+                = new_complete_menu_master_menu (&self->error_messages,
+                                      self->conf,
+                                      self->current_lang_translations,
+                                      &self->document->identifiers_target,
+                                      nodes_list, node_relations, 0);
+
+              c_hashmap_register (&self_plaintext->seenmenus,
+                                  identifier, 0);
+              if (menu_node)
+                {
+                  convert_to_plaintext_internal (self, menu_node);
+                  add_newline_if_needed (self);
+
+                  destroy_element_and_children (menu_node);
+                }
+            }
+
+        }
 
       /* close the contexts and register the cells */
       if (plaintext_commands_data[cmd].flags & PF_preformatted_context
