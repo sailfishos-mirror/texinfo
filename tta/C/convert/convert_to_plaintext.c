@@ -692,6 +692,9 @@ plaintext_conversion_initialization (CONVERTER *self, DOCUMENT *document)
   init_c_hashmap (&self_plaintext->seen_node_descriptions,
                   document->nodes_list.number);
 
+  init_c_hashmap (&self_plaintext->seenmenus,
+                  document->nodes_list.number);
+
   /* _Root_context in Perl, in C use CM_NONE */
   push_top_formatter (self, CM_NONE);
 }
@@ -716,6 +719,7 @@ plaintext_conversion_finalization (CONVERTER *self)
   clear_c_hashmap (&self_plaintext->index_entries_no_node);
   clear_c_hashmap (&self_plaintext->index_entry_node_colon);
   clear_c_hashmap (&self_plaintext->seen_node_descriptions);
+  clear_c_hashmap (&self_plaintext->seenmenus);
 
   free (self_plaintext->outside_of_any_node_text);
   self_plaintext->outside_of_any_node_text = 0;
@@ -1892,6 +1896,26 @@ plaintext_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
                     }
                 }
             }
+        }
+    }
+}
+
+static void
+menu (CONVERTER *self, const ELEMENT *menu_command)
+{
+  if (menu_command->e.c->cmd == CM_menu)
+    {
+      PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
+      stream_output (self, "* Menu:\n\n");
+      add_lines_count (self, 2);
+
+      if (self_plaintext->current_node)
+        {
+          const char *identifier
+           = lookup_extra_string (self_plaintext->current_node,
+                                  AI_key_identifier);
+          c_hashmap_register (&self_plaintext->seenmenus,
+                              identifier, 0);
         }
     }
 }
@@ -4669,6 +4693,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   destroy_named_string_element_list (replaced_substrings);
                 }
             }
+          else if (plaintext_commands_data[cmd].flags & PF_menu)
+            menu (self, element);
           else if (cmd == CM_multitable)
             {
               DOCUMENT_CONTEXT *top_document_context

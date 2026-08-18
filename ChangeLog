@@ -1,3 +1,16 @@
+2026-08-19 Patrice Dumas  <pertusus@free.fr>
+
+	Handle explicit @menu in C plaintext/Info
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_conversion_initialization)
+	(plaintext_conversion_finalization),
+	tta/C/main/plaintext_converter_state.h (PLAINTEXT_CONVERTER_STATE):
+	add seenmenus hash map to PLAINTEXT_CONVERTER_STATE.
+
+	* tta/C/convert/convert_to_plaintext.c (menu)
+	(convert_to_plaintext_internal): handle menu.
+
 2026-08-18 Patrice Dumas  <pertusus@free.fr>
 
 	Handle menu_entry type in C plaintext
