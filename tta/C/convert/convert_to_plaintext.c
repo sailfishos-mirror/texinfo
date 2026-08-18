@@ -77,7 +77,7 @@ static const enum command_id informative_global_commands[]
              = {CM_paragraphindent, CM_firstparagraphindent,
                 CM_exampleindent,
   CM_frenchspacing, CM_footnotestyle, CM_documentlanguage, CM_documentscript,
-  CM_deftypefnnewline};
+  CM_deftypefnnewline, 0};
 
 static const enum command_id contents_commands[]
              = {CM_contents, CM_shortcontents, CM_summarycontents, 0};
@@ -197,7 +197,7 @@ clear_count_context_stack (COUNT_CONTEXT_STACK *stack)
 
 
 
-def_list_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT, 2);
+def_list_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT, 1);
 def_stack_fns(FORMAT_CONTEXT_STACK, format_context, FORMAT_CONTEXT);
 
 def_list_fns(FORMATTER_STACK, formatter, FORMATTER, 1);
@@ -208,6 +208,9 @@ def_stack_fns(DOCUMENT_CONTEXT_STACK, document_context, DOCUMENT_CONTEXT);
 
 def_list_fns(TEXT_CONTEXT_STACK, text_element_context, TEXT_CONTEXT, 1);
 def_stack_fns(TEXT_CONTEXT_STACK, text_element_context, TEXT_CONTEXT);
+
+def_list_fns(FONT_TYPE_STACK, font_type, FONT_TYPE, 2);
+def_stack_fns(FONT_TYPE_STACK, font_type, FONT_TYPE);
 
 def_list_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST, 1);
 def_stack_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST);
@@ -227,6 +230,7 @@ fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
     = top_(text_element_context) (&self_plaintext->text_element_context);
   formatter->container.paragraph = para_new ();
   enum command_id context_cmd = *top_(command) (&self_plaintext->context);
+  int frenchspacing = 0;
 
   if (indent_length != -1)
     para_set_conf_indent_length (indent_length);
@@ -241,13 +245,18 @@ fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
 
   if (self->conf->frenchspacing.o.string
       && !strcmp (self->conf->frenchspacing.o.string, "on"))
-    para_set_conf_frenchspacing (1);
+    {
+      frenchspacing = 1;
+      para_set_conf_frenchspacing (1);
+    }
 
   para_set_conf_counter (text_element_context->counter);
-  /* TODO check no need to verify undef for counter
+  /* TODO check no need to verify undef for counter.  For that wait
+     for a complete implementaiton that can be fully compared.
   $container_conf->{'counter'}
     = $self->{'text_element_context'}->[-1]->{'counter'}
       if (defined($self->{'text_element_context'}->[-1]->{'counter'}));
+     TODO not sure that it is true.
   # There is no corresponding debugging output in the C code.
   # need to be uncommented and only if debug > 1
   #$container_conf->{'DEBUG'} = 1 if (defined($self->{'debug'})
@@ -285,6 +294,13 @@ fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
       para_set_conf_ignore_columns (1);
       para_set_conf_keep_end_lines (1);
     }
+  add_(integer) (&formatter->frenchspacing_stack, frenchspacing);
+
+  formatter->font_type_stack = (FONT_TYPE_STACK *)
+                    malloc (sizeof (FONT_TYPE_STACK));
+  memset (formatter->font_type_stack, 0, sizeof (FONT_TYPE_STACK));
+  FONT_TYPE font_type = { 0 };
+  add_(font_type) (formatter->font_type_stack, font_type);
 }
 
 FORMATTER
@@ -330,20 +346,31 @@ push_top_formatter (CONVERTER *self, enum command_id cmd)
  /* This is not really meant to be used, as contents should open
     their own formatters, however it happens that there is some text
     outside any content that needs to be formatted, as @sp for example. */
-  FORMATTER top_formatter = new_formatter(self, formatter_line, -1, -1);
+  FORMATTER top_formatter = new_formatter (self, formatter_line, -1, -1);
   push_formatter (self, &top_formatter);
 }
 
+/* in most of the cases, the formatter is not reused.
+   For node names, the formatter is reused, so destroy stacks only
+   if REUSE_FORMATER is 0.
+ */
 void
-pop_formatter (CONVERTER *self)
+pop_formatter (CONVERTER *self, int reuse_formatter)
 {
   PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-
   FORMATTER_STACK *stack = &self_plaintext->formatters;
+
+  if (!reuse_formatter)
+    {
+      FORMATTER *top_formatter = top_(formatter) (stack);
+      free (top_formatter->frenchspacing_stack.list);
+      free (top_formatter->font_type_stack->list);
+      free (top_formatter->font_type_stack);
+    }
+
   pop_(formatter) (stack);
 
   para_set_state (top_(formatter) (stack)->container.paragraph);
-  /* Note: no memory needs to be freed here. */
 }
 
 static enum command_id
@@ -372,10 +399,17 @@ pop_top_formatter (CONVERTER *self)
   para_destroy ();
 
   if (popped_cmd == CM_NONE)
-    /* should be removing the last format, do not set the paragraph */
-    pop_(formatter) (&self_plaintext->formatters);
+    {
+      /* should be removing the last format, do not set the paragraph */
+      FORMATTER *top_formatter = top_(formatter) (&self_plaintext->formatters);
+      free (top_formatter->frenchspacing_stack.list);
+      free (top_formatter->font_type_stack->list);
+      free (top_formatter->font_type_stack);
+
+      pop_(formatter) (&self_plaintext->formatters);
+    }
   else
-    pop_formatter (self);
+    pop_formatter (self, 0);
 
   pop_document_context (&self_plaintext->document_context);
 
@@ -460,6 +494,9 @@ plaintext_format_setup (enum converter_format format)
   static enum command_id advance_paragraph_count_commands[] = {
     CM_center, CM_verbatim, CM_listoffloats, 0};
 
+  static enum command_id no_punctuation_munging_commands[] = {
+    CM_cite, CM_dmn, 0};
+
   for (i = 0; ignored_brace_commands[i]; i++)
     plaintext_commands_data[ignored_brace_commands[i]].flags |= PF_ignored;
 
@@ -476,6 +513,10 @@ plaintext_format_setup (enum converter_format format)
   for (i = 0; advance_paragraph_count_commands[i]; i++)
     plaintext_commands_data[advance_paragraph_count_commands[i]].flags
                                            |= PF_advance_paragraph_count;
+
+  for (i = 0; no_punctuation_munging_commands[i]; i++)
+    plaintext_commands_data[no_punctuation_munging_commands[i]].flags
+                                           |= PF_no_punctuation_munging;
 
   /* count commands in some categories and set categories */
   for (i = 1; i < BUILTIN_CMD_NUMBER; i++)
@@ -497,6 +538,11 @@ plaintext_format_setup (enum converter_format format)
             {}
           else
             plaintext_commands_data[i].flags |= PF_ignored;
+        }
+      else if (command_data[i].flags & CF_brace)
+        {
+          if (command_data[i].other_flags & CF_brace_code)
+            plaintext_commands_data[i].flags |= PF_no_punctuation_munging;
         }
       else if (command_data[i].flags & CF_block)
         {
@@ -991,7 +1037,7 @@ plaintext_convert_line (CONVERTER *self, const ELEMENT *converted,
   end_line = para_end ();
   stream_output (self, end_line);
   para_destroy ();
-  pop_formatter (self);
+  pop_formatter (self, 0);
 }
 
 /* convert with a line formatter in a new count context, not changing
@@ -1027,7 +1073,7 @@ plaintext_convert_line_new_context (CONVERTER *self,
   output->line_count = new_count_context.lines;
 
   para_destroy ();
-  pop_formatter (self);
+  pop_formatter (self, 0);
   pop_count_context (&self_plaintext->count_context);
 }
 
@@ -1167,7 +1213,7 @@ plaintext_convert_node_name (CONVERTER *self, const ELEMENT *element,
   destroy_element (node_text);
 
   pop_count_context (&self_plaintext->count_context);
-  pop_formatter (self);
+  pop_formatter (self, 1);
 
   string_result->string = result;
 }
@@ -1262,18 +1308,42 @@ plaintext_cache_node_names (CONVERTER *self, NODE_RELATIONS_LIST *nodes_list)
 
       pop_element_from_contents (node_text);
     }
-  pop_formatter (self);
+  pop_formatter (self, 1);
 
   destroy_element (node_text);
 }
 
-/*
-sub _open_code($) {
- */
+static void
+open_code (FORMATTER *formatter)
+{
+  FONT_TYPE *top_font_type = top_(font_type) (formatter->font_type_stack);
 
-/*
-sub _close_code($) {
- */
+  if (!top_font_type->monospace)
+    {
+      FONT_TYPE font_type = { 0 };
+      font_type.monospace = 1;
+      add_(font_type) (formatter->font_type_stack, font_type);
+    }
+  else
+    top_font_type->monospace++;
+
+  add_(integer) (&formatter->frenchspacing_stack, 1);
+  para_set_conf_frenchspacing (1);
+}
+
+static void
+close_code (FORMATTER *formatter)
+{
+  FONT_TYPE *top_font_type = top_(font_type) (formatter->font_type_stack);
+
+  top_font_type->monospace--;
+  if (top_font_type->monospace == 0)
+    pop_(font_type) (formatter->font_type_stack);
+
+  pop_(integer) (&formatter->frenchspacing_stack);
+  para_set_conf_frenchspacing (*(top_(integer)
+                                 (&formatter->frenchspacing_stack)));
+}
 
 static PLAINTEXT_FORMAT_FUNCTIONS plaintext_functions[];
 
@@ -1463,7 +1533,7 @@ plaintext_process_footnotes (CONVERTER *self, const OUTPUT_UNIT *output_unit)
   stream_output_count_nl (self, end_result);
 
   para_destroy ();
-  pop_formatter (self);
+  pop_formatter (self, 0);
 }
 
 enum align_directions {
@@ -1949,7 +2019,7 @@ plaintext_process_printindex (CONVERTER *self,
      in a node.  Corresponding with @seeentry or @seealso */
   size_t reference_entries_nr = 0;
   size_t other_entries_nr = 0;
-  FORMATTER formatter;
+  FORMATTER formatter = { 0 };
   TEXT entry_line;
   TEXT line_part;
   C_HASHMAP *entry_counts;
@@ -2478,7 +2548,7 @@ plaintext_process_printindex (CONVERTER *self,
     }
 
   para_destroy ();
-  pop_formatter (self);
+  pop_formatter (self, 0);
 
   stream_output (self, "\n");
   add_lines_count (self, 1);
@@ -3423,7 +3493,7 @@ convert_def_line (CONVERTER *self, const ELEMENT *element)
       stream_output_count_nl (self, end_line);
 
       para_destroy ();
-      pop_formatter (self);
+      pop_formatter (self, 0);
 
       TEXT_CONTEXT *text_element_context
        = top_(text_element_context) (&self_plaintext->text_element_context);
@@ -3504,6 +3574,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   enum element_type type = element->type;
   const INDEX_ENTRY_LOCATION *index_entry_info;
 
+  /*
+  fprintf (stderr, "CTPI %s\n", element_print_details (element, 0, 0));
+   */
+
   if (type_data[type].flags & TF_text)
     {
       if (type == ET_empty_line || type == ET_after_menu_description_line)
@@ -3554,7 +3628,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           return;
         }
 
-
       /* In Perl !$formatter->{'_top_formatter'} */
       if (self_plaintext->formatters.number > 1)
         {
@@ -3565,6 +3638,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
        /* Convert ``, '', `, ', ---, -- in $COMMAND->{'text'} to their
           output, possibly coverting to upper case as well. */
               const char *text = element->e.text->text;
+              FORMATTER *formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+              FONT_TYPE *font_type
+                    = top_(font_type) (formatter->font_type_stack);
 
           /* TODO
         if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
@@ -3572,12 +3649,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           $text = uc($text);
         }
            */
-              if (0)
-             /* TODO
-               if (! $formatter->{'font_type_stack'}->[-1]->{'monospace'})
-              */
-                {}
-              else
+              if (!font_type->monospace)
                 {
                   const char *p = text;
                   static TEXT t;
@@ -3660,6 +3732,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                     }
                   stream_output_add_text (self, t.text);
                 }
+              else
+                stream_output_add_text (self, text);
             }
         }
       else if (type == ET_spaces_before_paragraph)
@@ -3880,6 +3954,15 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   text_after = "";
                 }
 
+              if (plaintext_commands_data[cmd].flags
+                                       & PF_no_punctuation_munging)
+                {
+                  FORMATTER *formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+                  add_(integer) (&formatter->frenchspacing_stack, 1);
+                  para_set_conf_frenchspacing (1);
+                }
+
               TEXT added = para_add_next (text_before,
                                           strlen (text_before), 1);
               if (added.text)
@@ -3898,10 +3981,57 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               /* TODO check brace_code_commands */
               /* TODO check style_no_code */
               /* TODO non_quoted_commands_when_nested */
-              /* TODO check no_punctuation_munging_commands */
+
+              if (plaintext_commands_data[cmd].flags
+                                       & PF_no_punctuation_munging)
+                {
+                  FORMATTER *formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+                  pop_(integer) (&formatter->frenchspacing_stack);
+
+                  para_set_conf_frenchspacing (*(top_(integer)
+                                 (&formatter->frenchspacing_stack)));
+                }
               return;
             }
-          /* TODO upper_case_commands */
+          else if (cmd == CM_var || cmd == CM_sc)
+            {/* upper_case_commands */
+              /* TODO
+        $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}++;
+               */
+              if (cmd == CM_var)
+                {
+              /* TODO
+   $formatter->{'upper_case_stack'}->[-1]->{'var'}++;
+               */
+                  FORMATTER *formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+                  add_(integer) (&formatter->frenchspacing_stack, 1);
+                  para_set_conf_frenchspacing (1);
+                }
+
+              if (element->e.c->contents.number != 0)
+                convert_to_plaintext_internal (self,
+                                               element->e.c->contents.list[0]);
+           /*
+          $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}--;
+            */
+              if (cmd == CM_var)
+                {
+                  FORMATTER *formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+                  pop_(integer) (&formatter->frenchspacing_stack);
+
+                  para_set_conf_frenchspacing (*(top_(integer)
+                                 (&formatter->frenchspacing_stack)));
+             /*
+   $formatter->{'upper_case_stack'}->[-1]->{'var'}--;
+              */
+                 /* Allow a following full stop to terminate a sentence. */
+                  para_allow_end_sentence ();
+                }
+              return;
+            }
           else if (cmd == CM_link)
             {
               if (element->e.c->contents.number > 0)
@@ -4596,7 +4726,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               add_(format_context) (&self_plaintext->format_context,
                                     format_context);
 
-
         /*
           open a preformatted container, if the command opening the
           preformatted context is not a classical preformatted
@@ -4963,7 +5092,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           stream_output_count_nl (self, result);
           text_element_context->counter += para_counter ();
           para_destroy ();
-          pop_formatter (self);
+          pop_formatter (self, 0);
         }
       else if (cmd == CM_headitem || cmd == CM_item || cmd == CM_tab)
         {
@@ -5060,7 +5189,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   const char *result = para_end ();
                   stream_output_count_nl (self, result);
                   para_destroy ();
-                  pop_formatter (self);
+                  pop_formatter (self, 0);
                 }
               else
                 {
@@ -5254,7 +5383,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                       stream_output_count_nl (self, result);
 
                       para_destroy ();
-                      pop_formatter (self);
+                      pop_formatter (self, 0);
                     }
                   stream_output (self, "\n");
                   lines_count++;
@@ -5469,7 +5598,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                     = top_(formatter) (&self_plaintext->formatters);
                   formatter->suppress_styles = 1;
                   formatter->no_added_eol = 1;
-                  
+
                   add_(count_context) (&self_plaintext->count_context,
                                        count_context);
 
@@ -5541,7 +5670,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   FORMATTER *formatter
                     = top_(formatter) (&self_plaintext->formatters);
                   formatter->no_added_eol = 1;
-                  
+
                   add_(count_context) (&self_plaintext->count_context,
                                        count_context);
 
@@ -5589,7 +5718,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               else if (content->type == ET_menu_entry_description
                        && (content->e.c->contents.number == 0
                            || (content->e.c->contents.number == 1
-                               && 
+                               &&
             (content->e.c->contents.list[0]->e.c->contents.number == 0
              || (content->e.c->contents.list[0]->e.c->contents.number == 1
                  && type_data[
@@ -5672,7 +5801,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                           int found;
                           seen_description_nr = (uintptr_t) c_hashmap_value (
                              &self_plaintext->seen_node_descriptions,
-                             normalized, &found); 
+                             normalized, &found);
                         }
                       seen_description_nr++;
                       c_hashmap_set_value (
@@ -5690,13 +5819,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                           TEXT result = para_add_text ("  ", 2);
                           if (result.text)
                             stream_output_count_nl (self, result.text);
-                         
+
                           const char *pending_word = para_add_pending_word (1);
                           stream_output_count_nl (self, pending_word);
                           text_count += 2;
                         }
 
-                      
+
                       TEXT_CONTEXT *top_text_element_context
                         = top_(text_element_context)
                                  (&self_plaintext->text_element_context);
@@ -5731,7 +5860,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                           const char *result = para_end ();
                           stream_output_count_nl (self, result);
                           para_destroy ();
-                          pop_formatter (self);
+                          pop_formatter (self, 0);
                         }
                       else
                         {
@@ -5771,7 +5900,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
   /* If we are nested inside an @example, a 'menu_entry_description' may not
      have been processed yet, and we need to output any pending spaces
-     before 'end_line' throws them away.  The argument to 'add_pending_word'    
+     before 'end_line' throws them away.  The argument to 'add_pending_word'
      does this. */
           if (element->e.c->parent
               && element->e.c->parent->type == ET_preformatted)
@@ -5788,10 +5917,23 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             }
           return;
         }
+      else if (type == ET__frenchspacing)
+        {
+          FORMATTER *formatter
+                = top_(formatter) (&self_plaintext->formatters);
+          add_(integer) (&formatter->frenchspacing_stack, 1);
+          para_set_conf_frenchspacing (1);
+        }
+      else if (type == ET__code)
+        {
+          FORMATTER *formatter
+                = top_(formatter) (&self_plaintext->formatters);
+          open_code (formatter);
+        }
       /* TODO: Fake internal types used in Plaintext.pm */
-      /* else if (type == ET_frenchspacing) */
-      /* else if (type == ET__code) */
-      /* else if (type == ET__stop_upper_case) */
+      else if (type == ET__stop_upper_case)
+        {
+        }
       else if (type == ET__suppress_styles)
         {
           FORMATTER *formatter
@@ -5824,14 +5966,25 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
   /* Now closing.  First, close types. */
   if (type != ET_NONE)
     {
-      /* TODO ficititious types */
       if (type == ET__frenchspacing)
         {
+          FORMATTER *formatter
+                = top_(formatter) (&self_plaintext->formatters);
+          pop_(integer) (&formatter->frenchspacing_stack);
+
+          para_set_conf_frenchspacing (*(top_(integer)
+                                 (&formatter->frenchspacing_stack)));
         }
       else if (type == ET__code)
-        {}
+        {
+          FORMATTER *formatter
+                = top_(formatter) (&self_plaintext->formatters);
+          close_code (formatter);
+        }
+      /* TODO ficititious types */
       else if (type == ET__stop_upper_case)
-        {}
+        {
+        }
       else if (type == ET__suppress_styles)
         {
           FORMATTER *formatter
@@ -5853,8 +6006,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           static int *cell_beginnings;
      /* array of lines in each cell, already formatted using the max limit
         on line length per column, for each cell. */
-          /* TODO reuse static */
           static STRING_LIST *cell_lines;
+          /* @multitable in @footnote in @multitable is not ok */
           /* reallocate all the static data */
           reallocate_cells_line_target_for (&cell_updated_locations,
                                             &cell_beginnings,
@@ -6065,7 +6218,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
       text_element_context->counter = 0;
       para_destroy ();
-      pop_formatter (self);
+      pop_formatter (self, 0);
     }
  /* may have been opened for a block commands, @menu, raw output
     format, @verbatim..., or for (raw)preformatted type */
@@ -6128,7 +6281,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
        }
 
       para_destroy ();
-      pop_formatter (self);
+      pop_formatter (self, 0);
 
     /* We assume that, upon closing the preformatted we are at the
        beginning of a line. */

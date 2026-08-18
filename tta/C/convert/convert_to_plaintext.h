@@ -24,6 +24,7 @@
 #define PF_punctuation_no_arg     0x0800
 #define PF_flush                  0x1000
 #define PF_advance_paragraph_count  0x2000
+#define PF_no_punctuation_munging   0x4000
 
 /*
 #define HF_pre_class            0x0008

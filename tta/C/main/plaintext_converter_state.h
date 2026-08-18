@@ -32,12 +32,22 @@ typedef struct FORMATTER_CONTAINER {
     int paragraph; /* Paragaph ID */
 } FORMATTER_CONTAINER;
 
+typedef struct FONT_TYPE {
+    int monospace;
+    int normal;
+    int code_command;
+} FONT_TYPE;
+
+def_list_type(FONT_TYPE_STACK, FONT_TYPE);
+decl_list_fns(FONT_TYPE_STACK, font_type, FONT_TYPE);
+decl_stack_fns(FONT_TYPE_STACK, font_type, FONT_TYPE);
+
 typedef struct FORMATTER {
     FORMATTER_CONTAINER container;
   /* upper_case_stack */
-  /* font_type_stack */
+    FONT_TYPE_STACK *font_type_stack;
   /* w */
-  /* frenchspacing_stack */
+    INTEGER_STACK frenchspacing_stack;
     int suppress_styles;
     int no_added_eol;
 } FORMATTER;
@@ -98,6 +108,11 @@ typedef struct COUNT_CONTEXT {
 def_list_type(COUNT_CONTEXT_STACK, COUNT_CONTEXT);
 decl_list_fns(COUNT_CONTEXT_STACK, count_context, COUNT_CONTEXT);
 
+/* TODO if a format_context is added on top of an existing one, the one below
+   could have its memory freed through realloc call and the lists,
+   such as row, row_cell_counts, columns_size will be freed while still
+   possible accessed?
+ */
 typedef struct FORMAT_CONTEXT {
     enum command_id cmd;
     int paragraph_count;

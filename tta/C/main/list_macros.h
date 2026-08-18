@@ -28,6 +28,12 @@
   void reallocate_ ## OBJNAME ## _list (LISTNAME *list); \
   void add_to_ ## OBJNAME ## _list (LISTNAME *list, TYPE object)
 
+/*
+        size_t old_space = list->space; \
+            list->list = malloc_free_realloc (list->list, \
+                                              old_space * sizeof (TYPE)), \
+                                              list->space * sizeof (TYPE)); \
+ */
 /* Output function definitions for .c source files. */
 #define def_list_fns(LISTNAME, OBJNAME, TYPE, INC) \
     void reallocate_ ## OBJNAME ## _list (LISTNAME *list) { \

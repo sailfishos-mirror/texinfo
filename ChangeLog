@@ -1,9 +1,33 @@
-2026-08-19 Patrice Dumas  <pertusus@free.fr>
+2026-08-18 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_to_plaintext.c (informative_global_commands):
+	addmissing terminating NULL.
+
+	* tta/C/convert/convert_to_plaintext.c (pop_formatter): add an
+	argument to set if a formatter is reused, such that the memory is not
+	unallocated.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_format_setup),
+	tta/C/convert/convert_to_plaintext.h (PF_no_punctuation_munging):
+	set no_punctuation_munging commands.
+
+	* tta/C/convert/convert_to_plaintext.c (FONT_TYPE_STACK)
+	(fill_formatter, pop_formatter, pop_top_formatter, open_code)
+	(close_code, convert_to_plaintext_internal),
+	tta/C/main/plaintext_converter_state.h (FONT_TYPE, FONT_TYPE_STACK)
+	(FORMATTER): add font_type_stack and associated types and
+	frenchspacing_stack in FORMATTER.  Initialize the stacks in
+	fill_formatter and use monospace informatio for text formatting, free
+	in pop_formatter, add close_code and open_code, set frenchspacing for
+	no_punctuation_munging commands and upper case commands, handle
+	_frenchspacing and _code type elements.
+
+2026-08-18 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_to_plaintext.c
 	(convert_to_plaintext_internal): automatic menus.
 
-2026-08-19 Patrice Dumas  <pertusus@free.fr>
+2026-08-18 Patrice Dumas  <pertusus@free.fr>
 
 	Handle explicit @menu in C plaintext/Info
 

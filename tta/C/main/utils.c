@@ -3370,3 +3370,14 @@ new_formatted_button_info (void)
   return result;
 }
 
+/* for debugging, to ensure that the memory is moved and find freed
+   memory */
+void *
+malloc_free_realloc(void *p, size_t old_size, size_t size)
+{
+  void *tmp = malloc (size);
+  memcpy (tmp, p, old_size);
+  free (p);
+  return tmp;
+}
+

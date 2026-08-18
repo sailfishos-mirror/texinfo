@@ -344,4 +344,5 @@ FILE_NAME_PATH *new_file_name_path (void);
 TARGET_DIRECTORY_FILENAME *new_target_directory_filename (void);
 FORMATTED_BUTTON_INFO *new_formatted_button_info (void);
 
+void *malloc_free_realloc(void *p, size_t old_size, size_t size);
 #endif
