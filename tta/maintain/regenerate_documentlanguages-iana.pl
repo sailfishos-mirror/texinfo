@@ -119,7 +119,7 @@ open(SCRIPTS, ">$dir/scripts.gperf") or die "Open $dir/scripts.gperf: $!\n";
 print SCRIPTS $scripts_declarations;
 
 my $script_names_declarations = "%{\n#include <config.h>\n%}\n"
- ."struct TXI_DOCUMENT_SCRIPT_NAME { char const *code; const char *name; };\n"
+ ."struct TXI_DOCUMENT_SCRIPT_NAME { char const *name; const char *alias; };\n"
                    ."%includes\n%%\n";
 open(SCRIPT_NAMES, ">$dir/script_names.gperf")
    or die "Open $dir/script_names.gperf: $!\n";

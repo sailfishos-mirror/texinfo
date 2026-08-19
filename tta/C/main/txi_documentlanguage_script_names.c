@@ -33,7 +33,7 @@
 
 #include <config.h>
 #line 4 "maintain/documentlanguage/script_names.gperf"
-struct TXI_DOCUMENT_SCRIPT_NAME { char const *code; const char *name; };
+struct TXI_DOCUMENT_SCRIPT_NAME { char const *name; const char *alias; };
 #include <string.h>
 
 #define TOTAL_KEYWORDS 7

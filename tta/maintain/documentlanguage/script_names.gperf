@@ -1,7 +1,7 @@
 %{
 #include <config.h>
 %}
-struct TXI_DOCUMENT_SCRIPT_NAME { char const *code; const char *name; };
+struct TXI_DOCUMENT_SCRIPT_NAME { char const *name; const char *alias; };
 %includes
 %%
 Arab, "arabic"

@@ -2458,7 +2458,7 @@ plaintext_process_printindex (CONVERTER *self,
                                           "see_also_entry", referred_tree);
               stream_output (self, entry_text);
               stream_output (self, ": ");
-              line_width += string_width_multibyte (entry_text);
+              line_width += string_width_multibyte (entry_text) +2;
               if (line_width < index_length_to_node)
                 {
                   int j;
