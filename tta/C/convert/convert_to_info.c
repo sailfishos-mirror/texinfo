@@ -1012,11 +1012,10 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
       FORMATTER *formatter = top_(formatter) (&self_plaintext->formatters);
 
       in_multitable = 1;
-     /* TODO when formatter w
-    $formatter->{'w'}++;
-    set_space_protection($formatter->{'container'}, 1)
-      if ($formatter->{'w'} == 1);
-     */
+
+      formatter->w++;
+      if (formatter->w == 1)
+        para_set_space_protection (1);
     }
 
  /* Disallow breaks in runs of Chinese text in node names, because a
@@ -1330,11 +1329,9 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
   if (in_multitable)
     {
       FORMATTER *formatter = top_(formatter) (&self_plaintext->formatters);
-  /* TODO
-    $formatter->{'w'}--;
-    set_space_protection($formatter->{'container'}, 0)
-      if ($formatter->{'w'} == 0);
-   */
+      formatter->w--;
+      if (formatter->w == 0)
+        para_set_space_protection (0);
      }
 
   para_set_conf_double_width_no_break (0);

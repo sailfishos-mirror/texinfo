@@ -3986,7 +3986,15 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   para_set_conf_frenchspacing (1);
                 }
 
-              /* TODO @w */
+              if (cmd == CM_w)
+                {
+                  FORMATTER *formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+                  formatter->w++;
+                  if (formatter->w == 1)
+                    para_set_space_protection (1);
+                }
+
               const char *text_before = NULL, *text_after = NULL;
               font_type = top_(font_type) (formatter->font_type_stack);
               if ((plaintext_commands_data[cmd].flags
@@ -4088,7 +4096,15 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               if (added.text)
                 stream_output_count_nl (self, added.text);
 
-              /* TODO @w */
+              if (cmd == CM_w)
+                {
+                  FORMATTER *formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+                  formatter->w--;
+                  if (formatter->w == 0)
+                    para_set_space_protection (0);
+                }
+
               font_type = top_(font_type) (formatter->font_type_stack);
 
               if (cmd_data->other_flags & CF_brace_code)

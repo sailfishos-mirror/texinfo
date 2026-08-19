@@ -46,7 +46,7 @@ typedef struct FORMATTER {
     FORMATTER_CONTAINER container;
   /* upper_case_stack */
     FONT_TYPE_STACK *font_type_stack;
-  /* w */
+    int w;
     INTEGER_STACK frenchspacing_stack;
     int suppress_styles;
     int no_added_eol;
