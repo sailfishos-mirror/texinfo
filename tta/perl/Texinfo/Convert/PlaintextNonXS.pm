@@ -495,6 +495,8 @@ sub conversion_initialization($;$) {
 sub converter_initialize($) {
   my $self = shift;
 
+  $self->{'warn_strong_note'} = $self->format_warn_strong_note();
+
   %{$self->{'ignored_commands'}} = %ignored_commands;
 
   foreach my $format (keys(%format_raw_commands)) {
@@ -3154,7 +3156,7 @@ sub _convert($$) {
                                                                    ->{'text'})
               and $element->{'contents'}->[0]->{'contents'}->[0]->{'text'}
                     =~ /^Note\s/i
-              and $self->format_warn_strong_note()) {
+              and $self->{'warn_strong_note'}) {
             $self->plaintext_line_warn($self, __(
       "\@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that"),
                              $element->{'source_info'});

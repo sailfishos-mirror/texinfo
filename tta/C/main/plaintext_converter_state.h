@@ -205,6 +205,9 @@ typedef struct PLAINTEXT_CONVERTER_STATE {
     /* document_context */
     DOCUMENT_CONTEXT_STACK document_context;
 
+    /* based on converter format */
+    int warn_strong_note;
+
     /* to cache values based on customization options */
     char *enabled_encoding;
     int to_utf8;

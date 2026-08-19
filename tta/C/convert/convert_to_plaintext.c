@@ -28,6 +28,7 @@
 #include <uchar.h>
 /* for PRIuPTR */
 #include <inttypes.h>
+#include <strings.h>
 
 #include "unistr.h"
 #include "unictype.h"
@@ -124,7 +125,7 @@ static PLAINTEXT_COMMAND_STRUCT plaintext_commands_data[BUILTIN_CMD_NUMBER];
 /* dispatch of formatting functions that are either for plaintext or
    Info output.  The table is below, after the functions definitions */
 typedef struct PLAINTEXT_FORMAT_FUNCTIONS {
-    void (*  format_contents) (CONVERTER *self,
+    void (* format_contents) (CONVERTER *self,
                                SECTIONING_ROOT *sectioning_root,
                                enum command_id contents_or_shortcontents_cmd);
     void (* format_error_outside_of_any_node) (CONVERTER *self,
@@ -2757,9 +2758,6 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
           target_element = find_identifier_target (
                                   &self->document->identifiers_target,
                                   normalized);
-          /* TODO normalized defined and no target_element happens in
-             t/converters_tests.t ref_error_formatting with reference to non
-             existing node.  Check difference with Perl, if any */
           if (target_element)
             label_element = get_label_element (target_element);
         }
@@ -4237,20 +4235,25 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 convert_to_plaintext_internal (self,
                                                element->e.c->contents.list[0]);
 
-             /* TODO
-          if ($cmdname eq 'strong'
-              and exists($element->{'contents'}->[0]->{'contents'})
-              and exists($element->{'contents'}->[0]->{'contents'}->[0]
-                                                                   ->{'text'})
-              and $element->{'contents'}->[0]->{'contents'}->[0]->{'text'}
-                    =~ /^Note\s/i
-              and $self->format_warn_strong_note()) {
-            $self->plaintext_line_warn($self, __(
-      "\@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that"),
-                             $element->{'source_info'});
-          }
-        }
-              */
+              if (cmd == CM_strong
+                  && element->e.c->contents.list[0]->e.c->contents.number > 0
+                  && self_plaintext->warn_strong_note
+                  && !self_plaintext->silent)
+                {
+                  const ELEMENT *strong_arg
+                   = element->e.c->contents.list[0]->e.c->contents.list[0];
+                  if (type_data[strong_arg->type].flags & TF_text
+                      && strong_arg->e.text->end >= 5
+                      && !strncasecmp (strong_arg->e.text->text, "Note", 4)
+                      && strchr (whitespace_chars,
+                                 *(strong_arg->e.text->text +4)))
+                    {
+                      message_list_command_warn (&self->error_messages,
+                          (self->conf && self->conf->DEBUG.o.integer > 0),
+                           element, 0,
+    "@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that");
+                    }
+               }
 
               added = para_add_next (text_after,
                                      strlen (text_after), 1);
@@ -4855,7 +4858,27 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             }
           else if (cmd == CM_titlefont)
             {
-              /* TODO when _text_heading is implemented */
+              if (!empty_spaces_argument (element))
+                {
+                  FORMAT_CONTEXT *top_format_context
+                   = top_(format_context) (&self_plaintext->format_context);
+                  ELEMENT *titlefont_with_level
+                    = new_command_element (ET_brace_command, CM_titlefont);
+                  add_extra_integer (titlefont_with_level,
+                                     AI_key_section_level, 0);
+
+                  char *result = text_heading (self, titlefont_with_level,
+                                       element->e.c->contents.list[0],
+                                self->conf->NUMBER_SECTIONS.o.integer,
+                                top_format_context->context_indent_len);
+                  size_t len = strlen (result);
+                  if (result[len -1] == '\n')
+                    result[len -1] = '\0';
+                  stream_output (self, result);
+                  add_lines_count (self, 1);
+                  free (result);
+                  destroy_element (titlefont_with_level);
+                }
               return;
             }
           else if (cmd == CM_U)
@@ -6855,6 +6878,9 @@ plaintext_converter_initialize (CONVERTER *self)
   self->plaintext_converter = self_plaintext;
 
   memset (self_plaintext, 0, sizeof (*self_plaintext));
+
+  if (self->format == COF_info)
+    self_plaintext->warn_strong_note = 1;
 
   memcpy (self_plaintext->commands_data, plaintext_commands_data,
           BUILTIN_CMD_NUMBER * sizeof (PLAINTEXT_COMMAND_STRUCT));

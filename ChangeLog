@@ -1,5 +1,22 @@
 2026-08-19 Patrice Dumas  <pertusus@free.fr>
 
+	@titlefont and strong Note warning in C plaintext/Info
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_converter_initialize),
+	tta/C/main/plaintext_converter_state.h (PLAINTEXT_CONVERTER_STATE),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm
+	(converter_initialize, _convert): add warn_strong_note field in
+	PLAINTEXT_CONVERTER_STATE and set based on converter format in
+	plaintext_converter_initialize.  In Perl, set warn_strong_note too in
+	converter_initialize instead of calling the function for each @strong.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): add warning for Note in @string.
+	Convert titlefont.
+
+2026-08-19 Patrice Dumas  <pertusus@free.fr>
+
 	Numerous changes for plaintext/Info C comparing with tests
 
 	* tta/C/convert/convert_to_info.c (info_format_node): go through
