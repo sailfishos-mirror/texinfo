@@ -2556,9 +2556,8 @@ sub _text_heading($$$;$$) {
   } else {
     $text = $heading;
   }
-  my $columns = Texinfo::Convert::Unicode::string_width($text);
-
   return '' if ($text !~ /\S/);
+  my $columns = Texinfo::Convert::Unicode::string_width($text);
   my $result = $text ."\n";
   if (defined($indented_len)) {
     if ($indented_len < 0) {
@@ -4086,7 +4085,7 @@ sub _convert($$) {
   my $paragraph;
   if (defined($type)) {
     if ($type eq 'paragraph') {
-      my ($para_indent, $para_indent_next);
+      my ($para_indent_size, $para_indent_next);
       # indent. Not first paragraph.
       if ($self->{'format_context'}->[-1]->{'cmdname'} eq '_top_format'
           and $self->get_conf('paragraphindent') >= 0
@@ -4098,11 +4097,11 @@ sub _convert($$) {
                 and ($self->{'format_context'}->[-1]->{'paragraph_count'}
                   or $self->get_conf('firstparagraphindent') eq 'insert')
                and !$self->{'text_element_context'}->[-1]->{'counter'}))) {
-        $para_indent = $self->get_conf('paragraphindent');
+        $para_indent_size = $self->get_conf('paragraphindent');
         $para_indent_next = 0;
       }
       $paragraph = new_formatter($self, 'paragraph',
-                                 $para_indent, $para_indent_next);
+                                 $para_indent_size, $para_indent_next);
       push @{$self->{'formatters'}}, $paragraph;
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
       if ($self->{'context'}->[-1] eq 'flushright') {

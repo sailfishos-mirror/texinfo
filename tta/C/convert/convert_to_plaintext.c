@@ -5827,19 +5827,26 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           FORMAT_CONTEXT *top_format
             = top_(format_context) (&self_plaintext->format_context);
 
-          int paragraphindent_size = 0;
-          /* TODO and !$self->{'text_element_context'}->[-1]->{'counter'} */
+          int para_indent_size = -1;
+          int para_indent_next = -1;
           if (!top_format->cmd /* '_top_format' in Perl */
-              && paragraphindent >= 0) /* 'asis' */
+              && paragraphindent >= 0
+              && (element->flags & EF_indent
+                  || (!(element->flags & EF_noindent)
+                      && (top_format->paragraph_count
+                          || (self->conf->firstparagraphindent.o.string
+         && !strcmp (self->conf->firstparagraphindent.o.string, "insert")))
+                      && text_element_context->counter == 0)))
             {
-              paragraphindent_size = paragraphindent;
+              para_indent_size = paragraphindent;
+              para_indent_next = 0;
             }
 
           top_format->paragraph_count++;
 
           FORMATTER new_paragraph
             = new_formatter (self, formatter_paragraph,
-                             paragraphindent_size, 0);
+                             para_indent_size, para_indent_next);
 
           push_formatter (self, &new_paragraph);
 
