@@ -257,9 +257,9 @@ info_output (CONVERTER *self, DOCUMENT *document)
   const char *destination_directory;
   const char *output_filename;
   const char *document_name;
+  const char *input_basefile;
   FILE *file_fh = 0;
   char *encoded_destination_directory;
-  const char *input_basefile;
   int succeeded;
   const ENCODING_CONVERSION *conversion = 0;
   TEXT result;
@@ -303,6 +303,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
   destination_directory = paths[1];
   output_filename = paths[2];
   document_name = paths[3];
+  input_basefile = paths[4];
 
   /* cast to remove const since the argument cannot
      be const even though the string is not modified */
@@ -329,10 +330,8 @@ info_output (CONVERTER *self, DOCUMENT *document)
   free (self_plaintext->output_filename);
   self_plaintext->output_filename = strdup (output_filename);
 
-  if (!strcmp (document_name, "-"))
+  if (!strcmp (input_basefile, "-"))
     input_basefile = STDIN_DOCU_NAME;
-  else
-    input_basefile = document_name;
 
   if (!strcmp (output_file, "-"))
     need_unsplit = 1;
@@ -805,6 +804,7 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
       free (node_name_width.string);
    }
+  text_append_n (&tag_text, "\x1F\nEnd Tag Table\n", 16);
 
   clear_c_hashmap (seen_anchors);
   free (seen_anchors);
@@ -1113,6 +1113,7 @@ info_format_ref (CONVERTER *self, enum command_id cmd,
       text_append_n (e_parentheses->e.text, "()", 2);
       convert_to_plaintext_internal (self, e_parentheses);
       destroy_element (e_parentheses);
+      has_file = 1;
     }
 
  /* Get the node name to be output.
@@ -1389,7 +1390,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
 
   plaintext_add_target_location (self, node);
 
-  xasprintf (&node_begin, "\x1f\nFile: %s, Node: ", output_filename);
+  xasprintf (&node_begin, "\x1f\nFile: %s,  Node: ", output_filename);
   stream_output (self, node_begin);
   free (node_begin);
 
@@ -1430,99 +1431,97 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
         node_relations = nodes_list->list[node_number -1];
     }
 
-  if (node_relations && node_relations->node_directions)
+  for (i = 0; directions[i]; i++)
     {
-      for (i = 0; directions[i]; i++)
+      if (node_relations->node_directions
+          && node_relations->node_directions[i])
         {
-          if (node_relations->node_directions[i])
+          const ELEMENT *node_direction
+            = node_relations->node_directions[i];
+          char *direction_label;
+          const ELEMENT *manual_content;
+
+          xasprintf (&direction_label, ",  %s: ", directions[i]);
+          stream_output (self, direction_label);
+          free (direction_label);
+
+          /* file */
+          manual_content
+           = lookup_extra_container (node_direction, AI_key_manual_content);
+          if (manual_content)
             {
-              const ELEMENT *node_direction
-                = node_relations->node_directions[i];
-              char *direction_label;
-              const ELEMENT *manual_content;
+              ELEMENT *direction_file_code_element = new_element (ET__code);
+              ELEMENT *open_parenthese = new_text_element (ET_other_text);
+              text_append_n (open_parenthese->e.text, "(", 1);
+              ELEMENT *close_parenthese = new_text_element (ET_other_text);
+              text_append_n (close_parenthese->e.text, ")", 1);
+              add_element_to_element_contents (direction_file_code_element,
+                                               open_parenthese);
+              /* cast to drop const */
+              add_to_contents_as_array (direction_file_code_element,
+                                        (ELEMENT *)manual_content);
+              add_element_to_element_contents (direction_file_code_element,
+                                               close_parenthese);
 
-              xasprintf (&direction_label, ", %s: ", directions[i]);
-              stream_output (self, direction_label);
-              free (direction_label);
-
-              /* file */
-              manual_content
-               = lookup_extra_container (node_direction, AI_key_manual_content);
-              if (manual_content)
-                {
-                  ELEMENT *direction_file_code_element = new_element (ET__code);
-                  ELEMENT *open_parenthese = new_text_element (ET_other_text);
-                  text_append_n (open_parenthese->e.text, "(", 1);
-                  ELEMENT *close_parenthese = new_text_element (ET_other_text);
-                  text_append_n (close_parenthese->e.text, ")", 1);
-                  add_element_to_element_contents (direction_file_code_element,
-                                                   open_parenthese);
-                  /* cast to drop const */
-                  add_to_contents_as_array (direction_file_code_element,
-                                            (ELEMENT *)manual_content);
-                  add_element_to_element_contents (direction_file_code_element,
-                                                   close_parenthese);
-
-                  plaintext_convert_line (self,
-                                    direction_file_code_element, -1, -1);
-                  destroy_element (open_parenthese);
-                  destroy_element (close_parenthese);
-                  destroy_element (direction_file_code_element);
-                }
-
-              const char *extra_identifier
-               = lookup_extra_string (node_direction, AI_key_identifier);
-              if (!extra_identifier)
-                extra_identifier
-                  = lookup_extra_string (node_direction, AI_key_normalized);
-
-              if (extra_identifier)
-                {
-                  int quoting_required = 0;
-
-                  plaintext_node_name (self, node_direction, &node_text);
-
-                  if (warn_special_char
-                      || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
-                    {
-                      const char *check_chars = ",";
-                      const char *p = strpbrk (node_text.string,
-                                               check_chars);
-
-                      if (p)
-                        {
-                          if (warn_special_char)
-                            message_list_command_warn (&self->error_messages,
-                          (self->conf && self->conf->DEBUG.o.integer > 0),
-                                       node, 0,
-                          "@node %s name should not contain `,': %s",
-         /* FIXME there is a _decode() in Perl.  Gavin, is it needed? */
-                               directions[i], node_text.string);
-                          if (
-                       self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
-                            quoting_required = 1;
-                        }
-                    }
-                  if (quoting_required)
-                    stream_output_encoded (self, node_quote);
-                  stream_output_encoded (self, node_text.string);
-                  if (quoting_required)
-                    stream_output_encoded (self, node_quote);
-                  free (node_text.string);
-                }
+              plaintext_convert_line (self,
+                                direction_file_code_element, -1, -1);
+              destroy_element (open_parenthese);
+              destroy_element (close_parenthese);
+              destroy_element (direction_file_code_element);
             }
-          else if (i == D_up && self->conf->TOP_NODE_UP.o.string)
+
+          const char *extra_identifier
+           = lookup_extra_string (node_direction, AI_key_identifier);
+          if (!extra_identifier)
+            extra_identifier
+              = lookup_extra_string (node_direction, AI_key_normalized);
+
+          if (extra_identifier)
             {
-              const char *extra_identifier
-               = lookup_extra_string (node, AI_key_identifier);
-              if (!strcmp (extra_identifier, "Top"))
+              int quoting_required = 0;
+
+              plaintext_node_name (self, node_direction, &node_text);
+
+              if (warn_special_char
+                  || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
                 {
-                  char *dir_direction;
-                  xasprintf (&dir_direction, ",  %s: %s", directions[i],
-                            self->conf->TOP_NODE_UP.o.string);
-                  stream_output (self, dir_direction);
-                  free (dir_direction);
+                  const char *check_chars = ",";
+                  const char *p = strpbrk (node_text.string,
+                                           check_chars);
+
+                  if (p)
+                    {
+                      if (warn_special_char)
+                        message_list_command_warn (&self->error_messages,
+                      (self->conf && self->conf->DEBUG.o.integer > 0),
+                                   node, 0,
+                      "@node %s name should not contain `,': %s",
+     /* FIXME there is a _decode() in Perl.  Gavin, is it needed? */
+                           directions[i], node_text.string);
+                      if (
+                   self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
+                        quoting_required = 1;
+                    }
                 }
+              if (quoting_required)
+                stream_output_encoded (self, node_quote);
+              stream_output_encoded (self, node_text.string);
+              if (quoting_required)
+                stream_output_encoded (self, node_quote);
+              free (node_text.string);
+            }
+        }
+      else if (i == D_up && self->conf->TOP_NODE_UP.o.string)
+        {
+          const char *extra_identifier
+           = lookup_extra_string (node, AI_key_identifier);
+          if (!strcmp (extra_identifier, "Top"))
+            {
+              char *dir_direction;
+              xasprintf (&dir_direction, ",  %s: %s", directions[i],
+                        self->conf->TOP_NODE_UP.o.string);
+              stream_output (self, dir_direction);
+              free (dir_direction);
             }
         }
     }

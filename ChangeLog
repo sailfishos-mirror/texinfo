@@ -1,5 +1,18 @@
 2026-08-19 Patrice Dumas  <pertusus@free.fr>
 
+	Numerous changes for plaintext/Info C comparing with tests
+
+	* tta/C/convert/convert_to_info.c (info_format_node): go through
+	directions even if node_relations->node_directions is not set, to set
+	Up to (dir) even if there are no other directions.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_format_setup): fix
+	BLOCK_format_raw being mistaken as BLOCK_raw in condition.
+
+	Numerous other small fixes.
+
+2026-08-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): rename
 	$para_indent as $para_indent_size.
 

@@ -595,16 +595,17 @@ plaintext_format_setup (enum converter_format format)
               plaintext_commands_data[i].flags |= PF_preformatted_context;
               plaintext_commands_data[i].flags |= PF_format_context;
             }
-          else if (command_data[i].data == BLOCK_format_raw)
-            {
-              plaintext_commands_data[i].flags |= PF_format_raw;
-              plaintext_commands_data[i].flags |= PF_preformatted_context;
-              format_raw_cmd_nr++;
-            }
-          else
+          else if (command_data[i].data != BLOCK_raw)
             {
               plaintext_commands_data[i].flags |= PF_advance_paragraph_count;
-              if (command_data[i].flags & CF_math)
+
+              if (command_data[i].data == BLOCK_format_raw)
+                {
+                  plaintext_commands_data[i].flags |= PF_format_raw;
+                  plaintext_commands_data[i].flags |= PF_preformatted_context;
+                  format_raw_cmd_nr++;
+                }
+              else if (command_data[i].flags & CF_math)
                 {
                   plaintext_commands_data[i].flags |= PF_preformatted_context;
                   plaintext_commands_data[i].flags |= PF_format_context;
@@ -1977,7 +1978,7 @@ plaintext_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
       const ELEMENT *top_section = root_children->list[i]->element;
       int section_level
         = lookup_extra_integer (top_section, AI_key_section_level, &status);
-      if (section_level > root_level)
+      if (section_level < root_level)
         root_level = section_level;
     }
 
@@ -2483,6 +2484,7 @@ plaintext_process_printindex (CONVERTER *self,
         }
 
       text_append_n (&entry_line, "* ", 2);
+      text_append (&entry_line, entry_text);
       entry_text_count
          = (uintptr_t)c_hashmap_value (entry_counts, entry_text, &found);
       if (found)
@@ -2490,7 +2492,7 @@ plaintext_process_printindex (CONVERTER *self,
           entry_text_count++;
           c_hashmap_set_value (entry_counts,
                            entry_text, (const void *)entry_text_count);
-          text_printf (&entry_line, "<%" PRIuPTR ">", entry_text_count);
+          text_printf (&entry_line, " <%" PRIuPTR ">", entry_text_count);
         }
       else
         {
@@ -2499,7 +2501,6 @@ plaintext_process_printindex (CONVERTER *self,
                            entry_text, (const void *)entry_text_count);
         }
 
-      text_append (&entry_line, entry_text);
       text_append_n (&entry_line, ": ", 2);
       stream_output (self, entry_line.text);
 
@@ -2794,7 +2795,7 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
       file_stop_upper_case_element = new_element (ET__stop_upper_case);
       add_to_element_contents (file_stop_upper_case_element,
                                file_code_element);
-      file = file_code_element;
+      file = file_stop_upper_case_element;
     }
   else if (args[4])
     book = (ELEMENT *) args[4];
@@ -2810,7 +2811,7 @@ plaintext_format_ref (CONVERTER *self, enum command_id cmd,
       node_stop_upper_case_element = new_element (ET__stop_upper_case);
       add_to_element_contents (node_stop_upper_case_element,
                                node_code_element);
-      node = node_suppress_styles_element;
+      node = node_stop_upper_case_element;
     }
 
   substrings = new_named_string_element_list ();
@@ -3279,7 +3280,6 @@ text_heading (CONVERTER *self, const ELEMENT *current,
   int sec_level
     = lookup_extra_integer (current, AI_key_section_level,
                             &section_level_status);
-  char *number = 0;
   int k;
   int columns;
 
@@ -3287,13 +3287,10 @@ text_heading (CONVERTER *self, const ELEMENT *current,
   if (self->conf->DEBUG.o.integer > 0)
     debug_level = self->conf->DEBUG.o.integer;
 
-  if (numbered != 0)
-    number = lookup_extra_string (current, AI_key_section_heading_number);
-
   /* cast to drop const */
   add_to_contents_as_array (frenchspacing_e, (ELEMENT *)heading_element);
 
-  plaintext_convert_line_new_context (self, heading_element,
+  plaintext_convert_line_new_context (self, frenchspacing_e,
                                                   -1, -1, -1, -1,
                                                   &section_text);
   destroy_element (frenchspacing_e);
@@ -3330,10 +3327,11 @@ text_heading (CONVERTER *self, const ELEMENT *current,
   if (section_level_status < 0)
     sec_level = section_level (current);
 
-  char *underline_char = underline_symbol[sec_level];
+  const char *underline_char = underline_symbol[sec_level];
 
   for (k = 0; k < columns - indented_len; k++)
     text_append_n (&result, underline_char, 1);
+  text_append_n (&result, "\n", 1);
 
   return result.text;
 }
@@ -3385,12 +3383,6 @@ convert_def_line (CONVERTER *self, const ELEMENT *element)
              self_plaintext->format_context.number -2].context_indent_len;
       int next_indent_len = top_format_context->context_indent_len
                           + default_indent_length;
-
-      FORMATTER def_paragraph
-        = new_formatter (self, formatter_paragraph, indent_len,
-                         next_indent_len);
-      def_paragraph.suppress_styles = 1;
-      push_formatter (self, &def_paragraph);
 
       /* parent is defblock */
       if (element->e.c->cmd == CM_defline || element->e.c->cmd == CM_deftypeline)
@@ -3662,14 +3654,20 @@ convert_def_line (CONVERTER *self, const ELEMENT *element)
 
       destroy_named_string_element_list (substrings);
 
+      FORMATTER def_paragraph
+        = new_formatter (self, formatter_paragraph, indent_len,
+                         next_indent_len);
+      def_paragraph.suppress_styles = 1;
+      push_formatter (self, &def_paragraph);
+
       convert_to_plaintext_internal (self, tree);
 
       destroy_element_and_children (tree);
 
       destroy_parsed_def (parsed_def);
 
-      const char *end_line = para_end_line ();
-      stream_output_count_nl (self, end_line);
+      const char *result = para_end ();
+      stream_output_count_nl (self, result);
 
       para_destroy ();
       pop_formatter (self, 0);
@@ -4507,7 +4505,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                            ELEMENT *name_copy = copy_element_tree (name, 0);
                            add_element_to_named_string_element_list (substrings,
                                                             "name", name_copy);
-                           email_tree = cdt_tree ("{name}: @url{{email}}", self,
+                           email_tree = cdt_tree ("{name} @url{{email}}", self,
                                                   substrings, 0);
                         }
                       else
@@ -4673,7 +4671,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               anchor (self, element);
               return;
             }
-          else if (cmd_data->flags & CF_explained)
+          else if (command_data[cmd].other_flags & CF_explained)
             {
               if (element->e.c->contents.number > 0
                   && !empty_spaces_argument (element->e.c->contents.list[0]))
@@ -4717,7 +4715,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                     {
                       if (abbr_frenchspacing)
                         {
-                          add_to_element_contents (abbr_frenchspacing,
+                          add_to_contents_as_array (abbr_frenchspacing,
                                          element->e.c->contents.list[0]);
 
                           convert_to_plaintext_internal (self,
@@ -4884,7 +4882,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                                          "C|conversion hex sscanf failed %s",
                                          arg_text->text);
                             }
-                          else if (val <= 0x10FFFF)
+                          else if (val < 0x10FFFF)
                             {
                               uint32_t char_val[] = {'\0', '\0'};
                               uint8_t *result_u8;
@@ -5258,6 +5256,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         {
           self_plaintext->current_node = element;
           plaintext_functions[self->format].format_node (self, element, 0);
+          FORMAT_CONTEXT *top_format_context
+            = top_(format_context) (&self_plaintext->format_context);
+          top_format_context->paragraph_count = 0;
         }
       else if (cmd_data->flags & CF_sectioning_heading)
         {
@@ -5308,7 +5309,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 }
               free (heading_underlined);
             }
-
           FORMAT_CONTEXT *top_format_context
             = top_(format_context) (&self_plaintext->format_context);
           top_format_context->paragraph_count = 0;
@@ -5507,10 +5507,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 }
               else
                 {
-                  FORMAT_CONTEXT *top_format
-                    = top_(format_context) (&self_plaintext->format_context);
                   plaintext_convert_line (self, exdent_line_arg,
-                                      top_format->context_indent_len, -1);
+                    self_plaintext->format_context.list[
+          self_plaintext->format_context.number -2].context_indent_len, -1);
                 }
             }
           ensure_end_of_line (self);
@@ -5602,7 +5601,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                       push_formatter (self, &new_paragraph);
 
          /* Output in format "* $float_entry_text: $float_label_text.". */
-                      stream_output_add_next (self, " *");
+                      stream_output_add_next (self, "* ");
 
                       float_entry->type = ET__frenchspacing;
                       convert_to_plaintext_internal (self, float_entry);
@@ -5829,7 +5828,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
           int para_indent_size = -1;
           int para_indent_next = -1;
-          if (!top_format->cmd /* '_top_format' in Perl */
+          if (top_format->cmd == CM_NONE /* '_top_format' in Perl */
               && paragraphindent >= 0
               && (element->flags & EF_indent
                   || (!(element->flags & EF_noindent)
@@ -6636,6 +6635,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               const ELEMENT *caption_element = caption_prepended->caption;
               ELEMENT *prepended = caption_prepended->prepended;
 
+              add_newline_if_needed (self);
+
               free (caption_prepended);
 
               if (prepended)
@@ -6803,7 +6804,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           pop_count_context (&self_plaintext->count_context);
           pop_(text_element_context) (&self_plaintext->text_element_context);
         }
-      else if (self_plaintext->commands_data[cmd].flags
+
+      if (self_plaintext->commands_data[cmd].flags
                                       & PF_advance_paragraph_count)
         {
           FORMAT_CONTEXT *top_format_context
