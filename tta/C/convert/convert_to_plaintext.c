@@ -923,6 +923,34 @@ protect_sentence_ends (const char *text)
           break;
         }
     }
+  /* Also insert a control character at end of string, to protect a full stop
+     that may follow later */
+  if (t.end > 0)
+    {
+      p = t.text + t.end -1;
+      while (strchr (after_punctuation_characters, *p) && p > t.text)
+        p--;
+      if (strchr (after_punctuation_characters, *p))
+        /* an after_punctuation_characters at the beginning of the string */
+        return t.text;
+      if (!strchr (whitespace_chars, *p))
+        {
+          int len = 0;
+          /* Back one UTF-8 code point */
+          do
+            {
+              p--;
+              len++;
+            }
+          while ((*p & 0xC0) == 0x80 && p > t.text);
+          char32_t wc;
+          u8_mbtouc (&wc, (uint8_t *) p, len);
+          if (!uc_is_upper (wc))
+            {
+              text_append_n (&t, "\x08", 1);
+            }
+        }
+    }
   return t.text;
 }
 

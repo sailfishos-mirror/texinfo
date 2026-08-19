@@ -214,13 +214,12 @@ info_header (CONVERTER *self, const char *input_basefile,
               const ELEMENT *line_arg = command->e.c->contents.list[0];
               if (line_arg->e.c->contents.number > 0)
                 {
+                  STRING_COUNT_LINE_COUNT direntry_text;
                   stream_output (self, "INFO-DIR-SECTION ");
-                   /*
-                  convert_line_result
-                    = plaintext_convert_line_new_context (self, line_arg,
-                                                0, 0, 0);
-                  stream_output (self, convert_line_result->converted);
-                    */
+                  plaintext_convert_line_new_context (self, line_arg,
+                                             -1, -1, -1, -1, &direntry_text);
+                  stream_output (self, direntry_text.string);
+                  free (direntry_text.string);
                   stream_output (self, "\n");
                 }
             }
@@ -890,12 +889,6 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
 
 /* formatting functions differing from Plaintext formatting functions. */
-
-/*
- sub format_warn_strong_note($) {
-   return 1;
- }
-*/
 
 void
 info_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
