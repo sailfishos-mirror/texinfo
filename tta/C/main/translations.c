@@ -1364,6 +1364,11 @@ def_list_fns (NAMED_STRING_ELEMENT_LIST, named_string_element,
 
 /* arguments to be freed by the caller, even name as it is a constant
    string in general */
+/* STRING is not modified, but cannot be const, as the string
+   NAMED_STRING_ELEMENT field is not const because it can be used
+   temporarily to store strings for substitution when elements are used
+   and not strings.
+ */
 void
 add_string_to_named_string_element_list (NAMED_STRING_ELEMENT_LIST *nsel,
                                          const char *name, char *string)

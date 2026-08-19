@@ -3266,6 +3266,8 @@ plaintext_insert_image (CONVERTER *self, const char *image_file,
   result->line_count = line_count;
 }
 
+static const char * const underline_symbol[] = {"*", "*", "=", "-", "."};
+
 static char *
 text_heading (CONVERTER *self, const ELEMENT *current,
               const ELEMENT *heading_element, int numbered,
@@ -3273,7 +3275,18 @@ text_heading (CONVERTER *self, const ELEMENT *current,
 {
   STRING_COUNT_LINE_COUNT section_text;
   ELEMENT *frenchspacing_e = new_element (ET__frenchspacing);
+  int section_level_status;
+  int sec_level
+    = lookup_extra_integer (current, AI_key_section_level,
+                            &section_level_status);
   char *number = 0;
+  int k;
+  int columns;
+
+  int debug_level = 0;
+  if (self->conf->DEBUG.o.integer > 0)
+    debug_level = self->conf->DEBUG.o.integer;
+
   if (numbered != 0)
     number = lookup_extra_string (current, AI_key_section_heading_number);
 
@@ -3284,8 +3297,45 @@ text_heading (CONVERTER *self, const ELEMENT *current,
                                                   -1, -1, -1, -1,
                                                   &section_text);
   destroy_element (frenchspacing_e);
-  return section_text.string;
-  /* TODO */
+
+  char *text = add_heading_number (current, section_text.string,
+                                   numbered, self->current_lang_translations,
+                                   debug_level);
+
+  free (section_text.string);
+
+  columns = string_width_multibyte (text);
+
+  if (text[strspn (text, whitespace_chars)] == '\0')
+    {
+      free (text);
+      return 0;
+    }
+
+  TEXT result;
+  text_init (&result);
+
+  text_append (&result, text);
+  free (text);
+  text_append_n (&result, "\n", 1);
+
+  if (indented_len > 0)
+    {
+      for (k = 0; k < indented_len; k++)
+        text_append_n (&result, " ", 1);
+    }
+  else
+    indented_len = 0;
+
+  if (section_level_status < 0)
+    sec_level = section_level (current);
+
+  char *underline_char = underline_symbol[sec_level];
+
+  for (k = 0; k < columns - indented_len; k++)
+    text_append_n (&result, underline_char, 1);
+
+  return result.text;
 }
 
 static char *

@@ -2540,6 +2540,7 @@ sub _text_heading($$$;$$) {
     Texinfo::TreeElement::new({'type' => '_frenchspacing',
                                'contents' => [$heading_element]}));
 
+  # TODO call Convert::Utils add_heading_number?
   my $text;
   if (defined($number)) {
     if ($current->{'cmdname'} eq 'appendix'

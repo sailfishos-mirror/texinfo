@@ -1,5 +1,10 @@
 2026-08-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (underline_symbol)
+	(text_heading): finish text_heading implementation.
+
+2026-08-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c (fill_formatter)
 	(UPPER_CASE_STACK, release_stacks_of_top_formatter, pop_formatter)
 	(pop_top_formatter), tta/C/main/plaintext_converter_state.h
