@@ -42,9 +42,18 @@ def_list_type(FONT_TYPE_STACK, FONT_TYPE);
 decl_list_fns(FONT_TYPE_STACK, font_type, FONT_TYPE);
 decl_stack_fns(FONT_TYPE_STACK, font_type, FONT_TYPE);
 
+typedef struct UPPER_CASE {
+    int upper_case;
+    int var;
+} UPPER_CASE;
+
+def_list_type(UPPER_CASE_STACK, UPPER_CASE);
+decl_list_fns(UPPER_CASE_STACK, upper_case, UPPER_CASE);
+decl_stack_fns(UPPER_CASE_STACK, upper_case, UPPER_CASE);
+
 typedef struct FORMATTER {
     FORMATTER_CONTAINER container;
-  /* upper_case_stack */
+    UPPER_CASE_STACK *upper_case_stack;
     FONT_TYPE_STACK *font_type_stack;
     int w;
     INTEGER_STACK frenchspacing_stack;

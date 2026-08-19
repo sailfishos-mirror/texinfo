@@ -3055,13 +3055,14 @@ sub _convert($$) {
       if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
         $accented_text_original
          = Texinfo::Convert::Text::text_accents($element, $encoding);
-      }
 
-      if (($accented_text_original
-           and $accented_text_original !~ /\p{Upper}/)
-          or $formatter->{'upper_case_stack'}->[-1]->{'var'}
-          or $formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
-        allow_end_sentence($formatter->{'container'});
+        if ($accented_text_original ne '') {
+          if ($accented_text_original !~ /\p{Upper}/
+              or $formatter->{'upper_case_stack'}->[-1]->{'var'}
+              or $formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
+            allow_end_sentence($formatter->{'container'});
+          }
+        }
       }
 
       # in case the text added ends with punctuation.

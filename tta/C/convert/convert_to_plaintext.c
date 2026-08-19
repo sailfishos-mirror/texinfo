@@ -22,12 +22,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <ctype.h>
 /* for uintptr_t */
 #include <stdint.h>
+#include <uchar.h>
 /* for PRIuPTR */
 #include <inttypes.h>
 
 #include "unistr.h"
+#include "unictype.h"
 
 #include "list_macros.h"
 #include "text.h"
@@ -212,6 +215,9 @@ def_stack_fns(TEXT_CONTEXT_STACK, text_element_context, TEXT_CONTEXT);
 def_list_fns(FONT_TYPE_STACK, font_type, FONT_TYPE, 2);
 def_stack_fns(FONT_TYPE_STACK, font_type, FONT_TYPE);
 
+def_list_fns(UPPER_CASE_STACK, upper_case, UPPER_CASE, 2);
+def_stack_fns(UPPER_CASE_STACK, upper_case, UPPER_CASE);
+
 def_list_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST, 1);
 def_stack_fns(QUOTATION_AUTHORS_LIST, quotations_authors, CONST_ELEMENT_LIST);
 
@@ -302,6 +308,12 @@ fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
   FONT_TYPE font_type = { 0 };
   add_(font_type) (formatter->font_type_stack, font_type);
 
+  formatter->upper_case_stack = (UPPER_CASE_STACK *)
+                    malloc (sizeof (UPPER_CASE_STACK));
+  memset (formatter->upper_case_stack, 0, sizeof (UPPER_CASE_STACK));
+  UPPER_CASE upper_case = { 0 };
+  add_(upper_case) (formatter->upper_case_stack, upper_case);
+
   if (type == formatter_unfilled)
     {
       size_t j;
@@ -378,6 +390,17 @@ push_top_formatter (CONVERTER *self, enum command_id cmd)
   push_formatter (self, &top_formatter);
 }
 
+static void
+release_stacks_of_top_formatter (FORMATTER_STACK *stack)
+{
+  FORMATTER *top_formatter = top_(formatter) (stack);
+  free (top_formatter->frenchspacing_stack.list);
+  free (top_formatter->font_type_stack->list);
+  free (top_formatter->font_type_stack);
+  free (top_formatter->upper_case_stack->list);
+  free (top_formatter->upper_case_stack);
+}
+
 /* in most of the cases, the formatter is not reused.
    For node names, the formatter is reused, so destroy stacks only
    if REUSE_FORMATER is 0.
@@ -389,12 +412,7 @@ pop_formatter (CONVERTER *self, int reuse_formatter)
   FORMATTER_STACK *stack = &self_plaintext->formatters;
 
   if (!reuse_formatter)
-    {
-      FORMATTER *top_formatter = top_(formatter) (stack);
-      free (top_formatter->frenchspacing_stack.list);
-      free (top_formatter->font_type_stack->list);
-      free (top_formatter->font_type_stack);
-    }
+    release_stacks_of_top_formatter (stack);
 
   pop_(formatter) (stack);
 
@@ -429,10 +447,7 @@ pop_top_formatter (CONVERTER *self)
   if (popped_cmd == CM_NONE)
     {
       /* should be removing the last format, do not set the paragraph */
-      FORMATTER *top_formatter = top_(formatter) (&self_plaintext->formatters);
-      free (top_formatter->frenchspacing_stack.list);
-      free (top_formatter->font_type_stack->list);
-      free (top_formatter->font_type_stack);
+      release_stacks_of_top_formatter (&self_plaintext->formatters);
 
       pop_(formatter) (&self_plaintext->formatters);
     }
@@ -838,9 +853,76 @@ plaintext_conversion_finalization (CONVERTER *self)
   self_plaintext->added_element.number = 0;
 }
 
-/* TODO
-protect_sentence_ends
-*/
+/* Also set in plaintext_paragraph.c */
+/* ignored after end sentence character to determine if
+   at the end of a sentence */
+#define after_punctuation_characters "\"')]"
+/* characters triggering an end of sentence */
+#define end_sentence_characters ".?!"
+
+static char *
+protect_sentence_ends (const char *text)
+{
+  TEXT t;
+  text_init (&t);
+
+  const char *p = text;
+
+  while (*p)
+    {
+      const char *q = strpbrk (p, end_sentence_characters);
+      if (q)
+        {
+          q++;
+          if (*q)
+            {
+              q += strspn (q, after_punctuation_characters);
+              if (*q)
+                {
+                  if (strchr (whitespace_chars, *q))
+                    q++;
+                  else
+                    {
+                      text_append_n (&t, p, q-p);
+                      p = q;
+                      continue;
+                    }
+                }
+            }
+          if (p > text)
+            {
+              /* now check that previous character is not upper-case */
+              int len = 0;
+              const char *r = p;
+              /* Back one UTF-8 code point */
+              do
+                {
+                  r--;
+                  len++;
+                }
+              while ((*r & 0xC0) == 0x80 && r > text);
+
+              char32_t wc;
+              u8_mbtouc (&wc, (uint8_t *) r, len);
+              if (uc_is_upper (wc))
+                {
+                  text_append_n (&t, p, q-p);
+                  p = q;
+                  continue;
+                }
+            }
+          text_append_n (&t, "\x08", 1);
+          text_append_n (&t, p, q-p);
+          p = q;
+        }
+      else
+        {
+          text_append (&t, p);
+          break;
+        }
+    }
+  return t.text;
+}
 
 static void
 add_lines_count (CONVERTER *self, int lines_count)
@@ -3684,18 +3766,21 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             {
        /* Convert ``, '', `, ', ---, -- in $COMMAND->{'text'} to their
           output, possibly coverting to upper case as well. */
-              const char *text = element->e.text->text;
+              char *text = element->e.text->text;
               FORMATTER *formatter
                     = top_(formatter) (&self_plaintext->formatters);
               FONT_TYPE *font_type
                     = top_(font_type) (formatter->font_type_stack);
+              UPPER_CASE *upper_case
+                    = top_(upper_case) (formatter->upper_case_stack);
 
-          /* TODO
-        if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
-          $text = _protect_sentence_ends($text);
-          $text = uc($text);
-        }
-           */
+              if (upper_case->upper_case)
+                {
+                  char *tmp_text = protect_sentence_ends (text);
+                  text = to_upper_or_lower_multibyte (tmp_text, 1);
+                  free (tmp_text);
+                }
+
               if (!font_type->monospace)
                 {
                   const char *p = text;
@@ -3781,6 +3866,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 }
               else
                 stream_output_add_text (self, text);
+
+              if (upper_case->upper_case)
+                free (text);
             }
         }
       else if (type == ET_spaces_before_paragraph)
@@ -3893,29 +3981,54 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
         {
           char *accented_text;
           int sc = 0;
-          /* TODO
-      if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
-        $sc = 1;
-      }
-           */
+          FORMATTER *formatter
+               = top_(formatter) (&self_plaintext->formatters);
+          UPPER_CASE *upper_case
+               = top_(upper_case) (formatter->upper_case_stack);
+
+          if (upper_case->upper_case)
+            sc = 1;
+
           accented_text = text_accents (element,
                                         self_plaintext->enabled_encoding, sc);
           stream_output_add_text (self, accented_text);
 
-          /* TODO
-      my $accented_text_original;
-      if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
-        $accented_text_original
-         = Texinfo::Convert::Text::text_accents($element, $encoding);
-      }
+          if (upper_case->upper_case)
+            {
+              FONT_TYPE *font_type
+                     = top_(font_type) (formatter->font_type_stack);
 
-      if (($accented_text_original
-           and $accented_text_original !~ /\p{Upper}/)
-          or $formatter->{'upper_case_stack'}->[-1]->{'var'}
-          or $formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
-        allow_end_sentence($formatter->{'container'});
-      }
-           */
+              char *accented_text_original
+                 = text_accents (element,
+                                 self_plaintext->enabled_encoding, 0);
+
+              if (strcmp (accented_text_original, ""))
+                {
+                  if (font_type->monospace || upper_case->var)
+                    para_allow_end_sentence ();
+                  else
+                    {
+                      if (isascii (accented_text_original[0]))
+                        {
+                          if (islower (accented_text_original[0]))
+                            para_allow_end_sentence ();
+                        }
+                      else
+                        {
+                          int char_len = 1;
+                          while ((accented_text_original[char_len] & 0xC0)
+                                                                     == 0x80)
+                            char_len++;
+                          char32_t wc;
+                          u8_mbtouc (&wc, (uint8_t *) accented_text_original,
+                                     char_len);
+                          if (!uc_is_upper (wc))
+                            para_allow_end_sentence ();
+                        }
+                    }
+                }
+              free (accented_text_original);
+            }
 
      /* in case the text added ends with punctuation.
         If the text is empty (likely because of an error) previous
@@ -4142,16 +4255,15 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             }
           else if (cmd == CM_var || cmd == CM_sc)
             {/* upper_case_commands */
-              /* TODO
-        $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}++;
-               */
+              FORMATTER *formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+              UPPER_CASE *upper_case
+                    = top_(upper_case) (formatter->upper_case_stack);
+
+              upper_case->upper_case++;
               if (cmd == CM_var)
                 {
-              /* TODO
-   $formatter->{'upper_case_stack'}->[-1]->{'var'}++;
-               */
-                  FORMATTER *formatter
-                    = top_(formatter) (&self_plaintext->formatters);
+                  upper_case->var++;
                   add_(integer) (&formatter->frenchspacing_stack, 1);
                   para_set_conf_frenchspacing (1);
                 }
@@ -4159,20 +4271,18 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               if (element->e.c->contents.number != 0)
                 convert_to_plaintext_internal (self,
                                                element->e.c->contents.list[0]);
-           /*
-          $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}--;
-            */
+              formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+              upper_case
+                    = top_(upper_case) (formatter->upper_case_stack);
+              upper_case->upper_case--;
               if (cmd == CM_var)
                 {
-                  FORMATTER *formatter
-                    = top_(formatter) (&self_plaintext->formatters);
                   pop_(integer) (&formatter->frenchspacing_stack);
 
                   para_set_conf_frenchspacing (*(top_(integer)
                                  (&formatter->frenchspacing_stack)));
-             /*
-   $formatter->{'upper_case_stack'}->[-1]->{'var'}--;
-              */
+                  upper_case->var--;
                  /* Allow a following full stop to terminate a sentence. */
                   para_allow_end_sentence ();
                 }
@@ -4253,6 +4363,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 }
               else
                 {
+                  FORMATTER *formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+                  UPPER_CASE *upper_case
+                    = top_(upper_case) (formatter->upper_case_stack);
                   char *text;
                   int text_need_free = 0;
 
@@ -4278,16 +4392,18 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                     stream_output_add_next (self, text);
                   else
                     {
+                      if (command_other_flags (element) & CF_letter_no_arg
+                          && upper_case->upper_case)
+                        {
            /* @AA{} should suppress an end sentence, @aa{} shouldn't.  This
               is the case whether we are in @sc or not. */
-                      /* TODO
-            if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}
-                and $letter_no_arg_commands{$cmdname}) {
-              $text = _protect_sentence_ends($text);
-              $text = uc($text);
-            }
-                       */
-
+                          char *tmp_text = protect_sentence_ends (text);
+                          if (text_need_free)
+                            free (text);
+                          text = to_upper_or_lower_multibyte (tmp_text, 1);
+                          free (tmp_text);
+                          text_need_free = 1;
+                        }
                       stream_output_add_text (self, text);
 
       /* This is to have @TeX{}, for example, not to prevent end sentences. */
@@ -4300,14 +4416,14 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
 
                   if (text_need_free)
                     free (text);
-                }
 
-            /* TODO
-          if ($formatter->{'upper_case_stack'}->[-1]->{'var'}
-              or $formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
-            allow_end_sentence($formatter->{'container'});
-          }
-             */
+                  FONT_TYPE *font_type
+                    = top_(font_type) (formatter->font_type_stack);
+
+                  if (upper_case->var
+                      || font_type->monospace)
+                    para_allow_end_sentence ();
+                }
 
               return;
             }
@@ -6078,9 +6194,12 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 = top_(formatter) (&self_plaintext->formatters);
           open_code (formatter);
         }
-      /* TODO: Fake internal types used in Plaintext.pm */
       else if (type == ET__stop_upper_case)
         {
+          FORMATTER *formatter
+                = top_(formatter) (&self_plaintext->formatters);
+          UPPER_CASE upper_case = { 0 };
+          add_(upper_case) (formatter->upper_case_stack, upper_case);
         }
       else if (type == ET__suppress_styles)
         {
@@ -6129,9 +6248,11 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 = top_(formatter) (&self_plaintext->formatters);
           close_code (formatter);
         }
-      /* TODO ficititious types */
       else if (type == ET__stop_upper_case)
         {
+          FORMATTER *formatter
+                = top_(formatter) (&self_plaintext->formatters);
+          pop_(upper_case) (formatter->upper_case_stack);
         }
       else if (type == ET__suppress_styles)
         {

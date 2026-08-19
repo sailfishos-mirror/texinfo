@@ -1,5 +1,24 @@
 2026-08-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (fill_formatter)
+	(UPPER_CASE_STACK, release_stacks_of_top_formatter, pop_formatter)
+	(pop_top_formatter), tta/C/main/plaintext_converter_state.h
+	(UPPER_CASE, UPPER_CASE_STACK, FORMATTER): add upper-case stack,
+	allocate, and release.
+
+	* tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): rearrange
+	conditions.
+
+	* tta/C/convert/convert_to_plaintext.c (protect_sentence_ends): add.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): uppercase text and accented
+	characters and protect sentence ends when needed.  Set upper-case
+	stack for upper_case commands and handle _stop_upper_case special
+	element type.
+
+2026-08-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_info.c (info_format_ref),
 	tta/C/convert/convert_to_plaintext.c (convert_to_plaintext_internal),
 	tta/C/main/plaintext_converter_state.h (FORMATTER): add w in
