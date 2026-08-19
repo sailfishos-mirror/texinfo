@@ -1,3 +1,13 @@
+2026-08-19 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_format_setup),
+	tta/C/convert/convert_to_plaintext.h (PF_non_quoted_when_nested)
+	(PF_index_style): add non_quoted_when_nested and index_style commands.
+
+	* tta/C/convert/convert_to_plaintext.c (fill_formatter)
+	(convert_to_plaintext_internal): use non_quoted_when_nested and
+	index_style commands and set and use font_type_stack more.
+
 2026-08-18 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_to_plaintext.c (informative_global_commands):

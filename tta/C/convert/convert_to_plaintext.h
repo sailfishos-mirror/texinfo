@@ -25,15 +25,8 @@
 #define PF_flush                  0x1000
 #define PF_advance_paragraph_count  0x2000
 #define PF_no_punctuation_munging   0x4000
-
-/*
-#define HF_pre_class            0x0008
-#define HF_small_block_command  0x0010
-#define HF_HTML_align           0x0020
-#define HF_special_variety      0x0040
-#define HF_indented_preformatted 0x0080
-#define HF_style_command         0x0100
-*/
+#define PF_non_quoted_when_nested   0x8000
+#define PF_index_style              0x00010000
 
 typedef struct STRING_COUNT_LINE_COUNT {
     char *string;

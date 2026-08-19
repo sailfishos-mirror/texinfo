@@ -301,6 +301,34 @@ fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
   memset (formatter->font_type_stack, 0, sizeof (FONT_TYPE_STACK));
   FONT_TYPE font_type = { 0 };
   add_(font_type) (formatter->font_type_stack, font_type);
+
+  if (type == formatter_unfilled)
+    {
+      size_t j;
+      for (j = self_plaintext->context.number; j > 0; j--)
+        {
+          enum command_id context_cmd = self_plaintext->context.list[j-1];
+          if (plaintext_commands_data[context_cmd].flags & PF_menu)
+            break;
+          else if (command_data[context_cmd].other_flags
+                                                & CF_preformatted_code
+                   || plaintext_commands_data[context_cmd].flags
+                                                    & PF_format_raw
+                   || command_data[context_cmd].flags & CF_math)
+            {
+              FONT_TYPE *top_font_type
+                        = top_(font_type) (formatter->font_type_stack);
+              top_font_type->monospace = 1;
+              if (command_data[context_cmd].other_flags
+                                                & CF_preformatted_code
+                  || command_data[context_cmd].flags & CF_math)
+                {
+                  top_font_type->code_command = 1;
+                }
+              break;
+            }
+        }
+    }
 }
 
 FORMATTER
@@ -659,7 +687,26 @@ plaintext_format_setup (enum converter_format format)
   };
 
   for (i = 0; (quoted_commands[i]); i++)
-    plaintext_commands_data[quoted_commands[i]].flags |= PF_quoted;
+    {
+      enum command_id cmd = quoted_commands[i];
+      plaintext_commands_data[cmd].flags |= PF_quoted;
+      if (command_data[cmd].other_flags & CF_brace_code)
+        plaintext_commands_data[cmd].flags |= PF_non_quoted_when_nested;
+    }
+
+  /* always quoted even when nested */
+  plaintext_commands_data[CM_samp].flags &= ~PF_non_quoted_when_nested;
+  plaintext_commands_data[CM_indicateurl].flags &= ~PF_non_quoted_when_nested;
+
+  /*
+  Commands producing styles that are output in node names and index entries.
+   */
+  static enum command_id index_style_commands[] = {
+   CM_strong, CM_emph, CM_sub, CM_sup, CM_key, 0};
+
+  for (i = 0; index_style_commands[i]; i++)
+    plaintext_commands_data[index_style_commands[i]].flags
+                                                   |= PF_index_style;
 
   /* Sort style_map by command. */
   int n = sizeof(style_map) / sizeof(style_map[0]);
@@ -3902,13 +3949,61 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                & (PF_style_map | PF_asis | PF_quoted))
               || cmd == CM_dfn /* %double_quoted_commands in Perl */)
             {
-              /* TODO check brace_code_commands */
-              /* TODO check style_no_code */
-              /* TODO check no_punctuation_munging_commands */
+              FORMATTER *formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+              FONT_TYPE *font_type
+                    = top_(font_type) (formatter->font_type_stack);
+
+              if (cmd_data->other_flags & CF_brace_code)
+                {
+                  if (!font_type->monospace)
+                    {
+                      FONT_TYPE font_type = { 0 };
+                      font_type.monospace = 1;
+                      add_(font_type) (formatter->font_type_stack, font_type);
+                    }
+                  else
+                    font_type->monospace++;
+                }
+              else if (cmd_data->data == BRACE_style_no_code)
+                {
+                  if (font_type->monospace)
+                    {
+                      FONT_TYPE font_type = { 0 };
+                      font_type.normal = 1;
+                      add_(font_type) (formatter->font_type_stack, font_type);
+                    }
+                  else if (font_type->normal)
+                    font_type->normal++;
+                }
+
+              if (plaintext_commands_data[cmd].flags
+                                       & PF_no_punctuation_munging)
+                {
+                  FORMATTER *formatter
+                    = top_(formatter) (&self_plaintext->formatters);
+                  add_(integer) (&formatter->frenchspacing_stack, 1);
+                  para_set_conf_frenchspacing (1);
+                }
+
               /* TODO @w */
-              /* TODO non_quoted_commands_when_nested */
               const char *text_before = NULL, *text_after = NULL;
-              if (plaintext_commands_data[cmd].flags & PF_style_map)
+              font_type = top_(font_type) (formatter->font_type_stack);
+              if ((plaintext_commands_data[cmd].flags
+                           & PF_non_quoted_when_nested)
+                  && font_type->code_command)
+                {
+                  text_before = "";
+                  text_after = "";
+                }
+              else if (formatter->suppress_styles
+                       && !(plaintext_commands_data[cmd].flags
+                                                   & PF_index_style))
+                {
+                  text_before = "";
+                  text_after = "";
+                }
+              else if (plaintext_commands_data[cmd].flags & PF_style_map)
                 {
                   /* Look up in style map by linear search.
                      Binary search would also be possible, although the
@@ -3954,14 +4049,15 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   text_after = "";
                 }
 
+     /* do this after determining $text_before/$text_after such that it
+        doesn't impact the current command, but only commands nested within
+      */
               if (plaintext_commands_data[cmd].flags
-                                       & PF_no_punctuation_munging)
+                                      & PF_non_quoted_when_nested)
                 {
-                  FORMATTER *formatter
-                    = top_(formatter) (&self_plaintext->formatters);
-                  add_(integer) (&formatter->frenchspacing_stack, 1);
-                  para_set_conf_frenchspacing (1);
+                  font_type->code_command++;
                 }
+
 
               TEXT added = para_add_next (text_before,
                                           strlen (text_before), 1);
@@ -3972,15 +4068,49 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 convert_to_plaintext_internal (self,
                                                element->e.c->contents.list[0]);
 
+             /* TODO
+          if ($cmdname eq 'strong'
+              and exists($element->{'contents'}->[0]->{'contents'})
+              and exists($element->{'contents'}->[0]->{'contents'}->[0]
+                                                                   ->{'text'})
+              and $element->{'contents'}->[0]->{'contents'}->[0]->{'text'}
+                    =~ /^Note\s/i
+              and $self->format_warn_strong_note()) {
+            $self->plaintext_line_warn($self, __(
+      "\@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that"),
+                             $element->{'source_info'});
+          }
+        }
+              */
+
               added = para_add_next (text_after,
                                      strlen (text_after), 1);
               if (added.text)
                 stream_output_count_nl (self, added.text);
 
               /* TODO @w */
-              /* TODO check brace_code_commands */
-              /* TODO check style_no_code */
-              /* TODO non_quoted_commands_when_nested */
+              font_type = top_(font_type) (formatter->font_type_stack);
+
+              if (cmd_data->other_flags & CF_brace_code)
+                {
+                  font_type->monospace--;
+                  para_allow_end_sentence ();
+                  if (!font_type->monospace)
+                    pop_(font_type) (formatter->font_type_stack);
+                }
+              else if (cmd_data->data == BRACE_style_no_code)
+                {
+                  if (font_type->normal)
+                    {
+                      font_type->normal--;
+                      if (!font_type->normal)
+                        pop_(font_type) (formatter->font_type_stack);
+                    }
+                }
+
+              if (plaintext_commands_data[cmd].flags
+                           & PF_non_quoted_when_nested)
+                font_type->code_command--;
 
               if (plaintext_commands_data[cmd].flags
                                        & PF_no_punctuation_munging)
@@ -5181,9 +5311,11 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                     = new_formatter (self, formatter_unfilled,
                        self_plaintext->format_context.list[
           self_plaintext->format_context.number -2].context_indent_len, -1);
-                  /* TODO
-                 $formatter->{'font_type_stack'}->[-1]->{'monospace'} = 1;
-                   */
+
+                  FONT_TYPE *font_type
+                    = top_(font_type) (new_preformatted.font_type_stack);
+                  font_type->monospace = 1;
+
                   push_formatter (self, &new_preformatted);
                   convert_to_plaintext_internal (self, exdent_line_arg);
                   const char *result = para_end ();
