@@ -131,11 +131,10 @@ BEGIN
 }
 
 use Pod::Simple::Texinfo;
-use Texinfo::CommandsValues;
-use Texinfo::Common;
-use Texinfo::Convert::Texinfo;
-use Texinfo::Convert::NodeNameNormalization;
+# methods are used through the document objects
 use Texinfo::Document;
+use Texinfo::Parser;
+use Texinfo::Convert::Texinfo;
 use Texinfo::Structuring;
 use Texinfo::Transformations;
 
@@ -214,6 +213,31 @@ my $section_nodes = 1;
 my $fill_sectioning_gaps = 1;
 my $debug = 0;
 
+# NOTE originally taken from Texinfo::CommandsValues
+my %command_structuring_level = (
+    'top'    => '0',
+    'part'    => '0',
+    'chapter'    => '1',
+    'majorheading'    => '1',
+    'unnumbered'    => '1',
+    'centerchap'    => '1',
+    'chapheading'    => '1',
+    'appendix'    => '1',
+    'section'    => '2',
+    'unnumberedsec'    => '2',
+    'heading'    => '2',
+    'appendixsec'    => '2',
+    'appendixsection'    => '2',
+    'subsection'    => '3',
+    'unnumberedsubsec'    => '3',
+    'subheading'    => '3',
+    'appendixsubsec'    => '3',
+    'subsubsection'    => '4',
+    'unnumberedsubsubsec'    => '4',
+    'subsubheading'    => '4',
+    'appendixsubsubsec'    => '4',
+);
+
 my $result_options = Getopt::Long::GetOptions (
   'help|h' => sub { print pod2texi_help(); exit 0; },
   'version|V' => sub {
@@ -227,10 +251,8 @@ There is NO WARRANTY, to the extent permitted by law.")."\n", "2024";
   'base-level=s' => sub {
      if ($_[1] =~ /^[0-4]$/) {
        $base_level = $_[1];
-     } elsif (exists(
-                $Texinfo::CommandsValues::command_structuring_level{$_[1]})) {
-       $base_level
-           = $Texinfo::CommandsValues::command_structuring_level{$_[1]};
+     } elsif (exists($command_structuring_level{$_[1]})) {
+       $base_level = $command_structuring_level{$_[1]};
      } else {
        die sprintf(__("%s: wrong argument for --base-level")."\n",
                    $real_command_name);

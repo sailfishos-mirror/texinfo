@@ -58,10 +58,9 @@ use Pod::Simple::XHTML;
 # for parselink()
 #use Pod::ParseLink;
 
-use Texinfo::Convert::NodeNameNormalization qw(convert_to_identifier);
+use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Parser;
 use Texinfo::Convert::Texinfo;
-use Texinfo::Convert::TextContent;
 use Texinfo::Document;
 use Texinfo::ManipulateTree;
 use Texinfo::Transformations;
@@ -567,7 +566,8 @@ sub _prepare_anchor($$) {
   # Now we know that we have something.
   my $parser = Texinfo::Parser::parser();
   my $node_tree = $parser->parse_texi_line($node, undef, 1);
-  my $normalized_base = convert_to_identifier($node_tree);
+  my $normalized_base
+   = Texinfo::Convert::NodeNameNormalization::convert_to_identifier($node_tree);
   my $normalized = $normalized_base;
   my $number_appended = 0;
   while (exists($self->{'texinfo_nodes'}->{$normalized})) {
@@ -930,14 +930,6 @@ sub _texinfo_handle_element_end($$$) {
 
         $command_argument = _normalize_texinfo_name($result, $command,
                                                     $self->texinfo_debug());
-        if ($result =~ /\S/
-            and (!defined($command_argument) or $command_argument !~ /\S/)) {
-          # use some raw text if the expansion lead to empty Texinfo code
-          my $parser = Texinfo::Parser::parse();
-          my $tree = $parser->parse_texi_line($result);
-          my $converter = Texinfo::Convert::TextContent->converter();
-          $command_argument = protect_text($converter->convert_tree($tree));
-        }
 
         if (exists($pod_head_commands_level{$tagname})
             and $pod_head_commands_level{$tagname} == 1

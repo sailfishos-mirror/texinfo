@@ -1,5 +1,15 @@
 2026-08-20 Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(_texinfo_handle_element_end): do not fall back to converting to raw
+	text when the normalized Texinfo name is empty, keep an empty string,
+	since this needs to be handled anyway.
+
+	* Pod-Simple-Texinfo/pod2texi.pl (%command_structuring_level): copy
+	the hash, it should not change often if ever.
+
+2026-08-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/structuring_transfo/transformations.c
 	(complete_transform_document), tta/C/texi2any.c (main),
 	tta/swig/texinfo.i (complete_transform_document): add
