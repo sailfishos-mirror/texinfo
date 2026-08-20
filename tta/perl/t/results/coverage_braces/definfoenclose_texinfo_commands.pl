@@ -7,36 +7,37 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'definfoenclose_texinfo_commands'} = '*document_root C1
- *before_node_section C10
-  *@definfoenclose C1 l1
-  |EXTRA
-  |misc_args:A{verb|;;|!!}
-   *line_arg C3
-    {spaces_before_argument: }
-    {verb,;;,!!}
-    {spaces_after_argument:\\n}
-  *@definfoenclose C1 l2
-  |EXTRA
-  |misc_args:A{TeX|aa|bb}
-   *line_arg C3
-    {spaces_before_argument: }
-    {TeX,aa,bb}
-    {spaces_after_argument:\\n}
-  *@definfoenclose C1 l3
-  |EXTRA
-  |misc_args:A{strong|(|)}
-   *line_arg C3
-    {spaces_before_argument: }
-    {strong,(,)}
-    {spaces_after_argument:\\n}
-  *@definfoenclose C1 l4
-  |EXTRA
-  |misc_args:A{quotation|q|e}
-   *line_arg C3
-    {spaces_before_argument: }
-    {quotation,q,e}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C6
+  *preamble_before_content C5
+   *@definfoenclose C1 l1
+   |EXTRA
+   |misc_args:A{verb|;;|!!}
+    *line_arg C3
+     {spaces_before_argument: }
+     {verb,;;,!!}
+     {spaces_after_argument:\\n}
+   *@definfoenclose C1 l2
+   |EXTRA
+   |misc_args:A{TeX|aa|bb}
+    *line_arg C3
+     {spaces_before_argument: }
+     {TeX,aa,bb}
+     {spaces_after_argument:\\n}
+   *@definfoenclose C1 l3
+   |EXTRA
+   |misc_args:A{strong|(|)}
+    *line_arg C3
+     {spaces_before_argument: }
+     {strong,(,)}
+     {spaces_after_argument:\\n}
+   *@definfoenclose C1 l4
+   |EXTRA
+   |misc_args:A{quotation|q|e}
+    *line_arg C3
+     {spaces_before_argument: }
+     {quotation,q,e}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C2
    *@verb C1 l6
    |INFO
@@ -151,6 +152,7 @@ $result_converted{'html_text'}->{'definfoenclose_texinfo_commands'} = '
 
 
 $result_converted{'latex_text'}->{'definfoenclose_texinfo_commands'} = '
+\\begin{document}
 \\verb*aaa*.
 
 \\TeX{}. \\textbf{in strong}.

@@ -7,66 +7,67 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_root C1
- *before_node_section C10
-  *@linemacro C5 l1
-  |EXTRA
-  |formal_args:A{first|second|rest}
-  |macro_name:{mylinecommand}
-   *arguments_line C1
-    {macro_line: mylinecommand {first, second, rest}\\n}
-   {raw:@defblock\\n}
-   {raw:@defline category {\\first\\} A \\second\\ B \\rest\\\\n}
-   {raw:@end defblock\\n}
-   *@end C1 l5
+ *before_node_section C5
+  *preamble_before_content C6
+   *@linemacro C5 l1
    |EXTRA
-   |text_arg:{linemacro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {linemacro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C3 l7
-  |EXTRA
-  |formal_args:A{arg1}
-  |macro_name:{mymac}
-   *arguments_line C1
-    {macro_line: mymac {arg1}\\n}
-   {raw:@samp{arg1}\\n}
-   *@end C1 l9
+   |formal_args:A{first|second|rest}
+   |macro_name:{mylinecommand}
+    *arguments_line C1
+     {macro_line: mylinecommand {first, second, rest}\\n}
+    {raw:@defblock\\n}
+    {raw:@defline category {\\first\\} A \\second\\ B \\rest\\\\n}
+    {raw:@end defblock\\n}
+    *@end C1 l5
+    |EXTRA
+    |text_arg:{linemacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {linemacro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@macro C3 l7
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@linemacro C3 l11
-  |EXTRA
-  |formal_args:A{name|rest}
-  |macro_name:{mylinemac}
-   *arguments_line C1
-    {macro_line: mylinemac {name, rest}\\n}
-   {raw:{\\name\\} \\rest\\\\n}
-   *@end C1 l13
+   |formal_args:A{arg1}
+   |macro_name:{mymac}
+    *arguments_line C1
+     {macro_line: mymac {arg1}\\n}
+    {raw:@samp{arg1}\\n}
+    *@end C1 l9
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@linemacro C3 l11
    |EXTRA
-   |text_arg:{linemacro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {linemacro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >linemacro_expansion<start;1><p:1>
-   >*linemacro_call@mylinecommand C3
-    >*linemacro_arg C2
-     >{spaces_before_argument: }
-     >{macro_call_arg_text:@mymac}
-    >*linemacro_arg C2
-     >{spaces_before_argument: }
-     >{bracketed_linemacro_arg:aa}
-    >*linemacro_arg C2
-     >{spaces_before_argument: }
-     >{macro_call_arg_text:@mymac {bb}}
+   |formal_args:A{name|rest}
+   |macro_name:{mylinemac}
+    *arguments_line C1
+     {macro_line: mylinemac {name, rest}\\n}
+    {raw:{\\name\\} \\rest\\\\n}
+    *@end C1 l13
+    |EXTRA
+    |text_arg:{linemacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {linemacro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >linemacro_expansion<start;1><p:1>
+    >*linemacro_call@mylinecommand C3
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
+      >{macro_call_arg_text:@mymac}
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
+      >{bracketed_linemacro_arg:aa}
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
+      >{macro_call_arg_text:@mymac {bb}}
   *@defblock C3 l15:@mylinecommand
    *arguments_line C1
     *block_line_arg C1

@@ -7,57 +7,58 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
- *before_node_section C5
-  *@linemacro C5 l1
-  |EXTRA
-  |formal_args:A{a|b}
-  |macro_name:{lm}
-   *arguments_line C1
-    {macro_line: lm {a, b}\\n}
-   {raw:@mymacro{@code{}\\n}
-   {raw:@var{\\a\\}\\n}
-   {raw:now second arg: \\b\\}\\n}
-   *@end C1 l5
+ *before_node_section C2
+  *preamble_before_content C4
+   *@linemacro C5 l1
    |EXTRA
-   |text_arg:{linemacro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {linemacro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C5 l7
-  |EXTRA
-  |formal_args:A{c|d}
-  |macro_name:{mymacro}
-   *arguments_line C1
-    {macro_line: mymacro {c, d}\\n}
-   {raw:@table \\c\\\\n}
-   {raw:@item \\d\\\\n}
-   {raw:@end table\\n}
-   *@end C1 l11
+   |formal_args:A{a|b}
+   |macro_name:{lm}
+    *arguments_line C1
+     {macro_line: lm {a, b}\\n}
+    {raw:@mymacro{@code{}\\n}
+    {raw:@var{\\a\\}\\n}
+    {raw:now second arg: \\b\\}\\n}
+    *@end C1 l5
+    |EXTRA
+    |text_arg:{linemacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {linemacro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@macro C5 l7
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >linemacro_expansion<start;1><p:1>
-   >*linemacro_call@lm C2
-    >*linemacro_arg C2
-     >{spaces_before_argument: }
-     >{bracketed_linemacro_arg:something}
-    >*linemacro_arg C2
-     >{spaces_before_argument: }
-     >{bracketed_linemacro_arg:gg , yy \\n  zz}
-  >macro_expansion<start;1><p:1>
-   >*macro_call@mymacro C2
-    >*brace_arg C1
-     >{macro_call_arg_text:@code{}\\n@var{something}\\nnow second arg: gg }
-    >*brace_arg C2
-     >{spaces_before_argument: }
-     >{macro_call_arg_text:yy \\n  zz}
+   |formal_args:A{c|d}
+   |macro_name:{mymacro}
+    *arguments_line C1
+     {macro_line: mymacro {c, d}\\n}
+    {raw:@table \\c\\\\n}
+    {raw:@item \\d\\\\n}
+    {raw:@end table\\n}
+    *@end C1 l11
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >linemacro_expansion<start;1><p:1>
+    >*linemacro_call@lm C2
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
+      >{bracketed_linemacro_arg:something}
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
+      >{bracketed_linemacro_arg:gg , yy \\n  zz}
+   >macro_expansion<start;1><p:1>
+    >*macro_call@mymacro C2
+     >*brace_arg C1
+      >{macro_call_arg_text:@code{}\\n@var{something}\\nnow second arg: gg }
+     >*brace_arg C2
+      >{spaces_before_argument: }
+      >{macro_call_arg_text:yy \\n  zz}
   *@table C4 l14:@mymacro
    *arguments_line C1
     *block_line_arg C3

@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'namedanchor'} = '*document_root C11
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C1 l1 {Top}
  |EXTRA
  |identifier:{Top}
@@ -823,7 +824,8 @@ See <link linkend="Not-here_0021">Not here!</link>
 ';
 
 
-$result_converted{'latex_text'}->{'namedanchor'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'namedanchor'} = '\\begin{document}
+\\label{anchor:Top}%
 \\label{anchor:in-Top}%
 \\Texinfochapter{{chapter \\label{anchor:Not-here_0021}%
 after}}

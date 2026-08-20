@@ -8,7 +8,8 @@ use utf8;
 
 $result_tree_text{'text_space_comment'} = '*document_root C1
  *before_node_section C2
-  {spaces_before_paragraph: }
+  *preamble_before_content C1
+   {spaces_before_paragraph: }
   *paragraph C2
    {text  }
    *@c C1

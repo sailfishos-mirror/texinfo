@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'nested_formats'} = '*document_root C1
- *before_node_section C3
+ *before_node_section C4
+  *preamble_before_content
   *@format C3 l1
    *arguments_line C1
     *block_line_arg C1
@@ -190,7 +191,8 @@ in -- example/format
 ';
 
 
-$result_converted{'latex_text'}->{'nested_formats'} = '\\begin{Texinfoindented}
+$result_converted{'latex_text'}->{'nested_formats'} = '\\begin{document}
+\\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
 \\ttfamily 
 in {-}{-} format/example

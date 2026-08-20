@@ -7,24 +7,25 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_imbricated_with_beginning_command_name'} = '*document_root C1
- *before_node_section C2
-  *@macro C5 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{foo}
-   *arguments_line C1
-    {macro_line: foo\\n}
-   {raw:\\n}
-   {raw:@macrototo\\n}
-   {raw:in macrototo\\n}
-   *@end C1 l5
+ *before_node_section C1
+  *preamble_before_content C2
+   *@macro C5 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{}
+   |macro_name:{foo}
+    *arguments_line C1
+     {macro_line: foo\\n}
+    {raw:\\n}
+    {raw:@macrototo\\n}
+    {raw:in macrototo\\n}
+    *@end C1 l5
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
 ';
 
 

@@ -8,13 +8,14 @@ use utf8;
 
 $result_tree_text{'print_merged_index'} = '*document_root C3
  *before_node_section C1
-  *@syncodeindex C1 l1
-  |EXTRA
-  |misc_args:A{fn|cp}
-   *line_arg C3
-    {spaces_before_argument: }
-    {fn cp}
-    {spaces_after_argument:\\n}
+  *preamble_before_content C1
+   *@syncodeindex C1 l1
+   |EXTRA
+   |misc_args:A{fn|cp}
+    *line_arg C3
+     {spaces_before_argument: }
+     {fn cp}
+     {spaces_after_argument:\\n}
  *@node C1 l2 {Top}
  |EXTRA
  |identifier:{Top}

@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'seeentry_no_braces'} = '*document_root C5
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C1 l1 {Top}
  |EXTRA
  |identifier:{Top}
@@ -184,7 +185,8 @@ $result_converted{'html_text'}->{'seeentry_no_braces'} = '<div class="top-level-
 ';
 
 
-$result_converted{'latex_text'}->{'seeentry_no_braces'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'seeentry_no_braces'} = '\\begin{document}
+\\label{anchor:Top}%
 \\Texinfochapter{{chap}}
 \\label{anchor:chap}%
 

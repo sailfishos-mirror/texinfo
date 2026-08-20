@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'inline_expand_tex'} = '*document_root C1
- *before_node_section C5
-  {empty_line:\\n}
+ *before_node_section C6
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C12
    *@inlinefmt C2 l2
    |EXTRA
@@ -146,8 +148,7 @@ $result_texis{'inline_expand_tex'} = '
 ';
 
 
-$result_texts{'inline_expand_tex'} = '
-, 
+$result_texts{'inline_expand_tex'} = ', 
 , 
 ,
 , 
@@ -192,8 +193,7 @@ $result_converted{'plaintext'}->{'inline_expand_tex'} = ', , , , $\\underlinea <
 ';
 
 
-$result_converted{'html_text'}->{'inline_expand_tex'} = '
-<p>, 
+$result_converted{'html_text'}->{'inline_expand_tex'} = '<p>, 
 , 
 ,
 , 
@@ -210,8 +210,8 @@ raw $\\underline{a < b <code class="code">tex \\hbox{ code }</code>}$ ``
 </p>';
 
 
-$result_converted{'xml'}->{'inline_expand_tex'} = '
-<para><inlinefmt><inlinefmtformat>html</inlinefmtformat><inlinefmtcontent> &lt;blink&gt;html&lt;/blink&gt; ``</inlinefmtcontent></inlinefmt>, 
+$result_converted{'xml'}->{'inline_expand_tex'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><para><inlinefmt><inlinefmtformat>html</inlinefmtformat><inlinefmtcontent> &lt;blink&gt;html&lt;/blink&gt; ``</inlinefmtcontent></inlinefmt>, 
 <inlinefmt><inlinefmtformat>plaintext</inlinefmtformat><inlinefmtcontent> plaintext ``</inlinefmtcontent></inlinefmt>, 
 <inlinefmt><inlinefmtformat>xml</inlinefmtformat><inlinefmtcontent> &lt;para&gt;xml&lt;/para&gt; ``</inlinefmtcontent></inlinefmt>,
 <inlinefmt><inlinefmtformat>docbook</inlinefmtformat><inlinefmtcontent> &lt;emphasis&gt;docbook&lt;/emphasis&gt; ``</inlinefmtcontent></inlinefmt>, 
@@ -228,8 +228,7 @@ $result_converted{'xml'}->{'inline_expand_tex'} = '
 </para>';
 
 
-$result_converted{'docbook'}->{'inline_expand_tex'} = '
-<para>, 
+$result_converted{'docbook'}->{'inline_expand_tex'} = '<para>, 
 , 
 ,
 , 
@@ -246,7 +245,7 @@ raw $\\underline{a < b <literal>tex \\hbox{ code }</literal>}$ ``
 </para>';
 
 
-$result_converted{'latex_text'}->{'inline_expand_tex'} = '
+$result_converted{'latex_text'}->{'inline_expand_tex'} = '\\begin{document}
 , 
 , 
 ,

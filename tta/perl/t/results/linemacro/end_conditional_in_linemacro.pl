@@ -7,30 +7,31 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'end_conditional_in_linemacro'} = '*document_root C1
- *before_node_section C5
-  *@linemacro C3 l1
-  |EXTRA
-  |formal_args:A{a}
-  |macro_name:{lm}
-   *arguments_line C1
-    {macro_line: lm {a}\\n}
-   {raw:\\a\\\\n}
-   *@end C1 l3
+ *before_node_section C4
+  *preamble_before_content C2
+   *@linemacro C3 l1
    |EXTRA
-   |text_arg:{linemacro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {linemacro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >expanded_conditional_command<start;1><p:1>
-   >*@ifclear C1 l5
-    >*arguments_line C1
-     >*block_line_arg C3
-      >{spaces_before_argument: }
-      >{aa}
-      >{spaces_after_argument:\\n}
+   |formal_args:A{a}
+   |macro_name:{lm}
+    *arguments_line C1
+     {macro_line: lm {a}\\n}
+    {raw:\\a\\\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{linemacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {linemacro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<start;1><p:1>
+    >*@ifclear C1 l5
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >{aa}
+       >{spaces_after_argument:\\n}
   *paragraph C2
    {text\\n}
    >SOURCEMARKS

@@ -11,7 +11,8 @@ UNIT_DIRECTIONS
 This: [U0]
 NodePrev: [U0]
 NodeUp: [U0]
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C4 l1 {Top}
  |EXTRA
  |identifier:{Top}

@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'menutextorder'} = '*document_root C15
- *before_node_section C2
+ *before_node_section C3
+  *preamble_before_content
   *@menu C4 l1
    *arguments_line C1
     *block_line_arg C1

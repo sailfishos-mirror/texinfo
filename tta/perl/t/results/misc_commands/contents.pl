@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'contents'} = '*document_root C1
- *before_node_section C13
-  {empty_line:\\n}
+ *before_node_section C14
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C3
    {first }
    *@@
@@ -81,8 +83,7 @@ summarycontents @summarycontents line following summarycontents
 ';
 
 
-$result_texts{'contents'} = '
-first @contents second @contents Third content on the following line on his own
+$result_texts{'contents'} = 'first @contents second @contents Third content on the following line on his own
 Line following contents
 shortcontents shortcontents summarycontents ';
 

@@ -8,45 +8,46 @@ use utf8;
 
 $result_tree_text{'nested_ignore_with_comments'} = '*document_root C1
  *before_node_section C1
-  *@ignore C30 l1
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   {raw:@ignore\\n}
-   {raw:No space no comment\\n}
-   {raw:@end ignore\\n}
-   {raw:\\n}
-   {raw:@ignore  \\n}
-   {raw:Spaces no comment\\n}
-   {raw:@end ignore\\n}
-   {raw:\\n}
-   {raw:@ignore@c no space comment\\n}
-   {raw:Comment\\n}
-   {raw:@end ignore\\n}
-   {raw:\\n}
-   {raw:@ignore @c\\n}
-   {raw:Comment no argument\\n}
-   {raw:@end ignore\\n}
-   {raw:\\n}
-   {raw:@ignore  @c space comment\\n}
-   {raw:Space Comment\\n}
-   {raw:@end ignore\\n}
-   {raw:\\n}
-   {raw:@ignore something @comment comment after text\\n}
-   {raw:Text comment\\n}
-   {raw:@end ignore\\n}
-   {raw:\\n}
-   {raw:@ignore some @code{variable} @comment comment after command\\n}
-   {raw:Command comment\\n}
-   {raw:@end ignore\\n}
-   {raw:\\n}
-   *@end C1 l30
-   |EXTRA
-   |text_arg:{ignore}
-    *line_arg C3
-     {spaces_before_argument: }
-     {ignore}
-     {spaces_after_argument:\\n}
+  *preamble_before_content C1
+   *@ignore C30 l1
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    {raw:@ignore\\n}
+    {raw:No space no comment\\n}
+    {raw:@end ignore\\n}
+    {raw:\\n}
+    {raw:@ignore  \\n}
+    {raw:Spaces no comment\\n}
+    {raw:@end ignore\\n}
+    {raw:\\n}
+    {raw:@ignore@c no space comment\\n}
+    {raw:Comment\\n}
+    {raw:@end ignore\\n}
+    {raw:\\n}
+    {raw:@ignore @c\\n}
+    {raw:Comment no argument\\n}
+    {raw:@end ignore\\n}
+    {raw:\\n}
+    {raw:@ignore  @c space comment\\n}
+    {raw:Space Comment\\n}
+    {raw:@end ignore\\n}
+    {raw:\\n}
+    {raw:@ignore something @comment comment after text\\n}
+    {raw:Text comment\\n}
+    {raw:@end ignore\\n}
+    {raw:\\n}
+    {raw:@ignore some @code{variable} @comment comment after command\\n}
+    {raw:Command comment\\n}
+    {raw:@end ignore\\n}
+    {raw:\\n}
+    *@end C1 l30
+    |EXTRA
+    |text_arg:{ignore}
+     *line_arg C3
+      {spaces_before_argument: }
+      {ignore}
+      {spaces_after_argument:\\n}
 ';
 
 

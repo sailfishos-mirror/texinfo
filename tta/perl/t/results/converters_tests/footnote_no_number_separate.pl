@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'footnote_no_number_separate'} = '*document_root C5
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C1 l1 {Top}
  |EXTRA
  |identifier:{Top}
@@ -203,7 +204,8 @@ $result_converted{'docbook'}->{'footnote_no_number_separate'} = '<chapter label=
 ';
 
 
-$result_converted{'latex_text'}->{'footnote_no_number_separate'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'footnote_no_number_separate'} = '\\begin{document}
+\\label{anchor:Top}%
 \\Texinfochapter{{Chapter}}
 \\label{anchor:chap}%
 

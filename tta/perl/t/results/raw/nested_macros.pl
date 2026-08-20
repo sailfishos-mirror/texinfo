@@ -8,25 +8,26 @@ use utf8;
 
 $result_tree_text{'nested_macros'} = '*document_root C1
  *before_node_section C1
-  *@macro C8 l1
-  |EXTRA
-  |formal_args:A{arg|ex}
-  |macro_name:{truc}
-   *arguments_line C1
-    {macro_line: truc   { arg,  ex}\\n}
-   {raw:in macro \\arg\\\\n}
-   {raw:@macro othermacro \\n}
-   {raw:other macro\\n}
-   {raw:@end macro\\n}
-   {raw:@macro\\n}
-   {raw:@end macro\\n}
-   *@end C1 l8
+  *preamble_before_content C1
+   *@macro C8 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
+   |formal_args:A{arg|ex}
+   |macro_name:{truc}
+    *arguments_line C1
+     {macro_line: truc   { arg,  ex}\\n}
+    {raw:in macro \\arg\\\\n}
+    {raw:@macro othermacro \\n}
+    {raw:other macro\\n}
+    {raw:@end macro\\n}
+    {raw:@macro\\n}
+    {raw:@end macro\\n}
+    *@end C1 l8
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
 ';
 
 

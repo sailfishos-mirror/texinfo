@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'noindent_after_smallexample'} = '*document_root C1
- *before_node_section C5
+ *before_node_section C6
+  *preamble_before_content
   *paragraph C1
    {To obtain.\\n}
   *@smallexample C3 l2
@@ -158,6 +159,7 @@ $result_converted{'latex'}->{'noindent_after_smallexample'} = '\\documentclass{b
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 To obtain.
 \\begin{Texinfopreformatted}%
 \\ttfamily \\footnotesize \\$ wget \'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\\&content-type=text/plain\'

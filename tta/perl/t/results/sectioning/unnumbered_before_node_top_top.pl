@@ -13,7 +13,8 @@ This: [U0]
 Forward: [U1]
 FastForward: [U1]
 Next: [U1]
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@unnumbered C4 l1 {before nodes}
  |EXTRA
  |identifier:{before-nodes}

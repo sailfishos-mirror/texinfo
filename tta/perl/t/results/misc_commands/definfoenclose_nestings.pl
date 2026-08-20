@@ -7,15 +7,16 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'definfoenclose_nestings'} = '*document_root C1
- *before_node_section C9
-  *@definfoenclose C1 l1
-  |EXTRA
-  |misc_args:A{phoo|//|\\}
-   *line_arg C3
-    {spaces_before_argument: }
-    {phoo,//,\\}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C8
+  *preamble_before_content C2
+   *@definfoenclose C1 l1
+   |EXTRA
+   |misc_args:A{phoo|//|\\}
+    *line_arg C3
+     {spaces_before_argument: }
+     {phoo,//,\\}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C2
    *@code C1 l3
     *brace_container C1
@@ -202,6 +203,7 @@ $result_converted{'latex'}->{'definfoenclose_nestings'} = '\\documentclass{book}
 \\pagestyle{single}%
 
 
+\\begin{document}
 \\texttt{in phoo in code}.
 
 \\texttt{in code in phoo}.

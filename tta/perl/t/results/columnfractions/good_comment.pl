@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'good_comment'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *@multitable C2 l1
   |EXTRA
   |max_columns:{3}
@@ -58,7 +59,8 @@ $result_converted{'xml'}->{'good_comment'} = '<multitable endspaces=" "><columnf
 </multitable>';
 
 
-$result_converted{'latex_text'}->{'good_comment'} = '\\begin{tabular}{m{0.4\\textwidth} m{.6\\textwidth} m{5.\\textwidth}}%
+$result_converted{'latex_text'}->{'good_comment'} = '\\begin{document}
+\\begin{tabular}{m{0.4\\textwidth} m{.6\\textwidth} m{5.\\textwidth}}%
 \\end{tabular}%
 ';
 

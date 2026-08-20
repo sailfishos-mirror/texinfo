@@ -7,48 +7,50 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'ifclear_in_ifset_set'} = '*document_root C1
- *before_node_section C5
-  {empty_line:\\n}
-  *@set C1
-  |EXTRA
-  |misc_args:A{a|}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:a}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >expanded_conditional_command<start;1><p:1>
-   >*@ifset C1 l4
-    >*arguments_line C1
-     >*block_line_arg C3
-      >{spaces_before_argument: }
-      >{a}
-      >{spaces_after_argument:\\n}
-  >expanded_conditional_command<start;2><p:1>
-   >*@ifclear C1 l5
-    >*arguments_line C1
-     >*block_line_arg C4
-      >{spaces_before_argument: }
-      >{ok}
-      >{spaces_after_argument: }
-      >*@c C1
-       >*line_arg C3
-        >{spaces_before_argument: }
-        >{rawline_text:- ok, ignored}
-        >{spaces_after_argument:\\n}
-  *@end C1 l6
-  |EXTRA
-  |text_arg:{junky   - ok, ignored}
-   *line_arg C3
-    {spaces_before_argument: }
-    {junky   - ok, ignored}
-    {spaces_after_argument:\\n}
-  *@c C1
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:WRONG - missing @end ifset.}
-    {spaces_after_argument:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C4
+   *@set C1
+   |EXTRA
+   |misc_args:A{a|}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:a}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<start;1><p:1>
+    >*@ifset C1 l4
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >{a}
+       >{spaces_after_argument:\\n}
+   >expanded_conditional_command<start;2><p:1>
+    >*@ifclear C1 l5
+     >*arguments_line C1
+      >*block_line_arg C4
+       >{spaces_before_argument: }
+       >{ok}
+       >{spaces_after_argument: }
+       >*@c C1
+        >*line_arg C3
+         >{spaces_before_argument: }
+         >{rawline_text:- ok, ignored}
+         >{spaces_after_argument:\\n}
+   *@end C1 l6
+   |EXTRA
+   |text_arg:{junky   - ok, ignored}
+    *line_arg C3
+     {spaces_before_argument: }
+     {junky   - ok, ignored}
+     {spaces_after_argument:\\n}
+   *@c C1
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:WRONG - missing @end ifset.}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -61,7 +63,6 @@ $result_texis{'ifclear_in_ifset_set'} = '
 
 
 $result_texts{'ifclear_in_ifset_set'} = '
-
 ';
 
 $result_errors{'ifclear_in_ifset_set'} = '* W l6|unknown @end junky

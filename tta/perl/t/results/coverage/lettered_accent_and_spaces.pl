@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
- *before_node_section C16
+ *before_node_section C17
+  *preamble_before_content
   *paragraph C2
    *@ringaccent C1 l1
    |INFO
@@ -212,7 +213,8 @@ $result_converted{'xml'}->{'lettered_accent_and_spaces'} = '<para><accent type="
 ';
 
 
-$result_converted{'latex_text'}->{'lettered_accent_and_spaces'} = '\\r{a}
+$result_converted{'latex_text'}->{'lettered_accent_and_spaces'} = '\\begin{document}
+\\r{a}
 
 \\r{a}
 

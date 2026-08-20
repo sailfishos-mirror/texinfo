@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'cartouche_title_and_content'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *@cartouche C3 l1
    *arguments_line C1
     *block_line_arg C4
@@ -74,7 +75,8 @@ flow of the text.
 ';
 
 
-$result_converted{'latex_text'}->{'cartouche_title_and_content'} = '\\begin{Texinfocartouche}[title={Box title on \\emph{documentation}}]
+$result_converted{'latex_text'}->{'cartouche_title_and_content'} = '\\begin{document}
+\\begin{Texinfocartouche}[title={Box title on \\emph{documentation}}]
 Text on documentation explaining something important out of the main
 flow of the text.
 \\end{Texinfocartouche}

@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'simple'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C2
    *@b C1 l1
     *brace_container C1
@@ -39,7 +40,8 @@ $result_converted{'plaintext'}->{'simple'} = 'in b.
 $result_converted{'html_text'}->{'simple'} = '<p><b class="b">in  b</b>.</p>';
 
 
-$result_converted{'latex_text'}->{'simple'} = '\\textbf{in  b}.';
+$result_converted{'latex_text'}->{'simple'} = '\\begin{document}
+\\textbf{in  b}.';
 
 
 $result_converted{'docbook'}->{'simple'} = '<para><emphasis role="bold">in  b</emphasis>.</para>';

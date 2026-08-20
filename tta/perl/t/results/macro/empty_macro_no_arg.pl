@@ -7,33 +7,34 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'empty_macro_no_arg'} = '*document_root C1
- *before_node_section C5
-  *@macro C2 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{foo}
-   *arguments_line C1
-    {macro_line: foo\\n}
-   *@end C1 l2
+ *before_node_section C1
+  *preamble_before_content C5
+   *@macro C2 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >macro_expansion<start;1>
-   >*macro_call@foo
-  >macro_expansion<end;1>
-  {empty_line:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >macro_expansion<start;2>
-   >*macro_call@foo C1
-    >*brace_arg
-  >macro_expansion<end;2>
+   |formal_args:A{}
+   |macro_name:{foo}
+    *arguments_line C1
+     {macro_line: foo\\n}
+    *@end C1 l2
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call@foo
+   >macro_expansion<end;1>
+   {empty_line:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;2>
+    >*macro_call@foo C1
+     >*brace_arg
+   >macro_expansion<end;2>
 ';
 
 

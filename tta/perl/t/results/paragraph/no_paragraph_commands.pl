@@ -7,9 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'no_paragraph_commands'} = '*document_root C1
- *before_node_section C6
-  *@*
-  {\\n}
+ *before_node_section C5
+  *preamble_before_content C2
+   *@*
+   {\\n}
   *@titlefont C1 l2
   |EXTRA
   |global_command_number:{1}

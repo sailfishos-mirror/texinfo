@@ -7,10 +7,11 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'noindent_empty_para'} = '*document_root C1
- *before_node_section C4
-  *@noindent l1
-  {ignorable_spaces_after_command:\\n}
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_content C3
+   *@noindent l1
+   {ignorable_spaces_after_command:\\n}
+   {empty_line:\\n}
   *paragraph C1
    {aaa\\n}
 ';
@@ -128,6 +129,7 @@ $result_converted{'latex'}->{'noindent_empty_para'} = '\\documentclass{book}
 \\pagestyle{single}%
 
 \\noindent{}
+\\begin{document}
 aaa
 \\end{document}
 ';

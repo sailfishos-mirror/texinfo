@@ -7,30 +7,31 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'line_breaks'} = '*document_root C5
- *before_node_section C5
-  *@documentdescription C3 l1
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument: \\n}
-   *paragraph C3
-    {a document }
-    *@*
-    { yes!\\n}
-   *@end C1 l3
-   |EXTRA
-   |text_arg:{documentdescription}
-    *line_arg C3
+ *before_node_section C3
+  *preamble_before_content C3
+   *@documentdescription C3 l1
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument: \\n}
+    *paragraph C3
+     {a document }
+     *@*
+     { yes!\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{documentdescription}
+     *line_arg C3
+      {spaces_before_argument: }
+      {documentdescription}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@settitle C1 l5
+    *line_arg C5
      {spaces_before_argument: }
-     {documentdescription}
+     {the manual }
+     *@*
+     { new version}
      {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@settitle C1 l5
-   *line_arg C5
-    {spaces_before_argument: }
-    {the manual }
-    *@*
-    { new version}
-    {spaces_after_argument:\\n}
   *@title C1 l6
    *line_arg C5
     {spaces_before_argument: }
@@ -515,6 +516,7 @@ $result_converted{'docbook_doc'}->{'line_breaks'} = '<?xml version="1.0"?>
 
 
 $result_converted{'latex_text'}->{'line_breaks'} = '
+\\begin{document}
 {\\raggedright {\\huge \\bfseries AWK As A Major Systems Programming \\leavevmode{}\\\\ Language---Revisited}}
 \\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt
 

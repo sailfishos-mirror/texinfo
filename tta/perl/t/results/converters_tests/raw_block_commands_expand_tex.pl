@@ -7,89 +7,91 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'raw_block_commands_expand_tex'} = '*document_root C1
- *before_node_section C10
-  {empty_line:\\n}
-  *@html C3 l2
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *rawpreformatted C1
-    {<blink>html</blink> ``}\\n}
-   *@end C1 l4
-   |EXTRA
-   |text_arg:{html}
-    *line_arg C3
-     {spaces_before_argument: }
-     {html}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@xml C3 l6
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *rawpreformatted C1
-    {<para>xml</para> ``}\\n}
-   *@end C1 l8
-   |EXTRA
-   |text_arg:{xml}
-    *line_arg C3
-     {spaces_before_argument: }
-     {xml}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@docbook C3 l10
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *rawpreformatted C1
-    {<emphasis>docbook</emphasis> ``}\\n}
-   *@end C1 l12
-   |EXTRA
-   |text_arg:{docbook}
-    *line_arg C3
-     {spaces_before_argument: }
-     {docbook}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@tex C3 l14
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *rawpreformatted C3
-    {$\\underline{a < b }
-    *@code C1 l15
-     *brace_container C2
-      {tex \\hbox}
-      *balanced_braces C1 l15
-       {{ code }}
-    {}$ ``\\n}
-   *@end C1 l16
-   |EXTRA
-   |text_arg:{tex}
-    *line_arg C3
-     {spaces_before_argument: }
-     {tex}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@latex C3 l18
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *rawpreformatted C3
-    {$\\frac{a < b }
-    *@code C1 l19
-     *brace_container C2
-      {tex \\hbox}
-      *balanced_braces C1 l19
-       {{ code }}
-    {}{b}$ ``\\n}
-   *@end C1 l20
-   |EXTRA
-   |text_arg:{latex}
-    *line_arg C3
-     {spaces_before_argument: }
-     {latex}
-     {spaces_after_argument:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C9
+   *@html C3 l2
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *rawpreformatted C1
+     {<blink>html</blink> ``}\\n}
+    *@end C1 l4
+    |EXTRA
+    |text_arg:{html}
+     *line_arg C3
+      {spaces_before_argument: }
+      {html}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@xml C3 l6
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *rawpreformatted C1
+     {<para>xml</para> ``}\\n}
+    *@end C1 l8
+    |EXTRA
+    |text_arg:{xml}
+     *line_arg C3
+      {spaces_before_argument: }
+      {xml}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@docbook C3 l10
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *rawpreformatted C1
+     {<emphasis>docbook</emphasis> ``}\\n}
+    *@end C1 l12
+    |EXTRA
+    |text_arg:{docbook}
+     *line_arg C3
+      {spaces_before_argument: }
+      {docbook}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@tex C3 l14
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *rawpreformatted C3
+     {$\\underline{a < b }
+     *@code C1 l15
+      *brace_container C2
+       {tex \\hbox}
+       *balanced_braces C1 l15
+        {{ code }}
+     {}$ ``\\n}
+    *@end C1 l16
+    |EXTRA
+    |text_arg:{tex}
+     *line_arg C3
+      {spaces_before_argument: }
+      {tex}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@latex C3 l18
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *rawpreformatted C3
+     {$\\frac{a < b }
+     *@code C1 l19
+      *brace_container C2
+       {tex \\hbox}
+       *balanced_braces C1 l19
+        {{ code }}
+     {}{b}$ ``\\n}
+    *@end C1 l20
+    |EXTRA
+    |text_arg:{latex}
+     *line_arg C3
+      {spaces_before_argument: }
+      {latex}
+      {spaces_after_argument:\\n}
 ';
 
 
@@ -116,8 +118,7 @@ $\\frac{a < b @code{tex \\hbox{ code }}}{b}$ ``
 ';
 
 
-$result_texts{'raw_block_commands_expand_tex'} = '
-<blink>html</blink> ``}
+$result_texts{'raw_block_commands_expand_tex'} = '<blink>html</blink> ``}
 
 <para>xml</para> ``}
 
@@ -150,7 +151,6 @@ $result_converted{'plaintext'}->{'raw_block_commands_expand_tex'} = '$\\underlin
 $result_converted{'html_text'}->{'raw_block_commands_expand_tex'} = '
 
 
-
 $\\underline{a &lt; b &lt;code class=&quot;code&quot;&gt;tex \\hbox{ code }&lt;/code&gt;}$ ``
 
 ';
@@ -161,8 +161,8 @@ $result_converted_errors{'html_text'}->{'raw_block_commands_expand_tex'} = '* W 
 ';
 
 
-$result_converted{'xml'}->{'raw_block_commands_expand_tex'} = '
-<html endspaces=" ">
+$result_converted{'xml'}->{'raw_block_commands_expand_tex'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><html endspaces=" ">
 &lt;blink&gt;html&lt;/blink&gt; &textldquo;}
 </html>
 
@@ -185,7 +185,6 @@ $\\frac{a &lt; b <code>tex \\hbox{ code }</code>}{b}$ &textldquo;
 $result_converted{'docbook'}->{'raw_block_commands_expand_tex'} = '
 
 
-
 $\\underline{a < b <literal>tex \\hbox{ code }</literal>}$ ``
 
 ';
@@ -194,9 +193,9 @@ $\\underline{a < b <literal>tex \\hbox{ code }</literal>}$ ``
 $result_converted{'latex_text'}->{'raw_block_commands_expand_tex'} = '
 
 
-
 $\\underline{a < b \\texttt{tex \\hbox{ code }}}$ ``
 
+\\begin{document}
 ';
 
 1;

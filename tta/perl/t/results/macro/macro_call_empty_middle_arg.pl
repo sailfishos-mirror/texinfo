@@ -7,24 +7,25 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_call_empty_middle_arg'} = '*document_root C1
- *before_node_section C7
-  *@macro C5 l1
-  |EXTRA
-  |formal_args:A{aa|bb|cc}
-  |macro_name:{threea}
-   *arguments_line C1
-    {macro_line: threea {aa, bb, cc}\\n}
-   {raw:first \\aa\\,\\n}
-   {raw:second \\bb\\,\\n}
-   {raw:third \\cc\\,\\n}
-   *@end C1 l5
+ *before_node_section C6
+  *preamble_before_content C2
+   *@macro C5 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{aa|bb|cc}
+   |macro_name:{threea}
+    *arguments_line C1
+     {macro_line: threea {aa, bb, cc}\\n}
+    {raw:first \\aa\\,\\n}
+    {raw:second \\bb\\,\\n}
+    {raw:third \\cc\\,\\n}
+    *@end C1 l5
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C3
    {first j,\\n}
    >SOURCEMARKS

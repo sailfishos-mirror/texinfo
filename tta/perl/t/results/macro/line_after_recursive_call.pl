@@ -8,22 +8,23 @@ use utf8;
 
 $result_tree_text{'line_after_recursive_call'} = '*document_root C1
  *before_node_section C2
-  *@macro C5 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{mac}
-   *arguments_line C1
-    {macro_line: mac\\n}
-   {raw:ggg\\n}
-   {raw:@mac xxx\\n}
-   {raw:fff\\n}
-   *@end C1 l5
+  *preamble_before_content C1
+   *@macro C5 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
+   |formal_args:A{}
+   |macro_name:{mac}
+    *arguments_line C1
+     {macro_line: mac\\n}
+    {raw:ggg\\n}
+    {raw:@mac xxx\\n}
+    {raw:fff\\n}
+    *@end C1 l5
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
   *paragraph C3
    {ggg\\n}
    >SOURCEMARKS

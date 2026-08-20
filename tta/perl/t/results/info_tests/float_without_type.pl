@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'float_without_type'} = '*document_root C2
- *before_node_section C1
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
  *@node C5 l2 {Top}
  |EXTRA
  |identifier:{Top}
@@ -63,7 +65,6 @@ aa
 
 
 $result_texts{'float_without_type'} = '
-
 a
 aa
 

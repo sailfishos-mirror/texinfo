@@ -7,43 +7,44 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_expansion_end_in_conditional_end'} = '*document_root C1
- *before_node_section C5
-  *@macro C5 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{beginendcond}
-   *arguments_line C1
-    {macro_line: beginendcond\\n}
-   {raw:@ifset flag\\n}
-   {raw:Defined\\n}
-   {raw:@end if\\n}
-   *@end C1 l5
+ *before_node_section C2
+  *preamble_before_content C4
+   *@macro C5 l1
    |EXTRA
-   |text_arg:{macro}
+   |formal_args:A{}
+   |macro_name:{beginendcond}
+    *arguments_line C1
+     {macro_line: beginendcond\\n}
+    {raw:@ifset flag\\n}
+    {raw:Defined\\n}
+    {raw:@end if\\n}
+    *@end C1 l5
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@set C1
+   |EXTRA
+   |misc_args:A{flag|1}
     *line_arg C3
      {spaces_before_argument: }
-     {macro}
+     {rawline_text:flag 1}
      {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@set C1
-  |EXTRA
-  |misc_args:A{flag|1}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:flag 1}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >macro_expansion<start;1><p:1>
-   >*macro_call@beginendcond C1
-    >*brace_arg
-  >expanded_conditional_command<start;1><p:1>
-   >*@ifset C1 l9:@beginendcond
-    >*arguments_line C1
-     >*block_line_arg C3
-      >{spaces_before_argument: }
-      >{flag}
-      >{spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1><p:1>
+    >*macro_call@beginendcond C1
+     >*brace_arg
+   >expanded_conditional_command<start;1><p:1>
+    >*@ifset C1 l9:@beginendcond
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >{flag}
+       >{spaces_after_argument:\\n}
   *paragraph C1
    {Defined\\n}
    >SOURCEMARKS

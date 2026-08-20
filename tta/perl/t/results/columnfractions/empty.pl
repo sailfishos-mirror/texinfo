@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'empty'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *@multitable C2 l1
   |EXTRA
   |max_columns:{0}
@@ -53,7 +54,8 @@ $result_converted{'xml'}->{'empty'} = '<multitable endspaces=" "><columnfraction
 </multitable>';
 
 
-$result_converted{'latex_text'}->{'empty'} = '\\begin{tabular}{}%
+$result_converted{'latex_text'}->{'empty'} = '\\begin{document}
+\\begin{tabular}{}%
 \\end{tabular}%
 ';
 

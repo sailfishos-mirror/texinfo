@@ -7,27 +7,28 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'redefine_texinfo_macro'} = '*document_root C1
- *before_node_section C3
-  *@macro C3 l1
-  |EXTRA
-  |formal_args:A{arg}
-  |macro_name:{code}
-   *arguments_line C1
-    {macro_line: code{arg}\\n}
-   {raw:@emph{\\arg\\}\\n}
-   *@end C1 l3
+ *before_node_section C2
+  *preamble_before_content C2
+   *@macro C3 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >macro_expansion<start;1><p:1>
-   >*macro_call@code C1
-    >*brace_arg C1
-     >{macro_call_arg_text:code}
+   |formal_args:A{arg}
+   |macro_name:{code}
+    *arguments_line C1
+     {macro_line: code{arg}\\n}
+    {raw:@emph{\\arg\\}\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1><p:1>
+    >*macro_call@code C1
+     >*brace_arg C1
+      >{macro_call_arg_text:code}
   *paragraph C2
    *@emph C1 l5:@code
    >SOURCEMARKS

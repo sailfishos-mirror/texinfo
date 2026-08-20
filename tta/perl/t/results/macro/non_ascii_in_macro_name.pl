@@ -7,21 +7,22 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'non_ascii_in_macro_name'} = '*document_root C1
- *before_node_section C3
-  *@macro C3 l1
-  |EXTRA
-  |invalid_syntax:{1}
-   *arguments_line C1
-    {macro_line: parenbrève {a}\\n}
-   {raw:(@`{\\a\\})\\n}
-   *@end C1 l3
+ *before_node_section C2
+  *preamble_before_content C2
+   *@macro C3 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |invalid_syntax:{1}
+    *arguments_line C1
+     {macro_line: parenbrève {a}\\n}
+    {raw:(@`{\\a\\})\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C1
    {èvee\\n}
 ';

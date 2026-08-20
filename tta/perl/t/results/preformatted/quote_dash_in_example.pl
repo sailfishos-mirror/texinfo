@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'quote_dash_in_example'} = '*document_root C1
- *before_node_section C2
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *@example C3 l2
    *arguments_line C1
     *block_line_arg C1
@@ -34,8 +36,7 @@ and now -- yes---now and ``so\'\'.
 ';
 
 
-$result_texts{'quote_dash_in_example'} = '
-and now -- yes---now and ``so\'\'.
+$result_texts{'quote_dash_in_example'} = 'and now -- yes---now and ``so\'\'.
 
 ';
 
@@ -76,7 +77,6 @@ div.example {margin-left: 3.2em}
 </head>
 
 <body>
-
 <div class="example">
 <pre class="example-preformatted">and now -- yes---now and ``so\'\'.
 
@@ -94,21 +94,20 @@ $result_converted_errors{'html'}->{'quote_dash_in_example'} = '* W |must specify
 ';
 
 
-$result_converted{'docbook'}->{'quote_dash_in_example'} = '
-<screen>and now -- yes---now and ``so\'\'.
+$result_converted{'docbook'}->{'quote_dash_in_example'} = '<screen>and now -- yes---now and ``so\'\'.
 
 </screen>';
 
 
-$result_converted{'xml'}->{'quote_dash_in_example'} = '
-<example endspaces=" ">
+$result_converted{'xml'}->{'quote_dash_in_example'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><example endspaces=" ">
 <pre xml:space="preserve">and now -- yes---now and ``so\'\'.
 
 </pre></example>
 ';
 
 
-$result_converted{'latex_text'}->{'quote_dash_in_example'} = '
+$result_converted{'latex_text'}->{'quote_dash_in_example'} = '\\begin{document}
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
 \\ttfamily and now {-}{-} yes{-}{-}{-}now and {`}{`}so{\'}{\'}.

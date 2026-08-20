@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'raw_in_para'} = '*document_root C1
- *before_node_section C8
+ *before_node_section C9
+  *preamble_before_content
   *paragraph C1
    {para\\n}
   *@verbatim C3 l2

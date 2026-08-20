@@ -8,19 +8,20 @@ use utf8;
 
 $result_tree_text{'empty_end'} = '*document_root C1
  *before_node_section C1
-  *@macro C3 l1
-  |EXTRA
-  |formal_args:A{aaa}
-  |macro_name:{foo}
-   *arguments_line C1
-    {macro_line: foo {aaa, }\\n}
-   {raw:in foo\\n}
-   *@end C1 l3
+  *preamble_before_content C1
+   *@macro C3 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C2
-     {spaces_before_argument: }
-     {macro}
+   |formal_args:A{aaa}
+   |macro_name:{foo}
+    *arguments_line C1
+     {macro_line: foo {aaa, }\\n}
+    {raw:in foo\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C2
+      {spaces_before_argument: }
+      {macro}
 ';
 
 

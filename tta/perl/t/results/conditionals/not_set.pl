@@ -8,25 +8,26 @@ use utf8;
 
 $result_tree_text{'not_set'} = '*document_root C1
  *before_node_section C1
-  {}
-  >SOURCEMARKS
-  >ignored_conditional_block<1>
-   >*@ifset C5 l1
-    >*arguments_line C1
-     >*block_line_arg C3
-      >{spaces_before_argument: }
-      >{a}
-      >{spaces_after_argument:\\n}
-    >{raw:\\n}
-    >{raw:Flag a is set.\\n}
-    >{raw:\\n}
-    >*@end C1 l5
-    >|EXTRA
-    >|text_arg:{ifset}
-     >*line_arg C3
-      >{spaces_before_argument: }
-      >{ifset}
-      >{spaces_after_argument:\\n}
+  *preamble_before_content C1
+   {}
+   >SOURCEMARKS
+   >ignored_conditional_block<1>
+    >*@ifset C5 l1
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >{a}
+       >{spaces_after_argument:\\n}
+     >{raw:\\n}
+     >{raw:Flag a is set.\\n}
+     >{raw:\\n}
+     >*@end C1 l5
+     >|EXTRA
+     >|text_arg:{ifset}
+      >*line_arg C3
+       >{spaces_before_argument: }
+       >{ifset}
+       >{spaces_after_argument:\\n}
 ';
 
 

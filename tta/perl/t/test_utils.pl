@@ -929,16 +929,9 @@ sub test($$)
                               \%Texinfo::Commands::index_names);
   my $document;
   if (!$test_file) {
-    if ($full_document) {
-      print STDERR "  TEST FULL $test_name\n" if ($debug);
-      $document = $parser->parse_texi_text($test_text);
-    } else {
-      print STDERR "  TEST $test_name\n" if ($debug);
-      $document = $parser->parse_texi_piece($test_text);
-      if (defined($test_input_file_name)) {
-        warn "ERROR: $self->{'name'}: $test_name: piece of texi with a file name\n";
-      }
-    }
+    print STDERR "  TEST $test_name\n" if ($debug);
+    $document = $parser->parse_texi_text($test_text);
+
     if (defined($test_input_file_name)) {
       # argument should be byte strings.  In most if not all cases,
       # 'test_input_file_name' is based on $test_name.  $test_name should

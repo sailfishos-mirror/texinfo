@@ -8,11 +8,13 @@ use utf8;
 
 $result_tree_text{'empty_copying_not_ended'} = '*document_root C1
  *before_node_section C2
-  {empty_line:\\n}
-  *@copying C1 l2
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C1
+   *@copying C1 l2
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
 ';
 
 
@@ -21,8 +23,7 @@ $result_texis{'empty_copying_not_ended'} = '
 ';
 
 
-$result_texts{'empty_copying_not_ended'} = '
-';
+$result_texts{'empty_copying_not_ended'} = '';
 
 $result_errors{'empty_copying_not_ended'} = '* E l2|no matching `@end copying\'
  no matching `@end copying\'

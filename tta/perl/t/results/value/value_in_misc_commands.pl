@@ -7,15 +7,16 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'value_in_misc_commands'} = '*document_root C5
- *before_node_section C2
-  *@set C1
-  |EXTRA
-  |misc_args:A{text|atext}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:text atext}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C1
+  *preamble_before_content C2
+   *@set C1
+   |EXTRA
+   |misc_args:A{text|atext}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:text atext}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
  *@node C1 l3 {Top}
  |EXTRA
  |identifier:{Top}

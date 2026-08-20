@@ -8,15 +8,16 @@ use utf8;
 
 $result_tree_text{'node_in_copying_not_closed'} = '*document_root C3
  *before_node_section C1
-  *@copying C5 l1
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   {empty_line:\\n}
-   *paragraph C1
-    {This is an unterminatted copyright notice\\n}
-   {empty_line:\\n}
-   {empty_line:\\n}
+  *preamble_before_content C1
+   *@copying C5 l1
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    {empty_line:\\n}
+    *paragraph C1
+     {This is an unterminatted copyright notice\\n}
+    {empty_line:\\n}
+    {empty_line:\\n}
  *@node C1 l6 {Top}
  |EXTRA
  |identifier:{Top}

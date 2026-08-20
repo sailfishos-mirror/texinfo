@@ -7,18 +7,19 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
- *before_node_section C2
-  *@settitle C1 l1
-   *line_arg C4
-    {spaces_before_argument: }
-    {Settitle }
-    *@ 
-    *@c C1
-     *line_arg C3
-      {spaces_before_argument: }
-      {rawline_text:settittle}
-      {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C1
+  *preamble_before_content C2
+   *@settitle C1 l1
+    *line_arg C4
+     {spaces_before_argument: }
+     {Settitle }
+     *@ 
+     *@c C1
+      *line_arg C3
+       {spaces_before_argument: }
+       {rawline_text:settittle}
+       {spaces_after_argument:\\n}
+   {empty_line:\\n}
  *@node C1 l3 {Top}
  |EXTRA
  |identifier:{Top}
@@ -462,6 +463,7 @@ $result_converted{'latex'}->{'comment_space_command_on_line'} = '\\documentclass
 \\pagestyle{single}%
 
 
+\\begin{document}
 \\label{anchor:Top}%
 \\Texinfochapter{{Chapter\\ {}}}
 \\label{anchor:chap}%

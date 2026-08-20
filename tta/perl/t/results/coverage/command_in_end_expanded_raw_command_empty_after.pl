@@ -8,21 +8,22 @@ use utf8;
 
 $result_tree_text{'command_in_end_expanded_raw_command_empty_after'} = '*document_root C1
  *before_node_section C1
-  *@tex C3 l1
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *rawpreformatted C1
-    {In TeX\\n}
-   *@end C1 l3
-   |EXTRA
-   |text_arg:{tex}
-    *line_arg C4
-     {spaces_before_argument: }
-     {tex}
-     *@asis C1 l3
-      *brace_container
-     {spaces_after_argument:\\n}
+  *preamble_before_content C1
+   *@tex C3 l1
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *rawpreformatted C1
+     {In TeX\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{tex}
+     *line_arg C4
+      {spaces_before_argument: }
+      {tex}
+      *@asis C1 l3
+       *brace_container
+      {spaces_after_argument:\\n}
 ';
 
 

@@ -13,7 +13,8 @@ This: [U0]
 Forward: [U1]
 FastForward: [U1]
 Next: [U5]
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@top C2 l1 {top}
  |EXTRA
  |identifier:{Top}

@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'flushright_example_nested'} = '*document_root C1
- *before_node_section C3
+ *before_node_section C4
+  *preamble_before_content
   *@example C3 l1
    *arguments_line C1
     *block_line_arg C1
@@ -137,7 +138,8 @@ flush then example
 ';
 
 
-$result_converted{'latex_text'}->{'flushright_example_nested'} = '\\begin{Texinfoindented}
+$result_converted{'latex_text'}->{'flushright_example_nested'} = '\\begin{document}
+\\begin{Texinfoindented}
 \\begin{flushright}
 \\begin{Texinfopreformatted}%
 \\begin{Texinfopreformatted}%

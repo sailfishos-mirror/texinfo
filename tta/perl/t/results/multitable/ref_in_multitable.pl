@@ -7,11 +7,12 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'ref_in_multitable'} = '*document_root C1
- *before_node_section C7
-  *@novalidate C1 l1
-   *line_arg C1
-    {spaces_before_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C6
+  *preamble_before_content C2
+   *@novalidate C1 l1
+    *line_arg C1
+     {spaces_before_argument:\\n}
+   {empty_line:\\n}
   *paragraph C2
    *@ref C1 l3
     *brace_arg C2

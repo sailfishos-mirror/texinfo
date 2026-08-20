@@ -7,29 +7,30 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'value_in_invalid_documentencoding'} = '*document_root C1
- *before_node_section C2
-  *@set C1
-  |EXTRA
-  |misc_args:A{badvalue|bad}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:badvalue bad}
-    {spaces_after_argument:\\n}
-  *@documentencoding C1 l2
-  |EXTRA
-  |global_command_number:{1}
-  |text_arg:{bad}
-   *line_arg C3
-    {spaces_before_argument: }
-    >SOURCEMARKS
-    >value_expansion<start;1><p:1>{bad}
-     >*@value C1
-      >*brace_container C1
-       >{badvalue}
-    {bad}
-    >SOURCEMARKS
-    >value_expansion<end;1><p:3>
-    {spaces_after_argument:\\n}
+ *before_node_section C1
+  *preamble_before_content C2
+   *@set C1
+   |EXTRA
+   |misc_args:A{badvalue|bad}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:badvalue bad}
+     {spaces_after_argument:\\n}
+   *@documentencoding C1 l2
+   |EXTRA
+   |global_command_number:{1}
+   |text_arg:{bad}
+    *line_arg C3
+     {spaces_before_argument: }
+     >SOURCEMARKS
+     >value_expansion<start;1><p:1>{bad}
+      >*@value C1
+       >*brace_container C1
+        >{badvalue}
+     {bad}
+     >SOURCEMARKS
+     >value_expansion<end;1><p:3>
+     {spaces_after_argument:\\n}
 ';
 
 

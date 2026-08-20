@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'inline_commands'} = '*document_root C1
- *before_node_section C5
+ *before_node_section C6
+  *preamble_before_content
   *paragraph C4
    *@inlineraw C2 l1
    |EXTRA

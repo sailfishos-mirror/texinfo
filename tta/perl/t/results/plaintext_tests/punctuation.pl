@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'punctuation'} = '*document_root C1
- *before_node_section C12
-  {empty_line:\\n}
+ *before_node_section C13
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C1
    {Dot. Exclam! Question? Dot.  Exclam!  Question?  GAAA.\\n}
   {empty_line:\\n}
@@ -66,8 +68,7 @@ End.
 ';
 
 
-$result_texts{'punctuation'} = '
-Dot. Exclam! Question? Dot.  Exclam!  Question?  GAAA.
+$result_texts{'punctuation'} = 'Dot. Exclam! Question? Dot.  Exclam!  Question?  GAAA.
 
 End of lines Dot.
 Exclam!

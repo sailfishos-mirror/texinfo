@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'one_argument_leading_trailing_spaces'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C30
    *@code C1 l1
     *brace_container C1
@@ -126,7 +127,8 @@ $result_converted{'html_text'}->{'one_argument_leading_trailing_spaces'} = '<p><
 </p>';
 
 
-$result_converted{'latex_text'}->{'one_argument_leading_trailing_spaces'} = '\\texttt{\\ in code } \\textsl{ in slanted } \\Texinfocommandstyletextvar{ var } \\textsubscript{ sub }
+$result_converted{'latex_text'}->{'one_argument_leading_trailing_spaces'} = '\\begin{document}
+\\texttt{\\ in code } \\textsl{ in slanted } \\Texinfocommandstyletextvar{ var } \\textsubscript{ sub }
 \\hyphenation{a-b c-d}`\\texttt{\\ http://example.com }\' ሴ \\hbox{ w } \\verb: verb :.
 \\^{ e } \\r{ a }  i  \\t{ bb }
 \\aa{} \\dots{}

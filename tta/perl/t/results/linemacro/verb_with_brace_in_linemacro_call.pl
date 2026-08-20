@@ -7,34 +7,35 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'verb_with_brace_in_linemacro_call'} = '*document_root C1
- *before_node_section C4
-  *@linemacro C3 l1
-  |EXTRA
-  |formal_args:A{a|b|c}
-  |macro_name:{mycommand}
-   *arguments_line C1
-    {macro_line: mycommand {a, b, c}\\n}
-   {raw:\\a\\, \\b\\ \\c\\\\n}
-   *@end C1 l3
+ *before_node_section C3
+  *preamble_before_content C2
+   *@linemacro C3 l1
    |EXTRA
-   |text_arg:{linemacro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {linemacro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >linemacro_expansion<start;1><p:1>
-   >*linemacro_call@mycommand C3
-    >*linemacro_arg C2
-     >{spaces_before_argument: }
-     >{macro_call_arg_text:@verb{: in }}
-    >*linemacro_arg C2
-     >{spaces_before_argument: }
-     >{macro_call_arg_text:verb}
-    >*linemacro_arg C2
-     >{spaces_before_argument: }
-     >{macro_call_arg_text::} other last}
+   |formal_args:A{a|b|c}
+   |macro_name:{mycommand}
+    *arguments_line C1
+     {macro_line: mycommand {a, b, c}\\n}
+    {raw:\\a\\, \\b\\ \\c\\\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{linemacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {linemacro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >linemacro_expansion<start;1><p:1>
+    >*linemacro_call@mycommand C3
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
+      >{macro_call_arg_text:@verb{: in }}
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
+      >{macro_call_arg_text:verb}
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
+      >{macro_call_arg_text::} other last}
   *paragraph C2
    *@verb C1 l5:@mycommand
    |INFO

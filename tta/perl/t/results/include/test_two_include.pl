@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'test_two_include'} = '*document_root C1
- *before_node_section C9
+ *before_node_section C10
+  *preamble_before_content
   *paragraph C5
    {Include version\\n}
    >SOURCEMARKS

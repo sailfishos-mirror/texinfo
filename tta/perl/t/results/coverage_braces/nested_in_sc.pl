@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'nested_in_sc'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C2
    *@sc C1 l1
     *brace_container C1
@@ -93,7 +94,8 @@ $result_converted{'html_text'}->{'nested_in_sc'} = '<p><small class="sc"><small 
 ';
 
 
-$result_converted{'latex_text'}->{'nested_in_sc'} = '\\textsc{\\textsc{aaa \\~{n} \\aa{} \\TeX{} \\~{\\aa{}} \\footnote{In footnote}, ABr (expl), 
+$result_converted{'latex_text'}->{'nested_in_sc'} = '\\begin{document}
+\\textsc{\\textsc{aaa \\~{n} \\aa{} \\TeX{} \\~{\\aa{}} \\footnote{In footnote}, ABr (expl), 
 \\verb:in verb:}}
 ';
 

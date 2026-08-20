@@ -7,17 +7,18 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'paragraph_indent_asis'} = '*document_root C1
- *before_node_section C7
-  *@paragraphindent C1 l1
-  |EXTRA
-  |global_command_number:{1}
-  |misc_args:A{asis}
-   *line_arg C3
-    {spaces_before_argument: }
-    {asis}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  {spaces_before_paragraph:  }
+ *before_node_section C5
+  *preamble_before_content C3
+   *@paragraphindent C1 l1
+   |EXTRA
+   |global_command_number:{1}
+   |misc_args:A{asis}
+    *line_arg C3
+     {spaces_before_argument: }
+     {asis}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   {spaces_before_paragraph:  }
   *paragraph C2
    {para\\n}
    {  fff\\n}

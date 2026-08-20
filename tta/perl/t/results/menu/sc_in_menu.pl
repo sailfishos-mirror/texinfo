@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'sc_in_menu'} = '*document_root C3
- *before_node_section C1
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
  *@node C4 l2 {first}
  |EXTRA
  |identifier:{first}
@@ -191,7 +193,6 @@ $result_texis{'sc_in_menu'} = '
 
 
 $result_texts{'sc_in_menu'} = '
-
 * VALUE:NODE.   DESCRIP TION
 
 MENU COMMENT
@@ -279,7 +280,6 @@ th.menu-comment {text-align:left}
 </head>
 
 <body>
-
 <h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 <table class="menu">
@@ -323,8 +323,8 @@ $result_converted_errors{'html'}->{'sc_in_menu'} = '* W |must specify a title wi
 ';
 
 
-$result_converted{'xml'}->{'sc_in_menu'} = '
-<node identifier="first"><nodename> first</nodename></node>
+$result_converted{'xml'}->{'sc_in_menu'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><node identifier="first"><nodename> first</nodename></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menutitle><sc>value</sc></menutitle><menuseparator>:</menuseparator><menunode><sc>node</sc></menunode><menuseparator>.   </menuseparator><menudescription><pre xml:space="preserve"><sc>descrip tion</sc>

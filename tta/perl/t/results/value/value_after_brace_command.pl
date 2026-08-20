@@ -7,22 +7,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'value_after_brace_command'} = '*document_root C1
- *before_node_section C4
-  *@set C1
-  |EXTRA
-  |misc_args:A{bracedletter|{a}}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:bracedletter {a}}
-    {spaces_after_argument:\\n}
-  *@set C1
-  |EXTRA
-  |misc_args:A{unknowncmd|@unknown}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:unknowncmd @unknown}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_content C3
+   *@set C1
+   |EXTRA
+   |misc_args:A{bracedletter|{a}}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:bracedletter {a}}
+     {spaces_after_argument:\\n}
+   *@set C1
+   |EXTRA
+   |misc_args:A{unknowncmd|@unknown}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:unknowncmd @unknown}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C12
    *@ringaccent C1 l4
    |INFO

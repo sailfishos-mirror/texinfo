@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'footnote_in_ref'} = '*document_root C2
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C3 l1 {first}
  |EXTRA
  |identifier:{first}

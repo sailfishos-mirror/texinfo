@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'math'} = '*document_root C1
- *before_node_section C10
+ *before_node_section C11
+  *preamble_before_content
   *paragraph C3
    {Simple math\\n}
    *@math C1 l2
@@ -179,7 +180,8 @@ $result_converted{'xml'}->{'math'} = '<para>Simple math
 ';
 
 
-$result_converted{'latex_text'}->{'math'} = 'Simple math
+$result_converted{'latex_text'}->{'math'} = '\\begin{document}
+Simple math
 $--{x^i}\\over{\\tan y}$
 
 Math with @-command

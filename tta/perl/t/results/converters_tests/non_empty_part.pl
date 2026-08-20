@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'non_empty_part'} = '*document_root C16
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@part C4 l1 {part before}
  |EXTRA
  |global_command_number:{1}
@@ -751,7 +752,8 @@ $result_converted{'docbook'}->{'non_empty_part'} = '<part label="">
 ';
 
 
-$result_converted{'latex_text'}->{'non_empty_part'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'non_empty_part'} = '\\begin{document}
+\\label{anchor:Top}%
 \\Texinfounnumberedpart{{part I}}
 
 Content I

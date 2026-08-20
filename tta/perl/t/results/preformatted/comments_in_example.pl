@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'comments_in_example'} = '*document_root C1
- *before_node_section C8
+ *before_node_section C9
+  *preamble_before_content
   *paragraph C1
    {Example with comments 2 lines\\n}
   *@example C3 l2
@@ -214,7 +215,8 @@ second line
 ';
 
 
-$result_converted{'latex_text'}->{'comments_in_example'} = 'Example with comments 2 lines
+$result_converted{'latex_text'}->{'comments_in_example'} = '\\begin{document}
+Example with comments 2 lines
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
 \\ttfamily line second line \\end{Texinfopreformatted}

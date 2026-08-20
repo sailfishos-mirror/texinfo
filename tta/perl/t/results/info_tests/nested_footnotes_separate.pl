@@ -8,13 +8,14 @@ use utf8;
 
 $result_tree_text{'nested_footnotes_separate'} = '*document_root C2
  *before_node_section C1
-  *@footnotestyle C1 l1
-  |EXTRA
-  |misc_args:A{separate}
-   *line_arg C3
-    {spaces_before_argument: }
-    {separate}
-    {spaces_after_argument:\\n}
+  *preamble_before_content C1
+   *@footnotestyle C1 l1
+   |EXTRA
+   |misc_args:A{separate}
+    *line_arg C3
+     {spaces_before_argument: }
+     {separate}
+     {spaces_after_argument:\\n}
  *@node C3 l2 {Top}
  |EXTRA
  |identifier:{Top}

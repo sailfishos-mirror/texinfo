@@ -7,28 +7,29 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'leading_spaces_no_ignore'} = '*document_root C1
- *before_node_section C4
-  *@macro C4 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{mymacro}
-   *arguments_line C1
-    {macro_line: mymacro\\n}
-   {raw:  Some  here\\n}
-   {raw:  text\\n}
-   *@end C1 l4
+ *before_node_section C2
+  *preamble_before_content C3
+   *@macro C4 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  {spaces_before_paragraph:  }
-  >SOURCEMARKS
-  >macro_expansion<start;1>
-   >*macro_call@mymacro C1
-    >*brace_arg
+   |formal_args:A{}
+   |macro_name:{mymacro}
+    *arguments_line C1
+     {macro_line: mymacro\\n}
+    {raw:  Some  here\\n}
+    {raw:  text\\n}
+    *@end C1 l4
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   {spaces_before_paragraph:  }
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call@mymacro C1
+     >*brace_arg
   *paragraph C2
    {Some  here\\n}
    {  text\\n}

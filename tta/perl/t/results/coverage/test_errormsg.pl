@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'test_errormsg'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C5
    {Some text\\n}
    *@errormsg C1 l2
@@ -74,7 +75,8 @@ $result_converted{'xml'}->{'test_errormsg'} = '<para>Some text
 </para>';
 
 
-$result_converted{'latex_text'}->{'test_errormsg'} = 'Some text
+$result_converted{'latex_text'}->{'test_errormsg'} = '\\begin{document}
+Some text
 
 
 ';

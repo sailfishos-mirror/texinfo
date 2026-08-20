@@ -7,11 +7,12 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'equivalent_nodes_novalidate'} = '*document_root C3
- *before_node_section C2
-  *@novalidate C1 l1
-   *line_arg C1
-    {spaces_before_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C1
+  *preamble_before_content C2
+   *@novalidate C1 l1
+    *line_arg C1
+     {spaces_before_argument:\\n}
+   {empty_line:\\n}
  *@node C4 l3 {first}
  |EXTRA
  |identifier:{first}

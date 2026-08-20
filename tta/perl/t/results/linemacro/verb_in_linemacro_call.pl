@@ -7,25 +7,26 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
- *before_node_section C3
-  *@linemacro C6 l1
-  |EXTRA
-  |formal_args:A{a|b|c|d}
-  |macro_name:{mycommand}
-   *arguments_line C1
-    {macro_line: mycommand {a, b, c, d}\\n}
-   {raw:first \\a\\\\n}
-   {raw:second \\b\\\\n}
-   {raw:third \\c\\\\n}
-   {raw:@defline \\a\\ \\d\\\\n}
-   *@end C1 l6
+ *before_node_section C2
+  *preamble_before_content C2
+   *@linemacro C6 l1
    |EXTRA
-   |text_arg:{linemacro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {linemacro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{a|b|c|d}
+   |macro_name:{mycommand}
+    *arguments_line C1
+     {macro_line: mycommand {a, b, c, d}\\n}
+    {raw:first \\a\\\\n}
+    {raw:second \\b\\\\n}
+    {raw:third \\c\\\\n}
+    {raw:@defline \\a\\ \\d\\\\n}
+    *@end C1 l6
+    |EXTRA
+    |text_arg:{linemacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {linemacro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *@defblock C4 l8
    *arguments_line C1
     *block_line_arg C1

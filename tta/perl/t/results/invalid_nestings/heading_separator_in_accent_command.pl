@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'heading_separator_in_accent_command'} = '*document_root C1
- *before_node_section C3
+ *before_node_section C4
+  *preamble_before_content
   *paragraph C2
    *@, C1 l1
     *brace_container C1

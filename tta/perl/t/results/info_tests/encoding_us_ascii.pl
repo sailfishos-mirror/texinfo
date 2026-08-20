@@ -7,18 +7,20 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'encoding_us_ascii'} = '*document_root C2
- *before_node_section C3
-  {empty_line:\\n}
-  *@documentencoding C1 l2
-  |EXTRA
-  |global_command_number:{1}
-  |input_encoding_name:{us-ascii}
-  |text_arg:{US-ASCII}
-   *line_arg C3
-    {spaces_before_argument: }
-    {US-ASCII}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@documentencoding C1 l2
+   |EXTRA
+   |global_command_number:{1}
+   |input_encoding_name:{us-ascii}
+   |text_arg:{US-ASCII}
+    *line_arg C3
+     {spaces_before_argument: }
+     {US-ASCII}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
  *@node C2 l4 {Top}
  |EXTRA
  |identifier:{Top}
@@ -42,7 +44,6 @@ $result_texis{'encoding_us_ascii'} = '
 
 
 $result_texts{'encoding_us_ascii'} = '
-
 
 ';
 

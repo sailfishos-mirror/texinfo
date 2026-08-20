@@ -7,21 +7,22 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_in_empty_multitable_empty_before_item'} = '*document_root C1
- *before_node_section C3
-  *@macro C2 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{emptymacro}
-   *arguments_line C1
-    {macro_line: emptymacro\\n}
-   *@end C1 l2
+ *before_node_section C2
+  *preamble_before_content C2
+   *@macro C2 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{}
+   |macro_name:{emptymacro}
+    *arguments_line C1
+     {macro_line: emptymacro\\n}
+    *@end C1 l2
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *@multitable C3 l4
   |EXTRA
   |max_columns:{3}

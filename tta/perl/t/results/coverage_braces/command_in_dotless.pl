@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'command_in_dotless'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C1
    *@dotless C1 l1
     *brace_container C1
@@ -46,7 +47,8 @@ $result_converted{'plaintext'}->{'command_in_dotless'} = 'ı
 $result_converted{'html_text'}->{'command_in_dotless'} = '<p><code class="code">i</code></p>';
 
 
-$result_converted{'latex_text'}->{'command_in_dotless'} = '\\textbackslash{}texttt\\{i\\}';
+$result_converted{'latex_text'}->{'command_in_dotless'} = '\\begin{document}
+\\textbackslash{}texttt\\{i\\}';
 
 
 $result_converted{'docbook'}->{'command_in_dotless'} = '<para><literal>i</literal></para>';

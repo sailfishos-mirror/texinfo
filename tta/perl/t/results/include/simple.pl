@@ -8,16 +8,17 @@ use utf8;
 
 $result_tree_text{'simple'} = '*document_root C1
  *before_node_section C2
-  {}
-  >SOURCEMARKS
-  >include<start;1>
-   >*@include C1 l1
-   >|EXTRA
-   >|text_arg:{inc_file.texi}
-    >*line_arg C3
-     >{spaces_before_argument: }
-     >{inc_file.texi}
-     >{spaces_after_argument:\\n}
+  *preamble_before_content C1
+   {}
+   >SOURCEMARKS
+   >include<start;1>
+    >*@include C1 l1
+    >|EXTRA
+    >|text_arg:{inc_file.texi}
+     >*line_arg C3
+      >{spaces_before_argument: }
+      >{inc_file.texi}
+      >{spaces_after_argument:\\n}
   *paragraph C1
    {In included file.\\n}
    >SOURCEMARKS
@@ -107,7 +108,8 @@ $result_converted{'docbook'}->{'simple'} = '<para>In included file.
 </para>';
 
 
-$result_converted{'latex_text'}->{'simple'} = 'In included file.
+$result_converted{'latex_text'}->{'simple'} = '\\begin{document}
+In included file.
 ';
 
 1;

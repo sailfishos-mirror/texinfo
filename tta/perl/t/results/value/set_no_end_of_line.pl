@@ -8,12 +8,13 @@ use utf8;
 
 $result_tree_text{'set_no_end_of_line'} = '*document_root C1
  *before_node_section C1
-  *@set C1
-  |EXTRA
-  |misc_args:A{arg|}
-   *line_arg C2
-    {spaces_before_argument: }
-    {rawline_text:arg}
+  *preamble_before_content C1
+   *@set C1
+   |EXTRA
+   |misc_args:A{arg|}
+    *line_arg C2
+     {spaces_before_argument: }
+     {rawline_text:arg}
 ';
 
 

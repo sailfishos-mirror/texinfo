@@ -7,70 +7,72 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_in_ifset_set'} = '*document_root C1
- *before_node_section C9
-  {empty_line:\\n}
-  *@set C1
-  |EXTRA
-  |misc_args:A{a|}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:a}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C3 l4
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{truc}
-   *arguments_line C1
-    {macro_line: truc {}\\n}
-   {raw:truc\\n}
-   *@end C1 l6
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C7
+   *@set C1
    |EXTRA
-   |text_arg:{macro}
+   |misc_args:A{a|}
     *line_arg C3
      {spaces_before_argument: }
-     {macro}
+     {rawline_text:a}
      {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >expanded_conditional_command<start;1><p:1>
-   >*@ifset C1 l8
-    >*arguments_line C1
-     >*block_line_arg C3
+   {empty_line:\\n}
+   *@macro C3 l4
+   |EXTRA
+   |formal_args:A{}
+   |macro_name:{truc}
+    *arguments_line C1
+     {macro_line: truc {}\\n}
+    {raw:truc\\n}
+    *@end C1 l6
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<start;1><p:1>
+    >*@ifset C1 l8
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >{a}
+       >{spaces_after_argument:\\n}
+   *@unmacro C1
+   |EXTRA
+   |misc_args:A{truc}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:truc}
+     {spaces_after_argument:\\n}
+   *@macro C3 l10
+   |EXTRA
+   |formal_args:A{}
+   |macro_name:{truc}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;1>
+    >*@end C1 l13
+    >|EXTRA
+    >|text_arg:{ifset}
+     >*line_arg C3
       >{spaces_before_argument: }
-      >{a}
+      >{ifset}
       >{spaces_after_argument:\\n}
-  *@unmacro C1
-  |EXTRA
-  |misc_args:A{truc}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:truc}
-    {spaces_after_argument:\\n}
-  *@macro C3 l10
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{truc}
-  >SOURCEMARKS
-  >expanded_conditional_command<end;1>
-   >*@end C1 l13
-   >|EXTRA
-   >|text_arg:{ifset}
-    >*line_arg C3
-     >{spaces_before_argument: }
-     >{ifset}
-     >{spaces_after_argument:\\n}
-   *arguments_line C1
-    {macro_line: truc{}\\n}
-   {raw:in ifset\\n}
-   *@end C1 l12
-   |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+    *arguments_line C1
+     {macro_line: truc{}\\n}
+    {raw:in ifset\\n}
+    *@end C1 l12
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C1
    {in ifset\\n}
    >SOURCEMARKS
@@ -98,7 +100,6 @@ in ifset
 
 
 $result_texts{'macro_in_ifset_set'} = '
-
 
 
 in ifset

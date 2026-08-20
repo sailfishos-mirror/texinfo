@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'printindex_before_document'} = '*document_root C1
- *before_node_section C2
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *@printindex C1 l2
   |EXTRA
   |global_command_number:{1}
@@ -25,8 +27,7 @@ $result_texis{'printindex_before_document'} = '
 ';
 
 
-$result_texts{'printindex_before_document'} = '
-';
+$result_texts{'printindex_before_document'} = '';
 
 $result_errors{'printindex_before_document'} = '* W l2|printindex before document beginning: @printindex cp
  warning: printindex before document beginning: @printindex cp

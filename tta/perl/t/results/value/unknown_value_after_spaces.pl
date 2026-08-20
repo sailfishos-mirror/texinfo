@@ -8,7 +8,8 @@ use utf8;
 
 $result_tree_text{'unknown_value_after_spaces'} = '*document_root C1
  *before_node_section C3
-  {spaces_before_paragraph:  }
+  *preamble_before_content C1
+   {spaces_before_paragraph:  }
   *@value C1
    *brace_container C1
     {unknown}

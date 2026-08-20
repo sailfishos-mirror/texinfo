@@ -7,62 +7,64 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
- *before_node_section C16
-  {empty_line:\\n}
-  *@macro C10 l2
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{conditionals}
-   *arguments_line C1
-    {macro_line: conditionals{}\\n}
-   {raw:@ifset somevar\\n}
-   {raw:@ifset anothervar\\n}
-   {raw:Both somevar and anothervar are set.\\n}
-   {raw:@end ifset\\n}
-   {raw:@ifclear anothervar\\n}
-   {raw:Somevar is set, anothervar is not.\\n}
-   {raw:@end ifclear\\n}
-   {raw:@end ifset\\n}
-   *@end C1 l11
+ *before_node_section C13
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C4
+   *@macro C10 l2
    |EXTRA
-   |text_arg:{macro}
+   |formal_args:A{}
+   |macro_name:{conditionals}
+    *arguments_line C1
+     {macro_line: conditionals{}\\n}
+    {raw:@ifset somevar\\n}
+    {raw:@ifset anothervar\\n}
+    {raw:Both somevar and anothervar are set.\\n}
+    {raw:@end ifset\\n}
+    {raw:@ifclear anothervar\\n}
+    {raw:Somevar is set, anothervar is not.\\n}
+    {raw:@end ifclear\\n}
+    {raw:@end ifset\\n}
+    *@end C1 l11
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@set C1
+   |EXTRA
+   |misc_args:A{somevar|}
     *line_arg C3
      {spaces_before_argument: }
-     {macro}
+     {rawline_text:somevar}
      {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@set C1
-  |EXTRA
-  |misc_args:A{somevar|}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:somevar}
-    {spaces_after_argument:\\n}
-  *@set C1
-  |EXTRA
-  |misc_args:A{anothervar|}
-  >SOURCEMARKS
-  >macro_expansion<start;1>
-   >*macro_call@conditionals C1
-    >*brace_arg
-  >expanded_conditional_command<start;1>
-   >*@ifset C1 l15:@conditionals
-    >*arguments_line C1
-     >*block_line_arg C3
-      >{spaces_before_argument: }
-      >{somevar}
-      >{spaces_after_argument:\\n}
-  >expanded_conditional_command<start;2>
-   >*@ifset C1 l15:@conditionals
-    >*arguments_line C1
-     >*block_line_arg C3
-      >{spaces_before_argument: }
-      >{anothervar}
-      >{spaces_after_argument:\\n}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:anothervar}
-    {spaces_after_argument:\\n}
+   *@set C1
+   |EXTRA
+   |misc_args:A{anothervar|}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call@conditionals C1
+     >*brace_arg
+   >expanded_conditional_command<start;1>
+    >*@ifset C1 l15:@conditionals
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >{somevar}
+       >{spaces_after_argument:\\n}
+   >expanded_conditional_command<start;2>
+    >*@ifset C1 l15:@conditionals
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >{anothervar}
+       >{spaces_after_argument:\\n}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:anothervar}
+     {spaces_after_argument:\\n}
   *paragraph C1
    {Both somevar and anothervar are set.\\n}
    >SOURCEMARKS
@@ -282,7 +284,6 @@ Somevar is set, anothervar is not.
 
 
 $result_texts{'nested_ifset_ifclear'} = '
-
 Both somevar and anothervar are set.
 
 Somevar is set, anothervar is not.

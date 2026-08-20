@@ -7,22 +7,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'empty_macro_in_text_no_arg'} = '*document_root C1
- *before_node_section C8
-  *@macro C2 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{texnl}
-   *arguments_line C1
-    {macro_line: texnl{}\\n}
-   *@end C1 l2
+ *before_node_section C6
+  *preamble_before_content C3
+   *@macro C2 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  {spaces_before_paragraph: }
+   |formal_args:A{}
+   |macro_name:{texnl}
+    *arguments_line C1
+     {macro_line: texnl{}\\n}
+    *@end C1 l2
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   {spaces_before_paragraph: }
   *paragraph C1
    {This.  It.\\n}
    >SOURCEMARKS

@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'multitable_begin_with_tab'} = '*document_root C1
- *before_node_section C3
+ *before_node_section C4
+  *preamble_before_content
   *@multitable C3 l1
   |EXTRA
   |max_columns:{2}

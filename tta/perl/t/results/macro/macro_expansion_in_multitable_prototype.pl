@@ -7,37 +7,38 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C1
- *before_node_section C5
-  *@macro C3 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{simple}
-   *arguments_line C1
-    {macro_line: simple\\n}
-   {raw:ab\\n}
-   *@end C1 l3
+ *before_node_section C2
+  *preamble_before_content C4
+   *@macro C3 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C3 l5
-  |EXTRA
-  |formal_args:A{arg}
-  |macro_name:{endbrace}
-   *arguments_line C1
-    {macro_line: endbrace {arg}\\n}
-   {raw:c\\arg\\d}\\n}
-   *@end C1 l7
+   |formal_args:A{}
+   |macro_name:{simple}
+    *arguments_line C1
+     {macro_line: simple\\n}
+    {raw:ab\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@macro C3 l5
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{arg}
+   |macro_name:{endbrace}
+    *arguments_line C1
+     {macro_line: endbrace {arg}\\n}
+    {raw:c\\arg\\d}\\n}
+    *@end C1 l7
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *@multitable C3 l9
   |EXTRA
   |max_columns:{5}

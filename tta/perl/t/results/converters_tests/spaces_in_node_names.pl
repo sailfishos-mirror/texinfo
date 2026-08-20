@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'spaces_in_node_names'} = '*document_root C5
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C4 l1 {Top}
  |EXTRA
  |identifier:{Top}
@@ -296,7 +297,8 @@ $result_converted{'docbook'}->{'spaces_in_node_names'} = '<anchor id="chap-"/>
 </para>';
 
 
-$result_converted{'latex_text'}->{'spaces_in_node_names'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'spaces_in_node_names'} = '\\begin{document}
+\\label{anchor:Top}%
 \\label{anchor:chap-}%
 
 \\label{anchor:b-}%

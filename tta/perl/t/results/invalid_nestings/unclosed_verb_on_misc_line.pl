@@ -8,17 +8,18 @@ use utf8;
 
 $result_tree_text{'unclosed_verb_on_misc_line'} = '*document_root C1
  *before_node_section C1
-  *@setfilename C1 l1
-  |EXTRA
-  |text_arg:{name }
-   *line_arg C3
-    {spaces_before_argument: }
-    {name }
-    *@verb C1 l1
-    |INFO
-    |delimiter:{f}
-     *brace_container C1
-      {raw:ile.texi}
+  *preamble_before_content C1
+   *@setfilename C1 l1
+   |EXTRA
+   |text_arg:{name }
+    *line_arg C3
+     {spaces_before_argument: }
+     {name }
+     *@verb C1 l1
+     |INFO
+     |delimiter:{f}
+      *brace_container C1
+       {raw:ile.texi}
 ';
 
 

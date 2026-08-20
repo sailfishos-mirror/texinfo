@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'nodedescription'} = '*document_root C5
- *before_node_section C2
+ *before_node_section C3
+  *preamble_before_content
   *@nodedescription C1 l1
    *line_arg C3
     {spaces_before_argument: }
@@ -262,6 +263,7 @@ $result_converted{'latex'}->{'nodedescription'} = '\\documentclass{book}
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 
 \\label{anchor:Top}%
 \\Texinfochapter{{Chapter}}

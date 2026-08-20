@@ -7,38 +7,39 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
- *before_node_section C34
-  *@macro C19 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{codekbdmacro}
-   *arguments_line C1
-    {macro_line: codekbdmacro\\n}
-   {raw:@table @kbd\\n}
-   {raw:@item i--tem out of example\\n}
-   {raw:@end table\\n}
-   {raw:\\n}
-   {raw:@table @kbd{}\\n}
-   {raw:@item braced i--tem out of example\\n}
-   {raw:@end table\\n}
-   {raw:\\n}
-   {raw:in example\\n}
-   {raw:@example\\n}
-   {raw:@table @kbd\\n}
-   {raw:@item i--tem in example\\n}
-   {raw:@end table\\n}
-   {raw:@table @kbd{}\\n}
-   {raw:@item braced i--tem in example\\n}
-   {raw:@end table\\n}
-   {raw:@end example\\n}
-   *@end C1 l19
+ *before_node_section C33
+  *preamble_before_content C2
+   *@macro C19 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{}
+   |macro_name:{codekbdmacro}
+    *arguments_line C1
+     {macro_line: codekbdmacro\\n}
+    {raw:@table @kbd\\n}
+    {raw:@item i--tem out of example\\n}
+    {raw:@end table\\n}
+    {raw:\\n}
+    {raw:@table @kbd{}\\n}
+    {raw:@item braced i--tem out of example\\n}
+    {raw:@end table\\n}
+    {raw:\\n}
+    {raw:in example\\n}
+    {raw:@example\\n}
+    {raw:@table @kbd\\n}
+    {raw:@item i--tem in example\\n}
+    {raw:@end table\\n}
+    {raw:@table @kbd{}\\n}
+    {raw:@item braced i--tem in example\\n}
+    {raw:@end table\\n}
+    {raw:@end example\\n}
+    *@end C1 l19
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C2
    *@@
    {kbdinputstyle code\\n}
@@ -737,6 +738,7 @@ $result_converted{'latex'}->{'kbdinputstyle_in_table'} = '\\documentclass{book}
 \\pagestyle{single}%
 
 
+\\begin{document}
 @kbdinputstyle code
 
 

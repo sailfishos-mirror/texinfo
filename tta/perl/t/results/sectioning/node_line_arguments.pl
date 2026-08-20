@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'node_line_arguments'} = '*document_root C8
- *before_node_section C1
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
  *@node C1 l2 {one arg1}
  |EXTRA
  |identifier:{one-arg1}
@@ -181,7 +183,6 @@ $result_texis{'node_line_arguments'} = '
 
 
 $result_texts{'node_line_arguments'} = '
-
 
 ';
 

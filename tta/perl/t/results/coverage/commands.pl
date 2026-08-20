@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'commands'} = '*document_root C1
- *before_node_section C7
+ *before_node_section C8
+  *preamble_before_content
   *paragraph C13
    *@@
    { }
@@ -168,7 +169,8 @@ $result_converted{'xml'}->{'commands'} = '<para>&arobase; &tex; <spacecmd type="
 ';
 
 
-$result_converted{'latex_text'}->{'commands'} = '@ \\TeX{} \\ {}\\"{e} \\^{\\i{}} \\~{a} \\r{a}
+$result_converted{'latex_text'}->{'commands'} = '\\begin{document}
+@ \\TeX{} \\ {}\\"{e} \\^{\\i{}} \\~{a} \\r{a}
 
 File $\\rightarrow{}$ Open\\@.
 \\href{mailto:a}{b} \\texttt{code {-}{-}{-} {-}{-} {\'}{\'} {`}{`}}

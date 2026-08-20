@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'ref_in_style_command'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C2
    *@samp C1 l1
     *brace_container C1
@@ -47,7 +48,8 @@ $result_converted{'plaintext'}->{'ref_in_style_command'} = '‘(manula)other nod
 $result_converted{'html_text'}->{'ref_in_style_command'} = '<p>&lsquo;<samp class="samp"><a data-manual="manula" href="manula.html#other-node">(manula)other node</a></samp>&rsquo;.</p>';
 
 
-$result_converted{'latex_text'}->{'ref_in_style_command'} = '`\\texttt{(manula)other node}\'.';
+$result_converted{'latex_text'}->{'ref_in_style_command'} = '\\begin{document}
+`\\texttt{(manula)other node}\'.';
 
 
 $result_converted{'docbook'}->{'ref_in_style_command'} = '<para>&#8216;<literal><link>(manula)other node</link></literal>&#8217;.</para>';

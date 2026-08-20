@@ -1,5 +1,10 @@
 2026-08-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl: never use parse_texi_piece, it is not
+	meant for parsing a whole text.
+
+2026-08-20 Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
 	(_texinfo_handle_element_end): do not fall back to converting to raw
 	text when the normalized Texinfo name is empty, keep an empty string,

@@ -7,23 +7,24 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'arobase_brace_in_macro_call'} = '*document_root C1
- *before_node_section C5
-  *@macro C4 l1
-  |EXTRA
-  |formal_args:A{arg1|arg2}
-  |macro_name:{simplemac}
-   *arguments_line C1
-    {macro_line: simplemac { arg1 , arg2 }\\n}
-   {raw:first: \\arg1\\|\\n}
-   {raw:second: \\arg2\\|\\n}
-   *@end C1 l4
+ *before_node_section C4
+  *preamble_before_content C2
+   *@macro C4 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{arg1|arg2}
+   |macro_name:{simplemac}
+    *arguments_line C1
+     {macro_line: simplemac { arg1 , arg2 }\\n}
+    {raw:first: \\arg1\\|\\n}
+    {raw:second: \\arg2\\|\\n}
+    *@end C1 l4
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C6
    {first: }
    >SOURCEMARKS

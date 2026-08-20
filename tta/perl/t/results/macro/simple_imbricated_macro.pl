@@ -7,25 +7,26 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'simple_imbricated_macro'} = '*document_root C1
- *before_node_section C5
-  *@macro C6 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{truc}
-   *arguments_line C1
-    {macro_line: truc {}\\n}
-   {raw:truc.\\n}
-   {raw:@macro bidule {}\\n}
-   {raw:bidule.\\n}
-   {raw:@end macro\\n}
-   *@end C1 l6
+ *before_node_section C4
+  *preamble_before_content C2
+   *@macro C6 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{}
+   |macro_name:{truc}
+    *arguments_line C1
+     {macro_line: truc {}\\n}
+    {raw:truc.\\n}
+    {raw:@macro bidule {}\\n}
+    {raw:bidule.\\n}
+    {raw:@end macro\\n}
+    *@end C1 l6
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C2
    {truc.\\n}
    >SOURCEMARKS

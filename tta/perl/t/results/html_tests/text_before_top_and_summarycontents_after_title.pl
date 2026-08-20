@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'text_before_top_and_summarycontents_after_title'} = '*document_root C4
- *before_node_section C3
-  {empty_line:\\n}
+ *before_node_section C4
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C1
    {Some text before top\\n}
   {empty_line:\\n}
@@ -72,8 +74,7 @@ In top.
 ';
 
 
-$result_texts{'text_before_top_and_summarycontents_after_title'} = '
-Some text before top
+$result_texts{'text_before_top_and_summarycontents_after_title'} = 'Some text before top
 
 top
 ***
@@ -150,7 +151,6 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 </div>
 <hr>
-
 <p>Some text before top
 </p>
 <div class="top-level-extent" id="Top">

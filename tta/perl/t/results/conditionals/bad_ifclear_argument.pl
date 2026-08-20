@@ -7,10 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'bad_ifclear_argument'} = '*document_root C1
- *before_node_section C1
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
   >SOURCEMARKS
-  >ignored_conditional_block<1><p:1>
+  >ignored_conditional_block<1>
    >*@ifclear C3 l2
     >*arguments_line C1
      >*block_line_arg C3
@@ -25,6 +25,8 @@ $result_tree_text{'bad_ifclear_argument'} = '*document_root C1
       >{spaces_before_argument: }
       >{ifclear}
       >{spaces_after_argument:\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content
 ';
 
 
@@ -32,8 +34,7 @@ $result_texis{'bad_ifclear_argument'} = '
 ';
 
 
-$result_texts{'bad_ifclear_argument'} = '
-';
+$result_texts{'bad_ifclear_argument'} = '';
 
 $result_errors{'bad_ifclear_argument'} = '* E l2|bad name for @ifclear
  bad name for @ifclear

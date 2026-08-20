@@ -9,7 +9,8 @@ use utf8;
 $result_tree_text{'part_before_section'} = 'U0 unit{C3}{S:@section 1 section}
 UNIT_DIRECTIONS
 This: [U0]
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@part C2 l1 {part}
  |EXTRA
  |global_command_number:{1}

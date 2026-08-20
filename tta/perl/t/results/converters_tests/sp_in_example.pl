@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'sp_in_example'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *@example C3 l1
    *arguments_line C1
     *block_line_arg C1
@@ -202,7 +203,8 @@ sp after para
 </screen>';
 
 
-$result_converted{'latex_text'}->{'sp_in_example'} = '\\begin{Texinfoindented}
+$result_converted{'latex_text'}->{'sp_in_example'} = '\\begin{document}
+\\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
 \\ttfamily Para
 \\vskip 1\\baselineskip %

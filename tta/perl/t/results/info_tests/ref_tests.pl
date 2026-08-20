@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'ref_tests'} = '*document_root C2
- *before_node_section C1
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
  *@node C7 l2 {Top}
  |EXTRA
  |identifier:{Top}
@@ -131,7 +133,6 @@ $result_texis{'ref_tests'} = '
 
 
 $result_texts{'ref_tests'} = '
-
 (m)in ref followed by comma, 
 (m)in ref not followed by comma after ref.
 (m)in ref followed by end command.

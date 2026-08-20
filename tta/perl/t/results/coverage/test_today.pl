@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'test_today'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C2
    *@today C1 l1
     *brace_container
@@ -41,7 +42,8 @@ $result_converted{'html_text'}->{'test_today'} = '<p>a sunny day.</p>';
 $result_converted{'xml'}->{'test_today'} = '<para><today/>.</para>';
 
 
-$result_converted{'latex_text'}->{'test_today'} = '\\today{}.';
+$result_converted{'latex_text'}->{'test_today'} = '\\begin{document}
+\\today{}.';
 
 
 $result_converted{'docbook'}->{'test_today'} = '<para>a sunny day.</para>';

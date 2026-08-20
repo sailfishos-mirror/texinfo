@@ -8,14 +8,15 @@ use utf8;
 
 $result_tree_text{'documentencoding_zero'} = '*document_root C1
  *before_node_section C1
-  *@documentencoding C1 l1
-  |EXTRA
-  |global_command_number:{1}
-  |text_arg:{0}
-   *line_arg C3
-    {spaces_before_argument: }
-    {0}
-    {spaces_after_argument:\\n}
+  *preamble_before_content C1
+   *@documentencoding C1 l1
+   |EXTRA
+   |global_command_number:{1}
+   |text_arg:{0}
+    *line_arg C3
+     {spaces_before_argument: }
+     {0}
+     {spaces_after_argument:\\n}
 ';
 
 

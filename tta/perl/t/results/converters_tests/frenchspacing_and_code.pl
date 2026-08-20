@@ -7,17 +7,19 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'frenchspacing_and_code'} = '*document_root C7
- *before_node_section C3
-  {empty_line:\\n}
-  *@frenchspacing C1 l2
-  |EXTRA
-  |global_command_number:{1}
-  |misc_args:A{on}
-   *line_arg C3
-    {spaces_before_argument: }
-    {on}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@frenchspacing C1 l2
+   |EXTRA
+   |global_command_number:{1}
+   |misc_args:A{on}
+    *line_arg C3
+     {spaces_before_argument: }
+     {on}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
  *@node C1 l4 {Top}
  |EXTRA
  |identifier:{Top}
@@ -416,7 +418,6 @@ defop n
 
 
 $result_texts{'frenchspacing_and_code'} = '
-
 top
 ***
 
@@ -564,7 +565,6 @@ $result_converted_sort_strings{'plaintext'}->{'frenchspacing_and_code'} = 'fn:
 
 
 $result_converted{'html_text'}->{'frenchspacing_and_code'} = '
-
 <div class="top-level-extent" id="Top">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -621,8 +621,8 @@ $result_converted{'html_text'}->{'frenchspacing_and_code'} = '
 ';
 
 
-$result_converted{'xml'}->{'frenchspacing_and_code'} = '
-<frenchspacing value="on" line=" on"></frenchspacing>
+$result_converted{'xml'}->{'frenchspacing_and_code'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><frenchspacing value="on" line=" on"></frenchspacing>
 
 <node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> chapter frenchspacing</nodenext></node>
 <top><sectiontitle> top</sectiontitle>
@@ -705,9 +705,9 @@ $result_converted{'docbook'}->{'frenchspacing_and_code'} = '<chapter label="1" i
 ';
 
 
-$result_converted{'latex_text'}->{'frenchspacing_and_code'} = '
-\\frenchspacing
+$result_converted{'latex_text'}->{'frenchspacing_and_code'} = '\\frenchspacing
 
+\\begin{document}
 \\label{anchor:Top}%
 \\Texinfochapter{{Chap frenchspacing}}
 \\label{anchor:chapter-frenchspacing}%

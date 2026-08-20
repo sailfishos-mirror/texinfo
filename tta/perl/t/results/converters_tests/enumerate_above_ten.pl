@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'enumerate_above_ten'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *@enumerate C3 l1
    *arguments_line C1
     *block_line_arg C3
@@ -70,7 +71,8 @@ $result_converted{'docbook'}->{'enumerate_above_ten'} = '<orderedlist numeration
 </para></listitem></orderedlist>';
 
 
-$result_converted{'latex_text'}->{'enumerate_above_ten'} = '\\begin{enumerate}[start=14]
+$result_converted{'latex_text'}->{'enumerate_above_ten'} = '\\begin{document}
+\\begin{enumerate}[start=14]
 \\item a
 \\end{enumerate}
 ';

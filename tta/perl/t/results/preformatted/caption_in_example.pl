@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'caption_in_example'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *@float C4 l1
   |EXTRA
   |float_type:{float}
@@ -167,7 +168,8 @@ After caption
 ';
 
 
-$result_converted{'latex_text'}->{'caption_in_example'} = '\\begin{TexinfoFloatfloat}
+$result_converted{'latex_text'}->{'caption_in_example'} = '\\begin{document}
+\\begin{TexinfoFloatfloat}
 
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%

@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'space_in_anchor'} = '*document_root C1
- *before_node_section C2
+ *before_node_section C3
+  *preamble_before_content
   *@anchor C1 l1
   |EXTRA
   |identifier:{anchor-name}
@@ -47,7 +48,8 @@ $result_converted{'html_text'}->{'space_in_anchor'} = '<a class="anchor" id="anc
 </p>';
 
 
-$result_converted{'latex_text'}->{'space_in_anchor'} = '\\label{anchor:anchor-name}%
+$result_converted{'latex_text'}->{'space_in_anchor'} = '\\begin{document}
+\\label{anchor:anchor-name}%
 .
 ';
 

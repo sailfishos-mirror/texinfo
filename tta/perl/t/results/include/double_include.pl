@@ -7,10 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'double_include'} = '*document_root C1
- *before_node_section C2
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
   >SOURCEMARKS
-  >include<start;2><p:1>
+  >include<start;2>
    >*@include C1 l2
    >|EXTRA
    >|text_arg:{inc_file.texi}
@@ -27,6 +27,8 @@ $result_tree_text{'double_include'} = '*document_root C1
         >>{spaces_before_argument: }
         >>{inc_file.texi}
         >>{spaces_after_argument:\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C2
    {In included file.\\n}
    >SOURCEMARKS
@@ -43,8 +45,7 @@ In included file.
 ';
 
 
-$result_texts{'double_include'} = '
-In included file.
+$result_texts{'double_include'} = 'In included file.
 In included file.
 ';
 

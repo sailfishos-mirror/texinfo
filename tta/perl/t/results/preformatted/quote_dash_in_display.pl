@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'quote_dash_in_display'} = '*document_root C1
- *before_node_section C2
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *@display C3 l2
    *arguments_line C1
     *block_line_arg C1
@@ -34,8 +36,7 @@ and now -- yes---now and ``so\'\'.
 ';
 
 
-$result_texts{'quote_dash_in_display'} = '
-and now - yes--now and "so".
+$result_texts{'quote_dash_in_display'} = 'and now - yes--now and "so".
 
 ';
 
@@ -77,7 +78,6 @@ pre.display-preformatted {font-family: inherit}
 </head>
 
 <body>
-
 <div class="display">
 <pre class="display-preformatted">and now &ndash; yes&mdash;now and &ldquo;so&rdquo;.
 
@@ -95,21 +95,20 @@ $result_converted_errors{'html'}->{'quote_dash_in_display'} = '* W |must specify
 ';
 
 
-$result_converted{'docbook'}->{'quote_dash_in_display'} = '
-<literallayout>and now &#8211; yes&#8212;now and &#8220;so&#8221;.
+$result_converted{'docbook'}->{'quote_dash_in_display'} = '<literallayout>and now &#8211; yes&#8212;now and &#8220;so&#8221;.
 
 </literallayout>';
 
 
-$result_converted{'xml'}->{'quote_dash_in_display'} = '
-<display endspaces=" ">
+$result_converted{'xml'}->{'quote_dash_in_display'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><display endspaces=" ">
 <pre xml:space="preserve">and now &textndash; yes&textmdash;now and &textldquo;so&textrdquo;.
 
 </pre></display>
 ';
 
 
-$result_converted{'latex_text'}->{'quote_dash_in_display'} = '
+$result_converted{'latex_text'}->{'quote_dash_in_display'} = '\\begin{document}
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
 and now -- yes---now and ``so\'\'.

@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'itemize_and_empty_lines'} = '*document_root C1
- *before_node_section C14
+ *before_node_section C15
+  *preamble_before_content
   *@itemize C7 l1
    *arguments_line C1
     *block_line_arg C3

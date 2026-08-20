@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'spaces_after_braced_command'} = '*document_root C1
- *before_node_section C10
+ *before_node_section C11
+  *preamble_before_content
   *paragraph C2
    *@code C1 l1
    |INFO
@@ -163,7 +164,8 @@ $result_converted{'xml'}->{'spaces_after_braced_command'} = '<para><code spacesa
 ';
 
 
-$result_converted{'latex_text'}->{'spaces_after_braced_command'} = '\\texttt{b}
+$result_converted{'latex_text'}->{'spaces_after_braced_command'} = '\\begin{document}
+\\texttt{b}
 
 `\\texttt{v}\'
 

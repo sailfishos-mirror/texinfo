@@ -8,13 +8,14 @@ use utf8;
 
 $result_tree_text{'ifnot_format_conditional'} = '*document_root C1
  *before_node_section C4
-  {}
-  >SOURCEMARKS
-  >expanded_conditional_command<start;1>
-   >*@ifnottex C1 l1
-    >*arguments_line C1
-     >*block_line_arg C1
-      >{spaces_before_argument:\\n}
+  *preamble_before_content C1
+   {}
+   >SOURCEMARKS
+   >expanded_conditional_command<start;1>
+    >*@ifnottex C1 l1
+     >*arguments_line C1
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
   *paragraph C1
    {not tex\\n}
    >SOURCEMARKS

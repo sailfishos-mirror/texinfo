@@ -7,34 +7,35 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_definition_in_include'} = '*document_root C1
- *before_node_section C4
-  {}
-  >SOURCEMARKS
-  >include<start;1>
-   >*@include C1 l1
-   >|EXTRA
-   >|text_arg:{macro_included.texi}
-    >*line_arg C3
-     >{spaces_before_argument: }
-     >{macro_included.texi}
-     >{spaces_after_argument:\\n}
-  *@macro C3 macro_included.texi:l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{themacro}
-  >SOURCEMARKS
-  >include<end;1>
-   *arguments_line C1
-    {macro_line: themacro\\n}
-   {raw:in themacro\\n}
-   *@end C1 macro_included.texi:l3
+ *before_node_section C2
+  *preamble_before_content C3
+   {}
+   >SOURCEMARKS
+   >include<start;1>
+    >*@include C1 l1
+    >|EXTRA
+    >|text_arg:{macro_included.texi}
+     >*line_arg C3
+      >{spaces_before_argument: }
+      >{macro_included.texi}
+      >{spaces_after_argument:\\n}
+   *@macro C3 macro_included.texi:l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{}
+   |macro_name:{themacro}
+   >SOURCEMARKS
+   >include<end;1>
+    *arguments_line C1
+     {macro_line: themacro\\n}
+    {raw:in themacro\\n}
+    *@end C1 macro_included.texi:l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C2
    {Call macro\\n}
    {in themacro\\n}

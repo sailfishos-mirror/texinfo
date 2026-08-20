@@ -8,15 +8,16 @@ use utf8;
 
 $result_tree_text{'command_conditionals'} = '*document_root C1
  *before_node_section C8
-  {}
-  >SOURCEMARKS
-  >expanded_conditional_command<start;1>
-   >*@ifset C1 l1
-    >*arguments_line C1
-     >*block_line_arg C3
-      >{spaces_before_argument: }
-      >{txicommandconditionals}
-      >{spaces_after_argument:\\n}
+  *preamble_before_content C1
+   {}
+   >SOURCEMARKS
+   >expanded_conditional_command<start;1>
+    >*@ifset C1 l1
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >{txicommandconditionals}
+       >{spaces_after_argument:\\n}
   *paragraph C1
    {Good, the txicommandconditionals variable was set.\\n}
    >SOURCEMARKS

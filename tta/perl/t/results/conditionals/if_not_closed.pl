@@ -8,12 +8,13 @@ use utf8;
 
 $result_tree_text{'if_not_closed'} = '*document_root C1
  *before_node_section C1
-  {}
-  >SOURCEMARKS
-  >ignored_conditional_block<1>
-   >*@iftex C1 l1
-    >*arguments_line C1
-     >*block_line_arg
+  *preamble_before_content C1
+   {}
+   >SOURCEMARKS
+   >ignored_conditional_block<1>
+    >*@iftex C1 l1
+     >*arguments_line C1
+      >*block_line_arg
 ';
 
 

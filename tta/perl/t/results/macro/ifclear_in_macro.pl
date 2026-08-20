@@ -7,37 +7,38 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'ifclear_in_macro'} = '*document_root C1
- *before_node_section C4
-  *@macro C5 l1
-  |EXTRA
-  |formal_args:A{arg}
-  |macro_name:{note}
-   *arguments_line C1
-    {macro_line: note {arg}\\n}
-   {raw:@ifclear notes \\n}
-   {raw:\\arg\\\\n}
-   {raw:@end ifclear\\n}
-   *@end C1 l5
+ *before_node_section C3
+  *preamble_before_content C2
+   *@macro C5 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >macro_expansion<start;1><p:1>
-   >*macro_call@note C1
-    >*brace_arg C2
-     >{spaces_before_argument:\\n}
-     >{macro_call_arg_text:arg\\n}
-  >expanded_conditional_command<start;1><p:1>
-   >*@ifclear C1 l9:@note
-    >*arguments_line C1
-     >*block_line_arg C3
-      >{spaces_before_argument: }
-      >{notes}
-      >{spaces_after_argument: \\n}
+   |formal_args:A{arg}
+   |macro_name:{note}
+    *arguments_line C1
+     {macro_line: note {arg}\\n}
+    {raw:@ifclear notes \\n}
+    {raw:\\arg\\\\n}
+    {raw:@end ifclear\\n}
+    *@end C1 l5
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1><p:1>
+    >*macro_call@note C1
+     >*brace_arg C2
+      >{spaces_before_argument:\\n}
+      >{macro_call_arg_text:arg\\n}
+   >expanded_conditional_command<start;1><p:1>
+    >*@ifclear C1 l9:@note
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >{notes}
+       >{spaces_after_argument: \\n}
   *paragraph C1
    {arg\\n}
   {empty_line:\\n}

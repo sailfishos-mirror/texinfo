@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'command_not_closed_on_center_line'} = '*document_root C1
- *before_node_section C2
+ *before_node_section C3
+  *preamble_before_content
   *@center C1 l1
    *line_arg C3
     {spaces_before_argument: }
@@ -139,6 +140,7 @@ $result_converted{'latex'}->{'command_not_closed_on_center_line'} = '\\documentc
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 \\begin{center}
 c \\textbf{
 }

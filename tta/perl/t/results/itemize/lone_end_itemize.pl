@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'lone_end_itemize'} = '*document_root C1
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
 ';
 
 

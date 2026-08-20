@@ -7,38 +7,39 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'texinfo_command_alias_indirect'} = '*document_root C1
- *before_node_section C7
-  *@macro C3 l1
-  |EXTRA
-  |formal_args:A{arg}
-  |macro_name:{mystrong}
-   *arguments_line C1
-    {macro_line: mystrong {arg}\\n}
-   {raw:!!\\arg\\!!\\n}
-   *@end C1 l3
+ *before_node_section C2
+  *preamble_before_content C6
+   *@macro C3 l1
    |EXTRA
-   |text_arg:{macro}
+   |formal_args:A{arg}
+   |macro_name:{mystrong}
+    *arguments_line C1
+     {macro_line: mystrong {arg}\\n}
+    {raw:!!\\arg\\!!\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@alias C1 l5
+   |EXTRA
+   |misc_args:A{strong|mystrong}
     *line_arg C3
      {spaces_before_argument: }
-     {macro}
+     {strong = mystrong}
      {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@alias C1 l5
-  |EXTRA
-  |misc_args:A{strong|mystrong}
-   *line_arg C3
-    {spaces_before_argument: }
-    {strong = mystrong}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@alias C1 l7
-  |EXTRA
-  |misc_args:A{new|strong}
-   *line_arg C3
-    {spaces_before_argument: }
-    {new = strong}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   {empty_line:\\n}
+   *@alias C1 l7
+   |EXTRA
+   |misc_args:A{new|strong}
+    *line_arg C3
+     {spaces_before_argument: }
+     {new = strong}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C1
    {!!aa!!\\n}
    >SOURCEMARKS

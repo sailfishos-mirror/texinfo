@@ -7,54 +7,55 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'command_conditionals_user_defined'} = '*document_root C1
- *before_node_section C15
-  *@macro C3 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{truc}
-   *arguments_line C1
-    {macro_line: truc\\n}
-   {raw:machin\\n}
-   *@end C1 l3
+ *before_node_section C8
+  *preamble_before_content C8
+   *@macro C3 l1
    |EXTRA
-   |text_arg:{macro}
+   |formal_args:A{}
+   |macro_name:{truc}
+    *arguments_line C1
+     {macro_line: truc\\n}
+    {raw:machin\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@defindex C1 l5
+   |EXTRA
+   |misc_args:A{auth}
     *line_arg C3
      {spaces_before_argument: }
-     {macro}
+     {auth}
      {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@defindex C1 l5
-  |EXTRA
-  |misc_args:A{auth}
-   *line_arg C3
-    {spaces_before_argument: }
-    {auth}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@definfoenclose C1 l7
-  |EXTRA
-  |misc_args:A{infoencl|:|:}
-   *line_arg C3
-    {spaces_before_argument: }
-    {infoencl, :,:}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@alias C1 l9
-  |EXTRA
-  |misc_args:A{strongalias|strong}
-   *line_arg C3
-    {spaces_before_argument: }
-    {strongalias = strong}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >expanded_conditional_command<start;1><p:1>
-   >*@ifcommanddefined C1 l11
-    >*arguments_line C1
-     >*block_line_arg C3
-      >{spaces_before_argument: }
-      >{truc}
-      >{spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@definfoenclose C1 l7
+   |EXTRA
+   |misc_args:A{infoencl|:|:}
+    *line_arg C3
+     {spaces_before_argument: }
+     {infoencl, :,:}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@alias C1 l9
+   |EXTRA
+   |misc_args:A{strongalias|strong}
+    *line_arg C3
+     {spaces_before_argument: }
+     {strongalias = strong}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<start;1><p:1>
+    >*@ifcommanddefined C1 l11
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >{truc}
+       >{spaces_after_argument:\\n}
   *paragraph C2
    *@@
    {macro truc is defined.\\n}

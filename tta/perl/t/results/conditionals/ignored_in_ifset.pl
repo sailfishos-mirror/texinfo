@@ -7,10 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'ignored_in_ifset'} = '*document_root C1
- *before_node_section C5
-  {empty_line:\\n}
+ *before_node_section C6
+  *preamble_before_beginning C1
   >SOURCEMARKS
-  >ignored_conditional_block<1><p:1>
+  >ignored_conditional_block<1>
    >*@ifset C3 l2
     >*arguments_line C1
      >*block_line_arg C3
@@ -25,6 +25,8 @@ $result_tree_text{'ignored_in_ifset'} = '*document_root C1
       >{spaces_before_argument: }
       >{ifset}
       >{spaces_after_argument:\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C1
    {text\\n}
   {empty_line:\\n}
@@ -74,8 +76,7 @@ text
 ';
 
 
-$result_texts{'ignored_in_ifset'} = '
-text
+$result_texts{'ignored_in_ifset'} = 'text
 
 
 %

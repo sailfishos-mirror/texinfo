@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'chapter_node_before_and_after_part'} = '*document_root C6
- *before_node_section C1
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
  *@node C1 l2 {Top}
  |EXTRA
  |identifier:{Top}
@@ -110,8 +112,7 @@ $result_texis{'chapter_node_before_and_after_part'} = '
 ';
 
 
-$result_texts{'chapter_node_before_and_after_part'} = '
-1 chapter
+$result_texts{'chapter_node_before_and_after_part'} = '1 chapter
 *********
 
 * after::
@@ -243,7 +244,6 @@ ul.toc-numbered-mark {list-style: none}
 </head>
 
 <body>
-
 <div class="chapter-level-extent" id="Top">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#after" accesskey="n" rel="next">chapter 2</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
@@ -293,8 +293,8 @@ $result_converted_errors{'html'}->{'chapter_node_before_and_after_part'} = '* W 
 ';
 
 
-$result_converted{'xml'}->{'chapter_node_before_and_after_part'} = '
-<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> after</nodenext></node>
+$result_converted{'xml'}->{'chapter_node_before_and_after_part'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><node identifier="Top"><nodename> Top</nodename><nodenext automatic="on"> after</nodenext></node>
 <chapter><sectiontitle> chapter</sectiontitle>
 
 <menu endspaces=" ">

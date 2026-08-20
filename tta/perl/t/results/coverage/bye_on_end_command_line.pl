@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'bye_on_end_command_line'} = '*document_root C2
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *@cartouche C3 l1
    *arguments_line C1
     *block_line_arg C1
@@ -68,7 +69,8 @@ $result_converted{'xml'}->{'bye_on_end_command_line'} = '<cartouche endspaces=" 
 ';
 
 
-$result_converted{'latex_text'}->{'bye_on_end_command_line'} = '\\begin{Texinfocartouche}
+$result_converted{'latex_text'}->{'bye_on_end_command_line'} = '\\begin{document}
+\\begin{Texinfocartouche}
 in cartouche.
 \\end{Texinfocartouche}
 ';

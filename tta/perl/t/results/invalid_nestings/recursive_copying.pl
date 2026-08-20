@@ -7,23 +7,24 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'recursive_copying'} = '*document_root C1
- *before_node_section C3
-  *@copying C5 l1
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
+ *before_node_section C2
+  *preamble_before_content C2
+   *@copying C5 l1
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    {empty_line:\\n}
+    *paragraph C1
+     {In copying.\\n}
+    {empty_line:\\n}
+    *@end C1 l6
+    |EXTRA
+    |text_arg:{copying}
+     *line_arg C3
+      {spaces_before_argument: }
+      {copying}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
-   *paragraph C1
-    {In copying.\\n}
-   {empty_line:\\n}
-   *@end C1 l6
-   |EXTRA
-   |text_arg:{copying}
-    *line_arg C3
-     {spaces_before_argument: }
-     {copying}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
   *@insertcopying C1 l8
   |EXTRA
   |global_command_number:{1}

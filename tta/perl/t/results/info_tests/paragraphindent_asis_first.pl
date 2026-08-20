@@ -8,8 +8,10 @@ use utf8;
 
 $result_tree_text{'paragraphindent_asis_first'} = '*document_root C1
  *before_node_section C7
-  {empty_line:\\n}
-  {spaces_before_paragraph:     }
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C1
+   {spaces_before_paragraph:     }
   *paragraph C1
    {bbb\\n}
   {empty_line:\\n}
@@ -35,8 +37,7 @@ $result_texis{'paragraphindent_asis_first'} = '
 ';
 
 
-$result_texts{'paragraphindent_asis_first'} = '
-bbb
+$result_texts{'paragraphindent_asis_first'} = 'bbb
 
 ccc
 ';

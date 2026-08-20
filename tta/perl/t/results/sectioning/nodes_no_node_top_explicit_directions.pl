@@ -13,7 +13,8 @@ This: [U0]
 Forward: [U1]
 NodeUp: (dir)
 NodeForward: [U1]
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C5 l1 {first}
  |EXTRA
  |identifier:{first}

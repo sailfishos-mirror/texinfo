@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'punctuation_at_end_command'} = '*document_root C1
- *before_node_section C2
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C21
    {Text. Email }
    *@email C2 l2
@@ -63,8 +65,7 @@ asis in code @code{@asis{.}} text. a dot before a emph open .@emph{ and in emph.
 ';
 
 
-$result_texts{'punctuation_at_end_command'} = '
-Text. Email . dmn 1. and text. indicateurl . and 
+$result_texts{'punctuation_at_end_command'} = 'Text. Email . dmn 1. and text. indicateurl . and 
 then kbd . and math . and cite . and emph . text. 
 asis in code . text. a dot before a emph open . and in emph.
 ';

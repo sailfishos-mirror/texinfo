@@ -7,153 +7,154 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'test_image'} = '*document_root C3
- *before_node_section C4
-  *@macro C5 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{files-char}
-   *arguments_line C1
-    {macro_line: files-char\\n}
-   {raw:@image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,,,,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}\\n}
-   {raw:\\n}
-   {raw:In text @image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,1in, 1cm, alt @b{@^{@dotless{i}}--le@/.@.}  a@*<"%@@@verb{:  < & @ % " :}  ,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}.\\n}
-   *@end C1 l5
+ *before_node_section C1
+  *preamble_before_content C4
+   *@macro C5 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@copying C5 l7
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *paragraph C3
-    {Text in copying.\\n}
-    >SOURCEMARKS
-    >macro_expansion<start;1><p:17>
-     >*macro_call@files-char C1
-      >*brace_arg
-    *@image C5 l9:@files-char
+   |formal_args:A{}
+   |macro_name:{files-char}
+    *arguments_line C1
+     {macro_line: files-char\\n}
+    {raw:@image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,,,,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}\\n}
+    {raw:\\n}
+    {raw:In text @image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,1in, 1cm, alt @b{@^{@dotless{i}}--le@/.@.}  a@*<"%@@@verb{:  < & @ % " :}  ,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}.\\n}
+    *@end C1 l5
     |EXTRA
-    |input_encoding_name:{utf-8}
-     *brace_arg C12
-      {f}
-      *@@
-      {i--le}
-      *@/
-      {.}
-      *@.
-      {  a}
-      *@@
-      {<"%}
-      *@@
-      *@verb C1 l9:@files-char
-      |INFO
-      |delimiter:{:}
-       *brace_container C1
-        {raw:  < & @ % " }
-      {spaces_after_argument: }
-     *brace_arg
-     *brace_arg
-     *brace_arg
-     *brace_arg C11
-      {.ext}
-      *@@
-      {i--le}
-      *@/
-      {.}
-      *@.
-      {  a}
-      *@@
-      {<"%}
-      *@@
-      *@verb C1 l9:@files-char
-      |INFO
-      |delimiter:{:}
-       *brace_container C1
-        {raw:  < & @ % " }
-    {\\n}
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
-   *paragraph C3
-    {In text }
-    *@image C5 l9:@files-char
+   *@copying C5 l7
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *paragraph C3
+     {Text in copying.\\n}
+     >SOURCEMARKS
+     >macro_expansion<start;1><p:17>
+      >*macro_call@files-char C1
+       >*brace_arg
+     *@image C5 l9:@files-char
+     |EXTRA
+     |input_encoding_name:{utf-8}
+      *brace_arg C12
+       {f}
+       *@@
+       {i--le}
+       *@/
+       {.}
+       *@.
+       {  a}
+       *@@
+       {<"%}
+       *@@
+       *@verb C1 l9:@files-char
+       |INFO
+       |delimiter:{:}
+        *brace_container C1
+         {raw:  < & @ % " }
+       {spaces_after_argument: }
+      *brace_arg
+      *brace_arg
+      *brace_arg
+      *brace_arg C11
+       {.ext}
+       *@@
+       {i--le}
+       *@/
+       {.}
+       *@.
+       {  a}
+       *@@
+       {<"%}
+       *@@
+       *@verb C1 l9:@files-char
+       |INFO
+       |delimiter:{:}
+        *brace_container C1
+         {raw:  < & @ % " }
+     {\\n}
+    {empty_line:\\n}
+    *paragraph C3
+     {In text }
+     *@image C5 l9:@files-char
+     |EXTRA
+     |input_encoding_name:{utf-8}
+      *brace_arg C12
+       {f}
+       *@@
+       {i--le}
+       *@/
+       {.}
+       *@.
+       {  a}
+       *@@
+       {<"%}
+       *@@
+       *@verb C1 l9:@files-char
+       |INFO
+       |delimiter:{:}
+        *brace_container C1
+         {raw:  < & @ % " }
+       {spaces_after_argument: }
+      *brace_arg C1
+       {1in}
+      *brace_arg C2
+       {spaces_before_argument: }
+       {1cm}
+      *brace_arg C9
+       {spaces_before_argument: }
+       {alt }
+       *@b C1 l9:@files-char
+        *brace_container C5
+         *@^ C1 l9:@files-char
+          *brace_container C1
+           *@dotless C1 l9:@files-char
+            *brace_container C1
+             {i}
+         {--le}
+         *@/
+         {.}
+         *@.
+       {  a}
+       *@*
+       {<"%}
+       *@@
+       *@verb C1 l9:@files-char
+       |INFO
+       |delimiter:{:}
+        *brace_container C1
+         {raw:  < & @ % " }
+       {spaces_after_argument:  }
+      *brace_arg C11
+       {.ext}
+       *@@
+       {i--le}
+       *@/
+       {.}
+       *@.
+       {  a}
+       *@@
+       {<"%}
+       *@@
+       *@verb C1 l9:@files-char
+       |INFO
+       |delimiter:{:}
+        *brace_container C1
+         {raw:  < & @ % " }
+     {.\\n}
+     >SOURCEMARKS
+     >macro_expansion<end;1><p:1>
+    *@end C1 l10
     |EXTRA
-    |input_encoding_name:{utf-8}
-     *brace_arg C12
-      {f}
-      *@@
-      {i--le}
-      *@/
-      {.}
-      *@.
-      {  a}
-      *@@
-      {<"%}
-      *@@
-      *@verb C1 l9:@files-char
-      |INFO
-      |delimiter:{:}
-       *brace_container C1
-        {raw:  < & @ % " }
-      {spaces_after_argument: }
-     *brace_arg C1
-      {1in}
-     *brace_arg C2
+    |text_arg:{copying}
+     *line_arg C3
       {spaces_before_argument: }
-      {1cm}
-     *brace_arg C9
-      {spaces_before_argument: }
-      {alt }
-      *@b C1 l9:@files-char
-       *brace_container C5
-        *@^ C1 l9:@files-char
-         *brace_container C1
-          *@dotless C1 l9:@files-char
-           *brace_container C1
-            {i}
-        {--le}
-        *@/
-        {.}
-        *@.
-      {  a}
-      *@*
-      {<"%}
-      *@@
-      *@verb C1 l9:@files-char
-      |INFO
-      |delimiter:{:}
-       *brace_container C1
-        {raw:  < & @ % " }
-      {spaces_after_argument:  }
-     *brace_arg C11
-      {.ext}
-      *@@
-      {i--le}
-      *@/
-      {.}
-      *@.
-      {  a}
-      *@@
-      {<"%}
-      *@@
-      *@verb C1 l9:@files-char
-      |INFO
-      |delimiter:{:}
-       *brace_container C1
-        {raw:  < & @ % " }
-    {.\\n}
-    >SOURCEMARKS
-    >macro_expansion<end;1><p:1>
-   *@end C1 l10
-   |EXTRA
-   |text_arg:{copying}
-    *line_arg C3
-     {spaces_before_argument: }
-     {copying}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+      {copying}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
  *@node C1 l12 {Top}
  |EXTRA
  |identifier:{Top}
@@ -1040,6 +1041,7 @@ $result_converted_errors{'plaintext'}->{'test_image'} = '* W l15:@files-char|cou
 
 $result_converted{'latex_text'}->{'test_image'} = '
 
+\\begin{document}
 \\label{anchor:Top}%
 \\label{anchor:chapter}%
 

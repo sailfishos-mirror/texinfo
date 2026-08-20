@@ -8,15 +8,16 @@ use utf8;
 
 $result_tree_text{'text_on_conditional_line_expanded'} = '*document_root C1
  *before_node_section C2
-  {}
-  >SOURCEMARKS
-  >expanded_conditional_command<start;1>
-   >*@ifnothtml C1 l1
-    >*arguments_line C1
-     >*block_line_arg C3
-      >{spaces_before_argument: }
-      >{text following ifnothtml,}
-      >{spaces_after_argument:\\n}
+  *preamble_before_content C1
+   {}
+   >SOURCEMARKS
+   >expanded_conditional_command<start;1>
+    >*@ifnothtml C1 l1
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >{text following ifnothtml,}
+       >{spaces_after_argument:\\n}
   *paragraph C1
    {a\\n}
    >SOURCEMARKS

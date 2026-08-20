@@ -8,14 +8,10 @@ use utf8;
 
 $result_tree_text{'raiselowersections'} = '*document_root C14
  *before_node_section C2
-  *paragraph C2
-   {\\input texinfo }
-   *@c C1
-    *line_arg C3
-     {spaces_before_argument: }
-     {rawline_text:-*-texinfo-*-}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+  *preamble_before_beginning C2
+   {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content
  *@node C1 l3 {Top}
  |EXTRA
  |identifier:{Top}
@@ -449,8 +445,7 @@ Second chapter
 ';
 
 
-$result_texts{'raiselowersections'} = '\\input texinfo 
-* Chapter::
+$result_texts{'raiselowersections'} = '* Chapter::
 * Second chapter::
 
 1 Chapter

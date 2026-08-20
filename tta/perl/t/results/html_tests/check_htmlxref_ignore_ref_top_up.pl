@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'check_htmlxref_ignore_ref_top_up'} = '*document_root C6
- *before_node_section C1
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
  *@node C1 l2 {Top}
  |EXTRA
  |identifier:{Top}
@@ -219,8 +221,7 @@ $result_texis{'check_htmlxref_ignore_ref_top_up'} = '
 ';
 
 
-$result_texts{'check_htmlxref_ignore_ref_top_up'} = '
-top
+$result_texts{'check_htmlxref_ignore_ref_top_up'} = 'top
 ***
 
 a
@@ -321,7 +322,6 @@ span:hover a.copiable-link {visibility: visible}
 </head>
 
 <body>
-
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="no_existing_no_manual_direction.html#Top" accesskey="n" rel="next">(../there/no_existing_no_manual_direction)</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#first" accesskey="p" rel="prev">first</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link">(dir)</span></span><span class="nav-button"> &nbsp; </span></p>

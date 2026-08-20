@@ -7,26 +7,27 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'comment_on_ifset_line'} = '*document_root C1
- *before_node_section C3
-  *@set C1
-  |EXTRA
-  |misc_args:A{x|}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:x}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >expanded_conditional_command<start;1><p:1>
-   >*@ifset C1 l3
-    >*arguments_line C1
-     >*block_line_arg C3
-      >{spaces_before_argument: }
-      >{x}
-      >*@c C1
-       >*line_arg C2
-        >{rawline_text:}
-        >{spaces_after_argument:\\n}
+ *before_node_section C2
+  *preamble_before_content C2
+   *@set C1
+   |EXTRA
+   |misc_args:A{x|}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:x}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<start;1><p:1>
+    >*@ifset C1 l3
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >{x}
+       >*@c C1
+        >*line_arg C2
+         >{rawline_text:}
+         >{spaces_after_argument:\\n}
   *paragraph C6
    {Y1\\n}
    >SOURCEMARKS

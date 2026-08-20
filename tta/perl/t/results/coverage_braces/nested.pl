@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'nested'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C3
    {type the characters }
    *@kbd C1 l1
@@ -43,7 +44,8 @@ $result_converted{'plaintext'}->{'nested'} = 'type the characters ‘l o g o u t
 $result_converted{'html_text'}->{'nested'} = '<p>type the characters <kbd class="kbd">l o g o u t <kbd class="key">RET</kbd></kbd>.</p>';
 
 
-$result_converted{'latex_text'}->{'nested'} = 'type the characters \\Texinfocommandstyletextkbd{l o g o u t \\texttt{RET}}.';
+$result_converted{'latex_text'}->{'nested'} = '\\begin{document}
+type the characters \\Texinfocommandstyletextkbd{l o g o u t \\texttt{RET}}.';
 
 
 $result_converted{'docbook'}->{'nested'} = '<para>type the characters <userinput>l o g o u t <keycap>RET</keycap></userinput>.</para>';

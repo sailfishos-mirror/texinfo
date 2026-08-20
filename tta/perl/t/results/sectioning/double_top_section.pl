@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'double_top_section'} = '*document_root C3
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@top C4 l1 {First top}
  |EXTRA
  |identifier:{First-top}

@@ -7,42 +7,43 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'table_nested'} = '*document_root C1
- *before_node_section C10
-  *@macro C23 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{myvtable}
-   *arguments_line C1
-    {macro_line: myvtable\\n}
-   {raw:@vtable @asis\\n}
-   {raw:@item first item\\n}
-   {raw:@itemx second itemx\\n}
-   {raw:\\n}
-   {raw:Text.\\n}
-   {raw:\\n}
-   {raw:@item second item\\n}
-   {raw:\\n}
-   {raw:Text 2\\n}
-   {raw:\\n}
-   {raw:@item last\\n}
-   {raw:@end vtable\\n}
-   {raw:\\n}
-   {raw:Something.\\n}
-   {raw:@table @emph\\n}
-   {raw:@item in item\\n}
-   {raw:Text without blank line\\n}
-   {raw:@item second item\\n}
-   {raw:Text without blank line 2\\n}
-   {raw:@end table\\n}
-   {raw:After table.\\n}
-   *@end C1 l23
+ *before_node_section C9
+  *preamble_before_content C2
+   *@macro C23 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{}
+   |macro_name:{myvtable}
+    *arguments_line C1
+     {macro_line: myvtable\\n}
+    {raw:@vtable @asis\\n}
+    {raw:@item first item\\n}
+    {raw:@itemx second itemx\\n}
+    {raw:\\n}
+    {raw:Text.\\n}
+    {raw:\\n}
+    {raw:@item second item\\n}
+    {raw:\\n}
+    {raw:Text 2\\n}
+    {raw:\\n}
+    {raw:@item last\\n}
+    {raw:@end vtable\\n}
+    {raw:\\n}
+    {raw:Something.\\n}
+    {raw:@table @emph\\n}
+    {raw:@item in item\\n}
+    {raw:Text without blank line\\n}
+    {raw:@item second item\\n}
+    {raw:Text without blank line 2\\n}
+    {raw:@end table\\n}
+    {raw:After table.\\n}
+    *@end C1 l23
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C1
    {Quotation\\n}
   *@quotation C7 l26

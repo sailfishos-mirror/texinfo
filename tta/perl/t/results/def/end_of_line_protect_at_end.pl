@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'end_of_line_protect_at_end'} = '*document_root C1
- *before_node_section C2
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *@deffn C1 l2
    *def_line C1 l2
    |EXTRA
@@ -36,8 +38,7 @@ $result_texis{'end_of_line_protect_at_end'} = '
 @deffn category2 deffn_name2 arguments2 ';
 
 
-$result_texts{'end_of_line_protect_at_end'} = '
-category2: deffn_name2 arguments2
+$result_texts{'end_of_line_protect_at_end'} = 'category2: deffn_name2 arguments2
 ';
 
 $result_errors{'end_of_line_protect_at_end'} = '* E l2|unexpected @
@@ -64,8 +65,8 @@ $result_indices_sort_strings{'end_of_line_protect_at_end'} = 'fn:
 ';
 
 
-$result_converted{'xml'}->{'end_of_line_protect_at_end'} = '
-<deffn><definitionterm><indexterm index="fn" number="1">deffn_name2</indexterm> <defcategory>category2</defcategory> <deffunction>deffn_name2</deffunction> <defparam>arguments2</defparam> </definitionterm>
+$result_converted{'xml'}->{'end_of_line_protect_at_end'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><deffn><definitionterm><indexterm index="fn" number="1">deffn_name2</indexterm> <defcategory>category2</defcategory> <deffunction>deffn_name2</deffunction> <defparam>arguments2</defparam> </definitionterm>
 </deffn>
 ';
 

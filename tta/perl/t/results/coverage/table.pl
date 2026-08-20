@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'table'} = '*document_root C1
- *before_node_section C6
-  {empty_line:\\n}
+ *before_node_section C7
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *@table C3 l2
    *arguments_line C1
     *block_line_arg C3
@@ -155,8 +157,7 @@ In table
 ';
 
 
-$result_texts{'table'} = '
-table item
+$result_texts{'table'} = 'table item
 table itemx
 
 In table
@@ -225,8 +226,7 @@ vr:
 ';
 
 
-$result_converted{'html_text'}->{'table'} = '
-<dl class="table">
+$result_converted{'html_text'}->{'table'} = '<dl class="table">
 <dt>table item</dt>
 <dt>table itemx</dt>
 <dd>
@@ -249,8 +249,8 @@ $result_converted{'html_text'}->{'table'} = '
 ';
 
 
-$result_converted{'xml'}->{'table'} = '
-<table commandarg="asis" endspaces=" ">
+$result_converted{'xml'}->{'table'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><table commandarg="asis" endspaces=" ">
 <tableentry><tableterm><item><itemformat command="asis"> table item</itemformat></item>
 <itemx><itemformat command="asis"> table itemx</itemformat></itemx>
 </tableterm><tableitem>
@@ -274,7 +274,7 @@ $result_converted{'xml'}->{'table'} = '
 ';
 
 
-$result_converted{'latex_text'}->{'table'} = '
+$result_converted{'latex_text'}->{'table'} = '\\begin{document}
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 table item\\\\
@@ -303,8 +303,7 @@ In table
 ';
 
 
-$result_converted{'docbook'}->{'table'} = '
-<variablelist><varlistentry><term>table item
+$result_converted{'docbook'}->{'table'} = '<variablelist><varlistentry><term>table item
 </term><term>table itemx
 </term><listitem>
 <para>In table

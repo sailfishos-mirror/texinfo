@@ -7,24 +7,25 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'test_deftypefnnewline'} = '*document_root C5
- *before_node_section C4
-  *@setfilename C1 l1
-  |EXTRA
-  |text_arg:{test_deftypefnnewline.info}
-   *line_arg C3
-    {spaces_before_argument: }
-    {test_deftypefnnewline.info}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@deftypefnnewline C1 l3
-  |EXTRA
-  |global_command_number:{1}
-  |misc_args:A{on}
-   *line_arg C3
-    {spaces_before_argument: }
-    {on}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C1
+  *preamble_before_content C4
+   *@setfilename C1 l1
+   |EXTRA
+   |text_arg:{test_deftypefnnewline.info}
+    *line_arg C3
+     {spaces_before_argument: }
+     {test_deftypefnnewline.info}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@deftypefnnewline C1 l3
+   |EXTRA
+   |global_command_number:{1}
+   |misc_args:A{on}
+    *line_arg C3
+     {spaces_before_argument: }
+     {on}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
  *@node C1 l5 {Top}
  |EXTRA
  |identifier:{Top}
@@ -1043,6 +1044,7 @@ $result_converted{'docbook'}->{'test_deftypefnnewline'} = '<chapter label="1" id
 
 $result_converted{'latex_text'}->{'test_deftypefnnewline'} = '
 
+\\begin{document}
 \\label{anchor:Top}%
 \\Texinfochapter{{chap}}
 \\label{anchor:chapter}%

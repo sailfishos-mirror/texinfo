@@ -7,13 +7,14 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'contents_at_begin_chapter_without_node'} = '*document_root C4
- *before_node_section C2
-  *@contents C1 l1
-  |EXTRA
-  |global_command_number:{1}
-   *line_arg C1
-    {spaces_before_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C1
+  *preamble_before_content C2
+   *@contents C1 l1
+   |EXTRA
+   |global_command_number:{1}
+    *line_arg C1
+     {spaces_before_argument:\\n}
+   {empty_line:\\n}
  *@node C1 l3 {Top}
  |EXTRA
  |identifier:{Top}

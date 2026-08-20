@@ -8,15 +8,17 @@ use utf8;
 
 $result_tree_text{'thischapter_in_math_in_evenfooting'} = '*document_root C1
  *before_node_section C2
-  {empty_line:\\n}
-  *@evenfooting C1 l2
-   *line_arg C3
-    {spaces_before_argument: }
-    *@math C1 l2
-     *brace_arg C2
-      {aa }
-      *@thischapter
-    {spaces_after_argument:\\n}
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C1
+   *@evenfooting C1 l2
+    *line_arg C3
+     {spaces_before_argument: }
+     *@math C1 l2
+      *brace_arg C2
+       {aa }
+       *@thischapter
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -25,8 +27,7 @@ $result_texis{'thischapter_in_math_in_evenfooting'} = '
 ';
 
 
-$result_texts{'thischapter_in_math_in_evenfooting'} = '
-';
+$result_texts{'thischapter_in_math_in_evenfooting'} = '';
 
 $result_errors{'thischapter_in_math_in_evenfooting'} = '';
 

@@ -7,51 +7,53 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'double_recursive_macro_call'} = '*document_root C1
- *before_node_section C6
-  {empty_line:\\n}
-  *@macro C3 l2
-  |EXTRA
-  |formal_args:A{arg}
-  |macro_name:{macone}
-   *arguments_line C1
-    {macro_line: macone {arg}\\n}
-   {raw:@mactwo{}\\n}
-   *@end C1 l4
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C5
+   *@macro C3 l2
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C3 l6
-  |EXTRA
-  |formal_args:A{arg}
-  |macro_name:{mactwo}
-   *arguments_line C1
-    {macro_line: mactwo{arg}\\n}
-   {raw:@macone{}\\n}
-   *@end C1 l8
+   |formal_args:A{arg}
+   |macro_name:{macone}
+    *arguments_line C1
+     {macro_line: macone {arg}\\n}
+    {raw:@mactwo{}\\n}
+    *@end C1 l4
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@macro C3 l6
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >macro_expansion<start;1>
-   >*macro_call@mactwo C1
-    >*brace_arg
-  >macro_expansion<start;2>
-   >*macro_call@macone C1
-    >*brace_arg
-  >macro_expansion<3>
-   >*macro_call@mactwo C1
-    >*brace_arg
-  >macro_expansion<end;2>
-  >macro_expansion<end;1>
+   |formal_args:A{arg}
+   |macro_name:{mactwo}
+    *arguments_line C1
+     {macro_line: mactwo{arg}\\n}
+    {raw:@macone{}\\n}
+    *@end C1 l8
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call@mactwo C1
+     >*brace_arg
+   >macro_expansion<start;2>
+    >*macro_call@macone C1
+     >*brace_arg
+   >macro_expansion<3>
+    >*macro_call@mactwo C1
+     >*brace_arg
+   >macro_expansion<end;2>
+   >macro_expansion<end;1>
 ';
 
 
@@ -69,7 +71,6 @@ $result_texis{'double_recursive_macro_call'} = '
 
 
 $result_texts{'double_recursive_macro_call'} = '
-
 
 
 ';

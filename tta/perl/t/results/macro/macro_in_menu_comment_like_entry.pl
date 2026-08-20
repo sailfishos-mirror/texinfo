@@ -7,23 +7,25 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_in_menu_comment_like_entry'} = '*document_root C1
- *before_node_section C4
-  {empty_line:\\n}
-  *@macro C3 l2
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{emptystring}
-   *arguments_line C1
-    {macro_line: emptystring\\n}
-   {raw:\\n}
-   *@end C1 l4
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@macro C3 l2
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{}
+   |macro_name:{emptystring}
+    *arguments_line C1
+     {macro_line: emptystring\\n}
+    {raw:\\n}
+    *@end C1 l4
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *@menu C3 l6
    *arguments_line C1
     *block_line_arg C1
@@ -81,7 +83,6 @@ $result_texis{'macro_in_menu_comment_like_entry'} = '
 
 
 $result_texts{'macro_in_menu_comment_like_entry'} = '
-
 * a5b: ';
 
 $result_errors{'macro_in_menu_comment_like_entry'} = '';

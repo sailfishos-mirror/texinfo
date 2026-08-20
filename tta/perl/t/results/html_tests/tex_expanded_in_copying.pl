@@ -8,30 +8,31 @@ use utf8;
 
 $result_tree_text{'tex_expanded_in_copying'} = '*document_root C1
  *before_node_section C1
-  *@copying C3 l1
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *@tex C3 l2
+  *preamble_before_content C1
+   *@copying C3 l1
     *arguments_line C1
      *block_line_arg C1
       {spaces_before_argument:\\n}
-    *rawpreformatted C1
-     {aa\\n}
-    *@end C1 l4
+    *@tex C3 l2
+     *arguments_line C1
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
+     *rawpreformatted C1
+      {aa\\n}
+     *@end C1 l4
+     |EXTRA
+     |text_arg:{tex}
+      *line_arg C3
+       {spaces_before_argument: }
+       {tex}
+       {spaces_after_argument:\\n}
+    *@end C1 l5
     |EXTRA
-    |text_arg:{tex}
+    |text_arg:{copying}
      *line_arg C3
       {spaces_before_argument: }
-      {tex}
+      {copying}
       {spaces_after_argument:\\n}
-   *@end C1 l5
-   |EXTRA
-   |text_arg:{copying}
-    *line_arg C3
-     {spaces_before_argument: }
-     {copying}
-     {spaces_after_argument:\\n}
 ';
 
 

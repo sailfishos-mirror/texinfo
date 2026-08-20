@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
- *before_node_section C1
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
  *@node C1 l2 {node! After punc}
  |EXTRA
  |identifier:{node_0021-After-punc}
@@ -230,8 +232,7 @@ In float with caption.
 ';
 
 
-$result_texts{'punctuation_in_line_commands'} = '
-top! After punc
+$result_texts{'punctuation_in_line_commands'} = 'top! After punc
 ***************
 
 item! After punc
@@ -335,8 +336,7 @@ $result_converted_sort_strings{'plaintext'}->{'punctuation_in_line_commands'} = 
 ';
 
 
-$result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
-<div class="top-level-extent" id="node_0021-After-punc">
+$result_converted{'html_text'}->{'punctuation_in_line_commands'} = '<div class="top-level-extent" id="node_0021-After-punc">
 <h1 class="top" id="top_0021-After-punc"><span>top! After punc<a class="copiable-link" href="#top_0021-After-punc"> &para;</a></span></h1>
 
 <dl class="table">
@@ -381,8 +381,8 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 ';
 
 
-$result_converted{'xml'}->{'punctuation_in_line_commands'} = '
-<node identifier="node_0021-After-punc"><nodename> node! After punc</nodename></node>
+$result_converted{'xml'}->{'punctuation_in_line_commands'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><node identifier="node_0021-After-punc"><nodename> node! After punc</nodename></node>
 <top><sectiontitle> top! After punc</sectiontitle>
 
 <table commandarg="asis" endspaces=" ">
@@ -422,7 +422,8 @@ $result_converted{'xml'}->{'punctuation_in_line_commands'} = '
 ';
 
 
-$result_converted{'latex_text'}->{'punctuation_in_line_commands'} = '
+$result_converted{'latex_text'}->{'punctuation_in_line_commands'} = '\\begin{document}
+\\tableofcontents\\newpage
 \\part*{{top! After punc}}
 \\label{anchor:node_0021-After-punc}%
 

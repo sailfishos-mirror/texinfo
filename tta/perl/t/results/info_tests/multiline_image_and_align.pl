@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'multiline_image_and_align'} = '*document_root C1
- *before_node_section C19
+ *before_node_section C20
+  *preamble_before_content
   *@center C1 l1
    *line_arg C3
     {spaces_before_argument: }

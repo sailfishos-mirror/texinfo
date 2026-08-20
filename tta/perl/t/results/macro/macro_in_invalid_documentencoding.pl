@@ -7,35 +7,36 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_in_invalid_documentencoding'} = '*document_root C1
- *before_node_section C2
-  *@macro C3 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{badmacro}
-   *arguments_line C1
-    {macro_line: badmacro\\n}
-   {raw:badm\\n}
-   *@end C1 l3
+ *before_node_section C1
+  *preamble_before_content C2
+   *@macro C3 l1
    |EXTRA
-   |text_arg:{macro}
+   |formal_args:A{}
+   |macro_name:{badmacro}
+    *arguments_line C1
+     {macro_line: badmacro\\n}
+    {raw:badm\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   *@documentencoding C1 l4
+   |EXTRA
+   |global_command_number:{1}
+   |text_arg:{badm}
     *line_arg C3
      {spaces_before_argument: }
-     {macro}
+     >SOURCEMARKS
+     >macro_expansion<start;1><p:1>
+      >*macro_call@badmacro C1
+       >*brace_arg
+     {badm}
+     >SOURCEMARKS
+     >macro_expansion<end;1><p:4>
      {spaces_after_argument:\\n}
-  *@documentencoding C1 l4
-  |EXTRA
-  |global_command_number:{1}
-  |text_arg:{badm}
-   *line_arg C3
-    {spaces_before_argument: }
-    >SOURCEMARKS
-    >macro_expansion<start;1><p:1>
-     >*macro_call@badmacro C1
-      >*brace_arg
-    {badm}
-    >SOURCEMARKS
-    >macro_expansion<end;1><p:4>
-    {spaces_after_argument:\\n}
 ';
 
 

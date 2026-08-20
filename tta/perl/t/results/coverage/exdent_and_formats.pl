@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'exdent_and_formats'} = '*document_root C1
- *before_node_section C34
+ *before_node_section C35
+  *preamble_before_content
   *@example C5 l1
    *arguments_line C1
     *block_line_arg C1
@@ -668,7 +669,8 @@ quotation2
 ';
 
 
-$result_converted{'latex_text'}->{'exdent_and_formats'} = '\\begin{Texinfoindented}
+$result_converted{'latex_text'}->{'exdent_and_formats'} = '\\begin{document}
+\\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
 \\ttfamily \\ Example   Hoho.\\ \\TeX{}\\ .\\ \\leavevmode{}\\\\\\ @.
 

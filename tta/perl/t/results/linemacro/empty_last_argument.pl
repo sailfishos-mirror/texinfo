@@ -7,30 +7,31 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'empty_last_argument'} = '*document_root C1
- *before_node_section C4
-  *@defcodeindex C1 l1
-  |EXTRA
-  |misc_args:A{BI}
-   *line_arg C3
-    {spaces_before_argument: }
-    {BI}
-    {spaces_after_argument:\\n}
-  *@linemacro C4 l2
-  |EXTRA
-  |formal_args:A{symbol|rest}
-  |macro_name:{defbuiltin}
-   *arguments_line C1
-    {macro_line: defbuiltin {symbol, rest}\\n}
-   {raw:@BIindex \\symbol\\\\n}
-   {raw:@defline Builtin \\symbol\\ \\rest\\\\n}
-   *@end C1 l5
+ *before_node_section C2
+  *preamble_before_content C3
+   *@defcodeindex C1 l1
    |EXTRA
-   |text_arg:{linemacro}
+   |misc_args:A{BI}
     *line_arg C3
      {spaces_before_argument: }
-     {linemacro}
+     {BI}
      {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   *@linemacro C4 l2
+   |EXTRA
+   |formal_args:A{symbol|rest}
+   |macro_name:{defbuiltin}
+    *arguments_line C1
+     {macro_line: defbuiltin {symbol, rest}\\n}
+    {raw:@BIindex \\symbol\\\\n}
+    {raw:@defline Builtin \\symbol\\ \\rest\\\\n}
+    *@end C1 l5
+    |EXTRA
+    |text_arg:{linemacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {linemacro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *@defblock C8 l7
    *arguments_line C1
     *block_line_arg C1

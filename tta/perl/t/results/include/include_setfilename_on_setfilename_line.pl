@@ -8,25 +8,26 @@ use utf8;
 
 $result_tree_text{'include_setfilename_on_setfilename_line'} = '*document_root C1
  *before_node_section C1
-  *@setfilename C1 l1
-  |EXTRA
-  |text_arg:{file }
-   *line_arg C3
-    {spaces_before_argument: }
-    {file }
-    *@setfilename C1 l1
-    |EXTRA
-    |text_arg:{other file }
-     *line_arg C3
-      {spaces_before_argument: }
-      {other file }
-      *@include C1 l1
-      |EXTRA
-      |text_arg:{are you joking!}
-       *line_arg C3
-        {spaces_before_argument: }
-        {are you joking!}
-        {spaces_after_argument:\\n}
+  *preamble_before_content C1
+   *@setfilename C1 l1
+   |EXTRA
+   |text_arg:{file }
+    *line_arg C3
+     {spaces_before_argument: }
+     {file }
+     *@setfilename C1 l1
+     |EXTRA
+     |text_arg:{other file }
+      *line_arg C3
+       {spaces_before_argument: }
+       {other file }
+       *@include C1 l1
+       |EXTRA
+       |text_arg:{are you joking!}
+        *line_arg C3
+         {spaces_before_argument: }
+         {are you joking!}
+         {spaces_after_argument:\\n}
 ';
 
 

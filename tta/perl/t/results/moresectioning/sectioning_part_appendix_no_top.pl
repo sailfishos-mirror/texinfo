@@ -12,7 +12,8 @@ UNIT_DIRECTIONS
 This: [U0]
 Forward: [U1]
 FastForward: [U4]
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@chapter C2 l1 {chapter}
  |EXTRA
  |identifier:{chapter}

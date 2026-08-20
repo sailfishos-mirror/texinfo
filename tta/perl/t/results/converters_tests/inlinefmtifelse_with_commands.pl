@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'inlinefmtifelse_with_commands'} = '*document_root C1
- *before_node_section C11
+ *before_node_section C12
+  *preamble_before_content
   *paragraph C2
    *@inlinefmtifelse C3 l1
    |EXTRA
@@ -205,7 +206,8 @@ $result_converted{'docbook'}->{'inlinefmtifelse_with_commands'} = '<para>else <l
 </para>';
 
 
-$result_converted{'latex_text'}->{'inlinefmtifelse_with_commands'} = 'else \\texttt{html}.
+$result_converted{'latex_text'}->{'inlinefmtifelse_with_commands'} = '\\begin{document}
+else \\texttt{html}.
 
 else \\emph{plaintext}.
 

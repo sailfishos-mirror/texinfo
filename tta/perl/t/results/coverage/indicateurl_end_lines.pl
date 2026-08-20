@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'indicateurl_end_lines'} = '*document_root C1
- *before_node_section C4
+ *before_node_section C5
+  *preamble_before_content
   *paragraph C2
    *@indicateurl C1 l1
     *brace_container C2

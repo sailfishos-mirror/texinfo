@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'at_after_accent_command'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C6
    *@ringaccent l1
    |INFO
@@ -57,7 +58,8 @@ $result_converted{'xml'}->{'at_after_accent_command'} = '<para><accent type="rin
 </para>';
 
 
-$result_converted{'latex_text'}->{'at_after_accent_command'} = '\\r{}@. \\^{}@.
+$result_converted{'latex_text'}->{'at_after_accent_command'} = '\\begin{document}
+\\r{}@. \\^{}@.
 ';
 
 

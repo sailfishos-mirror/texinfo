@@ -7,66 +7,67 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'bad_argument'} = '*document_root C1
- *before_node_section C7
-  *@macro C3 l1
-  |EXTRA
-  |invalid_syntax:{1}
-   *arguments_line C1
-    {macro_line:\\n}
-   {raw:in macro\\n}
-   *@end C1 l3
+ *before_node_section C1
+  *preamble_before_content C7
+   *@macro C3 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@rmacro C3 l5
-  |EXTRA
-  |formal_args:A{}
-  |invalid_syntax:{1}
-  |macro_name:{abar}
-   *arguments_line C1
-    {macro_line: abar aaa\\n}
-   {raw:in\\n}
-   *@end C1 l7
+   |invalid_syntax:{1}
+    *arguments_line C1
+     {macro_line:\\n}
+    {raw:in macro\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@rmacro C3 l5
    |EXTRA
-   |text_arg:{rmacro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {rmacro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C3 l9
-  |EXTRA
-  |formal_args:A{ggg}
-  |invalid_syntax:{1}
-  |macro_name:{aftername}
-   *arguments_line C1
-    {macro_line: aftername {ggg} more  \\n}
-   {raw:in macro\\n}
-   *@end C1 l11
+   |formal_args:A{}
+   |invalid_syntax:{1}
+   |macro_name:{abar}
+    *arguments_line C1
+     {macro_line: abar aaa\\n}
+    {raw:in\\n}
+    *@end C1 l7
+    |EXTRA
+    |text_arg:{rmacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {rmacro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@macro C3 l9
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C3 l13
-  |EXTRA
-  |invalid_syntax:{1}
-   *arguments_line C1
-    {macro_line: #badname\\n}
-   {raw:in #\\n}
-   *@end C1 l15
+   |formal_args:A{ggg}
+   |invalid_syntax:{1}
+   |macro_name:{aftername}
+    *arguments_line C1
+     {macro_line: aftername {ggg} more  \\n}
+    {raw:in macro\\n}
+    *@end C1 l11
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@macro C3 l13
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
+   |invalid_syntax:{1}
+    *arguments_line C1
+     {macro_line: #badname\\n}
+    {raw:in #\\n}
+    *@end C1 l15
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
 ';
 
 

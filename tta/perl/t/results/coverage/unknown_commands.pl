@@ -8,7 +8,8 @@ use utf8;
 
 $result_tree_text{'unknown_commands'} = '*document_root C1
  *before_node_section C2
-  {empty_line:\\n}
+  *preamble_before_content C1
+   {empty_line:\\n}
   *paragraph C1
    {#\\n}
 ';

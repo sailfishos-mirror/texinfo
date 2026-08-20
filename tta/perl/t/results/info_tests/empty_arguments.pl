@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'empty_arguments'} = '*document_root C1
- *before_node_section C2
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C6
    *@strong C1 l2
     *brace_container
@@ -33,7 +35,6 @@ $result_texis{'empty_arguments'} = '
 
 
 $result_texts{'empty_arguments'} = '
-
 
 a
 ';

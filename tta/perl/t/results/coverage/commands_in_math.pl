@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'commands_in_math'} = '*document_root C1
- *before_node_section C8
-  {empty_line:\\n}
+ *before_node_section C9
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *@displaymath C15 l2
    *arguments_line C1
     *block_line_arg C1
@@ -413,8 +415,7 @@ $result_texis{'commands_in_math'} = '
 ';
 
 
-$result_texts{'commands_in_math'} = '
-``simple-double--three---four----\'\' aa
+$result_texts{'commands_in_math'} = '``simple-double--three---four----\'\' aa
 ``simple-double--three---four----\'\'
 
 
@@ -478,8 +479,7 @@ error→ ↦ − ⋆ ⊣ ⇒
 ';
 
 
-$result_converted{'html_text'}->{'commands_in_math'} = '
-<pre class="displaymath"><strong class="strong">``simple-double--three---four----\'\'</strong> aa<!-- /@w -->
+$result_converted{'html_text'}->{'commands_in_math'} = '<pre class="displaymath"><strong class="strong">``simple-double--three---four----\'\'</strong> aa<!-- /@w -->
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----\'<!-- /@w -->\'
 
 </pre>
@@ -505,8 +505,8 @@ error&rarr; &rarr; &minus; &lowast; &#8867; &rArr;
 </pre>';
 
 
-$result_converted{'xml'}->{'commands_in_math'} = '
-<displaymath endspaces=" ">
+$result_converted{'xml'}->{'commands_in_math'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><displaymath endspaces=" ">
 <strong>``simple-double--three---four----\'\'</strong> <w>aa</w>
 `<w></w>`simple-double-<w></w>-three---four----\'<w></w>\'&linebreak;
 </displaymath>
@@ -538,7 +538,7 @@ $result_converted{'xml'}->{'commands_in_math'} = '
 ';
 
 
-$result_converted{'latex_text'}->{'commands_in_math'} = '
+$result_converted{'latex_text'}->{'commands_in_math'} = '\\begin{document}
 \\[
 \\mathbf{``simple-double--three---four----\'\'} \\hbox{aa}
 `\\hbox{}`simple-double-\\hbox{}-three---four----\'\\hbox{}\'
@@ -571,8 +571,7 @@ TeX LaTeX \\bullet{} \\copyright{} \\dots{} \\dots{} \\equiv{}
 ';
 
 
-$result_converted{'docbook'}->{'commands_in_math'} = '
-<informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----\'\'</emphasis> aa<!-- /@w -->
+$result_converted{'docbook'}->{'commands_in_math'} = '<informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----\'\'</emphasis> aa<!-- /@w -->
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----\'<!-- /@w -->\'
 
 </mathphrase></informalequation>

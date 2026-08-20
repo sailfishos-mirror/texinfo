@@ -7,36 +7,38 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'html_in_copying'} = '*document_root C3
- *before_node_section C3
-  {empty_line:\\n}
-  *@copying C5 l2
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *paragraph C1
-    {Copying\\n}
-   {empty_line:\\n}
-   *@html C3 l5
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@copying C5 l2
     *arguments_line C1
      *block_line_arg C1
       {spaces_before_argument:\\n}
-    *rawpreformatted C1
-     {in <b>html</b> in copying `` \\n}
-    *@end C1 l7
+    *paragraph C1
+     {Copying\\n}
+    {empty_line:\\n}
+    *@html C3 l5
+     *arguments_line C1
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
+     *rawpreformatted C1
+      {in <b>html</b> in copying `` \\n}
+     *@end C1 l7
+     |EXTRA
+     |text_arg:{html}
+      *line_arg C3
+       {spaces_before_argument: }
+       {html}
+       {spaces_after_argument:\\n}
+    *@end C1 l8
     |EXTRA
-    |text_arg:{html}
+    |text_arg:{copying}
      *line_arg C3
       {spaces_before_argument: }
-      {html}
+      {copying}
       {spaces_after_argument:\\n}
-   *@end C1 l8
-   |EXTRA
-   |text_arg:{copying}
-    *line_arg C3
-     {spaces_before_argument: }
-     {copying}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   {empty_line:\\n}
  *@node C1 l10 {Top}
  |EXTRA
  |identifier:{Top}
@@ -76,7 +78,6 @@ in <b>html</b> in copying ``
 
 
 $result_texts{'html_in_copying'} = '
-
 top
 ***
 
@@ -128,7 +129,6 @@ span:hover a.copiable-link {visibility: visible}
 </head>
 
 <body>
-
 
 <div class="top-level-extent" id="Top">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>

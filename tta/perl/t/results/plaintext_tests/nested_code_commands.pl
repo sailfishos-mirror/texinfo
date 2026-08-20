@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'nested_code_commands'} = '*document_root C1
- *before_node_section C5
+ *before_node_section C6
+  *preamble_before_content
   *paragraph C16
    *@code C1 l1
     *brace_container C2

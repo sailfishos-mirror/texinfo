@@ -7,58 +7,60 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'bad_formal_arg'} = '*document_root C1
- *before_node_section C6
-  {empty_line:\\n}
-  *@macro C3 l2
-  |EXTRA
-  |formal_args:A{|not_empty}
-  |invalid_syntax:{1}
-  |macro_name:{bad}
-   *arguments_line C1
-    {macro_line: bad  { , not_empty}\\n}
-   {raw:in bad macro\\n}
-   *@end C1 l4
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C5
+   *@macro C3 l2
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C3 l6
-  |EXTRA
-  |formal_args:A{first|in 2arg}
-  |invalid_syntax:{1}
-  |macro_name:{badspace}
-   *arguments_line C1
-    {macro_line: badspace{first, in 2arg}\\n}
-   {raw:bad space\\n}
-   *@end C1 l8
+   |formal_args:A{|not_empty}
+   |invalid_syntax:{1}
+   |macro_name:{bad}
+    *arguments_line C1
+     {macro_line: bad  { , not_empty}\\n}
+    {raw:in bad macro\\n}
+    *@end C1 l4
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@macro C3 l6
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C6 l10
-  |EXTRA
-  |formal_args:A{:::}
-  |invalid_syntax:{1}
-  |macro_name:{abar}
-   *arguments_line C1
-    {macro_line: abar {:::}\\n}
-   {raw:in bar\\n}
-   {raw:@macro foo {? aaa}\\n}
-   {raw:in macro foo\\n}
-   {raw:@end macro\\n}
-   *@end C1 l15
+   |formal_args:A{first|in 2arg}
+   |invalid_syntax:{1}
+   |macro_name:{badspace}
+    *arguments_line C1
+     {macro_line: badspace{first, in 2arg}\\n}
+    {raw:bad space\\n}
+    *@end C1 l8
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@macro C6 l10
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
+   |formal_args:A{:::}
+   |invalid_syntax:{1}
+   |macro_name:{abar}
+    *arguments_line C1
+     {macro_line: abar {:::}\\n}
+    {raw:in bar\\n}
+    {raw:@macro foo {? aaa}\\n}
+    {raw:in macro foo\\n}
+    {raw:@end macro\\n}
+    *@end C1 l15
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
 ';
 
 
@@ -81,7 +83,6 @@ in macro foo
 
 
 $result_texts{'bad_formal_arg'} = '
-
 
 ';
 

@@ -7,71 +7,72 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'paragraph_and_macro'} = '*document_root C1
- *before_node_section C19
-  *@macro C2 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{aempty}
-   *arguments_line C1
-    {macro_line: aempty\\n}
-   *@end C1 l2
+ *before_node_section C9
+  *preamble_before_content C11
+   *@macro C2 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C3 l4
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{aspace}
-   *arguments_line C1
-    {macro_line: aspace\\n}
-   {raw:   \\n}
-   *@end C1 l6
+   |formal_args:A{}
+   |macro_name:{aempty}
+    *arguments_line C1
+     {macro_line: aempty\\n}
+    *@end C1 l2
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@macro C3 l4
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C3 l8
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{word}
-   *arguments_line C1
-    {macro_line: word\\n}
-   {raw:a word\\n}
-   *@end C1 l10
+   |formal_args:A{}
+   |macro_name:{aspace}
+    *arguments_line C1
+     {macro_line: aspace\\n}
+    {raw:   \\n}
+    *@end C1 l6
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@macro C3 l8
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >macro_expansion<start;1>
-   >*macro_call@aempty C1
-    >*brace_arg
-  >macro_expansion<end;1>
-  {empty_line:\\n}
-  {empty_line:    \\n}
-  >SOURCEMARKS
-  >macro_expansion<start;2><p:2>
-   >*macro_call@aempty C1
-    >*brace_arg
-  >macro_expansion<end;2><p:2>
-  {empty_line:\\n}
-  {spaces_before_paragraph: }
-  >SOURCEMARKS
-  >macro_expansion<start;3>
-   >*macro_call@aempty C1
-    >*brace_arg
-  >macro_expansion<end;3>
+   |formal_args:A{}
+   |macro_name:{word}
+    *arguments_line C1
+     {macro_line: word\\n}
+    {raw:a word\\n}
+    *@end C1 l10
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call@aempty C1
+     >*brace_arg
+   >macro_expansion<end;1>
+   {empty_line:\\n}
+   {empty_line:    \\n}
+   >SOURCEMARKS
+   >macro_expansion<start;2><p:2>
+    >*macro_call@aempty C1
+     >*brace_arg
+   >macro_expansion<end;2><p:2>
+   {empty_line:\\n}
+   {spaces_before_paragraph: }
+   >SOURCEMARKS
+   >macro_expansion<start;3>
+    >*macro_call@aempty C1
+     >*brace_arg
+   >macro_expansion<end;3>
   *paragraph C1
    {text after empty.\\n}
   {empty_line:\\n}

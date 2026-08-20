@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'anchor_in_menu_on_sectioning_command_line'} = '*document_root C3
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C1 l1 {chap}
  |EXTRA
  |identifier:{chap}

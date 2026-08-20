@@ -7,71 +7,72 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'value_in_index_commands'} = '*document_root C3
- *before_node_section C19
-  *@set C1
-  |EXTRA
-  |misc_args:A{cp|cp}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:cp cp}
-    {spaces_after_argument:\\n}
-  *@set C1
-  |EXTRA
-  |misc_args:A{fn|fn}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:fn fn}
-    {spaces_after_argument:\\n}
-  *@set C1
-  |EXTRA
-  |misc_args:A{syncodeindex_command|@syncodeindex}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:syncodeindex_command @syncodeindex}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@syncodeindex C1 l5
-  |EXTRA
-  |misc_args:A{cp|fn}
-  >SOURCEMARKS
-  >value_expansion<start;3>{@syncodeindex}
-   >*@value C1
-    >*brace_container C1
-     >{syncodeindex_command}
-   *line_arg C3
-    {spaces_before_argument: }
-    >SOURCEMARKS
-    >value_expansion<start;1><p:1>{cp}
-     >*@value C1
-      >*brace_container C1
-       >{cp}
-    {cp fn}
-    >SOURCEMARKS
-    >value_expansion<end;1><p:2>
-    >value_expansion<start;2><p:3>{fn}
-     >*@value C1
-      >*brace_container C1
-       >{fn}
-    >value_expansion<end;2><p:5>
-    {spaces_after_argument:\\n}
-  *@syncodeindex C1 l6
-  |EXTRA
-  |misc_args:A{cp|fn}
-   *line_arg C3
-    {spaces_before_argument: }
-    >SOURCEMARKS
-    >value_expansion<end;3>
-    {cp fn}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@set C1
-  |EXTRA
-  |misc_args:A{truc|truc}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:truc truc}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C11
+  *preamble_before_content C9
+   *@set C1
+   |EXTRA
+   |misc_args:A{cp|cp}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:cp cp}
+     {spaces_after_argument:\\n}
+   *@set C1
+   |EXTRA
+   |misc_args:A{fn|fn}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:fn fn}
+     {spaces_after_argument:\\n}
+   *@set C1
+   |EXTRA
+   |misc_args:A{syncodeindex_command|@syncodeindex}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:syncodeindex_command @syncodeindex}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@syncodeindex C1 l5
+   |EXTRA
+   |misc_args:A{cp|fn}
+   >SOURCEMARKS
+   >value_expansion<start;3>{@syncodeindex}
+    >*@value C1
+     >*brace_container C1
+      >{syncodeindex_command}
+    *line_arg C3
+     {spaces_before_argument: }
+     >SOURCEMARKS
+     >value_expansion<start;1><p:1>{cp}
+      >*@value C1
+       >*brace_container C1
+        >{cp}
+     {cp fn}
+     >SOURCEMARKS
+     >value_expansion<end;1><p:2>
+     >value_expansion<start;2><p:3>{fn}
+      >*@value C1
+       >*brace_container C1
+        >{fn}
+     >value_expansion<end;2><p:5>
+     {spaces_after_argument:\\n}
+   *@syncodeindex C1 l6
+   |EXTRA
+   |misc_args:A{cp|fn}
+    *line_arg C3
+     {spaces_before_argument: }
+     >SOURCEMARKS
+     >value_expansion<end;3>
+     {cp fn}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@set C1
+   |EXTRA
+   |misc_args:A{truc|truc}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:truc truc}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C3
    {definedx truc\\n}
    *@defindex C1 l11

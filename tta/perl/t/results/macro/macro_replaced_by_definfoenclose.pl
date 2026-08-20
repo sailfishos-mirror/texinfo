@@ -7,30 +7,31 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_replaced_by_definfoenclose'} = '*document_root C1
- *before_node_section C5
-  *@macro C3 l1
-  |EXTRA
-  |formal_args:A{arg}
-  |macro_name:{phoo}
-   *arguments_line C1
-    {macro_line: phoo {arg}\\n}
-   {raw:||\\arg\\||\\n}
-   *@end C1 l3
+ *before_node_section C2
+  *preamble_before_content C4
+   *@macro C3 l1
    |EXTRA
-   |text_arg:{macro}
+   |formal_args:A{arg}
+   |macro_name:{phoo}
+    *arguments_line C1
+     {macro_line: phoo {arg}\\n}
+    {raw:||\\arg\\||\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@definfoenclose C1 l5
+   |EXTRA
+   |misc_args:A{phoo|;|:}
     *line_arg C3
      {spaces_before_argument: }
-     {macro}
+     {phoo,;,:}
      {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@definfoenclose C1 l5
-  |EXTRA
-  |misc_args:A{phoo|;|:}
-   *line_arg C3
-    {spaces_before_argument: }
-    {phoo,;,:}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   {empty_line:\\n}
   *paragraph C2
    *definfoenclose_command@phoo C1 l7
    |EXTRA

@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'omit_def_space'} = '*document_root C3
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C2 l1 {Top}
  |EXTRA
  |identifier:{Top}
@@ -222,7 +223,8 @@ $result_converted_errors{'html'}->{'omit_def_space'} = '* W |must specify a titl
 ';
 
 
-$result_converted{'latex_text'}->{'omit_def_space'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'omit_def_space'} = '\\begin{document}
+\\label{anchor:Top}%
 \\label{anchor:chap}%
 
 

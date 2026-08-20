@@ -8,13 +8,14 @@ use utf8;
 
 $result_tree_text{'incorrect_allowcodebreaks_argument'} = '*document_root C1
  *before_node_section C2
-  *@allowcodebreaks C1 l1
-  |EXTRA
-  |global_command_number:{1}
-   *line_arg C3
-    {spaces_before_argument: }
-    {_arg}
-    {spaces_after_argument:\\n}
+  *preamble_before_content C1
+   *@allowcodebreaks C1 l1
+   |EXTRA
+   |global_command_number:{1}
+    *line_arg C3
+     {spaces_before_argument: }
+     {_arg}
+     {spaces_after_argument:\\n}
   *paragraph C2
    *@code C1 l2
     *brace_container C1
@@ -134,6 +135,7 @@ $result_converted{'latex'}->{'incorrect_allowcodebreaks_argument'} = '\\document
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 \\texttt{b a}
 \\end{document}
 ';

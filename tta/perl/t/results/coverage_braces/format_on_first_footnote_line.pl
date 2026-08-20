@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'format_on_first_footnote_line'} = '*document_root C1
- *before_node_section C3
+ *before_node_section C4
+  *preamble_before_content
   *paragraph C3
    {Texte}
    *@footnote C1 l1
@@ -121,7 +122,8 @@ $result_converted{'html_text'}->{'format_on_first_footnote_line'} = '<p>Texte<a 
 ';
 
 
-$result_converted{'latex_text'}->{'format_on_first_footnote_line'} = 'Texte\\footnote{\\begin{quote}
+$result_converted{'latex_text'}->{'format_on_first_footnote_line'} = '\\begin{document}
+Texte\\footnote{\\begin{quote}
 in quotation on the first footnote line
 \\end{quote}
 }.

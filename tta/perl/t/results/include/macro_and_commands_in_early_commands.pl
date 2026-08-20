@@ -7,86 +7,88 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
- *before_node_section C10
-  *@macro C3 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{begin-file}
-   *arguments_line C1
-    {macro_line: begin-file\\n}
-   {raw:macro_i--n_pass@@\\n}
-   *@end C1 l3
+ *before_node_section C2
+  *preamble_before_setfilename C2
+   *@macro C3 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@setfilename C1 l5
-  |EXTRA
-  |text_arg:{macro_i--n_pass@texi_commands.info}
-   *line_arg C5
-    {spaces_before_argument: }
-    >SOURCEMARKS
-    >macro_expansion<start;1><p:1>
-     >*macro_call@begin-file C1
-      >*brace_arg
-    {macro_i--n_pass}
-    *@@
-    >SOURCEMARKS
-    >macro_expansion<end;1>
-    {texi_commands.info}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C3 l7
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{latin1}
-   *arguments_line C1
-    {macro_line: latin1 \\n}
-   {raw:ISO-8859-1@@\\n}
-   *@end C1 l9
+   |formal_args:A{}
+   |macro_name:{begin-file}
+    *arguments_line C1
+     {macro_line: begin-file\\n}
+    {raw:macro_i--n_pass@@\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+  *preamble_before_content C8
+   *@setfilename C1 l5
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
+   |text_arg:{macro_i--n_pass@texi_commands.info}
+    *line_arg C5
      {spaces_before_argument: }
-     {macro}
+     >SOURCEMARKS
+     >macro_expansion<start;1><p:1>
+      >*macro_call@begin-file C1
+       >*brace_arg
+     {macro_i--n_pass}
+     *@@
+     >SOURCEMARKS
+     >macro_expansion<end;1>
+     {texi_commands.info}
      {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@documentencoding C1 l11
-  |EXTRA
-  |global_command_number:{1}
-  |input_encoding_name:{iso-8859-1}
-  |text_arg:{ISO-8859-1@}
-   *line_arg C4
-    {spaces_before_argument: }
-    >SOURCEMARKS
-    >macro_expansion<start;2><p:1>
-     >*macro_call@latin1 C1
-      >*brace_arg
-    {ISO-8859-1}
-    *@@
-    >SOURCEMARKS
-    >macro_expansion<end;2>
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C4 l13
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{multiinclude}
-   *arguments_line C1
-    {macro_line: multiinclude\\n}
-   {raw:macro_included.texi\\n}
-   {raw:@include inc_@@f--ile.texi\\n}
-   *@end C1 l16
+   {empty_line:\\n}
+   *@macro C3 l7
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
+   |formal_args:A{}
+   |macro_name:{latin1}
+    *arguments_line C1
+     {macro_line: latin1 \\n}
+    {raw:ISO-8859-1@@\\n}
+    *@end C1 l9
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@documentencoding C1 l11
+   |EXTRA
+   |global_command_number:{1}
+   |input_encoding_name:{iso-8859-1}
+   |text_arg:{ISO-8859-1@}
+    *line_arg C4
      {spaces_before_argument: }
-     {macro}
+     >SOURCEMARKS
+     >macro_expansion<start;2><p:1>
+      >*macro_call@latin1 C1
+       >*brace_arg
+     {ISO-8859-1}
+     *@@
+     >SOURCEMARKS
+     >macro_expansion<end;2>
      {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   {empty_line:\\n}
+   *@macro C4 l13
+   |EXTRA
+   |formal_args:A{}
+   |macro_name:{multiinclude}
+    *arguments_line C1
+     {macro_line: multiinclude\\n}
+    {raw:macro_included.texi\\n}
+    {raw:@include inc_@@f--ile.texi\\n}
+    *@end C1 l16
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
  *@node C1 l18 {Top}
  |EXTRA
  |identifier:{Top}
@@ -218,7 +220,6 @@ in themacro
 
 
 $result_texts{'macro_and_commands_in_early_commands'} = '
-
 
 
 

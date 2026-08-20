@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'preformatted'} = '*document_root C1
- *before_node_section C4
-  {empty_line:\\n}
+ *before_node_section C5
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *@example C3 l2
    *arguments_line C1
     *block_line_arg C1
@@ -82,8 +84,7 @@ in table in format
 ';
 
 
-$result_texts{'preformatted'} = '
-e--xample  some  
+$result_texts{'preformatted'} = 'e--xample  some  
 
    text
 
@@ -124,8 +125,7 @@ $result_converted_sort_strings{'plaintext'}->{'preformatted'} = 'vr:
 ';
 
 
-$result_converted{'html_text'}->{'preformatted'} = '
-<div class="example">
+$result_converted{'html_text'}->{'preformatted'} = '<div class="example">
 <pre class="example-preformatted">e--xample  some  
 
    text
@@ -143,8 +143,8 @@ in table in format
 ';
 
 
-$result_converted{'xml'}->{'preformatted'} = '
-<example endspaces=" ">
+$result_converted{'xml'}->{'preformatted'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><example endspaces=" ">
 <pre xml:space="preserve">e--xample  some  
 
    text
@@ -160,7 +160,7 @@ in table in format
 ';
 
 
-$result_converted{'latex_text'}->{'preformatted'} = '
+$result_converted{'latex_text'}->{'preformatted'} = '\\begin{document}
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
 \\ttfamily e{-}{-}xample  some  
@@ -182,8 +182,7 @@ in table in format
 ';
 
 
-$result_converted{'docbook'}->{'preformatted'} = '
-<screen>e--xample  some  
+$result_converted{'docbook'}->{'preformatted'} = '<screen>e--xample  some  
 
    text
 </screen>

@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'accent_with_text'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C10
    *@u C1 l1
     *brace_container C1
@@ -75,7 +76,8 @@ $result_converted{'docbook'}->{'accent_with_text'} = '<para>&#8211;a&#774; &#821
 </para>';
 
 
-$result_converted{'latex_text'}->{'accent_with_text'} = '\\u{--a} --b \\^{--\\i{}} \\^{--\\j{}} \\^{--a}
+$result_converted{'latex_text'}->{'accent_with_text'} = '\\begin{document}
+\\u{--a} --b \\^{--\\i{}} \\^{--\\j{}} \\^{--a}
 ';
 
 1;

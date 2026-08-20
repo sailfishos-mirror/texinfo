@@ -12,7 +12,8 @@ This: [U0]
 NodeNext: [U0]
 NodeForward: [U0]
 NodeBack: [U0]
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C1 l1 {part node before top}
  |EXTRA
  |identifier:{part-node-before-top}

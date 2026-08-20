@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'all_empty_def'} = '*document_root C1
- *before_node_section C17
+ *before_node_section C18
+  *preamble_before_content
   *@deffn C2 l1
    *def_line C1 l1
    |EXTRA

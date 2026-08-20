@@ -7,42 +7,43 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'recursive_linemacro_in_call'} = '*document_root C1
- *before_node_section C3
-  *@linemacro C3 l1
-  |EXTRA
-  |formal_args:A{arg|other}
-  |macro_name:{anorecurse}
-   *arguments_line C1
-    {macro_line: anorecurse {arg, other}\\n}
-   {raw:\\arg\\ d \\other\\\\n}
-   *@end C1 l3
+ *before_node_section C1
+  *preamble_before_content C3
+   *@linemacro C3 l1
    |EXTRA
-   |text_arg:{linemacro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {linemacro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >linemacro_expansion<start;1>
-   >*linemacro_call@anorecurse C2
-    >*linemacro_arg C2
-     >{spaces_before_argument: }
-     >{bracketed_linemacro_arg:@anorecurse a b}
-    >*linemacro_arg C2
-     >{spaces_before_argument: }
-     >{macro_call_arg_text:c}
-  >linemacro_expansion<2>
-   >*linemacro_call@anorecurse C2
-    >*linemacro_arg C2
-     >{spaces_before_argument: }
-     >{macro_call_arg_text:a}
-    >*linemacro_arg C2
-     >{spaces_before_argument: }
-     >{macro_call_arg_text:b d c}
-     >>SOURCEMARKS
-     >>linemacro_expansion<end;1><p:5>
+   |formal_args:A{arg|other}
+   |macro_name:{anorecurse}
+    *arguments_line C1
+     {macro_line: anorecurse {arg, other}\\n}
+    {raw:\\arg\\ d \\other\\\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{linemacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {linemacro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >linemacro_expansion<start;1>
+    >*linemacro_call@anorecurse C2
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
+      >{bracketed_linemacro_arg:@anorecurse a b}
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
+      >{macro_call_arg_text:c}
+   >linemacro_expansion<2>
+    >*linemacro_call@anorecurse C2
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
+      >{macro_call_arg_text:a}
+     >*linemacro_arg C2
+      >{spaces_before_argument: }
+      >{macro_call_arg_text:b d c}
+      >>SOURCEMARKS
+      >>linemacro_expansion<end;1><p:5>
 ';
 
 

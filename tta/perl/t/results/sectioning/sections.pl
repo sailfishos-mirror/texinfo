@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'sections'} = '*document_root C2
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@chapter C1 l1 {a chapter}
  |EXTRA
  |identifier:{a-chapter}

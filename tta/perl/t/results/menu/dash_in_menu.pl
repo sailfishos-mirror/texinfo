@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'dash_in_menu'} = '*document_root C1
- *before_node_section C2
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *@menu C4 l2
    *arguments_line C1
     *block_line_arg C1
@@ -54,8 +56,7 @@ comment --- in.
 ';
 
 
-$result_texts{'dash_in_menu'} = '
-* entry--in: (manual)n---ode.         description -- in.
+$result_texts{'dash_in_menu'} = '* entry--in: (manual)n---ode.         description -- in.
 
 comment -- in.
 ';
@@ -103,7 +104,6 @@ th.menu-comment {text-align:left}
 </head>
 
 <body>
-
 <table class="menu">
 <tr><td class="menu-entry-destination">&bull; <a href="manual.html#n_002d_002d_002dode" accesskey="1">entry&mdash;in</a>:</td><td class="menu-entry-description">description &mdash; in.
 </td></tr>
@@ -124,8 +124,8 @@ $result_converted_errors{'html'}->{'dash_in_menu'} = '* W |must specify a title 
 ';
 
 
-$result_converted{'xml'}->{'dash_in_menu'} = '
-<menu endspaces=" ">
+$result_converted{'xml'}->{'dash_in_menu'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menutitle>entry&textmdash;in</menutitle><menuseparator>: </menuseparator><menunode>(manual)n---ode</menunode><menuseparator>.         </menuseparator><menudescription><pre xml:space="preserve">description &textmdash; in.
 </pre></menudescription></menuentry><menucomment><pre xml:space="preserve">
 comment &textmdash; in.

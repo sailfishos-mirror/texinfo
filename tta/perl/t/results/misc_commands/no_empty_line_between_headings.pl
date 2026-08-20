@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'no_empty_line_between_headings'} = '*document_root C4
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@top C2 l1 {Top}
  |EXTRA
  |identifier:{Top}
@@ -219,6 +220,7 @@ $result_converted{'latex'}->{'no_empty_line_between_headings'} = '\\documentclas
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 \\part*{{Top}}
 \\subsection*{{Subheading}}
 \\Texinfochapter{{Chapter}}

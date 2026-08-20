@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'bad_documentlanguage'} = '*document_root C1
- *before_node_section C6
-  {empty_line:\\n}
+ *before_node_section C7
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C2
    {documentlanguage }
    *@documentlanguage C1 l2
@@ -56,8 +58,7 @@ documentlanguage @documentlanguage  en
 ';
 
 
-$result_texts{'bad_documentlanguage'} = '
-documentlanguage 
+$result_texts{'bad_documentlanguage'} = 'documentlanguage 
 
 ';
 

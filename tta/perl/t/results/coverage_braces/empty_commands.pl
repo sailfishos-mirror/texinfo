@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'empty_commands'} = '*document_root C1
- *before_node_section C4
+ *before_node_section C5
+  *preamble_before_content
   *@titlefont C1 l1
   |EXTRA
   |global_command_number:{1}
@@ -92,7 +93,8 @@ $result_converted{'html_text'}->{'empty_commands'} = '
 ';
 
 
-$result_converted{'latex_text'}->{'empty_commands'} = '
+$result_converted{'latex_text'}->{'empty_commands'} = '\\begin{document}
+
 
    \\texttt{}\\footnote{} \\~{}  
 ';

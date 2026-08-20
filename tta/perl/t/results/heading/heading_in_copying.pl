@@ -7,55 +7,56 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'heading_in_copying'} = '*document_root C3
- *before_node_section C2
-  *@copying C7 l1
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
+ *before_node_section C1
+  *preamble_before_content C2
+   *@copying C7 l1
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    {empty_line:\\n}
+    *@heading C1 l3
+    |EXTRA
+    |global_command_number:{1}
+    |heading_number:{1}
+     *line_arg C6
+      {spaces_before_argument: }
+      {in copying }
+      *@@
+      { }
+      *@emph C1 l3
+       *brace_container C1
+        {heading}
+      {spaces_after_argument:\\n}
+    *index_entry_command@cindex C1 l4
+    |EXTRA
+    |element_region:{copying}
+    |index_entry:I{cp,1}
+     *line_arg C3
+      {spaces_before_argument: }
+      {cindex copying}
+      {spaces_after_argument:\\n}
+    {empty_line:\\n}
+    *@subheading C1 l6
+    |EXTRA
+    |global_command_number:{1}
+    |heading_number:{2}
+     *line_arg C6
+      {spaces_before_argument: }
+      {second in copying }
+      *@@
+      { }
+      *@emph C1 l6
+       *brace_container C1
+        {subheading}
+      {spaces_after_argument:\\n}
+    *@end C1 l7
+    |EXTRA
+    |text_arg:{copying}
+     *line_arg C3
+      {spaces_before_argument: }
+      {copying}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
-   *@heading C1 l3
-   |EXTRA
-   |global_command_number:{1}
-   |heading_number:{1}
-    *line_arg C6
-     {spaces_before_argument: }
-     {in copying }
-     *@@
-     { }
-     *@emph C1 l3
-      *brace_container C1
-       {heading}
-     {spaces_after_argument:\\n}
-   *index_entry_command@cindex C1 l4
-   |EXTRA
-   |element_region:{copying}
-   |index_entry:I{cp,1}
-    *line_arg C3
-     {spaces_before_argument: }
-     {cindex copying}
-     {spaces_after_argument:\\n}
-   {empty_line:\\n}
-   *@subheading C1 l6
-   |EXTRA
-   |global_command_number:{1}
-   |heading_number:{2}
-    *line_arg C6
-     {spaces_before_argument: }
-     {second in copying }
-     *@@
-     { }
-     *@emph C1 l6
-      *brace_container C1
-       {subheading}
-     {spaces_after_argument:\\n}
-   *@end C1 l7
-   |EXTRA
-   |text_arg:{copying}
-    *line_arg C3
-     {spaces_before_argument: }
-     {copying}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
  *@node C1 l9 {Top}
  |EXTRA
  |identifier:{Top}

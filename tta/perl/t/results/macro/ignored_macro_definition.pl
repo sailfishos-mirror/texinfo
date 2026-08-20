@@ -7,23 +7,24 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'ignored_macro_definition'} = '*document_root C1
- *before_node_section C6
-  *@macro C3 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{mymacro}
-   *arguments_line C1
-    {macro_line: mymacro{}\\n}
-   {raw:outside\\n}
-   *@end C1 l3
+ *before_node_section C4
+  *preamble_before_content C3
+   *@macro C3 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  {empty_line:\\n}
+   |formal_args:A{}
+   |macro_name:{mymacro}
+    *arguments_line C1
+     {macro_line: mymacro{}\\n}
+    {raw:outside\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   {empty_line:\\n}
   *paragraph C2
    *@inlinefmt C2 l6
    |EXTRA

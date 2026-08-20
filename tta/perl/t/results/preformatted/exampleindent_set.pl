@@ -7,16 +7,17 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'exampleindent_set'} = '*document_root C1
- *before_node_section C3
-  *@exampleindent C1 l1
-  |EXTRA
-  |global_command_number:{1}
-  |misc_args:A{2}
-   *line_arg C3
-    {spaces_before_argument: }
-    {2}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_content C2
+   *@exampleindent C1 l1
+   |EXTRA
+   |global_command_number:{1}
+   |misc_args:A{2}
+    *line_arg C3
+     {spaces_before_argument: }
+     {2}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *@example C3 l3
    *arguments_line C1
     *block_line_arg C1
@@ -112,6 +113,7 @@ $result_converted{'xml'}->{'exampleindent_set'} = '<exampleindent value="2" line
 
 
 $result_converted{'latex_text'}->{'exampleindent_set'} = '
+\\begin{document}
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
 \\ttfamily EXAMPLE INDENT

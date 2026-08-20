@@ -8,9 +8,10 @@ use utf8;
 
 $result_tree_text{'loweredheading'} = '*document_root C3
  *before_node_section C1
-  *@lowersections C1
-   *line_arg C1
-    {spaces_before_argument:\\n}
+  *preamble_before_content C1
+   *@lowersections C1
+    *line_arg C1
+     {spaces_before_argument:\\n}
  *@section C2 l2 {Foo}
  |EXTRA
  |identifier:{Foo}

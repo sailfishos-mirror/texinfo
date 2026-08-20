@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'w_end_sentence'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C2
    {a. }
    *@w C1 l1
@@ -39,7 +40,8 @@ $result_converted{'plaintext'}->{'w_end_sentence'} = 'a.  b
 $result_converted{'html_text'}->{'w_end_sentence'} = '<p>a. b<!-- /@w --></p>';
 
 
-$result_converted{'latex_text'}->{'w_end_sentence'} = 'a. \\hbox{b}';
+$result_converted{'latex_text'}->{'w_end_sentence'} = '\\begin{document}
+a. \\hbox{b}';
 
 
 $result_converted{'docbook'}->{'w_end_sentence'} = '<para>a. b<!-- /@w --></para>';

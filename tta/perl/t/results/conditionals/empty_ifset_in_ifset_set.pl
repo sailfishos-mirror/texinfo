@@ -7,24 +7,26 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'empty_ifset_in_ifset_set'} = '*document_root C1
- *before_node_section C4
-  {empty_line:\\n}
-  *@set C1
-  |EXTRA
-  |misc_args:A{notset|}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:notset}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >expanded_conditional_command<start;1><p:1>
-   >*@ifset C1 l4
-    >*arguments_line C1
-     >*block_line_arg C3
-      >{spaces_before_argument: }
-      >{notset}
-      >{spaces_after_argument:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@set C1
+   |EXTRA
+   |misc_args:A{notset|}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:notset}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<start;1><p:1>
+    >*@ifset C1 l4
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >{notset}
+       >{spaces_after_argument:\\n}
   *@verbatim C3 l5
   >SOURCEMARKS
   >expanded_conditional_command<end;1>
@@ -59,7 +61,6 @@ $result_texis{'empty_ifset_in_ifset_set'} = '
 
 
 $result_texts{'empty_ifset_in_ifset_set'} = '
-
 @ifset
 ';
 

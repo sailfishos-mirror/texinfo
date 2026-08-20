@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'refs_formatting'} = '*document_root C3
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C1 l1 {chapter}
  |EXTRA
  |identifier:{chapter}
@@ -992,7 +993,8 @@ $result_converted{'docbook'}->{'refs_formatting'} = '<chapter label="1" id="chap
 ';
 
 
-$result_converted{'latex_text'}->{'refs_formatting'} = '\\Texinfochapter{{chapter}}
+$result_converted{'latex_text'}->{'refs_formatting'} = '\\begin{document}
+\\Texinfochapter{{chapter}}
 \\label{anchor:chapter}%
 
 \\texttt{@ref\\{chapter,cross ref name\\}} \\hyperref[anchor:chapter]{\\chaptername~\\ref*{anchor:chapter} [chapter], page~\\pageref*{anchor:chapter}}

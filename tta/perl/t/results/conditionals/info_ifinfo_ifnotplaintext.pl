@@ -8,18 +8,19 @@ use utf8;
 
 $result_tree_text{'info_ifinfo_ifnotplaintext'} = '*document_root C1
  *before_node_section C2
-  {}
-  >SOURCEMARKS
-  >expanded_conditional_command<start;1>
-   >*@ifinfo C1 l1
-    >*arguments_line C1
-     >*block_line_arg C1
-      >{spaces_before_argument:\\n}
-  >expanded_conditional_command<start;2>
-   >*@ifnotplaintext C1 l2
-    >*arguments_line C1
-     >*block_line_arg C1
-      >{spaces_before_argument:\\n}
+  *preamble_before_content C1
+   {}
+   >SOURCEMARKS
+   >expanded_conditional_command<start;1>
+    >*@ifinfo C1 l1
+     >*arguments_line C1
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
+   >expanded_conditional_command<start;2>
+    >*@ifnotplaintext C1 l2
+     >*arguments_line C1
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
   *paragraph C1
    {This will be in Info, but not plain text.\\n}
    >SOURCEMARKS

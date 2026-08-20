@@ -7,65 +7,66 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'complex_argument'} = '*document_root C1
- *before_node_section C16
-  *@macro C3 l1
-  |EXTRA
-  |formal_args:A{arg}
-  |macro_name:{macrotwo}
-   *arguments_line C1
-    {macro_line: macrotwo{arg}\\n}
-   {raw:coucou \\arg\\ after arg\\n}
-   *@end C1 l3
+ *before_node_section C11
+  *preamble_before_content C6
+   *@macro C3 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C6 l5
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{macrofour}
-   *arguments_line C1
-    {macro_line: macrofour {}\\n}
-   {raw:1\\n}
-   {raw:2\\n}
-   {raw:3\\n}
-   {raw:4\\n}
-   *@end C1 l10
+   |formal_args:A{arg}
+   |macro_name:{macrotwo}
+    *arguments_line C1
+     {macro_line: macrotwo{arg}\\n}
+    {raw:coucou \\arg\\ after arg\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@macro C6 l5
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C4 l12
-  |EXTRA
-  |formal_args:A{text|arg}
-  |macro_name:{macrothree}
-   *arguments_line C1
-    {macro_line: macrothree{text, arg}\\n}
-   {raw:\\text\\\\n}
-   {raw:&&&& \\arg\\\\n}
-   *@end C1 l15
+   |formal_args:A{}
+   |macro_name:{macrofour}
+    *arguments_line C1
+     {macro_line: macrofour {}\\n}
+    {raw:1\\n}
+    {raw:2\\n}
+    {raw:3\\n}
+    {raw:4\\n}
+    *@end C1 l10
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@macro C4 l12
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >macro_expansion<start;1><p:1>
-   >*macro_call@macrothree C1
-    >*brace_arg C1
-     >{macro_call_arg_text:@verb{% @macrotwo %}\\n@c @macrofour\\n@pagesizes 4 @macrofour{}\\n@headings doubleafter @macrofour{}\\n@verbatim\\n@macrotwo\\n@end verbatim\\n@ignore\\n@macrofour\\n@end ignore\\n@macro macroseven {truc}\\n@emph{\\truc\\}\\n@end macro\\nmacroseven defined\\n@ifinfo\\n@macrofour\\n@end ifinfo\\n@iftex\\n@macrotwo{aa,bb}\\n@end iftex\\n@macrofour{}\\n}
-     >>SOURCEMARKS
-     >>macro_arg_escape_backslash<1><p:192>
-     >>macro_arg_escape_backslash<2><p:197>
-     >>macro_arg_escape_backslash<3><p:280>
+   |formal_args:A{text|arg}
+   |macro_name:{macrothree}
+    *arguments_line C1
+     {macro_line: macrothree{text, arg}\\n}
+    {raw:\\text\\\\n}
+    {raw:&&&& \\arg\\\\n}
+    *@end C1 l15
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1><p:1>
+    >*macro_call@macrothree C1
+     >*brace_arg C1
+      >{macro_call_arg_text:@verb{% @macrotwo %}\\n@c @macrofour\\n@pagesizes 4 @macrofour{}\\n@headings doubleafter @macrofour{}\\n@verbatim\\n@macrotwo\\n@end verbatim\\n@ignore\\n@macrofour\\n@end ignore\\n@macro macroseven {truc}\\n@emph{\\truc\\}\\n@end macro\\nmacroseven defined\\n@ifinfo\\n@macrofour\\n@end ifinfo\\n@iftex\\n@macrotwo{aa,bb}\\n@end iftex\\n@macrofour{}\\n}
+      >>SOURCEMARKS
+      >>macro_arg_escape_backslash<1><p:192>
+      >>macro_arg_escape_backslash<2><p:197>
+      >>macro_arg_escape_backslash<3><p:280>
   *paragraph C11
    *@verb C1 l38:@macrothree
    |INFO

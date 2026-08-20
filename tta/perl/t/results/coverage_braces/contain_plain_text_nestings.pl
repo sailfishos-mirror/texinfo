@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C1 l1 {Top}
  |EXTRA
  |identifier:{Top}
@@ -337,7 +338,8 @@ $result_converted{'html_text'}->{'contain_plain_text_nestings'} = '<div class="t
 ';
 
 
-$result_converted{'latex_text'}->{'contain_plain_text_nestings'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'contain_plain_text_nestings'} = '\\begin{document}
+\\label{anchor:Top}%
 \\Texinfochapter{{Chap}}
 \\label{anchor:chap}%
 

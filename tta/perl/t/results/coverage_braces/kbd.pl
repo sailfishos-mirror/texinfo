@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'kbd'} = '*document_root C1
- *before_node_section C13
+ *before_node_section C14
+  *preamble_before_content
   *paragraph C3
    {kbd: }
    *@code C1 l1
@@ -173,7 +174,8 @@ $result_converted{'html_text'}->{'kbd'} = '<p>kbd: <code class="code">in kbd</co
 ';
 
 
-$result_converted{'latex_text'}->{'kbd'} = 'kbd: \\texttt{in kbd}.
+$result_converted{'latex_text'}->{'kbd'} = '\\begin{document}
+kbd: \\texttt{in kbd}.
 
 kbd in code: \\texttt{in first \\Texinfocommandstyletextkbd{in nested kbd}}.
 

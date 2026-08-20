@@ -7,33 +7,34 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'star_at_command_formatting'} = '*document_root C1
- *before_node_section C10
-  *@macro C14 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{mymacro}
-   *arguments_line C1
-    {macro_line: mymacro\\n}
-   {raw:Some text @*\\n}
-   {raw:more text. @\\n}
-   {raw:Even more text. @* not at eol.\\n}
-   {raw:\\n}
-   {raw:Now followed by @@ : followed@*@ \\n}
-   {raw:And now followed by a space and @@ : follow @* @ \\n}
-   {raw:And now followed by a space and @@ and text: follow @* @ text\\n}
-   {raw:Followed by empty asis and a space @asis{} \\n}
-   {raw:Followed by asis with space and a space @asis{ } \\n}
-   {raw:And now with * empty @@asis: @*@asis{} \\n}
-   {raw:And now with * asis with space @@asis: @* @asis{ }\\n}
-   {raw:And end para.\\n}
-   *@end C1 l14
+ *before_node_section C9
+  *preamble_before_content C2
+   *@macro C14 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{}
+   |macro_name:{mymacro}
+    *arguments_line C1
+     {macro_line: mymacro\\n}
+    {raw:Some text @*\\n}
+    {raw:more text. @\\n}
+    {raw:Even more text. @* not at eol.\\n}
+    {raw:\\n}
+    {raw:Now followed by @@ : followed@*@ \\n}
+    {raw:And now followed by a space and @@ : follow @* @ \\n}
+    {raw:And now followed by a space and @@ and text: follow @* @ text\\n}
+    {raw:Followed by empty asis and a space @asis{} \\n}
+    {raw:Followed by asis with space and a space @asis{ } \\n}
+    {raw:And now with * empty @@asis: @*@asis{} \\n}
+    {raw:And now with * asis with space @@asis: @* @asis{ }\\n}
+    {raw:And end para.\\n}
+    *@end C1 l14
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C8
    {Some text }
    >SOURCEMARKS

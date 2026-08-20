@@ -7,56 +7,57 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'deftypefnnewline_for_copying_after'} = '*document_root C5
- *before_node_section C8
-  *@copying C3 l1
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *@deftypefun C3 l2
-    *def_line C1 l2
+ *before_node_section C7
+  *preamble_before_content C2
+   *@copying C3 l1
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *@deftypefun C3 l2
+     *def_line C1 l2
+     |EXTRA
+     |def_command:{deftypefun}
+     |element_region:{copying}
+     |index_entry:I{fn,1}
+     |original_def_cmdname:{deftypefun}
+      *block_line_arg C9
+       (i){spaces_before_argument: }
+       *def_category C1
+       |INFO
+       |inserted:{1}
+        *def_line_arg C1
+         {Function}
+       {spaces: }
+       *def_type C1
+        *def_line_arg C1
+         {TYPE}
+       {spaces: }
+       *def_name C1
+        *def_line_arg C1
+         {NAME}
+       {spaces: }
+       *def_typearg C1
+        *def_line_arg C1
+         {ARGUMENTS...}
+       {spaces_after_argument:\\n}
+     *def_item C1
+      *paragraph C1
+       {BODY-OF-DESCRIPTION\\n}
+     *@end C1 l4
+     |EXTRA
+     |text_arg:{deftypefun}
+      *line_arg C3
+       {spaces_before_argument: }
+       {deftypefun}
+       {spaces_after_argument:\\n}
+    *@end C1 l5
     |EXTRA
-    |def_command:{deftypefun}
-    |element_region:{copying}
-    |index_entry:I{fn,1}
-    |original_def_cmdname:{deftypefun}
-     *block_line_arg C9
-      (i){spaces_before_argument: }
-      *def_category C1
-      |INFO
-      |inserted:{1}
-       *def_line_arg C1
-        {Function}
-      {spaces: }
-      *def_type C1
-       *def_line_arg C1
-        {TYPE}
-      {spaces: }
-      *def_name C1
-       *def_line_arg C1
-        {NAME}
-      {spaces: }
-      *def_typearg C1
-       *def_line_arg C1
-        {ARGUMENTS...}
-      {spaces_after_argument:\\n}
-    *def_item C1
-     *paragraph C1
-      {BODY-OF-DESCRIPTION\\n}
-    *@end C1 l4
-    |EXTRA
-    |text_arg:{deftypefun}
+    |text_arg:{copying}
      *line_arg C3
       {spaces_before_argument: }
-      {deftypefun}
+      {copying}
       {spaces_after_argument:\\n}
-   *@end C1 l5
-   |EXTRA
-   |text_arg:{copying}
-    *line_arg C3
-     {spaces_before_argument: }
-     {copying}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   {empty_line:\\n}
   *@insertcopying C1 l7
   |EXTRA
   |global_command_number:{1}

@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'indent_in_command_in_paragraph'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C5
    {In para }
    *@code C1 l1
@@ -143,6 +144,7 @@ $result_converted{'latex'}->{'indent_in_command_in_paragraph'} = '\\documentclas
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 In para \\texttt{}.  \\textbf{in double command\\noindent{}}.
 \\end{document}
 ';

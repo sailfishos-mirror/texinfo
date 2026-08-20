@@ -7,14 +7,16 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'comments_in_text'} = '*document_root C1
- *before_node_section C6
-  {empty_line:\\n}
-  *@c C1
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:lone comment}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C5
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@c C1
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:lone comment}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C6
    {Text line followed by a comment on the same line and another below }
    *@c C1
@@ -58,7 +60,6 @@ Comment at the end of the line @c comment
 
 
 $result_texts{'comments_in_text'} = '
-
 Text line followed by a comment on the same line and another below Text line after the comment followed by a comment Text line after the text line followed by the comment.
 
 Comment at the end of the line ';
@@ -83,7 +84,6 @@ line followed by the comment.
 
 
 $result_converted{'html_text'}->{'comments_in_text'} = '
-
 <p>Text line followed by a comment on the same line and another below Text line after the comment followed by a comment Text line after the text line followed by the comment.
 </p>
 <p>Comment at the end of the line </p>';
@@ -171,15 +171,14 @@ $result_converted{'latex'}->{'comments_in_text'} = '\\documentclass{book}
 \\pagestyle{single}%
 
 
-
+\\begin{document}
 Text line followed by a comment on the same line and another below Text line after the comment followed by a comment Text line after the text line followed by the comment.
 
 Comment at the end of the line \\end{document}
 ';
 
 
-$result_converted{'docbook'}->{'comments_in_text'} = '
-<!-- lone comment -->
+$result_converted{'docbook'}->{'comments_in_text'} = '<!-- lone comment -->
 
 <para>Text line followed by a comment on the same line and another below <!-- comment -->
 <!-- comment -->

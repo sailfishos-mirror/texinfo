@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'style_not_closed_before_first_node'} = '*document_root C2
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C1
    *@code C1 l1
     *brace_container C2

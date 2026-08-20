@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'space_at_commands_end_quotation_line'} = '*document_root C1
- *before_node_section C3
+ *before_node_section C4
+  *preamble_before_content
   *@quotation C3 l1
    *arguments_line C1
     *block_line_arg C4
@@ -199,6 +200,7 @@ $result_converted{'latex'}->{'space_at_commands_end_quotation_line'} = '\\docume
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 \\begin{quote}
 \\textbf{@ at the end of line \\ {}:} A @ at the end of the @quotation line.
 \\end{quote}

@@ -7,65 +7,66 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
- *before_node_section C8
-  *@linemacro C3 l1
-  |EXTRA
-  |formal_args:A{param|type}
-  |macro_name:{param}
-   *arguments_line C1
-    {macro_line: param {param, type}\\n}
-   {raw:@defline Parameter @var{\\param\\} @code{ : \\type\\}\\n}
-   *@end C1 l3
+ *before_node_section C2
+  *preamble_before_content C7
+   *@linemacro C3 l1
    |EXTRA
-   |text_arg:{linemacro}
+   |formal_args:A{param|type}
+   |macro_name:{param}
+    *arguments_line C1
+     {macro_line: param {param, type}\\n}
+    {raw:@defline Parameter @var{\\param\\} @code{ : \\type\\}\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{linemacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {linemacro}
+      {spaces_after_argument:\\n}
+   *@linemacro C3 l4
+   |EXTRA
+   |formal_args:A{param|type}
+   |macro_name:{returns}
+    *arguments_line C1
+     {macro_line: returns {param, type}\\n}
+    {raw:@defline {Return Value} @var{\\param\\} @code{ : \\type\\}\\n}
+    *@end C1 l6
+    |EXTRA
+    |text_arg:{linemacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {linemacro}
+      {spaces_after_argument:\\n}
+   *@linemacro C3 l7
+   |EXTRA
+   |formal_args:A{exception}
+   |macro_name:{raises}
+    *arguments_line C1
+     {macro_line: raises {exception}\\n}
+    {raw:@defline {Exception} \\exception\\\\n}
+    *@end C1 l9
+    |EXTRA
+    |text_arg:{linemacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {linemacro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@set C1
+   |EXTRA
+   |misc_args:A{txidefnamenospace|}
     *line_arg C3
      {spaces_before_argument: }
-     {linemacro}
+     {rawline_text:txidefnamenospace}
      {spaces_after_argument:\\n}
-  *@linemacro C3 l4
-  |EXTRA
-  |formal_args:A{param|type}
-  |macro_name:{returns}
-   *arguments_line C1
-    {macro_line: returns {param, type}\\n}
-   {raw:@defline {Return Value} @var{\\param\\} @code{ : \\type\\}\\n}
-   *@end C1 l6
+   *@clear C1
    |EXTRA
-   |text_arg:{linemacro}
+   |misc_args:A{txicodevaristt}
     *line_arg C3
      {spaces_before_argument: }
-     {linemacro}
+     {rawline_text:txicodevaristt}
      {spaces_after_argument:\\n}
-  *@linemacro C3 l7
-  |EXTRA
-  |formal_args:A{exception}
-  |macro_name:{raises}
-   *arguments_line C1
-    {macro_line: raises {exception}\\n}
-   {raw:@defline {Exception} \\exception\\\\n}
-   *@end C1 l9
-   |EXTRA
-   |text_arg:{linemacro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {linemacro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@set C1
-  |EXTRA
-  |misc_args:A{txidefnamenospace|}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:txidefnamenospace}
-    {spaces_after_argument:\\n}
-  *@clear C1
-  |EXTRA
-  |misc_args:A{txicodevaristt}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:txicodevaristt}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   {empty_line:\\n}
   *@defblock C4 l14
    *arguments_line C1
     *block_line_arg C1

@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'detailmenu_in_description'} = '*document_root C1
- *before_node_section C2
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *@menu C4 l2
    *arguments_line C1
     *block_line_arg C1
@@ -68,8 +70,7 @@ $result_texis{'detailmenu_in_description'} = '
 ';
 
 
-$result_texts{'detailmenu_in_description'} = '
-* Copying Conditions::          Your rights.
+$result_texts{'detailmenu_in_description'} = '* Copying Conditions::          Your rights.
 * detailmenu::
 ';
 
@@ -113,7 +114,6 @@ td.menu-entry-destination {vertical-align: top}
 </head>
 
 <body>
-
 <table class="menu">
 <tr><td class="menu-entry-destination">&bull; Copying Conditions:</td><td class="menu-entry-description">Your rights.
 </td></tr>
@@ -133,8 +133,8 @@ $result_converted_errors{'html'}->{'detailmenu_in_description'} = '* W |must spe
 ';
 
 
-$result_converted{'xml'}->{'detailmenu_in_description'} = '
-<menu endspaces=" ">
+$result_converted{'xml'}->{'detailmenu_in_description'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>Copying Conditions</menunode><menuseparator>::          </menuseparator><menudescription><pre xml:space="preserve">Your rights.
 </pre></menudescription></menuentry><detailmenu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>detailmenu</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">

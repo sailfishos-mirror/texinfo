@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'enumerate_in_example'} = '*document_root C1
- *before_node_section C2
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *@example C3 l2
    *arguments_line C1
     *block_line_arg C1
@@ -60,8 +62,7 @@ still second
 ';
 
 
-$result_texts{'enumerate_in_example'} = '
-1. first item
+$result_texts{'enumerate_in_example'} = '1. first item
 2. second  item
 
 still second
@@ -85,8 +86,7 @@ $result_converted{'plaintext'}->{'enumerate_in_example'} = '       1. first item
 ';
 
 
-$result_converted{'html_text'}->{'enumerate_in_example'} = '
-<div class="example">
+$result_converted{'html_text'}->{'enumerate_in_example'} = '<div class="example">
 <ol class="enumerate">
 <li> <pre class="example-preformatted">first item
 </pre></li><li> <pre class="example-preformatted">second  item
@@ -97,8 +97,8 @@ still second
 ';
 
 
-$result_converted{'xml'}->{'enumerate_in_example'} = '
-<example endspaces=" ">
+$result_converted{'xml'}->{'enumerate_in_example'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><example endspaces=" ">
 <enumerate first="1" endspaces=" ">
 <listitem><pre xml:space="preserve"> first item
 </pre></listitem><listitem><pre xml:space="preserve"> second  item
@@ -109,7 +109,7 @@ still second
 ';
 
 
-$result_converted{'latex_text'}->{'enumerate_in_example'} = '
+$result_converted{'latex_text'}->{'enumerate_in_example'} = '\\begin{document}
 \\begin{Texinfoindented}
 \\begin{enumerate}[start=1]
 \\item \\begin{Texinfopreformatted}%

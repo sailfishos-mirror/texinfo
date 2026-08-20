@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'section_in_math'} = '*document_root C3
- *before_node_section C2
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C2
    {Some }
    *@math C1 l2
@@ -65,8 +67,7 @@ More @math{ in math
 ';
 
 
-$result_texts{'section_in_math'} = '
-Some aa {x^2
+$result_texts{'section_in_math'} = 'Some aa {x^2
 
 }1 sec1
 ======

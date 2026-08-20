@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'table_command_comment'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *@table C3 l1
    *arguments_line C1
     *block_line_arg C3
@@ -68,7 +69,8 @@ $result_converted{'xml'}->{'table_command_comment'} = '<table commandarg="code" 
 </tableterm></tableentry></table>';
 
 
-$result_converted{'latex_text'}->{'table_command_comment'} = '\\begin{description}
+$result_converted{'latex_text'}->{'table_command_comment'} = '\\begin{document}
+\\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 \\texttt{item}}}]
 \\end{description}

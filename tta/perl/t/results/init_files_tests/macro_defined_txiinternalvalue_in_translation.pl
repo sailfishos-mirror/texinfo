@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_defined_txiinternalvalue_in_translation'} = '*document_root C1
- *before_node_section C4
+ *before_node_section C5
+  *preamble_before_content
   *@sp C1 l1
   |EXTRA
   |misc_args:A{1}

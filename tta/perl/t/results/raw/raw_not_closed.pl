@@ -8,14 +8,15 @@ use utf8;
 
 $result_tree_text{'raw_not_closed'} = '*document_root C1
  *before_node_section C1
-  *@html C2 l1
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *rawpreformatted C3
-    {empty_line:\\n}
-    {This is some html\\n}
-    {<address> my address </address>\\n}
+  *preamble_before_content C1
+   *@html C2 l1
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *rawpreformatted C3
+     {empty_line:\\n}
+     {This is some html\\n}
+     {<address> my address </address>\\n}
 ';
 
 

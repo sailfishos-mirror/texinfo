@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'empty_ref'} = '*document_root C1
- *before_node_section C2
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C9
    *@ref C1 l2
     *brace_arg
@@ -40,8 +42,7 @@ $result_texis{'empty_ref'} = '
 ';
 
 
-$result_texts{'empty_ref'} = '
- . 
+$result_texts{'empty_ref'} = ' . 
  .
 ';
 

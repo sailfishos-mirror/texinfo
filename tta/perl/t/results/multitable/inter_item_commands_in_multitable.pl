@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
- *before_node_section C6
+ *before_node_section C7
+  *preamble_before_content
   *@multitable C4 l1
   |EXTRA
   |max_columns:{1}

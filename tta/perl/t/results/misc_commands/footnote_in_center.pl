@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'footnote_in_center'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *@center C1 l1
    *line_arg C5
     {spaces_before_argument: }
@@ -204,6 +205,7 @@ $result_converted{'latex'}->{'footnote_in_center'} = '\\documentclass{book}
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 \\begin{center}
 Centered text with a footnote\\footnote{This footnote
 shows an important feature of the centered text.

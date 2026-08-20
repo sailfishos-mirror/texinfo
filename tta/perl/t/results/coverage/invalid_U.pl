@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'invalid_U'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C19
    *@U l1
    |INFO
@@ -110,7 +111,8 @@ $result_converted{'xml'}->{'invalid_U'} = '<para><U></U> <U>z</U> <U>abc</U> <U>
 </para>';
 
 
-$result_converted{'latex_text'}->{'invalid_U'} = ' U+z ઼ U+9999999999999 U+110000 U+10FFFF
+$result_converted{'latex_text'}->{'invalid_U'} = '\\begin{document}
+ U+z ઼ U+9999999999999 U+110000 U+10FFFF
 \\# � U+wxyz
 ';
 

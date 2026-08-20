@@ -8,7 +8,8 @@ use utf8;
 
 $result_tree_text{'hyphenation_no_braces'} = '*document_root C1
  *before_node_section C1
-  *@hyphenation l1
+  *preamble_before_content C1
+   *@hyphenation l1
 ';
 
 
@@ -37,7 +38,8 @@ $result_converted{'plaintext'}->{'hyphenation_no_braces'} = '';
 $result_converted{'html_text'}->{'hyphenation_no_braces'} = '';
 
 
-$result_converted{'latex_text'}->{'hyphenation_no_braces'} = '\\hyphenation{}';
+$result_converted{'latex_text'}->{'hyphenation_no_braces'} = '\\hyphenation{}\\begin{document}
+';
 
 
 $result_converted{'docbook'}->{'hyphenation_no_braces'} = '';

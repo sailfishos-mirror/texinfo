@@ -7,42 +7,43 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'invalid_documentencoding'} = '*document_root C1
- *before_node_section C6
-  *@c C1
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:this one is valid}
-    {spaces_after_argument:\\n}
-  *@documentencoding C1 l2
-  |EXTRA
-  |global_command_number:{1}
-  |text_arg:{us-ascii}
-   *line_arg C4
-    {spaces_before_argument: }
-    {us-ascii}
-    *@asis C1 l2
-     *brace_container
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@documentencoding C1 l4
-  |EXTRA
-  |global_command_number:{2}
-  |text_arg:{latin1}
-   *line_arg C4
-    {spaces_before_argument: }
-    {latin1}
-    *@asis C1 l4
-     *brace_container C1
-      {a}
-    {spaces_after_argument:\\n}
-  *@documentencoding C1 l5
-  |EXTRA
-  |global_command_number:{3}
-  |text_arg:{YS-ASCII}
-   *line_arg C3
-    {spaces_before_argument: }
-    {YS-ASCII}
-    {spaces_after_argument:\\n}
+ *before_node_section C2
+  *preamble_before_content C5
+   *@c C1
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:this one is valid}
+     {spaces_after_argument:\\n}
+   *@documentencoding C1 l2
+   |EXTRA
+   |global_command_number:{1}
+   |text_arg:{us-ascii}
+    *line_arg C4
+     {spaces_before_argument: }
+     {us-ascii}
+     *@asis C1 l2
+      *brace_container
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@documentencoding C1 l4
+   |EXTRA
+   |global_command_number:{2}
+   |text_arg:{latin1}
+    *line_arg C4
+     {spaces_before_argument: }
+     {latin1}
+     *@asis C1 l4
+      *brace_container C1
+       {a}
+     {spaces_after_argument:\\n}
+   *@documentencoding C1 l5
+   |EXTRA
+   |global_command_number:{3}
+   |text_arg:{YS-ASCII}
+    *line_arg C3
+     {spaces_before_argument: }
+     {YS-ASCII}
+     {spaces_after_argument:\\n}
   *paragraph C8
    *@@
    {documentencoding }

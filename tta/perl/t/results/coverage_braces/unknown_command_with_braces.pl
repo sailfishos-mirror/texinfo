@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'unknown_command_with_braces'} = '*document_root C1
- *before_node_section C12
+ *before_node_section C13
+  *preamble_before_content
   *paragraph C1
    {Unknown thing \\n}
   {empty_line:\\n}

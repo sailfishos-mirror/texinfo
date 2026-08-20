@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'link'} = '*document_root C4
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C1 l1 {One}
  |EXTRA
  |identifier:{One}
@@ -325,7 +326,8 @@ $result_converted{'docbook'}->{'link'} = '<chapter label="1" id="One">
 </para>';
 
 
-$result_converted{'latex_text'}->{'link'} = '\\Texinfochapter{{ONEX}}
+$result_converted{'latex_text'}->{'link'} = '\\begin{document}
+\\Texinfochapter{{ONEX}}
 \\label{anchor:One}%
 
 target node

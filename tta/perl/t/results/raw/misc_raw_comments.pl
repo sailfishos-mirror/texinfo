@@ -7,50 +7,52 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'misc_raw_comments'} = '*document_root C1
- *before_node_section C6
-  {empty_line:\\n}
-  *@html C3 l2
-   *arguments_line C1
-    *block_line_arg C2
-     {spaces_before_argument: }
-     *@c C1
-      *line_arg C3
-       {spaces_before_argument: }
-       {rawline_text:comment space}
-       {spaces_after_argument:\\n}
-   *rawpreformatted C1
-    {in html }
-   *@end C1 l3
-   |EXTRA
-   |text_arg:{html}
-    *line_arg C3
-     {spaces_before_argument: }
-     {html}
-     *@c C1
-      *line_arg C3
-       {spaces_before_argument: }
-       {rawline_text:comment no space}
-       {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@tex C2 l5
-   *arguments_line C1
-    *block_line_arg C3
-     {spaces_before_argument: }
-     {in tex}
-     {spaces_after_argument:\\n}
-   *@end C1 l6
-   |EXTRA
-   |text_arg:{tex}
-    *line_arg C4
-     {spaces_before_argument: }
-     {tex}
-     {spaces_after_argument:    }
-     *@c C1
-      *line_arg C3
-       {spaces_before_argument: }
-       {rawline_text:comment after end tex}
-       {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C4
+   *@html C3 l2
+    *arguments_line C1
+     *block_line_arg C2
+      {spaces_before_argument: }
+      *@c C1
+       *line_arg C3
+        {spaces_before_argument: }
+        {rawline_text:comment space}
+        {spaces_after_argument:\\n}
+    *rawpreformatted C1
+     {in html }
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{html}
+     *line_arg C3
+      {spaces_before_argument: }
+      {html}
+      *@c C1
+       *line_arg C3
+        {spaces_before_argument: }
+        {rawline_text:comment no space}
+        {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@tex C2 l5
+    *arguments_line C1
+     *block_line_arg C3
+      {spaces_before_argument: }
+      {in tex}
+      {spaces_after_argument:\\n}
+    *@end C1 l6
+    |EXTRA
+    |text_arg:{tex}
+     *line_arg C4
+      {spaces_before_argument: }
+      {tex}
+      {spaces_after_argument:    }
+      *@c C1
+       *line_arg C3
+        {spaces_before_argument: }
+        {rawline_text:comment after end tex}
+        {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *@verbatim C4 l8
    *arguments_line C1
     *block_line_arg C1
@@ -81,8 +83,7 @@ in verbatim2
 ';
 
 
-$result_texts{'misc_raw_comments'} = '
-in html 
+$result_texts{'misc_raw_comments'} = 'in html 
 
 in verbatim @c in verbatim
 in verbatim2
@@ -110,8 +111,8 @@ in verbatim2
 ';
 
 
-$result_converted{'xml'}->{'misc_raw_comments'} = '
-<html endspaces=" "> <!-- c comment space -->
+$result_converted{'xml'}->{'misc_raw_comments'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><html endspaces=" "> <!-- c comment space -->
 in html </html><!-- c comment no space -->
 
 <tex endspaces=" ">

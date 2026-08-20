@@ -7,35 +7,36 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_and_args'} = '*document_root C1
- *before_node_section C3
-  *@macro C2 l1
-  |EXTRA
-  |formal_args:A{aaa|2b-bb}
-  |macro_name:{good}
-   *arguments_line C1
-    {macro_line: good { aaa, 2b-bb}\\n}
-   *@end C1 l2
+ *before_node_section C1
+  *preamble_before_content C3
+   *@macro C2 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C2 l4
-  |EXTRA
-  |formal_args:A{ggg"@@^_ ff|nnn_b|ccc v}
-  |invalid_syntax:{1}
-  |macro_name:{bad}
-   *arguments_line C1
-    {macro_line: bad { ggg"@@^_ ff, nnn_b, ccc v}\\n}
-   *@end C1 l5
+   |formal_args:A{aaa|2b-bb}
+   |macro_name:{good}
+    *arguments_line C1
+     {macro_line: good { aaa, 2b-bb}\\n}
+    *@end C1 l2
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@macro C2 l4
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
+   |formal_args:A{ggg"@@^_ ff|nnn_b|ccc v}
+   |invalid_syntax:{1}
+   |macro_name:{bad}
+    *arguments_line C1
+     {macro_line: bad { ggg"@@^_ ff, nnn_b, ccc v}\\n}
+    *@end C1 l5
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
 ';
 
 

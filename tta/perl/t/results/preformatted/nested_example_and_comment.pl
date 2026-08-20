@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'nested_example_and_comment'} = '*document_root C1
- *before_node_section C5
+ *before_node_section C6
+  *preamble_before_content
   *@example C5 l1
    *arguments_line C1
     *block_line_arg C1
@@ -270,7 +271,8 @@ $result_converted{'xml'}->{'nested_example_and_comment'} = '<example endspaces="
 ';
 
 
-$result_converted{'latex_text'}->{'nested_example_and_comment'} = '\\begin{Texinfoindented}
+$result_converted{'latex_text'}->{'nested_example_and_comment'} = '\\begin{document}
+\\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
 \\ttfamily First line 0 \\end{Texinfopreformatted}
 \\begin{Texinfoindented}

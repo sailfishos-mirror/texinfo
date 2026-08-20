@@ -7,47 +7,48 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_expansion_end_in_ignored_nested_different_conditional'} = '*document_root C1
- *before_node_section C2
-  *@macro C5 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{beginnestedcond}
-   *arguments_line C1
-    {macro_line: beginnestedcond\\n}
-   {raw:@ifset a\\n}
-   {raw:@ifclear b\\n}
-   {raw:GG\\n}
-   *@end C1 l5
+ *before_node_section C1
+  *preamble_before_content C2
+   *@macro C5 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >macro_expansion<start;1><p:1>
-   >*macro_call@beginnestedcond C1
-    >*brace_arg
-  >ignored_conditional_block<1><p:1>
-   >*@ifset C5 l7:@beginnestedcond
-    >*arguments_line C1
-     >*block_line_arg C3
-      >{spaces_before_argument: }
-      >{a}
-      >{spaces_after_argument:\\n}
-    >{raw:@ifclear b\\n}
-    >{raw:GG}
-    >>SOURCEMARKS
-    >>macro_expansion<end;1><p:2>
-    >{raw:\\n}
-    >*@end C1 l8
-    >|EXTRA
-    >|text_arg:{ifset}
-     >*line_arg C3
-      >{spaces_before_argument: }
-      >{ifset}
-      >{spaces_after_argument:\\n}
+   |formal_args:A{}
+   |macro_name:{beginnestedcond}
+    *arguments_line C1
+     {macro_line: beginnestedcond\\n}
+    {raw:@ifset a\\n}
+    {raw:@ifclear b\\n}
+    {raw:GG\\n}
+    *@end C1 l5
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1><p:1>
+    >*macro_call@beginnestedcond C1
+     >*brace_arg
+   >ignored_conditional_block<1><p:1>
+    >*@ifset C5 l7:@beginnestedcond
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >{a}
+       >{spaces_after_argument:\\n}
+     >{raw:@ifclear b\\n}
+     >{raw:GG}
+     >>SOURCEMARKS
+     >>macro_expansion<end;1><p:2>
+     >{raw:\\n}
+     >*@end C1 l8
+     >|EXTRA
+     >|text_arg:{ifset}
+      >*line_arg C3
+       >{spaces_before_argument: }
+       >{ifset}
+       >{spaces_after_argument:\\n}
 ';
 
 

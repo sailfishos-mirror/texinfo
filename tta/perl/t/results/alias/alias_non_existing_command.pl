@@ -7,15 +7,16 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'alias_non_existing_command'} = '*document_root C1
- *before_node_section C3
-  *@alias C1 l1
-  |EXTRA
-  |misc_args:A{myalias|userdefined}
-   *line_arg C3
-    {spaces_before_argument: }
-    {myalias = userdefined}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_content C2
+   *@alias C1 l1
+   |EXTRA
+   |misc_args:A{myalias|userdefined}
+    *line_arg C3
+     {spaces_before_argument: }
+     {myalias = userdefined}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C1
    {hh.\\n}
 ';

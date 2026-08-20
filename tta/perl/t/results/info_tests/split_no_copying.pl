@@ -7,17 +7,19 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'split_no_copying'} = '*document_root C7
- *before_node_section C3
-  *paragraph C1
-   {\\input texinfo\\n}
-  *@setfilename C1 l2
-  |EXTRA
-  |text_arg:{split_no_copying.info}
-   *line_arg C3
-    {spaces_before_argument: }
-    {split_no_copying.info}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_setfilename C1
+   *preamble_before_beginning C1
+    {text_before_beginning:\\input texinfo\\n}
+  *preamble_before_content C2
+   *@setfilename C1 l2
+   |EXTRA
+   |text_arg:{split_no_copying.info}
+    *line_arg C3
+     {spaces_before_argument: }
+     {split_no_copying.info}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
  *@node C1 l4 {Top}
  |EXTRA
  |identifier:{Top}
@@ -118,8 +120,7 @@ First chapter.
 ';
 
 
-$result_texts{'split_no_copying'} = '\\input texinfo
-
+$result_texts{'split_no_copying'} = '
 Top
 ***
 
@@ -178,8 +179,6 @@ $result_headings_list{'split_no_copying'} = '';
 
 $result_converted{'info'}->{'split_no_copying'} = 'This is split_no_copying.info, produced from .
 
-\\input texinfo
-
 
 File: split_no_copying.info,  Node: Top,  Next: Ch1,  Up: (dir)
 
@@ -202,8 +201,8 @@ First chapter.
 
 
 Tag Table:
-Node: Top64
-Node: Ch1181
+Node: Top48
+Node: Ch1165
 
 End Tag Table
 

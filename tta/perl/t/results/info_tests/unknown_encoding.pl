@@ -7,17 +7,19 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'unknown_encoding'} = '*document_root C2
- *before_node_section C3
-  {empty_line:\\n}
-  *@documentencoding C1 l2
-  |EXTRA
-  |global_command_number:{1}
-  |text_arg:{ggg}
-   *line_arg C3
-    {spaces_before_argument: }
-    {ggg}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@documentencoding C1 l2
+   |EXTRA
+   |global_command_number:{1}
+   |text_arg:{ggg}
+    *line_arg C3
+     {spaces_before_argument: }
+     {ggg}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
  *@node C2 l4 {Top}
  |EXTRA
  |identifier:{Top}
@@ -41,7 +43,6 @@ $result_texis{'unknown_encoding'} = '
 
 
 $result_texts{'unknown_encoding'} = '
-
 
 ';
 

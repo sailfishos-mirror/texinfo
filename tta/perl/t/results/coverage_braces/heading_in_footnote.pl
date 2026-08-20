@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'heading_in_footnote'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C3
    {T}
    *@footnote C1 l1
@@ -102,7 +103,8 @@ $result_converted{'html_text'}->{'heading_in_footnote'} = '<p>T<a class="footnot
 ';
 
 
-$result_converted{'latex_text'}->{'heading_in_footnote'} = 'T\\footnote{AAA
+$result_converted{'latex_text'}->{'heading_in_footnote'} = '\\begin{document}
+T\\footnote{AAA
 \\section*{{H1}}
 \\index[cp]{ind e@ind e}%
 BBB

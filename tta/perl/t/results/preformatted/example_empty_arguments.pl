@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'example_empty_arguments'} = '*document_root C1
- *before_node_section C5
+ *before_node_section C6
+  *preamble_before_content
   *@example C3 l1
    *arguments_line C7
     *block_line_arg C1
@@ -183,7 +184,8 @@ $result_converted{'xml'}->{'example_empty_arguments'} = '<example endspaces=" ">
 ';
 
 
-$result_converted{'latex_text'}->{'example_empty_arguments'} = '\\begin{Texinfoindented}
+$result_converted{'latex_text'}->{'example_empty_arguments'} = '\\begin{document}
+\\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
 \\ttfamily example with empty args
 \\end{Texinfopreformatted}

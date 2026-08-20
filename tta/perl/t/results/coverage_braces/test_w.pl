@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'test_w'} = '*document_root C1
- *before_node_section C32
+ *before_node_section C33
+  *preamble_before_content
   *paragraph C2
    *@w C1 l1
     *brace_container C2
@@ -285,7 +286,8 @@ two single quotes to left- and right-hand doubled.
 </p>';
 
 
-$result_converted{'latex_text'}->{'test_w'} = '\\hbox{aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbb bbbbb bbb b b b b b b b b b bb .
+$result_converted{'latex_text'}->{'test_w'} = '\\begin{document}
+\\hbox{aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbb bbbbb bbb b b b b b b b b b bb .
 ccc dddd}.
 
 a a a a a a a a a a a a a a a a a a a a a a a a a a a a  \\hbox{b a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}

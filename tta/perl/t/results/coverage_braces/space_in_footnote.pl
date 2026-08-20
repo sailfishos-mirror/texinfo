@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'space_in_footnote'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C2
    {text}
    *@footnote C1 l1
@@ -55,7 +56,8 @@ $result_converted{'html_text'}->{'space_in_footnote'} = '<p>text<a class="footno
 ';
 
 
-$result_converted{'latex_text'}->{'space_in_footnote'} = 'text\\footnote{in footnote.}';
+$result_converted{'latex_text'}->{'space_in_footnote'} = '\\begin{document}
+text\\footnote{in footnote.}';
 
 
 $result_converted{'docbook'}->{'space_in_footnote'} = '<para>text<footnote><para>in footnote.</para></footnote></para>';

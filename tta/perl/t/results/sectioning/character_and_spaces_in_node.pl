@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
- *before_node_section C1
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
  *@node C1 l2 {Top}
  |EXTRA
  |identifier:{Top}
@@ -134,8 +136,7 @@ $result_texis{'character_and_spaces_in_node'} = '
 ';
 
 
-$result_texts{'character_and_spaces_in_node'} = '
-';
+$result_texts{'character_and_spaces_in_node'} = '';
 
 $result_errors{'character_and_spaces_in_node'} = '* W l3|node `chap nodes\' not in menu
  warning: node `chap nodes\' not in menu
@@ -239,7 +240,6 @@ span:hover a.copiable-link {visibility: visible}
 </head>
 
 <body>
-
 <a class="node-id" id="Top"></a><p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#chap-nodes" accesskey="n" rel="next">chap nodes</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>

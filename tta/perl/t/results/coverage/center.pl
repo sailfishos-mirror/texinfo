@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'center'} = '*document_root C1
- *before_node_section C3
-  {empty_line:\\n}
+ *before_node_section C4
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *@center C1 l2
    *line_arg C4
     {spaces_before_argument:  }
@@ -27,8 +29,7 @@ $result_texis{'center'} = '
 ';
 
 
-$result_texts{'center'} = '
-in center in code
+$result_texts{'center'} = 'in center in code
 
 ';
 
@@ -48,19 +49,18 @@ $result_converted{'plaintext'}->{'center'} = '                          in cente
 ';
 
 
-$result_converted{'html_text'}->{'center'} = '
-<div class="center">in center <code class="code">in code</code>
+$result_converted{'html_text'}->{'center'} = '<div class="center">in center <code class="code">in code</code>
 </div>
 ';
 
 
-$result_converted{'xml'}->{'center'} = '
-<center>  in center <code>in code</code></center>
+$result_converted{'xml'}->{'center'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><center>  in center <code>in code</code></center>
 
 ';
 
 
-$result_converted{'latex_text'}->{'center'} = '
+$result_converted{'latex_text'}->{'center'} = '\\begin{document}
 \\begin{center}
 in center \\texttt{in code}
 \\end{center}
@@ -68,8 +68,7 @@ in center \\texttt{in code}
 ';
 
 
-$result_converted{'docbook'}->{'center'} = '
-<simpara role="center">in center <literal>in code</literal></simpara>
+$result_converted{'docbook'}->{'center'} = '<simpara role="center">in center <literal>in code</literal></simpara>
 
 ';
 

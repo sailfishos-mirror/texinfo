@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'footnote_ending_on_empty_line_spaces'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C2
    {text}
    *@footnote C1 l1
@@ -60,7 +61,8 @@ $result_converted{'html_text'}->{'footnote_ending_on_empty_line_spaces'} = '<p>t
 ';
 
 
-$result_converted{'latex_text'}->{'footnote_ending_on_empty_line_spaces'} = 'text\\footnote{in footnote.
+$result_converted{'latex_text'}->{'footnote_ending_on_empty_line_spaces'} = '\\begin{document}
+text\\footnote{in footnote.
 
   }';
 

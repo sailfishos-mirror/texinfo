@@ -8,20 +8,22 @@ use utf8;
 
 $result_tree_text{'isolated_html_expanded'} = '*document_root C1
  *before_node_section C2
-  {empty_line:\\n}
-  *@html C3 l2
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *rawpreformatted C1
-    {html\\n}
-   *@end C1 l4
-   |EXTRA
-   |text_arg:{html}
-    *line_arg C3
-     {spaces_before_argument: }
-     {html}
-     {spaces_after_argument:\\n}
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C1
+   *@html C3 l2
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *rawpreformatted C1
+     {html\\n}
+    *@end C1 l4
+    |EXTRA
+    |text_arg:{html}
+     *line_arg C3
+      {spaces_before_argument: }
+      {html}
+      {spaces_after_argument:\\n}
 ';
 
 
@@ -32,8 +34,7 @@ html
 ';
 
 
-$result_texts{'isolated_html_expanded'} = '
-html
+$result_texts{'isolated_html_expanded'} = 'html
 ';
 
 $result_errors{'isolated_html_expanded'} = '';

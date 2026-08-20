@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'end_line_in_anchor'} = '*document_root C1
- *before_node_section C2
+ *before_node_section C3
+  *preamble_before_content
   *@anchor C1 l1
   |EXTRA
   |identifier:{an-anchor}
@@ -43,7 +44,8 @@ $result_converted{'plaintext'}->{'end_line_in_anchor'} = '';
 $result_converted{'html_text'}->{'end_line_in_anchor'} = '<a class="anchor" id="an-anchor"></a>';
 
 
-$result_converted{'latex_text'}->{'end_line_in_anchor'} = '\\label{anchor:an-anchor}%
+$result_converted{'latex_text'}->{'end_line_in_anchor'} = '\\begin{document}
+\\label{anchor:an-anchor}%
 ';
 
 

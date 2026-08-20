@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'inforef_too_much_args'} = '*document_root C2
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C3 l1 {chapter}
  |EXTRA
  |identifier:{chapter}
@@ -70,7 +71,8 @@ $result_converted{'html_text'}->{'inforef_too_much_args'} = '<h4 class="node" id
 </p>';
 
 
-$result_converted{'latex_text'}->{'inforef_too_much_args'} = '\\label{anchor:chapter}%
+$result_converted{'latex_text'}->{'inforef_too_much_args'} = '\\begin{document}
+\\label{anchor:chapter}%
 
 Section ``chapter\'\' in \\texttt{file name,\\ spurious arg}
 ';

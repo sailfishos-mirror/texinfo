@@ -8,11 +8,12 @@ use utf8;
 
 $result_tree_text{'synindex_too_much_args'} = '*document_root C1
  *before_node_section C1
-  *@syncodeindex C1 l1
-   *line_arg C3
-    {spaces_before_argument: }
-    {cp fn    truc}
-    {spaces_after_argument:\\n}
+  *preamble_before_content C1
+   *@syncodeindex C1 l1
+    *line_arg C3
+     {spaces_before_argument: }
+     {cp fn    truc}
+     {spaces_after_argument:\\n}
 ';
 
 

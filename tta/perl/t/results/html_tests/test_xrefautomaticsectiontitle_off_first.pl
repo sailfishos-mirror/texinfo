@@ -7,17 +7,19 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'test_xrefautomaticsectiontitle_off_first'} = '*document_root C5
- *before_node_section C3
-  {empty_line:\\n}
-  *@xrefautomaticsectiontitle C1 l2
-  |EXTRA
-  |global_command_number:{1}
-  |misc_args:A{off}
-   *line_arg C3
-    {spaces_before_argument: }
-    {off}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@xrefautomaticsectiontitle C1 l2
+   |EXTRA
+   |global_command_number:{1}
+   |misc_args:A{off}
+    *line_arg C3
+     {spaces_before_argument: }
+     {off}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
  *@node C1 l4 {Top}
  |EXTRA
  |identifier:{Top}
@@ -133,7 +135,6 @@ $result_texis{'test_xrefautomaticsectiontitle_off_first'} = '
 
 
 $result_texts{'test_xrefautomaticsectiontitle_off_first'} = '
-
 top
 ***
 
@@ -213,7 +214,6 @@ span:hover a.copiable-link {visibility: visible}
 </head>
 
 <body>
-
 
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">

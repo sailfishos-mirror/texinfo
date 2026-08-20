@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'text_line'} = '*document_root C1
- *before_node_section C3
-  {empty_line:\\n}
+ *before_node_section C4
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C1
    {text\\n}
   {empty_line:\\n}
@@ -21,8 +23,7 @@ text
 ';
 
 
-$result_texts{'text_line'} = '
-text
+$result_texts{'text_line'} = 'text
 
 ';
 
@@ -42,8 +43,7 @@ $result_converted{'plaintext'}->{'text_line'} = 'text
 ';
 
 
-$result_converted{'html_text'}->{'text_line'} = '
-<p>text
+$result_converted{'html_text'}->{'text_line'} = '<p>text
 </p>
 ';
 

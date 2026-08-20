@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'test_sp'} = '*document_root C1
- *before_node_section C15
+ *before_node_section C16
+  *preamble_before_content
   *paragraph C1
    {Para\\n}
   *@sp C1 l2
@@ -188,7 +189,8 @@ Now lone @sp:
 </para>';
 
 
-$result_converted{'latex_text'}->{'test_sp'} = 'Para
+$result_converted{'latex_text'}->{'test_sp'} = '\\begin{document}
+Para
 \\vskip 1\\baselineskip %
 other para
 Now lone @sp:

@@ -8,13 +8,14 @@ use utf8;
 
 $result_tree_text{'value_after_accent'} = '*document_root C1
  *before_node_section C2
-  *@set C1
-  |EXTRA
-  |misc_args:A{a_letter|a}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:a_letter a}
-    {spaces_after_argument:\\n}
+  *preamble_before_content C1
+   *@set C1
+   |EXTRA
+   |misc_args:A{a_letter|a}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:a_letter a}
+     {spaces_after_argument:\\n}
   *paragraph C3
    *@ringaccent C1 l2
    |INFO

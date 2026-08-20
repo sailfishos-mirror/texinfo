@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'section_in_footnote'} = '*document_root C2
- *before_node_section C2
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C2
    {Text}
    *@footnote C1 l2
@@ -37,8 +39,7 @@ Text@footnote{
 ';
 
 
-$result_texts{'section_in_footnote'} = '
-Text1 a section
+$result_texts{'section_in_footnote'} = 'Text1 a section
 ===========
 ';
 

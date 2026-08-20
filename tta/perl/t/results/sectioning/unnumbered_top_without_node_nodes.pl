@@ -14,7 +14,8 @@ Forward: [U1]
 FastForward: [U0]
 FastBack: [U0]
 NodeUp: (dir)
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C1 l1 {a node}
  |EXTRA
  |identifier:{a-node}

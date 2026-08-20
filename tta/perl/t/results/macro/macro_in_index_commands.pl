@@ -7,96 +7,97 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_in_index_commands'} = '*document_root C3
- *before_node_section C19
-  *@macro C3 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{cp}
-   *arguments_line C1
-    {macro_line: cp\\n}
-   {raw:cp\\n}
-   *@end C1 l3
+ *before_node_section C11
+  *preamble_before_content C9
+   *@macro C3 l1
    |EXTRA
-   |text_arg:{macro}
+   |formal_args:A{}
+   |macro_name:{cp}
+    *arguments_line C1
+     {macro_line: cp\\n}
+    {raw:cp\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   *@macro C3 l4
+   |EXTRA
+   |formal_args:A{}
+   |macro_name:{fn}
+    *arguments_line C1
+     {macro_line: fn \\n}
+    {raw:fn\\n}
+    *@end C1 l6
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   *@macro C3 l7
+   |EXTRA
+   |formal_args:A{}
+   |macro_name:{syncodeindexcommand}
+    *arguments_line C1
+     {macro_line: syncodeindexcommand \\n}
+    {raw:@syncodeindex\\n}
+    *@end C1 l9
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@syncodeindex C1 l11
+   |EXTRA
+   |misc_args:A{cp|fn}
+   >SOURCEMARKS
+   >macro_expansion<start;3>
+    >*macro_call@syncodeindexcommand C1
+     >*brace_arg
     *line_arg C3
      {spaces_before_argument: }
-     {macro}
+     >SOURCEMARKS
+     >macro_expansion<start;1><p:1>
+      >*macro_call@cp C1
+       >*brace_arg
+     {cp fn}
+     >SOURCEMARKS
+     >macro_expansion<end;1><p:2>
+     >macro_expansion<start;2><p:3>
+      >*macro_call@fn C1
+       >*brace_arg
+     >macro_expansion<end;2><p:5>
      {spaces_after_argument:\\n}
-  *@macro C3 l4
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{fn}
-   *arguments_line C1
-    {macro_line: fn \\n}
-   {raw:fn\\n}
-   *@end C1 l6
+   *@syncodeindex C1 l12:@syncodeindexcommand
    |EXTRA
-   |text_arg:{macro}
+   |misc_args:A{cp|fn}
     *line_arg C3
      {spaces_before_argument: }
-     {macro}
+     >SOURCEMARKS
+     >macro_expansion<end;3>
+     {cp fn}
      {spaces_after_argument:\\n}
-  *@macro C3 l7
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{syncodeindexcommand}
-   *arguments_line C1
-    {macro_line: syncodeindexcommand \\n}
-   {raw:@syncodeindex\\n}
-   *@end C1 l9
+   {empty_line:\\n}
+   *@macro C3 l14
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@syncodeindex C1 l11
-  |EXTRA
-  |misc_args:A{cp|fn}
-  >SOURCEMARKS
-  >macro_expansion<start;3>
-   >*macro_call@syncodeindexcommand C1
-    >*brace_arg
-   *line_arg C3
-    {spaces_before_argument: }
-    >SOURCEMARKS
-    >macro_expansion<start;1><p:1>
-     >*macro_call@cp C1
-      >*brace_arg
-    {cp fn}
-    >SOURCEMARKS
-    >macro_expansion<end;1><p:2>
-    >macro_expansion<start;2><p:3>
-     >*macro_call@fn C1
-      >*brace_arg
-    >macro_expansion<end;2><p:5>
-    {spaces_after_argument:\\n}
-  *@syncodeindex C1 l12:@syncodeindexcommand
-  |EXTRA
-  |misc_args:A{cp|fn}
-   *line_arg C3
-    {spaces_before_argument: }
-    >SOURCEMARKS
-    >macro_expansion<end;3>
-    {cp fn}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C3 l14
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{truc}
-   *arguments_line C1
-    {macro_line: truc \\n}
-   {raw:truc\\n}
-   *@end C1 l16
-   |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{}
+   |macro_name:{truc}
+    *arguments_line C1
+     {macro_line: truc \\n}
+    {raw:truc\\n}
+    *@end C1 l16
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C3
    {definedx truc\\n}
    *@defindex C1 l19

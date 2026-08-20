@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'uref_url'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C18
    *@uref C2 l1
     *brace_arg C1
@@ -119,7 +120,8 @@ $result_converted{'html_text'}->{'uref_url'} = '<p><a class="uref" href="--a">&n
 </p>';
 
 
-$result_converted{'latex_text'}->{'uref_url'} = '\\href{--a}{--b (\\nolinkurl{--a})}
+$result_converted{'latex_text'}->{'uref_url'} = '\\begin{document}
+\\href{--a}{--b (\\nolinkurl{--a})}
 \\url{--c}
 --d
 --g

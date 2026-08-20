@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'caption_no_braces'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *@caption l1
 ';
 
@@ -37,7 +38,8 @@ $result_converted{'plaintext'}->{'caption_no_braces'} = '';
 $result_converted{'html_text'}->{'caption_no_braces'} = '';
 
 
-$result_converted{'latex_text'}->{'caption_no_braces'} = '';
+$result_converted{'latex_text'}->{'caption_no_braces'} = '\\begin{document}
+';
 
 
 $result_converted{'docbook'}->{'caption_no_braces'} = '';

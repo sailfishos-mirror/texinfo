@@ -7,68 +7,70 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
- *before_node_section C8
-  {empty_line:\\n}
-  *@macro C3 l2
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{othermacro}
-   *arguments_line C1
-    {macro_line: othermacro\\n}
-   {raw:initial\\n}
-   *@end C1 l4
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C6
+   *@macro C3 l2
    |EXTRA
-   |text_arg:{macro}
+   |formal_args:A{}
+   |macro_name:{othermacro}
+    *arguments_line C1
+     {macro_line: othermacro\\n}
+    {raw:initial\\n}
+    *@end C1 l4
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@macro C7 l6
+   |EXTRA
+   |formal_args:A{arg}
+   |macro_name:{redefineothermacro}
+    *arguments_line C1
+     {macro_line: redefineothermacro {arg}\\n}
+    {raw:@unmacro othermacro\\n}
+    {raw:@macro othermacro\\n}
+    {raw:different\\n}
+    {raw:@end macro\\n}
+    {raw:\\arg\\\\n}
+    *@end C1 l12
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1><p:1>
+    >*macro_call@redefineothermacro C1
+     >*brace_arg C1
+      >{macro_call_arg_text:@othermacro{}}
+   *@unmacro C1
+   |EXTRA
+   |misc_args:A{othermacro}
     *line_arg C3
      {spaces_before_argument: }
-     {macro}
+     {rawline_text:othermacro}
      {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C7 l6
-  |EXTRA
-  |formal_args:A{arg}
-  |macro_name:{redefineothermacro}
-   *arguments_line C1
-    {macro_line: redefineothermacro {arg}\\n}
-   {raw:@unmacro othermacro\\n}
-   {raw:@macro othermacro\\n}
-   {raw:different\\n}
-   {raw:@end macro\\n}
-   {raw:\\arg\\\\n}
-   *@end C1 l12
+   *@macro C3 l14:@redefineothermacro
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >macro_expansion<start;1><p:1>
-   >*macro_call@redefineothermacro C1
-    >*brace_arg C1
-     >{macro_call_arg_text:@othermacro{}}
-  *@unmacro C1
-  |EXTRA
-  |misc_args:A{othermacro}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:othermacro}
-    {spaces_after_argument:\\n}
-  *@macro C3 l14:@redefineothermacro
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{othermacro}
-   *arguments_line C1
-    {macro_line: othermacro\\n}
-   {raw:different\\n}
-   *@end C1 l14:@redefineothermacro
-   |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
+   |formal_args:A{}
+   |macro_name:{othermacro}
+    *arguments_line C1
+     {macro_line: othermacro\\n}
+    {raw:different\\n}
+    *@end C1 l14:@redefineothermacro
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
   *paragraph C1
    {different\\n}
    >SOURCEMARKS
@@ -102,7 +104,6 @@ different
 
 
 $result_texts{'arg_body_expansion_order'} = '
-
 
 different
 ';

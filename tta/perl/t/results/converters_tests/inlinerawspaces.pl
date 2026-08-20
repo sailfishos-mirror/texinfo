@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'inlinerawspaces'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C5
    {A }
    *@inlineraw C2 l1
@@ -86,7 +87,8 @@ $result_converted{'docbook'}->{'inlinerawspaces'} = '<para>A  a.  Now html
 </para>';
 
 
-$result_converted{'latex_text'}->{'inlinerawspaces'} = 'A  a.  Now html
+$result_converted{'latex_text'}->{'inlinerawspaces'} = '\\begin{document}
+A  a.  Now html
 .
 ';
 

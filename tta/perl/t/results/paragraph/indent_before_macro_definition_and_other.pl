@@ -7,10 +7,12 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root C1
- *before_node_section C14
-  {empty_line:\\n}
-  *@indent l2
-  {ignorable_spaces_after_command:\\n}
+ *before_node_section C13
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@indent l2
+   {ignorable_spaces_after_command:\\n}
   *@author C1 l3
   |EXTRA
   |global_command_number:{1}
@@ -116,8 +118,7 @@ HHERE
 ';
 
 
-$result_texts{'indent_before_macro_definition_and_other'} = '
-someone
+$result_texts{'indent_before_macro_definition_and_other'} = 'someone
 my_image
 <code>in c</code>
 HHERE
@@ -158,8 +159,7 @@ $result_converted_errors{'plaintext'}->{'indent_before_macro_definition_and_othe
 ';
 
 
-$result_converted{'html_text'}->{'indent_before_macro_definition_and_other'} = '
-<img class="image" src="my_image.jpg" alt="my_image">
+$result_converted{'html_text'}->{'indent_before_macro_definition_and_other'} = '<img class="image" src="my_image.jpg" alt="my_image">
 <code>in c</code>
 <a class="anchor" id="spot"></a><a class="index-entry-id" id="index-ei"></a>
 <p>HHERE

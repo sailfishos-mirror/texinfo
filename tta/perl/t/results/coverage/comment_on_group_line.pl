@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'comment_on_group_line'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *@group C3 l1
    *arguments_line C1
     *block_line_arg C2
@@ -63,7 +64,8 @@ $result_converted{'xml'}->{'comment_on_group_line'} = '<group endspaces=" "> <!-
 ';
 
 
-$result_converted{'latex_text'}->{'comment_on_group_line'} = 'in group.
+$result_converted{'latex_text'}->{'comment_on_group_line'} = '\\begin{document}
+in group.
 ';
 
 

@@ -7,56 +7,58 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document_root C1
- *before_node_section C4
-  {empty_line:\\n}
-  *@tex C3 l2
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *elided_rawpreformatted C7
-    {raw:@anchor{a\\n}
-    {raw:\\n}
-    {raw:b}.\\n}
-    {raw:\\n}
-    {raw:@code{v\\n}
-    {raw:\\n}
-    {raw:n}\\n}
-   *@end C1 l10
-   |EXTRA
-   |text_arg:{tex}
-    *line_arg C3
-     {spaces_before_argument: }
-     {tex}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@html C3 l12
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *rawpreformatted C5
-    *@anchor C1 l13
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C3
+   *@tex C3 l2
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *elided_rawpreformatted C7
+     {raw:@anchor{a\\n}
+     {raw:\\n}
+     {raw:b}.\\n}
+     {raw:\\n}
+     {raw:@code{v\\n}
+     {raw:\\n}
+     {raw:n}\\n}
+    *@end C1 l10
     |EXTRA
-    |identifier:{ha-hb}
-    |is_target:{1}
-     *brace_arg C3
-      {ha\\n}
-      {empty_line:\\n}
-      {hb}
-    {.\\n}
-    {empty_line:\\n}
-    *@code C1 l17
-     *brace_container C3
-      {hv\\n}
-      {empty_line:\\n}
-      {hn}
-    {\\n}
-   *@end C1 l20
-   |EXTRA
-   |text_arg:{html}
-    *line_arg C3
-     {spaces_before_argument: }
-     {html}
-     {spaces_after_argument:\\n}
+    |text_arg:{tex}
+     *line_arg C3
+      {spaces_before_argument: }
+      {tex}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@html C3 l12
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *rawpreformatted C5
+     *@anchor C1 l13
+     |EXTRA
+     |identifier:{ha-hb}
+     |is_target:{1}
+      *brace_arg C3
+       {ha\\n}
+       {empty_line:\\n}
+       {hb}
+     {.\\n}
+     {empty_line:\\n}
+     *@code C1 l17
+      *brace_container C3
+       {hv\\n}
+       {empty_line:\\n}
+       {hn}
+     {\\n}
+    *@end C1 l20
+    |EXTRA
+    |text_arg:{html}
+     *line_arg C3
+      {spaces_before_argument: }
+      {html}
+      {spaces_after_argument:\\n}
 ';
 
 
@@ -84,7 +86,6 @@ hn}
 
 
 $result_texts{'empty_line_in_command_in_expanded_not_expanded'} = '
-
 .
 
 hv
@@ -106,8 +107,8 @@ $result_headings_list{'empty_line_in_command_in_expanded_not_expanded'} = '';
 $result_converted{'plaintext'}->{'empty_line_in_command_in_expanded_not_expanded'} = '';
 
 
-$result_converted{'xml'}->{'empty_line_in_command_in_expanded_not_expanded'} = '
-<tex endspaces=" ">
+$result_converted{'xml'}->{'empty_line_in_command_in_expanded_not_expanded'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><tex endspaces=" ">
 @anchor{a
 
 b}.

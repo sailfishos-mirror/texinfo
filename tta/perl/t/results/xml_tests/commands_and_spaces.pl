@@ -7,31 +7,33 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'commands_and_spaces'} = '*document_root C2
- *before_node_section C6
-  *@set C1
-  |EXTRA
-  |misc_args:A{foo|some @value}
-   *line_arg C3
-    {spaces_before_argument:  }
-    {rawline_text:foo   some @value}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@setfilename C1 l3
-  |EXTRA
-  |text_arg:{commands_and_spaces.info}
-   *line_arg C3
-    {spaces_before_argument:  }
-    {commands_and_spaces.info}
-    {spaces_after_argument:  \\n}
-  {empty_line:\\n}
-  *@unmacro C1
-  |EXTRA
-  |misc_args:A{ggg}
-   *line_arg C3
-    {spaces_before_argument:  }
-    {rawline_text:ggg}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_setfilename C2
+   *@set C1
+   |EXTRA
+   |misc_args:A{foo|some @value}
+    *line_arg C3
+     {spaces_before_argument:  }
+     {rawline_text:foo   some @value}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
+  *preamble_before_content C4
+   *@setfilename C1 l3
+   |EXTRA
+   |text_arg:{commands_and_spaces.info}
+    *line_arg C3
+     {spaces_before_argument:  }
+     {commands_and_spaces.info}
+     {spaces_after_argument:  \\n}
+   {empty_line:\\n}
+   *@unmacro C1
+   |EXTRA
+   |misc_args:A{ggg}
+    *line_arg C3
+     {spaces_before_argument:  }
+     {rawline_text:ggg}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
  *@node C46 l7 {a}
  |EXTRA
  |identifier:{a}
@@ -446,7 +448,6 @@ T
 
 
 $result_texts{'commands_and_spaces'} = '
-
 
 
 centered

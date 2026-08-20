@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'menu'} = '*document_root C3
- *before_node_section C1
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
  *@node C1 l2 {Top}
  |EXTRA
  |identifier:{Top}
@@ -422,7 +424,6 @@ in detaildescription
 
 
 $result_texts{'menu'} = '
-
 * (ggg):: description
 idescr
 in html
@@ -583,7 +584,6 @@ ul.mark-bullet {list-style-type: disc}
 </head>
 
 <body>
-
 <div class="top-level-extent" id="Top">
 <a class="top" id="SEC_Top"></a>
 <table class="menu">

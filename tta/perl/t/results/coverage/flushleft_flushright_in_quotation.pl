@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'flushleft_flushright_in_quotation'} = '*document_root C1
- *before_node_section C2
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *@quotation C5 l2
    *arguments_line C1
     *block_line_arg C1
@@ -65,8 +67,7 @@ $result_texis{'flushleft_flushright_in_quotation'} = '
 ';
 
 
-$result_texts{'flushleft_flushright_in_quotation'} = '
-f l
+$result_texts{'flushleft_flushright_in_quotation'} = 'f l
 
 f r
 ';
@@ -88,8 +89,7 @@ $result_converted{'plaintext'}->{'flushleft_flushright_in_quotation'} = '     f 
 ';
 
 
-$result_converted{'html_text'}->{'flushleft_flushright_in_quotation'} = '
-<blockquote class="quotation">
+$result_converted{'html_text'}->{'flushleft_flushright_in_quotation'} = '<blockquote class="quotation">
 <div class="flushleft"><p class="flushleft-paragraph">f l
 </p></div>
 <div class="flushright"><p class="flushright-paragraph">f r
@@ -97,8 +97,8 @@ $result_converted{'html_text'}->{'flushleft_flushright_in_quotation'} = '
 ';
 
 
-$result_converted{'xml'}->{'flushleft_flushright_in_quotation'} = '
-<quotation endspaces=" ">
+$result_converted{'xml'}->{'flushleft_flushright_in_quotation'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><quotation endspaces=" ">
 <flushleft endspaces=" ">
    <para>f l
 </para></flushleft>
@@ -110,7 +110,7 @@ $result_converted{'xml'}->{'flushleft_flushright_in_quotation'} = '
 ';
 
 
-$result_converted{'latex_text'}->{'flushleft_flushright_in_quotation'} = '
+$result_converted{'latex_text'}->{'flushleft_flushright_in_quotation'} = '\\begin{document}
 \\begin{quote}
 \\begin{flushleft}
 \\begin{Texinfopreformatted}%
@@ -127,8 +127,7 @@ $result_converted{'latex_text'}->{'flushleft_flushright_in_quotation'} = '
 ';
 
 
-$result_converted{'docbook'}->{'flushleft_flushright_in_quotation'} = '
-<blockquote><para>f l
+$result_converted{'docbook'}->{'flushleft_flushright_in_quotation'} = '<blockquote><para>f l
 </para>
 <para>f r
 </para></blockquote>';

@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'sp_with_text_before_in_example'} = '*document_root C1
- *before_node_section C2
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *@example C3 l2
    *arguments_line C1
     *block_line_arg C1
@@ -41,8 +43,7 @@ text
 ';
 
 
-$result_texts{'sp_with_text_before_in_example'} = '
-sp
+$result_texts{'sp_with_text_before_in_example'} = 'sp
 
 
 

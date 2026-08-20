@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'abbr_acronym'} = '*document_root C1
- *before_node_section C3
+ *before_node_section C4
+  *preamble_before_content
   *paragraph C6
    *@acronym C2 l1
     *brace_arg C1
@@ -111,7 +112,8 @@ $result_converted{'html_text'}->{'abbr_acronym'} = '<p><abbr class="acronym" tit
 </p>';
 
 
-$result_converted{'latex_text'}->{'abbr_acronym'} = '--a (an accronym)
+$result_converted{'latex_text'}->{'abbr_acronym'} = '\\begin{document}
+--a (an accronym)
 --a
 --a (an accronym , \\dots{})
 

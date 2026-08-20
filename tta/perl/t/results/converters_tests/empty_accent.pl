@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'empty_accent'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C2
    *@` C1 l1
     *brace_container
@@ -49,7 +50,8 @@ $result_converted{'docbook'}->{'empty_accent'} = '<para>&#768;
 </para>';
 
 
-$result_converted{'latex_text'}->{'empty_accent'} = '\\`{}
+$result_converted{'latex_text'}->{'empty_accent'} = '\\begin{document}
+\\`{}
 ';
 
 1;

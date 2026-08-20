@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'quotation_and_author'} = '*document_root C1
- *before_node_section C9
+ *before_node_section C10
+  *preamble_before_content
   *paragraph C1
    {Text before quotation\\n}
   {empty_line:\\n}
@@ -281,6 +282,7 @@ $result_converted{'latex'}->{'quotation_and_author'} = '\\documentclass{book}
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 Text before quotation
 
 \\begin{quote}

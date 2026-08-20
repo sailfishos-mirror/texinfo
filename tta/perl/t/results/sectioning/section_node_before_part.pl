@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'section_node_before_part'} = '*document_root C4
- *before_node_section C1
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
  *@node C1 l2 {Top}
  |EXTRA
  |identifier:{Top}
@@ -51,8 +53,7 @@ $result_texis{'section_node_before_part'} = '
 ';
 
 
-$result_texts{'section_node_before_part'} = '
-1 section
+$result_texts{'section_node_before_part'} = '1 section
 =========
 
 part
@@ -131,7 +132,6 @@ span:hover a.copiable-link {visibility: visible}
 </head>
 
 <body>
-
 <div class="section-level-extent" id="Top">
 <h3 class="section" id="section"><span>1 section<a class="copiable-link" href="#section"> &para;</a></span></h3>
 
@@ -153,8 +153,8 @@ $result_converted_errors{'html'}->{'section_node_before_part'} = '* W |must spec
 ';
 
 
-$result_converted{'xml'}->{'section_node_before_part'} = '
-<node identifier="Top"><nodename> Top</nodename></node>
+$result_converted{'xml'}->{'section_node_before_part'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><node identifier="Top"><nodename> Top</nodename></node>
 <section><sectiontitle> section </sectiontitle>
 
 </section>

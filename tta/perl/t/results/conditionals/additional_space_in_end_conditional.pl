@@ -8,21 +8,22 @@ use utf8;
 
 $result_tree_text{'additional_space_in_end_conditional'} = '*document_root C1
  *before_node_section C1
-  {}
-  >SOURCEMARKS
-  >ignored_conditional_block<1>
-   >*@ifnothtml C3 l1
-    >*arguments_line C1
-     >*block_line_arg C1
-      >{spaces_before_argument:\\n}
-    >{raw:not html\\n}
-    >*@end C1 l3
-    >|EXTRA
-    >|text_arg:{ifnothtml}
-     >*line_arg C3
-      >{spaces_before_argument:  }
-      >{ifnothtml}
-      >{spaces_after_argument:\\n}
+  *preamble_before_content C1
+   {}
+   >SOURCEMARKS
+   >ignored_conditional_block<1>
+    >*@ifnothtml C3 l1
+     >*arguments_line C1
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
+     >{raw:not html\\n}
+     >*@end C1 l3
+     >|EXTRA
+     >|text_arg:{ifnothtml}
+      >*line_arg C3
+       >{spaces_before_argument:  }
+       >{ifnothtml}
+       >{spaces_after_argument:\\n}
 ';
 
 

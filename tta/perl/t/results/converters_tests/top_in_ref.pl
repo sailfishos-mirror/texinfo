@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'top_in_ref'} = '*document_root C3
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C2 l1 {Top}
  |EXTRA
  |identifier:{Top}
@@ -984,7 +985,8 @@ $result_converted{'docbook'}->{'top_in_ref'} = '<anchor id="chap-refs-node"/>
 </para>';
 
 
-$result_converted{'latex_text'}->{'top_in_ref'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'top_in_ref'} = '\\begin{document}
+\\label{anchor:Top}%
 \\label{anchor:chap-refs-node}%
 
 \\texttt{@ref\\{Top,cross ref name\\}} \\hyperref[anchor:Top]{[Top], page~\\pageref*{anchor:Top}}

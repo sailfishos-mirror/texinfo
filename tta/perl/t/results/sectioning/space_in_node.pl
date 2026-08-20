@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'space_in_node'} = '*document_root C5
- *before_node_section C1
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
  *@node C4 l2 {Top}
  |EXTRA
  |identifier:{Top}
@@ -122,7 +124,6 @@ $result_texis{'space_in_node'} = '
 
 
 $result_texts{'space_in_node'} = '
-
 * Chap    first here::
 * Test    title   :Test   title.
 *   Last with spaces::
@@ -222,7 +223,6 @@ span:hover a.copiable-link {visibility: visible}
 </head>
 
 <body>
-
 <a class="node-id" id="Top"></a><p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#Chap-first-here" accesskey="n" rel="next">Chap first  here</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
@@ -255,8 +255,8 @@ $result_converted_errors{'html'}->{'space_in_node'} = '* W |must specify a title
 ';
 
 
-$result_converted{'xml'}->{'space_in_node'} = '
-<node identifier="Top"><nodename> Top</nodename><nodenext automatic="on">  Chap first  here</nodenext></node>
+$result_converted{'xml'}->{'space_in_node'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><node identifier="Top"><nodename> Top</nodename><nodenext automatic="on">  Chap first  here</nodenext></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>Chap    first here</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">

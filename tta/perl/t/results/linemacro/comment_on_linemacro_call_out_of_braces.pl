@@ -7,24 +7,25 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C1
- *before_node_section C7
-  *@linemacro C5 l1
-  |EXTRA
-  |formal_args:A{a|b|c}
-  |macro_name:{lm}
-   *arguments_line C1
-    {macro_line: lm {a, b, c}\\n}
-   {raw:first |\\a\\|\\n}
-   {raw:second |\\b\\|\\n}
-   {raw:third |\\c\\|\\n}
-   *@end C1 l5
+ *before_node_section C6
+  *preamble_before_content C2
+   *@linemacro C5 l1
    |EXTRA
-   |text_arg:{linemacro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {linemacro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{a|b|c}
+   |macro_name:{lm}
+    *arguments_line C1
+     {macro_line: lm {a, b, c}\\n}
+    {raw:first |\\a\\|\\n}
+    {raw:second |\\b\\|\\n}
+    {raw:third |\\c\\|\\n}
+    *@end C1 l5
+    |EXTRA
+    |text_arg:{linemacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {linemacro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C4
    {first |something protected|\\n}
    >SOURCEMARKS

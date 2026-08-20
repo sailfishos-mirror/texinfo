@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'punctuation_and_footnotes'} = '*document_root C1
- *before_node_section C8
-  {empty_line:\\n}
+ *before_node_section C9
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C8
    {Text.}
    *@footnote C1 l2
@@ -136,8 +138,7 @@ w.@:@footnote{after forced no period triple}   S3.
 ';
 
 
-$result_texts{'punctuation_and_footnotes'} = '
-Text. Sentence 
+$result_texts{'punctuation_and_footnotes'} = 'Text. Sentence 
 end.  S2.   S3.
 
 No PERIOD. worD.  w2 

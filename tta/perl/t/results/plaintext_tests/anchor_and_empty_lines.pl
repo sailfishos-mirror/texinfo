@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'anchor_and_empty_lines'} = '*document_root C1
- *before_node_section C6
+ *before_node_section C7
+  *preamble_before_content
   *paragraph C1
    {text 1.\\n}
   {empty_line:\\n}

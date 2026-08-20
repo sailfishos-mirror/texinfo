@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'email_possibilities'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C6
    *@email C2 l1
     *brace_arg C1
@@ -59,7 +60,8 @@ $result_converted{'html_text'}->{'email_possibilities'} = '<p><a class="email" h
 </p>';
 
 
-$result_converted{'latex_text'}->{'email_possibilities'} = '\\href{mailto:--a}{--b}
+$result_converted{'latex_text'}->{'email_possibilities'} = '\\begin{document}
+\\href{mailto:--a}{--b}
 --b
 \\href{mailto:--a}{\\nolinkurl{--a}}
 ';

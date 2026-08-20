@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'table_in_example_in_display'} = '*document_root C1
- *before_node_section C4
-  {empty_line:\\n}
+ *before_node_section C5
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C1
    {T\\n}
   {empty_line:\\n}
@@ -80,8 +82,7 @@ Line
 ';
 
 
-$result_texts{'table_in_example_in_display'} = '
-T
+$result_texts{'table_in_example_in_display'} = 'T
 
 Disp
 Ex
@@ -109,8 +110,7 @@ $result_converted{'plaintext'}->{'table_in_example_in_display'} = 'T
 ';
 
 
-$result_converted{'html_text'}->{'table_in_example_in_display'} = '
-<p>T
+$result_converted{'html_text'}->{'table_in_example_in_display'} = '<p>T
 </p>
 <div class="display">
 <pre class="display-preformatted">Disp
@@ -126,8 +126,8 @@ $result_converted{'html_text'}->{'table_in_example_in_display'} = '
 ';
 
 
-$result_converted{'xml'}->{'table_in_example_in_display'} = '
-<para>T
+$result_converted{'xml'}->{'table_in_example_in_display'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><para>T
 </para>
 <display endspaces=" ">
 <pre xml:space="preserve">Disp
@@ -142,8 +142,7 @@ $result_converted{'xml'}->{'table_in_example_in_display'} = '
 ';
 
 
-$result_converted{'docbook'}->{'table_in_example_in_display'} = '
-<para>T
+$result_converted{'docbook'}->{'table_in_example_in_display'} = '<para>T
 </para>
 <literallayout>Disp
 </literallayout><screen>Ex
@@ -152,7 +151,7 @@ $result_converted{'docbook'}->{'table_in_example_in_display'} = '
 </screen></listitem></varlistentry></variablelist>';
 
 
-$result_converted{'latex_text'}->{'table_in_example_in_display'} = '
+$result_converted{'latex_text'}->{'table_in_example_in_display'} = '\\begin{document}
 T
 
 \\begin{Texinfoindented}

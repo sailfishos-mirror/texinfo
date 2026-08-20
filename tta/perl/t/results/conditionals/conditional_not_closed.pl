@@ -8,14 +8,15 @@ use utf8;
 
 $result_tree_text{'conditional_not_closed'} = '*document_root C1
  *before_node_section C1
-  {}
-  >SOURCEMARKS
-  >ignored_conditional_block<1>
-   >*@ifhtml C2 l1
-    >*arguments_line C1
-     >*block_line_arg C1
-      >{spaces_before_argument:\\n}
-    >{raw:in ifhtml\\n}
+  *preamble_before_content C1
+   {}
+   >SOURCEMARKS
+   >ignored_conditional_block<1>
+    >*@ifhtml C2 l1
+     >*arguments_line C1
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
+     >{raw:in ifhtml\\n}
 ';
 
 

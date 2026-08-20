@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'example_multi_class'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *@example C3 l1
    *arguments_line C4
     *block_line_arg C3
@@ -213,7 +214,8 @@ $result_converted{'xml'}->{'example_multi_class'} = '<example endspaces=" "><exa
 ';
 
 
-$result_converted{'latex_text'}->{'example_multi_class'} = '\\begin{Texinfoindented}
+$result_converted{'latex_text'}->{'example_multi_class'} = '\\begin{document}
+\\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
 \\ttfamily void StateManager::deallocate() \\{
 \\    if(buffer) \\{

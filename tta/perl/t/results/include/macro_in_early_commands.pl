@@ -7,121 +7,123 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_in_early_commands'} = '*document_root C4
- *before_node_section C13
-  *@macro C3 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{begin-file}
-   *arguments_line C1
-    {macro_line: begin-file\\n}
-   {raw:macro_in_pass\\n}
-   *@end C1 l3
+ *before_node_section C2
+  *preamble_before_setfilename C3
+   *@macro C3 l1
    |EXTRA
-   |text_arg:{macro}
+   |formal_args:A{}
+   |macro_name:{begin-file}
+    *arguments_line C1
+     {macro_line: begin-file\\n}
+    {raw:macro_in_pass\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   *@macro C3 l4
+   |EXTRA
+   |formal_args:A{ext}
+   |macro_name:{end-file-name}
+    *arguments_line C1
+     {macro_line: end-file-name {ext}\\n}
+    {raw:texi_commands.\\ext\\\\n}
+    *@end C1 l6
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+  *preamble_before_content C10
+   *@setfilename C1 l8
+   |EXTRA
+   |text_arg:{macro_in_passtexi_commands.info}
     *line_arg C3
      {spaces_before_argument: }
-     {macro}
+     >SOURCEMARKS
+     >macro_expansion<start;1><p:1>
+      >*macro_call@begin-file C1
+       >*brace_arg
+     {macro_in_passtexi_commands.info}
+     >SOURCEMARKS
+     >macro_expansion<end;1><p:13>
+     >macro_expansion<start;2><p:13>
+      >*macro_call@end-file-name C1
+       >*brace_arg C1
+        >{macro_call_arg_text:info}
+     >macro_expansion<end;2><p:31>
      {spaces_after_argument:\\n}
-  *@macro C3 l4
-  |EXTRA
-  |formal_args:A{ext}
-  |macro_name:{end-file-name}
-   *arguments_line C1
-    {macro_line: end-file-name {ext}\\n}
-   {raw:texi_commands.\\ext\\\\n}
-   *@end C1 l6
+   {empty_line:\\n}
+   *@macro C3 l10
    |EXTRA
-   |text_arg:{macro}
+   |formal_args:A{}
+   |macro_name:{latin1}
+    *arguments_line C1
+     {macro_line: latin1 \\n}
+    {raw:ISO-8859-1\\n}
+    *@end C1 l12
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@macro C3 l14
+   |EXTRA
+   |formal_args:A{}
+   |macro_name:{documentencoding-command}
+    *arguments_line C1
+     {macro_line: documentencoding-command\\n}
+    {raw:@documentencoding\\n}
+    *@end C1 l16
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;3><p:1>
+    >*macro_call@documentencoding-command
+   *@documentencoding C1 l18:@documentencoding-command
+   |EXTRA
+   |global_command_number:{1}
+   |input_encoding_name:{iso-8859-1}
+   |text_arg:{ISO-8859-1}
     *line_arg C3
      {spaces_before_argument: }
-     {macro}
+     >SOURCEMARKS
+     >macro_expansion<end;3>
+     >macro_expansion<start;4><p:1>
+      >*macro_call@latin1 C1
+       >*brace_arg
+     {ISO-8859-1}
+     >SOURCEMARKS
+     >macro_expansion<end;4><p:10>
      {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@setfilename C1 l8
-  |EXTRA
-  |text_arg:{macro_in_passtexi_commands.info}
-   *line_arg C3
-    {spaces_before_argument: }
-    >SOURCEMARKS
-    >macro_expansion<start;1><p:1>
-     >*macro_call@begin-file C1
-      >*brace_arg
-    {macro_in_passtexi_commands.info}
-    >SOURCEMARKS
-    >macro_expansion<end;1><p:13>
-    >macro_expansion<start;2><p:13>
-     >*macro_call@end-file-name C1
-      >*brace_arg C1
-       >{macro_call_arg_text:info}
-    >macro_expansion<end;2><p:31>
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C3 l10
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{latin1}
-   *arguments_line C1
-    {macro_line: latin1 \\n}
-   {raw:ISO-8859-1\\n}
-   *@end C1 l12
+   {empty_line:\\n}
+   *@macro C4 l20
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C3 l14
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{documentencoding-command}
-   *arguments_line C1
-    {macro_line: documentencoding-command\\n}
-   {raw:@documentencoding\\n}
-   *@end C1 l16
-   |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >macro_expansion<start;3><p:1>
-   >*macro_call@documentencoding-command
-  *@documentencoding C1 l18:@documentencoding-command
-  |EXTRA
-  |global_command_number:{1}
-  |input_encoding_name:{iso-8859-1}
-  |text_arg:{ISO-8859-1}
-   *line_arg C3
-    {spaces_before_argument: }
-    >SOURCEMARKS
-    >macro_expansion<end;3>
-    >macro_expansion<start;4><p:1>
-     >*macro_call@latin1 C1
-      >*brace_arg
-    {ISO-8859-1}
-    >SOURCEMARKS
-    >macro_expansion<end;4><p:10>
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C4 l20
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{multiinclude}
-   *arguments_line C1
-    {macro_line: multiinclude\\n}
-   {raw:macro_included.texi\\n}
-   {raw:@include inc_file.texi\\n}
-   *@end C1 l23
-   |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{}
+   |macro_name:{multiinclude}
+    *arguments_line C1
+     {macro_line: multiinclude\\n}
+    {raw:macro_included.texi\\n}
+    {raw:@include inc_file.texi\\n}
+    *@end C1 l23
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
  *@node C1 l25 {Top}
  |EXTRA
  |identifier:{Top}
@@ -262,7 +264,6 @@ texi_commands.info
 
 
 $result_texts{'macro_in_early_commands'} = '
-
 
 
 

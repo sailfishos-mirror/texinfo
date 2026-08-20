@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'footnote_no_braces'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C1
    *@footnote l1
 ';
@@ -43,7 +44,8 @@ $result_converted{'plaintext'}->{'footnote_no_braces'} = '(1)
 $result_converted{'html_text'}->{'footnote_no_braces'} = '';
 
 
-$result_converted{'latex_text'}->{'footnote_no_braces'} = '\\footnote{}';
+$result_converted{'latex_text'}->{'footnote_no_braces'} = '\\begin{document}
+\\footnote{}';
 
 
 $result_converted{'docbook'}->{'footnote_no_braces'} = '<para></para>';

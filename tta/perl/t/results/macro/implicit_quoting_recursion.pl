@@ -7,22 +7,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'implicit_quoting_recursion'} = '*document_root C1
- *before_node_section C3
-  *@rmacro C3 l1
-  |EXTRA
-  |formal_args:A{a|b}
-  |macro_name:{cat}
-   *arguments_line C1
-    {macro_line: cat{a,b}\\n}
-   {raw:\\a\\\\b\\\\n}
-   *@end C1 l3
+ *before_node_section C2
+  *preamble_before_content C2
+   *@rmacro C3 l1
    |EXTRA
-   |text_arg:{rmacro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {rmacro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{a|b}
+   |macro_name:{cat}
+    *arguments_line C1
+     {macro_line: cat{a,b}\\n}
+    {raw:\\a\\\\b\\\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{rmacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {rmacro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C1
    {natopocotuototam\\n}
    >SOURCEMARKS

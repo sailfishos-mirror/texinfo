@@ -7,27 +7,29 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'braces_in_tex'} = '*document_root C1
- *before_node_section C6
-  {empty_line:\\n}
-  *@tex C3 l2
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *rawpreformatted C5
-    {$$ \\n}
-    {\\chi^2 = \\sum_{i=1}^N\\n}
-    {\\left(y_i - (a + b x_i)\\n}
-    {\\over \\sigma_i\\right)^2 \\n}
-    {$$\\n}
-   *@end C1 l8
-   |EXTRA
-   |text_arg:{tex}
-    *line_arg C3
-     {spaces_before_argument: }
-     {tex}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  {empty_line:\\n}
+ *before_node_section C4
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C3
+   *@tex C3 l2
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *rawpreformatted C5
+     {$$ \\n}
+     {\\chi^2 = \\sum_{i=1}^N\\n}
+     {\\left(y_i - (a + b x_i)\\n}
+     {\\over \\sigma_i\\right)^2 \\n}
+     {$$\\n}
+    *@end C1 l8
+    |EXTRA
+    |text_arg:{tex}
+     *line_arg C3
+      {spaces_before_argument: }
+      {tex}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   {empty_line:\\n}
   *@example C3 l11
    *arguments_line C1
     *block_line_arg C1
@@ -84,8 +86,7 @@ $$
 ';
 
 
-$result_texts{'braces_in_tex'} = '
-$$ 
+$result_texts{'braces_in_tex'} = '$$ 
 \\chi^2 = \\sum_{i=1}^N
 \\left(y_i - (a + b x_i)
 \\over \\sigma_i\\right)^2 
@@ -114,8 +115,8 @@ $result_headings_list{'braces_in_tex'} = '';
 $result_converted{'plaintext'}->{'braces_in_tex'} = '';
 
 
-$result_converted{'xml'}->{'braces_in_tex'} = '
-<tex endspaces=" ">
+$result_converted{'xml'}->{'braces_in_tex'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><tex endspaces=" ">
 $$ 
 \\chi^2 = \\sum_{i=1}^N
 \\left(y_i - (a + b x_i)

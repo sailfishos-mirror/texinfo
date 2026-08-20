@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'something_before_columnfractions'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *@multitable C2 l1
   |EXTRA
   |max_columns:{0}
@@ -63,7 +64,8 @@ $result_converted{'xml'}->{'something_before_columnfractions'} = '<multitable en
 </columnprototypes></multitable>';
 
 
-$result_converted{'latex_text'}->{'something_before_columnfractions'} = '\\begin{tabular}{}%
+$result_converted{'latex_text'}->{'something_before_columnfractions'} = '\\begin{document}
+\\begin{tabular}{}%
 \\end{tabular}%
 ';
 

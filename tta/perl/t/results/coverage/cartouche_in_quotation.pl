@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'cartouche_in_quotation'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *@quotation C5 l1
    *arguments_line C1
     *block_line_arg C1
@@ -91,7 +92,8 @@ $result_converted{'xml'}->{'cartouche_in_quotation'} = '<quotation endspaces=" "
 ';
 
 
-$result_converted{'latex_text'}->{'cartouche_in_quotation'} = '\\begin{quote}
+$result_converted{'latex_text'}->{'cartouche_in_quotation'} = '\\begin{document}
+\\begin{quote}
 In quotation
 \\begin{Texinfocartouche}
 In cartouche in quotation

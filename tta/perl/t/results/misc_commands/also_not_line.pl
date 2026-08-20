@@ -8,8 +8,10 @@ use utf8;
 
 $result_tree_text{'also_not_line'} = '*document_root C1
  *before_node_section C23
-  {empty_line:\\n}
-  {empty_line:\\n}
+  *preamble_before_beginning C2
+   {text_before_beginning:\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C1
    {page }
   *@page C1
@@ -118,9 +120,7 @@ exdent @exdent line after exdent
 ';
 
 
-$result_texts{'also_not_line'} = '
-
-page 
+$result_texts{'also_not_line'} = 'page 
 noindent refill  something
 
 noindent at beginning of line

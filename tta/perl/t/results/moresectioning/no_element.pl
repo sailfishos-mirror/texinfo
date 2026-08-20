@@ -7,23 +7,24 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'no_element'} = '*document_root C1
- *before_node_section C20
-  *@settitle C1 l1
-   *line_arg C3
-    {spaces_before_argument: }
-    {no_element test}
-    {spaces_after_argument:\\n}
-  *@documentencoding C1 l2
-  |EXTRA
-  |global_command_number:{1}
-  |input_encoding_name:{iso-8859-1}
-  |text_arg:{ISO-8859-1}
-   *line_arg C3
-    {spaces_before_argument: }
-    {ISO-8859-1}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  {empty_line:\\n}
+ *before_node_section C17
+  *preamble_before_content C4
+   *@settitle C1 l1
+    *line_arg C3
+     {spaces_before_argument: }
+     {no_element test}
+     {spaces_after_argument:\\n}
+   *@documentencoding C1 l2
+   |EXTRA
+   |global_command_number:{1}
+   |input_encoding_name:{iso-8859-1}
+   |text_arg:{ISO-8859-1}
+    *line_arg C3
+     {spaces_before_argument: }
+     {ISO-8859-1}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   {empty_line:\\n}
   *@anchor C1 l5
   |EXTRA
   |identifier:{An-anchor}

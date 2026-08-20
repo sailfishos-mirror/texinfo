@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'unclosed_verb_on_section_line'} = '*document_root C2
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@section C1 l1 {in section @verb{Truc
 
 Now text.

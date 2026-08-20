@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'def'} = '*document_root C1
- *before_node_section C6
-  {empty_line:\\n}
+ *before_node_section C7
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *@deffn C3 l2
    *def_line C1 l2
    |EXTRA
@@ -418,8 +420,7 @@ Various deff lines
 ';
 
 
-$result_texts{'def'} = '
-c--ategory: d--effn_name a--rguments...
+$result_texts{'def'} = 'c--ategory: d--effn_name a--rguments...
 d-effn
 
 cate--gory: de--ffn_name ar--guments    more args 
@@ -558,8 +559,7 @@ $result_converted_sort_strings{'plaintext'}->{'def'} = 'fn:
 ';
 
 
-$result_converted{'html_text'}->{'def'} = '
-<dl class="first-deffn def-block">
+$result_converted{'html_text'}->{'def'} = '<dl class="first-deffn def-block">
 <dt class="deffn def-line" id="index-d_002d_002deffn_005fname"><span class="category-def">c&ndash;ategory: </span><span><strong class="def-name">d--effn_name</strong> <var class="def-var-arguments">a&ndash;rguments...</var><a class="copiable-link" href="#index-d_002d_002deffn_005fname"> &para;</a></span></dt>
 <dd><p>d&ndash;effn
 </p></dd></dl>
@@ -588,8 +588,8 @@ $result_converted{'html_text'}->{'def'} = '
 ';
 
 
-$result_converted{'xml'}->{'def'} = '
-<deffn endspaces=" "><definitionterm><indexterm index="fn" number="1">d--effn_name</indexterm> <defcategory bracketed="on">c--ategory</defcategory> <deffunction>d--effn_name</deffunction> <defparam>a--rguments...</defparam></definitionterm>
+$result_converted{'xml'}->{'def'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><deffn endspaces=" "><definitionterm><indexterm index="fn" number="1">d--effn_name</indexterm> <defcategory bracketed="on">c--ategory</defcategory> <deffunction>d--effn_name</deffunction> <defparam>a--rguments...</defparam></definitionterm>
 <definitionitem><para>d&textndash;effn
 </para></definitionitem></deffn>
 
@@ -617,7 +617,7 @@ $result_converted{'xml'}->{'def'} = '
 ';
 
 
-$result_converted{'latex_text'}->{'def'} = '
+$result_converted{'latex_text'}->{'def'} = '\\begin{document}
 
 \\smallbreak
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -755,8 +755,7 @@ Various deff lines
 ';
 
 
-$result_converted{'docbook'}->{'def'} = '
-<synopsis><indexterm role="fn"><primary>d--effn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>d--effn_name</function> <emphasis role="arg">a--rguments...</emphasis></synopsis>
+$result_converted{'docbook'}->{'def'} = '<synopsis><indexterm role="fn"><primary>d--effn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>d--effn_name</function> <emphasis role="arg">a--rguments...</emphasis></synopsis>
 <blockquote><para>d&#8211;effn
 </para></blockquote>
 <synopsis><indexterm role="fn"><primary>de--ffn_name</primary></indexterm><phrase role="category"><emphasis role="bold">cate--gory</emphasis>:</phrase> <function>de--ffn_name</function> <emphasis role="arg">ar--guments</emphasis>    <emphasis role="arg">more</emphasis> <emphasis role="arg">args</emphasis> <emphasis role="arg">

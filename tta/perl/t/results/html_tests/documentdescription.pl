@@ -7,53 +7,54 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'documentdescription'} = '*document_root C2
- *before_node_section C2
-  *@documentdescription C3 l1
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *paragraph C15
-    {in }
-    *@code C1 l2
-     *brace_container C1
-      {documentdescri---ption}
-    { --- }
-    *@bullet C1 l2
-     *brace_container
-    { }
-    *@enddots C1 l2
-     *brace_container
-    { }
-    *@verb C1 l2
-    |INFO
-    |delimiter:{:}
-     *brace_container C1
-      {raw:"verb}
-    { }
-    *@aa C1 l2
-     *brace_container
-    { }
-    *@^ C1 l2
-     *brace_container C1
-      *@dotless C1 l2
-       *brace_container C1
-        {i}
-    { }
-    *@email C1 l2
-     *brace_arg C2
-      *@code C1 l2
-       *brace_container C1
-        {some}
-      {body}
-    {\\n}
-   *@end C1 l3
-   |EXTRA
-   |text_arg:{documentdescription}
-    *line_arg C3
-     {spaces_before_argument: }
-     {documentdescription}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C1
+  *preamble_before_content C2
+   *@documentdescription C3 l1
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *paragraph C15
+     {in }
+     *@code C1 l2
+      *brace_container C1
+       {documentdescri---ption}
+     { --- }
+     *@bullet C1 l2
+      *brace_container
+     { }
+     *@enddots C1 l2
+      *brace_container
+     { }
+     *@verb C1 l2
+     |INFO
+     |delimiter:{:}
+      *brace_container C1
+       {raw:"verb}
+     { }
+     *@aa C1 l2
+      *brace_container
+     { }
+     *@^ C1 l2
+      *brace_container C1
+       *@dotless C1 l2
+        *brace_container C1
+         {i}
+     { }
+     *@email C1 l2
+      *brace_arg C2
+       *@code C1 l2
+        *brace_container C1
+         {some}
+       {body}
+     {\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{documentdescription}
+     *line_arg C3
+      {spaces_before_argument: }
+      {documentdescription}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
  *@top C1 l5 {top}
  |EXTRA
  |identifier:{Top}

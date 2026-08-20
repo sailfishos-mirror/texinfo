@@ -15,7 +15,8 @@ NodeNext: [U1]
 NodePrev: (dir)
 NodeUp: (dir)
 NodeForward: [U1]
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C1 l1 {Top}
  |EXTRA
  |identifier:{Top}

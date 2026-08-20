@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'protect_spaces_on_line'} = '*document_root C1
- *before_node_section C4
-  {empty_line:\\n}
+ *before_node_section C5
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C5
    {Before samp. }
    *@samp C1 l2
@@ -56,8 +58,7 @@ Before samp. @samp{a}. after samp, w @w{in   w. after dot}  afterw
 ';
 
 
-$result_texts{'protect_spaces_on_line'} = '
-Before samp. a. after samp, w in   w. after dot  afterw
+$result_texts{'protect_spaces_on_line'} = 'Before samp. a. after samp, w in   w. after dot  afterw
 
 before samp. a. after samp, w in   w. after dot  afterw
 ';

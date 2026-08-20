@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'form_feeds'} = '*document_root C3
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C2 l1 {Top}
  |EXTRA
  |identifier:{Top}
@@ -647,7 +648,8 @@ $result_converted{'docbook'}->{'form_feeds'} = '<anchor id="chap-node"/>
 ';
 
 
-$result_converted{'latex_text'}->{'form_feeds'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'form_feeds'} = '\\begin{document}
+\\label{anchor:Top}%
 \\label{anchor:chap-node}%
 
 \\par{}

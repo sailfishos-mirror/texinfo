@@ -7,30 +7,31 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'no_macrobody'} = '*document_root C1
- *before_node_section C5
-  *@macro C2 l1
-  |EXTRA
-  |formal_args:A{arg}
-  |macro_name:{nomacrobody}
-   *arguments_line C1
-    {macro_line: nomacrobody {arg}\\n}
-   *@end C1 l2
+ *before_node_section C2
+  *preamble_before_content C4
+   *@macro C2 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >macro_expansion<start;1>
-   >*macro_call_line@nomacrobody C1
-    >*line_arg C2
-     >{spaces_before_argument: }
-     >{line arg}
-  >macro_expansion<end;1>
-  {empty_line:\\n}
+   |formal_args:A{arg}
+   |macro_name:{nomacrobody}
+    *arguments_line C1
+     {macro_line: nomacrobody {arg}\\n}
+    *@end C1 l2
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call_line@nomacrobody C1
+     >*line_arg C2
+      >{spaces_before_argument: }
+      >{line arg}
+   >macro_expansion<end;1>
+   {empty_line:\\n}
   *paragraph C1
    {.\\n}
    >SOURCEMARKS

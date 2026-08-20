@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'sp_empty_lines_1_no_arg_zero'} = '*document_root C1
- *before_node_section C39
+ *before_node_section C40
+  *preamble_before_content
   *paragraph C1
    {A\\n}
   {empty_line:\\n}
@@ -358,7 +359,8 @@ $result_converted{'docbook'}->{'sp_empty_lines_1_no_arg_zero'} = '<para>A
 <para>B</para>';
 
 
-$result_converted{'latex_text'}->{'sp_empty_lines_1_no_arg_zero'} = 'A
+$result_converted{'latex_text'}->{'sp_empty_lines_1_no_arg_zero'} = '\\begin{document}
+A
 
 A010
 \\vskip 1\\baselineskip %

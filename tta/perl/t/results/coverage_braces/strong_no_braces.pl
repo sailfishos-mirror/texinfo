@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'strong_no_braces'} = '*document_root C1
- *before_node_section C1
+ *before_node_section C2
+  *preamble_before_content
   *paragraph C1
    *@strong l1
 ';
@@ -39,7 +40,8 @@ $result_converted{'plaintext'}->{'strong_no_braces'} = '**
 $result_converted{'html_text'}->{'strong_no_braces'} = '';
 
 
-$result_converted{'latex_text'}->{'strong_no_braces'} = '\\textbf{}';
+$result_converted{'latex_text'}->{'strong_no_braces'} = '\\begin{document}
+\\textbf{}';
 
 
 $result_converted{'docbook'}->{'strong_no_braces'} = '<para></para>';

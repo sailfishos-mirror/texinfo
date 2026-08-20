@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'xref_test'} = '*document_root C2
- *before_node_section C1
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
  *@node C3 l2 {Top}
  |EXTRA
  |identifier:{Top}
@@ -90,7 +92,6 @@ $result_texis{'xref_test'} = '
 
 
 $result_texts{'xref_test'} = '
-
 (m)in xref. (m)bad xref after xref.
 (m)bad nested xref.
 (m)in ref ending with a dot. ! after xref and dot inside.

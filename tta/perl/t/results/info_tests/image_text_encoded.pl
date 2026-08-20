@@ -7,17 +7,18 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'image_text_encoded'} = '*document_root C1
- *before_node_section C4
-  *@documentencoding C1 l1
-  |EXTRA
-  |global_command_number:{1}
-  |input_encoding_name:{utf-8}
-  |text_arg:{utf-8}
-   *line_arg C3
-    {spaces_before_argument: }
-    {utf-8}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C3
+  *preamble_before_content C2
+   *@documentencoding C1 l1
+   |EXTRA
+   |global_command_number:{1}
+   |input_encoding_name:{utf-8}
+   |text_arg:{utf-8}
+    *line_arg C3
+     {spaces_before_argument: }
+     {utf-8}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *@image C1 l3
   |EXTRA
   |input_encoding_name:{utf-8}

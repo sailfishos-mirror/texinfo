@@ -7,32 +7,33 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'recursive_synindex'} = '*document_root C1
- *before_node_section C4
-  *@defindex C1 l1
-  |EXTRA
-  |misc_args:A{aaa}
-   *line_arg C3
-    {spaces_before_argument: }
-    {aaa}
-    {spaces_after_argument:\\n}
-  *@defindex C1 l2
-  |EXTRA
-  |misc_args:A{bbb}
-   *line_arg C3
-    {spaces_before_argument: }
-    {bbb}
-    {spaces_after_argument:\\n}
-  *@synindex C1 l3
-  |EXTRA
-  |misc_args:A{aaa|bbb}
-   *line_arg C3
-    {spaces_before_argument: }
-    {aaa bbb}
-    {spaces_after_argument:\\n}
-  *@synindex C1 l4
-   *line_arg C2
-    {spaces_before_argument: }
-    {bbb aaa}
+ *before_node_section C1
+  *preamble_before_content C4
+   *@defindex C1 l1
+   |EXTRA
+   |misc_args:A{aaa}
+    *line_arg C3
+     {spaces_before_argument: }
+     {aaa}
+     {spaces_after_argument:\\n}
+   *@defindex C1 l2
+   |EXTRA
+   |misc_args:A{bbb}
+    *line_arg C3
+     {spaces_before_argument: }
+     {bbb}
+     {spaces_after_argument:\\n}
+   *@synindex C1 l3
+   |EXTRA
+   |misc_args:A{aaa|bbb}
+    *line_arg C3
+     {spaces_before_argument: }
+     {aaa bbb}
+     {spaces_after_argument:\\n}
+   *@synindex C1 l4
+    *line_arg C2
+     {spaces_before_argument: }
+     {bbb aaa}
 ';
 
 

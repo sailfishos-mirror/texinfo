@@ -7,114 +7,115 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'metadata_in_documentinfo'} = '*document_root C5
- *before_node_section C2
-  *@documentinfo C5 l1
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *@title C1 l2
-   >SOURCEMARKS
-   >ignored_conditional_block<1>
-    >*@ifepub C15 l3
-     >*arguments_line C1
-      >*block_line_arg C1
-       >{spaces_before_argument:\\n}
-     >{raw:@html\\n}
-     >{raw:   <dc:creator\\n}
-     >{raw:       id="creator">\\n}
-     >{raw:      Some Body\\n}
-     >{raw:   </dc:creator>\\n}
-     >{raw:   <meta\\n}
-     >{raw:       refines="#creator"\\n}
-     >{raw:       property="role"\\n}
-     >{raw:       scheme="marc:relators"\\n}
-     >{raw:       id="role">\\n}
-     >{raw:      aut\\n}
-     >{raw:   </meta>\\n}
-     >{raw:@end html\\n}
-     >*@end C1 l17
+ *before_node_section C1
+  *preamble_before_content C2
+   *@documentinfo C5 l1
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *@title C1 l2
+    >SOURCEMARKS
+    >ignored_conditional_block<1>
+     >*@ifepub C15 l3
+      >*arguments_line C1
+       >*block_line_arg C1
+        >{spaces_before_argument:\\n}
+      >{raw:@html\\n}
+      >{raw:   <dc:creator\\n}
+      >{raw:       id="creator">\\n}
+      >{raw:      Some Body\\n}
+      >{raw:   </dc:creator>\\n}
+      >{raw:   <meta\\n}
+      >{raw:       refines="#creator"\\n}
+      >{raw:       property="role"\\n}
+      >{raw:       scheme="marc:relators"\\n}
+      >{raw:       id="role">\\n}
+      >{raw:      aut\\n}
+      >{raw:   </meta>\\n}
+      >{raw:@end html\\n}
+      >*@end C1 l17
+      >|EXTRA
+      >|text_arg:{ifepub}
+       >*line_arg C3
+        >{spaces_before_argument: }
+        >{ifepub}
+        >{spaces_after_argument:\\n}
+    >expanded_conditional_command<start;1>
+     >*@ifnotepub C1 l18
+      >*arguments_line C1
+       >*block_line_arg C1
+        >{spaces_before_argument:\\n}
+     *line_arg C3
+      {spaces_before_argument: }
+      {The Title}
+      {spaces_after_argument:\\n}
+    *@html C3 l19
+    >SOURCEMARKS
+    >expanded_conditional_command<end;1>
+     >*@end C1 l22
      >|EXTRA
-     >|text_arg:{ifepub}
+     >|text_arg:{ifnotepub}
       >*line_arg C3
        >{spaces_before_argument: }
-       >{ifepub}
+       >{ifnotepub}
        >{spaces_after_argument:\\n}
-   >expanded_conditional_command<start;1>
-    >*@ifnotepub C1 l18
-     >*arguments_line C1
-      >*block_line_arg C1
-       >{spaces_before_argument:\\n}
-    *line_arg C3
-     {spaces_before_argument: }
-     {The Title}
-     {spaces_after_argument:\\n}
-   *@html C3 l19
-   >SOURCEMARKS
-   >expanded_conditional_command<end;1>
-    >*@end C1 l22
-    >|EXTRA
-    >|text_arg:{ifnotepub}
-     >*line_arg C3
-      >{spaces_before_argument: }
-      >{ifnotepub}
-      >{spaces_after_argument:\\n}
-    *arguments_line C1
-     *block_line_arg C1
-      {spaces_before_argument:\\n}
-    *rawpreformatted C1
-     {<meta name="creator" content="Some Body" />\\n}
-    *@end C1 l21
+     *arguments_line C1
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
+     *rawpreformatted C1
+      {<meta name="creator" content="Some Body" />\\n}
+     *@end C1 l21
+     |EXTRA
+     |text_arg:{html}
+      *line_arg C3
+       {spaces_before_argument: }
+       {html}
+       {spaces_after_argument:\\n}
+    *@docbook C3 l23
+     *arguments_line C1
+      *block_line_arg C1
+       {spaces_before_argument:\\n}
+     *rawpreformatted C25
+      {<authorgroup>\\n}
+      {  <author>\\n}
+      {    <honorific>Dr.</honorific>\\n}
+      {    <firstname>Lois</firstname>\\n}
+      {    <surname>Common-Demoninator</surname>\\n}
+      {    <affiliation>\\n}
+      {      <shortaffil>Director, M. Behn School of Coop. Eng.</shortaffil>\\n}
+      {      <jobtitle>Director of Cooperative Efforts</jobtitle>\\n}
+      {      <orgname>The Marguerite Behn International School of\\n}
+      {               Cooperative Engineering</orgname>\\n}
+      {    </affiliation>\\n}
+      {  </author>\\n}
+      {empty_line:\\n}
+      {  <editor>\\n}
+      {    <firstname>Peter</firstname>\\n}
+      {    <surname>Parker</surname>\\n}
+      {    <lineage>Sr.</lineage>\\n}
+      {    <othername>Spiderman</othername>\\n}
+      {    <authorblurb>\\n}
+      {      <para>\\n}
+      {      Peter is a super hero in his spare time.\\n}
+      {      </para>\\n}
+      {    </authorblurb>\\n}
+      {  </editor>\\n}
+      {</authorgroup>\\n}
+     *@end C1 l49
+     |EXTRA
+     |text_arg:{docbook}
+      *line_arg C3
+       {spaces_before_argument: }
+       {docbook}
+       {spaces_after_argument:\\n}
+    *@end C1 l50
     |EXTRA
-    |text_arg:{html}
+    |text_arg:{documentinfo}
      *line_arg C3
       {spaces_before_argument: }
-      {html}
+      {documentinfo}
       {spaces_after_argument:\\n}
-   *@docbook C3 l23
-    *arguments_line C1
-     *block_line_arg C1
-      {spaces_before_argument:\\n}
-    *rawpreformatted C25
-     {<authorgroup>\\n}
-     {  <author>\\n}
-     {    <honorific>Dr.</honorific>\\n}
-     {    <firstname>Lois</firstname>\\n}
-     {    <surname>Common-Demoninator</surname>\\n}
-     {    <affiliation>\\n}
-     {      <shortaffil>Director, M. Behn School of Coop. Eng.</shortaffil>\\n}
-     {      <jobtitle>Director of Cooperative Efforts</jobtitle>\\n}
-     {      <orgname>The Marguerite Behn International School of\\n}
-     {               Cooperative Engineering</orgname>\\n}
-     {    </affiliation>\\n}
-     {  </author>\\n}
-     {empty_line:\\n}
-     {  <editor>\\n}
-     {    <firstname>Peter</firstname>\\n}
-     {    <surname>Parker</surname>\\n}
-     {    <lineage>Sr.</lineage>\\n}
-     {    <othername>Spiderman</othername>\\n}
-     {    <authorblurb>\\n}
-     {      <para>\\n}
-     {      Peter is a super hero in his spare time.\\n}
-     {      </para>\\n}
-     {    </authorblurb>\\n}
-     {  </editor>\\n}
-     {</authorgroup>\\n}
-    *@end C1 l49
-    |EXTRA
-    |text_arg:{docbook}
-     *line_arg C3
-      {spaces_before_argument: }
-      {docbook}
-      {spaces_after_argument:\\n}
-   *@end C1 l50
-   |EXTRA
-   |text_arg:{documentinfo}
-    *line_arg C3
-     {spaces_before_argument: }
-     {documentinfo}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   {empty_line:\\n}
  *@node C1 l52 {Top}
  |EXTRA
  |identifier:{Top}
@@ -391,6 +392,7 @@ $result_converted{'docbook_doc'}->{'metadata_in_documentinfo'} = '<?xml version=
 
 
 $result_converted{'latex_text'}->{'metadata_in_documentinfo'} = '
+\\begin{document}
 \\label{anchor:Top}%
 \\Texinfochapter{{Chap}}
 \\label{anchor:chapter}%

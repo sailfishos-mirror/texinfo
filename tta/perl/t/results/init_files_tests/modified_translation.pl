@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'modified_translation'} = '*document_root C1
- *before_node_section C10
+ *before_node_section C11
+  *preamble_before_content
   *paragraph C2
    *@error C1 l1
     *brace_container

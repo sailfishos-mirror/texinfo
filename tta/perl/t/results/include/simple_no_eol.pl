@@ -8,15 +8,16 @@ use utf8;
 
 $result_tree_text{'simple_no_eol'} = '*document_root C1
  *before_node_section C2
-  {}
-  >SOURCEMARKS
-  >include<start;1>
-   >*@include C1 l1
-   >|EXTRA
-   >|text_arg:{inc_file.texi}
-    >*line_arg C2
-     >{spaces_before_argument: }
-     >{inc_file.texi}
+  *preamble_before_content C1
+   {}
+   >SOURCEMARKS
+   >include<start;1>
+    >*@include C1 l1
+    >|EXTRA
+    >|text_arg:{inc_file.texi}
+     >*line_arg C2
+      >{spaces_before_argument: }
+      >{inc_file.texi}
   *paragraph C1
    {In included file.\\n}
    >SOURCEMARKS

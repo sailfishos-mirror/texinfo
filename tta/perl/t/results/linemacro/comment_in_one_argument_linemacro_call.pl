@@ -7,22 +7,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'comment_in_one_argument_linemacro_call'} = '*document_root C1
- *before_node_section C5
-  *@linemacro C3 l1
-  |EXTRA
-  |formal_args:A{a}
-  |macro_name:{lm}
-   *arguments_line C1
-    {macro_line: lm {a}\\n}
-   {raw:c \\a\\ d\\n}
-   *@end C1 l3
+ *before_node_section C4
+  *preamble_before_content C2
+   *@linemacro C3 l1
    |EXTRA
-   |text_arg:{linemacro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {linemacro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{a}
+   |macro_name:{lm}
+    *arguments_line C1
+     {macro_line: lm {a}\\n}
+    {raw:c \\a\\ d\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{linemacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {linemacro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C3
    {c }
    >SOURCEMARKS

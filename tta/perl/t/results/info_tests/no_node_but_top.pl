@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'no_node_but_top'} = '*document_root C2
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@top C1 l1 {top}
  |EXTRA
  |identifier:{Top}

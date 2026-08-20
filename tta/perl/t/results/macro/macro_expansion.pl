@@ -7,26 +7,28 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_expansion'} = '*document_root C1
- *before_node_section C22
-  {empty_line:\\n}
-  *@macro C6 l2
-  |EXTRA
-  |formal_args:A{arg1|arg2}
-  |macro_name:{macroone}
-   *arguments_line C1
-    {macro_line: macroone {arg1, arg2 }\\n}
-   {raw:result of a macro with \\arg1\\ and \\n}
-   {raw:@verbatim\\n}
-   {raw:\\arg2\\\\n}
-   {raw:@end verbatim\\n}
-   *@end C1 l7
+ *before_node_section C21
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@macro C6 l2
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{arg1|arg2}
+   |macro_name:{macroone}
+    *arguments_line C1
+     {macro_line: macroone {arg1, arg2 }\\n}
+    {raw:result of a macro with \\arg1\\ and \\n}
+    {raw:@verbatim\\n}
+    {raw:\\arg2\\\\n}
+    {raw:@end verbatim\\n}
+    *@end C1 l7
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C1
    {2 simple args. result of a macro with first arg and \\n}
    >SOURCEMARKS
@@ -232,7 +234,6 @@ arg3
 
 
 $result_texts{'macro_expansion'} = '
-
 2 simple args. result of a macro with first arg and 
 second arg
 

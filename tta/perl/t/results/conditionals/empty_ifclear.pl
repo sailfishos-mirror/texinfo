@@ -8,23 +8,24 @@ use utf8;
 
 $result_tree_text{'empty_ifclear'} = '*document_root C1
  *before_node_section C1
-  {}
-  >SOURCEMARKS
-  >ignored_conditional_block<1>
-   >*@ifclear C5 l1
-    >*arguments_line C1
-     >*block_line_arg C1
-      >{spaces_before_argument:\\n}
-    >{raw:\\n}
-    >{raw:Something\\n}
-    >{raw:\\n}
-    >*@end C1 l5
-    >|EXTRA
-    >|text_arg:{ifclear}
-     >*line_arg C3
-      >{spaces_before_argument: }
-      >{ifclear}
-      >{spaces_after_argument:\\n}
+  *preamble_before_content C1
+   {}
+   >SOURCEMARKS
+   >ignored_conditional_block<1>
+    >*@ifclear C5 l1
+     >*arguments_line C1
+      >*block_line_arg C1
+       >{spaces_before_argument:\\n}
+     >{raw:\\n}
+     >{raw:Something\\n}
+     >{raw:\\n}
+     >*@end C1 l5
+     >|EXTRA
+     >|text_arg:{ifclear}
+      >*line_arg C3
+       >{spaces_before_argument: }
+       >{ifclear}
+       >{spaces_after_argument:\\n}
 ';
 
 

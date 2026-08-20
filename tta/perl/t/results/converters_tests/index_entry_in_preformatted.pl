@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@node C1 l1 {Top}
  |EXTRA
  |identifier:{Top}
@@ -237,7 +238,8 @@ $result_converted{'docbook'}->{'index_entry_in_preformatted'} = '<chapter label=
 ';
 
 
-$result_converted{'latex_text'}->{'index_entry_in_preformatted'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'index_entry_in_preformatted'} = '\\begin{document}
+\\label{anchor:Top}%
 \\Texinfochapter{{Chapter}}
 \\label{anchor:chap}%
 

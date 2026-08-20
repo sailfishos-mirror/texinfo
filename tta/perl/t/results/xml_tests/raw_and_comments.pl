@@ -7,31 +7,32 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'raw_and_comments'} = '*document_root C1
- *before_node_section C3
-  *@tex C3 l1
-   *arguments_line C1
-    *block_line_arg C2
-     {spaces_before_argument:  }
-     *@c C1
-      *line_arg C3
-       {spaces_before_argument: }
-       {rawline_text:comment}
-       {spaces_after_argument:\\n}
-   *rawpreformatted C1
-    {in <tex>\\n}
-   *@end C1 l3
-   |EXTRA
-   |text_arg:{tex}
-    *line_arg C4
-     {spaces_before_argument: }
-     {tex}
-     {spaces_after_argument:  }
-     *@comment C1
-      *line_arg C3
-       {spaces_before_argument: }
-       {rawline_text:other comment}
-       {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_content C2
+   *@tex C3 l1
+    *arguments_line C1
+     *block_line_arg C2
+      {spaces_before_argument:  }
+      *@c C1
+       *line_arg C3
+        {spaces_before_argument: }
+        {rawline_text:comment}
+        {spaces_after_argument:\\n}
+    *rawpreformatted C1
+     {in <tex>\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{tex}
+     *line_arg C4
+      {spaces_before_argument: }
+      {tex}
+      {spaces_after_argument:  }
+      *@comment C1
+       *line_arg C3
+        {spaces_before_argument: }
+        {rawline_text:other comment}
+        {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C2
    {Para\\n}
    *@xml C3 l6

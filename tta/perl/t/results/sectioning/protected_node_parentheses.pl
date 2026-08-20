@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'protected_node_parentheses'} = '*document_root C4
- *before_node_section C1
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
  *@node C1 l2 {first}
  |EXTRA
  |identifier:{first}
@@ -110,8 +112,7 @@ $result_texis{'protected_node_parentheses'} = '
 ';
 
 
-$result_texts{'protected_node_parentheses'} = '
-top
+$result_texts{'protected_node_parentheses'} = 'top
 ***
 
 * (manual) name::
@@ -206,7 +207,6 @@ span:hover a.copiable-link {visibility: visible}
 </head>
 
 <body>
-
 <div class="top-level-extent" id="first">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 

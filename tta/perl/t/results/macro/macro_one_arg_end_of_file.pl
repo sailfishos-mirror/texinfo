@@ -7,22 +7,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_one_arg_end_of_file'} = '*document_root C1
- *before_node_section C3
-  *@macro C3 l1
-  |EXTRA
-  |formal_args:A{arg}
-  |macro_name:{onearg}
-   *arguments_line C1
-    {macro_line: onearg{arg}\\n}
-   {raw:Arg \\arg\\.\\n}
-   *@end C1 l3
+ *before_node_section C2
+  *preamble_before_content C2
+   *@macro C3 l1
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{arg}
+   |macro_name:{onearg}
+    *arguments_line C1
+     {macro_line: onearg{arg}\\n}
+    {raw:Arg \\arg\\.\\n}
+    *@end C1 l3
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C1
    {Arg .}
    >SOURCEMARKS

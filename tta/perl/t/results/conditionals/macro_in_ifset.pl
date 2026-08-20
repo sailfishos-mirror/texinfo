@@ -7,43 +7,45 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_in_ifset'} = '*document_root C1
- *before_node_section C5
-  {empty_line:\\n}
-  *@macro C3 l2
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{truc}
-   *arguments_line C1
-    {macro_line: truc {}\\n}
-   {raw:truc\\n}
-   *@end C1 l4
+ *before_node_section C3
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C3
+   *@macro C3 l2
    |EXTRA
-   |text_arg:{macro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {macro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >ignored_conditional_block<1><p:1>
-   >*@ifset C6 l6
-    >*arguments_line C1
-     >*block_line_arg C3
-      >{spaces_before_argument: }
-      >{a}
-      >{spaces_after_argument:\\n}
-    >{raw:@unmacro truc\\n}
-    >{raw:@macro truc{}\\n}
-    >{raw:in ifset\\n}
-    >{raw:@end macro\\n}
-    >*@end C1 l11
-    >|EXTRA
-    >|text_arg:{ifset}
-     >*line_arg C3
-      >{spaces_before_argument: }
-      >{ifset}
-      >{spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{}
+   |macro_name:{truc}
+    *arguments_line C1
+     {macro_line: truc {}\\n}
+    {raw:truc\\n}
+    *@end C1 l4
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >ignored_conditional_block<1><p:1>
+    >*@ifset C6 l6
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >{a}
+       >{spaces_after_argument:\\n}
+     >{raw:@unmacro truc\\n}
+     >{raw:@macro truc{}\\n}
+     >{raw:in ifset\\n}
+     >{raw:@end macro\\n}
+     >*@end C1 l11
+     >|EXTRA
+     >|text_arg:{ifset}
+      >*line_arg C3
+       >{spaces_before_argument: }
+       >{ifset}
+       >{spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C1
    {truc\\n}
    >SOURCEMARKS
@@ -65,7 +67,6 @@ truc
 
 
 $result_texts{'macro_in_ifset'} = '
-
 
 truc
 ';

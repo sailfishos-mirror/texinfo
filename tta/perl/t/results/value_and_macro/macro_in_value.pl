@@ -7,32 +7,33 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'macro_in_value'} = '*document_root C1
- *before_node_section C7
-  *@macro C5 l1
-  |EXTRA
-  |formal_args:A{}
-  |macro_name:{ab}
-   *arguments_line C1
-    {macro_line: ab\\n}
-   {raw:a\\n}
-   {raw:\\n}
-   {raw:b\\n}
-   *@end C1 l5
+ *before_node_section C4
+  *preamble_before_content C4
+   *@macro C5 l1
    |EXTRA
-   |text_arg:{macro}
+   |formal_args:A{}
+   |macro_name:{ab}
+    *arguments_line C1
+     {macro_line: ab\\n}
+    {raw:a\\n}
+    {raw:\\n}
+    {raw:b\\n}
+    *@end C1 l5
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   *@set C1
+   |EXTRA
+   |misc_args:A{flagab|@ab}
     *line_arg C3
      {spaces_before_argument: }
-     {macro}
+     {rawline_text:flagab @ab}
      {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@set C1
-  |EXTRA
-  |misc_args:A{flagab|@ab}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:flagab @ab}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   {empty_line:\\n}
   *paragraph C1
    {flagab: a\\n}
    >SOURCEMARKS

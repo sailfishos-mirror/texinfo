@@ -8,9 +8,10 @@ use utf8;
 
 $result_tree_text{'comment_without_line'} = '*document_root C1
  *before_node_section C1
-  *@comment C1
-   *line_arg C1
-    {rawline_text:}
+  *preamble_before_content C1
+   *@comment C1
+    *line_arg C1
+     {rawline_text:}
 ';
 
 
@@ -117,6 +118,7 @@ $result_converted{'latex'}->{'comment_without_line'} = '\\documentclass{book}
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 \\end{document}
 ';
 

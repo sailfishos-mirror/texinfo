@@ -8,10 +8,11 @@ use utf8;
 
 $result_tree_text{'definfoenclose_bad_argument'} = '*document_root C1
  *before_node_section C1
-  *@definfoenclose C1 l1
-   *line_arg C2
-    {spaces_before_argument: }
-    {#phoo,;,:}
+  *preamble_before_content C1
+   *@definfoenclose C1 l1
+    *line_arg C2
+     {spaces_before_argument: }
+     {#phoo,;,:}
 ';
 
 

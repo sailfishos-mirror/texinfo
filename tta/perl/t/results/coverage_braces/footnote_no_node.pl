@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'footnote_no_node'} = '*document_root C2
- *before_node_section
+ *before_node_section C1
+  *preamble_before_content
  *@top C3 l1 {top}
  |EXTRA
  |identifier:{Top}
@@ -86,7 +87,8 @@ $result_converted{'html_text'}->{'footnote_no_node'} = '<div class="top-level-ex
 ';
 
 
-$result_converted{'latex_text'}->{'footnote_no_node'} = '\\part*{{top}}
+$result_converted{'latex_text'}->{'footnote_no_node'} = '\\begin{document}
+\\part*{{top}}
 
 F\\footnote{In footnote}.
 ';

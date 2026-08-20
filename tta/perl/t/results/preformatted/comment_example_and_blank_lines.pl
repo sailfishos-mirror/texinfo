@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'comment_example_and_blank_lines'} = '*document_root C1
- *before_node_section C15
+ *before_node_section C16
+  *preamble_before_content
   *paragraph C1
    {Para.\\n}
   {empty_line:\\n}
@@ -258,7 +259,8 @@ $result_converted{'xml'}->{'comment_example_and_blank_lines'} = '<para>Para.
 </para>';
 
 
-$result_converted{'latex_text'}->{'comment_example_and_blank_lines'} = 'Para.
+$result_converted{'latex_text'}->{'comment_example_and_blank_lines'} = '\\begin{document}
+Para.
 
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%

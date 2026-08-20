@@ -7,15 +7,16 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'include_at_end_line'} = '*document_root C1
- *before_node_section C3
-  *@include C1 l1
-  |EXTRA
-  |text_arg:{inc_file.texi}
-   *line_arg C3
-    {spaces_before_argument: }
-    {inc_file.texi}
-    *@\\n
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_content C2
+   *@include C1 l1
+   |EXTRA
+   |text_arg:{inc_file.texi}
+    *line_arg C3
+     {spaces_before_argument: }
+     {inc_file.texi}
+     *@\\n
+   {empty_line:\\n}
   *paragraph C1
    {After.}
 ';

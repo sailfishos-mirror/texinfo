@@ -8,13 +8,14 @@ use utf8;
 
 $result_tree_text{'value_zero'} = '*document_root C1
  *before_node_section C2
-  *@set C1
-  |EXTRA
-  |misc_args:A{zero|0}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:zero 0}
-    {spaces_after_argument:\\n}
+  *preamble_before_content C1
+   *@set C1
+   |EXTRA
+   |misc_args:A{zero|0}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:zero 0}
+     {spaces_after_argument:\\n}
   *paragraph C2
    {Value\\n}
    {0}

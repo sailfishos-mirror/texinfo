@@ -7,12 +7,14 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'novalidate'} = '*document_root C2
- *before_node_section C3
-  {empty_line:\\n}
-  *@novalidate C1 l2
-   *line_arg C1
-    {spaces_before_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@novalidate C1 l2
+    *line_arg C1
+     {spaces_before_argument:\\n}
+   {empty_line:\\n}
  *@node C5 l4 {first}
  |EXTRA
  |identifier:{first}
@@ -78,7 +80,6 @@ $result_texis{'novalidate'} = '
 
 
 $result_texts{'novalidate'} = '
-
 
 * not a node::
 
@@ -151,7 +152,6 @@ span:hover a.copiable-link {visibility: visible}
 </head>
 
 <body>
-
 
 <h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 

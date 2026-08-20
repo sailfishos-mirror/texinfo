@@ -7,22 +7,24 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'raw_commands_and_end_of_lines'} = '*document_root C1
- *before_node_section C44
-  {empty_line:\\n}
-  *@html C3 l2
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *rawpreformatted C1
-    {Surrounded by empty lines.\\n}
-   *@end C1 l4
-   |EXTRA
-   |text_arg:{html}
-    *line_arg C3
-     {spaces_before_argument: }
-     {html}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C43
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@html C3 l2
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *rawpreformatted C1
+     {Surrounded by empty lines.\\n}
+    *@end C1 l4
+    |EXTRA
+    |text_arg:{html}
+     *line_arg C3
+      {spaces_before_argument: }
+      {html}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C3
    {Block commands on a line\\n}
    *@html C3 l7
@@ -388,8 +390,7 @@ in block
 ';
 
 
-$result_texts{'raw_commands_and_end_of_lines'} = '
-Surrounded by empty lines.
+$result_texts{'raw_commands_and_end_of_lines'} = 'Surrounded by empty lines.
 
 Block commands on a line
 in block
@@ -546,8 +547,8 @@ in block
 ';
 
 
-$result_converted{'xml'}->{'raw_commands_and_end_of_lines'} = '
-<html endspaces=" ">
+$result_converted{'xml'}->{'raw_commands_and_end_of_lines'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><html endspaces=" ">
 Surrounded by empty lines.
 </html>
 

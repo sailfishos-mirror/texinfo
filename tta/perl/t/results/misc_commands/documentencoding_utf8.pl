@@ -7,17 +7,18 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'documentencoding_utf8'} = '*document_root C1
- *before_node_section C2
-  *@documentencoding C1 l1
-  |EXTRA
-  |global_command_number:{1}
-  |input_encoding_name:{utf-8}
-  |text_arg:{utf8}
-   *line_arg C3
-    {spaces_before_argument: }
-    {utf8}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C1
+  *preamble_before_content C2
+   *@documentencoding C1 l1
+   |EXTRA
+   |global_command_number:{1}
+   |input_encoding_name:{utf-8}
+   |text_arg:{utf8}
+    *line_arg C3
+     {spaces_before_argument: }
+     {utf8}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
 ';
 
 
@@ -132,6 +133,7 @@ $result_converted{'latex'}->{'documentencoding_utf8'} = '\\documentclass{book}
 \\pagestyle{single}%
 
 
+\\begin{document}
 \\end{document}
 ';
 

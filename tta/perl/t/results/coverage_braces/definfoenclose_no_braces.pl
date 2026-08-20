@@ -8,13 +8,14 @@ use utf8;
 
 $result_tree_text{'definfoenclose_no_braces'} = '*document_root C1
  *before_node_section C2
-  *@definfoenclose C1 l1
-  |EXTRA
-  |misc_args:A{phoo|;|:}
-   *line_arg C3
-    {spaces_before_argument: }
-    {phoo,;,:}
-    {spaces_after_argument:\\n}
+  *preamble_before_content C1
+   *@definfoenclose C1 l1
+   |EXTRA
+   |misc_args:A{phoo|;|:}
+    *line_arg C3
+     {spaces_before_argument: }
+     {phoo,;,:}
+     {spaces_after_argument:\\n}
   *paragraph C1
    *definfoenclose_command@phoo l2
    |EXTRA
@@ -53,7 +54,8 @@ $result_converted{'plaintext'}->{'definfoenclose_no_braces'} = ';:
 $result_converted{'html_text'}->{'definfoenclose_no_braces'} = '<p>;:</p>';
 
 
-$result_converted{'latex_text'}->{'definfoenclose_no_braces'} = '';
+$result_converted{'latex_text'}->{'definfoenclose_no_braces'} = '\\begin{document}
+';
 
 
 $result_converted{'docbook'}->{'definfoenclose_no_braces'} = '<para></para>';

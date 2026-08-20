@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'paragraphindent'} = '*document_root C1
- *before_node_section C19
+ *before_node_section C20
+  *preamble_before_content
   *paragraph C1
    {First\\n}
   {empty_line:\\n}

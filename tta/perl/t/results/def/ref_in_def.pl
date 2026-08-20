@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'ref_in_def'} = '*document_root C2
- *before_node_section C1
-  {empty_line:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
  *@node C6 l2 {first}
  |EXTRA
  |identifier:{first}
@@ -161,7 +163,6 @@ T
 
 
 $result_texts{'ref_in_def'} = '
-
 myanchor: myanchor myanchor myanchor myanchor
 myanchor: myanchor myanchor myanchor myanchor
 T

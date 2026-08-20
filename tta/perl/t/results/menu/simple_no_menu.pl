@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'simple_no_menu'} = '*document_root C1
- *before_node_section C6
-  {empty_line:\\n}
+ *before_node_section C7
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *paragraph C1
    {Before menu.\\n}
   {empty_line:\\n}
@@ -120,8 +122,7 @@ After menu.
 ';
 
 
-$result_texts{'simple_no_menu'} = '
-Before menu.
+$result_texts{'simple_no_menu'} = 'Before menu.
 
 comment
 * menu entry name : node.    description
@@ -172,7 +173,6 @@ $result_converted{'html'}->{'simple_no_menu'} = '<!DOCTYPE html>
 </head>
 
 <body>
-
 <p>Before menu.
 </p>
 
@@ -190,8 +190,8 @@ $result_converted_errors{'html'}->{'simple_no_menu'} = '* W |must specify a titl
 ';
 
 
-$result_converted{'xml'}->{'simple_no_menu'} = '
-<para>Before menu.
+$result_converted{'xml'}->{'simple_no_menu'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><para>Before menu.
 </para>
 <menu endspaces=" ">
 <menucomment><pre xml:space="preserve">comment

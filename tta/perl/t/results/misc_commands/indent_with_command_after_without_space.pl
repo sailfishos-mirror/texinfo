@@ -8,7 +8,8 @@ use utf8;
 
 $result_tree_text{'indent_with_command_after_without_space'} = '*document_root C1
  *before_node_section C2
-  *@indent l1
+  *preamble_before_content C1
+   *@indent l1
   *paragraph C2
   |EXTRA
   |indent:{1}
@@ -125,6 +126,7 @@ $result_converted{'latex'}->{'indent_with_command_after_without_space'} = '\\doc
 \\makeatother
 \\pagestyle{single}%
 
+\\begin{document}
 \\AA{} b
 \\end{document}
 ';

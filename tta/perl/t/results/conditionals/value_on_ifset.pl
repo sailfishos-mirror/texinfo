@@ -7,37 +7,38 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'value_on_ifset'} = '*document_root C1
- *before_node_section C5
-  *@set C1
-  |EXTRA
-  |misc_args:A{xval|x}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:xval x}
-    {spaces_after_argument:\\n}
-  *@set C1
-  |EXTRA
-  |misc_args:A{x|1}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:x 1}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  >SOURCEMARKS
-  >expanded_conditional_command<start;1><p:1>
-   >*@ifset C1 l4
-    >*arguments_line C1
-     >*block_line_arg C3
-      >{spaces_before_argument: }
-      >>SOURCEMARKS
-      >>value_expansion<start;1><p:1>{x}
-       >>*@value C1
-        >>*brace_container C1
-         >>{xval}
-      >{x}
-      >>SOURCEMARKS
-      >>value_expansion<end;1><p:1>
-      >{spaces_after_argument:\\n}
+ *before_node_section C3
+  *preamble_before_content C3
+   *@set C1
+   |EXTRA
+   |misc_args:A{xval|x}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:xval x}
+     {spaces_after_argument:\\n}
+   *@set C1
+   |EXTRA
+   |misc_args:A{x|1}
+    *line_arg C3
+     {spaces_before_argument: }
+     {rawline_text:x 1}
+     {spaces_after_argument:\\n}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<start;1><p:1>
+    >*@ifset C1 l4
+     >*arguments_line C1
+      >*block_line_arg C3
+       >{spaces_before_argument: }
+       >>SOURCEMARKS
+       >>value_expansion<start;1><p:1>{x}
+        >>*@value C1
+         >>*brace_container C1
+          >>{xval}
+       >{x}
+       >>SOURCEMARKS
+       >>value_expansion<end;1><p:1>
+       >{spaces_after_argument:\\n}
   *paragraph C1
    {XVAL SET\\n}
    >SOURCEMARKS

@@ -7,33 +7,35 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'documentinfo_with_empty_line'} = '*document_root C5
- *before_node_section C3
-  {empty_line:\\n}
-  *@documentinfo C5 l2
-   *arguments_line C1
-    *block_line_arg C1
-     {spaces_before_argument:\\n}
-   *@title C1 l3
-    *line_arg C3
-     {spaces_before_argument: }
-     {yup}
-     {spaces_after_argument:\\n}
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@documentinfo C5 l2
+    *arguments_line C1
+     *block_line_arg C1
+      {spaces_before_argument:\\n}
+    *@title C1 l3
+     *line_arg C3
+      {spaces_before_argument: }
+      {yup}
+      {spaces_after_argument:\\n}
+    {empty_line:\\n}
+    *@author C1 l5
+    |EXTRA
+    |global_command_number:{1}
+     *line_arg C3
+      {spaces_before_argument: }
+      {Toto}
+      {spaces_after_argument:\\n}
+    *@end C1 l6
+    |EXTRA
+    |text_arg:{documentinfo}
+     *line_arg C3
+      {spaces_before_argument: }
+      {documentinfo}
+      {spaces_after_argument:\\n}
    {empty_line:\\n}
-   *@author C1 l5
-   |EXTRA
-   |global_command_number:{1}
-    *line_arg C3
-     {spaces_before_argument: }
-     {Toto}
-     {spaces_after_argument:\\n}
-   *@end C1 l6
-   |EXTRA
-   |text_arg:{documentinfo}
-    *line_arg C3
-     {spaces_before_argument: }
-     {documentinfo}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
  *@node C1 l8 {Top}
  |EXTRA
  |identifier:{Top}
@@ -93,7 +95,6 @@ $result_texis{'documentinfo_with_empty_line'} = '
 
 
 $result_texts{'documentinfo_with_empty_line'} = '
-
 top
 ***
 
@@ -174,7 +175,6 @@ span:hover a.copiable-link {visibility: visible}
 
 <body>
 
-
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#chapter" accesskey="n" rel="next">Chap</a></span></span><span class="nav-button"> &nbsp; </span></p>
@@ -198,8 +198,8 @@ span:hover a.copiable-link {visibility: visible}
 ';
 
 
-$result_converted{'xml'}->{'documentinfo_with_empty_line'} = '
-<documentinfo endspaces=" ">
+$result_converted{'xml'}->{'documentinfo_with_empty_line'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><documentinfo endspaces=" ">
 <title> yup</title>
 
 <author> Toto</author>
@@ -235,7 +235,7 @@ $result_converted{'docbook_doc'}->{'documentinfo_with_empty_line'} = '<?xml vers
 
 
 $result_converted{'latex_text'}->{'documentinfo_with_empty_line'} = '
-
+\\begin{document}
 \\label{anchor:Top}%
 \\Texinfochapter{{Chap}}
 \\label{anchor:chapter}%

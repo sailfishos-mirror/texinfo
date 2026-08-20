@@ -7,7 +7,8 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'multitable_prototypes'} = '*document_root C1
- *before_node_section C2
+ *before_node_section C3
+  *preamble_before_content
   *@multitable C3 l1
   |EXTRA
   |max_columns:{3}
@@ -141,7 +142,8 @@ $result_converted{'docbook'}->{'multitable_prototypes'} = '<informaltable><tgrou
 ';
 
 
-$result_converted{'latex_text'}->{'multitable_prototypes'} = '\\begin{tabular}{m{0.210526315789474\\textwidth} m{0.157894736842105\\textwidth} m{0.631578947368421\\textwidth}}%
+$result_converted{'latex_text'}->{'multitable_prototypes'} = '\\begin{document}
+\\begin{tabular}{m{0.210526315789474\\textwidth} m{0.157894736842105\\textwidth} m{0.631578947368421\\textwidth}}%
 cc d&
 s&
 k `\\texttt{same samp}\'

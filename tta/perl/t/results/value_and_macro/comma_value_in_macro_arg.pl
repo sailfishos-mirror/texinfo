@@ -7,30 +7,31 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'comma_value_in_macro_arg'} = '*document_root C1
- *before_node_section C5
-  *@set C1
-  |EXTRA
-  |misc_args:A{comma|,}
-   *line_arg C3
-    {spaces_before_argument: }
-    {rawline_text:comma ,}
-    {spaces_after_argument:\\n}
-  {empty_line:\\n}
-  *@macro C3 l3
-  |EXTRA
-  |formal_args:A{arg1|arg2}
-  |macro_name:{macro1}
-   *arguments_line C1
-    {macro_line: macro1 { arg1 , arg2 }\\n}
-   {raw:result: @emph{\\arg1\\} protected \\\\ -> \\\\arg1\\\\ @emph{\\arg2\\}\\n}
-   *@end C1 l5
+ *before_node_section C2
+  *preamble_before_content C4
+   *@set C1
    |EXTRA
-   |text_arg:{macro}
+   |misc_args:A{comma|,}
     *line_arg C3
      {spaces_before_argument: }
-     {macro}
+     {rawline_text:comma ,}
      {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   {empty_line:\\n}
+   *@macro C3 l3
+   |EXTRA
+   |formal_args:A{arg1|arg2}
+   |macro_name:{macro1}
+    *arguments_line C1
+     {macro_line: macro1 { arg1 , arg2 }\\n}
+    {raw:result: @emph{\\arg1\\} protected \\\\ -> \\\\arg1\\\\ @emph{\\arg2\\}\\n}
+    *@end C1 l5
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {macro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *paragraph C5
    {result: }
    >SOURCEMARKS

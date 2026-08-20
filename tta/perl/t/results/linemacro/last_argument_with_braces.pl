@@ -7,23 +7,24 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'last_argument_with_braces'} = '*document_root C1
- *before_node_section C3
-  *@linemacro C4 l1
-  |EXTRA
-  |formal_args:A{symbol|rest}
-  |macro_name:{defbuiltin}
-   *arguments_line C1
-    {macro_line: defbuiltin {symbol, rest}\\n}
-   {raw:@defline \\symbol\\ f r\\n}
-   {raw:@defline expand Builtin and \\rest\\\\n}
-   *@end C1 l4
+ *before_node_section C2
+  *preamble_before_content C2
+   *@linemacro C4 l1
    |EXTRA
-   |text_arg:{linemacro}
-    *line_arg C3
-     {spaces_before_argument: }
-     {linemacro}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+   |formal_args:A{symbol|rest}
+   |macro_name:{defbuiltin}
+    *arguments_line C1
+     {macro_line: defbuiltin {symbol, rest}\\n}
+    {raw:@defline \\symbol\\ f r\\n}
+    {raw:@defline expand Builtin and \\rest\\\\n}
+    *@end C1 l4
+    |EXTRA
+    |text_arg:{linemacro}
+     *line_arg C3
+      {spaces_before_argument: }
+      {linemacro}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *@defblock C10 l6
    *arguments_line C1
     *block_line_arg C1

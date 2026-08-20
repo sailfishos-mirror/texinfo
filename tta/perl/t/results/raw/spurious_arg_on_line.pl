@@ -7,24 +7,26 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'spurious_arg_on_line'} = '*document_root C1
- *before_node_section C6
-  {empty_line:\\n}
-  *@tex C3 l2
-   *arguments_line C1
-    *block_line_arg C3
-     {spaces_before_argument: }
-     {argt}
-     {spaces_after_argument:\\n}
-   *rawpreformatted C1
-    {in tex\\n}
-   *@end C1 l4
-   |EXTRA
-   |text_arg:{tex}
-    *line_arg C3
-     {spaces_before_argument: }
-     {tex}
-     {spaces_after_argument:\\n}
-  {empty_line:\\n}
+ *before_node_section C5
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@tex C3 l2
+    *arguments_line C1
+     *block_line_arg C3
+      {spaces_before_argument: }
+      {argt}
+      {spaces_after_argument:\\n}
+    *rawpreformatted C1
+     {in tex\\n}
+    *@end C1 l4
+    |EXTRA
+    |text_arg:{tex}
+     *line_arg C3
+      {spaces_before_argument: }
+      {tex}
+      {spaces_after_argument:\\n}
+   {empty_line:\\n}
   *@verbatim C3 l6
    *arguments_line C1
     *block_line_arg C3
@@ -73,8 +75,7 @@ in html
 ';
 
 
-$result_texts{'spurious_arg_on_line'} = '
-in tex
+$result_texts{'spurious_arg_on_line'} = 'in tex
 
 in verbatim
 
@@ -105,8 +106,8 @@ $result_converted{'plaintext'}->{'spurious_arg_on_line'} = 'in verbatim
 ';
 
 
-$result_converted{'xml'}->{'spurious_arg_on_line'} = '
-<tex endspaces=" ">
+$result_converted{'xml'}->{'spurious_arg_on_line'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><tex endspaces=" ">
 in tex
 </tex>
 

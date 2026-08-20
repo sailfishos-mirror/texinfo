@@ -7,8 +7,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 use utf8;
 
 $result_tree_text{'multitable'} = '*document_root C1
- *before_node_section C4
-  {empty_line:\\n}
+ *before_node_section C5
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
   *@multitable C4 l2
   |EXTRA
   |max_columns:{2}
@@ -152,8 +154,7 @@ $result_texis{'multitable'} = '
 ';
 
 
-$result_texts{'multitable'} = '
-mu-ltitable headitem another tab
+$result_texts{'multitable'} = 'mu-ltitable headitem another tab
 mu-ltitable item multitable tab
 mu-ltitable item 2 multitable tab 2
 lone mu-ltitable item
@@ -193,8 +194,7 @@ $result_converted_sort_strings{'plaintext'}->{'multitable'} = 'cp:
 ';
 
 
-$result_converted{'html_text'}->{'multitable'} = '
-<table class="multitable">
+$result_converted{'html_text'}->{'multitable'} = '<table class="multitable">
 <thead><tr><th width="60%">mu&ndash;ltitable headitem</th><th width="40%">another tab</th></tr></thead>
 <tbody><tr><td width="60%">mu&ndash;ltitable item</td><td width="40%">multitable tab</td></tr>
 <tr><td width="60%">mu&ndash;ltitable item 2</td><td width="40%">multitable tab 2
@@ -210,8 +210,8 @@ $result_converted{'html_text'}->{'multitable'} = '
 ';
 
 
-$result_converted{'xml'}->{'multitable'} = '
-<multitable endspaces=" "><columnfractions line=" 0.6 0.4"><columnfraction value="0.6"></columnfraction><columnfraction value="0.4"></columnfraction></columnfractions>
+$result_converted{'xml'}->{'multitable'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><multitable endspaces=" "><columnfractions line=" 0.6 0.4"><columnfraction value="0.6"></columnfraction><columnfraction value="0.4"></columnfraction></columnfractions>
 <thead><row><entry command="headitem"> <para>mu&textndash;ltitable headitem </para></entry><entry command="tab"> <para>another tab
 </para></entry></row></thead><tbody><row><entry command="item"> <para>mu&textndash;ltitable item </para></entry><entry command="tab"> <para>multitable tab
 <!-- c comment in multitable -->
@@ -227,7 +227,7 @@ $result_converted{'xml'}->{'multitable'} = '
 ';
 
 
-$result_converted{'latex_text'}->{'multitable'} = '
+$result_converted{'latex_text'}->{'multitable'} = '\\begin{document}
 \\begin{tabular}{m{0.6\\textwidth} m{0.4\\textwidth}}%
 mu--ltitable headitem &another tab\\\\
 mu--ltitable item &multitable tab\\\\
@@ -243,8 +243,7 @@ truc &bidule\\\\
 ';
 
 
-$result_converted{'docbook'}->{'multitable'} = '
-<informaltable><tgroup cols="2"><colspec colwidth="60*"></colspec><colspec colwidth="40*"></colspec><thead><row><entry><para>mu&#8211;ltitable headitem </para></entry><entry><para>another tab
+$result_converted{'docbook'}->{'multitable'} = '<informaltable><tgroup cols="2"><colspec colwidth="60*"></colspec><colspec colwidth="40*"></colspec><thead><row><entry><para>mu&#8211;ltitable headitem </para></entry><entry><para>another tab
 </para></entry></row></thead><tbody><row><entry><para>mu&#8211;ltitable item </para></entry><entry><para>multitable tab
 <!-- comment in multitable -->
 </para></entry></row><row><entry><para>mu&#8211;ltitable item 2 </para></entry><entry><para>multitable tab 2
