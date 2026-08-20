@@ -1,5 +1,11 @@
 2026-08-20 Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree): add
+	$do_master_menu argument and use it, replace call of _fix_texinfo_tree
+	by call of _parsed_manual_tree and remove _fix_texinfo_tree.
+
+2026-08-20 Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl (_fix_texinfo_tree): remove the
 	possibility to do master menus and not node menus.  It was not used
 	and does not make much sense.

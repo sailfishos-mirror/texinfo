@@ -28,6 +28,8 @@ use Getopt::Long qw(GetOptions);
 use File::Basename;
 use File::Spec;
 
+#use Carp qw(cluck);
+
 #use Pod::Simple::SimpleTree;
 #use Data::Dumper;
 
@@ -329,9 +331,10 @@ if ($base_level > 0) {
 }
 
 # return a parser and parsed tree
-sub _parsed_manual_tree($$$$$) {
+# $DO_MASTER_MENU is ignored if $DO_NODE_MENUS is not set.
+sub _parsed_manual_tree($$$$$;$) {
   my ($self, $manual_texi, $section_nodes, $fill_gaps_in_sectioning,
-      $do_node_menus) = @_;
+      $do_node_menus, $do_master_menu) = @_;
 
   my $parser_options = {};
   if ($debug > 3) {
@@ -383,6 +386,11 @@ sub _parsed_manual_tree($$$$$) {
   Texinfo::Transformations::complete_tree_nodes_menus_in_document($document)
     if ($section_nodes and $do_node_menus);
 
+  if ($do_node_menus and $do_master_menu) {
+    Texinfo::Transformations::regenerate_master_menu($document,
+                                                     $texi_parser);
+  }
+
   if ($debug > 1) {
     my ($error_messages, $error_count) = $document->errors();
     Pod::Simple::Texinfo::print_texinfo_errors($error_messages,
@@ -392,34 +400,14 @@ sub _parsed_manual_tree($$$$$) {
   return ($texi_parser, $document, $identifier_target);
 }
 
-# $DO_MASTER_MENU is ignored if $DO_NODE_MENUS is not set.
-sub _fix_texinfo_tree($$$$;$$) {
-  my ($self, $manual_texi, $section_nodes, $fill_gaps_in_sectioning,
-      $do_node_menus, $do_master_menu) = @_;
-
-  my ($texi_parser, $document, $updated_labels)
-    = _parsed_manual_tree($self, $manual_texi, $section_nodes,
-                          $fill_gaps_in_sectioning,
-                          $do_node_menus);
-  if ($do_node_menus and $do_master_menu) {
-    # It could be possible to show document errors if debug > 1
-    # for example, but there should not be any error emitted,
-    # except maybe for errors in translations code, which are very
-    # unlikely.
-    Texinfo::Transformations::regenerate_master_menu($document,
-                                                     $texi_parser);
-  }
-  return ($texi_parser, $document);
-}
-
 sub _fix_texinfo_manual($$$$;$$) {
   my ($self, $manual_texi, $section_nodes, $fill_gaps_in_sectioning,
       $do_node_menus, $do_master_menu) = @_;
 
   my ($texi_parser, $document)
-      = _fix_texinfo_tree($self, $manual_texi, $section_nodes,
-                          $fill_gaps_in_sectioning, $do_node_menus,
-                          $do_master_menu);
+      = _parsed_manual_tree($self, $manual_texi, $section_nodes,
+                            $fill_gaps_in_sectioning, $do_node_menus,
+                            $do_master_menu);
   my $tree = $document->tree();
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
@@ -427,9 +415,8 @@ sub _fix_texinfo_manual($$$$;$$) {
 sub _do_top_node_menu($) {
   my $manual_texi = shift;
 
-  my ($texi_parser, $document)
-             = _fix_texinfo_tree(undef, $manual_texi, 1, 0, 1, 1);
-  my $identifier_target = $document->labels_information();
+  my ($texi_parser, $document, $identifier_target)
+             = _parsed_manual_tree(undef, $manual_texi, 1, 0, 1, 1);
   my $top_node = $identifier_target->{'Top'};
   my $nodes_list = $document->nodes_list();
   my $top_node_relations
