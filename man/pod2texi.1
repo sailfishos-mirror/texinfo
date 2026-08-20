@@ -52,10 +52,13 @@
 .    \}
 .\}
 .rr rF
+.\"
+.\" Required to disable full justification in groff 1.23.0.
+.if n .ds AD l
 .\" ========================================================================
 .\"
 .IX Title "POD2TEXI 1"
-.TH POD2TEXI 1 2026-05-11 perl "User Contributed Perl Documentation"
+.TH POD2TEXI 1 2026-08-20 perl "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -136,7 +139,7 @@ Use anchors for sections instead of nodes.
 .IP \fB\-\-no\-fill\-section\-gaps\fR 4
 .IX Item "--no-fill-section-gaps"
 Do not fill sectioning gaps with empty \f(CW@unnumbered\fR.
-Ordinarily, it's good to keep the sectioning hierarchy intact.
+Ordinarily, it\*(Aqs good to keep the sectioning hierarchy intact.
 .IP \fB\-\-preamble\fR=\fISTR\fR 4
 .IX Item "--preamble=STR"
 Insert \fISTR\fR as top boilerplate before menu and includes.  If \fISTR\fR is

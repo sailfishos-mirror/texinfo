@@ -41,6 +41,7 @@ use Texinfo::Common;
 use Texinfo::Translations;
 
 use Texinfo::Document;
+use Texinfo::Parser;
 use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
 
@@ -83,7 +84,7 @@ sub _correct_level($$;$) {
 }
 
 sub fill_gaps_in_sectioning_in_document($;$) {
-  my ($document, $commands_heading_content) = @_;
+  my ($document, $commands_heading_texi) = @_;
 
   my $root = $document->tree();
 
@@ -92,6 +93,15 @@ sub fill_gaps_in_sectioning_in_document($;$) {
   my $contents_nr = scalar(@{$root->{'contents'}});
 
   my @added_sections;
+
+  # prepare contents to be inserted as added sectioning commands arguments
+  my $commands_heading_content;
+  if (defined($commands_heading_texi)) {
+    my $parser = Texinfo::Parser::parser({'NO_INDEX' => 1,
+                                          'NO_USER_COMMANDS' => 1,});
+    $commands_heading_content
+      = $parser->parse_texi_line($commands_heading_texi);
+  }
 
   # initialize current and next sections
   my $idx_current_section = -1;

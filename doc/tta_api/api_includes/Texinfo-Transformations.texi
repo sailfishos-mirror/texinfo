@@ -50,8 +50,8 @@ If the optional @emph{$add_section_names_in_entries} argument is set, a menu ent
 name is added using the section name.  This function should be
 called after @ref{Texinfo@asis{::}Structuring sectioning_structure($document),, sectioning_structure}.
 
-@item fill_gaps_in_sectioning_in_document($document, $commands_heading_tree)
-@anchor{Texinfo@asis{::}Transformations fill_gaps_in_sectioning_in_document($document@comma{} $commands_heading_tree)}
+@item fill_gaps_in_sectioning_in_document($document, $commands_heading_texi)
+@anchor{Texinfo@asis{::}Transformations fill_gaps_in_sectioning_in_document($document@comma{} $commands_heading_texi)}
 @cindex @code{fill_gaps_in_sectioning_in_document}
 
 This function adds empty @code{@@unnumbered} and similar commands in a
@@ -59,7 +59,8 @@ This function adds empty @code{@@unnumbered} and similar commands in a
 when converting from a format that can handle gaps in sectioning.
 
 In the default case, the added sectioning commands headings are empty.  It is
-possible to use instead the @emph{$commands_heading_tree} Texinfo tree element.
+possible to use instead the @emph{$commands_heading_texi} Texinfo code, whose
+parsed tree is copied into the added sectioning commands.
 
 If the sectioning commands are lowered or raised (with @code{@@raisesections},
 @code{@@lowersection}) the tree may be modified with @code{@@raisesections} or

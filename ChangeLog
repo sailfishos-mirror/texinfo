@@ -1,5 +1,18 @@
 2026-08-20 Patrice Dumas  <pertusus@free.fr>
 
+	pass Texinfo code to fill_gaps_in_sectioning_in_document
+
+	* tta/C/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning_in_document),
+	tta/perl/Texinfo/TransformationsNonXS.pm
+	(fill_gaps_in_sectioning_in_document): pass Texinfo code as argument
+	and parse to a Texinfo tree in fill_gaps_in_sectioning_in_document. 
+
+	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree): adapt to
+	fill_gaps_in_sectioning_in_document change.
+
+2026-08-20 Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl: inline _fix_texinfo_manual in the
 	main loop and remove the function.
 

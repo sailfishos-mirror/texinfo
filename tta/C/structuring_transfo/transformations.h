@@ -46,7 +46,7 @@
 #define STTF_texi2dvi_format                        0x4000
 
 ELEMENT_LIST *fill_gaps_in_sectioning_in_document (DOCUMENT *document,
-                                const ELEMENT *commands_heading_content);
+                                     const char *commands_heading_texi);
 void relate_index_entries_to_table_items_in_document (DOCUMENT *document);
 void move_index_entries_after_items_in_document (DOCUMENT *document);
 void reference_to_arg_in_document (DOCUMENT *document);

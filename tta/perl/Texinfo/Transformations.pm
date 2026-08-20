@@ -285,7 +285,7 @@ If the optional I<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
 called after L<sectioning_structure|Texinfo::Structuring/sectioning_structure($document)>.
 
-=item fill_gaps_in_sectioning_in_document($document, $commands_heading_tree)
+=item fill_gaps_in_sectioning_in_document($document, $commands_heading_texi)
 X<C<fill_gaps_in_sectioning_in_document>>
 
 This function adds empty C<@unnumbered> and similar commands in a
@@ -293,7 +293,8 @@ I<$document> tree to fill gaps in sectioning.  This may be used, for example,
 when converting from a format that can handle gaps in sectioning.
 
 In the default case, the added sectioning commands headings are empty.  It is
-possible to use instead the I<$commands_heading_tree> Texinfo tree element.
+possible to use instead the I<$commands_heading_texi> Texinfo code, whose
+parsed tree is copied into the added sectioning commands.
 
 If the sectioning commands are lowered or raised (with C<@raisesections>,
 C<@lowersection>) the tree may be modified with C<@raisesections> or

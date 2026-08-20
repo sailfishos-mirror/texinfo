@@ -133,7 +133,6 @@ BEGIN
 use Pod::Simple::Texinfo;
 use Texinfo::CommandsValues;
 use Texinfo::Common;
-use Texinfo::Parser;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Document;
@@ -364,15 +363,13 @@ sub _parsed_manual_tree($$$$$;$) {
   }
 
   if ($fill_gaps_in_sectioning) {
-    my $commands_heading_content;
+    my $commands_heading_texi;
     if ($self->texinfo_sectioning_base_level() > 0) {
-      my $manual_title_texi = Pod::Simple::Texinfo::protect_text(
+      $commands_heading_texi = Pod::Simple::Texinfo::protect_text(
              $self->texinfo_short_title(), 1, 1);
-      my $parser = Texinfo::Parser::parser();
-      $commands_heading_content = $parser->parse_texi_line($manual_title_texi);
     }
     Texinfo::Transformations::fill_gaps_in_sectioning_in_document($document,
-                                                  $commands_heading_content);
+                                                      $commands_heading_texi);
     if ($section_nodes) {
       Texinfo::Transformations::insert_nodes_for_sectioning_commands(
                                                                $document);

@@ -48,6 +48,9 @@
    protect_colon_in_tree new_asis_command_with_text
    protect_comma_in_tree protect_node_after_label_in_tree */
 #include "manipulate_tree.h"
+#include "parser_api.h"
+#include "set_parser_conf.h"
+#include "document.h"
 #include "convert_to_texinfo.h"
 #include "targets.h"
 #include "unicode.h"
@@ -184,7 +187,7 @@ correct_level (const ELEMENT *section, ELEMENT *parent, int modifier)
  */
 ELEMENT_LIST *
 fill_gaps_in_sectioning_in_document (DOCUMENT *document,
-                                     const ELEMENT *commands_heading_content)
+                                     const char *commands_heading_texi)
 {
   ELEMENT_LIST *added_sections = new_list ();
   size_t nr_current_section = 0;
@@ -192,8 +195,21 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
   size_t idx = 0;
   size_t idx_current_section, idx_next_section;
   ELEMENT *root = document->tree;
+  ELEMENT *commands_heading_content = 0;
   /* index in sections_list */
   size_t section_idx = 0;
+
+  if (commands_heading_texi)
+    {
+      reset_parser (0);
+      parser_conf_set_NO_INDEX (1);
+      parser_conf_set_NO_USER_COMMANDS (1);
+      DOCUMENT *heading_document = parse_string (commands_heading_texi, 1);
+      commands_heading_content
+        = unregister_document_merge_with_document (heading_document,
+                                                   document);
+      tree_remove_parents (commands_heading_content);
+    }
 
   /* This loop initializes the index of the first and next section
      in the tree root element contents list */
@@ -271,7 +287,7 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
               if (commands_heading_content)
                 {
                   line_content = copy_contents (commands_heading_content, 0,
-                                                commands_heading_content->type);
+                                                ET_NONE);
                 }
               else
                 {
@@ -331,6 +347,10 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
       if (idx_next_section >= root->e.c->contents.number)
         break;
     }
+
+  if (commands_heading_content)
+    destroy_element_and_children (commands_heading_content);
+
   return added_sections;
 }
 
