@@ -141,7 +141,7 @@ T
 ';
 
 my $test_parser = Texinfo::Parser::parser();
-my $document = Texinfo::Parser::parse_texi_piece($test_parser, $text);
+my $document = Texinfo::Parser::parse_texi_text($test_parser, $text);
 my $tree = $document->tree();
 my $copy = Texinfo::ManipulateTree::copy_tree_root($tree);
 

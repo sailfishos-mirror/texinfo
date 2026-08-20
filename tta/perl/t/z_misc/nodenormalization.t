@@ -55,7 +55,7 @@ in node
 
 in top section
 ';
-my $document = $parser->parse_texi_piece($node_texi);
+my $document = $parser->parse_texi_text($node_texi);
 my $node_tree = $document->tree();
 my $normalized_node = convert_to_node_identifier($node_tree);
 is($normalized_node, '', 'node ignored');
@@ -144,7 +144,7 @@ in float
 @bye
 ';
 
-$document = $parser->parse_texi_piece($texinfo_manual);
+$document = $parser->parse_texi_text($texinfo_manual);
 my $texinfo_manual_tree = $document->tree();
 my $check_texinfo
   = Texinfo::Convert::Texinfo::convert_to_texinfo($texinfo_manual_tree);
