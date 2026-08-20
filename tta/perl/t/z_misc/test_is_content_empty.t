@@ -23,7 +23,7 @@ sub test_is_empty($$$;$) {
   my ($name, $is_empty, $in, $do_not_ignore_index_entries) = @_;
 
   my $parser = Texinfo::Parser::parser();
-  my $document = $parser->parse_texi_piece($in);
+  my $document = $parser->parse_texi_text($in);
   my $tree_as_text = $document->tree();
 
   my $line_parser = Texinfo::Parser::parser();

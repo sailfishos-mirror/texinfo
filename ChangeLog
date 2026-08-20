@@ -1,5 +1,18 @@
 2026-08-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/z_misc/do_master_menu.t: use parse_texi_text instead of
+	parse_texi_piece when the input Texinfo is a full manual.
+
+	* tta/perl/t/z_misc/index_before_item.t: use parse_texi_text instead
+	of parse_texi_piece as the transformation is a transformation
+	targeted at full manuals.
+
+	* tta/perl/t/z_misc/protect_character_in_texinfo.t,
+	tta/perl/t/z_misc/test_is_content_empty.t: use parse_texi_text instead
+	of parse_texi_piece when there is a comparison with parse_texi_line.
+
+2026-08-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/z_misc/nodenormalization.t,
 	tta/perl/t/z_misc/test_tree_copy.t: use parse_texi_text instead of
 	parse_texi_piece when the input Texinfo is a full manual.

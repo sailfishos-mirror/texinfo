@@ -24,7 +24,7 @@ sub run_test($$$$) {
   }
 
   my $parser = Texinfo::Parser::parser();
-  my $document = $parser->parse_texi_piece($in);
+  my $document = $parser->parse_texi_text($in);
   my $tree_as_text = $document->tree();
 
   my $line_parser = Texinfo::Parser::parser();

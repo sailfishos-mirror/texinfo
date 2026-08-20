@@ -19,7 +19,7 @@ sub run_test($$$) {
   my ($in, $out, $name) = @_;
 
   my $parser = Texinfo::Parser::parser();
-  my $document = $parser->parse_texi_piece($in);
+  my $document = $parser->parse_texi_text($in);
   my $tree = $document->tree();
 
   #print STDERR Texinfo::DebugTree::convert_tree(undef, $tree)."\n";
