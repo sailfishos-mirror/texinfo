@@ -532,7 +532,7 @@ sub converter_initialize($) {
       $self->set_conf('INFO_SPECIAL_CHARS_WARNING', 0);
     }
   } else {
-    $self->{'info_special_chars_quote'} = '';
+    $self->{'info_special_chars_quote'} = 0;
     if (!defined($self->get_conf('INFO_SPECIAL_CHARS_WARNING'))) {
       $self->set_conf('INFO_SPECIAL_CHARS_WARNING', 1);
     }

@@ -99,7 +99,7 @@ initialize_options (OPTIONS *options)
   initialize_option (&options->INDEX_ENTRY_COLON, GOT_char, "INDEX_ENTRY_COLON", 0);
   initialize_option (&options->INDEX_SPECIAL_CHARS_WARNING, GOT_integer, "INDEX_SPECIAL_CHARS_WARNING", 0);
   initialize_option (&options->INFO_JS_DIR, GOT_char, "INFO_JS_DIR", 0);
-  initialize_option (&options->INFO_SPECIAL_CHARS_QUOTE, GOT_char, "INFO_SPECIAL_CHARS_QUOTE", 0);
+  initialize_option (&options->INFO_SPECIAL_CHARS_QUOTE, GOT_integer, "INFO_SPECIAL_CHARS_QUOTE", 0);
   initialize_option (&options->INFO_SPECIAL_CHARS_WARNING, GOT_integer, "INFO_SPECIAL_CHARS_WARNING", 0);
   initialize_option (&options->INFO_MATH_IMAGES, GOT_integer, "INFO_MATH_IMAGES", 0);
   initialize_option (&options->IGNORE_REF_TO_TOP_NODE_UP, GOT_integer, "IGNORE_REF_TO_TOP_NODE_UP", 0);

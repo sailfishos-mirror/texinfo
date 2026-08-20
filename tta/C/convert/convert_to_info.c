@@ -1485,7 +1485,9 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
 
                   if (p)
                     {
-                      if (warn_special_char)
+           /* warn only for external nodes, internal nodes should already
+              trigger a warning when defined */
+                      if (warn_special_char && manual_content)
                         message_list_command_warn (&self->error_messages,
                       (self->conf && self->conf->DEBUG.o.integer > 0),
                                    node, 0,

@@ -2256,7 +2256,10 @@ plaintext_process_printindex (CONVERTER *self,
          [entry_index_nr -1][index_entry_info->number -1];
 
       if (entry_info->location)
-        line_nr = *entry_info->location;
+        {
+          line_nr = *entry_info->location;
+          entry_info->ignored = 0;
+        }
       else
        {
       /* ignore index entries in special regions that haven't been seen */
@@ -2265,7 +2268,7 @@ plaintext_process_printindex (CONVERTER *self,
           if (element_region)
             {
               entry_info->ignored = 1;
-              break;
+              continue;
             }
         }
 
@@ -5792,7 +5795,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
       else if (cmd == CM_contents
                || cmd == CM_shortcontents || cmd == CM_summarycontents)
         {
-          if (self->document->sections_list.number > 1)
+          if (self->document->sections_list.number > 0)
             {
               plaintext_functions[self->format].format_contents (self,
                                      self->document->sectioning_root, cmd);
@@ -6701,7 +6704,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   TEXT_CONTEXT *text_element_context
                     = top_(text_element_context) (
                                   &self_plaintext->text_element_context);
-                  text_element_context->counter += float_result.line_count;
+                  text_element_context->counter += float_result.width;
                   free (float_result.string);
                   destroy_element_and_children (prepended);
                 }
@@ -6941,17 +6944,13 @@ plaintext_converter_initialize (CONVERTER *self)
                          fillcolumn_default, 0);
     }
 
-  if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.string != 0
-      && strcmp (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.string, ""))
+  if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
     {
       if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer == -1)
         option_set_conf (&self->conf->INFO_SPECIAL_CHARS_WARNING, 1, 0);
     }
   else
     {
-      if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.string == 0)
-        option_force_conf (&self->conf->INFO_SPECIAL_CHARS_QUOTE, 0, "");
-
       if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer == -1)
         option_set_conf (&self->conf->INFO_SPECIAL_CHARS_WARNING, 0, 0);
     }

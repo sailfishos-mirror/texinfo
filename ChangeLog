@@ -1,3 +1,21 @@
+2026-08-20 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_converter_initialize), tta/data/options_data.txt
+	(INFO_SPECIAL_CHARS_QUOTE), tta/perl/Texinfo/Convert/PlaintextNonXS.pm
+	(converter_initialize): set and use INFO_SPECIAL_CHARS_QUOTE as an
+	integer customization variable everywhere.
+
+	* tta/C/convert/convert_to_info.c (info_format_node): warn node
+	quoting in direction only for external nodes.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_process_printindex):
+	fix ignoring and processing index entries.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): print contents if there is one
+	section.  Fix prepended float width use.
+
 2026-08-19 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_to_info.c (TXI_DOCUMENT_SCRIPT_NAME)
