@@ -3239,7 +3239,7 @@ main (int argc, char *argv[], char *env[])
       /* do_menu corresponds to FORMAT_MENU undef or set to menu */
       complete_transform_document (document,
                                    converted_format_specification->flags
-                                       | transformation_flags, do_menu);
+                                    | transformation_flags, do_menu, 0);
 
       merge_error_messages_lists (&document->parser_error_messages,
                                   &document->error_messages);

@@ -1,5 +1,13 @@
 2026-08-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/structuring_transfo/transformations.c
+	(complete_transform_document), tta/C/texi2any.c (main),
+	tta/swig/texinfo.i (complete_transform_document): add
+	fill_gaps_in_sectioning_in_document argument to
+	complete_transform_document.  Update caller and swig.
+
+2026-08-20 Patrice Dumas  <pertusus@free.fr>
+
 	pass Texinfo code to fill_gaps_in_sectioning_in_document
 
 	* tta/C/structuring_transfo/transformations.c

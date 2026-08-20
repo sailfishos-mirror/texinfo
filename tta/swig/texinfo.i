@@ -303,7 +303,8 @@ void set_document_options (DOCUMENT *document,
 #define STTF_complete_menus_use_sections            0x0800
 
 void complete_transform_document (DOCUMENT *document, unsigned long flags,
-                                  int format_menu);
+                                  int format_menu,
+                                  const char *fill_gap_heading_texi=0);
 
 // Only one of the next two function should be called as both clear the
 // document errors list.

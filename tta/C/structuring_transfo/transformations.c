@@ -1701,12 +1701,14 @@ protect_first_parenthesis_in_targets_in_document (DOCUMENT *document)
 */
 void
 complete_transform_document (DOCUMENT *document, unsigned long flags,
-                             int format_menu)
+                             int format_menu,
+                             const char *commands_heading_texi)
 {
   int use_sections = (flags & STTF_complete_menus_use_sections);
 
   if (flags & STTF_fill_gaps_in_sectioning)
-    fill_gaps_in_sectioning_in_document (document, 0);
+    fill_gaps_in_sectioning_in_document (document,
+                                         commands_heading_texi);
 
   if (flags & STTF_relate_index_entries_to_table_items)
     relate_index_entries_to_table_items_in_document (document);

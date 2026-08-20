@@ -62,6 +62,7 @@ void protect_first_parenthesis_in_targets (ELEMENT *tree);
 void protect_first_parenthesis_in_targets_in_document (DOCUMENT *document);
 
 void complete_transform_document (DOCUMENT *document, unsigned long flags,
-                                  int format_menu);
+                                  int format_menu,
+                                  const char *commands_heading_texi);
 
 #endif
