@@ -392,6 +392,7 @@ sub _parsed_manual_tree($$$$$) {
   return ($texi_parser, $document, $identifier_target);
 }
 
+# $DO_MASTER_MENU is ignored if $DO_NODE_MENUS is not set.
 sub _fix_texinfo_tree($$$$;$$) {
   my ($self, $manual_texi, $section_nodes, $fill_gaps_in_sectioning,
       $do_node_menus, $do_master_menu) = @_;
@@ -400,46 +401,13 @@ sub _fix_texinfo_tree($$$$;$$) {
     = _parsed_manual_tree($self, $manual_texi, $section_nodes,
                           $fill_gaps_in_sectioning,
                           $do_node_menus);
-  if ($do_master_menu) {
-    if ($do_node_menus) {
-      # It could be possible to show document errors if debug > 1
-      # for example, but there should not be any error emitted,
-      # except maybe for errors in translations code, which are very
-      # unlikely.
-      Texinfo::Transformations::regenerate_master_menu($document,
-                                                       $texi_parser);
-    } else {
-      # note that that situation cannot happen with the code as it
-      # is now.  When _fix_texinfo_tree is called from _do_top_node_menu
-      # both $do_master_menu and $do_node_menus are set.
-      # _fix_texinfo_tree can also be called from _fix_texinfo_manual, but
-      # _fix_texinfo_manual is never called with a $do_master_menu argument,
-      # so when _fix_texinfo_tree is called from _fix_texinfo_manual,
-      # $do_master_menu cannot be set.
-
-      # setup another tree with menus to do the master menu as menus are
-      # not done for the main tree
-      my ($texi_parser_menus, $document_menus, $updated_labels_menus)
-       = _parsed_manual_tree($self, $manual_texi, $section_nodes,
-                             $fill_gaps_in_sectioning, 1);
-      my $top_node_menus = $updated_labels_menus->{'Top'};
-      if (defined($top_node_menus)) {
-        my $menus_nodes_list = $document_menus->nodes_list();
-        my $top_node_menus_relations
-        = $menus_nodes_list->[$top_node_menus->{'extra'}->{'node_number'} -1];
-        if (exists($top_node_menus_relations->{'menus'})
-            and scalar(@{$top_node_menus_relations->{'menus'}})) {
-          my $top_node_menus_menu = $top_node_menus_relations->{'menus'}->[0];
-          my $top_node = $updated_labels->{'Top'};
-          $top_node_menus_menu->{'parent'} = $top_node;
-          push @{$top_node->{'contents'}}, $top_node_menus_menu;
-          my $nodes_list = $document->nodes_list();
-          my $top_node_relations
-            = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
-          push @{$top_node_relations->{'menus'}}, $top_node_menus_menu;
-        }
-      }
-    }
+  if ($do_node_menus and $do_master_menu) {
+    # It could be possible to show document errors if debug > 1
+    # for example, but there should not be any error emitted,
+    # except maybe for errors in translations code, which are very
+    # unlikely.
+    Texinfo::Transformations::regenerate_master_menu($document,
+                                                     $texi_parser);
   }
   return ($texi_parser, $document);
 }
