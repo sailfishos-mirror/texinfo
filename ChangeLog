@@ -1,5 +1,35 @@
 2026-08-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_to_plaintext.c (protect_sentence_ends): do not
+	go past the beginning of the string when going from the end of the
+	string.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal),
+	tta/perl/Texinfo/Convert/PlaintextNonXS.pm (_convert): do not set at
+	all text_before and text_after instead of setting them to empty
+	strings.  In C, do not output an empty string when text_before or
+	text_after are not set.
+
+	* tta/C/convert/convert_to_plaintext.c (plaintext_format_contents):
+	add missing add_lines_count call.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(convert_to_plaintext_internal): do not reset text_element_context
+	counter to 0 at quotation opening nor when adding arg width.
+
+	* tta/C/convert/convert_to_plaintext.c
+	(plaintext_converter_initialize): fix setting
+	INFO_SPECIAL_CHARS_WARNING based on INFO_SPECIAL_CHARS_QUOTE.
+
+	* tta/C/convert/convert_to_info.c (info_output): set
+	informative commands to preamble values.
+
+	* tta/C/convert/convert_to_info.c (info_format_image_element): fix
+	condition for output of binary quoting.
+
+2026-08-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_to_plaintext.c
 	(plaintext_converter_initialize), tta/data/options_data.txt
 	(INFO_SPECIAL_CHARS_QUOTE), tta/perl/Texinfo/Convert/PlaintextNonXS.pm
@@ -30,7 +60,7 @@
 
 2026-08-19 Patrice Dumas  <pertusus@free.fr>
 
-	* tta/C/convert/convert_to_info.c (info_header): output directry
+	* tta/C/convert/convert_to_info.c (info_header): output directly
 	argument.
 
 	* tta/C/convert/convert_to_plaintext.c (protect_sentence_ends): add

@@ -376,7 +376,8 @@ info_output (CONVERTER *self, DOCUMENT *document)
 
   set_converter_preamble_language_commands (self);
 
-  set_global_document_commands (self, CL_before, informative_global_commands);
+  set_global_document_commands (self, CL_preamble,
+                                informative_global_commands);
 
   preamble_bcp47_locale = current_bcp47_locale (self);
 
@@ -562,8 +563,6 @@ info_output (CONVERTER *self, DOCUMENT *document)
           char *node_text;
           INDIRECT_FILE_OFFSET indirect_file_offset;
 
-          /* TODO possible overflow?  count_context->bytes would overflow too
-             before */
           if (first_node_seen
               && split_size > 0
               && count_context->bytes > out_file_nr * (size_t) split_size
@@ -1401,7 +1400,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
                         (self->conf && self->conf->DEBUG.o.integer > 0),
                        node, 0,
                      "@node name should not contain `,': %s",
-       /* FIXME there is a _decode() in Perl.  Gavin, is it needed? */
+       /* FIXME there is a _decode() in Perl.  Is it needed?  (Gavin has a patch)*/
                       node_text.string);
 
           if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
@@ -1492,7 +1491,7 @@ info_format_node (CONVERTER *self, const ELEMENT *node,
                       (self->conf && self->conf->DEBUG.o.integer > 0),
                                    node, 0,
                       "@node %s name should not contain `,': %s",
-     /* FIXME there is a _decode() in Perl.  Gavin, is it needed? */
+     /* FIXME there is a _decode() in Perl.  Is it needed? (Gavin has a patch) */
                            directions[i], node_text.string);
                       if (
                    self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
@@ -1703,7 +1702,7 @@ info_format_image_element (CONVERTER *self, const ELEMENT *element,
         alt = convert_to_text (element->e.c->contents.list[3],
                                        self->convert_text_options);
 
-      if (image_file || text || alt)
+      if (image_file || (text && alt))
         {
           char *image_string = info_format_image (self, image_file,
                                                   text, alt, 0, 0);

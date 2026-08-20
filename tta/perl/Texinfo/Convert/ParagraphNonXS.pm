@@ -189,6 +189,9 @@ sub end($) {
 sub destroy($) {
   my $paragraph = shift;
 
+  if ($paragraph->{'DEBUG'}) {
+    print STDERR "SET UNUSED $paragraph\n";
+  }
   $paragraph = undef;
 }
 

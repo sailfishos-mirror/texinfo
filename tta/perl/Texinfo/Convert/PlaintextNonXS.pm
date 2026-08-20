@@ -913,6 +913,7 @@ sub new_formatter($$;$$$) {
   $container_conf->{'counter'}
     = $self->{'text_element_context'}->[-1]->{'counter'}
       if (defined($self->{'text_element_context'}->[-1]->{'counter'}));
+  # TODO this is not true, there is some debugging output in the C code.
   # There is no corresponding debugging output in the C code.
   # need to be uncommented and only if debug > 1
   #$container_conf->{'DEBUG'} = 1 if (defined($self->{'debug'})
@@ -1245,8 +1246,8 @@ sub convert_line_new_context($$;$$$) {
                                 $formatter_conf);
   push @{$self->{'formatters'}}, $formatter;
   _convert($self, $converted);
-  _stream_output($self,
-                 Texinfo::Convert::Paragraph::end($formatter->{'container'}));
+  my $end = Texinfo::Convert::Paragraph::end($formatter->{'container'});
+  _stream_output($self, $end);
   my $result = _stream_result($self);
   my $count = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
 
@@ -3117,12 +3118,8 @@ sub _convert($$) {
         my ($text_before, $text_after);
         if (exists($non_quoted_commands_when_nested{$cmdname})
                  and $formatter->{'font_type_stack'}->[-1]->{'code_command'}) {
-          $text_before = '';
-          $text_after = '';
         } elsif ($formatter->{'suppress_styles'}
                  and !exists($index_style_commands{$cmdname})) {
-          $text_before = '';
-          $text_after = '';
         } elsif (exists($style_map{$cmdname})) {
           $text_before = $style_map{$cmdname}->[0];
           $text_after = $style_map{$cmdname}->[1];
@@ -3133,12 +3130,8 @@ sub _convert($$) {
           $text_before = $self->{'open_double_quote'};
           $text_after = $self->{'close_double_quote'};
         } elsif ($is_asis_command) {
-          $text_before = '';
-          $text_after = '';
         } else {
           # bug
-          $text_before = '';
-          $text_after = '';
         }
         # do this after determining $text_before/$text_after such that it
         # doesn't impact the current command, but only commands nested within
@@ -3147,7 +3140,7 @@ sub _convert($$) {
         }
         _stream_output_count_nl($self,
                        add_next($formatter->{'container'}, $text_before, 1))
-           if ($text_before ne '');
+           if (defined($text_before));
         if (exists($element->{'contents'})) {
           _convert($self, $element->{'contents'}->[0]);
           if ($cmdname eq 'strong'
@@ -3164,7 +3157,7 @@ sub _convert($$) {
         }
         _stream_output_count_nl($self,
                        add_next($formatter->{'container'}, $text_after, 1))
-           if ($text_after ne '');
+           if (defined($text_after));
         if ($cmdname eq 'w') {
           $formatter->{'w'}--;
           set_space_protection($formatter->{'container'}, 0)

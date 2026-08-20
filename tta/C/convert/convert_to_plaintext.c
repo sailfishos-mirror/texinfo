@@ -258,12 +258,7 @@ fill_formatter (FORMATTER *formatter, CONVERTER *self, enum formatter_type type,
     }
 
   para_set_conf_counter (text_element_context->counter);
-  /* TODO check no need to verify undef for counter.  For that wait
-     for a complete implementaiton that can be fully compared.
-  $container_conf->{'counter'}
-    = $self->{'text_element_context'}->[-1]->{'counter'}
-      if (defined($self->{'text_element_context'}->[-1]->{'counter'}));
-     TODO not sure that it is true.
+  /* TODO this is not true, there is some debugging output in the C code.
   # There is no corresponding debugging output in the C code.
   # need to be uncommented and only if debug > 1
   #$container_conf->{'DEBUG'} = 1 if (defined($self->{'debug'})
@@ -928,21 +923,25 @@ protect_sentence_ends (const char *text)
   if (t.end > 0)
     {
       p = t.text + t.end -1;
-      while (strchr (after_punctuation_characters, *p) && p > t.text)
+      while (p > t.text && strchr (after_punctuation_characters, *p))
         p--;
       if (strchr (after_punctuation_characters, *p))
         /* an after_punctuation_characters at the beginning of the string */
         return t.text;
       if (!strchr (whitespace_chars, *p))
         {
-          int len = 0;
-          /* Back one UTF-8 code point */
-          do
+          int len = 1;
+          if (p > t.text)
             {
-              p--;
-              len++;
+              len = 0;
+              /* Back one UTF-8 code point */
+              do
+                {
+                  p--;
+                  len++;
+                }
+              while ((*p & 0xC0) == 0x80 && p > t.text);
             }
-          while ((*p & 0xC0) == 0x80 && p > t.text);
           char32_t wc;
           u8_mbtouc (&wc, (uint8_t *) p, len);
           if (!uc_is_upper (wc))
@@ -1100,7 +1099,6 @@ stream_byte_count (CONVERTER *self)
         {
           size_t len = stream_encode (self, count_context->pending_text.text,
                                       &count_context->result);
-          /* TODO use count_context->result.end? */
           count_context->bytes += len;
         }
       else
@@ -2128,6 +2126,7 @@ plaintext_format_contents (CONVERTER *self, SECTIONING_ROOT *sectioning_root,
             }
         }
     }
+  add_lines_count (self, lines_count);
 }
 
 static void
@@ -4190,17 +4189,11 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
               if ((plaintext_commands_data[cmd].flags
                            & PF_non_quoted_when_nested)
                   && font_type->code_command)
-                {
-                  text_before = "";
-                  text_after = "";
-                }
+                {}
               else if (formatter->suppress_styles
                        && !(plaintext_commands_data[cmd].flags
                                                    & PF_index_style))
-                {
-                  text_before = "";
-                  text_after = "";
-                }
+                {}
               else if (plaintext_commands_data[cmd].flags & PF_style_map)
                 {
                   /* Look up in style map by linear search.
@@ -4220,8 +4213,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                     }
                   else
                     { /* bug */
-                      text_before = "";
-                      text_after = "";
                     }
                 }
               else if (plaintext_commands_data[cmd].flags & PF_quoted)
@@ -4237,14 +4228,9 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   /* TODO */
                 }
               else if (plaintext_commands_data[cmd].flags & PF_asis)
-                {
-                  text_before = "";
-                  text_after = "";
-                }
+                {}
               else
                 { /* bug */
-                  text_before = "";
-                  text_after = "";
                 }
 
      /* do this after determining $text_before/$text_after such that it
@@ -4256,11 +4242,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   font_type->code_command++;
                 }
 
-
-              TEXT added = para_add_next (text_before,
-                                          strlen (text_before), 1);
-              if (added.text)
-                stream_output_count_nl (self, added.text);
+              if (text_before)
+                {
+                  TEXT added = para_add_next (text_before,
+                                            strlen (text_before), 1);
+                  if (added.text)
+                    stream_output_count_nl (self, added.text);
+                }
 
               if (element->e.c->contents.number != 0)
                 convert_to_plaintext_internal (self,
@@ -4286,10 +4274,13 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                     }
                }
 
-              added = para_add_next (text_after,
+              if (text_after)
+                {
+                  TEXT added = para_add_next (text_after,
                                      strlen (text_after), 1);
-              if (added.text)
-                stream_output_count_nl (self, added.text);
+                  if (added.text)
+                    stream_output_count_nl (self, added.text);
+                }
 
               if (cmd == CM_w)
                 {
@@ -5141,10 +5132,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
             {
               DOCUMENT_CONTEXT *document_context
                 = top_(document_context) (&self_plaintext->document_context);
-              TEXT_CONTEXT *text_element_context
-                = top_(text_element_context) (
-                                 &self_plaintext->text_element_context);
-              text_element_context->counter = 0;
               CONST_ELEMENT_LIST quotation_authors = { 0 };
               add_(quotations_authors) (&document_context->quotations_authors,
                                         quotation_authors);
@@ -5155,9 +5142,6 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                 {
                   COUNT_CONTEXT *count_context
                     = top_(count_context) (&self_plaintext->count_context);
-                  TEXT_CONTEXT *text_element_context
-                    = top_(text_element_context) (
-                                    &self_plaintext->text_element_context);
                   ELEMENT *prepended;
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings
                     = new_named_string_element_list ();
@@ -5180,7 +5164,10 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   stream_output (self, quotation_arg_counts.string);
 
                   count_context->lines += quotation_arg_counts.line_count;
-                  text_element_context->counter = quotation_arg_counts.width;
+                  TEXT_CONTEXT *text_element_context
+                    = top_(text_element_context) (
+                                    &self_plaintext->text_element_context);
+                  text_element_context->counter += quotation_arg_counts.width;
 
                   free (quotation_arg_counts.string);
                   destroy_element_and_children (prepended);
@@ -6059,6 +6046,8 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   formatter
                     = top_(formatter) (&self_plaintext->formatters);
                   formatter->no_added_eol = 0;
+
+                  entry_name_seen = 1;
 
                   if (warn_special_char
                       || self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
@@ -6947,12 +6936,12 @@ plaintext_converter_initialize (CONVERTER *self)
   if (self->conf->INFO_SPECIAL_CHARS_QUOTE.o.integer > 0)
     {
       if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer == -1)
-        option_set_conf (&self->conf->INFO_SPECIAL_CHARS_WARNING, 1, 0);
+        option_set_conf (&self->conf->INFO_SPECIAL_CHARS_WARNING, 0, 0);
     }
   else
     {
       if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer == -1)
-        option_set_conf (&self->conf->INFO_SPECIAL_CHARS_WARNING, 0, 0);
+        option_set_conf (&self->conf->INFO_SPECIAL_CHARS_WARNING, 1, 0);
     }
 
   if (self->conf->INFO_SPECIAL_CHARS_WARNING.o.integer == -1)
