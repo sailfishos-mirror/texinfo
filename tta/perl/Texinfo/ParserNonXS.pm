@@ -833,8 +833,6 @@ sub parse_texi_piece($$;$) {
      = _setup_document_root_and_before_node_section();
   _parse_texi($self, $before_node_section);
 
-  get_parser_info($self);
-
   return $document;
 }
 
@@ -851,7 +849,6 @@ sub parse_texi_line($$;$) {
 
   my $root = Texinfo::TreeElement::new({'type' => 'root_line'});
   _parse_texi($self, $root);
-  get_parser_info($self);
 
   # add the errors to the Parser error_messages as there is no document
   # returned to get the errors from.
@@ -877,7 +874,6 @@ sub parse_texi_text($$;$) {
 
   _parse_texi_document($self);
 
-  get_parser_info($self);
   return $document;
 }
 
@@ -1013,7 +1009,6 @@ sub parse_texi_file($$) {
   }
 
   _parse_texi_document($self);
-  get_parser_info($self);
 
   return $document;
 }
@@ -1125,6 +1120,8 @@ sub _parse_texi_document($) {
   my $document = _parse_texi($self, $before_node_section);
 
   _rearrange_tree_beginning($document, $before_node_section);
+
+  get_parser_info($self);
 
   return $document;
 }
