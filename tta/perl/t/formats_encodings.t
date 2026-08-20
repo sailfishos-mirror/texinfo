@@ -469,8 +469,7 @@ undef, {'test_file' => 'multiple_include_encodings.texi',
 
 '.
 $at_commands_in_refs_text,
-{'full_document' => 1,
- 'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
+{'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
  # TEST => 1 triggers @today constant expansion for diffs
 {'TEST' => 1,
  # interesting to test transliteration too
@@ -481,8 +480,7 @@ $at_commands_in_refs_text,
 
 '.
 $at_commands_in_refs_text,
-{'full_document' => 1,
- 'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
+{'skip' => $XS_convert ? 'Non reproducible transliteration' : undef,},
  # TEST => 1 triggers @today constant expansion for diffs
 {'TEST' => 1,
  # interesting to test transliteration too
@@ -531,8 +529,6 @@ foreach my $test (@test_full_doc) {
   push @{$test->[2]->{'test_formats'}}, 'latex_text';
   push @{$test->[2]->{'test_formats'}}, 'info'
     if ($info_tests{$test->[0]});
-
-  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 foreach my $test (@html_text_cases) {

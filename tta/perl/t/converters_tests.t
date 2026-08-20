@@ -1621,7 +1621,7 @@ In Main
 @end float
 
 @listoffloats list
-', {'test_formats' => ['file_latex', 'file_html'], 'full_document' => 1},
+', {'test_formats' => ['file_latex', 'file_html'],},
    {'NO_TOP_NODE_OUTPUT' => 1}],
 );
 
@@ -1851,8 +1851,6 @@ foreach my $test (@test_cases) {
   if ($file_html_tests{$test->[0]}
       or $file_latex_tests{$test->[0]}) {
     $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
-    $test->[2]->{'full_document'} = 1
-        unless (exists($test->[2]->{'full_document'}));
   }
   if ($file_html_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'file_html';
@@ -1880,7 +1878,6 @@ foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_html';
   push @{$test->[2]->{'test_formats'}}, ('file_info', 'file_plaintext');
   push @{$test->[2]->{'test_formats'}}, ('file_xml', 'file_docbook', 'file_latex');
-  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 run_all('converters_tests', [@test_cases, @html_text_cases, @file_tests]);

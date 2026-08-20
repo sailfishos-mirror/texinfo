@@ -594,7 +594,7 @@ fn
 '],
 ['def_existing_index',
 '@defcodeindex cp
-', {'full_document' => 0}],
+',],
 ['default_cp_index_and_one_letter_syncodeindex',
 '@node Top
 @node chap
@@ -1070,8 +1070,7 @@ my @file_encodings_tests = (
 @setfilename encoding_index_ascii.info
 @documentencoding us-ascii
 '.$encoding_index_text,
-{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,
-'full_document' => 1},
+{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,},
 {'ENABLE_ENCODING' => 0}
 ],
 ['encoding_index_latin1',
@@ -1096,8 +1095,7 @@ undef,
 @setfilename encoding_index_ascii_enable_encoding.info
 @documentencoding us-ascii
 '.$encoding_index_text,
-{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,
-'full_document' => 1},
+{'skip' => ($] < 5.018) ? 'Perl too old incompatible Unicode collation' : undef,},
 {'ENABLE_ENCODING' => 1,}
 ],
 ['encoding_index_latin1_enable_encoding',
@@ -1187,7 +1185,6 @@ my @latex_tests_cases_tests = ('syncode_index_print_both',
   'same_only_seealso_seeentry');
 
 foreach my $test (@test_formatted) {
-  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
   push @{$test->[2]->{'test_formats'}}, 'info';
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';

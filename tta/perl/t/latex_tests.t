@@ -872,14 +872,11 @@ CCC
 
 foreach my $test (@test_cases) {
   $test->[2]->{'test_formats'} = ['latex_text'];
-
-  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 foreach my $test (@file_tests) {
   $test->[2]->{'test_formats'} = ['latex_text', 'file_latex'];
   $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
-  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 run_all('latex_tests', [@test_cases, @file_tests]);

@@ -504,7 +504,6 @@ an example
 foreach my $test (@test_defblock) {
   $test->[2]->{'test_formats'} = ['plaintext', 'html',
                                   'latex', 'docbook', 'xml'];
-  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 my @test_invalid = (

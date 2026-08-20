@@ -687,8 +687,6 @@ foreach my $test (@tests_converted) {
   push @{$test->[2]->{'test_formats'}}, 'html';
   push @{$test->[2]->{'test_formats'}}, 'xml'
     if ($xml_tests_converted_tests{$test->[0]});
-
-  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 my %xml_tests_cases_tests = (
@@ -714,7 +712,6 @@ foreach my $test (@test_cases) {
   if ($file_latex_tests_cases_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'file_latex';
     $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
-    $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
   }
 }
 
@@ -722,7 +719,6 @@ foreach my $test (@test_out_files) {
   push @{$test->[2]->{'test_formats'}}, 'file_html'
     if (!$test->[2]->{'test_formats'});
   $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
-  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 my %xml_tests_info_tests = (
@@ -748,7 +744,6 @@ foreach my $test (@tests_info) {
     if ($docbook_tests_info_tests{$test->[0]});
   if ($latex_tests_info_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'latex_text';
-    $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
   }
 }
 

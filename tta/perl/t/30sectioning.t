@@ -1483,7 +1483,6 @@ $two_nodes_at_the_end_text,
 foreach my $test (@test_out_files) {
   if (!$test->[2]->{'test_formats'}) {
     push @{$test->[2]->{'test_formats'}}, 'file_html';
-    $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
   }
   $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
 }
@@ -1516,8 +1515,6 @@ foreach my $test (@tests_converted) {
     push @{$test->[2]->{'test_formats'}}, 'file_latex';
     $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
   }
-
-  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 my @xml_tests_info_tests = ('part_chapter_after_top',
@@ -1565,12 +1562,10 @@ foreach my $test (@tests_info) {
     if (grep {$_ eq $test->[0]} @docbook_tests_info_tests);
   if (grep {$_ eq $test->[0]} @latex_tests_info_tests) {
     push @{$test->[2]->{'test_formats'}}, 'latex_text';
-    $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
   }
   if (grep {$_ eq $test->[0]} @file_latex_tests_info_tests) {
     push @{$test->[2]->{'test_formats'}}, 'file_latex';
     $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
-    $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
   }
 }
 
@@ -1602,7 +1597,6 @@ foreach my $test (@test_cases) {
   if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests) {
     push @{$test->[2]->{'test_formats'}}, 'file_latex';
     $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
-    $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
   }
 }
 

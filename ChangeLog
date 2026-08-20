@@ -1,5 +1,10 @@
 2026-08-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl, tta/perl/t/*.t: remove setting and using
+	full_document, it has no effect anymore.
+
+2026-08-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl: never use parse_texi_piece, it is not
 	meant for parsing a whole text.
 

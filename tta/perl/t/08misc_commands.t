@@ -231,7 +231,7 @@ my @converted_test_cases = (
 @setfilename file_space_comment @c comment
 @setfilename @ @verb{: name :}@ 
 
-', {'full_document' => 1}],
+'],
 # this tests seems somewhat pointless, but it is not, as in perl
 # utf8 may mean a lax handling of UTF-8.  We want to avoid using
 # that lax handling of UTF-8, better get errors early.
@@ -377,7 +377,7 @@ aaa
 
 @center @ref{Top, ,title
 very long}
-', {'full_document' => 1}],
+',],
 ['nodedescription',
 '@nodedescription out of any node
 
@@ -445,7 +445,7 @@ In w:
 After true
 @testallowcodebreakspara{2}
 @testallowcodebreaksexample{}
-', {'full_document' => 1}],
+',],
 ['incorrect_allowcodebreaks_argument',
 '@allowcodebreaks _arg
 @code{b a}
@@ -501,7 +501,7 @@ Titlepage
 @allquotes{}
 @end example
 
-', {'full_document' => 1}],
+',],
 ['comment_space_command_on_line',
 '@settitle Settitle @ @c settittle
 

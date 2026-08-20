@@ -54,8 +54,7 @@ my @test_cases = (
 @xref{,,,manual2}.
 
 ',
-{'full_document' => 1,
- 'test_input_file_name' => 'htmlxref_no_urlprefix_first.texi'},
+{'test_input_file_name' => 'htmlxref_no_urlprefix_first.texi'},
 {'HTMLXREF_FILE' => 'htmlxref-no_urlprefix_first.cnf'}
 ],
 

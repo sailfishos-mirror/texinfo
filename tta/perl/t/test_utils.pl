@@ -591,12 +591,7 @@ sub output_preamble_postamble_latex($$)
     return '\end{document}
 ';
   } else {
-    my $begin_document = '\begin{document}
-';
-    if ($parser_options and $parser_options->{'full_document'}) {
-      $begin_document = '';
-    }
-    return $converter->_latex_header() . $begin_document;
+    return $converter->_latex_header();
   }
 }
 
@@ -698,11 +693,6 @@ sub test($$)
   if ($parser_options->{'test_file'}) {
     $test_file = $input_files_dir . $parser_options->{'test_file'};
     delete $parser_options->{'test_file'};
-  }
-  my $full_document;
-  if (exists($parser_options->{'full_document'})) {
-    $full_document = $parser_options->{'full_document'};
-    delete $parser_options->{'full_document'};
   }
   my $test_input_file_name;
   if ($parser_options->{'test_input_file_name'}) {

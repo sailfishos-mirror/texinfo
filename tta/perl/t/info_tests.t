@@ -52,7 +52,7 @@ Second para.
 
 @bye
 
-', {'full_document' => 1}],
+',],
 ['two_paragraphindent_in_preamble',
 '@copying
 In copying.
@@ -75,7 +75,7 @@ Second para.
 
 @bye
 
-', {'full_document' => 1}],
+',],
 ['paragraphindent_in_preamble_and_in_document',
 '@copying
 In copying.
@@ -100,7 +100,7 @@ Third para after second paragraphindent.
 
 @bye
 
-', {'full_document' => 1}],
+',],
 ['two_paragraphindent_in_preamble_and_in_document',
 '@copying
 In copying.
@@ -127,7 +127,7 @@ Third para after third paragraphindent.
 
 @bye
 
-', {'full_document' => 1}],
+',],
 ['paragraphindent_not_in_preamble',
 '@copying
 In copying.
@@ -148,7 +148,7 @@ After paragraphindent.
 
 @bye
 
-', {'full_document' => 1}],
+',],
 ['paragraphindent_asis_first',
 '
      bbb
@@ -1196,7 +1196,6 @@ foreach my $test (@test_cases) {
 foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_info';
   $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
-  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 run_all('info_tests', [@test_cases, @file_tests]);

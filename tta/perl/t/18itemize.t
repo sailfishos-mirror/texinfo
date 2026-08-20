@@ -651,7 +651,6 @@ foreach my $test (@test_full_doc) {
   push @{$test->[2]->{'test_formats'}}, 'html_text';
   push @{$test->[2]->{'test_formats'}}, 'file_latex';
   $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
-  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 run_all('itemize', [@test_cases, @test_full_doc, @test_invalid]);

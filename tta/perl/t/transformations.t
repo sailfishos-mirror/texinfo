@@ -293,8 +293,6 @@ my @tests_files = (
 foreach my $test (@tests_converted) {
   push @{$test->[2]->{'test_formats'}}, 'html';
   push @{$test->[2]->{'test_formats'}}, 'info';
-
-  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 foreach my $test (@tests_files) {
