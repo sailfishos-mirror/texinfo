@@ -400,18 +400,8 @@ sub _parsed_manual_tree($$$$$;$) {
   return ($texi_parser, $document, $identifier_target);
 }
 
-sub _fix_texinfo_manual($$$$;$$) {
-  my ($self, $manual_texi, $section_nodes, $fill_gaps_in_sectioning,
-      $do_node_menus, $do_master_menu) = @_;
-
-  my ($texi_parser, $document)
-      = _parsed_manual_tree($self, $manual_texi, $section_nodes,
-                            $fill_gaps_in_sectioning, $do_node_menus,
-                            $do_master_menu);
-  my $tree = $document->tree();
-  return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
-}
-
+# return the Top node menu with detailmenu of $MANUAL_TEXI Texinfo
+# code.
 sub _do_top_node_menu($) {
   my $manual_texi = shift;
 
@@ -530,9 +520,15 @@ foreach my $file (@input_files) {
       binmode(DBGFILE, ':encoding(utf-8)');
       print DBGFILE $manual_texi;
     }
-    $manual_texi = _fix_texinfo_manual($new, $manual_texi, $section_nodes,
-                                       $fill_sectioning_gaps,
-                                       $generate_node_menus);
+
+    # Fix Texinfo code by parsing Texinfo and outputting Texinfo,
+    # also applying transformations.
+    my ($texi_parser, $document)
+      = _parsed_manual_tree($new, $manual_texi, $section_nodes,
+                            $fill_sectioning_gaps, $generate_node_menus);
+    my $tree = $document->tree();
+    $manual_texi = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
+
     $full_manual .= $manual_texi if ($section_nodes);
   }
   print $fh $manual_texi;
