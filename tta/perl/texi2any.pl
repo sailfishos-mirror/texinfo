@@ -1802,7 +1802,7 @@ while (@input_files) {
           @prepended_include_directories;
 
   my $parser = Texinfo::Parser::parser($parser_file_options);
-  my $document = $parser->parse_texi_file($input_file_name);
+  my $document = $parser->parse_file($input_file_name);
 
   # setup a configuration Perl object which defines get_conf and set_conf,
   # use the main program customization information with per-document

@@ -86,7 +86,7 @@ Text.
 @bye';
 
 my $parser = Texinfo::Parser::parser();
-my $document = $parser->parse_texi_text($sections_text);
+my $document = $parser->parse_text($sections_text);
 
 Texinfo::Structuring::associate_internal_references($document);
 Texinfo::Transformations::insert_nodes_for_sectioning_commands($document);
@@ -97,7 +97,7 @@ is($result, $reference, 'add nodes');
 #print STDERR "$result";
 
 $parser = Texinfo::Parser::parser();
-$document = $parser->parse_texi_text('@node Top
+$document = $parser->parse_text('@node Top
 @top top
 
 @chapter chap

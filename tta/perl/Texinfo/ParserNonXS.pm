@@ -31,7 +31,7 @@
 # command line, from input files or from the parsed document.  There are
 # exceptions for the following files and directory names that are binary
 # strings:
-# * the input file name passed through parse_texi_file is a binary string
+# * the input file name passed through parse_file is a binary string
 # * @include file name and CPP line directive file names are encoded
 #   into binary strings.
 # Those binary strings are in 'file_name' keys, they transit through
@@ -272,7 +272,7 @@ my %parser_state_initialization = (%parser_document_state_initialization,
 
 # The input structure is an array, the first is the most recently included
 # file.  The last element may correspond to a file if the parsing is done
-# on a file, with parse_texi_file, or hold pending text, if called on text.
+# on a file, with parse_file, or hold pending text, if called on text.
 # each element of the array is a hash reference.
 #
 # The keys are:
@@ -818,7 +818,7 @@ sub _input_pushback_text($$;$) {
 
 # entry point for text fragments.
 # Used in some tests.
-sub parse_texi_piece($$;$) {
+sub parse_piece($$;$) {
   my ($self, $text, $line_nr) = @_;
 
   return undef if (!defined($text) or !defined($self));
@@ -836,7 +836,7 @@ sub parse_texi_piece($$;$) {
   return $document;
 }
 
-sub parse_texi_line($$;$) {
+sub parse_string($$;$) {
   my ($self, $text, $line_nr) = @_;
 
   return undef if (!defined($text) or !defined($self));
@@ -861,7 +861,7 @@ sub parse_texi_line($$;$) {
   return $document->tree();
 }
 
-sub parse_texi_text($$;$) {
+sub parse_text($$;$) {
   my ($self, $text, $line_nr) = @_;
 
   return undef if (!defined($text) or !defined($self));
@@ -980,7 +980,7 @@ sub get_parser_info($) {
 
 # parse a texi file
 # $INPUT_FILE_PATH is the name of the parsed file and should be a binary string.
-sub parse_texi_file($$) {
+sub parse_file($$) {
   my ($self, $input_file_path) = @_;
 
   return undef if (!defined($self));
@@ -6059,7 +6059,7 @@ sub _handle_line_command($$$$$$) {
     $current = _close_commands($self, $current, $source_info, undef,
                                $command);
     # if the root command happens in a Texinfo fragment going through
-    # parse_texi_line we are directly in the root_line document
+    # parse_string we are directly in the root_line document
     # root container (in this case _close_commands returned immediately),
     # and there is no parent for $current.
     # In any other situation, _close_command stops at the preceding
@@ -6072,7 +6072,7 @@ sub _handle_line_command($$$$$$) {
         die;
       } else {
         # TODO do we want to error out if there is a root command in
-        # Texinfo fragment processed with parse_texi_line (and therefore
+        # Texinfo fragment processed with parse_string (and therefore
         # here in root_line)?
         # _line_error($self, sprintf(__(
         #  "\@%s should not appear in Texinfo parsed as a short fragment"),

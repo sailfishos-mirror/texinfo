@@ -395,7 +395,7 @@ Texinfo::Document - Texinfo document tree and information
   use Texinfo::Parser;
 
   my $parser = Texinfo::Parser::parser();
-  my $document = $parser->parse_texi_file("somefile.texi");
+  my $document = $parser->parse_file("somefile.texi");
 
   my $indices_information = $document->indices_information();
   my $float_types_arrays = $document->floats_information();
@@ -432,7 +432,7 @@ For example, the I<$document> obtained in the following example is a
 C<Texinfo::Document> object:
 
   my $parser = Texinfo::Parser::parser();
-  my $document = $parser->parse_texi_file("somefile.texi");
+  my $document = $parser->parse_file("somefile.texi");
 
 =head1 METHODS
 

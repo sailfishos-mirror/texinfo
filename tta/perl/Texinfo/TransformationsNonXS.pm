@@ -100,7 +100,7 @@ sub fill_gaps_in_sectioning_in_document($;$) {
     my $parser = Texinfo::Parser::parser({'NO_INDEX' => 1,
                                           'NO_USER_COMMANDS' => 1,});
     $commands_heading_content
-      = $parser->parse_texi_line($commands_heading_texi);
+      = $parser->parse_string($commands_heading_texi);
   }
 
   # initialize current and next sections

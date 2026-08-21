@@ -3976,7 +3976,7 @@ sub _prepare_output_units_global_targets($$$$) {
         my $node_element;
         my $parser = Texinfo::Parser::parser({'NO_INDEX' => 1,
                                               'NO_USER_COMMANDS' => 1,});
-        my $tree = $parser->parse_texi_line($node_texi_name, undef, 1);
+        my $tree = $parser->parse_string($node_texi_name, undef, 1);
         my $errors = $parser->errors();
         my $errors_count = Texinfo::Report::count_errors($errors);
         if ($errors_count) {

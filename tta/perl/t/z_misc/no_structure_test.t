@@ -144,7 +144,7 @@ my $texi = '@contents
 
 my $test_parser = Texinfo::Parser::parser({'DEBUG' => $debug});
 
-my $document = $test_parser->Texinfo::Parser::parse_texi_text($texi);
+my $document = $test_parser->Texinfo::Parser::parse_text($texi);
 
 $document->set_document_global_info('input_file_name',
                                     'test_struct');

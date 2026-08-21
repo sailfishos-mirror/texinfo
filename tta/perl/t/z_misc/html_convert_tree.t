@@ -21,7 +21,7 @@ use Texinfo::Convert::HTML;
 ok(1, 'modules loading');
 
 my $parser = Texinfo::Parser::parser();
-my $tree = $parser->parse_texi_line('Some @code{item}');
+my $tree = $parser->parse_string('Some @code{item}');
 
 my $converter = Texinfo::Convert::HTML->converter();
 # undef corresponds to the document argument
@@ -45,7 +45,7 @@ is($result_with_config, 'Some <toto class="code">item</toto>',
 
 # test diverse possibilities for rebuilt tree
 
-my $document = $parser->parse_texi_piece('N @code{M}');
+my $document = $parser->parse_piece('N @code{M}');
 my $tree_handle = $document->tree(1);
 
 my $result_from_handle = $converter->convert_tree($tree_handle);
@@ -71,7 +71,7 @@ my $result_from_rebuilt = $converter->convert_tree($tree_rebuilt);
 is($result_from_rebuilt, $reference_output,
    'convert tree with rebuilt tree handle');
 
-my $other_document = $parser->parse_texi_piece('AA @emph{bb}');
+my $other_document = $parser->parse_piece('AA @emph{bb}');
 my $other_tree_handle = $other_document->tree(1);
 
 my $other_tree_rebuilt_to_perl_only

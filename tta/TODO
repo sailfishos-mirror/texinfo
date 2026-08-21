@@ -241,10 +241,10 @@ Future features
 ===============
 
 Add the possibility to add text to a parsed document by restarting
-parsing, when called as parse_texi_piece or parse_texi_line, by
+parsing, when called as parse_piece or parse_string, by
 storing the parser document state not already in document in document.
 There would be a customization variable to set the parser to be
-restartable, and then parse_texi_piece and parse_texi_line could pass
+restartable, and then parse_piece and parse_string could pass
 a document to retrieve the parsing state.  This should probably
 wait for a clear use case. Currently, the parser is never reused
 for different documents in the main codes, only in specific tests.

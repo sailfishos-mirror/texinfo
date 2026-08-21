@@ -90,7 +90,7 @@ init (SV *texinfo_uninstalled_sv, SV *datadir_sv, SV *t2a_builddir_sv, SV *t2a_s
 
 # This XS interface is rarely used, as, in general, a document is available
 # and document_tree can be used instead.  It may be useful for a tree from
-# parse_texi_piece to force the C data to be removed, with no_store set to
+# parse_piece to force the C data to be removed, with no_store set to
 # 1 to ensure that the resulting tree modified by pure Perl functions is not
 # taken unmodified from C again.
 SV *

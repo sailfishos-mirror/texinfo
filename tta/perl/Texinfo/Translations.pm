@@ -743,12 +743,12 @@ sub _replace_convert_substrings($;$$) {
     if (defined($debug_level) and $debug_level > 1) {
       print STDERR "IN TR PARSER subst '$texinfo_line'\n";
     }
-    $tree = $parser->parse_texi_line($texinfo_line, undef, 1);
+    $tree = $parser->parse_string($texinfo_line, undef, 1);
   } else {
     if (defined($debug_level) and $debug_level > 1) {
       print STDERR "IN TR PARSER '$translated_string'\n";
     }
-    $tree = $parser->parse_texi_line($translated_string, undef, 1);
+    $tree = $parser->parse_string($translated_string, undef, 1);
   }
   my $errors = $parser->errors();
   my $errors_count = Texinfo::Report::count_errors($errors);

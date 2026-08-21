@@ -302,7 +302,7 @@ unshift @{$parser_file_options->{'INCLUDE_DIRECTORIES'}}, @prepend_dirs;
 
 my $error_count = 0;
 my $parser = Texinfo::Parser::parser($parser_file_options);
-my $document = $parser->parse_texi_file($input_file_name);
+my $document = $parser->parse_file($input_file_name);
 
 $error_count
   = handle_errors($document->parser_errors(), $error_count);

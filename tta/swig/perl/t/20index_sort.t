@@ -107,7 +107,7 @@ my $index_name = 'cp';
 # no XS override for Texinfo::Document::Indices::sorted_indices_by_index.
 my $parser = Texinfo::Parser::parser();
 
-my $doc = $parser->parse_texi_text($texi);
+my $doc = $parser->parse_text($texi);
 
 foreach my $lang (undef, 'sv') {
   my $label;

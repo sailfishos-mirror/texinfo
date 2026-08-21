@@ -19,7 +19,7 @@
 # command line, from input files or from the parsed document and returns
 # character strings.  There are exceptions for the following files and
 # directory names that are binary strings:
-# * the input file name passed through parse_texi_file is a binary string
+# * the input file name passed through parse_file is a binary string
 # * the 'file_name' values in 'source_info' from convert_errors and in
 #   the tree elements 'source_info' are returned as binary strings
 

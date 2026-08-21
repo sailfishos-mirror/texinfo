@@ -440,7 +440,7 @@ register_global_command (ELEMENT *current, enum command_id cmd_in)
 
 /* setup a Texinfo tree with document_root as root and before_node_section
    as first content.  Used for the trees, except for those obtained by
-   parse_texi_line/parse_string. */
+   parse_string. */
 ELEMENT *
 setup_document_root_and_before_node_section (void)
 {

@@ -27,7 +27,7 @@ sub run_test($$$;$) {
   my ($in, $out, $test_name, $errors_references) = @_;
 
   my $parser = Texinfo::Parser::parser();
-  my $document = $parser->parse_texi_piece($in, 1);
+  my $document = $parser->parse_piece($in, 1);
 
   Texinfo::Transformations::protect_hashchar_at_line_beginning_in_document(
                                     $document);

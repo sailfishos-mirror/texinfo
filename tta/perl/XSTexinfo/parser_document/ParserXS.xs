@@ -92,7 +92,7 @@ _register_parser_conf (SV *parser_sv)
 # the file is already a byte string, taken as is from the command line.
 # The encoding was detected as COMMAND_LINE_ENCODING.
 SV *
-parse_texi_file (SV *parser_sv, input_file_path)
+parse_file (SV *parser_sv, input_file_path)
         const char *input_file_path = SvPVbyte_nolen ($arg);
       CODE:
         if (!SvOK(parser_sv))
@@ -111,7 +111,7 @@ parse_texi_file (SV *parser_sv, input_file_path)
 
 # Used in tests under tta/t.
 SV *
-parse_texi_piece (SV *parser_sv, SV *string_sv, ...)
+parse_piece (SV *parser_sv, SV *string_sv, ...)
     PREINIT:
         int line_nr = 1;
       CODE:
@@ -134,7 +134,7 @@ parse_texi_piece (SV *parser_sv, SV *string_sv, ...)
 # Two optional arguments, line number and NO_STORE.  If NO_STORE is set,
 # the C data is removed.
 SV *
-parse_texi_line (SV *parser_sv, SV *string_sv, ...)
+parse_string (SV *parser_sv, SV *string_sv, ...)
     PREINIT:
         DOCUMENT *document = 0;
         int no_store = 0;
@@ -182,7 +182,7 @@ parse_texi_line (SV *parser_sv, SV *string_sv, ...)
 
 # Used in tests under tta/t.
 SV *
-parse_texi_text (SV *parser_sv, SV *string_sv, ...)
+parse_text (SV *parser_sv, SV *string_sv, ...)
     PREINIT:
         int line_nr = 1;
       CODE:

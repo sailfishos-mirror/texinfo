@@ -212,7 +212,7 @@ Texinfo::Reader - Texinfo tree reader
   use Texinfo::Reader;
 
   my $parser = Texinfo::Parser::parser();
-  my $document = $parser->parse_texi_file("somefile.texi");
+  my $document = $parser->parse_file("somefile.texi");
 
   my $start_element = $document->tree();
 

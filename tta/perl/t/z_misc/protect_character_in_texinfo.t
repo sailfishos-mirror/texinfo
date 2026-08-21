@@ -24,12 +24,12 @@ sub run_test($$$$) {
   }
 
   my $parser = Texinfo::Parser::parser();
-  my $document = $parser->parse_texi_text($in);
+  my $document = $parser->parse_text($in);
   my $tree_as_text = $document->tree();
 
   my $line_parser = Texinfo::Parser::parser();
   # turned to a Perl only tree, no test of XS
-  my $tree_as_line = $line_parser->parse_texi_line($in, undef, 1);
+  my $tree_as_line = $line_parser->parse_string($in, undef, 1);
 
   if ($do->{'protect_colon'}) {
     Texinfo::ManipulateTree::protect_colon_in_document($document);

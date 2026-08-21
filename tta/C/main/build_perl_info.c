@@ -2091,7 +2091,7 @@ build_document (DOCUMENT *document, int no_store)
     hv = document->hv;
   else
     {
-      /* we go there through parse_texi_line called with no_store set as is
+      /* we go there through parse_string called with no_store set as is
          the case in Translations.pm */
       /* reference retained in C, unless the document is not stored */
       hv = newHV ();
@@ -2141,7 +2141,7 @@ build_document (DOCUMENT *document, int no_store)
        /* This situation cannot happen with the current code.  Indeed,
           the parse_texi* functions lead either to a minimal document
           being built, with an hv set, or to a Perl only tree, with
-          no_store set (in parse_texi_line only) */
+          no_store set (in parse_string only) */
         document->hv = (void *) hv;
 
       /* a new reference returned to keep the reference held in C */

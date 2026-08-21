@@ -61,7 +61,7 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   use Texinfo::Parser;
 
   my $parser = Texinfo::Parser::parser();
-  my $document = $parser->parse_texi_file("somefile.texi");
+  my $document = $parser->parse_file("somefile.texi");
 
   my $errors = $document->parser_errors();
   foreach my $error_message (@$errors) {
@@ -149,43 +149,43 @@ Same as values set by C<@set>.
 =head2 Parsing Texinfo text
 
 Different methods may be called to parse some Texinfo code:
-C<parse_texi_line> for a line, C<parse_texi_piece> for a fragment of
-Texinfo, C<parse_texi_text> for a string corresponding to a full document
-and C<parse_texi_file> for a file.  The first argument of these functions
+C<parse_string> for a one-line string, C<parse_piece> for a fragment of
+Texinfo, C<parse_text> for a string corresponding to a full document
+and C<parse_file> for a file.  The first argument of these functions
 is a parser.
 
-When C<parse_texi_line> is used, the resulting tree is rooted at
+When C<parse_string> is used, the resulting tree is rooted at
 a C<root_line> type container.  Otherwise, the resulting tree should be
 rooted at a C<document_root> type container.
 
 =over
 
-=item $tree = $parser->parse_texi_line($text, $first_line_number)
-X<C<parse_texi_line>>
+=item $tree = $parser->parse_string($text, $first_line_number)
+X<C<parse_string>>
 
 This function is used to parse a short fragment of Texinfo code.
 
 I<$text> is the string containing the texinfo line.  I<$first_line_number> is
 the line number of the line, if undef, it will be set to 1.
 
-=item $document = $parser->parse_texi_piece($text, $first_line_number)
-X<C<parse_texi_piece>>
+=item $document = $parser->parse_piece($text, $first_line_number)
+X<C<parse_piece>>
 
 This function is used to parse Texinfo fragments.
 
 I<$text> is the string containing the texinfo text.  I<$first_line_number> is
 the line number of the first text line, if undef, it will be set to 1.
 
-=item $document = $parser->parse_texi_text($text, $first_line_number)
-X<C<parse_texi_text>>
+=item $document = $parser->parse_text($text, $first_line_number)
+X<C<parse_text>>
 
 This function is used to parse a text as a whole document.
 
 I<$text> is the string containing the texinfo text.  I<$first_line_number> is
 the line number of the first text line, if undef, it will be set to 1.
 
-=item $document = $parser->parse_texi_file($file_name)
-X<C<parse_texi_file>>
+=item $document = $parser->parse_file($file_name)
+X<C<parse_file>>
 
 The file with name I<$file_name> is considered to be a Texinfo file and
 is parsed into a tree.  I<$file_name> should be a binary string.
@@ -415,7 +415,7 @@ text and brace commands similar to the I<preformatted> container.
 
 =head3 Texinfo line tree
 
-When parsing Texinfo line fragments using C<parse_texi_line>, a I<root_line>
+When parsing Texinfo line fragments using C<parse_string>, a I<root_line>
 type element is the root element.  It should typically contain elements
 that appear in I<paragraph>, I<preformatted> or containers like I<line_arg>.
 
@@ -690,7 +690,7 @@ C<document_root>.
 =item root_line
 
 C<root_line> is the type of the root tree when parsing Texinfo line
-fragments using C<parse_texi_line>.  C<document_root> is the document
+fragments using C<parse_string>.  C<document_root> is the document
 root otherwise.
 
 C<document_root> first content should be C<before_node_section>, then nodes and

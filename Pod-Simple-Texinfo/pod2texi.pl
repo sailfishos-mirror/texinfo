@@ -362,7 +362,7 @@ sub _parsed_manual_tree($$$$$;$) {
     $parser_options->{'DEBUG'} = $debug - 3;
   }
   my $texi_parser = Texinfo::Parser::parser($parser_options);
-  my $document = $texi_parser->parse_texi_text($manual_texi);
+  my $document = $texi_parser->parse_text($manual_texi);
 
   if ($debug > 1) {
     my ($error_messages, $error_count) = $document->parser_errors();

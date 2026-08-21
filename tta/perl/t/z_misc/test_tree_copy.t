@@ -141,7 +141,7 @@ T
 ';
 
 my $test_parser = Texinfo::Parser::parser();
-my $document = Texinfo::Parser::parse_texi_text($test_parser, $text);
+my $document = Texinfo::Parser::parse_text($test_parser, $text);
 my $tree = $document->tree();
 my $copy = Texinfo::ManipulateTree::copy_tree_root($tree);
 
@@ -179,7 +179,7 @@ foreach my $file_include (['Texinfo', $manual_file, $manual_include_dir],
   print STDERR "$label\n" if ($debug);
   my $test_parser
    = Texinfo::Parser::parser({'INCLUDE_DIRECTORIES' => [$test_include_dir]});
-  my $document = $test_parser->Texinfo::Parser::parse_texi_file($test_file);
+  my $document = $test_parser->Texinfo::Parser::parse_file($test_file);
   my $texinfo_test_tree = $document->tree();
   my ($test_parser_errors, $test_parser_error_count) = $document->parser_errors();
   foreach my $error_message (@$test_parser_errors) {

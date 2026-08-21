@@ -396,7 +396,7 @@ sub _protect_comma($) {
   my $texinfo = shift;
 
   my $parser = Texinfo::Parser::parser();
-  my $tree = $parser->parse_texi_line($texinfo, undef, 1);
+  my $tree = $parser->parse_string($texinfo, undef, 1);
   Texinfo::ManipulateTree::protect_comma_in_tree($tree);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
@@ -405,7 +405,7 @@ sub _protect_colon($) {
   my $texinfo = shift;
 
   my $parser = Texinfo::Parser::parser();
-  my $tree = $parser->parse_texi_line($texinfo, undef, 1);
+  my $tree = $parser->parse_string($texinfo, undef, 1);
   Texinfo::ManipulateTree::protect_colon_in_tree($tree);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
@@ -416,7 +416,7 @@ sub _protect_hashchar($) {
   # protect # first in line
   if ($texinfo =~ /#/) {
     my $parser = Texinfo::Parser::parser();
-    my $document = $parser->parse_texi_piece($texinfo);
+    my $document = $parser->parse_piece($texinfo);
     my $tree = $document->tree();
     # Remove the link to C data, such that convert_to_texinfo converts
     # the modified Perl tree.  Another option could have been to call
@@ -434,7 +434,7 @@ sub _reference_to_text_in_texi($) {
   my $texinfo = shift;
 
   my $parser = Texinfo::Parser::parser();
-  my $document = $parser->parse_texi_piece($texinfo);
+  my $document = $parser->parse_piece($texinfo);
   my $tree = $document->tree();
   # Remove the link to C data, such that convert_to_texinfo converts
   # the modified Perl tree.
@@ -504,7 +504,7 @@ sub _normalize_texinfo_name($$;$) {
     $parser_options->{'DEBUG'} = $debug - 4;
   }
   my $parser = Texinfo::Parser::parser($parser_options);
-  my $document = $parser->parse_texi_piece($texinfo_text);
+  my $document = $parser->parse_piece($texinfo_text);
 
   my $tree = $document->tree();
 
@@ -565,7 +565,7 @@ sub _prepare_anchor($$) {
   }
   # Now we know that we have something.
   my $parser = Texinfo::Parser::parser();
-  my $node_tree = $parser->parse_texi_line($node, undef, 1);
+  my $node_tree = $parser->parse_string($node, undef, 1);
   my $normalized_base
    = Texinfo::Convert::NodeNameNormalization::convert_to_identifier($node_tree);
   my $normalized = $normalized_base;
@@ -577,7 +577,7 @@ sub _prepare_anchor($$) {
   my $node_name;
   if ($number_appended) {
     $texinfo_node_name = "$node $number_appended";
-    $node_tree = $parser->parse_texi_line($texinfo_node_name, undef, 1);
+    $node_tree = $parser->parse_string($texinfo_node_name, undef, 1);
   }
   Texinfo::ManipulateTree::protect_comma_in_tree($node_tree);
   Texinfo::ManipulateTree::protect_colon_in_tree($node_tree);

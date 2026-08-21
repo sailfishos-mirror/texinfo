@@ -137,7 +137,7 @@ sub run_test($) {
 
   my ($test_string, $test_texi, $result) = @$spec;
 
-  my $document = $parser->parse_texi_text($test_texi);
+  my $document = $parser->parse_text($test_texi);
 
   my $tree = $document->tree();
 
@@ -184,7 +184,7 @@ foreach my $test (@tests_specs) {
 # that it may be used as an option to convert_to_text in the POD, but there
 # is no way to test it except when called from code.
 
-my $document = $parser->parse_texi_piece ('
+my $document = $parser->parse_piece('
 Some text. @^o. @aa{}.  @AA{}.  @copyright{}.
 ');
 

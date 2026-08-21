@@ -21,7 +21,7 @@ use Texinfo::Config;
 ok(1, 'modules loading');
 
 my $parser = Texinfo::Parser::parser();
-my $tree = $parser->parse_texi_line('@copyright{} @quotedblbase{}');
+my $tree = $parser->parse_string('@copyright{} @quotedblbase{}');
 my $result = Texinfo::Convert::Text::convert_to_text($tree, {'sort_string' => 1});
 is($result, 'C ,,', 'sort no encoding');
 
@@ -45,7 +45,7 @@ is($result, "\x{00A9} ,,", 'sort iso-8859-1');
 # loss in test coverage.  Some functions could be made internal in that case.
 
 $parser = Texinfo::Parser::parser();
-my $document = $parser->parse_texi_text('@node Top
+my $document = $parser->parse_text('@node Top
 
 @cindex !
 @cindex e
@@ -126,7 +126,7 @@ foreach my $letter (@{$sorted_index_entries_by_letter->{'cp'}}) {
 cmp_deeply (\@letter_entries, \@letter_entries_ref, 'by letter index entries');
 
 $parser = Texinfo::Parser::parser();
-$document = $parser->parse_texi_text('@node Top
+$document = $parser->parse_text('@node Top
 
 @cindex hhh @subentry jjj @subentry lll
 @cindex hhh @subentry jjj

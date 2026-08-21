@@ -21,7 +21,7 @@ sub test_correction($$$;$) {
   my ($in, $out, $name, $test_correct_level) = @_;
 
   my $parser = Texinfo::Parser::parser();
-  my $document = $parser->parse_texi_text($in);
+  my $document = $parser->parse_text($in);
   my $tree = $document->tree();
 
   if (! defined($test_correct_level)) {

@@ -21,7 +21,7 @@ sub test($$$;$$) {
   my ($in, $out, $name, $complete_missing_menus, $use_sections) = @_;
 
   my $parser = Texinfo::Parser::parser();
-  my $document = $parser->parse_texi_text($in);
+  my $document = $parser->parse_text($in);
   my $tree = $document->tree();
   Texinfo::Structuring::associate_internal_references($document);
 

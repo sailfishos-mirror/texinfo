@@ -705,7 +705,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
     {
       ELEMENT *closed_elt; /* Not used */
       current = close_commands (current, 0, &closed_elt, cmd);
-      /* if parse_texi_line is called on a line with a node/section then
+      /* if parse_string is called on a line with a node/section then
          it will directly be in the root_line, otherwise it is not directly
          in the root, but in another container */
       if (current->type != ET_root_line)

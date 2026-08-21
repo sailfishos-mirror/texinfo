@@ -117,7 +117,7 @@ sub _run_test($$$) {
     my $bfile = fileparse($test_file, '.texi');
     my $test_file_name = "${test_name}_${bfile}";
  
-    my $document = $test_parser->Texinfo::Parser::parse_texi_file($test_file);
+    my $document = $test_parser->Texinfo::Parser::parse_file($test_file);
 
     my $parsing_errors = '';
     my ($test_parser_errors, $test_parser_error_count) = $document->parser_errors();

@@ -53,8 +53,8 @@ my $parser = Texinfo::Parser::parser(
   texinfo_register_no_arg_command_texinfo('equiv', 'is the @strong{same} as');
 }
 
-#my $document = $parser->parse_texi_text('aa @equiv{} bb'."\n");
-my $document = $parser->parse_texi_file($manual_file);
+#my $document = $parser->parse_text('aa @equiv{} bb'."\n");
+my $document = $parser->parse_file($manual_file);
 
 my $parsing_errors = '';
 my ($test_parser_errors, $test_parser_error_count) = $document->parser_errors();
@@ -86,7 +86,7 @@ $converter = Texinfo::Convert::HTML->converter({'TEST' => $default_test_level,
                                         'OUTPUT_CHARACTERS' => 1});
 
 my $simple_document
-  = $parser->parse_texi_text(
+  = $parser->parse_text(
          'aa @equiv{} bb @geq{} cc @error{} @enddots{}'."\n");
 
 $result_html = $converter->convert($simple_document);

@@ -33,7 +33,7 @@ sub _find_accent($) {
   while (exists($current->{'contents'})
          and exists($current->{'type'})
          and ($current->{'type'} eq 'root_line'
-              # following could be useful if parse_texi_piece is used
+              # following could be useful if parse_piece is used
               or $current->{'type'} eq 'before_node_section'
               or $current->{'type'} eq 'document_root'
               or $current->{'type'} eq 'paragraph')) {
@@ -53,7 +53,7 @@ sub test_accent_stack ($) {
   # with XS the returned tree is built to Perl and the following codes
   # either do not have interfaces, or when they do (case of convert_to_text)
   # operate on tree elements that have no handle to retrieve the C data.
-  my $root = $parser->parse_texi_line($texi);
+  my $root = $parser->parse_string($texi);
   my $accent_tree = _find_accent($root);
   my ($contents_element, $commands_stack) =
     Texinfo::Common::find_innermost_accent_contents($accent_tree);
@@ -112,7 +112,7 @@ sub test_enable_encoding ($) {
   # with XS the returned tree is built to Perl and the following codes
   # either do not have interfaces, or when they do (case of convert_to_text)
   # operate on tree elements that have no handle to retrieve the C data.
-  my $root = $parser->parse_texi_line($texi);
+  my $root = $parser->parse_string($texi);
   my $accent_tree = _find_accent($root);
 
   my ($contents_element, $commands_stack) =
@@ -221,12 +221,12 @@ foreach my $test (
 }
 
 my $parser = Texinfo::Parser::parser();
-my $res_e = $parser->parse_texi_line('@^e');
+my $res_e = $parser->parse_string('@^e');
 my $result = Texinfo::Convert::Text::convert_to_text($res_e,
                                              {'enabled_encoding' => 'utf-8'});
 is($result, "\x{00EA}", 'enable encoding @^e');
 
-my $res_aa = $parser->parse_texi_line('@aa{}');
+my $res_aa = $parser->parse_string('@aa{}');
 $result = Texinfo::Convert::Text::convert_to_text($res_aa,
                                             {'enabled_encoding' => 'utf-8'});
 is($result, "\x{00E5}", 'enable encoding @aa{}');

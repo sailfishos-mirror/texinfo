@@ -36,7 +36,7 @@ my $texinfo_code = '@node top
 
 my $parser = Texinfo::Parser::parser();
 
-my $document = $parser->parse_texi_text($texinfo_code);
+my $document = $parser->parse_text($texinfo_code);
 
 my $result_text = $converter->convert($document);
 
@@ -60,7 +60,7 @@ is($result_text, $reference_result_text, 'test convert');
 
 #print STDERR "$result_text";
 
-my $tree = $parser->parse_texi_line('@code{@bullet{} something} ``@^a---');
+my $tree = $parser->parse_string('@code{@bullet{} something} ``@^a---');
 
 my $result_line = $converter->convert_tree($tree);
 

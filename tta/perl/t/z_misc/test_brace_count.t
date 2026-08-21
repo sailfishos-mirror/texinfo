@@ -41,7 +41,7 @@ sub _find_text($) {
   while (exists($current->{'contents'})
          and exists($current->{'type'})
          and ($current->{'type'} eq 'root_line'
-          # following could be useful if parse_texi_piece is used
+          # following could be useful if parse_piece is used
               or $current->{'type'} eq 'before_node_section'
               or $current->{'type'} eq 'document_root'
               or $current->{'type'} eq 'paragraph')) {
@@ -57,7 +57,7 @@ sub run_test($$$$) {
   my ($in, $initial_brace_count, $ref_braces_count, $name) = @_;
 
   my $parser = Texinfo::Parser::parser();
-  my $tree = $parser->parse_texi_line($in);
+  my $tree = $parser->parse_string($in);
   my $text_element = _find_text($tree);
 
   my $braces_count

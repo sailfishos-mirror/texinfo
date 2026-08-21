@@ -23,11 +23,11 @@ sub test_is_empty($$$;$) {
   my ($name, $is_empty, $in, $do_not_ignore_index_entries) = @_;
 
   my $parser = Texinfo::Parser::parser();
-  my $document = $parser->parse_texi_text($in);
+  my $document = $parser->parse_text($in);
   my $tree_as_text = $document->tree();
 
   my $line_parser = Texinfo::Parser::parser();
-  my $tree_as_line = $line_parser->parse_texi_line($in);
+  my $tree_as_line = $line_parser->parse_string($in);
   my $result_as_text = Texinfo::Common::is_content_empty($tree_as_text,
                                                $do_not_ignore_index_entries);
   my $result_as_line = Texinfo::Common::is_content_empty($tree_as_line,

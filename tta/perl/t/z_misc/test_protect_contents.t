@@ -18,7 +18,7 @@ sub run_test($$$$) {
   my ($do, $in, $out, $name) = @_;
 
   my $parser = Texinfo::Parser::parser();
-  my $document = $parser->parse_texi_piece($in);
+  my $document = $parser->parse_piece($in);
   my $texi_result;
 
   if ($do->{'protect_first_parenthesis'}) {

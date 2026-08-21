@@ -135,9 +135,7 @@ reset_parser (int local_debug_output)
    tree and document obtained by parsing INPUT_FILE_PATH.
    STATUS is set to non zero if parsing could not proceed.
    It is always the responsibility of the caller to get the error
-   messages and destroy the document.
-
-   Used for parse_texi_file. */
+   messages and destroy the document. */
 DOCUMENT *
 parse_file (const char *input_file_path, int *status)
 {
@@ -185,7 +183,7 @@ parse_file (const char *input_file_path, int *status)
   return document;
 }
 
-/* Used for parse_texi_text.  STRING should be a UTF-8 buffer. */
+/* STRING should be a UTF-8 buffer. */
 DOCUMENT *
 parse_text (const char *string, int line_nr)
 {
@@ -197,7 +195,7 @@ parse_text (const char *string, int line_nr)
 }
 
 /* Return the DOCUMENT obtained by parsing the Texinfo code in STRING.
-   STRING should be a UTF-8 buffer.  Used for parse_texi_line. */
+   STRING should be a UTF-8 buffer. */
 DOCUMENT *
 parse_string (const char *string, int line_nr)
 {
@@ -211,7 +209,7 @@ parse_string (const char *string, int line_nr)
   return document;
 }
 
-/* Used for parse_texi_piece.  STRING should be a UTF-8 buffer. */
+/* STRING should be a UTF-8 buffer. */
 DOCUMENT *
 parse_piece (const char *string, int line_nr)
 {

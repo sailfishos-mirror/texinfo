@@ -920,7 +920,7 @@ sub test($$)
   my $document;
   if (!$test_file) {
     print STDERR "  TEST $test_name\n" if ($debug);
-    $document = $parser->parse_texi_text($test_text);
+    $document = $parser->parse_text($test_text);
 
     if (defined($test_input_file_name)) {
       # argument should be byte strings.  In most if not all cases,
@@ -934,7 +934,7 @@ sub test($$)
     }
   } else {
     print STDERR "  TEST $test_name ($test_file)\n" if ($debug);
-    $document = $parser->parse_texi_file($test_file);
+    $document = $parser->parse_file($test_file);
   }
 
   # Get the tree object.  Note that if XS is used, the argument

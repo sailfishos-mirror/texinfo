@@ -13,7 +13,7 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   use Texinfo::Parser;
 
   my $parser = Texinfo::Parser::parser();
-  my $document = $parser->parse_texi_file("somefile.texi");
+  my $document = $parser->parse_file("somefile.texi");
 
   my $errors = $document->parser_errors();
   foreach my $error_message (@$errors) {
@@ -114,46 +114,46 @@ Same as values set by @code{@@set}.
 @subsection Parsing Texinfo text
 
 Different methods may be called to parse some Texinfo code:
-@code{parse_texi_line} for a line, @code{parse_texi_piece} for a fragment of
-Texinfo, @code{parse_texi_text} for a string corresponding to a full document
-and @code{parse_texi_file} for a file.  The first argument of these functions
+@code{parse_string} for a one-line string, @code{parse_piece} for a fragment of
+Texinfo, @code{parse_text} for a string corresponding to a full document
+and @code{parse_file} for a file.  The first argument of these functions
 is a parser.
 
-When @code{parse_texi_line} is used, the resulting tree is rooted at
+When @code{parse_string} is used, the resulting tree is rooted at
 a @code{root_line} type container.  Otherwise, the resulting tree should be
 rooted at a @code{document_root} type container.
 
 @table @asis
-@item $tree = $parser->parse_texi_line($text, $first_line_number)
-@anchor{Texinfo@asis{::}Parser $tree = $parser->parse_texi_line($text@comma{} $first_line_number)}
-@cindex @code{parse_texi_line}
+@item $tree = $parser->parse_string($text, $first_line_number)
+@anchor{Texinfo@asis{::}Parser $tree = $parser->parse_string($text@comma{} $first_line_number)}
+@cindex @code{parse_string}
 
 This function is used to parse a short fragment of Texinfo code.
 
 @emph{$text} is the string containing the texinfo line.  @emph{$first_line_number} is
 the line number of the line, if undef, it will be set to 1.
 
-@item $document = $parser->parse_texi_piece($text, $first_line_number)
-@anchor{Texinfo@asis{::}Parser $document = $parser->parse_texi_piece($text@comma{} $first_line_number)}
-@cindex @code{parse_texi_piece}
+@item $document = $parser->parse_piece($text, $first_line_number)
+@anchor{Texinfo@asis{::}Parser $document = $parser->parse_piece($text@comma{} $first_line_number)}
+@cindex @code{parse_piece}
 
 This function is used to parse Texinfo fragments.
 
 @emph{$text} is the string containing the texinfo text.  @emph{$first_line_number} is
 the line number of the first text line, if undef, it will be set to 1.
 
-@item $document = $parser->parse_texi_text($text, $first_line_number)
-@anchor{Texinfo@asis{::}Parser $document = $parser->parse_texi_text($text@comma{} $first_line_number)}
-@cindex @code{parse_texi_text}
+@item $document = $parser->parse_text($text, $first_line_number)
+@anchor{Texinfo@asis{::}Parser $document = $parser->parse_text($text@comma{} $first_line_number)}
+@cindex @code{parse_text}
 
 This function is used to parse a text as a whole document.
 
 @emph{$text} is the string containing the texinfo text.  @emph{$first_line_number} is
 the line number of the first text line, if undef, it will be set to 1.
 
-@item $document = $parser->parse_texi_file($file_name)
-@anchor{Texinfo@asis{::}Parser $document = $parser->parse_texi_file($file_name)}
-@cindex @code{parse_texi_file}
+@item $document = $parser->parse_file($file_name)
+@anchor{Texinfo@asis{::}Parser $document = $parser->parse_file($file_name)}
+@cindex @code{parse_file}
 
 The file with name @emph{$file_name} is considered to be a Texinfo file and
 is parsed into a tree.  @emph{$file_name} should be a binary string.
@@ -395,7 +395,7 @@ text and brace commands similar to the @emph{preformatted} container.
 @node Texinfo@asis{::}Parser Texinfo line tree
 @subsubsection Texinfo line tree
 
-When parsing Texinfo line fragments using @code{parse_texi_line}, a @emph{root_line}
+When parsing Texinfo line fragments using @code{parse_string}, a @emph{root_line}
 type element is the root element.  It should typically contain elements
 that appear in @emph{paragraph}, @emph{preformatted} or containers like @emph{line_arg}.
 
@@ -720,7 +720,7 @@ Content before nodes and sectioning commands at the beginning of
 @anchor{Texinfo@asis{::}Parser root_line}
 
 @code{root_line} is the type of the root tree when parsing Texinfo line
-fragments using @code{parse_texi_line}.  @code{document_root} is the document
+fragments using @code{parse_string}.  @code{document_root} is the document
 root otherwise.
 
 @code{document_root} first content should be @code{before_node_section}, then nodes and

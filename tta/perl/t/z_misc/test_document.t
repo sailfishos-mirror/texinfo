@@ -19,7 +19,7 @@ ok(1, 'modules loading');
 
 my $parser = Texinfo::Parser::parser();
 
-my $document = $parser->parse_texi_text('@top top
+my $document = $parser->parse_text('@top top
 @node Top
 
 T

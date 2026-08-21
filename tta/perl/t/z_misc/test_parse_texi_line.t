@@ -17,7 +17,7 @@ $ENV{LANGUAGE} = 'en';
 
 ok(1, 'modules loading');
 
-# test regressions specific of parse_texi_line
+# test regressions specific of parse_string
 
 sub test_line($$$$) {
   my ($parser, $texinfo_line, $test_name, $errors_references) = @_;
@@ -26,7 +26,7 @@ sub test_line($$$$) {
     $parser = Texinfo::Parser::parser();
   }
 
-  my $tree = $parser->parse_texi_line($texinfo_line);
+  my $tree = $parser->parse_string($texinfo_line);
   my $check_texinfo = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
   is($texinfo_line, $check_texinfo, $test_name);
 
