@@ -1,5 +1,12 @@
 2026-08-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/texinfo.i (protect_comma_in_tree, protect_colon_in_tree)
+	(reference_to_arg_in_tree, protect_hashchar_at_line_beginning)
+	(protect_first_parenthesis_in_targets, convert_to_identifier): add
+	functions used in pod2texi.
+
+2026-08-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/utils.c (add_string): change the arguments order to have
 	list first, to be like other functions.
 

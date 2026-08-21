@@ -48,6 +48,7 @@
 #include "targets.h"
 #include "utils.h"
 #include "errors.h"
+#include "node_name_normalization.h"
 #include "convert_to_texinfo.h"
 #include "manipulate_tree.h"
 #include "document.h"
@@ -306,6 +307,15 @@ void complete_transform_document (DOCUMENT *document, unsigned long flags,
                                   int format_menu,
                                   const char *fill_gap_heading_texi=0);
 
+// manipulate_tree.h
+ELEMENT *protect_comma_in_tree (ELEMENT *tree);
+ELEMENT *protect_colon_in_tree (ELEMENT *tree);
+ELEMENT *reference_to_arg_in_tree (ELEMENT *tree, DOCUMENT *document);
+// transformations.h
+ELEMENT *protect_hashchar_at_line_beginning (ELEMENT *tree, DOCUMENT *document);
+void protect_first_parenthesis_in_targets (ELEMENT *tree);
+
+
 // Only one of the next two function should be called as both clear the
 // document errors list.
 
@@ -362,6 +372,10 @@ ELEMENT *txi_ext_document_global_unique_command (DOCUMENT *document,
 %rename(document_global_command_list) txi_ext_document_global_command_list;
 const ELEMENT_LIST *txi_ext_document_global_command_list (DOCUMENT *document,
                                                           const char *cmdname);
+
+// node_name_normalization.h
+%newobject convert_to_identifier;
+char *convert_to_identifier (const ELEMENT *element);
 
 // index sorting and associated data
 
