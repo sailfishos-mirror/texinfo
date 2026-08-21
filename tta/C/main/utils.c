@@ -2486,6 +2486,8 @@ store_value (VALUE_LIST *values, const char *name, const char *value)
         {
           values->list = realloc (values->list,
                                   (values->space += 5) * sizeof (VALUE));
+          if (!values->list)
+            fatal ("realloc failed");
         }
       v = &values->list[values->number++];
     }

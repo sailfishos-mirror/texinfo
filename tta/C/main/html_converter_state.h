@@ -295,9 +295,7 @@ typedef struct ARRAY_INDEX_LIST {
 typedef struct CSS_LIST {
   /* 0 if associated to output units and found by number */
     char *page_name;
-    size_t number;
-    size_t space;
-    char **list;
+    STRING_LIST selectors;
 } CSS_LIST;
 
 /* index 0 is for document_global_context_css others for the output files */

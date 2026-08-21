@@ -1406,13 +1406,13 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
         }
       if (page_number)
         {
-          const CSS_LIST *css_list;
-          css_list = &self_html->page_css.list[page_number];
+          const STRING_LIST *css_list;
+          css_list = &self_html->page_css.list[page_number].selectors;
           if (css_list->number)
             {
               /* +1 for 'span:hover a.copiable-link' */
               size_t space
-               = css_list->number + global_context_css_list->number +1;
+               = css_list->number + global_context_css_list->selectors.number +1;
               selectors = (const char **) malloc (sizeof (char *) * space);
               memcpy (selectors, css_list->list,
                       css_list->number * sizeof (char *));
@@ -1423,27 +1423,31 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
 
   if (selector_nr <= 0)
     {
-      if (global_context_css_list->number)
+      if (global_context_css_list->selectors.number)
         {
+          const STRING_LIST *global_selectors
+             = &global_context_css_list->selectors;
           /* +1 for 'span:hover a.copiable-link' */
-          size_t space = global_context_css_list->number +1;
+          size_t space = global_selectors->number +1;
           selectors = (const char **) malloc (sizeof (char *) * space);
-          memcpy (selectors, global_context_css_list->list,
-                  global_context_css_list->number * sizeof (char *));
-          selector_nr = global_context_css_list->number;
+          memcpy (selectors, global_selectors->list,
+                  global_selectors->number * sizeof (char *));
+          selector_nr = global_selectors->number;
         }
       else
         return 0;
     }
-  else if (global_context_css_list->number)
+  else if (global_context_css_list->selectors.number)
     {
       size_t i;
       size_t file_selector_nr = selector_nr;
+      const STRING_LIST *global_selectors
+             = &global_context_css_list->selectors;
       /* add global context selectors if not already present */
-      for (i = 0; i < global_context_css_list->number; i++)
+      for (i = 0; i < global_selectors->number; i++)
         {
           size_t j;
-          const char *global_selector = global_context_css_list->list[i];
+          const char *global_selector = global_selectors->list[i];
           int found = 0;
           for (j = 0; j < file_selector_nr; j++)
             {

@@ -44,6 +44,8 @@ int is_context_empty (void);
 void reset_context_stack (void);
 char *context_name (enum context c);
 
+int in_preformatted_context_not_menu (void);
+
 
 
 
@@ -58,9 +60,5 @@ typedef struct {
 } NESTING_CONTEXT;
 
 extern NESTING_CONTEXT nesting_context;
-
-
-
-int in_preformatted_context_not_menu (void);
 
 #endif

@@ -2526,21 +2526,15 @@ html_special_unit_info (const CONVERTER *self,
 
 /* html_attribute_class */
 
+def_list_fns(PAGES_CSS_LIST, css_page, CSS_LIST, 10);
+
 static void
 add_new_css_page (PAGES_CSS_LIST *css_pages, const char *page_name)
 {
-  CSS_LIST *page_css_list;
-  if (css_pages->space <= css_pages->number)
-    {
-      css_pages->list = realloc (css_pages->list,
-          (css_pages->space += 10) * sizeof (CSS_LIST));
-    }
+  CSS_LIST page_css_list = { 0 };
+  page_css_list.page_name = strdup (page_name);
 
-  page_css_list = &css_pages->list[css_pages->number];
-  memset (page_css_list, 0, sizeof (CSS_LIST));
-  page_css_list->page_name = strdup (page_name);
-
-  css_pages->number++;
+  add_(css_page) (css_pages, page_css_list);
 }
 
 static void
@@ -2593,19 +2587,12 @@ collect_css_element_class (CONVERTER *self, const char *selector)
             }
         }
       page_css_list = &self_html->page_css.list[css_files_index];
-      for (i = 0; i < page_css_list->number; i++)
+      for (i = 0; i < page_css_list->selectors.number; i++)
         {
-          if (!strcmp (page_css_list->list[i], selector))
+          if (!strcmp (page_css_list->selectors.list[i], selector))
             return;
         }
-      if (page_css_list->number == page_css_list->space)
-        {
-          page_css_list->list
-            = realloc (page_css_list->list,
-                   (page_css_list->space += 5) * sizeof (char *));
-        }
-      page_css_list->list[page_css_list->number] = strdup (selector);
-      page_css_list->number++;
+      add_string (selector, &page_css_list->selectors);
     }
 }
 

@@ -3619,12 +3619,9 @@ reset_html_page_css (CONVERTER *self)
 
   for (i = 0; i < self_html->page_css.number; i++)
     {
-      size_t j;
       CSS_LIST *page_css_list = &self_html->page_css.list[i];
 
-      for (j = 0; j < page_css_list->number; j++)
-        free (page_css_list->list[j]);
-      free (page_css_list->list);
+      free_strings_list (&page_css_list->selectors);
       free (page_css_list->page_name);
     }
   self_html->page_css.number = 0;

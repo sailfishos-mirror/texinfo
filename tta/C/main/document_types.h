@@ -104,11 +104,7 @@ typedef struct PREAMBLE_LANG_CMD {
     } plc;
 } PREAMBLE_LANG_CMD;
 
-typedef struct PREAMBLE_LANG_CMD_LIST {
-  size_t space;
-  size_t number;
-  PREAMBLE_LANG_CMD *list;
-} PREAMBLE_LANG_CMD_LIST;
+def_list_type(PREAMBLE_LANG_CMD_LIST, PREAMBLE_LANG_CMD);
 
 typedef struct GLOBAL_INFO {
     char *input_file_name;

@@ -1,5 +1,30 @@
 2026-08-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (PAGES_CSS_LIST, add_new_css_page): use
+	generic list macros for PAGES_CSS_LIST.
+
+	* tta/C/parsetexi/context_stack.c (PARSER_CONTEXT_STACK)
+	(context_stack, current_context_command, reset_context_stack)
+	(push_context, pop_context, current_context, is_context_empty)
+	(in_preformatted_context_not_menu): add PARSER_CONTEXT_STACK type
+	for enum context context_stack and use generic list functions.
+
+	* tta/C/main/document_types.h (PREAMBLE_LANG_CMD_LIST),
+	tta/C/parsetexi/parser.c (PREAMBLE_LANG_CMD_LIST)
+	(add_preamble_lang_cmd): use generic list macros for
+	PREAMBLE_LANG_CMD_LIST.
+
+	* tta/C/main/html_converter_state.h (CSS_LIST),
+	tta/C/convert/format_html.c (collect_css_element_class),
+	tta/C/convert/html_conversion_state.c (html_get_css_elements_classes),
+	tta/C/convert/html_prepare_converter.c (reset_html_page_css): replace
+	the number, space and list fields by a STRING_LIST selectors field.
+	Update code setting or using selectors.
+
+	* tta/C/main/utils.c (store_value): call fatal if realloc failed.
+
+2026-08-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/end_line.c (end_line_misc_line),
 	tta/C/parsetexi/parser.c (conditional_stack, CONDITIONAL_ITEM_STACK)
 	(push_conditional_stack, pop_conditional_stack, parse_texi),

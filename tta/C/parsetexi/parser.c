@@ -489,31 +489,23 @@ rearrange_tree_beginning (ELEMENT *before_node_section,
 
 
 
+def_list_fns(PREAMBLE_LANG_CMD_LIST, preamble_lang, PREAMBLE_LANG_CMD, 3);
+
 static void
 add_preamble_lang_cmd (PREAMBLE_LANG_CMD_LIST *preamble_lang,
                        enum command_id cmd, const char *lang_string,
                        STRING_LIST *lang_variants)
 {
-  PREAMBLE_LANG_CMD *preamble_lang_cmd;
-  if (preamble_lang->number >= preamble_lang->space)
-    {
-      preamble_lang->space += 3;
-      preamble_lang->list
-         = realloc (preamble_lang->list,
-                    preamble_lang->space * sizeof (PREAMBLE_LANG_CMD));
-      if (!preamble_lang->list)
-        fatal ("realloc failed");
-    }
+  PREAMBLE_LANG_CMD preamble_lang_cmd;
 
-  preamble_lang_cmd = &preamble_lang->list[preamble_lang->number];
-  preamble_lang_cmd->cmd = cmd;
+  preamble_lang_cmd.cmd = cmd;
 
   if (lang_string)
-    preamble_lang_cmd->plc.lang_string = strdup (lang_string);
+    preamble_lang_cmd.plc.lang_string = strdup (lang_string);
   else
-    preamble_lang_cmd->plc.lang_variants = lang_variants;
+    preamble_lang_cmd.plc.lang_variants = lang_variants;
 
-  preamble_lang->number++;
+  add_(preamble_lang) (preamble_lang, preamble_lang_cmd);
 }
 
 /* ALTIMPL perl/Texinfo/ParserNonXS.pm get_parser_info */
