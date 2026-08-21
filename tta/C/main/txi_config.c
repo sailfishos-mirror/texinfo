@@ -335,7 +335,7 @@ txi_config_add_to_option_list (OPTION *option, const char *value,
     /* accept duplicates in that case, as prepending should in general
        be used to override by being first */
       static STRING_LIST tmp_strlist;
-      add_string (value, &tmp_strlist);
+      add_string (&tmp_strlist, value);
       copy_strings (&tmp_strlist, str_list);
       clear_strings_list (str_list);
       merge_strings (str_list, &tmp_strlist);
@@ -346,7 +346,7 @@ txi_config_add_to_option_list (OPTION *option, const char *value,
       idx_option = find_string (str_list, value);
 
       if (!idx_option)
-        add_string (value, str_list);
+        add_string (str_list, value);
     }
   return 1;
 }

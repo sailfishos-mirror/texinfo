@@ -1732,7 +1732,7 @@ documentlanguagevariant_variants (const ELEMENT *element)
        = analyze_documentlanguagevariant_argument_e (content, &valid_variant,
                                                      &surplus_arg);
       if (variant && strcmp (variant, ""))
-        add_string (variant, language_variants);
+        add_string (language_variants, variant);
     }
   return language_variants;
 }
@@ -1844,14 +1844,14 @@ add_include_directory (const char *input_filename,
                        STRING_LIST *include_dirs_list)
 {
   char *filename = file_separator_canonpath (input_filename);
-  add_string (filename, include_dirs_list);
+  add_string (include_dirs_list, filename);
   free (filename);
 }
 
 def_list_fns(STRING_LIST, string, char *, 5)
 
 char *
-add_string (const char *string, STRING_LIST *strings_list)
+add_string (STRING_LIST *strings_list, const char *string)
 {
   char *new_string = strdup (string);
   add_(string) (strings_list, new_string);
@@ -1901,7 +1901,7 @@ copy_strings (STRING_LIST *dest_list, const STRING_LIST *source_list)
     }
   for (i = 0; i < source_list->number; i++)
     {
-      add_string (source_list->list[i], dest_list);
+      add_string (dest_list, source_list->list[i]);
     }
 }
 
@@ -2110,7 +2110,7 @@ splitdir (char *directories_str)
   while (directory)
     {
       if (strlen (directory))
-        add_string (directory, directories);
+        add_string (directories, directory);
       directory = strtok (NULL, FILE_SLASH);
     }
   return directories;
@@ -2210,7 +2210,7 @@ locate_file_in_dirs (const char *filename,
       if (euidaccess (filename, R_OK) == 0)
         {
           if (all_files)
-            add_string (filename, all_files);
+            add_string (all_files, filename);
           else
             return strdup (filename);
         }
@@ -2240,7 +2240,7 @@ locate_file_in_dirs (const char *filename,
           if (euidaccess (filename, R_OK) == 0)
             {
               if (all_files)
-                add_string (filename, all_files);
+                add_string (all_files, filename);
               else
                 return strdup (filename);
             }
@@ -2264,7 +2264,7 @@ locate_file_in_dirs (const char *filename,
                                                  deprecated_dir_info);
                     }
                   if (all_files)
-                    add_string (fullpath, all_files);
+                    add_string (all_files, fullpath);
                   else
                     return fullpath;
                 }

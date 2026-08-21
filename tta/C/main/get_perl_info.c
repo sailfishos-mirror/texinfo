@@ -351,7 +351,7 @@ add_svav_to_string_list (const SV *sv, STRING_LIST *string_list,
           if (type == svt_dir)
             add_include_directory (string, string_list);
           else
-            add_string (string, string_list);
+            add_string (string_list, string);
         }
     }
 }
@@ -406,16 +406,16 @@ get_line_message (CONVERTER *self, enum error_type type, int continuation,
   SOURCE_INFO *source_info = get_source_info (error_location_info);
   if (source_info->file_name)
     {
-      char *saved_string = add_string (source_info->file_name,
-                                       &self->small_strings);
+      char *saved_string = add_string (&self->small_strings,
+                                       source_info->file_name);
       non_perl_free (source_info->file_name);
       source_info->file_name = saved_string;
     }
 
   if (source_info->macro)
     {
-      char *saved_string = add_string (source_info->macro,
-                                       &self->small_strings);
+      char *saved_string = add_string (&self->small_strings,
+                                       source_info->macro);
       non_perl_free (source_info->macro);
       source_info->macro = saved_string;
     }
@@ -1483,7 +1483,7 @@ get_output_files_information (SV *output_files_sv)
           HE *next = hv_iternext (opened_files_hv);
           SV *file_name_sv = hv_iterkeysv (next);
           const char *file_name = SvPVutf8_nolen (file_name_sv);
-          add_string (file_name, &output_files_information->opened_files);
+          add_string (&output_files_information->opened_files, file_name);
         }
 
       hv_clear (opened_files_hv);

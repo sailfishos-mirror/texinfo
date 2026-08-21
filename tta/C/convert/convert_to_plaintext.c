@@ -6409,7 +6409,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
                   text_reset (&result);
                   text_append_n (&result, p, line_len);
                   /* store without end of lines */
-                  add_string (result.text, &cell_lines[i]);
+                  add_string (&cell_lines[i], result.text);
                   p += line_len + has_eol;
                 }
               int cell_lines_nr = cell_lines[i].number;
@@ -6837,7 +6837,7 @@ convert_to_plaintext_internal (CONVERTER *self, const ELEMENT *element)
           pop_(format_context) (&self_plaintext->format_context);
           FORMAT_CONTEXT *top_format_context
             = top_(format_context) (&self_plaintext->format_context);
-          add_string (result, &top_format_context->row);
+          add_string (&top_format_context->row, result);
           add_(count_context) (&top_format_context->row_cell_counts,
                                *count_context);
           count_context->target_locations.number = 0;

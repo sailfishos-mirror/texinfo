@@ -1339,7 +1339,7 @@ output_files_open_out (OUTPUT_FILES_INFORMATION *self, const char *file_path,
     {
       register_unclosed_file (self, file_path, stream_handle, 0);
       if (!(*overwritten_file))
-        add_string (file_path, &self->opened_files);
+        add_string (&self->opened_files, file_path);
     }
   return stream_handle;
 }
@@ -1389,7 +1389,7 @@ output_files_rename_opened (OUTPUT_FILES_INFORMATION *self,
     remove_from_strings_list (&self->opened_files, number -1);
 
   if (!find_string (&self->opened_files, new_file_path))
-    add_string (new_file_path, &self->opened_files);
+    add_string (&self->opened_files, new_file_path);
 }
 
 /* Unused */

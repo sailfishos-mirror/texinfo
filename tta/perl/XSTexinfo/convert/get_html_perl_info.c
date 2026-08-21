@@ -211,7 +211,7 @@ html_converter_init_special_unit_sv (SV *converter_sv,
 
                   if (!customized_variety_nr)
                     {
-                      add_string (variety, customized_special_unit_varieties);
+                      add_string (customized_special_unit_varieties, variety);
                     }
 
                   if (variety_nr)
@@ -751,8 +751,8 @@ html_converter_get_customization_sv (SV *converter_sv,
           SV *direction_sv = hv_iterkeysv (next);
           const char *direction = SvPVutf8_nolen (direction_sv);
 
-          add_string (direction,
-                      &self_html->customized_global_text_directions);
+          add_string (&self_html->customized_global_text_directions,
+                      direction);
         }
     }
 

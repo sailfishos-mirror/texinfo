@@ -1078,7 +1078,7 @@ add_ou_direction (STRING_LIST *ou_directions,
       xasprintf (&ou_direction_text, "%s->%s",
                  direction_name, direction_text);
       free (direction_text);
-      add_string (ou_direction_text, ou_directions);
+      add_string (ou_directions, ou_direction_text);
       free (ou_direction_text);
     }
 }

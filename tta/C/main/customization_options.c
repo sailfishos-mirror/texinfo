@@ -750,7 +750,7 @@ show_options_list_options_set (OPTIONS_LIST *options_list)
   for (i = 0; i < options_list->number; i++)
     {
       OPTION *option = options_list->sorted_options[options_list->list[i] -1];
-      add_string (option->name, &options_names);
+      add_string (&options_names, option->name);
     }
 
   sort_strings_list (&options_names);

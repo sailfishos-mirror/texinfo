@@ -2592,7 +2592,7 @@ collect_css_element_class (CONVERTER *self, const char *selector)
           if (!strcmp (page_css_list->selectors.list[i], selector))
             return;
         }
-      add_string (selector, &page_css_list->selectors);
+      add_string (&page_css_list->selectors, selector);
     }
 }
 
@@ -2762,7 +2762,7 @@ html_default_format_separate_anchor (CONVERTER *self, const char *id,
   char *attribute_class;
 
   STRING_LIST *classes = new_string_list ();
-  add_string (class, classes);
+  add_string (classes, class);
 
  /*  html_attribute_class would not work with span, so if span is
      used, html_attribute_class should not be used */
@@ -3100,7 +3100,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
       char *attribute_class;
 
       STRING_LIST *classes = new_string_list ();
-      add_string (builtin_command_name (cmd), classes);
+      add_string (classes, builtin_command_name (cmd));
 
       attribute_class = html_attribute_class (self, "div", classes);
       text_append (&result, attribute_class);
@@ -3524,7 +3524,7 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
                                        "footnotes");
   xasprintf (&class, "%s-segment", class_base);
 
-  add_string (class, classes);
+  add_string (classes, class);
   free (class);
   attribute_class = html_attribute_class (self, "div", classes);
   clear_strings_list (classes);
@@ -3548,7 +3548,7 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
 
   xasprintf (&class, "%s-heading", class_base);
 
-  add_string (class, classes);
+  add_string (classes, class);
   free (class);
 
   format_heading_text (self, 0, classes, footnote_heading, level, 0, 0, 0,
@@ -5615,7 +5615,7 @@ format_simpletitle (CONVERTER *self, TEXT *result)
   enum command_id cmd = self_html->simpletitle_cmd;
 
   STRING_LIST *classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   xasprintf (&context_str, "%s simpletitle",
              builtin_command_name (cmd));
@@ -5675,7 +5675,7 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
                                                    special_unit_variety);
               xasprintf (&class, "region-%s", class_base);
 
-              add_string (class, classes);
+              add_string (classes, class);
               free (class);
               attribute_class = html_attribute_class (self, "div", classes);
               clear_strings_list (classes);
@@ -5692,7 +5692,7 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
 
               xasprintf (&class, "%s-heading", class_base);
 
-              add_string (class, classes);
+              add_string (classes, class);
               free (class);
 
               if (!heading)
@@ -5961,7 +5961,7 @@ text_element_conversion (CONVERTER *self,
       char *attribute_class;
 
       STRING_LIST *classes = new_string_list ();
-      add_string (builtin_command_name (cmd), classes);
+      add_string (classes, builtin_command_name (cmd));
 
       attribute_class
        = html_attribute_class (self, specification->element, classes);
@@ -6116,7 +6116,7 @@ html_convert_style_command (CONVERTER *self, const enum command_id cmd,
       size_t open_len;
 
       STRING_LIST *classes = new_string_list ();
-      add_string (builtin_command_name (style_cmd), classes);
+      add_string (classes, builtin_command_name (style_cmd));
 
       if (style_cmd != cmd)
         {
@@ -6124,7 +6124,7 @@ html_convert_style_command (CONVERTER *self, const enum command_id cmd,
           xasprintf (&style_as_cmd, "as-%s-%s",
                      builtin_command_name (style_cmd),
                      builtin_command_name (cmd));
-          add_string (style_as_cmd, classes);
+          add_string (classes, style_as_cmd);
           free (style_as_cmd);
         }
 
@@ -6256,7 +6256,7 @@ html_convert_email_command (CONVERTER *self, const enum command_id cmd,
       char *mailto;
 
       STRING_LIST *classes = new_string_list ();
-      add_string (builtin_command_name (cmd), classes);
+      add_string (classes, builtin_command_name (cmd));
 
       attribute_class = html_attribute_class (self, "a", classes);
       destroy_strings_list (classes);
@@ -6346,7 +6346,7 @@ html_convert_explained_command (CONVERTER *self, const enum command_id cmd,
       char *attribute_class;
 
       STRING_LIST *classes = new_string_list ();
-      add_string (builtin_command_name (cmd), classes);
+      add_string (classes, builtin_command_name (cmd));
 
       attribute_class = html_attribute_class (self, "abbr", classes);
       destroy_strings_list (classes);
@@ -6550,7 +6550,7 @@ html_convert_footnote_command (CONVERTER *self, const enum command_id cmd,
                           multi_expanded_region);
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   attribute_class = html_attribute_class (self, "a", classes);
   destroy_strings_list (classes);
@@ -6626,7 +6626,7 @@ html_convert_uref_command (CONVERTER *self, const enum command_id cmd,
     }
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   attribute_class = html_attribute_class (self, "a", classes);
   destroy_strings_list (classes);
@@ -6836,7 +6836,7 @@ html_convert_image_command (CONVERTER *self, const enum command_id cmd,
         }
 
       classes = new_string_list ();
-      add_string (builtin_command_name (cmd), classes);
+      add_string (classes, builtin_command_name (cmd));
 
       attribute_class = html_attribute_class (self, "img", classes);
       destroy_strings_list (classes);
@@ -6880,13 +6880,13 @@ html_convert_math_command (CONVERTER *self, const enum command_id cmd,
   arg = args_formatted->args[0].formatted[AFT_type_normal];
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   if (self->conf->HTML_MATH.o.string
       && !strcmp (self->conf->HTML_MATH.o.string, "mathjax"))
     {
       html_register_file_information (self, "mathjax", 1);
-      add_string ("tex2jax_process", classes);
+      add_string (classes, "tex2jax_process");
       attribute_class = html_attribute_class (self, "em", classes);
       text_append (result, attribute_class);
       text_printf (result, ">\\(%s\\)</em>", arg);
@@ -7254,7 +7254,7 @@ html_convert_indicateurl_command (CONVERTER *self, const enum command_id cmd,
       char *attribute_class;
 
       STRING_LIST *classes = new_string_list ();
-      add_string (builtin_command_name (cmd), classes);
+      add_string (classes, builtin_command_name (cmd));
 
       attribute_class = html_attribute_class (self, "code", classes);
       destroy_strings_list (classes);
@@ -7284,7 +7284,7 @@ html_convert_titlefont_command (CONVERTER *self, const enum command_id cmd,
       && strlen (args_formatted->args[0].formatted[AFT_type_normal]))
     {
       STRING_LIST *classes = new_string_list ();
-      add_string (builtin_command_name (cmd), classes);
+      add_string (classes, builtin_command_name (cmd));
       format_heading_text (self, cmd, classes,
                    args_formatted->args[0].formatted[AFT_type_normal],
                      0, 0, 0, 0, result);
@@ -7696,7 +7696,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
       xasprintf (&class, "%s-level-extent",
                  builtin_command_name (level_corrected_opening_section_cmd));
 
-      add_string (class, classes);
+      add_string (classes, class);
       free (class);
       attribute_class = html_attribute_class (self, "div", classes);
       destroy_strings_list (classes);
@@ -7757,9 +7757,9 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
         }
 
       heading_classes = new_string_list ();
-      add_string (builtin_command_name (level_corrected_cmd), heading_classes);
+      add_string (heading_classes, builtin_command_name (level_corrected_cmd));
       if (level_set_class)
-        add_string (level_set_class, heading_classes);
+        add_string (heading_classes, level_set_class);
       if (html_in_preformatted_context (self))
         {
           char *attribute_class;
@@ -8042,7 +8042,7 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
           char *attribute_class;
 
           classes = new_string_list ();
-          add_string (builtin_command_name (cmd), classes);
+          add_string (classes, builtin_command_name (cmd));
 
           attribute_class = html_attribute_class (self, "a", classes);
           text_append (reference_element->e.text, attribute_class);
@@ -8406,7 +8406,7 @@ indent_with_table (CONVERTER *self, const enum command_id cmd,
   char *attribute_class;
 
   STRING_LIST *classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   if (extra_classes)
     merge_strings (classes, extra_classes);
@@ -8453,7 +8453,7 @@ html_convert_preformatted_command (CONVERTER *self, const enum command_id cmd,
           if (small_cmd == cmd)
             {
               main_cmd = small_block_associated_command[i][1];
-              add_string (builtin_command_name (cmd), additional_classes);
+              add_string (additional_classes, builtin_command_name (cmd));
               break;
             }
         }
@@ -8476,7 +8476,7 @@ html_convert_preformatted_command (CONVERTER *self, const enum command_id cmd,
             {
               char *class_name;
               xasprintf (&class_name, "user-%s", converted_arg);
-              add_string (class_name, additional_classes);
+              add_string (additional_classes, class_name);
               free (class_name);
             }
           free (converted_arg);
@@ -8484,7 +8484,7 @@ html_convert_preformatted_command (CONVERTER *self, const enum command_id cmd,
     }
   else if (main_cmd == CM_lisp)
     {
-      add_string (builtin_command_name (main_cmd), additional_classes);
+      add_string (additional_classes, builtin_command_name (main_cmd));
       main_cmd = CM_example;
     }
 
@@ -8499,7 +8499,7 @@ html_convert_preformatted_command (CONVERTER *self, const enum command_id cmd,
       char *attribute_class;
 
       STRING_LIST *classes = new_string_list ();
-      add_string (builtin_command_name (main_cmd), classes);
+      add_string (classes, builtin_command_name (main_cmd));
       merge_strings (classes, additional_classes);
 
       attribute_class = html_attribute_class (self, "div", classes);
@@ -8542,7 +8542,7 @@ html_convert_indented_command (CONVERTER *self, const enum command_id cmd,
           if (small_cmd == cmd)
             {
               main_cmd = small_block_associated_command[i][1];
-              add_string (builtin_command_name (cmd), additional_classes);
+              add_string (additional_classes, builtin_command_name (cmd));
               break;
             }
         }
@@ -8560,7 +8560,7 @@ html_convert_indented_command (CONVERTER *self, const enum command_id cmd,
       char *attribute_class;
 
       STRING_LIST *classes = new_string_list ();
-      add_string (builtin_command_name (main_cmd), classes);
+      add_string (classes, builtin_command_name (main_cmd));
       merge_strings (classes, additional_classes);
 
       attribute_class = html_attribute_class (self, "blockquote", classes);
@@ -8590,7 +8590,7 @@ html_convert_verbatim_command (CONVERTER *self, const enum command_id cmd,
       char *attribute_class;
 
       STRING_LIST *classes = new_string_list ();
-      add_string (builtin_command_name (cmd), classes);
+      add_string (classes, builtin_command_name (cmd));
 
       attribute_class = html_attribute_class (self, "pre", classes);
       text_append (result, attribute_class);
@@ -8624,12 +8624,12 @@ html_convert_displaymath_command (CONVERTER *self, const enum command_id cmd,
       && !strcmp (self->conf->HTML_MATH.o.string, "mathjax"));
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   if (use_mathjax)
     {
       html_register_file_information (self, "mathjax", 1);
-      add_string ("tex2jax_process", classes);
+      add_string (classes, "tex2jax_process");
     }
 
   attribute_class = html_attribute_class (self, "pre", classes);
@@ -8660,7 +8660,7 @@ html_convert_simple_block_command (CONVERTER *self, const enum command_id cmd,
     return;
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   attribute_class = html_attribute_class (self, "div", classes);
   text_append (result, attribute_class);
@@ -8700,7 +8700,7 @@ html_convert_menu_command (CONVERTER *self, const enum command_id cmd,
     }
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   attribute_class = html_attribute_class (self, "table", classes);
   text_append (result, attribute_class);
@@ -8785,7 +8785,7 @@ html_convert_float_command (CONVERTER *self, const enum command_id cmd,
     caption_command_name = builtin_command_name (caption_element->e.c->cmd);
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   attribute_class = html_attribute_class (self, "div", classes);
   text_append (result, attribute_class);
@@ -8860,7 +8860,7 @@ html_convert_float_command (CONVERTER *self, const enum command_id cmd,
 
   if (caption_text && strlen (caption_text))
     {
-      add_string (caption_command_name, classes);
+      add_string (classes, caption_command_name);
       attribute_class = html_attribute_class (self, "div", classes);
       text_append (result, attribute_class);
       free (attribute_class);
@@ -8918,12 +8918,12 @@ html_convert_quotation_command (CONVERTER *self, const enum command_id cmd,
               if (small_cmd == cmd)
                 {
                   enum command_id main_cmd = small_block_associated_command[i][1];
-                  add_string (builtin_command_name (main_cmd), classes);
+                  add_string (classes, builtin_command_name (main_cmd));
                   break;
                 }
             }
         }
-      add_string (builtin_command_name (cmd), classes);
+      add_string (classes, builtin_command_name (cmd));
       attribute_class = html_attribute_class (self, "blockquote", classes);
       destroy_strings_list (classes);
       text_append (result, attribute_class);
@@ -9012,7 +9012,7 @@ html_convert_cartouche_command (CONVERTER *self, const enum command_id cmd,
     return;
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   attribute_class = html_attribute_class (self, "table", classes);
   text_append (result, attribute_class);
@@ -9117,7 +9117,7 @@ html_convert_itemize_command (CONVERTER *self, const enum command_id cmd,
     }
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   if (mark_class_name)
     {
@@ -9131,7 +9131,7 @@ html_convert_itemize_command (CONVERTER *self, const enum command_id cmd,
       free (ul_mark_selector);
       if (selector_style && selector_style->style)
         {
-          add_string (mark_class, classes);
+          add_string (classes, mark_class);
         }
       free (mark_class);
     }
@@ -9184,7 +9184,7 @@ html_convert_enumerate_command (CONVERTER *self, const enum command_id cmd,
     }
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   attribute_class = html_attribute_class (self, "ol", classes);
   destroy_strings_list (classes);
@@ -9271,7 +9271,7 @@ html_convert_multitable_command (CONVERTER *self, const enum command_id cmd,
     }
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   attribute_class = html_attribute_class (self, "table", classes);
   destroy_strings_list (classes);
@@ -9300,7 +9300,7 @@ html_convert_xtable_command (CONVERTER *self, const enum command_id cmd,
     }
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   attribute_class = html_attribute_class (self, "dl", classes);
   destroy_strings_list (classes);
@@ -9398,7 +9398,7 @@ html_convert_exdent_command (CONVERTER *self, const enum command_id cmd,
     }
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   if (html_in_preformatted_context (self))
     attribute_class = html_attribute_class (self, "pre", classes);
@@ -9450,7 +9450,7 @@ html_convert_center_command (CONVERTER *self, const enum command_id cmd,
     }
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   attribute_class = html_attribute_class (self, "div", classes);
   text_append (result, attribute_class);
@@ -9500,7 +9500,7 @@ html_convert_author_command (CONVERTER *self, const enum command_id cmd,
         }
 
       classes = new_string_list ();
-      add_string (builtin_command_name (cmd), classes);
+      add_string (classes, builtin_command_name (cmd));
 
       attribute_class = html_attribute_class (self, "strong", classes);
       text_append (result, attribute_class);
@@ -9545,7 +9545,7 @@ html_convert_title_command (CONVERTER *self, const enum command_id cmd,
     }
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   attribute_class = html_attribute_class (self, "h1", classes);
   text_append (result, attribute_class);
@@ -9582,7 +9582,7 @@ html_convert_subtitle_command (CONVERTER *self, const enum command_id cmd,
     }
 
   classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
+  add_string (classes, builtin_command_name (cmd));
 
   attribute_class = html_attribute_class (self, "h3", classes);
   text_append (result, attribute_class);
@@ -9891,7 +9891,7 @@ html_convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
             multiple_pass_str = "listoffloats";
 
           classes = new_string_list ();
-          add_string (builtin_command_name (cmd), classes);
+          add_string (classes, builtin_command_name (cmd));
 
           attribute_class = html_attribute_class (self, "dl", classes);
           text_append (result, attribute_class);
@@ -10015,8 +10015,8 @@ printindex_letters_head_foot_internal (CONVERTER *self, const char *index_name,
              head_or_foot, builtin_command_name (cmd));
   xasprintf (&index_name_cmd_class, "%s-letters-%s-%s",
              index_name, head_or_foot, builtin_command_name (cmd));
-  add_string (generic_cmd_class, entry_classes);
-  add_string (index_name_cmd_class, entry_classes);
+  add_string (entry_classes, generic_cmd_class);
+  add_string (entry_classes, index_name_cmd_class);
   free (index_name_cmd_class);
   free (generic_cmd_class);
   attribute_class = html_attribute_class (self, "table", entry_classes);
@@ -10464,7 +10464,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                   free (convert_info);
 
                   if (level == 0)
-                    add_string (cmd_index_entry_class, entry_classes);
+                    add_string (entry_classes, cmd_index_entry_class);
                   else if (level > 0)
                     {
                       /* indent */
@@ -10472,7 +10472,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                       xasprintf (&index_entry_level,
                                  "%s-index-subentry-level-%d",
                                  builtin_command_name (cmd), level);
-                      add_string (index_entry_level, entry_classes);
+                      add_string (entry_classes, index_entry_level);
                       free (index_entry_level);
                     }
                   text_append_n (&entries_text, "<tr>", 4);
@@ -10558,7 +10558,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                   destroy_element_and_children (result_tree);
                   free (convert_info);
 
-                  add_string (section_class_seeentry, section_classes);
+                  add_string (section_classes, section_class_seeentry);
                 }
               else
                 {
@@ -10623,20 +10623,20 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                   free (conv_str_entry);
                   free (conv_str_reference);
 
-                  add_string (section_class_seealso, section_classes);
+                  add_string (section_classes, section_class_seealso);
                 }
 
               if (seeentry)
-                add_string (entry_class_seeentry, entry_classes);
+                add_string (entry_classes, entry_class_seeentry);
               if (last_entry_level == 0)
-                add_string (cmd_index_entry_class, entry_classes);
+                add_string (entry_classes, cmd_index_entry_class);
               else if (last_entry_level > 0)
                 {
                   char *index_entry_level;
                   xasprintf (&index_entry_level,
                              "%s-index-subentry-level-%d",
                              builtin_command_name (cmd), last_entry_level);
-                  add_string (index_entry_level, entry_classes);
+                  add_string (entry_classes, index_entry_level);
                   free (index_entry_level);
                 }
               destroy_named_string_element_list (substrings);
@@ -10727,14 +10727,14 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                     = html_command_href (self, target_element, 0, 0, 0);
 
                   if (last_entry_level == 0)
-                    add_string (cmd_index_entry_class, entry_classes);
+                    add_string (entry_classes, cmd_index_entry_class);
                   else if (last_entry_level > 0)
                     {
                       char *index_entry_level;
                       xasprintf (&index_entry_level,
                                  "%s-index-subentry-level-%d",
                                  builtin_command_name (cmd), last_entry_level);
-                      add_string (index_entry_level, entry_classes);
+                      add_string (entry_classes, index_entry_level);
                       free (index_entry_level);
                     }
                   text_append_n (&entries_text, "<tr>", 4);
@@ -10840,7 +10840,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                         }
                     }
 
-                  add_string (cmd_index_section_class, section_classes);
+                  add_string (section_classes, cmd_index_section_class);
                   attribute_class
                      = html_attribute_class (self, "td", section_classes);
                   text_append (&entries_text, attribute_class);
@@ -10971,8 +10971,8 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           text_append_n (&result_index_entries, "<tr>", 4);
           xasprintf (&index_name_letter_header_class, "%s-letter-header-%s",
                      index_name, builtin_command_name (cmd));
-          add_string (generic_letter_header_class, entry_classes);
-          add_string (index_name_letter_header_class, entry_classes);
+          add_string (entry_classes, generic_letter_header_class);
+          add_string (entry_classes, index_name_letter_header_class);
           free (index_name_letter_header_class);
           attribute_class = html_attribute_class (self, "th", entry_classes);
           text_append (&result_index_entries, attribute_class);
@@ -10996,7 +10996,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
     }
   free (subentries_list.list);
 
-  add_string (summary_letter_cmd, entry_classes);
+  add_string (entry_classes, summary_letter_cmd);
   attribute_class = html_attribute_class (self, "a", entry_classes);
   for (i = 0; i < index_sorted->letter_number; i++)
     {
@@ -11054,10 +11054,10 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
   clear_strings_list (entry_classes);
 
-  add_string (builtin_command_name (cmd), entry_classes);
+  add_string (entry_classes, builtin_command_name (cmd));
   xasprintf (&index_name_cmd_class, "%s-%s",
              index_name, builtin_command_name (cmd));
-  add_string (index_name_cmd_class, entry_classes);
+  add_string (entry_classes, index_name_cmd_class);
   free (index_name_cmd_class);
   attribute_class = html_attribute_class (self, "div", entry_classes);
   clear_strings_list (entry_classes);
@@ -11128,8 +11128,8 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   /* now format the index entries */
   xasprintf (&index_name_cmd_class, "%s-entries-%s",
              index_name, builtin_command_name (cmd));
-  add_string (generic_cmd_class, entry_classes);
-  add_string (index_name_cmd_class, entry_classes);
+  add_string (entry_classes, generic_cmd_class);
+  add_string (entry_classes, index_name_cmd_class);
   free (index_name_cmd_class);
   free (generic_cmd_class);
   attribute_class = html_attribute_class (self, "table", entry_classes);
@@ -11272,7 +11272,7 @@ html_convert_def_command (CONVERTER *self, const enum command_id cmd,
         }
 
       xasprintf (&class, "first-%s", builtin_command_name (original_cmd));
-      add_string (class, classes);
+      add_string (classes, class);
       free (class);
 
       if (cmd != original_cmd)
@@ -11280,14 +11280,14 @@ html_convert_def_command (CONVERTER *self, const enum command_id cmd,
           xasprintf (&class, "first-%s-alias-first-%s",
                              builtin_command_name (cmd),
                              builtin_command_name (original_cmd));
-          add_string (class, classes);
+          add_string (classes, class);
           free (class);
         }
     }
   else
-    add_string (builtin_command_name (cmd), classes);
+    add_string (classes, builtin_command_name (cmd));
 
-  add_string ("def-block", classes);
+  add_string (classes, "def-block");
 
   if (self->conf->DEF_TABLE.o.integer <= 0)
     {
@@ -11635,7 +11635,7 @@ html_convert_paragraph_type (CONVERTER *self, const enum element_type type,
       STRING_LIST *classes = new_string_list ();
 
       xasprintf (&class, "%s-paragraph", builtin_command_name (align_cmd));
-      add_string (class, classes);
+      add_string (classes, class);
       free (class);
 
       attribute_class = html_attribute_class (self, "p", classes);
@@ -11774,7 +11774,7 @@ html_convert_preformatted_type (CONVERTER *self, const enum element_type type,
   classes = new_string_list ();
   if (pre_class)
     {
-      add_string (pre_class, classes);
+      add_string (classes, pre_class);
       free (pre_class);
     }
   attribute_class = html_attribute_class (self, "pre", classes);
@@ -12090,7 +12090,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
           STRING_LIST *classes = new_string_list ();
           if (pre_class)
             {
-              add_string (pre_class, classes);
+              add_string (classes, pre_class);
               free (pre_class);
             }
           attribute_class = html_attribute_class (self, "pre", classes);
@@ -12561,21 +12561,21 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
 
   classes = new_string_list ();
 
-  add_string (builtin_command_name (original_cmd), classes);
+  add_string (classes, builtin_command_name (original_cmd));
   if (alias_class)
     {
-      add_string (alias_class, classes);
+      add_string (classes, alias_class);
       free (alias_class);
     }
   if (base_cmd != original_cmd)
     {
       char *class;
       xasprintf (&class, "def-cmd-%s", builtin_command_name (base_cmd));
-      add_string (class, classes);
+      add_string (classes, class);
       free (class);
     }
 
-  add_string ("def-line", classes);
+  add_string (classes, "def-line");
 
   text_init (&def_call);
   text_append (&def_call, "");
@@ -13069,7 +13069,7 @@ html_convert_special_unit_type (CONVERTER *self,
                                        special_unit_variety);
   xasprintf (&class, "element-%s", class_base);
 
-  add_string (class, classes);
+  add_string (classes, class);
   free (class);
   attribute_class = html_attribute_class (self, "div", classes);
   clear_strings_list (classes);
@@ -13103,7 +13103,7 @@ html_convert_special_unit_type (CONVERTER *self,
 
   xasprintf (&class, "%s-heading", class_base);
 
-  add_string (class, classes);
+  add_string (classes, class);
   free (class);
 
   format_heading_text (self, 0, classes, heading, level, 0, 0, 0, result);

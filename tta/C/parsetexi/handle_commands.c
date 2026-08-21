@@ -202,7 +202,7 @@ parse_rawline_command (const char *line, enum command_id cmd,
 {
 #define ADD_ARG(string, len) do { \
   tmp_string = strndup (string, len); \
-  add_string (tmp_string, args); \
+  add_string (args, tmp_string); \
   free (tmp_string); \
 } while (0)
   char *tmp_string;

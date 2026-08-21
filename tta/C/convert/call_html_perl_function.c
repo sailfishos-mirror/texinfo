@@ -636,8 +636,8 @@ call_file_id_setting_redirection_file_names (CONVERTER *self,
         {
           for (i = defined_count -1; i >= 0; i--)
             {
-              add_string (result_redirection_files[i],
-                          reference_redirection_files);
+              add_string (reference_redirection_files,
+                          result_redirection_files[i]);
               free (result_redirection_files[i]);
             }
         }

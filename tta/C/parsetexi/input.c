@@ -486,7 +486,7 @@ save_string (const char *string)
   if (!string)
     return 0;
 
-  return add_string (string, parsed_document->small_strings);
+  return add_string (parsed_document->small_strings, string);
 }
 
 void

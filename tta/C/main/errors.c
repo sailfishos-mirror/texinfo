@@ -528,12 +528,12 @@ fill_source_info_file (SOURCE_INFO *source_info, CONVERTER *self,
      /* strip directories for out-of-source builds reproducible file names */
       parse_file_path (file, filename_and_directory);
       free (filename_and_directory[1]);
-      source_info->file_name = add_string (filename_and_directory[0],
-                                           &self->small_strings);
+      source_info->file_name = add_string (&self->small_strings,
+                                           filename_and_directory[0]);
       free (filename_and_directory[0]);
     }
   else
-    source_info->file_name = add_string (file, &self->small_strings);
+    source_info->file_name = add_string (&self->small_strings, file);
 }
 
 

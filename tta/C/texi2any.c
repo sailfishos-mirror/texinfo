@@ -245,7 +245,7 @@ add_config_paths (const char *env_string, const char *subdir,
     {
       char *install_result_dir;
       xasprintf (&install_result_dir, "%s/%s", installation_dir, subdir);
-      add_string (install_result_dir, result_dirs);
+      add_string (result_dirs, install_result_dir);
       if (overriding_dirs)
         {
           DEPRECATED_DIR_INFO *deprecated_dir_info
@@ -262,7 +262,7 @@ add_config_paths (const char *env_string, const char *subdir,
                   add_new_deprecated_dir_info (deprecated_dirs,
                                    deprecated_dir_info->obsolete_dir,
                                    deprecated_dir_info->reference_dir);
-                  add_string (deprecated_result_dir, result_dirs);
+                  add_string (result_dirs, deprecated_result_dir);
                 }
               free (deprecated_result_dir);
             }
@@ -277,7 +277,7 @@ add_config_paths (const char *env_string, const char *subdir,
         {
           char *result_dir;
           xasprintf (&result_dir, "%s/%s", dir, subdir);
-          add_string (result_dir, result_dirs);
+          add_string (result_dirs, result_dir);
           free (result_dir);
         }
       free (dir);
@@ -303,14 +303,14 @@ set_subdir_directories (const char *datadir, const char *subdir,
   char *xdg_config_home;
 
   xasprintf (&dir_string, ".%s", subdir);
-  add_string (dir_string, result);
+  add_string (result, dir_string);
   free (dir_string);
 
   xdg_config_home = getenv ("XDG_CONFIG_HOME");
   if (xdg_config_home && strlen (xdg_config_home))
     {
       xasprintf (&dir_string, "%s/%s", xdg_config_home, subdir);
-      add_string (dir_string, result);
+      add_string (result, dir_string);
       free (dir_string);
     }
   else
@@ -323,9 +323,9 @@ set_subdir_directories (const char *datadir, const char *subdir,
           xasprintf (&deprecated_config_home, "%s/.%s", home_dir, subdir);
           add_new_deprecated_dir_info (deprecated_dirs,
                                    deprecated_config_home, dir_string);
-          add_string (dir_string, result);
+          add_string (result, dir_string);
           free (dir_string);
-          add_string (deprecated_config_home, result);
+          add_string (result, deprecated_config_home);
           free (deprecated_config_home);
         }
     }
@@ -339,7 +339,7 @@ set_subdir_directories (const char *datadir, const char *subdir,
   free (config_dirs);
 
   xasprintf (&dir_string, "%s/%s", datadir, subdir);
-  add_string (dir_string, result);
+  add_string (result, dir_string);
   free (dir_string);
 
   return result;
@@ -479,7 +479,7 @@ unset_expansion (OPTIONS_LIST *options_list, STRING_LIST *ignored_formats,
   txi_config_remove_from_option_list (option, format_name);
 
   if (!ignored_idx)
-    add_string (format_name, ignored_formats);
+    add_string (ignored_formats, format_name);
 }
 
 /* Texinfo::Common::texinfo_output_formats */
@@ -515,7 +515,7 @@ format_expanded_formats (STRING_LIST *default_expanded_formats,
       *call_texi2dvi = 1;
       xasprintf (&format_option, "--%s",
                  format_specification->name);
-      add_string (format_option, texi2dvi_args);
+      add_string (texi2dvi_args, format_option);
       free (format_option);
 
       converter_format = "tex";
@@ -544,7 +544,7 @@ format_expanded_formats (STRING_LIST *default_expanded_formats,
         new_format_expanded_region = format_specification->name;
 
       if (is_texinfo_output_formats (new_format_expanded_region))
-        add_string (new_format_expanded_region, default_expanded_formats);
+        add_string (default_expanded_formats, new_format_expanded_region);
     }
   else
     converter_format = format_specification->name;
@@ -565,13 +565,13 @@ format_expanded_formats (STRING_LIST *default_expanded_formats,
 
   if (!strcmp (expanded_region, "plaintext"))
     {
-      add_string (expanded_region, default_expanded_formats);
-      add_string ("info", default_expanded_formats);
+      add_string (default_expanded_formats, expanded_region);
+      add_string (default_expanded_formats, "info");
     }
   else
     {
       if (is_texinfo_output_formats (expanded_region))
-        add_string (expanded_region, default_expanded_formats);
+        add_string (default_expanded_formats, expanded_region);
     }
 }
 
@@ -597,7 +597,7 @@ merge_opened_files (STRING_LIST *opened_files,
           if (find_string (opened_files, opened_file))
             txi_config_document_warn ("overwriting file: %s", opened_file);
           else
-            add_string (opened_file, opened_files);
+            add_string (opened_files, opened_file);
         }
     }
 
@@ -1366,7 +1366,7 @@ main (int argc, char *argv[], char *env[])
 
   memset (&internal_extension_dirs, 0, sizeof (STRING_LIST));
 
-  add_string (extensions_dir, &internal_extension_dirs);
+  add_string (&internal_extension_dirs, extensions_dir);
 
 
   /* initialize texinfo libraries */
@@ -1500,7 +1500,7 @@ main (int argc, char *argv[], char *env[])
   free (datadir);
 
   memset (&converter_config_dirs, 0, sizeof (STRING_LIST));
-  add_string (curdir, &converter_config_dirs);
+  add_string (&converter_config_dirs, curdir);
   copy_strings (&converter_config_dirs, converter_config_dirs_array_ref);
 
   destroy_strings_list (converter_config_dirs_array_ref);
@@ -1515,7 +1515,7 @@ main (int argc, char *argv[], char *env[])
       char *texinfo_config_dir = texinfo_language_config_dirs->list[i];
 
       xasprintf (&init_dir, "%s/init", texinfo_config_dir);
-      add_string (init_dir, &converter_init_dirs);
+      add_string (&converter_init_dirs, init_dir);
 
       deprecated_dir_info = find_deprecated_dir_info (&deprecated_directories,
                                                       texinfo_config_dir);
@@ -1530,7 +1530,7 @@ main (int argc, char *argv[], char *env[])
         }
       free (init_dir);
     }
-  add_string (extensions_dir, &converter_init_dirs);
+  add_string (&converter_init_dirs, extensions_dir);
 
   memset (&prepend_dirs, 0, sizeof (STRING_LIST));
   memset (&conf_dirs, 0, sizeof (STRING_LIST));
@@ -1572,8 +1572,8 @@ main (int argc, char *argv[], char *env[])
     {
       for (i = converter_config_dirs.number; i > 0; i--)
         {
-          add_string (converter_config_dirs.list[i-1],
-                      &reversed_converter_config_dirs);
+          add_string (&reversed_converter_config_dirs,
+                      converter_config_dirs.list[i-1]);
         }
     }
 
@@ -1670,7 +1670,7 @@ main (int argc, char *argv[], char *env[])
           GNUT_set_from_cmdline (&cmdline_options,
                             cmdline_options.options->DEBUG.number,
                             optarg);
-          add_string ("--debug", &texi2dvi_args);
+          add_string (&texi2dvi_args, "--debug");
           break;
         case 'e':
           check_integer_option (option_character, getopt_long_index, optarg);
@@ -1765,7 +1765,7 @@ main (int argc, char *argv[], char *env[])
         case 'v':
           GNUT_set_from_cmdline (&cmdline_options,
                             cmdline_options.options->VERBOSE.number, "1");
-          add_string ("--verbose", &texi2dvi_args);
+          add_string (&texi2dvi_args, "--verbose");
           break;
         case NO_VERBOSE_OPT:
           GNUT_set_from_cmdline (&cmdline_options,
@@ -1801,8 +1801,8 @@ main (int argc, char *argv[], char *env[])
           {
             OPTION *option = &cmdline_options.options->INCLUDE_DIRECTORIES;
             push_include_directory (option->o.strlist, optarg);
-            add_string ("-I", &texi2dvi_args);
-            add_string (optarg, &texi2dvi_args);
+            add_string (&texi2dvi_args, "-I");
+            add_string (&texi2dvi_args, optarg);
           }
           break;
         case 'P':
@@ -1814,14 +1814,14 @@ main (int argc, char *argv[], char *env[])
         case CSS_INCLUDE_OPT:
           {
             OPTION *option = &cmdline_options.options->CSS_FILES;
-            add_string (optarg, option->o.strlist);
+            add_string (option->o.strlist, optarg);
           }
           break;
         case CSS_REF_OPT:
           {
             OPTION *option = &cmdline_options.options->CSS_REFS;
             char *value = GNUT_decode_input ((char *) optarg);
-            add_string (value, option->o.strlist);
+            add_string (option->o.strlist, value);
             free (value);
           }
           break;
@@ -1848,7 +1848,7 @@ main (int argc, char *argv[], char *env[])
           }
           break;
         case XOPT_OPT:
-          add_string (optarg, &texi2dvi_args);
+          add_string (&texi2dvi_args, optarg);
           Xopt_arg_nr++;
           break;
         case _SILENT_OPT:
@@ -1856,7 +1856,7 @@ main (int argc, char *argv[], char *env[])
             char *format_option;
             xasprintf (&format_option, "--%s",
                        long_options[getopt_long_index].name);
-            add_string (format_option, &texi2dvi_args);
+            add_string (&texi2dvi_args, format_option);
             free (format_option);
           }
           break;
@@ -1897,7 +1897,7 @@ main (int argc, char *argv[], char *env[])
 
                 xasprintf (&texi2dvi_option, "--command=@set %s %s",
                            flag, flag_value);
-                add_string (texi2dvi_option, &texi2dvi_args);
+                add_string (&texi2dvi_args, texi2dvi_option);
                 free (texi2dvi_option);
 
                 free (flag);
@@ -1913,7 +1913,7 @@ main (int argc, char *argv[], char *env[])
             free (value);
 
             xasprintf (&texi2dvi_option, "--command=@clear %s", optarg);
-            add_string (texi2dvi_option, &texi2dvi_args);
+            add_string (&texi2dvi_args, texi2dvi_option);
             free (texi2dvi_option);
           }
           break;
@@ -2027,8 +2027,8 @@ main (int argc, char *argv[], char *env[])
                                    option->number, decoded_string);
             free (decoded_string);
 
-            add_string ("-o", &texi2dvi_args);
-            add_string (optarg, &texi2dvi_args);
+            add_string (&texi2dvi_args, "-o");
+            add_string (&texi2dvi_args, optarg);
           }
           break;
         case NO_SPLIT_OPT:
@@ -2461,7 +2461,7 @@ main (int argc, char *argv[], char *env[])
       char *in_source_util_dir;
       xasprintf (&in_source_util_dir, "%s/../util",
                  txi_paths_info.p.uninstalled.t2a_srcdir);
-      add_string (in_source_util_dir, texinfo_language_config_dirs);
+      add_string (texinfo_language_config_dirs, in_source_util_dir);
       free (in_source_util_dir);
     }
 
@@ -2635,11 +2635,11 @@ main (int argc, char *argv[], char *env[])
     {
       int j;
       for (j = optind; j < argc; j++)
-        add_string (argv[j], &input_files);
+        add_string (&input_files, argv[j]);
     }
   else if (!isatty (fileno (stdin)) && !call_texi2dvi)
     {
-      add_string ("-", &input_files);
+      add_string (&input_files, "-");
     }
   else
     {
@@ -3009,13 +3009,13 @@ main (int argc, char *argv[], char *env[])
       if (prepend_dirs.number > 0)
         copy_strings (&prepended_include_directories, &prepend_dirs);
 
-      add_string (curdir, &prepended_include_directories);
+      add_string (&prepended_include_directories, curdir);
 
       if (input_directory)
         canon_input_dir = file_separator_canonpath (input_directory);
 
       if (canon_input_dir && strcmp (curdir, canon_input_dir))
-        add_string (input_directory, &prepended_include_directories);
+        add_string (&prepended_include_directories, input_directory);
 
       /* tune for the input file include directory and prepend to
          INCLUDE_DIRECTORIES by merging prepended directories and command
@@ -3382,12 +3382,9 @@ main (int argc, char *argv[], char *env[])
         = converter_texinfo_language_directories_option->o.strlist;
       clear_strings_list (converter_texinfo_language_config_dirs);
 
-      add_string (curdir, converter_texinfo_language_config_dirs);
+      add_string (converter_texinfo_language_config_dirs, curdir);
       if (canon_input_dir && strcmp (curdir, canon_input_dir))
-        {
-          add_string (input_directory,
-                      converter_texinfo_language_config_dirs);
-        }
+        add_string (converter_texinfo_language_config_dirs, input_directory);
 
       copy_strings (converter_texinfo_language_config_dirs,
                     texinfo_language_config_dirs);
@@ -3888,7 +3885,7 @@ main (int argc, char *argv[], char *env[])
           /* prepend texi2dvi to texi2dvi_args */
           copy_strings (&tmp_strings, &texi2dvi_args);
           clear_strings_list (&texi2dvi_args);
-          add_string (texi2dvi, &texi2dvi_args);
+          add_string (&texi2dvi_args, texi2dvi);
           merge_strings (&texi2dvi_args, &tmp_strings);
           tmp_strings.number = 0;
           free_strings_list (&tmp_strings);

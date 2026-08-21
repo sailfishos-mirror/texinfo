@@ -115,7 +115,7 @@ STRING_LIST *
 parse_line_command_args (ELEMENT *line_command)
 {
 #define ADD_ARG(string) do { \
-    add_string (string, line_args); \
+    add_string (line_args, string); \
 } while (0)
 
   ELEMENT *line_arg;
@@ -343,7 +343,7 @@ parse_line_command_args (ELEMENT *line_command)
               }
             else
               {
-                add_string (arg, line_args);
+                add_string (line_args, arg);
               }
             free (arg);
             p = q;
@@ -1376,8 +1376,8 @@ end_line_misc_line (ELEMENT *current)
                       include_source_mark = new_source_mark (SM_type_include);
                       include_source_mark->status = SM_status_start;
                       set_input_source_mark (include_source_mark);
-                      add_string (included_file_path,
-                                  &parsed_document->global_info.included_files);
+                      add_string (&parsed_document->global_info.included_files,
+                                  included_file_path);
                     }
                   free (included_file_path);
                 }
@@ -1396,7 +1396,7 @@ end_line_misc_line (ELEMENT *current)
               fullpath = parser_locate_include_file (file_path);
               free (file_path);
               if (fullpath && access (fullpath, R_OK) == 0)
-                add_string (fullpath, &global_info->included_files);
+                add_string (&global_info->included_files, fullpath);
               free (fullpath);
             }
           else if (current->e.c->cmd == CM_documentencoding)
@@ -1739,13 +1739,13 @@ end_line_misc_line (ELEMENT *current)
                       if (valid_variant)
                         {
                           if (strcmp (variant, ""))
-                            add_string (variant, documentlanguagevariant);
+                            add_string (documentlanguagevariant, variant);
                         }
                       else
                         {
                           command_warn (current,
                             "unknown language variant: `%s'", variant);
-                          add_string (variant, documentlanguagevariant);
+                          add_string (documentlanguagevariant, variant);
                         }
                     }
                   else

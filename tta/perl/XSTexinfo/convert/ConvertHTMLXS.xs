@@ -993,7 +993,7 @@ register_file_information (SV *converter_in, key, int value)
                                  "register_file_information");
         if (self)
           {
-            const char *stored_key = add_string (key, &self->small_strings);
+            const char *stored_key = add_string (&self->small_strings, key);
             html_register_file_information (self, stored_key, value);
           }
 

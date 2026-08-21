@@ -3219,7 +3219,7 @@ html_node_redirections (CONVERTER *self,
                 }
               else
                 {
-                  add_string (node_redirection_filename, &redirection_files);
+                  add_string (&redirection_files, node_redirection_filename);
                 }
             }
 
@@ -3260,8 +3260,8 @@ html_node_redirections (CONVERTER *self,
                             || !strcmp (file_source_info->type,
                                         "redirection"))))
                     {
-                      add_string (translit_redirection_filename,
-                                  &redirection_files);
+                      add_string (&redirection_files,
+                                  translit_redirection_filename);
                     }
                 }
               free (translit_filename);

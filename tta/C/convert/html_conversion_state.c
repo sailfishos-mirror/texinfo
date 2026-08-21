@@ -1033,7 +1033,7 @@ html_close_registered_sections_level (CONVERTER *self, size_t file_number,
       const char *close_string = *top_(string) (file_pending_closes);
       if (strlen (close_string))
         {
-          add_string (close_string, closed_elements);
+          add_string (closed_elements, close_string);
         }
       pop_string_stack (file_pending_closes);
     }
@@ -1144,7 +1144,7 @@ html_check_htmlxref_already_warned (CONVERTER *self, const char *manual_name,
       return entry_nr;
     }
 
-  add_string (node_manual_key, htmlxref_warned_list);
+  add_string (htmlxref_warned_list, node_manual_key);
   free (node_manual_key);
 
   return 0;
@@ -1204,9 +1204,9 @@ html_css_add_info (CONVERTER *self, enum css_info_type type,
 {
   HTML_CONVERTER_STATE *self_html = self->html_converter;
   if (type == CI_css_info_rules)
-    add_string (css_info, &self_html->css_rule_lines);
+    add_string (&self_html->css_rule_lines, css_info);
   else if (type == CI_css_info_imports)
-    add_string (css_info, &self_html->css_import_lines);
+    add_string (&self_html->css_import_lines, css_info);
 }
 
 const STRING_LIST *
@@ -1228,8 +1228,8 @@ html_css_get_info (CONVERTER *self, enum css_info_type type)
             {
               const CSS_SELECTOR_STYLE *selector_style
                 = &self_html->css_element_class_styles.list[i];
-              add_string (selector_style->selector,
-                          &self_html->css_element_class_list);
+              add_string (&self_html->css_element_class_list,
+                          selector_style->selector);
             }
         }
       return &self_html->css_element_class_list;
@@ -1479,7 +1479,7 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
 
   result = new_string_list ();
   for (j = 0; j < selector_nr; j++)
-    add_string (selectors[j], result);
+    add_string (result, selectors[j]);
 
   free (selectors);
 

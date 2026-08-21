@@ -1269,7 +1269,7 @@ load_htmlxref_files (CONVERTER *self)
       free (path_encoding);
 
       if (euidaccess (encoded_htmlxref_file_name, R_OK) == 0)
-        add_string (encoded_htmlxref_file_name, &htmlxref_files);
+        add_string (&htmlxref_files, encoded_htmlxref_file_name);
       else
         message_list_document_warn (&self->error_messages,
                  self->conf, 0, "could not find html refs config file %s",
@@ -1296,13 +1296,13 @@ load_htmlxref_files (CONVERTER *self)
                   char *path;
                   xasprintf (&path, "%s/perl/t/input_files",
                              txi_paths_info.p.uninstalled.t2a_srcdir);
-                  add_string (path, &htmlxref_dirs);
+                  add_string (&htmlxref_dirs, path);
                   free (path);
                 }
               else
-                add_string ("t/input_files", &htmlxref_dirs);
+                add_string (&htmlxref_dirs, "t/input_files");
             }
-          add_string (".texinfo", &htmlxref_dirs);
+          add_string (&htmlxref_dirs, ".texinfo");
         }
       else
         {
@@ -1334,7 +1334,7 @@ load_htmlxref_files (CONVERTER *self)
           if (file_name_is_absolute (encoded_htmlxref_file_name))
             {
               if (euidaccess (encoded_htmlxref_file_name, R_OK) == 0)
-                add_string (encoded_htmlxref_file_name, &htmlxref_dirs);
+                add_string (&htmlxref_dirs, encoded_htmlxref_file_name);
 
               free (encoded_htmlxref_file_name);
               htmlxref_file_name = 0;
@@ -1361,7 +1361,7 @@ load_htmlxref_files (CONVERTER *self)
               if (file_with_directories)
                 {
                   if (euidaccess (encoded_htmlxref_file_name, R_OK) == 0)
-                    add_string (encoded_htmlxref_file_name, &htmlxref_dirs);
+                    add_string (&htmlxref_dirs, encoded_htmlxref_file_name);
 
                   free (encoded_htmlxref_file_name);
                   htmlxref_file_name = 0;
@@ -1410,7 +1410,7 @@ load_htmlxref_files (CONVERTER *self)
                                                      deprecated_dir_info);
                           deprecated_dir_set = 1;
                         }
-                      add_string (fullpath, &htmlxref_files);
+                      add_string (&htmlxref_files, fullpath);
                     }
 
                   free (fullpath);
@@ -1450,8 +1450,8 @@ load_htmlxref_files (CONVERTER *self)
                                              cnf_dir, entry->d_name);
                                   if (euidaccess (possible_file, R_OK) == 0)
                                     {
-                                      add_string (possible_file,
-                                                  &htmlxref_files);
+                                      add_string (&htmlxref_files,
+                                                  possible_file);
                                       file_found = 1;
                                     }
                                   free (possible_file);
@@ -1621,7 +1621,7 @@ html_process_css_file (CONVERTER *self, FILE *fh, char *filename,
 
       if (in_rules)
         {
-          add_string (line, rules);
+          add_string (rules, line);
           free (line);
           continue;
         }
@@ -1671,7 +1671,7 @@ html_process_css_file (CONVERTER *self, FILE *fh, char *filename,
               if (in_comment)
                 {
                   text_append (&text, p);
-                  add_string (text.text, imports);
+                  add_string (imports, text.text);
                   break;
                 }
             }
@@ -1689,10 +1689,10 @@ html_process_css_file (CONVERTER *self, FILE *fh, char *filename,
                   if (text.end > 0)
                     {
                       text_append_n (&text, "\n", 1);
-                      add_string (text.text, imports);
+                      add_string (imports, text.text);
                     }
                   p--; /* back on / */
-                  add_string (p, rules);
+                  add_string (rules, p);
                   in_rules = 1;
                   break;
                 }
@@ -1760,9 +1760,9 @@ html_process_css_file (CONVERTER *self, FILE *fh, char *filename,
                       if (text.end > 0)
                         {
                           text_append_n (&text, "\n", 1);
-                          add_string (text.text, imports);
+                          add_string (imports, text.text);
                         }
-                      add_string (p, rules);
+                      add_string (rules, p);
                       in_rules = 1;
                       break;
                     }
@@ -1773,7 +1773,7 @@ html_process_css_file (CONVERTER *self, FILE *fh, char *filename,
                     }
                   else if (!*p)
                     {
-                      add_string (text.text, imports);
+                      add_string (imports, text.text);
                       break;
                     }
                 }
@@ -2603,7 +2603,7 @@ html_set_main_units_direction_names (CONVERTER *self)
                                 direction);
               if (!added_string_nr)
                 {
-                  add_string (direction, &self_html->added_global_units_directions);
+                  add_string (&self_html->added_global_units_directions, direction);
                   added_string_nr = self_html->added_global_units_directions.number;
                 }
               direction_node_name->direction_nr
@@ -4367,7 +4367,7 @@ prepare_special_units (CONVERTER *self, size_t output_units_descriptor)
                 }
               if (contents_location
                   && !strcmp (contents_location, "separate_element"))
-                add_string (special_unit_variety, do_special);
+                add_string (do_special, special_unit_variety);
               else
                 {
                   OUTPUT_UNIT *special_output_unit = 0;
@@ -4434,14 +4434,14 @@ prepare_special_units (CONVERTER *self, size_t output_units_descriptor)
       && self->conf->footnotestyle.o.string
       && !strcmp (self->conf->footnotestyle.o.string, "separate")
       && output_units->number > 1)
-    add_string ("footnotes", do_special);
+    add_string (do_special, "footnotes");
 
   if ((self->conf->DO_ABOUT.o.integer < 0
        && output_units->number > 1
        && ((self->conf->SPLIT.o.string && strlen (self->conf->SPLIT.o.string))
            || self->conf->HEADERS.o.integer > 0))
       || self->conf->DO_ABOUT.o.integer > 0)
-    add_string ("about", do_special);
+    add_string (do_special, "about");
 
   special_units_order = (SPECIAL_UNIT_ORDER *)
     malloc (sizeof (SPECIAL_UNIT_ORDER) * do_special->number);
@@ -5858,14 +5858,14 @@ html_setup_global_texts_direction_names (CONVERTER *self)
   for (i = DEFAULT_GLOBAL_DIRECTION_LAST_IDX+1;
        i < DEFAULT_TEXT_DIRECTION_LAST_IDX+1; i++)
     {
-      add_string (html_global_unit_direction_names[i],
-                  &self_html->global_texts_direction_names);
+      add_string (&self_html->global_texts_direction_names,
+                  html_global_unit_direction_names[i]);
     }
 
   for (i = 0; i < self_html->customized_global_text_directions.number; i++)
     {
-      add_string (self_html->customized_global_text_directions.list[i],
-                  &self_html->global_texts_direction_names);
+      add_string (&self_html->global_texts_direction_names,
+                  self_html->customized_global_text_directions.list[i]);
     }
 
   sort_strings_list (&self_html->global_texts_direction_names);

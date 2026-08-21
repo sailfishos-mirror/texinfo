@@ -1606,7 +1606,7 @@ print_element_extra (ELEMENT *element, int level,
               {
                 const ELEMENT *e = l->list[j];
                 char *element_value = element_number_or_error (e);
-                add_string (element_value, &elements_values_list);
+                add_string (&elements_values_list, element_value);
                 free (element_value);
               }
             joined_values = join_strings_list (&elements_values_list, 0);
@@ -1631,7 +1631,7 @@ print_element_extra (ELEMENT *element, int level,
                     char *direction_value;
                     xasprintf (&direction_value, "%s->%s", d_key, element_str);
                     free (element_str);
-                    add_string (direction_value, &elements_values_list);
+                    add_string (&elements_values_list, direction_value);
                     free (direction_value);
                   }
               }

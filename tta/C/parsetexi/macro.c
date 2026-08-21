@@ -218,14 +218,14 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
             {
               line_error ("bad or empty @%s formal argument: ",
                           command_name(cmd));
-              add_string ("", formal_args);
+              add_string (formal_args, "");
               macro->flags |= EF_invalid_syntax;
             }
         }
       else
         {
           char *args_string = strndup (args_ptr, q2 - args_ptr);
-          add_string (args_string, formal_args);
+          add_string (formal_args, args_string);
           free (args_string);
 
           /* Check the argument name. */
