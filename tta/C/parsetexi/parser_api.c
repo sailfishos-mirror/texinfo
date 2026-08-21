@@ -51,6 +51,10 @@
 #include "indices.h"
 #include "parser_api.h"
 
+/* Differences with Perl: some variables are static initialized to 0,
+   macro_expansion_nr or macro_block_stack related variables.
+   sections_level_modifier is in document global info here.
+ */
 static DOCUMENT *
 initialize_parsing (enum context root_ct)
 {
@@ -113,6 +117,11 @@ initialize_parsing (enum context root_ct)
   return parsed_document;
 }
 
+/* analogous to creating a new parser with the parser() method in Perl,
+   except that the configuration is modified by following calls to
+   parser_conf_set_* functions instead of being an argument to the parser
+   method call.
+ */
 void
 reset_parser (int local_debug_output)
 {

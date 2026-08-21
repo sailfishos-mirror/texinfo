@@ -167,24 +167,6 @@ my %parser_document_state_initialization = (
   #'current_node'    => undef,     # last seen node relations.
   #'current_section' => undef,     # last seen section relations.
   #'current_part'    => undef,     # last seen part relations.
-  #'internal_space_holder' => undef, # probably not so relevant at the end.
-   # Not set currently.
-   # the element associated with the last internal spaces element added.
-   # We know that there can only be one at a time as a non space
-   # character should always lead to abort_empty_line or another
-   # function being called and the internal space element being
-   # removed or put in the internal_space_holder info.
-
-   # NOTE internal_space_holder is already unset in abort_empty_line
-   # if the internal space element is put in the internal_space_holder.
-   # It would be cleaner to unset internal_space_holder in all the
-   # cases where the internal space element is removed too, such that
-   # when internal_space_holder is set the previous value is unset and not
-   # the previous internal_space_holder, which is now irrelevant as
-   # its associated space has disappeared.  This would also help when
-   # references are counted as the internal_space_holder holds a reference
-   # until the next internal_space_holder or the end of document, which
-   # source may not be easy to determine.
 
   'sections_level_modifier' => 0, # modified by raise/lowersections
 
@@ -654,7 +636,7 @@ sub parser(;$) {
   # and also to initialize members of the parsing state.
   $parser->{'conf'} = $parser_conf;
 
-  # This is not very useful in perl, but mimics the XS parser
+  # This is not very useful in perl, but mimics the C code
   print STDERR "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n"
     if ($parser_conf->{'DEBUG'});
 
@@ -740,7 +722,7 @@ sub _initialize_parsing($$) {
     $parser_state->{'basic_inline_commands'} = {%contain_basic_inline_commands};
   }
 
-  # We rely on parser state overriding the previous state infomation
+  # We rely on parser state overriding the previous state information
   # in self, as documented in perldata:
   #   If a key appears more than once in the initializer list of a hash, the last occurrence wins
   %$parser = (%$parser, %$parser_state);

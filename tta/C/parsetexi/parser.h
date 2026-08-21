@@ -66,16 +66,19 @@ ELEMENT *handle_comma (ELEMENT *current, const char **line_inout);
 typedef struct {
     enum command_id command;
     SOURCE_MARK *source_mark;
-} CONDITIONAL_STACK_ITEM;
+} CONDITIONAL_ITEM;
 
 ELEMENT *setup_document_root_and_before_node_section (void);
 void parse_texi (ELEMENT *current_elt);
 void parse_texi_document (void);
 
+def_list_type(CONDITIONAL_ITEM_STACK, CONDITIONAL_ITEM);
+decl_list_fns(CONDITIONAL_ITEM_STACK, conditional_stack, CONDITIONAL_ITEM);
+decl_stack_fns(CONDITIONAL_ITEM_STACK, conditional_stack, CONDITIONAL_ITEM);
+
 void push_conditional_stack (enum command_id cond, SOURCE_MARK *source_mark);
-CONDITIONAL_STACK_ITEM *pop_conditional_stack (void);
-CONDITIONAL_STACK_ITEM *top_conditional_stack (void);
-extern size_t conditional_number;
+CONDITIONAL_ITEM *pop_conditional_stack (void);
+extern CONDITIONAL_ITEM_STACK conditional_stack;
 
 void move_last_space_to_element (ELEMENT *current);
 void abort_empty_line (ELEMENT *current);

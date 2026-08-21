@@ -1,5 +1,21 @@
 2026-08-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/end_line.c (end_line_misc_line),
+	tta/C/parsetexi/parser.c (conditional_stack, CONDITIONAL_ITEM_STACK)
+	(push_conditional_stack, pop_conditional_stack, parse_texi),
+	tta/C/parsetexi/parser.h (CONDITIONAL_ITEM, CONDITIONAL_ITEM_STACK):
+	rename CONDITIONAL_STACK_ITEM as CONDITIONAL_ITEM.  Add
+	CONDITIONAL_ITEM_STACK and associated functions using generic lists
+	macros.  Update push_conditional_stack and pop_conditional_stack,
+	remove top_conditional_stack.
+
+	* tta/C/parsetexi/parser.c (macro_block_stack)
+	(process_macro_block_contents): use a COMMAND_STACK for
+	macro_block_stack.  Remove push_macro_block_stack,
+	pop_macro_block_stack and macro_block_stack_top.
+
+2026-08-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ParserNonXS.pm (parse_piece, parse_string)
 	(parse_text, parse_file),
 	tta/perl/XSTexinfo/parser_document/ParserXS.xs (parse_piece)

@@ -1805,8 +1805,9 @@ end_line_misc_line (ELEMENT *current)
           /* ignored conditional */
           || current->e.c->cmd == end_id
           /* not a non-ignored conditional */
-          || (conditional_number == 0
-              || top_conditional_stack ()->command != end_id))
+          || (conditional_stack.number == 0
+              || (top_(conditional_stack) (
+                           &conditional_stack))->command != end_id))
         {
           ELEMENT *closed_command;
           /* This closes tree elements (e.g. paragraphs) until we reach
@@ -1876,7 +1877,7 @@ end_line_misc_line (ELEMENT *current)
              in the conditional stack.  Pop it, such that
              the "@end" line does not appear in the final tree for a
              conditional block. */
-          CONDITIONAL_STACK_ITEM *cond_info = pop_conditional_stack ();
+          CONDITIONAL_ITEM *cond_info = pop_conditional_stack ();
           SOURCE_MARK *end_source_mark;
           SOURCE_MARK *cond_source_mark = cond_info->source_mark;
 
