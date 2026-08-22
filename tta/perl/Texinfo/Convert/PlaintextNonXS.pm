@@ -1065,6 +1065,10 @@ sub _stream_output($$) {
   }
   $count_context->{'pending_text'} .= $text;
 
+  #if (!defined($count_context->{'pending_text'})) {
+  #  $count_context->{'pending_text'} = [''];
+  #}
+  #$count_context->{'pending_text'}->[-1] .= $text;
   return;
 }
 
@@ -1074,18 +1078,13 @@ sub _stream_output_count_nl($$) {
   my ($self, $text) = @_;
 
   my $count_context = $self->{'count_context'}->[-1];
-
   my $container = $self->{'formatters'}->[-1]->{'container'};
 
   # count number of newlines in $text
-  #my $count = $text =~ tr/\n//;
   my $count = Texinfo::Convert::Paragraph::end_line_count($container);
   $count_context->{'lines'} += $count;
 
-  if (!defined($count_context->{'pending_text'})) {
-    $count_context->{'pending_text'} = '';
-  }
-  $count_context->{'pending_text'} .= $text;
+  _stream_output($self, $text);
 
   return;
 }
@@ -1098,14 +1097,7 @@ sub _stream_output_add_text($$) {
   my $container = $self->{'formatters'}->[-1]->{'container'};
   my $output = add_text($container, $text);
 
-  my $count_context = $self->{'count_context'}->[-1];
-  my $count = Texinfo::Convert::Paragraph::end_line_count($container);
-  $count_context->{'lines'} += $count;
-
-  if (!defined($count_context->{'pending_text'})) {
-    $count_context->{'pending_text'} = '';
-  }
-  $count_context->{'pending_text'} .= $output;
+  _stream_output_count_nl($self, $output);
 
   return;
 }
@@ -1115,18 +1107,10 @@ sub _stream_output_add_text($$) {
 sub _stream_output_add_next($$) {
   my ($self, $text) = @_;
 
-  my $formatter = $self->{'formatters'}->[-1];
-  my $container = $formatter->{'container'};
-  my $output = add_next($formatter->{'container'}, $text);
+  my $container = $self->{'formatters'}->[-1]->{'container'};
+  my $output = add_next($container, $text);
 
-  my $count_context = $self->{'count_context'}->[-1];
-  my $count = Texinfo::Convert::Paragraph::end_line_count($container);
-  $count_context->{'lines'} += $count;
-
-  if (!defined($count_context->{'pending_text'})) {
-    $count_context->{'pending_text'} = '';
-  }
-  $count_context->{'pending_text'} .= $output;
+  _stream_output_count_nl($self, $output);
 
   return;
 }

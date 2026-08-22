@@ -1008,23 +1008,16 @@ stream_output_count_nl (CONVERTER *self, const char *text)
   count = para_end_line_count ();
   count_context->lines += count;
 
-  text_append (&count_context->pending_text, text);
+  if (text)
+    stream_output (self, text);
 }
 
 void
 stream_output_add_text (CONVERTER *self, const char *text)
 {
-  int count;
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-  COUNT_CONTEXT *count_context
-    = top_(count_context) (&self_plaintext->count_context);
-
   TEXT result = para_add_text (text, strlen (text));
-  count = para_end_line_count ();
-  count_context->lines += count;
 
-  if (result.text)
-    text_append (&count_context->pending_text, result.text);
+  stream_output_count_nl (self, result.text);
 }
 
 /* Pass $TEXT to add_next and output the resulting text.  Used for
@@ -1032,17 +1025,9 @@ stream_output_add_text (CONVERTER *self, const char *text)
 void
 stream_output_add_next (CONVERTER *self, const char *text)
 {
-  int count;
-  PLAINTEXT_CONVERTER_STATE *self_plaintext = self->plaintext_converter;
-  COUNT_CONTEXT *count_context
-    = top_(count_context) (&self_plaintext->count_context);
-
   TEXT result = para_add_next (text, strlen (text), 0);
-  count = para_end_line_count ();
-  count_context->lines += count;
 
-  if (result.text)
-    text_append (&count_context->pending_text, result.text);
+  stream_output_count_nl (self, result.text);
 }
 
 static size_t
