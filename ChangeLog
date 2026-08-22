@@ -1,3 +1,9 @@
+2026-08-22 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Makefile.am (dist_extensions_DATA),
+	tta/perl/init/breadcrumb_navigation.pm: add breadcrumb navigation init
+	file, inspired by a Lilypond customization by Ky Decker.
+
 2026-08-21 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/swig/texinfo.i (protect_comma_in_tree, protect_colon_in_tree)

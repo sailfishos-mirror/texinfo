@@ -10,8 +10,7 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-add an init file for breadcrumbs navigation
-https://gitlab.com/lilypond/lilypond/-/merge_requests/3097/diffs?commit_id=3a70b019d6ba0fef73c331ca4c727d3c85d49810
+Use SWIG interface in pod2texi.
 
 Have a look at texi2pod.pl in GCC
 
@@ -212,25 +211,6 @@ main/unicode-collation/ code):
 
 Missing tests
 =============
-
-There is a test of translation in parser in a translation in converter, in
-
-  tta/perl/t/init_files_tests.t translation_in_parser_in_translation
-
-It would be nice to also have a translation in parser in a translation
-in parser.  That would mean having a po/gmo file where the string
-translated in the parser for @def* indices, for instance "{name} of {class}"
-is translated to a string including @def* commands, like
-@deftypeop a b c d e f
-AA
-@end deftypeop
-
-@documentlanguage fr
-
-@deftypemethod g h i j k l
-BB
-@end deftypemethod
-
 
 Unit test of end_line_count for Texinfo/Convert/Paragraph.pm .... containers.
 

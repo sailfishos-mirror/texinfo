@@ -162,6 +162,7 @@ dist_extensions_DATA = \
 initdir = $(converterdatadir)/init
 dist_init_DATA = \
  init/book.pm \
+ init/breadcrumb_navigation.pm \
  init/chm.pm \
  init/documentation_examples.pm \
  init/html32.pm \
